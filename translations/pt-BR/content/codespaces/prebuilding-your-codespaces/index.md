@@ -1,6 +1,6 @@
 ---
-title: Prebuilding your codespaces
-intro: 'To speed up codespace creation, you can configure your project to prebuild codespaces for specific branches in specific regions.'
+title: Pré-construindo seus codespaces
+intro: 'Para acelerar a criação de codespaces, você pode configurar seu projeto para pré-criar codespaces para branches específicos em regiões específicas.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

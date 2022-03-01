@@ -8,18 +8,18 @@ sections:
     - Executar `ghe-repl-start` ou `ghe-repl-status` às vezes poderia retornar erros conectados ao banco de dados quando o GitHub Actions foi habilitado.
     - Os hooks de pre-receive falhariam em razão de `PATH` indefinido.
     - 'A execução de `ghe-repl-setup` retornaria um erro: `cannot create directory /data/user/elasticsearch: File exists` se a instância tiver sido configurada anteriormente como uma réplica.'
-    - 'Running `ghe-support-bundle` returned an error: `integer expression expected`.'
+    - 'Executar `ghe-support-bundle` retornou um erro: `integer expression expected`.'
     - 'Após configurar uma réplica de alta disponibilidade, o ''ghe-repl-status'' incluiu um erro na saída: `unexpected unclosed action in command`.'
     - Em ambientes de grandes clusters, o back-end de autenticação pode estar indisponível em um subconjunto de nós do frontend.
     - Alguns serviços críticos podem não estar disponíveis em nós de backend do Cluster do GHES.
-    - The repository permissions to the user returned by the `/repos` API would not return the full list.
-    - The `childTeams` connection on the `Team` object in the GraphQL schema produced incorrect results under some circumstances.
-    - In a high availability configuration, repository maintenance always showed up as failed in stafftools, even when it succeeded.
-    - User defined patterns would not detect secrets in files like `package.json` or `yarn.lock`.
+    - As permissões do repositório para o usuário retornado pela API `/repos` não retornariam a lista completa.
+    - A conexão `childTeam` sobre o objeto `Team` no esquema GraphQL produziu resultados incorretos em algumas circunstâncias.
+    - Em uma configuração de alta disponibilidade, a manutenção de repositório sempre apareceu como falha nas ferramentas do staffy, mesmo quando foi bem-sucedida.
+    - Os padrões definidos pelo usuário não detectariam segredos em arquivos como `package.json` ou `yarn.lock`.
   changes:
     - A camada externa adicional de compressão `gzip` ao criar um pacote de suporte de cluster com `ghe-cluster-suport-bundle` agora está desativada por padrão. Essa compressão externa pode ser aplicada opcionalmente com a opção de linha de comando `ghe-cluster-suport-bundle -c`.
     - Nós adicionamos texto adicional ao console de administração para lembrar os usuários da coleta de dados dos aplicativos móveis para fins de melhoria de experiência.
-    - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features. [Updated 2021-12-09]
+    - O registro de conexão de dados {% data variables.product.prodname_github_connect %} agora inclui uma lista de funcionalidades de {% data variables.product.prodname_github_connect %} habilitadas. [Atualizado em 2021-12-09]
   known_issues:
     - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
     - As regras de firewall personalizadas são removidas durante o processo de atualização.

@@ -3,6 +3,7 @@ title: Permissions required for GitHub Apps
 intro: 'You can find the required permissions for each {% data variables.product.prodname_github_app %}-compatible endpoint.'
 redirect_from:
   - /v3/apps/permissions
+  - /rest/reference/permissions-required-for-github-apps
 versions:
   fpt: '*'
   ghes: '*'

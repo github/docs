@@ -170,5 +170,5 @@ For more information about the available settings for `devcontainer.json`, see [
 <h2 spaces-before="0">Leia mais</h2>
 
 <ul>
-<li>"<a href="/codespaces/prebuilding-your-codespaces">Prebuilding your codespaces</a>"</li>
+<li>"<a href="/codespaces/prebuilding-your-codespaces">Pré-criando os seus codespaces</a>"</li>
 </ul>

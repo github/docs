@@ -265,13 +265,13 @@ The attacker server can use the {% ifversion fpt or ghec %}{% data variables.pro
 
 ## セルフホストランナーを強化する
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **{% data variables.product.prodname_dotcom %} でホストされた**ランナーは、一過性でクリーンな隔離された仮想マシン内でコードを実行します。つまり、この環境を永続的に危険にさらしたり、ブートストラッププロセス中にこの環境に置かれた以上の情報にアクセスしたりする方法はありません。
 {% endif %}
 
-{% ifversion fpt %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
+{% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-{% ifversion fpt %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. ワークフローは、環境と必要なレビューを使用して環境シークレットへのアクセスを制御できますが、これらのワークフローは分離された環境では実行されず、セルフホストランナーで実行した場合でも同じリスクの影響を受けやすくなります。
+{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. ワークフローは、環境と必要なレビューを使用して環境シークレットへのアクセスを制御できますが、これらのワークフローは分離された環境では実行されず、セルフホストランナーで実行した場合でも同じリスクの影響を受けやすくなります。
 
 セルフホストランナーがOrganizationもしくはEnterpriseのレベルで定義されているなら、{% data variables.product.product_name %}は同じランナー上で複数のリポジトリからのワークフローをスケジューリングするかもしれません。 したがって、これらの環境へのセキュリティ侵害は、大きな影響をもたらす可能性があります。 侵害の範囲を狭めるために、セルフホストランナーを個別のグループにまとめることで、境界を作ることができます。 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
 

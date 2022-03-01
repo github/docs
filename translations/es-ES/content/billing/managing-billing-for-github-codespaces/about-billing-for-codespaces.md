@@ -40,7 +40,7 @@ Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerd
 
 {% data reusables.dotcom_billing.pricing_cal %}
 
-### Billing for {% data variables.product.prodname_codespaces %} prebuilds
+### Facturación para las precompilaciones de los {% data variables.product.prodname_codespaces %}
 
 {% data reusables.codespaces.prebuilds-beta-note %}
 

@@ -16,7 +16,7 @@ shortTitle: 创建 PR 模板
 
 更多信息请参阅“[关于议题和拉取请求模板](/articles/about-issue-and-pull-request-templates)”。
 
-您可以在任何支持的文件夹中创建 *PULL_REQUEST_TEMPLATE/* 子目录，以包含多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板。 更多信息请参阅“[关于使用查询参数自动化议题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
+您可以在任何支持的文件夹中创建 *PULL_REQUEST_TEMPLATE/* 子目录，以包含多个拉取请求模板，并使用 `template` 查询参数指定填充拉取请求正文的模板。 更多信息请参阅“[使用查询参数创建拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)”。
 
 {% ifversion fpt or ghes or ghec %}
 

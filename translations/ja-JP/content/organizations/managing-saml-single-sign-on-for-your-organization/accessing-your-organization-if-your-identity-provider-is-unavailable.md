@@ -12,7 +12,7 @@ topics:
 shortTitle: 利用不可能なアイデンティティプロバイダ
 ---
 
-Organization の管理者は、シングルサインオンをバイパスするために、[ダウンロード済み、あるいは保存済みのリカバリコードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を利用できます。 You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+Organization の管理者は、シングルサインオンをバイパスするために、[ダウンロード済み、あるいは保存済みのリカバリコードのいずれか](/articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes)を利用できます。 これらは、[LastPass](https://lastpass.com/)あるいは[1Password](https://1password.com/)などのパスワードマネージャーに保存しているかもしれません。
 
 {% data reusables.saml.recovery-code-caveats %}
 

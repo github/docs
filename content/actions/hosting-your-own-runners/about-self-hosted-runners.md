@@ -31,12 +31,12 @@ Your runner machine connects to {% data variables.product.product_name %} using 
 
 For more information about installing and using self-hosted runners, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-## {% ifversion fpt or ghes %}Differences between {% data variables.product.prodname_dotcom %}-hosted and {% elsif ghae %}Characteristics of {% endif %}self-hosted runners
+## {% ifversion fpt or ghec or ghes %}Differences between {% data variables.product.prodname_dotcom %}-hosted and {% elsif ghae %}Characteristics of {% endif %}self-hosted runners
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghec or ghes %}
 {% data variables.product.prodname_dotcom %}-hosted runners offer a quicker, simpler way to run your workflows, while self-hosted{% elsif ghae %}Self-hosted{% endif %} runners are a highly configurable way to run workflows in your own custom environment. {% ifversion ghae %}Self-hosted runners:{% endif %}
 
-{% ifversion fpt or ghes %}
+{% ifversion fpt or ghec or ghes %}
 **{% data variables.product.prodname_dotcom %}-hosted runners:**
 - Receive automatic updates for the operating system, preinstalled packages and tools, and the self-hosted runner application.
 - Are managed and maintained by {% data variables.product.prodname_dotcom %}.
