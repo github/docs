@@ -1,4 +1,4 @@
-After you connect your account on {% data variables.product.product_location %} to the {% data variables.product.prodname_github_codespaces %} extension, you can create a new codespace.
+Después de que conectes tu cuenta de {% data variables.product.product_location %} a la extensión de {% data variables.product.prodname_github_codespaces %}, puedes crear un codespace nuevo.
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 2. Da clic en el icono de Agregar y luego en **Crear codespace nuevo**.

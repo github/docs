@@ -75,13 +75,19 @@ translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/a
 translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository.md,broken liquid tags
 translations/zh-CN/content/authentication/managing-commit-signature-verification/about-commit-signature-verification.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,parsing error
+translations/zh-CN/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-github-packages/about-billing-for-github-packages.md,broken liquid tags
+translations/zh-CN/content/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/index.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription.md,parsing error
 translations/zh-CN/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise.md,broken liquid tags
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud.md,parsing error
+translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
+translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
+translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
+translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/index.md,broken liquid tags
@@ -150,6 +156,7 @@ translations/zh-CN/content/get-started/learning-about-github/about-github-advanc
 translations/zh-CN/content/get-started/learning-about-github/githubs-products.md,parsing error
 translations/zh-CN/content/get-started/learning-about-github/types-of-github-accounts.md,broken liquid tags
 translations/zh-CN/content/get-started/onboarding/getting-started-with-github-ae.md,broken liquid tags
+translations/zh-CN/content/get-started/onboarding/getting-started-with-github-enterprise-server.md,broken liquid tags
 translations/zh-CN/content/get-started/onboarding/getting-started-with-github-team.md,broken liquid tags
 translations/zh-CN/content/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository.md,broken liquid tags
 translations/zh-CN/content/get-started/quickstart/communicating-on-github.md,broken liquid tags

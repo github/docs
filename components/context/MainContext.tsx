@@ -21,11 +21,16 @@ export type ProductGroupT = {
 }
 
 type VersionItem = {
+  // free-pro-team@latest, enterprise-cloud@latest, enterprise-server@3.3 ...
   version: string
   versionTitle: string
   currentRelease: string
   latestVersion: string
   shortName: string
+  // api.github.com, ghes-3.3, github.ae
+  openApiVersionName: string
+  // api.github.com, ghes-, github.ae
+  openApiBaseName: string
 }
 
 export type ProductTreeNode = {

@@ -6,7 +6,7 @@ import { loadPages } from '../../lib/page-data.js'
 import CspParse from 'csp-parse'
 import { productMap } from '../../lib/all-products.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
-import { jest } from '@jest/globals'
+import { describe, jest } from '@jest/globals'
 import { languageKeys } from '../../lib/languages.js'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
@@ -1099,5 +1099,24 @@ describe('index pages', () => {
     const installationLatest = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation`
     const $ = await getDOM(installationLatest)
     expect($(`a[href^="${installationLatest}/"]`).length).toBeGreaterThan(0)
+  })
+})
+
+describe('REST reference pages', () => {
+  test('view the rest/repos page in English', async () => {
+    const res = await get('/en/rest/reference/repos')
+    expect(res.statusCode).toBe(200)
+  })
+  test('view the rest/repos page in Japanese', async () => {
+    const res = await get('/ja/rest/reference/repos')
+    expect(res.statusCode).toBe(200)
+  })
+  test('deeper pages in English', async () => {
+    const res = await get('/ja/enterprise-cloud@latest/rest/reference/code-scanning')
+    expect(res.statusCode).toBe(200)
+  })
+  test('deeper pages in Japanese', async () => {
+    const res = await get('/en/enterprise-cloud@latest/rest/reference/code-scanning')
+    expect(res.statusCode).toBe(200)
   })
 })

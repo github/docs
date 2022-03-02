@@ -265,13 +265,13 @@ The attacker server can use the {% ifversion fpt or ghec %}{% data variables.pro
 
 ## 自托管运行器的强化
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **{% data variables.product.prodname_dotcom %} 托管的**运行程序在临时和干净的隔离虚拟机中执行代码，这意味着无法持续破坏此环境，可以访问的信息不会超过引导过程中此环境中存在的信息。
 {% endif %}
 
-{% ifversion fpt %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
+{% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-{% ifversion fpt %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. 尽管工作流程可以通过使用环境和必需的审查来控制对环境密钥的访问，但是这些工作流程不是在隔离的环境中运行，在自托管运行程器上运行时仍然容易遭受相同的风险。
+{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. 尽管工作流程可以通过使用环境和必需的审查来控制对环境密钥的访问，但是这些工作流程不是在隔离的环境中运行，在自托管运行程器上运行时仍然容易遭受相同的风险。
 
 在组织或企业级别定义自托管运行器时， {% data variables.product.product_name %} 可将多个仓库中的工作流程安排到同一个运行器中。 因此，这些环境的安全危害可能会导致广泛的影响。 为了帮助缩小损害范围，可以通过将自托管运行器组织到单独的组中来创建边界。 更多信息请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
 

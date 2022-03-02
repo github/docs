@@ -17,7 +17,7 @@ export type ArticleContextT = {
   title: string
   intro: string
   effectiveDate: string
-  renderedPage: string
+  renderedPage: string | JSX.Element[]
   miniTocItems: Array<MiniTocItem>
   contributor: { name: string; URL: string } | null
   permissions?: string

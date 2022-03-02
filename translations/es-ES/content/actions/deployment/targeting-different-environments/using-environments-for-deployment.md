@@ -127,4 +127,4 @@ Puedes acceder a estos objetos a través de la API de REST o la API de GraphQL. 
 
 ## Pasos siguientes
 
-{% data variables.product.prodname_actions %} proporciona varias características para administrar tus despliegues. For more information, see "[Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)."
+{% data variables.product.prodname_actions %} proporciona varias características para administrar tus despliegues. Para obtener más información, consulta la sección "[Desplegar con GitHub Actions](/actions/deployment/deploying-with-github-actions)".

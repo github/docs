@@ -297,7 +297,7 @@ body:
     - label: Name
 ```
 
-`id` attributes are not visible in the issue body. If you want to distinguish the fields in the resulting issue, you should use distinct `label` attributes.
+Los atributos de `id` no estuvieron visibles en el cuerpo de la propuesta. Si quieres distinguir los campos en la propuesta resultante, deberías utilizar atributos distintos de `label`.
 
 ## Body[i]: required key type is missing
 
@@ -328,7 +328,7 @@ body:
 
 One of the body blocks contains a type value that is not one of the [permitted types](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -420,7 +420,7 @@ The error can be fixed by supplying a string value for `label`. If you want to u
 
 Empty strings, or strings consisting of only whitespaces, are not permissible when an attribute expects a string. For example, `""` or `"     "` are not allowed.
 
-If the attribute is required, the value must be a non-empty string. If the field is not required, you should delete the key-value pair.
+If the attribute is required, the value must be a non-empty string. Si el campo no es requerido, deberías borrar el par de valor-llave.
 
 ```yaml
 body:
@@ -572,7 +572,7 @@ body:
 
 "None" is a reserved word in an `options` set because it is used to indicate non-choice when a `dropdown` is not required.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -607,7 +607,7 @@ In this example, "None" will be auto-populated as a selectable option.
 
 There are a number of English words that become processed into Boolean values by the YAML parser unless they are wrapped in quotes. For dropdown `options`, all items must be strings rather than Booleans.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
