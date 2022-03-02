@@ -1,6 +1,6 @@
 ---
 title: Managing repository security advisories for vulnerabilities in your project
-shortTitle: Repository security advisories
+shortTitle: Asesorías de seguridad de repositorio
 intro: 'Discuss, fix, and disclose security vulnerabilities in your repositories using repository security advisories.'
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project

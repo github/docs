@@ -1,6 +1,6 @@
 ---
 title: Enabling unified search for your enterprise
-shortTitle: Unified search
+shortTitle: Búsqueda unificada
 intro: 'You can allow users to include repositories on {% data variables.product.prodname_dotcom_the_website %} in their search results when searching from {% data variables.product.product_location %}.'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-and-github-com

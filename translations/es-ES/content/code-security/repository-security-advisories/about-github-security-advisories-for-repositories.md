@@ -53,7 +53,7 @@ Las {% data variables.product.prodname_security_advisories %} se construyen sobr
 
 Cuando creas una asesoría de seguridad para un repositorio público en {% data variables.product.prodname_dotcom %}, tienes la opción de proporcionar un número de identificación de CVE para la vulnerabilidad de seguridad. {% data reusables.repositories.request-security-advisory-cve-id %}
 
-Una vez que hayas publicado la asesoría de seguridad y que {% data variables.product.prodname_dotcom %} haya asignado un número de identificación CVE a la vulnerabilidad, {% data variables.product.prodname_dotcom %} publicará el CVE a la base de datos de MITRE. For more information, see "[Publishing a repository security advisory](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)."
+Una vez que hayas publicado la asesoría de seguridad y que {% data variables.product.prodname_dotcom %} haya asignado un número de identificación CVE a la vulnerabilidad, {% data variables.product.prodname_dotcom %} publicará el CVE a la base de datos de MITRE. Para obtener más información, consulta la sección "[Publicar una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)".
 
 ## {% data variables.product.prodname_dependabot_alerts %} para las asesorías de seguridad publicadas
 

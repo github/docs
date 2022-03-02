@@ -1,6 +1,6 @@
 ---
 title: Advanced workflow features
-shortTitle: Advanced workflow features
+shortTitle: Características avanzadas de los flujos de trabajo
 intro: 'Esta guía te muestra cómo utilizar las características avanzadas de {% data variables.product.prodname_actions %} con administración de secretos, jobs dependientes, almacenamiento en caché, matrices de compilación,{% ifversion fpt or ghes > 3.0 or ghae or ghec %} ambientes,{% endif %}y etiquetas.'
 redirect_from:
   - /actions/learn-github-actions/managing-complex-workflows

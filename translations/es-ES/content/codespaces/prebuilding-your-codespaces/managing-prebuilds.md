@@ -78,7 +78,7 @@ It may be useful to manually trigger a workflow run for a prebuild configuration
 
 ## Allowing a prebuild to access external resources
 
-By default, the {% data variables.product.prodname_actions %} workflow for a prebuild configuration can only access its own repository contents. Your project may use additional resources to build the development environment, such as files in other repositories, packages, GHCR images, and APIs. To allow your prebuild setup to access these resources, you will need to create a new personal account and then use this account to create a personal access token (PAT) with the appropriate scopes.
+Predeterminadamente, el flujo de trabajo de {% data variables.product.prodname_actions %} para una configuración de compilación previa solo puede acceder al contenido de su propio repositorio. Your project may use additional resources to build the development environment, such as files in other repositories, packages, GHCR images, and APIs. To allow your prebuild setup to access these resources, you will need to create a new personal account and then use this account to create a personal access token (PAT) with the appropriate scopes.
 
 1. Create a new personal account on {% data variables.product.prodname_dotcom %}.
 
@@ -106,4 +106,4 @@ The PAT will be used for all subsequent prebuild templates created for your repo
 
 ## Leer más
 
-- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- "[Solucionar problemas de las compilaciones previas](/codespaces/troubleshooting/troubleshooting-prebuilds)"

@@ -19,7 +19,7 @@ versions:
 
 Issue やプルリクエストをクローズするように、ディスカッションをクローズする必要はありません。
 
-If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who visits the repository can create and participate in discussions for the repository. リポジトリ管理者とプロジェクトメンテナは、リポジトリ内のディスカッションとディスカッションカテゴリを管理し、ディスカッションを固定してディスカッションの可視性を高めることができます。 モデレータとコラボレータは、コメントを回答としてマークしたり、ディスカッションをロックしたり、Issue をディスカッションに変換したりすることができます。 For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who visits the repository can create and participate in discussions for the repository. リポジトリ管理者とプロジェクトメンテナは、リポジトリ内のディスカッションとディスカッションカテゴリを管理し、ディスカッションを固定してディスカッションの可視性を高めることができます。 モデレータとコラボレータは、コメントを回答としてマークしたり、ディスカッションをロックしたり、Issue をディスカッションに変換したりすることができます。 詳しい情報については「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
 リポジトリのディスカッションの管理の詳細については、「[リポジトリでのディスカッションを管理する](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)」を参照してください。
 
