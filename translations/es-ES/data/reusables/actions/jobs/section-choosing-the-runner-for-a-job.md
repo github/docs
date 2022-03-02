@@ -10,7 +10,7 @@ Si usas un ejecutor alojado {% data variables.product.prodname_dotcom %}, cada t
 
 Los tipos de ejecutores alojados {% data variables.product.prodname_dotcom %} disponibles son:
 
-{% data reusables.github-actions.supported-github-runners %}
+{% data reusables.actions.supported-github-runners %}
 
 #### Example: Specifying an operating system
 
@@ -27,7 +27,7 @@ Para obtener más información, consulta "[Entornos virtuales para ejecutores al
 
 {% data reusables.actions.ae-self-hosted-runners-notice %}
 
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
 #### Example: Using labels for runner selection
 

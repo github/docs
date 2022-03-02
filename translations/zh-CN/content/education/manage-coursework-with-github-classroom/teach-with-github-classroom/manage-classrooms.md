@@ -21,7 +21,7 @@ redirect_from:
 
 创建教室后，{% data variables.product.prodname_classroom %} 将提示您邀请助教 (TA) 和管理员到教室。 每个教室可以有一个或多个管理员。 管理员可以是教师、TA 或您希望其控制您在 {% data variables.product.prodname_classroom %} 上的教室的任何其他课程管理员。
 
-邀请 TA 和管理员进入您的教室，操作方法是以组织所有者身份邀请 {% data variables.product.product_name %} 上的用户帐户到您的组织，并共享您教室的 URL。 组织所有者可以管理组织的任何教室。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."
+邀请 TA 和管理员进入您的教室，操作方法是以组织所有者身份邀请 {% data variables.product.product_name %} 上的用户帐户到您的组织，并共享您教室的 URL。 组织所有者可以管理组织的任何教室。 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”和“[邀请用户加入您的组织](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)”。
 
 使用完教室后，可以存档教室，以后可以参考该教室、名册和作业，或者如果您不再需要该教室，也可以将其删除。
 

@@ -353,6 +353,14 @@
             "id": "securityadvisoryecosystem",
             "kind": "enums",
             "href": "/graphql/reference/enums#securityadvisoryecosystem",
+            "description": "<p>Optional filter for which dependencies should be checked for sponsorable\nowners. Only sponsorable owners of dependencies in this ecosystem will be\nincluded. Used when onlyDependencies = true.</p>\n<p><strong>Upcoming Change on 2022-07-01 UTC</strong>\n<strong>Description:</strong> <code>dependencyEcosystem</code> will be removed. Use the ecosystem argument instead.\n<strong>Reason:</strong> The type is switching from SecurityAdvisoryEcosystem to DependencyGraphEcosystem.</p>"
+          },
+          {
+            "name": "ecosystem",
+            "type": "DependencyGraphEcosystem",
+            "id": "dependencygraphecosystem",
+            "kind": "enums",
+            "href": "/graphql/reference/enums#dependencygraphecosystem",
             "description": "<p>Optional filter for which dependencies should be checked for sponsorable\nowners. Only sponsorable owners of dependencies in this ecosystem will be\nincluded. Used when onlyDependencies = true.</p>"
           },
           {
@@ -6789,6 +6797,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#projectcolumn",
           "description": "<p>The updated project column.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateProjectNext",
+      "kind": "mutations",
+      "id": "updateprojectnext",
+      "href": "/graphql/reference/mutations#updateprojectnext",
+      "description": "<p>Updates an existing project (beta).</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectNextInput!",
+          "id": "updateprojectnextinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateprojectnextinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "projectNext",
+          "type": "ProjectNext",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext",
+          "description": "<p>The updated Project.</p>"
         }
       ]
     },
@@ -39077,6 +39119,56 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "repositories",
+          "description": "<p>The repositories the project is linked to.</p>",
+          "type": "RepositoryConnection!",
+          "id": "repositoryconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "resourcePath",
           "description": "<p>The HTTP path for this project.</p>",
           "type": "URI!",
@@ -40183,6 +40275,17 @@
                 "id": "issueorder",
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#issueorder"
+              }
+            },
+            {
+              "name": "userLinkedOnly",
+              "defaultValue": false,
+              "description": "<p>Return only manually linked Issues.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             }
           ]
@@ -41595,6 +41698,14 @@
         {
           "name": "viewerCanEnableAutoMerge",
           "description": "<p>Whether or not the viewer can enable auto-merge.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanMergeAsAdmin",
+          "description": "<p>Indicates whether the viewer can bypass branch protections and merge the pull request immediately.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -49803,6 +49914,26 @@
           "href": "/graphql/reference/objects#codeofconduct"
         },
         {
+          "name": "codeowners",
+          "description": "<p>Information extracted from the repository's <code>CODEOWNERS</code> file.</p>",
+          "type": "RepositoryCodeowners",
+          "id": "repositorycodeowners",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositorycodeowners",
+          "arguments": [
+            {
+              "name": "refName",
+              "description": "<p>The ref name used to return the associated <code>CODEOWNERS</code> file.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
           "name": "collaborators",
           "description": "<p>A list of collaborators associated with the repository.</p>",
           "type": "RepositoryCollaboratorConnection",
@@ -51465,6 +51596,26 @@
           ]
         },
         {
+          "name": "projectNext",
+          "description": "<p>Finds and returns the Project (beta) according to the provided Project (beta) number.</p>",
+          "type": "ProjectNext",
+          "id": "projectnext",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnext",
+          "arguments": [
+            {
+              "name": "number",
+              "description": "<p>The ProjectNext number.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "projects",
           "description": "<p>A list of projects under the owner.</p>",
           "type": "ProjectConnection!",
@@ -51540,6 +51691,77 @@
                 "id": "projectstate",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#projectstate"
+              }
+            }
+          ]
+        },
+        {
+          "name": "projectsNext",
+          "description": "<p>List of projects (beta) linked to this repository.</p>",
+          "type": "ProjectNextConnection!",
+          "id": "projectnextconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectnextconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>A project (beta) to search for linked to the repo.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "sortBy",
+              "defaultValue": "TITLE",
+              "description": "<p>How to order the returned project (beta) objects.</p>",
+              "type": {
+                "name": "ProjectNextOrderField",
+                "id": "projectnextorderfield",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#projectnextorderfield"
               }
             }
           ]
@@ -52290,6 +52512,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "states",
+              "description": "<p>Filter by the state of the alert.</p>",
+              "type": {
+                "name": "[RepositoryVulnerabilityAlertState!]",
+                "id": "repositoryvulnerabilityalertstate",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryvulnerabilityalertstate"
+              }
             }
           ]
         },
@@ -52342,6 +52574,88 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "RepositoryCodeowners",
+      "kind": "objects",
+      "id": "repositorycodeowners",
+      "href": "/graphql/reference/objects#repositorycodeowners",
+      "description": "<p>Information extracted from a repository's <code>CODEOWNERS</code> file.</p>",
+      "fields": [
+        {
+          "name": "errors",
+          "description": "<p>Any problems that were encountered while parsing the <code>CODEOWNERS</code> file.</p>",
+          "type": "[RepositoryCodeownersError!]!",
+          "id": "repositorycodeownerserror",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositorycodeownerserror"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryCodeownersError",
+      "kind": "objects",
+      "id": "repositorycodeownerserror",
+      "href": "/graphql/reference/objects#repositorycodeownerserror",
+      "description": "<p>An error in a <code>CODEOWNERS</code> file.</p>",
+      "fields": [
+        {
+          "name": "column",
+          "description": "<p>The column number where the error occurs.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "kind",
+          "description": "<p>A short string describing the type of error.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "line",
+          "description": "<p>The line number where the error occurs.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "message",
+          "description": "<p>A complete description of the error, combining information from other fields.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "path",
+          "description": "<p>The path to the file when the error occurs.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "source",
+          "description": "<p>The content of the line where the error occurs.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "suggestion",
+          "description": "<p>A suggestion of how to fix the error.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -53369,6 +53683,30 @@
           "href": "/graphql/reference/objects#user"
         },
         {
+          "name": "fixReason",
+          "description": "<p>The reason the alert was marked as fixed.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fixedAt",
+          "description": "<p>When was the alert fixed?.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "number",
+          "description": "<p>Identifies the alert number.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "repository",
           "description": "<p>The associated repository.</p>",
           "type": "Repository!",
@@ -53391,6 +53729,14 @@
           "id": "securityvulnerability",
           "kind": "objects",
           "href": "/graphql/reference/objects#securityvulnerability"
+        },
+        {
+          "name": "state",
+          "description": "<p>Identifies the state of the alert.</p>",
+          "type": "RepositoryVulnerabilityAlertState!",
+          "id": "repositoryvulnerabilityalertstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvulnerabilityalertstate"
         },
         {
           "name": "vulnerableManifestFilename",
@@ -67870,6 +68216,47 @@
       ]
     },
     {
+      "name": "DependencyGraphEcosystem",
+      "kind": "enums",
+      "id": "dependencygraphecosystem",
+      "href": "/graphql/reference/enums#dependencygraphecosystem",
+      "description": "<p>The possible ecosystems of a dependency graph package.</p>",
+      "values": [
+        {
+          "name": "ACTIONS",
+          "description": "<p>GitHub Actions.</p>"
+        },
+        {
+          "name": "COMPOSER",
+          "description": "<p>PHP packages hosted at packagist.org.</p>"
+        },
+        {
+          "name": "GO",
+          "description": "<p>Go modules.</p>"
+        },
+        {
+          "name": "MAVEN",
+          "description": "<p>Java artifacts hosted at the Maven central repository.</p>"
+        },
+        {
+          "name": "NPM",
+          "description": "<p>JavaScript packages hosted at npmjs.com.</p>"
+        },
+        {
+          "name": "NUGET",
+          "description": "<p>.NET packages hosted at the NuGet Gallery.</p>"
+        },
+        {
+          "name": "PIP",
+          "description": "<p>Python packages hosted at PyPI.org.</p>"
+        },
+        {
+          "name": "RUBYGEMS",
+          "description": "<p>Ruby gems hosted at RubyGems.org.</p>"
+        }
+      ]
+    },
+    {
       "name": "DeploymentOrderField",
       "kind": "enums",
       "id": "deploymentorderfield",
@@ -70772,6 +71159,27 @@
         {
           "name": "PUBLIC",
           "description": "<p>The repository is visible to everyone.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryVulnerabilityAlertState",
+      "kind": "enums",
+      "id": "repositoryvulnerabilityalertstate",
+      "href": "/graphql/reference/enums#repositoryvulnerabilityalertstate",
+      "description": "<p>The possible states of an alert.</p>",
+      "values": [
+        {
+          "name": "DISMISSED",
+          "description": "<p>An alert that has been manually closed by a user.</p>"
+        },
+        {
+          "name": "FIXED",
+          "description": "<p>An alert that has been resolved by a code change.</p>"
+        },
+        {
+          "name": "OPEN",
+          "description": "<p>An alert that is still open.</p>"
         }
       ]
     },
@@ -77736,6 +78144,14 @@
         },
         {
           "name": "milestone",
+          "description": "<p>List issues by given milestone argument. If an string representation of an\ninteger is passed, it should refer to a milestone by its database ID. Pass in\n<code>null</code> for issues with no milestone, and <code>*</code> for issues that are assigned to any milestone.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "milestoneNumber",
           "description": "<p>List issues by given milestone argument. If an string representation of an\ninteger is passed, it should refer to a milestone by its number field. Pass in\n<code>null</code> for issues with no milestone, and <code>*</code> for issues that are assigned to any milestone.</p>",
           "type": "String",
           "id": "string",
@@ -79881,6 +80297,14 @@
       "description": "<p>Autogenerated input type of StartRepositoryMigration.</p>",
       "inputFields": [
         {
+          "name": "accessToken",
+          "description": "<p>The Octoshift migration source access token.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "clientMutationId",
           "description": "<p>A unique identifier for the client performing the mutation.</p>",
           "type": "String",
@@ -79899,6 +80323,14 @@
         {
           "name": "gitArchiveUrl",
           "description": "<p>The signed URL to access the user-uploaded git archive.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "githubPat",
+          "description": "<p>The GitHub personal access token of the user importing to the target repository.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -82060,6 +82492,72 @@
           "id": "projectstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#projectstate"
+        }
+      ]
+    },
+    {
+      "name": "UpdateProjectNextInput",
+      "kind": "inputObjects",
+      "id": "updateprojectnextinput",
+      "href": "/graphql/reference/input-objects#updateprojectnextinput",
+      "description": "<p>Autogenerated input type of UpdateProjectNext.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "closed",
+          "description": "<p>Set the project to closed or open.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "description",
+          "description": "<p>Set the readme description of the project.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the Project to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "public",
+          "description": "<p>Set the project to public or private.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "shortDescription",
+          "description": "<p>Set the short description of the project.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "title",
+          "description": "<p>Set the title of the project.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },

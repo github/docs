@@ -50,8 +50,8 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 {% endtip %}
 
 1. 下载 TOTP 应用程序。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 {%- ifversion fpt or ghes > 3.1 %}
 5. 在“Two-factor authentication（双重身份验证）”下选择 **Set up using an app（使用应用程序设置）**并点击 **Continue（继续）**。
@@ -88,8 +88,8 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 4. 在“Two-factor authentication（双重身份验证）”下选择 **Set up using SMS（使用 SMS 设置）**并点击 **Continue（继续）**。
 5. 在“Authentication verification（身份验证）”下，选择您的国家/地区代码并键入您的手机号码，包括区号。 确认信息无误后，单击 **Send authentication code（发送验证码）**。
@@ -114,8 +114,8 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 1. 必须已通过 TOTP 移动应用程序{% ifversion fpt or ghec %} 或通过 SMS{% endif %} 配置了 2FA。
 2. 确保您的计算机中已插入 WebAuthn 兼容安全密钥。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 5. 在“Security keys（安全密钥）”旁边，单击 **添加**。 ![添加安全密钥选项](/assets/images/help/2fa/add-security-keys-option.png)
 6. 在“Security keys（安全密钥）”下，单击 **Register new security key（注册新安全密钥）**。 ![注册新安全密钥](/assets/images/help/2fa/security-key-register.png)
 7. 键入安全密钥的昵称，然后单击 **Add（添加）**。 ![为安全密钥提供昵称](/assets/images/help/2fa/security-key-nickname.png)

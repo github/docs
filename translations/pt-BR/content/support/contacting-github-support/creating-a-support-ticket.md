@@ -1,7 +1,7 @@
 ---
-title: Creating a support ticket
-intro: 'You can use the {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} to create a support ticket and speak to {% data variables.contact.github_support %}.'
-shortTitle: Creating a ticket
+title: Criando um tíquete de suporte
+intro: 'Você pode usar {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} para abrir um tíquete de suporte e falar com {% data variables.contact.github_support %}.'
+shortTitle: Criando um tíquete
 versions:
   fpt: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ topics:
 
 {% ifversion fpt or ghec or ghes %}
 
-## About support tickets
+## Sobre os tíquetes de suporte
 
 {% data reusables.support.zendesk-old-tickets %}
 
@@ -39,22 +39,22 @@ topics:
 {% endif %}
 
 {% ifversion ghes %}
-You can create your ticket using the {% data variables.contact.support_portal %} or, if you would like to include diagnostics with your support ticket, you can use the GitHub Enterprise Server Management Console.
+Você pode criar seu tíquete usando a {% data variables.contact.support_portal %} ou, se desejar incluir diagnósticos com o seu pedido de suporte, você pode usar o console de gerenciamento de servidores do GitHub Enterprise.
 {% endif %}
 
-After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[Viewing and updating support tickets](/support/contacting-github-support/viewing-and-updating-support-tickets)."
+Após criar o seu tíquete, você poderá vê-lo e as respostas de {% data variables.contact.github_support %} em {% data variables.contact.contact_landing_page_portal %}. Para obter mais informações, consulte "[Visualizando e atualizando tíquetes de suporte](/support/contacting-github-support/viewing-and-updating-support-tickets)".
 
-## What to include in your support ticket
+## O que incluir no seu tíquete de suporte
 
-Providing {% data variables.contact.github_support %} with everything they need to understand, locate, and reproduce an issue will allow for a faster resolution and less back-and-forth between yourself and the support team. To ensure {% data variables.contact.github_support %} can assist you, consider the following points when you write your ticket:
+Fornecer {% data variables.contact.github_support %} tudo o que precisa para entender, localizar, e reproduzir um problema permitirá uma resolução mais rápida e menos gargalos entre você e a equipe de suporte. Para garantir que {% data variables.contact.github_support %} posse ajudar você, considere os seguintes pontos quando você abrir o seu tíquete:
 
 - Obter informações que possam ajudar o {% data variables.contact.github_support %} a acompanhar, priorizar, reproduzir ou investigar o problema.
-- Include full URLs, repository names, and usernames wherever possible.
+- Incluir URLs completos, nomes de repositório e nomes de usuário sempre que possível.
 - Reproduzir o problema, se necessário, e se preparar para compartilhar as etapas.
 - Preparar uma descrição completa do problema e dos resultados esperados.
 - Copiar todas as mensagens de erro relacionadas ao problema.
 - Determinar se há um número de tíquete existente em qualquer outra comunicação em andamento com o {% data variables.contact.github_support %}.
-- Include relevant logs and attach any screenshots that demonstrate the issue.
+- Inclua registros relevantes e anexe todas as capturas de tela que demonstrem o problema.
 
 {% ifversion ghes %}
 ## Determinar a pessoa mais indicada
@@ -68,21 +68,21 @@ Especialmente para tíquetes com prioridade {% data variables.product.support_ti
 
 {% endif %}
 
-## Creating a support ticket{% ifversion ghes %} using the support portal{% endif %}
+## Criando um tíquete de suporte{% ifversion ghes %} usando o portal de suporte{% endif %}
 
 1. Navegue até o {% data variables.contact.contact_support_portal %}.
 {% data reusables.support.submit-a-ticket %}
 
 {% ifversion ghes %}
 
-## Creating a ticket using the GitHub Enterprise Server Management Console
+## Criando um tíquete usando o Console de Gerenciamento de GitHub Enterprise Server
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
-1. Se você quiser incluir diagnósticos no seu ticket de suporte, em "Diagnostics" (Diagnósticos), clique em **Download diagnostic info** (Baixar informações de diagnóstico) e salve o arquivo no local. Esse arquivo será anexado ao seu tíquete de suporte. ![Screenshot of button labelled "Download diagnostics info" on Management Console Support page.](/assets/images/enterprise/support/download-diagnostics-info-button.png)
-1. Para completar o seu ticket e exibir o {% data variables.contact.enterprise_portal %}, em "Abrir pedido de suporte", clique em **Nova solicitação de suporte**. ![Screenshot of button labelled "New support request" on Management Console Support page.](/assets/images/enterprise/management-console/open-support-request.png)
+1. Se você quiser incluir diagnósticos no seu ticket de suporte, em "Diagnostics" (Diagnósticos), clique em **Download diagnostic info** (Baixar informações de diagnóstico) e salve o arquivo no local. Esse arquivo será anexado ao seu tíquete de suporte. ![Captura de tela do botão com a etiqueta "Fazer o download das informações de diagnóstico" na página de suporte do console de gerenciamento.](/assets/images/enterprise/support/download-diagnostics-info-button.png)
+1. Para completar o seu ticket e exibir o {% data variables.contact.enterprise_portal %}, em "Abrir pedido de suporte", clique em **Nova solicitação de suporte**. ![Captura de tela do botão com a etiqueta "Novo pedido de suporte" na página de suporte do console de gerenciamento.](/assets/images/enterprise/management-console/open-support-request.png)
 {% data reusables.support.submit-a-ticket %}
 
 {% endif %}
@@ -111,4 +111,4 @@ Os clientes comerciais podem enviar um pedido de suporte no {% data variables.co
 
 ## Leia mais
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Sobre o suporte do GitHub](/support/learning-about-github-support/about-github-support)"

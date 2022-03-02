@@ -1,6 +1,6 @@
 ---
 title: 了解仓库之间的连接
-intro: You can better understand the connections that exist between repositories by viewing a repository's network and forks and the projects that depend on the repository.
+intro: 通过查看存储库的网络和分叉以及依赖于存储库的项目，您可以更好地了解存储库之间存在的连接。
 product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
@@ -21,7 +21,7 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Connections between repositories
+shortTitle: 存储库之间的连接
 ---
 
 ## 查看仓库的网络

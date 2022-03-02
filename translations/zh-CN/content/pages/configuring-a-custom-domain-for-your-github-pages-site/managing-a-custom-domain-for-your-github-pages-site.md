@@ -134,9 +134,9 @@ shortTitle: 管理自定义域
 {% data reusables.pages.sidebar-pages %}
 4. 在“Custom domain（自定义域）”下，单击 **Remove（删除）**。 ![保存自定义域按钮](/assets/images/help/pages/remove-custom-domain.png)
 
-## Securing your custom domain
+## 保护自定义域
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
+{% data reusables.pages.secure-your-domain %} 更多信息请参阅“[验证自定义域的 {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)”。
 
 ## 延伸阅读
 

@@ -272,7 +272,7 @@ Para obtener más información, consulta la sección "[``](/actions/reference/co
 
 **Opcional** Puedes utilizar el condicional `if` para prevenir que un paso se ejecute a menos de que se cumpla con una condición. Puedes usar cualquier contexto y expresión admitidos para crear un condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
+{% data reusables.actions.expression-syntax-if %} Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 **Ejemplo: Utilizando contextos**
 
@@ -441,7 +441,7 @@ runs:
 
 Los `args` se usan en el lugar de la instrucción `CMD` en un `Dockerfile`. Si usas `CMD` en tu `Dockerfile`, usa los lineamientos ordenados por preferencia:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta ejecute un shell de comandos para realizar la sustitución de variables. Por ejemplo, si se configura tu atributo `entrypoint` como `"sh -c"`, entoces `args` se ejecutará en un shell de comandos. Como alternativa, si tu `Dockerfile` utiliza un `ENTRYPOINT` para ejecutar el mismo comando (`"sh -c"`), entonces `args` se ejecutará en un shell de comandos.
 
@@ -479,10 +479,40 @@ El color de fondo de la insignia. Puede ser: `blanco`, `amarillow`, `azul`, `ver
 
 ### `branding.icon`
 
-El nombre del icono de [Pluma](https://feathericons.com/) que se debe usar. <!-- 
+El nombre de del icono de [Pluma](https://feathericons.com/) de la v.4.28.0 a utilizar. Los iconos de marca se omiten, así como lo siguiente:
+
+<table>
+<tr>
+<td>coffee</td>
+<td>columns</td>
+<td>divide-circle</td>
+<td>divide-square</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>frown</td>
+<td>hexagon</td>
+<td>key</td>
+</tr>
+<tr>
+<td>meh</td>
+<td>mouse-pointer</td>
+<td>smile</td>
+<td>tool</td>
+</tr>
+<tr>
+<td>x-octagon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+Aquí mostramos una lista exhaustiva de todos los iconos compatibles actualmente:
+
+
+<!-- 
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
-  This table does not match the latest version the feather library. 
-  (Brand icons are omitted, and our supported list is not necessarily up-to-date with the latest version of the feather icon library.)
   To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
 -->
 
@@ -639,7 +669,7 @@ El nombre del icono de [Pluma](https://feathericons.com/) que se debe usar. <!--
 </tr>
 <tr>
 <td>filter</td>
-<td>flag</td>
+<td>marcador</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
 </tr>
@@ -765,7 +795,7 @@ El nombre del icono de [Pluma](https://feathericons.com/) que se debe usar. <!--
 </tr>
 <tr>
 <td>rss</td>
-<td>save</td>
+<td>guardar</td>
 <td>scissors</td>
 <td>search</td>
 </tr>

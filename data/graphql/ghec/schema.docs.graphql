@@ -1,3 +1,7 @@
+directive @requiredCapabilities(
+  requiredCapabilities: [String!]
+) on ARGUMENT_DEFINITION | ENUM | ENUM_VALUE | FIELD_DEFINITION | INPUT_FIELD_DEFINITION | INPUT_OBJECT | INTERFACE | OBJECT | SCALAR | UNION
+
 """
 Marks an element of a GraphQL schema as only available via a preview header
 """
@@ -6,7 +10,7 @@ directive @preview(
   The identifier of the API preview that toggles this field.
   """
   toggledBy: String!
-) on SCALAR | OBJECT | FIELD_DEFINITION | ARGUMENT_DEFINITION | INTERFACE | UNION | ENUM | ENUM_VALUE | INPUT_OBJECT | INPUT_FIELD_DEFINITION
+) on ARGUMENT_DEFINITION | ENUM | ENUM_VALUE | FIELD_DEFINITION | INPUT_FIELD_DEFINITION | INPUT_OBJECT | INTERFACE | OBJECT | SCALAR | UNION
 
 """
 Defines what type of global IDs are accepted for a mutation argument of type ID.
@@ -7936,6 +7940,51 @@ type DependencyGraphDependencyEdge @preview(toggledBy: "hawkgirl-preview") {
 }
 
 """
+The possible ecosystems of a dependency graph package.
+"""
+enum DependencyGraphEcosystem {
+  """
+  GitHub Actions
+  """
+  ACTIONS
+
+  """
+  PHP packages hosted at packagist.org
+  """
+  COMPOSER
+
+  """
+  Go modules
+  """
+  GO
+
+  """
+  Java artifacts hosted at the Maven central repository
+  """
+  MAVEN
+
+  """
+  JavaScript packages hosted at npmjs.com
+  """
+  NPM
+
+  """
+  .NET packages hosted at the NuGet Gallery
+  """
+  NUGET
+
+  """
+  Python packages hosted at PyPI.org
+  """
+  PIP
+
+  """
+  Ruby gems hosted at RubyGems.org
+  """
+  RUBYGEMS
+}
+
+"""
 Dependency manifest for a repository
 """
 type DependencyGraphManifest implements Node @preview(toggledBy: "hawkgirl-preview") {
@@ -15416,10 +15465,17 @@ input IssueFilters {
 
   """
   List issues by given milestone argument. If an string representation of an
-  integer is passed, it should refer to a milestone by its number field. Pass in
+  integer is passed, it should refer to a milestone by its database ID. Pass in
   `null` for issues with no milestone, and `*` for issues that are assigned to any milestone.
   """
   milestone: String
+
+  """
+  List issues by given milestone argument. If an string representation of an
+  integer is passed, it should refer to a milestone by its number field. Pass in
+  `null` for issues with no milestone, and `*` for issues that are assigned to any milestone.
+  """
+  milestoneNumber: String
 
   """
   List issues that have been updated at or after the given date.
@@ -19890,6 +19946,16 @@ type Mutation {
     """
     input: UpdateProjectColumnInput!
   ): UpdateProjectColumnPayload
+
+  """
+  Updates an existing project (beta).
+  """
+  updateProjectNext(
+    """
+    Parameters for UpdateProjectNext
+    """
+    input: UpdateProjectNextInput!
+  ): UpdateProjectNextPayload
 
   """
   Updates a field of an item from a Project.
@@ -27086,6 +27152,31 @@ type ProjectNext implements Closable & Node & Updatable {
   public: Boolean!
 
   """
+  The repositories the project is linked to.
+  """
+  repositories(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): RepositoryConnection!
+
+  """
   The HTTP path for this project
   """
   resourcePath: URI!
@@ -27919,6 +28010,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Ordering options for issues returned from the connection
     """
     orderBy: IssueOrder
+
+    """
+    Return only manually linked Issues
+    """
+    userLinkedOnly: Boolean = false
   ): IssueConnection
 
   """
@@ -28665,6 +28761,11 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
   Whether or not the viewer can enable auto-merge
   """
   viewerCanEnableAutoMerge: Boolean!
+
+  """
+  Indicates whether the viewer can bypass branch protections and merge the pull request immediately
+  """
+  viewerCanMergeAsAdmin: Boolean!
 
   """
   Can user react to this subject
@@ -31008,8 +31109,19 @@ type Query {
     Optional filter for which dependencies should be checked for sponsorable
     owners. Only sponsorable owners of dependencies in this ecosystem will be
     included. Used when onlyDependencies = true.
+
+    **Upcoming Change on 2022-07-01 UTC**
+    **Description:** `dependencyEcosystem` will be removed. Use the ecosystem argument instead.
+    **Reason:** The type is switching from SecurityAdvisoryEcosystem to DependencyGraphEcosystem.
     """
     dependencyEcosystem: SecurityAdvisoryEcosystem
+
+    """
+    Optional filter for which dependencies should be checked for sponsorable
+    owners. Only sponsorable owners of dependencies in this ecosystem will be
+    included. Used when onlyDependencies = true.
+    """
+    ecosystem: DependencyGraphEcosystem
 
     """
     Returns the first _n_ elements from the list.
@@ -35213,6 +35325,16 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   codeOfConduct: CodeOfConduct
 
   """
+  Information extracted from the repository's `CODEOWNERS` file.
+  """
+  codeowners(
+    """
+    The ref name used to return the associated `CODEOWNERS` file.
+    """
+    refName: String
+  ): RepositoryCodeowners
+
+  """
   A list of collaborators associated with the repository.
   """
   collaborators(
@@ -36078,6 +36200,16 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
   ): Project
 
   """
+  Finds and returns the Project (beta) according to the provided Project (beta) number.
+  """
+  projectNext(
+    """
+    The ProjectNext number.
+    """
+    number: Int!
+  ): ProjectNext
+
+  """
   A list of projects under the owner.
   """
   projects(
@@ -36116,6 +36248,41 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     """
     states: [ProjectState!]
   ): ProjectConnection!
+
+  """
+  List of projects (beta) linked to this repository.
+  """
+  projectsNext(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    A project (beta) to search for linked to the repo.
+    """
+    query: String
+
+    """
+    How to order the returned project (beta) objects.
+    """
+    sortBy: ProjectNextOrderField = TITLE
+  ): ProjectNextConnection!
 
   """
   The HTTP path listing the repository's projects
@@ -36517,6 +36684,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Filter by the state of the alert
+    """
+    states: [RepositoryVulnerabilityAlertState!]
   ): RepositoryVulnerabilityAlertConnection
 
   """
@@ -36589,6 +36761,56 @@ interface RepositoryAuditEntryData {
   The HTTP URL for the repository
   """
   repositoryUrl: URI
+}
+
+"""
+Information extracted from a repository's `CODEOWNERS` file.
+"""
+type RepositoryCodeowners {
+  """
+  Any problems that were encountered while parsing the `CODEOWNERS` file.
+  """
+  errors: [RepositoryCodeownersError!]!
+}
+
+"""
+An error in a `CODEOWNERS` file.
+"""
+type RepositoryCodeownersError {
+  """
+  The column number where the error occurs.
+  """
+  column: Int!
+
+  """
+  A short string describing the type of error.
+  """
+  kind: String!
+
+  """
+  The line number where the error occurs.
+  """
+  line: Int!
+
+  """
+  A complete description of the error, combining information from other fields.
+  """
+  message: String!
+
+  """
+  The path to the file when the error occurs.
+  """
+  path: String!
+
+  """
+  The content of the line where the error occurs.
+  """
+  source: String!
+
+  """
+  A suggestion of how to fix the error.
+  """
+  suggestion: String
 }
 
 """
@@ -37841,7 +38063,22 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The user who dismissed the alert
   """
   dismisser: User
+
+  """
+  The reason the alert was marked as fixed.
+  """
+  fixReason: String
+
+  """
+  When was the alert fixed?
+  """
+  fixedAt: DateTime
   id: ID!
+
+  """
+  Identifies the alert number.
+  """
+  number: Int!
 
   """
   The associated repository
@@ -37857,6 +38094,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The associated security vulnerability
   """
   securityVulnerability: SecurityVulnerability
+
+  """
+  Identifies the state of the alert.
+  """
+  state: RepositoryVulnerabilityAlertState!
 
   """
   The vulnerable manifest filename
@@ -37912,6 +38154,26 @@ type RepositoryVulnerabilityAlertEdge {
   The item at the end of the edge.
   """
   node: RepositoryVulnerabilityAlert
+}
+
+"""
+The possible states of an alert
+"""
+enum RepositoryVulnerabilityAlertState {
+  """
+  An alert that has been manually closed by a user.
+  """
+  DISMISSED
+
+  """
+  An alert that has been resolved by a code change.
+  """
+  FIXED
+
+  """
+  An alert that is still open.
+  """
+  OPEN
 }
 
 """
@@ -40761,6 +41023,11 @@ Autogenerated input type of StartRepositoryMigration
 """
 input StartRepositoryMigrationInput {
   """
+  The Octoshift migration source access token.
+  """
+  accessToken: String
+
+  """
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
@@ -40774,6 +41041,11 @@ input StartRepositoryMigrationInput {
   The signed URL to access the user-uploaded git archive
   """
   gitArchiveUrl: String
+
+  """
+  The GitHub personal access token of the user importing to the target repository.
+  """
+  githubPat: String
 
   """
   The signed URL to access the user-uploaded metadata archive
@@ -45741,6 +46013,46 @@ input UpdateProjectInput {
 }
 
 """
+Autogenerated input type of UpdateProjectNext
+"""
+input UpdateProjectNextInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  Set the project to closed or open.
+  """
+  closed: Boolean
+
+  """
+  Set the readme description of the project.
+  """
+  description: String
+
+  """
+  The ID of the Project to update.
+  """
+  projectId: ID! @possibleTypes(concreteTypes: ["ProjectNext"])
+
+  """
+  Set the project to public or private.
+  """
+  public: Boolean
+
+  """
+  Set the short description of the project.
+  """
+  shortDescription: String
+
+  """
+  Set the title of the project.
+  """
+  title: String
+}
+
+"""
 Autogenerated input type of UpdateProjectNextItemField
 """
 input UpdateProjectNextItemFieldInput {
@@ -45783,6 +46095,21 @@ type UpdateProjectNextItemFieldPayload {
   The updated item.
   """
   projectNextItem: ProjectNextItem
+}
+
+"""
+Autogenerated return type of UpdateProjectNext
+"""
+type UpdateProjectNextPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The updated Project.
+  """
+  projectNext: ProjectNext
 }
 
 """

@@ -78,8 +78,8 @@ You can use your selected dotfiles repository to personalize your {% data variab
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
 1. Under "Dotfiles", select **Automatically install dotfiles** so that {% data variables.product.prodname_codespaces %} automatically installs your dotfiles into every new codespace you create.
    ![Installing dotfiles](/assets/images/help/codespaces/install-custom-dotfiles.png)
 2. Choose the repository you want to install dotfiles from.

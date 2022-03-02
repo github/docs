@@ -23,7 +23,7 @@ Neste guia, você aprenderá os componentes básicos necessários para criar e u
 
 Ao concluir este projeto, você entenderá como criar a sua própria ação composta e testá-la em um fluxo de trabalho.
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Pré-requisitos
 

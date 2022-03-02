@@ -28,7 +28,7 @@ Se a sua organização exige que os integrantes usem a autenticação de dois fa
 ## Convidando um usuário para participar da sua organização
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.invite_to_org %}

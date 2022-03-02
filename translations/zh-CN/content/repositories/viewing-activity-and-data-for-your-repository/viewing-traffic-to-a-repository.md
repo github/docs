@@ -11,7 +11,7 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: View repository traffic
+shortTitle: 查看存储库流量
 ---
 
 您可以从推荐特定路径的链接导航到推荐站点，不包括搜索引擎和 {% data variables.product.product_name %} 本身。 热门内容会链接到生成流量的特定内容。

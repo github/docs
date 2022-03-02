@@ -82,4 +82,4 @@ Para obtener más información sobre cómo crear una lista de direcciones permit
 
 ## Utilizar {% data variables.product.prodname_actions %} con un listado de direcciones IP permitidas
 
-{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}
