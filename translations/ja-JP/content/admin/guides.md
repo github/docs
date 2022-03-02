@@ -136,5 +136,6 @@ includeGuides:
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/suspending-and-unsuspending-users
   - /admin/overview/creating-an-enterprise-account
+  - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
 ---
 

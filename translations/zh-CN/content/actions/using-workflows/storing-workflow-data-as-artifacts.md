@@ -26,7 +26,7 @@ topics:
 
 Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow. An artifact is a file or collection of files produced during a workflow run. For example, you can use artifacts to save your build and test output after a workflow run has ended. {% data reusables.actions.reusable-workflow-artifacts %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
+{% data reusables.actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
 
 These are some of the common artifacts that you can upload:
 
@@ -37,7 +37,7 @@ These are some of the common artifacts that you can upload:
 
 {% ifversion fpt or ghec %}
 
-Storing artifacts uses storage space on {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)."
+Storing artifacts uses storage space on {% data variables.product.product_name %}. {% data reusables.actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)."
 
 {% else %}
 

@@ -20,9 +20,11 @@ Proprietários da organização podem gerenciar as autoridades certificadas (CA,
 
 Você pode permitir que os integrantes acessem os repositórios da organização com certificados SSH fornecidos por você, adicionando um CA SSH à organização. {% data reusables.organizations.can-require-ssh-cert %} Para obter mais informações, consulte "[Sobre autoridades certificadas de SSH](/articles/about-ssh-certificate-authorities)".
 
+{% data reusables.organizations.add-extension-to-cert %}
+
 ## Adicionar uma autoridade certificada de SSH
 
-{% data reusables.organizations.add-extension-to-cert %}
+If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -1,7 +1,7 @@
 
 Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configurations. 矩阵允许您通过在单个作业定义中执行变量替换来创建多个作业。 例如，可以使用矩阵为多个受支持的编程语言、操作系统或工具版本创建作业。 矩阵重新使用作业的配置，并为您配置的每个矩阵创建作业。
 
-{% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.actions.usage-matrix-limits %}
 
 您在 `matrix` 中定义的每个选项都有键和值。 定义的键将成为 `matrix` 上下文中的属性，您可以在工作流程文件的其他区域中引用该属性。 例如，如果定义包含操作系统数组的键 `os`，您可以使用 `matrix.os` 属性作为 `runs-on` 关键字的值，为每个操作系统创建一个作业。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
 
@@ -123,4 +123,4 @@ strategy:
 
 您可以使用 `include` 键为每个测试组合添加自定义环境变量。 然后，您可以在后面的步骤中引用自定义环境变量。
 
-{% data reusables.github-actions.matrix-variable-example %}
+{% data reusables.actions.matrix-variable-example %}

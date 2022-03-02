@@ -25,7 +25,7 @@ Los contenedores de servicios son contenedores de Docker que ofrecen una manera 
 
 Puedes configurar contenedores de servicios para cada trabajo en un flujo de trabajo. {% data variables.product.prodname_dotcom %} crea un contenedor de Docker nuevo para cada servicio configurado en el flujo de trabajo y destruye el contenedor de servicios cuando se termina el trabajo. Los pasos de un trabajo pueden comunicarse con todos los contenedores de servicios que son parte del mismo trabajo.
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## Comunicarse con contenedores de servicios
 
