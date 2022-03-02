@@ -13,9 +13,8 @@ topics:
   - Organizations
   - Teams
 shortTitle: Eliminar a un miembro
+permissions: Organization owners can remove members from an organization.
 ---
-
-Solo los propietarios de la organización pueden eliminar usuarios de una organización.
 
 {% ifversion fpt or ghec %}
 
@@ -63,4 +62,5 @@ Para ayudar con la transición de la persona que estás eliminando de tu organiz
 
 ## Leer más
 
-- "[Eliminar de un equipo a miembros de la organización](/articles/removing-organization-members-from-a-team)"
+- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"{% if remove-enterprise-members %}
+- "[Removing a member from your enterprise](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}
