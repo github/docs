@@ -34,20 +34,20 @@ To use OIDC with HashiCorp Vault, you will need to add a trust configuration for
 To configure your Vault server to accept JSON Web Tokens (JWT) for authentication:
 
 1. Enable the JWT auth method and write configuration.  
-For `oidc_discovery_url` and `bound_issuer` parameters, use `https://token.actions.githubusercontent.com`. These parameters must be set so that the Vault server can verify the received JSON Web Tokens (JWT) upon authentication.
+  For `oidc_discovery_url` and `bound_issuer` parameters, use `https://token.actions.githubusercontent.com`. These parameters must be set so that the Vault server can verify the received JSON Web Tokens (JWT) upon authentication.
 
-    ```sh
+    ```sh{:copy}
     vault auth enable jwt
     ```
     
-    ```sh
+    ```sh{:copy}
     vault write auth/jwt/config \
       bound_issuer="https://token.actions.githubusercontent.com" \
       oidc_discovery_url="https://token.actions.githubusercontent.com"
     ```
 2. Configure policies to only grant access for certain paths in which your workflows will be retrieving secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
 
-    ```sh
+    ```sh{:copy}
     vault policy write myproject-production - <<EOF
     # Read-only permission on 'secret/data/production/*' path
 
@@ -58,7 +58,7 @@ For `oidc_discovery_url` and `bound_issuer` parameters, use `https://token.actio
     ```
 3. Configure roles to group different policies together. If the authentication is successful, these policies are attached to the resulting Vault access token.
 
-    ```sh
+    ```sh{:copy}
     vault write auth/jwt/role/myproject-production -<<EOF
     {
       "role_type": "jwt",
