@@ -1,4 +1,73 @@
----
+---## Termux App Info
+
+**APP_NAME**: `Termux`  
+**PACKAGE_NAME**: `com.termux`  
+**VERSION_NAME**: `0.118.0`  
+**VERSION_CODE**: `118`  
+**TARGET_SDK**: `28`  
+**IS_DEBUGGABLE_BUILD**: `false`  
+**APK_RELEASE**: `F-Droid`  
+**SIGNING_CERTIFICATE_SHA256_DIGEST**: `228FB2CFE90831C1499EC3CCAF61E96E8E1CE70766B9474672CE427334D41C42`  
+##
+
+
+## Device Info
+
+### Software
+
+**OS_VERSION**: `4.9.206-perf+`  
+**SDK_INT**: `29`  
+**RELEASE**: `10`  
+**ID**: `QPGS30.82-141-12`  
+**DISPLAY**: `QPGS30.82-141-12`  
+**INCREMENTAL**: `8cbe2`  
+**SECURITY_PATCH**: `2021-12-01`  
+**IS_DEBUGGABLE**: `0`  
+**IS_TREBLE_ENABLED**: `true`  
+**TYPE**: `user`  
+**TAGS**: `release-keys`  
+
+### Hardware
+
+**MANUFACTURER**: `motorola`  
+**BRAND**: `motorola`  
+**MODEL**: `moto e`  
+**PRODUCT**: `ginna_retail`  
+**BOARD**: `msm8953`  
+**HARDWARE**: `qcom`  
+**DEVICE**: `ginna`  
+**SUPPORTED_ABIS**: `armeabi-v7a, armeabi`  
+##
+
+
+## Important Links
+
+### Github
+
+[Termux](https://github.com/termux/termux-app)  
+[Termux:API](https://github.com/termux/termux-api)  
+[Termux:Boot](https://github.com/termux/termux-boot)  
+[Termux:Float](https://github.com/termux/termux-float)  
+[Termux:Styling](https://github.com/termux/termux-styling)  
+[Termux:Tasker](https://github.com/termux/termux-tasker)  
+[Termux:Widget](https://github.com/termux/termux-widget)  
+[termux-packages](https://github.com/termux/termux-packages)  
+
+### apkkngcad@gmail.com
+
+[termuxreports@groups.io](mailto:termuxreports@groups.io)  
+
+### Reddit
+
+[r/termux](https://www.reddit.com/r/termux)  
+
+### Wiki
+
+[Termux Wiki](https://wiki.termux.com)  
+[Termux](https://github.com/termux/termux-app/wiki)  
+[termux-packages](https://github.com/termux/termux-packages/wiki)  
+##
+
 title: About apps
 intro: 'You can build integrations with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIs to add flexibility and reduce friction in your own workflow.{% ifversion fpt or ghec %} You can also share integrations with others on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
 redirect_from:
