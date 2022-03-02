@@ -26,7 +26,7 @@ topics:
 
 Os artefatos permitem que você persista com os dados após um trabalho ter sido concluído e compartilhe os dados com outro trabalho no mesmo fluxo de trabalho. Um artefato é um arquivo ou uma coleção de arquivos produzidos durante a execução de um fluxo de trabalho. Por exemplo, você pode usar artefatos para salvar a sua criação e testar a saída após uma conclusão da execução do fluxo de trabalho. {% data reusables.actions.reusable-workflow-artifacts %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %} O período de retenção para um pull request reinicia toda vez que alguém fizer um push de um novo commit para o pull request.
+{% data reusables.actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
 
 Esses são alguns dos artefatos comuns cujo upload você pode fazer:
 
@@ -37,7 +37,7 @@ Esses são alguns dos artefatos comuns cujo upload você pode fazer:
 
 {% ifversion fpt or ghec %}
 
-Armazenar artefatos consome espaço de armazenamento em {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para mais informações, consulte "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
+Armazenar artefatos consome espaço de armazenamento em {% data variables.product.product_name %}. {% data reusables.actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)."
 
 {% else %}
 

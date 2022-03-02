@@ -24,11 +24,11 @@ topics:
 
 En esta guía se muestran ejemplos de flujo de trabajo que configuran un contenedor de servicio mediante la imagen `redis` de Docker Hub. El flujo de trabajo ejecuta un script para crear un cliente Redis y rellenar el cliente con datos. Para probar que el flujo de trabajo crea y rellena el cliente Redis, el script imprime los datos del cliente en la consola.
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## Prerrequisitos
 
-{% data reusables.github-actions.service-container-prereqs %}
+{% data reusables.actions.service-container-prereqs %}
 
 También puede ser útil tener una comprensión básica de YAML, la sintaxis para {% data variables.product.prodname_actions %}, y Redis. Para obtener más información, consulta:
 
@@ -37,9 +37,9 @@ También puede ser útil tener una comprensión básica de YAML, la sintaxis par
 
 ## Ejecutar trabajos en contenedores
 
-{% data reusables.github-actions.container-jobs-intro %}
+{% data reusables.actions.container-jobs-intro %}
 
-{% data reusables.github-actions.copy-workflow-file %}
+{% data reusables.actions.copy-workflow-file %}
 
 {% raw %}
 ```yaml{:copy}
@@ -90,9 +90,9 @@ jobs:
 
 ### Configurar el trabajo del contenedor
 
-{% data reusables.github-actions.service-container-host %}
+{% data reusables.actions.service-container-host %}
 
-{% data reusables.github-actions.redis-label-description %}
+{% data reusables.actions.redis-label-description %}
 
 ```yaml{:copy}
 jobs:
@@ -118,7 +118,7 @@ jobs:
 
 ### Configurar los pasos
 
-{% data reusables.github-actions.service-template-steps %}
+{% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
 steps:
@@ -143,7 +143,7 @@ steps:
       REDIS_PORT: 6379
 ```
 
-{% data reusables.github-actions.redis-environment-variables %}
+{% data reusables.actions.redis-environment-variables %}
 
 El nombre del host del servicio Redis es la etiqueta que configuraste en tu flujo de trabajo, en este caso, `redis`. Dado que los contenedores Docker en la misma red de puentes definida por el usuario abren todos los puertos por defecto, podrás acceder al contenedor del servicio en el puerto Redis predeterminado 6379.
 
@@ -151,7 +151,7 @@ El nombre del host del servicio Redis es la etiqueta que configuraste en tu fluj
 
 Cuando ejecutes un trabajo directamente en la máquina del ejecutor, deberás asignar los puertos del contenedor de servicios a los puertos del host de Docker. Puedes acceder a los contenedores de servicios desde el host de Docker utilizando `localhost` y el número de puerto del host de Docker.
 
-{% data reusables.github-actions.copy-workflow-file %}
+{% data reusables.actions.copy-workflow-file %}
 
 {% raw %}
 ```yaml{:copy}
@@ -206,9 +206,9 @@ jobs:
 
 ### Configurar el trabajo del ejecutador
 
-{% data reusables.github-actions.service-container-host-runner %}
+{% data reusables.actions.service-container-host-runner %}
 
-{% data reusables.github-actions.redis-label-description %}
+{% data reusables.actions.redis-label-description %}
 
 El flujo de trabajo asigna el puerto 6379 en el contenedor del servicio Redis al host Docker. Para obtener más información acerca de la palabra clave `ports`, consulta "[Acerca de los contenedores de servicio](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)".
 
@@ -238,7 +238,7 @@ jobs:
 
 ### Configurar los pasos
 
-{% data reusables.github-actions.service-template-steps %}
+{% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
 steps:
@@ -264,9 +264,9 @@ steps:
       REDIS_PORT: 6379
 ```
 
-{% data reusables.github-actions.redis-environment-variables %}
+{% data reusables.actions.redis-environment-variables %}
 
-{% data reusables.github-actions.service-container-localhost %}
+{% data reusables.actions.service-container-localhost %}
 
 ## Probar el contenedor de servicio Redis
 
@@ -274,7 +274,7 @@ Puedes probar tu flujo de trabajo usando el siguiente script, que crea un client
 
 Puedes modificar *client.js* para incluir cualquier operación de Redis que necesite tu flujo de trabajo. En este ejemplo, el script crea la instancia del cliente Redis, agrega datos de marcador de posición y luego recupera los datos.
 
-{% data reusables.github-actions.service-container-add-script %}
+{% data reusables.actions.service-container-add-script %}
 
 ```javascript{:copy}
 const redis = require("redis");

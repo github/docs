@@ -89,7 +89,7 @@ Além dos recursos disponíveis no {% data variables.product.prodname_free_team 
 
 {% data variables.product.company_short %} realiza a cobrança para {% data variables.product.prodname_team %} por usuário. Para obter mais informações, consulte "[Sobre os preços por usuário]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion fpt %}. "{% else %}" na documentação dos planos Grátis, Pro, & Equipe.{% endif %}
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
 ## {% data variables.product.prodname_enterprise %}
 
