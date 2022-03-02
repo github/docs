@@ -25,9 +25,9 @@ You can use expressions to programmatically set environment variables in workflo
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %} `if`条件の詳細については、「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
+{% data reusables.actions.expression-syntax-if %} `if`条件の詳細については、「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 #### `if` 条件内の式の例
 
