@@ -31,6 +31,10 @@ Os proprietários da organização têm pleno acesso administrativo à organiza�
 
 {% endnote %}
 
+{% if enterprise-owner-join-org %}
+If your organization is owned by an enterprise account, any enterprise owner can make themself an owner of your organization. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+{% endif %}
+
 ## Designar um proprietário da organização
 
 {% data reusables.profile.access_org %}
