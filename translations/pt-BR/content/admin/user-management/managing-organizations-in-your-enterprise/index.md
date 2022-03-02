@@ -27,6 +27,7 @@ children:
   - /streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /removing-users-from-teams-and-organizations
   - /removing-organizations-from-your-enterprise
+  - /restoring-a-deleted-organization
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
 shortTitle: Gerenciar organizações

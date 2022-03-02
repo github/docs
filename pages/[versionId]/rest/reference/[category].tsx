@@ -29,7 +29,11 @@ type CategoryDataT = {
   introContent: string
 }
 
-type RestDataT = Record<string, CategoryDataT>
+type RestDataT = {
+  [version: string]: {
+    [category: string]: CategoryDataT
+  }
+}
 
 type Props = {
   mainContext: MainContextT
@@ -40,7 +44,7 @@ type Props = {
 }
 
 let rest: RestOperationsT | null = null
-const restOperationData: RestDataT = {}
+let restOperationData: RestDataT | null = null
 
 export default function Category({
   mainContext,
@@ -94,10 +98,15 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     rest = (await getRest()) as RestOperationsT
   }
 
+  if (!restOperationData) {
+    restOperationData = {}
+    Object.keys(req.context.allVersions).forEach((version) => (restOperationData![version] = {}))
+  }
+
   const restOperations = rest[currentVersion][category]
 
-  if (!(category in restOperationData)) {
-    restOperationData[category] = (await getRestOperationData(
+  if (!(category in restOperationData[currentVersion])) {
+    restOperationData[currentVersion][category] = (await getRestOperationData(
       category,
       restOperations,
       req.context
@@ -109,15 +118,15 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // are undefined. We need to populate those properties with the static
   // data read from the decorated schema files.
   const articleContext = getArticleContextFromRequest(req)
-  articleContext.miniTocItems = restOperationData[category].miniTocItems
+  articleContext.miniTocItems = restOperationData[currentVersion][category].miniTocItems
 
   return {
     props: {
       restOperations,
       mainContext: getMainContext(req, res),
-      descriptions: restOperationData[category].descriptions,
+      descriptions: restOperationData[currentVersion][category].descriptions,
       articleContext: articleContext,
-      introContent: restOperationData[category].introContent,
+      introContent: restOperationData[currentVersion][category].introContent,
     },
   }
 }

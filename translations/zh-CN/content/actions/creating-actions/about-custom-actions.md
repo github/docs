@@ -47,13 +47,13 @@ Docker 容器使用 {% data variables.product.prodname_actions %} 代码封装�
 
 Docker 容器允许使用特定版本的操作系统、依赖项、工具和代码。 对于必须在特定环境配置中运行的操作，Docker 是一个理想的选择，因为您可以自定义操作系统和工具。 由于创建和检索容器的延时，Docker 容器操作慢于 JavaScript 操作。
 
-Docker 容器操作只能在使用 Linux 操作系统的运行器上执行。 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+Docker 容器操作只能在使用 Linux 操作系统的运行器上执行。 {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 ### JavaScript 操作
 
 JavaScript 操作可以直接在运行器计算机上运行，并将操作代码与用于运行代码的环境分开。 使用 JavaScript 操作可简化操作代码，执行速度快于 Docker 容器操作。
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
 如果您正在开发 Node.js 项目，{% data variables.product.prodname_actions %} 工具包提供可用于项目中加速开发的软件包。 更多信息请参阅 [actions/toolkit](https://github.com/actions/toolkit) 仓库。
 

@@ -2,7 +2,7 @@ Use `jobs.<job_id>.defaults.run` para fornecer o `shell` padrão e `workdirector
 
 Você pode fornecer as opções-padrão de `shell` e `working-directory` para todas as etapas de [`execução`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun) de um trabalho. Você também pode definir as configurações-padrão para `execução` para todo o fluxo de trabalho. Para obter mais informações, consulte [`jobs.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#defaultsrun). Você não pode usar contextos ou expressões nesta palavra-chave.
 
-{% data reusables.github-actions.defaults-override %}
+{% data reusables.actions.defaults-override %}
 
 #### Exemplo: Configuração padrão da etapa `executar` para um trabalho
 
