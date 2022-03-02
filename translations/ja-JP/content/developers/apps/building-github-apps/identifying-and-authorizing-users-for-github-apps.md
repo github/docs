@@ -272,7 +272,8 @@ While most of your API インタラクションのほとんどは、サーバー
 
 #### Git参照
 
-* [参照の作成](/rest/reference/git#create-a-reference)*[参照の取得](/rest/reference/git#get-a-reference)
+* [Create a reference](/rest/reference/git#create-a-reference)
+* [Get a reference](/rest/reference/git#get-a-reference)
 * [一致する参照の一覧表示](/rest/reference/git#list-matching-references)
 * [参照の更新](/rest/reference/git#update-a-reference)
 * [参照の削除](/rest/reference/git#delete-a-reference)

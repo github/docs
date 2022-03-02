@@ -1,6 +1,6 @@
 ---
 title: Managing repository access for your organization's codespaces
-shortTitle: Repository access
+shortTitle: 存储库访问
 intro: '您可以管理 {% data variables.product.prodname_codespaces %} 可以访问的组织仓库。'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access and security for Codespaces for an organization, you must be an organization owner.'

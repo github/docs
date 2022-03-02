@@ -49,7 +49,7 @@ topics:
 
 ## 比较议题和讨论
 
-Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} 有关何时使用议题或讨论的指导，请参阅“[在 GitHub 上沟通](/github/getting-started-with-github/quickstart/communicating-on-github)”。
+有些对话更适合 {% data variables.product.prodname_discussions %}。 {% data reusables.discussions.you-can-use-discussions %} 有关何时使用议题或讨论的指导，请参阅“[在 GitHub 上沟通](/github/getting-started-with-github/quickstart/communicating-on-github)”。
 
 当某个议题中的对话更适合讨论时，您可以将议题转换为讨论。
 {% endif %}

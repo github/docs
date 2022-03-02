@@ -17,12 +17,11 @@ shortTitle: PAT with SAML
 
 {% data reusables.saml.authorized-creds-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-{% data reusables.user_settings.personal_access_tokens %}
-3. 認可したいトークンの隣の [**Enable SSO**] (SSO を有効化) または [**Disable SSO**] (SSOを無効化) をクリックします。 ![SSO トークン認可ボタン](/assets/images/help/settings/sso-allowlist-button.png)
-4. アクセストークンを認可する Organization を見つけます。
-4. [**Authorize**] をクリックします。 ![トークン認可ボタン](/assets/images/help/settings/token-authorize-button.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.personal_access_tokens %}
+3. Next to the token you'd like to authorize, click **Configure SSO**. ![Screenshot of the dropdown menu to configure SSO for a personal access token](/assets/images/help/settings/sso-allowlist-button.png)
+4. To the right of the organization you'd like to authorize the token for, click **Authorize**. ![トークン認可ボタン](/assets/images/help/settings/token-authorize-button.png)
 
 ## 参考リンク
 

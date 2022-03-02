@@ -143,6 +143,7 @@ prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabotアラート'
 prodname_dependabot_security_updates: 'Dependabotセキュリティアップデート'
 prodname_dependabot_version_updates: 'Dependabotバージョンアップデート'
+prodname_dependabot_updates: 'Dependabot updates'
 #GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'

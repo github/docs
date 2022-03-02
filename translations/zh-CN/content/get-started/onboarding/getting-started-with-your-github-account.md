@@ -1,6 +1,6 @@
 ---
-title: Getting started with your GitHub account
-intro: 'With a user account on {% data variables.product.prodname_dotcom %}, you can import or create repositories, collaborate with others, and connect with the {% data variables.product.prodname_dotcom %} community.'
+title: 开始使用 GitHub 帐户
+intro: '使用 {% data variables.product.prodname_dotcom %} 上的用户帐户，您可以导入或创建存储库、与他人协作以及与 {% data variables.product.prodname_dotcom %} 社区联系。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,12 +8,12 @@ versions:
   ghec: '*'
 ---
 
-This guide will walk you through setting up your {% data variables.product.company_short %} account and getting started with {% data variables.product.product_name %}'s features for collaboration and community.
+本指南将引导您完成 {% data variables.product.company_short %} 帐户的设置，并开始使用 {% data variables.product.product_name %} 协作和社区功能。
 
-## Part 1: Configuring your {% data variables.product.prodname_dotcom %} account
+## 第 1 部分：配置 {% data variables.product.prodname_dotcom %} 帐户
 
 {% ifversion fpt or ghec %}
-The first steps in starting with {% data variables.product.product_name %} are to create an account, choose a product that fits your needs best, verify your email, set up two-factor authentication, and view your profile.
+开始使用 {% data variables.product.product_name %} 的第一步是创建一个帐户，选择最适合您需求的产品，验证您的电子邮件，设置双重身份验证以及查看您的个人资料。
 {% elsif ghes %}
 The first steps in starting with {% data variables.product.product_name %} are to access your account, set up two-factor authentication, and view your profile.
 {% elsif ghae %}
@@ -145,7 +145,7 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 {% data reusables.getting-started.customizing-and-automating %}
 
 {% ifversion fpt or ghec %}
-### 1. Using {% data variables.product.prodname_marketplace %}
+### 1. 使用 {% data variables.product.prodname_marketplace %}
 {% data reusables.getting-started.marketplace %}
 {% endif %}
 ### {% ifversion fpt or ghec %}2.{% else %}1.{% endif %} Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
@@ -172,11 +172,11 @@ A large part of building securely is maintaining your project's dependencies to 
 For more information, see "[Securing your software supply chain](/code-security/supply-chain-security)."
 {% endif %}
 
-## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
+## 第 6 部分：参与 {% data variables.product.prodname_dotcom %} 的社区
 
 {% data reusables.getting-started.participating-in-community %}
 
-### 1. Contributing to open source projects
+### 1. 为开源项目做贡献
 {% data reusables.getting-started.open-source-projects %}
 
 ### 2. Interacting with {% data variables.product.prodname_gcf %}

@@ -272,7 +272,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 #### Refs do Git
 
-* [Criar uma referência](/rest/reference/git#create-a-reference)* [Obter uma referência](/rest/reference/git#get-a-reference)
+* [Criar referência](/rest/reference/git#create-a-reference)
+* [Obter uma referência](/rest/reference/git#get-a-reference)
 * [Lista de referências correspondentes](/rest/reference/git#list-matching-references)
 * [Atualizar uma referência](/rest/reference/git#update-a-reference)
 * [Excluir uma referência](/rest/reference/git#delete-a-reference)

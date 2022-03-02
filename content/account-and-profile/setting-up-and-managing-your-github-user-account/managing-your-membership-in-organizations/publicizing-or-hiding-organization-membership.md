@@ -20,7 +20,7 @@ shortTitle: Show or hide membership
 ## Changing the visibility of your organization membership
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Locate your username in the list of members. If the list is large, you can search for your username in the search box.
 ![Organization member search box](/assets/images/help/organizations/member-search-box.png)

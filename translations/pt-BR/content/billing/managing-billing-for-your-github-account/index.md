@@ -29,6 +29,7 @@ children:
   - /managing-invoices-for-your-enterprise
   - /connecting-an-azure-subscription-to-your-enterprise
   - /how-does-upgrading-or-downgrading-affect-the-billing-process
+  - /one-time-payments-for-customers-in-india
   - /discounted-subscriptions-for-github-accounts
 ---
 

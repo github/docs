@@ -33,7 +33,7 @@ Este guia mostra como configurar seu projeto Java em {% data variables.product.p
 
   Se você não vir esta opção, significa que {% data variables.product.prodname_codespaces %} não está disponível para o seu projeto. Consulte [Acesso a {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces) para mais informações.
 
-Ao criar um código, seu projeto será criado em uma VM remota dedicada a você. By default, the container for your codespace has many languages and runtimes including Java, nvm, npm, and Yarn. Ele também inclui um conjunto comum de ferramentas, como git, wget, rsync, openssh e nano.
+Ao criar um código, seu projeto será criado em uma VM remota dedicada a você. Por padrão, o contêiner do seu código possui muitas linguagens e tempos de execução, incluindo Java, nvm, npm e Yarn. Ele também inclui um conjunto comum de ferramentas, como git, wget, rsync, openssh e nano.
 
 Você pode personalizar o seu codespace ajustando a quantidade de vCPUs e RAM, [adicionando dotfiles para personalizar seu ambiente](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)ou modificando as ferramentas e scripts instalados.
 

@@ -86,7 +86,7 @@ A tabela a seguir mostra as permissões concedidas ao `GITHUB_TOKEN` por padrão
 | Verificações | leitura/gravação                    | nenhum                            | leitura                                            |
 | Conteúdo     | leitura/gravação                    | leitura                           | leitura                                            |
 | Implantações | leitura/gravação                    | nenhum                            | read |{% ifversion fpt or ghec %}
-| id-token     | leitura/gravação                    | nenhum                            | read 
+| id-token     | nenhum                              | nenhum                            | read 
 {% endif %}
 | Problemas    | leitura/gravação                    | nenhum                            | leitura                                            |
 | metadados    | leitura                             | leitura                           | leitura                                            |

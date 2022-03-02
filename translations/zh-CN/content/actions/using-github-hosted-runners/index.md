@@ -7,6 +7,7 @@ versions:
   ghes: '*'
 children:
   - /about-github-hosted-runners
+  - /monitoring-your-current-jobs
   - /customizing-github-hosted-runners
 shortTitle: 使用 GitHub 托管的运行器
 ---

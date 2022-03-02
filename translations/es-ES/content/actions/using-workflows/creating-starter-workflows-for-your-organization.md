@@ -24,6 +24,8 @@ topics:
 
 {% data reusables.actions.workflow-organization-templates %}
 
+{% data reusables.actions.starter-workflow-categories %}
+
 ## Creating a starter workflow
 
 Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
@@ -85,7 +87,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        ]
    }
    ```
-   * `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
+   * `name` - **Required.** The name of the workflow. Esta se muestra en la lista de flujos de trabajo disponibles.
    * `description` - **Required.** The description of the workflow. Esta se muestra en la lista de flujos de trabajo disponibles.
    * `iconName` - **Optional.** Specifies an icon for the workflow that's displayed in the list of workflows. The `iconName` must be the name of an SVG file, without the file name extension, stored in the `workflow-templates` directory. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
    * `categories` - **Opcional.** Define la categoría de lenguaje del flujo de trabajo. When a user views the available starter workflows for a repository, the workflows that match the identified language for the project are featured more prominently. Para obtener información sobre las categorías de lenguaje disponibles, consulta https://github.com/github/linguist/blob/master/lib/linguist/languages.yml.

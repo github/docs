@@ -22,8 +22,8 @@ También puedes ver los minutos de ejecución facturables para los jobs en una e
 
 Cualquiera puede ver el uso de {% data variables.product.prodname_actions %} para su cuenta de usuario personal.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}

@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** The {% data variables.product.prodname_command_palette %} is currently in public beta and is subject to change.
+**Nota:** El {% data variables.product.prodname_command_palette %} se encuentra actualmente en beta público y está sujeto a cambios.
 
 {% endnote %}

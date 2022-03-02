@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ArrowRightIcon, SearchIcon } from '@primer/octicons-react'
-import { Text } from '@primer/components'
+import { Text } from '@primer/react'
 
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'

@@ -18,15 +18,15 @@ shortTitle: Integrações autorizadas
 
 ## Revisar os seus {% data variables.product.prodname_oauth_apps %} autorizados
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.access_applications %}
-{% data reusables.user_settings.access_authorized_oauth_apps %}
-{% data reusables.user_settings.review-oauth-apps %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.access_applications %}
+{% data reusables.user-settings.access_authorized_oauth_apps %}
+{% data reusables.user-settings.review-oauth-apps %}
 
 ## Revisar os seus {% data variables.product.prodname_github_apps %} autorizados
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.access_applications %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.access_applications %}
 3. Clique na aba **{% data variables.product.prodname_github_apps %} autorizado**. ![Aba {% data variables.product.prodname_github_apps %} autorizado](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
 3. Revise o {% data variables.product.prodname_github_apps %} que tem acesso à sua conta. Para os aplicativos não reconhecidos ou desatualizados, clique em **Revoke** (Revogar). Para revogar todos os {% data variables.product.prodname_github_apps %}, clique em **Revogar todos**. ![Lista de {% data variables.product.prodname_github_app %} autorizado](/assets/images/help/settings/revoke-github-app.png)
 

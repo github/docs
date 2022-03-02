@@ -14,7 +14,7 @@ topics:
 
 With {% data variables.product.prodname_actions %}, you can improve developer productivity by automating every phase of your enterprise's software development workflow.
 
-| Task                                                                  | 詳細情報                                                                                                                                                                   |
+| タスク                                                                   | 詳細情報                                                                                                                                                                   |
 | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Automatically test and build your application                         | [継続的インテグレーションについて](/actions/automating-builds-and-tests/about-continuous-integration)                                                                                  |
 | Deploy your application                                               | "[About continuous deployment](/actions/deployment/about-deployments/about-continuous-deployment)"                                                                     |

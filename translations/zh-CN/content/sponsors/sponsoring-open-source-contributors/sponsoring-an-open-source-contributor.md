@@ -37,7 +37,7 @@ shortTitle: 赞助贡献者
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
-You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
+您可以选择是否公开显示您的赞助。 一次性赞助在一个月内保持可见。
 
 如果被赞助帐户撤销的等级，您将仍保留在该等级，直到您选择其他等级或取消订阅。 更多信息请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”。
 

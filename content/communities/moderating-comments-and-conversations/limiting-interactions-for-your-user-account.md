@@ -26,7 +26,7 @@ You can also block users. For more information, see "[Blocking a user from your 
 
 ## Limiting interactions for your user account
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![Temporary interaction limit options](/assets/images/help/settings/user-account-temporary-interaction-limits-options.png)

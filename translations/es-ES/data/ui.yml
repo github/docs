@@ -38,12 +38,13 @@ toc:
   guides: Guías
   whats_new: Qué hay de nuevo
   videos: Vídeos
-  all_changelogs: All changelog posts
+  all_changelogs: Todas las publicaciones de la bitácora de cambios
 pages:
   article_version: 'Versión del artículo'
   miniToc: En este artículo
   contributor_callout: En este artículo contribuye y lo mantiene
-  all_enterprise_releases: All Enterprise Server releases
+  all_enterprise_releases: Todos los lanzamientos de Enterprise Server
+  about_versions: Acerca de las versiones
 errors:
   oops: '¡Ups!'
   something_went_wrong: Parece que algo salió mal.
@@ -161,12 +162,12 @@ product_landing:
   release_notes_for: Notas de lanzamiento para
   upgrade_from: Mejorar desde
   browse_all_docs: Buscar todos los documentos
-  browse_all: Browse all
+  browse_all: Buscar todos
   docs: documentación
   explore_release_notes: Explorar las notas de lanzamiento
   view: Ver todos
 product_guides:
-  start_path: Start learning path
+  start_path: Comenzar ruta de aprendizaje
   learning_paths: 'Rutas de aprendizaje de {{ productMap[currentProduct].name }}'
   learning_paths_desc: Las rutas de aprendizaje son una recopilación de guías que te ayudan a dominar un tema en particular.
   guides: 'Guías de {{ productMap[currentProduct].name }}'

@@ -20,7 +20,7 @@ shortTitle: Visualizar pessoas em uma organização
 ## Ver funções da organização
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Você verá uma lista das pessoas na organização. Para filtrar a lista por função, clique em **Role** (Função) e selecione aquela que está procurando. ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)
 
@@ -54,7 +54,7 @@ Para revisar todas as funções de uma organização, consulte "[Funções em um
 Para obter mais informações sobre a função de proprietário da empresa, consulte "[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Na barra lateral esquerda, em "Permissões crporativas", clique em **Proprietários corporativos**. ![Captura de tela da opção "proprietários corporativos" no menu da barra lateral](/assets/images/help/organizations/enterprise-owners-sidebar.png)
 5. Veja a lista de proprietários corporativos para a sua empresa. Se o proprietário da empresa também for membro da sua organização, você poderá ver a sua função na organização.
