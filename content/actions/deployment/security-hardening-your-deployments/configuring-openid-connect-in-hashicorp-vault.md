@@ -43,7 +43,7 @@ For `oidc_discovery_url` and `bound_issuer` parameters, use `https://token.actio
       bound_issuer="https://token.actions.githubusercontent.com" \
       oidc_discovery_url="https://token.actions.githubusercontent.com"
     ```
-2. Configure policies to only grant access for certain paths in which your workflows will be retrieving secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies)
+2. Configure policies to only grant access for certain paths in which your workflows will be retrieving secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
 
     ```sh
     $ vault policy write myproject-production - <<EOF
@@ -105,7 +105,7 @@ This example demonstrates how to create a job that requests a secret from HashiC
 
 - `<Vault URL>`: Replace this with the URL of your HashiCorp Vault.
 - `<Role name>`: Replace this with the role you've set in the HashiCorp Vault trust relationship.
-- `<Secret-Path>`: Replace this with the path to the secret you're retrieving from HashiCorp Vault. For example: `secret/data/ci npmToken`.
+- `<Secret-Path>`: Replace this with the path to the secret you're retrieving from HashiCorp Vault. For example: `secret/data/production/ci npmToken`.
 
 ```yaml{:copy}
 jobs:
