@@ -38,7 +38,7 @@ For `oidc_discovery_url` and `bound_issuer` parameters, use `https://token.actio
 
     ```sh
     $ vault auth enable jwt
-
+    
     $ vault write auth/jwt/config \
       bound_issuer="https://token.actions.githubusercontent.com" \
       oidc_discovery_url="https://token.actions.githubusercontent.com"
