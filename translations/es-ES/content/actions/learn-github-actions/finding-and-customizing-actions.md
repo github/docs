@@ -24,8 +24,9 @@ topics:
 
 Las acciones que utilizas en tu flujo de trabajo pueden definirse en:
 
-- Un repositorio público
-- El mismo repositorio en donde tu archivo de flujo de trabajo hace referencia a la acción
+- El mismo repositorio que tu archivo de flujo de trabajo{% if internal-actions %}
+- Un repositorio interno con la mismo cuenta empresarial que se configuró para permitir el acceso a los flujos de trabajo{% endif %}
+- Cualquier repositorio público
 - Una imagen del contenedor Docker publicada en Docker Hub
 
 {% data variables.product.prodname_marketplace %} es una ubicación central para que encuentres acciones que crea la comunidad de {% data variables.product.prodname_dotcom %}.{% ifversion fpt or ghec %}La [página de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace/actions/) te permite filtrar de acuerdo con la categoría de las acciones. {% endif %}
@@ -44,7 +45,23 @@ Puedes buscar acciones manualmente o por coincidencia exacta directamente en el 
 
 ## Agregar una acción a tu flujo de trabajo
 
-Las páginas de listado de acciones incluyen la versión de la acción y la sintaxis de flujo de trabajo que se requiere para utilizar dicha acción. Para mantener estable a tu flujo de trabajo, aún cuando se hagan actualizaciones en una acción, puedes referenciar la versión de la acción a utilizar si especificas el número de etiqueta de Git o de Docker en tu archivo de flujo de trabajo.
+Puedes agregar una acción a tu flujo de trabajo si la referencias en tu archivo de flujo de trabajo.
+
+Puedes ver las acciones referenciadas en tus flujos de trabajo de {% data variables.product.prodname_actions %} como dependencias en la gráfica de dependencias del repositorio que contiene tus flujos de trabajo. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6269 %}
+
+{% note %}
+
+**Nota:** Para mejorar la seguridad, {% data variables.product.prodname_actions %} obsoletizará las redirecciones para las acciones. Esto significa que, cuando cambie el propietario o el nombre del repositorio de una acción, cualquier flujo de trabajo que la utilizara con el nombre anterior, fallará.
+
+{% endnote %}
+
+{% endif %}
+
+### Agregar una acción desde {% data variables.product.prodname_marketplace %}
+
+La página de descripción de una acción incluye la versión de la acción y la sintaxis de flujo de trabajo que se necesita para usar la acción. Para mantener estable a tu flujo de trabajo, aún cuando se hagan actualizaciones en una acción, puedes referenciar la versión de la acción a utilizar si especificas el número de etiqueta de Git o de Docker en tu archivo de flujo de trabajo.
 
 1. Navega hasta la acción que deseas usar en tu flujo de trabajo.
 1. En "Installation" (Instalación), haz clic en {% octicon "clippy" aria-label="The edit icon" %} para copiar la sintaxis del flujo de trabajo. ![Ver descripción de la acción](/assets/images/help/repository/actions-sidebar-detailed-view.png)
@@ -54,6 +71,66 @@ Las páginas de listado de acciones incluyen la versión de la acción y la sint
 {% data reusables.dependabot.version-updates-for-actions %}
 
 {% endif %}
+
+### Agregar una acción desde el mismo repositorio
+
+Si se define una acción en el mismo repositorio en el que tu archivo de flujo de trabajo usa la acción, puedes hacer referencia a la acción con ‌`{owner}/{repo}@{ref}` o la sintaxis `./path/to/dir` en tu archivo de flujo de trabajo.
+
+Ejemplo de estructura de archivo de repositorio:
+
+```
+|-- hello-world (repository)
+|   |__ .github
+|       └── workflows
+|           └── my-first-workflow.yml
+|       └── actions
+|           |__ hello-world-action
+|               └── action.yml
+```
+
+Ejemplo de archivo de flujo de trabajo:
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Este paso revisa una copia de tu repositorio.
+      - uses: actions/checkout@v2
+    # Este paso hace referencia al directorio que contiene la acción.
+      - uses: ./.github/actions/hello-world-action
+```
+
+El archivo `action.yml` se utiliza para proporcionar metadatos para la acción. Aprende sobre el contenido de este archivo en la sección "[Sintaxis de metadatos para las GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)."
+
+### Agregar una acción desde un repositorio diferente
+
+Si se define una acción en un repositorio diferente del de tu archivo de flujo de trabajo, puedes referenciarla con la sintaxis `{owner}/{repo}@{ref}` en tu archivo de flujo de trabajo.
+
+La acción debe almacenarse en un repositorio público{% if internal-actions %} o interno que se configure para permitir el acceso a los flujos de trabajo. Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".{% else %}.{% endif %}
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: actions/setup-node@v1.1.0
+```
+
+### Hacer referencia a un contenedor en Docker Hub
+
+Si se define una acción en una imagen de contenedor Docker publicada en Docker Hub, debes hacer referencia a la acción con la sintaxis `docker://{image}:{tag}` en tu archivo de flujo de trabajo. Para proteger tu código y tus datos, te recomendamos que verifiques la integridad de la imagen del contenedor Docker de Docker Hub antes de usarla en tu flujo de trabajo.
+
+```yaml
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://alpine:3.8
+```
+
+Para encontrar algunos ejemplos de acciones de Docker, consulta el [flujo de trabajo de Docker-image.yml](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) y la sección "[Crear una acción de contenedor de Docker](/articles/creating-a-docker-container-action)".
+
 
 ## Utilizar la administración de lanzamientos para tus acciones personalizadas
 
@@ -124,51 +201,6 @@ Predeterminadamente, puedes utilizar la mayoría de las
 
 acciones oficiales que crea {% data variables.product.prodname_dotcom %} en {% data variables.product.prodname_ghe_managed %}. Para obtener más información, consulta la sección "[Utilizar las acciones en {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-actions-in-github-ae)".
 {% endif %}
-
-## Hacer referencia a una acción en el mismo repositorio en el que un archivo de flujo de trabajo usa la acción
-
-Si se define una acción en el mismo repositorio en el que tu archivo de flujo de trabajo usa la acción, puedes hacer referencia a la acción con ‌`{owner}/{repo}@{ref}` o la sintaxis `./path/to/dir` en tu archivo de flujo de trabajo.
-
-Ejemplo de estructura de archivo de repositorio:
-
-```
-|-- hello-world (repository)
-|   |__ .github
-|       └── workflows
-|           └── my-first-workflow.yml
-|       └── actions
-|           |__ hello-world-action
-|               └── action.yml
-```
-
-Ejemplo de archivo de flujo de trabajo:
-
-```yaml
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      # Este paso revisa una copia de tu repositorio.
-      - uses: actions/checkout@v2
-    # Este paso hace referencia al directorio que contiene la acción.
-      - uses: ./.github/actions/hello-world-action
-```
-
-El archivo `action.yml` se utiliza para proporcionar metadatos para la acción. Aprende sobre el contenido de este archivo en la sección "[Sintaxis de metadatos para las GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)"
-
-## Hacer referencia a un contenedor en Docker Hub
-
-Si se define una acción en una imagen de contenedor Docker publicada en Docker Hub, debes hacer referencia a la acción con la sintaxis `docker://{image}:{tag}` en tu archivo de flujo de trabajo. Para proteger tu código y tus datos, te recomendamos que verifiques la integridad de la imagen del contenedor Docker de Docker Hub antes de usarla en tu flujo de trabajo.
-
-```yaml
-jobs:
-  my_first_job:
-    steps:
-      - name: My first step
-        uses: docker://alpine:3.8
-```
-
-Para encontrar algunos ejemplos de acciones de Docker, consulta el [flujo de trabajo de Docker-image.yml](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) y la sección "[Crear una acción de contenedor de Docker](/articles/creating-a-docker-container-action)".
 
 ## Pasos siguientes
 

@@ -1,6 +1,6 @@
 ---
-title: Enforcing policies for GitHub Actions in your enterprise
-intro: 'You can enforce policies for {% data variables.product.prodname_actions %} within your enterprise''s organizations, or allow policies to be set in each organization.'
+title: Requerir políticas para las GitHub Actions en tu empresa
+intro: 'Puedes requerir políticas para las {% data variables.product.prodname_actions %} dentro de las organizaciones de tu empresa o permitir que estas se configuren en cada organización.'
 permissions: 'Enterprise owners can enforce policies for {% data variables.product.prodname_actions %} in an enterprise.'
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -22,18 +22,18 @@ topics:
   - Actions
   - Enterprise
   - Policies
-shortTitle: GitHub Actions policies
+shortTitle: Políticas de GitHub Actions
 ---
 
 {% data reusables.actions.enterprise-beta %}
 
-## About policies for {% data variables.product.prodname_actions %} in your enterprise
+## Acerca de las políticas para {% data variables.product.prodname_actions %} en tu empresa
 
-{% data variables.product.prodname_actions %} helps members of your enterprise automate software development workflows on {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Entender las {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)".
+Las {% data variables.product.prodname_actions %} ayudan a los miembros de tu empresa a automatizar los flujos de trabajo de desarrollo de software en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Entender las {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)".
 
-{% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.product.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
+{% ifversion ghes %}Si habilitas las {% data variables.product.prodname_actions %}, cualquier{% else %}Cualquier{% endif %} organización en {% data variables.product.product_location %} podrá utilizar {% data variables.product.prodname_actions %}. Puedes requerir políticas para controlar la forma en la que los miembros de tu empresa de {% data variables.product.product_name %} utilizan las {% data variables.product.prodname_actions %}. Predeterminadamente, los propietarios de las organizaciones pueden administrar la forma en la que los miembros utilizan las {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección "[Inhabilitar o limitar las {% data variables.product.prodname_actions %} para tu organización](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)".
 
-## Enforcing a policy to restrict the use of actions in your enterprise
+## Requerir una política para restringir el uso de las acciones en tu empresa
 
 Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para todas las organizaciones en tu empresa, o puedes permitir solo organizaciones específicas. También puedes limitar el uso de acciones públicas para que las personas solo puedan utilizar las acciones locales que existen en tu empresa.
 
@@ -45,7 +45,7 @@ Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para tod
 
 {% ifversion ghec or ghes or ghae %}
 
-### Allowing select actions to run
+### Permitir que se ejecuten acciones específicas
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
@@ -62,33 +62,33 @@ Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para tod
 
 {% ifversion ghec or ghes or ghae %}
 
-## Enforcing a policy for artifact and log retention in your enterprise
+## Requerir una política para la retención de bitácoras y artefactos en tu empresa
 
-{% data variables.product.prodname_actions %} can store artifact and log files. Para obtener más información, consulta la sección "[Descargar artefactos de los flujos de trabajo ](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
+Las {% data variables.product.prodname_actions %} pueden restablecer los archivos de bitácora y artefactos. Para obtener más información, consulta la sección "[Descargar artefactos de los flujos de trabajo ](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
 
 {% data reusables.actions.about-artifact-log-retention %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
+{% data reusables.actions.change-retention-period-for-artifacts-logs  %}
 
 {% endif %}
 
-## Enforcing a policy for fork pull requests in your enterprise
+## Requerir una política para bifurcar solicitudes de cambio en tu empresa
 
-You can enforce policies to control how {% data variables.product.prodname_actions %} behaves for {% data variables.product.product_location %} when members of your enterprise{% ifversion ghec %} or outside collaborators{% endif %} run workflows from forks.
+Puedes requerir políticas para controlar la forma en la que se comportan las {% data variables.product.prodname_actions %} en {% data variables.product.product_location %} cuando los miembros de tu empresa{% ifversion ghec %} o colaboradores externos{% endif %} ejecutan flujos de trabajo desde las bifurcaciones.
 
 {% ifversion ghec %}
 
-### Enforcing a policy for approval of pull requests from outside collaborators
+### Requerir una política para la aprobación de las solicitudes de cambio desde los colaboradores externos
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.workflows-from-public-fork-setting %}
+{% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
 
@@ -96,26 +96,30 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 {% ifversion ghec or ghes or ghae %}
 
-### Enforcing a policy for fork pull requests in private repositories
+### Requerir una política para bifurcar solicitudes de cambio en repositorios privados
 
-{% data reusables.github-actions.private-repository-forks-overview %}
+{% data reusables.actions.private-repository-forks-overview %}
+
+Si se habilita una política para una empresa, esta puede inhabilitarse selectivamente en organizaciones o repositorios individuales. Si se inhabilita una política para una empresa, las organizaciones o repositorios individuales no pueden habilitarla.
+
+{% data reusables.actions.private-repository-forks-options %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.private-repository-forks-configure %}
+{% data reusables.actions.private-repository-forks-configure %}
 
 {% endif %}
 
 {% ifversion ghec or ghes > 3.1 or ghae %}
 
-## Enforcing a policy for workflow permissions in your enterprise
+## Requerir una política para los permisos de flujo de trabajo en tu empresa
 
-{% data reusables.github-actions.workflow-permissions-intro %}
+{% data reusables.actions.workflow-permissions-intro %}
 
 Puedes configurar los permisos predeterminados para del `GITHUB_TOKEN` en la configuración de tu empresa, organización o repositorio. Si eliges la opción restringida como lo predeterminado en la configuración de tu empresa, esto previene que puedas elegir más configuraciones permisivas en la configuración de tu organización o repositorio.
 
-{% data reusables.github-actions.workflow-permissions-modifying %}
+{% data reusables.actions.workflow-permissions-modifying %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

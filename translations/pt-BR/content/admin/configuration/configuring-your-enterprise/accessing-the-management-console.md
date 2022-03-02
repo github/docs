@@ -33,6 +33,8 @@ Use o {% data variables.enterprise.management_console %} para atividades adminis
 
 Para acessar o {% data variables.enterprise.management_console %}, você deve usar a senha de administrador definida na configuração inicial da {% data variables.product.product_location %}. Você também deve poder se conectar ao host da máquina virtual na porta 8443. Se tiver problemas para chegar ao {% data variables.enterprise.management_console %}, verifique as configurações intermediárias de firewall e grupo de segurança.
 
+O hash da senha de {% data variables.enterprise.management_console %} é armazenado em `/data/user/common/secrets.conf` e esse arquivo é automaticamente sincronizado no dispositivo principal para qualquer réplica de alta disponibilidade. Qualquer alteração na senha principal será automaticamente replicada em réplicas de alta disponibilidade. Para obter mais informações sobre alta disponibilidade, consulte "[Sobre configuração de alta disponibilidade](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)".
+
 ## Acessar o {% data variables.enterprise.management_console %} como administrador do site
 
 A primeira vez que você acessar o {% data variables.enterprise.management_console %} como administrador do site, você deve enviar seu arquivo de licença do {% data variables.product.prodname_enterprise %} para efetuar a autenticação no aplicativo. Para obter mais informações, consulte "[Gerenciar a sua licença para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."

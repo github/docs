@@ -17,7 +17,15 @@ shortTitle: Fazer merge de várias contas de usuário
 
 {% tip %}
 
+{% ifversion ghec %}
+
+**Dica:** {% data variables.product.prodname_emus %} permite que uma empresa forneça contas únicas de usuário para seus integrantes por meio de um provedor de identidade (IdP). Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)". Para outros casos de uso, recomendamos usar apenas uma conta de usuário para gerenciar repositórios pessoais e profissionais.
+
+{% else %}
+
 **Dicas::** recomendamos que você use apenas uma conta de usuário para gerenciar os repositórios pessoal e profissional.
+
+{% endif %}
 
 {% endtip %}
 

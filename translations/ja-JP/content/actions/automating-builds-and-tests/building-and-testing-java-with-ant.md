@@ -78,9 +78,9 @@ jobs:
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## コードのビルドとテスト
 
@@ -88,7 +88,7 @@ The default starter workflows are excellent starting points when creating your b
 
 このスターターワークフローは、_build.xml_ファイルで指定されたデフォルトのターゲットを実行します。  デフォルトのターゲットは、一般的にクラスをビルドし、テストを実行し、たとえばJARファイルのような配布可能なフォーマットにクラスをパッケージするように設定されるでしょう。
 
-プロジェクトのビルドに異なるコマンドを使ったり、異なるターゲットを実行したいのであれば、それらを指定できます。 たとえば、_build-ci.xml_ファイル中で設定された`jar`ターゲットを実行したいこともあるでしょう。
+プロジェクトのビルドに異なるコマンドを使ったり、異なるターゲットを実行したいのであれば、それらを指定できます。 For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
 
 {% raw %}
 ```yaml{:copy}

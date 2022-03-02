@@ -46,9 +46,9 @@ Você deve habilitar o logon único SAML para sua organização e seu IdP compat
 
 Você deve ter uma identidade SAML vinculada. Para criar uma identidade vinculada, você deve efetuar a autenticação na sua organização usando o SAML SSO e o IdP compatível pelo menos uma vez. Para obter mais informações, consulte "[Autenticar com logon único de SAML](/articles/authenticating-with-saml-single-sign-on)".
 
-Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
+As suas configurações do SAML **devem** conter um IdP válido para o campo **Emissor**.
 
-![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
+![Campo emissor do SAML](/assets/images/help/saml/saml_issuer.png)
 
 
 
@@ -70,7 +70,7 @@ A sincronização da equipe do Okta exige que o SAML e o SCIM com Okta já tenha
 
 Para evitar possíveis erros de sincronização de equipes com o Okta, recomendamos que você confirme se as identidades vinculadas ao SCIM estão configuradas corretamente para todos os integrantes da organização que forem integrantes dos seus grupos escolhidos do Okta antes de habilitar a sincronização de equipes em {% data variables.product.prodname_dotcom %}.
 
-Se um integrante da organização não tiver uma identidade SCIM vinculada, a sincronização de equipes não funcionará conforme esperado e o usuário não poderá ser adicionado ou removido das equipes como esperado. Se algum desses usuários não tiver uma identidade associada ao SCIM, você deverá provisioná-la.
+Se um integrante da organização não tiver uma identidade SCIM vinculada, a sincronização de equipes não funcionará conforme esperado e o usuário não poderá ser adicionado ou removido das equipes como esperado. Se algum desses usuários não tiver uma identidade associada ao SCIM, você deverá provisioná-la novamente.
 
 Para obter ajuda sobre o provisionamento de usuários que não tenham uma identidade vinculada ao SCIM, consulte "[Resolvendo problemas de identidade e gerenciamento de acessos](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)".
 

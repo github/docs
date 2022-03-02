@@ -173,7 +173,7 @@ You can set the visibility for multiple ports with one command. 例如：
 gh codespace ports visibility 80:private 3000:public 3306:org -c <em>codespace-name</em>
 ```
 
-For more information, see "[Forwarding ports in your codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)."
+更多信息请参阅“[在代码空间中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
 
 ### Access codespace logs
 

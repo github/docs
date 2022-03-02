@@ -116,7 +116,7 @@ STLファイルを含むコミットあるいは一連の変更を見る場合�
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-たとえばモデルのURLが[github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl)なら、埋め込むコードは以下のようになるでしょう。
+For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>

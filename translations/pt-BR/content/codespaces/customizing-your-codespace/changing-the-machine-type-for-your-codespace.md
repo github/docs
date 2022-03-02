@@ -39,9 +39,9 @@ Para obter informações sobre como escolher um tipo de máquina ao criar um cod
 
    ![Opção de menu '"Alterar tipo de máquina"](/assets/images/help/codespaces/change-machine-type-menu-option.png)
 
-1. If multiple machine types are available for your codespace, choose the type of machine you want to use.
+1. Se vários tipos de máquina estiverem disponíveis para seu codespace, escolha o tipo de máquina que você deseja usar.
 
-   ![Dialog box showing available machine types to choose](/assets/images/help/codespaces/change-machine-type-choice.png)
+   ![Caixa de diálogo que mostra tipos de máquinas disponíveis para escolher](/assets/images/help/codespaces/change-machine-type-choice.png)
 
    {% data reusables.codespaces.codespaces-machine-type-availability %}
 

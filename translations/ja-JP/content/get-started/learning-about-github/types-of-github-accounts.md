@@ -83,5 +83,7 @@ Your enterprise account is a collection of all the organizations {% ifversion gh
 
 ## 参考リンク
 
-{% ifversion fpt or ghec %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"{% endif %}
+{% ifversion fpt or ghec %}
+- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"{% endif %}
 - 「[新しい Organization アカウントを作成する](/articles/creating-a-new-organization-account)」
+- [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources

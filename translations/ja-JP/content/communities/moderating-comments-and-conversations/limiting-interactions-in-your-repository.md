@@ -28,8 +28,7 @@ shortTitle: リポジトリ内でのインタラクションの制限
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. 左サイドバーで [**Moderation settings**] をクリックします。 ![[Repository settings] サイトバーの [Moderation settings]](/assets/images/help/repository/repo-settings-moderation-settings.png)
-1. [Moderation settings] で、[**Interaction limits**] をクリックします。 ![リポジトリの設定での [Interaction limits] ](/assets/images/help/repository/repo-settings-interaction-limits.png)
+1. In the "Access" section of the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![[Temporary interaction limits] のオプション](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
@@ -37,4 +36,4 @@ shortTitle: リポジトリ内でのインタラクションの制限
 - [悪用あるいはスパムのレポート](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
 - [Organizationのリポジトリへの個人のアクセスの管理](/articles/managing-an-individual-s-access-to-an-organization-repository)
 - [ユーザアカウントのリポジトリ権限レベル](/articles/permission-levels-for-a-user-account-repository)
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- 「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」

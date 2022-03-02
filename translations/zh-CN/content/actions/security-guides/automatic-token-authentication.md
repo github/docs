@@ -39,30 +39,11 @@ shortTitle: Automatic token authentication
 {% endnote %}
 {% endif %}
 
-{% data reusables.github-actions.actions-do-not-trigger-workflows %}
+{% data reusables.actions.actions-do-not-trigger-workflows %}
 
 ### 示例 1：将 `GITHUB_TOKEN` 作为输入传递
 
-此示例工作流程使用[贴标器操作](https://github.com/actions/labeler)，需要 `GITHUB_TOKEN` 作为 `repo-token` 输入参数的值：
-
-```yaml
-name: Pull request labeler
-
-on: [ pull_request_target ]
-
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}permissions:
-  contents: read
-  pull-requests: write
-
-{% endif %}
-jobs:
-  triage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/labeler@v2
-        with:
-          repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```
+{% data reusables.actions.github_token-input-example %}
 
 ### 例2：调用 REST API
 
@@ -99,33 +80,34 @@ jobs:
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 下表显示默认情况下授予 `GITHUB_TOKEN` 的权限。 People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
-| 作用域      | 默认访问<br>（允许） | 默认访问<br>（限制） | 复刻的仓库的最大访问权限<br> |
-| -------- | ------------------ | ------------------ | ---------------------- |
-| 操作       | 读/写                | 无                  | 读取                     |
-| 检查       | 读/写                | 无                  | 读取                     |
-| 内容       | 读/写                | 读取                 | 读取                     |
-| 部署       | 读/写                | 无                  | 读取                     |
-| id-token | 读/写                | 无                  | 读取                     |
-| 议题       | 读/写                | 无                  | 读取                     |
-| 元数据      | 读取                 | 读取                 | 读取                     |
-| 包        | 读/写                | 无                  | 读取                     |
-| 拉取请求     | 读/写                | 无                  | 读取                     |
-| 仓库项目     | 读/写                | 无                  | 读取                     |
-| 安全事件     | 读/写                | 无                  | 读取                     |
-| 状态       | 读/写                | 无                  | 读取                     |
+| 作用域      | 默认访问<br>（允许） | 默认访问<br>（限制） | 复刻的仓库的最大访问权限<br>            |
+| -------- | ------------------ | ------------------ | --------------------------------- |
+| 操作       | 读/写                | 无                  | 读取                                |
+| 检查       | 读/写                | 无                  | 读取                                |
+| 内容       | 读/写                | 读取                 | 读取                                |
+| 部署       | 读/写                | 无                  | read |{% ifversion fpt or ghec %}
+| id-token | 无                  | 无                  | read 
+{% endif %}
+| 议题       | 读/写                | 无                  | 读取                                |
+| 元数据      | 读取                 | 读取                 | 读取                                |
+| 包        | 读/写                | 无                  | 读取                                |
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6187 %}
+| pages         | read/write  | none | read |
+{%- endif %}
+| pull-requests | read/write  | none | read | | repository-projects | read/write | none | read | | security-events     | read/write | none | read | | statuses      | read/write  | none | read |
 {% else %}
-| 作用域  | 访问类型 | 通过复刻的仓库访问 |
-| ---- | ---- | --------- |
-| 操作   | 读/写  | 读取        |
-| 检查   | 读/写  | 读取        |
-| 内容   | 读/写  | 读取        |
-| 部署   | 读/写  | 读取        |
-| 议题   | 读/写  | 读取        |
-| 元数据  | 读取   | 读取        |
-| 包    | 读/写  | 读取        |
-| 拉取请求 | 读/写  | 读取        |
-| 仓库项目 | 读/写  | 读取        |
-| 状态   | 读/写  | 读取        |
+| 作用域                 | 访问类型 | 通过复刻的仓库访问 |
+| ------------------- | ---- | --------- |
+| 操作                  | 读/写  | 读取        |
+| 检查                  | 读/写  | 读取        |
+| 内容                  | 读/写  | 读取        |
+| 部署                  | 读/写  | 读取        |
+| 议题                  | 读/写  | 读取        |
+| 元数据                 | 读取   | 读取        |
+| 包                   | 读/写  | 读取        |
+| pull-requests       | 读/写  | 读取        |
+| repository-projects | 读/写  | 读取        |
+| 状态                  | 读/写  | 读取        |
 {% endif %}
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
@@ -139,7 +121,7 @@ jobs:
 
 您可以在工作流文件中使用 `permissions` 键来修改 `GITHUB_TOKEN` 对于整个工作流或单个作业的权限。 这允许您为工作流程或作业配置所需的最小权限。 使用 `permissions` 键时，所有未指定的权限都设置为没有访问权限，`metadata`范围除外，该范围总是获得读取访问。
 
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.forked-write-permission %}
 
 本文前面的两个工作流程示例显示了在工作流程级别和作业级别使用的 `permissions` 键。 在[例 1](#example-1-passing-the-github_token-as-an-input) 中，为整个工作流程指定了两个权限。 在[示例 2](#example-2-calling-the-rest-api) 中，为单个作业的单一范围授予写入访问权限。
 
@@ -156,3 +138,7 @@ jobs:
 
 1. 使用或创建具有该仓库适当权限的令牌。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 1. 添加令牌作为工作流程仓库中的密码，然后使用 {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} 语法进行引用。 更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+
+### 延伸阅读
+
+- "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)"

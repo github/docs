@@ -35,6 +35,10 @@ Primeiro, crie um projeto de organização ou um projeto de usuário.
 
 {% data reusables.projects.create-user-project %}
 
+## Configurando a descrição e o README do seu projeto
+
+{% data reusables.projects.project-description %}
+
 ## Adicionando problemas ao seu projeto
 
 Em seguida, adicione alguns problemas ao seu projeto.
@@ -48,6 +52,14 @@ Quando seu novo projeto for iniciado, ele irá solicitar que você adicione iten
 Repita os passos acima algumas vezes para adicionar vários problemas ao seu projeto.
 
 Para obter mais informações sobre outras formas de adicionar problemas ao seu projeto, ou sobre outros itens que você pode adicionar ao seu projeto, consulte "[Criando um projeto](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)."
+
+## Adicionando rascunhos de problemas ao seu projeto
+
+Em seguida, adicione um rascunho ao seu projeto.
+
+1. Coloque seu cursor na linha inferior do projeto, ao lado do {% octicon "plus" aria-label="plus icon" %}.
+1. Digite sua ideia e, em seguida, pressione **Enter**.
+1. Clique no título do rascunho do problema. Na caixa de entrada do markdown que será exibida, insira mais informações sobre a sua ideia e, em seguida, clique em **Salvar**.
 
 ## Criando um campo para monitorar a prioridade
 

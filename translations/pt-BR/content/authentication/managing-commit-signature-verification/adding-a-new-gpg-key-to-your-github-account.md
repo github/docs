@@ -26,8 +26,8 @@ Ao verificar uma assinatura, extraímos a assinatura e tentamos analisar sua key
 
 ## Adicionar uma chave GPG
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. Clique em **New GPG key** (Nova chave GPG). ![Botão GPG Key (Chave GPG)](/assets/images/help/settings/gpg-add-gpg-key.png)
 4. No campo "Key" (Chave), cole a chave GPG que você copiou quando [gerou sua chave GPG](/articles/generating-a-new-gpg-key). ![O campo de chave](/assets/images/help/settings/gpg-key-paste.png)
 5. Clique em **Add GPG key** (Adicionar chave GPG). ![O botão Add key (Adicionar chave)](/assets/images/help/settings/gpg-add-key.png)

@@ -4,6 +4,7 @@ intro: 'Você pode facilitar o acesso dos usuários aos links específicos da em
 versions:
   ghec: '*'
   ghes: '>=3.4'
+  ghae: issue-5487
 type: how_to
 topics:
   - Enterprise
@@ -15,7 +16,7 @@ Os proprietários de empresas podem configurar {% data variables.product.product
 
 ![Rodapé personalizado](/assets/images/enterprise/custom-footer/octodemo-footer.png)
 
-O rodapé personalizado é exibido acima do rodapé de {% data variables.product.prodname_dotcom %} {% ifversion ghes or ghae %}para todos os usuários, em todas as páginas de {% data variables.product.product_name %}{% else %}para todos os membros e colaboradores da empresa, em todas as páginas do repositório e da organização para repositórios e organizações que pertencem à empresa{% endif %}.
+O rodapé personalizado é exibido acima do rodapé de {% data variables.product.prodname_dotcom %} {% ifversion ghes or ghae %}para todos os usuários, em todas as páginas de {% data variables.product.product_name %}{% elsif ghec %}para todos os membros e colaboradores da empresa, em todas as páginas do repositório e da organização para repositórios e organizações que pertencem à empresa{% endif %}.
 
 ## Configurar rodapés personalizados para sua empresa
 

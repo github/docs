@@ -22,6 +22,12 @@ shortTitle: 连接 IdP
 - PingOne [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector)
 - Shibboleth [SAML](https://wiki.shibboleth.net/confluence/display/IDP30/Home)
 
+您可以通过以下 URL 访问组织的服务提供商元数据，将 ORGANIZATION 替换为您的组织的用户名。
+
+```
+http(s)://github.com/orgs/ORGANIZATION/saml/metadata.xml
+```
+
 {% note %}
 
 **注：**{% data variables.product.product_name %} 支持的用于 SCIM 的身份提供程序为 Azure AD、Okta 和 OneLogin。 {% data reusables.scim.enterprise-account-scim %} 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。

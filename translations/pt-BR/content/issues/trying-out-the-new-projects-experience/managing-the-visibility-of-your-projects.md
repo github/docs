@@ -23,6 +23,8 @@ Apenas a visibilidade do projeto é afetada. Para ver um item no projeto, algué
 
 Somente os administradores do projeto podem controlar a visibilidade do projeto.
 
+Em projetos privados, os avatares de usuários que estão fazendo atualizações para o projeto são exibidos na interface de usuário do projeto.
+
 Os administradores do projeto também podem gerenciar o acesso de gravação e administração ao seu projeto e controlar o acesso de leitura para usuários individuais. Para obter mais informações, consulte "[Gerenciando o acesso aos projetos](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)".
 
 ## Alterando a visibilidade do projeto

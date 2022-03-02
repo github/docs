@@ -133,14 +133,14 @@ topics:
 
 ## Ferramentas de administração do site
 
-| Ação                    | Descrição                                                                                                                  |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `staff.disable_repo`    | Um administrador do site desabilitou o acesso a um repositório e a todas as suas bifurcações.                              |
-| `staff.enable_repo`     | Um administrador do site reabilitou o acesso a um repositório e a todas as suas bifurcações.{% ifversion ghes > 3.2 %}
-| `staff.exit_fake_login` | O administrador de um site ancerrou uma sessão de representação em {% data variables.product.product_name %}.              |
+| Ação                    | Descrição                                                                                                                      |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `staff.disable_repo`    | Um administrador do site desabilitou o acesso a um repositório e a todas as suas bifurcações.                                  |
+| `staff.enable_repo`     | Um administrador do site reabilitou o acesso a um repositório e a todas as suas bifurcações.{% ifversion ghae or ghes > 3.2 %}
+| `staff.exit_fake_login` | O administrador de um site ancerrou uma sessão de representação em {% data variables.product.product_name %}.                  |
 | `staff.fake_login`      | Um administrador do site efetu ou o login em {% data variables.product.product_name %} como outro usuário.{% endif %}
-| `staff.repo_unlock`     | Um administrador do site desbloqueou (obteve acesso total temporariamente a) um dos repositórios privados de um usuário.   |
-| `staff.unlock`          | Um administrador do site desbloqueou (obteve acesso total temporariamente a) todos os repositórios privados de um usuário. |
+| `staff.repo_unlock`     | Um administrador do site desbloqueou (obteve acesso total temporariamente a) um dos repositórios privados de um usuário.       |
+| `staff.unlock`          | Um administrador do site desbloqueou (obteve acesso total temporariamente a) todos os repositórios privados de um usuário.     |
 
 ## Equipes
 

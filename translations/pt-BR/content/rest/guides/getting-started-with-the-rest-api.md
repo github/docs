@@ -108,11 +108,11 @@ Qualquer cabeçalho que começar com `X -` é um cabeçalho personalizado e não
 
 ## Autenticação
 
-Clientes sem autenticação podem fazer 60 solicitações por hora. Para obter mais solicitações por hora, precisaremos _efetuar a autenticação_. In fact, doing anything interesting with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API requires [authentication][authentication].
+Clientes sem autenticação podem fazer 60 solicitações por hora. Para obter mais solicitações por hora, precisaremos _efetuar a autenticação_. De fato, fazer qualquer coisa interessante com a {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API exige [autenticação][authentication].
 
 ### Usar tokens de acesso pessoal
 
-The easiest and best way to authenticate with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API is by using Basic Authentication [via OAuth tokens](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). Os tokens do OAuth incluem [os tokens de acesso pessoal][personal token].
+A maneira melhor e mais fácil de efetuar a autenticação com a {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API é usando a Autenticação Básica [por meio dos tokens do OAuth](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). Os tokens do OAuth incluem [os tokens de acesso pessoal][personal token].
 
 Use um sinalizador `-u` para definir o seu nome de usuário:
 
@@ -156,7 +156,7 @@ As solicitações da API que usam um token de acesso pessoal vencido retornará 
 
 ### Obtenha seu próprio perfil de usuário
 
-When properly authenticated, you can take advantage of the permissions associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Por exemplo, tente obter
+Quando autenticado corretamente, você pode aproveitar as permissões associadas à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Por exemplo, tente obter
 
 ```shell
 $ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
@@ -194,7 +194,7 @@ Agora que demos um jeito de fazer chamadas autenticadas, vamos seguir em frente 
 
 ## Repositórios
 
-Almost any meaningful use of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API will involve some level of Repository information. Podemos [`OBTER` informações do repositório][get repo] da mesma forma que obtemos ass informações do usuário anteriormente:
+Quase qualquer uso significativo da {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API envolverá algum nível de informação do repositório. Podemos [`OBTER` informações do repositório][get repo] da mesma forma que obtemos ass informações do usuário anteriormente:
 
 ```shell
 $ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
@@ -222,9 +222,9 @@ $ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 As informações retornadas dessas chamadas dependerão de quais escopos o nosso token terá quando efetuarmos a autenticação:
 
 {%- ifversion fpt or ghec or ghes %}
-* A token with `public_repo` [scope][scopes] returns a response that includes all public repositories we have access to see on {% data variables.product.product_location %}.
+* Um token com `public_repo` [escopo][scopes] retorna uma resposta que inclui todos os repositórios públicos aos quais temos acesso para ver em {% data variables.product.product_location %}.
 {%- endif %}
-* A token with `repo` [scope][scopes] returns a response that includes all {% ifversion fpt %}public or private{% elsif ghec or ghes %}public, private, or internal{% elsif ghae %}private or internal{% endif %} repositories we have access to see on {% data variables.product.product_location %}.
+* Um token com `repositório` [escopo][scopes] retorna uma resposta que inclui todos {% ifversion fpt %}públicos ou privados{% elsif ghec or ghes %}públicos, repositórios privados ou internos{% elsif ghae %}privados ou internos{% endif %} aos quais temos acesso para ver em {% data variables.product.product_location %}.
 
 Conforme a [documentação][repos-api] indica, estes métodos usam um parâmetro `tipo` que pode filtrar os repositórios retornados com base no tipo de acesso que o usuário possui para o repositório. Desta forma, podemos buscar apenas repositórios de propriedade direta, repositórios da organização ou repositórios nos quais o usuário colabora por meio de uma equipe.
 
@@ -237,7 +237,7 @@ Neste exemplo, pegamos apenas os repositórios que o octocat possui, não os nos
 ### Criar um repositório
 
 Buscar informações para repositórios existentes é um caso de uso comum, mas a
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API supports creating new repositories as well. Para [criar um repositório][create repo],
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} A API é compatível com a criação de novos repositórios também. Para [criar um repositório][create repo],
 precisamos `POST` alguns JSON que contém informações e opções de configuração.
 
 ```shell
@@ -267,7 +267,7 @@ $ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 > }
 ```
 
-Ah não! Onde ele foi parar? Uma vez que criamos o repositório como _privado_, precisamos autenticá-lo para poder vê-lo. Se você é um usuário de HTTP, você pode esperar um `403`. Since we don't want to leak information about private repositories, the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API returns a `404` in this case, as if to say "we can neither confirm nor deny the existence of this repository."
+Ah não! Onde ele foi parar? Uma vez que criamos o repositório como _privado_, precisamos autenticá-lo para poder vê-lo. Se você é um usuário de HTTP, você pode esperar um `403`. Como não queremos vazar informações sobre repositórios privados, a API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} retorna `404` neste caso, como se dissesse "não podemos nem confirmar nem negar a existência deste repositório".
 
 ## Problemas
 
@@ -390,7 +390,7 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 
 O status `304` indica que o recurso não mudou desde a última vez que pedimos e a resposta não conterá texto. Como um bônus, as respostas de `304` não contam contra o seu [limite de taxa][rate-limiting].
 
-Nossa! Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
+Agora você sabe o básico da API {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}!
 
 * Autenticação básica do & OAuth
 * Buscar e criar de repositórios e problemas
@@ -412,8 +412,8 @@ Continue aprendendo com o próximo guia da API [Princípios básicos da autentic
 [issues-api]: /rest/reference/issues
 [link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
-[rate-limiting]: /rest#rate-limiting
-[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
 [users api]: /rest/reference/users#get-a-user
 [defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt

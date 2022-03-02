@@ -104,7 +104,7 @@ Hay algunas partes interesantes en los encabezados de la respuesta. Como lo espe
 Cualquier encabezado que comience como `X` se refiere a un encabezado personalizado, y no se incluirá en la especificación de HTTPS. Por ejemplo:
 
 * `X-GitHub-Media-Type` tiene un valor de `github.v3`. Esto nos permite saber el [tipo de medios][media types] para la respuesta. Los tipos de medios nos han ayudado a versionar nuestra salida en la API v3. Hablaremos más sobre esto después.
-* Toma nota de los encabezados `X-RateLimit-Limit` y `X-RateLimit-Remaining`. Este par de encabezados indica [cuántas solicitudes puede hacer un cliente][rate-limiting] en un periodo de tiempo consecutivo (habitualmente una hora) y cuántas de estas solicitudes ha gastado el cliente hasta ahora.
+* Toma nota de los encabezados `X-RateLimit-Limit` y `X-RateLimit-Remaining`. Este par de encabezados indican [cuántas solicitudes puede hacer un cliente][rate-limiting] en un periodo continuo (habitualmente, una hora) y cuántas de ellas ya ha gastado el cliente.
 
 ## Autenticación
 
@@ -388,9 +388,9 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 > HTTP/2 304
 ```
 
-El estado `304` indica que el recurso no ha cambiado desde la última vez que lo solicitamos y que la respuesta no contendrá ningún cuerpo. Como bonificación, las respuestas `304` no contarán para tu [límite de tasa][rate-limiting].
+El estado `304` indica que el recurso no ha cambiado desde la última vez que lo solicitamos y que la respuesta no contendrá ningún cuerpo. Como bono, las respuestas de tipo `304` no cuentan en tu [límite de tasa][rate-limiting].
 
-¡Qué! ¡Ahora conoces lo básico de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}!
+¡Ahora conoces lo básico de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}!
 
 * Autenticación básica & de OAuth
 * Obtener y crear repositorios e informes de problemas
@@ -412,8 +412,8 @@ Sigue aprendiendo con la siguiente guía de la API ¡[Fundamentos de la Autentic
 [issues-api]: /rest/reference/issues
 [link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
-[rate-limiting]: /rest#rate-limiting
-[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
 [users api]: /rest/reference/users#get-a-user
 [defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt

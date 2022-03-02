@@ -22,10 +22,12 @@ redirect_from:
 {% data variables.product.prodname_mobile %} te proporciona una manera de realizar trabajo de alto impacto en {% data variables.product.product_name %} de forma rápida y desde cualquier lugar. {% data variables.product.prodname_mobile %} es una manera segura y estable de acceder a tus datos de {% data variables.product.product_name %} a través de una aplicación cliente confiable de primera parte.
 
 Con {% data variables.product.prodname_mobile %} puedes:
+
 - Administrar, clasificar y borrar las notificaciones
 - Leer, revisar y colaborar en informes de problemas y solicitudes de extracción
 - Buscar, navegar e interactuar con usuarios, repositorios y organizaciones
 - Recibir notificaciones para subir información cuando alguien menciona tu nombre de usuario
+{% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication{% endif %}
 
 Para obtener más información sobre las notificaciones de {% data variables.product.prodname_mobile %}, consulta "[Configurando notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."
 

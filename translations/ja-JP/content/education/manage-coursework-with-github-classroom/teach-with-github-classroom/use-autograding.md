@@ -60,7 +60,7 @@ redirect_from:
 
 新課題の作成時に、自動採点テストを追加できます。 {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-既存の課題用の自動採点テストを追加、編集、削除できます。 既存の課題用の自動採点テストを変更した場合、既存の課題リポジトリは影響を受けません。 新しいテストを使用するには、学生またはチームが課題を受け入れ、新しい課題リポジトリを作成する必要があります。
+既存の課題用の自動採点テストを追加、編集、削除できます。 All changes made via the Classroom UI will be pushed to the existing student repositories, so use caution when editing your tests.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

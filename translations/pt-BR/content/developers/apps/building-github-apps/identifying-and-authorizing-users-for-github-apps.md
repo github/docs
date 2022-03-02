@@ -272,7 +272,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 #### Refs do Git
 
-* [Criar uma referência](/rest/reference/git#create-a-reference)* [Obter uma referência](/rest/reference/git#get-a-reference)
+* [Criar referência](/rest/reference/git#create-a-reference)
+* [Obter uma referência](/rest/reference/git#get-a-reference)
 * [Lista de referências correspondentes](/rest/reference/git#list-matching-references)
 * [Atualizar uma referência](/rest/reference/git#update-a-reference)
 * [Excluir uma referência](/rest/reference/git#delete-a-reference)
@@ -449,8 +450,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 {% ifversion fpt or ghec %}
 #### Sincronizar equipe da organização
 
-* [Listar grupos de idp para uma equipe](/rest/reference/teams#list-idp-groups-for-a-team)
-* [Criar ou atualizar conexões do grupo de idp](/rest/reference/teams#create-or-update-idp-group-connections)
+* [Listar grupos de IdP para uma equipe](/rest/reference/teams#list-idp-groups-for-a-team)
+* [Criar ou atualizar conexões de grupo de IdP](/rest/reference/teams#create-or-update-idp-group-connections)
 * [Listar grupos de IdP para uma organização](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 

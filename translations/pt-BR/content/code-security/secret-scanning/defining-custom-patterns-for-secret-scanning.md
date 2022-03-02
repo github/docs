@@ -6,12 +6,13 @@ product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 versions:
-  fpt: '*'
   ghes: '>=3.2'
   ghae: '*'
   ghec: '*'
+type: how_to
 topics:
-  - Repositories
+  - Advanced Security
+  - Secret scanning
 ---
 
 {% ifversion ghes < 3.3 or ghae %}
@@ -24,11 +25,11 @@ topics:
 
 ## Sobre padrões personalizados para {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.company_short %} executa {% data variables.product.prodname_secret_scanning %} nos repositórios {% ifversion fpt or ghec %}públicos e privados{% endif %} para padrões de segredo fornecidos por parceiros de {% data variables.product.company_short %} e {% data variables.product.company_short %}. Para obter mais informações sobre o programa de parceria de {% data variables.product.prodname_secret_scanning %}, consulte "<a href="/developers/overview/secret-scanning-partner-program" class="dotcom-only">Programa de varredura de segredo de parceiros</a>".
+{% data variables.product.company_short %} executa {% data variables.product.prodname_secret_scanning %} nos repositórios {% ifversion fpt or ghec %}públicos e privados{% endif %} para padrões de segredo fornecidos por parceiros de {% data variables.product.company_short %} e {% data variables.product.company_short %}. {% data reusables.secret-scanning.partner-program-link %} Para mais detalhes dos segredos e provedores de serviços compatíveis, consulte "[Parceiros de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-partners)".
 
 No entanto, pode haver situações em que você deverá pesquisar outros padrões secretos nos seus repositórios {% ifversion fpt or ghec %}privados{% endif %}. Por exemplo, você pode ter um padrão de segredo que é interno da sua organização. Para esses casos, você pode definir padrões personalizados de {% data variables.product.prodname_secret_scanning %} na sua empresa, organização ou {% ifversion fpt or ghec %}repositório{% endif %} privado em {% data variables.product.product_name %}. Você pode definir até
 {%- ifversion fpt or ghec or ghes > 3.3 %} 500 padrões personalizados para cada conta da organização ou empresa e até 100 padrões personalizados por {% ifversion fpt or ghec %}repositório{% endif %} privado.
-{%- elsif ghes = 3.3 %} 100 padrões personalizados para cada organização ou conta corporativa, e por repositório.
+{%- elsif ghes = 3.3 %} 100 padrões personalizados para cada organização ou conta corporativa, e 20 por repositório.
 {%- else %} 20 padrões personalizados para cada organização ou conta corporativa, e por repositório.
 {%- endif %}
 
@@ -46,7 +47,16 @@ No entanto, pode haver situações em que você deverá pesquisar outros padrõe
 
 ## Sintaxe de expressão regular para padrões personalizados
 
-Os padrões personalizados para {% data variables.product.prodname_secret_scanning %} são especificados como expressões regulares. {% data variables.product.prodname_secret_scanning_caps %} usa a [biblioteca Hyperscan](https://github.com/intel/hyperscan) e é compatível apenas os construtores regex do Hyperscan, que são um subconjunto da sintaxe PCRE. Os modificadores de opções de huperscan não são compatíveis.  Para obter mais informações sobre construções de padrões do Hyperscan, consulte "[suporte do padrão](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)na documentação do Hyperscan.
+Os padrões personalizados para {% data variables.product.prodname_secret_scanning %} são especificados como uma ou mais expressões regulares.
+
+- **Formato secreto:** uma expressão que descreve o formato do próprio segredo.
+- **Antes do segredo:** uma expressão que descreve os caracteres que vêm antes do segredo. Por padrão, isto é definido como `\A|[^0-9A-Za-z]`, o que significa que o segredo deve estar no início de uma linha ou ser precedido por um caractere não alfanumérico.
+- **Após o segredo:** uma expressão que descreve os caracteres que vêm após o segredo. Por padrão, isso é definido como `\z|[^0-9A-Za-z]` o que significa que o segredo deve ser seguido por uma nova linha ou um caractere não alfanumérico.
+- **Requisitos adicionais de correspondência:** uma ou mais expressões opcionais que o segredo propriamente dito deve ou não corresponder.
+
+Para tokens simples você normalmente só precisa especificar um formato de segredo. Os outros campos proporcionam flexibilidade para que você possa especificar segredos mais complexos sem criar expressões regulares complexas.  Par aobter um exemplo de um padrão personalizado, consulte "[Exemplo de um padrão personalizado especificado com requisitos adicionais](#example-of-a-custom-pattern-specified-using-additional-requirements)" abaixo.
+
+{% data variables.product.prodname_secret_scanning_caps %} usa a [biblioteca Hyperscan](https://github.com/intel/hyperscan) e é compatível apenas os construtores regex do Hyperscan, que são um subconjunto da sintaxe PCRE. Os modificadores de opções de huperscan não são compatíveis.  Para obter mais informações sobre construções de padrões do Hyperscan, consulte "[suporte do padrão](http://intel.github.io/hyperscan/dev-reference/compilation.html#pattern-support)na documentação do Hyperscan.
 
 ## Definindo um padrão personalizado para um repositório
 
@@ -57,9 +67,44 @@ Antes de definir um padrão personalizado, você deve garantir que {% data varia
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
-{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5499 %}
+1. Quando estiver pronto para testar seu novo padrão personalizado, para identificar correspondências no repositório sem criar alertas, clique em **Salvar testar**.
+1. Quando o teste terminar, você verá uma amostra de resultados (até 1000) do repositório. Revise os resultados e identifique quaisquer resultados falso-positivos. ![Captura de tela que exibe os resultados do teste](/assets/images/help/repository/secret-scanning-publish-pattern.png)
+1. Edite o novo padrão personalizado para corrigir quaisquer problemas com os resultados e, em seguida, clique em **Salvar e testar** para testar as suas alterações.
+{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}
+{% endif %}
+{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 Após a criação do seu padrão, {% data reusables.secret-scanning.secret-scanning-process %} Para mais informações sobre visualização de alertas {% data variables.product.prodname_secret_scanning %}, consulte "[Gerenciando alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
+
+### Exemplo de um padrão personalizado especificado usando requisitos adicionais
+
+Uma empresa tem um token interno com cinco características. Eles usam os diferentes campos para especificar como identificar tokens da seguinte forma:
+
+| **Característica**                                 | **Expressão regular e campo**                                          |
+| -------------------------------------------------- | ---------------------------------------------------------------------- |
+| Comprimento entre 5 e 10 caracteres                | Formato do segredo: `[$#%@AA-Za-z0-9]{5,10}`                           |
+| Não termina com um `.`                             | Após o segredo: `[^\.]`                                               |
+| Contém números e letras maiúsculas                 | Requisitos adicionais: o segredo deve corresponder a `[A-Z]` e `[0-9]` |
+| Não inclui mais de uma letra minúscula consecutiva | Requisitos adicionais: o segredo não deve corresponder a `[a-z]{2,}`   |
+| Contém um dos `$%@!`                               | Requisitos adicionais: o segredo deve corresponder a `[$%@!]`          |
+
+Esses tokens iriam corresponder ao padrão personalizado descrito acima:
+
+```
+a9@AAfT!         # Secret string match: a9@AAfT
+ee95GG@ZA942@aa  # Secret string match: @ZA942@a
+a9@AA!ee9        # Secret string match: a9@AA
+```
+
+Estas strings não correspondem ao padrão personalizado descrito acima:
+
+```
+a9@AA.!
+a@AAAAA
+aa9@AA!ee9
+aAAAe9
+```
 
 ## Definindo um padrão personalizado para uma organização
 
@@ -77,6 +122,7 @@ Antes de definir um padrão personalizado, você deverá habilitar {% data varia
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 Depois que o padrão for criado, {% data variables.product.prodname_secret_scanning %} irá verificar todos os segredos nos repositórios {% ifversion fpt or ghec %}privados {% endif %} na sua organização, incluindo todo seu histórico do Git em todos os branches. Os proprietários da organização e administradores do repositório receberão um alerta sobre todos os segredos encontrados e poderão revisar o alerta no repositório onde o segredo for encontrado. Para obter mais informações sobre a visualização de alertas de {% data variables.product.prodname_secret_scanning %}, consulte "[Gerenciar alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
 
@@ -100,6 +146,7 @@ Antes de definir um padrão personalizado, você deverá garantir que você habi
 {% data reusables.enterprise-accounts.advanced-security-security-features %}
 1. Em "Padrões de personalização de digitalização de segredos", clique em {% ifversion ghes = 3.2 %}**Novo padrão personalizado**{% else %}**Novo padrão**{% endif %}.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 Depois que seu padrão for criado, {% data variables.product.prodname_secret_scanning %} irá verificar se há segredos em repositórios {% ifversion fpt or ghec %}privados{% endif %} dentro das organizações da sua empresa com {% data variables.product.prodname_GH_advanced_security %} habilitado, incluindo toda a sua história de Git em todos os branches. Os proprietários da organização e administradores do repositório receberão um alerta sobre todos os segredos encontrados e poderão revisar o alerta no repositório onde o segredo for encontrado. Para obter mais informações sobre a visualização de alertas de {% data variables.product.prodname_secret_scanning %}, consulte "[Gerenciar alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)".
 

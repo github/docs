@@ -71,7 +71,7 @@ shortTitle: GitHub Actions policies
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
+{% data reusables.actions.change-retention-period-for-artifacts-logs  %}
 
 {% endif %}
 
@@ -88,7 +88,7 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.workflows-from-public-fork-setting %}
+{% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
 
@@ -98,12 +98,16 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 ### Enforcing a policy for fork pull requests in private repositories
 
-{% data reusables.github-actions.private-repository-forks-overview %}
+{% data reusables.actions.private-repository-forks-overview %}
+
+If a policy is enabled for an enterprise, the policy can be selectively disabled in individual organizations or repositories. If a policy is disabled for an enterprise, individual organizations or repositories cannot enable it.
+
+{% data reusables.actions.private-repository-forks-options %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.private-repository-forks-configure %}
+{% data reusables.actions.private-repository-forks-configure %}
 
 {% endif %}
 
@@ -111,11 +115,11 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 ## Enforcing a policy for workflow permissions in your enterprise
 
-{% data reusables.github-actions.workflow-permissions-intro %}
+{% data reusables.actions.workflow-permissions-intro %}
 
 您可以在企业、组织或仓库的设置中为 `GITHUB_TOKEN` 设置默认权限。 如果您在企业设置中选择受限制的选项为默认值，这将防止在组织或仓库设置中选择更多的允许设置。
 
-{% data reusables.github-actions.workflow-permissions-modifying %}
+{% data reusables.actions.workflow-permissions-modifying %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

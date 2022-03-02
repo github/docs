@@ -73,7 +73,7 @@ jobs:
 ```
 {% endraw %}
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
 ## Especificar la versión de Node.js
 
@@ -189,7 +189,7 @@ steps:
   run: yarn
 ```
 
-De forma alternativa, puede pasar `--frozen-lockfile` para instalar las versiones en el archivo *yarn.lock* y evitar actualizaciones al archivo *yarn.lock*.
+De forma alternativa, puede pasar `--frozen-lockfile` para instalar las versiones en el archivo `yarn.lock` y evitar actualizaciones al archivo `yarn.lock`.
 
 ```yaml{:copy}
 steps:
@@ -204,7 +204,7 @@ steps:
 
 ### Ejemplo de uso de un registro privado y la creación del archivo .npmrc
 
-{% data reusables.github-actions.setup-node-intro %}
+{% data reusables.actions.setup-node-intro %}
 
 Para autenticar tu registro privado, necesitarás almacenar tu token de autenticación de npm como un secreto. Por ejemplo, crea un repositorio secreto que se llame `NPM_TOKEN`. Para más información, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 

@@ -21,7 +21,7 @@ versions:
 
 Los secretos son variables de ambiente cifradas que creas en una organización{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, repositorio, o ambiente de repositorio{% else %} o repositorio{% endif %}. Los secretos que creas están disponibles para utilizarse en los flujos de trabajo de {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} utiliza una [caja sellada de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ayudarte a garantizar que los secretos se cifran antes de llegar a {% data variables.product.prodname_dotcom %} y que permanezcan cifrados hasta que los utilices en un flujo de trabajo.
 
-{% data reusables.github-actions.secrets-org-level-overview %}
+{% data reusables.actions.secrets-org-level-overview %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Para que los secretos se almacenen a nivel de ambiente, puedes habilitar los revisores requeridos para controlar el acceso a los secretos. Un job de flujo de trabajo no puede acceder a los secretos del ambiente hasta que los revisores requeridos le otorguen aprobación.
@@ -53,11 +53,7 @@ Para hacer que un secreto esté disponible para una acción, debes configurar el
 
 Puedes usar y leer secretos cifrados en un archivo de flujo de trabajo si tienes acceso para editar el archivo. Para obtener más información, consulta "[Permisos de acceso en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
-{% warning %}
-
-**Advertencia:** {% data variables.product.prodname_dotcom %} redacta automáticamente secretos impresos en el registro, pero debes evitar imprimir secretos en el registro intencionalmente.
-
-{% endwarning %}
+{% data reusables.actions.secrets-redaction-warning %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Los secretos de organización y de repositorio se leen cuando una ejecución de flujo de trabajo está en cola y los secretos de ambiente se leen cuando un job que referencia el ambiente comienza.
@@ -77,13 +73,13 @@ Cuando generes credenciales, te recomendamos que otorgues los mínimos permisos 
 
 ## Crear secretos cifrados para un repositorio
 
-{% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% data reusables.actions.permissions-statement-secrets-repository %}
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. Da clic en **Secreto de repositorio nuevo**.
 1. Teclea un nombre para tu secreto en el cuadro de entrada **Name**.
 1. Ingresa el valor de tu secreto.
@@ -117,13 +113,13 @@ Para listar todos los secretos del repositorio, utiliza el subcomando `gh secret
 
 ## Crear secretos cifrados para un ambiente
 
-{% data reusables.github-actions.permissions-statement-secrets-environment %}
+{% data reusables.actions.permissions-statement-secrets-environment %}
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
+{% data reusables.actions.sidebar-environment %}
 1. Da clic en el ambiente al cual quieras agregar un secreto.
 2. Debajo de **Secretos de ambiente**, da clic en **Agregar secreto**.
 3. Teclea un nombre para tu secreto en el cuadro de entrada **Name**.
@@ -154,13 +150,13 @@ gh secret list --env <em>environment-name</em>
 
 Cuando creas un secreto en una organización, puedes utilizar una política para limitar el acceso de los repositorios a este. Por ejemplo, puedes otorgar acceso a todos los repositorios, o limitarlo a solo los repositorios privados o a una lista específica de estos.
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% webui %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. Da clic en **Secreto de organización nuevo**.
 1. Teclea un nombre para tu secreto en el cuadro de entrada **Name**.
 1. Ingresa el **Valor** para tu secreto.
@@ -213,7 +209,7 @@ Puedes revisar qué políticas de acceso se están aplicando a un secreto en tu 
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. La lista de secretos incluye cualquier política y permiso configurado. Por ejemplo: ![Lista de secretos](/assets/images/help/settings/actions-org-secrets-list.png)
 1. Para encontrar más detalles sobre los permisos configurados para cada secreto, da clic en **Actualizar**.
 
@@ -358,3 +354,50 @@ Los secretos tienen un tamaño máximo de 64 KB. Para usar secretos de un tamañ
           run: cat $HOME/secrets/my_secret.json
   ```
 {% endraw %}
+
+
+## Almacenar blobs binarios en Base64 como secretos
+
+Puedes utilizar el cifrado en Base64 para almacenar blobs binarios pequeños como secretos. Puedes referenciar el secreto en tu flujo de trabajo y decodificarlo para utilizarlo en el ejecutor. Para los límites de tamaño, consulta la sección de [Límites para los secretos"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
+
+{% note %}
+
+**Nota**: Toma en cuenta que Base64 solo convierte los binarios a texto y no es un sustituto de un cifrado real.
+
+{% endnote %}
+
+1. Utiliza `base64` para cifrar tu archivo en una secuencia Base64. Por ejemplo:
+
+   ```
+   $ base64 -i cert.der -o cert.base64
+   ```
+
+1. Crea un secreto que contenga la secuencia de Base64. Por ejemplo:
+
+   ```
+   $ gh secret set CERTIFICATE_BASE64 < cert.base64
+   ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
+   ```
+
+1. Para acceder a la secuencia de Base64 desde tu ejecutor, lleva el secreto a `base64 --decode`.  Por ejemplo:
+
+   ```yaml
+   name: Retrieve Base64 secret
+   on:
+     push:
+       branches: [ octo-branch ]
+   jobs:
+     decode-secret:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - name: Retrieve the secret and decode it to a file
+           env:
+             {% raw %}CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}{% endraw %}
+           run: |
+             echo $CERTIFICATE_BASE64 | base64 --decode > cert.der
+         - name: Show certificate information
+           run: |
+             openssl x509 -in cert.der -inform DER -text -noout
+   ```
+

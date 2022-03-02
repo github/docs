@@ -8,7 +8,6 @@ redirect_from:
   - /code-security/secret-security/configuring-secret-scanning-for-your-repositories
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

@@ -16,7 +16,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Usar o Dependabot com ações
+shortTitle: Use o Dependabot com ações
 ---
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
@@ -30,10 +30,16 @@ shortTitle: Usar o Dependabot com ações
 
 {% data variables.product.prodname_dependabot %} consegue acionar fluxos de trabalho de {% data variables.product.prodname_actions %} nos seus pull requests e comentários. No entanto, certos eventos são tratados de maneira diferente.
 
-Para fluxos de trabalho iniciados por eventos de {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment` e `push`, aplicam-se as restrições a seguir:
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
+Para fluxos de trabalho iniciados por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) que usam eventos de `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status`, aplicam-se as restrições a seguir:
+{% endif %}
 
 - {% ifversion ghes = 3.3 %}`GITHUB_TOKEN` tem permissões somente leitura, a menos que seu administrador tenha removido as restrições.{% else %}`GITHUB_TOKEN` tem permissões somente leitura por padrão.{% endif %}
 - {% ifversion ghes = 3.3 %}Os segredos são inacessíveis, a menos que o seu administrador tenha removido restrições.{% else %}Os segredos são preenchidos a partir dos segredos de {% data variables.product.prodname_dependabot %}. Os segredos de {% data variables.product.prodname_actions %} não estão disponíveis.{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
+Para fluxos de trabalho iniciados por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) que usam eventos de `pull_request_target`, se a referência da base do pull request foi criada por {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`), the `GITHUB_TOKEN` será somente leitura e os segredos não estarão disponíveis.
+{% endif %}
 
 Para obter mais informações, consulte ["Manter seus GitHub Actions e fluxos de trabalho seguro: Evitando solicitações de pwn"](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/).
 

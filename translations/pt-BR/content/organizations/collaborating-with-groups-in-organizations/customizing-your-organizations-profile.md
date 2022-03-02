@@ -4,6 +4,8 @@ intro: Você pode compartilhar informações sobre sua organização personaliza
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.3'
+  ghae: issue-4749
 topics:
   - Organizations
 shortTitle: Personalizar perfil da organização

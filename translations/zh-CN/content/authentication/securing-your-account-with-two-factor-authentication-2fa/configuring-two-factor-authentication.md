@@ -50,8 +50,8 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 {% endtip %}
 
 1. 下载 TOTP 应用程序。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 {%- ifversion fpt or ghes > 3.1 %}
 5. 在“Two-factor authentication（双重身份验证）”下选择 **Set up using an app（使用应用程序设置）**并点击 **Continue（继续）**。
@@ -88,8 +88,8 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 4. 在“Two-factor authentication（双重身份验证）”下选择 **Set up using SMS（使用 SMS 设置）**并点击 **Continue（继续）**。
 5. 在“Authentication verification（身份验证）”下，选择您的国家/地区代码并键入您的手机号码，包括区号。 确认信息无误后，单击 **Send authentication code（发送验证码）**。
@@ -114,14 +114,28 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 1. 必须已通过 TOTP 移动应用程序{% ifversion fpt or ghec %} 或通过 SMS{% endif %} 配置了 2FA。
 2. 确保您的计算机中已插入 WebAuthn 兼容安全密钥。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 5. 在“Security keys（安全密钥）”旁边，单击 **添加**。 ![添加安全密钥选项](/assets/images/help/2fa/add-security-keys-option.png)
 6. 在“Security keys（安全密钥）”下，单击 **Register new security key（注册新安全密钥）**。 ![注册新安全密钥](/assets/images/help/2fa/security-key-register.png)
 7. 键入安全密钥的昵称，然后单击 **Add（添加）**。 ![为安全密钥提供昵称](/assets/images/help/2fa/security-key-nickname.png)
 8. 按照安全密钥的文档激活安全密钥。 ![提示安全密钥](/assets/images/help/2fa/security-key-prompt.png)
 9.  确认您已下载并且能够访问恢复代码。 如果尚未下载，或者要生成另一组代码，请下载代码并将其保存在安全位置。 如果无法访问自己的帐户，您可以使用恢复代码来恢复帐户访问。 更多信息请参阅“[丢失 2FA 凭据时恢复帐户](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)”。 ![下载恢复代码按钮](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
+
+{% ifversion fpt or ghec %}
+## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
+
+You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.
+
+Once you have configured a TOTP application, or SMS, you can also use {% data variables.product.prodname_mobile %} to authenticate. If, in the future, you no longer have access to {% data variables.product.prodname_mobile %}, you will still be able to use security keys or TOTP applications to sign in.
+
+1. You must have already configured 2FA via a TOTP mobile app or via SMS.
+2. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+3. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+
+After signing in, you can now use your device for 2FA.
+{% endif %}
 
 ## 延伸阅读
 

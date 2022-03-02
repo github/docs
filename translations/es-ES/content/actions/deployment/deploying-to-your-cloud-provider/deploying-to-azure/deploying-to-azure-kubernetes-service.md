@@ -24,7 +24,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Nota**: {% data reusables.actions.about-oidc-short-overview %} y "[Configurar OpenID Connect en Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)".
 
 {% endnote %}
 
@@ -44,7 +44,7 @@ Una vez que hayas completado los prerequisitos, puedes proceder con la creación
 
 The following example workflow demonstrates how to build and deploy a project to Azure Kubernetes Service when code is pushed to your repository.
 
-Under the workflow `env` key, change the the following values:
+Debajo de la llave de flujo de trabajo `env`, cambia los siguientes valores:
 - `AZURE_CONTAINER_REGISTRY` to the name of your container registry
 - `PROJECT_NAME` to the name of your project
 - `RESOURCE_GROUP` to the resource group containing your AKS cluster
@@ -123,4 +123,4 @@ Los siguientes recursos también pueden ser útiles:
 
 * Para encontrar el flujo de trabajo inicial original, consulta el archivo [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) en el repositorio `starter-workflows` de {% data variables.product.prodname_actions %}.
 * Las acciones que se utilizan en este flujo de trabajo son las oficiales de Azure: [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake) y [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy).
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* Para encontrar más ejemplos de flujos de trabajo de GitHub Actions que desplieguen a Azure, consulta el repositorio [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).

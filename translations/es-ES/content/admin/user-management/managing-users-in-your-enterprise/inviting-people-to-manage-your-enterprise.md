@@ -43,7 +43,7 @@ Si tu empresa utiliza {% data variables.product.prodname_emus %}, solo se pueden
 
 ## {% ifversion ghec %}Invitar{% elsif ghes %}Agregar{% endif %} a un administrador empresarial a tu cuenta empresarial
 
-{% ifversion ghec %}Después de que invites a alguien para que se una a la cuenta empresarial, esta persona debe aceptar la invitación que le llegó por correo electrónico antes de que pueda acceder a la cuenta empresarial. Pending invitations will expire after 7 days.{% endif %}
+{% ifversion ghec %}Después de que invites a alguien para que se una a la cuenta empresarial, esta persona debe aceptar la invitación que le llegó por correo electrónico antes de que pueda acceder a la cuenta empresarial. Las invitaciones pendientes vencerán después de 7 días.{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}

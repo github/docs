@@ -14,26 +14,26 @@ topics:
 
 ## About {% data variables.product.prodname_actions %} for enterprises
 
-{% data reusables.actions.about-actions %} With {% data variables.product.prodname_actions %}, your enterprise can automate, customize, and execute your software development workflows like testing and deployments. For more information about the basics of {% data variables.product.prodname_actions %}, see "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)."
+{% data reusables.actions.about-actions %} With {% data variables.product.prodname_actions %}, your enterprise can automate, customize, and execute your software development workflows like testing and deployments. For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
 ![Diagram of jobs running on self-hosted runners](/assets/images/help/images/actions-enterprise-overview.png)
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-Before you introduce {% data variables.product.prodname_actions %} to a large enterprise, you first need to plan your adoption and make decisions about how your enterprise will use {% data variables.product.prodname_actions %} to best support your unique needs.
+Antes de que incluyas las {% data variables.product.prodname_actions %} en una empresa grande, primero necesitas planear tu adopción y tomar las decisiones de cómo tu empresa utilizará {% data variables.product.prodname_actions %} para apoyar de la mejor forma a tus necesidades únicas.
 
 ## Governance and compliance
 
 You should create a plan to govern your enterprise's use of {% data variables.product.prodname_actions %} and meet your compliance obligations.
 
-Determine which actions your developers will be allowed to use. {% ifversion ghes %}First, decide whether you'll enable access to actions from outside your instance. {% data reusables.actions.access-actions-on-dotcom %} For more information, see "[About using actions in your enterprise](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)."
+Determine which actions your developers will be allowed to use. {% ifversion ghes %}First, decide whether you'll enable access to actions from outside your instance. {% data reusables.actions.access-actions-on-dotcom %} Para obtener más información, consulta la sección "[Acerca de utilizar acciones en tu empresa](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)".
 
 Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions that were not created by {% data variables.product.company_short %}. You can configure the actions that are allowed to run at the repository, organization, and enterprise levels and can choose to only allow actions that are created by {% data variables.product.company_short %}. If you do allow third-party actions, you can limit allowed actions to those created by verified creators or a list of specific actions. Para obtener más información, consulta las secciones "[Administrar los ajustes de las {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)", "[Inhabilitar o limitar las {% data variables.product.prodname_actions %} para tu organización](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)" y "[Requerir políticas para las {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-actions-in-your-enterprise)".
 
 ![Screenshot of {% data variables.product.prodname_actions %} policies](/assets/images/help/organizations/enterprise-actions-policy.png)
 
-{% ifversion ghec or ghae-issue-4757-and-5856 %}
-Consider combining OpenID Connect (OIDC) with reusable workflows to enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows. For more information, see "[Using OpenID Connect with reusable workflows](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."
+{% ifversion ghec or ghae-issue-4757 %}
+Consider combining OpenID Connect (OIDC) with reusable workflows to enforce consistent deployments across your repository, organization, or enterprise. Puedes hacerlo si defines las condiciones de confianza en los roles de la nube con base en los flujos reutilizables. For more information, see "[Using OpenID Connect with reusable workflows](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."
 {% endif %}
 
 You can access information about activity related to {% data variables.product.prodname_actions %} in the audit logs for your enterprise. If your business needs require retaining audit logs for longer than six months, plan how you'll export and store this data outside of {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección {% ifversion ghec %}"[Transmitir las bitácoras de auditoría en tu empresa](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)".{% else %}"[Transmitir la bitácora de auditoría](/admin/user-management/monitoring-activity-in-your-enterprise/searching-the-audit-log)".{% endif %}
@@ -66,27 +66,38 @@ There is significant risk in sourcing actions from third-party repositories on {
 
 ## Innersourcing
 
-Think about how your enterprise can use features of {% data variables.product.prodname_actions %} to innersource workflows. Innersourcing is a way to incorporate the benefits of open source methodologies into your internal software development cycle. For more information, see [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/) in {% data variables.product.company_short %} Resources.
+Think about how your enterprise can use features of {% data variables.product.prodname_actions %} to innersource automation. Innersourcing is a way to incorporate the benefits of open source methodologies into your internal software development cycle. For more information, see [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/) in {% data variables.product.company_short %} Resources.
+
+{% data reusables.actions.internal-actions-summary %}
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-4757 %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 With reusable workflows, your team can call one workflow from another workflow, avoiding exact duplication. Reusable workflows promote best practice by helping your team use workflows that are well designed and have already been tested. Para obtener más información, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
 
-To provide a starting place for developers building new workflows, you can use starter workflows. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
+To provide a starting place for developers building new workflows, you can use starter workflows. This not only saves time for your developers, but promotes consistency and best practice across your enterprise. Para obtener más información, consulta la sección "[Crear flujos de trabajo iniciales para tu organización](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)".
 
+{% if not internal-actions %}
 Whenever your workflow developers want to use an action that's stored in a private repository, they must configure the workflow to clone the repository first. To reduce the number of repositories that must be cloned, consider grouping commonly used actions in a single repository. Para obtener más información, consulta la sección "[Acerca de las acciones personalizadas](/actions/creating-actions/about-custom-actions#choosing-a-location-for-your-action)".
+{% endif %}
 
 ## Managing resources
 
 You should plan for how you'll manage the resources required to use {% data variables.product.prodname_actions %}.
 
+{% ifversion ghes %}
+### Hardware requirements
+
+You may need to upgrade the CPU and memory resources for {% data variables.product.product_location %} to handle the load from {% data variables.product.prodname_actions %} without causing performance loss. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
+{% endif %}
+
 ### Ejecutores
 
-{% data variables.product.prodname_actions %} workflows require runners.{% ifversion ghec %} You can choose to use {% data variables.product.prodname_dotcom %}-hosted runners or self-hosted runners. {% data variables.product.prodname_dotcom %}-hosted runners are convenient because they are managed by {% data variables.product.company_short %}, who handles maintenance and upgrades for you. However, you may want to consider self-hosted runners if you need to run a workflow that will access resources behind your firewall or you want more control over the resources, configuration, or geographic location of your runner machines. Para obtener más información, consulta las secciones "[Acerca de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)" y "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)".{% else %} Necesitarás hospedar tus propios ejecutores instalando la aplicación de ejecutores auto-hospedados de {% data variables.product.prodname_actions %} en tus propias máquinas. Para obtener más información, consulta la sección "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)".{% endif %}
+{% data variables.product.prodname_actions %} workflows require runners.{% ifversion ghec %} You can choose to use {% data variables.product.prodname_dotcom %}-hosted runners or self-hosted runners. {% data variables.product.prodname_dotcom %}-hosted runners are convenient because they are managed by {% data variables.product.company_short %}, who handles maintenance and upgrades for you. Sin embargo, podrías querer considerar los ejecutores auto-hospedados si necesitas ejecutar un flujo de trabajo que accederá a los recursos tras tu cortafuegos o si quieres tener más control sobre los recursos, configuración o ubicación geográfica de tus máquinas de ejecutores. Para obtener más información, consulta las secciones "[Acerca de los ejecutores hospedados en {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)" y "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)".{% else %} Necesitarás hospedar tus propios ejecutores instalando la aplicación de ejecutores auto-hospedados de {% data variables.product.prodname_actions %} en tus propias máquinas. Para obtener más información, consulta la sección "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)".{% endif %}
 
 {% ifversion ghec %}Si estás utilizando ejecutores auto-hospedados, tienes que decidir si quieres utilizar máquinas físicas, virtuales o contenedores.{% else %}Decide si quieres utilizar máquinas físicas, virtuales o contenedores para tus ejecutores auto-hospedados.{% endif %} Las máquinas físicas conservarán los restos de los jobs anteriores, así como las máquinas virtuales, a menos de que utilices una imagen nueva para cada job o que limpies las máquinas después de cada ejecución de un job. If you choose containers, you should be aware that the runner auto-updating will shut down the container, which can cause workflows to fail. You should come up with a solution for this by preventing auto-updates or skipping the command to kill the container.
 
-You also have to decide where to add each runner. You can add a self-hosted runner to an individual repository, or you can make the runner available to an entire organization or your entire enterprise. Adding runners at the organization or enterprise levels allows sharing of runners, which might reduce the size of your runner infrastructure. You can use policies to limit access to self-hosted runners at the organization and enterprise levels by assigning groups of runners to specific repositories or organizations. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)" and "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+You also have to decide where to add each runner. You can add a self-hosted runner to an individual repository, or you can make the runner available to an entire organization or your entire enterprise. Adding runners at the organization or enterprise levels allows sharing of runners, which might reduce the size of your runner infrastructure. You can use policies to limit access to self-hosted runners at the organization and enterprise levels by assigning groups of runners to specific repositories or organizations. Para obtener más información, consulta las secciones "[Agregar ejecutores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)" y "[Administrar el acceso a los ejecutores auto-hospedados utilizando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
 {% ifversion ghec or ghes > 3.2 %}
 You should consider using autoscaling to automatically increase or decrease the number of available self-hosted runners. Para obtener más información, consulta la sección "[Autoescalar con ejecutores auto-hospedados](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)".
@@ -106,7 +117,7 @@ You must configure external blob storage for these artifacts. Decide which suppo
 
 {% ifversion ghec or ghes %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %}
+{% data reusables.actions.artifact-log-retention-statement %}
 
 {% endif %}
 
@@ -118,7 +129,7 @@ Some storage is included in your subscription, but additional storage will affec
 
 ## Tracking usage
 
-You should consider making a plan to track your enterprise's usage of {% data variables.product.prodname_actions %}, such as how often workflows are running, how many of those runs are passing and failing, and which repositories are using which workflows.
+Debes considerar hacer un plan para rastrear el uso que tu empresa tiene para las {% data variables.product.prodname_actions %}, tal como qué tan a menudo se ejecutan los flujos de trabajo, cuántas de estas ejecuciones están pasando y fallando y qué repositorios están utilizando cuáles flujos de trabajo.
 
 {% ifversion ghec %}
 You can see basic details of storage and data transfer usage of {% data variables.product.prodname_actions %} for each organization in your enterprise via your billing settings. Para obtener más información, consulta la sección "[Visualizar tu uso de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage#viewing-github-actions-usage-for-your-enterprise-account)".

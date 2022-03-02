@@ -21,7 +21,7 @@ versions:
 
 机密是您在组织{% ifversion fpt or ghes > 3.0 or ghae or ghec %}、仓库或者仓库环境{% else %} 或仓库{% endif %} 中创建的加密环境变量。 您创建的机密可用于 {% data variables.product.prodname_actions %} 工作流程。 在机密到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对机密加密，并且在您于工作流程中使用它们之前一直保持加密状态。
 
-{% data reusables.github-actions.secrets-org-level-overview %}
+{% data reusables.actions.secrets-org-level-overview %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 对于存储在环境级别的机密，您可以启用所需的审查者来控制对机密的访问。 在必要的审查者授予批准之前，工作流程作业无法访问环境机密。
@@ -53,11 +53,7 @@ versions:
 
 如果您拥有编辑文件的权限，便可在工作流程文件中使用和读取加密密码。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/github/getting-started-with-github/access-permissions-on-github)”。
 
-{% warning %}
-
-**警告：**{% data variables.product.prodname_dotcom %} 自动将密码编写到日志，但您应避免有意将密码打印到日志。
-
-{% endwarning %}
+{% data reusables.actions.secrets-redaction-warning %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 当工作流程运行排队时读取组织和仓库机密，在引用环境的作业开始时读取环境机密。
@@ -77,13 +73,13 @@ versions:
 
 ## 为仓库创建加密密码
 
-{% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% data reusables.actions.permissions-statement-secrets-repository %}
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. 单击 **New repository secret（新仓库机密）**。
 1. 在 **Name（名称）**输入框中键入密码的名称。
 1. 输入密码的值。
@@ -117,13 +113,13 @@ gh secret set <em>secret-name</em> < secret.txt
 
 ## 为环境创建加密密码
 
-{% data reusables.github-actions.permissions-statement-secrets-environment %}
+{% data reusables.actions.permissions-statement-secrets-environment %}
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
+{% data reusables.actions.sidebar-environment %}
 1. 单击要向其添加机密的环境。
 2. 在 **Environment secrets（环境机密）**下，单击 **Add secret（添加机密）**。
 3. 在 **Name（名称）**输入框中键入密码的名称。
@@ -154,13 +150,13 @@ gh secret list --env <em>environment-name</em>
 
 在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% webui %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. 单击 **New organization secret（新组织机密）**。
 1. 在 **Name（名称）**输入框中键入密码的名称。
 1. 输入密码的 **Value（值）**。
@@ -213,7 +209,7 @@ gh secret list --org <em>organization-name</em>
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. 密码列表包括任何已配置的权限和策略。 例如： ![密码列表](/assets/images/help/settings/actions-org-secrets-list.png)
 1. 有关已为每个密码配置的权限的更多信息，请单击 **Update（更新）**。
 
@@ -358,3 +354,50 @@ steps:
           run: cat $HOME/secrets/my_secret.json
   ```
 {% endraw %}
+
+
+## Storing Base64 binary blobs as secrets
+
+You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see ["Limits for secrets"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
+
+{% note %}
+
+**Note**: Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
+
+{% endnote %}
+
+1. Use `base64` to encode your file into a Base64 string. 例如：
+
+   ```
+   $ base64 -i cert.der -o cert.base64
+   ```
+
+1. Create a secret that contains the Base64 string. 例如：
+
+   ```
+   $ gh secret set CERTIFICATE_BASE64 < cert.base64
+   ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
+   ```
+
+1. To access the Base64 string from your runner, pipe the secret to `base64 --decode`.  例如：
+
+   ```yaml
+   name: Retrieve Base64 secret
+   on:
+     push:
+       branches: [ octo-branch ]
+   jobs:
+     decode-secret:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - name: Retrieve the secret and decode it to a file
+           env:
+             {% raw %}CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}{% endraw %}
+           run: |
+             echo $CERTIFICATE_BASE64 | base64 --decode > cert.der
+         - name: Show certificate information
+           run: |
+             openssl x509 -in cert.der -inform DER -text -noout
+   ```
+

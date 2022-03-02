@@ -29,9 +29,9 @@ Este guia usa o módulo Node.js do kit de ferramentas {% data variables.product.
 
 Ao terminar esse projeto, você entenderá como criar sua própria ação JavaScript e poderá testá-la em um fluxo de trabalho.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Pré-requisitos
 

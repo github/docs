@@ -38,9 +38,11 @@ Puedes configurar un _flujo de trabajo_ de {% data variables.product.prodname_ac
 
 Un flujo de trabajo es un proceso automatizado configurable que ejecutará uno o más jobs.  Los flujos de trabajo se definen mediante un archivo de YAML que se verifica en tu repositorio y se ejecutará cuando lo active un evento dentro de este o puede activarse manualmente o en una programación definida.
 
-Tu repositorio puede tener varios flujos de trabajo dentro de él, cada uno de los cuales puede llevar a cabo un conjunto de pasos diferente.  Por ejemplo, puedes tener un flujo de trabajo para crear y probar las solicitudes de cambio, otro para desplegar tu aplicación cada que se cree un lanzamiento y todavía otro más que agregue una etiqueta cada que alguien abra una propuesta nueva.
+Puedes tener flujos de trabajo múltiples en un repositorio, cada uno de los cuales pueden llevar a cabo un conjunto de pasos diferente.  Por ejemplo, puedes tener un flujo de trabajo para crear y probar las solicitudes de cambio, otro para desplegar tu aplicación cada que se cree un lanzamiento y todavía otro más que agregue una etiqueta cada que alguien abra una propuesta nueva.
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Puedes referenciar un flujo de trabajo dentro de otro flujo de trabajo, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".{% endif %}
+
+Para obtener más información sobre los flujos de trabajo, consulta la sección "[Utilizar flujos de trabajo](/actions/using-workflows)".
 
 ### Eventos
 
@@ -54,11 +56,17 @@ Un job es un conjunto de _pasos_ en un flujo de trabajo, los cuales se ejecutan 
 
 Puedes configurar las dependencias de un job con otros jobs; predeterminadamente, los jobs no tienen dependencias y se ejecutan en paralelo entre ellos.  Cuando un job lleva una dependencia a otro job, este esperará a que el job dependiente se complete antes de que pueda ejecutarse.  Por ejemplo, puedes tener jobs de compilación múltiple para arquitecturas diferentes que no tengan dependencias y un job de empaquetado que sea dependiente de estos jobs.  Los jobs de compilación se ejecutarán en paralelo y, cuando se hayan completado con éxito, se ejecutará el job de empaquetado.
 
+Para obtener más información sobre los jobs, consulta la sección "[Utilizar jobs](/actions/using-jobs)".
+
 ### Acciones
 
 Una _acción_ es una aplicación personalizada para la plataforma de {% data variables.product.prodname_actions %} que realiza una tarea compleja pero que se repite frecuentemente.  Utiliza una acción para ayudarte a reducir la cantidad de código repetitivo que escribes en tus archivos de flujo de trabajo.  Una acción puede extraer tu repositorio de git desde {% data variables.product.prodname_dotcom %}, configurar la cadena de herramientas correcta para tu ambiente de compilación o configurar la autenticación en tu proveedor de servicios en la nube.
 
 Puedes escribir tus propias acciones o puedes encontrar acciones para utilizar en tus flujos de trabajo dentro de {% data variables.product.prodname_marketplace %}.
+
+{% data reusables.actions.internal-actions-summary %}
+
+Para obtener más información, consulta la sección "[Crear acciones](/actions/creating-actions)".
 
 ### Ejecutores
 
@@ -114,7 +122,7 @@ Para ayudarte a entender cómo se utiliza la sintaxis de YAML para crear un fluj
   ```
 </td>
 <td>
-Especifica el activador de este flujo de trabajo. Este ejemplo utiliza el evento <code>push</code>, así que una ejecución de flujo de trabajo se activa cada que alguien sube un cambio al repositorio o fusiona una solicitud de cambios.  Esto se activa mediante una subida a cada rama; para encontrar ejemplos de la sintaxis que solo se ejecuta en subidas a ramas específicas, rutas o etiquetas, consulta la sección <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">"Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}".</a>
+Especifica el activador de este flujo de trabajo. Este ejemplo utiliza el evento <code>push</code>, así que una ejecución de flujo de trabajo se activa cada que alguien sube un cambio al repositorio o fusiona una solicitud de cambios.  Esto se activa mediante una subida a cada rama; para encontrar ejemplos de la sintaxis que solo se ejecuta en subidas a ramas específicas, rutas o etiquetas, consulta la sección <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">"Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}".</a>
 </td>
 </tr>
 <tr>
@@ -246,4 +254,9 @@ Para entender cómo funciona la facturación de las {% data variables.product.pr
 
 ## Contactar con soporte técnico
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
+
+## Leer más
+
+{% ifversion ghec or ghes or ghae %}
+- "[Acerca de {% data variables.product.prodname_actions %} para empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}

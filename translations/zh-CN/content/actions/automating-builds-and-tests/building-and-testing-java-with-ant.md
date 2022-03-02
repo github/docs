@@ -78,9 +78,9 @@ jobs:
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## 构建和测试代码
 
@@ -88,7 +88,7 @@ The default starter workflows are excellent starting points when creating your b
 
 初学者工作流程将运行 _build.xml_ 文件中指定的默认目标。  默认目标通常设置为将类、运行测试和包类设置为其可分发格式，例如 JAR 文件。
 
-如果使用不同的命令来构建项目，或者想要运行不同的目标，则可以指定这些命令。 例如，您可能想要运行在 _build-ci.xml_ 文件中配置的 `jar` 目标。
+如果使用不同的命令来构建项目，或者想要运行不同的目标，则可以指定这些命令。 For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
 
 {% raw %}
 ```yaml{:copy}

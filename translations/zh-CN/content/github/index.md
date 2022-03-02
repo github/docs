@@ -12,12 +12,6 @@ versions:
   ghae: '*'
 children:
   - /copilot
-  - /writing-on-github
-  - /importing-your-projects-to-github
-  - /customizing-your-github-workflow
-  - /extending-github
-  - /working-with-github-support
-  - /understanding-how-github-uses-and-protects-your-data
   - /site-policy
   - /site-policy-deprecated
 ---

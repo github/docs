@@ -28,6 +28,6 @@ Consulta estas páginas para encontrar más detalles sobre cómo autenticarte cu
 
 {% note %}
 
-**Nota:** [Los límites de tasa para la API de REST](/rest#rate-limiting) aplican para todas las terminales de la API de {% data variables.product.prodname_marketplace %}.
+**Nota:** [Los límites de tasa para la API de REST](/rest/overview/resources-in-the-rest-api#rate-limiting) aplican para todas las terminales de la API de {% data variables.product.prodname_marketplace %}.
 
 {% endnote %}

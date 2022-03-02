@@ -85,66 +85,68 @@ describe('header', () => {
 
     test("renders a link to the same page in user's preferred language, if available", async () => {
       const headers = { 'accept-language': 'ja' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
     })
 
     test("renders a link to the same page if user's preferred language is Chinese - PRC", async () => {
       const headers = { 'accept-language': 'zh-CN' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href*="/cn"]').length).toBe(1)
     })
 
     test("does not render a link when user's preferred language is Chinese - Taiwan", async () => {
       const headers = { 'accept-language': 'zh-TW' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification]').length).toBe(0)
     })
 
     test("does not render a link when user's preferred language is English", async () => {
       const headers = { 'accept-language': 'en' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification]').length).toBe(0)
     })
 
     test("renders a link to the same page in user's preferred language from multiple, if available", async () => {
       const headers = { 'accept-language': 'ja, *;q=0.9' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
     })
 
     test("renders a link to the same page in user's preferred language with weights, if available", async () => {
       const headers = { 'accept-language': 'ja;q=1.0, *;q=0.9' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
     })
 
     test("renders a link to the user's 2nd preferred language if 1st is not available", async () => {
       const headers = { 'accept-language': 'zh-TW,zh;q=0.9,ja *;q=0.8' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
     })
 
     test('renders no notices if no language preference is available', async () => {
       const headers = { 'accept-language': 'zh-TW,zh;q=0.9,zh-SG *;q=0.8' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification]').length).toBe(0)
     })
   })
 
   describe('mobile-only product dropdown links', () => {
-    test('include github and admin, and emphasize the current product', async () => {
+    test('include Get started and admin, and emphasize the current product', async () => {
       const $ = await getDOM(
-        '/en/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
+        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
       )
-      const github = $('[data-testid=product-picker][data-current-product-path="/github"] summary')
-      expect(github.length).toBe(1)
-      expect(github.text().trim()).toBe('GitHub')
+      const getStarted = $(
+        '[data-testid=product-picker][data-current-product-path="/get-started"] summary'
+      )
+      expect(getStarted.length).toBe(1)
+      expect(getStarted.text().trim()).toBe('Get started')
 
       const ghec = $(`[data-testid=product-picker] a[href="/en/enterprise-cloud@latest/admin"]`)
       expect(ghec.length).toBe(1)
@@ -161,10 +163,10 @@ describe('header', () => {
 
     test('emphasizes the product that corresponds to the current page', async () => {
       const $ = await getDOM(
-        `/en/enterprise-server@${oldestSupported}/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
+        `/en/enterprise-server@${oldestSupported}/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
       )
 
-      expect($('[data-testid=product-picker] summary').text()).toBe('GitHub')
+      expect($('[data-testid=product-picker] summary').text()).toBe('Get started')
     })
   })
 })

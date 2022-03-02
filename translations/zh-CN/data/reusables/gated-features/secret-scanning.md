@@ -1,6 +1,13 @@
-{% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} 适用于所有公共仓库以及启用了 {% data variables.product.prodname_GH_advanced_security %} 的组织拥有的私有仓库。
-{%- elsif ghes > 3.0 or ghae %}{% data variables.product.prodname_secret_scanning_caps %} 适用于启用了 {% data variables.product.prodname_GH_advanced_security %} 的组织拥有的仓库。
+{%- ifversion fpt %}
+{% data variables.product.prodname_secret_scanning_caps %} is enabled on public repositories in all products. {% data variables.product.prodname_secret_scanning_caps %} is also available in private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghec %}
+{% data variables.product.prodname_secret_scanning_caps %} is included in {% data variables.product.product_name %} for public repositories. To use {% data variables.product.prodname_secret_scanning %} in private repositories owned by organizations, you must have a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghes %}
+{% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %} if your enterprise has a license for {% data variables.product.prodname_GH_advanced_security %}.
+
 {%- elsif ghae %}
-{% data variables.product.prodname_secret_scanning_caps %} 可用作 {% data variables.product.prodname_GH_advanced_security %} 的一部分，在测试期间免费使用。
-{%- else %}
-{% data variables.product.prodname_secret_scanning_caps %} 在您拥有 {% data variables.product.prodname_GH_advanced_security %} 的许可证时可用。{% endif %} {% data reusables.advanced-security.more-info-ghas %}
+{% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
+
+{%- endif %} {% ifversion not ghae %}For more information, see "[GitHub's products](/articles/githubs-products)."{% endif %}

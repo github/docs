@@ -41,7 +41,9 @@ shortTitle: Atualizando GHES
 
 ## Obter um instantâneo
 
-Instantâneo é um ponto de verificação de uma máquina virtual (VM) em um momento específico. É altamente recomendável obter um instantâneo antes de atualizar sua máquina virtual para que você possa recuperar a VM em caso de falha. Se você estiver atualizando para uma nova versão do recurso, obtenha um instantâneo da VM. Se você estiver atualizando para uma versão de patch, vincule o disco de dados existente.
+Instantâneo é um ponto de verificação de uma máquina virtual (VM) em um momento específico. É altamente recomendável obter um instantâneo antes de atualizar sua máquina virtual para que você possa recuperar a VM em caso de falha. Apenas recomendamos tirar um instantâneo da VM quando o dispositivo estiver desligado ou em modo de manutenção e todos os trabalhos em segundo plano estiverem concluídos.
+
+Se você estiver atualizando para uma nova versão do recurso, obtenha um instantâneo da VM. Se você estiver atualizando para uma versão de patch, vincule o disco de dados existente.
 
 Há dois tipos de instantâneo:
 
@@ -67,7 +69,9 @@ Há dois tipos de instantâneo:
 
 ## Atualizar com hotpatch
 
-{% data reusables.enterprise_installation.hotpatching-explanation %} Ao usar o {% data variables.enterprise.management_console %}, é possível instalar um hotpatch na mesma hora ou programar a instalação para depois. Você pode usar o shell administrativo para instalar um hotpatch com o utilitário `ghe-upgrade`. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
+{% data reusables.enterprise_installation.hotpatching-explanation %}
+
+Ao usar o {% data variables.enterprise.management_console %}, você pode instalar um hotpatch imediatamente ou programá-lo para instalação posterior. Você pode usar o shell administrativo para instalar um hotpatch com o utilitário `ghe-upgrade`. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
 
 {% note %}
 
@@ -83,6 +87,10 @@ Há dois tipos de instantâneo:
 ### Atualizar um appliance com hotpatch
 
 #### Instalar um hotpatch usando o {% data variables.enterprise.management_console %}
+
+Você pode usar o {% data variables.enterprise.management_console %} para atualizar com um hotpatch, habilitando as atualizações automáticas. Em seguida, será apresentada a última versão de {% data variables.product.prodname_ghe_server %} disponível para a qual você pode atualizar.
+
+Se o alvo de atualização que lhe foi apresentado for uma versão do recurso em vez de uma versão de patch, você não poderá usar {% data variables.enterprise.management_console %} para instalar um hotpatch. Você deve instalar o hotpatch usando o shell administrativo. Para obter mais informações, consulte "[Instalando um hotpatch usando o shell administrativo](#installing-a-hotpatch-using-the-administrative-shell)."
 
 1. Habilite atualizações automáticas. Para obter mais informações, consulte "[Habilitar atualizações automáticas](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)".
 {% data reusables.enterprise_site_admin_settings.access-settings %}

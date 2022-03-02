@@ -40,6 +40,12 @@ Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerd
 
 {% data reusables.dotcom_billing.pricing_cal %}
 
+### Facturación para las precompilaciones de los {% data variables.product.prodname_codespaces %}
+
+{% data reusables.codespaces.prebuilds-beta-note %}
+
+{% data reusables.codespaces.billing-for-prebuilds %}
+
 ## Configurar un límite de gastos
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
@@ -52,7 +58,7 @@ Para obtener más información sobre cómo administrar y cambiar el límite de g
 
 El tipo de máquina que elija un usuario cuando crea un codespace afectará la carga por minuto del mismo, como se muestra anteriormente.
 
-Organization owners can create a policy to restrict the machine types that are available to users. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+Los propietarios de las organizaciones pueden crear una política para restringir los tipos de máquina que están disponibles para los usuarios. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
 
 ## Cómo se maneja la facturación para los repositorios bifurcados
 

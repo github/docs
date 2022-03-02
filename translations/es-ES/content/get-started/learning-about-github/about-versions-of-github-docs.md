@@ -23,7 +23,7 @@ At the top of a page on {% data variables.product.prodname_docs %}, select the d
 
 ## Determining which {% data variables.product.company_short %} product you use
 
-You can determine which {% data variables.product.company_short %} product you're currently using by reviewing the URL in the address bar of your browser and the heading for the {% data variables.product.prodname_dotcom %} website you're on.
+Puedes determinar qué producto de {% data variables.product.company_short %} estás utilizando actualmente si revisas la URL en la barra de dirección de tu buscador y el encabezado del sitio web de {% data variables.product.prodname_dotcom %} en el que estás.
 
 You may use more than one {% data variables.product.company_short %} product. For example, you might contribute to open source on {% data variables.product.prodname_dotcom_the_website %} and collaborate on code on your employer's {% data variables.product.prodname_ghe_server %} instance. You may need to view different versions of the same article at different times, depending on the problem you're currently trying to solve.
 
@@ -35,13 +35,13 @@ In a wide browser window, there is no text that immediately follows the {% data 
 
 ![Screenshot of the address bar and the {% data variables.product.prodname_dotcom_the_website %} header in a browser](/assets/images/help/docs/header-dotcom.png)
 
-On {% data variables.product.prodname_dotcom_the_website %}, each account has its own plan. Each personal account has an associated plan that provides access to certain features, and each organization has a different associated plan. If your personal account is a member of an organization on {% data variables.product.prodname_dotcom_the_website %}, you may have access to different features when you use resources owned by that organization than when you use resources owned by your personal account. Para obtener más información, consulta la sección "[Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
+On {% data variables.product.prodname_dotcom_the_website %}, each account has its own plan. Each personal account has an associated plan that provides access to certain features, and each organization has a different associated plan. Si tu cuenta personal es miembro de una organización de {% data variables.product.prodname_dotcom_the_website %}, puedes tener acceso a características diferentes cuando utilizas recursos que le pertenezcan a esa organización y cuando utilizas los que le pertenecen a tu cuenta personal. Para obtener más información, consulta la sección "[Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
-If you don't know whether an organization uses {% data variables.product.prodname_ghe_cloud %}, ask an organization owner. For more information, see "[Viewing people's roles in an organization](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)."
+If you don't know whether an organization uses {% data variables.product.prodname_ghe_cloud %}, ask an organization owner. Para obtener más información, consulta la sección "[Ver los roles de las personas en una organización](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)".
 
 ### {% data variables.product.prodname_ghe_server %}
 
-If you access {% data variables.product.prodname_dotcom %} at a URL other than https://github.com, `https://*.githubenterprise.com`, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_server %}. For example, you may access {% data variables.product.prodname_ghe_server %} at `https://github.YOUR-COMPANY-NAME.com`. Your administrators may choose a URL that doesn't include the word "{% data variables.product.company_short %}."
+Si accedes a {% data variables.product.prodname_dotcom %} mediante una URL diferente a https://github.com, `https://*.githubenterprise.com`, `https://*.github.us` o `https://*.ghe.com`, estarás utilizando {% data variables.product.prodname_ghe_server %}. For example, you may access {% data variables.product.prodname_ghe_server %} at `https://github.YOUR-COMPANY-NAME.com`. Your administrators may choose a URL that doesn't include the word "{% data variables.product.company_short %}."
 
 In a wide browser window, the word "Enterprise" immediately follows the {% data variables.product.company_short %} logo on the left side of the header.
 
@@ -49,7 +49,7 @@ In a wide browser window, the word "Enterprise" immediately follows the {% data 
 
 ### {% data variables.product.prodname_ghe_managed %}
 
-If you access {% data variables.product.prodname_dotcom %} at `https://*.githubenterprise.com`, `https://*.github.us`, or `https://*.ghe.com`, you're using {% data variables.product.prodname_ghe_managed %}.
+Si accedes a {% data variables.product.prodname_dotcom %} a través de `https://*.githubenterprise.com`, `https://*.github.us`, o `https://*.ghe.com`, estás utilizando {% data variables.product.prodname_ghe_managed %}.
 
 In a wide browser window, the words "{% data variables.product.prodname_ghe_managed %}" immediately follow the {% data variables.product.company_short %} logo in the header.
 

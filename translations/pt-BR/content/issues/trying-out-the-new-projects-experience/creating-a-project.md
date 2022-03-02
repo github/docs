@@ -25,6 +25,10 @@ Os projetos são uma coleção personalizável de itens que se mantêm atualizad
 
 {% data reusables.projects.create-user-project %}
 
+## Atualizando a descrição e o README do seu projeto
+
+{% data reusables.projects.project-description %}
+
 ## Adicionando itens ao seu projeto
 
 Seu projeto pode acompanhar os rascunhos de problemas, problemas e pull requests.
@@ -34,9 +38,16 @@ Seu projeto pode acompanhar os rascunhos de problemas, problemas e pull requests
 Os rascunhos são úteis para capturar ideias rapidamente.
 
 1. Coloque seu cursor na linha inferior do projeto, ao lado do {% octicon "plus" aria-label="plus icon" %}.
-2. Digite sua ideia e, em seguida, pressione **Enter**.
+1. Digite sua ideia e, em seguida, pressione **Enter**.
+1. Para adicionar texto, clique no título do problema do rascunho. Na caixa de entrada do markdown que será exibida, digite o texto para o texto do problema do rascunho e clique em **Salvar**.
 
-Você pode converter rascunhos de problemas em problemas. Para obter mais informações, consulte [Convertendo rascunhos de problema em problemas](#converting-draft-issues-to-issues).
+Os problemas do rascunho podem ter um título, texto, responsável e quaisquer campos personalizados do seu projeto. Para preencher o repositório, etiquetas ou marcos para o rascunho de um problema, você deverá primeiro converter o rascunho do problema em um problema. Para obter mais informações, consulte "[Convertendo rascunhos de problema em problemas](#converting-draft-issues-to-issues). "
+
+{% note %}
+
+**Observação**: Os usuários não receberão notificações quando forem atribuídos ou mencionados em um rascunho de problema, a menos que o rascunho do probelam seja convertido em um problema.
+
+{% endnote %}
 
 ### Problemas e pull requests
 
@@ -68,7 +79,7 @@ No layout de tabela:
 1. Clique em {% octicon "triangle-down" aria-label="the item menu" %} no rascunho do problema que você deseja converter.
 2. Selecione **Converter para problema**.
 3. Selecione o repositório ao qual você deseja adicionar o problema.
-4. Como alternativa, edite os campos `responsável`, `etiquetas`, `marco` ou `repository` do rascunho do problema que você deseja converter.
+4. Como alternativa, edite os campos `etiquetas`, `marco` ou `repository` do rascunho do problema que você deseja converter.
 
 Layout do quadro:
 
@@ -81,11 +92,11 @@ Layout do quadro:
 Você pode arquivar um item para manter o contexto sobre o item no projeto, mas removê-lo das visualizações do projeto. Você pode excluir um item para removê-lo do projeto completamente.
 
 1. Selecione o(s) item(ns) para arquivar ou excluir. Para selecionar múltiplos itens, siga um dos passos a seguir:
-     - <kbd>Command</kbd>+Click (Mac) or <kbd>Ctrl</kbd>+Click (Windows/Linux) each item.
-     - Select an item then <kbd>Shift</kbd>+<kbd>↑</kbd> or <kbd>Shift</kbd>+<kbd>↓</kbd> to select additional items above or below the initially selected item.
-     - Select an item then <kbd>Shift</kbd>+Click another item to select all items between the two items.
-     - Enter <kbd>Command</kbd>+<kbd>A</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) to select all items in a column in a board layout or all items in a table layout.
-2. To archive all selected items, enter <kbd>E</kbd>. To delete all selected items, enter <kbd>Del</kbd>. Como alternativa, selecione o {% octicon "triangle-down" aria-label="the item menu" %} (no layout de tabela) ou o {% octicon "kebab-horizontal" aria-label="the item menu" %} (no layout do quadro) e, em seguida, selecione a ação desejada.
+     - <kbd>Command</kbd>+Click (Mac) ou <kbd>Ctrl</kbd>+Click (Windows/Linux) em cada item.
+     - Selecione um item e, em seguida, <kbd>Shift</kbd>+<kbd>↑</kbd> ou <kbd>Shift</kbd>+<kbd>↓</kbd>para selecionar itens adicionais acima ou abaixo do item selecionado inicialmente.
+     - Selecione um item e, em seguida, <kbd>Shift</kbd>+ clique em outro item para selecionar todos os itens entre dois itens.
+     - Insira <kbd>Command</kbd>+<kbd>A</kbd> (Mac) ou <kbd>Ctrl</kbd>+<kbd>A</kbd> (Windows/Linux) para selecionar todos os itens em uma coluna em um layout de tabuleiro ou em um layout de tabela.
+2. Para arquivar todos os itens selecionados, digite <kbd>E</kbd>. Para excluir todos os itens selecionados, digite <kbd>Del</kbd>. Como alternativa, selecione o {% octicon "triangle-down" aria-label="the item menu" %} (no layout de tabela) ou o {% octicon "kebab-horizontal" aria-label="the item menu" %} (no layout do quadro) e, em seguida, selecione a ação desejada.
 
 Você pode restaurar itens arquivados, mas não itens excluídos. Para obter mais informações, consulte [Restaurando itens arquivados](#restoring-archived-items).
 
@@ -99,7 +110,7 @@ Como os valores do campo mudam, eles são sincronizados automaticamente para que
 
 ### Mostrando campos existentes
 
-O seu projeto rastreia informações atualizadas sobre issues e pull requests, incluindo todas as alterações no título, responsáveis, etiquetas, marcos e repositório. Quando seu projeto é inicializado, são exibidos "título" e "responsáveis". Os outros campos permanecem ocultos. Você pode alterar a visibilidade desses campos no seu projeto.
+O seu projeto rastreia informações atualizadas sobre problemas e pull requests, incluindo todas as alterações no título, responsáveis, etiquetas, marcos, repositórios, revisores e pull requests vinculados. Quando seu projeto é inicializado, são exibidos "título" e "responsáveis". Os outros campos permanecem ocultos. Você pode alterar a visibilidade desses campos no seu projeto.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comece a digitar "mostrar".
@@ -148,3 +159,16 @@ Você pode ver seu projeto como uma tabela ou quadro, agrupar itens por campo, f
 Você pode habilitar ou desabilitar os fluxos de trabalho internos para o seu projeto.
 
 {% data reusables.projects.enable-basic-workflow %}
+
+## Adicionando seu projeto a um repositório
+
+Você pode listar projetos relevantes em um repositório. Você só pode listar projetos que pertencem ao mesmo usuário ou organização proprietária do repositório.
+
+Para que os participantes do repositório vejam um projeto listado em um repositório, eles deverão ter visibilidade sobre o projeto. Para obter mais informações, consulte "[Gerenciando a visibilidade dos seus projetos (beta)](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)" e "[Gerenciando o acesso a projetos (beta)](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)".
+
+1. No {% data variables.product.prodname_dotcom %}, navegue até a página principal do seu repositório.
+1. Clique em {% octicon "table" aria-label="the project icon" %} **Projetos**.
+1. Clique em **Projetos (Beta)** na barra lateral.
+1. Clique **Adicionar projeto**.
+1. Na barra de pesquisa que aparece, pesquise por projetos pertentencentes ao mesmo usuário ou organização proprietária do repositório.
+1. Clique em um projeto para listá-lo no seu repositório.

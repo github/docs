@@ -5,12 +5,14 @@ permissions: Repository collaborators and people with write access to a reposito
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.3'
+  ghae: issue-4974
 topics:
   - Repositories
 shortTitle: Automated release notes
 communityRedirect:
   name: Provide GitHub Feedback
-  href: 'https://github.com/github/feedback/discussions/categories/releases-feedback'
+  href: 'https://github.com/github/feedback/discussions/categories/general-feedback'
 ---
 
 ## About automatically generated release notes
@@ -30,7 +32,7 @@ Automatically generated release notes provide an automated alternative to manual
   ![发行版标记版本](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
 6. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
-  {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
+  {% ifversion fpt or ghec %}![选择分支](/assets/images/help/releases/releases-choose-branch.png)
   {% else %}![发行版标记分支](/assets/images/enterprise/releases/releases-tag-branch.png)
   {% endif %}
 7. To the top right of the description text box, click **Auto-generate release notes**. ![Auto-generate release notes](/assets/images/help/releases/auto-generate-release-notes.png)

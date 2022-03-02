@@ -101,7 +101,7 @@ jobs:
 
 ### 特定のブランチをターゲットにする
 
-Travis CI と {% data variables.product.prodname_actions %} はどちらも、CI を特定のブランチにターゲット設定できます。 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)」を参照してください。
+Travis CI と {% data variables.product.prodname_actions %} はどちらも、CI を特定のブランチにターゲット設定できます。 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)」を参照してください。
 
 以下が、それぞれのシステムの構文の例です。
 
@@ -179,7 +179,7 @@ git:
 
 Travis CI と {% data variables.product.prodname_actions %} はどちらも、カスタム環境変数をテストマトリックスに追加できます。これにより、後のステップで変数を参照できます。
 
-{% data variables.product.prodname_actions %} では、`include` キーを使用して、カスタム環境変数をマトリックスに追加できます。 {% data reusables.github-actions.matrix-variable-example %}
+{% data variables.product.prodname_actions %} では、`include` キーを使用して、カスタム環境変数をマトリックスに追加できます。 {% data reusables.actions.matrix-variable-example %}
 
 ## {% data variables.product.prodname_actions %} の主な機能
 

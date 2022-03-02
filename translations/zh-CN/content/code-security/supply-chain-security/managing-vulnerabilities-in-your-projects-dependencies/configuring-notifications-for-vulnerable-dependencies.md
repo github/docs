@@ -1,7 +1,7 @@
 ---
 title: 配置有漏洞依赖项的通知
 shortTitle: 配置通知
-intro: 'Optimize how you receive notifications about  {% data variables.product.prodname_dependabot_alerts %}.'
+intro: '优化接收 {% data variables.product.prodname_dependabot_alerts %} 相关通知的方式。'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
@@ -33,7 +33,7 @@ topics:
 {% ifversion ghes or ghae-issue-4864 %}
 默认情况下，如果您的企业所有者已配置电子邮件以获取有关企业的通知，您将收到 {% data variables.product.prodname_dependabot_alerts %} 电子邮件。
 
-企业所有者也可以在没有通知的情况下启用 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[在企业帐户上启用依赖关系图和 {% data variables.product.prodname_dependabot_alerts %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)”。
+企业所有者也可以在没有通知的情况下启用 {% data variables.product.prodname_dependabot_alerts %}。 For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% endif %}
 
 ## 配置 {% data variables.product.prodname_dependabot_alerts %} 的通知
@@ -51,7 +51,7 @@ topics:
 
 {% note %}
 
-**Note:** You can filter your notifications on {% data variables.product.company_short %} to show  {% data variables.product.prodname_dependabot_alerts %}. 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)”。
+**注意：**您可以在 {% data variables.product.company_short %} 上过滤通知以显示  {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)”。
 
 {% endnote %}
 

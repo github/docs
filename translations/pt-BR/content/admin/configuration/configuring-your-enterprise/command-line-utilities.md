@@ -115,7 +115,7 @@ Permite encontrar o identificador universalmente exclusivo (UUID) do seu nó em 
 ```
 
 {% ifversion ghes %}
-Permite isentar uma lista de usuários do limite de taxa de da API. Para obter mais informações, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".
+Permite isentar uma lista de usuários do limite de taxa de da API. A hard limit of 120,000 requests will still apply to these users. Para obter mais informações, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
@@ -459,6 +459,16 @@ SSL-Session:
 ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
 ```
 
+### ghe-ssl-certificate-setup
+
+Este utilitário permite atualizar um certificado SSL para {% data variables.product.product_location %}.
+
+Para saber mais sobre este comando ou consultar opções adicionais, use o sinalizador `-h`.
+
+```shell
+ghe-ssl-certificate-setup
+```
+
 ### ghe-ssl-generate-csr
 
 Com este utilitário, você pode gerar uma chave privada e uma solicitação de assinatura de certificado (CSR, Certificate Signing Request) a ser compartilhada com uma autoridade certificada comercial ou privada para obter um certificado válido na sua instância. Para obter mais informações, consulte "[Configurar o TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)".
@@ -479,7 +489,7 @@ $ ghe-storage-extend
 
 ### ghe-version
 
-Este utilitário imprime a versão, a plataforma e a compilação da {% data variables.product.product_location %}.
+Este utilitário imprime a versão, a plataforma e a compilação de {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-version
@@ -660,12 +670,38 @@ ghe-repo <em>username</em>/<em>reponame</em>
 
 ### ghe-repo-gc
 
-Este utilitário empacota manualmente uma rede de repositórios para otimizar o armazenamento do pacote. Se você tem um repositório muito grande, esse comando pode ajudar a reduzir o tamanho. O {% data variables.product.prodname_enterprise %} executa automaticamente este comando durante toda a sua interação com uma rede de repositórios.
+Este utilitário reempacota manualmente uma rede de repositórios para otimizar o armazenamento do pacote. Se você tem um repositório muito grande, esse comando pode ajudar a reduzir o tamanho. O {% data variables.product.prodname_enterprise %} executa automaticamente este comando durante toda a sua interação com uma rede de repositórios.
 
 Você pode adicionar o argumento opcional `--prune` para remover objetos inacessíveis do Git que não são referenciados em um branch, tag ou qualquer outra referência. Fazer isso é útil principalmente para remover de imediato [informações confidenciais já eliminadas](/enterprise/user/articles/remove-sensitive-data/).
 
 ```shell
 ghe-repo-gc <em>username</em>/<em>reponame</em>
+```
+
+## {% data variables.product.prodname_actions %}
+
+### ghe-actions-check
+
+Este utilitário verifica se todos os serviços para {% data variables.product.prodname_actions %} são saudáveis. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)" e "[Solução de problemas {% data variables.product.prodname_actions %} para a sua empresa](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)".
+
+```shell
+ghe-actions-check
+```
+
+### ghe-actions-precheck
+
+Este utilitário testa a configuração de armazenamento do blob para {% data variables.product.prodname_actions %} em {% data variables.product.product_location %}. Você pode usar o utilitário para verificar sua configuração de armazenamento antes de habilitar o {% data variables.product.prodname_actions %} para sua instância.
+
+Para obter mais informações sobre a configuração de {% data variables.product.prodname_actions %}, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} por {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)".
+
+```shell
+ghe-actions-precheck -p [<em>provider</em>] -cs ["<em>connectionstring</em>"]
+```
+
+Se o sistema de armazenamento estiver configurado corretamente, você verá a seguinte saída.
+
+```
+Todos os testes de armazenamento aprovados
 ```
 
 ## Importação e exportação
@@ -674,7 +710,7 @@ ghe-repo-gc <em>username</em>/<em>reponame</em>
 
 O `ghe-migrator` é uma ferramenta de alta fidelidade que ajuda a fazer migrações de uma instância do GitHub para outra. Você pode consolidar suas instâncias ou mover a organização, os usuários, as equipes e os repositórios do GitHub.com para o {% data variables.product.prodname_enterprise %}.
 
-Para obter mais informações, consulte nosso guia sobre [como migrar dados de usuário, organização e repositório](/enterprise/admin/guides/migrations/).
+Para obter mais informações, consulte nossos guias sobre [migração de dados para a sua empresa](/enterprise/admin/user-management/migrating-data-to-and-from-your-enterprise/).
 
 ### git-import-detect
 
@@ -685,28 +721,28 @@ git-import-detect
 
 ### git-import-hg-raw
 
-Este utilitário importa um repositório Mercurial para este repositório Git. Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário importa um repositório Mercurial para este repositório Git. Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-hg-raw
 ```
 
 ### git-import-svn-raw
 
-Este utilitário importa histórico do Subversion e dados de arquivos para um branch do Git. Trata-se de uma cópia direta da árvore, ignorando qualquer distinção de trunk ou branch. Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário importa histórico do Subversion e dados de arquivos para um branch do Git. Trata-se de uma cópia direta da árvore, ignorando qualquer distinção de trunk ou branch. Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-svn-raw
 ```
 
 ### git-import-tfs-raw
 
-Este utilitário faz a importação a partir do Controle de Versão da Fundação da Equipe (TFVC). Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário faz a importação a partir do Controle de Versão da Fundação da Equipe (TFVC). Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-tfs-raw
 ```
 
 ### git-import-rewrite
 
-Este utilitário reescreve o repositório importado. Isso dá a você a oportunidade de renomear autores e, para o Subversion e TFVC, produz branches Git baseados em pastas. Para obter mais informações, consulte [Importar dados de sistemas de controle de versões de terceiros](/enterprise/{}/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+Este utilitário reescreve o repositório importado. Isso dá a você a oportunidade de renomear autores e, para o Subversion e TFVC, produz branches Git baseados em pastas. Para obter mais informações, consulte "[Importando dados de sistemas de controle de versões de terceiros](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)".
 ```shell
 git-import-rewrite
 ```
@@ -837,7 +873,7 @@ Este utilitário aplicará a configuração padrão de visibilidade da associaç
 ghe-org-membership-update --visibility=<em>SETTING</em>
 ```
 
-### ghe-user-csv
+### `ghe-user-csv`
 
 Este utilitário exporta uma lista de todos os usuários na instalação em formato CSV. O arquivo CSV inclui o endereço de e-mail, o tipo de usuário (por exemplo, administrador), a quantidade de repositórios, chaves SSH e associações os usuários têm na organização, o endereço IP mais recente e outras informações. Use o sinalizador `-h` para ver mais opções.
 

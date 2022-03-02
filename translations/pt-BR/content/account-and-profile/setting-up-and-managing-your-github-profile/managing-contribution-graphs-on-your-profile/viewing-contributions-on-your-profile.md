@@ -99,7 +99,3 @@ A seção de atividade de contribuição contém uma linha do tempo detalhada do
 Se você usar {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %}{% ifversion ghae %} ou {% data variables.product.prodname_ghe_managed %}{% endif %}{% else %}{% data variables.product.product_name %}{% endif %} e proprietário da sua empresa permiteir {% data variables.product.prodname_unified_contributions %}, você poderá enviar contribuições corporativas a partir do seu perfil de {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviando contribuições corporativas para seu perfil de {% data variables.product.prodname_dotcom_the_website %}](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-graphs-on-your-profile/sending-enterprise-contributions-to-your-githubcom-profile)".
 
 {% endif %}
-
-## Leia mais
-
-- "[Visualizar contribuições na página de perfil](/articles/viewing-contributions-on-your-profile-page)"

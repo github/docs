@@ -33,7 +33,7 @@ Cuando el {% data variables.product.prodname_dependabot %} detecta las dependenc
 {% ifversion ghes or ghae-issue-4864 %}
 Predeterminadamente, si el propietario de tu empresa configuró las notificaciones por correo electrónico en ella, recibirás las {% data variables.product.prodname_dependabot_alerts %} por este medio.
 
-Los propietarios de empresas también pueden habilitar las {% data variables.product.prodname_dependabot_alerts %} sin notificaciones. Para obtener más información, consulta la sección "[Habilitar la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %} en tu cuenta empresarial](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)".
+Los propietarios de empresas también pueden habilitar las {% data variables.product.prodname_dependabot_alerts %} sin notificaciones. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_dependabot %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 {% endif %}
 
 ## Configurar las notificaciones para las {% data variables.product.prodname_dependabot_alerts %}

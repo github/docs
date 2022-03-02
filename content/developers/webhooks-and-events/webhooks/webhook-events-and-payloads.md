@@ -126,6 +126,34 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+A Git ref has been successfully synced to a cache replica. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+
+### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`cache_location` |`string` | The location of the cache server that has been updated.
+`ref` | `string` | The ref that has been updated.
+`before` | `string` | The OID of the ref on the cache replica before it was updated.
+`after` | `string` | The OID of the ref on the cache replica after the update.
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -1060,7 +1088,7 @@ Key | Type | Description
 `forced`|`boolean` | Whether this push was a force push of the `ref`.
 `head_commit`|`object` | For pushes where `after` is or points to a commit object, an expanded representation of that commit. For pushes where `after` refers to an annotated tag object,  an expanded representation of the commit pointed to by the annotated tag.
 `compare`|`string` | URL that shows the changes in this `ref` update, from the `before` commit to the `after` commit. For a newly created `ref` that is directly based on the default branch, this is the comparison between the head of the default branch and the `after` commit. Otherwise, this shows all commits until the `after` commit.
-`commits`|`array` | An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.) The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.
+`commits`|`array` | An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.)
 `commits[][id]`|`string` | The SHA of the commit.
 `commits[][timestamp]`|`string` | The ISO 8601 timestamp of the commit.
 `commits[][message]`|`string` | The commit message.

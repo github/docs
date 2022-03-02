@@ -1,5 +1,5 @@
 {% ifversion fpt %}
-1. If your {% data variables.product.prodname_pages %} site is built from a public repository, it is built and deployed with a {% data variables.product.prodname_actions %} workflow run unless you've configured your {% data variables.product.prodname_pages %} site to use a different CI tool. For more information about how to view the workflow status, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+1. Si tu sitio de {% data variables.product.prodname_pages %} se compiló desde un repositorio público, este se compila y despliega con un flujo de trabajo de {% data variables.product.prodname_actions %} a menos de que hayas configurado a tu sitio de {% data variables.product.prodname_pages %} para que utilice una herramienta de IC diferente. For more information about how to view the workflow status, see "[Viewing workflow run history](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 
 {% note %}
 

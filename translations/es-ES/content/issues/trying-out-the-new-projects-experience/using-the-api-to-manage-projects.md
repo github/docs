@@ -243,6 +243,12 @@ Cada campo tiene una ID. Adicionalmente, los campos de selección única y de it
 
 Puedes consultar mediante la API para encontrar información sobre los elementos de tu proyecto.
 
+{% note %}
+
+**Nota**: La API no devolverá información sobre los borradores de propuestas.
+
+{% endnote %}
+
 El siguiente ejemplo devolverá el título y la ID de los primeros 20 elementos en un proyecto. Para cada elemento, también devolverá el valor y nombre de los primeros 8 campos en el proyecto. Si el elemento es una propuesta o solicitud de cambios, este devolverá al inicio de sesión de los primeros 10 asignados. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto.
 
 {% curl %}
@@ -358,6 +364,43 @@ La respuesta contendrá la ID de nodo del elemento recién creado.
 ```
 
 Si intentas agregar un elemento que ya existe, se devolverá la ID de este.
+
+### Actualizar los ajustes de un proyecto
+
+El siguiente ejemplo actualizará los ajustes de tu proyecto. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto. Configura `public` en `true` para que tu proyecto sea público en {% data variables.product.product_name %}. Modifica `description` para hacer cambios al README de tu proyecto.
+
+{% curl %}
+```shell
+curl --request POST \
+--url https://api.github.com/graphql \
+--header 'Authorization: token <em>TOKEN</em>' \
+--data '{"query":"mutation { updateProjectNext(input: { projectId: \"<em>PROJECT_ID</em>\", title: \"Project title\", public: false, description: \"# Project README\n\nA long description\", shortDescription: \"A short description\"}) { projectNext { id, title, description, shortDescription }}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  mutation {
+    updateProjectNext(
+      input: {
+        projectId: "<em>PROJECT_ID</em>", 
+        title: "Project title",
+        public: false,
+        description: "# Project README\n\nA long description",
+        shortDescription: "A short description"
+      }
+    ) {
+      projectNext {
+        id
+        title
+        description
+        shortDescription
+      }
+    }
+  }'
+```
+{% endcli %}
 
 ### Actualizar un campo personalizado de texto, número o fecha
 

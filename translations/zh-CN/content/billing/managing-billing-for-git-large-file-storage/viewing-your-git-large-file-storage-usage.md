@@ -22,8 +22,8 @@ shortTitle: 查看 Git LFS 使用情况
 
 ## 查看个人帐户的存储空间和带宽使用情况
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
 ## 查看组织的存储空间和带宽使用情况

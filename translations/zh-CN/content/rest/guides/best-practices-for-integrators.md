@@ -131,7 +131,7 @@ end
 
 在此示例中，在调用 `process_closed` 方法之前会先检查 `closed` 操作。 任何未识别的操作都会被记录以供将来参考。
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghae %}
 
 ## 处理速率限制
 

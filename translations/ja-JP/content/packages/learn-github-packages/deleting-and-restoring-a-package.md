@@ -176,7 +176,7 @@ To review who can delete a package version, see "[Required permissions to delete
 - 削除後30日以内にパッケージを復元する。
 - 同一のパッケージ名前空間がまだ使用可能であり、新しいパッケージで再使用されていない。
 
-たとえば、リポジトリ`octo-repo-owner/octo-repo`のスコープが付いていた、`octo-package`という名前のrubygemパッケージを削除した場合、パッケージ名前空間`rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` がまだ使用可能で、かつ30日間が経過していない場合にのみ、そのパッケージを復元できます。
+For example, if you have a deleted RubyGems package named `octo-package` that was scoped to the repo `octo-repo-owner/octo-repo`, then you can only restore the package if the package namespace `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` is still available, and 30 days have not yet passed.
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
@@ -211,7 +211,7 @@ Organizationでパッケージを復元できるユーザを確認するには�
 
 パッケージが所有するリポジトリにあったか、ユーザアカウントのスコープが付いていた場合、削除されたパッケージをユーザアカウント設定から復元できます。 詳しい情報については、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. 左側にある [**Packages**] をクリックします。
 4. [Deleted Packages] の、復元するパッケージの隣にある [**Restore**] をクリックします。 ![リストアボタン](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. 確認のため、パッケージ名を入力して [**I understand the consequences, restore this package**] をクリックします。 ![パッケージ復元の確認ボタン](/assets/images/help/package-registry/type-package-name-and-restore-button.png)

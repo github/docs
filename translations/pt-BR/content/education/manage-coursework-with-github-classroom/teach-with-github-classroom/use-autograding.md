@@ -60,7 +60,7 @@ Um comando de execução executa um comando de configuração e, em seguida, exe
 
 Você pode adicionar testes de avaliação automática durante a criação de uma nova atividade. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-Você pode adicionar, editar ou excluir testes de avaliação automática para uma atividade existente. Se você alterar os testes de avaliação automática para uma atribuição existente, os repositórios de atividade existentes não serão afetados. Um aluno ou equipe deve aceitar a atividade e criar um novo repositório de atividade para usar os novos testes.
+Você pode adicionar, editar ou excluir testes de avaliação automática para uma atividade existente. Todas as alterações feitas por meio da interface do usuário do Classroom serão enviadas por push para os repositórios de alunos existentes. Portanto, tenha cuidado ao editar seus testes.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

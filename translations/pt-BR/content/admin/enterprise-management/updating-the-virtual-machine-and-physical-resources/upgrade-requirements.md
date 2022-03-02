@@ -41,7 +41,8 @@ topics:
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
 - Um hotpatch pode causar tempo de inatividade se os serviços afetados (como kernel, MySQL ou Elasticsearch) exigirem reinicialização da VM ou do serviço. Você receberá uma notificação quando/se a reinicialização for necessária. Será possível reinicializar em outro momento.
 - Procure disponibilizar um armazenamento adicional na raiz durante a atualização, já que o hotpatching instala várias versões de alguns serviços até a conclusão da atualização. Caso não haja espaço suficiente, você receberá uma notificação das verificações preliminares.
-- Ao atualizar pelo hotpatching, sua instância não pode ficar carregada demais (isso pode afetar o processo). As verificações preliminares avaliarão se a média de carga e a atualização irão falhar se a média de carga for muito alta. - Atualizar para {% data variables.product.prodname_ghe_server %} 2.17 migra seus logs de auditoria do Elasticsearch para MySQL. Além disso, essa migração aumenta a quantidade de tempo e espaço em disco necessários para restaurar um instantâneo. Antes de migrar, verifique o número de bytes nos índices de log de auditoria do Elasticsearch com este comando:
+- Ao atualizar pelo hotpatching, sua instância não pode ficar carregada demais (isso pode afetar o processo).
+- A atualização do {% data variables.product.prodname_ghe_server %} 2.17 migra seus logs de auditoria do Elasticsearch para o MySQL. Além disso, essa migração aumenta a quantidade de tempo e espaço em disco necessários para restaurar um instantâneo. Antes de migrar, verifique o número de bytes nos índices de log de auditoria do Elasticsearch com este comando:
 ``` shell
 curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
 ```

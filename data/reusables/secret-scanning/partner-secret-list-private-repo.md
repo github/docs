@@ -196,6 +196,8 @@ PyPI | PyPI API Token | pypi_api_token{% endif %}
 RubyGems | RubyGems API Key | rubygems_api_key{% endif %}
 Samsara | Samsara API Token | samsara_api_token
 Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae %}
+Segment | Segment Public API Token | segment_public_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 SendGrid | SendGrid API Key | sendgrid_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}

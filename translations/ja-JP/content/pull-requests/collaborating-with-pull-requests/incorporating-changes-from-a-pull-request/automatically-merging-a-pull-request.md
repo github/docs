@@ -24,7 +24,7 @@ shortTitle: Merge PR automatically
 
 プルリクエストの自動マージを有効にした後、リポジトリへの書き込み権限を持たないユーザがプルリクエストの head ブランチに新しい変更をプッシュするか、プルリクエストのベースブランチを切り替えると、自動マージは無効になります。 たとえば、メンテナがフォークからのプルリクエストの自動マージを有効にした場合、コントリビューターがプルリクエストに新しい変更をプッシュすると、自動マージは無効になります。{% endif %}
 
-自動マージに関するフィードバックがある場合は、[お問い合わせ](https://support.github.com/contact/feedback?category=prs-and-code-review&subject=Pull%20request%20auto-merge%20feedback)にご連絡ください。
+You can provide feedback about auto-merge through a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/pull-requests-feedback).
 
 ## 自動マージの有効化
 
@@ -37,8 +37,18 @@ shortTitle: Merge PR automatically
 1. [Pull Requests] リストで、自動マージするプルリクエストをクリックします。
 1. 必要に応じて、マージ方法を選択するには、[**Enable auto-merge**] ドロップダウンメニューを選択してから、マージ方法をクリックします。 詳しい情報については[プルリクエストのマージについて](/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges)を参照してください。 ![[Enable auto-merge] ドロップダウンメニュー](/assets/images/help/pull_requests/enable-auto-merge-drop-down.png)
 1. [**Enable auto-merge**] をクリックします。 ![自動マージを有効化するボタン](/assets/images/help/pull_requests/enable-auto-merge-button.png)
+  {% ifversion fpt %}
 1. マージまたは squash とマージの方法を選択した場合は、コミットメッセージと説明を入力し、マージコミットを作成するメールアドレスを選択します。 ![コミットメッセージと説明を入力し、作者のメールをコミットするフィールド](/assets/images/help/pull_requests/pull-request-information-fields.png)
-1. [**Confirm auto-merge**] をクリックします。 ![自動マージを確認するボタン](/assets/images/help/pull_requests/confirm-auto-merge-button.png)
+  {% note %}
+
+  **Note:** The email dropdown menu is not available if you have email privacy enabled or if you only have one verified and visible email associated with your {% data variables.product.company_short %} account.
+
+  {% endnote %}
+  {% endif %}
+  {% ifversion ghes > 3.0 or ghae or ghec %}
+1. If you chose the merge or squash and merge methods, type a commit message and description. ![Fields to enter commit message and description](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
+  {% endif %}
+1. [**Confirm auto-merge**] をクリックします。
 
 ## 自動マージの無効化
 

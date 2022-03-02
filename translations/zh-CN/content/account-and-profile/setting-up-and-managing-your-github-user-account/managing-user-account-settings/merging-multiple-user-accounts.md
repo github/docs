@@ -17,7 +17,15 @@ shortTitle: 合并多个用户帐户
 
 {% tip %}
 
+{% ifversion ghec %}
+
+**Tip:** {% data variables.product.prodname_emus %} allow an enterprise to provision unique user accounts for its members through an identity provider (IdP). For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)." For other use cases, we recommend using only one user account to manage both personal and professional repositories.
+
+{% else %}
+
 **提示：**建议只使用一个用户帐户来管理个人和专业仓库。
+
+{% endif %}
 
 {% endtip %}
 

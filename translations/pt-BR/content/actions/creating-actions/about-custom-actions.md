@@ -26,7 +26,7 @@ topics:
 Você pode criar ações gravando códigos personalizados que interajam com o seu repositório da maneira que você quiser, inclusive fazendo integrações com as APIs do {% data variables.product.prodname_dotcom %} e qualquer API de terceiros disponível publicamente. Por exemplo, as ações podem publicar módulos npm, enviar alertas SMS quando problemas urgentes forem criados ou implantar códigos prontos para produção.
 
 {% ifversion fpt or ghec %}
-É possível gravar suas próprias ações para uso no fluxo de trabalho ou compartilhar as ações que você compilar com a comunidade do {% data variables.product.prodname_dotcom %}. Para compartilhar as ações que você compilou, seu repositório deve ser público.
+É possível gravar suas próprias ações para uso no fluxo de trabalho ou compartilhar as ações que você compilar com a comunidade do {% data variables.product.prodname_dotcom %}. Para compartilhar as ações que você criou com todas as pessoas, seu repositório deve ser público. {% if internal-actions %}Para compartilhar ações apenas dentro da sua empresa, seu repositório deve ser interno.{% endif %}
 {% endif %}
 
 As ações podem ser executadas diretamente em uma máquina ou em um contêiner Docker. É possível definir as entradas, saídas e variáveis do ambiente de uma ação.
@@ -47,13 +47,13 @@ Os contêineres Docker criam um pacote do ambiente com o código {% data variabl
 
 Um contêiner Docker permite usar versões específicas de um sistema operacional, bem como as dependências, as ferramentas e o código. Para ações a serem executadas em uma configuração específica de ambiente, o Docker é a opção ideal porque permite personalizar o sistema operacional e as ferramentas. Por causa da latência para compilar e recuperar o contêiner, as ações de contêiner Docker são mais lentas que as ações JavaScripts.
 
-As ações do contêiner Docker podem apenas ser executadas em executores com o sistema operacional Linux. {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+As ações do contêiner Docker podem apenas ser executadas em executores com o sistema operacional Linux. {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 ### Ações JavaScript
 
 As ações do JavaScript podem ser executadas diretamente em uma máquina executora e separar o código de ação do ambiente usado para executar o código. Usar ações JavaScript simplifica o código da ação e é um processo mais rápido se comparado à opção do contêiner Docker.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
 Se você estiver desenvolvendo um projeto Node.js, o kit de ferramentas {% data variables.product.prodname_actions %} fornecerá pacotes que você poderá usar para acelerar o desenvolvimento. Para obter mais informações, consulte o repositório [ações/conjuntos de ferramentas](https://github.com/actions/toolkit).
 
@@ -69,7 +69,10 @@ Se você estiver desenvolvendo uma ação a ser usada por outras pessoas, recome
 Ao armazenar uma ação no seu próprio repositório, fica mais fácil para a comunidade do {% data variables.product.prodname_dotcom %} descobrir a ação. Além disso, você restringe o escopo da base de código para os desenvolvedores corrigirem problemas e desenvolverem a ação, bem como separa o controle de versões da ação e o controle de versões de outros códigos de aplicativo.
 {% endif %}
 
-{% ifversion fpt or ghec %}Se você estiver criando uma ação que não planeja disponibilizar ao público, você {% else %} Você{% endif %} pode armazenar os arquivos de ação em qualquer local do seu repositório. Se você planeja combinar ação, fluxo de trabalho e aplicativo em um só repositório, recomendamos armazenar as ações no diretório `.github`. Por exemplo, `.github/actions/action-a` e `.github/actions/action-b`.
+{% data reusables.actions.internal-actions-summary %}
+
+{% ifversion fpt or ghec %}Se você estiver criando uma ação que não planeja disponibilizar para outras pessoas, você {% else %} Você{% endif %} pode armazenar os arquivos de ação em qualquer local do seu repositório. Se você planeja combinar ação, fluxo de trabalho e aplicativo em um só repositório, recomendamos armazenar as ações no diretório `.github`. Por exemplo, `.github/actions/action-a` e `.github/actions/action-b`.
+
 
 ## Compatibilidade com {% data variables.product.prodname_ghe_server %}
 
@@ -136,7 +139,7 @@ etapas:
 
 ## Criar um arquivo README para a ação
 
-Se você planeja compartilhar sua ação publicamente, é recomendável criar um arquivo LEIAME para ajudar as pessoas a saberem como usar a ação. Você pode incluir as informações abaixo no seu `LEIAME.md`:
+Se você planeja compartilhar sua ação publicamente, é recomendável criar um arquivo README para ajudar as pessoas a saberem como usar a ação. Você pode incluir as informações abaixo no seu `README.md`:
 
 - Descrição detalhada do que a ação faz;
 - Argumentos obrigatórios de entrada e saída;

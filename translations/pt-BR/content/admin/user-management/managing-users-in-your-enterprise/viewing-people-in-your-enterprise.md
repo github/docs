@@ -37,6 +37,18 @@ Você pode visualizar {% ifversion ghec %}todas as organizações de {% data var
 {% ifversion ghec %}1. Opcionalmente, para ver uma lista de convites pendentes, clique em **_NÚMERO_ pendente**.
   ![Botão "NÚMERO pendente" à direita das opções de pesquisa e filtro](/assets/images/help/enterprises/members-pending.png){% endif %}
 
+{% ifversion ghec %}
+
+## Visualizando integrantes suspensos em um {% data variables.product.prodname_emu_enterprise %}
+
+Se sua empresa usa {% data variables.product.prodname_emus %}, você também pode visualizar usuários suspensos. Os usuários suspensos são integrantes que foram desprovisionados depois que o aplicativo de {% data variables.product.prodname_emu_idp_application %} cancelou ou excluiu sua atribuição do provedor de identidade. Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)".
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. Para ver uma lista de integrantes suspensos, acima da lista de integrantes ativos, clique em **Suspensos**. ![Captura de tela que mostra a opção "Suspenso"](/assets/images/help/enterprises/view-suspended-members.png)
+
+{% endif %}
+
 ## Exibir usuários inativos
 
 Você pode ver uma lista de todos os usuários desativados {% ifversion ghes or ghae %} que não foram suspensos e {% endif %}que não são administradores do site. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} Para obter mais informações, consulte "[Gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".

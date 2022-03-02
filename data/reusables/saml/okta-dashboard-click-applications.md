@@ -1,2 +1,1 @@
-1. In the Okta Dashboard, click **Applications**.
-  !["Applications" item in the Okta Dashboard navigation bar](/assets/images/help/saml/okta-applications.png)
+1. In the left sidebar, use the **Applications** dropdown and click **Applications**.

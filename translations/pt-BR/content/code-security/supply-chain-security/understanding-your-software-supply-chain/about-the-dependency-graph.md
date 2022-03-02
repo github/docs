@@ -28,10 +28,7 @@ shortTitle: Gráfico de dependências
 
 ## Sobre o gráfico de dependências
 
-O gráfico de dependências é um resumo do manifesto e bloqueia arquivos armazenados em um repositório. Para cada repositório, ele mostra{% ifversion fpt or ghec %}:
-
-- As dependências, os ecossistemas e os pacotes do qual depende
-- Dependentes, os repositórios e pacotes que dependem dele{% else %} dependências, isto é, os ecossistemas e pacotes de que ele depende. O {% data variables.product.product_name %} não calcula informações sobre dependentes, repositórios e pacotes que dependem de um repositório.{% endif %}
+{% data reusables.dependabot.about-the-dependency-graph %}
 
 Ao fazer push de um commit para o {% data variables.product.product_name %}, que muda ou adiciona um manifesto compatível ou um arquivo de bloqueio para o branch-padrão, o gráfico de dependências será atualizado automaticamente.{% ifversion fpt or ghec %} Além disso, o gráfico é atualizado quando alguém faz push de uma alteração no repositório de uma de suas dependências.{% endif %} Para obter informações sobre os ecossistemas compatíveis e arquivos de manifesto, consulte "[ecossistemas de pacotes compatíveis](#supported-package-ecosystems)" abaixo.
 
@@ -66,7 +63,7 @@ Você pode usar o gráfico de dependências para:
 
 {% ifversion fpt or ghec %}Para gerar um gráfico de dependência, o {% data variables.product.product_name %} precisa de acesso somente leitura ao manifesto dependência e aos arquivos de bloqueio em um repositório. O gráfico de dependências é gerado automaticamente para todos os repositórios públicos e você pode optar por habilitá-lo para repositórios privados. For information about enabling or disabling it for private repositories, see "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)."{% endif %}
 
-{% ifversion ghes or ghae %}Se o gráfico de dependências não estiver disponível no seu sistema, o proprietário da empresa poderá habilitar o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %}. Para obter mais informações, consulte[Habilitando o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %} na sua conta corporativa](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."{% endif %}
+{% ifversion ghes or ghae %}Se o gráfico de dependências não estiver disponível no seu sistema, o proprietário da empresa poderá habilitar o gráfico de dependências. Para obter mais informações, consulte "[Habilitando o gráfico de dependências para sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
 
 Quando o gráfico de dependências é ativado pela primeira vez, todos manifesto e arquivos de bloqueio para ecossistemas suportados são analisados imediatamente. O gráfico geralmente é preenchido em minutos, mas isso pode levar mais tempo para repositórios com muitas dependências. Uma vez habilitado, o gráfico é atualizado automaticamente a cada push no repositório{% ifversion fpt or ghec %} e a cada push para outros repositórios no gráfico{% endif %}.
 
@@ -74,25 +71,41 @@ Quando o gráfico de dependências é ativado pela primeira vez, todos manifesto
 
 Os formatos recomendados definem explicitamente quais versões são usadas para todas as dependências diretas e indiretas. Se você usar esses formatos, seu gráfico de dependências será mais preciso. Ele também reflete a configuração da criação atual e permite que o gráfico de dependências relate vulnerabilidades em dependências diretas e indiretas.{% ifversion fpt or ghec %} As dependências indiretas, inferidas a partir de um arquivo de manifesto (ou equivalente), são excluídas das verificações de dependências vulneráveis.{% endif %}
 
-| Gerenciador de pacotes | Idiomas                          | Formatos recomendados                                  | Todos os formatos compatíveis                                             |
+| Gerenciador de pacotes | Linguagem                        | Formatos recomendados                                  | Todos os formatos compatíveis                                             |
 | ---------------------- | -------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------- |
 | Composer               | PHP                              | `composer.lock`                                        | `composer.json`, `composer.lock`                                          |
 | `dotnet` CLI           | .NET languages (C#, C++, F#, VB) | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
+
+{%- if github-actions-in-dependency-graph %}
+| {% data variables.product.prodname_actions %} workflows
+
+<sup>[1]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
+{%- endif %}
 {%- ifversion fpt or ghes > 3.2 or ghae %}
 | Go modules | Go | `go.sum` | `go.mod`, `go.sum` |
 {%- elsif ghes = 3.2 %}
 | Go modules | Go | `go.mod` | `go.mod` |
 {%- endif %}
-| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  | | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`| | Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`* |
-{%- ifversion fpt or ghes > 3.3 %}
+| Maven | Java, Scala |  `pom.xml`  | `pom.xml`  | | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`| | Python PIP      | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`{% if github-actions-in-dependency-graph %}<sup>[2]</sup>{% else %}<sup>[1]</sup>{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4752 %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |{% endif %} | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` | | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
+{% if github-actions-in-dependency-graph %}
+[1] Observe que os fluxos de trabalho de {% data variables.product.prodname_actions %} devem estar localizados no diretório `.github/workflows/` de um repositório para serem reconhecidos como manifestos. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions)".
+
+[2] Se você listar suas dependências do Python nas no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.
+
+{% else %}
+[1] Se você listar suas dependências do Python no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.
+{% endif %}
+
+{% if github-actions-in-dependency-graph %}
 {% note %}
 
-**Observação:** se você listar suas dependências de Python em um arquivo `setup.py`, será provável que não possamos analisar e listar cada dependência no seu projeto.
+**Observação:** As dependências do fluxo de trabalho de {% data variables.product.prodname_actions %} são exibidas no gráfico de dependências para fins informativos. Os alertas de dependência não são atualmente compatíveis com os fluxos de trabalho de {% data variables.product.prodname_actions %}.
 
 {% endnote %}
-
+{% endif %}
 ## Leia mais
 
 - "[Gráfico de dependências](https://en.wikipedia.org/wiki/Dependency_graph)" na Wikipedia

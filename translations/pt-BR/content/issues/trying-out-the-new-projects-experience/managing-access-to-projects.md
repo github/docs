@@ -15,7 +15,7 @@ topics:
 
 ## Sobre o acesso ao projeto
 
-Os administradores de projetos no nível da organização podem gerenciar acesso para toda a organização, para equipes e para integrantes da organização individual.
+Os administradores de projetos no nível de organização podem gerenciar acesso para toda a organização, equipes, integrantes individuais da organização e para colaboradores externos.
 
 Os administradores de projetos de nível de usuário podem convidar colaboradores individuais e gerenciar seu acesso.
 
@@ -37,18 +37,18 @@ A função base padrão é `gravar`, o que significa que todos na organização 
 
 ### Gerenciando o acesso de equipes e integrantes individuais da sua organização
 
-Você também pode adicionar equipes e integrantes das organizações individuais, como colaboradores. Para obter mais informações, consulte "[Sobre equipes](/organizations/organizing-members-into-teams/about-teams)".
+Também é possível adicionar equipes, colaboradores externos e integrantes da organização individuais como colaboradores em um projeto no nível da organização. Para obter mais informações, consulte "[Sobre equipes](/organizations/organizing-members-into-teams/about-teams)".
 
-Você só pode convidar um usuário individual para colaborar no seu projeto no nível da organização se ele for integrante da organização.
+Você pode apenas convidar um usuário individual para colaborar no projeto a nível da organização se ele já for integrante da organização ou colaborador externo em pelo menos um repositório na organização.
 
 {% data reusables.projects.project-settings %}
 1. Clique em **Gerenciar acesso**.
-1. Em **Convidar colaboradores**, pesquise o integrante da equipe ou organização que você deseja convidar.
-1. Selecione a função para o colaborador.
+2. Em **Convidar colaboradores**, pesquisa a equipe ou usuário individual que você deseja convidar.
+3. Selecione a função para o colaborador.
    - **Leitura**: A equipe ou indivíduo pode visualizar o projeto.
    - **Gravação**: A equipe ou indivíduo pode visualizar e editar o projeto.
    - **Administrador**: A equipe ou indivíduo pode visualizar, editar e adicionar novos colaboradores ao projeto.
-1. Clique em **Convidar**.
+4. Clique em **Convidar**.
 
 ### Gerenciando o acesso de um colaborador existente no seu projeto
 

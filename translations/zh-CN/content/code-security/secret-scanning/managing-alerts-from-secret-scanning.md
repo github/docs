@@ -6,7 +6,6 @@ redirect_from:
   - /github/administering-a-repository/managing-alerts-from-secret-scanning
   - /code-security/secret-security/managing-alerts-from-secret-scanning
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -42,7 +41,7 @@ shortTitle: 管理秘密警报
    {% ifversion ghae %}
    ![来自密码扫描的警报](/assets/images/enterprise/github-ae/repository/secret-scanning-click-alert-ghae.png)
    {% endif %}
-1. Optionally, select the {% ifversion fpt or ghec %}"Close as"{% elsif ghes or ghae %}"Mark as"{% endif %} drop-down menu and click a reason for resolving an alert.
+1. （可选）选择 {% ifversion fpt or ghec %}“Close as（关闭为）”{% elsif ghes or ghae %}“Mark as（标记为）”{% endif %} 下拉菜单，然后单击原因以解决警报。
    {% ifversion fpt or ghec %}
    ![用于解决来自密码扫描的警报的下拉菜单](/assets/images/help/repository/secret-scanning-resolve-alert.png)
    {% endif %}
@@ -60,7 +59,7 @@ shortTitle: 管理秘密警报
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## 配置 {% data variables.product.prodname_secret_scanning %} 警报的通知
 
-当检测到新的机密时，{% data variables.product.product_name %} 会根据用户的通知首选项通知对仓库安全警报具有访问权限的所有用户。 You will receive alerts if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, are the author of the commit that contains the secret and are not ignoring the repository.
+当检测到新的机密时，{% data variables.product.product_name %} 会根据用户的通知首选项通知对仓库安全警报具有访问权限的所有用户。 如果您正在关注该仓库，已为仓库的安全警报或所有活动启用通知功能， 或者您是包含机密的提交的作者且未忽略该仓库，您将会收到警报。
 
 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)”和“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)”。
 {% endif %}

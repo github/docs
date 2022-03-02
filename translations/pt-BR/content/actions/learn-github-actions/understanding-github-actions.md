@@ -38,9 +38,11 @@ topics:
 
 Um fluxo de trabalho é um processo automatizado configurável que executa um ou mais trabalhos.  Os fluxos de trabalho são definidos por um arquivo YAML verificado no seu repositório e será executado quando acionado por um evento no repositório, ou eles podem ser acionados manualmente ou de acordo com um cronograma definido.
 
-O seu repositório pode ter vários fluxos de trabalho em um repositório, cada um dos quais pode executar um conjunto diferente de etapas.  Por exemplo, você pode ter um fluxo de trabalho para criar e testar pull requests, outro fluxo de trabalho para implantar seu aplicativo toda vez que uma versão for criada, e outro fluxo de trabalho que adiciona uma etiqueta toda vez que alguém abre um novo problema.
+You can have multiple workflows in a repository, each of which can perform a different set of steps.  Por exemplo, você pode ter um fluxo de trabalho para criar e testar pull requests, outro fluxo de trabalho para implantar seu aplicativo toda vez que uma versão for criada, e outro fluxo de trabalho que adiciona uma etiqueta toda vez que alguém abre um novo problema.
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Você pode consultar um fluxo de trabalho dentro de outro fluxo de trabalho. Consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)"{% endif %}
+
+Para obter mais informações sobre fluxos de trabalho, consulte "[Usando fluxos de trabalho](/actions/using-workflows)".
 
 ### Eventos
 
@@ -54,11 +56,17 @@ Um trabalho é um conjunto de _etapas_ em um fluxo de trabalho que é executado 
 
 Você pode configurar as dependências de um trabalho com outros trabalhos; por padrão, os trabalhos não têm dependências e são executados em paralelo um com o outro.  Quando um trabalho leva uma dependência de outro trabalho, ele irá aguardar que o trabalho depeendente seja concluído antes que possa executar.  Por exemplo, você pode ter vários trabalhos de criação para diferentes arquiteturas que não têm dependências, e um trabalho de pacotes que depende desses trabalhos.  Os trabalhos de criação serão executados em paralelo e, quando todos forem concluídos com sucesso, o trabalho de empacotamento será executado.
 
+Para obter mais informações sobre trabalhos, consulte "[Usando trabalhos](/actions/using-jobs)".
+
 ### Ações
 
 Uma _ação_ é uma aplicativo personalizado para a plataforma de {% data variables.product.prodname_actions %} que executa uma tarefa complexa, mas frequentemente repetida.  Use uma ação para ajudar a reduzir a quantidade de código repetitivo que você grava nos seus arquivos de fluxo de trabalho.  Uma ação pode extrair o seu repositório git de {% data variables.product.prodname_dotcom %}, configurar a cadeia de ferramentas correta para seu ambiente de criação ou configurar a autenticação para seu provedor de nuvem.
 
 Você pode gravar suas próprias ações, ou você pode encontrar ações para usar nos seus fluxos de trabalho em {% data variables.product.prodname_marketplace %}.
+
+{% data reusables.actions.internal-actions-summary %}
+
+Para obter mais informações, consulte "[Criar ações](/actions/creating-actions)".
 
 ### Executores
 
@@ -114,7 +122,7 @@ Para ajudar você a entender como a sintaxe de YAML é usada para criar um arqui
   ```
 </td>
 <td>
-Especifica o gatilho para este fluxo de trabalho. Este exemplo usa o evento <code>push</code> para que a execução de um fluxo de trabalho seja acionada toda vez que alguém fizer push de uma alteração no repositório ou merge de um pull request.  Isso é acionado por um push para cada branch. Para obter exemplos de sintaxe executados apenas em pushes para branches, caminhos ou tags específicos, consulte <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">"Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}.</a>
+Especifica o gatilho para este fluxo de trabalho. Este exemplo usa o evento <code>push</code> para que a execução de um fluxo de trabalho seja acionada toda vez que alguém fizer push de uma alteração no repositório ou merge de um pull request.  Isso é acionado por um push para cada branch. Para obter exemplos de sintaxe executados apenas em pushes para branches, caminhos ou tags específicos, consulte <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">"Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}.</a>
 </td>
 </tr>
 <tr>
@@ -246,4 +254,9 @@ Para entender como a cobrança funciona para {% data variables.product.prodname_
 
 ## Entrar em contato com o suporte
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
+
+## Leia mais
+
+{% ifversion ghec or ghes or ghae %}
+- "[Sobre {% data variables.product.prodname_actions %} para as empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}

@@ -78,9 +78,9 @@ Este fluxo de trabalho executa os seguintes passos:
 
 Os fluxos de trabalho inicial padrão são excelentes pontos de partida ao criar seu fluxo de trabalho de criação e teste, e você pode personalizar o fluxo de trabalho inicial para atender às necessidades do seu projeto.
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## Criar e testar seu código
 
@@ -88,7 +88,7 @@ Você pode usar os mesmos comandos usados localmente para criar e testar seu có
 
 O fluxo de trabalho inicial executará o alvo-padrão especificado no arquivo _build.xml_.  Seu alvo-padrão será comumente definido para criar classes, executar testes e classes de pacote em seu formato distribuível como, por exemplo, um arquivo JAR.
 
-Se você usa comandos diferentes para criar seu projeto ou se você quer executar um alvo diferente, você poderá especificá-los. Por exemplo, você pode desejar executar o `jar` alvo configurado no arquivo _build-ci.xml_.
+Se você usa comandos diferentes para criar seu projeto ou se você quer executar um alvo diferente, você poderá especificá-los. Por exemplo, você deverá executar o `jar` configurado no seu arquivo `_build-ci.xml_`.
 
 {% raw %}
 ```yaml{:copy}

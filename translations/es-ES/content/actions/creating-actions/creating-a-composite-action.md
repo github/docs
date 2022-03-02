@@ -23,7 +23,7 @@ En esta guía, aprenderás acerca de los componentes básicos necesarios para cr
 
 Una vez que completes este proyecto, deberías comprender cómo crear tu propia acción compuesta y probarla en un flujo de trabajo.
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Prerrequisitos
 
@@ -84,7 +84,9 @@ Antes de comenzar, deberás crear un repositorio en {% ifversion ghae %}{% data 
         - id: random-number-generator
           run: echo "::set-output name=random-id::$(echo $RANDOM)"
           shell: bash
-        - run: ${{ github.action_path }}/goodbye.sh
+        - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+          shell: bash          
+        - run: goodbye.sh
           shell: bash
     ```
     {% endraw %}

@@ -38,9 +38,11 @@ You can configure a {% data variables.product.prodname_actions %} _workflow_ to 
 
 A workflow is a configurable automated process that will run one or more jobs.  Workflows are defined by a YAML file checked in to your repository and will run when triggered by an event in your repository, or they can be triggered manually, or at a defined schedule.
 
-Your repository can have multiple workflows in a repository, each of which can perform a different set of steps.  For example, you can have one workflow to build and test pull requests, another workflow to deploy your application every time a release is created, and still another workflow that adds a label every time someone opens a new issue.
+You can have multiple workflows in a repository, each of which can perform a different set of steps.  For example, you can have one workflow to build and test pull requests, another workflow to deploy your application every time a release is created, and still another workflow that adds a label every time someone opens a new issue.
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
+
+For more information about workflows, see "[Using workflows](/actions/using-workflows)."
 
 ### イベント
 
@@ -54,11 +56,17 @@ A job is a set of _steps_ in a workflow that execute on the same runner.  Each s
 
 You can configure a job's dependencies with other jobs; by default, jobs have no dependencies and run in parallel with each other.  When a job takes a dependency on another job, it will wait for the dependent job to complete before it can run.  For example, you may have multiple build jobs for different architectures that have no dependencies, and a packaging job that is dependent on those jobs.  The build jobs will run in parallel, and when they have all completed successfully, the packaging job will run.
 
+For more information about jobs, see "[Using jobs](/actions/using-jobs)."
+
 ### アクション
 
 An _action_ is a custom application for the {% data variables.product.prodname_actions %} platform that performs a complex but frequently repeated task.  Use an action to help reduce the amount of repetitive code that you write in your workflow files.  An action can pull your git repository from {% data variables.product.prodname_dotcom %}, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
 
 You can write your own actions, or you can find actions to use in your workflows in the {% data variables.product.prodname_marketplace %}.
+
+{% data reusables.actions.internal-actions-summary %}
+
+詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
 
 ### ランナー
 
@@ -114,7 +122,7 @@ YAML 構文を使用してワークフローファイルを作成する方法を
   ```
 </td>
 <td>
-Specifies the trigger for this workflow. This example uses the <code>push</code> event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">"Workflow syntax for {% data variables.product.prodname_actions %}."</a>
+Specifies the trigger for this workflow. This example uses the <code>push</code> event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">"Workflow syntax for {% data variables.product.prodname_actions %}."</a>
 </td>
 </tr>
 <tr>
@@ -246,4 +254,9 @@ To understand how billing works for {% data variables.product.prodname_actions %
 
 ## サポートへの連絡
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
+
+## 参考リンク
+
+{% ifversion ghec or ghes or ghae %}
+- "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}

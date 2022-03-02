@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '>=3.0'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -45,6 +45,17 @@ Você deve fazer o download do pacote {% data variables.product.prodname_codeql 
 - Uma versão compatível das consultas e bibliotecas de https://github.com/github/codeql
 - Versões pré-compiladas de todas as consultas incluídas no pacote
 
+{% ifversion ghes %}
+
+{% note %}
+{% ifversion ghes = 3.0 %}Para {% data variables.product.prodname_ghe_server %} 3.0, recomendamos a ersão 2.6.3 de {% data variables.product.prodname_codeql_cli %}.{% endif %}
+{% ifversion ghes = 3.1 %}Para {% data variables.product.prodname_ghe_server %} 3.1, recomendamos a versão 2.6.3 de {% data variables.product.prodname_codeql_cli %}.{% endif %}
+{% ifversion ghes = 3.2 %}Para {% data variables.product.prodname_ghe_server %} 3.2, recomendamos a versão 2.6.3 de {% data variables.product.prodname_codeql_cli %}.{% endif %}
+{% ifversion ghes > 3.2 %}Para {% data variables.product.prodname_ghe_server %} 3.3 ou superior, recomendamos a versão 2.7.6 ou superior de {% data variables.product.prodname_codeql_cli %}.{% endif %}
+{% endnote %}
+
+{% endif %}
+
 Você sempre deve usar o pacote de {% data variables.product.prodname_codeql %}, uma vez que ele garante compatibilidade e também fornece um desempenho muito melhor do que um download separado de {% data variables.product.prodname_codeql_cli %} e checkout das consultas de {% data variables.product.prodname_codeql %}. Se você estiver executando o CLI apenas em uma plataforma específica, faça o download do arquivo `codeql-bundle-PLATFORM.tar.gz` apropriado. Como alternativa, você pode fazer o download de `codeql-bundle.tar.gz`, que contém a CLI para todas as plataformas compatíveis.
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
@@ -72,24 +83,24 @@ Depois de extrair o pacote de {% data variables.product.prodname_codeql_cli %}, 
 
 **Extrair da saída bem-sucedida:**
 ```
-codeql-cpp (/<extraction-root>/codeql/qlpacks/codeql-cpp)
-codeql-cpp-examples (/<extraction-root>/codeql/qlpacks/codeql-cpp-examples)
-codeql-cpp-upgrades (/<extraction-root>/codeql/qlpacks/codeql-cpp-upgrades)
-codeql-csharp (/<extraction-root>/codeql/qlpacks/codeql-csharp)
-codeql-csharp-examples (/<extraction-root>/codeql/qlpacks/codeql-csharp-examples)
-codeql-csharp-upgrades (/<extraction-root>/codeql/qlpacks/codeql-csharp-upgrades)
-codeql-go (/<extraction-root>/codeql/qlpacks/codeql-go)
-codeql-go-examples (/<extraction-root>/codeql/qlpacks/codeql-go-examples)
-codeql-go-upgrades (/<extraction-root>/codeql/qlpacks/codeql-go-upgrades)
-codeql-java (/<extraction-root>/codeql/qlpacks/codeql-java)
-codeql-java-examples (/<extraction-root>/codeql/qlpacks/codeql-java-examples)
-codeql-java-upgrades (/<extraction-root>/codeql/qlpacks/codeql-java-upgrades)
-codeql-javascript (/<extraction-root>/codeql/qlpacks/codeql-javascript)
-codeql-javascript-examples (/<extraction-root>/codeql/qlpacks/codeql-javascript-examples)
-codeql-javascript-upgrades (/<extraction-root>/codeql/qlpacks/codeql-javascript-upgrades)
-codeql-python (/<extraction-root>/codeql/qlpacks/codeql-python)
-codeql-python-examples (/<extraction-root>/codeql/qlpacks/codeql-python-examples)
-codeql-python-upgrades (/<extraction-root>/codeql/qlpacks/codeql-python-upgrades)
+codeql/cpp-all (/<extraction-root>/qlpacks/codeql/cpp-all/<version>)
+codeql/cpp-examples (/<extraction-root>/qlpacks/codeql/cpp-examples/<version>)
+codeql/cpp-queries (/<extraction-root>/qlpacks/codeql/cpp-queries/<version>)
+codeql/csharp-all (/<extraction-root>/qlpacks/codeql/charp-all/<version>)
+codeql/csharp-examples (/<extraction-root>/qlpacks/codeql/charp-examples/<version>)
+codeql/csharp-queries (/<extraction-root>/qlpacks/codeql/charp-queries/<version>)
+codeql/java-all (/<extraction-root>/qlpacks/codeql/java-all/<version>)
+codeql/java-examples (/<extraction-root>/qlpacks/codeql/java-examples/<version>)
+codeql/java-queries (/<extraction-root>/qlpacks/codeql/java-queries/<version>)
+codeql/javascript-all (/<extraction-root>/qlpacks/codeql/javascript-all/<version>)
+codeql/javascript-examples (/<extraction-root>/qlpacks/codeql/javascript-examples/<version>)
+codeql/javascript-queries (/<extraction-root>/qlpacks/codeql/javascript-queries/<version>)
+codeql/python-all (/<extraction-root>/qlpacks/codeql/python-all/<version>)
+codeql/python-examples (/<extraction-root>/qlpacks/codeql/python-examples/<version>)
+codeql/python-queries (/<extraction-root>/qlpacks/codeql/python-queries/<version>)
+codeql/ruby-all (/<extraction-root>/qlpacks/codeql/ruby-all/<version>)
+codeql/ruby-examples (/<extraction-root>/qlpacks/codeql/ruby-examples/<version>)
+codeql/ruby-queries (/<extraction-root>/qlpacks/codeql/ruby-queries/<version>)
 ...
 ```
 

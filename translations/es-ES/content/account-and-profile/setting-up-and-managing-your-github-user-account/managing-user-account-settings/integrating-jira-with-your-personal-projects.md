@@ -11,16 +11,16 @@ versions:
 shortTitle: Integrar a Jira con los proyectos
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-3. En la barra lateral izquierda, haz clic en **{% data variables.product.prodname_oauth_apps %}**. ![pestaña {% data variables.product.prodname_oauth_apps %} en la barra lateral izquierda](/assets/images/help/settings/developer-settings-oauth-apps.png)
-3. Haz clic en **Register a new application** (Registrar una aplicación nueva).
-4. En **Application name** (Nombre de la aplicación), escribe "Jira".
-5. En **Homepage URL** (URL de la página de inicio), escribe la URL completa de tu instancia de Jira.
-6. En **Authorization callback URL** (URL de devolución de llamada de autorización), escribe la URL completa para tu instancia de Jira.
-7. Haz clic en **Register application** (Registrar aplicación). ![Botón Register application (Registrar aplicación)](/assets/images/help/oauth/register-application-button.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.oauth_apps %}
+1. Haz clic en **Register a new application** (Registrar una aplicación nueva).
+2. En **Application name** (Nombre de la aplicación), escribe "Jira".
+3. En **Homepage URL** (URL de la página de inicio), escribe la URL completa de tu instancia de Jira.
+4. En **Authorization callback URL** (URL de devolución de llamada de autorización), escribe la URL completa para tu instancia de Jira.
+5. Haz clic en **Register application** (Registrar aplicación). ![Botón Register application (Registrar aplicación)](/assets/images/help/oauth/register-application-button.png)
 8. En **Developer applications** (Aplicaciones del programador), presta atención a los valores de "Client ID" (Id. del cliente) y "Client Secret" (Secreto del cliente). ![Id. del cliente y secreto del cliente](/assets/images/help/oauth/client-id-and-secret.png)
-{% data reusables.user_settings.jira_help_docs %}
+{% data reusables.user-settings.jira_help_docs %}
 
 ## Leer más
 

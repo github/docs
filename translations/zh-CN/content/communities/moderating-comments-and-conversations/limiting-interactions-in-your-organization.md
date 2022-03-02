@@ -33,8 +33,7 @@ shortTitle: 限制组织中的交互
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. 在组织设置侧边栏中，单击 **Moderation settings（仲裁设置）**。 ![组织设置侧边栏中的"Moderation settings（仲裁设置）"](/assets/images/help/organizations/org-settings-moderation-settings.png)
-1. 在“Moderation settings（仲裁设置）”下，单击 **Interaction limits（交互限制）**。 ![组织设置侧边栏中的"Interaction limits（交互限制）"](/assets/images/help/organizations/org-settings-interaction-limits.png)
+1. 在侧边栏的“Access（访问）”部分中，选择 **{% octicon "report" aria-label="The report icon" %} 主持** 然后点击 **Interaction limits（互动限制）**。
 {% data reusables.community.set-interaction-limit %}
   ![临时交互限制选项](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
@@ -42,4 +41,4 @@ shortTitle: 限制组织中的交互
 - “[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
 - "[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository)"
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

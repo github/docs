@@ -90,8 +90,12 @@ $ gcloud services enable \
   ```
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
     --member=serviceAccount:$SA_EMAIL \
-    --role=roles/container.admin \
-    --role=roles/storage.admin \
+    --role=roles/container.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/storage.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
     --role=roles/container.clusterViewer
   ```
   {% endraw %}
@@ -114,7 +118,7 @@ $ gcloud services enable \
 Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
 ### （可选）配置 kustomize
-Kustomize 是用于管理 YAML 规范的可选工具。 在创建 _kustomization_ 文件之后， 下面的工作流可用于将结果中的图像和管道字段动态设置为 `kubectl`。 更多信息请参阅 [kustomize 的用法](https://github.com/kubernetes-sigs/kustomize#usage)。
+Kustomize 是用于管理 YAML 规范的可选工具。 After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. 更多信息请参阅 [kustomize 的用法](https://github.com/kubernetes-sigs/kustomize#usage)。
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Optional) Configure a deployment environment

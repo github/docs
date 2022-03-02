@@ -1,1 +1,1 @@
-Gitブランチまたはタグが削除されました。 詳しい情報については「[Gitデータ](/rest/reference/git)」 REST APIを参照してください。
+Gitブランチまたはタグが削除されました。 For more information, see the "[Git database](/rest/reference/git#delete-a-reference)" REST API.

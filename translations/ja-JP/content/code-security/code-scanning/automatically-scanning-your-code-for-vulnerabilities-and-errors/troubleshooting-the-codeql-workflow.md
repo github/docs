@@ -27,10 +27,17 @@ topics:
   - Java
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
+
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+
+{% endnote %}
+{% endif %}
 
 ## デバッグ用の詳細なログを生成する
 
@@ -42,7 +49,7 @@ topics:
 
 You can obtain artifacts to help you debug {% data variables.product.prodname_codeql %} by setting a debug configuration flag. Modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
 
-```
+```yaml
 - name: Initialize CodeQL
   uses: github/codeql-action/init@v1
   with:
@@ -139,13 +146,15 @@ If your {% data variables.product.prodname_codeql %} analysis scans fewer lines 
 Replace the `autobuild` step with the same build commands you would use in production. This makes sure that {% data variables.product.prodname_codeql %} knows exactly how to compile all of the source files you want to scan. 詳しい情報については、「[コンパイル型言語の {% data variables.product.prodname_codeql %} ワークフローを設定する](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)」を参照してください。
 
 ### Inspect the copy of the source files in the {% data variables.product.prodname_codeql %} database
-You may be able to understand why some source files haven't been analyzed by inspecting the copy of the source code included with the {% data variables.product.prodname_codeql %} database. To obtain the database from your Actions workflow, add an `upload-artifact` action after the analysis step in your code scanning workflow:
-```
-- uses: actions/upload-artifact@v2
+You may be able to understand why some source files haven't been analyzed by inspecting the copy of the source code included with the {% data variables.product.prodname_codeql %} database. To obtain the database from your Actions workflow, modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
+
+```yaml
+- name: Initialize CodeQL
+  uses: github/codeql-action/init@v1
   with:
-    name: codeql-database
-    path: ../codeql-database
+    debug: true
 ```
+
 This uploads the database as an actions artifact that you can download to your local machine. For more information, see "[Storing workflow artifacts](/actions/guides/storing-workflow-data-as-artifacts)."
 
 The artifact will contain an archived copy of the source files scanned by {% data variables.product.prodname_codeql %} called _src.zip_. If you compare the source code files in the repository and the files in _src.zip_, you can see which types of file are missing. Once you know what types of file are not being analyzed, it is easier to understand how you may need to change the workflow for {% data variables.product.prodname_codeql %} analysis.
@@ -179,7 +188,7 @@ However, if you see extractor errors in the overwhelming majority of files that 
 
 一般的に、分析時間は分析されるコードの量に比例します。 たとえば、テストコードを除外したり、一度にコードのサブセットのみを分析する複数のワークフローに分析を分割したりするなど、一度に分析されるコードの量を減らすことで、分析時間を短縮できます。
 
-Java、C、C++、C# などのコンパイルされた言語の場合、{% data variables.product.prodname_codeql %} はワークフローの実行中に作成されたすべてのコードを分析します。 分析するコードの量を制限するには、`run` ブロックで独自のビルドステップを指定して、分析するコードのみをビルドします。 独自のビルドステップの指定と、`pull_request` および `push` イベントの `paths` または `paths-ignore` フィルタの使用を組み合わせて、特定のコードが変更されたときにのみワークフローが実行されるようにすることができます。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths)」を参照してください。
+Java、C、C++、C# などのコンパイルされた言語の場合、{% data variables.product.prodname_codeql %} はワークフローの実行中に作成されたすべてのコードを分析します。 分析するコードの量を制限するには、`run` ブロックで独自のビルドステップを指定して、分析するコードのみをビルドします。 独自のビルドステップの指定と、`pull_request` および `push` イベントの `paths` または `paths-ignore` フィルタの使用を組み合わせて、特定のコードが変更されたときにのみワークフローが実行されるようにすることができます。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
 
 For languages like Go, JavaScript, Python, and TypeScript, that {% data variables.product.prodname_codeql %} analyzes without compiling the source code, you can specify additional configuration options to limit the amount of code to analyze. 詳しい情報については、「[スキャンするディレクトリを指定する](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan)」を参照してください。
 
@@ -188,6 +197,19 @@ For languages like Go, JavaScript, Python, and TypeScript, that {% data variable
 ### `schedule` イベント中にのみ実行する
 
 それでも分析が遅すぎるために、`push` または `pull_request` イベント中に実行できない場合は、`schedule` イベントでのみ分析をトリガーすることをお勧めします。 詳しい情報については、「[イベント](/actions/learn-github-actions/introduction-to-github-actions#events)」を参照してください。
+
+### Check which query suites the workflow runs
+
+By default, there are three main query suites available for each language. If you have optimized the CodeQL database build and the process is still too long, you could reduce the number of queries you run. The default query suite is run automatically; it contains the fastest security queries with the lowest rates of false positive results.
+
+You may be running extra queries or query suites in addition to the default queries. Check whether the workflow defines an additional query suite or additional queries to run using the `queries` element. You can experiment with disabling the additional query suite or queries. 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を設定する](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)」を参照してください。
+
+{% if codeql-ml-queries %}
+{% note %}
+
+**Note:** If you run the `security-extended` or `security-and-quality` query suite for JavaScript, then some queries use experimental technology. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."
+{% endnote %}
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ## 分析プラットフォーム間で異なる結果

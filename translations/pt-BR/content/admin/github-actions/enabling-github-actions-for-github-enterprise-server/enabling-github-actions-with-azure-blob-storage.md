@@ -34,6 +34,8 @@ Antes de habilitar {% data variables.product.prodname_actions %}, certifique-se 
 
 ## Habilitar {% data variables.product.prodname_actions %} com o armazenamento do Azure Blob
 
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.actions.perform-blob-storage-precheck %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}

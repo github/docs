@@ -46,9 +46,9 @@ Debes habilitar el inicio de sesión único de SAML para tu organización y tu I
 
 Debes tener una identidad de SAML vinculada. Para crear una identidad vinculada, debes autenticarte a tu organización utilizando el SSO de SAML y el IdP compatible por lo menos una vez. Para obtener más información, consulta "[Acerca de la autenticación con el inicio de sesión único de SAML](/articles/about-authentication-with-saml-single-sign-on)".
 
-Your SAML settings **must** contain a valid IdP URL for the **Issuer** field.
+Tus ajustes de SAML **deben** contener una URL de IdP válida para el campo **emisor**.
 
-![SAML Issuer field](/assets/images/help/saml/saml_issuer.png)
+![Campo de emisor de SAML](/assets/images/help/saml/saml_issuer.png)
 
 
 
@@ -70,7 +70,7 @@ La sincronización de equipos de Okta requiere que ya se hayan configurado el SA
 
 Para evitar los errores potenciales de sincronización de equipos, de recomendamos que confirmes que las entidades de SCIM enlazadas se hayan configurado correctamente para los miembros de la organización que son miembros de tus grupos selectos de Okta antes de habilitar la sincronización de equipos en {% data variables.product.prodname_dotcom %}.
 
-Si un miembro de la organización no tiene una identidad de SCIM enlazada, entonces la sincronización de equipos no funcionará como lo esperas y el usuario podría no agregarse o eliminarse de los equipos de acuerdo con lo esperado. Si cualquiera de estos usuarios no tiene una identidad de SCIM enlazada, necesitarás volver a aprovisionarlos.
+Si un miembro de la organización no tiene una identidad de SCIM enlazada, entonces la sincronización de equipos no funcionará como lo esperas y el usuario podría no agregarse o eliminarse de los equipos de acuerdo con lo esperado. Si cualquiera de estos usuarios no se encuentran en la identidad enlazada de SCIM, necesitarás volver a aprovisionarlos.
 
 Para obtener ayuda para aprovisionar usuarios que no tengan una identidad de SCIM enlazada, consulta la sección "[Solución de problemas para la administración de identidad y acceso](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)".
 

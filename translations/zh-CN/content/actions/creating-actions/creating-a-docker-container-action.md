@@ -27,9 +27,9 @@ shortTitle: Docker 容器操作
 
 完成此项目后，您应了解如何构建自己的 Docker 容器操作和在工作流程测试该操作。
 
-{% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+{% data reusables.actions.self-hosted-runner-reqs-docker %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## 基本要求
 
@@ -56,7 +56,7 @@ shortTitle: Docker 容器操作
 
 ## 创建 Dockerfile
 
-在新的 `hello-world-docker-action` 目录中，创建新的 `Dockerfile` 文件。 Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. 更多信息请参阅“[{% data variables.product.prodname_actions %} 的 Dockerfile 支持](/actions/creating-actions/dockerfile-support-for-github-actions)”。
+在新的 `hello-world-docker-action` 目录中，创建新的 `Dockerfile` 文件。 如果您有问题，请确保您的文件名正确大写（使用大写字母 `D` 但不要大写 `f`）。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的 Dockerfile 支持](/actions/creating-actions/dockerfile-support-for-github-actions)”。
 
 **Dockerfile**
 ```Dockerfile{:copy}

@@ -73,7 +73,7 @@ jobs:
 ```
 {% endraw %}
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
 ## Specifying the Node.js version
 
@@ -189,7 +189,7 @@ steps:
   run: yarn
 ```
 
-Alternatively, you can pass `--frozen-lockfile` to install the versions in the *yarn.lock* file and prevent updates to the *yarn.lock* file.
+Alternatively, you can pass `--frozen-lockfile` to install the versions in the `yarn.lock` file and prevent updates to the `yarn.lock` file.
 
 ```yaml{:copy}
 steps:
@@ -204,7 +204,7 @@ steps:
 
 ### Example using a private registry and creating the .npmrc file
 
-{% data reusables.github-actions.setup-node-intro %}
+{% data reusables.actions.setup-node-intro %}
 
 To authenticate to your private registry, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 

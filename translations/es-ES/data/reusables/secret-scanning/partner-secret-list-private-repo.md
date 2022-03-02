@@ -8,11 +8,11 @@ Adobe | Token de Servicio de Adobe | adobe_service_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Adobe | Token de Acceso de Duración Corta de Adobe | adobe_short_lived_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-Adobe | Adobe JSON Web Token | adobe_jwt{% endif %} Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id Alibaba Cloud | Alibaba Cloud Access Key Secret | alibaba_cloud_access_key_secret
+Adobe | Token Web de JSON de Adobe | adobe_jwt{% endif %} Alibaba Cloud | ID de Clave de Acceso de Alibaba Cloud | alibaba_cloud_access_key_id Alibaba Cloud | Secreto de Clave de Acceso de Alibaba Cloud | alibaba_cloud_access_key_secret
 {%- ifversion fpt or ghec or ghes > 3.3 %}
-Amazon | Amazon OAuth Client ID | amazon_oauth_client_id{% endif %}
+Amazon | ID de Cliente OAuth de Amazon | amazon_oauth_client_id{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
-Amazon | Amazon OAuth Client Secret | amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | Amazon AWS Access Key ID | aws_access_key_id Amazon Web Services (AWS) | Amazon AWS Secret Access Key | aws_secret_access_key
+Amazon | Secreto de Cliente OAuth de Amazon | amazon_oauth_client_secret{% endif %} Amazon Web Services (AWS) | ID de Llave de Acceso a Amazon AWS | aws_access_key_id Amazon Web Services (AWS) | Llave de Acceso al Secreto de Amazon AWS | aws_secret_access_key
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 Amazon Web Services (AWS) | Token de Sesión de Amazon AWS | aws_session_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -134,7 +134,7 @@ Notion | Token de Integración a Notion | notion_integration_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Notion | Secreto de Cliente OAuth a Notion | notion_oauth_client_secret{% endif %} npm | Token de Acceso a npm | npm_access_token NuGet | Llave de la API de NuGet | nuget_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 %}
-Octopus Deploy | Octopus Deploy API Key | octopus_deploy_api_key{% endif %}
+Octopus Deploy | Llave de la API de Despliegue de Octopus | octopus_deploy_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Onfido | Token de la API de Onfido Live | onfido_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -155,6 +155,8 @@ Plivo | Token de Autenticación a Plivo | plivo_auth_token{% endif %} Postman | 
 PyPI | Token de la API de PyPI | pypi_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 RubyGems | Llave de la API de RubyGems | rubygems_api_key{% endif %} Samsara | Token de la API de Samsara | samsara_api_token Samsara | Token de Acceso OAuth a Samsara | samsara_oauth_access_token
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae %}
+Segment | Token de la API Público de Segment | segment_public_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 SendGrid | Llave de la API de SendGrid | sendgrid_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -190,6 +192,10 @@ Telegram | Token del Bot de Telegram | telegram_bot_token{% endif %} Tencent Clo
 Twilio | Token de Acceso a Twilio | twilio_access_token{% endif %} Twilio | Identificador de Secuencia de Cuenta de Twilio | twilio_account_sid Twilio | Llave de la API de Twilio | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Typeform | Token de Acceso Personal a Typeform | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | Llave de la API de Producción de WorkOS Production | workos_production_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | Llave de la API de Pruebas de WorkOS | workos_staging_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Llave de la API de Yandex.Cloud | yandex_cloud_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}

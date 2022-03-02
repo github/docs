@@ -21,6 +21,7 @@ children:
   - /dockerfile-support-for-github-actions
   - /setting-exit-codes-for-actions
   - /publishing-actions-in-github-marketplace
+  - /sharing-actions-and-workflows-with-your-enterprise
   - /releasing-and-maintaining-actions
   - /developing-a-third-party-cli-action
 ---

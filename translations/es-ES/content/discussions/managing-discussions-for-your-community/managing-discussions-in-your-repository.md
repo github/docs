@@ -71,7 +71,7 @@ Editar un debate que se ha fijado no cambiará la categoría del mismo. Para obt
 
 ## Transferir un debate
 
-Para transferir un debate, debes tener permisos para crear debates en el repositorio a donde quieras trasnferirlo.
+Para transferir un debate, debes tener permisos para crear debates en el repositorio a donde quieras trasnferirlo. Solo puedes transferir debates entre los repositorios que pertenezcan a la misma cuenta de organización o de usuario. No puedes transferir un debate desde un repositorio privado hacia uno público.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

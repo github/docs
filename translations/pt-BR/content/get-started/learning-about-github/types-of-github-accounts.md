@@ -83,5 +83,7 @@ A sua conta corporativa é uma coleção de todas as organizações {% ifversion
 
 ## Leia mais
 
-{% ifversion fpt or ghec %}- "[Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)"{% endif %}
+{% ifversion fpt or ghec %}
+- "[inscrevendo-se para uma nova conta {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)"{% endif %}
 - "[Criar uma conta de organização](/articles/creating-a-new-organization-account)"
+- [Organizando as pessoas para um vídeo de](https://vimeo.com/333786093) de colaboração bem-sucedida nos recursos de {% data variables.product.company_short %}

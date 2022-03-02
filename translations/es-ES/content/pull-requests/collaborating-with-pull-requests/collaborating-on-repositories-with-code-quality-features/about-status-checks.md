@@ -34,7 +34,7 @@ There are two types of status checks on {% data variables.product.product_name %
 
 _Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
-Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/repos#statuses)."
+Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/rest/reference/checks)" and "[Statuses](/rest/reference/commits#commit-statuses)."
 
 ## Checks
 

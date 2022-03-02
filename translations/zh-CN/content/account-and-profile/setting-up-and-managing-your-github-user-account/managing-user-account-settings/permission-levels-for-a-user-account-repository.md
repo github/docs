@@ -51,7 +51,7 @@ shortTitle: 权限用户仓库
 | 从仓库创建模板                                                                                                                  | "[创建模板仓库](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)" |{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | Control access to {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies                  | "[管理仓库的安全和分析设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" |{% endif %}{% ifversion fpt or ghec %}
 | 忽略仓库中的 {% data variables.product.prodname_dependabot_alerts %}                                                         | "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"                                                                                                                                |
-| 管理私有仓库的数据使用                                                                                                              | “[管理私有仓库的数据使用设置](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)”
+| 管理私有仓库的数据使用                                                                                                              | “[管理私有仓库的数据使用设置](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)”
 {% endif %}
 | 定义仓库的代码所有者                                                                                                               | "[关于代码所有者](/github/creating-cloning-and-archiving-repositories/about-code-owners)"                                                                                                                                                                           |
 | 存档仓库                                                                                                                     | "[Archiving repositories](/repositories/archiving-a-github-repository/archiving-repositories)" |{% ifversion fpt or ghec %}
@@ -95,4 +95,4 @@ shortTitle: 权限用户仓库
 
 ## 延伸阅读
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

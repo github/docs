@@ -1,6 +1,6 @@
 ---
 title: Dependabot
-intro: 'With the {% data variables.product.prodname_dependabot %} Secrets API, you can manage and control {% data variables.product.prodname_dependabot %} secrets for an organization or repository.'
+intro: 'Com a API de segredos do {% data variables.product.prodname_dependabot %}, você pode gerenciar e controlar segredos de {% data variables.product.prodname_dependabot %} para uma organização ou repositório.'
 versions:
   fpt: '*'
   ghes: '>=3.4'
@@ -10,10 +10,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The {% data variables.product.prodname_dependabot %} Secrets API lets you create, update, delete, and retrieve information about encrypted secrets. {% data reusables.actions.about-secrets %} For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."
-
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `dependabot_secrets` permission to use this API. Os usuários autenticados devem ter acesso de colaborador em um repositório para criar, atualizar ou ler segredos.
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'secrets' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/dependabot
+-->

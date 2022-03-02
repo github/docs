@@ -271,7 +271,8 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Git Refs
 
-* [Create a reference](/rest/reference/git#create-a-reference)* [Get a reference](/rest/reference/git#get-a-reference)
+* [Create a reference](/rest/reference/git#create-a-reference)
+* [Get a reference](/rest/reference/git#get-a-reference)
 * [List matching references](/rest/reference/git#list-matching-references)
 * [Update a reference](/rest/reference/git#update-a-reference)
 * [Delete a reference](/rest/reference/git#delete-a-reference)
@@ -448,8 +449,8 @@ While most of your API interaction should occur using your server-to-server inst
 {% ifversion fpt or ghec %}
 #### Organization Team Sync
 
-* [List idp groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
-* [Create or update idp group connections](/rest/reference/teams#create-or-update-idp-group-connections)
+* [List IdP groups for a team](/rest/reference/teams#list-idp-groups-for-a-team)
+* [Create or update IdP group connections](/rest/reference/teams#create-or-update-idp-group-connections)
 * [List IdP groups for an organization](/rest/reference/teams#list-idp-groups-for-an-organization)
 {% endif %}
 

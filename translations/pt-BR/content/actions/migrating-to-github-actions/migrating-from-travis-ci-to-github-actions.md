@@ -101,7 +101,7 @@ jobs:
 
 ### Apontar para branches específicos
 
-O Travis CI e {% data variables.product.prodname_actions %} permitem que você aponte a sua CI para um branch específico. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestbranchestags)".
+O Travis CI e {% data variables.product.prodname_actions %} permitem que você aponte a sua CI para um branch específico. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)".
 
 Abaixo, há um exemplo da sintaxe para cada sistema:
 
@@ -179,7 +179,7 @@ git:
 
 O Travis CI e {% data variables.product.prodname_actions %} podem adicionar variáveis de ambiente personalizadas a uma matriz de teste, que permite que você faça referência à variável em uma etapa posterior.
 
-Em {% data variables.product.prodname_actions %}, você pode usar a chave `incluir` para adicionar variáveis de ambiente personalizadas a uma matriz. {% data reusables.github-actions.matrix-variable-example %}
+Em {% data variables.product.prodname_actions %}, você pode usar a chave `incluir` para adicionar variáveis de ambiente personalizadas a uma matriz. {% data reusables.actions.matrix-variable-example %}
 
 ## Principais recursos em {% data variables.product.prodname_actions %}
 

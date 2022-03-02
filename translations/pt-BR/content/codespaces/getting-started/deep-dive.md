@@ -24,7 +24,7 @@ Há uma série de pontos de entrada para criar um codespace.
 
 Seu codespace pode ser efêmero se você tiver de fazer algum teste ou você pode retornar ao mesmo codespace para fazer um trabalho de recurso de longo prazo. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace)".
 
-Depois de selecionar a opção de criar um novo codespace, algumas etapas são executadas em segundo plano antes que o codespace esteja disponível para você.
+Uma vez selecionada a opção de criar um novo codespace e escolhido um tipo de máquina para o seu codespace, algumas etapas irão acontecer em segundo plano antes que o corespace esteja disponível para você.
 
 ![Botão de abrir com codespaces](/assets/images/help/codespaces/new-codespace-button.png)
 

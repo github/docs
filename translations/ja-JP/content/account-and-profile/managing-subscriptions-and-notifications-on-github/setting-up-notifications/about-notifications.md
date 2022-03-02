@@ -101,4 +101,4 @@ You can customize and schedule push notifications in the {% data variables.produ
 
 ## フィードバックとサポート
 
-通知に関するフィードバックまたは機能のリクエストがある場合は、[通知のフィードバックフォーム](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback)を使用してください。
+If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).

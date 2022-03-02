@@ -1,12 +1,12 @@
 name: Ready for docs-content review
 
-# **What it does**: Adds pull requests in the docs-internal repository to the docs-content review board when the "ready-for-doc-review" label is added
+# **What it does**: Adds pull requests in the docs-internal repository to the docs-content review board when the "ready-for-doc-review" label is added or when a review by docs-content is requested
 # **Why we have it**: So that other GitHub teams can easily request reviews from the docs-content team, and so that writers can see when a PR is ready for review
 # **Who does it impact**: Writers working in the docs-internal repository
 
 on:
   pull_request_target:
-    types: [labeled]
+    types: [labeled, review_requested]
 
 permissions:
   contents: read
@@ -14,7 +14,9 @@ permissions:
 jobs:
   request_doc_review:
     name: Request a review from the docs-content team
-    if: github.event.label.name == 'ready-for-doc-review' && github.repository == 'github/docs-internal'
+    if: >-
+      github.repository == 'github/docs-internal' &&
+      (github.event.label.name == 'ready-for-doc-review' || github.event.requested_team.name == 'docs-content')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo content
@@ -23,7 +25,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.13.x
+          node-version: 16.14.x
           cache: npm
 
       - name: Install dependencies

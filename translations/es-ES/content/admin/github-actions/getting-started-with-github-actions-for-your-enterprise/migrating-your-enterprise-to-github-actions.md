@@ -16,11 +16,11 @@ topics:
 
 To migrate your enterprise to {% data variables.product.prodname_actions %} from an existing system, you can plan the migration, complete the migration, and retire existing systems.
 
-This guide addresses specific considerations for migrations. For additional information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+This guide addresses specific considerations for migrations. Para obtener información adicional sobre cómo incluir las {% data variables.product.prodname_actions %} en tu empresa, consulta la sección "[Incluir las {% data variables.product.prodname_actions %} en tu empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)".
 
 ## Planning your migration
 
-Before you begin migrating your enterprise to {% data variables.product.prodname_actions %}, you should identify which workflows will be migrated and how those migrations will affect your teams, then plan how and when you will complete the migrations.
+Antes de que comiences a migrar tu empresa a {% data variables.product.prodname_actions %}, debes identificar qué flujos de trabajo se migrarán y cómo afectarán dichas migraciones a tus equipos, posteriormente, deberás planear cómo y cuándo completarás las migraciones.
 
 ### Leveraging migration specialists
 
@@ -58,29 +58,29 @@ Automated tooling should be able to migrate the majority of your workflows, but 
 
 Determine the migration approach that will work best for your enterprise. Smaller teams may be able to migrate all their workflows at once, with a "rip-and-replace" approach. For larger enterprises, an iterative approach may be more realistic. You can choose to have a central body manage the entire migration or you can ask individual teams to self serve by migrating their own workflows.
 
-We recommend an iterative approach that combines active management with self service. Start with a small group of early adopters that can act as your internal champions. Identify a handful of workflows that are comprehensive enough to represent the breadth of your business. Work with your early adopters to migrate those workflows to {% data variables.product.prodname_actions %}, iterating as needed. This will give other teams confidence that their workflows can be migrated, too.
+We recommend an iterative approach that combines active management with self service. Start with a small group of early adopters that can act as your internal champions. Identifica un puñado de flujos de trabajo que sean suficientemente completos como para representar la amplitud de tu negocio. Trabaja con quienes primero adoptan esto para migrar esos flujos de trabajo a {% data variables.product.prodname_actions %}, iterando conforme sea necesario. Esto les dará a los otros equipos la confianza de que sus flujos de trabajo también pueden migrarse.
 
-Then, make {% data variables.product.prodname_actions %} available to your larger organization. Provide resources to help these teams migrate their own workflows to {% data variables.product.prodname_actions %}, and inform the teams when the existing systems will be retired.
+Posteriormente, haz que {% data variables.product.prodname_actions %} esté disponible para tu organización extendida. Proporciona recursos para ayudar a que estos equipos migren sus propios flujos de trabajo a {% data variables.product.prodname_actions %} e informa a los equipos cuando los sistemas existentes vayan a retirarse.
 
-Finally, inform any teams that are still using your old systems to complete their migrations within a specific timeframe. You can point to the successes of other teams to reassure them that migration is possible and desirable.
+Finalmente, informa a todos los equipos que aún utilicen tus sistemas anteriores que deben completar sus migraciones en cierto tiempo. Puedes apuntar a los éxitos de otros equipos para asegurarles que la migración es posible y deseable.
 
-### Defining your migration schedule
+### Definir tu itinerario de migración
 
-After you decide on a migration approach, build a schedule that outlines when each of your teams will migrate their workflows to {% data variables.product.prodname_actions %}.
+Después de que decides tomar un enfoque de migración, crea un itinerario que defina cuándo cada uno de tus equipos migrarán sus flujos de trabajo a {% data variables.product.prodname_actions %}.
 
-First, decide the date you'd like your migration to be complete. For example, you can plan to complete your migration by the time your contract with your current provider ends.
+Primero, decide la fecha en la que te gustaría completar tu migración. Por ejemplo, puedes planear completar tu migración en el momento en el que finalice tu contrato con tu proveedor actual.
 
-Then, work with your teams to create a schedule that meets your deadline without sacrificing their team goals. Look at your business's cadence and the workload of each individual team you're asking to migrate. Coordinate with each team to understand their delivery schedules and create a plan that allows the team to migrate their workflows at a time that won't impact their ability to deliver.
+Entonces, trabaja con tus equipos para crear un itinerario que cumpla con tu fecha límite sin sacrificar sus metas de equipo. Fíjate en la cadencia de tu negocio y en la carga de trabajo de cada equipo individual al que le pides migrarse. Coordínate con cada equipo para entender sus itinerarios de entrega y crea un plan que les permita migrar sus flujos de trabajo en un momento en el que no vaya a impactar su capacidad de entrega.
 
-## Migrating to {% data variables.product.prodname_actions %}
+## Migrarse a {% data variables.product.prodname_actions %}
 
-When you're ready to start your migration, translate your existing workflows to {% data variables.product.prodname_actions %} using the automated tooling and manual rewriting you planned for above.
+Cuando estés listo para iniciar tu migración, traduce tus flujos existentes a {% data variables.product.prodname_actions %} utilizando las herramientas automatizadas y reescritura manual que ya planeaste para lo anterior.
 
-You may also want to maintain old build artifacts from your existing system, perhaps by writing a scripted process to archive the artifacts.
+También podrías querer mantener artefactos de compilaciones anteriores de tu sistema existente, probablemente escribiendo un proceso con script para archivar los artefactos.
 
-## Retiring existing systems
+## Retirar los sistemas existentes
 
-After your migration is complete, you can think about retiring your existing system.
+Después de que se complete tu migración, puedes pensar en retirar tu sistema existente.
 
 You may want to run both systems side-by-side for some period of time, while you verify that your {% data variables.product.prodname_actions %} configuration is stable, with no degradation of experience for developers.
 

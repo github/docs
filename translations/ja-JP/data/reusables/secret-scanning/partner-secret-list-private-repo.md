@@ -155,6 +155,8 @@ Plivo | Plivo Auth Token | plivo_auth_token{% endif %} Postman | Postman API Key
 PyPI | PyPI API Token | pypi_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 RubyGems | RubyGems API Key | rubygems_api_key{% endif %} Samsara | Samsara API Token | samsara_api_token Samsara | Samsara OAuth Access Token | samsara_oauth_access_token
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae %}
+Segment | Segment Public API Token | segment_public_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 SendGrid | SendGrid API Key | sendgrid_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -190,6 +192,10 @@ Telegram | Telegram Bot Token | telegram_bot_token{% endif %} Tencent Cloud | Te
 Twilio | Twilio Access Token | twilio_access_token{% endif %} Twilio | Twilio Account String Identifier | twilio_account_sid Twilio | Twilio API Key | twilio_api_key
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Typeform | Typeform Personal Access Token | typeform_personal_access_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | WorkOS Production API Key | workos_production_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+WorkOS | WorkOS Staging API Key | workos_staging_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Yandex | Yandex.Cloud API Key | yandex_cloud_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}

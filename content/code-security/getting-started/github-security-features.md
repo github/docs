@@ -25,7 +25,7 @@ The {% data variables.product.prodname_advisory_database %} contains a curated l
 {% endif %}
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### Security policy
-  
+
 Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 {% endif %}
 
@@ -64,6 +64,9 @@ The dependency graph allows you to explore the ecosystems and packages that your
 You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 {% endif %}
 
+### Security overview for repositories
+For all public repositories, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.
+
 ## Available with {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-availability %}
@@ -74,14 +77,20 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 
 ### {% data variables.product.prodname_secret_scanning_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. {% ifversion fpt or ghec %}For secrets identified in public repositories, the service is informed that the secret may be compromised.{% endif %} 
+Automatically detect tokens or credentials that have been checked into a repository. {% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} finds leaked secrets across all public repositories and informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)."{% endif %}
 {%- ifversion ghec or ghes or ghae %}
-{% ifversion ghec %}For private repositories, you can view {% elsif ghes or ghae %}View {% endif %}any secrets that {% data variables.product.company_short %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised.{% endif %} For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+{% ifversion ghec %}In private repositories, you can view {% elsif ghes or ghae %}You can view {% endif %}any secrets that {% data variables.product.company_short %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised.{% endif %} For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### Dependency review
 
 Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
+{% endif %}
+
+{% ifversion ghec or ghes > 3.1 or ghae-issue-4554 %}
+### Security overview for organizations{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, enterprises,{% endif %} and teams
+
+Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
 
 ## Further reading

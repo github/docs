@@ -35,6 +35,7 @@ shortTitle: 构建和测试 .NET
 To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
 {% raw %}
+
 ```yaml
 name: dotnet package
 
@@ -61,6 +62,7 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 ```
+
 {% endraw %}
 
 ## 指定 .NET 版本
@@ -83,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet: [ '3.0', '3.1.x', '5.0.x' ]
+        dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
     steps:
       - uses: actions/checkout@v2
@@ -227,7 +229,7 @@ jobs:
 
 ## 发布到包注册表
 
-您可以配置工作流程在 CI 测试通过后将 Dotnet 包发布到包注册表。 您可以使用仓库机密来存储发布二进制文件所需的任何令牌或凭据。 下面的示例使用 `dotnet core cli`创建并发布软件包到 {% data variables.product.prodname_registry %}。
+You can configure your workflow to publish your .NET package to a package registry when your CI tests pass. 您可以使用仓库机密来存储发布二进制文件所需的任何令牌或凭据。 下面的示例使用 `dotnet core cli`创建并发布软件包到 {% data variables.product.prodname_registry %}。
 
 ```yaml
 name: Upload dotnet package

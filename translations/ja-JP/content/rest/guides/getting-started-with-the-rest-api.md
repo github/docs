@@ -104,7 +104,7 @@ $ curl -i https://api.github.com/users/defunkt
 `X-`で始まるヘッダはすべてカスタムヘッダで、HTTPの仕様にはありません。 例:
 
 * `X-GitHub-Media-Type`の値は`github.v3`です。 これは、レスポンスの[メディアタイプ][media types]を伝えています。 メディアタイプは、出力をAPI v3にするために役立ちました。 これについては、後ほど詳しく説明します。
-* `X-RateLimit-Limit`と`X-RateLimit-Remaining`のヘッダに注目してください。 この2つのヘッダは、1つのローリング期間 (通常は1時間) に[1つのクライアントが行えるリクエストの数][rate-limiting]と、クライアントが既に消費したリクエストの数を示しています。
+* `X-RateLimit-Limit`と`X-RateLimit-Remaining`のヘッダに注目してください。 This pair of headers indicate [how many requests a client can make][rate-limiting] in a rolling time period (typically an hour) and how many of those requests the client has already spent.
 
 ## 認証
 
@@ -388,9 +388,9 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 > HTTP/2 304
 ```
 
-`304`ステータスは、直近のリクエストからリソースが変更されておらず、レスポンスには本文が含まれないことを示しています。 特典として、`304`レスポンスは[レート制限][rate-limiting]にカウントされません。
+`304`ステータスは、直近のリクエストからリソースが変更されておらず、レスポンスには本文が含まれないことを示しています。 As a bonus, `304` responses don't count against your [rate limit][rate-limiting].
 
-ヤッター！ Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
+Now you know the basics of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API!
 
 * Basic & OAuth認証
 * リポジトリおよびIssueのフェッチと作成
@@ -412,8 +412,8 @@ $    {% data variables.product.api_url_pre %}/users/defunkt
 [issues-api]: /rest/reference/issues
 [link-header]: https://www.w3.org/wiki/LinkHeader
 [conditional-requests]: /rest#conditional-requests
-[rate-limiting]: /rest#rate-limiting
-[rate-limiting]: /rest#rate-limiting
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
+[rate-limiting]: /rest/overview/resources-in-the-rest-api#rate-limit-http-headers
 [users api]: /rest/reference/users#get-a-user
 [defunkt github]: https://github.com/defunkt
 [defunkt github]: https://github.com/defunkt

@@ -71,7 +71,7 @@ shortTitle: 管理讨论
 
 ## 转让讨论
 
-要转让讨论，您必须具有在要转让讨论的仓库中创建讨论的权限。
+要转让讨论，您必须具有在要转让讨论的仓库中创建讨论的权限。 您只能在同一用户或组织帐户拥有的仓库之间转让讨论。 您无法将私有仓库的讨论转让给公共仓库。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

@@ -1,6 +1,6 @@
 ---
 title: Setting a minimum specification for codespace machines
-shortTitle: Setting a minimum machine spec
+shortTitle: Set a minimum machine spec
 intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_codespaces %} for your repository.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:

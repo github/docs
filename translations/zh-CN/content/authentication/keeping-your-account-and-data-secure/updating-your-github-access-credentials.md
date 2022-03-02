@@ -24,7 +24,7 @@ shortTitle: 更新访问凭据
 1. 要请求新密码，请访问 {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}。
 2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured. ![密码重置电子邮件请求对话框](/assets/images/help/settings/password-recovery-email-request.png)
 3. 我们将向您发送一封电子邮件，其中含有可让您重置密码的链接。 您必须在收到电子邮件后的 3 小时内单击此链接。 如果您没有收到来自我们的电子邮件，请确保检查垃圾邮件文件夹。
-4. 如果您启用了双重身份验证，将提示您获得 2FA 凭据。 键入您的 2FA 凭据或 2FA 恢复代码之一，然后单击 **Verify（验证）**。 ![双重身份验证提示](/assets/images/help/2fa/2fa-password-reset.png)
+4. 如果您启用了双重身份验证，将提示您获得 2FA 凭据。 Type your authentication code or one of your recovery codes and click **Verify**. If you have added a security key to your account, you can insert the key and click **Use security key** instead of typing an authentication code. ![双重身份验证提示](/assets/images/help/2fa/2fa-password-reset.png)
 5. 键入新密码，确认新密码，然后单击 **Change password（更改密码）**。 有关创建强密码的帮助，请参阅“[创建强密码](/articles/creating-a-strong-password)”
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![密码恢复框](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
@@ -40,8 +40,8 @@ shortTitle: 更新访问凭据
 {% data reusables.repositories.blocked-passwords %}
 
 1. {% data variables.product.signin_link %}到 {% data variables.product.product_name %}。
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 4. 在“Change password（更改密码）”下，输入旧密码、强新密码并确认新密码。 有关创建强密码的帮助，请参阅“[创建强密码](/articles/creating-a-strong-password)”
 5. 单击 **Update password（更新密码）**。
 

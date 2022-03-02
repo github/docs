@@ -1,5 +1,5 @@
 ---
-title: Managing unowned organizations in your enterprise
+title: Administrar las organizaciones que no te pertenecen en tu empresa
 intro: Puedes convertirte en propietario de una organización en tu cuenta empresarial si ésta no tiene propietarios actualmente.
 permissions: Enterprise owners can manage unowned organizations in an enterprise account.
 redirect_from:

@@ -20,7 +20,7 @@ GitHub を利用する際、数多くの追加製品や機能 (「追加製品�
 
 - **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Learning Lab, Packages, Pages, and SQL Server Images.
 
-- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, {% ifversion ghae %}Connect, {% endif %}Dependabot Preview, GitHub Enterprise Importer, Packages and Pages.
+- **GitHub AE** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages and Pages.
 
 ## アクション
 GitHubアクションでは、カスタムソフトウェア開発のライフサイクルにわたるワークフローをGitHubリポジトリに直接作成することができます。 Actionsは、使用量に基づいて課金されます。 [Actionsのドキュメント](/actions)には、計算量やストレージ容量 (アカウントのプランによって異なる)、およびActionsの使用分数の監視方法や利用限度の設定方法などの詳細情報が記載されています。
@@ -68,7 +68,7 @@ Codespaces allows you to load extensions from the Microsoft Visual Studio Market
 The generally available version of Codespaces is not currently available for U.S. government customers. アメリカ合衆国の祝日 government customers may continue to use the Codespaces Beta Preview under separate terms. See [Beta Preview terms](/github/site-policy/github-terms-of-service#j-beta-previews).
 
 ## Connect
-GitHub Connect を使うと、GitHub Enterprise Server{% ifversion ghae %}やGitHub AE {% endif %}インスタンスとGitHub.comのGitHub Enterprise Cloud OrganizationまたはEnterpriseアカウントとの間で特定の機能やデータを共有できます。 GitHub Connectを有効化するには、GitHub Enterprise CloudまたはGitHub.comに最低1つのアカウントを持ち、GitHub Enterprise Server{% ifversion ghae %}またはGitHub AE{% endif %}の最低1つのライセンスインスタンスを持っている必要があります。 Connect経由でのGitHub Enterprise CloudまたはGitHub.comの利用は、GitHub Enterprise CloudまたはGitHub.comのライセンスに基づく規約が適用されます。 「個人データ」の利用には、「[GitHubのプライバシーについての声明](/github/site-policy/github-privacy-statement)」が適用されます。
+With GitHub Connect, you can share certain features and data between your GitHub Enterprise Server or GitHub AE instance and your GitHub Enterprise Cloud organization or enterprise account on GitHub.com. In order to enable GitHub Connect, you must have at least one (1) account on GitHub Enterprise Cloud or GitHub.com, and one (1) licensed instance of GitHub Enterprise Server or GitHub AE. Connect経由でのGitHub Enterprise CloudまたはGitHub.comの利用は、GitHub Enterprise CloudまたはGitHub.comのライセンスに基づく規約が適用されます。 「個人データ」の利用には、「[GitHubのプライバシーについての声明](/github/site-policy/github-privacy-statement)」が適用されます。
 
 ## GitHub Enterprise Importer
 Importer is a framework for exporting data from other sources to be imported to the GitHub platform. Importer is provided “AS-IS”.

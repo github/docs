@@ -15,7 +15,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About expressions
 
-You can use expressions to programmatically set variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+You can use expressions to programmatically set environment variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
 
 Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
 
@@ -25,9 +25,9 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+{% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 #### Example expression in an `if` conditional
 
@@ -55,11 +55,12 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `boolean` | `true` or `false` |
 | `null`    | `null` |
 | `number`  | Any number format supported by JSON. |
-| `string`  | You must use single quotes. Escape literal single-quotes with a single quote. |
+| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
 #### Example
 
 {% raw %}
+
 ```yaml
 env:
   myNull: ${{ null }}
@@ -68,9 +69,10 @@ env:
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
   myExponentialNumber: ${{ -2.99-e2 }}
-  myString: ${{ 'Mona the Octocat' }}
-  myEscapedString: ${{ 'It''s open source!' }}
+  myString: Mona the Octocat
+  myStringInBraces: ${{ 'It''s open source!' }}
 ```
+
 {% endraw %}
 
 ## Operators
@@ -79,7 +81,7 @@ env:
 | ---         | ---         |
 | `( )`       | Logical grouping |
 | `[ ]`       | Index
-| `.`         | Property dereference |
+| `.`         | Property de-reference |
 | `!`         | Not |
 | `<`         | Less than |
 | `<=`        | Less than or equal |
@@ -252,7 +254,7 @@ jobs:
 
 Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
 
-You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)."
+You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)."
 
 #### Example with a single pattern
 
@@ -266,9 +268,15 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ## Status check functions
 
 You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+{% else %}
+## Check Functions
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% endif %}
 
 ### success
 
@@ -316,6 +324,7 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ### Evaluate Status Explicitly
 
 Instead of using one of the methods above, you can evaluate the status of the job or composite action that is executing the step directly:
@@ -341,6 +350,7 @@ steps:
 ```
 
 This is the same as using `if: failure()` in a composite action step.
+{% endif %}
 
 ## Object filters
 

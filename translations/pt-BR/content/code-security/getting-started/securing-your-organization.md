@@ -36,7 +36,7 @@ Você pode criar uma política de segurança padrão que será exibida em qualqu
 {% ifversion fpt or ghes > 2.22 or ghae-issue-4864 or ghec %}
 ## Gerenciar {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependências
 
-{% ifversion fpt or ghec %}Por padrão, {% data variables.product.prodname_dotcom %} detecta vulnerabilidades nos repositórios públicos, gera {% data variables.product.prodname_dependabot_alerts %} e um gráfico de dependência. Você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependência de todos os repositórios privados da sua organização.
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} detecta vulnerabilidades em repositórios públicos e exibe o gráfico de dependências. Você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_alerts %} para todos os repositórios públicos pertencentes à sua organização. Você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependência de todos os repositórios privados da sua organização.
 
 1. Clique na sua foto de perfil e clique em **Organizações**.
 2. Clique em **Configurações** ao lado da sua organização.
@@ -138,4 +138,10 @@ Para obter mais informações, consulte "[Gerenciar configurações de seguranç
 Você pode visualizar e gerenciar alertas de funcionalidades de segurança para resolver dependências e vulnerabilidades no seu código. Para obter mais informações, consulte {% ifversion fpt or ghes > 2.22 or ghec %} "[Visualizar e atualizar as dependências vulneráveis no seu repositório](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),"{% endif %} {% ifversion fpt or ghec or ghes > 3.2 %}"[Gerenciar pull requests para atualizações de dependência](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Gernciar {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," e "[Gerenciar alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
 {% ifversion fpt or ghec %}Se você tiver uma vulnerabilidade de segurança, você poderá criar uma consultoria de segurança para discutir em privado e corrigir a vulnerabilidade. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)" e " "[Criar uma consultoria de segurança](/code-security/security-advisories/creating-a-security-advisory)".
+{% endif %}
+
+{% ifversion ghec %}
+## Leia mais
+
+"[Acessando os relatórios de conformidade para a sua organização](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"
 {% endif %}
