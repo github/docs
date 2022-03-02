@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: Contato
@@ -92,6 +94,7 @@ products:
       deprecation_notice: Aviso de descontinuação
   rest:
     reference:
+      notes: Observações
       parameters: Parâmetros
       response: Resposta
       code_sample: Amostra de código
@@ -101,6 +104,7 @@ products:
       see_preview_notice: Ver aviso de pré-visualização
       see_preview_notices: Ver avisos de pré-visualização
       preview_header_is_required: Este cabeçalho é <strong>obrigatório</strong>
+      works_with_github_apps: Works with GitHub Apps
 footer:
   all_rights_reserved: Todos os direitos reservados
   terms: Termos

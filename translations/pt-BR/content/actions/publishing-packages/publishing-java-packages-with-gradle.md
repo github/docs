@@ -23,7 +23,7 @@ shortTitle: Pacotes do Java com Gradle
 
 ## Introdução
 
-{% data reusables.github-actions.publishing-java-packages-intro %}
+{% data reusables.actions.publishing-java-packages-intro %}
 
 ## Pré-requisitos
 
@@ -104,7 +104,7 @@ jobs:
           MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
+{% data reusables.actions.gradle-workflow-steps %}
 1. Executa a ação [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) com o argumento `publicar` para fazer uma publicação no repositório do Maven `OSSRH`. A variável de ambiente `MAVEN_USERNAME` será definida com o conteúdo do seu segredo `OSSRH_USERNAME`, e a variável de ambiente `MAVEN_PASSWORD` será definida com o conteúdo do seu segredo `OSSRH_TOKEN`.
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
@@ -115,7 +115,7 @@ Cada vez que você criar uma nova versão, você poderá acionar um fluxo de tra
 
 Você pode definir um novo repositório do Maven no bloco de publicação do _build.gradle_ que aponta para {% data variables.product.prodname_registry %}.  Nessa configuração do repositório, também é possível aproveitar as variáveis de ambiente definidas na execução do fluxo de trabalho de CI.  Você pode usar a variável de ambiente `GITHUB_ACTOR` como um nome de usuário e você pode definir a variável de ambiente `GITHUB_TOKEN` com seu segredo `GITHUB_TOKEN`.
 
-{% data reusables.github-actions.github-token-permissions %}
+{% data reusables.actions.github-token-permissions %}
 
 Por exemplo, se sua organização é denominado "octocat" e seu repositório é denominado de "hello-world", a configuração do {% data variables.product.prodname_registry %} no _build.gradle_ será parecida ao exemplo abaixo.
 
@@ -174,7 +174,7 @@ jobs:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
+{% data reusables.actions.gradle-workflow-steps %}
 1. Executa a ação [`grades/gradle-build-action`](https://github.com/gradle/gradle-build-action) com o argumento `publicar` para publicar em {% data variables.product.prodname_registry %}. A variável de ambiente `GITHUB_TOKEN` será definida com o conteúdo do segredo `GITHUB_TOKEN`. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}A chave de `permissões` especifica o acesso que o segredo `GITHUB_TOKEN` permitirá.{% endif %}
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
@@ -255,7 +255,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
+{% data reusables.actions.gradle-workflow-steps %}
 1. Executa a ação [`grades/gradle-build`](https://github.com/gradle/gradle-build-action) com o argumento `publicar` para publicar no repositório do Maven `OSSRH` e em {% data variables.product.prodname_registry %}. A variável de ambiente `MAVEN_USERNAME` será definida com o conteúdo do seu segredo `OSSRH_USERNAME`, e a variável de ambiente `MAVEN_PASSWORD` será definida com o conteúdo do seu segredo `OSSRH_TOKEN`. A variável de ambiente `GITHUB_TOKEN` será definida com o conteúdo do segredo `GITHUB_TOKEN`. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}A chave de `permissões` especifica o acesso que o segredo `GITHUB_TOKEN` permitirá.{% endif %}
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".

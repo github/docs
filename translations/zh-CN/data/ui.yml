@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: 联系我们
@@ -92,6 +94,7 @@ products:
       deprecation_notice: 废弃通知
   rest:
     reference:
+      notes: 注：
       parameters: 参数
       response: 响应
       code_sample: 代码示例
@@ -101,6 +104,7 @@ products:
       see_preview_notice: 查看预览通知
       see_preview_notices: 查看预览通知
       preview_header_is_required: 此标头<strong>必填</strong>
+      works_with_github_apps: Works with GitHub Apps
 footer:
   all_rights_reserved: 保留所有权利
   terms: 条款

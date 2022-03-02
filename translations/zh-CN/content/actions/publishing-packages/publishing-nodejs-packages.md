@@ -43,7 +43,7 @@ shortTitle: Node.js 包
 
  *package.json* 文件中的 `name` 和 `version` 字段创建唯一标识符，供注册表用来将包链接到注册表。 您可以在 *package.json* 文件中添加 `description` 字段，从而为包列表页面添加一个摘要。 更多信息请参阅 npm 文档中的“[创建 package.json 文件](https://docs.npmjs.com/creating-a-package-json-file)”和“[创建 Node.js 模块](https://docs.npmjs.com/creating-node-js-modules)”。
 
-当本地 *.npmrc* 文件存在且指定了 `registry` 值时，`npm publish` 命令将使用 *.npmrc* 文件中配置的注册表。 {% data reusables.github-actions.setup-node-intro %}
+当本地 *.npmrc* 文件存在且指定了 `registry` 值时，`npm publish` 命令将使用 *.npmrc* 文件中配置的注册表。 {% data reusables.actions.setup-node-intro %}
 
 您可以使用 `setup-node` 操作指定运行器上安装的 Node.js 版本。
 
@@ -115,7 +115,7 @@ Please note that you need to set the `registry-url` to `https://registry.npmjs.o
 
 ### 向目标仓库验证
 
-要根据 {% data variables.product.prodname_registry %} 注册表在工作流程中执行经验证的操作，可以使用 `GITHUB_TOKEN`。 {% data reusables.github-actions.github-token-permissions %}
+要根据 {% data variables.product.prodname_registry %} 注册表在工作流程中执行经验证的操作，可以使用 `GITHUB_TOKEN`。 {% data reusables.actions.github-token-permissions %}
 
 如果要将包发布到其他仓库，您必须使用对目标仓库中的包具有写入权限的个人访问令牌 (PAT)。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”和“[加密密码](/actions/reference/encrypted-secrets)”。
 

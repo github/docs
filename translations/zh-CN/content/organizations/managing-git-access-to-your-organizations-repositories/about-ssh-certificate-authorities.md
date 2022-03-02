@@ -28,9 +28,15 @@ SSH 证书是一种机制：一个 SSH 密钥对另一个 SSH 密钥签名。 �
 即使您实施了 SAML 单点登录，组织成员也可使用其签名的证书进行身份验证。 除非您将 SSH 证书设为要求，组织成员可继续使用其他验证方式通过 Git 访问组织的资源，包括他们的用户名和密码、个人访问令牌及其自己的 SSH 密钥。
 {% endif %}
 
-成员将无法使用其证书访问其用户帐户拥有的仓库的复刻。
+Members will not be able to use their certificates to access forks of your repositories that are owned by their personal accounts.
 
-为防止身份验证错误，组织成员应使用包含组织 ID 的特殊 URL，以使用签名证书克隆仓库。 对仓库具有读取权限的任何人都可在仓库页面上找到此 URL。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
+## About SSH URLs with SSH certificates
+
+If your organization requires SSH certificates, to prevent authentication errors, organization members should use a special URL that includes the organization ID when performing Git operations over SSH. This special URL allows the client and server to more easily negotiate which key on the member's computer should be used for authentication. If a member uses the normal URL, which starts with `git@github.com`, the SSH client might offer the wrong key, causing the operation to fail.
+
+Anyone with read access to the repository can find this URL by selecting the **Code** dropdown menu on the main page of the repository, then clicking **Use SSH**.
+
+If your organization doesn't require SSH certificates, members can continue to use their own SSH keys, or other means of authentication. In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
 
 ## 颁发证书
 

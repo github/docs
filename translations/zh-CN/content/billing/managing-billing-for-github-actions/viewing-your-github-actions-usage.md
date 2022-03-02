@@ -43,7 +43,7 @@ shortTitle: 查看 Actions 使用情况
 
 {% note %}
 
-**注：**企业帐户的计费详细信息不会汇总每个操作系统的使用分钟数。 {% data reusables.github-actions.enterprise-billing-details %}
+**注：**企业帐户的计费详细信息不会汇总每个操作系统的使用分钟数。 {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

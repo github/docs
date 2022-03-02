@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Excluir conta da organização
+shortTitle: Delete organization
 ---
 
 {% ifversion fpt or ghec %}
@@ -26,7 +26,15 @@ shortTitle: Excluir conta da organização
 
 ## 1. Fazer backup do conteúdo da organização
 
-Depois que você exclui uma organização, o GitHub **não pode restaurar o conteúdo que você tem lá**. Portanto, antes de excluir sua organização, certifique-se de ter uma cópia de todos os repositórios, wikis, problemas e quadros de projetos da conta.
+{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
+
+{% ifversion ghes %}
+{% note %}
+
+**Note:** If necessary, a site administrator for {% data variables.product.product_location %} may be able to partially restore a deleted organization. For more information, see "[Restoring a deleted organization](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+
+{% endnote %}
+{% endif %}
 
 ## 2. Excluir a organização
 

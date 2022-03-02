@@ -26,7 +26,7 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-Por padrão, {% data variables.product.prodname_actions %} não está habilitado para {% data variables.product.prodname_ghe_server %}. Você precisará determinar se a sua instância tem recursos adequados de CPU e memória para administrar a carga do {% data variables.product.prodname_actions %} sem causar perda de desempenho, e possivelmente aumentar esses recursos. Você também deverá decidir qual provedor de armazenamento você usará para o armazenamento do blob necessário para armazenar os artefatos gerados pela execução do fluxo de trabalho. Em seguida, você irá habilitar {% data variables.product.prodname_actions %} para a sua empresa, gerenciar permissões de acesso e adicionar executores auto-hospedados para executar fluxos de trabalho.
+{% data reusables.actions.ghes-actions-not-enabled-by-default %} You'll need to determine whether your instance has adequate CPU and memory resources to handle the load from {% data variables.product.prodname_actions %} without causing performance loss, and possibly increase those resources. Você também deverá decidir qual provedor de armazenamento você usará para o armazenamento do blob necessário para armazenar os artefatos gerados pela execução do fluxo de trabalho. Em seguida, você irá habilitar {% data variables.product.prodname_actions %} para a sua empresa, gerenciar permissões de acesso e adicionar executores auto-hospedados para executar fluxos de trabalho.
 
 {% data reusables.actions.introducing-enterprise %}
 
