@@ -43,7 +43,7 @@ jobs:
         uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
 
       - name: Check out repo
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
@@ -54,7 +54,7 @@ jobs:
 
       - if: ${{ env.ENABLE_EARLY_ACCESS }}
         name: Clone docs-early-access
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@a12a3943b4bdde767164f792f33f40b04645d846
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
