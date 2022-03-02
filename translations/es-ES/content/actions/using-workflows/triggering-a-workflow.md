@@ -195,7 +195,11 @@ Si quieres un control más granular que el que proporcionan los eventos, tipos d
 
 ### Utilziar condicionales
 
-Puedes utilizar condicionales para controlar aún más si se ejecutarán los jobs o pasos de tu flujo de trabajo. Por ejemplo, si quieres que el flujo de trabajo se ejecute cuando se agrega una etiqueta específica a una propuesta, puedes activar el tipo de actividad de evento `issues labeled` y utilizar una condicional para verificar qué etiqueta activó el flujo de trabajo. El siguiente flujo de trabajo se ejecutará cuando se agregue cualquier etiqueta a una propuesta en su repositorio, pero el job `run_if_label_matches` solo se ejecutará si la etiqueta se nombra `bug`.
+Puedes utilizar condicionales para controlar aún más si se ejecutarán los jobs o pasos de tu flujo de trabajo.
+
+#### Example using a value in the event payload
+
+Por ejemplo, si quieres que el flujo de trabajo se ejecute cuando se agrega una etiqueta específica a una propuesta, puedes activar el tipo de actividad de evento `issues labeled` y utilizar una condicional para verificar qué etiqueta activó el flujo de trabajo. El siguiente flujo de trabajo se ejecutará cuando se agregue cualquier etiqueta a una propuesta en su repositorio, pero el job `run_if_label_matches` solo se ejecutará si la etiqueta se nombra `bug`.
 
 ```yaml
 on:
@@ -211,7 +215,34 @@ jobs:
       - run: echo 'The label was bug'
 ```
 
-Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
+#### Example using event type
+
+For example, if you want to run different jobs or steps depending on what event triggered the workflow, you can use a conditional to check whether a specific event type exists in the event context. The following workflow will run whenever an issue or pull request is closed. If the workflow ran because an issue was closed, the `github.event` context will contain a value for `issue` but not for `pull_request`. Therefore, the `if_issue` step will run but the `if_pr` step will not run. Conversely, if the workflow ran because a pull request was closed, the `if_pr` step will run but the `if_issue` step will not run.
+
+```yaml
+on:
+  issues:
+    types:
+      - closed
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  state_event_type:
+    runs-on: ubuntu-latest
+    steps:
+    - name: if_issue
+      if: github.event.issue
+      run: |
+        echo An issue was closed
+    - name: if_pr
+      if: github.event.pull_request
+      run: |
+        echo A pull request was closed
+```
+
+For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 
