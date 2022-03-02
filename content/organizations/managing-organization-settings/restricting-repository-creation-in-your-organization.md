@@ -44,8 +44,9 @@ Enterprise owners can restrict the options you have available for your organizat
    {% note %}
 
    **Note:** To restrict members to creating private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.
-
+   {% addnote %}
    {% endnote %}
    {%- endif %}
 
 6. Click **Save**.
+http://github.com/shafiul2s/modelplus
