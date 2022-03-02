@@ -35,37 +35,40 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
 
 1. Enable the JWT auth method and write configuration.  
 For `oidc_discovery_url` and `bound_issuer` parameters, use `https://token.actions.githubusercontent.com`. These parameters must be set so that the Vault server can verify the received JSON Web Tokens (JWT) upon authentication.
-```sh
-$ vault auth enable jwt
 
-$ vault write auth/jwt/config \
-  bound_issuer="https://token.actions.githubusercontent.com" \
-  oidc_discovery_url="https://token.actions.githubusercontent.com"
-```
+    ```sh
+    $ vault auth enable jwt
+
+    $ vault write auth/jwt/config \
+      bound_issuer="https://token.actions.githubusercontent.com" \
+      oidc_discovery_url="https://token.actions.githubusercontent.com"
+    ```
 2. Configure policies to only grant access for certain paths in which your workflows will be retrieving secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies)
-```sh
-$ vault policy write myproject-production - <<EOF
-# Read-only permission on 'secret/data/production/*' path
 
-path "secret/data/production/*" {
-  capabilities = [ "read" ]
-}
-EOF
-```
+    ```sh
+    $ vault policy write myproject-production - <<EOF
+    # Read-only permission on 'secret/data/production/*' path
+
+    path "secret/data/production/*" {
+      capabilities = [ "read" ]
+    }
+    EOF
+    ```
 3. Configure roles to group different policies together. If the authentication is successful, these policies are attached to the resulting Vault access token.
-```sh
-$ vault write auth/jwt/role/myproject-production -<<EOF
-{
-  "role_type": "jwt",
-  "user_claim": "actor",
-  "bound_claims": {
-    "repository": "user-or-org-name/repo-name"
-  },
-  "policies": ["myproject-production"],
-  "ttl": "10m"
-}
-EOF
-```
+
+    ```sh
+    $ vault write auth/jwt/role/myproject-production -<<EOF
+    {
+      "role_type": "jwt",
+      "user_claim": "actor",
+      "bound_claims": {
+        "repository": "user-or-org-name/repo-name"
+      },
+      "policies": ["myproject-production"],
+      "ttl": "10m"
+    }
+    EOF
+    ```
 
 - `ttl` defines the validity of the resulting access token.
 - Ensure that the `bound_claims` parameter is defined for your security requirements, and has at least one condition. Optionally, you can also set the `bound_subject` as well as the `bound_audiences` parameter.
