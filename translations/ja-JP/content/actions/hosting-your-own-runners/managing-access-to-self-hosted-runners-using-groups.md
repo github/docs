@@ -49,22 +49,22 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runner-groups %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups %}
 1. In the "Runner groups" section, click **New runner group**.
- {% data reusables.github-actions.runner-group-assign-policy-repo %}
+ {% data reusables.actions.runner-group-assign-policy-repo %}
 
    {% warning %}
 
-   **Warning**: {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   **Warning**: {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
    {% endwarning %}
-{% data reusables.github-actions.self-hosted-runner-create-group %}
+{% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runners %}
+{% data reusables.actions.settings-sidebar-actions-runners %}
 1. Under {% ifversion ghes > 3.1 or ghae %}"Runners"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %}, click **Add new**, and then **New group**.
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)
@@ -76,7 +76,7 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
@@ -100,18 +100,18 @@ Enterprise は、セルフホストランナーをグループに追加して、
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runner-groups-tab %}
 1. Click **New runner group**.
- {% data reusables.github-actions.runner-group-assign-policy-org %}
+ {% data reusables.actions.runner-group-assign-policy-org %}
 
    {% warning %}
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
    {% endwarning %}
-{% data reusables.github-actions.self-hosted-runner-create-group %}
+{% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -128,7 +128,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
@@ -143,21 +143,21 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 ランナーグループのアクセスポリシーを更新したり、ランナーグループの名前を変更したりすることができます。
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
-{% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.github-actions.settings-sidebar-actions-runner-groups-selection %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. Modify the access options, or change the runner group name.
 
    {% warning %}
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
    {% endwarning %}
 {% elsif ghae or ghes < 3.4 %}
-{% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
+{% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
@@ -179,7 +179,7 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 
 If you don't specify a runner group during the registration process, your new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
 
-{% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. In the "Runners" list, click the runner that you want to configure.
 2. Select the Runner group dropdown menu.
@@ -195,7 +195,7 @@ If you don't specify a runner group during the registration process, your new se
 セルフホストランナーは、グループが削除されると自動的にデフォルトグループに戻ります。
 
 {% ifversion ghes > 3.1 or ghae or ghec %}
-{% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. In the list of groups, to the right of the group you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 2. グループを削除するには、[**Remove group**] をクリックします。
 3. 確認プロンプトを確認し、[**Remove this runner group**] をクリックします。

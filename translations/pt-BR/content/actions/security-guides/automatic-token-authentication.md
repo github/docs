@@ -39,11 +39,11 @@ Você pode usar o `GITHUB_TOKEN` ao usar a sintaxe padrão para fazer referênci
 {% endnote %}
 {% endif %}
 
-{% data reusables.github-actions.actions-do-not-trigger-workflows %}
+{% data reusables.actions.actions-do-not-trigger-workflows %}
 
 ### Exemplo 1: Passar o `GITHUB_TOKEN` como uma entrada
 
-{% data reusables.github-actions.github_token-input-example %}
+{% data reusables.actions.github_token-input-example %}
 
 ### Exemplo 2: chamando a API REST
 
@@ -121,7 +121,7 @@ Você pode ver as permissões que o `GITHUB_TOKEN` tem para uma tarefa específi
 
 Você pode usar a chave de `permissões` no seu arquivo de fluxo de trabalho para modificar as permissões para o `GITHUB_TOKEN` para um fluxo de trabalho inteiro ou para trabalhos individuais. Isso permite que você configure as permissões mínimas necessárias para um fluxo de trabalho ou trabalho. Quando a chave `permissions` for usada, todas as permissões não especificadas são configuradas como sem acesso, com exceção do escopo de `metadados`, que sempre recebe acesso de leitura.
 
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.forked-write-permission %}
 
 Os dois exemplos de fluxo de trabalho anteriores neste artigo mostram a chave de `permissões` usada no nível de fluxo de trabalho e no nível de trabalho. Em [Exemplo 1](#example-1-passing-the-github_token-as-an-input) as duas permissões são especificadas para todo o fluxo de trabalho. No [Exemplo 2](#example-2-calling-the-rest-api) de acesso de gravação é concedido para um único escopo para um único trabalho.
 

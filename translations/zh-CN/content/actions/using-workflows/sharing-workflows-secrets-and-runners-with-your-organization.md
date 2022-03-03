@@ -50,11 +50,11 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 
 在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. 单击 **New secret（新建密码）**。
 1. 在 **Name（名称）**输入框中键入密码的名称。
 1. 输入密码的 **Value（值）**。

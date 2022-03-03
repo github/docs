@@ -47,13 +47,13 @@ Os contêineres Docker criam um pacote do ambiente com o código {% data variabl
 
 Um contêiner Docker permite usar versões específicas de um sistema operacional, bem como as dependências, as ferramentas e o código. Para ações a serem executadas em uma configuração específica de ambiente, o Docker é a opção ideal porque permite personalizar o sistema operacional e as ferramentas. Por causa da latência para compilar e recuperar o contêiner, as ações de contêiner Docker são mais lentas que as ações JavaScripts.
 
-As ações do contêiner Docker podem apenas ser executadas em executores com o sistema operacional Linux. {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+As ações do contêiner Docker podem apenas ser executadas em executores com o sistema operacional Linux. {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 ### Ações JavaScript
 
 As ações do JavaScript podem ser executadas diretamente em uma máquina executora e separar o código de ação do ambiente usado para executar o código. Usar ações JavaScript simplifica o código da ação e é um processo mais rápido se comparado à opção do contêiner Docker.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
 Se você estiver desenvolvendo um projeto Node.js, o kit de ferramentas {% data variables.product.prodname_actions %} fornecerá pacotes que você poderá usar para acelerar o desenvolvimento. Para obter mais informações, consulte o repositório [ações/conjuntos de ferramentas](https://github.com/actions/toolkit).
 

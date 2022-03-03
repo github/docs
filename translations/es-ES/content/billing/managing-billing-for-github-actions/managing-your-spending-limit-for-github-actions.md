@@ -19,9 +19,9 @@ shortTitle: Límites de gasto para las acciones
 
 ## Acerca de los límites de gastos para {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %}
+{% data reusables.actions.actions-spending-limit-brief %}
 
 {% data reusables.actions.actions-packages-set-spending-limit %}Para obtener más información acerca de los costos de {% data variables.product.prodname_actions %}, consulta la sección "[Acerca de los costos de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 

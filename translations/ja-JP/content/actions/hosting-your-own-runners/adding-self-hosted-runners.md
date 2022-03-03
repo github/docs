@@ -26,7 +26,7 @@ Organization または Enterprise 管理者の場合は、Organization または
 {% ifversion not ghae %}
 {% warning %}
 
-**警告：** {% data reusables.github-actions.self-hosted-runner-security %}
+**警告：** {% data reusables.actions.self-hosted-runner-security %}
 
 詳しい情報については「[セルフホストランナーについて](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
@@ -40,19 +40,19 @@ Organization または Enterprise 管理者の場合は、Organization または
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.settings-sidebar-actions %}
-{% data reusables.github-actions.settings-sidebar-actions-runners-updated %}
+{% data reusables.actions.settings-sidebar-actions %}
+{% data reusables.actions.settings-sidebar-actions-runners-updated %}
 1. Click **New self-hosted runner**.
-{% data reusables.github-actions.self-hosted-runner-configure %}
+{% data reusables.actions.self-hosted-runner-configure %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runners %}
+{% data reusables.actions.settings-sidebar-actions-runners %}
 1. GitHub Insightsの
 {% ifversion ghes > 3.1 or ghae or ghec %}"ランナー"{% else %}"セルフホストランナー"{% endif %} で、[**Add runner**] をクリックします。
-{% data reusables.github-actions.self-hosted-runner-configure %}
+{% data reusables.actions.self-hosted-runner-configure %}
 {% endif %}
-{% data reusables.github-actions.self-hosted-runner-check-installation-success %}
+{% data reusables.actions.self-hosted-runner-check-installation-success %}
 
 ## Organizationへのセルフホストランナーの追加
 
@@ -61,22 +61,22 @@ Organization または Enterprise 管理者の場合は、Organization または
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions %}
-{% data reusables.github-actions.settings-sidebar-actions-runners-updated %}
+{% data reusables.actions.settings-sidebar-actions %}
+{% data reusables.actions.settings-sidebar-actions-runners-updated %}
 1. Click **New runner**.
-{% data reusables.github-actions.self-hosted-runner-configure %}
+{% data reusables.actions.self-hosted-runner-configure %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runners %}
+{% data reusables.actions.settings-sidebar-actions-runners %}
 1. GitHub Insightsの
 {% ifversion ghes > 3.1 or ghae %}"Runners", click **Add new**, then click **New runner**.{% elsif ghes < 3.2 %}"Self-hosted runners", click **Add runner**."{% endif %}
-{% data reusables.github-actions.self-hosted-runner-configure %}
+{% data reusables.actions.self-hosted-runner-configure %}
 {% endif %}
 
-{% data reusables.github-actions.self-hosted-runner-check-installation-success %}
+{% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-{% data reusables.github-actions.self-hosted-runner-public-repo-access %}
+{% data reusables.actions.self-hosted-runner-public-repo-access %}
 
 ## セルフホストランナーを Enterprise に追加する
 
@@ -94,7 +94,7 @@ Organization または Enterprise 管理者の場合は、Organization または
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 1. Click **New runner**.
-{% data reusables.github-actions.self-hosted-runner-configure %}
+{% data reusables.actions.self-hosted-runner-configure %}
 {% elsif ghae or ghes < 3.4 %}
 セルフホストランナーを
 {% data variables.product.product_location %} の Enterprise レベルでを追加するには、サイト管理者である必要があります。
@@ -103,11 +103,11 @@ Organization または Enterprise 管理者の場合は、Organization または
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 1. [**Add new**] をクリックし、[**New runner**] をクリックします。
-{% data reusables.github-actions.self-hosted-runner-configure %}
+{% data reusables.actions.self-hosted-runner-configure %}
 {% endif %}
-{% data reusables.github-actions.self-hosted-runner-check-installation-success %}
+{% data reusables.actions.self-hosted-runner-check-installation-success %}
 
-{% data reusables.github-actions.self-hosted-runner-public-repo-access %}
+{% data reusables.actions.self-hosted-runner-public-repo-access %}
 
 ### Enterprise ランナーをリポジトリで利用可能にする
 

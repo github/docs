@@ -21,7 +21,7 @@ shortTitle: Límites & facturación de los flujos de trabajo
 {% data reusables.repositories.about-github-actions %} Para obtener más información, consulta las secciones "[Entender las {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}".{% elsif ghes or ghec %}" y "[Acerca de {% data variables.product.prodname_actions %} para las empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)".{% endif %}
 
 {% ifversion fpt or ghec %}
-{% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Acerca de la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
+{% data reusables.actions.actions-billing %} Para obtener más información, consulta "[Acerca de la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 {% else %}
 El uso de GitHub Actions es gratuito para las instancias de {% data variables.product.prodname_ghe_server %} que utilizan ejecutores auto-hospedados. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
@@ -47,8 +47,8 @@ Hay algunos límites de uso de {% data variables.product.prodname_actions %} cua
 {% endnote %}
 
 - **Tiempo de ejecución de jobs** - Cada job en un flujo de trabajo puede ejecutarse hasta por 6 horas en tiempo de ejecución. Si un job llega a este límite, éste se terminará y fallará en completarse.
-{% data reusables.github-actions.usage-workflow-run-time %}
-{% data reusables.github-actions.usage-api-requests %}
+{% data reusables.actions.usage-workflow-run-time %}
+{% data reusables.actions.usage-api-requests %}
 - **Jobs simultáneos** - La cantidad de jobs que puedes ejecutar simultáneamente en tu cuenta depende de tu plan de GitHub, como se indica en la siguiente tabla. Si eso se excede, cualquier job adicional se pondrá en cola de espera.
 
   | Plan de GitHub | Jobs simultáneos totales | Jobs simultáneos de macOS máximos |
@@ -57,8 +57,8 @@ Hay algunos límites de uso de {% data variables.product.prodname_actions %} cua
   | Pro            | 40                       | 5                                 |
   | Team           | 60                       | 5                                 |
   | Empresa        | 180                      | 50                                |
-- **Matiz de jobs** - {% data reusables.github-actions.usage-matrix-limits %}
-{% data reusables.github-actions.usage-workflow-queue-limits %}
+- **Matiz de jobs** - {% data reusables.actions.usage-matrix-limits %}
+{% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
 Los límites de uso aplican a los ejecutores auto-hospedados. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
@@ -94,7 +94,7 @@ Para obtener más información, consulta:
 
 ## Inhabilitar o limitar {% data variables.product.prodname_actions %} para tu repositorio u organización
 
-{% data reusables.github-actions.disabling-github-actions %}
+{% data reusables.actions.disabling-github-actions %}
 
 Para obtener más información, consulta:
 - "[Administrar los ajustes de {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
