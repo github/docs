@@ -948,21 +948,6 @@ on:
       - 'releases/**'
 ```
 
-{% note %}
-
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
-
-```yaml
-on:
-  push:
-    branches:    
-      - 'releases/**'
-    paths:
-      - '**.js'
-```
-
-{% endnote %}
-
 #### Running your workflow only when a push of specific tags occurs
 
 You can use the `tags` or `tags-ignore` filter to configure your workflow to only run when specific tags or are pushed. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onpushbranchestagsbranches-ignoretags-ignore)."
