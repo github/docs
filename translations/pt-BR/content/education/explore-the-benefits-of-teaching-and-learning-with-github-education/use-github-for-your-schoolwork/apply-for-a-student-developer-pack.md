@@ -45,7 +45,11 @@ Para obter informações sobre como renovar seu {% data variables.product.prodna
 
 ## Vencimento e renovações
 
-Assim que seu acesso ao {% data variables.product.prodname_student_pack %} expirar, você poderá se recandidatar se ainda estiver qualificado, embora algumas das nossas ofertas de parceiro não possam ser renovadas. A maioria das ofertas com tempo limitado de nossos parceiros entra em vigor assim que você as configura. Para obter mais informações, consulte a página do [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
+Assim que seu acesso ao {% data variables.product.prodname_student_pack %} expirar, você poderá se recandidatar se ainda estiver qualificado, embora algumas das nossas ofertas de parceiro não possam ser renovadas. A maioria das ofertas com tempo limitado de nossos parceiros entra em vigor assim que você as configura. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
+
+![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
+
+Para obter mais informações, consulte a página do [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
 
 Para ver quando seu acesso grátis ao {% data variables.product.prodname_student_pack %} expira, visite as [configurações de cobrança](https://github.com/settings/billing) da sua conta.
 

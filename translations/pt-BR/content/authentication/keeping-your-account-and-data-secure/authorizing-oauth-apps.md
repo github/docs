@@ -36,7 +36,7 @@ Quando um {% data variables.product.prodname_oauth_app %} quer identificá-lo pe
 
 {% tip %}
 
-**Dica:** {% data reusables.user_settings.review_oauth_tokens_tip %}
+**Dica:** {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 

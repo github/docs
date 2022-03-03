@@ -37,14 +37,14 @@ shortTitle: Personalize
 
 ### プロフィール画像を設定する
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. [**Profile Picture**] で {% octicon "pencil" aria-label="The edit icon" %} [**Edit**] をクリックします。 ![プロフィール画像を編集](/assets/images/help/profile/edit-profile-photo.png)
 3. [**Upload a photo...**] をクリックします。 ![プロフィール画像の更新](/assets/images/help/profile/edit-profile-picture-options.png)
 3. 画像をクロッピングします。 作業を終えたら [**Set new profile picture**] をクリックします。 ![アップロードされた画像をクロッピングする](/assets/images/help/profile/avatar_crop_and_save.png)
 
 ### プロフィール画像をアイデンティコンへリセットする
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. [**Profile Picture**] で {% octicon "pencil" aria-label="The edit icon" %} [**Edit**] をクリックします。 ![プロフィール画像を編集](/assets/images/help/profile/edit-profile-photo.png)
 3. アイデンティコンに戻すには、[**Remove photo**] をクリックします。 メールアドレスが [Gravatar](https://en.gravatar.com/) に関連付けられている場合、アイデンティコンに戻すことはできません。 その場合は、代わりに [**Revert to Gravatar**] をクリックします。 ![プロフィール画像の更新](/assets/images/help/profile/edit-profile-picture-options.png)
 
@@ -60,7 +60,7 @@ shortTitle: Personalize
 {% endnote %}
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. [Name] の下に、プロフィールに表示する名前を入力します。 ![プロフィール設定の [Name] フィールド](/assets/images/help/profile/name-field.png)
 
 ## プロフィールに略歴を追加する
@@ -79,7 +79,7 @@ shortTitle: Personalize
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. [**Bio**] の下に、自分のプロフィールに表示する内容を追加してください。 略歴フィールドの上限は 160 文字です。 ![プロフィールの略歴を更新する](/assets/images/help/profile/bio-field.png)
 
   {% tip %}
@@ -133,7 +133,7 @@ shortTitle: Personalize
 
 You can disable some of the badges for {% data variables.product.prodname_dotcom %} programs you're participating in, including the PRO, {% data variables.product.prodname_arctic_vault %} and Mars 2020 Helicopter Contributor badges.
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. [Profile settings] で、無効にするバッジの選択を解除します。 ![プロフィールでバッジを非表示にするチェックボックス](/assets/images/help/profile/profile-badge-settings.png)
 3. [**Update preferences**] をクリックします。
 

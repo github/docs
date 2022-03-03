@@ -38,8 +38,8 @@ shortTitle: クライアントの代理
 
 ## ステップ 2: Organization を作成する
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 3. [Choose a plan] の下で、[**Choose {% data variables.product.prodname_free_team %}**] をクリックします。 次のステップで Organization をアップグレードします。
 {% data reusables.organizations.organization-name %}
@@ -71,7 +71,7 @@ shortTitle: クライアントの代理
 ## ステップ 5: クライアントを Organization に招待する
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 5. クライアントの {% data variables.product.prodname_dotcom %}ユーザ名を入力して、[**Enter**] を押します。 ![クライアントのユーザ名を入力するフィールド](/assets/images/help/organizations/org-invite-modal.png)
@@ -81,7 +81,7 @@ shortTitle: クライアントの代理
 ## ステップ 6: Organization 所有権をクライアントに移譲する
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. クライアントが Organization のメンバーの中に表示され、*Owner* ロールが割り当てられていることを確認します。
 5. ユーザ名の右側にある {% octicon "gear" aria-label="The Settings gear" %} ドロップダウンメニューで、[**Manage**] をクリックします。 ![[Manage] アクセスリンク](/assets/images/help/organizations/member-manage-access.png)

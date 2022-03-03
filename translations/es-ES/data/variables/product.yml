@@ -48,7 +48,7 @@ prodname_cli: 'CLI de GitHub'
 prodname_desktop: 'GitHub Desktop'
 desktop_link: 'https://desktop.github.com/'
 #GitHub Mobile
-prodname_mobile: 'GitHub Mobile'
+prodname_mobile: 'GitHub Móvil'
 prodname_ios: 'GitHub para iOS'
 prodname_android: 'GitHub para Android'
 #GitHub Pages
@@ -137,12 +137,13 @@ prodname_vs: 'Visual Studio'
 prodname_vscode: 'Visual Studio Code'
 prodname_vss_ghe: 'Suscripciones a Visual Studio con GitHub Enterprise'
 prodname_vss_admin_portal_with_url: 'el [portal de admnistrador para las suscripciones de Visual Studio](https://visualstudio.microsoft.com/subscriptions-administration/)'
-prodname_vscode_command_palette: 'VS Code Command Palette'
+prodname_vscode_command_palette: 'Paleta de Comandos de VS Code'
 #GitHub Dependabot
 prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Las alertas del dependabot'
 prodname_dependabot_security_updates: 'Actualizaciones de seguridad del dependabot'
 prodname_dependabot_version_updates: 'Actualizaciones de versión del dependabot'
+prodname_dependabot_updates: 'Actualizaciones del dependabot'
 #GitHub Archive Program
 prodname_archive: 'Programa de Archivo de GitHub'
 prodname_arctic_vault: 'Bóveda de Código del Ártico'

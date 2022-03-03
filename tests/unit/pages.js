@@ -132,6 +132,7 @@ describe('pages module', () => {
       const frontmatterErrors = chain(pages)
         // .filter(page => page.languageCode === 'en')
         .map((page) => page.frontmatterErrors)
+        .filter(Boolean)
         .flatten()
         .value()
 

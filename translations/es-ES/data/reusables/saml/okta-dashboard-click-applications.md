@@ -1,1 +1,1 @@
-1. In the left sidebar, use the **Applications** dropdown and click **Applications**.
+1. En la barra lateral izquierda, utiliza el menú desplegable de **Aplicaciones** y haz clic en **Aplicaciones**.

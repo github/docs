@@ -82,4 +82,4 @@ Para mais informações sobre como criar uma lista de permissões para uma {% da
 
 ## Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
-{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}

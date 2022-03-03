@@ -1,6 +1,6 @@
 ---
 title: Assigning permissions to jobs
-shortTitle: Assigning permissions to jobs
+shortTitle: Asignar permisos a los jobs
 intro: Modify the default permissions granted to `GITHUB_TOKEN`.
 versions:
   fpt: '*'

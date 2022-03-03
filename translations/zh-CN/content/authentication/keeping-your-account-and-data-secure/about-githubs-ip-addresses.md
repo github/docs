@@ -29,7 +29,7 @@ shortTitle: GitHub 的 IP 地址
 
 These IP addresses are used by {% data variables.product.prodname_dotcom %} to serve our content, deliver webhooks, and perform hosted {% data variables.product.prodname_actions %} builds.
 
-这些范围在 [CIDR 表示法](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)中。 您可以使用在线转换工具（例如s这个  [CIDR / VLSM Supernet Calculator](http://www.subnet-calculator.com/cidr.php)）将 CIDR 表示法转换为 IP 地址范围。
+这些范围在 [CIDR 表示法](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)中。 You can use an online conversion tool to convert from CIDR notation to IP address ranges, for example: [CIDR to IPv4 conversion site](https://www.ipaddressguide.com/cidr).
 
 我们会不时更改我们的 IP 地址。 不建议按 IP 地址来创建允许名单，但如果您使用这些 IP 范围，强烈建议经常监控我们的 API。
 

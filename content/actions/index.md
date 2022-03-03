@@ -63,7 +63,6 @@ children:
   - /using-github-hosted-runners
   - /hosting-your-own-runners
   - /security-guides
-  - /advanced-guides
   - /creating-actions
   - /guides
 ---

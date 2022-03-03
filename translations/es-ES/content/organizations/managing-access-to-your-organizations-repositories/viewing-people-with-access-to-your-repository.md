@@ -16,23 +16,20 @@ shortTitle: Visualizar a las personas con acceso
 ---
 
 Los administradores pueden utilizar esta información para ayudar a personas externas, reunir datos de cumplimiento y otras verificaciones generales de seguridad.
-
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+![Resumen de gestión de accesos](/assets/images/help/repository/manage-access-overview.png)
+{% else %}
 ![Lista de permisos de personas a un repositorio](/assets/images/help/repository/repository-permissions-list.png)
-
+{% endif %}
 ## Ver personas con acceso a tu repositorio
 
-{% ifversion fpt or ghec %}
-{% note %}
-
-**Nota**: También puedes tener una vista general combinada de los equipos y personas con acceso a tu repositorio. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)".
-
-{% endnote %}
-{% endif %}
-
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
+Puedes ver un resumen combinado de los equipos y personas con acceso a tu repositorio en los ajustes de este. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories)".
+{% else %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.accessing-repository-people %}
-
+{% endif %}
 ## Exportar una lista de personas con acceso a tu repositorio
 
 Los propietario de organizaciones en {% data variables.product.prodname_ghe_cloud %} o {% data variables.product.prodname_ghe_server %} pueden exportar una lista CSV de personas que tienen acceso a un repositorio.
