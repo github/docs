@@ -1,6 +1,6 @@
 ---
 title: Using GitHub Copilot in Codespaces
-intro: 'You can use Copilot in Codespaces by adding the extension.'
+intro: You can use Copilot in Codespaces by adding the extension.
 versions:
   fpt: '*'
   ghec: '*'

@@ -56,7 +56,7 @@ translations/zh-CN/content/admin/identity-and-access-management/managing-iam-for
 translations/zh-CN/content/admin/index.md,broken liquid tags
 translations/zh-CN/content/admin/installation/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-aws.md,broken liquid tags
 translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,Listed in localization-support#489
-translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,broken liquid tags
+translations/zh-CN/content/admin/overview/about-enterprise-accounts.md,parsing error
 translations/zh-CN/content/admin/packages/enabling-github-packages-with-aws.md,broken liquid tags
 translations/zh-CN/content/admin/packages/enabling-github-packages-with-azure-blob-storage.md,broken liquid tags
 translations/zh-CN/content/admin/packages/enabling-github-packages-with-minio.md,broken liquid tags
@@ -82,6 +82,7 @@ translations/zh-CN/content/billing/managing-billing-for-your-github-account/abou
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/index.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription.md,parsing error
+translations/zh-CN/content/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account.md,parsing error
 translations/zh-CN/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise.md,broken liquid tags
 translations/zh-CN/content/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise.md,parsing error

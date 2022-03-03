@@ -34,7 +34,7 @@ The page that's displayed allows you to enable or disable all security and analy
 
 {% ifversion ghec %}If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
 
-{% ifversion ghes > 3.0 %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
+{% ifversion ghes %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
 
 {% ifversion ghae %}The page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.{% endif %}
 
@@ -69,31 +69,25 @@ You can enable or disable features for all repositories.
    {% ifversion ghes = 3.1 or ghes = 3.2 %}
    !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
    {% endif %}
-   {% ifversion ghes = 3.0 %}
-   !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.0/organizations/security-and-analysis-disable-or-enable-all-ghas.png)
-   {% endif %}
+   
    {% ifversion ghae %}
    !["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/github-ae/organizations/security-and-analysis-disable-or-enable-all-ghae.png)
    {% endif %}
-   {% ifversion fpt or ghes = 3.0 or ghec %}
+   {% ifversion fpt or ghec %}
 3. Optionally, enable the feature by default for new repositories in your organization.
    {% ifversion fpt or ghec %}
    !["Enable by default" option for new repositories](/assets/images/help/organizations/security-and-analysis-enable-by-default-in-modal.png)
    {% endif %}
-   {% ifversion ghes = 3.0 %}
-   !["Enable by default" option for new repositories](/assets/images/enterprise/3.0/organizations/security-and-analysis-secret-scanning-enable-by-default.png)
+   
    {% endif %}
-   {% endif %}
-   {% ifversion fpt or ghes = 3.0 or ghec %}
+   {% ifversion fpt or ghec %}
 4. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
    {% ifversion fpt or ghec %}
    ![Button to disable or enable feature](/assets/images/help/organizations/security-and-analysis-enable-dependency-graph.png)
    {% endif %}
-   {% ifversion ghes = 3.0 %}
-   ![Button to disable or enable feature](/assets/images/enterprise/3.0/organizations/security-and-analysis-enable-secret-scanning.png)
+   
    {% endif %}
-   {% endif %}
-   {% ifversion ghae or ghes > 3.0 %}
+   {% ifversion ghae or ghes %}
 3. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
    ![Button to enable feature for all the eligible repositories in the organization](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
    {% endif %}
@@ -144,7 +138,7 @@ To allow {% data variables.product.prodname_dependabot %} to access a private {%
    !["X" button to remove a repository](/assets/images/help/organizations/dependabot-private-repository-list.png)
 {% endif %}
 
-{% ifversion ghes > 3.0 or ghec %}
+{% ifversion ghes or ghec %}
 
 ## Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
 
