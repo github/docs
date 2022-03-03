@@ -1,13 +1,13 @@
 ---
 title: Using OpenID Connect with reusable workflows
 shortTitle: Using OpenID Connect with reusable workflows
-intro: 'You can use reusable workflows with OIDC to standardize and security harden your deployment steps.'
+intro: You can use reusable workflows with OIDC to standardize and security harden your deployment steps.
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/using-oidc-with-your-reusable-workflows
 versions:
   fpt: '*'
-  ghae: 'issue-4757-and-5856'
+  ghae: issue-4757-and-5856
   ghec: '*'
   ghes: '>=3.5'
 type: how_to

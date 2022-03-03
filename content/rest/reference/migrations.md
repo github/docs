@@ -9,7 +9,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.3'
-  ghae: 'issue-6184'
+  ghae: issue-6184
 topics:
   - API
 miniTocMaxHeadingLevel: 3

@@ -241,11 +241,7 @@ jobs:
 ```
 
 The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
-{% else %}
-![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
-{% endif %}
 
 {% ifversion fpt or ghec %}
 

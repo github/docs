@@ -1,7 +1,7 @@
 ---
 title: Advanced workflow features
 shortTitle: Advanced workflow features
-intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices,{% ifversion fpt or ghes > 3.0 or ghae or ghec %} environments,{% endif %} and labels.'
+intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices, environments, and labels.'
 redirect_from:
   - /actions/learn-github-actions/managing-complex-workflows
 versions:
@@ -169,12 +169,9 @@ To learn more about {% data variables.product.prodname_dotcom %}-hosted runner l
 {% data reusables.actions.reusable-workflows %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-
 ## Using environments
 
 You can configure environments with protection rules and secrets. Each job in a workflow can reference a single environment. Any protection rules configured for the environment must pass before a job referencing the environment is sent to a runner. For more information, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
-{% endif %}
 
 ## Using starter workflows
 

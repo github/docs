@@ -25,7 +25,7 @@ This guide explains how to configure security hardening for certain {% data vari
 
 ## Using secrets
 
-Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, repository, or environment{% else %} or repository{% endif %} level, and allow you to store sensitive information in {% data variables.product.product_name %}.
+Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization, repository, or environment level, and allow you to store sensitive information in {% data variables.product.product_name %}.
 
 Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.product_name %}. This occurs when the secret is submitted [using the UI](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) or through the [REST API](/rest/reference/actions#secrets). This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. Once the secret is uploaded, {% data variables.product.product_name %} is then able to decrypt it so that it can be injected into the workflow runtime.
 
@@ -45,10 +45,8 @@ To help prevent accidental disclosure, {% data variables.product.product_name %}
 - **Audit and rotate registered secrets**
     - Periodically review the registered secrets to confirm they are still required. Remove those that are no longer needed.
     - Rotate secrets periodically to reduce the window of time during which a compromised secret is valid.
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - **Consider requiring review for access to secrets**
     - You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
-{% endif %}
 
 ## Using `CODEOWNERS` to monitor changes
 
@@ -175,13 +173,7 @@ You can help mitigate this risk by following these good practices:
 
   Pinning an action to a full length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload.
 
-  {% ifversion ghes < 3.1 %}
-  {% warning %}
-
-  **Warning:** The short version of the commit SHA is insecure and should never be used for specifying an action's Git reference. Because of how repository networks work, any user can fork the repository and push a crafted commit to it that collides with the short SHA. This causes subsequent clones at that SHA to fail because it becomes an ambiguous commit. As a result, any workflows that use the shortened SHA will immediately fail.
-
-  {% endwarning %}
-  {% endif %}
+  
 
 * **Audit the source code of the action**
 
