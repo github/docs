@@ -35,7 +35,9 @@ Cada acción es un repositorio en la organización `actions` y cada repositorio 
 
 {% note %}
 
-**Nota:** Cuando utilices acciones de configuración (tales como `actions/setup-LANGUAGE`) en {% data variables.product.product_name %} con ejecutores auto-hospedados, podrías necesitar configurar el caché de las herramientas en los ejecutores que no tengan acceso a internet. Para obtener más información, consulta la sección "[ Configurar el caché de herramientas en ejecutores auto-hospedados sin acceso a internet](/enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)".
+**Notas:**
+- Cuando utilices acciones de configuración, (tales como `actions/setup-LANGUAGE`) en {% data variables.product.product_name %} con ejecutores auto-hospedados, tal vez necesites configurar el caché de las herramientas en los ejecutores que no tienen acceso a internet. Para obtener más información, consulta la sección "[ Configurar el caché de herramientas en ejecutores auto-hospedados sin acceso a internet](/enterprise/admin/github-actions/setting-up-the-tool-cache-on-self-hosted-runners-without-internet-access)".
+- Upgrades to {% data variables.product.product_name %} will not result in the bundled actions being updated.
 
 {% endnote %}
 
