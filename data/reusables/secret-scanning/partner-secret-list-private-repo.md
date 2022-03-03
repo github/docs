@@ -122,6 +122,8 @@ Intercom | Intercom Access Token | intercom_access_token{% endif %}
 Ionic | Ionic Personal Access Token | ionic_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Ionic | Ionic Refresh Token | ionic_refresh_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+JD Cloud | JD Cloud Access Key | jd_cloud_access_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 JFrog | JFrog Platform Access Token | jfrog_platform_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
