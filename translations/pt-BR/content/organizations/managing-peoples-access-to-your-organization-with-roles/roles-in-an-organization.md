@@ -30,6 +30,10 @@ As funções no nível de organização são conjuntos de permissões que podem 
 
 Você pode atribuir indivíduos ou equipes a diversos cargos na organização para controlar o acesso dos seus integrantes à sua organização e seus recursos. Para mais detalhes sobre as permissões individuais incluídas em cada função, consulte "[Permissões para as funções da organização](#permissions-for-organization-roles)".
 
+{% if enterprise-owner-join-org %}
+If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+{% endif %}
+
 ### Proprietários da organização
 Os proprietários da organização têm acesso administrativo completo à sua organização. Essa função deve ser limitada a não menos que duas pessoas na sua organização. Para obter mais informações, consulte "[Manter a continuidade da propriedade para a sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)".
 

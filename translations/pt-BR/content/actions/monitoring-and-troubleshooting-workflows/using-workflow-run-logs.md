@@ -19,7 +19,7 @@ Se a execução estiver concluída, será possível ver se o resultado teve êxi
 
 O {% data variables.product.prodname_actions %} usa a API de Verificação para mostrar os status, resultados e logs de um fluxo de trabalho. O {% data variables.product.prodname_dotcom %} cria um novo conjunto de verificações para cada execução de fluxo de trabalho. O conjunto de verificações contêm uma execução de verificação para cada trabalho no fluxo de trabalho, e cada trabalho inclui etapas. As ações do {% data variables.product.prodname_actions %} são executadas como etapas no fluxo de trabalho. Para obter mais informações sobre a API de verificações, consulte "[Verificações](/rest/reference/checks)".
 
-{% data reusables.github-actions.invalid-workflow-files %}
+{% data reusables.actions.invalid-workflow-files %}
 
 ## Exibir logs para diagnosticar falhas
 

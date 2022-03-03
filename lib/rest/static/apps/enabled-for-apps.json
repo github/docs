@@ -257,6 +257,16 @@
         "requestPath": "/repos/{owner}/{repo}/actions/permissions"
       },
       {
+        "slug": "get-the-level-of-access-for-workflows-outside-of-the-repository",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/permissions/access"
+      },
+      {
+        "slug": "set-the-level-of-access-for-workflows-outside-of-the-repository",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/permissions/access"
+      },
+      {
         "slug": "get-allowed-actions-for-a-repository",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"

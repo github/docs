@@ -89,7 +89,7 @@ Adicionalmente a las características disponibles con {% data variables.product.
 
 {% data variables.product.company_short %} factura por {% data variables.product.prodname_team %} en una modalidad "por usuario". Para obtener más información, consulta la sección "[Acerca de los precios por usuario]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion fpt %}".{% else %}" en la documentación de los tipos de cuenta gratuito, Pro & de equipo.{% endif %}
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
 ## {% data variables.product.prodname_enterprise %}
 

@@ -42,7 +42,7 @@ Proprietários de organizações e gestores de faturamento podem visualizar o us
 
 {% note %}
 
-**Nota:** Os detalhes de faturamento para contas corporativas somente resumem o uso de dados de armazenamento por organização. {% data reusables.github-actions.enterprise-billing-details %}
+**Nota:** Os detalhes de faturamento para contas corporativas somente resumem o uso de dados de armazenamento por organização. {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

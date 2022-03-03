@@ -179,7 +179,7 @@ git:
 
 Travis CI と {% data variables.product.prodname_actions %} はどちらも、カスタム環境変数をテストマトリックスに追加できます。これにより、後のステップで変数を参照できます。
 
-{% data variables.product.prodname_actions %} では、`include` キーを使用して、カスタム環境変数をマトリックスに追加できます。 {% data reusables.github-actions.matrix-variable-example %}
+{% data variables.product.prodname_actions %} では、`include` キーを使用して、カスタム環境変数をマトリックスに追加できます。 {% data reusables.actions.matrix-variable-example %}
 
 ## {% data variables.product.prodname_actions %} の主な機能
 

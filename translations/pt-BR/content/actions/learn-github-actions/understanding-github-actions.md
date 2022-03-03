@@ -254,7 +254,7 @@ Para entender como a cobrança funciona para {% data variables.product.prodname_
 
 ## Entrar em contato com o suporte
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
 
 ## Leia mais
 
