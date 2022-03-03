@@ -55,6 +55,12 @@ Para maior segurança, além de alterar a senha, habilite também a autenticaç�
 
 Consulte "[Revisar integrações autorizadas](/articles/reviewing-your-authorized-integrations)" para ver instruções sobre como revisar e excluir tokens de acesso. Para gerar novos tokens de acesso, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
 
+{% ifversion not ghae %}
+
+If you have reset your account password and would also like to trigger a sign-out from the GitHub Mobile app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. For additional information, see "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)."
+
+{% endif %}
+
 ## Atualizar chaves SSH
 
 Consulte "[Revisar as chaves SSH](/articles/reviewing-your-ssh-keys)" para ver instruções sobre como revisar e excluir chaves SSH. Para gerar e adicionar novas chaves SSH, consulte "[Gerar uma chave SSH](/articles/generating-an-ssh-key)".

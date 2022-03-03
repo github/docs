@@ -63,6 +63,9 @@ O gráfico de dependências permite explorar os ecossistemas e pacotes dos quais
 Você pode encontrar o gráfico de dependências na aba **Ideias** para o seu repositório. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 {% endif %}
 
+### Security overview for repositories
+For all public repositories, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.
+
 ## Disponível com {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-availability %}
@@ -83,8 +86,8 @@ Detectar automaticamente tokens ou credenciais que foram verificados em um repos
 Mostre o impacto completo das alterações nas dependências e veja detalhes de qualquer versão vulnerável antes de fazer merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 %}
-### Visão geral da segurança
+{% ifversion ghec or ghes > 3.1 or ghae-issue-4554 %}
+### Security overview for organizations{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, enterprises,{% endif %} and teams
 
 Revise a configuração de segurança e os alertas para sua organização e identifique os repositórios com maior risco. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
 {% endif %}

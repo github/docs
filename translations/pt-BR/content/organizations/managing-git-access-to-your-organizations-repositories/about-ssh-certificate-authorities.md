@@ -28,9 +28,15 @@ Por exemplo, você pode desenvolver um sistema interno que emite um novo certifi
 Integrantes da organização podem usar os certificados assinados para autenticação mesmo que você tenha aplicado o logon único SAML. A menos que você exija certificados SSH, os integrantes podem continuar a usar outros meios de autenticação para acessar os recursos da organização no Git, como o nome de usuário e senha deles, tokens de acesso pessoais e outras chaves SSH próprias.
 {% endif %}
 
-Os integrantes não poderão usar seus certificados para acessar bifurcações dos seus repositórios que são propriedade das contas de usuário.
+Members will not be able to use their certificates to access forks of your repositories that are owned by their personal accounts.
 
-Para evitar erros de autenticação, os integrantes da organização devem usar uma URL especial que inclua o ID da organização para clonar repositórios usando certificados assinados. Qualquer pessoa com acesso de leitura no repositório pode localizar essa URL na página do repositório. Para obter mais informações, consulte "[Clonar um repositório](/articles/cloning-a-repository)".
+## About SSH URLs with SSH certificates
+
+If your organization requires SSH certificates, to prevent authentication errors, organization members should use a special URL that includes the organization ID when performing Git operations over SSH. This special URL allows the client and server to more easily negotiate which key on the member's computer should be used for authentication. If a member uses the normal URL, which starts with `git@github.com`, the SSH client might offer the wrong key, causing the operation to fail.
+
+Anyone with read access to the repository can find this URL by selecting the **Code** dropdown menu on the main page of the repository, then clicking **Use SSH**.
+
+If your organization doesn't require SSH certificates, members can continue to use their own SSH keys, or other means of authentication. In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
 
 ## Emitindo certificados
 

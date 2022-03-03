@@ -1,7 +1,7 @@
 ---
-title: Managing prebuilds
-shortTitle: Manage prebuilds
-intro: 'You can review, modify, and delete the prebuild configurations for your repository.'
+title: Gerenciando pré-compilações
+shortTitle: Gerenciar pré-compilações
+intro: 'Você pode revisar, modificar e excluir as configurações de pré-compilação do seu repositório.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,96 +14,96 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.codespaces.prebuilds-beta-note %}
 
-## Checking, changing, and deleting your prebuild configurations
+## Verificando, alterando e excluindo suas configurações de pré-compilação
 
-The prebuilds that you configure are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_codespaces %} service.
+As pré-compilações que você configurar são criadas e atualizadas usando um fluxo de trabalho de {% data variables.product.prodname_actions %}, gerenciado pelo serviço de {% data variables.product.prodname_codespaces %}.
 
-The workflow is triggered by these events:
+O fluxo de trabalho é acionado por estes eventos:
 
-* Creating or updating the prebuild configuration
-* Pushing a commit or a pull request to a branch that's configured to have prebuilds
-* Manually triggering the workflow
+* Criando ou atualizando a configuração de pré-compilação
+* Enviando por push um commit ou um pull request para um branch configurado para pré-compilações
+* Acionando manualmente o fluxo de trabalho
 
-People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations.
+As pessoas com acesso de administrador a um repositório podem verificar o progresso de pré-compilações, editar e excluir configurações de pré-criação.
 
-### Viewing the progress of prebuilds
-You can view the current status of the latest workflow run for each prebuild configuration you've set up on the {% data variables.product.prodname_codespaces %} page of your repository settings. For example, "Currently running" or "Last run 1 hour ago."
+### Visualizando o progresso das pré-compilações
+Você pode visualizar o status atual da última execução do fluxo de trabalho para cada configuração de pré-compilação que você definiu na página de {% data variables.product.prodname_codespaces %} das configurações do repositório. Por exemplo, "Atualmente em execução" ou "Última execução 1 hora atrás".
 
-To see the log output for the latest prebuild workflow run, click **See output**.
+Para ver a saída de registro para a última execução do fluxo de trabalho de pré-compilação, clique em **Ver saída**.
 
-![The 'See output' button](/assets/images/help/codespaces/prebuilds-see-output.png)
+![O botão 'Ver saída'](/assets/images/help/codespaces/prebuilds-see-output.png)
 
-This displays the output of the most recent run of the workflow in the **Actions** tab.
+Ele exibe a saída da execução mais recente do fluxo de trabalho na aba **Ações**.
 
-![The prebuild workflow output](/assets/images/help/codespaces/prebuilds-log-output.png)
+![A saída de fluxo de trabalho de pré-compilação](/assets/images/help/codespaces/prebuilds-log-output.png)
 
-Alternatively, to view all prebuild workflow runs associated with the specified branch, click the ellipsis button and choose **View runs** from the dropdown menu.
+Como alternativa, para visualizar todas as execuções de fluxo de trabalho pré-compilado associadas a um branch especificada, clique no botão de retiências e selecione **Visualizar execuções** no menu suspenso.
 
-![The 'View runs' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-view-runs.png)
+![A opção 'Visualizar execuções' no menu suspenso](/assets/images/help/codespaces/prebuilds-view-runs.png)
 
-This displays the workflow run history for prebuilds for the associated branch.
+Exibe o histórico de execução de fluxo de trabalho para pré-compilações para o branch associado.
 
-![The workflow run history](/assets/images/help/codespaces/prebuilds-workflow-runs.png)
+![Histórico de execução do fluxo de trabalho](/assets/images/help/codespaces/prebuilds-workflow-runs.png)
 
-### Editing a prebuild configuration
+### Editando uma configuração de pré-compilação
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to edit.
-1. In the dropdown menu, click **Edit**.
+1. Na página de {% data variables.product.prodname_codespaces %} das configurações do repositório, clique nas reticências à direita da configuração de pré-compilação que você deseja editar.
+1. No menu suspenso, clique em **Editar**.
 
-   ![The 'Edit' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-edit.png)
+   ![A opção 'Editar' no menu suspenso](/assets/images/help/codespaces/prebuilds-edit.png)
 
-1. Make the required changes to the prebuild configuration, then click **Update**.
+1. Faça as alterações necessárias na configuração de pré-compilação e, em seguida, clique em **Atualizar**.
 
-### Delete a prebuild configuration
+### Excluir uma configuração de pré-compilação
 
-Deleting a prebuild configuration also deletes all previously created prebuild templates for that configuration. As a result, shortly after you delete a configuration, prebuilds generated by that configuration will no longer be available when you create a new codespace.
+A exclusão de uma configuração de pré-compilação também exclui todos os modelos de pré-compilação criados anteriormente para essa configuração. Como resultado, logo após você excluir uma configuração, as pré-compilações geradas por essa configuração não estarão disponíveis ao criar um novo codespace.
 
-After you delete a prebuild configuration, workflow runs for that configuration that have been queued or started will still run. They will be listed in the workflow run history, along with previously completed workflow runs.
+Depois que você excluir uma configuração de pré-compilação, as execuções do fluxo de trabalho que foram enfileirados ou iniciados ainda serão executadas. Elas serão listados no histórico de execução de fluxo de trabalho junto com execuções de fluxo de trabalho concluídas anteriormente.
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to delete.
-1. In the dropdown menu, click **Delete**.
+1. Na página de {% data variables.product.prodname_codespaces %} das configurações do repositório, clique nas reticências à direita da configuração de pré-compilação que você deseja excluir.
+1. No menu suspenso, clique em **Excluir**.
 
-   ![The 'Delete' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-delete.png)
+   ![A opção "Excluir" no menu suspenso](/assets/images/help/codespaces/prebuilds-delete.png)
 
-1. Click **OK** to confirm the deletion.
+1. Clique em **OK** para confirmar a exclusão.
 
-### Manually trigger prebuilds
+### Acionar pré-compilações manualmente
 
-It may be useful to manually trigger a workflow run for a prebuild configuration. Generally this is only necessary if you are debugging a problem with the workflow for a prebuild configuration.
+Pode ser útil acionar manualmente a execução de um fluxo de trabalho para uma configuração de pré-compilação. Geralmente, isso só é necessário se você estiver depurando um problema com o fluxo de trabalho para uma configuração de pré-compilação.
 
-1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration whose workflow you want to trigger.
-1. In the dropdown menu, click **Manually trigger**.
+1. Na página de {% data variables.product.prodname_codespaces %} das configurações do repositório, clique nas reticências à direita da configuração de pré-compilação cujo fluxo de trabalho você deseja acionar.
+1. No menu suspenso, clique em **Acionar manualmente**.
 
-   ![The 'Manually trigger' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-manually-trigger.png)
+   ![A opção "Acionar manualmente" no menu suspenso](/assets/images/help/codespaces/prebuilds-manually-trigger.png)
 
-## Allowing a prebuild to access external resources
+## Permitir que uma pré-compilação acesse recursos externos
 
-By default, the {% data variables.product.prodname_actions %} workflow for a prebuild configuration can only access its own repository contents. Your project may use additional resources to build the development environment, such as files in other repositories, packages, GHCR images, and APIs. To allow your prebuild setup to access these resources, you will need to create a new personal account and then use this account to create a personal access token (PAT) with the appropriate scopes.
+Por padrão, o fluxo de trabalho de {% data variables.product.prodname_actions %} para uma configuração de pré-compilação só pode acessar o próprio conteúdo do repositório. Seu projeto pode usar recursos adicionais para criar o ambiente de desenvolvimento, como arquivos em outros repositórios, pacotes, imagens GHCR e APIs. Para permitir que a sua configuração de pré-compilação acesse esses recursos, você deverá criar uma nova conta pessoal e, em seguida, usar esta conta para criar um token de acesso pessoal (PAT) com os escopos apropriados.
 
-1. Create a new personal account on {% data variables.product.prodname_dotcom %}.
+1. Crie uma nova conta pessoal em {% data variables.product.prodname_dotcom %}.
 
    {% warning %}
 
-   **Warning**: Although you can generate the PAT using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. For more information, see "[Signing up for a new GitHub account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" and "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."
+   **Aviso**: Embora você possa gerar o PAT usando a sua conta pessoal existente, é altamente recomendável que você crie uma nova conta com acesso apenas aos repositórios de destino necessários para seu cenário. Isso acontece porque a permissão do `repositório` do token de acesso concede acesso a todos os repositórios aos quais a conta tem acesso. Para obter mais informações, consulte "[Inscrevendo-se para uma nova conta no GitHub](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" e "[Fortalecimento da segurança para {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)".
 
    {% endwarning %}
-1. Give the new account read access to the required repositories. Para obter mais informações, consulte "[Gerenciar o acesso de um indivíduo ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)".
-1. While signed into the new account, create a PAT with the `repo` scope. Optionally, if the prebuild will need to download packages from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, also select the `read:packages` scope. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+1. Dê a nova conta acesso de leitura aos repositórios necessários. Para obter mais informações, consulte "[Gerenciar o acesso de um indivíduo ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)".
+1. Enquanto estiver conectado à nova conta, crie um PAT com o escopo `repo`. Opcionalmente, se a pré-compilação tiver de fazer o download do {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, selecione também o escopo `read:packages`. Para obter mais informações, consulte "[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-   !['repo' and 'packages' scopes selected for a PAT](/assets/images/help/codespaces/prebuilds-select-scopes.png)
+   ![Escopos "repo" e "pacotes" selecionados para um PAT](/assets/images/help/codespaces/prebuilds-select-scopes.png)
 
-   If the prebuild will use a package from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, you will need to either grant the new account access to the package or configure the package to inherit the access permissions of the repository you are prebuilding. Para obter mais informações, consulte "[Configurar o controle de acesso e visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
-{% ifversion ghec %}1. Authorize the token for use with SAML single sign-on (SSO), so that it can access repositories that are owned by organizations with SSO enabled. Para obter mais informações, consulte "[Autorizar um token de acesso pessoal para uso com o logon único SAML](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)".
+   Se a pré-compilação usar um pacote do {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, você deverá conceder o novo acesso à nova conta ao pacote ou configurar o pacote para herdar as permissões de acesso do repositório que você está pré-compilando. Para obter mais informações, consulte "[Configurar o controle de acesso e visibilidade de um pacote](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)".
+{% ifversion ghec %}1. Autorizar o token para uso com o logon único SAML (SSO), para que ele possa acessar repositórios que são propriedade de organizações com SSO habilitado. Para obter mais informações, consulte "[Autorizar um token de acesso pessoal para uso com o logon único SAML](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)".
 
-   ![The button to configure SSO for a PAT](/assets/images/help/codespaces/configure-SSO-for-PAT.png)
+   ![O botão para configurar o SSO para um PAT](/assets/images/help/codespaces/configure-SSO-for-PAT.png)
 
 {% endif %}
-1. Copy the token string. You will assign this to a {% data variables.product.prodname_codespaces %} repository secret.
-1. Sign back into the account that has admin access to the repository.
-1. In the repository for which you want to create {% data variables.product.prodname_codespaces %} prebuilds, create a new {% data variables.product.prodname_codespaces %} repository secret called `CODESPACES_PREBUILD_TOKEN`, giving it the value of the token you created and copied. For more information, see "[Managing encrypted secrets for your repository and organization for {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces#adding-secrets-for-a-repository)."
+1. Copie a string do token. Você irá atribuir isto a um segredo de repositório de {% data variables.product.prodname_codespaces %}.
+1. Efetue novamente o login na conta com acesso de administrador ao repositório.
+1. No repositório para o qual você deseja criar as pré-compilações de {% data variables.product.prodname_codespaces %}, crie um novo segredo de repositório de {% data variables.product.prodname_codespaces %} chamado `CODESPACES_PREBUILD_TOKEN`, dando-lhe o valor do token que você criou e copiou. Para obter mais informações, consulte "[Gerenciando segredos criptografados para o seu repositório e organização para {% data variables.product.prodname_codespaces %}](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces#adding-secrets-for-a-repository)".
 
-The PAT will be used for all subsequent prebuild templates created for your repository. Unlike other {% data variables.product.prodname_codespaces %} repository secrets, the `CODESPACES_PREBUILD_TOKEN` secret is only used for prebuilding and will not be available to use in codespaces created from your repository.
+O PAT será usado para todos os modelos de pré-compilação subsequentes criados para o seu repositório. Ao contrário de outros segredos do repositório de {% data variables.product.prodname_codespaces %}, o segredo `CODESPACES_PREBUILD_TOKEN` é usado apenas para pré-compilação e não estará disponível para uso em codespaces criados a partir do seu repositório.
 
 ## Leia mais
 
-- "[Troubleshooting prebuilds](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+- "[Solucionar problemas de pré-compilações](/codespaces/troubleshooting/troubleshooting-prebuilds)"

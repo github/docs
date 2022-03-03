@@ -3,18 +3,17 @@ import path from 'path'
 import walk from 'walk-sync'
 import { get, isPlainObject } from 'lodash-es'
 import { allVersions } from '../../lib/all-versions.js'
-import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-import getRest from '../../lib/rest/index.js'
+import getRest, { getFlatListOfOperations } from '../../lib/rest/index.js'
 import dedent from 'dedent'
 import { beforeAll } from '@jest/globals'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const schemasPath = path.join(__dirname, '../../lib/rest/static/decorated')
 
 let operations = null
-let nonEnterpriseDefaultVersionSchema = null
+let allOperations = null
 beforeAll(async () => {
-  operations = (await getRest()).operations
-  nonEnterpriseDefaultVersionSchema = operations[nonEnterpriseDefaultVersion]
+  operations = await getRest()
+  allOperations = getFlatListOfOperations(operations)
 })
 
 describe('OpenAPI schema validation', () => {
@@ -36,20 +35,20 @@ describe('OpenAPI schema validation', () => {
       })
   })
 
-  test('every value is an array of operations', () => {
-    let checks = 0
-    for (const [, operation] of Object.entries(operations)) {
-      checks++
-      expect(Array.isArray(operation)).toBe(true)
-    }
+  test('operations object structure organized by version, category, and subcategory', () => {
+    expect(allOperations.every((operation) => operation.verb)).toBe(true)
+  })
+
+  test('number of openapi versions', () => {
+    const schemaVersions = Object.keys(operations)
     // there are at least 5 versions available (3 ghes [when a version
-    // has been deprecated], api.github.com, and github.ae)
-    expect(checks).toBeGreaterThanOrEqual(5)
+    // has been deprecated], api.github.com, enterprise-cloud, and github.ae)
+    expect(schemaVersions.length).toBeGreaterThanOrEqual(6)
   })
 })
 
 function findOperation(method, path) {
-  return nonEnterpriseDefaultVersionSchema.find((operation) => {
+  return allOperations.find((operation) => {
     return operation.requestPath === path && operation.verb.toLowerCase() === method.toLowerCase()
   })
 }
@@ -58,19 +57,19 @@ describe('x-codeSamples for curl', () => {
   test('GET', () => {
     const operation = findOperation('GET', '/repos/{owner}/{repo}')
     expect(isPlainObject(operation)).toBe(true)
-    const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'Shell')
+    const { sourceHTML } = operation['x-codeSamples'].find((sample) => sample.lang === 'Shell')
     const expected =
-      'curl \\\n  -H "Accept: application/vnd.github.v3+json" \\\n  https://api.github.com/repos/octocat/hello-world'
-    expect(source).toEqual(expected)
+      '<pre><code class="hljs language-shell">curl \\\n' +
+      '  -H "Accept: application/vnd.github.v3+json" \\\n' +
+      '  https://api.github.com/repos/octocat/hello-world</code></pre>'
+    expect(sourceHTML).toEqual(expected)
   })
 
   test('operations with required preview headers match Shell examples', () => {
-    const operationsWithRequiredPreviewHeaders = nonEnterpriseDefaultVersionSchema.filter(
-      (operation) => {
-        const previews = get(operation, 'x-github.previews', [])
-        return previews.some((preview) => preview.required)
-      }
-    )
+    const operationsWithRequiredPreviewHeaders = allOperations.filter((operation) => {
+      const previews = get(operation, 'x-github.previews', [])
+      return previews.some((preview) => preview.required)
+    })
 
     const operationsWithHeadersInCodeSample = operationsWithRequiredPreviewHeaders.filter(
       (operation) => {
@@ -93,18 +92,20 @@ describe('x-codeSamples for @octokit/core.js', () => {
   test('GET', () => {
     const operation = findOperation('GET', '/repos/{owner}/{repo}')
     expect(isPlainObject(operation)).toBe(true)
-    const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
+    const { sourceHTML } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
+    const plainText = sourceHTML.replace(/<[^>]+>/g, '').trim()
     const expected = dedent`await octokit.request('GET /repos/{owner}/{repo}', {
       owner: 'octocat',
       repo: 'hello-world'
     })`
-    expect(source).toEqual(expected)
+    expect(plainText).toEqual(expected)
   })
 
   test('POST', () => {
     const operation = findOperation('POST', '/repos/{owner}/{repo}/git/trees')
     expect(isPlainObject(operation)).toBe(true)
-    const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
+    const { sourceHTML } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
+    const plainText = sourceHTML.replace(/<[^>]+>/g, '').trim()
     const expected = dedent`await octokit.request('POST /repos/{owner}/{repo}/git/trees', {
       owner: 'octocat',
       repo: 'hello-world',
@@ -118,28 +119,27 @@ describe('x-codeSamples for @octokit/core.js', () => {
         }
       ]
     })`
-    expect(source).toEqual(expected)
+    expect(plainText).toEqual(expected)
   })
 
   test('PUT', () => {
     const operation = findOperation('PUT', '/authorizations/clients/{client_id}/{fingerprint}')
     expect(isPlainObject(operation)).toBe(true)
-    const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
+    const { sourceHTML } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
+    const plainText = sourceHTML.replace(/<[^>]+>/g, '').trim()
     const expected = dedent`await octokit.request('PUT /authorizations/clients/{client_id}/{fingerprint}', {
       client_id: 'client_id',
       fingerprint: 'fingerprint',
       client_secret: 'client_secret'
     })`
-    expect(source).toEqual(expected)
+    expect(plainText).toEqual(expected)
   })
 
   test('operations with required preview headers match JavaScript examples', () => {
-    const operationsWithRequiredPreviewHeaders = nonEnterpriseDefaultVersionSchema.filter(
-      (operation) => {
-        const previews = get(operation, 'x-github.previews', [])
-        return previews.some((preview) => preview.required)
-      }
-    )
+    const operationsWithRequiredPreviewHeaders = allOperations.filter((operation) => {
+      const previews = get(operation, 'x-github.previews', [])
+      return previews.some((preview) => preview.required)
+    })
 
     // Find something that looks like the following in each code sample:
     /*

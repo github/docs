@@ -23,7 +23,7 @@ Para obtener más información sobre cómo crear etiquetas personalizadas y pred
 
 Las etiquetas te permiten enviar jobs de flujo de trabajo a tipos específicos de ejecutores auto-hospedados, de acuerdo con sus características compartidas. Por ejemplo, si tu job requiere una componente de hardware o paquete de software específico, puedes asignar una etiqueta personalizada a un ejecutor y después configurar tu job para que solo se ejecute en los ejecutores con esta etiqueta.
 
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
 Para obtener más información, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 

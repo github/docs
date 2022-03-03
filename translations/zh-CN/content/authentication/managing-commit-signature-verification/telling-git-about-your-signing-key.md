@@ -45,6 +45,12 @@ If you're using a GPG key that matches your committer identity and your verified
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
+1. Optionally, to prompt you to enter a PIN or passphrase when required, install `pinentry-mac`. For example, using [Homebrew](https://brew.sh/):
+  ```shell
+  $ brew install pinentry-mac
+  $ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+  $ killall gpg-agent
+  ```
 
 {% data reusables.gpg.x-509-key %}
 

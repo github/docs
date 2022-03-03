@@ -25,9 +25,9 @@ Debes usar una sintaxis específica para decirle a {% data variables.product.pro
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %} Para obtener más información acerca de los condicionales `if`, consulta la sección "[sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% data reusables.actions.expression-syntax-if %} Para obtener más información acerca de los condicionales `if`, consulta la sección "[sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 #### Expresión de ejemplo en un condicional `if`
 

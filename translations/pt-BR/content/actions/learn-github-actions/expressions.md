@@ -25,9 +25,9 @@ Expressões são comumente usadas com a condicional `if` palavra-chave em um arq
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações sobre as condições `se`, consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% data reusables.actions.expression-syntax-if %} Para obter mais informações sobre as condições `se`, consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 #### Exemplo de expressão em uma condicional `if`
 

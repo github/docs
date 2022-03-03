@@ -1,6 +1,6 @@
 ---
-title: Setting up your Java project for Codespaces
-shortTitle: Setting up with your Java project
+title: 为 Codespaces 设置 Java 项目
+shortTitle: 使用 Java 项目进行设置
 intro: '通过创建自定义开发容器，开始在 {% data variables.product.prodname_codespaces %} 中使用 Java 项目。'
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
@@ -33,7 +33,7 @@ hidden: true
 
   如果您看不到此选项，则表示 {% data variables.product.prodname_codespaces %} 不适用于您的项目。 有关详细信息，请参阅 [访问 {% data variables.product.prodname_codespaces %}](/codespaces/developing-in-codespaces/creating-a-codespace#access-to-codespaces)。
 
-创建代码空间时，您的项目是在专用于您的远程 VM 上创建的。 By default, the container for your codespace has many languages and runtimes including Java, nvm, npm, and Yarn. 它还包括一套常见的工具，例如 git、wget、rsync、openssh 和 nano。
+创建代码空间时，您的项目是在专用于您的远程 VM 上创建的。 默认情况下，代码空间的容器有许多语言和运行时，包括 Java、nvm、npm 和 Yarn。 它还包括一套常见的工具，例如 git、wget、rsync、openssh 和 nano。
 
 您可以通过调整 vCPU 和 RAM 的数量、[添加 dotfiles 以个性化环境](/codespaces/setting-up-your-codespace/personalizing-codespaces-for-your-account)或者修改安装的工具和脚本来自定义代码空间。
 
@@ -44,7 +44,7 @@ hidden: true
 
 默认代码空间容器附带最新的 Java 版本、包管理器（Maven、Gradle）和其他预装的常用工具。 但是，我们建议您设置一个自定义容器来定义项目所需的工具和脚本。 这将确保仓库中的所有 {% data variables.product.prodname_codespaces %} 用户都拥有完全可复制的环境。
 
-要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
+要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 有关开发容器的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 
 
 {% data reusables.codespaces.command-palette-container %}

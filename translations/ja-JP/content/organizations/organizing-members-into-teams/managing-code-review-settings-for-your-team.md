@@ -1,6 +1,6 @@
 ---
-title: Managing code review settings for your team
-intro: You can decrease noise for your team by limiting notifications when your team is requested to review a pull request.
+title: Teamのコードレビュー設定の管理
+intro: TeamがPull Requestのレビューをリクエストされた際の通知を制限することによって、Teamのノイズを減らすことができます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team
   - /organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team
@@ -13,31 +13,31 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Code review settings
+shortTitle: コードレビューの設定
 permissions: Team maintainers and organization owners can configure code review settings.
 ---
 
-## About code review settings
+## コードレビューの設定について
 
 {% if only-notify-requested-members %}
-To reduce noise for your team and clarify individual responsibility for pull request reviews, you can configure code review settings.
+Teamのノイズを減らし、Pull Requestレビューに対する個人の責任を明確にするために、コードレビューの設定ができます。
 
-- Team notifications
-- Auto assignment
+- Teamの通知
+- 自動割り当て
 
-## About team notifications
+## Team通知について
 
-When you choose to only notify requested team members, you disable sending notifications to the entire team when the team is requested to review a pull request if a specific member of that team is also requested for review. This is especially useful when a repository is configured with teams as code owners, but contributors to the repository often know a specific individual that would be the correct reviewer for their pull request. 詳細は「[コードオーナーについて](/github/creating-cloning-and-archiving-repositories/about-code-owners)」を参照してください。
+リクエストされたTeamメンバーにのみ通知されるようにした場合、TeamにPull Requestのレビューがリクエストされても、そのTeam内の特定のメンバーにもレビューがリクエストされていたなら、Team全体への通知送信は無効化されることになります。 これは、リポジトリでTeamがコードオーナーとして設定されているものの、しばしば特定の個人が自分たちのPull Requestに対する適切なコードレビュー担当者となるだろうことをリポジトリのコントリビューターたちが知っている場合に、特に役立ちます。 詳細は「[コードオーナーについて](/github/creating-cloning-and-archiving-repositories/about-code-owners)」を参照してください。
 
-## About auto assignment
+## 自動割り当てについて
 {% endif %}
 
-When you enable auto assignment, any time your team has been requested to review a pull request, the team is removed as a reviewer and a specified subset of team members are assigned in the team's place. コードレビューの割り当てでは、Team がレビューをリクエストされたとき、Team の全体に通知するか、Team メンバーのサブセットのみに通知するかを決めることができます。
+自動割り当てを有効化すると、TeamがPull Requestのレビューをリクエストされた場合、そのチームはレビュー担当者から外され、指定されたTeamメンバーの一部がそのTeamの代わりに割り当てられます。 コードレビューの割り当てでは、Team がレビューをリクエストされたとき、Team の全体に通知するか、Team メンバーのサブセットのみに通知するかを決めることができます。
 
-When code owners are automatically requested for review, the team is still removed and replaced with individuals unless a branch protection rule is configured to require review from code owners. If such a branch protection rule is in place, the team request cannot be removed and so the individual request will appear in addition.
+コードオーナーが自動的にレビューをリクエストされた場合でも、ブランチ保護ルールがコードオーナーからのレビューを必須として設定されていないかぎり、やはりTeamは外され、個人に置き換えられます。 そういったブランチ保護ルールがある場合、Teamへのリクエストは削除できないので、個人へのリクエストは追加されることになります。
 
 {% ifversion fpt %}
-To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
+Teamのコラボレーション能力をさらに拡大するために、保護されたブランチやプライベートリポジトリのコードオーナーといった機能を含む{% data variables.product.prodname_ghe_cloud %}へのアップグレードが可能です。 {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
 ### ルーティングアルゴリズム
@@ -48,33 +48,33 @@ To further enhance your team's collaboration abilities, you can upgrade to {% da
 
 ロードバランスアルゴリズムは、各メンバーの最近のレビューリクエスト合計数に基づいてレビュー担当者を選択し、メンバーごとの未処理レビューの数を考慮します。 ロードバランスアルゴリズムは、各 Teamメンバーが 30 日間に等しい数のプルリクエストをレビューすることを保証しようとします。
 
-Any team members that have set their status to "Busy" will not be selected for review. If all team members are busy, the pull request will remain assigned to the team itself. For more information about user statuses, see "[Setting a status](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
+ステータスを"Busy"に設定したTeamメンバーは、レビューに選択されません。 すべてのTeamメンバーがBusyの場合、Pull RequestはTeam自体に割り当てられたままになります。 ユーザのステータスに関する詳しい情報については「[ステータスの設定](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)」を参照してください。
 
 {% if only-notify-requested-members %}
-## Configuring team notifications
+## Team通知の設定
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+1. 左のサイドバーで**{% octicon "code-review" aria-label="The code-review icon" %} Code review（コードレビュー）**をクリックしてください。
 {% else %}
-1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
+1. 左のサイドバーで**Code review（コードレビュー）**をクリックしてください。 ![Code review button](/assets/images/help/teams/review-button.png)
 {% endif %}
-1. Select **Only notify requested team members.** ![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
+1. **Only notify requested team members.（リクエストされたTeamメンバーにのみ通知）**を選択してください。 ![Code review team notifications](/assets/images/help/teams/review-assignment-notifications.png)
 1. [**Save changes**] をクリックします。
 {% endif %}
 
-## Configuring auto assignment
+## 自動割り当ての設定
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+1. 左のサイドバーで**{% octicon "code-review" aria-label="The code-review icon" %} Code review（コードレビュー）**をクリックしてください。
 {% else %}
-1. In the left sidebar, click **Code review** ![Code review button](/assets/images/help/teams/review-button.png)
+1. 左のサイドバーで**Code review（コードレビュー）**をクリックしてください。 ![Code review button](/assets/images/help/teams/review-button.png)
 {% endif %}
 1. [**Enable auto assignment**] を選択します。 ![Auto-assignment button](/assets/images/help/teams/review-assignment-enable.png)
 1. [How many team members should be assigned to review?] でドロップダウンメニューを使用し、各プルリクエストに割り当てるレビュー担当者の数を選択します。 ![[Number of reviewers] ドロップダウン](/assets/images/help/teams/review-assignment-number.png)

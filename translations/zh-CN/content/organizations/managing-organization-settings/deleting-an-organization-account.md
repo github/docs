@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: 删除组织帐户
+shortTitle: Delete organization
 ---
 
 {% ifversion fpt or ghec %}
@@ -26,7 +26,15 @@ shortTitle: 删除组织帐户
 
 ## 1. 备份组织内容
 
-删除组织后，GitHub **无法恢复内容**。 因此，在删除组织之前，请确保您拥有该帐户中所有仓库、wiki、议题和项目板的副本。
+{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
+
+{% ifversion ghes %}
+{% note %}
+
+**Note:** If necessary, a site administrator for {% data variables.product.product_location %} may be able to partially restore a deleted organization. For more information, see "[Restoring a deleted organization](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+
+{% endnote %}
+{% endif %}
 
 ## 2. 删除组织
 

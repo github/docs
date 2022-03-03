@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: Contacto
@@ -92,6 +94,12 @@ products:
       deprecation_notice: Aviso de depreciación
   rest:
     reference:
+      default: Predeterminado
+      name: Nombre
+      in: In
+      type: Tipo
+      description: Descripción
+      notes: Notas
       parameters: Parámetros
       response: Respuesta
       code_sample: Ejemplo de código
@@ -101,6 +109,8 @@ products:
       see_preview_notice: Ver aviso de previsualización
       see_preview_notices: Ver avisos de previsualización
       preview_header_is_required: El encabezado es <strong>requerido</strong>
+      preview_notice_to_change: This API is under preview and subject to change
+      works_with_github_apps: Works with GitHub Apps
 footer:
   all_rights_reserved: Todos los derechos reservados
   terms: Términos

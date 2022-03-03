@@ -47,13 +47,13 @@ Los contenedores Docker empaquetan el entorno con el código de las {% data vari
 
 Un contenedor Docker te permite usar versiones específicas de un sistema operativo, dependencias, herramientas y código. Para las acciones que se deben ejecutar en una configuración de entorno específica, Docker es una opción ideal porque puedes personalizar el sistema operativo y las herramientas. Debido a la latencia para crear y recuperar el contenedor, las acciones del contenedor Docker son más lentas que las acciones de JavaScript.
 
-Las acciones de contenedor de Docker solo pueden ejecutarse en ejecutores con un sistema operativo Linux. {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+Las acciones de contenedor de Docker solo pueden ejecutarse en ejecutores con un sistema operativo Linux. {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 ### Acciones de JavaScript
 
 Las acciones de JavaScript pueden ejecutarse directamente en una máquina del ejecutor y separar el código de acción del entorno utilizado para ejecutar el código. El uso de una acción de JavaScript simplifica el código de acción y se ejecuta más rápido que una acción de contenedor Docker.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
 Si estás desarrollando un proyecto Node.js, el conjunto de herramientas de las {% data variables.product.prodname_actions %} te ofrece paquetes que puedes usar en tu proyecto para acelerar el desarrollo. Para obtener más información, consulta el repositorio [actions/toolkit](https://github.com/actions/toolkit).
 
