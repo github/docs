@@ -13,9 +13,8 @@ topics:
   - Organizations
   - Teams
 shortTitle: 删除成员
+permissions: Organization owners can remove members from an organization.
 ---
-
-只有组织所有者才能从组织中删除成员。
 
 {% ifversion fpt or ghec %}
 
@@ -63,4 +62,5 @@ shortTitle: 删除成员
 
 ## 延伸阅读
 
-- “[从团队中删除组织成员](/articles/removing-organization-members-from-a-team)”
+- "[Removing organization members from a team](/articles/removing-organization-members-from-a-team)"{% if remove-enterprise-members %}
+- "[Removing a member from your enterprise](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

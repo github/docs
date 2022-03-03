@@ -26,11 +26,7 @@ shortTitle: About security overview
 
 ## 关于安全概述
 
-您可以使用安全概述来简要了解组织的安全状态，或识别需要干预的问题仓库。
-
-- 在组织级别，安全概述显示组织拥有的仓库的聚合和仓库特定安全信息。 You can also filter information per security feature.
-- 在团队级别，安全概述显示团队拥有管理权限的仓库特定安全信息。 For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
-- At the repository-level, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features not currently in use.
+您可以使用安全概述来简要了解组织的安全状态，或识别需要干预的问题仓库。 You can view aggregate or repository-specific security information in the security overview. You can also use the security overview to see which which security features are enabled for your repositories and to configure any available security features that are not currently in use.
 
 The security overview indicates whether {% ifversion fpt or ghes > 3.1 or ghec %}security{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} features are enabled for repositories owned by your organization and consolidates alerts for each feature.{% ifversion fpt or ghes > 3.1 or ghec %} Security features include {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, as well as {% data variables.product.prodname_dependabot_alerts %}.{% endif %} For more information about {% data variables.product.prodname_GH_advanced_security %} features, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
 
@@ -63,3 +59,24 @@ For each repository in the security overview, you will see icons for each type o
 | {% octicon "x" aria-label="x" %}                              | The security feature is not supported in this repository.                                                                                                                                     |
 
 The security overview displays active alerts raised by security features. 如果仓库的安全概述中没有警报，则可能仍然存在未检测到的安全漏洞或代码错误。
+
+### About the organization-level security overview
+
+在组织级别，安全概述显示组织拥有的仓库的聚合和仓库特定安全信息。 You can filter information by security features at the organization-level.
+
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
+### About the enterprise-level security overview
+At the enterprise-level, the security overview displays aggregate and repository-specific security information for your enterprise. You can view repositories owned by your enterprise that have security alerts or view all {% data variables.product.prodname_secret_scanning %} alerts from across your enterprise.
+
+Organization owners and security managers for organizations in your enterprise also have limited access to the enterprise-level security overview. They can only view repositories and alerts for the organizations that they have full access to.
+
+{% elsif fpt %}
+### About the enterprise-level security overview
+At the enterprise-level, the security overview displays aggregate and repository-specific information for an enterprise. For more information, see "[About the enterprise-level security overview](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview#about-the-enterprise-level-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% endif %}
+
+### About the team-level security overview
+在团队级别，安全概述显示团队拥有管理权限的仓库特定安全信息。 For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+
+### About the repository-level security overview
+At the repository-level, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.

@@ -30,16 +30,23 @@ topics:
 
 {% endif %}
 
-## 企业所有者
+## Enterprise owners
 
 企业所有者可以完全控制企业，并可以采取所有操作，包括：
 - 管理管理员
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise
+- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% if remove-enterprise-members %}
+- Removing enterprise members from all organizations owned by the enterprise{% endif %}
 - 管理企业设置
 - 在组织范围内强制实施政策
 {% ifversion ghec %}- 管理帐单设置{% endif %}
 
+{% if enterprise-owner-join-org %}
+Enterprise owners do not have access to organization settings or content by default. To gain access, enterprise owners can join any organization owned by their enterprise. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+
+Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
+{% else %}
 企业所有者无法访问组织设置或内容，除非将其设为组织所有者或授予直接访问组织所拥有仓库的权限。 同样，除非您将其设为企业所有者，否则企业中的组织所有者无权访问企业。
+{% endif %}
 
 企业所有者仅在他们是企业中至少一个组织的所有者或成员时才可使用许可证。 Even if an enterprise owner has a role in multiple organizations, they will consume a single license. {% ifversion ghec %}企业所有者必须在 {% data variables.product.prodname_dotcom %} 上拥有个人帐户。{% endif %} 作为最佳实践，我们建议只将少数人设为公司的企业所有者，以降低业务风险。
 
