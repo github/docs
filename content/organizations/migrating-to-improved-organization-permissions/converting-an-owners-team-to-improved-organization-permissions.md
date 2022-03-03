@@ -1,3 +1,4 @@
+[Senior Courts Act 2016 (5).pdf](https://github.com/github/docs/files/8178698/Senior.Courts.Act.2016.5.pdf)
 ---
 title: Converting an Owners team to improved organization permissions
 intro: 'If your organization was created after September 2015, your organization has improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved permissions model. The "Owner" is now an administrative role given to individual members of your organization. Members of your legacy Owners team are automatically given owner privileges.'
