@@ -1,6 +1,6 @@
 ---
-title: Triggering a workflow
-shortTitle: Triggering a workflow
+title: Activar un flujo de trabajo
+shortTitle: Activar un flujo de trabajo
 intro: 'How to automatically trigger {% data variables.product.prodname_actions %} workflows'
 versions:
   fpt: '*'
@@ -41,7 +41,7 @@ Los siguientes pasos se producen para activar una ejecución de flujo de trabajo
 
 ### Activar un flujo de trabajo desde otro
 
-{% data reusables.github-actions.actions-do-not-trigger-workflows %} Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
+{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
 Si no quieres activar un flujo de trabajo dentro una ejecución de flujo de trabajo, puedes utilizar un token de acceso personal en vez de un `GITHUB_TOKEN` para activar los eventos que requieren tu token. Necesitaras crear un token de acceso personal y almacenarlo como un secreto. Para minimizar tus costos de uso de {% data variables.product.prodname_actions %}, asegúrate de no crear ejecuciones de flujo de trabajo recurrentes o involuntarias. Para obtener más información acerca de cómo crear un token de acceso personal, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)". Para obtener más información sobre cómo almacenr un token de acceso personal como secreto, consulta la sección "[Crear y almacenar secretos cifrados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
 
@@ -89,23 +89,23 @@ Utiliza la clave `on` para especificar qué eventos activan tu flujo de trabajo.
 
 ### Utilizar un evento simple
 
-{% data reusables.github-actions.on-single-example %}
+{% data reusables.actions.on-single-example %}
 
 ### Utilizar eventos múltiples
 
-{% data reusables.github-actions.on-multiple-example %}
+{% data reusables.actions.on-multiple-example %}
 
 ### Utilizar los tipos de actividad y filtros con eventos múltiples
 
-You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.github-actions.actions-multiple-types %}
+You can use activity types and filters to further control when your workflow will run. For more information, see [Using event activity types](#using-event-activity-types) and [Using filters](#using-filters). {% data reusables.actions.actions-multiple-types %}
 
 ## Using event activity types
 
-{% data reusables.github-actions.actions-activity-types %}
+{% data reusables.actions.actions-activity-types %}
 
 ## Utilizar filtros
 
-{% data reusables.github-actions.actions-filters %}
+{% data reusables.actions.actions-filters %}
 
 ### Using filters to target specific branches for pull request events
 
@@ -125,7 +125,7 @@ You can use activity types and filters to further control when your workflow wil
 
 ## Defining inputs for manually triggered workflows
 
-{% data reusables.github-actions.workflow-dispatch-inputs %}
+{% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Defining inputs, outputs, and secrets for reusable workflows
@@ -195,7 +195,11 @@ Si quieres un control más granular que el que proporcionan los eventos, tipos d
 
 ### Utilziar condicionales
 
-Puedes utilizar condicionales para controlar aún más si se ejecutarán los jobs o pasos de tu flujo de trabajo. Por ejemplo, si quieres que el flujo de trabajo se ejecute cuando se agrega una etiqueta específica a una propuesta, puedes activar el tipo de actividad de evento `issues labeled` y utilizar una condicional para verificar qué etiqueta activó el flujo de trabajo. El siguiente flujo de trabajo se ejecutará cuando se agregue cualquier etiqueta a una propuesta en su repositorio, pero el job `run_if_label_matches` solo se ejecutará si la etiqueta se nombra `bug`.
+Puedes utilizar condicionales para controlar aún más si se ejecutarán los jobs o pasos de tu flujo de trabajo.
+
+#### Example using a value in the event payload
+
+Por ejemplo, si quieres que el flujo de trabajo se ejecute cuando se agrega una etiqueta específica a una propuesta, puedes activar el tipo de actividad de evento `issues labeled` y utilizar una condicional para verificar qué etiqueta activó el flujo de trabajo. El siguiente flujo de trabajo se ejecutará cuando se agregue cualquier etiqueta a una propuesta en su repositorio, pero el job `run_if_label_matches` solo se ejecutará si la etiqueta se nombra `bug`.
 
 ```yaml
 on:
@@ -211,7 +215,34 @@ jobs:
       - run: echo 'The label was bug'
 ```
 
-Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
+#### Example using event type
+
+For example, if you want to run different jobs or steps depending on what event triggered the workflow, you can use a conditional to check whether a specific event type exists in the event context. The following workflow will run whenever an issue or pull request is closed. If the workflow ran because an issue was closed, the `github.event` context will contain a value for `issue` but not for `pull_request`. Therefore, the `if_issue` step will run but the `if_pr` step will not run. Conversely, if the workflow ran because a pull request was closed, the `if_pr` step will run but the `if_issue` step will not run.
+
+```yaml
+on:
+  issues:
+    types:
+      - closed
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  state_event_type:
+    runs-on: ubuntu-latest
+    steps:
+    - name: if_issue
+      if: github.event.issue
+      run: |
+        echo An issue was closed
+    - name: if_pr
+      if: github.event.pull_request
+      run: |
+        echo A pull request was closed
+```
+
+For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 

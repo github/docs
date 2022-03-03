@@ -25,9 +25,9 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+{% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 #### Example expression in an `if` conditional
 

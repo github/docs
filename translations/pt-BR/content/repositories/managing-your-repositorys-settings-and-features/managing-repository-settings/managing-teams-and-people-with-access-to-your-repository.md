@@ -37,7 +37,7 @@ Para obter mais informações sobre funções do repositório, consulte "[Nívei
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% endif %}
-1. Em "Gerenciar acesso", no campo de busca, comece a digitar o nome da equipe ou pessoa que você gostaria de encontrar. Optionally, use the dropdown menus to filter your search. ![Campo de busca para lista de filtros de equipes ou pessoas com acesso](/assets/images/help/repository/manage-access-filter.png)
+1. Em "Gerenciar acesso", no campo de busca, comece a digitar o nome da equipe ou pessoa que você gostaria de encontrar. Opcionalmente, use os menus suspensos para filtrar sua pesquisa. ![Campo de busca para lista de filtros de equipes ou pessoas com acesso](/assets/images/help/repository/manage-access-filter.png)
 
 ## Alterando as permissões para uma equipe ou pessoa
 

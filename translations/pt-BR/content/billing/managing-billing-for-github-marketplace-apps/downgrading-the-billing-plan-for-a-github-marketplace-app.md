@@ -25,8 +25,8 @@ Quando você faz downgrade de um app, sua assinatura permanece ativa até o fina
 
 ## Fazer downgrade de um app da sua conta pessoal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.marketplace.downgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}

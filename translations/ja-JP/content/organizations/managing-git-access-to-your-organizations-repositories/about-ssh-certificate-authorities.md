@@ -20,7 +20,7 @@ shortTitle: SSH認証局
 
 SSH証明書とは、1つのSSHキーでもうひとつのSSHキーに署名する仕組みです。 SSH認証局 (CA) を利用して、Organizationのメンバーに署名済みのSSH証明書を提供すると、EnterpriseアカウントまたはOrganizationにCAを追加できるため、Organizationのメンバーはそれぞれの証明書を使用してOrganizationのリソースにアクセスできるようになります。
 
-SSH CAをOrganizationまたはEnterpriseアカウントに追加すると、そのCAを利用して、OrganizationメンバーのクライアントSSH証明書に署名できるようになります。 Organizationのメンバーは、署名済みの証明書を使用して、GitでOrganizationのリポジトリにアクセスできます (ただし、自分のOrganizationのリポジトリに限る)。 Optionally, you can require that members use SSH certificates to access organization resources. For more information, see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" and "[Enforcing policies for security settings in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)."
+SSH CAをOrganizationまたはEnterpriseアカウントに追加すると、そのCAを利用して、OrganizationメンバーのクライアントSSH証明書に署名できるようになります。 Organizationのメンバーは、署名済みの証明書を使用して、GitでOrganizationのリポジトリにアクセスできます (ただし、自分のOrganizationのリポジトリに限る)。 あるいは、メンバーに対してOrganizationのリソースにアクセスする際にSSH証明書を使うよう求めることもできます。 詳しい情報については「[OrganizationのSSH認証局の管理](/articles/managing-your-organizations-ssh-certificate-authorities)」及び「[Enterpriseでのセキュリティ設定のポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise)」を参照してください。
 
 たとえば、毎朝新しい証明書を開発者に発行する内部システムなども構築できます。 各開発者は、その日の証明書を使用して、{% data variables.product.product_name %}でOrganizationのリポジトリを扱うことができます。 1日の最後になると証明書は自動的に失効するので、証明書が侵害されることがあっても、リポジトリは保護されます。
 
@@ -28,13 +28,19 @@ SSH CAをOrganizationまたはEnterpriseアカウントに追加すると、そ�
 SAMLシングルサインオンが強制されている場合でも、Organizationのメンバーはそれぞれの署名済み証明書を認証に使用できます。 SSH証明書を必須にしている場合を除き、Organizationのメンバーは他の認証方法、たとえばユーザー名とパスワード、個人アクセストークン、独自のSSHキーなどを使用して、GitのOrganizationリソースにアクセスし続けることができます。
 {% endif %}
 
-Members will not be able to use their certificates to access forks of your repositories that are owned by their user accounts.
+Members will not be able to use their certificates to access forks of your repositories that are owned by their personal accounts.
 
-認証エラーを防ぐために、Organization のメンバーは Organization ID を含む特殊な URL を使用し、署名された証明書を使ってリポジトリを複製する必要があります。 リポジトリに対する読み取りアクセス権限がある人は誰でも、リポジトリページでこの URL を確認できます。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
+## About SSH URLs with SSH certificates
 
-## Issuing certificates
+If your organization requires SSH certificates, to prevent authentication errors, organization members should use a special URL that includes the organization ID when performing Git operations over SSH. This special URL allows the client and server to more easily negotiate which key on the member's computer should be used for authentication. If a member uses the normal URL, which starts with `git@github.com`, the SSH client might offer the wrong key, causing the operation to fail.
 
-各証明書を発行する際には、その証明書がどの{% data variables.product.product_name %}ユーザー用かを示すエクステンションを指定する必要があります。 たとえば、OpenSSH の`ssh-keygen` コマンドを以下のように使用することができます。_KEY-IDENTITY_ は特定のキー IDに、_USERNAME_ は {% data variables.product.product_name %} ユーザ名に置き換えます。 The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
+Anyone with read access to the repository can find this URL by selecting the **Code** dropdown menu on the main page of the repository, then clicking **Use SSH**.
+
+If your organization doesn't require SSH certificates, members can continue to use their own SSH keys, or other means of authentication. In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
+
+## 証明書の発行
+
+各証明書を発行する際には、その証明書がどの{% data variables.product.product_name %}ユーザー用かを示すエクステンションを指定する必要があります。 たとえば、OpenSSH の`ssh-keygen` コマンドを以下のように使用することができます。_KEY-IDENTITY_ は特定のキー IDに、_USERNAME_ は {% data variables.product.product_name %} ユーザ名に置き換えます。 あなたが生成する証明書は、あなたのOrganizationのリソースに対してそのユーザの代わりに振る舞うことを認可されるようになります。 証明書を発行する前に、そのユーザのアイデンティティを必ず検証してください。
 
 ```shell
 $ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@{% data variables.product.product_url %}=<em>USERNAME</em> ./user-key.pub
@@ -42,7 +48,7 @@ $ ssh-keygen -s ./ca-key -V '+1d' -I <em>KEY-IDENTITY</em> -O extension:login@{%
 
 {% warning %}
 
-**Warning**: After a certificate has been signed and issued, the certificate cannot be revoked. Make sure to use the -`V` flag to configure a lifetime for the certificate, or the certificate can be used indefinitely.
+**警告**: 証明書が署名され、発行されると、その証明書を失効させることはできません。 必ず-`V`フラグを使い、証明書の有効期限を設定してください。そうしないと、その証明書は無期限に使用できることになります。
 
 {% endwarning %}
 

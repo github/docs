@@ -177,3 +177,4 @@ Support Bundleには過去2日分のログが含まれますが、_拡張_Suppor
 ## 参考リンク
 
 - "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Generating a Health Check for your enterprise](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

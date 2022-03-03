@@ -2,17 +2,17 @@
 #Feature available only on dotcom
 security_advisories:
   title: '修复并披露安全漏洞'
-  description: '使用安全建议私下修复报告的漏洞并获取 CVE。'
+  description: 'Using repository security advisories to privately fix a reported vulnerability and get a CVE.'
   featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'
   guides:
-    - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
-    - /code-security/security-advisories/creating-a-security-advisory
-    - /code-security/security-advisories/adding-a-collaborator-to-a-security-advisory
-    - /code-security/security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability
-    - /code-security/security-advisories/publishing-a-security-advisory
-    - /code-security/security-advisories/editing-a-security-advisory
-    - /code-security/security-advisories/withdrawing-a-security-advisory
-    - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
+    - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/repository-security-advisories/creating-a-repository-security-advisory
+    - /code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+    - /code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+    - /code-security/repository-security-advisories/publishing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/editing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
 #Feature available on dotcom and GHES
 dependabot_alerts:
   title: '获取漏洞依赖项的通知'

@@ -1,6 +1,6 @@
 ---
 title: Pesquisar informações no GitHub
-intro: 'Learn how to use the search functions available on GitHub to find different types of information, like projects, people, and code.'
+intro: 'Aprenda a usar as funções de pesquisa disponíveis no GitHub para encontrar diferentes tipos de informações, como projetos, pessoas e códigos.'
 introLinks:
   overview: /search-github/getting-started-with-searching-on-github/about-searching-on-github
 featuredLinks:

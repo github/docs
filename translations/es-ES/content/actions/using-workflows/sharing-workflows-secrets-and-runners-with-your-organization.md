@@ -50,11 +50,11 @@ Puedes admnistrar tus secretos centralmente dentro de una organización y hacerl
 
 Cuando creas un secreto en una organización, puedes utilizar una política para limitar el acceso de los repositorios a este. Por ejemplo, puedes otorgar acceso a todos los repositorios, o limitarlo a solo los repositorios privados o a una lista específica de estos.
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. Da clic en **Secreto nuevo**.
 1. Teclea un nombre para tu secreto en el cuadro de entrada **Name**.
 1. Ingresa el **Valor** para tu secreto.

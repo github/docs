@@ -18,18 +18,18 @@ shortTitle: メンバーの復帰
 
 ## メンバーの復帰について
 
-If a user is removed from your organization in one of the following ways, the user's access privileges and settings are saved for three months.
+以下のいずれかの方法でユーザがOrganizationから削除された場合、そのユーザのアクセス権限と設定は3ヶ月間保存されます。
 
-- You manually removed the user from your organization. For more information, see "[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."{% ifversion not ghae %}
-- The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
-- The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[Enforcing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
-- You converted an organization member to an outside collaborator. For more information, see "[Converting an organization member to an outside collaborator](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
+- 手動でユーザをOrganizationから削除した。 詳しい情報については「[Organizationからのメンバーの削除](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)」を参照してください。{% ifversion not ghae %}
+- メンバーと外部のコラボレータに対して2要素認証（2FA）の有効化を必須としたためにユーザが削除された。 詳しい情報については「[Organizationでの2要素認証の必須化](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)」を参照してください。{% endif %}{% ifversion fpt or ghec %}
+- SAMLシングルサインオンを適用したためOrganizationからユーザが削除された。 詳しい情報については{% ifversion fpt %}、{% data variables.product.prodname_ghe_cloud %}ドキュメンテーションの{% else %}、{% endif %}「[OrganizationでのSAMLシングルサインオンの施行](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)を参照してください。{% endif %}
+- Organizationメンバーを外部のコラボレータに変換した。 詳しい情報については「[Organizationメンバーの外部コラボレータへの変換](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)」を参照してください。
 
-You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
+その期間内にユーザを Organization へ再度{% ifversion fpt or ghec %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
 
 {% note %}
 
-**Note:** {% data reusables.saml.removed-users-can-rejoin %} You do not need to invite these users to rejoin. Instead, the user can sign into their personal account, navigate to the organization, and click the banner to authenticate via SAML single sign-on.
+**ノート:**{% data reusables.saml.removed-users-can-rejoin %} これらのユーザに再度参加するよう招待する必要はありません。 その代わりに、ユーザは自分の個人アカウントにサインインし、Organizationにアクセスし、バナーをクリックしてSAMLシングルサインオン経由で認証してもらうことができます。
 
 {% endnote %}
 
@@ -55,7 +55,7 @@ Organization にユーザ単位の有料プランがある場合、Organization 
 ## Oraganization の以前のメンバーを復帰させる
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}

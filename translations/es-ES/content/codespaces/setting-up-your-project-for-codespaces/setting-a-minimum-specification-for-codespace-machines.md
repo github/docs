@@ -1,6 +1,6 @@
 ---
 title: Setting a minimum specification for codespace machines
-shortTitle: Setting a minimum machine spec
+shortTitle: Set a minimum machine spec
 intro: 'You can avoid under-resourced machine types being used for {% data variables.product.prodname_codespaces %} for your repository.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:
@@ -15,7 +15,7 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 ## Resumen
 
-When you create a codespace for a repository you are typically offered a choice of available machine types. Each machine type has a different level of resources. For more information, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+When you create a codespace for a repository you are typically offered a choice of available machine types. Each machine type has a different level of resources. Para obtener más información, consulta la sección "[Cambiar el tipo de máquina de tu codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)".
 
 If your project needs a certain level of compute power, you can configure {% data variables.product.prodname_github_codespaces %} so that only machine types that meet these requirements are available for people to select. You configure this in the `devcontainer.json` file.
 

@@ -21,7 +21,7 @@ shortTitle: Cobrança do fluxo de trabalho & limites
 {% data reusables.repositories.about-github-actions %} Para obter mais informações, consulte "[Entendendo {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" e "[Sobre {% data variables.product.prodname_actions %} para empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
 
 {% ifversion fpt or ghec %}
-{% data reusables.github-actions.actions-billing %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
+{% data reusables.actions.actions-billing %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 {% else %}
 O uso do GitHub Actions é grátis para instâncias de {% data variables.product.prodname_ghe_server %} que usam executores auto-hospedados. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
@@ -47,8 +47,8 @@ Existem alguns limites sobre o uso de {% data variables.product.prodname_actions
 {% endnote %}
 
 - **Tempo de execução de tarefas ** - Cada trabalho em um fluxo de trabalho pode ser executado por até 6 horas de tempo de execução. Se um trabalho atingir esse limite, o trabalho será terminado e não será completado.
-{% data reusables.github-actions.usage-workflow-run-time %}
-{% data reusables.github-actions.usage-api-requests %}
+{% data reusables.actions.usage-workflow-run-time %}
+{% data reusables.actions.usage-api-requests %}
 - **Tarefas correntes** - O número de trabalhos simultâneos que você pode executar em sua conta depende do seu plano GitHub, conforme indicado na tabela a seguir. Se excedido, quaisquer tarefas adicionais serão colocadas na fila.
 
   | Plano GitHub | Total de tarefas simultâneas | Máximo de tarefas macOS simultâneas |
@@ -57,8 +57,8 @@ Existem alguns limites sobre o uso de {% data variables.product.prodname_actions
   | Pro          | 40                           | 5                                   |
   | Equipe       | 60                           | 5                                   |
   | Enterprise   | 180                          | 50                                  |
-- **Matriz de vagas** - {% data reusables.github-actions.usage-matrix-limits %}
-{% data reusables.github-actions.usage-workflow-queue-limits %}
+- **Matriz de vagas** - {% data reusables.actions.usage-matrix-limits %}
+{% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
 Os limites de uso aplicam-se a executores auto-hospedados. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
@@ -75,14 +75,14 @@ Além dos limites de uso, você deve garantir que você usa {% data variables.pr
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
+Se você reutilizar um fluxo de trabalho, a cobrança será sempre associada ao fluxo de trabalho de chamadas. A atribuição de executores hospedados em {% data variables.product.prodname_dotcom %} é sempre avaliada usando apenas o contexto do invocador. O invocador não pode usar os executores hospedados em {% data variables.product.prodname_dotcom %} do repositório chamado.
 
 Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
 
 ## Artefato e política de retenção de registro
 
-You can configure the artifact and log retention period for your repository, organization, or enterprise account.
+É possível configurar o artefato e o período de retenção de registro para o seu repositório, organização ou conta corporativa.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
@@ -94,7 +94,7 @@ Para obter mais informações, consulte:
 
 ## Desativar ou limitar {% data variables.product.prodname_actions %} para o seu repositório ou organização
 
-{% data reusables.github-actions.disabling-github-actions %}
+{% data reusables.actions.disabling-github-actions %}
 
 Para obter mais informações, consulte:
 - "[Gerenciar configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
@@ -103,7 +103,7 @@ Para obter mais informações, consulte:
 
 ## Desabilitar e habilitar fluxos de trabalho
 
-You can enable and disable individual workflows in your repository on {% data variables.product.prodname_dotcom %}.
+Você pode habilitar e desabilitar os fluxos de trabalho individuais no seu repositório em {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 

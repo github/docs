@@ -15,7 +15,7 @@ topics:
   - Enterprise
   - GitHub Connect
   - Licensing
-shortTitle: Automatic user license sync
+shortTitle: Sincronización automática de licencias de usuario
 ---
 
 ## Acerca de la sincronización de licencias

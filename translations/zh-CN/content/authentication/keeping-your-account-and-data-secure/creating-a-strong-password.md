@@ -31,7 +31,7 @@ You must choose or generate a password for your account on {% ifversion ghae %}{
 
 您只能使用密码通过浏览器登录 {% data variables.product.product_name %}。 使用其他方式（例如命令行或 API）向 {% data variables.product.product_name %} 验证时，应使用其他凭据。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 向验证身份](/github/authenticating-to-github/about-authentication-to-github)”。
 
-{% ifversion fpt or ghec %}{% data reusables.user_settings.password-authentication-deprecation %}{% endif %}
+{% ifversion fpt or ghec %}{% data reusables.user-settings.password-authentication-deprecation %}{% endif %}
 
 ## 延伸阅读
 

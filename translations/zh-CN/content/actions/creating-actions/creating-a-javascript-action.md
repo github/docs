@@ -29,9 +29,9 @@ shortTitle: JavaScript 操作
 
 完成此项目后，您应了解如何构建自己的 JavaScript 操作和在工作流程测试该操作。
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## 基本要求
 

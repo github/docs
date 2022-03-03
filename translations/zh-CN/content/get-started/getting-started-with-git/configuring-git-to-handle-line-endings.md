@@ -17,7 +17,7 @@ versions:
 shortTitle: 处理行结束
 ---
 
-## About line endings
+## 关于行结尾
 每次按键盘上的 <kbd>return</kbd> 时，会插入一个称为行结束符的不可见字符。 不同的操作系统处理行结束符的方式不同。
 
 在使用 Git 和 {% data variables.product.product_name %} 协作处理项目时，Git 可能产生意外结果，例如，您在 Windows 计算机上操作，而您的协作者是在 macOS 中做的更改。

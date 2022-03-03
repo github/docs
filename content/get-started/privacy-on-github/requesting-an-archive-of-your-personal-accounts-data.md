@@ -4,7 +4,7 @@ redirect_from:
   - /articles/requesting-an-archive-of-your-personal-account-s-data
   - /articles/requesting-an-archive-of-your-personal-accounts-data
   - /github/understanding-how-github-uses-and-protects-your-data/requesting-an-archive-of-your-personal-accounts-data
-intro: '{% data reusables.user_settings.export-data %}'
+intro: '{% data reusables.user-settings.export-data %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -28,8 +28,8 @@ The generated `tar.gz` file reflects the data stored at the time you started the
 
 ## Downloading an archive of your personal account's data
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. Under "Export account data", click **Start export** or **New export**.
 ![Start personal data export button highlighted](/assets/images/help/repository/export-personal-data.png)
 ![New personal data export button highlighted](/assets/images/help/repository/new-export.png)
@@ -39,7 +39,7 @@ The generated `tar.gz` file reflects the data stored at the time you started the
 
 ## Deleting access to an archive of your personal account's data
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. To disable the download link sent to your email before it expires, under "Export account data", find the data export download you want to disable and click **Delete**.
 ![Delete personal data export package button highlighted](/assets/images/help/repository/delete-export-personal-account-data.png)

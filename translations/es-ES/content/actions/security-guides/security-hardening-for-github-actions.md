@@ -141,6 +141,16 @@ En este ejemplo, el script que se intenta inyectar no tuvo éxito:
 
 Con este enfoque, el valor de la expresón {% raw %}`${{ github.event.issue.title }}`{% endraw %} se almacena en la memoria y se utiliza como una variable y no interactúa con el proceso de generación del script. Adicionalmente, considera utilizar variables de cita doble del shell para evitar la [separación de palabras](https://github.com/koalaman/shellcheck/wiki/SC2086), pero esta es solo [una de muchas](https://mywiki.wooledge.org/BashPitfalls) recomendaciones generales para escribir scripts del shell y no es específica de {% data variables.product.prodname_actions %}.
 
+{% ifversion fpt or ghec %}
+### Utilizar flujos de trabajo inicial para el escaneo de código
+
+{% data reusables.advanced-security.starter-workflows-beta %}
+El {% data variables.product.prodname_code_scanning_capc %} te permite encontrar vulnerabilidades de seguridad antes de que lleguen a producción. {% data variables.product.product_name %} proporciona flujos de trabajo iniciales para el {% data variables.product.prodname_code_scanning %}. Puedes utilizar estos flujos de trabajo sugeridos para construir tus flujos de trabajo del {% data variables.product.prodname_code_scanning %} en vez de comenzar desde cero. El flujo de trabajo de {% data variables.product.company_short%}, el {% data variables.product.prodname_codeql_workflow %}, funciona con {% data variables.product.prodname_codeql %}. También existen flujos de trabajo iniciales de terceros disponibles.
+
+Para obtener más información, consulta las secciones "[Acerca del {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" y "[Configurar el {% data variables.product.prodname_code_scanning %} utilizando flujos de trabajo iniciales](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)".
+
+{% endif %}
+
 ### Restringir los permisos para los tokens
 
 Para ayudarte a mitigar el resigo de un token expuesto, considera restringir los permisos asignados. Para obtener màs informaciòn, consulta la secciòn "[Modificar los permisos para el GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)".
@@ -193,9 +203,9 @@ El mismo principio que se describió anteriormente para utilizar acciones de ter
 {% data reusables.actions.outside-collaborators-internal-actions %} Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".
 {% endif %}
 
-## Using OpenSSF Scorecards to secure workflows
+## Utilizar las tarjetas de puntuación para asegurar los flujos de trabajo
 
-[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
+[Las tarjetas de puntuación](https://github.com/ossf/scorecard) son una herramienta de seguridad automatizada que resalta las prácticas riesgosas en la cadena de suministro. Puedes utilizar la [Acción de tarjetas de puntuación](https://github.com/marketplace/actions/ossf-scorecard-action) y el [flujo de trabajo inicial](https://github.com/actions/starter-workflows) para seguir las mejores prácticas de seguridad. Una vez que se configure, la acción de tarjetas de puntuación se ejecutará automáticamente en los cambios de repositorio y alertará a los desarrolladores sobre las prácticas riesgosas en la cadena de suministro utilizando la experiencia de escaneo en el código integrado. El proyecto de tarjetas de puntuación ejecuta varias verificaciones, incluyendo las de ataques de inyección de scripts, permisos de tokens y acciones fijadas.
 
 ## Impacto potencial de un ejecutor puesto en riesgo
 
@@ -255,13 +265,13 @@ Esta lista describe los acercamientos recomendatos para acceder alos datos de un
 
 ## Fortalecimiento para los ejecutores auto-hospedados
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Los ejecutores **hospedados en {% data variables.product.prodname_dotcom %}** ejecutan código dentro de máquinas virtuales aisladas, limpias y efímeras, lo cual significa que no hay forma de poner este ambiente en riesgo de forma persistente, o de obtener acceso de otra forma a más información de la que se colocó en este ambiente durante el proceso de arranque.
 {% endif %}
 
-{% ifversion fpt %}Los ejecutores **auto-hospedados**{% elsif ghes or ghae %}Los ejecutores auto-hospedados{% endif %} para {% data variables.product.product_name %} no tienen las garantías de ejecutarse en máquinas virtuales limpias y efímeras y pueden estar en riesgo constante si hay código no confiable en un flujo de trabajo.
+{% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-{% ifversion fpt %}omo resultado, los ejecutores auto-hospedados no deberán [utilizarse casi nunca para repositorios públicos](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) en {% data variables.product.product_name %}, ya que cualquier usuario puede abrir solicitudes de extracción contra este repositorio y poner en riesgo el ambiente. De forma similar, ten {% elsif ghes or ghae %}Ten{% endif %} cuidado al utilizar ejecutores auto-hospedados en repositorios privados o internos, ya que cualquiera que pueda bifurcar el repositorio y abrir una solicitud de cambios (que son generalmente aquellos con acceso de lectura al repositorio) podrán poner en riesgo el ambiente del ejecutor auto-hospedado, incluyendo el obtener acceso a los secretos y al `GITHUB_TOKEN` que{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, dependiendo de su configuración, podría otorgar{% else %} otorga{% endif %}permisos de acceso de escritura en el repositorio. Aunque los flujos de trabajo pueden controlar el acceso a los secretos de ambiente utilizando ambientes y revisiones requeridas, estos flujos de trabajo no se encuentran en un ambiente aislado y aún son susceptibles a los mismos riesgos cuando se ejecutan en un ejecutor auto-hospedado.
+{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. De forma similar, ten {% elsif ghes or ghae %}Ten{% endif %} cuidado al utilizar ejecutores auto-hospedados en repositorios privados o internos, ya que cualquiera que pueda bifurcar el repositorio y abrir una solicitud de cambios (que son generalmente aquellos con acceso de lectura al repositorio) podrán poner en riesgo el ambiente del ejecutor auto-hospedado, incluyendo el obtener acceso a los secretos y al `GITHUB_TOKEN` que{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, dependiendo de su configuración, podría otorgar{% else %} otorga{% endif %}permisos de acceso de escritura en el repositorio. Aunque los flujos de trabajo pueden controlar el acceso a los secretos de ambiente utilizando ambientes y revisiones requeridas, estos flujos de trabajo no se encuentran en un ambiente aislado y aún son susceptibles a los mismos riesgos cuando se ejecutan en un ejecutor auto-hospedado.
 
 Cuando se define un ejecutor auto-hospedado a nivel de organización o de empresa, {% data variables.product.product_name %} puede programar flujos de trabajo de repositorios múltiples en el mismo ejecutor. Como consecuencia, si se pone en riesgo la seguridad de estos ambientes, se puede ocasionar un impacto amplio. Para ayudar a reducir el alcance de esta vulneración, puedes crear límites si organizas tus ejecutores auto-hospedados en grupos separados. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 

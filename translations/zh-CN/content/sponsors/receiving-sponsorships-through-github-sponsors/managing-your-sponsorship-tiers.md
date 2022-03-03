@@ -71,18 +71,18 @@ shortTitle: 管理付款等级
 - 如果赞助的个人资料用于个人帐户，仓库转移到组织，并且个人帐户具有对新仓库的管理员访问权限，则将转移现有赞助商，并且将继续将新赞助商添加到仓库。
 - 如果仓库转移到个人帐户，则所有赞助商都将被删除，并且不会将新的赞助商添加到仓库中。
 
-### Adding a repository a sponsorship tier
+### 将仓库添加到赞助等级
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.edit-tier %}
-1. Select **Grant sponsors access to a private repository**.
+1. 选择 **Grant sponsors access to a private repository（授权赞助者访问私有仓库）**。
 
-   ![Screenshot of checkbox to grant sponsors access to a private repository](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)
+   ![用于授予发起人访问私有仓库的复选框的屏幕截图](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)
 
-1. Select the dropdown menu and click the repository you want to add.
+1. 选择下拉菜单并单击您想要添加的仓库。
 
-   ![Screenshot of dropdown menu to choose the repository to grant sponsors access to](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
+   ![下拉菜单的屏幕截图，用于选择要授予赞助商访问权限的存储库](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
 
 {% data reusables.sponsors.tier-update %}
 

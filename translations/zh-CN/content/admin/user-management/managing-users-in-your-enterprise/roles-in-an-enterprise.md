@@ -22,7 +22,7 @@ topics:
 {% data reusables.enterprise-accounts.enterprise-administrators %}
 
 {% ifversion ghec %}
-如果您的企业没有使用 {% data variables.product.prodname_emus %}，您可以邀请他人使用他们控制的 {% data variables.product.product_name %} 用户帐户来管理角色。 更多信息请参阅“[邀请人们管理您的企业](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)”。
+如果您的企业没有使用 {% data variables.product.prodname_emus %}，您可以邀请他人使用他们控制的 {% data variables.product.product_name %} 用户帐户来管理角色。 For more information, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
 在使用 {% data variables.product.prodname_emus %} 的企业中，必须通过身份提供商预配新所有者和成员。 企业所有者和组织所有者不能使用 {% data variables.product.prodname_dotcom %} 向企业添加新成员或所有者。 您可以使用 IdP 选择成员的企业角色，它不能在 {% data variables.product.prodname_dotcom %} 上更改。 您可以在 {% data variables.product.prodname_dotcom %} 上选择成员在组织中的角色。 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 {% else %}
