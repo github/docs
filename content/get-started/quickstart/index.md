@@ -26,4 +26,5 @@ children:
 redirect_from:
   - /github/getting-started-with-github/quickstart
 ---
+changed
 
