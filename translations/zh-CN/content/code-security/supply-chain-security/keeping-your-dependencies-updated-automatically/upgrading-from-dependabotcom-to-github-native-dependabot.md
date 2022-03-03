@@ -52,4 +52,4 @@ Dependabot Preview 已直接植入 {% data variables.product.prodname_dotcom %}�
 
 如果使用私人注册表，则必须将现有的 Dependabot Preview 密钥添加到仓库或组织的“ Dependabot 密钥”中。 更多信息请参阅“[管理 Dependabot 的加密密码](/code-security/supply-chain-security/managing-encrypted-secrets-for-dependabot)”。
 
-If you have any questions or need help migrating, you can view or open issues in the [`dependabot/dependabot-core`](https://github.com/dependabot/dependabot-core/issues/new?assignees=%40dependabot%2Fpreview-migration-reviewers&labels=E%3A+preview-migration&template=migration-issue.md&title=) repository.
+如果您在迁移方面有任何问题或需要帮助，您可以在 [`dependabot/dependabot-core`](https://github.com/dependabot/dependabot-core/issues/new?assignees=%40dependabot%2Fpreview-migration-reviewers&labels=E%3A+preview-migration&template=migration-issue.md&title=) 仓库中查看或打开议题。

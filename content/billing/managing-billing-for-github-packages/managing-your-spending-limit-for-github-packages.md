@@ -37,8 +37,8 @@ Because you have not enabled overages, your next attempt to publish a version of
 
 Anyone can manage the spending limit for {% data variables.product.prodname_registry %} for their own user account.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

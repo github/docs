@@ -26,8 +26,8 @@ Before adding a new GPG key to your account on {% ifversion ghae %}{% data varia
 
 ## GPG キーの追加
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. [**New GPG key**] をクリックします。 ![GPG キーボタン](/assets/images/help/settings/gpg-add-gpg-key.png)
 4. [Key] フィールドに、[GPG キーを生成](/articles/generating-a-new-gpg-key)したときにコピーした GPG キーを貼り付けます。 ![キーフィールド](/assets/images/help/settings/gpg-key-paste.png)
 5. [**Add GPG key**] をクリックします。 ![キーの追加ボタン](/assets/images/help/settings/gpg-add-key.png)

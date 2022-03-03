@@ -28,6 +28,8 @@ topics:
 
 <!--UI-LINK: When GitHub Enterprise Server <=3.0 doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
 
+{% if codeql-runner-supported %}
+
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -181,3 +183,17 @@ Este exemplo é semelhante ao exemplo anterior. No entanto, desta vez, o reposit
 
 - "[Configurar {% data variables.product.prodname_codeql_runner %} no seu sistema de CI](/code-security/secure-coding/configuring-codeql-runner-in-your-ci-system)"
 - "[Solução de problemas de {% data variables.product.prodname_codeql_runner %} no seu sistema de CI](/code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system)"
+
+{% else %}
+
+## Sobre o {% data variables.product.prodname_codeql_runner %}
+
+O {% data variables.product.prodname_codeql_runner %} foi descontinuado. [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-cli-binaries/releases) a versão 2.7.6 tem a paridade de recursos completa.
+
+Para obter informações sobre a migração para {% data variables.product.prodname_codeql_cli %}, consulte "[Migrando do executador do CodeQL para a CLI do CodeQL](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)".
+
+## Leia mais
+
+- [Descontinuação do executor do CodeQL](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/) no blogue do GitHub
+
+{% endif %}

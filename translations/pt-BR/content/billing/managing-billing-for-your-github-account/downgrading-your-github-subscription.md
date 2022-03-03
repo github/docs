@@ -37,8 +37,8 @@ Quando você faz o downgrade (rebaixa) a assinatura da sua conta de usuário ou 
 
 Se você fizer o downgrade da sua conta de usuário de {% data variables.product.prodname_pro %} para {% data variables.product.prodname_free_user %}, a conta perderá o acesso a ferramentas avançadas de revisão de código em repositórios privados. {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. Em "Plano atual", use o menu suspenso **Editar** e clique em **Fazer downgrade para grátis**. ![Botão Downgrade to free (Fazer downgrade para o Free)](/assets/images/help/billing/downgrade-to-free.png)
 5. Leia as informações sobre os recursos aos quais sua organização deixará de ter acesso na próxima data de sua cobrança e clique em **Eu compreendi. Continue com o downgrade**. ![Continuar com o botão de downgrade](/assets/images/help/billing/continue-with-downgrade.png)
 

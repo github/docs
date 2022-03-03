@@ -28,6 +28,8 @@ topics:
 
 {% data variables.product.product_name %} oferece fluxos de trabalho iniciantes para uma série de linguagens e ferramentas. Ao configurar os fluxos de trabalho no repositório, {% data variables.product.product_name %} analisa o código no seu repositório e recomenda fluxos de trabalho baseados na linguagem e na estrutura do seu repositório. Por exemplo, se você usar [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} irá sugerir um arquivo de fluxo de trabalho inicial que instala pacotes do seu Node.js e executa os seus testes.{% if actions-starter-template-ui %} Você pode pesquisar e filtrar para encontrar fluxos de trabalho iniciantes relevantes.{% endif %}
 
+{% data reusables.actions.starter-workflow-categories %}
+
 Você também pode criar seu próprio fluxo de trabalho inicial para compartilhar com sua organização. Estes fluxos de trabalho iniciais aparecerão junto com os fluxos de trabalho iniciais fornecidos por {% data variables.product.product_name %}. Para obter mais informações, consulte "[Criando fluxos de trabalho iniciais para a sua organização](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)".
 
 ## Usando fluxos de trabalho iniciais

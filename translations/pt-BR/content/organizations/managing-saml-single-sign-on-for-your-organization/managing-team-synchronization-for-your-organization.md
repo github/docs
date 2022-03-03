@@ -70,7 +70,7 @@ A sincronização da equipe do Okta exige que o SAML e o SCIM com Okta já tenha
 
 Para evitar possíveis erros de sincronização de equipes com o Okta, recomendamos que você confirme se as identidades vinculadas ao SCIM estão configuradas corretamente para todos os integrantes da organização que forem integrantes dos seus grupos escolhidos do Okta antes de habilitar a sincronização de equipes em {% data variables.product.prodname_dotcom %}.
 
-Se um integrante da organização não tiver uma identidade SCIM vinculada, a sincronização de equipes não funcionará conforme esperado e o usuário não poderá ser adicionado ou removido das equipes como esperado. If any of these users are missing a SCIM linked identity, you will need to re-provision them.
+Se um integrante da organização não tiver uma identidade SCIM vinculada, a sincronização de equipes não funcionará conforme esperado e o usuário não poderá ser adicionado ou removido das equipes como esperado. Se algum desses usuários não tiver uma identidade associada ao SCIM, você deverá provisioná-la novamente.
 
 Para obter ajuda sobre o provisionamento de usuários que não tenham uma identidade vinculada ao SCIM, consulte "[Resolvendo problemas de identidade e gerenciamento de acessos](/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management)".
 

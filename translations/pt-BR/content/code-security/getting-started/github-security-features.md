@@ -63,6 +63,9 @@ O gráfico de dependências permite explorar os ecossistemas e pacotes dos quais
 Você pode encontrar o gráfico de dependências na aba **Ideias** para o seu repositório. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 {% endif %}
 
+### Security overview for repositories
+For all public repositories, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.
+
 ## Disponível com {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-availability %}
@@ -73,9 +76,9 @@ Detectar automaticamente vulnerabilidades de segurança e erros de codificação
 
 ### {% data variables.product.prodname_secret_scanning_caps %}
 
-Detectar automaticamente tokens ou credenciais que foram verificados em um repositório. {% ifversion fpt or ghec %}Para segredos identificados em repositórios públicos, informa-se ao serviço que o segredo pode ser comprometido.{% endif %}
+Detectar automaticamente tokens ou credenciais que foram verificados em um repositório. {% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} encontra segredos vazados em todos os repositórios públicos e informa o provedor de serviço relevante de que o segredo pode ser comprometido. Para obter detalhes dos segredos e provedores de serviços compatíveis, consulte "[Parceiros de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-partners)".{% endif %}
 {%- ifversion ghec or ghes or ghae %}
-{% ifversion ghec %}Para repositórios privados, você pode ver{% elsif ghes or ghae %}Visualizar {% endif %}qualquer segredo que {% data variables.product.company_short %} encontrou no seu código. Você deve tratar os tokens ou credenciais que foram verificados no repositório como comprometidos.{% endif %} Para obter mais informações, consulte "[Sobre a digitalização de segredo](/github/administering-a-repository/about-secret-scanning)".
+{% ifversion ghec %}Em repositórios privados, você pode ver {% elsif ghes or ghae %}Você pode ver {% endif %}qualquer segredo que {% data variables.product.company_short %} encontrou no seu código. Você deve tratar os tokens ou credenciais que foram verificados no repositório como comprometidos.{% endif %} Para obter mais informações, consulte "[Sobre a digitalização de segredo](/github/administering-a-repository/about-secret-scanning)".
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### Revisão de dependência
@@ -83,8 +86,8 @@ Detectar automaticamente tokens ou credenciais que foram verificados em um repos
 Mostre o impacto completo das alterações nas dependências e veja detalhes de qualquer versão vulnerável antes de fazer merge de um pull request. Para obter mais informações, consulte "[Sobre a revisão de dependências](/code-security/supply-chain-security/about-dependency-review)".
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 %}
-### Visão geral da segurança
+{% ifversion ghec or ghes > 3.1 or ghae-issue-4554 %}
+### Security overview for organizations{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, enterprises,{% endif %} and teams
 
 Revise a configuração de segurança e os alertas para sua organização e identifique os repositórios com maior risco. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".
 {% endif %}

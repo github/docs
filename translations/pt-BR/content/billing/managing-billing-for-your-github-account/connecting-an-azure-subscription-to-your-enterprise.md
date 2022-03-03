@@ -28,6 +28,12 @@ Para conectar sua assinatura do Azure, você deve ter permissões de proprietár
 1. Para entrar na sua conta da Microsoft, siga as instruções.
 1. Revise a instrução de "Permissões solicitadas". Se você concordar com os termos, clique em **Aceitar**.
 1. Em "Selecione uma assinatura", selecione o ID de Assinatura do Azure que você deseja conectar à sua empresa.
+
+   {% note %}
+
+   **Observação:** A validação de permissão da assinatura de {% data variables.product.company_short %} solicita acesso somente leitura para exibir a lista de assinaturas disponíveis. Para selecionar uma assinatura do Azure, você deve ter permissões de proprietário na assinatura. Se o inquilino padrão não tiver as permissões corretas, você deverá especificar o ID de um inquilino diferente. Para obter mais informações, consulte [Plataforma de identidade da Microsoft e o fluxo do código de autorização do OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) na documentação da Microsoft.
+
+   {% endnote %}
 1. Clique em **Conectar**.
 
 ## Desconectar a sua assinatura do Azure da sua conta corporativa

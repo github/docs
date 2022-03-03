@@ -43,6 +43,9 @@ export default class Operation {
       : this['x-github'].category
     this.categoryLabel = categoryTitles[this.category] || sentenceCase(this.category)
 
+    // Removing since we don't need this in the decorated files
+    delete this['x-github'].githubCloudOnly
+
     // Add subcategory
 
     // A temporary override file allows us to override the subcategory
@@ -101,7 +104,10 @@ export default class Operation {
     return Promise.all(
       this['x-codeSamples'].map(async (sample) => {
         const markdown = createCodeBlock(sample.source, sample.lang.toLowerCase())
-        sample.html = await renderContent(markdown)
+        sample.sourceHTML = await renderContent(markdown)
+
+        // Removing since we don't need this in the decorated files
+        delete sample.source
         return sample
       })
     )
@@ -264,6 +270,7 @@ export default class Operation {
           .replace(/\n`application/, '\n```\napplication')
           .replace(/json`$/, 'json\n```')
         preview.html = await renderContent(note)
+        delete preview.note
       })
     )
   }

@@ -19,9 +19,9 @@ shortTitle: Limites de gastos para ações
 
 ## Sobre sintaxe limites de gastos para o {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %}
+{% data reusables.actions.actions-spending-limit-brief %}
 
 {% data reusables.actions.actions-packages-set-spending-limit %} Para obter mais informações sobre os preços para uso de {% data variables.product.prodname_actions %}, consulte "[Sobre cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 
@@ -37,8 +37,8 @@ Como você não habilitou os excedentes, a sua próxima tentativa de criar um ar
 
 Qualquer pessoa pode gerenciar o limite de gastos do {% data variables.product.prodname_actions %} para sua própria conta de usuário.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

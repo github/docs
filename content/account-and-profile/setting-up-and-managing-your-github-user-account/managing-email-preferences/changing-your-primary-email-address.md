@@ -20,8 +20,8 @@ shortTitle: Primary email address
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 3. If you'd like to add a new email address to set as your primary email address, under "Add email address", type a new email address and click **Add**.
    ![Add another email address button](/assets/images/help/settings/add_another_email_address.png)
 4. Under "Primary email address", use the drop-down menu to click the email address you'd like to set as your primary email address, and click **Save**.

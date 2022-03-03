@@ -30,6 +30,10 @@ As funções no nível de organização são conjuntos de permissões que podem 
 
 Você pode atribuir indivíduos ou equipes a diversos cargos na organização para controlar o acesso dos seus integrantes à sua organização e seus recursos. Para mais detalhes sobre as permissões individuais incluídas em cada função, consulte "[Permissões para as funções da organização](#permissions-for-organization-roles)".
 
+{% if enterprise-owner-join-org %}
+If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+{% endif %}
+
 ### Proprietários da organização
 Os proprietários da organização têm acesso administrativo completo à sua organização. Essa função deve ser limitada a não menos que duas pessoas na sua organização. Para obter mais informações, consulte "[Manter a continuidade da propriedade para a sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)".
 
@@ -130,6 +134,7 @@ Algumas das funcionalidades listadas abaixo estão limitadas a organizações qu
 | Gerenciar etiquetas padrão (consulte "[Gerenciar etiquetas padrão nos repositórios da organização](/articles/managing-default-labels-for-repositories-in-your-organization)")                                                                                                                                                                                                              |     **X**     |             |                      |    |{% ifversion ghec %}
 | Habilitar sincronização de equipes (consulte "[Gerenciar sincronização de equipe para a sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" para obter informações)                                                                                                                                   |     **X**     |             |                      |        
 {% endif %}
+| Gerenciar revisões de pull request na organização (consulte "[Gerenciando revisões de pull request na sua organização](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)")                                                                                                                                                                 |     **X**     |             |                      |                             |
 
 {% elsif ghes > 3.2 or ghae-issue-4999 %}
 <!--GHES 3.3+ and eventual GHAE release don't have the extra column for Billing managers, but have security managers-->
@@ -176,7 +181,9 @@ Algumas das funcionalidades listadas abaixo estão limitadas a organizações qu
 | Converter integrantes da organização em [colaboradores externos](#outside-collaborators)                                                                                                                                                                                                                                                                                                   |     **X**     |             |                                              |
 | [Exibir as pessoas com acesso a um repositório da organização](/articles/viewing-people-with-access-to-your-repository)                                                                                                                                                                                                                                                                    |     **X**     |             |                                              |
 | [Exportar uma lista das pessoas com acesso a um repositório da organização](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                                                                                                            |     **X**     |             |                                              |
-| Gerenciar etiquetas padrão (consulte "[Gerenciar etiquetas padrão nos repositórios da organização](/articles/managing-default-labels-for-repositories-in-your-organization)")                                                                                                                                                                                                              |     **X**     |             |                                              |
+| Gerenciar etiquetas padrão (consulte "[Gerenciar etiquetas padrão nos repositórios da organização](/articles/managing-default-labels-for-repositories-in-your-organization)")                                                                                                                                                                                                              |     **X**     |             |    |{% if pull-request-approval-limit %}
+| Gerenciar revisões de pull request na organização (consulte "[Gerenciando revisões de pull request na sua organização](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)")                                                                                                                                                                 |     **X**     |             |               |  
+{% endif %}
 {% ifversion ghae %}| Gerenciar listas de permissão de IP (consulte "[Restringir tráfego de rede para a sua empresa](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
 
 

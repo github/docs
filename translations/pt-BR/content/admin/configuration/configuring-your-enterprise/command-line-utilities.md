@@ -115,7 +115,7 @@ Permite encontrar o identificador universalmente exclusivo (UUID) do seu nó em 
 ```
 
 {% ifversion ghes %}
-Permite isentar uma lista de usuários do limite de taxa de da API. Para obter mais informações, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".
+Permite isentar uma lista de usuários do limite de taxa de da API. A hard limit of 120,000 requests will still apply to these users. Para obter mais informações, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
@@ -459,6 +459,16 @@ SSL-Session:
 ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
 ```
 
+### ghe-ssl-certificate-setup
+
+Este utilitário permite atualizar um certificado SSL para {% data variables.product.product_location %}.
+
+Para saber mais sobre este comando ou consultar opções adicionais, use o sinalizador `-h`.
+
+```shell
+ghe-ssl-certificate-setup
+```
+
 ### ghe-ssl-generate-csr
 
 Com este utilitário, você pode gerar uma chave privada e uma solicitação de assinatura de certificado (CSR, Certificate Signing Request) a ser compartilhada com uma autoridade certificada comercial ou privada para obter um certificado válido na sua instância. Para obter mais informações, consulte "[Configurar o TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)".
@@ -479,7 +489,7 @@ $ ghe-storage-extend
 
 ### ghe-version
 
-Este utilitário imprime a versão, a plataforma e a compilação da {% data variables.product.product_location %}.
+Este utilitário imprime a versão, a plataforma e a compilação de {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-version
@@ -660,7 +670,7 @@ ghe-repo <em>username</em>/<em>reponame</em>
 
 ### ghe-repo-gc
 
-Este utilitário empacota manualmente uma rede de repositórios para otimizar o armazenamento do pacote. Se você tem um repositório muito grande, esse comando pode ajudar a reduzir o tamanho. O {% data variables.product.prodname_enterprise %} executa automaticamente este comando durante toda a sua interação com uma rede de repositórios.
+Este utilitário reempacota manualmente uma rede de repositórios para otimizar o armazenamento do pacote. Se você tem um repositório muito grande, esse comando pode ajudar a reduzir o tamanho. O {% data variables.product.prodname_enterprise %} executa automaticamente este comando durante toda a sua interação com uma rede de repositórios.
 
 Você pode adicionar o argumento opcional `--prune` para remover objetos inacessíveis do Git que não são referenciados em um branch, tag ou qualquer outra referência. Fazer isso é útil principalmente para remover de imediato [informações confidenciais já eliminadas](/enterprise/user/articles/remove-sensitive-data/).
 

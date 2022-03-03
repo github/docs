@@ -30,11 +30,11 @@ shortTitle: Restore deleted repository
 
 ## ユーザアカウントが所有していて削除したリポジトリを復元する
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.repo-tab %}
-{% data reusables.user_settings.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.repo-tab %}
+{% data reusables.user-settings.deleted-repos %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## Organizationが所有していて削除したリポジトリを復元する
 
@@ -42,8 +42,8 @@ shortTitle: Restore deleted repository
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## 参考リンク
 
