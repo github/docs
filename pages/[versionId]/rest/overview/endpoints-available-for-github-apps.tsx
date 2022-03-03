@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import {
   getArticleContextFromRequest,
@@ -6,6 +7,7 @@ import {
   ArticleContext,
 } from 'components/context/ArticleContext'
 import { ArticlePage } from 'components/article/ArticlePage'
+import { Link } from 'components/Link'
 import { getEnabledForApps } from 'lib/rest/index.js'
 
 type OperationT = {
@@ -27,31 +29,27 @@ let enabledForApps: AppDataT | null = null
 type Props = {
   mainContext: MainContextT
   enabledForApps: EnabledAppCategoryT
-  userLanguage: string
   articleContext: ArticleContextT
 }
 
-export default function Category({
-  mainContext,
-  enabledForApps,
-  userLanguage,
-  articleContext,
-}: Props) {
-  const content = Object.keys(enabledForApps).map((category: string, index: Number) => (
-    <div key={`enabledAppCategory-${index}`}>
-      {enabledForApps[category].length > 0 ? (
+export default function Category({ mainContext, enabledForApps, articleContext }: Props) {
+  const { locale } = useRouter()
+
+  const content = Object.entries(enabledForApps).map(([category, operations]) => (
+    <div key={`enabledAppCategory-${category}`}>
+      {operations.length > 0 && (
         <h3 id={category}>
-          <a href={category}>{category}</a>
+          <Link href={`/${locale}/rest/reference/${category}`}>{category}</Link>
         </h3>
-      ) : null}
+      )}
       <ul>
-        {enabledForApps[category].map((operation: OperationT, index: Number) => (
-          <li key={`enabledAppOperation-${index}`}>
-            <a href={`${userLanguage}/rest/reference/${category}#${operation.slug}`}>
+        {operations.map((operation) => (
+          <li key={`enabledAppOperation-${operation.slug}`}>
+            <Link href={`/${locale}/rest/reference/${category}#${operation.slug}`}>
               <code>
                 <span className="text-uppercase">{operation.verb}</span> {operation.requestPath}
               </code>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -72,7 +70,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const res = context.res as object
   const currentVersion = context.query.versionId as string
   const mainContext = getMainContext(req, res)
-  const userLanguage = context.locale || ''
 
   if (!enabledForApps) {
     enabledForApps = (await getEnabledForApps()) as AppDataT
@@ -82,7 +79,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     props: {
       mainContext,
       enabledForApps: enabledForApps[currentVersion],
-      userLanguage,
       articleContext: getArticleContextFromRequest(req),
     },
   }
