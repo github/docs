@@ -10,6 +10,7 @@ redirect_from:
   - /actions/reference/logging-commands-for-github-actions
   - /actions/reference/workflow-commands-for-github-actions
   - /actions/learn-github-actions/workflow-commands-for-github-actions
+defaultTool: bash
 versions:
   fpt: '*'
   ghes: '*'
@@ -28,15 +29,21 @@ Most workflow commands use the `echo` command in a specific format, while others
 
 ### Example
 
-- Using Bash:
-  ```bash{:copy}
-  echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```pwsh{:copy}
-  Write-Output "::workflow-command parameter1={data},parameter2={data}::{command value}"
-  ```
+```bash{:copy}
+echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::workflow-command parameter1={data},parameter2={data}::{command value}"
+```
+
+{% endpowershell %}
 
 {% note %}
 
@@ -62,27 +69,33 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 You can use the `set-output` command in your workflow to set the same value:
 
-- Using Bash:
-  {% raw %}
-  ```yaml{:copy}
-        - name: Set selected color
-          run: echo '::set-output name=SELECTED_COLOR::green'
-          id: random-color-generator
-        - name: Get color
-          run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-  ```
-  {% endraw %}
+{% bash %}
 
-- Using PowerShell:
-  {% raw %}
-  ```yaml{:copy}
-        - name: Set selected color
-          run: Write-Output "::set-output name=SELECTED_COLOR::green"
-          id: random-color-generator
-        - name: Get color
-          run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-  ```
-  {% endraw %}
+{% raw %}
+```yaml{:copy}
+      - name: Set selected color
+        run: echo '::set-output name=SELECTED_COLOR::green'
+        id: random-color-generator
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```
+{% endraw %}
+
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+```yaml{:copy}
+      - name: Set selected color
+        run: Write-Output "::set-output name=SELECTED_COLOR::green"
+        id: random-color-generator
+      - name: Get color
+        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```
+{% endraw %}
+
+{% endpowershell %}
 
 The following table shows which toolkit functions are available within a workflow:
 
@@ -117,15 +130,21 @@ Optionally, you can also declare output parameters in an action's metadata file.
 
 ### Example: Setting an output parameter
 
-- Using Bash:
-  ```bash{:copy}
-  echo "::set-output name=action_fruit::strawberry"
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```pwsh{:copy}
-  Write-Output "::set-output name=action_fruit::strawberry"
-  ```
+```bash{:copy}
+echo "::set-output name=action_fruit::strawberry"
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::set-output name=action_fruit::strawberry"
+```
+
+{% endpowershell %}
 
 ## Setting a debug message
 
@@ -137,15 +156,21 @@ Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_
 
 ### Example: Setting a debug message
 
-- Using Bash:
-  ```bash{:copy}
-  echo "::debug::Set the Octocat variable"
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```pwsh{:copy}
-  Write-Output "::debug::Set the Octocat variable"
-  ```
+```bash{:copy}
+echo "::debug::Set the Octocat variable"
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::debug::Set the Octocat variable"
+```
+
+{% endpowershell %}
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 
@@ -161,16 +186,21 @@ Creates a notice message and prints the message to the log. {% data reusables.ac
 
 ### Example: Setting a notice message
 
-- Using Bash:
-  ```bash{:copy}
-  echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```pwsh{:copy}
-  Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
-  ```
+```bash{:copy}
+echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
 
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
+
+{% endpowershell %}
 {% endif %}
 
 ## Setting a warning message
@@ -185,15 +215,20 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 
 ### Example: Setting a warning message
 
-- Using Bash:
-  ```bash{:copy}
-  echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```pwsh{:copy}
-  Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
-  ```
+```bash{:copy}
+echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
+
+{% endpowershell %}
 
 ## Setting an error message
 
@@ -207,16 +242,21 @@ Creates an error message and prints the message to the log. {% data reusables.ac
 
 ### Example: Setting an error message
 
-- Using Bash:
-  ```bash{:copy}
-  echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```pwsh{:copy}
-  Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
-  ```
+```bash{:copy}
+echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
 
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
+
+{% endpowershell %}
 ## Grouping log lines
 
 Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
@@ -228,31 +268,37 @@ Creates an expandable group in the log. To create a group, use the `group` comma
 
 ### Example: Grouping log lines
 
-- Using Bash:
-  ```yaml{:copy}
-  jobs:
-    bash-example:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Group of log lines
-          run: |
-              echo "::group::My title"
-              echo "Inside group"
-              echo "::endgroup::"
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```yaml{:copy}
-  jobs:
-    powershell-example:
-      runs-on: windows-latest
-      steps:
-        - name: Group of log lines
-          run: |
-              Write-Output "::group::My title"
-              Write-Output "Inside group"
-              Write-Output "::endgroup::"
-  ```
+```yaml{:copy}
+jobs:
+  bash-example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Group of log lines
+        run: |
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::"
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml{:copy}
+jobs:
+  powershell-example:
+    runs-on: windows-latest
+    steps:
+      - name: Group of log lines
+        run: |
+            Write-Output "::group::My title"
+            Write-Output "Inside group"
+            Write-Output "::endgroup::"
+```
+
+{% endpowershell %}
 
 ![Foldable group in workflow run log](/assets/images/actions-log-group.png)
 
@@ -268,43 +314,55 @@ Masking a value prevents a string or variable from being printed in the log. Eac
 
 When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
 
-- Using Bash:
-  ```bash{:copy}
-  echo "::add-mask::Mona The Octocat"
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```pwsh{:copy}
-  Write-Output "::add-mask::Mona The Octocat"
-  ```
+```bash{:copy}
+echo "::add-mask::Mona The Octocat"
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::add-mask::Mona The Octocat"
+```
+
+{% endpowershell %}
 
 ### Example: Masking an environment variable
 
 When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the log, you'll see `"***"` instead of `"Mona The Octocat"`.
 
-- Using Bash:
-  ```yaml{:copy}
-  jobs:
-    bash-example:
-      runs-on: ubuntu-latest
-      env:
-        MY_NAME: "Mona The Octocat"
-      steps:
-        - name: bash-version
-          run: echo "::add-mask::$MY_NAME"
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```yaml{:copy}
-  jobs:
-    powershell-example:
-      runs-on: windows-latest
-      env:
-        MY_NAME: "Mona The Octocat"
-      steps:
-        - name: powershell-version
-          run: Write-Output "::add-mask::$env:MY_NAME"
-  ```
+```yaml{:copy}
+jobs:
+  bash-example:
+    runs-on: ubuntu-latest
+    env:
+      MY_NAME: "Mona The Octocat"
+    steps:
+      - name: bash-version
+        run: echo "::add-mask::$MY_NAME"
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml{:copy}
+jobs:
+  powershell-example:
+    runs-on: windows-latest
+    env:
+      MY_NAME: "Mona The Octocat"
+    steps:
+      - name: powershell-version
+        run: Write-Output "::add-mask::$env:MY_NAME"
+```
+
+{% endpowershell %}
 
 ## Stopping and starting workflow commands
 
@@ -328,40 +386,48 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 
 ### Example: Stopping and starting workflow commands
 
-{% raw %}
-- Using bash:
-  ```yaml{:copy}
-  jobs:
-    workflow-command-job:
-      runs-on: ubuntu-latest
-      steps:
-        - name: disable workflow commands
-          run: |
-            echo '::warning:: this is a warning'
-            echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
-            echo '::warning:: this will NOT be a warning'
-            echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
-            echo '::warning:: this is a warning again'
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```yaml{:copy}
-  jobs:
-    workflow-command-job:
-      runs-on: windows-latest
-      steps:
-        - name: disable workflow commands
-          run: |
-            Write-Output '::warning:: this is a warning'
-            $stopMarker = New-Guid
-            Write-Output "::stop-commands::$stopMarker"
-            Write-Output '::warning:: this will NOT be a warning'
-            Write-Output "::$stopMarker::"
-            Write-Output '::warning:: this is a warning again'
-  ```
+{% raw %}
+
+```yaml{:copy}
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: disable workflow commands
+        run: |
+          echo '::warning:: this is a warning'
+          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
+          echo '::warning:: this will NOT be a warning'
+          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
+          echo '::warning:: this is a warning again'
+```
+{% endraw %}
+
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+```yaml{:copy}
+jobs:
+  workflow-command-job:
+    runs-on: windows-latest
+    steps:
+      - name: disable workflow commands
+        run: |
+          Write-Output '::warning:: this is a warning'
+          $stopMarker = New-Guid
+          Write-Output "::stop-commands::$stopMarker"
+          Write-Output '::warning:: this will NOT be a warning'
+          Write-Output "::$stopMarker::"
+          Write-Output '::warning:: this is a warning again'
+```
 
 {% endraw %}
 
+{% endpowershell %}
 ## Echoing command outputs
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
@@ -379,35 +445,41 @@ You can also enable command echoing globally by turning on step debug logging us
 
 ### Example: Toggling command echoing
 
-- Using bash:
-  ```yaml{:copy}
-  jobs:
-    workflow-command-job:
-      runs-on: ubuntu-latest
-      steps:
-        - name: toggle workflow command echoing
-          run: |
-            echo '::set-output name=action_echo::disabled'
-            echo '::echo::on'
-            echo '::set-output name=action_echo::enabled'
-            echo '::echo::off'
-            echo '::set-output name=action_echo::disabled'
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```yaml{:copy}
-  jobs:
-    workflow-command-job:
-      runs-on: windows-latest
-      steps:
-        - name: toggle workflow command echoing
-          run: |
-            write-output "::set-output name=action_echo::disabled"
-            write-output "::echo::on"
-            write-output "::set-output name=action_echo::enabled"
-            write-output "::echo::off"
-            write-output "::set-output name=action_echo::disabled"
-  ```
+```yaml{:copy}
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: toggle workflow command echoing
+        run: |
+          echo '::set-output name=action_echo::disabled'
+          echo '::echo::on'
+          echo '::set-output name=action_echo::enabled'
+          echo '::echo::off'
+          echo '::set-output name=action_echo::disabled'
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml{:copy}
+jobs:
+  workflow-command-job:
+    runs-on: windows-latest
+    steps:
+      - name: toggle workflow command echoing
+        run: |
+          write-output "::set-output name=action_echo::disabled"
+          write-output "::echo::on"
+          write-output "::set-output name=action_echo::enabled"
+          write-output "::echo::off"
+          write-output "::set-output name=action_echo::disabled"
+```
+
+{% endpowershell %}
 
 The example above prints the following lines to the log:
 
@@ -417,6 +489,8 @@ The example above prints the following lines to the log:
 ```
 
 Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+
+
 
 ## Sending values to the pre and post actions
 
@@ -441,6 +515,8 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 ## Environment files
 
 During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+
+{% powershell %}
 
 {% note %}
 
@@ -470,57 +546,71 @@ jobs:
 
 {% endnote %}
 
+{% endpowershell %}
+
 ## Setting an environment variable
 
-- Using bash:
-  ```bash{:copy}
-  echo "{environment_variable_name}={value}" >> $GITHUB_ENV
-  ```
+{% bash %}
+
+```bash{:copy}
+echo "{environment_variable_name}={value}" >> $GITHUB_ENV
+```
+
+{% endbash %}
+
+{% powershell %}
 
 - Using PowerShell version 6 and higher:
-  ```pwsh{:copy}
-  "{environment_variable_name}={value}" >> $env:GITHUB_ENV
-  ```
+```pwsh{:copy}
+"{environment_variable_name}={value}" >> $env:GITHUB_ENV
+```
 
 - Using PowerShell version 5.1 and below:
-  ```powershell{:copy}
-  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-  ```
+```powershell{:copy}
+"{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+```
+
+{% endpowershell %}
 
 You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[Environment variables](/actions/learn-github-actions/environment-variables)."
 
 ### Example
 
-- Using bash:
-  {% raw %}
-  ```yaml{:copy}
-  steps:
-    - name: Set the value
-      id: step_one
-      run: |
-        echo "action_state=yellow" >> $GITHUB_ENV
-    - name: Use the value
-      id: step_two
-      run: |
-        echo "${{ env.action_state }}" # This will output 'yellow'
-  ```
-  {% endraw %}
+{% bash %}
 
-- Using PowerShell:
+{% raw %}
+```yaml{:copy}
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+      echo "action_state=yellow" >> $GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+      echo "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
 
-  {% raw %}
-  ```yaml{:copy}
-  steps:
-    - name: Set the value
-      id: step_one
-      run: |
-        "action_state=yellow" >> $env:GITHUB_ENV
-    - name: Use the value
-      id: step_two
-      run: |
-        Write-Output "${{ env.action_state }}" # This will output 'yellow'
-  ```
-  {% endraw %}
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+```yaml{:copy}
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+      "action_state=yellow" >> $env:GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+      Write-Output "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
+
+{% endpowershell %}
 
 ### Multiline strings
 
@@ -565,28 +655,40 @@ steps:
 
 Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use `echo "$PATH"` in a step or an action.
 
-- Using bash:
-  ```bash{:copy}
-  echo "{path}" >> $GITHUB_PATH
-  ```
+{% bash %}
 
-- Using PowerShell:
-  ```pwsh{:copy}
-  "{path}" >> $env:GITHUB_PATH
-  ```
+```bash{:copy}
+echo "{path}" >> $GITHUB_PATH
+```
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{path}" >> $env:GITHUB_PATH
+```
+
+{% endpowershell %}
 
 ### Example
 
 This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
 
-- Using bash:
-  ```bash{:copy}
-  echo "$HOME/.local/bin" >> $GITHUB_PATH
-  ```
+{% bash %}
+
+```bash{:copy}
+echo "$HOME/.local/bin" >> $GITHUB_PATH
+```
+
+{% endbash %}
+
 
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
-- Using PowerShell:
-  ```pwsh{:copy}
-  "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH
-  ```
+{% powershell %}
+
+```pwsh{:copy}
+"$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH
+```
+
+{% endpowershell %}
