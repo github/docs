@@ -121,6 +121,16 @@ export const ToolPicker = ({ variant = 'subnav' }: Props) => {
             data-tool={tool}
             as="button"
             selected={tool === currentTool}
+            // Temporary fix: This should be removed when this merges: PR 24123
+            sx={{
+              color: 'var(--color-fg-default)',
+              '&.selected': { color: 'var(--color-fg-default)' },
+              ':hover': { color: 'var(--color-fg-default)' },
+              ':focus': {
+                color: 'var(--color-fg-default)',
+                outline: '-webkit-focus-ring-color auto 1px;',
+              },
+            }}
             onClick={() => {
               onClickTool(tool)
             }}

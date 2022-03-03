@@ -254,7 +254,7 @@ Para entender cómo funciona la facturación de las {% data variables.product.pr
 
 ## Contactar con soporte técnico
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
 
 ## Leer más
 

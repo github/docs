@@ -179,7 +179,7 @@ git:
 
 Tanto {% data variables.product.prodname_actions %} como Travis CI pueden agregar variables de ambiente personalizadas a una matriz de pruebas, lo cual te permite referirte a la variable en un paso subsecuente.
 
-En {% data variables.product.prodname_actions %}, puedes utilizar la clave `include` para agregar variables de ambiente personalizadas a una matriz. {% data reusables.github-actions.matrix-variable-example %}
+En {% data variables.product.prodname_actions %}, puedes utilizar la clave `include` para agregar variables de ambiente personalizadas a una matriz. {% data reusables.actions.matrix-variable-example %}
 
 ## Características clave en {% data variables.product.prodname_actions %}
 

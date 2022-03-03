@@ -254,7 +254,7 @@ _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应�
 
 ## 联系支持
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
 
 ## 延伸阅读
 

@@ -254,7 +254,7 @@ To understand how billing works for {% data variables.product.prodname_actions %
 
 ## サポートへの連絡
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
 
 ## 参考リンク
 

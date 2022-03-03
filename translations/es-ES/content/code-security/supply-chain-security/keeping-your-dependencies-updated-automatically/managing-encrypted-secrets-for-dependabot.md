@@ -44,11 +44,11 @@ The name of a {% data variables.product.prodname_dependabot %} secret:
 
 ## Adding a repository secret for {% data variables.product.prodname_dependabot %}
 
-{% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% data reusables.actions.permissions-statement-secrets-repository %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 {% data reusables.dependabot.dependabot-secrets-button %}
 1. Click **New repository secret**.
 1. Type a name for your secret in the **Name** input box.
@@ -63,11 +63,11 @@ The name of a {% data variables.product.prodname_dependabot %} secret:
 
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 {% data reusables.dependabot.dependabot-secrets-button %}
 1. Click **New organization secret**.
 1. Type a name for your secret in the **Name** input box.

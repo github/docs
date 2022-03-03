@@ -22,7 +22,7 @@ shortTitle: Eliminar los artefactos de un flujo de trabajo
 
 {% data reusables.repositories.permissions-statement-write %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %}
+{% data reusables.actions.artifact-log-retention-statement %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}

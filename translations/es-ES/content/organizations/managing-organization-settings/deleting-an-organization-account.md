@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Borrar una cuenta organizacional
+shortTitle: Delete organization
 ---
 
 {% ifversion fpt or ghec %}
@@ -26,7 +26,15 @@ shortTitle: Borrar una cuenta organizacional
 
 ## 1. Haz una copia de respaldo del contenido de tu organización
 
-Una vez que eliminas una organización, GitHub **no puede restaurar su contenido**. Por lo tanto, antes de que borres tu organización, asegúrate de que tengas una copia de todos los repositorios, wikis, propuestas y tableros de proyecto de la cuenta.
+{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
+
+{% ifversion ghes %}
+{% note %}
+
+**Note:** If necessary, a site administrator for {% data variables.product.product_location %} may be able to partially restore a deleted organization. For more information, see "[Restoring a deleted organization](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+
+{% endnote %}
+{% endif %}
 
 ## 2. Elimina la organización
 
