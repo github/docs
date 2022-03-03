@@ -31,7 +31,7 @@ To add a new remote, use the `git remote add` command on the terminal, in the di
 
 The `git remote add` command takes two arguments:
 * A remote name, for example, `origin`
-* A remote URL, for example, `https://{% data variables.command_line.backticks %}/user/repo.git`
+* A remote URL, for example, `https://{% data variables.command_line.backticks %}/user/repo.git`fg
 
 For example:
 
