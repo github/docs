@@ -55,6 +55,12 @@ shortTitle: 更新访问凭据
 
 有关审查和删除访问令牌的说明，请参阅“[审查授权的集成](/articles/reviewing-your-authorized-integrations)”。 要生成新的访问令牌，请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
+{% ifversion not ghae %}
+
+If you have reset your account password and would also like to trigger a sign-out from the GitHub Mobile app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. For additional information, see "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)."
+
+{% endif %}
+
 ## 更新 SSH 密钥
 
 有关审查和删除 SSH 密钥的说明，请参阅“[审查 SSH 密钥](/articles/reviewing-your-ssh-keys)”。 要生成和添加新的 SSH 密钥，请参阅“[生成 SSH 密钥](/articles/generating-an-ssh-key)”。

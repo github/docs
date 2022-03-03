@@ -33,15 +33,6 @@ This article explains how site administrators can configure {% data variables.pr
 
 ## Review hardware requirements
 
-{% ifversion ghes = 3.0 %}
-
-{% note %}
-
-**Note**: If you're upgrading an existing {% data variables.product.prodname_ghe_server %} instance to 3.0 or later and want to configure {% data variables.product.prodname_actions %}, note that the minimum hardware requirements have increased. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
-
-{% endnote %}
-
-{% endif %}
 
 {%- ifversion ghes < 3.2 %}
 

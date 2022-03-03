@@ -1,6 +1,6 @@
 ---
 title: Configuring authentication and provisioning with your identity provider
-intro: 'You can configure user authentication and provisioning by integrating with an identity provider (IdP) that supports SAML single sign-on (SSO) and SCIM.'
+intro: You can configure user authentication and provisioning by integrating with an identity provider (IdP) that supports SAML single sign-on (SSO) and SCIM.
 versions:
   ghae: '*'
 redirect_from:

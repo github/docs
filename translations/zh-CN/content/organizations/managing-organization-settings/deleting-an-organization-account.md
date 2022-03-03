@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Delete organization
+shortTitle: 删除组织
 ---
 
 {% ifversion fpt or ghec %}
@@ -26,12 +26,12 @@ shortTitle: Delete organization
 
 ## 1. 备份组织内容
 
-{% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
+{% ifversion not ghes %} 删除组织后， {% data variables.product.company_short %} **无法恢复内容**。 因此，在删除组织{% else %}之前{% endif %}，请确保您拥有该帐户中所有仓库、wiki、议题和项目板的副本。
 
 {% ifversion ghes %}
 {% note %}
 
-**Note:** If necessary, a site administrator for {% data variables.product.product_location %} may be able to partially restore a deleted organization. For more information, see "[Restoring a deleted organization](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+**注意：** 如有必要，{% data variables.product.product_location %} 的站点管理员或能部分恢复已删除的组织。 更多信息请参阅“[恢复删除的组织](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)”。
 
 {% endnote %}
 {% endif %}

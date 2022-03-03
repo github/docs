@@ -1,6 +1,6 @@
 ---
 title: Filtering alerts in the security overview
-intro: 'Use filters to view specific categories of alerts'
+intro: Use filters to view specific categories of alerts
 permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:
@@ -125,7 +125,7 @@ Available in the secret scanning alert views.
 
 | Qualifier | Description |
 | -------- | -------- |
-| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)." |
+| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)." |
 | `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern. {% ifversion not fpt %}For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %} |
 
 ## Filter by provider
@@ -134,4 +134,4 @@ Available in the secret scanning alert views.
 
 | Qualifier | Description |
 | -------- | -------- |
-|`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)." |
+|`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)." |

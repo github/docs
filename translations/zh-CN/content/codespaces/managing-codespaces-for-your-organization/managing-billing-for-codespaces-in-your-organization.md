@@ -1,7 +1,7 @@
 ---
-title: Managing billing for Codespaces in your organization
+title: 管理组织中代码空间的计费
 shortTitle: 管理计费
-intro: 'You can check your {% data variables.product.prodname_codespaces %} usage and set usage limits.'
+intro: '您可以检查 {% data variables.product.prodname_codespaces %} 使用情况并设置使用限制。'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
 versions:
@@ -15,21 +15,21 @@ topics:
 
 ## 概览
 
-To learn about pricing for {% data variables.product.prodname_codespaces %}, see "[{% data variables.product.prodname_codespaces %} pricing](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)."
+要了解 {% data variables.product.prodname_codespaces %} 的定价，请参阅“[{% data variables.product.prodname_codespaces %} 定价](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)”。
 
 {% data reusables.codespaces.codespaces-billing %}
 
-- As an organization owner or a billing manager you can manage {% data variables.product.prodname_codespaces %} billing for your organization: ["About billing for Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
+- 作为组织所有者或帐单管理员，您可以管理组织的 {% data variables.product.prodname_codespaces %} 帐单：[“关于 Codespaces 的计费”](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
 
-- For users, there is a guide that explains how billing works: ["Understanding billing for Codespaces"](/codespaces/codespaces-reference/understanding-billing-for-codespaces)
+- 对于用户，有一个指南解释了计费的工作原理：[“了解 Codespaces 的计费”](/codespaces/codespaces-reference/understanding-billing-for-codespaces)
 
 ## 使用限制
 
-You can set a usage limit for the codespaces in your organization or repository. This limit is applied to the compute and storage usage for {% data variables.product.prodname_codespaces %}:
+您可以为组织或存储库中的代码空间设置使用限制。 此限制适用于 {% data variables.product.prodname_codespaces %} 的计算和存储使用情况：
 
-- **Compute minutes:** Compute usage is calculated by the actual number of minutes used by all {% data variables.product.prodname_codespaces %} instances while they are active. These totals are reported to the billing service daily, and is billed monthly. You can set a spending limit for {% data variables.product.prodname_codespaces %} usage in your organization. For more information, see "[Managing spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
+- **计算分钟数：**计算使用率是按所有 {% data variables.product.prodname_codespaces %} 实例在活动期间使用的实际分钟数计算的。 这些总计每天报告给计费服务，并按月计费。 You can set a spending limit for {% data variables.product.prodname_codespaces %} usage in your organization. For more information, see "[Managing spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
 
-- **Storage usage:**  For {% data variables.product.prodname_codespaces %} billing purposes, this includes all storage used by all codespaces in your account. This includes all used by the codespaces, such as cloned repositories, configuration files, and extensions, among others. These totals are reported to the billing service daily, and is billed monthly. 到月底，{% data variables.product.prodname_dotcom %} 会将您的存储量舍入到最接近的 MB。 To check how many compute minutes and storage GB have been used by {% data variables.product.prodname_codespaces %}, see "[Viewing your Codespaces usage"](/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage)."
+- **Storage usage:**  For {% data variables.product.prodname_codespaces %} billing purposes, this includes all storage used by all codespaces in your account. This includes all used by the codespaces, such as cloned repositories, configuration files, and extensions, among others. 这些总计每天报告给计费服务，并按月计费。 到月底，{% data variables.product.prodname_dotcom %} 会将您的存储量舍入到最接近的 MB。 To check how many compute minutes and storage GB have been used by {% data variables.product.prodname_codespaces %}, see "[Viewing your Codespaces usage"](/billing/managing-billing-for-github-codespaces/viewing-your-codespaces-usage)."
 
 ## Disabling or limiting {% data variables.product.prodname_codespaces %}
 

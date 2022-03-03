@@ -63,6 +63,9 @@ topics:
 依存関係グラフは、リポジトリの [**Insights**] タブにあります。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 {% endif %}
 
+### Security overview for repositories
+For all public repositories, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.
+
 ## Available with {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.ghas-availability %}
@@ -83,8 +86,8 @@ Automatically detect tokens or credentials that have been checked into a reposit
 Pull Requestをマージする前に、依存関係に対する変更の影響を詳細に示し、脆弱なバージョンがあればその詳細を確認できます。 詳しい情報については「[依存関係のレビュー](/code-security/supply-chain-security/about-dependency-review)」を参照してください。
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 %}
-### セキュリティの概要
+{% ifversion ghec or ghes > 3.1 or ghae-issue-4554 %}
+### Security overview for organizations{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, enterprises,{% endif %} and teams
 
 Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}
