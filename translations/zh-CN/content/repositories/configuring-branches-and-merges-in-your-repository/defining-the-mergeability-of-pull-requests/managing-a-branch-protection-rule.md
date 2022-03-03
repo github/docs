@@ -41,7 +41,7 @@ shortTitle: 分支保护规则
 
 要创建对现有分支规则的例外，您可以创建优先级更高的新分支保护规则，例如针对特定分支名称的分支规则。
 
-For more information about each of the available branch protection settings, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+有关每个可用分支保护设置的更多信息，请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
 
 ## 创建分支保护规则
 
@@ -52,18 +52,18 @@ For more information about each of the available branch protection settings, see
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5506 %}
-1. Optionally, enable required pull requests.
-   - Under "Protect matching branches", select **Require a pull request before merging**. ![拉取请求审查限制复选框](/assets/images/help/repository/PR-reviews-required-updated.png)
-   - Optionally, to require approvals before a pull request can be merged, select **Require approvals**, click the **Required number of approvals before merging** drop-down menu, then select the number of approving reviews you would like to require on the branch. ![用于选择必需审查批准数量的下拉菜单](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
+1. （可选）启用所需的拉取请求。
+   - 在“Protect matching branches（保护匹配分支）”下，选择 **Require a pull request before merging（合并前需要拉取请求）**。 ![拉取请求审查限制复选框](/assets/images/help/repository/PR-reviews-required-updated.png)
+   - （可选）要在合并拉取请求之前要求审批，请选择 **Require approvals（需要审批）**，单击 **Required number of approvals before merging（合并前所需的审批数）**下拉菜单，然后选择您希望在分支上要求的审批审核数。 ![用于选择必需审查批准数量的下拉菜单](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
 {% else %}
 1. （可选）启用必需拉取请求审查。
    - 在“Protect matching branches（保护匹配分支）”下，选择 **Require pull request reviews before merging（合并前必需拉取请求审查）**。 ![拉取请求审查限制复选框](/assets/images/help/repository/PR-reviews-required.png)
-   - Click the **Required approving reviews** drop-down menu, then select the number of approving reviews you would like to require on the branch. ![用于选择必需审查批准数量的下拉菜单](/assets/images/help/repository/number-of-required-review-approvals.png)
+   - 单击 **Required approving reviews（必需批准审查）**下拉菜单，然后选择要对分支要求的批准审查数量。 ![用于选择必需审查批准数量的下拉菜单](/assets/images/help/repository/number-of-required-review-approvals.png)
 {% endif %}
    - （可选）要在将代码修改提交推送到分支时忽略拉取请求批准审查，请选择 **Dismiss stale pull request approvals when new commits are pushed（推送新提交时忽略旧拉取请求批准）**。 ![在推送新提交时，关闭旧拉取请求批准的复选框](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - （可选）要在拉取请求影响具有指定所有者的代码时要求代码所有者审查，请选择 **Require review from Code Owners（需要代码所有者审查）**。 更多信息请参阅“[关于代码所有者](/github/creating-cloning-and-archiving-repositories/about-code-owners)”。 ![代码所有者的必需审查](/assets/images/help/repository/PR-review-required-code-owner.png)
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5611 %}
-   - Optionally, to allow specific people or teams to push code to the branch without being subject to the pull request rules above, select **Allow specific actors to bypass pull request requirements**. Then, search for and select the people or teams who are allowed to bypass the pull request requirements. ![Allow specific actors to bypass pull request requirements checkbox](/assets/images/help/repository/PR-bypass-requirements.png)
+   - Optionally, to allow specific people or teams to push code to the branch without creating pull requests when they're required, select **Allow specific actors to bypass required pull requests**. Then, search for and select the people or teams who should be allowed to skip creating a pull request. ![允许特定执行者绕过拉取请求要求复选框](/assets/images/help/repository/PR-bypass-requirements.png)
 {% endif %}
    - （可选）如果仓库属于组织，请选择 **Restrict who can dismiss pull request reviews（限制谁可以忽略拉取请求审查）**。 然后，搜索并选择有权忽略拉取请求审查的人员或团队。 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。 ![限制可以忽略拉取请求审查的人员复选框](/assets/images/help/repository/PR-review-required-dismissals.png)
 1. （可选）启用必需状态检查。 更多信息请参阅“[关于状态检查](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)”。
