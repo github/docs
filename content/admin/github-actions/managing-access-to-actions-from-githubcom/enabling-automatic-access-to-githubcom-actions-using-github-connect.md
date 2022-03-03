@@ -36,17 +36,9 @@ Before enabling access to all actions from {% data variables.product.prodname_do
 {% data reusables.actions.enterprise-github-connect-warning %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion ghes < 3.1 %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{%- endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-{%- ifversion ghes > 3.0 or ghae %}
 1. Under "Users can utilize actions from GitHub.com in workflow runs", use the drop-down menu and select **Enabled**.
   ![Drop-down menu to actions from GitHub.com in workflows runs](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
-{%- else %}
-1. Under "Server can use actions from GitHub.com in workflows runs", use the drop-down menu and select **Enabled**.
-  ![Drop-down menu to actions from GitHub.com in workflows runs](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down.png)
-{%- endif %}
 1. {% data reusables.actions.enterprise-limit-actions-use %}
 
 {% ifversion ghes > 3.2 or ghae-issue-4815 %}

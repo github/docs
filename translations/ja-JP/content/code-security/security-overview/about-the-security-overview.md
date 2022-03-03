@@ -26,11 +26,7 @@ shortTitle: About security overview
 
 ## セキュリティの概要について
 
-セキュリティの概要は、Organizationのセキュリティの状況の高レベルでの表示、あるいは介入が必要な問題のあるリポジトリを特定するために利用できます。
-
-- Organizationのレベルでは、セキュリティの概要はOrganizationが所有するリポジトリに関する集約されたリポジトリ固有のセキュリティ情報を表示します。 You can also filter information per security feature.
-- Teamレベルでは、セキュリティの概要はTeamが管理権限を持つリポジトリの固有のセキュリティ情報を表示します。 For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
-- At the repository-level, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features not currently in use.
+セキュリティの概要は、Organizationのセキュリティの状況の高レベルでの表示、あるいは介入が必要な問題のあるリポジトリを特定するために利用できます。 You can view aggregate or repository-specific security information in the security overview. You can also use the security overview to see which which security features are enabled for your repositories and to configure any available security features that are not currently in use.
 
 The security overview indicates whether {% ifversion fpt or ghes > 3.1 or ghec %}security{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} features are enabled for repositories owned by your organization and consolidates alerts for each feature.{% ifversion fpt or ghes > 3.1 or ghec %} Security features include {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, as well as {% data variables.product.prodname_dependabot_alerts %}.{% endif %} For more information about {% data variables.product.prodname_GH_advanced_security %} features, see "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} For more information about {% data variables.product.prodname_dependabot_alerts %}, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
 
@@ -63,3 +59,24 @@ For each repository in the security overview, you will see icons for each type o
 | {% octicon "x" aria-label="x" %}                              | The security feature is not supported in this repository.                                                                                                                                                      |
 
 The security overview displays active alerts raised by security features. リポジトリに対してセキュリティの概要でアラートがない場合でも、検出されていないセキュリティ脆弱性やコードのエラーは存在するかもしれません。
+
+### About the organization-level security overview
+
+Organizationのレベルでは、セキュリティの概要はOrganizationが所有するリポジトリに関する集約されたリポジトリ固有のセキュリティ情報を表示します。 You can filter information by security features at the organization-level.
+
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
+### About the enterprise-level security overview
+At the enterprise-level, the security overview displays aggregate and repository-specific security information for your enterprise. You can view repositories owned by your enterprise that have security alerts or view all {% data variables.product.prodname_secret_scanning %} alerts from across your enterprise.
+
+Organization owners and security managers for organizations in your enterprise also have limited access to the enterprise-level security overview. They can only view repositories and alerts for the organizations that they have full access to.
+
+{% elsif fpt %}
+### About the enterprise-level security overview
+At the enterprise-level, the security overview displays aggregate and repository-specific information for an enterprise. For more information, see "[About the enterprise-level security overview](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview#about-the-enterprise-level-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% endif %}
+
+### About the team-level security overview
+Teamレベルでは、セキュリティの概要はTeamが管理権限を持つリポジトリの固有のセキュリティ情報を表示します。 For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+
+### About the repository-level security overview
+At the repository-level, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.

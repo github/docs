@@ -2,7 +2,7 @@
 title: GitHub Command Palette
 intro: 'Use the command palette in {% data variables.product.product_name %} to navigate, search, and run commands directly from your keyboard.'
 versions:
-  feature: 'command-palette'
+  feature: command-palette
 shortTitle: GitHub Command Palette
 ---
 

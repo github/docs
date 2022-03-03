@@ -60,7 +60,7 @@ You can disable all workflows for a repository or set a policy that configures w
 {% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list.
 
-   {%- ifversion ghes > 3.0 %}
+   {%- ifversion ghes %}
    ![Add actions to allow list](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
    ![Add actions to allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)

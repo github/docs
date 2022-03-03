@@ -105,11 +105,11 @@ featuredLinks:
     - /admin/configuration/configuring-github-connect/managing-github-connect
     - /admin/enterprise-support/about-github-enterprise-support
   videos:
-    - title: "GitHub in the Enterprise – Maya Ross"
+    - title: GitHub in the Enterprise – Maya Ross
       href: 'https://www.youtube-nocookie.com/embed/1-i39RqaxRs'
-    - title: "What's new for GitHub Enterprise – Jarryd McCree"
+    - title: What's new for GitHub Enterprise – Jarryd McCree
       href: 'https://www.youtube-nocookie.com/embed/ZZviWZgrqhM'
-    - title: "Enforcing information security policy through GitHub Enterprise – Thomas Worley"
+    - title: Enforcing information security policy through GitHub Enterprise – Thomas Worley
       href: 'https://www.youtube-nocookie.com/embed/DCu-ZTT7WTI'
   videosHeading: GitHub Universe 2021 videos
 layout: product-landing
@@ -132,3 +132,4 @@ children:
   - /release-notes
   - /all-releases
 ---
+

@@ -36,6 +36,13 @@ shortTitle: View the security overview
 1. In the security sidebar, select the subset of alerts you want to view. ![View alert subset](/assets/images/help/organizations/view-alert-subset.png)
 2. （可选）过滤警报列表。 Each view has its own selection of available filters. 您可以单击下拉过滤菜单中的多个过滤器以缩小搜索范围。 You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)." ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
 
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
+## Viewing the security overview for an enterprise
+
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Security**.
+{% endif %}
+
 ## Viewing alerts for a repository
 
 {% data reusables.repositories.navigate-to-repo %}

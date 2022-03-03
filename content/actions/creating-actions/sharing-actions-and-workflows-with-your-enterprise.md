@@ -1,8 +1,8 @@
 ---
 title: Sharing actions and workflows with your enterprise
-intro: 'You can share an action or workflow with your enterprise without publishing the action or workflow publicly.'
+intro: You can share an action or workflow with your enterprise without publishing the action or workflow publicly.
 versions:
-  feature: 'internal-actions'
+  feature: internal-actions
 type: tutorial
 topics:
   - Actions

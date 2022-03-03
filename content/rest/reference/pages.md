@@ -1,6 +1,6 @@
 ---
 title: Pages
-intro: 'The GitHub Pages API allows you to interact with GitHub Pages sites and build information.'
+intro: The GitHub Pages API allows you to interact with GitHub Pages sites and build information.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

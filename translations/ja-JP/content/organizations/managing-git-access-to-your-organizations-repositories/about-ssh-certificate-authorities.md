@@ -28,15 +28,15 @@ SSH CAをOrganizationまたはEnterpriseアカウントに追加すると、そ�
 SAMLシングルサインオンが強制されている場合でも、Organizationのメンバーはそれぞれの署名済み証明書を認証に使用できます。 SSH証明書を必須にしている場合を除き、Organizationのメンバーは他の認証方法、たとえばユーザー名とパスワード、個人アクセストークン、独自のSSHキーなどを使用して、GitのOrganizationリソースにアクセスし続けることができます。
 {% endif %}
 
-Members will not be able to use their certificates to access forks of your repositories that are owned by their personal accounts.
+メンバーは、自分の個人アカウントが所有するリポジトリのフォークにアクセスする際に、自分の証明書を使うことはできなくなります。
 
-## About SSH URLs with SSH certificates
+## SSH証明書を使用するSSH URLについて
 
-If your organization requires SSH certificates, to prevent authentication errors, organization members should use a special URL that includes the organization ID when performing Git operations over SSH. This special URL allows the client and server to more easily negotiate which key on the member's computer should be used for authentication. If a member uses the normal URL, which starts with `git@github.com`, the SSH client might offer the wrong key, causing the operation to fail.
+OrganizationがSSH証明書を必要とするなら、認証エラーを回避するために、OrganizationのメンバーはSSH経由でGitの操作をする際にOrganization IDを含む特別なURLを使わなければなりません。 この特別なURLを使うと、クライアントとサーバーは認証の際にメンバーのコンピュータが使うキーに関して簡単にネゴシエーションできるようになります。 メンバーが`git@github.com`で始まる通常のURLを使うと、SSHクライアントは間違ったキーを提供し、操作が失敗することになるかもしれません。
 
-Anyone with read access to the repository can find this URL by selecting the **Code** dropdown menu on the main page of the repository, then clicking **Use SSH**.
+リポジトリへの読み取りアクセスを持つ人は、リポジトリのメインページの**Code**ドロップダウンメニューを選択し、続いて**Use SSH（SSHを使用）**をクリックしてください。
 
-If your organization doesn't require SSH certificates, members can continue to use their own SSH keys, or other means of authentication. In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
+OrganizationがSSH証明書を必要としない場合は、メンバーは自分のSSHキーか、他の認証方法を使い続けることができます。 In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
 
 ## 証明書の発行
 
