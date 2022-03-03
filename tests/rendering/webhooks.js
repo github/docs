@@ -6,7 +6,7 @@ describe('webhooks events and payloads', () => {
   jest.setTimeout(300 * 1000)
 
   describe('rendering', () => {
-    test.skip('every webhook event has at least one payload example', async () => {
+    test('every webhook event has at least one payload example', async () => {
       const versions = Object.values(allVersions).map((value) => value.version)
 
       // For all versions, check that the webhook events and payloads page
