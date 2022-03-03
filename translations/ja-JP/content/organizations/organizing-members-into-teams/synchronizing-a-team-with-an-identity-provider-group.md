@@ -19,11 +19,11 @@ shortTitle: IdPとの同期
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
-{% ifversion ghec %}You can connect up to five IdP groups to a {% data variables.product.product_name %} team.{% elsif ghae %}You can connect a team on {% data variables.product.product_name %} to one IdP group. グループ内のすべてのユーザは自動的にチームに追加され、メンバーとして親 Organization にも追加されます。 グループを Team から切断すると、Team のメンバーシップを介して Organization のメンバーになったユーザは Organization から削除されます。{% endif %} IdP グループを複数の {% data variables.product.product_name %} Team に割り当てることができます。
+{% ifversion ghec %}最大で5つのIdPグループを{% data variables.product.product_name %} Teamに接続できます。{% elsif ghae %}{% data variables.product.product_name %}上のTeamは1つのIdPグループに接続できます。 グループ内のすべてのユーザは自動的にチームに追加され、メンバーとして親 Organization にも追加されます。 グループを Team から切断すると、Team のメンバーシップを介して Organization のメンバーになったユーザは Organization から削除されます。{% endif %} IdP グループを複数の {% data variables.product.product_name %} Team に割り当てることができます。
 
-{% ifversion ghec %}Team synchronization does not support IdP groups with more than 5000 members.{% endif %}
+{% ifversion ghec %}Team同期は5000以上のメンバーを持つIdPグループをサポートしません。{% endif %}
 
-いったん {% data variables.product.prodname_dotcom %} Team が IdP グループに接続されたら、IdP 管理者はアイデンティティプロバイダを通して Team メンバーシップを変更する必要があります。 You cannot manage team membership on {% data variables.product.product_name %}{% ifversion ghec %} or using the API{% endif %}.
+いったん {% data variables.product.prodname_dotcom %} Team が IdP グループに接続されたら、IdP 管理者はアイデンティティプロバイダを通して Team メンバーシップを変更する必要があります。 {% data variables.product.product_name %}上では{% ifversion ghec %}、あるいはAPIを使って{% endif %}Teamメンバーシップを管理することはできません。
 
 {% ifversion ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
@@ -39,7 +39,7 @@ IdP上でグループのメンバーシップが変更された場合、IdPはId
 
 IdP グループに接続された Team を含めて {% data variables.product.prodname_dotcom %} Team のリポジトリに対するアクセスを管理するには、{% data variables.product.product_name %} で変更を行う必要があります。 詳細は「[Team について](/articles/about-teams)」および「[Organization リポジトリへの Team のアクセスを管理する](/articles/managing-team-access-to-an-organization-repository)」を参照してください。
 
-{% ifversion ghec %}You can also manage team synchronization with the API. 詳しい情報については、「[Team 同期](/rest/reference/teams#team-sync)」を参照してください。{% endif %}
+{% ifversion ghec %}Team同期をAPIで管理することもできます。 詳しい情報については、「[Team 同期](/rest/reference/teams#team-sync)」を参照してください。{% endif %}
 
 {% ifversion ghec %}
 ## 同期される Team のメンバーに関する要件
@@ -49,18 +49,18 @@ IdP グループに接続された Team を含めて {% data variables.product.p
 - そのユーザがすでに {% data variables.product.product_name %} のユーザアカウントでログインしており、少なくとも 1 回は SAML シングルサインオンを介して Organization または Enterprise アカウントに認証されている場合。
 - そのユーザの SSO ID が IdP グループのメンバーである場合。
 
-これらの条件を満たしていない既存の Team またはグループメンバーは、{% data variables.product.product_name %} の Team から自動的に削除され、リポジトリにアクセスできなくなります。 ユーザのリンクされた ID を取り消すと、IdP グループにマップされている Team からユーザが削除されます。 For more information, see "[Viewing and managing a member's SAML access to your organization](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" and "[Viewing and managing a user's SAML access to your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."
+これらの条件を満たしていない既存の Team またはグループメンバーは、{% data variables.product.product_name %} の Team から自動的に削除され、リポジトリにアクセスできなくなります。 ユーザのリンクされた ID を取り消すと、IdP グループにマップされている Team からユーザが削除されます。 詳しい情報については「[OrganizationへのメンバーのSAMLアクセスの表示と管理](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)」及び「[EnterpriseへのユーザのSAMLアクセスの表示と管理](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)」を参照してください。
 
 削除された Team メンバーは、SSO を使って Organization または Enterprise アカウントに認証され、接続先の IdP グループに移動すれば、再び Team に自動的に追加できます。
 
-意図しない Team メンバーの削除を避けるために、Organization または Enterprise アカウントで SAML SSO を施行し、メンバーシップデータを同期するため新しい Team を作成し、IdP グループのメンバーシップを確認してから既存の Team を同期することをおすすめします。 For more information, see "[Enforcing SAML single sign-on for your organization](/articles/enforcing-saml-single-sign-on-for-your-organization)" and "[Configuring SAML single sign-on for your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
+意図しない Team メンバーの削除を避けるために、Organization または Enterprise アカウントで SAML SSO を施行し、メンバーシップデータを同期するため新しい Team を作成し、IdP グループのメンバーシップを確認してから既存の Team を同期することをおすすめします。 詳しい情報については、「[Organization で SAMLシングルサインオンを施行する](/articles/enforcing-saml-single-sign-on-for-your-organization)」と「[EnterpriseのSAML シングルサインオンの設定](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
 
 {% endif %}
 
 ## 必要な環境
 
 {% ifversion ghec %}
-{% data variables.product.product_name %} チームに接続する前に、Organization またはEnterprise のオーナーは、Organization または Enterprise アカウントの Team 同期を有効にする必要があります。 For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" and "[Managing team synchronization for organizations in your enterprise account](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
+{% data variables.product.product_name %} チームに接続する前に、Organization またはEnterprise のオーナーは、Organization または Enterprise アカウントの Team 同期を有効にする必要があります。 詳しい情報については、「[Organization の Team 同期を管理する](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)」と「[Enterprise アカウントで Team 同期を管理する](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)」を参照してください。
 
 Team メンバーを誤って削除しないように、お使いの IdP の管理ポータルにアクセスし、現在の各 Team メンバーが、接続しようとしている IdP グループにも属していることを確認してください。 アイデンティティプロバイダにこうしたアクセスができない場合は、IdP 管理者にお問い合わせください。
 
