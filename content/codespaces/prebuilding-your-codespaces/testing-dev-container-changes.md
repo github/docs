@@ -11,7 +11,7 @@ topics:
   - Codespaces
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: "People with write permissions to a repository can create or edit the dev container configuration for a branch."
+permissions: People with write permissions to a repository can create or edit the dev container configuration for a branch.
 ---
 
 {% data reusables.codespaces.prebuilds-beta-note %}

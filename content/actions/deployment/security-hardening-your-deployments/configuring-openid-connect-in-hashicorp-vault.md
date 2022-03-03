@@ -1,11 +1,11 @@
 ---
 title: Configuring OpenID Connect in HashiCorp Vault
 shortTitle: Configuring OpenID Connect in HashiCorp Vault
-intro: 'Use OpenID Connect within your workflows to authenticate with HashiCorp Vault.'
+intro: Use OpenID Connect within your workflows to authenticate with HashiCorp Vault.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
 type: tutorial
 topics:
