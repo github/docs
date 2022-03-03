@@ -34,7 +34,7 @@ permissions:
 
 # This allows one deploy workflow to interrupt another
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label }}'
+  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
   cancel-in-progress: true
 
 jobs:

@@ -15,7 +15,7 @@ topics:
 shortTitle: Organization membership
 ---
 
-Organization のオーナーに招待してもらい、メンバー、支払いマネージャー、あるいはオーナーとして、その Organization に加わることができます。 Organization のオーナーあるいはリポジトリの管理権限を持つメンバーは、あなたを外部コラボレーターとして 1 つ以上のリポジトリでコラボレーションするよう招待できます。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Organization のオーナーに招待してもらい、メンバー、支払いマネージャー、あるいはオーナーとして、その Organization に加わることができます。 Organization のオーナーあるいはリポジトリの管理権限を持つメンバーは、あなたを外部コラボレーターとして 1 つ以上のリポジトリでコラボレーションするよう招待できます。 詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
 
 プロフィールページ上でメンバーになっている Organization には、アクセスできます。 詳細は「[Organization にアクセスする](/articles/accessing-an-organization)」を参照してください。
 

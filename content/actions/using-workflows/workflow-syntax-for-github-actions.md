@@ -173,7 +173,7 @@ A boolean specifying whether the secret must be supplied.
 
 ## `on.workflow_dispatch.inputs`
 
-{% data reusables.github-actions.workflow-dispatch-inputs %}
+{% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissions`
@@ -320,7 +320,7 @@ A unique identifier for the step. You can use the `id` to reference the step in 
 
 You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 #### Example: Using contexts
 
@@ -761,7 +761,7 @@ strategy:
 
 ## `jobs.<job_id>.container`
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
@@ -791,7 +791,7 @@ strategy:
 
 ## `jobs.<job_id>.services`
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 Used to host service containers for a job in a workflow. Service containers are useful for creating databases or cache services like Redis. The runner  automatically creates a Docker network and manages the life cycle of the service containers.
 

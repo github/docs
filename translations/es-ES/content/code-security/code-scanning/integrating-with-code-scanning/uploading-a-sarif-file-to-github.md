@@ -86,7 +86,11 @@ jobs:
   build:
     runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
-      security-events: write{% endif %}
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read{% endif %}
     steps:
       # This step checks out a copy of your repository.
       - name: Checkout repository
@@ -123,7 +127,11 @@ jobs:
   build:
     runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
-      security-events: write{% endif %}
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read{% endif %}
     steps:
       - uses: actions/checkout@v2
       - name: Run npm install

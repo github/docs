@@ -85,6 +85,12 @@ Sempre que seus desenvolvedores de fluxo de trabalho quiserem usar uma ação qu
 
 Você deve planejar como você gerenciará os recursos necessários para usar o {% data variables.product.prodname_actions %}.
 
+{% ifversion ghes %}
+### Hardware requirements
+
+You may need to upgrade the CPU and memory resources for {% data variables.product.product_location %} to handle the load from {% data variables.product.prodname_actions %} without causing performance loss. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
+{% endif %}
+
 ### Executores
 
 Os fluxos de trabalho de {% data variables.product.prodname_actions %}} exigem executores.{% ifversion ghec %} Você pode escolher usar executores hospedados em {% data variables.product.prodname_dotcom %} ou executores auto-hospedados. Os executores hospedados em {% data variables.product.prodname_dotcom %} são convenientes porque são gerenciados por {% data variables.product.company_short %}, que administram a manutenção e atualizações para você. No entanto você deverá considerar os executores auto-hospedados se você precisar executar um fluxo de trabalho que terá acesso aos recursos por trás de seu firewall ou você quiser ter mais controle sobre os recursos, configuração, ou localização geográfica das máquinas dos seus executores. Para obter mais informações, consulte "[Sobre executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/using-github-hosted-runners/about-github-hosted-runners)" e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners).{% else %} Você deverá hospedar seus próprios executores instalando o aplicativo de executor auto-hospedado em {% data variables.product.prodname_actions %} nas suas próprias máquinas. Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."{% endif %}
@@ -111,7 +117,7 @@ Você deve configurar o armazenamento externo de blob para estes artefatos. Esco
 
 {% ifversion ghec or ghes %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %}
+{% data reusables.actions.artifact-log-retention-statement %}
 
 {% endif %}
 

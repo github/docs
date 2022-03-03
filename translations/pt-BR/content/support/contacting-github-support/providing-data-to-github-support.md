@@ -177,3 +177,4 @@ Você pode fazer upload diretamente de um pacote de suporte para o nosso servido
 ## Leia mais
 
 - "[Sobre o suporte do GitHub](/support/learning-about-github-support/about-github-support)"
+- "[Gerando uma verificação de integridade da sua empresa](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

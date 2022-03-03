@@ -63,7 +63,10 @@ topics:
 您可以在仓库的 **Insights（洞察）**选项卡上找到依赖项图。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 {% endif %}
 
-## Available with {% data variables.product.prodname_GH_advanced_security %}
+### Security overview for repositories
+For all public repositories, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.
+
+## 通过 {% data variables.product.prodname_GH_advanced_security %} 可用
 
 {% data reusables.advanced-security.ghas-availability %}
 
@@ -73,9 +76,9 @@ topics:
 
 ### {% data variables.product.prodname_secret_scanning_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. {% ifversion fpt or ghec %}For secrets identified in public repositories, the service is informed that the secret may be compromised.{% endif %}
+自动检测已签入存储库的令牌或凭据。 {% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} 在所有公共存储库中查找泄露的机密，并通知相关服务提供商该机密可能已泄露。 有关支持的机密和服务提供商的详细信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 合作伙伴](/code-security/secret-scanning/secret-scanning-partners)”。{% endif %}
 {%- ifversion ghec or ghes or ghae %}
-{% ifversion ghec %}For private repositories, you can view {% elsif ghes or ghae %}View {% endif %}any secrets that {% data variables.product.company_short %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised.{% endif %} For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+{% ifversion ghec %}在私有存储库中，可以查看 {% elsif ghes or ghae %}可以查看{% endif %} {% data variables.product.company_short %} 在代码中找到的任何机密。 应将已签入存储库的令牌或凭据视为已泄露。{% endif %} 更多信息请参阅“[关于秘密扫描](/github/administering-a-repository/about-secret-scanning)”。
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### 依赖项审查
@@ -83,10 +86,10 @@ Automatically detect tokens or credentials that have been checked into a reposit
 在合并拉取请求之前显示依赖项更改的全部影响以及任何有漏洞版本的详情。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
 {% endif %}
 
-{% ifversion ghec or ghes > 3.1 %}
-### 安全概述
+{% ifversion ghec or ghes > 3.1 or ghae-issue-4554 %}
+### Security overview for organizations{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, enterprises,{% endif %} and teams
 
-Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+检查组织的安全配置和警报，并确定风险最大的存储库。 更多信息请参阅“[关于安全概述](/code-security/security-overview/about-the-security-overview)”。
 {% endif %}
 
 ## 延伸阅读

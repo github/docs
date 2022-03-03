@@ -141,6 +141,16 @@ Neste exemplo, a injeção de script não tem sucesso:
 
 Com esta abordagem, o valor da expressão de {% raw %}`${{ github.event.issue.title }}`{% endraw %} é armazenado na memória e usada como uma variável e não interage com o processo de geração de script. Além disso, considere usar variáveis do shell de citação dupla para evitar [divisão de palavras](https://github.com/koalaman/shellcheck/wiki/SC2086), mas esta é [uma das muitas](https://mywiki.wooledge.org/BashPitfalls) recomendações gerais para escrever scripts de shell e não é específica para {% data variables.product.prodname_actions %}.
 
+{% ifversion fpt or ghec %}
+### Usando fluxos de trabalho iniciais para digitalização de código
+
+{% data reusables.advanced-security.starter-workflows-beta %}
+{% data variables.product.prodname_code_scanning_capc %} permite que você encontre vulnerabilidades de segurança antes de atingirem a produção. {% data variables.product.product_name %} fornece fluxos de trabalho iniciais para {% data variables.product.prodname_code_scanning %}. Você pode usar esses fluxos de trabalho sugeridos para construir seus fluxos de trabalho de {% data variables.product.prodname_code_scanning %}, ao invés de começar do zero. O fluxo de trabalho de {% data variables.product.company_short%}, o {% data variables.product.prodname_codeql_workflow %} é alimentado por {% data variables.product.prodname_codeql %}. Também existem fluxos de trabalho de terceiros iniciantes disponíveis.
+
+Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" e "[Configurando {% data variables.product.prodname_code_scanning %} usando fluxos de trabalho iniciais](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."
+
+{% endif %}
+
 ### Restringir permissões para tokens
 
 Para ajudar a mitigar o risco de um token exposto, considere restringir as permissões atribuídas. Para obter mais informações, consulte "[Modificar as permissões para o GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)".
@@ -255,13 +265,13 @@ Esta lista descreve as abordagens recomendadas para acessar os dados do reposit�
 
 ## Fortalecimento para executores auto-hospedados
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Os executores ** hospedados em {% data variables.product.prodname_dotcom %}** executam o código dentro de máquinas virtuais efêmeras e limpas e isoladas. Isso quer isto dizer que não há maneira de comprometer persistentemente este ambiente ou obter, de outra forma, acesso a mais informações do que foram colocadas neste ambiente durante o processo de inicialização.
 {% endif %}
 
-{% ifversion fpt %}**Auto-hospedados**{% elsif ghes or ghae %}Auto-hospedados{% endif %} executores para {% data variables.product.product_name %} não tem garantias para serem executados em máquinas virtuais efêmeas limpas, e podem ser comprometidos persistentemente por um código não confiável em um fluxo de trabalho.
+{% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-{% ifversion fpt %}Como resultado, os executores auto-hospedados quase [nunca devem ser usados para repositórios públicos](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) em {% data variables.product.product_name %}, porque qualquer usuário pode abrir pull requests contra o repositório e comprometer o ambiente. Da mesma forma,{% elsif ghes or ghae %}Tenha{% endif %} cuidado ao usar executores auto-hospedados em repositórios privados ou internos, como qualquer pessoa que puder bifurcar o repositório e abrir um pull request (geralmente aqueles com acesso de leitura ao repositório) são capazes de comprometer o ambiente de runner auto-hospedado. incluindo obter acesso a segredos e o `GITHUB_TOKEN` que{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, dependendo de suas configurações, pode conceder ao {% else %} concede ao repositório {% endif %}permissões de acesso de escrita. Embora os fluxos de trabalho possam controlar o acesso a segredos de ambiente usando os ambientes e revisões necessários, estes fluxos de trabalho não são executados em um ambiente isolado e continuam sendo susceptíveis aos mesmos riscos quando são executados por um executor auto-hospedado.
+{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Da mesma forma,{% elsif ghes or ghae %}Tenha{% endif %} cuidado ao usar executores auto-hospedados em repositórios privados ou internos, como qualquer pessoa que puder bifurcar o repositório e abrir um pull request (geralmente aqueles com acesso de leitura ao repositório) são capazes de comprometer o ambiente de runner auto-hospedado. incluindo obter acesso a segredos e o `GITHUB_TOKEN` que{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, dependendo de suas configurações, pode conceder ao {% else %} concede ao repositório {% endif %}permissões de acesso de escrita. Embora os fluxos de trabalho possam controlar o acesso a segredos de ambiente usando os ambientes e revisões necessários, estes fluxos de trabalho não são executados em um ambiente isolado e continuam sendo susceptíveis aos mesmos riscos quando são executados por um executor auto-hospedado.
 
 Quando um executor auto-hospedado é definido no nível da organização ou empresa, {% data variables.product.product_name %} pode programar fluxos de trabalho de vários repositórios para o mesmo executor. Consequentemente, um compromisso de segurança destes ambientes pode ter um grande impacto. Para ajudar a reduzir o escopo de um compromisso, você pode criar limites organizando seus executores auto-hospedados em grupos separados. Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 

@@ -24,11 +24,11 @@ shortTitle: Administrar los ajustes de las GitHub Actions
 
 ## Acerca de los permisos de {% data variables.product.prodname_actions %} para tu repositorio
 
-{% data reusables.github-actions.disabling-github-actions %}Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[Acerca de {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)".
+{% data reusables.actions.disabling-github-actions %}Para obtener más información acerca de {% data variables.product.prodname_actions %}, consulta la sección "[Acerca de {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)".
 
-Puedes habilitar {% data variables.product.prodname_actions %} para tu repositorio. {% data reusables.github-actions.enabled-actions-description %} Puedes inhabilitar {% data variables.product.prodname_actions %} totalmente para tu repositorio. {% data reusables.github-actions.disabled-actions-description %}
+Puedes habilitar {% data variables.product.prodname_actions %} para tu repositorio. {% data reusables.actions.enabled-actions-description %} Puedes inhabilitar {% data variables.product.prodname_actions %} totalmente para tu repositorio. {% data reusables.actions.disabled-actions-description %}
 
-De manera alterna, puedes habilitar {% data variables.product.prodname_actions %} en tu repositorio, pero limitar las acciones que un flujo de trabajo puede ejecutar. {% data reusables.github-actions.enabled-local-github-actions %}
+De manera alterna, puedes habilitar {% data variables.product.prodname_actions %} en tu repositorio, pero limitar las acciones que un flujo de trabajo puede ejecutar. {% data reusables.actions.enabled-local-github-actions %}
 
 ## Administrar los permisos de {% data variables.product.prodname_actions %} para tu repositorio
 
@@ -78,34 +78,34 @@ Puedes configurar este comportamiento para un repositorio si utilizas el siguien
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-{% data reusables.github-actions.workflows-from-public-fork-setting %}
+{% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
 ## Habilitar flujos de trabajo para las bifurcaciones de repositorios privados
 
-{% data reusables.github-actions.private-repository-forks-overview %}
+{% data reusables.actions.private-repository-forks-overview %}
 
-If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or{% endif %} organization, it cannot be enabled for a repository.
+Si se inhabilita una política para una {% ifversion ghec or ghae or ghes %}empresa u{% endif %} organización, esta no puede habilitarse para un repositorio.
 
-{% data reusables.github-actions.private-repository-forks-options %}
+{% data reusables.actions.private-repository-forks-options %}
 
 ### Configurar la política de bifurcaciones privadas para un repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-{% data reusables.github-actions.private-repository-forks-configure %}
+{% data reusables.actions.private-repository-forks-configure %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## Configurar los permisos del `GITHUB_TOKEN` para tu repositorio
 
-{% data reusables.github-actions.workflow-permissions-intro %}
+{% data reusables.actions.workflow-permissions-intro %}
 
-The default permissions can also be configured in the organization settings. If the more restricted default has been selected in the organization settings, the same option is auto-selected in your repository settings and the permissive option is disabled.
+Los permisos predeterminados también pueden configurarse en los ajustes de la organización. Si el predeterminado más restringido se seleccionó en la configuración de la organización, la misma opción se autoselecciona en tu configuración de repositorio y la opción permisiva se inhabilita.
 
-{% data reusables.github-actions.workflow-permissions-modifying %}
+{% data reusables.actions.workflow-permissions-modifying %}
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
@@ -122,7 +122,7 @@ The default permissions can also be configured in the organization settings. If 
 {% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## Permitir el acceso a los componentes en un repositorio interno
 
-Members of your enterprise can use internal repositories to work on projects without sharing information publicly. For information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
+Los miembros de tu empresa pueden utilizar repositorios internos para trabajar en proyectos sin compartir información públicamente. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)".
 
 Puedes configurar si se puede acceder a{% if internal-actions%}las acciones y {% endif %}flujos de trabajo en un repositorio interno desde fuera del mismo.{% if internal-actions %} Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".{% endif %}
 
@@ -141,15 +141,15 @@ Puedes configurar si se puede acceder a{% if internal-actions%}las acciones y {%
 
 ## Configurar el periodo de retención de los artefactos y bitácoras de las {% data variables.product.prodname_actions %} en tu repositorio
 
-You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.
+Puedes configurar el periodo de retenciòn para los artefactos de las {% data variables.product.prodname_actions %} y las bitàcoras en tu repositorio.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-You can also define a custom retention period for a specific artifact created by a workflow. For more information, see "[Setting the retention period for an artifact](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)."
+Tambièn puedes definir un periodo de retenciòn personalizado para un artefacto especìfico que haya creado un flujo de trabajo. Para obtener más información consulta la sección "[Configurar el periodo de retención para un artefacto](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)".
 
 ## Configurar el periodo de retenciòn para un repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions %}
-{% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
+{% data reusables.actions.change-retention-period-for-artifacts-logs  %}

@@ -25,7 +25,7 @@ Os contêineres de serviço são contêineres Docker que fornecem uma forma simp
 
 Você pode configurar os contêineres de serviço para cada trabalho em um fluxo de trabalho. {% data variables.product.prodname_dotcom %} cria um novo contêiner Docker para cada serviço configurado no fluxo de trabalho e destrói o contêiner de serviço quando o trabalho é concluído. As etapas em um trabalho podem comunicar-se com todos os contêineres de serviço que fazem parte do mesmo trabalho.
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## Comunicar-se com os contêineres de serviço
 

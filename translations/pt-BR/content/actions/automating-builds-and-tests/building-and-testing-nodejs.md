@@ -73,7 +73,7 @@ jobs:
 ```
 {% endraw %}
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
 ## Especificar a versão do Node.js
 
@@ -204,7 +204,7 @@ steps:
 
 ### Exemplo do uso de um registro privado e de criação o arquivo .npmrc
 
-{% data reusables.github-actions.setup-node-intro %}
+{% data reusables.actions.setup-node-intro %}
 
 Para efetuar a autenticação com seu registro privado, você precisará armazenar seu token de autenticação npm como um segredo. Por exemplo, crie um repositório secreto denominado `NPM_TOKEN`. Para obter mais informações, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 

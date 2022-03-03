@@ -1,4 +1,4 @@
-{% ifversion ghae %}Enterpriseのポリシーでインターナル及びプライベートのリポジトリのフォークが許されているなら、{% else %}{% endif %}ユーザアカウントあるいはリポジトリの作成権限を持つOrganizationにリポジトリをフォークできます。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+{% ifversion ghae %}Enterpriseのポリシーでインターナル及びプライベートのリポジトリのフォークが許されているなら、{% else %}{% endif %}ユーザアカウントあるいはリポジトリの作成権限を持つOrganizationにリポジトリをフォークできます。 詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
 
 {% ifversion fpt or ghes or ghec %}
 

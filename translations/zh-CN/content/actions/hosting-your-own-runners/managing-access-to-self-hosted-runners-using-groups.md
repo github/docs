@@ -49,22 +49,22 @@ shortTitle: 管理运行器组
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runner-groups %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups %}
 1. 在“Runner groups（运行器组）”部分，单击 **New runner group（新运行器组）**。
- {% data reusables.github-actions.runner-group-assign-policy-repo %}
+ {% data reusables.actions.runner-group-assign-policy-repo %}
 
    {% warning %}
 
-   **警告：** {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   **警告：** {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
    {% endwarning %}
-{% data reusables.github-actions.self-hosted-runner-create-group %}
+{% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runners %}
+{% data reusables.actions.settings-sidebar-actions-runners %}
 1. 在 {% ifversion ghes > 3.1 or ghae %}“Runners（运行器）”{% elsif ghes < 3.2 %}“Self-hosted runners（自托管运行器）”{% endif %} 下，单击 **Add new（新增）**，然后单击 **New group（新建组）**。
 
     ![添加运行器组](/assets/images/help/settings/actions-org-add-runner-group.png)
@@ -76,7 +76,7 @@ shortTitle: 管理运行器组
 
    **警告**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
@@ -88,7 +88,7 @@ shortTitle: 管理运行器组
 
 ## 为企业创建自托管运行器组
 
-企业可以将其自托管的运行器添加到组以进行访问管理。 企业可以创建供企业帐户中特定组织访问的自托管运行器组。 然后，组织管理员可以为企业运行器组分配其他细致的仓库访问策略。 有关如何使用 REST API 创建自托管运行器组的信息，请参阅[企业管理 GitHub Actions API](/rest/reference/enterprise-admin#github-actions)。
+企业可以将其自托管的运行器添加到组以进行访问管理。 企业可以创建供企业帐户中特定组织访问的自托管运行器组。 然后，组织管理员可以为企业运行器组分配其他细致的仓库访问策略。 有关如何使用 REST API 创建自托管运行器组的信息，请参阅 [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups) 中的企业端点。
 
 自托管运行器在创建时会自动分配给默认组，并且每次只能成为一个组的成员。 您可以在注册过程中将运行器分配给特定组，也可以稍后将运行器从默认组移到自定义组。
 
@@ -100,18 +100,18 @@ shortTitle: 管理运行器组
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runner-groups-tab %}
 1. 单击 **New runner group（新运行器组）**。
- {% data reusables.github-actions.runner-group-assign-policy-org %}
+ {% data reusables.actions.runner-group-assign-policy-org %}
 
    {% warning %}
 
    **警告**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
    {% endwarning %}
-{% data reusables.github-actions.self-hosted-runner-create-group %}
+{% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -122,13 +122,13 @@ shortTitle: 管理运行器组
     ![添加运行器组](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
 1. 输入运行程序组的名称，并分配组织访问策略。
 
-    您可以配置运行器组供特定的组织列表或企业中所有组织访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.
+    您可以配置运行器组供特定的组织列表或企业中所有组织访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 如果配置企业共享的组织的运行组，则不能覆盖此设置。
 
    {% warning %}
 
    **警告**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
@@ -143,21 +143,21 @@ shortTitle: 管理运行器组
 
 您可以更新运行器组的访问策略，或重命名运行器组。
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
-{% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.github-actions.settings-sidebar-actions-runner-groups-selection %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. 修改访问选项或更改运行器组名称。
 
    {% warning %}
 
    **警告**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
    {% endwarning %}
 {% elsif ghae or ghes < 3.4 %}
-{% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
+{% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
@@ -179,7 +179,7 @@ shortTitle: 管理运行器组
 
 如果您在注册过程中没有指定运行器组，新的自托管运行器将自动分配到默认组，然后可以移到另一个组。
 
-{% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. 在“Runners（运行器）”列表中，单击您要配置的运行器。
 2. 选择运行器组下拉菜单。
@@ -195,7 +195,7 @@ shortTitle: 管理运行器组
 自托管运行器在其组被删除时将自动返回到默认组。
 
 {% ifversion ghes > 3.1 or ghae or ghec %}
-{% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. 在组列表中，在要删除的组右侧，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。
 2. 要删除组，请单击 **Remove group（删除组）**。
 3. 查看确认提示，然后单击 **Remove this runner group（删除此运行器组）**。

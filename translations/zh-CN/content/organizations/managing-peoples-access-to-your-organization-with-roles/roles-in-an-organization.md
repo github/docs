@@ -30,6 +30,10 @@ Organization-level roles are sets of permissions that can be assigned to individ
 
 You can assign individuals or teams to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
 
+{% if enterprise-owner-join-org %}
+If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+{% endif %}
+
 ### Organization owners
 Organization owners have complete administrative access to your organization. 此角色应限于组织中的少数几个人，但不少于两人。 更多信息请参阅“[管理组织的所有权连续性](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)”。
 
@@ -130,6 +134,7 @@ If your organization has a security team, you can use the security manager role 
 | 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                | **X** |       |       |    |{% ifversion ghec %}
 | 启用团队同步（详情请参阅“[管理组织的团队同步](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)”）                                                                                                   | **X** |       |       |        
 {% endif %}
+| Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)")                                      | **X** |       |       |                             |
 
 {% elsif ghes > 3.2 or ghae-issue-4999 %}
 <!--GHES 3.3+ and eventual GHAE release don't have the extra column for Billing managers, but have security managers-->
@@ -176,7 +181,9 @@ If your organization has a security team, you can use the security manager role 
 | 将组织成员转换为[外部协作者](#outside-collaborators)                                                                                                                                                                                                             | **X** |       |                                              |
 | [查看对组织仓库具有访问权限的人员](/articles/viewing-people-with-access-to-your-repository)                                                                                                                                                                         | **X** |       |                                              |
 | [导出具有组织仓库访问权限人员的列表](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository)                                                                                                             | **X** |       |                                              |
-| 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                | **X** |       |                                              |
+| 管理默认标签（请参阅“[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)”）                                                                                                                                                | **X** |       |    |{% if pull-request-approval-limit %}
+| Manage pull request reviews in the organization (see "[Managing pull request reviews in your organization](/organizations/managing-organization-settings/managing-pull-request-reviews-in-your-organization)")                                      | **X** |       |               |  
+{% endif %}
 {% ifversion ghae %}| Manage IP allow lists (see "[Restricting network traffic to your enterprise](/admin/configuration/restricting-network-traffic-to-your-enterprise)") | **X** | |  |{% endif %}
 
 
