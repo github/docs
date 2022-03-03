@@ -63,8 +63,8 @@ topics:
 您可以在仓库的 **Insights（洞察）**选项卡上找到依赖项图。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 {% endif %}
 
-### Security overview for repositories
-For all public repositories, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.
+### 存储库的安全概述
+对于所有公共存储库，安全概述显示为存储库启用了哪些安全功能，并提供配置当前未启用的任何可用安全功能的选项。
 
 ## 通过 {% data variables.product.prodname_GH_advanced_security %} 可用
 
@@ -87,7 +87,7 @@ For all public repositories, the security overview shows which security features
 {% endif %}
 
 {% ifversion ghec or ghes > 3.1 or ghae-issue-4554 %}
-### Security overview for organizations{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, enterprises,{% endif %} and teams
+### 组织{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}、企业、{% endif %} 和团队的安全概述
 
 检查组织的安全配置和警报，并确定风险最大的存储库。 更多信息请参阅“[关于安全概述](/code-security/security-overview/about-the-security-overview)”。
 {% endif %}
