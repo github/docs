@@ -1,12 +1,12 @@
 ---
 title: Configuring secret scanning for your repositories
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for secrets.'
-permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning %} for the repository.'
+intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for secrets that match advanced security patterns.'
+product: '{% data reusables.gated-features.secret-scanning %}'
+permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning_GHAS %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/configuring-secret-scanning-for-private-repositories
   - /github/administering-a-repository/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-security/configuring-secret-scanning-for-your-repositories
-product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   ghes: '*'
   ghae: '*'
@@ -22,19 +22,9 @@ shortTitle: Configure secret scans
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-{% ifversion fpt or ghec %}
-{% note %}
+## Enabling {% data variables.product.prodname_secret_scanning_GHAS %}
 
-**Note:** {% data variables.product.prodname_secret_scanning_caps %} is enabled by default on public repositories and cannot be turned off. You can configure {% data variables.product.prodname_secret_scanning %} for your private repositories only.
-
-{% endnote %}
-{% endif %}
-
-## Enabling {% data variables.product.prodname_secret_scanning %} for {% ifversion fpt or ghec %}private {% endif %}repositories
-
-{% ifversion ghes or ghae %}
-You can enable {% data variables.product.prodname_secret_scanning %} for any repository that is owned by an organization. 
-{% endif %} Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
+You can enable {% data variables.product.prodname_secret_scanning_GHAS %} for any repository that is owned by an organization. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -59,7 +49,7 @@ You can enable {% data variables.product.prodname_secret_scanning %} for any rep
    ![Enable {% data variables.product.prodname_secret_scanning %} for your repository](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
-## Excluding alerts from {% data variables.product.prodname_secret_scanning %} in {% ifversion fpt or ghec %}private {% endif %}repositories
+## Excluding directories from {% data variables.product.prodname_secret_scanning_GHAS %}
 
 You can use a *secret_scanning.yml* file to exclude directories from {% data variables.product.prodname_secret_scanning %}. For example, you can exclude directories that contain tests or randomly generated content.
 

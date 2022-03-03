@@ -94,6 +94,11 @@ products:
       deprecation_notice: 非推奨通知
   rest:
     reference:
+      default: デフォルト
+      name: 名前
+      in: In
+      type: 種類
+      description: 説明
       notes: 注釈
       parameters: パラメータ
       response: レスポンス
@@ -104,6 +109,7 @@ products:
       see_preview_notice: プレビューの通知を見る
       see_preview_notices: プレビューの通知を見る
       preview_header_is_required: このヘッダは<strong>必須</strong>です
+      preview_notice_to_change: This API is under preview and subject to change
       works_with_github_apps: Works with GitHub Apps
 footer:
   all_rights_reserved: All rights reserved
