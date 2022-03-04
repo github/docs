@@ -84,7 +84,7 @@ Within a codespace, you have access to the Visual Studio Code Marketplace. For t
 
   ![Add an extension](/assets/images/help/codespaces/add-extension.png)
 
-3. Select the `fairyfloss` theme by selecting it from the list.
+3. Select the `fairyfloss` theme by selecting it from list.
 
   ![Select the fairyfloss theme](/assets/images/help/codespaces/fairyfloss.png)
 
@@ -93,7 +93,7 @@ Within a codespace, you have access to the Visual Studio Code Marketplace. For t
 ## Next Steps
 
 You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_codespaces %}.
-  - [Deep dive](/codespaces/getting-started/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_codespaces %}. The deep dive looks at these areas from a technical standpoint.
+  - [Deep dive](/codespaces/getting-started/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_codespaces %}. The deepdive looks at these areas from a technical standpoint.
   - [Setting up your project for {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): These guides provide information on setting up your project to use {% data variables.product.prodname_codespaces %} with specific languages.
   - [Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project): This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
 
