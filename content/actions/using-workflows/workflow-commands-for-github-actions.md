@@ -395,13 +395,14 @@ jobs:
   workflow-command-job:
     runs-on: ubuntu-latest
     steps:
-      - name: disable workflow commands
+      - name: Disable workflow commands
         run: |
-          echo '::warning:: this is a warning'
-          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
-          echo '::warning:: this will NOT be a warning'
-          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
-          echo '::warning:: this is a warning again'
+          echo '::warning:: This is a warning message, to demonstrate that commands are being processed.'
+          stopMarker=$(uuidgen)
+          echo "::stop-commands::$stopMarker"
+          echo '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
+          echo "::$stopMarker::"
+          echo '::warning:: This is a warning again, because stop-commands has been turned off.'
 ```
 {% endraw %}
 
@@ -415,14 +416,14 @@ jobs:
   workflow-command-job:
     runs-on: windows-latest
     steps:
-      - name: disable workflow commands
+      - name: Disable workflow commands
         run: |
-          Write-Output '::warning:: this is a warning'
+          Write-Output '::warning:: This is a warning message, to demonstrate that commands are being processed.'
           $stopMarker = New-Guid
           Write-Output "::stop-commands::$stopMarker"
-          Write-Output '::warning:: this will NOT be a warning'
+          Write-Output '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
           Write-Output "::$stopMarker::"
-          Write-Output '::warning:: this is a warning again'
+          Write-Output '::warning:: This is a warning again, because stop-commands has been turned off.'
 ```
 
 {% endraw %}
