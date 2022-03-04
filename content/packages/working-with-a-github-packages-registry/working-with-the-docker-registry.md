@@ -264,5 +264,5 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 ## Further reading
 
 - "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
-
+ 
 {% endif %}  <!-- End of main versioning block -->
