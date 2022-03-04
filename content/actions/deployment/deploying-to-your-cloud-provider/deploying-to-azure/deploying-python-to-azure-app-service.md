@@ -111,7 +111,7 @@ jobs:
       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: python-app
           path: |
@@ -126,7 +126,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: python-app
           path: .
