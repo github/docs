@@ -19,6 +19,8 @@ shortTitle: Missing contributions
 
 Your profile contributions graph is a record of contributions you've made to repositories {% ifversion ghae %}owned by{% else %}on{% endif %} {% data variables.product.product_location %}. Contributions are timestamped according to Coordinated Universal Time (UTC) rather than your local time zone. Contributions are only counted if they meet certain criteria. In some cases, we may need to rebuild your graph in order for contributions to appear.
 
+If you are part of an organization that uses SAML single sign-on (SSO), you won’t be able to see contribution activity from the organization on your profile if you do not have an active SSO session. People viewing your profile from outside your organization will see anonymized contribution activity of your contribution activity for your organization.
+
 ## Contributions that are counted
 
 ### Issues, pull requests and discussions
@@ -40,14 +42,6 @@ In addition, **at least one** of the following must be true:
 - You have forked the repository.
 - You have opened a pull request or issue in the repository.
 - You have starred the repository.
-
-{% note %}
-
-**Note:** If commits are made to an organization that uses SSO, when you view your profile in a state where you are logged in to GitHub, but not SSO authenticated, you will not see your contributions on your profile even if you have private contributions enabled.
-
-However, if you are logged out of GitHub entirely, you should see all your contributions correctly.
-
-{% endnote %}
 
 ## Common reasons that contributions are not counted
 
