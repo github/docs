@@ -21,7 +21,7 @@ miniTocMaxHeadingLevel: 4
 
 ## 关于 {% data variables.product.prodname_actions %} 的 YAML 语法
 
-All actions require a metadata file. 元数据文件名必须是 `action.yml` 或 `action.yaml`。 The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
+所有操作都需要元数据文件。 元数据文件名必须是 `action.yml` 或 `action.yaml`。 元数据文件中的数据定义操作的输入、输出和运行配置。
 
 操作元数据文件使用 YAML 语法。 如果您是 YAML 的新用户，请参阅“[五分钟了解 YAML](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)”。
 
@@ -41,7 +41,7 @@ All actions require a metadata file. 元数据文件名必须是 `action.yml` �
 
 **可选** 输入参数用于指定操作在运行时预期使用的数据。 {% data variables.product.prodname_dotcom %} 将输入参数存储为环境变量。 大写的输入 ID 在运行时转换为小写。 建议使用小写输入 ID。
 
-### Example: Specifying inputs
+### 示例：指定输入
 
 此示例配置两个输入：numOctocats 和 octocatEyeColor。 numOctocats 输入不是必要的，默认值为 '1'。 octocatEyeColor 输入是必要的，没有默认值。 使用此操作的工作流程文件必须使用 `with` 关键词来设置 octocatEyeColor 的输入值。 有关 `with` 语法的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)”。
 
@@ -84,13 +84,13 @@ inputs:
 
 **可选** 如果使用输入参数，此 `string` 将记录为警告消息。 您可以使用此警告通知用户输入已被弃用，并提及任何其他替代方式。
 
-## `outputs` for Docker container and JavaScript actions
+## 用于 Docker 容器和 JavaScript 操作的 `outputs`
 
 **可选** 输出参数允许您声明操作所设置的数据。 稍后在工作流程中运行的操作可以使用以前运行操作中的输出数据集。  例如，如果有操作执行两个输入的相加 (x + y = z)，则该操作可能输出总和 (z)，用作其他操作的输入。
 
 如果不在操作元数据文件中声明输出，您仍然可以设置输出并在工作流程中使用它们。 有关在操作中设置输出的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程命令](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)”。
 
-### Example: Declaring outputs for Docker container and JavaScript actions
+### 示例：声明 Docker 容器和 JavaScript 操作的输出
 
 ```yaml
 outputs:
@@ -108,11 +108,18 @@ outputs:
 
 ## 用于复合操作的 `outputs`
 
-**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
+**可选** `outputs` 使用与 `outputs.<output_id>` 及 `outputs.<output_id>.description` 相同的参数（请参阅“用于 Docker 容器和 JavaScript 操作的
 
-### Example: Declaring outputs for composite actions
+
+`outputs`”），但也包括 `value` 令牌。</p> 
+
+
+
+### 示例：声明复合操作的 outputs
 
 {% raw %}
+
+
 ```yaml
 outputs:
   random-number:
@@ -125,7 +132,11 @@ runs:
       run: echo "::set-output name=random-id::$(echo $RANDOM)"
       shell: bash
 ```
+
+
 {% endraw %}
+
+
 
 ### `outputs.<output_id>.value`
 
@@ -133,15 +144,23 @@ runs:
 
 有关如何使用上下文语法的更多信息，请参阅“[上下文](/actions/learn-github-actions/contexts)”。
 
+
+
 ## `runs`
 
-**Required** Specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
+**必要** 指定这是 JavaScript 操作、复合操作还是 Docker 容器操作以及操作的执行方式。
+
+
 
 ## 用于 JavaScript 操作的 `runs`
 
-**Required** Configures the path to the action's code and the runtime used to execute the code.
+**必要** 配置操作代码的路径和用于执行代码的运行时。
 
-### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
+
+
+### 示例：使用 Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
+
+
 
 ```yaml
 runs:
@@ -149,22 +168,31 @@ runs:
   main: 'main.js'
 ```
 
+
+
+
 ### `runs.using`
 
-**Required** The runtime used to execute the code specified in [`main`](#runsmain).
+**必要** 用于执行 [`main`](#runsmain) 中指定的代码的支行时。  
 
-- Use `node12` for Node.js v12.{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
-- Use `node16` for Node.js v16.{% endif %}
+- 将 `node12` 用于 Node.js v12。{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+- 将 `node16` 用于 Node.js v16。{% endif %}
+
+
 
 ### `runs.main`
 
-**必要** 包含操作代码的文件。 The runtime specified in [`using`](#runsusing) executes this file.
+**必要** 包含操作代码的文件。 [`using`](#runsusing) 中指定的运行时执行此文件。
+
+
 
 ### `runs.pre`
 
-**可选** 允许您在 `main:` 操作开始之前，在作业开始时运行脚本。 例如，您可以使用 `pre:` 运行基本要求设置脚本。 The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**可选** 允许您在 `main:` 操作开始之前，在作业开始时运行脚本。 例如，您可以使用 `pre:` 运行基本要求设置脚本。 使用 [`using`](#runsusing) 语法指定的运行时将执行此文件。 `pre:` 操作始终默认运行，但您可以使用 [`runs.pre-if`](#runspre-if) 覆盖该设置。
 
 在此示例中，`pre:` 操作运行名为 `setup.js` 的脚本：
+
+
 
 ```yaml
 runs:
@@ -174,24 +202,34 @@ runs:
   post: 'cleanup.js'
 ```
 
+
+
+
 ### `runs.pre-if`
 
-**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
+**可选** 允许您定义 `pre:` 操作执行的条件。 `pre:` 操作仅在满足 `pre-if` 中的条件后运行。 如果未设置，则 `pre-if` 默认使用 `always()`。 在 `pre-if` 中，状态检查函数根据作业的状态而不是操作自己的状态进行评估。
 
 请注意，`step` 上下文不可用，因为尚未运行任何步骤。
 
 在此示例中，`cleanup.js` 仅在基于 Linux 的运行器上运行：
+
+
 
 ```yaml
   pre: 'cleanup.js'
   pre-if: runner.os == 'linux'
 ```
 
+
+
+
 ### `runs.post`
 
-**可选** 允许您在 `main:` 操作完成后，在作业结束时运行脚本。 例如，您可以使用 `post:` 终止某些进程或删除不需要的文件。 The runtime specified with the [`using`](#runsusing) syntax will execute this file.
+**可选** 允许您在 `main:` 操作完成后，在作业结束时运行脚本。 例如，您可以使用 `post:` 终止某些进程或删除不需要的文件。 使用 [`using`](#runsusing) 语法指定的运行时将执行此文件。
 
 在此示例中，`post:` 操作会运行名为 `cleanup.js` 的脚本：
+
+
 
 ```yaml
 runs:
@@ -200,44 +238,70 @@ runs:
   post: 'cleanup.js'
 ```
 
+
 `post:` 操作始终默认运行，但您可以使用 `post-if` 覆盖该设置。
+
+
 
 ### `runs.post-if`
 
-**可选** 允许您定义 `post:` 操作执行的条件。 `post:` 操作仅在满足 `post-if` 中的条件后运行。 如果未设置，则 `post-if` 默认使用 `always()`。 In `post-if`, status check functions evaluate against the job's status, not the action's own status.
+**可选** 允许您定义 `post:` 操作执行的条件。 `post:` 操作仅在满足 `post-if` 中的条件后运行。 如果未设置，则 `post-if` 默认使用 `always()`。 在 `post-if` 中，状态检查函数根据作业的状态而不是操作自己的状态进行评估。
 
 例如，此 `cleanup.js` 仅在基于 Linux 的运行器上运行：
+
+
 
 ```yaml
   post: 'cleanup.js'
   post-if: runner.os == 'linux'
 ```
 
+
+
+
 ## 用于复合操作的 `runs`
 
-**Required** Configures the path to the composite action.
+**必要** 配置组合操作的路径。
+
+
 
 ### `runs.using`
 
-**Required** You must set this value to `'composite'`.
+**必要** 必须将此值设置为 `'composite'`。
+
+
 
 ### `runs.steps`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
-**必要** 您计划在此操作中的步骤。 这些步骤可以是 `run` 步骤或 `uses` 步骤。
+
+
+**必要** 您计划在此操作中的步骤。 这些步骤可以是 `run` 步骤或 `uses` 步骤。 
+
 {% else %}
-**必要** 您计划在此操作中的步骤。
+
+**必要** 您计划在此操作中的步骤。 
+
 {% endif %}
+
+
 
 #### `runs.steps[*].run`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
-**可选** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本：
+
+
+**可选** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本： 
+
 {% else %}
-**必要** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本：
+
+**必要** 您想要运行的命令。 这可以是内联的，也可以是操作仓库中的脚本： 
+
 {% endif %}
 
 {% raw %}
+
+
 ```yaml
 runs:
   using: "composite"
@@ -245,9 +309,13 @@ runs:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
+
+
 {% endraw %}
 
 或者，您也可以使用 `$GITHUB_ACTION_PATH`：
+
+
 
 ```yaml
 runs:
@@ -257,26 +325,38 @@ runs:
       shell: bash
 ```
 
+
 更多信息请参阅“[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
+
+
 
 #### `runs.steps[*].shell`
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
-**可选** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)列出的任何 shell。 如果设置了 `run`，则必填。
+
+
+**可选** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)列出的任何 shell。 如果设置了 `run`，则必填。 
+
 {% else %}
-**必要** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)列出的任何 shell。 如果设置了 `run`，则必填。
+
+**必要** 您想要在其中运行命令的 shell。 您可以使用[这里](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)列出的任何 shell。 如果设置了 `run`，则必填。 
+
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
+
+
 #### `runs.steps[*].if`
 
-**Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. 您可以使用任何支持上下文和表达式来创建条件。
+**可选** 您可以使用 `if` 条件使步骤仅在满足条件时才运行。 您可以使用任何支持上下文和表达式来创建条件。
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 **示例：使用上下文**
 
- 此步骤仅在事件类型为 `pull_request` 并且事件操作为 `unassigned` 时运行。
+此步骤仅在事件类型为 `pull_request` 并且事件操作为 `unassigned` 时运行。
+
+
 
  ```yaml
 steps:
@@ -284,9 +364,12 @@ steps:
     if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
 ```
 
+
 **示例：使用状态检查功能**
 
-The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+`my backup step` 仅在组合操作的上一步失败时运行。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+
+
 
 ```yaml
 steps:
@@ -296,35 +379,50 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@1.0.0
 ```
+
+
 {% endif %}
+
+
 
 #### `runs.steps[*].name`
 
 **可选** 复合步骤的名称。
 
+
+
 #### `runs.steps[*].id`
 
 **可选** 步骤的唯一标识符。 您可以使用 `id` 引用上下文中的步骤。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts)”。
 
+
+
 #### `runs.steps[*].env`
 
-**可选** 设置环境变量的 `map` 仅用于该步骤。 If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
+**可选** 设置环境变量的 `map` 仅用于该步骤。 如果要修改存储在工作流程中的环境变量，请在组合运行步骤中使用 `echo "{name}={value}" >> $GITHUB_ENV`。
+
+
 
 #### `runs.steps[*].working-directory`
 
 **可选**  指定命令在其中运行的工作目录。
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4853 or ghec %}
+
+
 #### `runs.steps[*].uses`
 
 **可选**  选择作为作业步骤一部分运行的操作。 操作是一种可重复使用的代码单位。 您可以使用工作流程所在仓库中、公共仓库中或[发布 Docker 容器映像](https://hub.docker.com/)中定义的操作。
 
 强烈建议指定 Git ref、SHA 或 Docker 标记编号来包含所用操作的版本。 如果不指定版本，在操作所有者发布更新时可能会中断您的工作流程或造成非预期的行为。
+
 - 使用已发行操作版本的 SHA 对于稳定性和安全性是最安全的。
 - 使用特定主要操作版本可在保持兼容性的同时接收关键修复和安全补丁。 还可确保您的工作流程继续工作。
 - 使用操作的默认分支可能很方便，但如果有人新发布具有突破性更改的主要版本，您的工作流程可能会中断。
 
 有些操作要求必须通过 [`with`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepswith) 关键词设置输入。 请查阅操作的自述文件，确定所需的输入。
+
+
 
 ```yaml
 runs:
@@ -348,9 +446,14 @@ runs:
     - uses: docker://alpine:3.8
 ```
 
+
+
+
 #### `runs.steps[*].with`
 
 **可选** 输入参数的 `map` 由操作定义。 每个输入参数都是一个键/值对。  输入参数被设置为环境变量。 该变量的前缀为 INPUT_，并转换为大写。
+
+
 
 ```yaml
 runs:
@@ -363,13 +466,21 @@ runs:
         middle_name: The
         last_name: Octocat  
 ```
+
+
 {% endif %}
 
-## `runs` for Docker container actions
 
-**Required** Configures the image used for the Docker container action.
 
-### Example: Using a Dockerfile in your repository
+## 用于 Docker 容器操作的 `runs`
+
+**必要** 配置用于 Docker 容器操作的图像。
+
+
+
+### 示例：在仓库中使用 Dockerfile
+
+
 
 ```yaml
 runs:
@@ -377,7 +488,12 @@ runs:
   image: 'Dockerfile'
 ```
 
-### Example: Using public Docker registry container
+
+
+
+### 示例：使用公共 Docker 注册表容器
+
+
 
 ```yaml
 runs:
@@ -385,17 +501,24 @@ runs:
   image: 'docker://debian:stretch-slim'
 ```
 
+
+
+
 ### `runs.using`
 
 **必要** 必须将此值设置为 `'docker'`。
 
+
+
 ### `runs.pre-entrypoint`
 
-**可选** 允许您在 `entrypoint` 操作开始之前运行脚本。 例如，您可以使用 `pre-entrypoint:` 运行基本要求设置脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 启动此操作，并在使用同一基本映像的新容器中运行脚本。 这意味着运行时状态与主 `entrypoint` 容器不同，并且必须在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**可选** 允许您在 `entrypoint` 操作开始之前运行脚本。 例如，您可以使用 `pre-entrypoint:` 运行基本要求设置脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 启动此操作，并在使用同一基本映像的新容器中运行脚本。 这意味着运行时状态与主 `entrypoint` 容器不同，并且必须在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `pre-entrypoint:` 操作始终默认运行，但您可以使用 [`runs.pre-if`](#runspre-if) 覆盖该设置。
 
-The runtime specified with the [`using`](#runsusing) syntax will execute this file.
+使用 [`using`](#runsusing) 语法指定的运行时将执行此文件。
 
 在此示例中，`pre-entrypoint:` 操作会运行名为 `setup.sh` 的脚本：
+
+
 
 ```yaml
 runs:
@@ -407,13 +530,20 @@ runs:
   entrypoint: 'main.sh'
 ```
 
+
+
+
 ### `runs.image`
 
 **必要** 要用作容器来运行操作的 Docker 映像。 值可以是 Docker 基本映像名称、仓库中的本地 `Dockerfile`、Docker Hub 中的公共映像或另一个注册表。 要引用仓库本地的 `Dockerfile`，文件必须命名为 `Dockerfile`，并且您必须使用操作元数据文件的相对路径。 `Docker` 应用程序将执行此文件。
 
+
+
 ### `runs.env`
 
 **可选** 指定要在容器环境中设置的环境变量的键/值映射。
+
+
 
 ### `runs.entrypoint`
 
@@ -421,9 +551,13 @@ runs:
 
 有关 `entrypoint` 如何执行的更多信息，请参阅“[Dockerfile 对 {% data variables.product.prodname_actions %} 的支持](/actions/creating-actions/dockerfile-support-for-github-actions/#entrypoint)”。
 
+
+
 ### `post-entrypoint`
 
-**可选** 允许您在 `runs.entrypoint` 操作完成后运行清理脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 来启动此操作。 因为  {% data variables.product.prodname_actions %} 使用同一基本映像在新容器内运行脚本，所以运行时状态与主 `entrypoint` 容器不同。 您可以在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
+**可选** 允许您在 `runs.entrypoint` 操作完成后运行清理脚本。 {% data variables.product.prodname_actions %} 使用 `docker run` 来启动此操作。 因为  {% data variables.product.prodname_actions %} 使用同一基本映像在新容器内运行脚本，所以运行时状态与主 `entrypoint` 容器不同。 您可以在任一工作空间中访问所需的任何状态，`HOME` 或作为 `STATE_` 变量。 `post-entrypoint:` 操作始终默认运行，但您可以使用 [`runs.post-if`](#runspost-if) 覆盖该设置。
+
+
 
 ```yaml
 runs:
@@ -435,21 +569,28 @@ runs:
   post-entrypoint: 'cleanup.sh'
 ```
 
+
+
+
 ### `runs.args`
 
 **可选** 定义 Docker 容器输入的字符串数组。 输入可包含硬编码的字符串。 {% data variables.product.prodname_dotcom %} 在容器启动时将 `args` 传递到容器的 `ENTRYPOINT`。
 
 `args` 用来代替 `Dockerfile` 中的 `CMD` 指令。 如果在 `Dockerfile` 中使用 `CMD`，请遵循按偏好顺序排序的指导方针：
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 如果需要将环境变量传递到操作中，请确保操作运行命令 shell 以执行变量替换。 例如，如果 `entrypoint` 属性设置为 `"sh -c"`，`args` 将在命令 shell 中运行。 或者，如果 `Dockerfile` 使用 `ENTRYPOINT` 运行同一命令 (`"sh -c"`)，`args` 将在命令 shell 中执行。
 
 有关将 `CMD` 指令与 {% data variables.product.prodname_actions %} 一起使用的更多信息，请参阅“[Dockerfile 对 {% data variables.product.prodname_actions %} 的支持](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)”。
 
-#### Example: Defining arguments for the Docker container
+
+
+#### 示例：为 Docker 容器定义参数
 
 {% raw %}
+
+
 ```yaml
 runs:
   using: 'docker'
@@ -459,13 +600,21 @@ runs:
     - 'foo'
     - 'bar'
 ```
+
+
 {% endraw %}
+
+
 
 ## `branding`
 
 您可以使用颜色和 [Feather](https://feathericons.com/) 图标创建徽章，以个性化和识别操作。 徽章显示在 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 中的操作名称旁边。
 
-### Example: Configuring branding for an action
+
+
+### 示例：为操作配置品牌宣传
+
+
 
 ```yaml
 branding:
@@ -473,22 +622,56 @@ branding:
   color: 'green'
 ```
 
+
+
+
 ### `branding.color`
 
 徽章的背景颜色。 可以是以下之一：`white`、`yellow`、`blue`、`green`、`orange`、`red`、`purple` 或 `gray-dark`。
 
+
+
 ### `branding.icon`
 
-要使用的 [Feather](https://feathericons.com/) 图标的名称。 <!-- 
+要使用的 v4.28.0 [Feather](https://feathericons.com/) 图标的名称。 省略了品牌图标以及以下内容：
+
+<table>
+<tr>
+<td>coffee</td>
+<td>列</td>
+<td>divide-circle</td>
+<td>divide-square</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>frown</td>
+<td>hexagon</td>
+<td>键</td>
+</tr>
+<tr>
+<td>meh</td>
+<td>mouse-pointer</td>
+<td>smile</td>
+<td>工具</td>
+</tr>
+<tr>
+<td>x-octagon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+以下是当前支持的所有图标的详尽列表：
+
+<!-- 
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
-  This table does not match the latest version the feather library. 
-  (Brand icons are omitted, and our supported list is not necessarily up-to-date with the latest version of the feather icon library.)
   To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
 -->
 
 <table>
 <tr>
-<td>activity</td>
+<td>活动</td>
 <td>airplay</td>
 <td>alert-circle</td>
 <td>alert-octagon</td>
@@ -503,7 +686,7 @@ branding:
 <td>align-right</td>
 <td>anchor</td>
 <td>aperture</td>
-<td>archive</td>
+<td>存档</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -581,10 +764,10 @@ branding:
 <td>cloud-rain</td>
 <td>cloud-snow</td>
 <td>cloud</td>
-<td>code</td>
+<td>代码</td>
 </tr>
 <tr>
-<td>command</td>
+<td>命令</td>
 <td>compass</td>
 <td>copy</td>
 <td>corner-down-left</td>
@@ -627,14 +810,14 @@ branding:
 </tr>
 <tr>
 <td>facebook</td>
-<td>fast-forward</td>
+<td>快进</td>
 <td>feather</td>
 <td>file-minus</td>
 </tr>
 <tr>
 <td>file-plus</td>
 <td>file-text</td>
-<td>file</td>
+<td>文件</td>
 <td>film</td>
 </tr>
 <tr>
@@ -657,7 +840,7 @@ branding:
 </tr>
 <tr>
 <td>hard-drive</td>
-<td>hash</td>
+<td>哈希</td>
 <td>headphones</td>
 <td>heart</td>
 </tr>
@@ -759,7 +942,7 @@ branding:
 </tr>
 <tr>
 <td>repeat</td>
-<td>rewind</td>
+<td>倒回</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
 </tr>
@@ -784,7 +967,7 @@ branding:
 <tr>
 <td>shopping-cart</td>
 <td>shuffle</td>
-<td>sidebar</td>
+<td>边栏</td>
 <td>skip-back</td>
 </tr>
 <tr>
@@ -796,7 +979,7 @@ branding:
 <tr>
 <td>speaker</td>
 <td>square</td>
-<td>star</td>
+<td>星标</td>
 <td>stop-circle</td>
 </tr>
 <tr>
@@ -806,7 +989,7 @@ branding:
 <td>tablet</td>
 </tr>
 <tr>
-<td>tag</td>
+<td>标记</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
@@ -836,15 +1019,15 @@ branding:
 <td>upload-cloud</td>
 </tr>
 <tr>
-<td>upload</td>
+<td>上传</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
 </tr>
 <tr>
 <td>user-x</td>
-<td>user</td>
-<td>users</td>
+<td>用户</td>
+<td>用户</td>
 <td>video-off</td>
 </tr>
 <tr>
@@ -856,7 +1039,7 @@ branding:
 <tr>
 <td>volume-x</td>
 <td>volume</td>
-<td>watch</td>
+<td>查看</td>
 <td>wifi-off</td>
 </tr>
 <tr>

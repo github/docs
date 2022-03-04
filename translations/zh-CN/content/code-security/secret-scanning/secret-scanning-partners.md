@@ -34,7 +34,7 @@ Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data
 {% ifversion ghes > 3.1 or ghae or ghec %}
 {% note %}
 
-**Note:** You can also define custom {% data variables.product.prodname_secret_scanning %} patterns that only apply to your repository or organization. For more information, see "[Defining custom patterns for {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)."
+**Note:** You can also define custom {% data variables.product.prodname_secret_scanning %} patterns that only apply to your repository or organization. 更多信息请参阅“[定义 {% data variables.product.prodname_secret_scanning %} 的自定义模式](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)”。
 
 {% endnote %}
 {% endif %}

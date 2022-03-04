@@ -2,17 +2,17 @@
 #Feature available only on dotcom
 security_advisories:
   title: 'Arregla y divulga una vulnerabilidad de seguridad'
-  description: 'Utilizar asesorías de seguridad para arreglar de forma privada una vulnerabilidad reportada y obtener un CVE.'
+  description: 'Utilizar asesorías de seguridad de repositorio para corregir de forma privada una vulnerabilidad reportada y obtener un CVE.'
   featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'
   guides:
-    - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
-    - /code-security/security-advisories/creating-a-security-advisory
-    - /code-security/security-advisories/adding-a-collaborator-to-a-security-advisory
-    - /code-security/security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability
-    - /code-security/security-advisories/publishing-a-security-advisory
-    - /code-security/security-advisories/editing-a-security-advisory
-    - /code-security/security-advisories/withdrawing-a-security-advisory
-    - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
+    - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+    - /code-security/repository-security-advisories/creating-a-repository-security-advisory
+    - /code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+    - /code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+    - /code-security/repository-security-advisories/publishing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/editing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
+    - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
 #Feature available on dotcom and GHES
 dependabot_alerts:
   title: 'Obtén notificaciones para las dependencias vulnerables'

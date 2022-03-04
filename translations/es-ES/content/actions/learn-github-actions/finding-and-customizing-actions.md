@@ -47,7 +47,17 @@ Puedes buscar acciones manualmente o por coincidencia exacta directamente en el 
 
 Puedes agregar una acción a tu flujo de trabajo si la referencias en tu archivo de flujo de trabajo.
 
-You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
+Puedes ver las acciones referenciadas en tus flujos de trabajo de {% data variables.product.prodname_actions %} como dependencias en la gráfica de dependencias del repositorio que contiene tus flujos de trabajo. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6269 %}
+
+{% note %}
+
+**Nota:** Para mejorar la seguridad, {% data variables.product.prodname_actions %} obsoletizará las redirecciones para las acciones. Esto significa que, cuando cambie el propietario o el nombre del repositorio de una acción, cualquier flujo de trabajo que la utilizara con el nombre anterior, fallará.
+
+{% endnote %}
+
+{% endif %}
 
 ### Agregar una acción desde {% data variables.product.prodname_marketplace %}
 

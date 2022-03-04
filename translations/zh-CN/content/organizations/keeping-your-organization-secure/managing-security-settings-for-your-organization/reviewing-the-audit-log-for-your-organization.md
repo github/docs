@@ -21,6 +21,8 @@ shortTitle: 审核审计日志
 
 The audit log lists events triggered by activities that affect your organization within the current month and previous six months. 只有所有者才能访问组织的审核日志。
 
+{% data reusables.audit_log.only-three-months-displayed %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
@@ -169,6 +171,8 @@ GraphQL 响应可包含长达 90 至 120 天的数据。
 {% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
+
+By default, only events from the past three months are returned. To include older events, you must specify a timestamp in your query.
 
 有关审核日志 REST API 的更多信息，请参阅“[组织](/rest/reference/orgs#get-the-audit-log-for-an-organization)”。
 
@@ -544,22 +548,22 @@ GraphQL 响应可包含长达 90 至 120 天的数据。
 
 ### `protected_branch` 类操作
 
-| 操作                                                    | 描述                                                                                    |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `create`                                              | 在分支上启用分支保护时触发。                                                                        |
-| `destroy`                                             | 在分支上禁用分支保护时触发。                                                                        |
-| `update_admin_enforced`                               | 为仓库管理员实施分支保护时触发。                                                                      |
-| `update_require_code_owner_review`                    | 在分支上更新必需代码所有者审查的实施时触发。                                                                |
-| `dismiss_stale_reviews`                               | 在分支上更新忽略旧拉取请求的实施时触发。                                                                  |
-| `update_signature_requirement_enforcement_level`      | 在分支上更新必需提交签名的实施时触发。                                                                   |
-| `update_pull_request_reviews_enforcement_level`       | 在分支上更新必需拉取请求审查的实施时触发。 Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone). |
-| `update_required_status_checks_enforcement_level`     | 在分支上更新必需状态检查的实施时触发。                                                                   |
-| `update_strict_required_status_checks_policy`         | 当分支在合并之前保持最新的要求被更改时触发。                                                                |
-| `rejected_ref_update`                                 | 当分支更新尝试被拒绝时触发。                                                                        |
+| 操作                                                    | 描述                                                            |
+| ----------------------------------------------------- | ------------------------------------------------------------- |
+| `create`                                              | 在分支上启用分支保护时触发。                                                |
+| `destroy`                                             | 在分支上禁用分支保护时触发。                                                |
+| `update_admin_enforced`                               | 为仓库管理员实施分支保护时触发。                                              |
+| `update_require_code_owner_review`                    | 在分支上更新必需代码所有者审查的实施时触发。                                        |
+| `dismiss_stale_reviews`                               | 在分支上更新忽略旧拉取请求的实施时触发。                                          |
+| `update_signature_requirement_enforcement_level`      | 在分支上更新必需提交签名的实施时触发。                                           |
+| `update_pull_request_reviews_enforcement_level`       | 在分支上更新必需拉取请求审查的实施时触发。 可以是 `0`（已停用）、`1`（非管理员）`2`（所有人）之一。       |
+| `update_required_status_checks_enforcement_level`     | 在分支上更新必需状态检查的实施时触发。                                           |
+| `update_strict_required_status_checks_policy`         | 当分支在合并之前保持最新的要求被更改时触发。                                        |
+| `rejected_ref_update`                                 | 当分支更新尝试被拒绝时触发。                                                |
 | `policy_override`                                     | 当仓库管理员重写分支保护要求时触发。{% ifversion fpt or ghes or ghae or ghec %}
-| `update_allow_force_pushes_enforcement_level`         | 对受保护分支启用或禁用强制推送时触发。                                                                   |
-| `update_allow_deletions_enforcement_level`            | 对受保护分支启用或禁用分支删除时触发。                                                                   |
-| `update_linear_history_requirement_enforcement_level` | 对受保护分支启用或禁用必要线性提交历史记录时触发。                                                             |
+| `update_allow_force_pushes_enforcement_level`         | 对受保护分支启用或禁用强制推送时触发。                                           |
+| `update_allow_deletions_enforcement_level`            | 对受保护分支启用或禁用分支删除时触发。                                           |
+| `update_linear_history_requirement_enforcement_level` | 对受保护分支启用或禁用必要线性提交历史记录时触发。                                     |
 {% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
@@ -692,11 +696,11 @@ GraphQL 响应可包含长达 90 至 120 天的数据。
 
 {% endif %}{% ifversion ghec %}
 ### `role` category actions
-| 操作        | 描述                                                                                                                                                                                                                                                                                              |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create`  | Triggered when an organization owner creates a new custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."     |
-| `destroy` | Triggered when a organization owner deletes a custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."          |
-| `update`  | Triggered when an organization owner edits an existing custom repository role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)." |
+| 操作        | 描述                                                                                                                                                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `create`  | Triggered when an organization owner creates a new custom repository role. 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。     |
+| `destroy` | Triggered when a organization owner deletes a custom repository role. 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。          |
+| `update`  | Triggered when an organization owner edits an existing custom repository role. 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。 |
 
 {% endif %}
 {% ifversion ghec or ghes or ghae %}

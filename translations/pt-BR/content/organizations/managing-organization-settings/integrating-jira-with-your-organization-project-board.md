@@ -10,13 +10,13 @@ versions:
 shortTitle: Integrate Jira
 ---
 
-{% ifversion ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion ghes > 3.4 or ghae-issue-5658 %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, select **{% octicon "code" aria-label="The code icon" %} Developer settings**, then click **OAuth Apps**. ![Aba OAuth applications (aplicativos OAuth) na barra lateral esquerda](/assets/images/help/organizations/org-oauth-applications-ghe.png)
+1. Na barra lateral esquerda, selecione **Configurações do desenvolvedor de {% octicon "code" aria-label="The code icon" %}** e, em seguida, clique em **aplicativos OAuth**. ![Aba OAuth applications (aplicativos OAuth) na barra lateral esquerda](/assets/images/help/organizations/org-oauth-applications-ghe.png)
 1. Clique em **Novo aplicativo OAuth**.
-{% elsif ghes < 3.4 or ghae %}
-{% data reusables.user_settings.access_settings %}
+{% else %}
+{% data reusables.user-settings.access_settings %}
 1. Na barra lateral esquerda, em **Organization settings** (Configurações da organização) clique no nome de sua organização. ![Barra lateral organization name (nome da organização)](/assets/images/help/settings/organization-settings-from-sidebar.png)
 1. Na barra lateral esquerda, em **Developer settings** (Configurações do desenvolvedor), clique em **OAuth applications** (Aplicativos OAuth) ![Aba OAuth applications (aplicativos OAuth) na barra lateral esquerda](/assets/images/help/organizations/org-oauth-applications-ghe.png)
 1. Clique em **Register a new application** (Registrar novo aplicativo).
@@ -26,7 +26,7 @@ shortTitle: Integrate Jira
 3. Em **Authorization callback URL** (URL de revogação de autorização), digite a URL completa da sua instância do JIRA.
 4. Clique em **Register application** (Registrar aplicativo). ![Botão Register application (registrar aplicativo)](/assets/images/help/oauth/register-application-button.png)
 9. Em **Organization owned applications** (Aplicativos de propriedade da organização), anote os valores "Client ID" (ID do cliente) e "Client Secret" (Chave secreta do cliente). ![Client ID (ID do cliente) e Client Secret (Chave secreta do cliente)](/assets/images/help/oauth/client-id-and-secret.png)
-{% data reusables.user_settings.jira_help_docs %}
+{% data reusables.user-settings.jira_help_docs %}
 
 ## Leia mais
 

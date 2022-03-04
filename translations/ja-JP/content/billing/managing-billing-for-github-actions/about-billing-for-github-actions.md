@@ -16,9 +16,9 @@ shortTitle: GitHub Actionsの支払い
 
 ## {% data variables.product.prodname_actions %}の支払いについて
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %} 詳しい情報については、「[利用上限について](#about-spending-limits)」を参照してください。
+{% data reusables.actions.actions-spending-limit-brief %} 詳しい情報については、「[利用上限について](#about-spending-limits)」を参照してください。
 
 {% ifversion ghec %}
 Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_enterprise %} を購入した場合、Azure サブスクリプション ID を Enterprise アカウントに接続して、アカウントを含む金額を超える {% data variables.product.prodname_actions %} の使用を有効にして支払うことができます。 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
@@ -66,7 +66,7 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 アカウントもしくはOrganization内のすべてのリポジトリにわたって同時に実行できるジョブ数は、あなたのGitHubのプランによります。 詳細については、{% data variables.product.prodname_dotcom %} ホストランナーの「[使用制限と支払い](/actions/reference/usage-limits-billing-and-administration)」、およびセルフホストランナーの使用制限については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)」を参照してください。
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## 利用時間 (分) とストレージ消費量の計算
 
@@ -76,7 +76,7 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 ### Sample minutes cost calculation
 
-For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
+For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 5,000 minutes could have a total storage and minute overage cost of $56 USD, depending on the operating systems used to run jobs.
 
 - 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 USD ($24 USD + $32 USD).
   - 3,000 Linux minutes at $0.008 USD per minute = $24 USD.
@@ -99,7 +99,7 @@ For example, if your organization uses {% data variables.product.prodname_team %
 
 ## 利用上限について
 
-{% data reusables.github-actions.actions-spending-limit-detailed %}
+{% data reusables.actions.actions-spending-limit-detailed %}
 
 アカウントの利用上限の管理と変更については、「[{% data variables.product.prodname_actions %} の利用上限の管理](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)」を参照してください。
 

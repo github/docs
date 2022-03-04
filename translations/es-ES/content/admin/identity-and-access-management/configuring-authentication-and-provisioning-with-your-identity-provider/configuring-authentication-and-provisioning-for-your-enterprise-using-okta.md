@@ -67,7 +67,7 @@ To enable single sign-on (SSO) for {% data variables.product.prodname_ghe_manage
 
 1. Click **View Setup Instructions**.
 
-  ![Sign On tab](/assets/images/help/saml/okta-ae-view-setup-instructions.png)
+  ![Pestaña de inicio de sesión](/assets/images/help/saml/okta-ae-view-setup-instructions.png)
 
 1. Take note of the "Sign on URL", "Issuer", and "Public certificate" details.
 1. Use the details to enable SAML SSO for your enterprise on {% data variables.product.prodname_ghe_managed %}. Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML para tu empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".

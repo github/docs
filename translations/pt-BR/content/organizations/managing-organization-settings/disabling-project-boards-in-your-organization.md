@@ -24,8 +24,8 @@ Quando você desabilita quadros de projeto, deixa de ver informações relaciona
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. Na seção "código, planejamento e automação" na barra lateral, clique em **Projetos de {% octicon "table" aria-label="The table icon" %}**.
 {% endif %}
 1. Decida se deseja desabilitar quadros de projeto em toda a organização, desabilitar quadros de projeto de repositório na organização ou ambos. Em seguida, em "Projects" (Projetos):
     - Para desabilitar quadros de projeto em toda a organização, desmarque **Enable projects for the organization** (Habilitar projetos da organização).

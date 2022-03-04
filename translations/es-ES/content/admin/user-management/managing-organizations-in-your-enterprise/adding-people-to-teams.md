@@ -26,7 +26,7 @@ Cada equipo tiene sus propios premisos de acceso definidos de manera individual 
 ## Configurar un equipo
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}

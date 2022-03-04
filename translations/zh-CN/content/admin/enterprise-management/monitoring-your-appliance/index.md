@@ -16,5 +16,6 @@ children:
   - /setting-up-external-monitoring
   - /configuring-collectd
   - /monitoring-using-snmp
+  - /generating-a-health-check-for-your-enterprise
 ---
 

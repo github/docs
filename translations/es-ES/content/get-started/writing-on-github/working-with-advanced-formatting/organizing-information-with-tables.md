@@ -40,7 +40,7 @@ Las celdas pueden variar en el ancho y no es necesario que estén perfectamente 
 
 ![Tabla presentada con ancho de celda variado](/assets/images/help/writing/table-varied-columns-rendered.png)
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## Formatear el contenido dentro de tu tabla
 

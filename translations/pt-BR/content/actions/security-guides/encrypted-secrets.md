@@ -21,7 +21,7 @@ versions:
 
 Os segredos são variáveis de ambiente criptografadas que você cria em uma organização{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, repositório ou ambiente do repositório{% else %} ou repositório{% endif %}. Os segredos que você cria estão disponíveis para utilização nos fluxos de trabalho em {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} usa uma [caixa selada libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ajudar a garantir que os segredos sejam criptografados antes de chegarem a {% data variables.product.prodname_dotcom %} e permaneçam criptografados até que você os use em um fluxo de trabalho.
 
-{% data reusables.github-actions.secrets-org-level-overview %}
+{% data reusables.actions.secrets-org-level-overview %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Para segredos armazenados no nível do ambiente, você pode habilitar os revisores necessários para controlar o acesso aos segredos. Um trabalho de fluxo de trabalho não pode acessar segredos de ambiente até que a aprovação seja concedida por aprovadores necessários.
@@ -53,7 +53,7 @@ Para disponibilizar um segredo para uma ação, você deve configurá-lo como um
 
 Você pode usar e ler segredos encriptados em um arquivo de fluxo de trabalho se tiver permissão para editar o arquivo. Para obter mais informações, consulte "[Permissões de acesso em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
-{% data reusables.github-actions.secrets-redaction-warning %}
+{% data reusables.actions.secrets-redaction-warning %}
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Os segredos da organização e do repositório são lidos quando uma execução de fluxo de trabalho é enfileirada e os segredos de ambiente são lidos quando um trabalho que faz referência ao ambiente é iniciado.
@@ -73,13 +73,13 @@ Ao gerar credenciais, recomendamos que você conceda as permissões mínimas pos
 
 ## Criar segredos encriptados para um repositório
 
-{% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% data reusables.actions.permissions-statement-secrets-repository %}
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. Clique em **Novo segredo do repositório**.
 1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
 1. Insira o valor para o seu segredo.
@@ -113,13 +113,13 @@ Para listar todos os segredos para o repositório, use o subcomando da lista `gh
 
 ## Criar segredos criptografados para um ambiente
 
-{% data reusables.github-actions.permissions-statement-secrets-environment %}
+{% data reusables.actions.permissions-statement-secrets-environment %}
 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
+{% data reusables.actions.sidebar-environment %}
 1. Clique no ambiente ao qual você deseja adicionar um segredo.
 2. Em **Segredos do ambiente**, clique em **Adicionar segredo**.
 3. Digite um nome para o seu segredo na caixa de entrada **Nome**.
@@ -150,13 +150,13 @@ gh secret list --env <em>environment-name</em>
 
 Ao criar um segredo em uma organização, você pode usar uma política para limitar quais repositórios podem acessar esse segredo. Por exemplo, você pode conceder acesso a todos os repositórios ou limitar o acesso a apenas repositórios privados ou a uma lista específica de repositórios.
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% webui %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. Clique em **Novo segredo da organização**.
 1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
 1. Insira o **Valor** para o seu segredo.
@@ -209,7 +209,7 @@ Você pode verificar quais políticas de acesso são aplicadas a um segredo na s
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. A lista de segredos inclui quaisquer permissões e políticas configuradas. Por exemplo: ![Lista de segredos](/assets/images/help/settings/actions-org-secrets-list.png)
 1. Para obter mais detalhes sobre as permissões configuradas para cada segredo, clique em **Atualizar**.
 
@@ -356,30 +356,30 @@ Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você 
 {% endraw %}
 
 
-## Storing Base64 binary blobs as secrets
+## Armazenar Blobs binários de Base64 como segredos
 
-You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see ["Limits for secrets"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
+Você pode usar a codificação de Base64 para armazenar pequenos blobs binários como segredos. Em seguida, você pode fazer referência ao segredo no seu fluxo de trabalho e decodificá-lo para usar no executor. Para os limites de tamanho, consulte ["Limites para segredos"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
 
 {% note %}
 
-**Note**: Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
+**Observação**: Observe que o Base64 só converte números binários em texto e não substitui a criptografia real.
 
 {% endnote %}
 
-1. Use `base64` to encode your file into a Base64 string. Por exemplo:
+1. Use `base64` para codificar seu arquivo em uma string de Base64. Por exemplo:
 
    ```
    $ base64 -i cert.der -o cert.base64
    ```
 
-1. Create a secret that contains the Base64 string. Por exemplo:
+1. Crie um segredo que contenha a string de Base64. Por exemplo:
 
    ```
    $ gh secret set CERTIFICATE_BASE64 < cert.base64
    ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
    ```
 
-1. To access the Base64 string from your runner, pipe the secret to `base64 --decode`.  Por exemplo:
+1. Para acessar a string de Base64 do seu executor, transforme segredo em `base64 --decode`.  Por exemplo:
 
    ```yaml
    name: Retrieve Base64 secret

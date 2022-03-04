@@ -21,13 +21,13 @@ As informações exportadas incluem:
 - Se a associação é pública ou privada
 - Se o usuário é um proprietário ou integrante da organização
 - Data e hora da última atividade do usuário (para uma lista completa da atividade relevante, consulte "[Gerenciando usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
-- The user's SAML NameID, if available
+- O NameID do SAML do usuário, se disponível
 
 Você pode obter informações dos membros diretamente da interface de usuário {% data variables.product.product_name %} ou usando APIs. Este artigo explica como obter informações dos membros de dentro de {% data variables.product.product_name %}.
 
 Para obter mais informações sobre as APIs, consulte a nossa [API do GraphQL](/graphql/reference/objects#user) e [API REST](/rest/reference/users) documentação sobre os usuários.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people-export %}

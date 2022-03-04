@@ -114,7 +114,7 @@ shortTitle: 管理自定义域
 
 使用 apex 域时，我们建议配置您的 {% data variables.product.prodname_pages %} 站点，以便在 apex 域和该域的 `www` 子域变体中托管内容。
 
-要与 apex 域一起设置 `www` 子域，您必须先配置 apex 域，这将通过您的 DNS 提供商创建 `ALIAS`、`ANAME` 或 `A` 记录。 更多信息请参阅“[配置 apex 域](#configuring-an-apex-domain)”。
+To set up a `www` subdomain alongside the apex domain, you must first configure an apex domain by creating an `ALIAS`, `ANAME`, or `A` record with your DNS provider. 更多信息请参阅“[配置 apex 域](#configuring-an-apex-domain)”。
 
 配置 apex 域后，您必须通过 DNS 提供商配置 CNAME 记录。
 
@@ -134,9 +134,9 @@ shortTitle: 管理自定义域
 {% data reusables.pages.sidebar-pages %}
 4. 在“Custom domain（自定义域）”下，单击 **Remove（删除）**。 ![保存自定义域按钮](/assets/images/help/pages/remove-custom-domain.png)
 
-## Securing your custom domain
+## 保护自定义域
 
-{% data reusables.pages.secure-your-domain %} For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."
+{% data reusables.pages.secure-your-domain %} 更多信息请参阅“[验证自定义域的 {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)”。
 
 ## 延伸阅读
 

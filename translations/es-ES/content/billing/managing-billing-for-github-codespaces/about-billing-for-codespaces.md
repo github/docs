@@ -40,6 +40,12 @@ Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerd
 
 {% data reusables.dotcom_billing.pricing_cal %}
 
+### Facturación para las precompilaciones de los {% data variables.product.prodname_codespaces %}
+
+{% data reusables.codespaces.prebuilds-beta-note %}
+
+{% data reusables.codespaces.billing-for-prebuilds %}
+
 ## Configurar un límite de gastos
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}

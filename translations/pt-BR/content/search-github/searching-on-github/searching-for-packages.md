@@ -31,10 +31,10 @@ Você só pode procurar por pacotes em {% data variables.product.product_name %}
 
 Para encontrar pacotes que pertencem a um determinado usuário ou organização, use o `usuário` ou `org` qualificador.
 
-| Qualifier                 | Exemplo                                                                                                                                                                    |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**`user:codertocat`**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) matches packages owned by @codertocat                                         |
-| <code>org:<em>ORGNAME</em></code> | [**`org:github`**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) matches packages owned by the {% data variables.product.prodname_dotcom %} organization |
+| Qualifier                 | Exemplo                                                                                                                                                                           |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>user:<em>USERNAME</em></code> | [**`user:codertocat`**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) corresponde pacotes pertencentes ao @codertocat                                      |
+| <code>org:<em>ORGNAME</em></code> | [**`org:github`**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) corresponde pacotes pertencentes à organização de {% data variables.product.prodname_dotcom %}
 
 ## Filtrar por visibilidade do pacote
 

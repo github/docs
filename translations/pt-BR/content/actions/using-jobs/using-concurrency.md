@@ -17,3 +17,8 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.section-using-concurrency-jobs %}
 
+{% if github-runner-dashboard %}
+## Monitorando os seus trabalhos atuais na sua organização ou empresa
+
+{% data reusables.actions.github-hosted-runners-check-concurrency %}
+{% endif %}

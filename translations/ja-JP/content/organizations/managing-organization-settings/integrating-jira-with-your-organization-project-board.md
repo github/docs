@@ -10,13 +10,13 @@ versions:
 shortTitle: Jiraの統合
 ---
 
-{% ifversion ghes > 3.3 or ghae-issue-5658 %}
+{% ifversion ghes > 3.4 or ghae-issue-5658 %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, select **{% octicon "code" aria-label="The code icon" %} Developer settings**, then click **OAuth Apps**. ![左サイドバーの [OAuth applications] タブ](/assets/images/help/organizations/org-oauth-applications-ghe.png)
+1. 左のサイドバーで**{% octicon "code" aria-label="The code icon" %} Developer settings（開発者設定）**を選択し、続いて**OAuth Apps（OAuthアプリケーション）**をクリックしてください。 ![左サイドバーの [OAuth applications] タブ](/assets/images/help/organizations/org-oauth-applications-ghe.png)
 1. [**New OAuth App**] をクリックします。
-{% elsif ghes < 3.4 or ghae %}
-{% data reusables.user_settings.access_settings %}
+{% else %}
+{% data reusables.user-settings.access_settings %}
 1. 左サイドバーの [**Organization settings**] で、Organization の名前をクリックします。 ![サイドバーの Organization 名](/assets/images/help/settings/organization-settings-from-sidebar.png)
 1. 左サイドバーの **[Developer settings]** で、[**OAuth applications**] をクリックします。 ![左サイドバーの [OAuth applications] タブ](/assets/images/help/organizations/org-oauth-applications-ghe.png)
 1. [**Register a new application**] をクリックします。
@@ -26,7 +26,7 @@ shortTitle: Jiraの統合
 3. [**Authorization callback URL**] に、JIRA インスタンスの完全な URL を入力します。
 4. **Register application** をクリックする。 ![[Register application] ボタン](/assets/images/help/oauth/register-application-button.png)
 9. [**Organization owned applications**] で、[Client ID] と [Client Secret] の値を確認します。 ![クライアント ID とクライアントシークレット](/assets/images/help/oauth/client-id-and-secret.png)
-{% data reusables.user_settings.jira_help_docs %}
+{% data reusables.user-settings.jira_help_docs %}
 
 ## 参考リンク
 

@@ -54,11 +54,11 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" não ser�
 ## Configurando notificações da equipe
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
-1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. Na barra lateral esquerda, clique em **Revisão de código de {% octicon "code-review" aria-label="The code-review icon" %}**.
 {% else %}
 1. Na barra lateral esquerda, clique em **Revisão de Código** ![Botão revisar código](/assets/images/help/teams/review-button.png)
 {% endif %}
@@ -68,11 +68,11 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" não ser�
 
 ## Configurando atribuição automática
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
-1. In the left sidebar, click **{% octicon "code-review" aria-label="The code-review icon" %} Code review**.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+1. Na barra lateral esquerda, clique em **Revisão de código de {% octicon "code-review" aria-label="The code-review icon" %}**.
 {% else %}
 1. Na barra lateral esquerda, clique em **Revisão de Código** ![Botão revisar código](/assets/images/help/teams/review-button.png)
 {% endif %}
@@ -92,7 +92,7 @@ Todos os integrantes da equipe que definiram seu status como "Ocupado" não ser�
 
 ## Desabilitando a atribuição automática
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 1. Selecione **Habilitar atribuição automática** para remover a marca. ![Botão da atribuição da revisão de código](/assets/images/help/teams/review-assignment-enable.png)

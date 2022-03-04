@@ -12,8 +12,8 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.saved_replies %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.saved_replies %}
 3. Under "Saved replies", next to the saved reply you want to edit, click {% octicon "pencil" aria-label="The pencil" %}.  
 ![Edit a saved reply](/assets/images/help/settings/saved-replies-edit-existing.png)
 4. Under "Edit saved reply", you can edit the title and the content of the saved reply.

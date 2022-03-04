@@ -16,8 +16,8 @@ topics:
 shortTitle: 设置备用电子邮件地址
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 3. 在“Backup email address（备用电子邮件地址）”下，使用下拉菜单选择您要设置为备用电子邮件地址的地址。 ![备用电子邮件地址](/assets/images/help/settings/backup-email-address.png)
 4. 单击 **Save（保存）**。
 

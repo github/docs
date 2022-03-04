@@ -46,27 +46,26 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 
 グループを作成する場合、ランナーグループにアクセスできるリポジトリを定義するポリシーを選択する必要があります。
 
-{% ifversion ghec %}
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runner-groups %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups %}
 1. In the "Runner groups" section, click **New runner group**.
- {% data reusables.github-actions.runner-group-assign-policy-repo %}
+ {% data reusables.actions.runner-group-assign-policy-repo %}
 
    {% warning %}
 
-   **Warning**: {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   **Warning**: {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
    {% endwarning %}
-{% data reusables.github-actions.self-hosted-runner-create-group %}
-{% endif %}
-{% ifversion ghae or ghes %}
+{% data reusables.actions.self-hosted-runner-create-group %}
+{% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runners %}
-1. In the "Self-hosted runners" section, click **Add new**, and then **New group**.
+{% data reusables.actions.settings-sidebar-actions-runners %}
+1. Under {% ifversion ghes > 3.1 or ghae %}"Runners"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %}, click **Add new**, and then **New group**.
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. ランナーグループの名前を入力し、リポジトリアクセスのポリシーを割り当てます。
@@ -77,7 +76,7 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
@@ -89,32 +88,31 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 
 ## Enterprise のセルフホストランナーグループを作成する
 
-Enterprise は、セルフホストランナーをグループに追加して、アクセス管理を行うことができます。 Enterprise は、Enterprise アカウント内の特定の Organization がアクセスできるセルフホストランナーのグループを作成できます。 Organization の管理者は、追加の詳細なリポジトリアクセスポリシーを Enterprise ランナーグループに割り当てることができます。 For information about how to create a self-hosted runner group with the REST API, see the [Enterprise Administration GitHub Actions APIs](/rest/reference/enterprise-admin#github-actions).
+Enterprise は、セルフホストランナーをグループに追加して、アクセス管理を行うことができます。 Enterprise は、Enterprise アカウント内の特定の Organization がアクセスできるセルフホストランナーのグループを作成できます。 Organization の管理者は、追加の詳細なリポジトリアクセスポリシーを Enterprise ランナーグループに割り当てることができます。 For information about how to create a self-hosted runner group with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/reference/actions#self-hosted-runner-groups).
 
 セルフホストランナーは、作成時にデフォルトグループに自動的に割り当てられ、一度に 1 つのグループのメンバーになることができます。 登録処理中にランナーを特定のグループに割り当てることも、後でランナーをデフォルトグループからカスタムグループに移動することもできます。
 
 グループを作成するときは、ランナーグループにアクセスできる Organization を定義するポリシーを選択する必要があります。
 
-{% ifversion ghec %}
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runner-groups-tab %}
 1. Click **New runner group**.
- {% data reusables.github-actions.runner-group-assign-policy-org %}
+ {% data reusables.actions.runner-group-assign-policy-org %}
 
    {% warning %}
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
    {% endwarning %}
-{% data reusables.github-actions.self-hosted-runner-create-group %}
-{% endif %}
-{% ifversion ghae or ghes %}
+{% data reusables.actions.self-hosted-runner-create-group %}
+{% elsif ghae or ghes < 3.4 %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
@@ -130,7 +128,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
@@ -144,23 +142,22 @@ Enterprise は、セルフホストランナーをグループに追加して、
 ## セルフホストランナーグループのアクセスポリシーを変更する
 
 ランナーグループのアクセスポリシーを更新したり、ランナーグループの名前を変更したりすることができます。
-{% ifversion fpt or ghec %}
-{% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.github-actions.settings-sidebar-actions-runner-groups-selection %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. Modify the access options, or change the runner group name.
 
    {% warning %}
 
    **Warning**
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
    {% endwarning %}
-{% endif %}
-{% ifversion ghae or ghes %}
-{% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
+{% elsif ghae or ghes < 3.4 %}
+{% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
@@ -181,28 +178,28 @@ Could not find any self-hosted runner group named "rg-runnergroup".
 ## セルフホストランナーをグループに移動する
 
 If you don't specify a runner group during the registration process, your new self-hosted runners are automatically assigned to the default group, and can then be moved to another group.
-{% ifversion ghec or ghes > 3.1 or ghae %}
-{% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
+
+{% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %}
+{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. In the "Runners" list, click the runner that you want to configure.
 2. Select the Runner group dropdown menu.
 3. In "Move runner to group", choose a destination group for the runner.
-{% endif %}
-{% ifversion ghes < 3.2 or ghae %}
-1. In the "Self-hosted runners" section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
+{% elsif ghae or ghes < 3.4 %}
+1. In the {% ifversion ghes > 3.1 or ghae %}"Runner groups"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)
 2. セルフホストランナーの横にあるチェックボックスを選択し、[**Move to group**] をクリックして、利用可能な移動先を確認します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move.png)
 3. 移動先のグループをクリックして、ランナーを移動します。 ![ランナーグループのメンバーを移動](/assets/images/help/settings/actions-org-runner-group-member-move-destination.png)
 {% endif %}
+
 ## セルフホストランナーグループを削除する
 
 セルフホストランナーは、グループが削除されると自動的にデフォルトグループに戻ります。
 
 {% ifversion ghes > 3.1 or ghae or ghec %}
-{% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. In the list of groups, to the right of the group you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 2. グループを削除するには、[**Remove group**] をクリックします。
 3. 確認プロンプトを確認し、[**Remove this runner group**] をクリックします。
-{% endif %}
-{% ifversion ghes < 3.2 or ghae %}
+{% elsif ghes < 3.2 %}
 1. In the "Self-hosted runners" section of the settings page, locate the group you want to delete, and click the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} button. ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-kebab.png)
 
 1. グループを削除するには、[**Remove group**] をクリックします。 ![ランナーグループの設定を表示](/assets/images/help/settings/actions-org-runner-group-remove.png)
