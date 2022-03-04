@@ -23,11 +23,9 @@ By default, {% data variables.product.product_name %} stores build logs and arti
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Under **Artifacts**, click the artifact you want to download.
-    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+    
     ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down-updated.png)
-    {% else %}
-    ![Download artifact drop-down menu](/assets/images/help/repository/artifact-drop-down.png)
-    {% endif %}
+    
 
 {% endwebui %}
 

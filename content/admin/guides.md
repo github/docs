@@ -13,7 +13,7 @@ learningTracks:
   - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
   - '{% ifversion ghes %}deploy_an_instance{% endif %}'
   - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
-  -  adopting_github_actions_for_your_enterprise
+  - adopting_github_actions_for_your_enterprise
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
@@ -136,5 +136,6 @@ includeGuides:
   - /admin/user-management/requiring-two-factor-authentication-for-an-organization
   - /admin/user-management/suspending-and-unsuspending-users
   - /admin/overview/creating-an-enterprise-account
+  - /admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization
 ---
 

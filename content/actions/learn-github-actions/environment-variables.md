@@ -153,8 +153,8 @@ We strongly recommend that actions use environment variables to access the files
 | `GITHUB_REPOSITORY_OWNER` | The repository owner's name. For example, `octocat`. |
 | `GITHUB_RETENTION_DAYS` | The number of days that workflow run logs and artifacts are kept. For example, `90`. |
 | `GITHUB_RUN_ATTEMPT` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. For example, `3`. |
-| `GITHUB_RUN_ID` | {% data reusables.github-actions.run_id_description %} For example, `1658821493`. |
-| `GITHUB_RUN_NUMBER` | {% data reusables.github-actions.run_number_description %} For example, `3`. |
+| `GITHUB_RUN_ID` | {% data reusables.actions.run_id_description %} For example, `1658821493`. |
+| `GITHUB_RUN_NUMBER` | {% data reusables.actions.run_number_description %} For example, `3`. |
 | `GITHUB_SERVER_URL`| The URL of the {% data variables.product.product_name %} server. For example: `https://{% data variables.product.product_url %}`.
 | `GITHUB_SHA` | The commit SHA that triggered the workflow. For example, `ffac537e6cbbf934b08745a378932722df287a53`. |
 | `GITHUB_WORKFLOW` | The name of the workflow. For example, `My test workflow`. If the workflow file doesn't specify a `name`, the value of this variable is the full path of the workflow file in the repository. |

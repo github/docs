@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
@@ -50,7 +50,11 @@ const interactiveAlternatives: Record<string, { href: string }> = {
     },
 }
 
-export const ArticlePage = () => {
+export type StructuredContentT = {
+  structuredContent?: ReactNode
+}
+
+export const ArticlePage = ({ structuredContent }: StructuredContentT) => {
   const { asPath } = useRouter()
   const {
     title,
@@ -65,6 +69,7 @@ export const ArticlePage = () => {
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
+  const renderedContent = structuredContent || renderedPage
   const { t } = useTranslation('pages')
   const currentPath = asPath.split('?')[0]
 
@@ -236,7 +241,7 @@ export const ArticlePage = () => {
           }
         >
           <div id="article-contents">
-            <MarkdownContent>{renderedPage}</MarkdownContent>
+            <MarkdownContent>{renderedContent}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">
                 Effective as of:{' '}

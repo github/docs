@@ -15,7 +15,6 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a .NET project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
@@ -52,9 +51,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Creating the workflow
 
@@ -108,7 +105,7 @@ jobs:
         run: dotnet publish -c Release -o {% raw %}${{env.DOTNET_ROOT}}{% endraw %}/myapp
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: .net-app
           path: {% raw %}${{env.DOTNET_ROOT}}{% endraw %}/myapp
@@ -122,7 +119,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: .net-app
 

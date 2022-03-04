@@ -42,7 +42,7 @@ Enterprise アカウントについては、Enterprise オーナーと支払い�
 
 {% note %}
 
-**注釈:** Enterprise アカウントの支払い詳細には、Organizationごとのストレージデータ使用状況の概要しか示されません。 {% data reusables.github-actions.enterprise-billing-details %}
+**注釈:** Enterprise アカウントの支払い詳細には、Organizationごとのストレージデータ使用状況の概要しか示されません。 {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

@@ -26,7 +26,7 @@ Cualquiera con permisos de administrador en una asesoría de seguridad puede pub
 
 ## Prerrequisitos
 
-Antes de que puedas publicar una asesoría de seguridad o solicitar un número de identificación de CVE, debes crear un borrador de asesoría de seguridad y proporcionar información acerca de las versiones de tu proyecto que se vieron afectadas por la vulnerabilidad de seguridad. For more information, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
+Antes de que puedas publicar una asesoría de seguridad o solicitar un número de identificación de CVE, debes crear un borrador de asesoría de seguridad y proporcionar información acerca de las versiones de tu proyecto que se vieron afectadas por la vulnerabilidad de seguridad. Para obtener más información, consulta la sección "[Crear una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/creating-a-repository-security-advisory)".
 
 Si creaste una asesoría de seguridad pero no has proporcionado detalles sobre las versiones de tu proyecto que afectó la vulnerabilidad, puedes editarla. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
 
@@ -63,7 +63,7 @@ Cuando publicas un borrador de asesoría desde un repositorio público, todos pu
 
 Después de que publicas una asesoría de seguridad, la URL de la misa permanecerá tal como antes de publicarla. Cualquiera con acceso de lectura al repositorio puede verla. Los colaboradores de la asesoría de seguridad pueden seguir viendo las conversaciones pasadas, incluyendo el flujo completo de comentarios, en la asesoría de seguridad a menos de que alguien con permisos administrativos elimine al colaborador de la asesoría de seguridad.
 
-Si necesitas actualizar o corregir información en una asesoría de seguridad que hayas publicado, puedes editarla. For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
+Si necesitas actualizar o corregir información en una asesoría de seguridad que hayas publicado, puedes editarla. Para obtener más información, consulta la sección "[Editar una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/editing-a-repository-security-advisory)".
 
 ## Publicar una asesoría de seguridad
 

@@ -84,4 +84,4 @@ For more information about how to create an allow list for a {% data variables.p
 
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 
-{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}

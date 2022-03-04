@@ -83,9 +83,9 @@ This workflow performs the following steps:
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## Building and testing your code
 
@@ -138,7 +138,7 @@ steps:
     uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
     with:
       arguments: build
-  - uses: actions/upload-artifact@v2
+  - uses: actions/upload-artifact@v3
     with:
       name: Package
       path: build/libs

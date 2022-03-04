@@ -1,6 +1,6 @@
 ---
 title: Enabling unified contributions for your enterprise
-shortTitle: Unified contributions
+shortTitle: Contribuciones unificadas
 intro: 'You can allow users to include anonymized contribution counts for their work on {% data variables.product.product_location %} in their contribution graphs on {% data variables.product.prodname_dotcom_the_website %}.'
 redirect_from:
   - /enterprise/admin/guides/developer-workflow/enabling-unified-contributions-between-github-enterprise-and-github-com

@@ -1,6 +1,6 @@
 ---
 title: About supply chain security for your enterprise
-intro: 'You can enable features that help your developers understand and update the dependencies their code relies on.'
+intro: You can enable features that help your developers understand and update the dependencies their code relies on.
 shortTitle: About supply chain security
 permissions: ''
 versions:
