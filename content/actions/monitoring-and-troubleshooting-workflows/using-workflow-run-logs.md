@@ -31,11 +31,11 @@ For jobs run on {% data variables.product.prodname_dotcom %}-hosted runners, "Se
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-{% data reusables.repositories.view-failed-job-results-superlinter %}
-{% data reusables.repositories.view-specific-line-superlinter %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+{% data reusables.repositories.view-failed-job-results %}
+{% data reusables.repositories.view-specific-line %}
 
 ## Searching logs
 
@@ -43,9 +43,9 @@ You can search the build logs for a particular step. When you search logs, only 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
 1. In the upper-right corner of the log output, in the **Search logs** search box, type a search query.
 ![Search box to search logs](/assets/images/help/repository/search-log-box-updated-2.png)
 
@@ -55,9 +55,9 @@ You can download the log files from your workflow run. You can also download a w
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
 1. In the upper right corner, click {% octicon "gear" aria-label="The gear icon" %} and select **Download log archive**.
   
   ![Download logs drop-down menu](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
@@ -69,8 +69,8 @@ You can delete the log files from your workflow run. {% data reusables.repositor
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
 1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
     
     ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
