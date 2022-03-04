@@ -23,16 +23,14 @@ topics:
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## すべてのリポジトリで使用可能
 {% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### セキュリティポリシー
 
 リポジトリで見つけたセキュリティの脆弱性を、ユーザが内密に報告しやすくします。 詳しい情報については「[リポジトリにセキュリティポリシーを追加する](/code-security/getting-started/adding-a-security-policy-to-your-repository)」を参照してください。
-{% endif %}
 
 {% ifversion fpt or ghec %}
 ### セキュリティアドバイザリ
 
-リポジトリのコードのセキュリティの脆弱性について、非公開で議論して修正します。 その後、セキュリティアドバイザリを公開して、コミュニティに脆弱性を警告し、アップグレードするようコミュニティメンバーに促すことができます。 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
+リポジトリのコードのセキュリティの脆弱性について、非公開で議論して修正します。 その後、セキュリティアドバイザリを公開して、コミュニティに脆弱性を警告し、アップグレードするようコミュニティメンバーに促すことができます。 詳しい情報については、「[{% data variables.product.prodname_security_advisories %} について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
 
 {% endif %}
 {% ifversion fpt or ghec or ghes > 3.2 %}
@@ -68,17 +66,38 @@ For all public repositories, the security overview shows which security features
 
 ## Available with {% data variables.product.prodname_GH_advanced_security %}
 
-{% data reusables.advanced-security.ghas-availability %}
+{% ifversion fpt %}
+The following {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can use the full set of features in any of their repositories. For a list of the features available with {% data variables.product.prodname_ghe_cloud %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
+
+{% elsif ghec %}
+Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that has a {% data variables.product.prodname_GH_advanced_security %} license can use all the following features on their repositories. {% data reusables.advanced-security.more-info-ghas %}
+
+{% elsif ghes %}
+{% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
+
+{% elsif ghae %}
+{% data variables.product.prodname_GH_advanced_security %} features are available for repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
+{% endif %}
 
 ### {% data variables.product.prodname_code_scanning_capc %}
 
 新しいコードまたは変更されたコードのセキュリティの脆弱性とコーディングエラーを自動的に検出します。 潜在的な問題が強調表示され、あわせて詳細情報も確認できるため、デフォルトのブランチにマージする前にコードを修正できます。 詳しい情報については、「[コードスキャニングについて](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)」を参照してください。
 
-### {% data variables.product.prodname_secret_scanning_caps %}
+{% ifversion fpt or ghec %}
+### {% data variables.product.prodname_secret_scanning_partner_caps %}
 
-Automatically detect tokens or credentials that have been checked into a repository. {% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} finds leaked secrets across all public repositories and informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)."{% endif %}
-{%- ifversion ghec or ghes or ghae %}
-{% ifversion ghec %}In private repositories, you can view {% elsif ghes or ghae %}You can view {% endif %}any secrets that {% data variables.product.company_short %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised.{% endif %} For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+{% endif %}
+
+{% ifversion not fpt %}
+### {% data variables.product.prodname_secret_scanning_GHAS_caps %}
+
+{% ifversion ghec %}
+Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
+{% endif %}
+
+Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, so that you know which tokens or credentials to treat as compromised. 詳しい情報については、「[シークレットスキャニングについて](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)」を参照してください。
+{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### 依存関係のレビュー
@@ -88,6 +107,10 @@ Pull Requestをマージする前に、依存関係に対する変更の影響�
 
 {% ifversion ghec or ghes > 3.1 or ghae-issue-4554 %}
 ### Security overview for organizations{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}, enterprises,{% endif %} and teams
+
+{% ifversion ghec %}
+Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
+{% endif %}
 
 Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
 {% endif %}

@@ -114,7 +114,7 @@ DNS レコードの設定が正しいかどうかを検証するために利用�
 
 Apexドメインを使う場合、コンテンツをApexドメインと`www`サブドメイン付きのドメインの双方でホストするよう{% data variables.product.prodname_pages %}サイトを設定することをおすすめします。
 
-Apexドメインと共に`www`サブドメインをセットアップするには、まずApexドメインを設定しします。そうすると、DNSプロバイダで`ALIAS`、`ANAME`、`A`のいずれかのレコードが作成されます。 詳しい情報については「[Apexドメインの設定](#configuring-an-apex-domain)」を参照してください。
+To set up a `www` subdomain alongside the apex domain, you must first configure an apex domain by creating an `ALIAS`, `ANAME`, or `A` record with your DNS provider. 詳しい情報については「[Apexドメインの設定](#configuring-an-apex-domain)」を参照してください。
 
 Apexドメインを設定したら、DNSプロバイダでCNAMEレコードを設定しなければなりません。
 

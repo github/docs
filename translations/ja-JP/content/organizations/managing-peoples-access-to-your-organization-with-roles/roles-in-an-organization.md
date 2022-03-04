@@ -31,7 +31,7 @@ Organizationレベルのロールは、OrganizationやOrganizationのリポジ�
 個人やTeamに対して様々なOrganizationレベルのロールを付与して、Organization及びそのリソースに対するメンバーのアクセスを制御してもらうことができます。 各ロールに含まれる個々の権限に関する詳細については、「[Organizationロールの権限](#permissions-for-organization-roles)」を参照してください。
 
 {% if enterprise-owner-join-org %}
-If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+OrganizationがEnterpriseアカウントに所有されている場合、EnterpriseオーナーはOrganizationに任意のロールで参加できます。 詳しい情報については「[自身のEnterpriseが所有しているOrganization内での自分のロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
 {% endif %}
 
 ### Organizationオーナー
