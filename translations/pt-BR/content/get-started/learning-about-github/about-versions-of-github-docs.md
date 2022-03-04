@@ -1,6 +1,6 @@
 ---
 title: Sobre versões da Documentação do GitHub
-intro: "Você pode ler a documentação que reflete o produto de {% data variables.product.company_short %} que você está usando atualmente."
+intro: 'Você pode ler a documentação que reflete o produto de {% data variables.product.company_short %} que você está usando atualmente.'
 versions: '*'
 shortTitle: Versões da documentação
 ---

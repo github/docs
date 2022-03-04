@@ -21,13 +21,13 @@ Você pode personalizar a forma como você é notificado
 {% data variables.product.prodname_dependabot_alerts %}. Por exemplo, você pode receber um e-mail semanal com o resumo dos alertas de até 10 de seus repositórios usando as opções **Enviar e-mail com o resumo das vulnerabilidades** e **Resumo semanal por e-mail sobre segurança**.
 {% endif %}
 
-{% ifversion ghes = 3.0 or ghes = 3.1 %}
+{% ifversion ghes = 3.1 %}
 Por padrão, se o administrador do site tiver configurado e-mail para notificações na sua instância, você receberá
 {% data variables.product.prodname_dependabot_alerts %}:
-- por e-mail, um e-mail é enviado toda vez que uma vulnerabilidade {% ifversion ghes > 3.0 %}com uma gravidade crítica ou alta {% endif %}for encontrada (opção **Enviar e-mail cada vez que uma vulnerabilidade for encontrada**)
+- by email, an email is sent every time a vulnerability with a critical or high severity is found (**Email each time a vulnerability is found** option)
 - na interface do usuário, é exibido um aviso é nos arquivos e visualizações de código do seu repositório se houver quaisquer dependências vulneráveis (opção de **alertas de interface do usuário**)
 - na linha de comando, são exibidos avisos como retornos de chamada quando você faz push em repositórios com quaisquer dependências vulneráveis (opção de **Linha de Comando**)
-- na caixa de entrada, como notificações da web{% ifversion ghes > 3.0 %}para novas vulnerabilidades com uma severidade crítica ou alta {% endif %}(Opção **Web**)
+- in your inbox, as web notifications for new vulnerabilities with a critical or high severity (**Web** option)
 Você pode personalizar a forma como você é notificado
 
 {% data variables.product.prodname_dependabot_alerts %}. Por exemplo, você pode receber um e-mail semanal com o resumo dos alertas de até 10 de seus repositórios usando as opções **Enviar e-mail com o resumo das vulnerabilidades** e **Resumo semanal por e-mail sobre segurança**.

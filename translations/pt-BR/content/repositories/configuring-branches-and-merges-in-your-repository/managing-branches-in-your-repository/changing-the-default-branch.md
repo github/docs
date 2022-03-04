@@ -29,17 +29,13 @@ Você pode escolher o branch-padrão para um repositório. O branch-padrão é o
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-
-Você também pode renomear o branch padrão. Para obter mais informações, consulte "[Renomear um branch](/github/administering-a-repository/renaming-a-branch).
-
-{% endif %}
+You can also rename the default branch. For more information, see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)."
 
 {% data reusables.branches.set-default-branch %}
 
 ## Pré-requisitos
 
-Para alterar o branch-padrão, seu repositório deve ter mais de um branch. Para obter mais informações, consulte "[Criar e excluir branches em seu repositório](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)".
+To change the default branch, your repository must have more than one branch. For more information, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
 
 ## Alterar o branch-padrão
 

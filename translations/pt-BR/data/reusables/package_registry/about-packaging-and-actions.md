@@ -8,17 +8,13 @@ Por exemplo, um fluxo de trabalho de integração contínua para um projeto Java
 
 Agora, ao revisar um pull request, você poderá ver a execução do fluxo de trabalho e fazer o download do artefato produzido.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Menu suspenso do para fazer download do artefato](/assets/images/help/repository/artifact-drop-down-updated.png)
-{% else %}
-![Menu suspenso do para fazer download do artefato](/assets/images/help/repository/artifact-drop-down.png)
-{% endif %}
 
-Isso permitirá que você execute o código no pull request em sua máquina, o que pode ajudar a depurar ou testar o pull request.
+This will let you run the code in the pull request on your machine, which can help with debugging or testing the pull request.
 
 ### Fluxos de trabalho para publicação de pacotes
 
-Além de fazer o upload dos artefatos de empacotamento para teste em um fluxo de trabalho de integração contínua, você poderá criar fluxos de trabalho que criam o seu projeto e publicam pacotes no pacote de registro.
+In addition to uploading packaging artifacts for testing in a continuous integration workflow, you can create workflows that build your project and publish packages to a package registry.
 
 * **Publicar pacotes para {% data variables.product.prodname_registry %}**
   {% data variables.product.prodname_registry %} pode atuar como um serviço de hospedagem de pacotes para vários tipos de pacotes. Você pode escolher compartilhar os seus pacotes com todos {% data variables.product.prodname_dotcom %} ou compartilhar pacotes privados com colaboradores ou uma organização. Para obter mais informações, consulte "[Introdução ao GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages)".

@@ -24,8 +24,8 @@ Se você desejar ignorar a autorização do seu aplicativo da forma-padrão, com
 
 Para autorizar o seu aplicativo OAuth, considere qual fluxo de autorização melhor se adequa ao seu aplicativo.
 
-- [Fluxo de aplicativos web](#web-application-flow): Usado para autorizar usuários para aplicativos OAuth padrão executados no navegador. (O [implícito tipo de concessão](https://tools.ietf.org/html/rfc6749#section-4.2) não é compatível){% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-- [fluxo do dispositivo](#device-flow): usado para sem cabeçalho, como ferramentas de CLI.{% endif %}
+- [Fluxo de aplicativos web](#web-application-flow): Usado para autorizar usuários para aplicativos OAuth padrão executados no navegador. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
+- [device flow](#device-flow):  Used for headless apps, such as CLI tools.
 
 ## Fluxo do aplicativo web
 
@@ -116,8 +116,6 @@ Por exemplo, no cURL você pode definir o cabeçalho de autorização da seguint
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ## Fluxo de dispositivo
 
 {% note %}
@@ -138,7 +136,7 @@ O fluxo de dispositivos permite que você autorize usuários para um aplicativo 
 
     POST {% data variables.product.oauth_host_code %}/login/device/code
 
-O seu aplicativo deve solicitar um código de verificação e uma URL de verificação que o aplicativo usará para solicitar que o usuário seja autenticado na próxima etapa. Essa solicitação também retorna um código de verificação de dispositivo que o aplicativo deve usar para receber um token de acesso e verificar o status da autenticação do usuário.
+Your app must request a user verification code and verification URL that the app will use to prompt the user to authenticate in the next step. This request also returns a device verification code that the app must use to receive an access token and check the status of user authentication.
 
 #### Parâmetros de entrada
 
@@ -191,19 +189,19 @@ Accept: application/xml
 
 ### Passo 2: Solicite ao usuário que insira o código do usuário em um navegador
 
-O seu dispositivo mostrará o código de verificação do usuário e solicitará que o usuário insira o código em {% data variables.product.device_authorization_url %}.
+Your device will show the user verification code and prompt the user to enter the code at {% data variables.product.device_authorization_url %}.
 
-  ![Campo para digitar o código de verificação do usuário exibido no seu dispositivo](/assets/images/github-apps/device_authorization_page_for_user_code.png)
+  ![Field to enter the user verification code displayed on your device](/assets/images/github-apps/device_authorization_page_for_user_code.png)
 
 ### Passo 3: O aplicativo solicita que o GitHub verifique se o usuário autorizou o dispositivo
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-O seu aplicativo fará solicitações de autorização do dispositivo que pesquisem `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`, até que o dispositivo e códigos de usuário expirem ou o usuário autorizem com sucesso o aplicativo com um código de usuário válido. O aplicativo deve usar o `intervalo` mínimo de sondagem recuperado na etapa 1 para evitar erros de limite de taxa. Para obter mais informações, consulte "[Limites de taxa para o fluxo do dispositivo](#rate-limits-for-the-device-flow)".
+Your app will make device authorization requests that poll `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`, until the device and user codes expire or the user has successfully authorized the app with a valid user code. The app must use the minimum polling `interval` retrieved in step 1 to avoid rate limit errors. For more information, see "[Rate limits for the device flow](#rate-limits-for-the-device-flow)."
 
-O usuário deve inserir um código válido em de 15 minutos (ou 900 segundos). Após 15 minutos, você deverá solicitar um novo código de autorização do dispositivo com `POST {% data variables.product.oauth_host_code %}/login/dispositivo/código`.
+The user must enter a valid code within 15 minutes (or 900 seconds). After 15 minutes, you will need to request a new device authorization code with `POST {% data variables.product.oauth_host_code %}/login/device/code`.
 
-Uma vez que o usuário tenha autorizado, o aplicativo receberá um token de acesso que poderá ser usado para fazer solicitações para a API em nome de um usuário.
+Once the user has authorized, the app will receive an access token that can be used to make requests to the API on behalf of a user.
 
 #### Parâmetros de entrada
 
@@ -243,9 +241,9 @@ Accept: application/xml
 
 ### Limites de taxa para o fluxo do dispositivo
 
-Quando um usuário envia o código de verificação no navegador, há um limite de taxa de 50 envios por hora por aplicativo.
+When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
 
-Se você fizer mais de uma solicitação de token de acesso (`POST {% data variables.product.oauth_host_code %}/login/oauth/oaccess_token`) no período mínimo necessário entre solicitações (ou `intervalo`), você atingirá o limite de taxa e receberá uma resposta de erro `slow_down`. A resposta de erro `slow_down`adiciona 5 segundos ao último `intervalo`. Para obter mais informações, consulte [Erros para o fluxo do dispositivo](#errors-for-the-device-flow).
+If you make more than one access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Errors for the device flow](#errors-for-the-device-flow).
 
 ### Códigos de erro para o fluxo do dispositivo
 
@@ -259,25 +257,23 @@ Se você fizer mais de uma solicitação de token de acesso (`POST {% data varia
 | `incorrect_device_code`        | O device_code fornecido não é válido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `access_denied`                | Quando um usuário clica em cancelar durante o processo de autorização, você receberá uma mensagem de erro de `access_denied` e o usuário não poderá usar o código de verificação novamente.                                                                                                                                                                                                                                                                                                                                                                                |
 
-Para obter mais informações, consulte "[Concessão de Autorização do Dispositivo OAuth 2.0](https://tools.ietf.org/html/rfc8628#section-3.5)".
-
-{% endif %}
+For more information, see the "[OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5)."
 
 ## Fluxo do aplicativo que não são da web
 
-A autenticação que não é da web está disponível para situações limitadas como testes. Se necessário, você pode usar a [autenticação básica](/rest/overview/other-authentication-methods#basic-authentication) para criar um token de acesso usando a sua [página pessoal de configurações de tokens de acesso](/articles/creating-an-access-token-for-command-line-use). Essa técnica permite ao usuário revogar o acesso a qualquer momento.
+Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) to create a personal access token using your [Personal access tokens settings page](/articles/creating-an-access-token-for-command-line-use). This technique enables the user to revoke access at any time.
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**Observação:** Quando usar o fluxo do aplicativo que não é web para criar um token do OAuth2, certifique-se de entender como [trabalhar com a autenticação de dois fatores](/rest/overview/other-authentication-methods#working-with-two-factor-authentication) se você ou seus usuários tiverem a autenticação de dois fatores habilitada.
+**Note:** When using the non-web application flow to create an OAuth2 token, make sure to understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication) if you or your users have two-factor authentication enabled.
 
 {% endnote %}
 {% endif %}
 
 ## URLs de redirecionamento
 
-O parâmetro `redirect_uri` é opcional. Se ignorado, o GitHub redirecionará os usuários para a URL de retorno de chamada definida nas configurações do aplicativo OAuth. Se fornecido, o host e porta do URL de redirecionamento deve exatamente corresponder à URL de retorno de chamada. O caminho da URL de redirecionamento deve fazer referência uma subpasta da URL de retorno de chamada.
+The `redirect_uri` parameter is optional. If left out, GitHub will redirect users to the callback URL configured in the OAuth Application settings. If provided, the redirect URL's host and port must exactly match the callback URL. The redirect URL's path must reference a subdirectory of the callback URL.
 
     RETORNO DE CHAMADA: http://example.com/path
     
@@ -291,9 +287,9 @@ O parâmetro `redirect_uri` é opcional. Se ignorado, o GitHub redirecionará os
 
 ### URLs de redirecionamento do Localhost
 
-O parâmetro opcional `redirect_uri` também pode ser usado para URLs do localhhost. Se o aplicativo especificar uma URL do localhost e uma porta, após a autorização, os usuários do aplicativo serão redirecionados para a URL e porta fornecidas. O `redirect_uri` não precisa corresponder à porta especificada na URL de retorno de chamada do aplicativo.
+The optional `redirect_uri` parameter can also be used for localhost URLs. If the application specifies a localhost URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback url for the app.
 
-Para a URL de retorno de chamada `http://127.0.0.1/path`, você poderá usar este `redirect_uri`:
+For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
 
 ```
 http://127.0.0.1:1234/path
@@ -301,9 +297,9 @@ http://127.0.0.1:1234/path
 
 ## Criar vários tokens para aplicativos OAuth
 
-Você pode criar vários tokens para uma combinação de usuário/aplicativo/escopo para criar tokens para casos de uso específicos.
+You can create multiple tokens for a user/application/scope combination to create tokens for specific use cases.
 
-Isso é útil se o seu aplicativo OAuth for compatível com um fluxo de trabalho que usa o GitHub para iniciar sessão e exigir apenas informações básicas do usuário. Outro fluxo de trabalho pode exigir acesso aos repositórios privados de um usuário. Ao usar vários tokens, o seu aplicativo OAuth pode realizar o fluxo web para cada caso, solicitando apenas os escopos necessários. Se um usuário usar apenas seu aplicativo para iniciar a sessão, ele nunca será obrigado a conceder acesso do aplicativo OAuth aos seus repositórios privados.
+This is useful if your OAuth App supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your OAuth App can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your OAuth App access to their private repositories.
 
 {% data reusables.apps.oauth-token-limit %}
 
@@ -311,9 +307,9 @@ Isso é útil se o seu aplicativo OAuth for compatível com um fluxo de trabalho
 
 ## Direcionar os usuários para revisar seus acessos
 
-Você pode vincular informações sobre a autorização de um aplicativo OAuth para que os usuários possam revisar e revogar as autorizações do seu aplicativo.
+You can link to authorization information for an OAuth App so that users can review and revoke their application authorizations.
 
-Para criar esse vínculo, você precisará do `client_id` dos aplicativos OAuth, que você recebeu do GitHub quando fez o cadastro no aplicativo.
+To build this link, you'll need your OAuth Apps `client_id` that you received from GitHub when you registered the application.
 
 ```
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
@@ -321,15 +317,15 @@ Para criar esse vínculo, você precisará do `client_id` dos aplicativos OAuth,
 
 {% tip %}
 
-**Dica:** Para saber mais sobre os recursos que seu aplicativo OAuth pode acessar para um usuário, consulte "[Descobrindo recursos para um usuário](/rest/guides/discovering-resources-for-a-user). "
+**Tip:** To learn more about the resources that your OAuth App can access for a user, see "[Discovering resources for a user](/rest/guides/discovering-resources-for-a-user)."
 
 {% endtip %}
 
 ## Solução de Problemas
 
 * "[Solucionando erros de solicitação de autorização](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
-* "[Solucionando erros na requisição de token de acesso do aplicativo OAuth](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}* "[Erros do fluxo do aplicativo](#error-codes-for-the-device-flow)"{% endif %}{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+* "[Troubleshooting OAuth App access token request errors](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
+* "[Device flow errors](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 * "[Vencimento e revogação do Token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
 ## Leia mais
