@@ -1,7 +1,7 @@
 ---
 title: Enabling automatic access to GitHub.com actions using GitHub Connect
 intro: 'To allow {% data variables.product.prodname_actions %} in your enterprise to use actions from {% data variables.product.prodname_dotcom_the_website %}, you can connect your enterprise instance to {% data variables.product.prodname_ghe_cloud %}.'
-permissions: 'Site administrators for {% data variables.product.product_name %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
+permissions: 'Enterprise owners can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
   - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
