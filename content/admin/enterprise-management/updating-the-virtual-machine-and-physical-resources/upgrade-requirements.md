@@ -43,7 +43,8 @@ topics:
 - When upgrading through hotpatching, your instance cannot be too heavily loaded, as it may impact the hotpatching process.
 - Upgrading to {% data variables.product.prodname_ghe_server %} 2.17 migrates your audit logs from Elasticsearch to MySQL. This migration also increases the amount of time and disk space it takes to restore a snapshot. Before migrating, check the number of bytes in your Elasticsearch audit log indices with this command:
 ``` shell
-curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytes
+curl -s http://localhost:9201/audit_log/_stats/store | jq ._all.primaries.store.size_in_bytesAfter reviewing these recommendations and requirements, you can upgrade {% data variables.product.prodname_ghe_server %}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)."
+
 ```
 Use the number to estimate the amount of disk space the MySQL audit logs will need. The script also monitors your free disk space while the import is in progress. Monitoring this number is especially useful if your free disk space is close to the amount of disk space necessary for migration.
 
