@@ -12,7 +12,7 @@ topics:
   - Secret scanning
   - Advanced Security
 redirect_from:
-  - /code-security/secret-security/secret-scanning-partners
+  - /code-security/secret-scanning/secret-scanning-partners
 ---
 
 {% data reusables.secret-scanning.beta %}
