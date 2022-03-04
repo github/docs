@@ -13,7 +13,8 @@ learningTracks:
   - '{% ifversion ghae %}get_started_with_github_ae{% endif %}'
   - '{% ifversion ghes %}deploy_an_instance{% endif %}'
   - '{% ifversion ghes %}upgrade_your_instance{% endif %}'
-  - adopting_github_actions_for_your_enterprise
+  -  adopting_github_actions_for_your_enterprise_ghec
+  -  adopting_github_actions_for_your_enterprise_ghes_and_ghae
   - '{% ifversion ghes %}increase_fault_tolerance{% endif %}'
   - '{% ifversion ghes %}improve_security_of_your_instance{% endif %}'
   - '{% ifversion ghes > 2.22 %}configure_github_actions{% endif %}'
