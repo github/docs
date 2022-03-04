@@ -1,3 +1,3 @@
 1. 输入运行程序组的名称，并分配仓库访问策略。
 
-    您可以配置一个运行器组可供一组特定的仓库或组织中所有仓库访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 如果配置企业共享的组织的运行组，则不能覆盖此设置。
+    You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. 如果配置企业共享的组织的运行组，则不能覆盖此设置。{% endif %}

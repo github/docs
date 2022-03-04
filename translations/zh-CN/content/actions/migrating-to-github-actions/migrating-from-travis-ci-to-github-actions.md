@@ -187,7 +187,7 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 
 ### 存储密码
 
-{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}环境保护规则可能需要手动批准工作流程才能访问环境秘密。 {% endif %}更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
+{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 Environment protection rules can require manual approval for a workflow to access environment secrets. 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 
 ### 在作业和工作流程之间共享文件
 
