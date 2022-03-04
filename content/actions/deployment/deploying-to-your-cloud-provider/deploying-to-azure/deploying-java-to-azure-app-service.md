@@ -95,7 +95,7 @@ jobs:
         run: mvn clean install
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: java-app
           path: '{% raw %}${{ github.workspace }}{% endraw %}/target/*.jar'
@@ -109,7 +109,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: java-app
 

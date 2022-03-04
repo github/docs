@@ -100,7 +100,7 @@ jobs:
         npm run build --if-present
         npm run test --if-present
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: node-app
         path: .
@@ -114,7 +114,7 @@ jobs:
 
     steps:
     - name: Download artifact from build job
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: node-app
 
