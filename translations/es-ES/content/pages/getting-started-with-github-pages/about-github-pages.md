@@ -34,7 +34,7 @@ You can host your site on {% data variables.product.prodname_dotcom %}'s `github
 
 To get started, see "[Creating a {% data variables.product.prodname_pages %} site](/articles/creating-a-github-pages-site)."
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 Organization owners can disable the publication of {% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 {% endif %}
 
@@ -80,7 +80,6 @@ If the default publishing source exists in your repository, {% data variables.pr
 If you want to keep the source files for your site in a different location, you can change the publishing source for your site. You can publish your site from any branch in the repository, either from the root of the repository on that branch, `/`, or from the `/docs` folder on that branch. For more information, see "[Configuring a publishing source for your {% data variables.product.prodname_pages %} site](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)."
 
 If you choose the `/docs` folder of any branch as your publishing source, {% data variables.product.prodname_pages %} will read everything to publish your site{% ifversion fpt or ghec %}, including the _CNAME_ file,{% endif %} from the `/docs` folder.{% ifversion fpt or ghec %} For example, when you edit your custom domain through the {% data variables.product.prodname_pages %} settings, the custom domain will write to `/docs/CNAME`. For more information about _CNAME_ files, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."{% endif %}
-
 
 ## Static site generators
 

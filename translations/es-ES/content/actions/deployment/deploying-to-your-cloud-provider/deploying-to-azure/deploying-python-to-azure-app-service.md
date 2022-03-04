@@ -16,7 +16,6 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introducción
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
@@ -55,9 +54,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 1. Add an app setting called `SCM_DO_BUILD_DURING_DEPLOYMENT` and set the value to `1`.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Crear un flujo de trabajo
 
@@ -114,7 +111,7 @@ jobs:
       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: python-app
           path: |
@@ -129,7 +126,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: python-app
           path: .
