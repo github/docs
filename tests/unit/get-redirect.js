@@ -148,18 +148,4 @@ describe('getRedirect basics', () => {
     // it already has the enterprise-server prefix.
     expect(getRedirect('/enterprise-server/foo', ctx)).toBe(`/en/enterprise-server@${latest}/bar`)
   })
-
-  it('should redirect according to the req.context.userLanguage', () => {
-    const ctx = {
-      pages: {},
-      redirects: {
-        '/foo': '/bar',
-      },
-      userLanguage: 'ja',
-    }
-    expect(getRedirect('/foo', ctx)).toBe(`/ja/bar`)
-    // falls back to 'en' if it's falsy
-    ctx.userLanguage = null
-    expect(getRedirect('/foo', ctx)).toBe(`/en/bar`)
-  })
 })
