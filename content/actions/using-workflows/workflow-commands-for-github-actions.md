@@ -627,7 +627,7 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
 
-The following example demonstrates how to do this in Bash:
+{% bash %}
 
 ```yaml{:copy}
 steps:
@@ -639,7 +639,9 @@ steps:
       echo 'EOF' >> $GITHUB_ENV
 ```
 
-The following example demonstrates how to do this in PowerShell Core (version 6 and above):
+{% endbash %}
+
+{% powershell %}
 
 ```yaml{:copy}
 steps:
@@ -651,6 +653,8 @@ steps:
       "EOF" >> $env:GITHUB_ENV
     shell: pwsh
 ```
+
+{% endpowershell %}
 
 ## Adding a system path
 
