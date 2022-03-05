@@ -31,7 +31,7 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
-3. [Configure security and analysis features] で、機能の右側にある [**Disable all**] または [**Enable**] をクリックします。
+3. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**.
   {% ifversion ghes > 3.2 %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
 6. Optionally, enable the feature by default for new repositories that you own.
   {% ifversion ghes > 3.2 %}!["Enable by default" option for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}!["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
@@ -44,7 +44,7 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
-3. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories that you own.
+3. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories that you own.
   {% ifversion ghes > 3.2 %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
 
 ## 参考リンク

@@ -41,7 +41,7 @@ Enterprise オーナーは、Enterprise の完全な管理権限を持ち、以�
 {% ifversion ghec %}- 支払い設定を管理する{% endif %}
 
 {% if enterprise-owner-join-org %}
-Enterprise owners do not have access to organization settings or content by default. To gain access, enterprise owners can join any organization owned by their enterprise. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+Enterprise owners do not have access to organization settings or content by default. To gain access, enterprise owners can join any organization owned by their enterprise. 詳しい情報については「[自身のEnterpriseが所有しているOrganization内での自分のロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
 
 Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
 {% else %}

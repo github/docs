@@ -1,9 +1,9 @@
 ---
 title: Varredura secreta
-intro: 'Para recuperar e atualizar os alertas secretos de um repositório privado, você pode usar a API de digitalização secreta.'
+intro: Use the secret scanning API to retrieve and update secret alerts from a repository.
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 miniTocMaxHeadingLevel: 3

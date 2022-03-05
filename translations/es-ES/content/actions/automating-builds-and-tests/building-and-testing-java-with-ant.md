@@ -119,7 +119,7 @@ steps:
       distribution: 'adopt'
 
   - run: ant -noinput -buildfile build.xml
-  - uses: actions/upload-artifact@v2
+  - uses: actions/upload-artifact@v3
     with:
       name: Package
       path: build/jar

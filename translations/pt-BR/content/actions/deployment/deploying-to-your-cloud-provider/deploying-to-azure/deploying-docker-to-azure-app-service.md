@@ -66,15 +66,13 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
         --settings DOCKER_REGISTRY_SERVER_URL=https://ghcr.io DOCKER_REGISTRY_SERVER_USERNAME=MY_REPOSITORY_OWNER DOCKER_REGISTRY_SERVER_PASSWORD=MY_PERSONAL_ACCESS_TOKEN
 ```
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Opcionalmente, configure um ambiente de implantação. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Criar o fluxo de trabalho
 
 Depois de preencher os pré-requisitos, você pode prosseguir com a criação do fluxo de trabalho.
 
-O fluxo de trabalho a seguir demonstra como criar e implantar um contêiner Docker no Azure App Service quando há push para o branch `principal`.
+The following example workflow demonstrates how to build and deploy a Docker container to Azure App Service when there is a push to the `main` branch.
 
 Certifique-se de definir `AZURE_WEBAPP_NAME` na chave de fluxo de trabalho `env` como o nome do aplicativo web que você criou.
 

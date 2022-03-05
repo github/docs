@@ -51,7 +51,7 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista.
-   {%- ifversion ghes > 3.0 %}
+   {%- ifversion ghes %}
    ![Adicionar ações para permitir lista](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
    ![Adicionar ações para permitir lista](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)

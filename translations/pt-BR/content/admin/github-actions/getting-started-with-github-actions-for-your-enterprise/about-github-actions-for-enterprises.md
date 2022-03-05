@@ -22,7 +22,7 @@ topics:
 
 ## Sobre {% data variables.product.prodname_actions %} para empresas
 
-Com {% data variables.product.prodname_actions %}, você pode melhorar a produtividade do desenvolvedor automatizando todas as fases do fluxo de trabalho de desenvolvimento de software da sua empresa.
+{% data reusables.actions.about-actions-for-enterprises %}
 
 | Tarefa                                                                      | Mais informações                                                                                                                                                               |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

@@ -12,7 +12,6 @@ type: tutorial
 shortTitle: 管理运行器组
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -70,17 +69,19 @@ shortTitle: 管理运行器组
     ![添加运行器组](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. 输入运行程序组的名称，并分配仓库访问策略。
 
-   {% ifversion ghes or ghae %} 您可以配置一个运行器组可供一组特定的仓库或组织中所有仓库访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 如果配置企业共享的组织的运行组，则不能覆盖此设置。{% endif %}
+   You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. 如果配置企业共享的组织的运行组，则不能覆盖此设置。{% endif %}
 
+   {%- ifversion ghes %}
    {% warning %}
 
-   **警告**
+   **Warning**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
    {% endwarning %}
+   {%- endif %}
 
    ![添加运行器组选项](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. 单击 **Save group（保存组）**创建组并应用策略。
@@ -94,49 +95,29 @@ shortTitle: 管理运行器组
 
 创建组时，必须选择用于定义哪些组织有权访问运行器组的策略。
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runner-groups-tab %}
-1. 单击 **New runner group（新运行器组）**。
- {% data reusables.actions.runner-group-assign-policy-org %}
+{% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
+1. To choose a policy for organization access, select the **Organization access** drop-down, and click a policy. You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.{% ifversion ghes %} By default, only private repositories can access runners in a runner group, but you can override this.{% endif %}
 
+   {%- ifversion ghec or ghes %}
    {% warning %}
 
-   **警告**
+   **Warning**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
    {% endwarning %}
-{% data reusables.actions.self-hosted-runner-create-group %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-1. 单击 **Add new（新增）**，然后单击 **New group（新组）**。
+   {%- endif %}
+   {%- ifversion ghec or ghes %}
 
-    ![添加运行器组](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. 输入运行程序组的名称，并分配组织访问策略。
+   ![添加运行器组选项](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
+   {%- elsif ghae %}
 
-    您可以配置运行器组供特定的组织列表或企业中所有组织访问。 默认情况下，只有私有仓库可以访问运行器组中的运行器，但您可以覆盖此设置。 如果配置企业共享的组织的运行组，则不能覆盖此设置。
-
-   {% warning %}
-
-   **警告**
-
-   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
-
-   更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
-
-   {% endwarning %}
-
-    ![添加运行器组选项](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
+   ![添加运行器组选项](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options-ae.png)
+   {%- endif %}
 1. 单击 **Save group（保存组）**创建组并应用策略。
-{% endif %}
+
 {% endif %}
 
 ## 更改自托管运行器组的访问策略
@@ -147,15 +128,17 @@ shortTitle: 管理运行器组
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. 修改访问选项或更改运行器组名称。
 
+   {%- ifversion fpt or ghec or ghes %}
    {% warning %}
 
-   **警告**
+   **Warning**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)”。
 
    {% endwarning %}
+   {%- endif %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
@@ -182,7 +165,7 @@ shortTitle: 管理运行器组
 {% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. 在“Runners（运行器）”列表中，单击您要配置的运行器。
-2. 选择运行器组下拉菜单。
+2. Select the **Runner group** drop-down.
 3. 在“Move runner to group（将运行器移动到组）”中，选择运行器的目的地组。
 {% elsif ghae or ghes < 3.4 %}
 1. 在设置页面的{% ifversion ghes > 3.1 or ghae %}“Runners groups（运行器组）”{% elsif ghes < 3.2 %}“Self-hosted runners（自托管运行器）”{% endif %} 部分，找到要移动的运行器的当前组，并展开组成员列表。 ![查看运行器组成员](/assets/images/help/settings/actions-org-runner-group-members.png)

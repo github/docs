@@ -5,7 +5,7 @@ intro: 'Você pode usar o {% data variables.product.prodname_codeql_cli %} para 
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
