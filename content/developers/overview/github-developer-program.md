@@ -30,7 +30,7 @@ Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to re
 Awesome! We'd love to have you be part of the program. Here’s how you can spread the word:</p>
 * [Let us know about your integration](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration)
 * Use the [Octocat or GitHub logo](https://github.com/logos) to identify that your product works with GitHub
-* Post a video or a blog on your website about your integration
+* Post a video or a blog on your website about your integration.
 
 ## Ready to join the GitHub Developer Program?</h3>
 
