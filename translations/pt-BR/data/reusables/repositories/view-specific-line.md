@@ -1,3 +1,3 @@
-1. Optionally, to get a link to a specific line in the logs, click on the step's line number. You can then copy the link from the address bar of your web browser.
+1. Para obter um link para uma linha específica nos logs, clique no número da linha da etapa. Em seguida, você pode copiar o link da barra de endereço do seu navegador da web.
 
-   ![Button to copy link](/assets/images/help/repository/copy-link-button-updated-2.png)
+   ![Botão para copiar link](/assets/images/help/repository/copy-link-button-updated-2.png)

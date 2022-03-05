@@ -59,7 +59,7 @@ shortTitle: Gerenciar alertas de segredos
 
 ## Protegendo segredos comprometidos
 
-Once a secret has been committed to a repository, you should consider the secret compromised. {% data variables.product.prodname_dotcom %} recommends the following actions for compromised secrets:
+Uma vez que um segredo tenha sido committed a um repositório, você deve considerar o segredo comprometido. O {% data variables.product.prodname_dotcom %} recomenda as seguintes ações para segredos comprometidos:
 
 - Para um token de acesso pessoal do {% data variables.product.prodname_dotcom %}, exclua o token comprometido, crie outro token e atualize os serviços que usam o token antigo. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)".
 - Para todos os outros segredos, primeiro, verifique se o segredo commited para {% data variables.product.product_name %} é válido. Se sim, crie um novo segredo, atualize quaisquer serviços que utilizam o segredo antigo, e depois exclua o segredo antigo.
@@ -75,7 +75,7 @@ Once a secret has been committed to a repository, you should consider the secret
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## Configurando notificações para alertas de {% data variables.product.prodname_secret_scanning %}
 
-When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive alerts if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, are the author of the commit that contains the secret and are not ignoring the repository.
+Quando um novo segredo é detectado, {% data variables.product.product_name %} notifica todos os usuários com acesso a alertas de segurança para o repositório, de acordo com suas preferências de notificação. Você receberá alertas se estiver inspecionando o repositório, se tiver habilitado as notificações para alertas de segurança ou para todas as atividades no repositório, se for o autor do commit que contém o segredo e não estiver ignorando o repositório.
 
-For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" e "[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
 {% endif %}
