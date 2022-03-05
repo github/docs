@@ -1,5 +1,6 @@
----
-title: Managing GitHub Actions settings for a repository
+
+title: #Managing GitHub managing-github-actions-settings-for-a-repository.md settings for a repository
+@Christoc90 
 intro: 'You can disable or configure {% data variables.product.prodname_actions %} for a specific repository.'
 redirect_from:
   - /github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository
