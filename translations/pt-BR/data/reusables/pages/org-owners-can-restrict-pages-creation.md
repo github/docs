@@ -1,7 +1,7 @@
 {% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**Note:** Organization owners can restrict the publication of {% data variables.product.prodname_pages %} sites from repositories owned by the organization. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
+**Observação:** Os proprietários da organização podem restringir a publicação de sites de {% data variables.product.prodname_pages %} de repositórios pertencentes à organização. Para obter mais informações, consulte "[Gerenciar a publicação de sites de {% data variables.product.prodname_pages %}](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)".
 
 {% endnote %}
 {% endif %}

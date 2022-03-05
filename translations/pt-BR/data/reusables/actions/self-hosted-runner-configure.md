@@ -13,4 +13,4 @@
    - Transferindo e extraindo o aplicativo do executor auto-hospedado.
    - Executando o script `config` para configurar a aplicação de executor auto-hospedada e registrá-lo no {% data variables.product.prodname_actions %}. O script `config` requer a URL de destino e um token de tempo limitado gerado automaticamente para autenticar a solicitação.
      - No Windows, o script `config` também pergunta se você gostaria de instalar o aplicativo de execução auto-hospedado como um serviço. Para Linux e macOS, você pode instalar um serviço depois de terminar de adicionar o executor. Para obter mais informações, consulte "[Configuring the self-hosted runner application as a service](/actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service)."
-   - Running the self-hosted runner application to connect the machine to {% data variables.product.prodname_actions %}.
+   - Executando o aplicativo do executor auto-hospedado para conectar a máquina ao {% data variables.product.prodname_actions %}.
