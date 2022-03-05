@@ -12,7 +12,6 @@ type: tutorial
 shortTitle: Manage runner groups
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -28,7 +27,7 @@ shortTitle: Manage runner groups
 Self-hosted runner groups are used to control access to self-hosted runners. Organization の管理者は、Organization 内のどのリポジトリがランナーグループにアクセスできるかを制御するアクセスポリシーを設定できます。
 ー
 
-{% data variables.product.prodname_ghe_cloud %}, you can create additional runner groups; enterprise admins can configure access policies that control which organizations in an enterprise have access to the runner group; and organization admins can assign additional granular repository access policies to the enterprise runner group. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups).
+{% data variables.product.prodname_ghe_cloud %}, you can create additional runner groups; enterprise admins can configure access policies that control which organizations in an enterprise have access to the runner group; and organization admins can assign additional granular repository access policies to the enterprise runner group. 詳しい情報については[{% data variables.product.prodname_ghe_cloud %}のドキュメンテーション](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)を参照してください。
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
@@ -70,17 +69,19 @@ Enterprise の管理者が Organization にランナーグループへのアク�
     ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. ランナーグループの名前を入力し、リポジトリアクセスのポリシーを割り当てます。
 
-   {% ifversion ghes or ghae %} You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization. By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
+   You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.{% endif %}
 
+   {%- ifversion ghes %}
    {% warning %}
 
-   **Warning**
+   **Warning**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
    {% endwarning %}
+   {%- endif %}
 
    ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. [**Save group**] をクリックしてグループを作成し、ポリシーを適用します。
@@ -94,49 +95,29 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 グループを作成するときは、ランナーグループにアクセスできる Organization を定義するポリシーを選択する必要があります。
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runner-groups-tab %}
-1. Click **New runner group**.
- {% data reusables.actions.runner-group-assign-policy-org %}
+{% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
+1. To choose a policy for organization access, select the **Organization access** drop-down, and click a policy. You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.{% ifversion ghes %} By default, only private repositories can access runners in a runner group, but you can override this.{% endif %}
 
+   {%- ifversion ghec or ghes %}
    {% warning %}
 
-   **Warning**
+   **Warning**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
    {% endwarning %}
-{% data reusables.actions.self-hosted-runner-create-group %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-1. [**Add new**] をクリックしてから、[**New group**] をクリックします。
+   {%- endif %}
+   {%- ifversion ghec or ghes %}
 
-    ![新しいランナーを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. ランナーグループの名前を入力し、Organization アクセスのポリシーを割り当てます。
+   ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
+   {%- elsif ghae %}
 
-    You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise. By default, only private repositories can access runners in a runner group, but you can override this. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.
-
-   {% warning %}
-
-   **Warning**
-
-   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
-
-   詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
-
-   {% endwarning %}
-
-    ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
+   ![ランナーグループのオプションを追加](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options-ae.png)
+   {%- endif %}
 1. [**Save group**] をクリックしてグループを作成し、ポリシーを適用します。
-{% endif %}
+
 {% endif %}
 
 ## セルフホストランナーグループのアクセスポリシーを変更する
@@ -147,15 +128,17 @@ Enterprise は、セルフホストランナーをグループに追加して、
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. Modify the access options, or change the runner group name.
 
+   {%- ifversion fpt or ghec or ghes %}
    {% warning %}
 
-   **Warning**
+   **Warning**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)」を参照してください。
 
    {% endwarning %}
+   {%- endif %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
@@ -182,7 +165,7 @@ If you don't specify a runner group during the registration process, your new se
 {% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. In the "Runners" list, click the runner that you want to configure.
-2. Select the Runner group dropdown menu.
+2. Select the **Runner group** drop-down.
 3. In "Move runner to group", choose a destination group for the runner.
 {% elsif ghae or ghes < 3.4 %}
 1. In the {% ifversion ghes > 3.1 or ghae %}"Runner groups"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %} section of the settings page, locate the current group of the runner you want to move and expand the list of group members. ![ランナーグループのメンバーを表示](/assets/images/help/settings/actions-org-runner-group-members.png)

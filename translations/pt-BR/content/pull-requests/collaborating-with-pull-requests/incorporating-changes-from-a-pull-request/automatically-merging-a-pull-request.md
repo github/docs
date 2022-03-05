@@ -4,7 +4,7 @@ intro: Você pode aumentar a velocidade de desenvolvimento permitindo o merge au
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -45,7 +45,7 @@ Pessoas com permissões de gravação em um repositório podem habilitar o merge
 
   {% endnote %}
   {% endif %}
-  {% ifversion ghes > 3.0 or ghae or ghec %}
+  {% ifversion ghes or ghae or ghec %}
 1. Se você escolheu os métodos de merge ou combinação por squash e merge, digite uma mensagem de commit e descrição. ![Campos para inserir a mensagem e a descrição do commit](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
   {% endif %}
 1. Clique em **Confirmar merge automático**.

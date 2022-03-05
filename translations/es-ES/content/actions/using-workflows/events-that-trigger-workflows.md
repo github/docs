@@ -41,7 +41,6 @@ Algunos eventos tienen tipos de actividad múltiple. Para ellos, puedes especifi
 
 Ejecuta tu flujo de trabajo cuando se cambian las reglas de protección de rama en el repositorio del flujo de trabajo. Para obtener más información sobre las reglas de protección de rama, consulta la sección "[Acerca de las ramas protegidasrama protegida](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)". Para obtener más información acerca de las API de regla de protección de rama, consulta la sección "[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)" en la documentación de la API de GraphQL o "[Ramas](/rest/reference/branches)" en la documentación de la API de REST.
 
-
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando una regla de protección de rama se muestre como `created` o `deleted`:
 
 ```yaml
@@ -558,9 +557,9 @@ on:
 
 ### `solicitud_extracción`
 
-| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `GITHUB_SHA`                                          | `GITHUB_REF`                                     |
-| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------ |
-| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de fusión de PR `refs/pull/:prNumber/merge` |
+| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                         | `GITHUB_SHA`                                          | `GITHUB_REF`                                     |
+| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------ |
+| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de fusión de PR `refs/pull/:prNumber/merge` |
 
 {% note %}
 
@@ -777,9 +776,9 @@ on:
 
 ### `pull_request_target`
 
-| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `GITHUB_SHA`                                                      | `GITHUB_REF`                            |
-| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------- |
-| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | Última confirmación en la rama base de la solicitud de extracción | Rama base de la solicitud de extracción |
+| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                         | `GITHUB_SHA`                                                      | `GITHUB_REF`                            |
+| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------- |
+| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Última confirmación en la rama base de la solicitud de extracción | Rama base de la solicitud de extracción |
 
 {% note %}
 
@@ -1300,7 +1299,6 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 
 For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
 
-
 {% else %}
 Este ejemplo define las entradas `name` y `home` y las imprime utilizando los contextos `github.event.inputs.name` y `github.event.inputs.home`. Si no se proporciona un `home`, se imprime el valor predeterminado 'The Octoverse'.
 
@@ -1431,7 +1429,7 @@ jobs:
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: pr_number
           path: pr/

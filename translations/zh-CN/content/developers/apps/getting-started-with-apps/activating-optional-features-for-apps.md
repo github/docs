@@ -1,6 +1,6 @@
 ---
-title: Activating optional features for apps
-intro: 'You can test new optional features for your {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.'
+title: 激活应用程序的可选功能
+intro: '您可以测试 {% data variables.product.prodname_github_apps %} 和 {% data variables.product.prodname_oauth_apps %} 的新可选功能。'
 redirect_from:
   - /developers/apps/activating-beta-features-for-apps
   - /developers/apps/activating-optional-features-for-apps
@@ -11,22 +11,23 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Activate optional features
+shortTitle: 激活可选功能
 ---
+
 {% warning %}
 
-**Warning:** {% ifversion ghes < 3.1 %} Beta {% else %} Optional {% endif %} features are subject to change.
+**Warning:**  Optional features are subject to change.
 
 {% endwarning %}
 
-## Activating {% ifversion ghes < 3.1 %} beta {% else %} optional {% endif %} features for {% data variables.product.prodname_github_apps %}
+## Activating optional features for {% data variables.product.prodname_github_apps %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. Select the {% data variables.product.prodname_github_app %} you want to enable {% ifversion ghes < 3.1 %} a beta {% else %} an optional {% endif %} feature for.
+3. Select the {% data variables.product.prodname_github_app %} you want to enable an optional feature for.
 {% data reusables.apps.optional_feature_activation %}
 
-## Activating {% ifversion ghes < 3.1 %} beta {% else %} optional {% endif %} features for {% data variables.product.prodname_oauth_apps %}
+## Activating optional features for {% data variables.product.prodname_oauth_apps %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

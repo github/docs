@@ -19,7 +19,7 @@ shortTitle: Edit Advisory Database
 ## About editing advisories in the {% data variables.product.prodname_advisory_database %}
 Security advisories in the {% data variables.product.prodname_advisory_database %} at [github.com/advisories](https://github.com/advisories) are considered global advisories. Anyone can suggest improvements on any global security advisory in the {% data variables.product.prodname_advisory_database %}. You can edit or add any detail, including additionally affected ecosystems, severity level or description of who is impacted. The {% data variables.product.prodname_security %} curation team will review the submitted improvements and publish them onto the {% data variables.product.prodname_advisory_database %} if accepted.
 
-Only repository owners and administrators can edit repository-level security advisories. For more information, see "[Editing a repository security advisory](/code-security/security-advisories/editing-a-security-advisory)."
+Only repository owners and administrators can edit repository-level security advisories. Para obtener más información, consulta la sección "[Editar una asesoría de seguridad de repositorio](/code-security/security-advisories/editing-a-security-advisory)".
 ## Editing advisories in the GitHub Advisory Database
 
 1. Navega hasta https://github.com/advisories.

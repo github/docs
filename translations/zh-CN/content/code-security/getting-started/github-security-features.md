@@ -23,16 +23,14 @@ topics:
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## 适用于所有仓库
 {% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### 安全策略
 
 让您的用户能够轻松地秘密报告他们在仓库中发现的安全漏洞。 更多信息请参阅“[添加安全政策到仓库](/code-security/getting-started/adding-a-security-policy-to-your-repository)”。
-{% endif %}
 
 {% ifversion fpt or ghec %}
 ### 安全通告
 
-私下讨论并修复仓库代码中的安全漏洞。 然后，您可以发布安全通告，提醒您的社区注意漏洞并鼓励社区成员升级。 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
+私下讨论并修复仓库代码中的安全漏洞。 然后，您可以发布安全通告，提醒您的社区注意漏洞并鼓励社区成员升级。 For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
 {% endif %}
 {% ifversion fpt or ghec or ghes > 3.2 %}
@@ -68,17 +66,38 @@ topics:
 
 ## 通过 {% data variables.product.prodname_GH_advanced_security %} 可用
 
-{% data reusables.advanced-security.ghas-availability %}
+{% ifversion fpt %}
+The following {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can use the full set of features in any of their repositories. For a list of the features available with {% data variables.product.prodname_ghe_cloud %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/github-security-features#available-with-github-advanced-security).
+
+{% elsif ghec %}
+Many {% data variables.product.prodname_GH_advanced_security %} features are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}. Organizations within an enterprise that has a {% data variables.product.prodname_GH_advanced_security %} license can use all the following features on their repositories. {% data reusables.advanced-security.more-info-ghas %}
+
+{% elsif ghes %}
+{% data variables.product.prodname_GH_advanced_security %} features are available for enterprises with a license for {% data variables.product.prodname_GH_advanced_security %}. The features are restricted to repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
+
+{% elsif ghae %}
+{% data variables.product.prodname_GH_advanced_security %} features are available for repositories owned by an organization. {% data reusables.advanced-security.more-info-ghas %}
+{% endif %}
 
 ### {% data variables.product.prodname_code_scanning_capc %}
 
 自动检测新代码或修改代码中的安全漏洞和编码错误。 潜在的问题被高亮显示，并附有详细信息，允许您在将代码合并到默认分支之前修复它。 更多信息请参阅“[关于代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
 
-### {% data variables.product.prodname_secret_scanning_caps %}
+{% ifversion fpt or ghec %}
+### {% data variables.product.prodname_secret_scanning_partner_caps %}
 
-自动检测已签入存储库的令牌或凭据。 {% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} 在所有公共存储库中查找泄露的机密，并通知相关服务提供商该机密可能已泄露。 有关支持的机密和服务提供商的详细信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 合作伙伴](/code-security/secret-scanning/secret-scanning-partners)”。{% endif %}
-{%- ifversion ghec or ghes or ghae %}
-{% ifversion ghec %}在私有存储库中，可以查看 {% elsif ghes or ghae %}可以查看{% endif %} {% data variables.product.company_short %} 在代码中找到的任何机密。 应将已签入存储库的令牌或凭据视为已泄露。{% endif %} 更多信息请参阅“[关于秘密扫描](/github/administering-a-repository/about-secret-scanning)”。
+Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+{% endif %}
+
+{% ifversion not fpt %}
+### {% data variables.product.prodname_secret_scanning_GHAS_caps %}
+
+{% ifversion ghec %}
+Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
+{% endif %}
+
+自动检测已签入存储库的令牌或凭据。 You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, so that you know which tokens or credentials to treat as compromised. 更多信息请参阅“[关于密钥扫描](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)”。
+{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4864 or ghec %}
 ### 依赖项审查
@@ -88,6 +107,10 @@ topics:
 
 {% ifversion ghec or ghes > 3.1 or ghae-issue-4554 %}
 ### 组织{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}、企业、{% endif %} 和团队的安全概述
+
+{% ifversion ghec %}
+Available only with a license for {% data variables.product.prodname_GH_advanced_security %}.
+{% endif %}
 
 检查组织的安全配置和警报，并确定风险最大的存储库。 更多信息请参阅“[关于安全概述](/code-security/security-overview/about-the-security-overview)”。
 {% endif %}

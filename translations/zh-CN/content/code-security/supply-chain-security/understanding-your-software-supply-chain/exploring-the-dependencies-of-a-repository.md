@@ -96,7 +96,7 @@ shortTitle: 探索依赖项
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. 在“Configure security and analysis features（配置安全和分析功能）”下，单击“Used by counter（使用者计数）”部分中的下拉菜单并选择一个包。 ![选择"使用者"包](/assets/images/help/repository/choose-used-by-package.png)
+4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package. ![选择"使用者"包](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 

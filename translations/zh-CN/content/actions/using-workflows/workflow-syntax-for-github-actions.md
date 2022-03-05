@@ -166,7 +166,6 @@ A string identifier to associate with the secret.
 A boolean specifying whether the secret must be supplied.
 {% endif %}
 
-
 ## `on.workflow_run.<branches|branches-ignore>`
 
 {% data reusables.actions.workflows.section-specifying-branches %}
@@ -185,6 +184,8 @@ A boolean specifying whether the secret must be supplied.
 ## `env`
 
 环境变量的 `map` 可用于工作流程中所有作业的步骤。 您还可以设置仅适用于单个作业的步骤或单个步骤的环境变量。 更多信息请参阅 [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)。
+
+Variables in the `env` map cannot be defined in terms of other variables in the map.
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -240,12 +241,9 @@ env:
 
 {% data reusables.actions.jobs.section-choosing-the-runner-for-a-job %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}
-
-{% endif %}
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`

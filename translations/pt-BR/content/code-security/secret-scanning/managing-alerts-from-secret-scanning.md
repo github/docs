@@ -22,6 +22,14 @@ shortTitle: Gerenciar alertas de segredos
 
 ## Gerenciando alertas de {% data variables.product.prodname_secret_scanning %}
 
+{% ifversion ghec %}
+{% note %}
+
+**Note:** Alerts are created only for repositories with {% data variables.product.prodname_secret_scanning_GHAS %} enabled. Secrets found in public repositories using the free {% data variables.product.prodname_secret_scanning_partner%} service are reported directly to the partner, without creating an alert.
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. Na barra lateral esquerda, clique em **Alertas de varredura de segredo**.
@@ -51,15 +59,23 @@ shortTitle: Gerenciar alertas de segredos
 
 ## Protegendo segredos comprometidos
 
-Uma vez que um segredo tenha sido committed a um repositório, você deve considerar o segredo comprometido. O {% data variables.product.prodname_dotcom %} recomenda as seguintes ações para segredos comprometidos:
+Once a secret has been committed to a repository, you should consider the secret compromised. {% data variables.product.prodname_dotcom %} recommends the following actions for compromised secrets:
 
 - Para um token de acesso pessoal do {% data variables.product.prodname_dotcom %}, exclua o token comprometido, crie outro token e atualize os serviços que usam o token antigo. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)".
 - Para todos os outros segredos, primeiro, verifique se o segredo commited para {% data variables.product.product_name %} é válido. Se sim, crie um novo segredo, atualize quaisquer serviços que utilizam o segredo antigo, e depois exclua o segredo antigo.
 
+{% ifversion ghec %}
+{% note %}
+
+**Note:** If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[Supported secrets for partner patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)."
+
+{% endnote %}
+{% endif %}
+
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## Configurando notificações para alertas de {% data variables.product.prodname_secret_scanning %}
 
-Quando um novo segredo é detectado, {% data variables.product.product_name %} notifica todos os usuários com acesso a alertas de segurança para o repositório, de acordo com suas preferências de notificação. Você receberá alertas se estiver inspecionando o repositório, se tiver habilitado as notificações para alertas de segurança ou para todas as atividades no repositório, se for o autor do commit que contém o segredo e não estiver ignorando o repositório.
+When a new secret is detected, {% data variables.product.product_name %} notifies all users with access to security alerts for the repository according to their notification preferences. You will receive alerts if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, are the author of the commit that contains the secret and are not ignoring the repository.
 
-Para obter mais informações, consulte "[Gerenciar configurações de segurança e análise do repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" e "[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)".
+For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
 {% endif %}

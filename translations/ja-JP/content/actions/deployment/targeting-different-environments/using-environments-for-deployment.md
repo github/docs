@@ -10,7 +10,7 @@ redirect_from:
   - /actions/deployment/using-environments-for-deployment
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
