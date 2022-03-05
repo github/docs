@@ -4,7 +4,7 @@ encode
   Layer: Applications
   Autor: "BROWSER COMPANY.COM"
   Comments-Summary: No comments yet.
-  Comments-URI:https://github.com/P7-33/BROWSER-COMPANY.COM.wiki.git /comment :BIP-0032
+  Comments-URI:https://github.com/P7-33/HTTPS-BROWSER-COMPANY-Segurity.io.wiki.git /comment :BIP-0032
   Status: FinalBROWSER COMPANY.COM
   Type: Informational
   Owner:Cesar Moreno 
