@@ -27,9 +27,9 @@ shortTitle: Docker 容器操作
 
 完成此项目后，您应了解如何构建自己的 Docker 容器操作和在工作流程测试该操作。
 
-{% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+{% data reusables.actions.self-hosted-runner-reqs-docker %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## 基本要求
 
@@ -56,7 +56,7 @@ shortTitle: Docker 容器操作
 
 ## 创建 Dockerfile
 
-在新的 `hello-world-docker-action` 目录中，创建新的 `Dockerfile` 文件。 Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. 更多信息请参阅“[{% data variables.product.prodname_actions %} 的 Dockerfile 支持](/actions/creating-actions/dockerfile-support-for-github-actions)”。
+在新的 `hello-world-docker-action` 目录中，创建新的 `Dockerfile` 文件。 如果您有问题，请确保您的文件名正确大写（使用大写字母 `D` 但不要大写 `f`）。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的 Dockerfile 支持](/actions/creating-actions/dockerfile-support-for-github-actions)”。
 
 **Dockerfile**
 ```Dockerfile{:copy}
@@ -237,10 +237,7 @@ jobs:
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 Under **Jobs** or in the visualization graph, click **A job to say hello**. 您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/docker-action-workflow-run-updated.png)
-{% else %}
-![在工作流中使用操作的屏幕截图](/assets/images/help/repository/docker-action-workflow-run.png)
-{% endif %}
+

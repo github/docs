@@ -33,8 +33,7 @@ Organization のオーナーは、特定の期間だけユーザをブロック�
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. [organization settings] サイトバーで、[**Moderation settings**] をクリックします。 ![[organization settings] サイトバーの [Moderation settings]](/assets/images/help/organizations/org-settings-moderation-settings.png)
-1. [Moderation settings] で、[**Interaction limits**] をクリックします。 ![[organization settings] サイトバーの [Interaction limits] タブ](/assets/images/help/organizations/org-settings-interaction-limits.png)
+1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![[Temporary interaction limits] のオプション](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
@@ -42,4 +41,4 @@ Organization のオーナーは、特定の期間だけユーザをブロック�
 - [悪用あるいはスパムのレポート](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)
 - [Organizationのリポジトリへの個人のアクセスの管理](/articles/managing-an-individual-s-access-to-an-organization-repository)
 - [ユーザアカウントのリポジトリ権限レベル](/articles/permission-levels-for-a-user-account-repository)
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- 「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」

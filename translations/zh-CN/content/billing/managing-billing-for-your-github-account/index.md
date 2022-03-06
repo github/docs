@@ -1,6 +1,6 @@
 ---
-title: 管理 GitHub 帐户的计费
-shortTitle: 您的 GitHub 帐户
+title: Managing billing for your GitHub account
+shortTitle: Your GitHub account
 intro: '{% ifversion fpt %}{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade, downgrade, and view pending changes to your account''s subscription at any time.{% elsif ghec or ghes or ghae %}You can manage billing for {% data variables.product.product_name %}{% ifversion ghae %}.{% elsif ghec or ghes %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account
@@ -29,6 +29,7 @@ children:
   - /managing-invoices-for-your-enterprise
   - /connecting-an-azure-subscription-to-your-enterprise
   - /how-does-upgrading-or-downgrading-affect-the-billing-process
+  - /one-time-payments-for-customers-in-india
   - /discounted-subscriptions-for-github-accounts
 ---
 

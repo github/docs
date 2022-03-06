@@ -178,7 +178,7 @@ You can use the `project` qualifier to find issues that are associated with a sp
 
 ## Search by commit status
 
-You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/repos#statuses) or a CI service.
+You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
 
 | Qualifier        | Example
 | ------------- | -------------

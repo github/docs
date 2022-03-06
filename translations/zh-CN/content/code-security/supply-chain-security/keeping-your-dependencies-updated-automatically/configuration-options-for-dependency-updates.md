@@ -27,7 +27,9 @@ shortTitle: 配置选项
 
 {% data variables.product.prodname_dependabot %} 配置文件 *dependabot.yml* 使用 YAML 语法。 如果您是 YAML 的新用户并想要了解更多信息，请参阅“[五分钟了解 YAML](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)”。
 
-必须将此文件存储在仓库的 `.github` 目录中。 添加或更新 *dependabot.yml* 文件时，这将触发对版本更新的立即检查。 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+必须将此文件存储在仓库的 `.github` 目录中。 添加或更新 *dependabot.yml* 文件时，这将触发对版本更新的立即检查。 有关详细信息和示例，请参阅“[启用和禁用 {% data variables.product.prodname_dependabot %} 版本更新](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)”。
+
+下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。  更多信息请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)。”
 
 *dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择性包括一个顶级`注册表`键。 该文件必须以 `version: 2` 开头。
 
@@ -75,7 +77,7 @@ shortTitle: 配置选项
 
 仅对默认分支上有漏洞的包清单提出安全更新。 如果为同一分支设置配置选项（不使用 `target-branch` 时为 true），并为有漏洞的清单指定 `package-ecosystem` 和 `directory`，则安全更新的拉取请求使用相关选项。
 
-一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 For more information about security updates, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+一般而言，安全更新会使用影响拉取请求的任何配置选项，例如添加元数据或改变其行为。 有关安全更新的更多信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)”。
 
 {% endnote %}
 
@@ -168,7 +170,7 @@ updates:
 
 {% note %}
 
-**注意**：`时间表` 定义 {% data variables.product.prodname_dependabot %} 尝试更新的时间。 但是，这不是您可收到拉取请求的唯一时间。 更新可基于 `dependabot.yml` 文件的更改、更新失败后清单文件的更改或 {% data variables.product.prodname_dependabot_security_updates %} 触发。 For more information, see "[Frequency of {% data variables.product.prodname_dependabot %} pull requests](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+**注意**：`时间表` 定义 {% data variables.product.prodname_dependabot %} 尝试更新的时间。 但是，这不是您可收到拉取请求的唯一时间。 更新可基于 `dependabot.yml` 文件的更改、更新失败后清单文件的更改或 {% data variables.product.prodname_dependabot_security_updates %} 触发。 更多信息请参阅“[{% data variables.product.prodname_dependabot %} 拉取请求的频率](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)”和“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)”。
 
 {% endnote %}
 
@@ -305,7 +307,7 @@ updates:
 
 您可以搜索仓库中是否有 `"@dependabot ignore" in:comments`，以检查仓库是否存储了 `ignore` 首选项。 如果您希望取消忽略以这种方式忽略的依赖项，请重新打开拉取请求。
 
-For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+有关 `@dependabot ignore` 命令的更多信息，请参阅“[管理依赖关系更新的拉取请求](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
 
 #### 指定要忽略的依赖项和版本
 
@@ -341,7 +343,7 @@ updates:
 
 {% note %}
 
-**注意**：即使您将不可访问的依赖项添加到配置文件的`忽略`选项，{% data variables.product.prodname_dependabot %} 也仅在可以访问文件中的所有依赖项时才可在清单文件或锁定文件上运行版本更新。 For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
+**注意**：即使您将不可访问的依赖项添加到配置文件的`忽略`选项，{% data variables.product.prodname_dependabot %} 也仅在可以访问文件中的所有依赖项时才可在清单文件或锁定文件上运行版本更新。 更多信息请参阅“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)”和“[排除 {% data variables.product.prodname_dependabot %} 错误](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)”。
 
 
 {% endnote %}
@@ -489,9 +491,9 @@ updates:
 
 ### `registries`
 
-要允许 {% data variables.product.prodname_dependabot %} 在执行版本更新时访问私人包注册表，您必须在相关的 `updates` 配置中包括 `registries` 设置。 您可以通过将 `registrations` 设置为 `"*"` 来允许使用所有定义的注册表。 或者，您可以列出更新可以使用的注册表。 要执行此操作，请使用 _dependabot.yml_ 文件的顶层 `registries` 部分定义的注册表。
+要允许 {% data variables.product.prodname_dependabot %} 在执行版本更新时访问私人包注册表，您必须在相关的 `updates` 配置中包括 `registries` 设置。 您可以通过将 `registrations` 设置为 `"*"` 来允许使用所有定义的注册表。 或者，您可以列出更新可以使用的注册表。 要执行此操作，请使用 _dependabot.yml_ 文件的顶层 `registries` 部分定义的注册表。 更多信息请参阅下面的“[私有注册表的配置选项](#configuration-options-for-private-registries)”。
 
-要允许 {% data variables.product.prodname_dependabot %} 使用 `bundler`、`mix` 和 `pip` 包管理器来更新私人注册表中的依赖项，您可以选择允许外部代码执行。 更多信息请参阅 [`insecure-external-code-execution`](#insecure-external-code-execution)。
+要允许 {% data variables.product.prodname_dependabot %} 使用 `bundler`、`mix` 和 `pip` 包管理器来更新私人注册表中的依赖项，您可以选择允许外部代码执行。 更多信息请参阅上面的 [`insecure-external-code-execution`](#insecure-external-code-execution)。
 
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
@@ -745,15 +747,15 @@ updates:
 
 您使用以下选项来指定访问设置。 注册表设置必须包含 `type` 和 `url`，通常是一个 `username` 和 `password` 组合或 `token`。
 
-| 选项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                                                                                                                                                                                                                                          |
-|:-------------------------------------------------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`                                                                                             | 识别注册表的类型。 请参阅下面的完整类型列表。                                                                                                                                                                                                                                                     |
-| `url`                                                                                              | 用于访问此注册表中的依赖项的 URL。 协议是可选的。 如果未指定，则假定是 `https:///`。 {% data variables.product.prodname_dependabot %} 根据需要添加或忽略尾随斜线。                                                                                                                                                         |
-| `用户名`                                                                                              | {% data variables.product.prodname_dependabot %} 用于访问注册表的用户名。                                                                                                                                                                                                               |
-| `密码`                                                                                               | 引用包含指定用户密码的 {% data variables.product.prodname_dependabot %} 机密。 For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."   |
-| `键`                                                                                                | 引用包含此注册表访问密钥的 {% data variables.product.prodname_dependabot %} 机密。 For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `令牌`                                                                                               | 引用包含此注册表访问令牌的 {% data variables.product.prodname_dependabot %} 机密。 For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `replaces-base`                                                                                    | 对于具有 `type: python-index` 的注册表，如果布尔值是 `true`，pip 将使用指定的 URL 而不是 Python Package Index 的基础 URL（默认 `https://pypi.org/simple`）来解析依赖项。                                                                                                                                           |
+| 选项&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                                                                                                                                                                                                 |
+|:-------------------------------------------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                             | 识别注册表的类型。 请参阅下面的完整类型列表。                                                                                                                                                                                                            |
+| `url`                                                                                              | 用于访问此注册表中的依赖项的 URL。 协议是可选的。 如果未指定，则假定是 `https:///`。 {% data variables.product.prodname_dependabot %} 根据需要添加或忽略尾随斜线。                                                                                                                |
+| `用户名`                                                                                              | {% data variables.product.prodname_dependabot %} 用于访问注册表的用户名。                                                                                                                                                                      |
+| `密码`                                                                                               | 引用包含指定用户密码的 {% data variables.product.prodname_dependabot %} 机密。 更多信息请参阅“[管理 Dependabot 的加密密码](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”。   |
+| `键`                                                                                                | 引用包含此注册表访问密钥的 {% data variables.product.prodname_dependabot %} 机密。 更多信息请参阅“[管理 Dependabot 的加密密码](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”。 |
+| `令牌`                                                                                               | 引用包含此注册表访问令牌的 {% data variables.product.prodname_dependabot %} 机密。 更多信息请参阅“[管理 Dependabot 的加密密码](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)”。 |
+| `replaces-base`                                                                                    | 对于具有 `type: python-index` 的注册表，如果布尔值是 `true`，pip 将使用指定的 URL 而不是 Python Package Index 的基础 URL（默认 `https://pypi.org/simple`）来解析依赖项。                                                                                                  |
 
 
 每个配置 `type` 需要您提供特定的设置。 某些类型允许多种连接方式。 以下各节提供了您应用于每个 `type` 的设置的详细信息。

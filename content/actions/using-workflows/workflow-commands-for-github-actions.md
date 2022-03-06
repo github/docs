@@ -91,7 +91,7 @@ The following table shows which toolkit functions are available within a workflo
 
 Sets an action's output parameter.
 
-Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs)."
+Optionally, you can also declare output parameters in an action's metadata file. For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
 
 ### Example
 
@@ -291,7 +291,7 @@ Only the second `set-output` and `echo` workflow commands are included in the lo
 
 You can use the `save-state` command to create environment variables for sharing with your workflow's `pre:` or `post:` actions. For example, you can create a file with the `pre:` action,  pass the file location to the `main:` action, and then use the `post:` action to delete the file. Alternatively, you could create a file with the `main:` action, pass the file location to the `post:` action, and also use the `post:` action to delete the file.
 
-If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where `save-state` was used. For more information on the `post:` action, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#post)."
+If you have multiple `pre:` or `post:` actions, you can only access the saved value in the action where `save-state` was used. For more information on the `post:` action, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)."
 
 The `save-state`  command can only be run within an action, and is not available to YAML files. The saved value is stored as an environment value with the `STATE_` prefix.
 
@@ -313,7 +313,9 @@ During the execution of a workflow, the runner generates temporary files that ca
 
 {% warning %}
 
-**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
+**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default.
+
+When using `shell: powershell`, you must specify UTF-8 encoding. For example:
 
 ```yaml
 jobs:
@@ -324,21 +326,7 @@ jobs:
         run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-Or switch to PowerShell Core, which defaults to UTF-8: 
-
-```yaml
-jobs:
-  modern-pwsh-example:
-    uses: windows-2019
-    steps:
-      - shell: pwsh
-        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
-```
-
-More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow answer](https://stackoverflow.com/a/40098904/162694):
-
-> ### Optional reading: The cross-platform perspective: PowerShell _Core_:
-> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - **defaults to *BOM-less UTF-8***, in line with Unix-like platforms.  
+Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UTF-8.
 
 {% endwarning %}
 

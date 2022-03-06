@@ -1,7 +1,14 @@
 #!/usr/bin/env node
 import assert from 'assert'
 import { isArray, isString } from 'lodash-es'
-import countArrayValues from 'count-array-values'
+
+function countArrayValues(arr) {
+  const counter = new Map()
+  arr.forEach((value) => counter.set(value, (counter.get(value) || 0) + 1))
+  return [...counter.entries()].map(([value, count]) => {
+    return { value, count }
+  })
+}
 
 export default function validateRecords(name, records) {
   assert(isString(name) && name.length, '`name` is required')

@@ -45,10 +45,10 @@ function initiateArticleScripts() {
 
 type Props = {
   mainContext: MainContextT
-  productLandingContext: ProductLandingContextT
-  productGuidesContext: ProductGuidesContextT
-  tocLandingContext: TocLandingContextT
-  articleContext: ArticleContextT
+  productLandingContext?: ProductLandingContextT
+  productGuidesContext?: ProductGuidesContextT
+  tocLandingContext?: TocLandingContextT
+  articleContext?: ArticleContextT
 }
 const GlobalPage = ({
   mainContext,
@@ -57,7 +57,6 @@ const GlobalPage = ({
   tocLandingContext,
   articleContext,
 }: Props) => {
-  const { currentLayoutName, relativePath } = mainContext
   const router = useRouter()
 
   useEffect(() => {
@@ -70,30 +69,32 @@ const GlobalPage = ({
   }, [router.events])
 
   let content
-  if (currentLayoutName === 'product-landing') {
+  if (productLandingContext) {
     content = (
       <ProductLandingContext.Provider value={productLandingContext}>
         <ProductLanding />
       </ProductLandingContext.Provider>
     )
-  } else if (currentLayoutName === 'product-guides') {
+  } else if (productGuidesContext) {
     content = (
       <ProductGuidesContext.Provider value={productGuidesContext}>
         <ProductGuides />
       </ProductGuidesContext.Provider>
     )
-  } else if (relativePath?.endsWith('index.md')) {
+  } else if (tocLandingContext) {
     content = (
       <TocLandingContext.Provider value={tocLandingContext}>
         <TocLanding />
       </TocLandingContext.Provider>
     )
-  } else {
+  } else if (articleContext) {
     content = (
       <ArticleContext.Provider value={articleContext}>
         <ArticlePage />
       </ArticleContext.Provider>
     )
+  } else {
+    throw new Error('No context provided to page')
   }
 
   return <MainContext.Provider value={mainContext}>{content}</MainContext.Provider>
@@ -105,13 +106,23 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const req = context.req as any
   const res = context.res as any
 
+  const props: Props = {
+    mainContext: getMainContext(req, res),
+  }
+  const { currentLayoutName, relativePath } = props.mainContext
+
+  // This looks a little funky, but it's so we only send one context's data to the client
+  if (currentLayoutName === 'product-landing') {
+    props.productLandingContext = getProductLandingContextFromRequest(req)
+  } else if (currentLayoutName === 'product-guides') {
+    props.productGuidesContext = getProductGuidesContextFromRequest(req)
+  } else if (relativePath?.endsWith('index.md')) {
+    props.tocLandingContext = getTocLandingContextFromRequest(req)
+  } else {
+    props.articleContext = getArticleContextFromRequest(req)
+  }
+
   return {
-    props: {
-      mainContext: getMainContext(req, res),
-      productLandingContext: getProductLandingContextFromRequest(req),
-      productGuidesContext: getProductGuidesContextFromRequest(req),
-      tocLandingContext: getTocLandingContextFromRequest(req),
-      articleContext: getArticleContextFromRequest(req),
-    },
+    props,
   }
 }

@@ -13,7 +13,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: quick_start
+type: overview
 topics:
   - Codespaces
 ---

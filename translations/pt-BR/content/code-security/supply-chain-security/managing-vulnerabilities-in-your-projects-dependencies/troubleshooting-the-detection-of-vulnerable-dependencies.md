@@ -103,17 +103,17 @@ Uma vez que {% data variables.product.prodname_dependabot %} usa dados curados e
 {% ifversion fpt or ghec %}
 ## Cada vulnerabilidade de dependência gera um alerta separado?
 
-Quando uma dependência tem várias vulnerabilidades, apenas um alerta agregado é gerado para essa dependência, em vez de um alerta por vulnerabilidade.
+Quando uma dependência tem várias vulnerabilidades, gera-se um alerta para cada vulnerabilidade no nível da consultoria mais manifesto.
 
-A contagem de {% data variables.product.prodname_dependabot_alerts %} em {% data variables.product.prodname_dotcom %} mostra um total para o número de alertas, ou seja, o número de dependências com vulnerabilidades, não o número de vulnerabilidades.
+![Captura de tela da aba de {% data variables.product.prodname_dependabot_alerts %} que mostra dois alertas do mesmo pacote com manifestos diferentes.](/assets/images/help/repository/dependabot-alerts-view.png)
 
-![Vista de {% data variables.product.prodname_dependabot_alerts %}](/assets/images/help/repository/dependabot-alerts-view.png)
+O legado de {% data variables.product.prodname_dependabot_alerts %} foi agrupado em um único alerta agregado com todas as vulnerabilidades para a mesma dependência. Se você acessar um link para um alerta de legadode {% data variables.product.prodname_dependabot %}, você será redirecionado para a aba de {% data variables.product.prodname_dependabot_alerts %} filtrada para exibir vulnerabilidades para esse pacote e manifesto dependente.
 
-Ao clicar para exibir os detalhes de alerta, você pode ver quantas vulnerabilidades são incluídas no alerta.
+![Captura de tela da aba {% data variables.product.prodname_dependabot_alerts %} que mostra os alertas filtrados da navegação até um alerta de legado de {% data variables.product.prodname_dependabot %}.](/assets/images/help/repository/legacy-dependabot-alerts-view.png)
 
-![Múltiplas vulnerabilidades para um alerta de {% data variables.product.prodname_dependabot %}](/assets/images/help/repository/dependabot-vulnerabilities-number.png)
+A contagem de {% data variables.product.prodname_dependabot_alerts %} em {% data variables.product.prodname_dotcom %} mostra um total para o número de alertas, que é o número de vulnerabilidades, não o número de dependências.
 
-**Verifique**: Se houver discrepância no total que você está vendo, verifique se você não está comparando números de alerta com números de vulnerabilidade.
+**Verifique**: Se houver discrepância no total que você está vendo, verifique se você não está comparando números de alerta com números de dependência. Também verifique se você está visualizando todos os alertas e não um subconjunto de alertas filtrados.
 {% endif %}
 
 ## Leia mais

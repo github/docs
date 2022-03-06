@@ -12,47 +12,47 @@ shortTitle: 私有映像注册表
 
 ## 关于私人映像注册表和 {% data variables.product.prodname_codespaces %}
 
-A registry is a secure space for storing, managing, and fetching private container images. You may use one to store one or more devcontainers. There are many examples of registries, such as {% data variables.product.prodname_dotcom %} Container Registry, Azure Container Registry, or DockerHub.
+注册表是用于存储、管理和提取专用容器映像的安全空间。 您可以使用一个来存储一个或多个映像。 注册表的示例很多，例如 {% data variables.product.prodname_dotcom %} 容器注册表、Azure 容器注册表或 DockerHub。
 
-{% data variables.product.prodname_dotcom %} Container Registry can be configured to pull container images seamlessly, without having to provide any authentication credentials to {% data variables.product.prodname_codespaces %}. For other image registries, you must create secrets in {% data variables.product.prodname_dotcom %} to store the access details, which will allow {% data variables.product.prodname_codespaces %} to access images stored in that registry.
+{% data variables.product.prodname_dotcom %} 容器注册表可以配置为无缝拉取容器映像，而无需向 {% data variables.product.prodname_codespaces %} 提供任何身份验证凭据。 对于其他映像注册表，必须在 {% data variables.product.prodname_dotcom %} 中创建机密以存储访问详细信息，这将允许 {% data variables.product.prodname_codespaces %} 访问存储在该注册表中的映像。
 
-## Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry
+## 访问存储在 {% data variables.product.prodname_dotcom %} 容器注册表中的映像
 
-{% data variables.product.prodname_dotcom %} Container Registry is the easiest way for {% data variables.product.prodname_github_codespaces %} to consume devcontainer container images.
+{% data variables.product.prodname_dotcom %} 容器注册表是 {% data variables.product.prodname_github_codespaces %} 使用 devcontainer 容器映像的最简单方法。
 
-For more information, see "[Working with the Container registry](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)".
+更多信息请参阅“[使用容器注册表](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)”。
 
-### Accessing an image published to the same repository as the codespace
+### 访问发布到与代码空间相同的仓库的映像
 
-If you publish a container image to {% data variables.product.prodname_dotcom %} Container Registry in the same repository that the codespace is being launched in, you will automatically be able to fetch that image on codespace creation. You won't have to provide any additional credentials, unless the **Inherit access from repo** option was unselected when the container image was published.
+如果将容器映像发布到启动代码空间的同一仓库中的 {% data variables.product.prodname_dotcom %} 容器注册表，则在创建代码空间时将自动能够获取该映像。 无需提供任何其他凭据，除非在发布容器映像时未选中 **Inherit access from repo（从仓库继承访问权限）**选项。
 
-#### Inheriting access from the repository from which an image was published
+#### 从发布映像的仓库继承访问权限
 
-By default, when you publish a container image to {% data variables.product.prodname_dotcom %} Container Registry, the image inherits the access setting of the repository from which the image was published. For example, if the repository is public, the image is also public. If the repository is private, the image is also private, but is accessible from the repository.
+默认情况下，将容器映像发布到 {% data variables.product.prodname_dotcom %} 容器注册表时，该映像将继承从中发布映像的仓库的访问设置。 例如，如果仓库是公共的，则映像也是公共的。 如果仓库是私有的，则映像也是私有的，但可以从仓库访问。
 
-This behavior is controlled by the **Inherit access from repo** option. **Inherit access from repo** is selected by default when publishing via {% data variables.product.prodname_actions %}, but not when publishing directly to {% data variables.product.prodname_dotcom %} Container Registry using a Personal Access Token (PAT).
+此行为由 **Inherit access from repo（从仓库继承访问权限）**选项控制。 **通过** {% data variables.product.prodname_actions %} 发布时，默认情况下会选择从仓库继承访问权限，但在使用个人访问令牌 (PAT) 直接发布到 {% data variables.product.prodname_dotcom %} 容器注册表时，不会选择从仓库继承访问权限。
 
-If the **Inherit access from repo** option was not selected when the image was published, you can manually add the repository to the published container image's access controls. 更多信息请参阅“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)”。
+如果在发布映像时未选择 **Inherit access from repo（从仓库继承访问权限）**选项，则可以手动将仓库添加到已发布容器映像的访问控制中。 更多信息请参阅“[配置包的访问控制和可见性](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#inheriting-access-for-a-container-image-from-a-repository)”。
 
-### Accessing an image published to the organization a codespace will be launched in
+### 访问发布到组织、代码空间将在 其中启动的映像
 
-If you want a container image to be accessible to all codespaces in an organization, we recommend that you publish the container image with internal visibility. This will automatically make the image visible to all codespaces within the organization, unless the repository the codespace is launched from is public.
+如果希望组织中的所有代码空间都可以访问容器映像，建议发布具有内部可见性的容器映像。 这将自动使映像对组织内的所有代码空间可见，除非从中启动代码空间的仓库是公开的。
 
-If the codespace is being launched from a public repository referencing an internal or private image, you must manually allow the public repository access to the internal container image. This prevents the internal image from being accidentally leaked publicly. For more information, see "[Ensuring Codespaces access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)."
+如果代码空间是从引用内部或私有映像的公共公共仓库启动的，则必须手动允许公共公共仓库访问内部容器映像。 这可以防止内部映像意外公开泄露。 更多信息请参阅“[确保 Codespaces 访问您的包](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)”。
 
-### Accessing a private container from a subset of repositories in an organization
+### 从组织中仓库的子集访问私有容器
 
-If you want to allow a subset of an organization's repositories to access a container image, or allow an internal or private image to be accessed from a codespace launched in a public repository, you can manually add repositories to a container <span class="x x-first x-last">image's</span> access settings. For more information, see "[Ensuring Codespaces access to your package](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)<span class="x x-first x-last">.</span>"
+如果要允许组织的仓库子集访问容器映像，或者允许从在公共仓库中启动的代码空间访问内部或私有映像，则可以手动将仓库添加到容器<span class="x x-first x-last">映像的</span>访问设置。 更多信息请参阅“[确保 Codespaces 访问您的包](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-codespaces-access-to-your-package)<span class="x x-first x-last">。</span>”
 
-### Publishing a container image from a codespace
+### 从代码空间发布容器映像
 
-Seamless access from a codespace to {% data variables.product.prodname_dotcom %} Container Registry is limited to pulling container images. If you want to publish a container image from inside a codespace, you must use a personal access token (PAT) with the `write:packages` scope.
+从代码空间到容器注册表 {% data variables.product.prodname_dotcom %} 的无缝访问仅限于拉取容器映像。 如果要从代码空间内部发布容器映像，则必须结合使用个人访问令牌 (PAT) 与 `write:packages` 作用域。
 
-We recommend publishing images via {% data variables.product.prodname_actions %}. For more information, see "[Publishing Docker images](/actions/publishing-packages/publishing-docker-images)."
+我们建议通过 {% data variables.product.prodname_actions %} 发布映像。 更多信息请参阅“[发布 Docker 映像](/actions/publishing-packages/publishing-docker-images)”。
 
-## Accessing images stored in other container registries
+## 访问存储在其他容器注册表中的映像
 
-If you are accessing a container image from a registry that isn't {% data variables.product.prodname_dotcom %} Container Registry, {% data variables.product.prodname_codespaces %} checks for the presence of three secrets, which define the server name, username, and personal access token (PAT) for a container registry. 如果找到这些密钥，{% data variables.product.prodname_codespaces %} 将在代码空间中提供注册表。
+如果要从不是 {% data variables.product.prodname_dotcom %} 容器注册表的注册表访问容器映像，{% data variables.product.prodname_codespaces %} 将检查是否存在三个机密，这些机密定义了容器注册表的服务器名称、用户名和个人访问令牌 (PAT)。 如果找到这些密钥，{% data variables.product.prodname_codespaces %} 将在代码空间中提供注册表。
 
 - `<*>_CONTAINER_REGISTRY_SERVER`
 - `<*>_CONTAINER_REGISTRY_USER`
@@ -74,7 +74,7 @@ ACR_CONTAINER_REGISTRY_USER = acr-user-here
 ACR_CONTAINER_REGISTRY_PASSWORD = <PAT>
 ```
 
-有关通用映像注册表的信息，请参阅“[通用映像注册表服务器](#common-image-registry-servers)”。 Note that accessing AWS Elastic Container Registry (ECR) is different.
+有关通用映像注册表的信息，请参阅“[通用映像注册表服务器](#common-image-registry-servers)”。 请注意，访问 AWS Elastic Container Registry (ECR) 是不同的。
 
 ![映像注册表密钥示例](/assets/images/help/settings/codespaces-image-registry-secret-example.png)
 
@@ -82,29 +82,29 @@ ACR_CONTAINER_REGISTRY_PASSWORD = <PAT>
 
 #### 访问 AWS Elastic Container Registry
 
-To access AWS Elastic Container Registry (ECR),  you can provide an AWS access key ID and secret key, and {% data variables.product.prodname_dotcom %}  can retrieve an access token for you and log in on your behalf.
+要访问 AWS 弹性容器注册表 (ECR)，您可以提供 AWS 访问密钥 ID 和私有密钥，{% data variables.product.prodname_dotcom %}  可以为您检索访问令牌并代表您登录。
 
 ```
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
 *_CONTAINER_REGISTRY_USER = <AWS_ACCESS_KEY_ID>
-*_container_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
+*_CONTAINER_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
 ```
 
-You must also ensure you have the appropriate AWS IAM permissions to perform the credential swap (e.g. `sts:GetServiceBearerToken`) as well as the ECR read operation (either `AmazonEC2ContainerRegistryFullAccess` or `ReadOnlyAccess`).
+您还必须确保拥有适当的 AWS IAM 权限来执行凭证交换（例如 `sts:GetServiceBearerToken`）以及 ECR 读取操作（ `AmazonEC2ContainerRegistryFullAccess` 或 `ReadOnlyAccess`）。
 
-Alternatively, if you don't want GitHub to perform the credential swap on your behalf, you can provide an authorization token fetched via AWS's APIs or CLI.
+或者，如果您不希望 GitHub 代表您执行凭证交换，则可以提供通过 AWS 的 API 或 CLI 获取的授权令牌。
 
 ```
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
 *_CONTAINER_REGISTRY_USER = AWS
-*_container_REGISTRY_PASSWORD = <TOKEN>
+*_CONTAINER_REGISTRY_PASSWORD = <TOKEN>
 ```
 
-Since these tokens are short lived and need to be refreshed periodically, we recommend providing an access key ID and secret.
+由于这些令牌的生存期较短，需要定期刷新，因此我们建议提供访问密钥 ID 和机密。
 
-While these secrets can have any name, so long as the `*_CONTAINER_REGISTRY_SERVER` is an ECR URL, we recommend using `ECR_CONTAINER_REGISTRY_*` unless you are dealing with multiple ECR registries.
+虽然这些机密可以具有任何名称，但只要 `*_CONTAINER_REGISTRY_SERVER` 是 ECR URL，我们建议您使用 `ECR_CONTAINER_REGISTRY_*`，除非您正在处理多个 ECR 注册表。
 
-For more information, see AWS ECR's "[Private registry authentication documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)."
+更多信息请参阅 AWS ECR 的“[私人注册表身份验证文档](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html)”。
 
 ### 通用映像注册表服务器
 
@@ -116,6 +116,6 @@ For more information, see AWS ECR's "[Private registry authentication documentat
 - [AWS Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html) - `<aws_account_id>.dkr.ecr.<region>.amazonaws.com`
 - [Google Cloud Container Registry](https://cloud.google.com/container-registry/docs/overview#registries) - `gcr.io` (US), `eu.gcr.io` (EU), `asia.gcr.io` (Asia)
 
-## Debugging private image registry access
+## 调试私有映像注册表访问
 
-If you are having trouble pulling an image from a private image registry, make sure you are able to run `docker login -u <user> -p <password> <server>`, using the values of the secrets defined above. If login fails, ensure that the login credentials are valid and that you have the apprioriate permissions on the server to fetch a container image. If login succeeds, make sure that these values are copied appropriately into the right {% data variables.product.prodname_codespaces %} secrets, either at the user, repository, or organization level and try again.
+如果在从私有映像注册表中拉取映像时遇到问题，请确保能够使用上面定义的机密的值运行 `docker login -u <user> -p <password> <server>`。 如果登录失败，请确保登录凭据有效，并且您在服务器上具有提取容器映像的适当权限。 如果登录成功，请确保将这些值适当地复制到正确的 {% data variables.product.prodname_codespaces %} 机密中，无论是在用户、仓库还是组织级别，然后重试。

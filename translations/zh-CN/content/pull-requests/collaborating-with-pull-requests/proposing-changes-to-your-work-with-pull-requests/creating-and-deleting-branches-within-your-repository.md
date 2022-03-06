@@ -45,6 +45,6 @@ shortTitle: 创建和删除分支
 
 ## 延伸阅读
 
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[关于分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - “[查看仓库中的分支](/github/administering-a-repository/viewing-branches-in-your-repository)”
 - "[删除和恢复拉取请求中的分支](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)"

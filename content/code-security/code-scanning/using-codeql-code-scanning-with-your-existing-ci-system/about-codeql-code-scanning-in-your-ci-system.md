@@ -54,9 +54,9 @@ For more information, see "[Installing {% data variables.product.prodname_codeql
 {% data reusables.code-scanning.licensing-note %}
 
 {% ifversion ghes = 3.2 %}
-<!-- Content for GHES 3.2 only. CodeQL CLI 2.6.2, which introduces full feature parity between CodeQL CLI and CodeQL runner, is officially recommended for GHES 3.3+, so some people may need to use the CodeQL runner -->
+<!-- Content for GHES 3.2 only. CodeQL CLI 2.6.2, which introduces full feature parity between CodeQL CLI and CodeQL runner, is officially recommended for GHES 3.0+ -->
 
-{% data reusables.code-scanning.use-codeql-runner-not-cli %}
+Since version 2.6.3, the {% data variables.product.prodname_codeql_cli %} has had full feature parity with the {% data variables.product.prodname_codeql_runner %}.
 
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 
@@ -65,8 +65,10 @@ For more information, see "[Installing {% data variables.product.prodname_codeql
 {% endif %}
 
 <!--Content for GHES 3.1 only. Both CodeQL CLI and CodeQL runner are available -->
-{% ifversion ghes = 3.1 %}
+{% ifversion ghes < 3.2 %}
 You add the {% data variables.product.prodname_codeql_cli %} or the {% data variables.product.prodname_codeql_runner %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.
+
+[{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-cli-binaries/releases) version 2.6.3 is available now for {% data variables.product.prodname_ghe_server %} 3.0 and later versions. For more information on migrating to the {% data variables.product.prodname_codeql_cli %}, see "[Migrating from the CodeQL runner to CodeQL CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)."
 
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
@@ -74,30 +76,14 @@ You add the {% data variables.product.prodname_codeql_cli %} or the {% data vari
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 
-The {% data variables.product.prodname_codeql_runner %} is a command-line tool that uses the {% data variables.product.prodname_codeql_cli %} to analyze code and upload the results to {% data variables.product.product_name %}. The tool mimics the analysis run natively within {% data variables.product.product_name %} using actions. The runner is able to integrate with more complex build environments than the CLI, but this ability makes it more difficult and error-prone to set up. It is also more difficult to debug any problems. Generally, it is better to use the {% data variables.product.prodname_codeql_cli %} directly unless it doesn't support your use case.
+The {% data variables.product.prodname_codeql_runner %} is a deprecated command-line tool that uses the {% data variables.product.prodname_codeql_cli %} to analyze code and upload the results to {% data variables.product.product_name %}. The tool mimics the analysis run natively within {% data variables.product.product_name %} using actions.
 
-Use the {% data variables.product.prodname_codeql_cli %} to analyze:
-
-- Dynamic languages, for example, JavaScript and Python.
-- Codebases with a compiled language that can be built with a single command or by running a single script.
+{% data variables.product.prodname_codeql_cli %} 2.6.3 is a complete replacement for the runner with full feature parity. Generally, it is better to use the {% data variables.product.prodname_codeql_cli %} directly. 
 
 For more information, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
-{% data reusables.code-scanning.use-codeql-runner-not-cli %}
-
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 
-For more information, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
+For more information about the {% data variables.product.prodname_codeql_runner %}, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 
-{% endif %}
-
-<!--Content for GHES 3.0 only. Only CodeQL runner is available -->
-{% ifversion ghes = 3.0 %}
-{% data reusables.code-scanning.upload-sarif-ghas %}
-
-You add the {% data variables.product.prodname_codeql_runner %} to your third-party system, then call the tool to analyze code and upload the SARIF results to {% data variables.product.product_name %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.
-
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-
-To set up code scanning in your CI system, see "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
 {% endif %}

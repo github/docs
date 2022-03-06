@@ -2,7 +2,7 @@ import cx from 'classnames'
 import { useState } from 'react'
 
 import { ChevronDownIcon } from '@primer/octicons-react'
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
@@ -35,7 +35,7 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
   return (
     <div className="col-12 col-lg-4 mb-6 height-full">
       <h3 className="mb-3 f4">
-        <Link className="color-unset" href={treeNode.href}>
+        <Link className="color-unset text-underline" href={treeNode.href}>
           {treeNode.renderedFullTitle}
         </Link>
       </h3>

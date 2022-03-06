@@ -26,7 +26,7 @@ shortTitle: 为用户发现资源
 
 ## 发现您的应用程序能够为用户访问的仓库
 
-用户除了拥有他们自己的个人仓库之外，可能还是其他用户和组织所拥有仓库上的协作者。 Collectively, these are the repositories where the user has privileged access: either it's a private repository where the user has read or write access, or it's {% ifversion fpt %}a public{% elsif ghec or ghes %}a public or internal{% elsif ghae %}an internal{% endif %} repository where the user has write access.
+用户除了拥有他们自己的个人仓库之外，可能还是其他用户和组织所拥有仓库上的协作者。 总的来说，这些仓库是用户有权访问的仓库：要么是用户具有读取或写入权限的私有仓库，要么是用户具有写入权限的{% ifversion fpt %}公共{% elsif ghec or ghes %}公共或内部{% elsif ghae %}内部{% endif %}仓库。
 
 [OAuth 作用域][scopes]和[组织应用程序策略][oap]决定了您的应用程序可以为用户访问其中哪些仓库。 使用下面的工作流程来发现这些仓库。
 

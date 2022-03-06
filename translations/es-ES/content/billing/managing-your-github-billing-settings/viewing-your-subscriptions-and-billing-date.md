@@ -22,8 +22,8 @@ shortTitle: Suscripciones & fecha de facturación
 
 ## Encontrar la próxima fecha de facturación de tu cuenta personal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
 ## Encontrar la próxima fecha de facturación de tu organización

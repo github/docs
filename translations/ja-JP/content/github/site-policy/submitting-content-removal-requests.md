@@ -23,3 +23,5 @@ GitHub トレードマークポリシーは、ブランドまたはビジネス�
 
 ## [GitHub個人情報削除ポリシー](/github/site-policy/github-private-information-removal-policy)
 GitHub個人情報削除ポリシーは、個人的 (機密性が高く、セキュリティリスクをもたらす) で、著作権または商標によって保護されていないデータの報告に使用できます。
+
+Users in India can contact GitHub's Grievance Officer [here](https://support.github.com/contact/india-grievance-officer).

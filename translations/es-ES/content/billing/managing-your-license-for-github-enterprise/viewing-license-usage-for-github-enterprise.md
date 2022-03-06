@@ -30,6 +30,10 @@ Puedes ver el uso de licencia de {% data variables.product.prodname_ghe_server %
 
 ## Ver el uso de licencia en {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}
 
+Puedes ver el uso de licencia para tu empresa y descargar un archivo con los detalles de esta.
+
+{% data reusables.billing.license-statuses %}
+
 {% ifversion ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
@@ -43,7 +47,7 @@ Puedes ver el uso de licencia de {% data variables.product.prodname_ghe_server %
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Revisa tus licencias actuales de {% data variables.product.prodname_enterprise %}, así como las licencias de usuario disponibles y consumidas.{% ifversion ghes > 3.0 %}
+1. Revisa tus licencias actuales de {% data variables.product.prodname_enterprise %}, así como las licencias de usuario disponibles y consumidas.{% ifversion ghes %}
     - Si tu licencia incluye a la {% data variables.product.prodname_GH_advanced_security %}, puedes revisar tu uso total de plazas así como un desglose de confirmantes por organización. Para obtener más información, consulta la sección "[Administrar la {% data variables.product.prodname_GH_advanced_security %} para tu empresa](/admin/advanced-security)".{% endif %}
 
 {% endif %}

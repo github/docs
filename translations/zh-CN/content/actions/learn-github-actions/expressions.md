@@ -25,9 +25,9 @@ You can use expressions to programmatically set environment variables in workflo
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %}有关 `if` 条件的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”。
+{% data reusables.actions.expression-syntax-if %}有关 `if` 条件的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)”。
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 #### `if` 条件的示例表达式
 
@@ -50,12 +50,12 @@ env:
 
 作为表达式的一部分，您可以使用 `boolean`、`null`、`number` 或 `string` 数据类型。
 
-| 数据类型     | 文字值                                                                                                                                                                                                                           |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `布尔值`    | `true` 或 `false`                                                                                                                                                                                                              |
-| `null`   | `null`                                                                                                                                                                                                                        |
-| `number` | JSON 支持的任何数字格式。                                                                                                                                                                                                               |
-| `字符串`    | You don't need to enclose strings in {% raw %}${{{% endraw %} and {% raw %}}}{% endraw %}. However, if you do, you must use single quotes around the string and escape literal single quotes with an additional single quote. |
+| 数据类型     | 文字值                                                                                                                                                                                                                                                                                                                                   |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `布尔值`    | `true` 或 `false`                                                                                                                                                                                                                                                                                                                      |
+| `null`   | `null`                                                                                                                                                                                                                                                                                                                                |
+| `number` | JSON 支持的任何数字格式。                                                                                                                                                                                                                                                                                                                       |
+| `字符串`    | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
 #### 示例
 
@@ -252,7 +252,7 @@ jobs:
 
 `hashFiles(path)`
 
-返回匹配 `path` 模式的文件集的单个哈希值。 您可以提供单一 `path` 模式，或以逗号分隔的多个 `path` 模式。 `path` 相对于 `GITHUB_WORKSPACE` 目录，只能包括 `GITHUB_WORKSPACE` 中的文件。 此函数为每个匹配的文件计算单独的 SHA-256 哈希， 然后使用这些哈希来计算文件集的最终 SHA-256 哈希。 有关 SHA-256 的更多信息，请参阅“[SHA-2](https://en.wikipedia.org/wiki/SHA-2)”。
+返回匹配 `path` 模式的文件集的单个哈希值。 您可以提供单一 `path` 模式，或以逗号分隔的多个 `path` 模式。 `path` 相对于 `GITHUB_WORKSPACE` 目录，只能包括 `GITHUB_WORKSPACE` 中的文件。 此函数为每个匹配的文件计算单独的 SHA-256 哈希， 然后使用这些哈希来计算文件集的最终 SHA-256 哈希。 If the `path` pattern does not match any files, this returns an empty string. 有关 SHA-256 的更多信息，请参阅“[SHA-2](https://en.wikipedia.org/wiki/SHA-2)”。
 
 您可以使用模式匹配字符来匹配文件名。 模式匹配在 Windows 上不区分大小写。 有关支持的模式匹配字符的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)”。
 
@@ -268,9 +268,15 @@ jobs:
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
+
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ## 状态检查函数
 
 您可以使用以下状态检查函数作为 `if` 条件中的表达式。 除非您包含其中一个函数，否则 `success()` 的默认状态检查将会应用。 For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+{% else %}
+## Check Functions
+您可以使用以下状态检查函数作为 `if` 条件中的表达式。 除非您包含其中一个函数，否则 `success()` 的默认状态检查将会应用。 For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% endif %}
 
 ### success
 
@@ -318,6 +324,7 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 ### Evaluate Status Explicitly
 
 Instead of using one of the methods above, you can evaluate the status of the job or composite action that is executing the step directly:
@@ -343,6 +350,7 @@ steps:
 ```
 
 This is the same as using `if: failure()` in a composite action step.
+{% endif %}
 
 ## 对象过滤器
 

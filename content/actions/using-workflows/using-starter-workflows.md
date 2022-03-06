@@ -28,6 +28,8 @@ topics:
 
 {% data variables.product.product_name %} offers starter workflows for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} will suggest a starter workflow file that installs your Node.js packages and runs your tests.{% if actions-starter-template-ui %} You can search and filter to find relevant starter workflows.{% endif %}
 
+{% data reusables.actions.starter-workflow-categories %}
+
 You can also create your own starter workflow to share with your organization. These starter workflows will appear alongside the {% data variables.product.product_name %}-provided starter workflows. For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
 
 ## Using starter workflows

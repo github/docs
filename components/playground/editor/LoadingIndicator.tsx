@@ -1,4 +1,4 @@
-import { Box, Text } from '@primer/components'
+import { Box, Text } from '@primer/react'
 
 export function LoadingIndicator() {
   return (

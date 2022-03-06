@@ -164,4 +164,8 @@ For more information about the available settings for `devcontainer.json`, see [
 1. {% data reusables.codespaces.recovery-mode %} Fix the errors in the configuration. ![Error message about recovery mode](/assets/images/help/codespaces/recovery-mode-error-message.png)
    - To diagnose the error by reviewing the creation logs, click **View creation log**.
    - To fix the errors identified in the logs, update your `devcontainer.json` file.
-   - To apply the changes, rebuild your container. 
+   - To apply the changes, rebuild your container.
+
+## 参考リンク
+
+- "[Prebuilding your codespaces](/codespaces/prebuilding-your-codespaces)"

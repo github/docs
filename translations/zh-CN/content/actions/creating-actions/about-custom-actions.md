@@ -47,13 +47,13 @@ Docker 容器使用 {% data variables.product.prodname_actions %} 代码封装�
 
 Docker 容器允许使用特定版本的操作系统、依赖项、工具和代码。 对于必须在特定环境配置中运行的操作，Docker 是一个理想的选择，因为您可以自定义操作系统和工具。 由于创建和检索容器的延时，Docker 容器操作慢于 JavaScript 操作。
 
-Docker 容器操作只能在使用 Linux 操作系统的运行器上执行。 {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+Docker 容器操作只能在使用 Linux 操作系统的运行器上执行。 {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 ### JavaScript 操作
 
 JavaScript 操作可以直接在运行器计算机上运行，并将操作代码与用于运行代码的环境分开。 使用 JavaScript 操作可简化操作代码，执行速度快于 Docker 容器操作。
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
 如果您正在开发 Node.js 项目，{% data variables.product.prodname_actions %} 工具包提供可用于项目中加速开发的软件包。 更多信息请参阅 [actions/toolkit](https://github.com/actions/toolkit) 仓库。
 
@@ -72,7 +72,6 @@ _复合_操作允许您在一个操作中组合多个工作流程步骤。 例�
 {% data reusables.actions.internal-actions-summary %}
 
 {% ifversion fpt or ghec %}If you're building an action that you don't plan to make available to others, you {% else %} You{% endif %} can store the action's files in any location in your repository. 如果计划将操作、工作流程和应用程序代码合并到一个仓库中，建议将操作存储在 `.github` 目录中。 例如，`.github/actions/action-a` 和 `.github/actions/action-b`。
-
 
 ## 与 {% data variables.product.prodname_ghe_server %} 的兼容性
 
@@ -130,7 +129,7 @@ steps:
 
 ### 使用提交的 SHA 进行发行版管理
 
-每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}您必须使用提交的完整 SHA 值，而不是缩写值。{% else %}使用提交的完整 SHA 值而不使用缩写值有助于防止他人使用相同缩写值进行恶意提交。{% endif %}
+每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 You must use a commit's full SHA value, and not an abbreviated value.
 
 ```yaml
 steps:

@@ -35,7 +35,7 @@ High Availability (HA) とクラスタリングはどちらも、障害の原因
 
 ## バックアップとシステム災害復旧
 
-HAもクラスタリングも、定期的なバックアップに代わるものと考えるべきではありません。 詳しくは、"[ アプライアンスでのバックアップの設定](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)。"を参照してください。
+Neither HA nor Clustering should be considered a replacement for regular backups. 詳しくは、"[ アプライアンスでのバックアップの設定](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance)。"を参照してください。
 
 ## モニタリング
 

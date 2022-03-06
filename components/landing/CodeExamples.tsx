@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ArrowRightIcon, SearchIcon } from '@primer/octicons-react'
-import { Text } from '@primer/components'
+import { Text } from '@primer/react'
 
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -108,7 +108,7 @@ export const CodeExamples = () => {
           <p className="my-3 f4">
             {t('no_example')} <br /> {t('try_another')}
           </p>
-          <Link href="https://github.com/github/docs/blob/main/data/product-examples/actions/code-examples.yml">
+          <Link href="https://github.com/github/docs/tree/main/data/product-examples">
             {t('learn')} <ArrowRightIcon />
           </Link>
         </div>

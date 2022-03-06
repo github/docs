@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import urlTemplate from 'url-template'
+import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 import { get, mapValues, snakeCase } from 'lodash-es'
 export default createCodeSamples
@@ -27,6 +27,8 @@ function createCodeSamples(operation) {
     serverUrl === 'https://api.github.com'
   ) {
     codeSampleParams.serverUrl = operation.servers[0].variables.origin.default
+  } else if (operation.subcategory && operation.subcategory === 'management-console') {
+    codeSampleParams.serverUrl = serverUrl.replace('/api/v3', '')
   }
 
   return [
@@ -39,7 +41,7 @@ function toShellExample({ route, serverUrl }) {
   const pathParams = mapValues(getExamplePathParams(route), (value, paramName) =>
     PARAMETER_EXAMPLES[paramName] ? value : snakeCase(value).toUpperCase()
   )
-  const path = urlTemplate.parse(route.path.replace(/:(\w+)/g, '{$1}')).expand(pathParams)
+  const path = parseTemplate(route.path.replace(/:(\w+)/g, '{$1}')).expand(pathParams)
   const params = getExampleBodyParams(route)
   const { method } = route
 
@@ -169,19 +171,15 @@ function getExampleParamValue(name, schema) {
   if (schema.anyOf && schema.anyOf[0].type) return getExampleParamValue(name, schema.anyOf[0])
   if (!schema.type) return 'any'
 
-  switch (schema.type) {
-    case 'string':
-      return name
-    case 'boolean':
-      return true
-    case 'integer':
-      return 42
-    case 'object':
-      return mapValues(schema.properties, (propSchema, propName) =>
-        getExampleParamValue(propName, propSchema)
-      )
-    case 'array':
-      return [getExampleParamValue(name, schema.items)]
+  if (schema.type.includes('string')) return name
+  else if (schema.type.includes('boolean')) return true
+  else if (schema.type.includes('integer')) return 42
+  else if (schema.type.includes('object')) {
+    return mapValues(schema.properties, (propSchema, propName) =>
+      getExampleParamValue(propName, propSchema)
+    )
+  } else if (schema.type.includes('array')) {
+    return [getExampleParamValue(name, schema.items)]
   }
 
   throw new Error(`Unknown data type in schema:, ${JSON.stringify(schema, null, 2)}`)

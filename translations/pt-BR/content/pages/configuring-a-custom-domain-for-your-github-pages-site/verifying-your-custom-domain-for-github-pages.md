@@ -22,8 +22,8 @@ Também é possível verificar um domínio para sua organização{% ifversion gh
 
 ## Verificando um domínio para o seu site de usuário
 
-{% data reusables.user_settings.access_settings %}
-1. Na barra lateral esquerda, clique em **Pages** (Páginas). ![Opção Páginas no menu de configurações](/assets/images/help/settings/user-settings-pages.png)
+{% data reusables.user-settings.access_settings %}
+1. Na seção "código, planejamento e automação" na barra lateral, clique em **Páginas de {% octicon "browser" aria-label="The pages icon" %}**.
 {% data reusables.pages.settings-verify-domain-setup %}
 1. Aguarde que a configuração de DNS seja alterada. Isto pode ser imediato ou demorar até 24 horas. Você pode confirmar a alteração na configuração do seu DNS executando o comando `dig` na linha de comando. No comando abaixo, substitua `USUÁRIO` pelo seu nome de usuário e `example.com` pelo domínio que você está verificando. Se a sua configuração de DNS foi atualizada, você deverá ver o seu novo registro TXT na saída.
   ```
@@ -37,7 +37,7 @@ Os proprietários da organização podem verificar domínios personalizados para
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. Na barra lateral esquerda, clique em **Pages** (Páginas). ![Opção Páginas no menu de configurações](/assets/images/help/settings/org-settings-pages.png)
+1. Na seção "código, planejamento e automação" na barra lateral, clique em **Páginas de {% octicon "browser" aria-label="The browser icon" %}**.
 {% data reusables.pages.settings-verify-domain-setup %}
 1. Aguarde que a configuração de DNS seja alterada. Isto pode ser imediato ou demorar até 24 horas. Você pode confirmar a alteração na configuração do seu DNS executando o comando `dig` na linha de comando. No comando abaixo, substitua `ORGANIZAÇÃO` pelo nome da sua organização e `example.com` pelo domínio que você está verificando. Se a sua configuração de DNS foi atualizada, você deverá ver o seu novo registro TXT na saída.
   ```

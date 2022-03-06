@@ -19,15 +19,8 @@ export function GHAEReleaseNotePatch({ patch, didEnterView }: Props) {
   const bannerText = t('banner_text')
 
   return (
-    <div
-      ref={containerRef}
-      className="mb-10 color-bg-subtle pb-6 border-bottom border-top"
-      id={patch.date}
-    >
-      <header
-        style={{ zIndex: 1 }}
-        className="container-xl color-bg-subtle border-bottom px-3 pt-4 pb-2"
-      >
+    <div ref={containerRef} className="mb-10 pb-6 border-bottom border-top" id={patch.date}>
+      <header style={{ zIndex: 1 }} className="container-xl border-bottom px-3 pt-4 pb-2">
         <div className="d-flex flex-items-center">
           <h2 className="border-bottom-0 m-0 p-0">{patch.title}</h2>
 

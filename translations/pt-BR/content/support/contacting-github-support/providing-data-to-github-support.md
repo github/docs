@@ -1,7 +1,7 @@
 ---
 title: Enviar dados ao suporte do GitHub
-intro: 'Since {% data variables.contact.github_support %} doesn''t have access to your environment, we sometimes require some additional information from you.'
-shortTitle: Providing data
+intro: 'Uma vez que {% data variables.contact.github_support %} não tem acesso ao seu ambiente, às vezes exigimos alguma informação adicional sobre você.'
+shortTitle: Fornecendo dados
 versions:
   ghes: '*'
 redirect_from:
@@ -15,15 +15,33 @@ topics:
   - Support
 ---
 
-## About diagnostic files and support bundles
+## Sobre os arquivos de diagnóstico e pacotes de suporte
 
-{% data variables.contact.github_support %} may ask you to provide additional data in the form of sanitized log files. There are three types of log file you may be asked to provide.
+{% data variables.contact.github_support %} pode solicitar que você forneça dados adicionais na forma de arquivos de registro excluídos. Existem três tipos de arquivo de registro que podem ser solicitados que você forneça.
 
-Diagnostic files contain information about a {% data variables.product.prodname_ghe_server %} instance's settings and environment, support bundles contain diagnostics and logs from the past two days, and extended support bundles also contain diagnostics and logs but from the past seven days.
+Os arquivos de diagnóstico contêm informações sobre as configurações e o ambiente de uma instância de {% data variables.product.prodname_ghe_server %}, os pacotes de suporte contêm diagnósticos e registros dos últimos dois dias, e pacotes de suporte estendidos também contêm diagnósticos e registros, mas dos últimos sete dias.
+
+## Sobre o arquivo de registro sanitização
+
+Os tokens de autenticação, chaves e segredos são removidos dos arquivos de registro nos seguintes diretórios de registro contidos em um pacote de suporte ou arquivo de diagnóstico:
+
+* `alambic-logs`
+* `babeld-logs`
+* `codeload-logs`
+* `enterprise-manage-logs`
+* `github-logs`
+* `hookshot-logs`
+* `lfs-server-logs`
+* `semiotic-logs`
+* `task-dispatcher-logs`
+* `pages-logs`
+* `registry-logs`
+* `render-logs`
+* `svn-bridge-logs`
 
 ## Criar e compartilhar arquivos de diagnóstico
 
-Diagnostic files are an overview of a {% data variables.product.prodname_ghe_server %} instance's settings and environment that contains:
+Os arquivos de diagnóstico são uma visão geral das configurações e do ambiente de uma instância de {% data variables.product.prodname_ghe_server %} que contém:
 
 - Informações da licença do cliente, incluindo o nome da empresa, data de validade e número de licenças de usuário
 - Números de versão e SHAs;
@@ -111,10 +129,10 @@ Você pode usar esses passos para criar e compartilhar um pacote de suporte se v
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Screenshot showing "Enterprise licensing" link in the enterprise account settings sidebar.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. Em "Ajuda de {% data variables.product.prodname_enterprise %}", clique em **Fazer upload de um pacote de suporte**. ![Screenshot showing "Upload a support bundle link".](/assets/images/enterprise/support/upload-support-bundle.png)
-5. Em "Selecione uma conta corporativa", selecione a conta associada ao pacote de suporte no menu suspenso. ![Screenshot showing the dropdown menu to select the support bundle's enterprise account.](/assets/images/enterprise/support/support-bundle-account.png)
-6. Em "Fazer upload de um pacote de suporte para {% data variables.contact.enterprise_support %}", selecione seu pacote de suporte, clique **Escolher arquivo** ou arraste seu arquivo de pacote de suporte para **Escolher arquivo**. ![Screenshot showing the "Choose file" button to upload a support bundle file.](/assets/images/enterprise/support/choose-support-bundle-file.png)
+3. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Captura de tela que mostra o link do "licenciamento da empresa" na barra lateral de configurações da conta corporativa.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+4. Em "Ajuda de {% data variables.product.prodname_enterprise %}", clique em **Fazer upload de um pacote de suporte**. ![Captura de tela que mostra o "Link para fazer o upload de um pacote de suporte".](/assets/images/enterprise/support/upload-support-bundle.png)
+5. Em "Selecione uma conta corporativa", selecione a conta associada ao pacote de suporte no menu suspenso. ![Captura de tela que mostra o menu suspenso para selecionar a conta corporativa do pacote de suporte.](/assets/images/enterprise/support/support-bundle-account.png)
+6. Em "Fazer upload de um pacote de suporte para {% data variables.contact.enterprise_support %}", selecione seu pacote de suporte, clique **Escolher arquivo** ou arraste seu arquivo de pacote de suporte para **Escolher arquivo**. ![Captura de tela que mostra o botão o "Escolher arquivo" para fazer o upload de um arquivo de pacote.](/assets/images/enterprise/support/choose-support-bundle-file.png)
 7. Clique em **Fazer upload**.
 
 ### Fazer upload de um pacote de suporte usando SSH
@@ -158,4 +176,5 @@ Você pode fazer upload diretamente de um pacote de suporte para o nosso servido
 
 ## Leia mais
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Sobre o suporte do GitHub](/support/learning-about-github-support/about-github-support)"
+- "[Gerando uma verificação de integridade da sua empresa](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

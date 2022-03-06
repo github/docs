@@ -27,10 +27,17 @@ topics:
   - Java
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
+
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Observação:** Este artigo descreve as funcionalidades disponíveis com a versão da ação CodeQL e o pacote da CLI do CodeQL associado incluído na versão inicial desta versão de {% data variables.product.product_name %}. Se a sua empresa usar uma versão mais recente da ação do CodeQL, consulte o [artigo de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) para obter informações sobre as funcionalidades mais recentes. {% ifversion not ghae %} Para obter informações sobre como usar a versão mais recente, consulte "[Configurando a digitalização de código para o seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
+
+{% endnote %}
+{% endif %}
 
 ## Produzir registros detalhados para depuração
 
@@ -188,6 +195,19 @@ Se você dividir sua análise em vários fluxos de trabalho, conforme descrito a
 ### Executar somente durante um evento de </code>agendamento`</h3>
 
 <p spaces-before="0">Se sua análise ainda é muito lenta para ser executada durante eventos <code>push` ou `pull_request`, você poderá acionar apenas a análise no evento `agendamento`. Para obter mais informações, consulte "[Eventos](/actions/learn-github-actions/introduction-to-github-actions#events)".</p>
+
+### Verifique qual conjunto de consultas que o fluxo de trabalho executa
+
+Por padrão, existem três principais conjuntos de consultas disponíveis para cada linguagem. Se você otimizar a compilação do banco de dados CodeQL mesmo assim o processo continuar sendo muito longo, você poderá reduzir o número de consultas que você executa. O conjunto de consulta padrão é executado automaticamente. Ele contém as consultas de segurança mais rápidas com as taxas mais baixas de resultados falso-positivos.
+
+Você pode executar consultas adicionais ou conjuntos de consulta além das consultas padrão. Verifique se o fluxo de trabalho define um conjunto de consultas adicional ou consultas adicionais a serem executadas usando o elemento `consultas`. Você pode experimentar desabilitar o conjunto de consultas adicionais ou consultas. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
+
+{% if codeql-ml-queries %}
+{% note %}
+
+**Observação:** Se você executar `security-extended` ou a consulta `security-and-quality` para o JavaScript, algumas consultas irão usar a tecnologia experimental. Para obter mais informações, consulte "[Sobre a alertas da digitalização de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)".
+{% endnote %}
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ## Os resultados diferem entre as plataformas de análise

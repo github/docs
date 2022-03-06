@@ -23,11 +23,9 @@ Predeterminadamente, {% data variables.product.product_name %} almacena las bit�
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Debajo de **Artefactos**, da clic en aquél que quieras descargar.
-    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
     ![Menú desplegable Download artifact (Descargar artefacto)](/assets/images/help/repository/artifact-drop-down-updated.png)
-    {% else %}
-    ![Menú desplegable Download artifact (Descargar artefacto)](/assets/images/help/repository/artifact-drop-down.png)
-    {% endif %}
+
 
 {% endwebui %}
 

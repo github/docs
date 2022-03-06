@@ -21,6 +21,8 @@ Puedes reportar a los usuarios que hayan violado las condiciones de servicio o l
 
 Si se ha habilitado la capacidad para reportar contenido en un repositorio público, también puedes reportarlo directamente a los mantenedores del mismo.
 
+Los usuarios de la India pueden contactar al funcionario encargado de las quejas en este país [aquí](https://support.github.com/contact/india-grievance-officer).
+
 ## Informar un usuario
 
 {% data reusables.profile.user_profile_page_navigation %}

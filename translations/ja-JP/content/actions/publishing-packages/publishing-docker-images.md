@@ -50,7 +50,7 @@ topics:
 
 ## Docker Hubへのイメージの公開
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 以下のワークフロー例では、Docker の `login-action` アクションと `build-push-action` アクションを使用して Docker イメージをビルドし、ビルドが成功すればそのイメージを Docker Hub にプッシュします。
 
@@ -108,7 +108,7 @@ The above workflow checks out the {% data variables.product.prodname_dotcom %} r
 
 ## {% data variables.product.prodname_registry %}へのイメージの公開
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
 

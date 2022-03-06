@@ -92,7 +92,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 アクションの出力パラメータを設定します。
 
-あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/articles/metadata-syntax-for-github-actions#outputs)」を参照してください。
+あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
 
 ### サンプル
 
@@ -292,7 +292,7 @@ Only the second `set-output` and `echo` workflow commands are included in the lo
 
 `save-state`コマンドを使って、ワークフローの`pre:`あるいは`post:`アクションと共有するための環境変数を作成できます。 たとえば、`pre:`アクションでファイルを作成し、そのファイルの場所を`main:`アクションに渡し、`post:`アクションを使ってそのファイルを削除できます。 あるいは、ファイルを`main:`アクションで作成し、そのファイルの場所を`post:`アクションに渡し、`post:`アクションを使ってそのファイルを削除することもできます。
 
-複数の`pre:`あるいは`post:`アクションがある場合、保存された値にアクセスできるのは`save-state`が使われたアクションの中でのみです。 `post:`アクションに関する詳しい情報については「[{% data variables.product.prodname_actions %}のためのメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions#post)」を参照してください。
+複数の`pre:`あるいは`post:`アクションがある場合、保存された値にアクセスできるのは`save-state`が使われたアクションの中でのみです。 `post:`アクションに関する詳しい情報については「[{% data variables.product.prodname_actions %}のためのメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)」を参照してください。
 
 `save-state`コマンドはアクション内でしか実行できず、YAMLファイルでは利用できません。 保存された値は、`STATE_`プレフィックス付きで環境変数として保存されます。
 
@@ -314,7 +314,9 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 {% warning %}
 
-**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default. 正しいエンコーディングを使用してファイルを書き込むようにしてください。 たとえば、パスを設定するときに UTF-8 エンコーディングを設定する必要があります。
+**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default.
+
+When using `shell: powershell`, you must specify UTF-8 encoding. 例:
 
 ```yaml
 jobs:
@@ -325,22 +327,7 @@ jobs:
         run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-Or switch to PowerShell Core, which defaults to UTF-8:
-
-```yaml
-jobs:
-  modern-pwsh-example:
-    uses: windows-2019
-    steps:
-      - shell: pwsh
-        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
-```
-
-More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow answer](https://stackoverflow.com/a/40098904/162694):
-
-> ### Optional reading: The cross-platform perspective: PowerShell _Core_:
-> 
-> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - ***defaults to ***BOM-less UTF-8******, in line with Unix-like platforms.
+Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UTF-8.
 
 {% endwarning %}
 

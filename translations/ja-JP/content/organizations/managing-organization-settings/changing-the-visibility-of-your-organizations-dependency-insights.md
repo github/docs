@@ -17,7 +17,7 @@ shortTitle: インサイトの可視性の変更
 Organization のオーナーは、organization dependency insights の表示制限を設定できます。 デフォルトでは、Organization のメンバー全員が Organization dependency insight を表示できます。
 
 {% ifversion ghec %}
-Enterprise のオーナーは、Enterprise アカウントにあるすべての Organization dependency insights について、表示制限を設定できます。 For more information, see "[Enforcing policies for dependency insights in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)."
+Enterprise のオーナーは、Enterprise アカウントにあるすべての Organization dependency insights について、表示制限を設定できます。 詳しい情報については「[Enterpriseでの依存関係インサイトのポリシーの施行](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)」を参照してください。
 {% endif %}
 
 {% data reusables.profile.access_org %}

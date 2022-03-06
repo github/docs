@@ -33,8 +33,7 @@ Los propietarios de la organización también pueden bloquear a los usuarios por
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. Enla barra lateral de configuración de la organización, da clic en **Configuración de moderación**. !["Configuración de moderación" en la barra lateral de configuración de la organización](/assets/images/help/organizations/org-settings-moderation-settings.png)
-1. Debajo de "Configuración de moderación", da clic en **Límites de interacción**. !["Límites de interacción" en la barra lateral de configuración de la organización](/assets/images/help/organizations/org-settings-interaction-limits.png)
+1. En la sección de "Acceso" de la barra lateral, selecciona **{% octicon "report" aria-label="The report icon" %} Moderación** y luego haz clic en **Límites de interacción**.
 {% data reusables.community.set-interaction-limit %}
   ![Opciones de límites de interacción temporarios](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 

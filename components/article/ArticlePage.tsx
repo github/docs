@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, ReactNode } from 'react'
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
-import { ActionList, Heading } from '@primer/components'
+import { ActionList, Heading } from '@primer/react'
 
 import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
@@ -22,6 +22,7 @@ import { ToolPicker } from 'components/article/ToolPicker'
 const ClientSideRedirectExceptions = dynamic(() => import('./ClientsideRedirectExceptions'), {
   ssr: false,
 })
+const ClientSideHighlightJS = dynamic(() => import('./ClientSideHighlightJS'), { ssr: false })
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -49,8 +50,12 @@ const interactiveAlternatives: Record<string, { href: string }> = {
     },
 }
 
-export const ArticlePage = () => {
-  const router = useRouter()
+export type StructuredContentT = {
+  structuredContent?: ReactNode
+}
+
+export const ArticlePage = ({ structuredContent }: StructuredContentT) => {
+  const { asPath } = useRouter()
   const {
     title,
     intro,
@@ -64,8 +69,9 @@ export const ArticlePage = () => {
     miniTocItems,
     currentLearningTrack,
   } = useArticleContext()
+  const renderedContent = structuredContent || renderedPage
   const { t } = useTranslation('pages')
-  const currentPath = router.asPath.split('?')[0]
+  const currentPath = asPath.split('?')[0]
 
   const renderTocItem = (item: MiniTocItem) => {
     return (
@@ -106,10 +112,32 @@ export const ArticlePage = () => {
     // In the future there might be more.
     // Hopefully, we can some day delete all of this and no longer
     // be dependent on the URL hash to do the redirect.
-    if (hash && pathname.endsWith('/rest/reference/repos')) {
+    if (
+      hash &&
+      (pathname.endsWith('/rest/reference/repos') ||
+        pathname.endsWith('/rest/reference/enterprise-admin'))
+    ) {
       setLoadClientsideRedirectExceptions(true)
     }
   }, [])
+
+  // If the page contains `[data-highlight]` blocks, these pages need
+  // syntax highlighting. But not every page needs it, so it's conditionally
+  // lazy-loaded on the client.
+  const [lazyLoadHighlightJS, setLazyLoadHighlightJS] = useState(false)
+  useEffect(() => {
+    // It doesn't need to use querySelector because all we care about is if
+    // there is greater than zero of these in the DOM.
+    // Note! This "core selector", which determines whether to bother
+    // or not, needs to match what's used inside ClientSideHighlightJS.tsx
+    if (document.querySelector('[data-highlight]')) {
+      setLazyLoadHighlightJS(true)
+    }
+
+    // Important to depend on the current path because the first page you
+    // load, before any client-side navigation, might not need it, but the
+    // consecutive one does.
+  }, [asPath])
 
   // Scrollable code blocks in our REST API docs and elsewhere aren't accessible
   // via keyboard navigation without setting tabindex="0".  But we don't want to set
@@ -133,6 +161,10 @@ export const ArticlePage = () => {
       {/* Doesn't matter *where* this is included because it will
       never render anything. It always just return null. */}
       {loadClientsideRedirectExceptions && <ClientSideRedirectExceptions />}
+
+      {/* Doesn't matter *where* this is included because it will
+      never render anything. It always just return null. */}
+      {lazyLoadHighlightJS && <ClientSideHighlightJS />}
 
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
@@ -209,7 +241,7 @@ export const ArticlePage = () => {
           }
         >
           <div id="article-contents">
-            <MarkdownContent>{renderedPage}</MarkdownContent>
+            <MarkdownContent>{renderedContent}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">
                 Effective as of:{' '}

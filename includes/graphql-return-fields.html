@@ -10,12 +10,12 @@
 {% for returnField in returnFields %}
 <tr>
 <td><p><code>{{ returnField.name }}</code> (<code><a href="/{{ currentLanguage }}{{ returnField.href }}">{{ returnField.type }}</a></code>)</p></td>
-<td><p>{% if returnField.description %}{{ returnField.description }}{% else %}N/A{% endif %}</p>
+<td>{% if returnField.description %}{{ returnField.description }}{% else %}N/A{% endif %}
 
 {% assign item = returnField %}
 {% include graphql-preview %}
 {% include graphql-deprecation %}
-
+</td>
 </tr>
 {% endfor %}
 </tbody>

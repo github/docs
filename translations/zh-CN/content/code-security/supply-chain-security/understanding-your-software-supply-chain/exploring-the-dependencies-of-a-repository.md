@@ -34,7 +34,7 @@ shortTitle: 探索依赖项
 4. （可选）在 "Dependency graph"（依赖关系图）下，单击 **Dependents（依赖项）**。 ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
 {% ifversion ghes or ghae-issue-4864 %}
-Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
+企业所有者可以在企业级别配置依赖关系图。 For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
 {% endif %}
 
 ### 依赖项视图
@@ -96,7 +96,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. 在“Configure security and analysis features（配置安全和分析功能）”下，单击“Used by counter（使用者计数）”部分中的下拉菜单并选择一个包。 ![选择"使用者"包](/assets/images/help/repository/choose-used-by-package.png)
+4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package. ![选择"使用者"包](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 
