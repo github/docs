@@ -59,7 +59,7 @@ shortTitle: 刷新用户到服务器的访问权限
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. 单击所选 {% data variables.product.prodname_github_app %} 旁边的 **Edit（编辑）**。 ![编辑 GitHub 应用程序的设置](/assets/images/github-apps/edit-test-app.png)
-5. In the left sidebar, click **Optional Features**. ![Optional features tab](/assets/images/github-apps/optional-features-option.png)
+5. 在左侧边栏中，单击 **Optional Features（可选功能）**。 ![可选功能选项卡](/assets/images/github-apps/optional-features-option.png)
 6. 在“User-to-server token expiration（用户到服务器令牌过期）”旁边，单击 **Opt-in（选择加入）**或 **Opt-out（选择退出）**。 应用此设置可能需要几秒钟的时间。
 
 ## 为新的 GitHub 应用程序选择退出过期令牌

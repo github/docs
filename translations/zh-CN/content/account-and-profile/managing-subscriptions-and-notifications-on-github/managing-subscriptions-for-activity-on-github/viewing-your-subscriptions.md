@@ -72,7 +72,7 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
   {% tip %}
 
-  **Tip:** Instead of watching a repository, consider only receiving notifications when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options, or completely unwatching a repository.
+  **提示：**不是关注存储库，而是考虑仅在 {% data reusables.notifications-v2.custom-notification-types %} 更新（如已为存储库启用）或这些选项的任意组合时接收通知，或者完全取消关注存储库。
 
   取消关注仓库后，当您被@提及或参与帖子时仍然会收到通知。 当您配置接收某些事件类型的通知时，仅在仓库中有这些事件类型的更新、您参与了线程或者您或您所在团队被 @提及时才收到通知。
 

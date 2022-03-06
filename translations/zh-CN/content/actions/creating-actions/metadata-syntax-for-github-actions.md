@@ -350,7 +350,7 @@ runs:
 
 **可选** 您可以使用 `if` 条件使步骤仅在满足条件时才运行。 您可以使用任何支持上下文和表达式来创建条件。
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 **示例：使用上下文**
 

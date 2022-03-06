@@ -263,6 +263,6 @@ jobs:
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 Under **Jobs** or in the visualization graph, click **A job to say hello**. 您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 在 **Jobs（作业）**下或可视化图形中，单击 **A job to say hello（打招呼的作业）**。 您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)

@@ -6,7 +6,7 @@
 1. 单击 **New runner（新运行器）**。
 {% data reusables.actions.self-hosted-runner-configure %}
 {%- elsif ghae or ghes < 3.4 %}
-To add a self-hosted runner to an enterprise, you must be an enterprise owner.
+要将自托管的运行器添加到企业，您必须是组织所有者。
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}

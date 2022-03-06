@@ -1,6 +1,6 @@
 ---
 title: 配置仓库的密码扫描
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for secrets that match advanced security patterns.'
+intro: '您可以配置 {% data variables.product.prodname_dotcom %} 如何扫描存储库以查找与高级安全模式匹配的机密。'
 product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning_GHAS %} for the repository.'
 redirect_from:
@@ -24,7 +24,7 @@ shortTitle: 配置密钥扫描
 
 ## 启用 {% data variables.product.prodname_secret_scanning_GHAS %}
 
-您可以对组织拥有的任何仓库启用 {% data variables.product.prodname_secret_scanning_GHAS %}。 Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
+您可以对组织拥有的任何仓库启用 {% data variables.product.prodname_secret_scanning_GHAS %}。 启用后，{% data reusables.secret-scanning.secret-scanning-process %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -41,7 +41,7 @@ shortTitle: 配置密钥扫描
 3. 在“{% data variables.product.prodname_secret_scanning_caps %}”右边单击 **Enable（启用）**。 ![为仓库启用 {% data variables.product.prodname_secret_scanning %}](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
-## Excluding directories from {% data variables.product.prodname_secret_scanning_GHAS %}
+## 从 {% data variables.product.prodname_secret_scanning_GHAS %} 中排除目录
 
 您可以使用 *secret_scanning.yml* 文件从 {% data variables.product.prodname_secret_scanning %} 排除目录。 例如，可以排除包含测试或随机生成内容的目录。
 

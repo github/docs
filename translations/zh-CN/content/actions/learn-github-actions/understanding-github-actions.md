@@ -32,13 +32,13 @@ topics:
 
 {% elsif ghes or ghae %}
 
-You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+您必须托管自己的 Linux、Windows 或 macOS 虚拟机才能运行 {% data variables.product.product_location %} 工作流程。 {% data reusables.actions.self-hosted-runner-locations %}
 
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
-For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+有关向企业介绍 {% data variables.product.prodname_actions %} 的详细信息，请参阅“[向企业介绍 {% data variables.product.prodname_actions %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)”。
 
 {% endif %}
 
@@ -239,7 +239,7 @@ _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应�
 
 ## 查看工作流程的活动
 
-Once your workflow has started running, you can see a visualization graph of the run's progress and view each step's activity on {% data variables.product.prodname_dotcom %}.
+工作流程开始运行后，您可以查看运行进度的可视化图表，并在 {% data variables.product.prodname_dotcom %} 上查看每个步骤的活动。
 
 {% data reusables.repositories.navigate-to-repo %}
 1. 在仓库名称下，单击 **Actions（操作）**。 ![导航到仓库](/assets/images/help/images/learn-github-actions-repository.png)

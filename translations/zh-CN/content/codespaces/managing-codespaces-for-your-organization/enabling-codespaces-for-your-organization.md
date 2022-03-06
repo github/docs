@@ -25,10 +25,10 @@ To use codespaces in your organization, you must do the following:
 
 - Ensure that users have [at least write access](/organizations/managing-access-to-your-organizations-repositories/repository-permission-levels-for-an-organization) to the repositories where they want to use a codespace.
 - [Enable {% data variables.product.prodname_codespaces %} for users in your organization](#enable-codespaces-for-users-in-your-organization). You can choose allow {% data variables.product.prodname_codespaces %} for selected users or only for specific users.
-- [Set a spending limit](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
-- Ensure that your organization does not have an IP address allow list enabled. 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”。
+- [设置支出限制](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)
+- 确保您的组织未启用 IP 地址允许列表。 更多信息请参阅“[管理组织允许的 IP 地址](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization)”。
 
-By default, a codespace can only access the repository from which it was created. 如果您希望组织中的代码空间能够访问代码空间创建者可以访问的其他组织仓库，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的访问和安全](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)”。
+默认情况下，代码空间只能访问从中创建它的存储库。 如果您希望组织中的代码空间能够访问代码空间创建者可以访问的其他组织仓库，请参阅“[管理 {% data variables.product.prodname_codespaces %} 的访问和安全](/codespaces/managing-codespaces-for-your-organization/managing-access-and-security-for-your-organizations-codespaces)”。
 
 ## Enable {% data variables.product.prodname_codespaces %} for users in your organization
 

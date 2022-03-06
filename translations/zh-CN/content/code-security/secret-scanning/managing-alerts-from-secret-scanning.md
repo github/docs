@@ -25,7 +25,7 @@ shortTitle: 管理秘密警报
 {% ifversion ghec %}
 {% note %}
 
-**Note:** Alerts are created only for repositories with {% data variables.product.prodname_secret_scanning_GHAS %} enabled. Secrets found in public repositories using the free {% data variables.product.prodname_secret_scanning_partner%} service are reported directly to the partner, without creating an alert.
+**注意：**仅为启用了 {% data variables.product.prodname_secret_scanning_GHAS %} 的存储库创建警报。 使用免费 {% data variables.product.prodname_secret_scanning_partner%} 服务在公共存储库中发现的机密将直接报告给合作伙伴，而无需创建警报。
 
 {% endnote %}
 {% endif %}
@@ -67,7 +67,7 @@ shortTitle: 管理秘密警报
 {% ifversion ghec %}
 {% note %}
 
-**Note:** If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[Supported secrets for partner patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)."
+**注意：** 如果在 {% data variables.product.prodname_dotcom_the_website %} 上的公共存储库中检测到机密，并且该机密也与合作伙伴模式匹配，则会生成警报，并将潜在的机密报告给服务提供商。 有关合作伙伴模式的详细信息，请参阅“[合作伙伴模式支持的机密](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)”。
 
 {% endnote %}
 {% endif %}

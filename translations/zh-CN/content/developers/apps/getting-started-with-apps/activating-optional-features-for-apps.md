@@ -16,18 +16,18 @@ shortTitle: 激活可选功能
 
 {% warning %}
 
-**Warning:**  Optional features are subject to change.
+**警告：**可选功能可能会更改。
 
 {% endwarning %}
 
-## Activating optional features for {% data variables.product.prodname_github_apps %}
+## 激活 {% data variables.product.prodname_github_apps %} 的可选功能
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. Select the {% data variables.product.prodname_github_app %} you want to enable an optional feature for.
+3. 选择您要为其启用可选功能的 {% data variables.product.prodname_github_app %}。
 {% data reusables.apps.optional_feature_activation %}
 
-## Activating optional features for {% data variables.product.prodname_oauth_apps %}
+## 激活 {% data variables.product.prodname_oauth_apps %} 的可选功能
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
