@@ -61,7 +61,7 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
  | `name`                | `字符串`   | GitHub 应用程序的名称。                                                                                                           |
  | `url`                 | `字符串`   | **必填。**GitHub 应用程序的主页。                                                                                                    |
  | `hook_attributes`     | `对象`    | GitHub 应用程序 web 挂钩的配置                                                                                                     |
- | `redirect_url`        | `字符串`   | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.                          |
+ | `redirect_url`        | `字符串`   | 用户从清单启动 GitHub 应用创建后要重定向到的完整 URL。                                                                                         |
  | `callback_urls`       | `字符串数组` | 在用户授权安装后重定向到的完整 URL。 您可以提供最多 10 个回叫 URL。                                                                                  |
  | `说明`                  | `字符串`   | GitHub 应用程序的说明。                                                                                                           |
  | `public`              | `布尔值`   | 当 GitHub 应用程序可供公众使用时，设置为 `true` ；当它仅供应用程序的所有者访问时，设置为 `false`。                                                             |

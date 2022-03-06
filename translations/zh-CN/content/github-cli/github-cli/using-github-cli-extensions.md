@@ -10,7 +10,7 @@ topics:
   - CLI
 ---
 
-## About {% data variables.product.prodname_cli %} extensions
+## 关于 {% data variables.product.prodname_cli %} 扩展
 
 {% note %}
 

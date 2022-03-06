@@ -47,13 +47,13 @@ shortTitle: 识别和授权用户
 
 #### 参数
 
-| 名称             | 类型    | 描述                                                                                                                                                                                                                                                                                                                     |
-| -------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `字符串` | **必填。**GitHub 应用程序的客户端 ID。 选择应用程序时，您可以在 [GitHub 应用程序设置](https://github.com/settings/apps)中找到它。 **注意：** 应用程序 ID 和客户端 ID 不相同，无法互换。                                                                                                                                                                                       |
-| `redirect_uri` | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters. |
-| `state`        | `字符串` | 它应该包含一个随机字符串以防止伪造攻击，并且可以包含任何其他任意数据。                                                                                                                                                                                                                                                                                    |
-| `login`        | `字符串` | 提供用于登录和授权应用程序的特定账户。                                                                                                                                                                                                                                                                                                    |
-| `allow_signup` | `字符串` | 在 OAuth 流程中，是否向经过验证的用户提供注册 {% data variables.product.prodname_dotcom %} 的选项。 默认值为 `true`。 如有政策禁止注册，请使用 `false`。                                                                                                                                                                                                        |
+| 名称             | 类型    | 描述                                                                                                                                                                                                                       |
+| -------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `client_id`    | `字符串` | **必填。**GitHub 应用程序的客户端 ID。 选择应用程序时，您可以在 [GitHub 应用程序设置](https://github.com/settings/apps)中找到它。 **注意：** 应用程序 ID 和客户端 ID 不相同，无法互换。                                                                                         |
+| `redirect_uri` | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 它必须完全匹配设置 GitHub 应用程序时 {% ifversion fpt or ghes or ghec %} 作为 **Callback URL（回调 URL）**提供的 URL 之一 {% else %} 在 **User authorization callback URL（用户授权回调 URL）**字段中提供的 URL{% endif %}，并且不能包含任何其他参数。 |
+| `state`        | `字符串` | 它应该包含一个随机字符串以防止伪造攻击，并且可以包含任何其他任意数据。                                                                                                                                                                                      |
+| `login`        | `字符串` | 提供用于登录和授权应用程序的特定账户。                                                                                                                                                                                                      |
+| `allow_signup` | `字符串` | 在 OAuth 流程中，是否向经过验证的用户提供注册 {% data variables.product.prodname_dotcom %} 的选项。 默认值为 `true`。 如有政策禁止注册，请使用 `false`。                                                                                                          |
 
 {% note %}
 
@@ -73,7 +73,7 @@ shortTitle: 识别和授权用户
 
 将此 `code` 交换为访问令牌。  启用令牌有效期时，访问令牌在 8 小时后过期，刷新令牌在 6 个月后过期。 每次刷新令牌时都会得到一个新的刷新令牌。 更多信息请参阅“[刷新用户到服务器访问令牌](/developers/apps/refreshing-user-to-server-access-tokens)”。
 
-过期用户令牌目前是一个可选的功能，可能会更改。 To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
+过期用户令牌目前是一个可选的功能，可能会更改。 要选择使用用户到服务器令牌过期功能，请参阅“[激活应用程序的可选功能](/developers/apps/activating-optional-features-for-apps)”。
 
 向以下端点提出请求以接收访问令牌：
 
@@ -81,13 +81,13 @@ shortTitle: 识别和授权用户
 
 #### 参数
 
-| 名称              | 类型    | 描述                                                                                                                                                                                                                                                                                                                     |
-| --------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `字符串` | **必填。**GitHub 应用程序的客户端 ID。                                                                                                                                                                                                                                                                                             |
-| `client_secret` | `字符串` | **必填。**GitHub 应用程序的客户端密钥。                                                                                                                                                                                                                                                                                              |
-| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                                                                                                                                                                                                                                 |
-| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters. |
-| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                                                                                                                                                                                                                                  |
+| 名称              | 类型    | 描述                                                                                                                                                                                                                       |
+| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `client_id`     | `字符串` | **必填。**GitHub 应用程序的客户端 ID。                                                                                                                                                                                               |
+| `client_secret` | `字符串` | **必填。**GitHub 应用程序的客户端密钥。                                                                                                                                                                                                |
+| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                                                                                                                                   |
+| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 它必须完全匹配设置 GitHub 应用程序时 {% ifversion fpt or ghes or ghec %} 作为 **Callback URL（回调 URL）**提供的 URL 之一 {% else %} 在 **User authorization callback URL（用户授权回调 URL）**字段中提供的 URL{% endif %}，并且不能包含任何其他参数。 |
+| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                                                                                                                                    |
 
 #### 响应
 

@@ -105,6 +105,7 @@ translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scannin
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/zh-CN/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,broken liquid tags
+translations/zh-CN/content/code-security/getting-started/github-security-features.md,broken liquid tags
 translations/zh-CN/content/code-security/getting-started/securing-your-organization.md,broken liquid tags
 translations/zh-CN/content/code-security/getting-started/securing-your-repository.md,broken liquid tags
 translations/zh-CN/content/code-security/secret-scanning/about-secret-scanning.md,broken liquid tags
@@ -156,6 +157,7 @@ translations/zh-CN/content/get-started/learning-about-github/about-github-advanc
 translations/zh-CN/content/get-started/learning-about-github/githubs-products.md,parsing error
 translations/zh-CN/content/get-started/learning-about-github/types-of-github-accounts.md,broken liquid tags
 translations/zh-CN/content/get-started/onboarding/getting-started-with-github-ae.md,broken liquid tags
+translations/zh-CN/content/get-started/onboarding/getting-started-with-github-enterprise-cloud.md,broken liquid tags
 translations/zh-CN/content/get-started/onboarding/getting-started-with-github-enterprise-server.md,broken liquid tags
 translations/zh-CN/content/get-started/onboarding/getting-started-with-github-team.md,broken liquid tags
 translations/zh-CN/content/get-started/onboarding/getting-started-with-your-github-account.md,broken liquid tags
