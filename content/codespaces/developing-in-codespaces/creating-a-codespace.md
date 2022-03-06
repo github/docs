@@ -28,7 +28,7 @@ When you create a codespace, a number of steps happen to create and connect you 
 
 - Step 1: VM and storage are assigned to your codespace.
 - Step 2: Container is created and your repository is cloned.
-- Step 3: You can connect to the codespace.
+- Step 3: You can connect to the codespace
 - Step 4: Codespace continues with post-creation setup.
 
 For more information on what happens when you create a codespace, see "[Deep Dive](/codespaces/getting-started/deep-dive)."
