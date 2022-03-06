@@ -1,4 +1,4 @@
----
+Aw man that's awesome---
 title: Setting permissions for adding outside collaborators
 intro: 'To protect your organization''s data and the number of paid licenses used in your organization, you can allow only owners to invite outside collaborators to organization repositories.'
 product: '{% data reusables.gated-features.restrict-add-collaborator %}'
@@ -10,7 +10,7 @@ versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
+  ghec: '*'thanks sent from my app message to see if you can find the car
 topics:
   - Organizations
   - Teams
