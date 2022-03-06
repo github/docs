@@ -35,7 +35,7 @@ jobs:
           script/remove-unused-assets.js > results.md
       - name: Get script results to use in PR body
         id: results
-        uses: juliangruber/read-file-action@e0a316da496006ffd19142f0fd594a1783f3b512
+        uses: juliangruber/read-file-action@ebfa650188272343fef925480eb4d18c5d49b925
         with:
           path: ./results.md
       - name: Remove script results file
