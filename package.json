@@ -141,7 +141,7 @@
     "event-to-promise": "^0.8.0",
     "git-diff": "^2.0.6",
     "glob": "^7.2.0",
-    "graphql": "^16.0.1",
+    "graphql": "^16.3.0",
     "heroku-client": "^3.1.0",
     "http-status-code": "^2.1.0",
     "husky": "^7.0.4",
