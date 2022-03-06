@@ -12,7 +12,7 @@ children:
   - /about-projects
   - /quickstart
   - /creating-a-project
-  - /customizing-your-project-views
+  - /customizing-saengsom-project-views
   - /using-the-api-to-manage-projects
   - /automating-projects
   - /managing-the-visibility-of-your-projects
