@@ -160,7 +160,7 @@
     "mockdate": "^3.0.5",
     "nock": "^13.2.1",
     "nodemon": "^2.0.15",
-    "npm-merge-driver-install": "^2.0.1",
+    "npm-merge-driver-install": "^3.0.0",
     "object-hash": "^2.2.0",
     "postcss": "^8.4.4",
     "prettier": "^2.5.0",
