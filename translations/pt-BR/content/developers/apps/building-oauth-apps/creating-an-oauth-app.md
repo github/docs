@@ -46,7 +46,7 @@ topics:
 {% ifversion fpt or ghes or ghec %}
    {% note %}
 
-   **Note:** OAuth Apps cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
+   **Observação:** Os aplicativos OAuth não podem ter várias URLs de retorno de chamada, diferente de {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
 {% endif %}

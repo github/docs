@@ -34,7 +34,7 @@ A página exibida permite que você habilite ou desabilite todas as funcionalida
 
 {% ifversion ghec %}Se a sua organização pertence a uma empresa com uma licença para {% data variables.product.prodname_GH_advanced_security %}, a página também conterá opções para habilitar e desabilitar funcionalidades de {% data variables.product.prodname_advanced_security %}. Todos os repositórios que usam {% data variables.product.prodname_GH_advanced_security %} estão listados na parte inferior da página.{% endif %}
 
-{% ifversion ghes %}If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Todos os repositórios que usam {% data variables.product.prodname_GH_advanced_security %} estão listados na parte inferior da página.{% endif %}
+{% ifversion ghes %}Se você tiver uma licença para {% data variables.product.prodname_GH_advanced_security %}, a página também conterá opções para habilitar e desabilitar funcionalidades de {% data variables.product.prodname_advanced_security %}. Todos os repositórios que usam {% data variables.product.prodname_GH_advanced_security %} estão listados na parte inferior da página.{% endif %}
 
 {% ifversion ghae %}A página também conterá opções para habilitar e desabilitar funcionalidades de {% data variables.product.prodname_advanced_security %}. Todos os repositórios que usam {% data variables.product.prodname_GH_advanced_security %} estão listados na parte inferior da página.{% endif %}
 

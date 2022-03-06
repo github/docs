@@ -80,7 +80,7 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
 ## Creating the workflow
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+Após você ter atendido aos pré-requisitos, você poderá proceder com a criação do fluxo de trabalho.
 
 O fluxo de trabalho a seguir demonstra como construir uma imagem de contêiner e enviá-lo para o Amazon ECR. Em seguida, ele atualiza a definição da tarefa com o novo ID de imagem e implanta a definição da tarefa no Amazon ECS.
 

@@ -10,11 +10,11 @@ Agora, ao revisar um pull request, você poderá ver a execução do fluxo de tr
 
 ![Menu suspenso do para fazer download do artefato](/assets/images/help/repository/artifact-drop-down-updated.png)
 
-This will let you run the code in the pull request on your machine, which can help with debugging or testing the pull request.
+Isso permitirá que você execute o código no pull request em sua máquina, o que pode ajudar a depurar ou testar o pull request.
 
 ### Fluxos de trabalho para publicação de pacotes
 
-In addition to uploading packaging artifacts for testing in a continuous integration workflow, you can create workflows that build your project and publish packages to a package registry.
+Além de fazer o upload dos artefatos de empacotamento para teste em um fluxo de trabalho de integração contínua, você poderá criar fluxos de trabalho que criam o seu projeto e publicam pacotes no pacote de registro.
 
 * **Publicar pacotes para {% data variables.product.prodname_registry %}**
   {% data variables.product.prodname_registry %} pode atuar como um serviço de hospedagem de pacotes para vários tipos de pacotes. Você pode escolher compartilhar os seus pacotes com todos {% data variables.product.prodname_dotcom %} ou compartilhar pacotes privados com colaboradores ou uma organização. Para obter mais informações, consulte "[Introdução ao GitHub Packages](/packages/learn-github-packages/introduction-to-github-packages)".
