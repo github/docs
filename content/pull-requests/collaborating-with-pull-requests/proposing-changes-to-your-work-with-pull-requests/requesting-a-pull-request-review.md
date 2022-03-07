@@ -15,9 +15,11 @@ topics:
   - Pull requests
 shortTitle: Request a PR review
 ---
-Owners and collaborators on a repository owned by a user account can assign pull request reviews. Organization members with triage permissions to a repository can assign a pull request review.
+Repositories belong to a user account (a single individual owner) or an organization account (a shared account with numerous collaborators or maintainers). You can read more about the different account types [here](/get-started/learning-about-github/types-of-github-accounts). Owners and collaborators on a repository owned by a user account can assign pull request reviews. Likewise, organization members with triage permissions can also assign a pull request. 
 
-Owners or collaborators can assign a pull request review to any person that has been explicitly granted [read access](/articles/access-permissions-on-github) to a user-owned repository. Organization members can assign a pull request review to any person or team with read access to a repository. The requested reviewer or team will receive a notification that you asked them to review the pull request. {% ifversion fpt or ghae or ghes or ghec %}If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."{% endif %}
+In order to request a pull request review, you will need [write access](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization) permissions. Conversely, owners or collaborators can assign a pull request review to any person that has been granted [read access](/get-started/quickstart/github-glossary#read-access) only.
+
+Organization members can also assign a pull request review to any person or team with read access to a repository. The requested reviewer or team will receive a notification that you asked them to review the pull request. {% ifversion fpt or ghae or ghes or ghec %}If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."{% endif %}
 
 {% note %}
 
