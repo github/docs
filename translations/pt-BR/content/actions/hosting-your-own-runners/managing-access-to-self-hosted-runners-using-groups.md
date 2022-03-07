@@ -12,7 +12,6 @@ type: tutorial
 shortTitle: Gerenciar grupos de executores
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -49,38 +48,40 @@ Ao criar um grupo, você deverá escolher uma política que defina quais reposit
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runner-groups %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups %}
 1. Na seção "Grupos de executores", clique em **Novo grupo de executor**.
- {% data reusables.github-actions.runner-group-assign-policy-repo %}
+ {% data reusables.actions.runner-group-assign-policy-repo %}
 
    {% warning %}
 
-   **Aviso**: {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   **Aviso**: {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
-{% data reusables.github-actions.self-hosted-runner-create-group %}
+{% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.settings-sidebar-actions-runners %}
+{% data reusables.actions.settings-sidebar-actions-runners %}
 1. Em {% ifversion ghes > 3.1 or ghae %}"Executores"{% elsif ghes < 3.2 %}"Executores auto-hospedados"{% endif %}, clique em **Adicionar novo** e, em seguida, **Novo grupo**.
 
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Insira um nome para o seu grupo de executor e atribua uma política para acesso ao repositório.
 
-   {% ifversion ghes or ghae %} Você pode configurar um grupo de executores para poder ser acessado por uma lista específica de repositórios ou por todos os repositórios na organização. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executores, mas você pode substituir isso. Esta configuração não pode ser substituída se configurar o grupo de executores da organização que foi compartilhado por uma empresa.{% endif %}
+   You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. Esta configuração não pode ser substituída se configurar o grupo de executores da organização que foi compartilhado por uma empresa.{% endif %}
 
+   {%- ifversion ghes %}
    {% warning %}
 
-   **Aviso**
+   **Warning**:
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
+   {%- endif %}
 
    ![Adicionar opções de grupo de executores](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. Clique em **Salvar grupo** para criar o grupo e aplicar a política.
@@ -94,70 +95,52 @@ Os executores auto-hospedados são automaticamente atribuídos ao grupo-padrão 
 
 Ao criar um grupo, você deve escolher uma política que defina quais organizações têm acesso ao grupo de executores.
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runner-groups-tab %}
-1. Clique em **Novo grupo de executores**.
- {% data reusables.github-actions.runner-group-assign-policy-org %}
+{% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
+1. To choose a policy for organization access, select the **Organization access** drop-down, and click a policy. You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.{% ifversion ghes %} By default, only private repositories can access runners in a runner group, but you can override this.{% endif %}
 
+   {%- ifversion ghec or ghes %}
    {% warning %}
 
-   **Aviso**
+   **Warning**:
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
-{% data reusables.github-actions.self-hosted-runner-create-group %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-1. Clique em **Adicionar novo** e, em seguida, **Novo grupo**.
+   {%- endif %}
+   {%- ifversion ghec or ghes %}
 
-    ![Adicionar grupo de executor](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. Insira um nome para o seu grupo de executor e atribua uma política para acesso à organização.
+   ![Adicionar opções de grupo de executores](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
+   {%- elsif ghae %}
 
-    Você pode configurar um grupo de executores para que possa ser acessado por uma lista específica de organizações ou por todas as organizações da empresa. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executores, mas você pode substituir isso. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.
-
-   {% warning %}
-
-   **Aviso**
-
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
-
-   Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
-
-   {% endwarning %}
-
-    ![Adicionar opções de grupo de executores](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
+   ![Adicionar opções de grupo de executores](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options-ae.png)
+   {%- endif %}
 1. Clique em **Salvar grupo** para criar o grupo e aplicar a política.
-{% endif %}
+
 {% endif %}
 
 ## Alterar a política de acesso de um grupo de executores auto-hospedados
 
 Você pode atualizar a política de acesso de um grupo de executores ou renomear um grupo de executores.
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
-{% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
-{% data reusables.github-actions.settings-sidebar-actions-runner-groups-selection %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. Modifique as opções de acesso ou altere o nome do grupo dp executor.
 
+   {%- ifversion fpt or ghec or ghes %}
    {% warning %}
 
-   **Aviso**
+   **Warning**:
 
-   {% indented_data_reference reusables.github-actions.self-hosted-runner-security spaces=3 %}
+   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
+   {%- endif %}
 {% elsif ghae or ghes < 3.4 %}
-{% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
+{% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
@@ -179,10 +162,10 @@ Não foi possível encontrar nenhum grupo de executor auto-hospedado denominado 
 
 Se você não especificar o grupo de um executor durante o processo de registro, seus novos executores auto-hospedados são automaticamente atribuídos ao grupo padrão e poderão ser transferidos para outro grupo.
 
-{% data reusables.github-actions.self-hosted-runner-navigate-to-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. Na lista de "Executores", clique no executor que você deseja configurar.
-2. Selecione o menu suspenso do grupo do executor.
+2. Select the **Runner group** drop-down.
 3. Em "Transferir executor para o grupo", escolha um grupo de destino para o executor.
 {% elsif ghae or ghes < 3.4 %}
 1. Na seção {% ifversion ghes > 3.1 or ghae %}"Grupos de executores"{% elsif ghes < 3.2 %}"Executores auto-hospedados"{% endif %} da página de configurações, localize o grupo atual do executor que deseja mover e expandir a lista de integrantes do grupo. ![Visualizar integrantes do grupo de executores](/assets/images/help/settings/actions-org-runner-group-members.png)
@@ -195,7 +178,7 @@ Se você não especificar o grupo de um executor durante o processo de registro,
 Os executores auto-hospedados são retornados automaticamente ao grupo-padrão quando seu grupo é removido.
 
 {% ifversion ghes > 3.1 or ghae or ghec %}
-{% data reusables.github-actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 1. Na lista de grupos, à direita do grupo que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
 2. Para remover o grupo, clique em **Remover grupo**.
 3. Revise os avisos de confirmação e, em seguida, clique em **Remover este grupo de executores**.

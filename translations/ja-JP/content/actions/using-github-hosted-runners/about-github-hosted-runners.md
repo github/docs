@@ -29,7 +29,7 @@ You can specify the runner type for each job in a workflow. Each job in a workfl
 
 {% ifversion not ghes %}
 
-{% data reusables.github-actions.runner-app-open-source %}
+{% data reusables.actions.runner-app-open-source %}
 
 ### Cloud hosts for {% data variables.product.prodname_dotcom %}-hosted runners
 
@@ -39,7 +39,7 @@ You can specify the runner type for each job in a workflow. Each job in a workfl
 
 ### Workflow continuity for {% data variables.product.prodname_dotcom %}-hosted runners
 
-{% data reusables.github-actions.runner-workflow-continuity %}
+{% data reusables.actions.runner-workflow-continuity %}
 
 In addition, if the workflow run has been successfully queued, but has not been processed by a {% data variables.product.prodname_dotcom %}-hosted runner within 45 minutes, then the queued workflow run is discarded.
 
@@ -61,7 +61,7 @@ Hardware specification for macOS virtual machines:
 - 14 GB of RAM memory
 - 14 GB of SSD disk space
 
-{% data reusables.github-actions.supported-github-runners %}
+{% data reusables.actions.supported-github-runners %}
 
 Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
 

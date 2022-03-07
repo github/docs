@@ -29,19 +29,9 @@ webhook を保護するためにシークレットが必要なアプリケーシ
 
 以下の URL は、説明とコールバック URL が事前設定された、`octocat-github-app` という新しい公開アプリケーションを作成します。 また、この URL は`checks` の読み取りおよび書き込み権限を選択し、`check_run` および `check_suite` webhook イベントにサブスクライブし、インストール時にユーザの認可 (OAuth) をリクエストするオプションを選択します。
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ```text
 {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
 ```
-
-{% else %}
-
-```text
-{% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
-```
-
-{% endif %}
 
 使用可能なクエリパラメータ、権限、およびイベントの完全なリストを、以下のセクションに記載します。
 
@@ -51,9 +41,8 @@ webhook を保護するためにシークレットが必要なアプリケーシ
  | -------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
  | `name`                                             | `string`           | {% data variables.product.prodname_github_app %} の名前。 アプリケーションには簡潔で明快な名前を付けましょう。 アプリケーションの名前は、既存の GitHub ユーザと同じ名前にできません。ただし、その名前があなた自身のユーザ名や Organization 名である場合は例外です。 インテグレーションが動作すると、ユーザインターフェース上にアプリケーション名のスラッグが表示されます。                                                                                                                                                         |
  | `説明`                                               | `string`           | {% data variables.product.prodname_github_app %} の説明。                                                                                                                                                                                                                                                                                                                              |
- | `url`                                              | `string`           | {% data variables.product.prodname_github_app %}のウェブサイトの完全なURL。{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
- | `callback_urls`                                    | `array of strings` | インストールの承認後にリダイレクトする完全な URL。 最大 10 個のコールバック URL を指定できます。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。 たとえば、`callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`などです。{% else %}
- | `callback_url`                                     | `string`           | インストールの承認後にリダイレクトする完全な URL。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。{% endif %}
+ | `url`                                              | `string`           | {% data variables.product.prodname_github_app %} のホームページの完全な URL。                                                                                                                                                                                                                                                                                                                  |
+ | `callback_urls`                                    | `array of strings` | インストールの承認後にリダイレクトする完全な URL。 最大 10 個のコールバック URL を指定できます。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。 たとえば、`callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`などです。                                                                                                                                                                          |
  | `request_oauth_on_install`                         | `boolean`          | アプリケーションが OAuth フローを使用してユーザを認可する場合、このオプションを `true` にして、インストール時にアプリケーションを認可し、ステップを省略するように設定できます。 このオプションを選択した場合、`setup_url` が利用できなくなり、アプリケーションのインストール後はあなたが設定した `callback_url` にリダイレクトされます。                                                                                                                                                                                           |
  | `setup_url`                                        | `string`           | {% data variables.product.prodname_github_app %} アプリケーションをインストール後に追加セットアップが必要な場合に、リダイレクトする完全な URL。                                                                                                                                                                                                                                                                                 |
  | `setup_on_update`                                  | `boolean`          | `true` に設定すると、たとえばリポジトリが追加や削除された後など、インストールしたアプリケーションが更新された場合に、ユーザをセットアップ URL にリダイレクトします。                                                                                                                                                                                                                                                                                             |
@@ -94,7 +83,7 @@ webhook を保護するためにシークレットが必要なアプリケーシ
 | `plan`                                                                                                                           | 「[ユーザの取得](/rest/reference/users#get-a-user)」エンドポイントを使用してユーザの GitHub プランについての情報を取得するためのアクセス権を付与します。 `none`、`read` のいずれかです。                                                                                                                                     |
 | [`pull_requests`](/rest/reference/permissions-required-for-github-apps/#permission-on-pull-requests)                             | さまざまなプルリクエストエンドポイントへのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                              |
 | [`repository_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-hooks)                       | [Repository Webhooks API](/rest/reference/repos#hooks) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                          |
-| [`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects)                 | [Projects API](/rest/reference/projects) へのアクセス権を付与します。 `none`、`read`、`write`、`admin` のいずれかです。{% ifversion fpt or ghes > 3.0 or ghec %}
+| [`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects)                 | [Projects API](/rest/reference/projects) へのアクセス権を付与します。 `none`、`read`、`write`、`admin` のいずれかです。{% ifversion fpt or ghes or ghec %}
 | [`secret_scanning_alerts`](/rest/reference/permissions-required-for-github-apps/#permission-on-secret-scanning-alerts)           | [Secret scanning API](/rest/reference/secret-scanning) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}{% ifversion fpt or ghes or ghec %}
 | [`security_events`](/rest/reference/permissions-required-for-github-apps/#permission-on-security-events)                         | [Code scanning API](/rest/reference/code-scanning/) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}
 | [`single_file`](/rest/reference/permissions-required-for-github-apps/#permission-on-single-file)                                 | [Contents API](/rest/reference/repos#contents) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                  |

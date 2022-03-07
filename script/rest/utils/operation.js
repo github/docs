@@ -79,7 +79,6 @@ export default class Operation {
 
     await Promise.all([
       this.renderDescription(),
-      this.renderCodeSamples(),
       this.renderResponses(),
       this.renderParameterDescriptions(),
       this.renderBodyParameterDescriptions(),
@@ -98,19 +97,6 @@ export default class Operation {
   async renderDescription() {
     this.descriptionHTML = await renderContent(this.description)
     return this
-  }
-
-  async renderCodeSamples() {
-    return Promise.all(
-      this['x-codeSamples'].map(async (sample) => {
-        const markdown = createCodeBlock(sample.source, sample.lang.toLowerCase())
-        sample.sourceHTML = await renderContent(markdown)
-
-        // Removing since we don't need this in the decorated files
-        delete sample.source
-        return sample
-      })
-    )
   }
 
   async renderResponses() {
@@ -187,9 +173,7 @@ export default class Operation {
               ? exampleSummary || responseDescription
               : exampleSummary || sentenceCase(exampleKey)
 
-          const payloadMarkdown = createCodeBlock(exampleValue, 'json')
-          cleanResponse.payload = await renderContent(payloadMarkdown)
-
+          cleanResponse.payload = JSON.stringify(exampleValue, null, 2)
           cleanResponses.push(cleanResponse)
         }
         return cleanResponses
@@ -293,6 +277,12 @@ async function getBodyParams(paramsObject, requiredParams) {
       param.name = paramKey
       param.in = 'body'
       param.rawType = param.type
+      // OpenAPI 3.0 only had a single value for `type`. OpenAPI 3.1
+      // will either be a single value or an array of values.
+      // This makes type an array regardless of how many values the array
+      // includes. This allows us to support 3.1 while remaining backwards
+      // compatible with 3.0.
+      if (!Array.isArray(param.type)) param.type = [param.type]
       param.rawDescription = param.description
 
       // Stores the types listed under the `Type` column in the `Parameters`
@@ -328,16 +318,24 @@ async function getBodyParams(paramsObject, requiredParams) {
       }
 
       // Arrays require modifying the displayed type (e.g., array of strings)
-      if (param.type === 'array') {
+      if (param.type.includes('array')) {
         if (param.items.type) paramArray.push(`array of ${param.items.type}s`)
         if (param.items.oneOf) {
           paramArray.push(param.items.oneOf.map((elem) => `array of ${elem.type}s`))
         }
+        // push the remaining types in the param.type array
+        // that aren't type array
+        const remainingItems = param.type
+        const indexOfArrayType = remainingItems.indexOf('array')
+        remainingItems.splice(indexOfArrayType, 1)
+        paramArray.push(...remainingItems)
       } else if (param.type) {
-        paramArray.push(param.type)
+        paramArray.push(...param.type)
       }
-
-      if (param.nullable) paramArray.push('nullable')
+      // Supports backwards compatibility for OpenAPI 3.0
+      // In 3.1 a nullable type is part of the param.type array and
+      // the property param.nullable does not exist.
+      if (param.nullable) paramArray.push('null')
 
       param.type = paramArray.flat().join(' or ')
       param.description = param.description || ''
@@ -396,13 +394,4 @@ async function getChildParamsGroup(param) {
     id,
     params: childParams,
   }
-}
-
-function createCodeBlock(input, language) {
-  // stringify JSON if needed
-  if (language === 'json' && typeof input !== 'string') {
-    input = JSON.stringify(input, null, 2)
-  }
-
-  return ['```' + language, input, '```'].join('\n')
 }

@@ -29,7 +29,13 @@ type CategoryDataT = {
   introContent: string
 }
 
-type RestDataT = Record<string, CategoryDataT>
+type RestDataT = {
+  [language: string]: {
+    [version: string]: {
+      [category: string]: CategoryDataT
+    }
+  }
+}
 
 type Props = {
   mainContext: MainContextT
@@ -40,7 +46,7 @@ type Props = {
 }
 
 let rest: RestOperationsT | null = null
-const restOperationData: RestDataT = {}
+let restOperationData: RestDataT | null = null
 
 export default function Category({
   mainContext,
@@ -87,6 +93,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // e.g. the `activity` from `/en/rest/reference/activity#events`
   const category = context.params!.category as string
   const currentVersion = context.params!.versionId as string
+  const currentLanguage = req.context.currentLanguage as string
 
   // Use a local cache to store all of the REST operations, so
   // we only read the directory of static/decorated files once
@@ -94,10 +101,29 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     rest = (await getRest()) as RestOperationsT
   }
 
+  /* This sets up a skeleton object in the format:
+    {
+      'en': { free-pro-team@latest: {}, enterprise-cloud@latest: {}},
+      'ja': { free-pro-team@latest: {}, enterprise-cloud@latest: {}}
+    }
+  */
+  if (!restOperationData) {
+    restOperationData = {}
+    Object.keys(req.context.languages).forEach((language) => {
+      restOperationData![language] = {}
+      Object.keys(req.context.allVersions).forEach(
+        (version) => (restOperationData![language][version] = {})
+      )
+    })
+  }
+
   const restOperations = rest[currentVersion][category]
 
-  if (!(category in restOperationData)) {
-    restOperationData[category] = (await getRestOperationData(
+  // The context passed will have the Markdown content for the language
+  // of the page being requested and the Markdown will be rendered
+  // using the `currentVersion`
+  if (!(category in restOperationData[currentLanguage][currentVersion])) {
+    restOperationData[currentLanguage][currentVersion][category] = (await getRestOperationData(
       category,
       restOperations,
       req.context
@@ -109,15 +135,16 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // are undefined. We need to populate those properties with the static
   // data read from the decorated schema files.
   const articleContext = getArticleContextFromRequest(req)
-  articleContext.miniTocItems = restOperationData[category].miniTocItems
+  articleContext.miniTocItems =
+    restOperationData[currentLanguage][currentVersion][category].miniTocItems
 
   return {
     props: {
       restOperations,
       mainContext: getMainContext(req, res),
-      descriptions: restOperationData[category].descriptions,
+      descriptions: restOperationData[currentLanguage][currentVersion][category].descriptions,
       articleContext: articleContext,
-      introContent: restOperationData[category].introContent,
+      introContent: restOperationData[currentLanguage][currentVersion][category].introContent,
     },
   }
 }

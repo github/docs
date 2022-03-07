@@ -73,11 +73,9 @@ jobs:
 * `run: Test-Path resultsfile.log` - Check whether a file called `resultsfile.log` is present in the repository's root directory.
 * `Should -Be $true` - Uses Pester to define an expected result. If the result is unexpected, then {% data variables.product.prodname_actions %} flags this as a failed test. For example:
 
-  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+  
   ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test-updated.png)
-  {% else %}
-  ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test.png)
-  {% endif %}
+  
 
 * `Invoke-Pester Unit.Tests.ps1 -Passthru` - Uses Pester to execute tests defined in a file called `Unit.Tests.ps1`. For example, to perform the same test described above, the `Unit.Tests.ps1` will contain the following:
   ```
@@ -215,7 +213,7 @@ jobs:
         shell: pwsh
         run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
       - name: Upload test results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ubuntu-Unit-Tests
           path: Unit.Tests.xml

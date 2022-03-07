@@ -65,15 +65,11 @@ Quando você deixa de inspecionar um repositório, você cancela sua assinatura 
   ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. Na página de repositórios inspecionados, depois de ter avaliado os repositórios que você está inspecionando, escolha se deseja:
-   {%- ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
    - Deixar de inspecionar um repositório
    - Ignorar todas as notificações de um repositório
    - Se habilitado, personalize os tipos de eventos para os quais você recebe notificações ({% data reusables.notifications-v2.custom-notification-types %})
-   {%- else %}
-   - Deixar de inspecionar um repositório
-   - Apenas inspecione versões para um repositório
-   - Ignorar todas as notificações de um repositório
-   {%- endif %}
+
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
 1. Opcionalmente, cancele a inscrição de todos os repositórios pertencentes a um determinado usuário ou organização, selecione o menu suspenso **Cancelar a inspeção de todos** e clique na organização de cujos repositórios você gostaria de cancelar a assinatura. O botão para cancelar a exibição de todos os repositórios só está disponível se você estiver inspecionando todas as atividades ou notificações personalizadas em mais de 10 repositórios.
 

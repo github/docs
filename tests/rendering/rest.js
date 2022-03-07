@@ -70,11 +70,11 @@ describe('REST references docs', () => {
       const schemaSlugs = []
       // using the static file, generate the expected slug for each operation
       for (const [key, value] of Object.entries(enableForApps[version])) {
-        schemaSlugs.push(...value.map((item) => `en/rest/reference/${key}#${item.slug}`))
+        schemaSlugs.push(...value.map((item) => `/en/rest/reference/${key}#${item.slug}`))
       }
       // get all of the href attributes in the anchor tags
       const $ = await getDOM(`/en/${version}/rest/overview/endpoints-available-for-github-apps`)
-      const domH3Ids = $('a')
+      const domH3Ids = $('#article-contents a')
         .map((i, a) => $(a).attr('href'))
         .get()
       expect(schemaSlugs.every((slug) => domH3Ids.includes(slug))).toBe(true)

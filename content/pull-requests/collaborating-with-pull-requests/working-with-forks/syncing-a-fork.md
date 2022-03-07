@@ -28,6 +28,18 @@ permissions: People with write access for a forked repository can sync the fork 
 
 If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
 
+## Syncing a fork with the {% data variables.product.prodname_cli %}
+
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[About {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
+
+To update the remote fork from its parent, use the `gh repo sync` subcommand and supply your fork name as argument.
+
+```shell
+$ gh repo sync owner/cli-fork
+```
+
+If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
+
 ## Syncing a fork from the command line
 
 {% endif %}

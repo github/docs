@@ -43,7 +43,7 @@ Proprietários de organizações e gestores de faturamento podem visualizar o us
 
 {% note %}
 
-**Nota:** Os detalhes de faturamento para contas corporativas não resumem os minutos de uso para cada sistema operacional. {% data reusables.github-actions.enterprise-billing-details %}
+**Nota:** Os detalhes de faturamento para contas corporativas não resumem os minutos de uso para cada sistema operacional. {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

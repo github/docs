@@ -96,7 +96,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. "Configure security and analysis features（セキュリティと分析機能の設定）"の下で、"Used by counter"セクション内のドロップダウンメニューをクリックし、パッケージを選択してください。 !["Used by"パッケージの選択](/assets/images/help/repository/choose-used-by-package.png)
+4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package. !["Used by"パッケージの選択](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 

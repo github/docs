@@ -14,6 +14,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Puedes usar la API de Códigos de Conducta para recuperar la información acerca del código de conducta de un repositorio. Para obtener el código de conducta de un repositorio, utiliza la terminal "[Obtener un repositorio](/rest/reference/repos#get-a-repository)".
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/codes-of-conduct
+-->

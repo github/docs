@@ -44,11 +44,11 @@ O nome de um segredo de {% data variables.product.prodname_dependabot %}:
 
 ## Adicionar um repositório secreto para {% data variables.product.prodname_dependabot %}
 
-{% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% data reusables.actions.permissions-statement-secrets-repository %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 {% data reusables.dependabot.dependabot-secrets-button %}
 1. Clique em **Novo segredo do repositório**.
 1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
@@ -63,11 +63,11 @@ O nome de um segredo de {% data variables.product.prodname_dependabot %}:
 
 Ao criar um segredo em uma organização, você pode usar uma política para limitar quais repositórios podem acessar esse segredo. Por exemplo, você pode conceder acesso a todos os repositórios ou limitar o acesso a apenas repositórios privados ou a uma lista específica de repositórios.
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 {% data reusables.dependabot.dependabot-secrets-button %}
 1. Clique em **Novo segredo da organização**.
 1. Digite um nome para o seu segredo na caixa de entrada **Nome**.

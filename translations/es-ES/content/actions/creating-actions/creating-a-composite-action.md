@@ -23,7 +23,7 @@ En esta guía, aprenderás acerca de los componentes básicos necesarios para cr
 
 Una vez que completes este proyecto, deberías comprender cómo crear tu propia acción compuesta y probarla en un flujo de trabajo.
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Prerrequisitos
 

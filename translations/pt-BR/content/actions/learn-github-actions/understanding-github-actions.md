@@ -26,7 +26,21 @@ topics:
 
 {% data variables.product.prodname_actions %} vai além de apenas DevOps e permite que você execute fluxos de trabalho quando outros eventos ocorrerem no seu repositório. Por exemplo, você pode executar um fluxo de trabalho para adicionar automaticamente as etiquetas apropriadas sempre que alguém cria um novo problema no repositório.
 
+{% ifversion fpt or ghec %}
+
 {% data variables.product.prodname_dotcom %} fornece máquinas virtuais do Linux, Windows e macOS para executar seus fluxos de trabalho, ou você pode hospedar seus próprios executores auto-hospedados na sua própria infraestrutura de dados ou na nuvem.
+
+{% elsif ghes or ghae %}
+
+You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+
+For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+
+{% endif %}
 
 ## Componentes de {% data variables.product.prodname_actions %}
 
@@ -225,22 +239,14 @@ Neste diagrama, você pode ver o arquivo de fluxo de trabalho que acabou de cria
 
 ## Visualizando a atividade do fluxo de trabalho
 
-Assim que o seu fluxo de trabalhocomeçar a ser executado, você poderá {% ifversion fpt or ghes > 3.0 or ghae or ghec %}visualizar um gráfico de visualização do progresso da execução e {% endif %}visualizar a atividade de cada etapa em {% data variables.product.prodname_dotcom %}.
+Once your workflow has started running, you can see a visualization graph of the run's progress and view each step's activity on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. No nome do seu repositório, clique em **Ações**. ![Acesse o repositório](/assets/images/help/images/learn-github-actions-repository.png)
 1. Na barra lateral esquerda, clique no fluxo de trabalho que deseja ver. ![Captura de tela dos resultados do fluxo de trabalho](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Em "Execuções do fluxo de trabalho", clique no nome da execução que você deseja ver. ![Captura de tela das execuções do fluxo de trabalho](/assets/images/help/images/learn-github-actions-run.png)
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. Em **Trabalhos** ou no gráfico de visualização, clique no trabalho que você deseja ver. ![Selecionar trabalho](/assets/images/help/images/overview-actions-result-navigate.png)
-{% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. Visualizar os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result-updated-2.png)
-{% elsif ghes %}
-1. Clique no nome do trabalho para ver os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result-updated.png)
-{% else %}
-1. Clique no nome do trabalho para ver os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result.png)
-{% endif %}
 
 ## Próximas etapas
 
@@ -254,7 +260,7 @@ Para entender como a cobrança funciona para {% data variables.product.prodname_
 
 ## Entrar em contato com o suporte
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
 
 ## Leia mais
 

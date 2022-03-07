@@ -1,6 +1,6 @@
 ---
 title: Migrating GraphQL global node IDs
-intro: 'Learn about the two global node ID formats and how to migrate from the legacy format to the new format.'
+intro: Learn about the two global node ID formats and how to migrate from the legacy format to the new format.
 versions:
   fpt: '*'
   ghec: '*'

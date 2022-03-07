@@ -50,7 +50,7 @@ En esta guía, utilizaremos la acción `build-push-action` de Docker para compil
 
 ## Publicar imágenes en Docker Hub
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 En el flujo de trabajo de ejemplo a continuación, utilizamos las acciones `login-action` y `build-push-action` para crear la imagen de Docker y, si la compilación es exitosa, subimos la imagen compilada a Docker Hub.
 
@@ -108,7 +108,7 @@ El flujo de trabajo anterior verifica el repositorio de {% data variables.produc
 
 ## Publicar imágenes en {% data variables.product.prodname_registry %}
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 En el siguiente ejemplo de flujo de trabajo, utilizamos las acciones `login-action` {% ifversion fpt or ghec %}, `metadata-action`,{% endif %} y `build-push-action` de Docker para crear la imagen de Docker y, si la compilación tiene éxito, sube la imagen cargada al {% data variables.product.prodname_registry %}.
 

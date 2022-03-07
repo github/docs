@@ -105,7 +105,7 @@ Error response from daemon: OCI runtime create failed: container_linux.go:348: s
 
 `Dockerfile`中で`CMD`を使っているなら、以下のガイドラインに従ってください。
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 ## サポートされているLinuxの機能
 
