@@ -122,7 +122,7 @@ The following table shows which toolkit functions are available within a workflo
 
 Sets an action's output parameter.
 
-```plaintext{:copy}
+```{:copy}
 ::set-output name={name}::{value}
 ```
 
@@ -150,7 +150,7 @@ Write-Output "::set-output name=action_fruit::strawberry"
 
 Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)."
 
-```plaintext{:copy}
+```{:copy}
 ::debug::{message}
 ```
 
@@ -178,7 +178,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-```plaintext{:copy}
+```{:copy}
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -207,7 +207,7 @@ Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 Creates a warning message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-```plaintext{:copy}
+```{:copy}
 ::warning file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -234,7 +234,7 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 Creates an error message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-```plaintext{:copy}
+```{:copy}
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -261,7 +261,7 @@ Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
 
-```plaintext{:copy}
+```{:copy}
 ::group::{title}
 ::endgroup::
 ```
@@ -304,7 +304,7 @@ jobs:
 
 ## Masking a value in log
 
-```plaintext{:copy}
+```{:copy}
 ::add-mask::{value}
 ```
 
@@ -368,7 +368,7 @@ jobs:
 
 Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
-```plaintext{:copy}
+```{:copy}
 ::stop-commands::{endtoken}
 ```
 
@@ -380,7 +380,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 
 {% endwarning %}
 
-```plaintext{:copy}
+```{:copy}
 ::{endtoken}::
 ```
 
@@ -433,7 +433,7 @@ jobs:
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
 
-```plaintext{:copy}
+```{:copy}
 ::echo::on
 ::echo::off
 ```
@@ -484,7 +484,7 @@ jobs:
 
 The example above prints the following lines to the log:
 
-```plaintext{:copy}
+```{:copy}
 ::set-output name=action_echo::enabled
 ::echo::off
 ```
@@ -617,7 +617,7 @@ steps:
 
 For multiline strings, you may use a delimiter with the following syntax. 
 
-```plaintext{:copy}
+```{:copy}
 {name}<<{delimiter}
 {value}
 {delimiter}
