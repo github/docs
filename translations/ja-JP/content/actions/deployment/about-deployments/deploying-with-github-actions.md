@@ -3,7 +3,7 @@ title: Deploying with GitHub Actions
 intro: Learn how to control deployments with features like environments and concurrency.
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: overview

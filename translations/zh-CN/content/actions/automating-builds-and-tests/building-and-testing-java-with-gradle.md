@@ -138,7 +138,7 @@ steps:
     uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
     with:
       arguments: build
-  - uses: actions/upload-artifact@v2
+  - uses: actions/upload-artifact@v3
     with:
       name: Package
       path: build/libs

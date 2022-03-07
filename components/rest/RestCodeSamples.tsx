@@ -1,4 +1,4 @@
-import { xCodeSample } from './types'
+import type { xCodeSample } from './types'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { CodeBlock } from './CodeBlock'
 
@@ -34,8 +34,8 @@ export function RestCodeSamples({ slug, xCodeSamples }: Props) {
           sampleElements.push(
             <CodeBlock
               key={sample.lang + index}
-              codeBlock={sample.sourceHTML}
-              setHTML={true}
+              codeBlock={sample.source}
+              highlight={sample.lang === 'JavaScript' ? 'javascript' : 'curl'}
             ></CodeBlock>
           )
         }

@@ -13,7 +13,6 @@ type: tutorial
 shortTitle: Utilizar ejecutores en un flujo de trabajo
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -25,7 +24,7 @@ Las etiquetas te permiten enviar jobs de flujo de trabajo a tipos específicos d
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
-Para obtener más información, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
 
 ## Utilizar etiquetas predeterminadas para enrutar jobs
 
