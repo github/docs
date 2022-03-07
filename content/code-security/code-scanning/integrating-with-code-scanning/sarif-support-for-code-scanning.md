@@ -114,7 +114,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | Name | Description |
 |----|----|
 | `ruleId`| **Optional.** The unique identifier of the rule (`reportingDescriptor.id`). For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). {% data variables.product.prodname_code_scanning_capc %} uses the rule identifier to filter results by rule on {% data variables.product.prodname_dotcom %}.
-| `ruleIndex`| **Optional.** The index of the associated rule (`reportingDescriptor` object) in the tool component `rules` array. For more information, see the [`run` object](#run-object).
+| `ruleIndex`| **Optional.** The index of the associated rule (`reportingDescriptor` object) in the tool component `rules` array. For more information, see the [`run` object](#run-object). The allowed range for this property 0 to 2^63 - 1.
 | `rule`| **Optional.** A reference used to locate the rule (reporting descriptor) for this result. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object).
 | `level`| **Optional.** The severity of the result. This level overrides the default severity defined by the rule. {% data variables.product.prodname_code_scanning_capc %} uses the level to filter results by severity on {% data variables.product.prodname_dotcom %}.
 | `message.text`| **Required.** A message that describes the result. {% data variables.product.prodname_code_scanning_capc %} displays the message text as the title of the result. Only the first sentence of the message will be displayed when visible space is limited.
@@ -129,7 +129,7 @@ A location within a programming artifact, such as a file in the repository or a 
 
 | Name | Description |
 |----|----|
-| `location.id` | **Optional.** A unique identifier that distinguishes this location from all other locations within a single result object.
+| `location.id` | **Optional.** A unique identifier that distinguishes this location from all other locations within a single result object. The allowed range for this property 0 to 2^63 - 1.
 | `location.physicalLocation` | **Required.** Identifies the artifact and region. For more information, see the [`physicalLocation`](#physicallocation-object).
 | `location.message.text` | **Optional.** A message relevant to the location.
 
