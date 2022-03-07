@@ -1,6 +1,6 @@
 import patterns from '../../lib/patterns.js'
 import { URL } from 'url'
-import languages, { pathLanguagePrefixed } from '../../lib/languages.js'
+import { pathLanguagePrefixed } from '../../lib/languages.js'
 import getRedirect from '../../lib/get-redirect.js'
 import { cacheControlFactory } from '../cache-control.js'
 
@@ -13,16 +13,7 @@ export default function handleRedirects(req, res, next) {
 
   // blanket redirects for languageless homepage
   if (req.path === '/') {
-    let language = 'en'
-
-    // if set, redirect to user's preferred language translation or else English
-    if (
-      req.context.userLanguage &&
-      languages[req.context.userLanguage] &&
-      !languages[req.context.userLanguage].wip
-    ) {
-      language = req.context.userLanguage
-    }
+    const language = getLanguage(req)
 
     // Undo the cookie setting that CSRF sets.
     res.removeHeader('set-cookie')
@@ -70,17 +61,12 @@ export default function handleRedirects(req, res, next) {
     // needs to become `/en/authentication/connecting-to-github-with-ssh`
     const possibleRedirectTo = `/en${req.path}`
     if (possibleRedirectTo in req.context.pages) {
-      // As of Jan 2022 we always redirect to `/en` if the URL doesn't
-      // specify a language.  ...except for the root home page (`/`).
-      // It's unfortunate but that's how it currently works.
-      // It's tracked in #1145
-      // Perhaps a more ideal solution would be to do something similar to
-      // the code above for `req.path === '/'` where we look at the user
-      // agent for a header and/or cookie.
+      const language = getLanguage(req)
+
       // Note, it's important to use `req.url` here and not `req.path`
       // because the full URL can contain query strings.
       // E.g. `/foo?json=breadcrumbs`
-      redirect = `/en${req.url}`
+      redirect = `/${language}${req.url}`
     }
   }
 
@@ -106,10 +92,19 @@ export default function handleRedirects(req, res, next) {
   // do the redirect if the from-URL already had a language in it
   if (pathLanguagePrefixed(req.path)) {
     cacheControl(res)
+  } else {
+    noCacheControl(res)
   }
 
   const permanent = usePermanentRedirect(req)
   return res.redirect(permanent ? 301 : 302, redirect)
+}
+
+function getLanguage(req, default_ = 'en') {
+  // req.context.userLanguage, if it truthy, is always a valid supported
+  // language. It's whatever was in the user's request but filtered
+  // based on non-WIP languages in lib/languages.js
+  return req.context.userLanguage || default_
 }
 
 function usePermanentRedirect(req) {
