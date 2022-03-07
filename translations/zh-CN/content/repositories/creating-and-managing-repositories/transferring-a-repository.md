@@ -27,7 +27,7 @@ topics:
 
 当您将仓库转让给新所有者时，他们可以立即管理仓库的内容、议题、拉取请求、版本、项目板和设置。
 
-Prerequisites for repository transfers:
+存储库传输的先决条件：
 - When you transfer a repository that you own to another user account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. 如果新所有者在一天之内没有接受转让，则邀请将过期。{% endif %}
 - 要将您拥有的仓库转让给一个组织，您必须拥有在目标组织中创建仓库的权限。
 - 目标帐户不得具有相同名称的仓库，或位于同一网络中的复刻。

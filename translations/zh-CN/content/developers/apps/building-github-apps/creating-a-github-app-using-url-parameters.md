@@ -29,19 +29,9 @@ shortTitle: 应用程序创建查询参数
 
 以下 URL 使用预配置的说明和回调 URL 创建名为 `octocat-github-app` 的新公共应用程序。 此 URL 还选择了 `checks` 的读取和写入权限，订阅了 `check_run` 和 `check_suite` web 挂钩事件，并选择了在安装过程中请求用户授权 (OAuth) 的选项：
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ```text
 {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
 ```
-
-{% else %}
-
-```text
-{% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
-```
-
-{% endif %}
 
 下面几节列出了可用查询参数、权限和事件的完整列表。
 
@@ -51,9 +41,8 @@ shortTitle: 应用程序创建查询参数
  | -------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
  | `name`                                             | `字符串`   | {% data variables.product.prodname_github_app %} 的名称。 给应用程序一个清晰简洁的名称。 应用程序不能与现有 GitHub 用户同名，除非它是您自己的用户或组织的名称。 当您的集成执行操作时，应用程序名称的缓存版本将显示在用户界面上。                                                                                                                                                                      |
  | `说明`                                               | `字符串`   | {% data variables.product.prodname_github_app %} 的说明。                                                                                                                                                                                                                                                               |
- | `url`                                              | `字符串`   | {% data variables.product.prodname_github_app %} 网站主页的完整 URL。{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
- | `callback_urls`                                    | `字符串数组` | 在用户授权安装后重定向到的完整 URL。 您可以提供最多 10 个回叫 URL。 如果应用程序需要识别和授权用户到服务器的请求，则使用这些 URL。 例如 `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`。{% else %}
- | `callback_url`                                     | `字符串`   | 在用户授权安装后重定向到的完整 URL。 如果应用程序需要识别和授权用户到服务器的请求，则使用此 URL。{% endif %}
+ | `url`                                              | `字符串`   | 您的 {% data variables.product.prodname_github_app %} 网站主页的完整 URL。                                                                                                                                                                                                                                                    |
+ | `callback_urls`                                    | `字符串数组` | 在用户授权安装后重定向到的完整 URL。 您可以提供最多 10 个回叫 URL。 如果应用程序需要识别和授权用户到服务器的请求，则使用这些 URL。 例如 `callback_urls[]=https://example.com&callback_urls[]=https://example-2.com`。                                                                                                                                                        |
  | `request_oauth_on_install`                         | `布尔值`   | 如果应用程序授权用户使用 OAuth 流程，您可以将此选项设置为 `true`，以允许用户在安装应用程序时授权它，从而省去一个步骤。 如果您选择此选项，则 `setup_url` 将不可用，用户在安装应用程序后将被重定向到您的 `callback_url`。                                                                                                                                                                                     |
  | `setup_url`                                        | `字符串`   | 在用户安装 {% data variables.product.prodname_github_app %} 后重定向到的完整 URL（如果应用程序在安装之后需要额外设置）。                                                                                                                                                                                                                             |
  | `setup_on_update`                                  | `布尔值`   | 设置为 `true` 可在更新安装后（例如在添加或删除仓库之后）将用户重定向到设置 URL。                                                                                                                                                                                                                                                                        |
@@ -94,7 +83,7 @@ shortTitle: 应用程序创建查询参数
 | `plan`                                                                                                                           | 授予使用“[获取用户](/rest/reference/users#get-a-user)”端点获取有关用户 GitHub 计划的信息的权限。 可以是以下项之一：`none` 或 `read`。                                                                                                          |
 | [`pull_requests`](/rest/reference/permissions-required-for-github-apps/#permission-on-pull-requests)                             | 授予对各种拉取请求端点的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                        |
 | [`repository_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-hooks)                       | 授予对[仓库 web 挂钩 API](/rest/reference/repos#hooks) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                   |
-| [`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects)                 | 授予对[项目 API](/rest/reference/projects) 的访问权限。 可以是以下项之一：`none`、`read`、`write` 或 `admin`。{% ifversion fpt or ghes > 3.0 or ghec %}
+| [`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects)                 | 授予对[项目 API](/rest/reference/projects) 的访问权限。 可以是以下项之一：`none`、`read`、`write` 或 `admin`。{% ifversion fpt or ghes or ghec %}
 | [`secret_scanning_alerts`](/rest/reference/permissions-required-for-github-apps/#permission-on-secret-scanning-alerts)           | 授予对[密钥扫描 API](/rest/reference/secret-scanning) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。{% endif %}{% ifversion fpt or ghes or ghec %}
 | [`security_events`](/rest/reference/permissions-required-for-github-apps/#permission-on-security-events)                         | 授予对[代码扫描 API](/rest/reference/code-scanning/) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。{% endif %}
 | [`single_file`](/rest/reference/permissions-required-for-github-apps/#permission-on-single-file)                                 | 授予对[内容 API](/rest/reference/repos#contents) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                       |

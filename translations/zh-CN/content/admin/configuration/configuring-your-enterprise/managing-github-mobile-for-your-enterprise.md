@@ -11,7 +11,7 @@ topics:
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/managing-github-for-mobile-for-your-enterprise
   - /admin/configuration/managing-github-for-mobile-for-your-enterprise
-shortTitle: 'Manage GitHub Mobile'
+shortTitle: Manage GitHub Mobile
 ---
 {% ifversion ghes %}
 {% data reusables.mobile.ghes-release-phase %}

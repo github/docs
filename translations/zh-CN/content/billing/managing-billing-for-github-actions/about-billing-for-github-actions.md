@@ -16,9 +16,9 @@ shortTitle: GitHub Actions 的计费
 
 ## 关于 {% data variables.product.prodname_actions %} 的计费
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %} 更多信息请参阅“[关于支出限制](#about-spending-limits)”。
+{% data reusables.actions.actions-spending-limit-brief %} 更多信息请参阅“[关于支出限制](#about-spending-limits)”。
 
 {% ifversion ghec %}
 如果您通过 Microsoft 企业协议购买 {% data variables.product.prodname_enterprise %}，可以将 Azure 订阅 ID 连接到您的企业帐户，以便启用并支付超出您的帐户金额的 {% data variables.product.prodname_actions %} 使用费用。 更多信息请参阅“[将 Azure 订阅连接到您的企业](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)”。
@@ -99,7 +99,7 @@ shortTitle: GitHub Actions 的计费
 
 ## 关于支出限制
 
-{% data reusables.github-actions.actions-spending-limit-detailed %}
+{% data reusables.actions.actions-spending-limit-detailed %}
 
 有关管理和更改帐户支出限制的信息，请参阅“[管理 {% data variables.product.prodname_actions %} 的支出限制](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)”。
 

@@ -4,7 +4,7 @@ intro: You can approve or reject jobs awaiting review.
 product: '{% data reusables.gated-features.environments %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 ---

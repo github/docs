@@ -83,9 +83,9 @@ Este flujo de trabajo realiza los siguientes pasos:
 
 Los flujos de trabajo iniciales predeterminados son un punto de partida excelente para crear tu flujo de trabajo de prueba y de compilación y puedes personalizarlos de acuerdo con las necesidades de tu proyecto.
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## Construir y probar tu código
 
@@ -138,7 +138,7 @@ steps:
     uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
     with:
       arguments: build
-  - uses: actions/upload-artifact@v2
+  - uses: actions/upload-artifact@v3
     with:
       name: Package
       path: build/libs

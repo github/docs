@@ -7,7 +7,7 @@ redirect_from:
   - /github/code-security/security-advisories/adding-a-security-policy-to-your-repository
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -21,7 +21,7 @@ shortTitle: 添加安全策略
 
 ## 关于安全政策
 
-要向人说明如何报告项目中的安全漏洞，{% ifversion fpt or ghes > 3.0 or ghec %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录、`docs` 或 `.github` 文件夹。{% else %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录或 `docs` 文件夹。{% endif %} 当有人在您的仓库中创建议题时，他们将看到项目安全政策的链接。
+要向人说明如何报告项目中的安全漏洞，{% ifversion fpt or ghes or ghec %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录、`docs` 或 `.github` 文件夹。{% else %} 您可以将 _SECURITY.md_ 文件添加到仓库的根目录或 `docs` 文件夹。{% endif %} 当有人在您的仓库中创建议题时，他们将看到项目安全政策的链接。
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
@@ -39,7 +39,7 @@ shortTitle: 添加安全策略
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% ifversion ghes > 3.0 or ghae %}
+{% ifversion ghes or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 通过创建明确的安全报告说明，用户可以轻松地使用您喜欢的通信通道报告仓库中发现的任何安全漏洞。
 {% endif %}
