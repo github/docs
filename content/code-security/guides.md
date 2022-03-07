@@ -27,7 +27,7 @@ includeGuides:
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning
-  - /code-security/secret-scanning/secret-scanning-partners
+  - /code-security/secret-scanning/secret-scanning-patterns
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts

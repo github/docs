@@ -12,7 +12,6 @@ type: tutorial
 shortTitle: Administrar grupos de ejecutores
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -70,17 +69,19 @@ Cuando creas un grupo, debes elegir una política que defina qué repositorios t
     ![Agregar un grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Ingresa un nombre para tu grupo de ejecutores y asigna una política para el acceso al repositorio.
 
-   {% ifversion ghes or ghae %} Puedes configurar un grupo de ejecutores para que sea accesible para una lista específica de repositorios o para todos los repositorios de la organización. Predeterminadamente, solo los repositorios privados pueden acceder a los ejecutores en un grupo de ejecutores, pero puedes anular esto. Esta configuración no puede anularse si se configura un grupo ejecutor de la organización que haya compartido una empresa.{% endif %}
+   You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. Esta configuración no puede anularse si se configura un grupo ejecutor de la organización que haya compartido una empresa.{% endif %}
 
+   {%- ifversion ghes %}
    {% warning %}
 
-   **Advertencia**
+   **Warning**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
+   {%- endif %}
 
    ![Agregar opciones de un grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group-options.png)
 1. Da clic en **Guardar grupo** para crear el grupo y aplicar la política.
@@ -94,49 +95,29 @@ Los ejecutores auto-hospedados se asignan automáticamente al grupo predetermina
 
 Cuando creas un grupo, debes elegir la política que defina qué organizaciones tienen acceso al grupo de ejecutores.
 
-{% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runner-groups-tab %}
-1. Haz clic en **Grupo de ejecución nuevo**.
- {% data reusables.actions.runner-group-assign-policy-org %}
+{% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
+1. To choose a policy for organization access, select the **Organization access** drop-down, and click a policy. You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.{% ifversion ghes %} By default, only private repositories can access runners in a runner group, but you can override this.{% endif %}
 
+   {%- ifversion ghec or ghes %}
    {% warning %}
 
-   **Advertencia**
+   **Warning**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
-{% data reusables.actions.self-hosted-runner-create-group %}
-{% elsif ghae or ghes < 3.4 %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.enterprise-accounts.actions-runners-tab %}
-1. Da clic en **Agregar nuevo** y luego en **Grupo nuevo**.
+   {%- endif %}
+   {%- ifversion ghec or ghes %}
 
-    ![Agregar un grupo de ejecutores](/assets/images/help/settings/actions-enterprise-account-add-runner-group.png)
-1. Ingresa un nombre para tu grupo de ejecutores y asigna una política para el acceso organizacional.
+   ![Agregar opciones de un grupo de ejecutores](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
+   {%- elsif ghae %}
 
-    Puedes configurar un grupo de ejecutores para que una lista específica de organizaciones o todas las organizaciones de la empresa puedan acceder a él. Predeterminadamente, solo los repositorios privados pueden acceder a los ejecutores en un grupo de ejecutores, pero puedes anular esto. Esta configuración no puede anularse si se configura el grupo de ejecutores de una organización que compartió una empresa.
-
-   {% warning %}
-
-   **Advertencia**
-
-   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
-
-   Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
-
-   {% endwarning %}
-
-    ![Agregar opciones de un grupo de ejecutores](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options.png)
+   ![Agregar opciones de un grupo de ejecutores](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options-ae.png)
+   {%- endif %}
 1. Da clic en **Guardar grupo** para crear el grupo y aplicar la política.
-{% endif %}
+
 {% endif %}
 
 ## Cambiar la política de acceso de un grupo de ejecutores auto-hospedados
@@ -147,15 +128,17 @@ Puedes actualizar la política de acceso de un grupo ejecutor o renombrarlo.
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
 1. Modifica las opciones de acceso o cambia el nombre del grupo de ejecutores.
 
+   {%- ifversion fpt or ghec or ghes %}
    {% warning %}
 
-   **Advertencia**
+   **Warning**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
    Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
+   {%- endif %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
 {% endif %}
@@ -182,7 +165,7 @@ Si no especificas un grupo de ejecutores durante el proceso de registro, tus eje
 {% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. En la lista de "Ejecutores", haz clic en aquél que quieras configurar.
-2. Selecciona el menú desplegable del grupo de ejecutores.
+2. Select the **Runner group** drop-down.
 3. En "Mover el ejecutor al grupo", elige un grupo destino para el ejecutor.
 {% elsif ghae or ghes < 3.4 %}
 1. En la sección de {% ifversion ghes > 3.1 or ghae %}"Grupos de ejecutores"{% elsif ghes < 3.2 %}"Ejecutores auto-hospedados"{% endif %} de la página de ajustes, ubica al grupo actual del ejecutor que quieres mover y expande la lista de sus miembros. ![Ver los miembros de un grupo de ejecutores](/assets/images/help/settings/actions-org-runner-group-members.png)

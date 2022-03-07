@@ -17,7 +17,7 @@ topics:
 shortTitle: 查看组织中的人员
 ---
 
-## View organization roles
+## 查看组织角色
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

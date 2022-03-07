@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/authentication/using-saml
   - /admin/authentication/using-saml
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-saml
-intro: You can configure SAML single sign-on (SSO) for {% data variables.product.product_name %}, which allows users to authenticate through a SAML identity provider (IdP) to access your instance.
+intro: 'You can configure SAML single sign-on (SSO) for {% data variables.product.product_name %}, which allows users to authenticate through a SAML identity provider (IdP) to access your instance.'
 versions:
   ghes: '*'
 type: how_to

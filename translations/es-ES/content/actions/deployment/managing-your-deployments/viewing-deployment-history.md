@@ -15,7 +15,7 @@ redirect_from:
 ---
 
 
-Puedes entregar despliegues a través de {% ifversion fpt or ghae or ghes > 3.0 or ghec %}{% data variables.product.prodname_actions %} y de ambientes o con {% endif %}la API de REST y apps de terceros. {% ifversion fpt or ghae ghes > 3.0 or ghec %}Para obtener más información sobre cómo utilizar ambientes para desplegar con {% data variables.product.prodname_actions %}, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)". {% endif %}Para obtener más información acerca de los despliegues con la API de REST, consulta la sección "[Repositorios](/rest/reference/repos#deployments)".
+You can deliver deployments through {% data variables.product.prodname_actions %} and environments or with the REST API and third party apps. {% ifversion fpt or ghae ghes > 3.0 or ghec %}Para obtener más información sobre cómo utilizar ambientes para desplegar con {% data variables.product.prodname_actions %}, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)". {% endif %}Para obtener más información acerca de los despliegues con la API de REST, consulta la sección "[Repositorios](/rest/reference/repos#deployments)".
 
 Para ver los despliegues actuales y pasados, da clic en **Ambientes** en la página principal de tu repositorio.
 {% ifversion ghae %}

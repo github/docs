@@ -21,7 +21,6 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introducción
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy a Node.js project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
@@ -58,9 +57,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Crear un flujo de trabajo
 
@@ -103,7 +100,7 @@ jobs:
         npm run build --if-present
         npm run test --if-present
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: node-app
         path: .
@@ -117,7 +114,7 @@ jobs:
 
     steps:
     - name: Download artifact from build job
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: node-app
 

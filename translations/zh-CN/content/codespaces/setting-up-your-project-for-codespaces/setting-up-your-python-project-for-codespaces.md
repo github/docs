@@ -1,6 +1,6 @@
 ---
-title: Setting up your Python project for Codespaces
-shortTitle: Setting up your Python project
+title: 为代码空间设置 Python 项目
+shortTitle: 设置 Python 项目
 intro: '通过创建自定义开发容器，开始在 {% data variables.product.prodname_codespaces %} 中使用 Python 项目。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:

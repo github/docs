@@ -39,7 +39,7 @@ export interface CodeResponse {
 
 export interface xCodeSample {
   lang: string
-  sourceHTML: string
+  source: string
 }
 
 export interface Preview {

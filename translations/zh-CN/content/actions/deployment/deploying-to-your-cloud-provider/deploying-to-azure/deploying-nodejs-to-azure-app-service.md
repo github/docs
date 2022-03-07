@@ -21,7 +21,6 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## 简介
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy a Node.js project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
@@ -58,9 +57,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## 创建工作流程
 
@@ -103,7 +100,7 @@ jobs:
         npm run build --if-present
         npm run test --if-present
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: node-app
         path: .
@@ -117,7 +114,7 @@ jobs:
 
     steps:
     - name: Download artifact from build job
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: node-app
 
@@ -134,7 +131,7 @@ jobs:
 
 以下资源也可能有用：
 
-* For the original starter workflow, see [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* 有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`azure-webapps-node.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-node.yml)。
 * 用于部署 Web 应用的操作是正式的 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
-* The "[Create a Node.js web app in Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" quickstart in the Azure web app documentation demonstrates using VS Code with the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+* Azure web 应用文档中的“[在 Azure 中创建 Node.js web 应用](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)”快速入门说明如何通过 [Azure App Service 扩展](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)使用 VS Code。
