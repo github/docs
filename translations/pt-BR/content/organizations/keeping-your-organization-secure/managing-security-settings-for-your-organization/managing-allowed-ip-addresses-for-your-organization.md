@@ -1,6 +1,6 @@
 ---
 title: Gerenciar endereços IP permitidos para sua organização
-intro: Você pode restringir o acesso aos ativos da sua organização configurando uma lista de endereços IP autorizados a se conectar.
+intro: You can restrict access to your organization's private assets by configuring a list of IP addresses that are allowed to connect.
 product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
@@ -19,7 +19,7 @@ Os proprietários da organização podem gerenciar endereços IP permitidos para
 
 ## Sobre endereços IP permitidos
 
-Você pode restringir o acesso a ativos da organização configurando uma lista de permissões para endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+You can restrict access to private organization assets by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
@@ -27,7 +27,7 @@ Você pode restringir o acesso a ativos da organização configurando uma lista 
 
 Se você configurar uma lista de permissões, você também poderá optar por adicionar automaticamente à sua lista de permissões todos os endereços IP configurados em {% data variables.product.prodname_github_apps %} que você instalar na sua organização. O criador de um {% data variables.product.prodname_github_app %} pode configurar uma lista de permissões para o seu aplicativo, especificando os endereços IP em que o aplicativo é executado. Ao herdar a lista de permissões deles para a sua lista, você evita as solicitações de conexão do aplicativo que está sendo recusado. Para obter mais informações, consulte "[Permitir acesso por {% data variables.product.prodname_github_apps %}](#allowing-access-by-github-apps)".
 
-Você também pode configurar endereços IP permitidos para as organizações em uma conta corporativa. Para obter mais informações, consulte "[Aplicando políticas de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
+Você também pode configurar endereços IP permitidos para as organizações em uma conta corporativa. Para obter mais informações, consulte "[Aplicando políticas de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
 
 ## Adicionar endereços IP permitidos
 
