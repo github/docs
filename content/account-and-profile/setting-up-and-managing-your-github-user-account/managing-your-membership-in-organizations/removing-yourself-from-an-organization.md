@@ -1,4 +1,4 @@
----
+---https://github.com/AbdusSamad1998
 title: Removing yourself from an organization
 intro: 'If you''re an outside collaborator or a member of an organization, you can leave the organization at any time.'
 redirect_from:
