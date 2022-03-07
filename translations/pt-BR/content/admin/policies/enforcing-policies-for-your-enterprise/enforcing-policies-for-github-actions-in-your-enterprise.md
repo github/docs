@@ -53,7 +53,7 @@ Você pode optar por desativar {% data variables.product.prodname_actions %} par
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista.
-   {%- ifversion ghes > 3.0 or ghae-issue-5094 %}
+   {%- ifversion ghes or ghae-issue-5094 %}
    ![Adicionar ações para permitir lista](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
    ![Adicionar ações para permitir lista](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)

@@ -65,15 +65,11 @@ shortTitle: 管理您的订阅
   ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. 在关注的仓库页面上，评估您关注的仓库后，选择是否：
-   {%- ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
    - 取消关注仓库
    - 忽略某仓库的所有通知
    - 如有启用，请自定义接收通知的事件类型（{% data reusables.notifications-v2.custom-notification-types %}）
-   {%- else %}
-   - 取消关注仓库
-   - 只关注某仓库的发行版
-   - 忽略某仓库的所有通知
-   {%- endif %}
+
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
 1. （可选）要取消订阅指定用户或组织拥有的所有存储库，请选择 **Unwatch all（全部取消关注）**下拉列表，然后单击要取消订阅其存储库的组织。 取消关注所有存储库的按钮仅在您正在关注超过 10 个存储库上的所有活动或自定义通知时才可用。
 

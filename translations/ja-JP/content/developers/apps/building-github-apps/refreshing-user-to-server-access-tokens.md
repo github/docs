@@ -16,7 +16,6 @@ shortTitle: ユーザからサーバーへのアクセスの更新
 
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
-
 ## ユーザアクセストークンの期限切れについて
 
 定期的なトークンのローテーションを強制し、侵害されたトークンの影響を抑えるために、ユーザアクセストークンの期限を利用するように{% data variables.product.prodname_github_app %}を設定できます。 ユーザからサーバーへのリクエストの発行に関する詳しい情報については、「[GitHub Appのユーザの特定と認可](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)」を参照してください。
@@ -60,8 +59,7 @@ shortTitle: ユーザからサーバーへのアクセスの更新
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. 選択した{% data variables.product.prodname_github_app %}の隣の**Edit（編集）**をクリックしてください。 ![GitHub Appを編集する設定](/assets/images/github-apps/edit-test-app.png)
-5. 左サイドバーで、[**{% ifversion ghes < 3.1 %} Beta {% else %} Optional {% endif %} Features**] をクリックします。
-  {% ifversion ghes < 3.1 %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
+5. In the left sidebar, click **Optional Features**. ![Optional features tab](/assets/images/github-apps/optional-features-option.png)
 6. 「User-to-server token expiration（ユーザからサーバーへのトークンの有効期限）」の隣の**Opt-in（オプトイン）**もしくは**Opt-out（オプトアウト）**をクリックしてください。 この設定が適用されるまで、数秒かかることがあります。
 
 ## 新しいGitHub Appでの期限切れになるトークンのオプトアウト

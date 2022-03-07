@@ -54,7 +54,8 @@ Si estás conectando {% data variables.product.product_location %} a una organiz
 
 {% ifversion ghes %}
 1. Iniciar sesión en {% data variables.product.product_location %} y {% data variables.product.prodname_dotcom_the_website %}.
-{% data reusables.enterprise-accounts.access-enterprise %}{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
 1. Iniciar sesión en {% data variables.product.product_location %} y {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
 1. En "{% data variables.product.prodname_github_connect %} aún no está habilitado", haz clic en **Enable {% data variables.product.prodname_github_connect %}** (Habilitar). Cuando haces clic en **Habilitar {% data variables.product.prodname_github_connect %}**, estás confirmando que estás de acuerdo con los "<a href="/github/site-policy/github-terms-for-additional-products-and-features#connect" class="dotcom-only">Términos de {% data variables.product.prodname_dotcom %} para las Características y Productos Adicionales</a>".
@@ -70,11 +71,12 @@ Los propietarios de empresas pueden inhabilitar {% data variables.product.prodna
 
 Cuando te desconectas de {% data variables.product.prodname_ghe_cloud %}, se elimina la {% data variables.product.prodname_github_connect %} {% data variables.product.prodname_github_app %} de tu cuenta de empresa u organización, y las credenciales almacenadas en {% data variables.product.product_location %} se eliminan.
 
-{% data reusables.enterprise-accounts.access-enterprise %}{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.github-connect-tab %}
 1. Next to the enterprise account or organization you'd like to disconnect, click **Disable {% data variables.product.prodname_github_connect %}**.
 {% ifversion ghes %}
   ![Inhabilitar el botón Conectar de GitHub para una cuenta de empresa o nombre de organización](/assets/images/enterprise/business-accounts/disable-github-connect-button.png)
-1. Read the information about disconnecting and click **Disable {% data variables.product.prodname_github_connect %}**. ![Modal con información de advertencia acerca de la desconexión y el botón de confirmación](/assets/images/enterprise/business-accounts/confirm-disable-github-connect.png)
+1. Lee la información sobre la desconexión y haz clic en **Inhabilitar {% data variables.product.prodname_github_connect %}**. ![Modal con información de advertencia acerca de la desconexión y el botón de confirmación](/assets/images/enterprise/business-accounts/confirm-disable-github-connect.png)
 {% else %}
   ![Inhabilitar el botón Conectar de GitHub para una cuenta de empresa o nombre de organización](/assets/images/enterprise/github-ae/disable-github-connect-button.png)
 1. Lee la información sobre la desconexión y haz clic en **Inhabilitar {% data variables.product.prodname_github_connect %}**. ![Modal con información de advertencia acerca de la desconexión y el botón de confirmación](/assets/images/enterprise/github-ae/confirm-disable-github-connect.png)

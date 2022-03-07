@@ -36,9 +36,25 @@ upgrade_your_instance:
     - /admin/user-management/customizing-user-messages-for-your-enterprise
     - /admin/configuration/enabling-and-scheduling-maintenance-mode
     - /admin/enterprise-management/upgrading-github-enterprise-server
-adopting_github_actions_for_your_enterprise:
+adopting_github_actions_for_your_enterprise_ghec:
   title: 'Adote o GitHub Actions para a sua empresa'
-  description: 'Aprenda a planejar e implementar uma versão de {% data variables.product.prodname_actions %} na sua empresa.'
+  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  versions:
+    ghec: '*'
+  guides:
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
+    - /actions/learn-github-actions/understanding-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
+    - /actions/security-guides/security-hardening-for-github-actions
+    - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
+adopting_github_actions_for_your_enterprise_ghes_and_ghae:
+  title: 'Adote o GitHub Actions para a sua empresa'
+  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  versions:
+    ghes: '*'
+    ghae: '*'
   guides:
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises
     - /actions/learn-github-actions/understanding-github-actions
@@ -46,8 +62,9 @@ adopting_github_actions_for_your_enterprise:
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud
     - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server
-    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
     - /actions/security-guides/security-hardening-for-github-actions
+    - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 increase_fault_tolerance:
   title: 'Aumente a tolerância de falha da instância'
   description: "Faça backup do código de seus desenvolvedores e configure alta disponibilidade (HA) para garantir a confiabilidade do {% data variables.product.prodname_ghe_server %} no seu ambiente."

@@ -57,12 +57,12 @@ describe('x-codeSamples for curl', () => {
   test('GET', () => {
     const operation = findOperation('GET', '/repos/{owner}/{repo}')
     expect(isPlainObject(operation)).toBe(true)
-    const { sourceHTML } = operation['x-codeSamples'].find((sample) => sample.lang === 'Shell')
+    const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'Shell')
     const expected =
-      '<pre><code class="hljs language-shell">curl \\\n' +
+      'curl \\\n' +
       '  -H "Accept: application/vnd.github.v3+json" \\\n' +
-      '  https://api.github.com/repos/octocat/hello-world</code></pre>'
-    expect(sourceHTML).toEqual(expected)
+      '  https://api.github.com/repos/octocat/hello-world'
+    expect(source).toEqual(expected)
   })
 
   test('operations with required preview headers match Shell examples', () => {
@@ -92,8 +92,8 @@ describe('x-codeSamples for @octokit/core.js', () => {
   test('GET', () => {
     const operation = findOperation('GET', '/repos/{owner}/{repo}')
     expect(isPlainObject(operation)).toBe(true)
-    const { sourceHTML } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
-    const plainText = sourceHTML.replace(/<[^>]+>/g, '').trim()
+    const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
+    const plainText = source.replace(/<[^>]+>/g, '').trim()
     const expected = dedent`await octokit.request('GET /repos/{owner}/{repo}', {
       owner: 'octocat',
       repo: 'hello-world'
@@ -104,8 +104,8 @@ describe('x-codeSamples for @octokit/core.js', () => {
   test('POST', () => {
     const operation = findOperation('POST', '/repos/{owner}/{repo}/git/trees')
     expect(isPlainObject(operation)).toBe(true)
-    const { sourceHTML } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
-    const plainText = sourceHTML.replace(/<[^>]+>/g, '').trim()
+    const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
+    const plainText = source.replace(/<[^>]+>/g, '').trim()
     const expected = dedent`await octokit.request('POST /repos/{owner}/{repo}/git/trees', {
       owner: 'octocat',
       repo: 'hello-world',
@@ -125,8 +125,8 @@ describe('x-codeSamples for @octokit/core.js', () => {
   test('PUT', () => {
     const operation = findOperation('PUT', '/authorizations/clients/{client_id}/{fingerprint}')
     expect(isPlainObject(operation)).toBe(true)
-    const { sourceHTML } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
-    const plainText = sourceHTML.replace(/<[^>]+>/g, '').trim()
+    const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
+    const plainText = source.replace(/<[^>]+>/g, '').trim()
     const expected = dedent`await octokit.request('PUT /authorizations/clients/{client_id}/{fingerprint}', {
       client_id: 'client_id',
       fingerprint: 'fingerprint',

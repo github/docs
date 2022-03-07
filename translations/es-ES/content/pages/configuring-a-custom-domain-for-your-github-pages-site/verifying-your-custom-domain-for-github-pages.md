@@ -1,6 +1,6 @@
 ---
 title: Verifying your custom domain for GitHub Pages
-intro: 'You can increase the security of your custom domain and avoid takeover attacks by verifying your domain.'
+intro: You can increase the security of your custom domain and avoid takeover attacks by verifying your domain.
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'

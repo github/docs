@@ -16,9 +16,7 @@ versions:
 これらの追加ログは、ワークフローを含むリポジトリにシークレットを設定することで有効になるため、同じ権限要件が適用されます。
 
 - {% data reusables.actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - {% data reusables.actions.permissions-statement-secrets-environment %}
-{% endif %}
 - {% data reusables.actions.permissions-statement-secrets-organization %}
 - {% data reusables.actions.permissions-statement-secrets-api %}
 

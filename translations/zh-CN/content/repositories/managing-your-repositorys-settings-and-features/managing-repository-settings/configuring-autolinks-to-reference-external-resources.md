@@ -16,7 +16,7 @@ topics:
 shortTitle: 配置自动链接
 ---
 
-Anyone with admin permissions to a repository can configure autolink references to link issues, pull requests, commit messages, and release descriptions to external third-party services.
+具有仓库管理员权限的任何人均可配置自动链接引用，将议题、拉取请求提交消息、和发行说明链接到外部第三方服务。
 
 如果您使用 Zendesk 跟踪用户报告的事件单，例如，您可以引用所打开拉取请求中的事件单号来解决问题。
 
