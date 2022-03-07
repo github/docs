@@ -60,7 +60,7 @@ shortTitle: 管理 GitHub Actions 设置
 {% data reusables.repositories.settings-sidebar-actions %}
 1. 在 **Actions permissions（操作权限）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。
 
-   {%- ifversion ghes > 3.0 %}
+   {%- ifversion ghes %}
    ![添加操作到允许列表](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
    ![添加操作到允许列表](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
@@ -124,7 +124,7 @@ shortTitle: 管理 GitHub Actions 设置
 
 企业成员可以使用内部存储库来处理项目，而无需公开共享信息。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)”。
 
-您可以配置是否可以从存储库外部访问内部存储库中的 {% if internal-actions%}操作和 {% endif %}工作流程。{% if internal-actions %} 更多信息请参阅“[与企业共享操作和工作流程](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)”。{% endif %}
+您可以使用以下步骤配置是否可以从存储库外部访问内部存储库中的 {% if internal-actions%}操作和 {% endif %}工作流程。{% if internal-actions %} 更多信息请参阅“[与企业共享操作和工作流程](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)”。 或者，您可以使用 REST API 来设置或获取访问级别的详细信息。 更多信息请参阅“[获取存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#get-the-level-of-access-for-workflows-outside-of-the-repository)”和“[设置存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#set-the-level-of-access-for-workflows-outside-of-the-repository)”。{% endif %}
 
 1. 在 {% data variables.product.prodname_dotcom %} 上，导航到内部仓库的主页面。
 1. 在仓库名称下，单击 {% octicon "gear" aria-label="The gear icon" %}**Settings（设置）**。

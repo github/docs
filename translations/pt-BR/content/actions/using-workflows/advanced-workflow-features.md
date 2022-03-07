@@ -1,7 +1,7 @@
 ---
 title: Recursos avançados de fluxo de trabalho
 shortTitle: Recursos avançados de fluxo de trabalho
-intro: 'Este guia mostra como usar as funcionalidades avançadas de {% data variables.product.prodname_actions %}, com gestão de segredos, trabalhos dependentes, cache, matrizes de criação{% ifversion fpt or ghes > 3.0 or ghae or ghec %} ambientes,{% endif %} e etiquetas.'
+intro: 'Este guia mostra como usar as funcionalidades avançadas de {% data variables.product.prodname_actions %}, com gestão de segredos, trabalhos dependentes, cache, matrizes de criação ambientes, e etiquetas.'
 redirect_from:
   - /actions/learn-github-actions/managing-complex-workflows
 versions:
@@ -169,12 +169,9 @@ Para saber mais sobre as etiquetas do executor hospedado em {% data variables.pr
 {% data reusables.actions.reusable-workflows %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-
 ## Usar ambientes
 
 Você pode configurar ambientes com regras de proteção e segredos. Cada trabalho em um fluxo de trabalho pode fazer referência a um único ambiente. Todas as regras de proteção configuradas para o ambiente têm de ser aprovadas antes que um trabalho de referência ao ambiente seja enviado a um executor. Para obter mais informações, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)".
-{% endif %}
 
 ## Usando fluxos de trabalho iniciais
 

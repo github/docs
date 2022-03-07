@@ -76,13 +76,11 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
    Veja a documentação para cada ação usada abaixo para as políticas recomendadas de IAM para o usuário de IAM, bem como os métodos para lidar com as credenciais de acesso.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Opcionalmente, configure um ambiente de implantação. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Creating the workflow
 
-Após concluir os pré-requisitos, você poderá prosseguir com a criação do fluxo de trabalho.
+Após você ter atendido aos pré-requisitos, você poderá proceder com a criação do fluxo de trabalho.
 
 O fluxo de trabalho a seguir demonstra como construir uma imagem de contêiner e enviá-lo para o Amazon ECR. Em seguida, ele atualiza a definição da tarefa com o novo ID de imagem e implanta a definição da tarefa no Amazon ECS.
 

@@ -1,5 +1,5 @@
 ---
-title: Using workflows
+title: Utilizar flujos de trabajo
 shortTitle: Utilizar flujos de trabajo
 intro: 'Creating and managing {% data variables.product.prodname_actions %} workflows.'
 redirect_from:
