@@ -34,15 +34,6 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 ## Revisar os requisitos de hardware
 
-{% ifversion ghes = 3.0 %}
-
-{% note %}
-
-**Observação**: Se você estiver atualizando uma instância de {% data variables.product.prodname_ghe_server %} existente para 3.0 ou posterior e deseja configurar {% data variables.product.prodname_actions %}, observe que os requisitos mínimos de hardware aumentaram. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".
-
-{% endnote %}
-
-{% endif %}
 
 {%- ifversion ghes < 3.2 %}
 
@@ -158,6 +149,6 @@ Para obter mais informações, consulte "[Sobre o uso de ações na sua empresa]
 
 {% endif %}
 
-## Nomes reservados
+## Reserved names
 
 Ao habilitar {% data variables.product.prodname_actions %} para a sua empresa, serão criadas duas organizações: `github` e `actions`. Se sua empresa já usa o nome da organização `github`, `github-org` (ou `github-github-org` se `github-org` também estiver em uso) será usado. Se sua empresa já usa o nome da organização `actions`, `github-actions` (ou `github-actions-org` se `github-actions` também estiver em uso) será usado. Uma vez que as ações são habilitadas, você não poderá usar mais esses nomes.

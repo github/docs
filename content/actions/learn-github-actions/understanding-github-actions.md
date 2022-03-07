@@ -26,7 +26,21 @@ topics:
 
 {% data variables.product.prodname_actions %} goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
 
-{% data variables.product.prodname_dotcom %} provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.  
+{% ifversion fpt or ghec %}
+
+{% data variables.product.prodname_dotcom %} provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
+
+{% elsif ghes or ghae %}
+
+You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+
+For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+
+{% endif %}
 
 ## The components of {% data variables.product.prodname_actions %}
 

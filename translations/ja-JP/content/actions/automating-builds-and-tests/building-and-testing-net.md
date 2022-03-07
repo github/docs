@@ -218,11 +218,11 @@ jobs:
         - name: Test with dotnet
           run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
         - name: Upload dotnet test results
-          uses: actions/upload-artifact@v2
+          uses: actions/upload-artifact@v3
           with:
             name: dotnet-results-${{ matrix.dotnet-version }}
             path: TestResults-${{ matrix.dotnet-version }}
-          # always() を使用して常にこのステップを実行し、テストが失敗したときにテスト結果を公開する
+          # Use always() to always run this step to publish test results when there are test failures
           if: ${{ always() }}
 ```
 {% endraw %}

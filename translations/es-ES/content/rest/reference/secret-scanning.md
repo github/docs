@@ -1,9 +1,9 @@
 ---
 title: Escaneo de secretos
-intro: 'Para recuperar y actualizar las alertas de secretos desde un repositorio privado, puedes utilizar la API de Escaneo de Secretos.'
+intro: Use the secret scanning API to retrieve and update secret alerts from a repository.
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 miniTocMaxHeadingLevel: 3

@@ -6,7 +6,7 @@
 {% endnote %}
 {% endif %}
 
-{% ifversion ghes < 3.3 %}
+{% ifversion ghes < 3.3 or ghae %}
 {% note %}
 
 **Nota:** Cuando un flujo de trabajo utiliza una acción referenciando el repositorio en donde esta se almacena, {% data variables.product.prodname_actions %} intentará encontrarlo en tu instancia de {% data variables.product.prodname_ghe_server %} primero, antes de revertirse a {% data variables.product.prodname_dotcom_the_website %}. Si un usuario crea una organización y repositorio en tu empresa, los cuales empaten con un nombre de organzación y repositorio en {% data variables.product.prodname_dotcom %}, el repositorio de tu empresa se utilizará en vez del repositorio de {% data variables.product.prodname_dotcom %}. Un usuario malintencionado podría sacar provecho de este comportamiento para ejecutar código como parte de un flujo de trabajo.
