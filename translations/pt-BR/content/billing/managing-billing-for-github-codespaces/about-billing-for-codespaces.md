@@ -40,7 +40,7 @@ Se você comprou {% data variables.product.prodname_enterprise %} por meio de um
 
 {% data reusables.dotcom_billing.pricing_cal %}
 
-### Billing for {% data variables.product.prodname_codespaces %} prebuilds
+### Cobrnça para pré-compilações de {% data variables.product.prodname_codespaces %}
 
 {% data reusables.codespaces.prebuilds-beta-note %}
 

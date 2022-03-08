@@ -624,7 +624,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Observação:** {% data reusables.actions.branch-paths-filter %} Por exemplo, o fluxo de trabalho a seguir será executado somente quando um pull request que inclui uma mudança para um arquivo (`.js`) do JavaScript for aberto em um branch cujo nome começa com `releases/`:
 
 ```yaml
 on:
@@ -669,7 +669,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Observação:** {% data reusables.actions.branch-paths-filter %} Por exemplo, o fluxo de trabalho a seguir será executado somente quando um pull request que inclui uma mudança para um arquivo (`.js`) do JavaScript for aberto em um branch cujo nome começa com `releases/`:
 
 ```yaml
 on:
@@ -684,9 +684,9 @@ on:
 
 {% endnote %}
 
-#### Running your workflow when a pull request merges
+#### Executando o fluxo de trabalho quando um executado um merge de pull request
 
-When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+Quando um pull request faz merge, o pull request é automaticamente fechado. Para executar um fluxo de trabalho quando um pull request é mesclado, use o tipo de evento `pull_request` `fechado` junto com uma condição que verifica o valor de `merged` do evento. Por exemplo, o fluxo de trabalho a seguir será executado sempre que um pull request for fechado. O trabalho `if_merged` só será executado se o pull request também tiver sido mesclado.
 
 ```yaml
 on:
@@ -827,7 +827,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Observação:** {% data reusables.actions.branch-paths-filter %} Por exemplo, o fluxo de trabalho a seguir será executado somente quando um pull request que inclui uma mudança para um arquivo (`.js`) do JavaScript for aberto em um branch cujo nome começa com `releases/`:
 
 ```yaml
 on:
@@ -872,7 +872,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Observação:** {% data reusables.actions.branch-paths-filter %} Por exemplo, o fluxo de trabalho a seguir será executado somente quando um pull request que inclui uma mudança para um arquivo (`.js`) do JavaScript for aberto em um branch cujo nome começa com `releases/`:
 
 ```yaml
 on:
@@ -887,9 +887,9 @@ on:
 
 {% endnote %}
 
-#### Running your workflow when a pull request merges
+#### Executando o fluxo de trabalho quando um executado um merge de pull request
 
-When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request_target` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+Quando um pull request faz merge, o pull request é automaticamente fechado. Para executar um fluxo de trabalho quando um pull request é mesclado, use o tipo de evento `pull_request_target` `fechado` junto com uma condição que verifica o valor de `merged` do evento. Por exemplo, o fluxo de trabalho a seguir será executado sempre que um pull request for fechado. O trabalho `if_merged` só será executado se o pull request também tiver sido mesclado.
 
 ```yaml
 on:
@@ -949,7 +949,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+**Observação:** {% data reusables.actions.branch-paths-filter %} Por exemplo, o fluxo de trabalho a seguir será executado somente quando um push que inclui uma mudança para um arquivo (`.js`) do JavaScript é feito em um branch cujo nome começa com `releases/`:
 
 ```yaml
 on:
@@ -990,7 +990,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+**Observação:** {% data reusables.actions.branch-paths-filter %} Por exemplo, o fluxo de trabalho a seguir será executado somente quando um push que inclui uma mudança para um arquivo (`.js`) do JavaScript é feito em um branch cujo nome começa com `releases/`:
 
 ```yaml
 on:
