@@ -1,7 +1,7 @@
 ---
-title: Getting started with self-hosted runners for your enterprise
+title: Primeiros passos vom executores auto-hospedados da sua empresa
 shortTitle: Executores auto-hospedados
-intro: 'You can configure a runner machine for your enterprise so your developers can start automating workflows with {% data variables.product.prodname_actions %}.'
+intro: 'Você pode configurar a máquina de um exeucutor para sua empresa para que seus desenvolvedores possam começar a automatizar fluxos de trabalho com {% data variables.product.prodname_actions %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -16,47 +16,47 @@ topics:
 
 ## Sobre executores auto-hospedados para {% data variables.product.prodname_actions %}
 
-{% data reusables.actions.about-actions-for-enterprises %} For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+{% data reusables.actions.about-actions-for-enterprises %} Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_actions %} para empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).
 
-With {% data variables.product.prodname_actions %}, developers can write and combine individual tasks called actions to create custom workflows. {% ifversion ghes or ghae %}To enable {% data variables.product.prodname_actions %} for {% ifversion ghae %}your enterprise{% elsif ghes %} {% data variables.product.product_location %}{% endif %}, you must host at least one machine to execute jobs.{% endif %} {% ifversion ghec %}You can host your own runner machine to execute jobs, and this{% elsif ghes or ghae %}This{% endif %} machine is called a self-hosted runner. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}All{% elsif ghes or ghae %}Self-hosted{% endif %} runners can run Linux, Windows, or macOS. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+Com {% data variables.product.prodname_actions %}, os desenvolvedores podem escrever e combinar tarefas individuais denominadas ações para criar fluxos de trabalho personalizados. {% ifversion ghes or ghae %}Para habilitar {% data variables.product.prodname_actions %} para {% ifversion ghae %}sua empresa{% elsif ghes %} {% data variables.product.product_location %}{% endif %}, você deverá hospedar pelo menos uma máquina para executar trabalhos.{% endif %} {% ifversion ghec %}Você pode hospedar sua própria máquina de executores para executar esses trabalhos e essa{% elsif ghes or ghae %}Esta{% endif %} máquina é denominada um executor auto-hospedado. {% data reusables.actions.self-hosted-runner-locations %} {% data reusables.actions.self-hosted-runner-architecture %} {% ifversion ghec %}Todos{% elsif ghes or ghae %}Os executores auto-hospedados{% endif %} podem ser executados no Linux, Windows ou macOS. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 
 {% ifversion ghec %}
 
-Alternatively, you can use runner machines that {% data variables.product.company_short %} hosts. {% data variables.product.company_short %}-hosted runners are outside the scope of this guide. Para obter mais informações, consulte "[Sobre executores hospedados em {% data variables.product.company_short %}](/actions/using-github-hosted-runners/about-github-hosted-runners)".
+Como alternativa, você pode usar máquinas de executores que {% data variables.product.company_short %} hospeda. Os executores hospedados em {% data variables.product.company_short %} estão fora do escopo deste guia. Para obter mais informações, consulte "[Sobre executores hospedados em {% data variables.product.company_short %}](/actions/using-github-hosted-runners/about-github-hosted-runners)".
 
 {% endif %}
 
-This guide shows you how to apply a centralized management approach to self-hosted runners for {% data variables.product.prodname_actions %} in your enterprise. In the guide, you'll complete the following tasks.
+Este guia mostra como aplicar uma abordagem de gerenciamento centralizada para os executores auto-hospedados para {% data variables.product.prodname_actions %} na sua empresa. No guia, você realizará as seguintes tarefas.
 
-1. Configure a limited policy to restrict the actions that can run within your enterprise
-1. Deploy a self-hosted runner for your enterprise
-1. Create a group to manage access to the runners available to your enterprise
-1. Optionally, further restrict the repositories that can use the runner
+1. Configurar uma política limitada para restringir as ações que podem ser executadas dentro da sua empresa
+1. Implantar um executor auto-hospedado para a sua empresa
+1. Criar um grupo para gerenciar o acesso aos executores disponíveis para sua empresa
+1. Opcionalmente, restringir ainda mais os repositórios que podem usar o executor
 {%- ifversion ghec or ghae-issue-4462 or ghes > 3.2 %}
-1. Optionally, build custom tooling to automatically scale your self-hosted runners
+1. Opcionalmente, crie ferramentas personalizadas para dimensionar automaticamente seus executores auto-hospedados
 {% endif %}
 
-You'll also find additional information about how to monitor and secure your self-hosted runners,{% ifversion ghes or ghae %} how to access actions from {% data variables.product.prodname_dotcom_the_website %},{% endif %} and how to customize the software on your runner machines.
+Você também encontrará informações adicionais sobre como monitorar e proteger seus executores auto-hospedados,{% ifversion ghes or ghae %} como acessar ações de {% data variables.product.prodname_dotcom_the_website %},{% endif %} e como personalizar o software nas máquinas dos seus executores.
 
-After you finish the guide, {% ifversion ghec or ghae %}members of your enterprise{% elsif ghes %}users of {% data variables.product.product_location %}{% endif %} will be able to run workflow jobs from {% data variables.product.prodname_actions %} on a self-hosted runner machine.
+Depois de terminar o guia, {% ifversion ghec or ghae %}os integrantes da sua empresa{% elsif ghes %}usuários de {% data variables.product.product_location %}{% endif %} poderão executar trabalhos do fluxo de trabalho de {% data variables.product.prodname_actions %} na máquina de um executor auto-hospedado.
 
 ## Pré-requisitos
 
 {% data reusables.actions.self-hosted-runners-prerequisites %}
 
-- Your enterprise must own at least one organization. For more information, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)" and "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+- Sua empresa deve possuir pelo menos uma organização. Para obter mais informações, consulte "[Sobre as organizações](/organizations/collaborating-with-groups-in-organizations/about-organizations)" e[Criando uma nova organização do zero](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)".
 
-## 1. Configure policies for {% data variables.product.prodname_actions %}
+## 1. Configurar políticas para {% data variables.product.prodname_actions %}
 
-First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions that can run {% ifversion ghec or ghae%}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.product.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
+Primeiro, habilite {% data variables.product.prodname_actions %} para todas as organizações, e configure uma política para restringir as ações que podem executar {% ifversion ghec or ghae%}dentro da sua empresa em {% data variables.product.product_name %}{% elsif ghes %}em {% data variables.product.product_location %}{% endif %}. Opcionalmente, os proprietários da organização podem restringir ainda mais essas políticas para cada organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Under "Policies", select **Enable for all organizations**.
+1. Em "Políticas", selecione **Habilitar para todas as organizações**.
 
-   ![Screenshot of "Enable for all organizations" policy for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
-1. Select **Allow select actions** and **Allow actions created by GitHub** to allow local actions and actions created by {% data variables.product.company_short %}.
+   ![Captura de tela da política "Habilitar para todas as organizações" para {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
+1. Selecione **Permitir ações** e **Permitir ações criadas pelo GitHub** para permitir ações e ações locais criadas por {% data variables.product.company_short %}.
 
    ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png)
 1. Clique em **Salvar**.
@@ -88,7 +88,7 @@ You can create a runner group to manage access to the runner that you added to y
 
    {% warning %}
 
-   **Warning**:
+   **Aviso**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 

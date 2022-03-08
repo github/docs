@@ -1,6 +1,6 @@
 ---
-title: Restoring a deleted organization
-intro: 'You can partially restore an organization that was previously deleted on {% data variables.product.product_location %}.'
+title: Restaurando uma organização excluída
+intro: 'Você pode restaurar parcialmente uma organização que foi anteriormente excluída em {% data variables.product.product_location %}.'
 versions:
   ghes: '*'
 type: how_to

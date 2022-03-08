@@ -69,12 +69,12 @@ Ao criar um grupo, você deverá escolher uma política que defina quais reposit
     ![Adicionar grupo de executor](/assets/images/help/settings/actions-org-add-runner-group.png)
 1. Insira um nome para o seu grupo de executor e atribua uma política para acesso ao repositório.
 
-   You can configure a runner group to be accessible to a specific list of repositories, or to all repositories in the organization.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. Esta configuração não pode ser substituída se configurar o grupo de executores da organização que foi compartilhado por uma empresa.{% endif %}
+   É possível configurar o grupo de um executor para ser acessível a uma lista específica de repositórios ou a todos os repositórios na organização.{% ifversion ghec or ghes %} Por padrão, apenas repositórios privados podem acessar executores no grupo do executor, mas você pode substituir isso. Esta configuração não pode ser substituída se configurar o grupo de executores da organização que foi compartilhado por uma empresa.{% endif %}
 
    {%- ifversion ghes %}
    {% warning %}
 
-   **Warning**:
+   **Aviso**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
@@ -96,12 +96,12 @@ Os executores auto-hospedados são automaticamente atribuídos ao grupo-padrão 
 Ao criar um grupo, você deve escolher uma política que defina quais organizações têm acesso ao grupo de executores.
 
 {% data reusables.actions.self-hosted-runner-groups-add-to-enterprise-first-steps %}
-1. To choose a policy for organization access, select the **Organization access** drop-down, and click a policy. You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.{% ifversion ghes %} By default, only private repositories can access runners in a runner group, but you can override this.{% endif %}
+1. Para escolher uma política para o acesso da organização, selecione a lista suspensa **Organização** e clique em uma política. Você pode configurar um grupo de executor para que possa ser acessado por uma lista específica de organizações ou a todas as organizações da empresa.{% ifversion ghes %} Por padrão, apenas repositórios privados podem acessar executores no grupo de um executor, mas você pode substituir isso.{% endif %}
 
    {%- ifversion ghec or ghes %}
    {% warning %}
 
-   **Warning**:
+   **Aviso**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
@@ -131,7 +131,7 @@ Você pode atualizar a política de acesso de um grupo de executores ou renomear
    {%- ifversion fpt or ghec or ghes %}
    {% warning %}
 
-   **Warning**:
+   **Aviso**:
 
    {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
 
@@ -165,7 +165,7 @@ Se você não especificar o grupo de um executor durante o processo de registro,
 {% data reusables.actions.self-hosted-runner-navigate-to-org-enterprise %}
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 1. Na lista de "Executores", clique no executor que você deseja configurar.
-2. Select the **Runner group** drop-down.
+2. Selecione o menu suspenso **Grupo do executor**.
 3. Em "Transferir executor para o grupo", escolha um grupo de destino para o executor.
 {% elsif ghae or ghes < 3.4 %}
 1. Na seção {% ifversion ghes > 3.1 or ghae %}"Grupos de executores"{% elsif ghes < 3.2 %}"Executores auto-hospedados"{% endif %} da página de configurações, localize o grupo atual do executor que deseja mover e expandir a lista de integrantes do grupo. ![Visualizar integrantes do grupo de executores](/assets/images/help/settings/actions-org-runner-group-members.png)
