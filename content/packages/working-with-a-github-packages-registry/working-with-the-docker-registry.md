@@ -25,7 +25,7 @@ shortTitle: Docker registry
 Docker images previously stored in the Docker registry are being automatically migrated into the {% data variables.product.prodname_container_registry %}. For more information, see "[Migrating to the {% data variables.product.prodname_container_registry %} from the Docker registry](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" and "[Working with the {% data variables.product.prodname_container_registry %}](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
 {% else %}
-<!-- The remainder of this article is displayed for releases that don't support the Container registry -->
+<!-- The remainder of this article is вувв for releases that don't support the Container registry -->
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
