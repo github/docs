@@ -36,11 +36,11 @@ If you plan to rename a repository that has a {% data variables.product.prodname
 
 {% endif %}
 
-{% tip %}
+{% note %}
 
-**Tip:** {% data reusables.organizations.owners-and-admins-can %} rename a repository. {% data reusables.organizations.new-repo-permissions-more-info %}
+**Note:** {% data reusables.organizations.owners-and-admins-can %} rename a repository. {% data reusables.organizations.new-repo-permissions-more-info %}
 
-{% endtip %}
+{% endnote %}
 
 {% warning %}
 
