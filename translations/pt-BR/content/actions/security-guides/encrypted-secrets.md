@@ -1,6 +1,6 @@
 ---
 title: Segredos criptografados
-intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
+intro: 'Segredos criptografados permitem que você armazene informações confidenciais na organização{% ifversion fpt or ghes or ghec %}, repositório ou ambientes de repositórios{% else %} ou repositório{% endif %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -19,7 +19,7 @@ versions:
 
 ## Sobre os segredos encriptados
 
-Secrets are encrypted environment variables that you create in an organization, repository, or repository environment. Os segredos que você cria estão disponíveis para utilização nos fluxos de trabalho em {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} usa uma [caixa selada libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ajudar a garantir que os segredos sejam criptografados antes de chegarem a {% data variables.product.prodname_dotcom %} e permaneçam criptografados até que você os use em um fluxo de trabalho.
+Os segredos são variáveis de ambiente criptografadas que você cria em uma organização, repositório ou ambiente de repositório. Os segredos que você cria estão disponíveis para utilização nos fluxos de trabalho em {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} usa uma [caixa selada libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ajudar a garantir que os segredos sejam criptografados antes de chegarem a {% data variables.product.prodname_dotcom %} e permaneçam criptografados até que você os use em um fluxo de trabalho.
 
 {% data reusables.actions.secrets-org-level-overview %}
 
@@ -39,15 +39,15 @@ Para segredos armazenados no nível do ambiente, você pode habilitar os revisor
 
 {% data reusables.codespaces.secrets-naming %}
 
-  For example, a secret created at the environment level must have a unique name in that environment, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
+  Por exemplo, um segredo criado no nível de ambiente deve ter um nome exclusivo nesse ambiente, um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório, e um segredo criado no nível da organização deve ter um nome exclusivo nesse nível.
 
-  {% data reusables.codespaces.secret-precedence %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.
+  {% data reusables.codespaces.secret-precedence %} Da mesma forma, se uma organização, repositório e ambiente tiverem um mesmo nome, o segredo do nível de ambiente terá prioridade.
 
 Para ajudar a garantir que {% data variables.product.prodname_dotcom %} remova o seu segredo dos registros, evite usar dados estruturados como valores dos segredos. Por exemplo, evite criar segredos que contêm JSON ou blobs do Git.
 
 ### Acessar os seus segredos
 
-Para disponibilizar um segredo para uma ação, você deve configurá-lo como uma entrada ou variável de ambiente no arquivo do fluxo de trabalho. Revise o arquivo README da ação para saber quais entradas e variáveis de ambientes a ação exige. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
+Para disponibilizar um segredo para uma ação, você deve configurá-lo como uma entrada ou variável de ambiente no arquivo do fluxo de trabalho. Revise o arquivo README da ação para saber quais entradas e variáveis de ambientes a ação exige. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
 
 Você pode usar e ler segredos encriptados em um arquivo de fluxo de trabalho se tiver permissão para editar o arquivo. Para obter mais informações, consulte "[Permissões de acesso em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
@@ -55,11 +55,11 @@ Você pode usar e ler segredos encriptados em um arquivo de fluxo de trabalho se
 
 Os segredos da organização e do repositório são lidos quando uma execução de fluxo de trabalho é enfileirada e os segredos de ambiente são lidos quando um trabalho que faz referência ao ambiente é iniciado.
 
-Você também pode gerenciar segredos usando o API REST. For more information, see "[Secrets](/rest/reference/actions#secrets)."
+Você também pode gerenciar segredos usando o API REST. Para obter mais informações, consulte "[Segredos](/rest/reference/actions#secrets)".
 
 ### Permissões limitadas de credenciais
 
-Ao gerar credenciais, recomendamos que você conceda as permissões mínimas possíveis. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Considere conceder permissões somente leitura se isso o necessário e limite o acesso tanto quanto possível. Ao gerar um token de acesso pessoal (PAT), selecione o menor escopo necessário.
+Ao gerar credenciais, recomendamos que você conceda as permissões mínimas possíveis. Por exemplo, em vez de usar credenciais pessoais, use [chaves de implantação](/developers/overview/managing-deploy-keys#deploy-keys) ou uma conta de serviço. Considere conceder permissões somente leitura se isso o necessário e limite o acesso tanto quanto possível. Ao gerar um token de acesso pessoal (PAT), selecione o menor escopo necessário.
 
 {% note %}
 
@@ -81,7 +81,7 @@ Ao gerar credenciais, recomendamos que você conceda as permissões mínimas pos
 1. Insira o valor para o seu segredo.
 1. Clique em **Add secret** (Adicionar segredo).
 
-If your repository has environment secrets or can access secrets from the parent organization, then those secrets are also listed on this page.
+Se o seu repositório tiver segredos de ambiente ou puder acessar segredos da organização principal, esses segredos também serão listados nesta página.
 
 {% endwebui %}
 
@@ -209,7 +209,7 @@ Você pode verificar quais políticas de acesso são aplicadas a um segredo na s
 
 {% note %}
 
-**Note:** {% data reusables.actions.forked-secrets %}
+**Observação:** {% data reusables.actions.forked-secrets %}
 
 {% endnote %}
 
@@ -226,7 +226,7 @@ steps:
 ```
 {% endraw %}
 
-Evite a transmissão de segredos entre processos da linha de comando sempre que possível. Command-line processes may be visible to other users (using the `ps` command) or captured by [security audit events](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). Para ajudar a proteger os segredos, considere o uso de variáveis de ambiente, `STDIN`, ou outros mecanismos compatíveis com o processo de destino.
+Evite a transmissão de segredos entre processos da linha de comando sempre que possível. Os processos da linha de comando podem ser visíveis para outros usuários (usando o comando `ps`) ou capturado por [eventos de auditoria de segurança](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). Para ajudar a proteger os segredos, considere o uso de variáveis de ambiente, `STDIN`, ou outros mecanismos compatíveis com o processo de destino.
 
 Se você passar segredos dentro de uma linha de comando, inclua-os dentro das regras de aspas corretas. Muitas vezes, os segredos contêm caracteres especiais que não intencionalmente podem afetar o seu shell. Para escapar desses caracteres especiais, use aspas com suas variáveis de ambiente. Por exemplo:
 
@@ -271,19 +271,19 @@ etapas:
 
 ## Limites para segredos
 
-You can store up to 1,000 organization secrets, 100 repository secrets, and 100 environment secrets.
+Você pode armazenar até 1.000 segredos da organização, 100 segredos de repositório e 100 segredos de ambiente.
 
 Um fluxo de trabalho criado em um repositório pode acessar o seguinte número de segredos:
 
 * Todos os 100 segredos do repositório.
 * Se o repositório tiver acesso a mais de 100 segredos da organização, o fluxo de trabalho só poderá usar os primeiros 100 segredos da organização (ordem alfabética por nome de segredo).
-* All 100 environment secrets.
+* Todos os 100 segredos de ambiente.
 
 Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você pode armazenar segredos criptografados no seu repositório e salvar a frase secreta de descodificação como um segredo no {% data variables.product.prodname_dotcom %}. Por exemplo, você pode usar `gpg` para criptografar suas credenciais localmente antes de colocar o arquivo no repositório do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a "[página do manual gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
 
 {% warning %}
 
-**Warning**: Be careful that your secrets do not get printed when your action runs. Quando usar essa alternativa, o {% data variables.product.prodname_dotcom %} não eliminará segredos que estão impressos nos logs.
+**Aviso**: Tenha vuidado para seus segredos não serem impressos quando a ação é executada. Quando usar essa alternativa, o {% data variables.product.prodname_dotcom %} não eliminará segredos que estão impressos nos logs.
 
 {% endwarning %}
 
