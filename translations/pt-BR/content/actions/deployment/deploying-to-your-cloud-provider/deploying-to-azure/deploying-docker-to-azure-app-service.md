@@ -72,7 +72,7 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
 
 Depois de preencher os pré-requisitos, você pode prosseguir com a criação do fluxo de trabalho.
 
-The following example workflow demonstrates how to build and deploy a Docker container to Azure App Service when there is a push to the `main` branch.
+O fluxo de trabalho a seguir demonstra como criar e implantar um contêiner Docker no Azure App Service quando há push para o branch `principal`.
 
 Certifique-se de definir `AZURE_WEBAPP_NAME` na chave de fluxo de trabalho `env` como o nome do aplicativo web que você criou.
 

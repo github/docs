@@ -11,6 +11,6 @@ To add a self-hosted runner to an enterprise, you must be an enterprise owner.
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
-1. Click **Add new**, then click **New runner**.
+1. Clique em **Adicionar novo** e depois clique em **Novo executor**.
 {% data reusables.actions.self-hosted-runner-configure %}
 {%- endif %}

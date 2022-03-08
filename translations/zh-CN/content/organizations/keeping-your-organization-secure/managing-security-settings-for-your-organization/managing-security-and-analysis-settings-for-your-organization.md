@@ -56,7 +56,7 @@ shortTitle: 管理安全和分析
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
 1. 转到组织的安全和分析设置。 更多信息请参阅“[显示安全和分析设置](#displaying-the-security-and-analysis-settings)”。
-2. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**. {% ifversion ghes > 3.0 or ghec %}如果您的 {% data variables.product.prodname_GH_advanced_security %} 许可中没有可用的席位，对“{% data variables.product.prodname_GH_advanced_security %}”的控制将会禁用。{% endif %}
+2. 在“Code security and analysis（代码安全和分析）”下，单击功能右侧的 **Disable all（全部禁用）**或 **Enable all（全部启用）**。 {% ifversion ghes > 3.0 or ghec %}如果您的 {% data variables.product.prodname_GH_advanced_security %} 许可中没有可用的席位，对“{% data variables.product.prodname_GH_advanced_security %}”的控制将会禁用。{% endif %}
    {% ifversion fpt %}
    !["Configure security and analysis（配置安全性和分析）"功能的"Enable all（全部启用）"或"Disable all（全部禁用）"按钮](/assets/images/help/organizations/security-and-analysis-disable-or-enable-all-fpt.png)
    {% endif %}

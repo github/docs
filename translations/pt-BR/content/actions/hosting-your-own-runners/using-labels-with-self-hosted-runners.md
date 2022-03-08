@@ -13,7 +13,7 @@ shortTitle: Executores de etiqueta
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-For information on how to use labels to route jobs to specific types of self-hosted runners, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
+Para obter informações sobre como usar etiquetas para encaminhar trabalhos para tipos específicos de executores auto-hospedados, consulte "[Usando executores auto-hospedados em um fluxo de trabalho](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
@@ -67,15 +67,15 @@ O rótulo personalizado é criado e atribuído ao executor auto-hospedado. É po
 
 ## Usar o script de configuração para criar e atribuir rótulos
 
-You can use the configuration script on the self-hosted runner to create and assign custom labels. For example, this command assigns a label named `gpu` to the self-hosted runner.
+Você pode usar o script de configuração no executor auto-hospedado para criar e atribuir etiquetas personalizadas. Por exemplo, este comando atribui ao executor auto-hospedado uma etiqueta denominada `gpu`.
 
 ```shell
 ./config.sh --labels gpu
 ```
 
-The label is created if it does not already exist. You can also use this approach to assign the default labels to runners, such as `x64` or `linux`. When default labels are assigned using the configuration script, {% data variables.product.prodname_actions %} accepts them as given and does not validate that the runner is actually using that operating system or architecture.
+Caso não exista, a etiqueta será criada. Você também pode usar esta abordagem para atribuir as etiquetas-padrão a executores, como `x64` ou `linux`. Quando as etiquetas-padrão são atribuídas usando o script de configuração, {% data variables.product.prodname_actions %} aceita-as como dadas e não valida que o executor está realmente usando esse sistema operacional ou arquitetura.
 
-You can use comma separation to assign multiple labels. Por exemplo:
+Você pode usar a separação por vírgula para atribuir múltiplas etiquetas. Por exemplo:
 
 ```shell
 ./config.sh --labels gpu,x64,linux
@@ -83,6 +83,6 @@ You can use comma separation to assign multiple labels. Por exemplo:
 
 {% note %}
 
-** Note:** If you replace an existing runner, then you must reassign any custom labels.
+** Observação:** Se você substituir um executor existente, você deverá reatribuir quaisquer etiquetas personalizadas.
 
 {% endnote %}

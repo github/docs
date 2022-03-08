@@ -1,1 +1,1 @@
-You can configure a pull request to merge automatically when all merge requirements are met. For more information, see "[Automatically merging a pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)."
+Você pode configurar um pull request para fazer merge automaticamente quando todos os requisitos de merge forem atendidos. Para obter mais informações, consulte "[Fazer merge automático de um pull request](/github/collaborating-with-issues-and-pull-requests/automatically-merging-a-pull-request)".

@@ -1,7 +1,7 @@
 ---
 title: 定义密钥扫描的自定义模式
 shortTitle: 定义自定义模式
-intro: 'You can extend {% data variables.product.prodname_secret_scanning_GHAS %} to detect secrets beyond the default patterns.'
+intro: '您可以扩展 {% data variables.product.prodname_secret_scanning_GHAS %} 以检测默认模式之外的机密。'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
@@ -25,10 +25,10 @@ topics:
 
 ## 关于 {% data variables.product.prodname_secret_scanning %} 的自定义模式
 
-You can define custom patterns to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. 例如，您可能有一个属于您组织内部的密钥模式。 For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+您可以定义自定义模式来标识 {% data variables.product.prodname_secret_scanning %} 支持的默认模式未检测到的机密。 例如，您可能有一个属于您组织内部的密钥模式。 有关支持的机密和服务提供商的详细信息，请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。
 
-You can define custom patterns for your enterprise, organization, or repository. {% data variables.product.prodname_secret_scanning_caps %} supports up to
-{%- ifversion fpt or ghec or ghes > 3.3 %} 500 custom patterns for each organization or enterprise account, and up to 100 custom patterns per repository.
+您可以为企业、组织或存储库定义自定义模式。 {% data variables.product.prodname_secret_scanning_caps %} 最多支持
+{%- ifversion fpt or ghec or ghes > 3.3 %} 每个组织或企业帐户 500 个自定义模式，每个存储库最多 100 个自定义模式。
 {%- elsif ghes = 3.3 %} 每个组织或企业帐户有 100 个自定义模式，每个存储库有 20 个自定义模式。
 {%- else %} 每个组织或企业帐户有 20 个自定义模式，每个存储库有 个自定义模式。
 {%- endif %}
@@ -47,7 +47,7 @@ You can define custom patterns for your enterprise, organization, or repository.
 
 ## 自定义模式的正则表达式语法
 
-You can specify custom patterns for {% data variables.product.prodname_secret_scanning_GHAS %} as one or more regular expressions.
+您可以将 {% data variables.product.prodname_secret_scanning_GHAS %} 的自定义模式指定为一个或多个正则表达式。
 
 - **机密格式：**描述机密本身格式的表达式。
 - **机密之前：**描述机密之前的字符的表达式。 默认情况下，此值设置为 `\A|[^0-9A-Za-z]`，这意味着机密必须位于行首或前面有非字母数字字符。
@@ -108,7 +108,7 @@ aAAAe9
 
 ## 定义组织的自定义模式
 
-Before defining a custom pattern, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+在定义自定义模式之前，您必须确保在组织中为要扫描的仓库启用 {% data variables.product.prodname_secret_scanning %}。 要在组织中的所有存储库上启用 {% data variables.product.prodname_secret_scanning %} ，请参阅“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
 
 {% note %}
 
@@ -124,7 +124,7 @@ Before defining a custom pattern, you must ensure that you enable {% data variab
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories in your organization, including their entire Git history on all branches. Organization owners and repository administrators will be alerted to any secrets found and can review the alert in the repository where the secret is found. 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
+创建模式后，{% data variables.product.prodname_secret_scanning %} 扫描组织的仓库中的任何密钥，包括其所有分支的整个 Git 历史记录。 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
 
 ## 为企业帐户定义自定义模式
 
@@ -148,7 +148,7 @@ After your pattern is created, {% data variables.product.prodname_secret_scannin
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
-After your pattern is created, {% data variables.product.prodname_secret_scanning %} scans for any secrets in repositories within your enterprise's organizations with {% data variables.product.prodname_GH_advanced_security %} enabled, including their entire Git history on all branches. 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
+创建模式后，{% data variables.product.prodname_secret_scanning %} 扫描企业组织内存储库中的任何机密，并启用 {% data variables.product.prodname_GH_advanced_security %}，包括其所有分支上的整个 Git 历史记录。 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。
 
 {% ifversion fpt or ghes > 3.2 or ghec or ghae %}
 ## 编辑自定义模式
