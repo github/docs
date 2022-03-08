@@ -632,7 +632,7 @@ describe('server', () => {
       expect(res.statusCode).toBe(302)
       expect(res.headers['set-cookie']).toBeUndefined()
       // no cache control because a language prefix had to be injected
-      expect(res.headers['cache-control']).toBeUndefined()
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('redirects old articles to their slugified URL', async () => {
@@ -702,7 +702,8 @@ describe('server', () => {
       expect(res.statusCode).toBe(302)
       expect(res.headers.location.startsWith('/en/')).toBe(true)
       expect(res.headers['set-cookie']).toBeUndefined()
-      expect(res.headers['cache-control']).toBeUndefined()
+      // no cache control because a language prefix had to be injected
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('redirects that not only injects /en/ should have cache-control', async () => {
