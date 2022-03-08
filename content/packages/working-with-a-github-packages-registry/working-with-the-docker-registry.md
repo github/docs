@@ -261,7 +261,7 @@ $ docker pull <em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 {% endnote %}
 
-{% ifversion fpt or ghes or ghec > 3.1 or ghae %}
+{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 
 ## Further reading
 
