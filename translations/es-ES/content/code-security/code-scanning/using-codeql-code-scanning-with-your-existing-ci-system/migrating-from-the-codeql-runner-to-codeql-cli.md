@@ -5,7 +5,7 @@ intro: 'Puedes utilizar el {% data variables.product.prodname_codeql_cli %} para
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -52,7 +52,7 @@ Estos ejemplos también asumen que el {% data variables.product.prodname_codeql_
 
 En estos ejemplos, un token de {% data variables.product.prodname_dotcom %} con un alcance suficiente se almacena en la variable de ambiente `$TOKEN` y se pasa a los comandos de ejemplo a través de `stdin` o se almacena en la variable de ambiente `$GITHUB_TOKEN`.
 
-El nombre de ref y el SHA de confirmación que se verifican y analizan en estos ejemplos se conocen durante el flujo de trabajo. En el caso de las ramas, utiliza `refs/heads/BRANCH-NAME` como el ref. For the head commit of a pull request, use `refs/pull/NUMBER/head`. For a {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request, use `refs/pull/NUMBER/merge`. Todos los siguientes ejemplos utilizan `refs/heads/main`. Si utilizas un nombre de rama diferente, debes modificar el código de muestra.
+El nombre de ref y el SHA de confirmación que se verifican y analizan en estos ejemplos se conocen durante el flujo de trabajo. En el caso de las ramas, utiliza `refs/heads/BRANCH-NAME` como el ref. Para la confirmación principal de una solicitud de cambios, utiliza `refs/pull/NUMBER/head`. Para una confirmación de fusión generada por {% data variables.product.prodname_dotcom %} de una solicitud de cambios, utiliza `refs/pull/NUMBER/merge`. Todos los siguientes ejemplos utilizan `refs/heads/main`. Si utilizas un nombre de rama diferente, debes modificar el código de muestra.
 
 ### Lenguaje sencillo no compilado (JavaScript)
 

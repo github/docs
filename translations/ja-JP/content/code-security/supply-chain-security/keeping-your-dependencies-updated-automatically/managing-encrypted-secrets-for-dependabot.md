@@ -44,11 +44,11 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
 ## {% data variables.product.prodname_dependabot %} にリポジトリシークレットを追加する
 
-{% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% data reusables.actions.permissions-statement-secrets-repository %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 {% data reusables.dependabot.dependabot-secrets-button %}
 1. **New repository secret（新しいリポジトリのシークレット）**をクリックしてください。
 1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
@@ -63,11 +63,11 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
 Organizationでシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 {% data reusables.dependabot.dependabot-secrets-button %}
 1. **New organization secret（新しいOrganizationのシークレット）**をクリックしてください。
 1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。

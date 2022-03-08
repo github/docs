@@ -10,7 +10,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.3'
-  ghae: 'issue-5974'
+  ghae: issue-5974
 topics:
   - Repositories
 shortTitle: Teams & people

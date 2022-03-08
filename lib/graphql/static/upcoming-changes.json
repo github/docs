@@ -1,5 +1,33 @@
 {
   "dotcom": {
+    "2022-07-01": [
+      {
+        "location": "Query.sponsorables.dependencyEcosystem",
+        "description": "<p><code>dependencyEcosystem</code> will be removed. Use the ecosystem argument instead.</p>",
+        "reason": "<p>The type is switching from SecurityAdvisoryEcosystem to DependencyGraphEcosystem.</p>",
+        "date": "2022-07-01",
+        "criticality": "breaking",
+        "owner": "cheshire137"
+      }
+    ],
+    "2022-04-01": [
+      {
+        "location": "Repository.defaultMergeQueue",
+        "description": "<p><code>defaultMergeQueue</code> will be removed. Use <code>Repository.mergeQueue</code> instead.</p>",
+        "reason": "<p><code>defaultMergeQueue</code> will be removed.</p>",
+        "date": "2022-04-01",
+        "criticality": "breaking",
+        "owner": "colinshum"
+      },
+      {
+        "location": "PullRequest.viewerCanOverrideMergeQueue",
+        "description": "<p><code>viewerCanOverrideMergeQueue</code> will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.</p>",
+        "reason": "<p><code>viewer_can_override_merge_queue</code> will be removed</p>",
+        "date": "2022-04-01",
+        "criticality": "breaking",
+        "owner": "cbeaman"
+      }
+    ],
     "2021-10-01": [
       {
         "location": "ReactionGroup.users",
@@ -162,6 +190,34 @@
     ]
   },
   "ghec": {
+    "2022-07-01": [
+      {
+        "location": "Query.sponsorables.dependencyEcosystem",
+        "description": "<p><code>dependencyEcosystem</code> will be removed. Use the ecosystem argument instead.</p>",
+        "reason": "<p>The type is switching from SecurityAdvisoryEcosystem to DependencyGraphEcosystem.</p>",
+        "date": "2022-07-01",
+        "criticality": "breaking",
+        "owner": "cheshire137"
+      }
+    ],
+    "2022-04-01": [
+      {
+        "location": "Repository.defaultMergeQueue",
+        "description": "<p><code>defaultMergeQueue</code> will be removed. Use <code>Repository.mergeQueue</code> instead.</p>",
+        "reason": "<p><code>defaultMergeQueue</code> will be removed.</p>",
+        "date": "2022-04-01",
+        "criticality": "breaking",
+        "owner": "colinshum"
+      },
+      {
+        "location": "PullRequest.viewerCanOverrideMergeQueue",
+        "description": "<p><code>viewerCanOverrideMergeQueue</code> will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.</p>",
+        "reason": "<p><code>viewer_can_override_merge_queue</code> will be removed</p>",
+        "date": "2022-04-01",
+        "criticality": "breaking",
+        "owner": "cbeaman"
+      }
+    ],
     "2021-10-01": [
       {
         "location": "ReactionGroup.users",
@@ -1058,6 +1114,24 @@
     ]
   },
   "ghae": {
+    "2022-04-01": [
+      {
+        "location": "Repository.defaultMergeQueue",
+        "description": "<p><code>defaultMergeQueue</code> will be removed. Use <code>Repository.mergeQueue</code> instead.</p>",
+        "reason": "<p><code>defaultMergeQueue</code> will be removed.</p>",
+        "date": "2022-04-01",
+        "criticality": "breaking",
+        "owner": "colinshum"
+      },
+      {
+        "location": "PullRequest.viewerCanOverrideMergeQueue",
+        "description": "<p><code>viewerCanOverrideMergeQueue</code> will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.</p>",
+        "reason": "<p><code>viewer_can_override_merge_queue</code> will be removed</p>",
+        "date": "2022-04-01",
+        "criticality": "breaking",
+        "owner": "cbeaman"
+      }
+    ],
     "2021-10-01": [
       {
         "location": "ReactionGroup.users",

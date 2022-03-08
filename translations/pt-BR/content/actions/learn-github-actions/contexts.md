@@ -31,7 +31,7 @@ Você pode acessar contextos usando a sintaxe da expressão. Para obter mais inf
 `${{ <context> }}`
 {% endraw %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 | Nome do contexto | Tipo     | Descrição                                                                                                                                                                          |
 | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ Para usar a sintaxe de propriedade de desreferência, o nome da propriedade deve
 
 ### Determinar quando usar contextos
 
-{% data reusables.github-actions.using-context-or-environment-variables %}
+{% data reusables.actions.using-context-or-environment-variables %}
 
 ### Disponibilidade do contexto
 
@@ -139,7 +139,7 @@ A tabela a seguir indica onde cada contexto e função especial pode ser utiliza
 
 Você pode imprimir o conteúdo de contextos no registro para depuração. A função [`toJSON` ](/actions/learn-github-actions/expressions#tojson) é necessária para imprimir objetos do JSON no registro.
 
-{% data reusables.github-actions.github-context-warning %}
+{% data reusables.actions.github-context-warning %}
 
 {% raw %}
 ```yaml{:copy}
@@ -170,8 +170,8 @@ jobs:
 
 O contexto `github` context contém informações sobre a execução do fluxo de trabalho e sobre o evento que a acionou. Você também pode ler a maioria dos dados do `github` em variáveis de ambiente. Para obter mais informações sobre as variáveis de ambiente, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)".
 
-{% data reusables.github-actions.github-context-warning %}
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.github-context-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 | Nome da propriedade        | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | -------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -194,7 +194,11 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5338 %}
 | `github.ref_name` | `string` | {% data reusables.actions.ref_name-description %} | | `github.ref_protected` | `string` | {% data reusables.actions.ref_protected-description %} | | `github.ref_type` | `string` | {% data reusables.actions.ref_type-description %}
 {%- endif %}
-| `github.path` | `string` | Caminho no executor no arquivo que define as variáveis do `PATH` do sistema a partir de comandos do fluxo de trabalho. Este arquivo é único para a etapa atual e é um arquivo diferente para cada etapa de um trabalho. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." | | `github.repository` | `string` | O proprietário e o nome do repositório. Por exemplo, `Codertocat/Hello-World`. | | `github.repository_owner` | `string` | O nome do proprietário do repositório. Por exemplo, `Codertocat`. | | `github.repositoryUrl` | `string` | A URL do Git para o repositório. Por exemplo, `git://github.com/codertocat/hello-world.git`. | | `github.retention_days` | `string` | O número de dias que os registros e artefatos da execução do fluxo de trabalho são mantidos. | | `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} | | `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} | | `github.run_attempt` | `string` | O úmero único para cada tentativa de uma execução de fluxo de trabalho particular em um repositório. Este número começa em 1 para a primeira tentativa de execução do fluxo de trabalho e aumenta a cada nova execução. | | `github.server_url` | `string` | A URL do servidor do GitHub. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)". | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
+| `github.path` | `string` | Caminho no executor no arquivo que define as variáveis do `PATH` do sistema a partir de comandos do fluxo de trabalho. Este arquivo é único para a etapa atual e é um arquivo diferente para cada etapa de um trabalho. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#adding-a-system-path)." | | `github.repository` | `string` | O proprietário e o nome do repositório. Por exemplo, `Codertocat/Hello-World`. | | `github.repository_owner` | `string` | O nome do proprietário do repositório. Por exemplo, `Codertocat`. | | `github.repositoryUrl` | `string` | A URL do Git para o repositório. Por exemplo, `git://github.com/codertocat/hello-world.git`. | | `github.retention_days` | `string` | O número de dias que os registros e artefatos da execução do fluxo de trabalho são mantidos. | | `github.run_id` | `string` | {% data reusables.actions.run_id_description %} | | `github.run_number` | `string` | {% data reusables.actions.run_number_description %}
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
+| `github.run_attempt` | `string` | Um número exclusivo para cada tentativa de execução de um fluxo de trabalho específico em um repositório. Este número começa em 1 para a primeira tentativa de execução do fluxo de trabalho e aumenta a cada nova execução. |
+{%- endif %}
+| `github.server_url` | `string` | The URL of the GitHub server. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)". | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
 
 ### Exemplo de conteúdo do contexto `github`
 
@@ -497,7 +501,7 @@ jobs:
           ./build.sh --log-path ${{ runner.temp }}/build_logs
       - name: Upload logs on fail
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Build failure logs
           path: ${{ runner.temp }}/build_logs
@@ -510,7 +514,7 @@ O contexto `segredos` contém os nomes e valores de segredos disponíveis para a
 
 `GITHUB_TOKEN` é um segredo que é criado automaticamente para cada execução de fluxo de trabalho, e é sempre incluído no contexto `segredos`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)".
 
-{% data reusables.github-actions.secrets-redaction-warning %}
+{% data reusables.actions.secrets-redaction-warning %}
 
 | Nome da propriedade           | Tipo     | Descrição                                                                                                                                                                                                    |
 | ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -532,7 +536,7 @@ O conteúdo de exemplo do contexto dos `segredos` mostra o `GITHUB_TOKEN` autom�
 
 ### Exemplo de uso do contexto dos `segredos`
 
-{% data reusables.github-actions.github_token-input-example %}
+{% data reusables.actions.github_token-input-example %}
 
 ## Contexto `estratégia`
 
@@ -579,7 +583,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm test > test-job-${{ strategy.job-index }}.txt
       - name: Upload logs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Build log for job ${{ strategy.job-index }}
           path: test-job-${{ strategy.job-index }}.txt

@@ -55,6 +55,12 @@ Para mayor seguridad, habilita la autenticación de dos factores además de camb
 
 Consulta "[Revisar tus integraciones autorizadas](/articles/reviewing-your-authorized-integrations)" para recibir indicaciones sobre revisar y eliminar tokens de acceso. Para generar tokens de acceso nuevos, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
+{% ifversion not ghae %}
+
+If you have reset your account password and would also like to trigger a sign-out from the GitHub Mobile app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. For additional information, see "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)."
+
+{% endif %}
+
 ## Actualizar tus claves SSH
 
 Consulta "[Revisar tus claves SSH](/articles/reviewing-your-ssh-keys)" para obtener indicaciones sobre la revisar y eliminar claves SSH. Para generar y agregar claves SSH nuevas, consulta "[Generar una clave SSH](/articles/generating-an-ssh-key)".

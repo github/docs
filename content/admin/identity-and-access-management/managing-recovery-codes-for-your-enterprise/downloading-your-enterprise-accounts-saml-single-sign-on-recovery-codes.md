@@ -10,7 +10,7 @@ topics:
   - Authentication
   - Enterprise
   - SSO
-permissions: "Enterprise owners can download the SAML SSO recovery codes for the enterprise account."
+permissions: Enterprise owners can download the SAML SSO recovery codes for the enterprise account.
 ---
 
 In the event that your IdP is unavailable, you can use a recovery code to sign in and access your enterprise on {% data variables.product.product_location %}. For more information, see "[Accessing your enterprise account if your identity provider is unavailable](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."

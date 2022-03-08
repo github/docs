@@ -3,7 +3,7 @@ title: Desplegar con GitHub Actions
 intro: Aprende a controlar los despliegues con características como ambientes y concurrencia.
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: overview

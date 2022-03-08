@@ -10,7 +10,7 @@ topics:
   - Codespaces
   - Set up
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: "People with admin access to a repository can configure prebuilds for the repository."
+permissions: People with admin access to a repository can configure prebuilds for the repository.
 ---
 
 {% data reusables.codespaces.prebuilds-beta-note %}
@@ -42,7 +42,7 @@ Before you can configure prebuilds for your project the following must be true:
 
    {% note %} 
 
-   **Note**: Any branches created from a prebuild-enabled base branch will typically also get prebuilds. For example, if you enable prebuilds for the default branch of the repository, branches based on the default branch will, in most cases, also get prebuilds. For more information, see "[Why do I get prebuilds for branches that do not have prebuilds enabled?](/codespaces/troubleshooting/troubleshooting-prebuilds#2-why-do-i-get-prebuilds-for-branches-that-do-not-have-prebuilds-enabled)"
+   **Note**: Any branches created from a prebuild-enabled base branch will typically also get prebuilds. For example, if you enable prebuilds for the default branch of the repository, branches based on the default branch will, in most cases, also get prebuilds.
 
    {% endnote %}
 

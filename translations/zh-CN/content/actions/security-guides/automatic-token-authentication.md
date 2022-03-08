@@ -39,11 +39,11 @@ shortTitle: Automatic token authentication
 {% endnote %}
 {% endif %}
 
-{% data reusables.github-actions.actions-do-not-trigger-workflows %}
+{% data reusables.actions.actions-do-not-trigger-workflows %}
 
 ### 示例 1：将 `GITHUB_TOKEN` 作为输入传递
 
-{% data reusables.github-actions.github_token-input-example %}
+{% data reusables.actions.github_token-input-example %}
 
 ### 例2：调用 REST API
 
@@ -121,7 +121,7 @@ jobs:
 
 您可以在工作流文件中使用 `permissions` 键来修改 `GITHUB_TOKEN` 对于整个工作流或单个作业的权限。 这允许您为工作流程或作业配置所需的最小权限。 使用 `permissions` 键时，所有未指定的权限都设置为没有访问权限，`metadata`范围除外，该范围总是获得读取访问。
 
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.forked-write-permission %}
 
 本文前面的两个工作流程示例显示了在工作流程级别和作业级别使用的 `permissions` 键。 在[例 1](#example-1-passing-the-github_token-as-an-input) 中，为整个工作流程指定了两个权限。 在[示例 2](#example-2-calling-the-rest-api) 中，为单个作业的单一范围授予写入访问权限。
 

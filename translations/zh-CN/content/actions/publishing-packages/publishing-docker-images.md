@@ -50,7 +50,7 @@ topics:
 
 ## 将映像发布到 Docker Hub
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 在下面的示例工作流程中，我们使用 Docker `login-action` 和 `build-push-action` 操作构建 Docker 映像，如果构建成功，则将构建映像推送到 Docker Hub。
 
@@ -108,7 +108,7 @@ jobs:
 
 ## 发布映像到 {% data variables.product.prodname_registry %}
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 在下面的示例工作流程中，我们使用 Docker `login-action`{% ifversion fpt or ghec %}、`metadata-action`{% endif %} 和 `build-push-action` 操作构建 Docker 映像，如果构建成功，则将构建的映像推送到 {% data variables.product.prodname_registry %}。
 

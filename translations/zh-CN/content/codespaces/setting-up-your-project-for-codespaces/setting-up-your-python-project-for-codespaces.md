@@ -1,6 +1,6 @@
 ---
-title: Setting up your Python project for Codespaces
-shortTitle: Setting up your Python project
+title: 为代码空间设置 Python 项目
+shortTitle: 设置 Python 项目
 intro: '通过创建自定义开发容器，开始在 {% data variables.product.prodname_codespaces %} 中使用 Python 项目。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -49,7 +49,7 @@ hidden: true
 
 默认代码空间容器附带最新的 Python 版本、包管理器（pip、Miniconda）和其他预装的常用工具。 但是，我们建议您设置一个自定义容器来定义项目所需的工具和脚本。 这将确保仓库中的所有 {% data variables.product.prodname_codespaces %} 用户都拥有完全可复制的环境。
 
-要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)."
+要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 有关开发容器的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 
 
 {% data reusables.codespaces.command-palette-container %}

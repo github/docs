@@ -272,7 +272,7 @@ Para obtener más información, consulta la sección "[``](/actions/reference/co
 
 **Opcional** Puedes utilizar el condicional `if` para prevenir que un paso se ejecute a menos de que se cumpla con una condición. Puedes usar cualquier contexto y expresión admitidos para crear un condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
+{% data reusables.actions.expression-syntax-if %} Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 **Ejemplo: Utilizando contextos**
 
@@ -441,7 +441,7 @@ runs:
 
 Los `args` se usan en el lugar de la instrucción `CMD` en un `Dockerfile`. Si usas `CMD` en tu `Dockerfile`, usa los lineamientos ordenados por preferencia:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 Si necesitas pasar variables de ambiente a una acción, asegúrate que ésta ejecute un shell de comandos para realizar la sustitución de variables. Por ejemplo, si se configura tu atributo `entrypoint` como `"sh -c"`, entoces `args` se ejecutará en un shell de comandos. Como alternativa, si tu `Dockerfile` utiliza un `ENTRYPOINT` para ejecutar el mismo comando (`"sh -c"`), entonces `args` se ejecutará en un shell de comandos.
 

@@ -10,7 +10,7 @@ redirect_from:
   - /actions/deployment/using-environments-for-deployment
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
@@ -69,13 +69,13 @@ Os segredos armazenados em um ambiente só estão disponíveis para trabalhos de
 
 ## Criar um ambiente
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
-{% data reusables.github-actions.new-environment %}
-{% data reusables.github-actions.name-environment %}
+{% data reusables.actions.sidebar-environment %}
+{% data reusables.actions.new-environment %}
+{% data reusables.actions.name-environment %}
 1. Opcionalmente, especifique as pessoas ou equipes que devem aprovar os trabalhos do fluxo de trabalho que usam esse ambiente.
    1. Selecione **Revisores necessários**.
    1. Insira até até 6 pessoas ou equipes. Apenas um dos revisores precisam aprovar o trabalho para que prossiga.
@@ -107,13 +107,13 @@ Quando um fluxo de trabalho faz referência a um ambiente, o ambiente aparecerá
 
 ## Excluir um ambiente
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
 
 A exclusão de um ambiente apagará todos os segredos e regras de proteção associados ao ambiente. Todos os trabalhos que estejam atualmente em espera devido às regras de proteção do ambiente eliminado falharão automaticamente.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
+{% data reusables.actions.sidebar-environment %}
 1. Ao lado do ambiente que você deseja excluir, clique em {% octicon "trash" aria-label="The trash icon" %}.
 2. Clique em **Eu entendi, exclua este ambiente**.
 

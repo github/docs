@@ -1,6 +1,6 @@
 ---
 title: About code scanning alerts
-intro: 'Learn about the different types of code scanning alerts and the information that helps you understand the problem each alert highlights.'
+intro: Learn about the different types of code scanning alerts and the information that helps you understand the problem each alert highlights.
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'

@@ -73,7 +73,7 @@ jobs:
 ```
 {% endraw %}
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
 ## Node.jsのバージョンの指定
 
@@ -204,7 +204,7 @@ steps:
 
 ### プライベートレジストリの利用と.npmrcファイルの作成の例
 
-{% data reusables.github-actions.setup-node-intro %}
+{% data reusables.actions.setup-node-intro %}
 
 プライベートレジストリに対して認証するには、npm 認証トークンをシークレットとして保存する必要があります。 たとえば、`NPM_TOKEN` というリポジトリシークレットを作成します。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
