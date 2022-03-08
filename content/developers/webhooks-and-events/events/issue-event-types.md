@@ -322,7 +322,7 @@ The pull request's `HEAD` branch was restored to the last known commit.
 
 ## head_ref_force_pushed
 
-In the responses returned by the Timeline events and Issue events APIs for PRs that have been force-pushed, events of type head_ref_force_pushed can be found.
+The pull request's HEAD branch was force pushed.
 
 ### Availability
 
