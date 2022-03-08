@@ -1,6 +1,6 @@
 ---
 title: Segredos criptografados
-intro: 'Segredos criptografados permitem que você armazene informações confidenciais na organização{% ifversion fpt or ghes > 3.0 or ghec %}, repositório ou ambientes de repositórios{% else %} ou repositório{% endif %}.'
+intro: 'Segredos criptografados permitem que você armazene informações confidenciais na organização{% ifversion fpt or ghes or ghec %}, repositório ou ambientes de repositórios{% else %} ou repositório{% endif %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -19,13 +19,11 @@ versions:
 
 ## Sobre os segredos encriptados
 
-Os segredos são variáveis de ambiente criptografadas que você cria em uma organização{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, repositório ou ambiente do repositório{% else %} ou repositório{% endif %}. Os segredos que você cria estão disponíveis para utilização nos fluxos de trabalho em {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} usa uma [caixa selada libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ajudar a garantir que os segredos sejam criptografados antes de chegarem a {% data variables.product.prodname_dotcom %} e permaneçam criptografados até que você os use em um fluxo de trabalho.
+Os segredos são variáveis de ambiente criptografadas que você cria em uma organização, repositório ou ambiente de repositório. Os segredos que você cria estão disponíveis para utilização nos fluxos de trabalho em {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} usa uma [caixa selada libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ajudar a garantir que os segredos sejam criptografados antes de chegarem a {% data variables.product.prodname_dotcom %} e permaneçam criptografados até que você os use em um fluxo de trabalho.
 
 {% data reusables.actions.secrets-org-level-overview %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Para segredos armazenados no nível do ambiente, você pode habilitar os revisores necessários para controlar o acesso aos segredos. Um trabalho de fluxo de trabalho não pode acessar segredos de ambiente até que a aprovação seja concedida por aprovadores necessários.
-{% endif %}
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -41,11 +39,11 @@ Para segredos armazenados no nível do ambiente, você pode habilitar os revisor
 
 {% data reusables.codespaces.secrets-naming %}
 
-  Por exemplo, {% ifversion fpt or ghes > 3.0 or ghae or ghec %}um segredo criado no nível de ambiente deve ter um nome exclusivo nesse ambiente, {% endif %}um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório, e um segredo criado no nível da organização deve ter um nome exclusivo nesse nível.
+  Por exemplo, um segredo criado no nível de ambiente deve ter um nome exclusivo nesse ambiente, um segredo criado no nível do repositório deve ter um nome exclusivo nesse repositório, e um segredo criado no nível da organização deve ter um nome exclusivo nesse nível.
 
-  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %} Da mesma forma, se uma organização, repositório e o ambiente tiverem um segredo com o mesmo nome, o segredo ambiental terá prioridade.{% endif %}
+  {% data reusables.codespaces.secret-precedence %} Da mesma forma, se uma organização, repositório e ambiente tiverem um mesmo nome, o segredo do nível de ambiente terá prioridade.
 
-Para ajudar a garantir que {% data variables.product.prodname_dotcom %} remova o seu segredo dos registros, evite usar dados estruturados como valores dos segredos. Por exemplo, evite criar segredos que contêm JSON ou Git blobs.
+Para ajudar a garantir que {% data variables.product.prodname_dotcom %} remova o seu segredo dos registros, evite usar dados estruturados como valores dos segredos. Por exemplo, evite criar segredos que contêm JSON ou blobs do Git.
 
 ### Acessar os seus segredos
 
@@ -55,9 +53,7 @@ Você pode usar e ler segredos encriptados em um arquivo de fluxo de trabalho se
 
 {% data reusables.actions.secrets-redaction-warning %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Os segredos da organização e do repositório são lidos quando uma execução de fluxo de trabalho é enfileirada e os segredos de ambiente são lidos quando um trabalho que faz referência ao ambiente é iniciado.
-{% endif %}
 
 Você também pode gerenciar segredos usando o API REST. Para obter mais informações, consulte "[Segredos](/rest/reference/actions#secrets)".
 
@@ -85,7 +81,7 @@ Ao gerar credenciais, recomendamos que você conceda as permissões mínimas pos
 1. Insira o valor para o seu segredo.
 1. Clique em **Add secret** (Adicionar segredo).
 
-Se o seu repositório {% ifversion fpt or ghes > 3.0 or ghae or ghec %}tiver segredos de ambiente ou {% endif %}puderem acessar os segredos da organização principal, esses segredos também serão listados nesta página.
+Se o seu repositório tiver segredos de ambiente ou puder acessar segredos da organização principal, esses segredos também serão listados nesta página.
 
 {% endwebui %}
 
@@ -108,8 +104,6 @@ gh secret set <em>secret-name</em> < secret.txt
 Para listar todos os segredos para o repositório, use o subcomando da lista `gh secret`.
 
 {% endcli %}
-
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
 ## Criar segredos criptografados para um ambiente
 
@@ -143,8 +137,6 @@ gh secret list --env <em>environment-name</em>
 ```
 
 {% endcli %}
-
-{% endif %}
 
 ## Criar segredos encriptados para uma organização
 
@@ -279,19 +271,19 @@ etapas:
 
 ## Limites para segredos
 
-Você pode armazenar até 1.000 segredos de organização{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, 100 segredos de repositório e 100 segredos de ambiente{% else %} e 100 segredos de repositório{% endif %}.
+Você pode armazenar até 1.000 segredos da organização, 100 segredos de repositório e 100 segredos de ambiente.
 
 Um fluxo de trabalho criado em um repositório pode acessar o seguinte número de segredos:
 
 * Todos os 100 segredos do repositório.
 * Se o repositório tiver acesso a mais de 100 segredos da organização, o fluxo de trabalho só poderá usar os primeiros 100 segredos da organização (ordem alfabética por nome de segredo).
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}* Todos os 100 segredos do ambiente.{% endif %}
+* Todos os 100 segredos de ambiente.
 
 Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você pode armazenar segredos criptografados no seu repositório e salvar a frase secreta de descodificação como um segredo no {% data variables.product.prodname_dotcom %}. Por exemplo, você pode usar `gpg` para criptografar suas credenciais localmente antes de colocar o arquivo no repositório do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a "[página do manual gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
 
 {% warning %}
 
-**Aviso**: cuide para seus segredos não serem impressos quando a ação é executada. Quando usar essa alternativa, o {% data variables.product.prodname_dotcom %} não eliminará segredos que estão impressos nos logs.
+**Aviso**: Tenha vuidado para seus segredos não serem impressos quando a ação é executada. Quando usar essa alternativa, o {% data variables.product.prodname_dotcom %} não eliminará segredos que estão impressos nos logs.
 
 {% endwarning %}
 
@@ -354,7 +346,6 @@ Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você 
           run: cat $HOME/secrets/my_secret.json
   ```
 {% endraw %}
-
 
 ## Armazenar Blobs binários de Base64 como segredos
 

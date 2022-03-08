@@ -73,7 +73,6 @@ Ao armazenar uma ação no seu próprio repositório, fica mais fácil para a co
 
 {% ifversion fpt or ghec %}Se você estiver criando uma ação que não planeja disponibilizar para outras pessoas, você {% else %} Você{% endif %} pode armazenar os arquivos de ação em qualquer local do seu repositório. Se você planeja combinar ação, fluxo de trabalho e aplicativo em um só repositório, recomendamos armazenar as ações no diretório `.github`. Por exemplo, `.github/actions/action-a` e `.github/actions/action-b`.
 
-
 ## Compatibilidade com {% data variables.product.prodname_ghe_server %}
 
 Para garantir que sua ação seja compatível com {% data variables.product.prodname_ghe_server %}, você deve certificar-se de que não usa nenhuma referência codificada para {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} as URLs da API. Você deve usar variáveis de ambiente para referir-se à API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}:
@@ -130,7 +129,7 @@ etapas:
 
 ### Usar um SHA do commit para o gerenciamento de versão
 
-Cada commit do Git recebe um valor SHA calculado, que é único e imutável. Os usuários da sua ação podem preferir depender de um valor SHA do commit, uma vez que esta abordagem pode ser mais confiável do que especificar uma tag, que pode ser excluída ou movida. No entanto, isso significa que os usuários não receberão mais atualizações realizadas na ação. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Você deve usar o valor completo do SHA de um commit e não um valor abreviado.{% else %}Usar o valor SHA completo de um commit em vez do valor abreviado pode ajudar a impedir que as pessoas usem um commit malicioso que usa a mesma abreviação.{% endif %}
+Cada commit do Git recebe um valor SHA calculado, que é único e imutável. Os usuários da sua ação podem preferir depender de um valor SHA do commit, uma vez que esta abordagem pode ser mais confiável do que especificar uma tag, que pode ser excluída ou movida. No entanto, isso significa que os usuários não receberão mais atualizações realizadas na ação. Você deve usar o valor SHA completo de um commit e não um valor abreviado.
 
 ```yaml
 etapas:

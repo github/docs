@@ -1,6 +1,6 @@
 ---
 title: GitHub Marketplace support
-intro: "When you encounter issues using an app in {% data variables.product.prodname_marketplace %}, you can contact the support team for the app."
+intro: 'When you encounter issues using an app in {% data variables.product.prodname_marketplace %}, you can contact the support team for the app.'
 shortTitle: Marketplace support
 versions:
   fpt: '*'

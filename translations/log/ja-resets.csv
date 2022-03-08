@@ -19,7 +19,6 @@ translations/ja-JP/content/actions/publishing-packages/about-packaging-with-gith
 translations/ja-JP/content/actions/quickstart.md,broken liquid tags
 translations/ja-JP/content/actions/security-guides/automatic-token-authentication.md,parsing error
 translations/ja-JP/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,broken liquid tags
-translations/ja-JP/content/actions/using-workflows/advanced-workflow-features.md,broken liquid tags
 translations/ja-JP/content/actions/using-workflows/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
@@ -101,8 +100,6 @@ translations/ja-JP/content/code-security/getting-started/securing-your-organizat
 translations/ja-JP/content/code-security/getting-started/securing-your-repository.md,broken liquid tags
 translations/ja-JP/content/code-security/index.md,broken liquid tags
 translations/ja-JP/content/code-security/secret-scanning/about-secret-scanning.md,broken liquid tags
-translations/ja-JP/content/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories.md,broken liquid tags
-translations/ja-JP/content/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/upgrading-from-dependabotcom-to-github-native-dependabot.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies.md,broken liquid tags
@@ -126,7 +123,6 @@ translations/ja-JP/content/desktop/installing-and-configuring-github-desktop/ove
 translations/ja-JP/content/desktop/installing-and-configuring-github-desktop/overview/getting-started-with-github-desktop.md,broken liquid tags
 translations/ja-JP/content/developers/apps/building-oauth-apps/authorizing-oauth-apps.md,broken liquid tags
 translations/ja-JP/content/developers/apps/getting-started-with-apps/about-apps.md,broken liquid tags
-translations/ja-JP/content/developers/apps/getting-started-with-apps/activating-optional-features-for-apps.md,broken liquid tags
 translations/ja-JP/content/developers/apps/getting-started-with-apps/migrating-oauth-apps-to-github-apps.md,broken liquid tags
 translations/ja-JP/content/developers/github-marketplace/github-marketplace-overview/about-github-marketplace.md,broken liquid tags
 translations/ja-JP/content/developers/github-marketplace/github-marketplace-overview/index.md,broken liquid tags
@@ -158,7 +154,7 @@ translations/ja-JP/content/organizations/keeping-your-organization-secure/managi
 translations/ja-JP/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
-translations/ja-JP/content/packages/learn-github-packages/deleting-a-package.md,broken liquid tags
+translations/ja-JP/content/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions.md,broken liquid tags
 translations/ja-JP/content/packages/learn-github-packages/installing-a-package.md,broken liquid tags
 translations/ja-JP/content/packages/learn-github-packages/introduction-to-github-packages.md,broken liquid tags
 translations/ja-JP/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,broken liquid tags
@@ -203,6 +199,7 @@ translations/ja-JP/data/release-notes/enterprise-server/3-1/14.yml,broken liquid
 translations/ja-JP/data/release-notes/enterprise-server/3-1/15.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/16.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/17.yml,broken liquid tags
+translations/ja-JP/data/release-notes/enterprise-server/3-1/18.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/2.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/3.yml,broken liquid tags
 translations/ja-JP/data/release-notes/enterprise-server/3-1/4.yml,broken liquid tags
@@ -220,7 +217,9 @@ translations/ja-JP/data/reusables/actions/enterprise-common-prereqs.md,broken li
 translations/ja-JP/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-no-internet-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/enterprise-postinstall-nextsteps.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/self-hosted-runner-architecture.md,broken liquid tags
 translations/ja-JP/data/reusables/actions/self-hosted-runner-auto-removal.md,broken liquid tags
+translations/ja-JP/data/reusables/actions/self-hosted-runners-prerequisites.md,broken liquid tags
 translations/ja-JP/data/reusables/advanced-security/about-committer-numbers-ghec-ghes.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning-actions.md,broken liquid tags
 translations/ja-JP/data/reusables/code-scanning/enterprise-enable-code-scanning.md,broken liquid tags

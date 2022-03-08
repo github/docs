@@ -111,4 +111,4 @@ Los clientes comerciales pueden emitir una solicitud de soporte en el {% data va
 
 ## Leer más
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Acerca del Soporte de GitHub](/support/learning-about-github-support/about-github-support)"

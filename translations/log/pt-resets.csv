@@ -5,7 +5,6 @@ translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-r
 translations/pt-BR/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,broken liquid tags
 translations/pt-BR/content/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow.md,Listed in localization-support#489
-translations/pt-BR/content/admin/configuration/configuring-github-connect/managing-github-connect.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,broken liquid tags
@@ -14,7 +13,7 @@ translations/pt-BR/content/admin/user-management/managing-repositories-in-your-e
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users.md,broken liquid tags
 translations/pt-BR/content/authentication/troubleshooting-ssh/error-permission-denied-publickey.md,Listed in localization-support#489
-translations/pt-BR/content/billing/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client.md,broken liquid tags
+translations/pt-BR/content/billing/setting-up-paid-organizations-for-procurement-companies/creating-and-paying-for-an-organization-on-behalf-of-a-client.md,rendering error
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/index.md,broken liquid tags

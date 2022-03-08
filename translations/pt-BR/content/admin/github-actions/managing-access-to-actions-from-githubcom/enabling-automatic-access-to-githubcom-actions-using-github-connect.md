@@ -1,7 +1,7 @@
 ---
 title: Habilitar o acesso automático às ações do GitHub.com usando o GitHub Connect
 intro: 'Para permitir que {% data variables.product.prodname_actions %} na sua empresa use ações a partir de {% data variables.product.prodname_dotcom_the_website %}, você pode conectar a sua instância corporativa a {% data variables.product.prodname_ghe_cloud %}.'
-permissions: 'Site administrators for {% data variables.product.product_name %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
+permissions: 'Enterprise owners can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
   - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
@@ -36,15 +36,8 @@ Antes de permitir o acesso a todas as ações de {% data variables.product.prodn
 {% data reusables.actions.enterprise-github-connect-warning %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion ghes < 3.1 %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{%- endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-{%- ifversion ghes > 3.0 or ghae %}
 1. Em "Os usuários podem usar as ações do GitHub.com em execuções do fluxo de trabalho", use o menu suspenso e selecione **Habilitado**. ![Menu suspenso para ações do GitHub.com em execuções do fluxos de trabalho](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
-{%- else %}
-1. Em "Servidor pode usar ações do GitHub.com em execuções de fluxos de trabalho", use o menu suspenso e selecione **Habilitado**. ![Menu suspenso para ações do GitHub.com em execuções do fluxos de trabalho](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down.png)
-{%- endif %}
 1. {% data reusables.actions.enterprise-limit-actions-use %}
 
 {% ifversion ghes > 3.2 or ghae-issue-4815 %}

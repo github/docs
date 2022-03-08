@@ -35,7 +35,6 @@ Na página principal do seu repositório, clique em **{% octicon "gear" aria-lab
 - Para alterar quem pode visualizar seu repositório, clique em **Alterar a visibilidade**. Para obter mais informações, consulte "[Configuração da visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)".{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
 - Para alterar quem pode acessar o seu repositório e ajustar as permissões, clique em **Gerenciar acesso**. Para obter mais informações, consulte[Gerenciar equipes e pessoas com acesso ao seu repositório](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)".{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## Definir uma política de segurança
 
 1. Na página principal do repositório, clique em **{% octicon "shield" aria-label="The shield symbol" %} Segurança**.
@@ -44,8 +43,6 @@ Na página principal do seu repositório, clique em **{% octicon "gear" aria-lab
 4. Adicione informações sobre versões compatíveis do seu projeto e como relatar vulnerabilidades.
 
 Para obter mais informações, consulte "[Adicionar uma política de segurança ao seu repositório](/code-security/getting-started/adding-a-security-policy-to-your-repository)".
-
-{% endif %}
 
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Gerenciar o gráfico de dependências

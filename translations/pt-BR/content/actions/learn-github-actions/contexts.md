@@ -198,7 +198,7 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | Um número exclusivo para cada tentativa de execução de um fluxo de trabalho específico em um repositório. Este número começa em 1 para a primeira tentativa de execução do fluxo de trabalho e aumenta a cada nova execução. |
 {%- endif %}
-| `github.server_url` | `string` | The URL of the GitHub server. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)". | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
+| `github.server_url` | `string` | A URL do servidor do GitHub. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)". | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
 
 ### Exemplo de conteúdo do contexto `github`
 
@@ -501,7 +501,7 @@ jobs:
           ./build.sh --log-path ${{ runner.temp }}/build_logs
       - name: Upload logs on fail
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Build failure logs
           path: ${{ runner.temp }}/build_logs
@@ -583,7 +583,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm test > test-job-${{ strategy.job-index }}.txt
       - name: Upload logs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Build log for job ${{ strategy.job-index }}
           path: test-job-${{ strategy.job-index }}.txt

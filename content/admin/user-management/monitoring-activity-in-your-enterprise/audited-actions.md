@@ -58,7 +58,7 @@ Action                            | Description
 ## Enterprise configuration settings
 
 Action                                          | Description
------------------------------------------------ | -------------------------------------------{% ifversion ghes > 3.0 or ghae %}
+----------------------------------------------- | -------------------------------------------{% ifversion ghes or ghae %}
 `business.advanced_security_policy_update` | A site admin creates, updates, or removes a policy for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."{% endif %}
 `business.clear_members_can_create_repos` | A site admin clears a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% ifversion ghes > 3.1 %}
 `business.referrer_override_enable` | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."
