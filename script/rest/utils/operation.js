@@ -79,7 +79,6 @@ export default class Operation {
 
     await Promise.all([
       this.renderDescription(),
-      this.renderCodeSamples(),
       this.renderResponses(),
       this.renderParameterDescriptions(),
       this.renderBodyParameterDescriptions(),
@@ -98,19 +97,6 @@ export default class Operation {
   async renderDescription() {
     this.descriptionHTML = await renderContent(this.description)
     return this
-  }
-
-  async renderCodeSamples() {
-    return Promise.all(
-      this['x-codeSamples'].map(async (sample) => {
-        const markdown = createCodeBlock(sample.source, sample.lang.toLowerCase())
-        sample.sourceHTML = await renderContent(markdown)
-
-        // Removing since we don't need this in the decorated files
-        delete sample.source
-        return sample
-      })
-    )
   }
 
   async renderResponses() {
@@ -187,9 +173,7 @@ export default class Operation {
               ? exampleSummary || responseDescription
               : exampleSummary || sentenceCase(exampleKey)
 
-          const payloadMarkdown = createCodeBlock(exampleValue, 'json')
-          cleanResponse.payload = await renderContent(payloadMarkdown)
-
+          cleanResponse.payload = JSON.stringify(exampleValue, null, 2)
           cleanResponses.push(cleanResponse)
         }
         return cleanResponses
@@ -410,13 +394,4 @@ async function getChildParamsGroup(param) {
     id,
     params: childParams,
   }
-}
-
-function createCodeBlock(input, language) {
-  // stringify JSON if needed
-  if (language === 'json' && typeof input !== 'string') {
-    input = JSON.stringify(input, null, 2)
-  }
-
-  return ['```' + language, input, '```'].join('\n')
 }

@@ -16,9 +16,7 @@ versions:
 Estas bitácoras extra se habilitan configurando los secretos en el repositorio que contiene el flujo de trabajo, así que aplicarán los mismos requisitos de los permisos:
 
 - {% data reusables.actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - {% data reusables.actions.permissions-statement-secrets-environment %}
-{% endif %}
 - {% data reusables.actions.permissions-statement-secrets-organization %}
 - {% data reusables.actions.permissions-statement-secrets-api %}
 

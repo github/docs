@@ -1,6 +1,6 @@
 ---
 title: Adding outside collaborators to repositories in your organization
-intro: 'You can allow people who aren''t members of your organization to access repositories that your organization owns.'
+intro: You can allow people who aren't members of your organization to access repositories that your organization owns.
 redirect_from:
   - /articles/adding-outside-collaborators-to-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization

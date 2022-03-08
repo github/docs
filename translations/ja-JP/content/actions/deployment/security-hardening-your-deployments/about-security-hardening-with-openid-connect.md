@@ -164,7 +164,7 @@ You can configure a subject that filters for a specific [environment](/actions/d
 
 #### Filtering for `pull_request` events
 
-The subject claim includes the `pull_request` string when the workflow is triggered by a pull request event.
+The subject claim includes the `pull_request` string when the workflow is triggered by a pull request event, but only if the job doesn't reference an environment.
 
 You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 

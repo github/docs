@@ -25,8 +25,6 @@ Para obtener más información, consulta "[Entornos virtuales para ejecutores al
 ### Choosing self-hosted runners
 {% endif %}
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
-
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
 #### Example: Using labels for runner selection

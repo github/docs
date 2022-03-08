@@ -16,9 +16,7 @@ versions:
 These extra logs are enabled by setting secrets in the repository containing the workflow, so the same permissions requirements will apply:
 
 - {% data reusables.actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - {% data reusables.actions.permissions-statement-secrets-environment %}
-{% endif %}
 - {% data reusables.actions.permissions-statement-secrets-organization %}
 - {% data reusables.actions.permissions-statement-secrets-api %}
 

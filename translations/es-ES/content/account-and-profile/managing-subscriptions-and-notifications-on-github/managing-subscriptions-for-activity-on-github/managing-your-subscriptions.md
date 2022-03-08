@@ -65,15 +65,11 @@ Cuando dejas de observar un repositorio, de desuscribes de notificaciones futura
   ![Opciones del menú desplegable de administrar notificaciones](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. En la página de repositorios que sigues, después de que hayas evaluado aquellos que estás siguiendo, decide si quieres:
-   {%- ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
    - Dejar de seguir un repositorio
    - Ignorar todas las notificaciones de un repositorio
    - Si se habilitan, personaliza los tipos de evento para los cuales recibes notificaciones ({% data reusables.notifications-v2.custom-notification-types %})
-   {%- else %}
-   - Dejar de seguir un repositorio
-   - Observar únicamente los lanzamientos de un repositorio
-   - Ignorar todas las notificaciones de un repositorio
-   {%- endif %}
+
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5819 %}
 1. Opcionalmente, para desuscribirte de todos los repositorios que le pertenecen a algún usuario u organización, selecciona el menú desplegable de **Dejar de observar todos** y haz clic en la organización que tiene los repositorios de los cuales quieres desuscribirte. El botón para dejar de observar todos los repositorios solo se encuentra disponible si estás observando toda la actividad o notificaciones personalizadas en más de 10 repositorios.
 
