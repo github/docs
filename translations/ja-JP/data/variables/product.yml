@@ -125,8 +125,13 @@ prodname_security: 'GitHub Security Lab'
 prodname_security_link: 'https://securitylab.github.com/'
 prodname_security_advisories: 'GitHub Security Advisories'
 #Security features and code scanning platform
-prodname_secret_scanning: 'secret scanning'
+prodname_secret_scanning: 'secret scanning' #Overall feature name and name for GHES and GHAE
 prodname_secret_scanning_caps: 'Secret scanning'
+prodname_secret_scanning_partner: 'secret scanning for partner patterns' #GitHub.com feature for public repos only
+prodname_secret_scanning_partner_caps: 'Secret scanning for partner patterns'
+prodname_secret_scanning_GHAS: '>- {% ifversion fpt or ghec %}secret scanning for advanced security{% else %}secret scanning{% endif %}' #Includes GitHub.com name for GHAS licenced feature
+prodname_secret_scanning_GHAS_caps: >-
+  {% ifversion fpt or ghec %}Secret scanning for advanced security{% else %}Secret scanning{% endif %}
 prodname_code_scanning: 'code scanning'
 prodname_code_scanning_capc: 'Code scanning'
 prodname_codeql_runner: 'CodeQLランナー'
@@ -143,6 +148,7 @@ prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabotアラート'
 prodname_dependabot_security_updates: 'Dependabotセキュリティアップデート'
 prodname_dependabot_version_updates: 'Dependabotバージョンアップデート'
+prodname_dependabot_updates: 'Dependabot updates'
 #GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'

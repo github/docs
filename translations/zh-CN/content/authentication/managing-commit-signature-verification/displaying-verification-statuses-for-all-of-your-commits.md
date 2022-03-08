@@ -33,8 +33,8 @@ redirect_from:
 
 ## 启用警戒模式
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. 在 SSH 设置页面的“Vigilant mode（警戒模式）”下，选择 **Flag unsigned commits as unverified（将未签名的提交标记为未验证）**。
 
    ![将未签名的提交标记为未验证的复选框](/assets/images/help/commits/vigilant-mode-checkbox.png)

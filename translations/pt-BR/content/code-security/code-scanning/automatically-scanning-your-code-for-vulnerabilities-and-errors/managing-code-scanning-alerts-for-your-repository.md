@@ -65,7 +65,7 @@ Por exemplo, você pode ver quando o último scanner foi executada, o número de
 Você pode filtrar os alertas exibidos no modo de exibição de alertas de {% data variables.product.prodname_code_scanning %}. Isso é útil caso haja muitos alertas pois você pode se concentrar em um determinado tipo de alerta. Existem alguns filtros predefinidos e uma série de palavras-chave que você pode usar para refinar a lista de alertas exibidos.
 
 - Para usar um filtro predefinido, clique **Filtros** ou em um filtro exibido no cabeçalho da lista de alertas e escolha um filtro na lista suspensa.
-  {% ifversion fpt or ghes > 3.0 or ghec %}![Filtros predefinidos](/assets/images/help/repository/code-scanning-predefined-filters.png)
+  {% ifversion fpt or ghes or ghec %}![Filtros predefinidos](/assets/images/help/repository/code-scanning-predefined-filters.png)
   {% else %}![Predefined filters](/assets/images/enterprise/3.0/code-scanning-predefined-filters.png){% endif %}
 - Para usar uma palavra-chave, digite diretamente na caixa de texto dos filtros ou:
   1. Clique na caixa de filtros para exibir uma lista de todas as palavras-chave de filtro disponíveis.

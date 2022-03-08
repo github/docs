@@ -314,7 +314,9 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 {% warning %}
 
-**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default. 正しいエンコーディングを使用してファイルを書き込むようにしてください。 たとえば、パスを設定するときに UTF-8 エンコーディングを設定する必要があります。
+**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default.
+
+When using `shell: powershell`, you must specify UTF-8 encoding. 例:
 
 ```yaml
 jobs:
@@ -325,22 +327,7 @@ jobs:
         run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-Or switch to PowerShell Core, which defaults to UTF-8:
-
-```yaml
-jobs:
-  modern-pwsh-example:
-    uses: windows-2019
-    steps:
-      - shell: pwsh
-        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
-```
-
-More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow answer](https://stackoverflow.com/a/40098904/162694):
-
-> ### Optional reading: The cross-platform perspective: PowerShell _Core_:
-> 
-> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - ***defaults to ***BOM-less UTF-8******, in line with Unix-like platforms.
+Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UTF-8.
 
 {% endwarning %}
 

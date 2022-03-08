@@ -55,7 +55,7 @@ shortTitle: 第三方应用程序
 
 {% tip %}
 
-**提示：**{% data reusables.user_settings.review_oauth_tokens_tip %}
+**提示：** {% data reusables.user-settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 

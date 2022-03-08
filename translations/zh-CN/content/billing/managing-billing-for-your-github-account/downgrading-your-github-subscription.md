@@ -37,8 +37,8 @@ shortTitle: 降级订阅
 
 如果您将您的用户帐户从 {% data variables.product.prodname_pro %} 降级为 {% data variables.product.prodname_free_user %}，该帐户将失去对私有仓库中高级代码审查工具的访问权限。 {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. 在“Current plan（当前计划）”下，使用 **Edit（编辑）**下拉菜单并单击 **Downgrade to Free（降级到免费 ）**。 ![降级到免费按钮](/assets/images/help/billing/downgrade-to-free.png)
 5. 阅读有关信息，了解您的用户帐户在下一个结算日期将不再拥有访问权限的功能，然后单击 **I understand. Continue with downgrade（我明白。继续降级）**。 ![继续降级按钮](/assets/images/help/billing/continue-with-downgrade.png)
 

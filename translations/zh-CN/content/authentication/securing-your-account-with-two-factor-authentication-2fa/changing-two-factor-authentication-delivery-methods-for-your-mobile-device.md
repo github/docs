@@ -20,8 +20,8 @@ shortTitle: 更改 2FA 递送方式
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. 在“SMS delivery（SMS 递送）旁边，单击 **Edit（编辑）**。 ![编辑 SMS 递送选项](/assets/images/help/2fa/edit-sms-delivery-option.png)
 4. 在“Delivery options（递送选项）”下，单击 **Reconfigure two-factor authentication（重新配置双重身份验证）**。 ![切换 2FA 递送选项](/assets/images/help/2fa/2fa-switching-methods.png)
 5. 决定是使用 TOTP 移动应用程序还是使用短信设置双重身份验证。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。

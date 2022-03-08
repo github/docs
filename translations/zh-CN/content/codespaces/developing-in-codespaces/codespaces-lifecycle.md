@@ -1,5 +1,5 @@
 ---
-title: Codespaces lifecycle
+title: 代码空间生命周期
 intro: 'You can develop in a {% data variables.product.prodname_codespaces %} environment and maintain your data throughout the entire codespace lifecycle.'
 versions:
   fpt: '*'
@@ -22,6 +22,8 @@ When you want to work on a project, you can choose to create a new codespace or 
 If you choose to create a new codespace each time you work on a project, you should regularly push your changes so that any new commits are on {% data variables.product.prodname_dotcom %}. You can have up to 10 codespaces at a time. Once you have 10 codespaces, you must delete a codespace before you can create a new one. 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace)”。
 
 If you choose to use a long-running codespace for your project, you should pull from your repository's default branch each time you start working in your codespace so that your environment has the latest commits. This workflow is very similar to if you were working with a project on your local machine.
+
+{% data reusables.codespaces.prebuilds-crossreference %}
 
 ## Saving changes in a codespace
 

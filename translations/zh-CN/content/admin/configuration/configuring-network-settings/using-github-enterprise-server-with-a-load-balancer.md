@@ -17,7 +17,7 @@ topics:
 shortTitle: 使用负载平衡器
 ---
 
-## About load balancers
+## 关于负载均衡器
 
 {% data reusables.enterprise_clustering.load_balancer_intro %}
 

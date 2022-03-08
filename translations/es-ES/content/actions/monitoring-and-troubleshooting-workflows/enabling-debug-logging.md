@@ -15,12 +15,10 @@ versions:
 
 Estas bitácoras extra se habilitan configurando los secretos en el repositorio que contiene el flujo de trabajo, así que aplicarán los mismos requisitos de los permisos:
 
-- {% data reusables.github-actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- {% data reusables.github-actions.permissions-statement-secrets-environment %}
-{% endif %}
-- {% data reusables.github-actions.permissions-statement-secrets-organization %}
-- {% data reusables.github-actions.permissions-statement-secrets-api %}
+- {% data reusables.actions.permissions-statement-secrets-repository %}
+- {% data reusables.actions.permissions-statement-secrets-environment %}
+- {% data reusables.actions.permissions-statement-secrets-organization %}
+- {% data reusables.actions.permissions-statement-secrets-api %}
 
 Para obtener más información sobre cómo establecer secretos, consulta la sección "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 

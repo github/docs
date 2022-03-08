@@ -7,7 +7,7 @@ sections:
     - Los ganchos de pre-recepción fallaron debido a un `PATH` sin definir.
     - 'El ejecutar `ghe-repl-setup` devolvió un error de tipo: `cannot create directory /data/user/elasticsearch: File exists` si la instancia se había configurado anteriormente como una réplica.'
     - En ambientes de clúster grandes, el backend de autenticación podría no estar disponible en un subconjunto de nodos de frontend.
-    - Some critical services may not have been available on backend nodes in GHES Cluster.
+    - Algunos servicios críticos pudieron no haber estado disponibles en los nodos del backend en el Clúster de GHES.
   changes:
     - Una capa externa adicional de la compresión de `gzip`, al crear un paquete de soporte de clúster con `ghe-cluster-suport-bundle`, ahora se encuentra apagada predeterminadamente. Esta compresión externa puede aplicarse opcionalmente con la opción de línea de comandos `ghe-cluster-suport-bundle -c`.
     - Agregamos texto extra a la consola de administración para recordarles a los usuarios sobre la recolección de datos de las apps móviles para propósitos de mejora de la experiencia.

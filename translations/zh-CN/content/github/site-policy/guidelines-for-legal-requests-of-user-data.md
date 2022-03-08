@@ -69,7 +69,7 @@ topics:
   - 安全访问日志
   - 与私有仓库交互的数据
 
-  要了解 GitHub 收集的私人帐户信息类型， 可以访问您的 {% data reusables.user_settings.personal_dashboard %} 并浏览左侧菜单栏中的区域。
+  要了解 GitHub 收集的私人帐户信息类型， 可以访问您的 {% data reusables.user-settings.personal_dashboard %} 并浏览左侧菜单栏中的区域。
 
 - <a name="organization-account-data"></a>
 **组织帐户数据** — 有关组织及其管理用户和仓库的信息发布于 GitHub。 组织配置文件可在 `https://github.com/organization` 这样的网址上找到。 公共组织配置文件还可以包括所有者可能已经选择公开分享的其他信息。 所有组织公共配置文件显示：

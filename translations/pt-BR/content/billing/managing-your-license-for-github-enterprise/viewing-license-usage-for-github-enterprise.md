@@ -30,7 +30,7 @@ Você pode visualizar o uso da licença para {% data variables.product.prodname_
 
 ## Visualizando uso da licença em {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}
 
-You can view the license usage for your enterprise and download a file with license details.
+Você pode visualizar o uso da licença para a sua empresa e fazer o download de um arquivo com detalhes da licença.
 
 {% data reusables.billing.license-statuses %}
 
@@ -47,7 +47,7 @@ You can view the license usage for your enterprise and download a file with lice
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Revise a sua licença atual de {% data variables.product.prodname_enterprise %}, bem como as licenças de usuário usadas e disponíveis.{% ifversion ghes > 3.0 %}
+1. Revise a sua licença atual de {% data variables.product.prodname_enterprise %}, bem como as licenças de usuário usadas e disponíveis.{% ifversion ghes %}
     - Se sua licença incluir {% data variables.product.prodname_GH_advanced_security %}, você poderá revisar o uso total de estações, bem como o detalhamento por organização dos committers. Para obter mais informações, consulte "[Gerenciar {% data variables.product.prodname_GH_advanced_security %} para a sua empresa](/admin/advanced-security)".{% endif %}
 
 {% endif %}

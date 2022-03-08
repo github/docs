@@ -33,14 +33,14 @@ shortTitle: 恢复协作者
 
 **提示**：
 
- - 只有组织所有者才能恢复外部协作者对组织的访问权限。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+ - 只有组织所有者才能恢复外部协作者对组织的访问权限。 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
  - 恢复 {% data variables.product.product_location %} 上的成员流量可以使用术语“成员”来描述恢复外部协作者，但如果您恢复此人员并保留其以前的权限，则他们将只拥有以前的[外部协作者权限](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)。{% ifversion fpt or ghec %}
  - 如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可邀请新成员加入组织或恢复前组织成员。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。{% endif %}
 
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}
@@ -76,4 +76,4 @@ shortTitle: 恢复协作者
 
 ## 延伸阅读
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

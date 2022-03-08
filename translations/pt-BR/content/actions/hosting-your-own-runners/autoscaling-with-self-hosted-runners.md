@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
+  ghae: issue-4462
 type: overview
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -32,7 +32,7 @@ Cada solução tem certas especificações que podem ser importantes para consid
 | Tempo de execução                          | Kubernetes                                                                                    | VMs do Linux e do Windows                                                            |
 | Nuvens compatíveis                         | Azure, Amazon Web Services, Google Cloud Platform, nos locais                                 | Amazon Web Services                                                                  |
 | Onde os executores podem ser dimensionados | Níveis de empresa, organização e repositório. Por etiqueta do executor e grupo de executores. | Níveis de organização e repositório. Por etiqueta do executor e grupo de executores. |
-| Como os executores podem ser dimensionados | Webhook events, Scheduled, Pull-based                                                         | Webhook events, Scheduled (org-level runners only)                                   |
+| Como os executores podem ser dimensionados | Eventos de webhook, Programados, Baseados em extrações                                        | Eventos de Webhook, Programados (únicamente executores a nível de organização)       |
 
 ## Usaar executores efêmeros para dimensionamento automático
 
@@ -96,6 +96,6 @@ Para efetuar a autenticação usando um aplicativo de {% data variables.product.
 - Para repositórios, atribua a permissão de `administração`.
 - Para organizações, atribua a permissão `organization_self_hosted_runners`.
 
-Você pode registrar e excluir executores auto-hospedados da empresa usando [a API](/rest/reference/enterprise-admin#github-actions). Para efetuar a autenticação na API, sua implementação de dimensionamento automático pode usar um token de acesso.
+Você pode registrar e excluir executores auto-hospedados da empresa usando [a API](/rest/reference/actions#self-hosted-runners). Para efetuar a autenticação na API, sua implementação de dimensionamento automático pode usar um token de acesso.
 
 Seu token de acesso irá exigir o escopo `manage_runners:enterprise`.

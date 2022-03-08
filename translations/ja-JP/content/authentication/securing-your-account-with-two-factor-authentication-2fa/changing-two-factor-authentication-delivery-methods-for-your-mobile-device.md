@@ -20,8 +20,8 @@ shortTitle: Change 2FA delivery method
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. [SMS delivery] の隣にある [**Edit**] をクリックします。 ![SMS 配信オプションの編集](/assets/images/help/2fa/edit-sms-delivery-option.png)
 4. [Delivery options] の下にある [**Reconfigure two-factor authentication**] をクリックします。 ![2FA 配信オプションの切り替え](/assets/images/help/2fa/2fa-switching-methods.png)
 5. 2 要素認証を TOTP モバイルアプリケーションで設定するかテキストメッセージで設定するかを決めます。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。

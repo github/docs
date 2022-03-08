@@ -1,6 +1,7 @@
 import patterns from '../../lib/patterns.js'
 import { URL } from 'url'
-import languages, { pathLanguagePrefixed } from '../../lib/languages.js'
+import { pathLanguagePrefixed } from '../../lib/languages.js'
+import getRedirect from '../../lib/get-redirect.js'
 import { cacheControlFactory } from '../cache-control.js'
 
 const cacheControl = cacheControlFactory(60 * 60 * 24) // one day
@@ -12,16 +13,7 @@ export default function handleRedirects(req, res, next) {
 
   // blanket redirects for languageless homepage
   if (req.path === '/') {
-    let language = 'en'
-
-    // if set, redirect to user's preferred language translation or else English
-    if (
-      req.context.userLanguage &&
-      languages[req.context.userLanguage] &&
-      !languages[req.context.userLanguage].wip
-    ) {
-      language = req.context.userLanguage
-    }
+    const language = getLanguage(req)
 
     // Undo the cookie setting that CSRF sets.
     res.removeHeader('set-cookie')
@@ -52,18 +44,37 @@ export default function handleRedirects(req, res, next) {
   // remove query params temporarily so we can find the path in the redirects object
   let redirectWithoutQueryParams = removeQueryParams(redirect)
 
-  // look for a redirect in the global object
-  // for example, given an incoming path /v3/activity/event_types
-  // find /en/developers/webhooks-and-events/github-event-types
-  redirectWithoutQueryParams =
-    req.context.redirects[redirectWithoutQueryParams] || redirectWithoutQueryParams
+  const redirectTo = getRedirect(redirectWithoutQueryParams, req.context)
 
-  // add query params back in
+  redirectWithoutQueryParams = redirectTo || redirectWithoutQueryParams
+
   redirect = queryParams ? redirectWithoutQueryParams + queryParams : redirectWithoutQueryParams
+
+  if (!redirectTo && !pathLanguagePrefixed(req.path)) {
+    // No redirect necessary, but perhaps it's to a known page, and the URL
+    // currently doesn't have a language prefix, then we need to add
+    // the language prefix.
+    // We can't always force on the language prefix because some URLs
+    // aren't pages. They're other middleware endpoints such as
+    // `/healthz` which should never redirect.
+    // But for example, a `/authentication/connecting-to-github-with-ssh`
+    // needs to become `/en/authentication/connecting-to-github-with-ssh`
+    const possibleRedirectTo = `/en${req.path}`
+    if (possibleRedirectTo in req.context.pages) {
+      const language = getLanguage(req)
+
+      // Note, it's important to use `req.url` here and not `req.path`
+      // because the full URL can contain query strings.
+      // E.g. `/foo?json=breadcrumbs`
+      redirect = `/${language}${req.url}`
+    }
+  }
 
   // do not redirect a path to itself
   // req._parsedUrl.path includes query params whereas req.path does not
-  if (redirect === req._parsedUrl.path) return next()
+  if (redirect === req._parsedUrl.path) {
+    return next()
+  }
 
   // do not redirect if the redirected page can't be found
   if (!req.context.pages[removeQueryParams(redirect)]) {
@@ -81,10 +92,19 @@ export default function handleRedirects(req, res, next) {
   // do the redirect if the from-URL already had a language in it
   if (pathLanguagePrefixed(req.path)) {
     cacheControl(res)
+  } else {
+    noCacheControl(res)
   }
 
   const permanent = usePermanentRedirect(req)
   return res.redirect(permanent ? 301 : 302, redirect)
+}
+
+function getLanguage(req, default_ = 'en') {
+  // req.context.userLanguage, if it truthy, is always a valid supported
+  // language. It's whatever was in the user's request but filtered
+  // based on non-WIP languages in lib/languages.js
+  return req.context.userLanguage || default_
 }
 
 function usePermanentRedirect(req) {

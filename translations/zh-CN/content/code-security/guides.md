@@ -27,7 +27,7 @@ includeGuides:
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning
-  - /code-security/secret-scanning/secret-scanning-partners
+  - /code-security/secret-scanning/secret-scanning-patterns
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts
@@ -47,16 +47,16 @@ includeGuides:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
-  - /code-security/security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
-  - /code-security/security-advisories/about-github-security-advisories
-  - /code-security/security-advisories/adding-a-collaborator-to-a-security-advisory
-  - /code-security/security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability
-  - /code-security/security-advisories/creating-a-security-advisory
-  - /code-security/security-advisories/editing-a-security-advisory
-  - /code-security/security-advisories/permission-levels-for-security-advisories
-  - /code-security/security-advisories/publishing-a-security-advisory
-  - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
-  - /code-security/security-advisories/withdrawing-a-security-advisory
+  - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
+  - /code-security/repository-security-advisories/about-github-security-advisories-for-repositories
+  - /code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+  - /code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+  - /code-security/repository-security-advisories/creating-a-repository-security-advisory
+  - /code-security/repository-security-advisories/editing-a-repository-security-advisory
+  - /code-security/repository-security-advisories/permission-levels-for-repository-security-advisories
+  - /code-security/repository-security-advisories/publishing-a-repository-security-advisory
+  - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
+  - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
   - /code-security/security-overview/about-the-security-overview
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
@@ -72,6 +72,7 @@ includeGuides:
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-managing-vulnerable-dependencies
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors

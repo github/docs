@@ -1,5 +1,5 @@
 ---
-title: Common validation errors when creating issue forms
+title: 创建议题表单时的常见验证错误
 intro: 'You may see some of these common validation errors when creating, saving, or viewing issue forms.'
 versions:
   fpt: '*'

@@ -71,7 +71,7 @@ shortTitle: 增加存储容量
   $ sudo parted /dev/xvdg mkpart primary ext4 0% 50%
   $ sudo parted /dev/xvdg mkpart primary ext4 50% 100%
   ```
-1. To stop replication, run the `ghe-repl-stop` command.
+1. 若要停止复制，请运行 `ghe-repl-stop` 命令。
 
    ```shell
    $ ghe-repl-stop
@@ -90,4 +90,4 @@ shortTitle: 增加存储容量
 1. 启动设备。
 1. 确保系统服务正常运行，然后释放维护模式。 更多信息请参阅“[启用和排定维护模式](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 
-If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.
+如果您的设备配置为高可用性或异地复制，请记住在所有节点上的存储升级后，使用 `ghe-repl-start` 在每个副本节点上开始复制。

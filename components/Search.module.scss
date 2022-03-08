@@ -55,3 +55,17 @@
 .versionSearchContainer {
   overflow: hidden;
 }
+
+// The value in the /cb-XXXXX prefix on the URL isn't important. It just
+// needs to be unique so the asset can be cached in the CDN beyond
+// every prod deployment.
+// Just remember to change it if you change the image.
+.searchIconBackground24 {
+  background: var(--color-canvas-default)
+    url("/assets/cb-303/images/octicons/search-24.svg") no-repeat 12px;
+}
+
+.searchIconBackground16 {
+  background: var(--color-canvas-default)
+    url("/assets/cb-262/images/octicons/search-16.svg") no-repeat 6px;
+}

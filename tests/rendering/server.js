@@ -6,7 +6,7 @@ import { loadPages } from '../../lib/page-data.js'
 import CspParse from 'csp-parse'
 import { productMap } from '../../lib/all-products.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
-import { jest } from '@jest/globals'
+import { describe, jest } from '@jest/globals'
 import { languageKeys } from '../../lib/languages.js'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
@@ -144,7 +144,7 @@ describe('server', () => {
   })
 
   test('renders a 404 page', async () => {
-    const $ = await getDOM('/not-a-real-page')
+    const $ = await getDOM('/not-a-real-page', { allow404: true })
     expect($('h1').text()).toBe('Ooops!')
     expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
     expect(
@@ -162,17 +162,17 @@ describe('server', () => {
 
   // see issue 12427
   test('renders a 404 for leading slashes', async () => {
-    let $ = await getDOM('//foo.com/enterprise')
+    let $ = await getDOM('//foo.com/enterprise', { allow404: true })
     expect($('h1').text()).toBe('Ooops!')
     expect($.res.statusCode).toBe(404)
 
-    $ = await getDOM('///foo.com/enterprise')
+    $ = await getDOM('///foo.com/enterprise', { allow404: true })
     expect($('h1').text()).toBe('Ooops!')
     expect($.res.statusCode).toBe(404)
   })
 
   test('renders a 500 page when errors are thrown', async () => {
-    const $ = await getDOM('/_500', undefined, true)
+    const $ = await getDOM('/_500', { allow500s: true })
     expect($('h1').text()).toBe('Ooops!')
     expect($.text().includes('It looks like something went wrong.')).toBe(true)
     expect(
@@ -578,8 +578,10 @@ describe('server', () => {
 
     test('is not displayed if ghec article has only one version', async () => {
       const $ = await getDOM(
-        '/en/enterprise-cloud@latest/admin/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users'
+        '/en/enterprise-cloud@latest/admin/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users',
+        { allow404: true }
       )
+      expect($.res.statusCode).toBe(404)
       expect($('.article-versions').length).toBe(0)
     })
   })
@@ -630,7 +632,7 @@ describe('server', () => {
       expect(res.statusCode).toBe(302)
       expect(res.headers['set-cookie']).toBeUndefined()
       // no cache control because a language prefix had to be injected
-      expect(res.headers['cache-control']).toBeUndefined()
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('redirects old articles to their slugified URL', async () => {
@@ -700,7 +702,8 @@ describe('server', () => {
       expect(res.statusCode).toBe(302)
       expect(res.headers.location.startsWith('/en/')).toBe(true)
       expect(res.headers['set-cookie']).toBeUndefined()
-      expect(res.headers['cache-control']).toBeUndefined()
+      // no cache control because a language prefix had to be injected
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('redirects that not only injects /en/ should have cache-control', async () => {
@@ -716,19 +719,6 @@ describe('server', () => {
       expect(res.headers.location).toBe('https://desktop.github.com')
       expect(res.headers['set-cookie']).toBeUndefined()
       expect(res.headers['cache-control']).toBeUndefined()
-    })
-
-    // this oneoff redirect is temporarily disabled because it introduces too much complexity
-    // we can reenable it down the road if needed
-    // Docs Engineering issue: 968
-    test.skip('redirects versioned category page', async () => {
-      const res = await get('/en/github/receiving-notifications-about-activity-on-github')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe(
-        '/en/github/managing-subscriptions-and-notifications-on-github'
-      )
-      expect(res.headers['cache-control']).toContain('public')
-      expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
   })
 
@@ -1110,5 +1100,24 @@ describe('index pages', () => {
     const installationLatest = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation`
     const $ = await getDOM(installationLatest)
     expect($(`a[href^="${installationLatest}/"]`).length).toBeGreaterThan(0)
+  })
+})
+
+describe('REST reference pages', () => {
+  test('view the rest/repos page in English', async () => {
+    const res = await get('/en/rest/reference/repos')
+    expect(res.statusCode).toBe(200)
+  })
+  test('view the rest/repos page in Japanese', async () => {
+    const res = await get('/ja/rest/reference/repos')
+    expect(res.statusCode).toBe(200)
+  })
+  test('deeper pages in English', async () => {
+    const res = await get('/ja/enterprise-cloud@latest/rest/reference/code-scanning')
+    expect(res.statusCode).toBe(200)
+  })
+  test('deeper pages in Japanese', async () => {
+    const res = await get('/en/enterprise-cloud@latest/rest/reference/code-scanning')
+    expect(res.statusCode).toBe(200)
   })
 })

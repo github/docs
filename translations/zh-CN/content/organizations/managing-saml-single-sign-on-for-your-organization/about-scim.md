@@ -28,11 +28,10 @@ topics:
 
 {% endnote %}
 
+{% data reusables.scim.changes-should-come-from-idp %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 ## 延伸阅读
 
-- "[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[将身份提供程序连接到组织](/articles/connecting-your-identity-provider-to-your-organization)"
-- "[对组织启用并测试 SAML 单点登录](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)"
 - "[查看和管理成员对组织的 SAML 访问](/github/setting-up-and-managing-organizations-and-teams//viewing-and-managing-a-members-saml-access-to-your-organization)"

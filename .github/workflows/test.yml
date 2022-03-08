@@ -117,7 +117,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.13.x
+          node-version: 16.14.x
           cache: npm
 
       - name: Install dependencies
@@ -135,4 +135,5 @@ jobs:
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
+          CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
         run: npm test -- tests/${{ matrix.test-group }}/
