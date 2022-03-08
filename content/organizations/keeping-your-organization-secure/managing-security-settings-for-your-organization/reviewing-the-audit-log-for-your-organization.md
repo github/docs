@@ -506,10 +506,10 @@ For more information, see "[Managing the publication of {% data variables.produc
 | Action | Description |
 |--------|-------------|
 | `package_version_published` | Triggered when a package version is published. |
-| `package_version_deleted` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_deleted` | Triggered when an entire package is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_version_restored` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_restored` | Triggered when an entire package is restored. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_version_deleted` | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_deleted` | Triggered when an entire package is deleted.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_version_restored` | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_restored` | Triggered when an entire package is restored.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
 {% endif %}
 
