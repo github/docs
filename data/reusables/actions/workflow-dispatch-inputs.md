@@ -31,7 +31,7 @@ on:
 jobs:
   print-tag:
     runs-on: ubuntu-latest
-    if: {% raw %} ${{ inputs.print_tags == 'true' }} {% endraw %}
+    if: {% raw %} ${{ github.event.inputs.print_tags == 'true' }} {% endraw %}
     steps:
       - name: Print the input tag to STDOUT
         run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
