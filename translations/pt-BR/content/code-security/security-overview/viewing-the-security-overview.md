@@ -37,10 +37,10 @@ shortTitle: Ver visão geral de segurança
 2. Opcionalmente, filtre a lista de alertas. Cada visualização tem sua própria seleção de filtros disponíveis. Você pode clicar em vários filtros nos menus suspensos de filtro para restringir a sua pesquisa. Você também pode digitar os qualificadores de busca no campo de busca. Para obter mais informações sobre os qualificados disponíveis, consulte "[Filtrando alertas na visão geral de segurança](/code-security/security-overview/filtering-alerts-in-the-security-overview)". ![Os menus de filtro suspenso e o campo de repositórios de pesquisa na visualização de digitalização de segredo](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
-## Viewing the security overview for an enterprise
+## Visualizando a visão geral de segurança de uma empresa
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Security**.
+1. Na barra lateral esquerda, clique em {% octicon "shield" aria-label="The shield icon" %} **Segurança**.
 {% endif %}
 
 ## Visualizando alertas de um repositório
