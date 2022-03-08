@@ -1,4 +1,4 @@
-name: Production (Azure) - Build and Deploy
+name: Azure Production - Build and Deploy
 
 # **What it does**: Builds and deploys the default branch to production
 # **Why we have it**: To enable us to deploy the latest to production whenever necessary rather than relying on PR merges.
@@ -21,10 +21,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy-prod-azure:
+  azure-prod-build-and-deploy:
     if: ${{ github.repository == 'github/docs-internal' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     environment:
       name: production
       url: 'https://docs.github.com'
