@@ -27,7 +27,7 @@ shortTitle: 升级 GHES
 
 ## 准备升级
 
-1. 确定升级策略并选择要升级到的版本。 For more information, see "[Upgrade requirements](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)" and refer to the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
+1. 确定升级策略并选择要升级到的版本。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”，并参考 [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) 以查找当前发行版的升级路径。
 3. 使用 {% data variables.product.prodname_enterprise_backup_utilities %} 创建全新的主实例备份。 更多信息请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %} README.md 文件](https://github.com/github/backup-utils#readme)。
 4. 如果您要使用升级包进行升级，请为 {% data variables.product.prodname_ghe_server %} 最终用户排定维护窗口。 如果您要使用热补丁，则不需要使用维护模式。
 
@@ -41,7 +41,7 @@ shortTitle: 升级 GHES
 
 ## 生成快照
 
-快照是虚拟机 (VM) 在某一时间点的检查点。 强烈建议在升级虚拟机之前生成快照，这样一来，如果升级失败，您可以将 VM 还原到快照状态。 We only recommend taking a VM snapshot when the appliance is powered down or in maintenance mode and all background jobs have finished.
+快照是虚拟机 (VM) 在某一时间点的检查点。 强烈建议在升级虚拟机之前生成快照，这样一来，如果升级失败，您可以将 VM 还原到快照状态。 我们仅建议在设备关闭电源或处于维护模式且所有后台作业都已完成时拍摄 VM 快照。
 
 如果您要升级到新的功能版本，则必须生成 VM 快照。 如果您要升级到补丁版本，可以连接现有数据磁盘。
 
@@ -71,7 +71,7 @@ shortTitle: 升级 GHES
 
 {% data reusables.enterprise_installation.hotpatching-explanation %}
 
-Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. 您可以使用管理 shell 的 `ghe-upgrade` 实用程序安装热补丁。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
+使用 {% data variables.enterprise.management_console %}，您可以立即安装热补丁，也可以安排以后安装。 您可以使用管理 shell 的 `ghe-upgrade` 实用程序安装热补丁。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”。
 
 {% note %}
 
@@ -88,9 +88,9 @@ Using the {% data variables.enterprise.management_console %}, you can install a 
 
 #### 使用 {% data variables.enterprise.management_console %} 安装热补丁
 
-You can use the {% data variables.enterprise.management_console %} to upgrade with a hotpatch by enabling automatic updates. You will then be presented with the latest available version of {% data variables.product.prodname_ghe_server %} that you can upgrade to.
+您可以通过启用自动更新来使用 {% data variables.enterprise.management_console %} 通过热补丁进行升级。 然后，您将看到可升级到的最新可用 {% data variables.product.prodname_ghe_server %} 版本。
 
-If the upgrade target you're presented with is a feature release instead of a patch release, you cannot use the {% data variables.enterprise.management_console %} to install a hotpatch. You must install the hotpatch using the administrative shell instead. For more information, see "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
+如果显示的升级目标是功能版本而不是修补程序版本，则无法使用 {% data variables.enterprise.management_console %} 来安装修补程序。 您必须改为使用管理 shell 安装热补丁。 更多信息请参阅“[使用管理 shell 安装热补丁](#installing-a-hotpatch-using-the-administrative-shell)”。
 
 1. 启用自动更新。 更多信息请参阅“[启用自动更新](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)”。
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -221,7 +221,7 @@ If the upgrade target you're presented with is a feature release instead of a pa
 
    {% endnote %}
 
-   If `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. 更多信息请参阅“[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)”。
+   如果 `ghe-repl-status` 未返回 `OK`，请联系 {% data variables.contact.enterprise_support %}。 更多信息请参阅“[从 {% data variables.contact.github_support %} 获取帮助](/admin/enterprise-support/receiving-help-from-github-support)”。
 
 6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
@@ -231,9 +231,9 @@ If the upgrade target you're presented with is a feature release instead of a pa
 
 ### 回滚补丁版本
 
-要回滚补丁版本，请使用带 `--allow-patch-rollback` 开关的 `ghe-upgrade` 命令。 Before rolling back, replication must be temporarily stopped by running `ghe-repl-stop` on all replica instances. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
+要回滚补丁版本，请使用带 `--allow-patch-rollback` 开关的 `ghe-upgrade` 命令。 在回滚之前，必须通过在所有副本实例上运行 `ghe-repl-stop` 来暂时停止复制。 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
-Once the rollback is complete, restart replication by running `ghe-repl-start` on all replicas.
+回滚完成后，通过在所有副本上运行 `ghe-repl-start` 来重新启动复制。
 
 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)”。
 

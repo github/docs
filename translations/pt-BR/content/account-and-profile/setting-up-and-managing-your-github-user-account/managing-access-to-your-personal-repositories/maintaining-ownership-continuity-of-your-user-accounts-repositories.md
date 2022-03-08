@@ -30,9 +30,9 @@ Para solicitar acesso para gerenciar repositórios como um sucessor, entre em co
 ## Convidar um sucessor
 A pessoa que você convidou para ser seu sucessor deve ter uma conta no {% data variables.product.company_short %}.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. Em "configurações do sucessor", para convidar um sucessor, comece a digitar um nome de usuário, nome completo ou endereço de e-mail e, em seguida, clique no nome quando ele aparecer. ![Campo de busca para convite de sucessor](/assets/images/help/settings/settings-invite-successor-search-field.png)
 4. Clique em **Adicionar sucessor**.
-{% data reusables.user_settings.sudo-mode-popup %}
+{% data reusables.user-settings.sudo-mode-popup %}
 5. O usuário que você convidou será listado como "Pendente" até que concorde em se tornar seu sucessor. ![Convite de sucessor pendente](/assets/images/help/settings/settings-pending-successor.png)

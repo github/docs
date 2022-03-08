@@ -22,8 +22,8 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 ## Changing the duration of your personal account's billing cycle
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.change_plan_duration %}
 {% data reusables.dotcom_billing.confirm_duration_change %}
 

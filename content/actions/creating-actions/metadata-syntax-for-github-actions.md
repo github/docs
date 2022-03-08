@@ -21,7 +21,7 @@ miniTocMaxHeadingLevel: 4
 
 ## About YAML syntax for {% data variables.product.prodname_actions %}
 
-Docker and JavaScript actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs and main entrypoint for your action.
+All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
 
 Action metadata files use YAML syntax. If you're new to YAML, you can read "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
@@ -272,7 +272,7 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 
 **Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 **Example: Using contexts**
 
@@ -441,7 +441,7 @@ runs:
 
 The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 If you need to pass environment variables into an action, make sure your action runs a command shell to perform variable substitution. For example, if your `entrypoint` attribute is set to `"sh -c"`, `args` will be run in a command shell. Alternatively, if your `Dockerfile` uses an `ENTRYPOINT` to run the same command (`"sh -c"`), `args` will execute in a command shell.
 
@@ -479,11 +479,39 @@ The background color of the badge. Can be one of: `white`, `yellow`, `blue`, `gr
 
 ### `branding.icon`
 
-The name of the [Feather](https://feathericons.com/) icon to use.
+The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand icons are omitted as well as the following:
+
+<table>
+<tr>
+<td>coffee</td>
+<td>columns</td>
+<td>divide-circle</td>
+<td>divide-square</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>frown</td>
+<td>hexagon</td>
+<td>key</td>
+</tr>
+<tr>
+<td>meh</td>
+<td>mouse-pointer</td>
+<td>smile</td>
+<td>tool</td>
+</tr>
+<tr>
+<td>x-octagon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+Here is an exhaustive list of all currently supported icons:
+
 <!-- 
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
-  This table does not match the latest version the feather library. 
-  (Brand icons are omitted, and our supported list is not necessarily up-to-date with the latest version of the feather icon library.)
   To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
 -->
 

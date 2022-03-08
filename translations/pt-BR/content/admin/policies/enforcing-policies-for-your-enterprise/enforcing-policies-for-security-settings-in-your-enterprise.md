@@ -10,7 +10,7 @@ redirect_from:
   - /github/articles/managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account
-  - github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
+  - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account
 versions:
   ghec: '*'
   ghes: '*'
@@ -116,7 +116,7 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 ### Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
-{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}
 
 {% endif %}
 
@@ -126,9 +126,11 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 Você pode usar as autoridades de certificados SSH (CA) para permitir que os integrantes de qualquer organização pertencente à sua empresa acessem os repositórios da organização usando certificados SSH que você fornecer. {% data reusables.organizations.can-require-ssh-cert %} Para obter mais informações, consulte "[Sobre autoridades certificadas de SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)".
 
+{% data reusables.organizations.add-extension-to-cert %}
+
 ### Adicionar uma autoridade certificada de SSH
 
-{% data reusables.organizations.add-extension-to-cert %}
+If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -146,9 +148,8 @@ A exclusão de uma CA não pode ser desfeita. Se você quiser usar a mesma CA no
 {% data reusables.organizations.delete-ssh-ca %}
 
 {% ifversion ghec or ghae %}
-
 ## Leia mais
 
-- "[Sobre a identidade e gerenciamento de acesso para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"
-
+- "[Sobre a identidade e gerenciamento de acesso da sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)"{% ifversion ghec %}
+- "[Relatórios de conformidade para a sua empresa](/admin/overview/accessing-compliance-reports-for-your-enterprise)"{% endif %}
 {% endif %}

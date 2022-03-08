@@ -1,1 +1,1 @@
-{% ifversion fpt or ghec %}将一个外部协作者添加到私人仓库将会使用您组织的一个付费许可。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing/)”。{% endif %}
+Adding an outside collaborator to a private{% ifversion ghec %} or internal{% endif %} repository will use one of your paid licenses. For more information, see "{% ifversion fpt or ghec %}[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing){% elsif ghes or ghae %}[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise){% endif %}."

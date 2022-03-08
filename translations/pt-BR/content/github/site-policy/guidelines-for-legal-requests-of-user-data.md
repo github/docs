@@ -69,7 +69,7 @@ Aqui está uma lista não exaustiva dos tipos de dados que mantemos a respeito d
   - Logs de acesso de segurança
   - Dados sobre interações com repositórios privados
 
-  Para ter uma noção do tipo de informações privadas da conta que o GitHub coleta, você pode visitar seu {% data reusables.user_settings.personal_dashboard %} e navegar pelas seções do menu à esquerda.
+  Para ter uma noção do tipo de informações privadas da conta que o GitHub coleta, você pode visitar seu {% data reusables.user-settings.personal_dashboard %} e navegar pelas seções do menu à esquerda.
 
 - <a name="organization-account-data"></a>
 **Dados da conta da organização** — Informações sobre organizações, seus usuários administrativos e repositórios estão publicamente disponíveis no GitHub. Perfis da organização podem ser encontrados em uma URL, tais como `https://github.com/organization`. Os perfis públicos da organização também podem incluir informações adicionais que os proprietários optaram por compartilhar publicamente. Todos os perfis públicos de organizações mostram:

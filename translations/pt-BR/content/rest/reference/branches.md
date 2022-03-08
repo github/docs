@@ -12,11 +12,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## Branches protegidos
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'branch-protection' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/branches
+-->

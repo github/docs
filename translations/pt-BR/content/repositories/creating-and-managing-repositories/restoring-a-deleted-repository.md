@@ -30,11 +30,11 @@ Restaurar um repositório não vai restaurar anexos de versão nem permissões d
 
 ## Restaurar um repositório excluído que pertencia a uma conta de usuário
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.repo-tab %}
-{% data reusables.user_settings.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.repo-tab %}
+{% data reusables.user-settings.deleted-repos %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## Restaurar um repositório excluído que pertencia a uma organização
 
@@ -42,8 +42,8 @@ Restaurar um repositório não vai restaurar anexos de versão nem permissões d
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## Leia mais
 

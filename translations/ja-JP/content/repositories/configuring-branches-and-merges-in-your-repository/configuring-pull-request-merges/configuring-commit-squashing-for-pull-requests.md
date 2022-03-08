@@ -21,8 +21,8 @@ shortTitle: Configure commit squashing
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. 必要であれば、[Merge button] の下の [**Allow merge commits**] を選択します。 これにより、コントリビューターがコミットの全ての履歴と共にプルリクエストをマージできるようになります。 ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png)
-4. [Merge button] の下にある [**Allow squash merging**] を選択します。 これにより、コントリビューターが全てのコミットを 1 つのコミットに squash してプルリクエストをマージできるようになります。 [**Allow squash merging**] 以外のマージ方法も選択した場合、コラボレーターはプルリクエストをマージする時にコミットのマージ方法を選択できます。 {% data reusables.repositories.squash-and-rebase-linear-commit-hisitory %} ![プルリクエストの squash したコミット](/assets/images/help/repository/pr-merge-squash.png)
+3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, optionally select **Allow merge commits**. これにより、コントリビューターがコミットの全ての履歴と共にプルリクエストをマージできるようになります。 ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png)
+4. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow squash merging**. これにより、コントリビューターが全てのコミットを 1 つのコミットに squash してプルリクエストをマージできるようになります。 [**Allow squash merging**] 以外のマージ方法も選択した場合、コラボレーターはプルリクエストをマージする時にコミットのマージ方法を選択できます。 {% data reusables.repositories.squash-and-rebase-linear-commit-hisitory %} ![プルリクエストの squash したコミット](/assets/images/help/repository/pr-merge-squash.png)
 
 ## 参考リンク
 

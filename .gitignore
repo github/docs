@@ -16,4 +16,11 @@ coverage/
 blc_output.log
 blc_output_internal.log
 broken_links.md
+lib/redirects/.redirects-cache.json
+# This one is purely for historical reasons because so many people might
+# still have thes files on their disk.
 lib/redirects/.redirects-cache_*.json
+
+# During the preview deploy untrusted user code may be cloned into this directory
+# We ignore it from git to keep things deterministic
+user-code/

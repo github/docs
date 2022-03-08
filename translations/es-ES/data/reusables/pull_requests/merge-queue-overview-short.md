@@ -1,3 +1,3 @@
-If repository administrators enable merge queues for pull requests targeting selected branches within a repository, contributors to these branches can add their pull requests to a merge queue once the required checks have passed.
+Si los administradores de repositorio habilitan las colas de fusión para las solicitudes de cambio que apunten a ramas selectas dentro de un repositorio, los contribuyentes de dichas ramas pueden agregar sus solicitudes de cambio a una cola de fusión una vez que hayan pasado las verificaciones requeridas.
 
-{% data variables.product.product_name %} will process the merge queue, and will merge the pull requests on your behalf if you're a contributor, by fast-forwarding the default branch.
+{% data variables.product.product_name %} procesará la cola de fusión y fusionará las solicitudes de cambios en tu nombre si eres un contribuyente adelantando la rama predeterminada.

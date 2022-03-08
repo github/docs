@@ -29,9 +29,9 @@ Esta guía usa el módulo Node.js del kit de herramientas {% data variables.prod
 
 Una vez que completes este proyecto, deberías comprender cómo crear tu propia acción de JavaScript y probarla en un flujo de trabajo.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## Prerrequisitos
 
@@ -263,12 +263,6 @@ jobs:
 ```
 {% endraw %}
 
-Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Debajo de **Jobs** o en la gráfica de visualización, da clic en **A job to say hello**. {% endif %}Debrás ver la frase "Hello Mona the Octocat" o el nombre que utilizaste para la entrada `who-to-greet` y la marca de tiempo impresa en la bitácora.
+Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. Under **Jobs** or in the visualization graph, click **A job to say hello**. Deberías ver "Hello Mona the Octocat" o el nombre que usaste para la entrada `who-to-greet` y la marcación de hora impresa en el registro.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes %}
-![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
-{% else %}
-![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run.png)
-{% endif %}

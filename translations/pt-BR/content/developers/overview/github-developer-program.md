@@ -28,7 +28,7 @@ Envie um e-mail para <a href="mailto:partnerships@github.com">partnerships@githu
 ## Você tem uma integração que é compatível com o GitHub?
 
 Excelente! Nós adoraríamos que você fizesse parte do programa. Veja como você pode divulgar a notícia:</p>
-* [Conte-nos sobre sua integração](https://github.com/contact?form[subject]=New+GitHub+Integration)
+* [Conte-nos sobre sua integração](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration)
 * Use o logotipo do [Octocat ou GitHub](https://github.com/logos) para identificar que o seu produto é compatível com o GitHub
 * Publique um vídeo ou um blog no seu site sobre sua integração
 

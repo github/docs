@@ -54,9 +54,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
-          ruby-version: 2.6
+          ruby-version: '3.1'
       - name: Install dependencies
         run: bundle install
       - name: Run tests
@@ -65,7 +65,7 @@ jobs:
 
 ## Especificar a versão do Ruby
 
-A maneira mais fácil de especificar uma versão do Ruby é usar a ação `ruby/setup-ruby` fornecida pela organização Ruby no GitHub. A ação adiciona qualquer versão do Ruby compatível com `PATH` para cada tarefa executada em um fluxo de trabalho. Para mais informações, consulte [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
+A maneira mais fácil de especificar uma versão do Ruby é usar a ação `ruby/setup-ruby` fornecida pela organização Ruby no GitHub. A ação adiciona qualquer versão do Ruby compatível com `PATH` para cada tarefa executada em um fluxo de trabalho. Para obter mais informações e versões disponíveis do Ruby, consulte [``](https://github.com/ruby/setup-ruby)ruby/setup-ruby.
 
 Usar a ação `ruby/setup-ruby` do Ruby é a forma recomendada de usar o Ruby com o GitHub Actions porque garante um comportamento consistente entre executores diferentes e versões diferentes do Ruby.
 
@@ -75,9 +75,9 @@ A ação `setup-ruby` toma uma versão Ruby como uma entrada e configura essa ve
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
-    ruby-version: 2.6 # Not needed with a .ruby-version file
+    ruby-version: '3.1' # Not needed with a .ruby-version file
 - run: bundle install
 - run: bundle exec rake
 ```
@@ -87,13 +87,13 @@ Como alternativa, você pode verificar um arquivo `.ruby-version` na raiz do seu
 
 ## Testar com versões múltiplas do Ruby
 
-Você pode adicionar uma estratégia matriz para executar seu fluxo de trabalho com mais de uma versão do Ruby. Por exemplo, você pode testar o seu código para as últimas versões de correção das versões 2.7, 2.6 e 2.5. O "x" é um caractere curinga que corresponde à última versão do patch disponível para uma versão.
+Você pode adicionar uma estratégia matriz para executar seu fluxo de trabalho com mais de uma versão do Ruby. Por exemplo, você pode testar seu código com as últimas versões de patch das versões 3.1, 3.0 e 2.7.
 
 {% raw %}
 ```yaml
 strategy:
   matrix:
-    ruby-version: [2.7.x, 2.6.x, 2.5.x]
+    ruby-version: ['3.1', '3.0', '2.7']
 ```
 {% endraw %}
 
@@ -119,12 +119,12 @@ jobs:
 
     strategy:
       matrix:
-        ruby-version: [2.7.x, 2.6.x, 2.5.x]
+        ruby-version: ['3.1', '3.0', '2.7']
 
     steps:
       - uses: actions/checkout@v2
       - name: {% raw %}Set up Ruby ${{ matrix.ruby-version }}{% endraw %}
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
           ruby-version: {% raw %}${{ matrix.ruby-version }}{% endraw %}
       - name: Install dependencies
@@ -141,9 +141,9 @@ A ação `setup-ruby` irá instalar o bundler automaticamente para você. A vers
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
-    ruby-version: 2.6
+    ruby-version: '3.1'
 - run: bundle install
 ```
 {% endraw %}
@@ -157,7 +157,7 @@ Para habilitar o cache, defina o seguinte.
 {% raw %}
 ```yaml
 steps:
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
     with:
       bundler-cache: true
 ```

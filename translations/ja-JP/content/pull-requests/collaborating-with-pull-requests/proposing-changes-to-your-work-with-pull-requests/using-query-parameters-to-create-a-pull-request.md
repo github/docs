@@ -20,7 +20,7 @@ You can use query parameters to open pull requests. Query parameters are optiona
 
 {% endtip %}
 
-クエリパラメータを使うには、同等のアクションを行うための適切な権限を持っていなければなりません。 For example, you must have permission to add a label to a pull request to use the `labels` query parameter. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+クエリパラメータを使うには、同等のアクションを行うための適切な権限を持っていなければなりません。 For example, you must have permission to add a label to a pull request to use the `labels` query parameter. 詳しい情報については「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
 クエリパラメータを使うのに不正なURLを作成したり、適切な権限を持っていなかったりした場合には、そのURLに対して`404 Not Found`エラーページが返されます。 サーバーの限度を超えるURLを作成すると、そのURLは`414 URI Too Long`エラーページを返します。
 

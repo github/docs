@@ -1,2 +1,0 @@
-1. In the navigation on the left hand side, click the **Accessibility** link.
-![Screenshot of the user settings navigation. The Accessibility link is highlighted.](/assets/images/help/settings/accessibility-tab.png)

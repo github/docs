@@ -20,9 +20,11 @@ shortTitle: 管理 SSH 机构
 
 您可以通过向组织添加 SSH CA 来允许成员使用提供的 SSH 证书访问组织的仓库。 {% data reusables.organizations.can-require-ssh-cert %} 更多信息请参阅“[关于 SSH 认证中心](/articles/about-ssh-certificate-authorities)”。
 
+{% data reusables.organizations.add-extension-to-cert %}
+
 ## 添加 SSH 认证中心
 
-{% data reusables.organizations.add-extension-to-cert %}
+If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. 更多信息请参阅“[关于 SSH 认证中心](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)”。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

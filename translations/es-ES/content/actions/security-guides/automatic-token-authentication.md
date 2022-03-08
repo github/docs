@@ -39,11 +39,11 @@ You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secr
 {% endnote %}
 {% endif %}
 
-{% data reusables.github-actions.actions-do-not-trigger-workflows %}
+{% data reusables.actions.actions-do-not-trigger-workflows %}
 
 ### Example 1: passing the `GITHUB_TOKEN` as an input
 
-{% data reusables.github-actions.github_token-input-example %}
+{% data reusables.actions.github_token-input-example %}
 
 ### Example 2: calling the REST API
 
@@ -85,11 +85,14 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | actions       | read/write  | none | read |
 | checks        | read/write  | none | read |
 | contents      | read/write  | read | read |
-| deployments   | read/write  | none | read |
-| id-token      | read/write  | none | read |
+| deployments   | read/write  | none | read |{% ifversion fpt or ghec %}
+| id-token      | none        | none | read |{% endif %}
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |
 | packages      | read/write  | none | read |
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6187 %}
+| pages         | read/write  | none | read |
+{%- endif %}
 | pull-requests | read/write  | none | read |
 | repository-projects | read/write | none | read |
 | security-events     | read/write | none | read |
@@ -120,7 +123,7 @@ You can see the permissions that `GITHUB_TOKEN` had for a specific job in the "S
 
 You can use the `permissions` key in your workflow file to modify permissions for the `GITHUB_TOKEN` for an entire workflow or for individual jobs. This allows you to configure the minimum required permissions for a workflow or job. When the `permissions` key is used, all unspecified permissions are set to no access, with the exception of the `metadata` scope, which always gets read access.
 
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.forked-write-permission %}
 
 The two workflow examples earlier in this article show the `permissions` key being used at the workflow level, and at the job level. In [Example 1](#example-1-passing-the-github_token-as-an-input) the two permissions are specified for the entire workflow. In [Example 2](#example-2-calling-the-rest-api) write access is granted for one scope for a single job.
 

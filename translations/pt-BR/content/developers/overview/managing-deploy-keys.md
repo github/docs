@@ -38,7 +38,7 @@ Em muitos casos, especialmente no início de um projeto, o encaminhamento de age
 
 ## Clonagem de HTTPS com tokens do OAuth
 
-Se você não quiser usar chaves SSH, você poderá usar [HTTPS com tokens do OAuth][git-automation].
+Se você não quiser usar chaves SSH, você poderá usar HTTPS com tokens OAuth.
 
 #### Prós
 
@@ -57,7 +57,7 @@ Se você não quiser usar chaves SSH, você poderá usar [HTTPS com tokens do OA
 
 #### Configuração
 
-Consulte o [nosso guia sobre automação Git com tokens][git-automation].
+Consulte [nosso guia sobre a criação de um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## Chaves de implantação
 
@@ -78,7 +78,7 @@ Consulte o [nosso guia sobre automação Git com tokens][git-automation].
 
 #### Configuração
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair key pair.
+1. [Execute o procedimento `ssh-keygen`][generating-ssh-keys] no seu servidor e lembre-se o local onde você salvou o par de chaves da chave da rsa pública e privada.
 2. No canto superior direito de qualquer página do {% data variables.product.product_name %}, clique na sua foto do perfil e, em seguida, clique em **Seu perfil**. ![Navegação para o perfil](/assets/images/profile-page.png)
 3. Na sua página de perfil, clique em **Repositórios** e, em seguida, clique no nome do seu repositório. ![Link dos repositórios](/assets/images/repos.png)
 4. No seu repositório, clique em **Configurações**. ![Configurações do repositório](/assets/images/repo-settings.png)
@@ -182,11 +182,7 @@ Isto significa que você não pode automatizar a criação de contas. Mas se voc
 
 [ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
 [generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
-[generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
 [tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
-[git-automation]: /articles/git-automation-with-oauth-tokens
-[git-automation]: /articles/git-automation-with-oauth-tokens
 [collaborator]: /articles/inviting-collaborators-to-a-personal-repository
 [outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
 [team]: /articles/adding-organization-members-to-a-team
-

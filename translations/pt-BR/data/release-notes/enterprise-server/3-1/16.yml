@@ -1,0 +1,25 @@
+---
+date: '2022-02-01'
+sections:
+  security_fixes:
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - O Pages ficaria indisponível após uma rotação do segredo do MySQL até `nginx` ser reiniciado manualmente.
+    - Ao definir a agenda de manutenção com uma data da ISO 8601, o horário programado real não corresponderá devido fato de o fuso horário não ser convertido em UTC.
+    - As mensagens de erro falsas sobre o arquivo `cloud-config.service` seriam a sapida para o console.
+    - O número da versão não poderia ser atualizado corretamente após a instalação de um hotpatch que usa `ghe-cluster-each`.
+    - Trabalhos de limpeza na tabela de webhook podem ser executados simultaneamente, causando contenção de recursos e aumentando o tempo de execução do trabalho.
+    - Ao usar a autenticação CAS e a opção "Reativar usuários suspensos" foi habilitada, os usuários suspensos não foram reativados automaticamente.
+    - A capacidade de limitar notificações com base em e-mail para usuários com e-mails em um domínio verificado ou aprovado não funcionou corretamente.
+    - Vários links de documentação geraram um erro 404 Not Found error.
+  changes:
+    - O registro de conexão de dados do GitHub Connect agora inclui uma contagem do número de usuários ativos e inativos e o período de inatividade configurado.
+  known_issues:
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - Se o {% data variables.product.prodname_actions %} estiver habilitado para {% data variables.product.prodname_ghe_server %}, a desmontagem de um nó de réplica com `ghe-repl-teardown` será bem-sucedida, mas poderá retornar `ERROR:Running migrations`.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.

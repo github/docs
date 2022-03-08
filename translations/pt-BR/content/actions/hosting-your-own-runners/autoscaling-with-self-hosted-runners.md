@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
+  ghae: issue-4462
 type: overview
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -27,12 +27,12 @@ Os repositórios a seguir possuem instruções detalhadas para configurar esses 
 
 Cada solução tem certas especificações que podem ser importantes para considerar:
 
-| **Funcionalidades**                                          | **actions-runner-controller**                                                                 | **terraform-aws-github-runner**                                                      |
-|:------------------------------------------------------------ |:--------------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------ |
-| Tempo de execução                                            | Kubernetes                                                                                    | VMs do Linux e do Windows                                                            |
-| Nuvens compatíveis                                           | Azure, Amazon Web Services, Google Cloud Platform, nos locais                                 | Amazon Web Services                                                                  |
-| Onde os executores podem ser dimensionados                   | Níveis de empresa, organização e repositório. Por etiqueta do executor e grupo de executores. | Níveis de organização e repositório. Por etiqueta do executor e grupo de executores. |
-| Suporte a dimensionamento automático baseado baseado no pull | Sim                                                                                           | Não                                                                                  |
+| **Funcionalidades**                        | **actions-runner-controller**                                                                 | **terraform-aws-github-runner**                                                      |
+|:------------------------------------------ |:--------------------------------------------------------------------------------------------- |:------------------------------------------------------------------------------------ |
+| Tempo de execução                          | Kubernetes                                                                                    | VMs do Linux e do Windows                                                            |
+| Nuvens compatíveis                         | Azure, Amazon Web Services, Google Cloud Platform, nos locais                                 | Amazon Web Services                                                                  |
+| Onde os executores podem ser dimensionados | Níveis de empresa, organização e repositório. Por etiqueta do executor e grupo de executores. | Níveis de organização e repositório. Por etiqueta do executor e grupo de executores. |
+| Como os executores podem ser dimensionados | Eventos de webhook, Programados, Baseados em extrações                                        | Eventos de Webhook, Programados (únicamente executores a nível de organização)       |
 
 ## Usaar executores efêmeros para dimensionamento automático
 
@@ -42,8 +42,8 @@ Esta abordagem permite que você gerencie os seus executores como sistemas efêm
 
 Para adicionar um executor efêmero ao seu ambiente, inclua o parâmetro `--ephemeral` ao registrar seu executor usando `config.sh`. Por exemplo:
 
-```
-$ ./config.sh --url https://github.com/octo-org --token example-token --ephemeral
+```shell
+./config.sh --url https://github.com/octo-org --token example-token --ephemeral
 ```
 
 O serviço {% data variables.product.prodname_actions %} irá cancelar o resgistro do runner automaticamente depois de ter processado um trabalho. Em seguida, você poderá criar a sua própria automação que limpa o runner depois que ele tiver seu registro cancelado.
@@ -51,6 +51,28 @@ O serviço {% data variables.product.prodname_actions %} irá cancelar o resgist
 {% note %}
 
 **Observação:** Se um trabalho estiver etiquetado para um certo tipo de executor, mas nenhuma correspondência desse tipo estiver disponível, o trabalho não irá falhar imediatamente no momento da entrada na fila. Em vez disso, o trabalho permanecerá na fila até que o período de tempo limite de 24 horas expire.
+
+{% endnote %}
+
+## Controlando atualizações de software dos executores em executores auto-hospedados
+
+Por padrão, os executores auto-hospedados realizarão automaticamente uma atualização de software sempre que uma nova versão do executor estiver disponível.  Se você usar executoresefêmeros em contêineres, isso pode gerar a atualizações de software repetidas quando uma nova versão do executor for lançada.  A desabilitação das atualizações automáticas permite que você atualize a versão do executor na imagem do contêiner diretamente no seu próprio agendamento.
+
+Se você deseja desativar as atualizações automáticas de software e instalar as atualizações de software, você poderá especificar o parâmetro `--disableupdate` ao iniciar o executor.  Por exemplo:
+
+```shell
+./run.sh --disableupdate
+```
+
+Se você desabilitar as atualizações automáticas, você ainda deverá atualizar sua versão do executor regularmente.  A nova funcionalidade em {% data variables.product.prodname_actions %} exige alterações no serviço de {% data variables.product.prodname_actions %} service _e_ no software do executor.  O executor pode não conseguir de processar corretamente os trabalhos que aproveitam novas funcioanlidades em {% data variables.product.prodname_actions %} sem a atualização de um software.
+
+Se você desabilitar as atualizações automáticas, será necessário atualizar a versão do seu executor no prazo de 30 dias a contar da nova versão disponível.  Você deverá assinar para receber as notificações de versões no repositório [`actions/runner` repository](https://github.com/actions/runner/releases). Para obter mais informações, consulte “[Configurando notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#about-custom-notifications)".
+
+Para obter instruções sobre como instalar a versão mais recente do executor, consulte as instruções de instalação referentes [à última versão](https://github.com/actions/runner/releases).
+
+{% note %}
+
+**Observação:** Se você não executar uma atualização de software em 30 dias, o serviço de {% data variables.product.prodname_actions %} não irá colocar trabalhos na fila para o seu executor.  Além disso, se uma atualização crítica de segurança for necessária, o serviço de {% data variables.product.prodname_actions %} não colocará os trabalhos na fila do seu executor até que ele seja atualizado.
 
 {% endnote %}
 
@@ -74,6 +96,6 @@ Para efetuar a autenticação usando um aplicativo de {% data variables.product.
 - Para repositórios, atribua a permissão de `administração`.
 - Para organizações, atribua a permissão `organization_self_hosted_runners`.
 
-Você pode registrar e excluir executores auto-hospedados da empresa usando [a API](/rest/reference/enterprise-admin#github-actions). Para efetuar a autenticação na API, sua implementação de dimensionamento automático pode usar um token de acesso.
+Você pode registrar e excluir executores auto-hospedados da empresa usando [a API](/rest/reference/actions#self-hosted-runners). Para efetuar a autenticação na API, sua implementação de dimensionamento automático pode usar um token de acesso.
 
 Seu token de acesso irá exigir o escopo `manage_runners:enterprise`.

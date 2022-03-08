@@ -73,7 +73,7 @@ jobs:
 ```
 {% endraw %}
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
 ## 指定 Node.js 版本
 
@@ -204,7 +204,7 @@ steps:
 
 ### 使用私有注册表并创建 .npmrc 文件的示例
 
-{% data reusables.github-actions.setup-node-intro %}
+{% data reusables.actions.setup-node-intro %}
 
 要验证您的私有注册表，需要将 npm 身份验证令牌存储为密码。 例如，创建名为 `NPM_TOKEN` 的仓库密码。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 

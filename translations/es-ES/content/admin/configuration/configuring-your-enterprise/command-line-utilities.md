@@ -114,7 +114,7 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
 ```
 
 {% ifversion ghes %}
-Allows you to exempt a list of users from API rate limits. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Allows you to exempt a list of users from API rate limits. A hard limit of 120,000 requests will still apply to these users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
@@ -458,6 +458,16 @@ You can use these additional options with the utility:
 ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
 ```
 
+### ghe-ssl-certificate-setup
+
+This utility allows you to update an SSL certificate for {% data variables.product.product_location %}. 
+
+For more information about this command or for additional options, use the `-h` flag.
+
+```shell
+ghe-ssl-certificate-setup
+```
+
 ### ghe-ssl-generate-csr
 
 This utility allows you to generate a private key and certificate signing request (CSR), which you can share with a commercial or private certificate authority to get a valid certificate to use with your instance. For more information, see "[Configuring TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)."
@@ -699,7 +709,7 @@ All Storage tests passed
 
 `ghe-migrator` is a hi-fidelity tool to help you migrate from one GitHub instance to another. You can consolidate your instances or move your organization, users, teams, and repositories from GitHub.com to {% data variables.product.prodname_enterprise %}.
 
-For more information, please see our guide on [migrating user, organization, and repository data](/enterprise/admin/guides/migrations/).
+For more information, please see our guides on [migrating data to and from your enterprise](/enterprise/admin/user-management/migrating-data-to-and-from-your-enterprise/).
 
 ### git-import-detect
 

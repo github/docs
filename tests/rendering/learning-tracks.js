@@ -52,7 +52,7 @@ describe('navigation banner', () => {
 
   test('render navigation banner when url is a redirect to a learning track URL', async () => {
     const $ = await getDOM(
-      '/enterprise/admin/enterprise-management/enabling-automatic-update-checks?learn=upgrade_your_instance'
+      '/en/enterprise/admin/enterprise-management/enabling-automatic-update-checks?learn=upgrade_your_instance'
     )
     expect($('[data-testid=learning-track-nav]')).toHaveLength(1)
     const $navLinks = $('[data-testid=learning-track-nav] a')

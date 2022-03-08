@@ -29,11 +29,7 @@ shortTitle: 更改默认分支
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-
 您也可以重命名默认分支。 更多信息请参阅“[重命名分支](/github/administering-a-repository/renaming-a-branch)”。
-
-{% endif %}
 
 {% data reusables.branches.set-default-branch %}
 

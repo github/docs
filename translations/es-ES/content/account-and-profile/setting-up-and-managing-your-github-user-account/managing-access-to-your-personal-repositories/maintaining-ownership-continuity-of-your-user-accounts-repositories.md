@@ -30,9 +30,9 @@ Para solicitar acceso para administrar los repositorios como sucesor, contacta a
 ## Invitar un sucesor
 La persona que invites para ser tu sucesor deberá tener una cuenta de {% data variables.product.company_short %}.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. Debajo de "Ajustes de sucesor", para invitar a un sucesor, comienza a escribir el nombre de usuario, nombre completo, o dirección de correo electrónico. Posteriormente, da clic en su nombre cuando éste aparezca. ![Campo de bísqueda para invitación de sucesor](/assets/images/help/settings/settings-invite-successor-search-field.png)
 4. Da clic en **Agregar sucesor**.
-{% data reusables.user_settings.sudo-mode-popup %}
+{% data reusables.user-settings.sudo-mode-popup %}
 5. El usuario que has invitado se listará como "Pendiente" hasta que acepte convertirse en tu sucesor. ![Invitación de sucesor pendiente](/assets/images/help/settings/settings-pending-successor.png)

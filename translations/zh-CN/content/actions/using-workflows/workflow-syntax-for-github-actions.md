@@ -56,6 +56,8 @@ miniTocMaxHeadingLevel: 4
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call`
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
 
 ### `on.workflow_call.inputs`
@@ -149,7 +151,7 @@ jobs:
 
     steps:
       - name: Pass the received secret to an action
-        uses: ./.github/actions/my-action@v1
+        uses: ./.github/actions/my-action
         with:
           token: ${{ secrets.access-token }}
 ```
@@ -164,49 +166,13 @@ A string identifier to associate with the secret.
 A boolean specifying whether the secret must be supplied.
 {% endif %}
 
-
 ## `on.workflow_run.<branches|branches-ignore>`
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
 ## `on.workflow_dispatch.inputs`
 
-When using the `workflow_dispatch` event, you can optionally specify inputs that are passed to the workflow.
-
-触发的工作流程接收 `github.event.input` 上下文中的输入。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)”。
-
-### 示例
-```yaml
-on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning' {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-        type: choice
-        options:
-        - info
-        - warning
-        - debug {% endif %}
-      tags:
-        description: 'Test scenario tags'
-        required: false {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-        type: boolean
-      environment:
-        description: 'Environment to run tests against'
-        type: environment
-        required: true {% endif %}
-
-jobs:
-  print-tag:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Print the input tag to STDOUT
-        run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
-```
-
+{% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `权限`
@@ -218,6 +184,8 @@ jobs:
 ## `env`
 
 环境变量的 `map` 可用于工作流程中所有作业的步骤。 您还可以设置仅适用于单个作业的步骤或单个步骤的环境变量。 更多信息请参阅 [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)。
+
+Variables in the `env` map cannot be defined in terms of other variables in the map.
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -273,12 +241,9 @@ env:
 
 {% data reusables.actions.jobs.section-choosing-the-runner-for-a-job %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}
-
-{% endif %}
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
@@ -351,7 +316,7 @@ jobs:
 
 您可以使用 `if` 条件阻止步骤在条件得到满足之前运行。 您可以使用任何支持上下文和表达式来创建条件。
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 #### 示例：使用上下文
 
@@ -792,6 +757,8 @@ strategy:
 
 ## `jobs.<job_id>.container`
 
+{% data reusables.actions.docker-container-os-support %}
+
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
 ### `jobs.<job_id>.container.image`
@@ -820,7 +787,7 @@ strategy:
 
 ## `jobs.<job_id>.services`
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 用于为工作流程中的作业托管服务容器。 服务容器可用于创建数据库或缓存服务（如 Redis）。 运行器自动创建 Docker 网络并管理服务容器的生命周期。
 
@@ -865,7 +832,7 @@ services:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
-      password: ${{ secrets.ghcr_token }}
+      password: ${{ secrets.github_token }}
   myservice2:
     image: dockerhub_org/myservice2
     credentials:
@@ -913,6 +880,8 @@ volumes:
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
+
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 
 The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use one of the following syntaxes:{% endif %}
 
@@ -1008,7 +977,7 @@ For more information about branch, tag, and path filter syntax, see "[`on.<push>
 | `'**'`                                                  | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                   | `all/the/branches`<br/><br/>`every/tag`                                                                   |
 | `'*feature'`                                            | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                           | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
 | `v2*`                                                   | 匹配以 `v2` 开头的分支和标记名称。                                                 | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                                   | 将所有语义版本控制分支和标记与主要版本 1 或 2 匹配                                         | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
+| `v[12].[0-9]+.[0-9]+`                                   | 将所有语义版本控制分支和标记与主要版本 1 或 2 匹配.                                        | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 ### 匹配文件路径的模式
 

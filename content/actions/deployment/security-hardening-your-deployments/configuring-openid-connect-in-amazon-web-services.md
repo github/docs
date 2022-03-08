@@ -1,11 +1,11 @@
 ---
 title: Configuring OpenID Connect in Amazon Web Services
 shortTitle: Configuring OpenID Connect in Amazon Web Services
-intro: 'Use OpenID Connect within your workflows to authenticate with Amazon Web Services.'
+intro: Use OpenID Connect within your workflows to authenticate with Amazon Web Services.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
 type: tutorial
 topics:
@@ -42,7 +42,8 @@ Edit the trust relationship to add the `sub` field to the validation conditions.
 
 ```json{:copy}
 "Condition": {
-  "StringEquals": {
+  "ForAllValues:StringEquals": {
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
@@ -56,14 +57,7 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 ### Adding permissions settings
 
-The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. For example:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-You may need to specify additional permissions here, depending on your workflow's requirements. 
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Requesting the access token
 

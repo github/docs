@@ -10,19 +10,18 @@ versions:
   ghae: '*'
 shortTitle: Integrate Jira with projects
 ---
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-3. In the left sidebar, click **{% data variables.product.prodname_oauth_apps %}**.
-![{% data variables.product.prodname_oauth_apps %} tab in the left sidebar](/assets/images/help/settings/developer-settings-oauth-apps.png)
-3. Click **Register a new application**.
-4. Under **Application name**, type "Jira".
-5. Under **Homepage URL**, type the full URL to your Jira instance.
-6. Under **Authorization callback URL**, type the full URL to your Jira instance.
-7. Click **Register application**.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.oauth_apps %}
+1. Click **Register a new application**.
+2. Under **Application name**, type "Jira".
+3. Under **Homepage URL**, type the full URL to your Jira instance.
+4. Under **Authorization callback URL**, type the full URL to your Jira instance.
+5. Click **Register application**.
 ![Register application button](/assets/images/help/oauth/register-application-button.png)
 8. Under **Developer applications**, note the "Client ID" and "Client Secret" values.
 ![Client ID and Client Secret](/assets/images/help/oauth/client-id-and-secret.png)
-{% data reusables.user_settings.jira_help_docs %}
+{% data reusables.user-settings.jira_help_docs %}
 
 ## Further reading
 

@@ -33,7 +33,7 @@ topics:
 {% ifversion ghes or ghae-issue-4864 %}
 By default, if your enterprise owner has configured email for notifications on your enterprise, you will receive {% data variables.product.prodname_dependabot_alerts %} by email.
 
-Enterprise owners can also enable {% data variables.product.prodname_dependabot_alerts %} without notifications. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
+Enterprise owners can also enable {% data variables.product.prodname_dependabot_alerts %} without notifications. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% endif %}
 
 ## {% data variables.product.prodname_dependabot_alerts %}の通知設定

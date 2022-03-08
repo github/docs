@@ -11,7 +11,11 @@ shortTitle: Troubleshooting access
 
 ## Some users are not provisioned or deprovisioned by SCIM
 
-When you encounter provisioning issues with users, we recommend that you check if the users are missing SCIM metadata. If an organization member has missing SCIM metadata, then you can re-provision SCIM for the user manually through your IdP.
+When you encounter provisioning issues with users, we recommend that you check if the users are missing SCIM metadata.
+
+{% data reusables.scim.changes-should-come-from-idp %}
+
+If an organization member has missing SCIM metadata, then you can re-provision SCIM for the user manually through your IdP.
 
 ### Auditing users for missing SCIM metadata
 
@@ -78,7 +82,7 @@ For more information on using the GraphQL API, see:
 
 ### Re-provisioning SCIM for users through your identity provider
 
-You can re-provision SCIM for users manually through your IdP. For example, to resolve provisioning errors, in the Okta admin portal, you can unassign and reassign users to the {% data variables.product.prodname_dotcom %} app. This should trigger Okta to make an API call to populate the SCIM metadata for these users on {% data variables.product.prodname_dotcom %}. For more information, see "[Unassign users from applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)" or "[Assign users to applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)" in the Okta documentation.
+You can re-provision SCIM for users manually through your IdP. For example, to resolve provisioning errors for Okta, in the Okta admin portal, you can unassign and reassign users to the {% data variables.product.prodname_dotcom %} app. This should trigger Okta to make an API call to populate the SCIM metadata for these users on {% data variables.product.prodname_dotcom %}. For more information, see "[Unassign users from applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)" or "[Assign users to applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)" in the Okta documentation.
 
 To confirm that a user's SCIM identity is created, we recommend testing this process with a single organization member whom you have confirmed doesn't have a SCIM external identity. After manually updating the users in your IdP, you can check if the user's SCIM identity was created using the SCIM API or on {% data variables.product.prodname_dotcom %}. For more information, see "[Auditing users for missing SCIM metadata](#auditing-users-for-missing-scim-metadata)" or the REST API endpoint "[Get SCIM provisioning information for a user](/rest/reference/scim#get-scim-provisioning-information-for-a-user)."
 

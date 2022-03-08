@@ -30,8 +30,8 @@ To keep your account secure, don't share or distribute your recovery codes. We r
 
 If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
 4. Save your recovery codes in a safe place. Your recovery codes can help you get back into your account if you lose access.
     - To save your recovery codes on your device, click **Download**.
@@ -43,8 +43,8 @@ If you generate new recovery codes or disable and re-enable 2FA, the recovery co
 
 Once you use a recovery code to regain access to your account, it cannot be reused. If you've used all 16 recovery codes, you can generate another list of codes. Generating a new set of recovery codes will invalidate any codes you previously generated.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.show-recovery-codes %}
 3. To create another batch of recovery codes, click **Generate new recovery codes**.
 	![Generate new recovery codes button](/assets/images/help/2fa/generate-new-recovery-codes.png)
@@ -69,8 +69,8 @@ You can use a fallback number regardless of whether you've configured authentica
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. Next to "Fallback SMS number", click **Add**.
 ![Add fallback SMS number button](/assets/images/help/2fa/add-fallback-sms-number-button.png)
 4. Under "Fallback SMS number", click **Add fallback SMS number**.

@@ -25,7 +25,7 @@ miniTocMaxHeadingLevel: 3
 
 ## 使用密码
 
-敏感值绝不能以明文存储在工作流程文件中，而应存储为密码。 [密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)可在组织{% ifversion fpt or ghes > 3.0 or ghae or ghec %}、仓库或环境{% else %}或仓库{% endif %}级配置，可用于在 {% data variables.product.product_name %} 中存储敏感信息。
+敏感值绝不能以明文存储在工作流程文件中，而应存储为密码。 [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization, repository, or environment level, and allow you to store sensitive information in {% data variables.product.product_name %}.
 
 密码使用 [Libsodium 密封箱](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)，以使它们在到达 {% data variables.product.product_name %} 前被加密处理。 [使用 UI](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) 或通过 [REST API](/rest/reference/actions#secrets) 提交密码时就会发生这种情况。 此客户端加密有助于最大程度地减少与 {% data variables.product.product_name %}基础架构中的意外日志记录相关的风险（例如，异常日志和请求日志等）。 密钥在上传后，{% data variables.product.product_name %} 可对其进行解密，以便它能够被注入工作流程运行时。
 
@@ -45,10 +45,8 @@ miniTocMaxHeadingLevel: 3
 - **审核并轮换注册密码**
     - 定期查查已注册的密码，以确认它们仍是必需的。 删除不再需要的密码。
     - 定期轮换密码，以减小泄露的密码有效的时间窗。
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - **考虑要求对访问密码进行审查**
     - 您可以使用所需的审查者来保护环境机密。 在审查者批准之前，工作流程作业无法访问环境机密。 For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
-{% endif %}
 
 ## 使用 `CODEOWNERS` 监控更改
 
@@ -141,14 +139,15 @@ with:
 
 使用此方法， {% raw %}`${{ github.event.issue.title }}`{% endraw %} 表达式的值存储在内存中用作变量，并且不与脚本生成过程交互。 此外，考虑使用双引号 shell 变量来避免 [单词拆分](https://github.com/koalaman/shellcheck/wiki/SC2086)，但这是是写入shell 脚本[的许多一般性建议之一](https://mywiki.wooledge.org/BashPitfalls)，不是专门针对 {% data variables.product.prodname_actions %} 的。
 
-### 使用 CodeQL 分析您的代码
+{% ifversion fpt or ghec %}
+### Using starter workflows for code scanning
 
-为了帮助您在开发生命周期中尽早管理危险模式的风险， {% data variables.product.prodname_dotcom %} 安全实验室开发了仓库所有者可以[集成](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#running-additional-queries)到其 CI/CD 管道中的 [CodeQL 查询](https://github.com/github/codeql/tree/main/javascript/ql/src/experimental/Security/CWE-094)。 更多信息请参阅“[关于代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
+{% data reusables.advanced-security.starter-workflows-beta %}
+{% data variables.product.prodname_code_scanning_capc %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides starter workflows for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.product.prodname_codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party starter workflows available.
 
-脚本目前依赖于 CodeQL JavaScript 库，这意味着分析的仓库必须包含至少一个 JavaScript 文件，并且 CodeQL 必须[配置为分析此语言](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed)。
+For more information, see "[About {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[Setting up {% data variables.product.prodname_code_scanning %} using starter workflows](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)."
 
-- `ExpressionInjection.ql`：涵盖本文所述的表达式注入，被认为是相当准确的。 但是，它不执行工作流程步骤之间的数据流跟踪。
-- `UntrustedCheckout.ql`：此脚本的结果需要手动检查，以确定从拉取请求的代码是否实际以不安全的方式处理。 更多信息请参阅 {% data variables.product.prodname_dotcom %} 安全实验室博客上的“[保持 GitHub Actions 和工作流程安全：阻止 pwn 请求](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)”。
+{% endif %}
 
 ### 限制令牌权限
 
@@ -174,13 +173,7 @@ with:
 
   将操作固定到全长提交 SHA 是当前将操作用作不可变版本的唯一方法。 固定到特定 SHA 有助于降低恶意执行者向操作仓库添加后门的风险，因为他们需要为有效的 Git 对象负载生成 SHA-1 冲突。
 
-  {% ifversion ghes < 3.1 %}
-  {% warning %}
 
-  **警告** 提交 SHA 的简短版本不安全，绝不可用于指定操作的 Git 引用。 由于仓库网络的工作方式，任何用户都可以复刻仓库，将精心编写的提交推送到与短 SHA 冲突的仓库。 这会导致该 SHA 上的后续克隆失败，因为它成为不明确的提交。 因此，使用缩短的 SHA 的任何工作流程将立即失败。
-
-  {% endwarning %}
-  {% endif %}
 
 * **审核操作的源代码**
 
@@ -201,6 +194,10 @@ The same principles described above for using third-party actions also apply to 
 
 {% data reusables.actions.outside-collaborators-internal-actions %} For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
 {% endif %}
+
+## Using OpenSSF Scorecards to secure workflows
+
+[Scorecards](https://github.com/ossf/scorecard) is an automated security tool that flags risky supply chain practices. You can use the [Scorecards action](https://github.com/marketplace/actions/ossf-scorecard-action) and [starter workflow](https://github.com/actions/starter-workflows) to follow best security practices. Once configured, the Scorecards action runs automatically on repository changes, and alerts developers about risky supply chain practices using the built-in code scanning experience. The Scorecards project runs a number of checks, including script injection attacks, token permissions, and pinned actions.
 
 ## 受损运行器的潜在影响
 
@@ -260,13 +257,13 @@ The attacker server can use the {% ifversion fpt or ghec %}{% data variables.pro
 
 ## 自托管运行器的强化
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **{% data variables.product.prodname_dotcom %} 托管的**运行程序在临时和干净的隔离虚拟机中执行代码，这意味着无法持续破坏此环境，可以访问的信息不会超过引导过程中此环境中存在的信息。
 {% endif %}
 
-{% ifversion fpt %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
+{% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-{% ifversion fpt %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. 尽管工作流程可以通过使用环境和必需的审查来控制对环境密钥的访问，但是这些工作流程不是在隔离的环境中运行，在自托管运行程器上运行时仍然容易遭受相同的风险。
+{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write access to the repository. 尽管工作流程可以通过使用环境和必需的审查来控制对环境密钥的访问，但是这些工作流程不是在隔离的环境中运行，在自托管运行程器上运行时仍然容易遭受相同的风险。
 
 在组织或企业级别定义自托管运行器时， {% data variables.product.product_name %} 可将多个仓库中的工作流程安排到同一个运行器中。 因此，这些环境的安全危害可能会导致广泛的影响。 为了帮助缩小损害范围，可以通过将自托管运行器组织到单独的组中来创建边界。 更多信息请参阅“[使用组管理对自托管运行器的访问](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)”。
 
@@ -280,12 +277,12 @@ The attacker server can use the {% ifversion fpt or ghec %}{% data variables.pro
 
 A self-hosted runner can be added to various levels in your {% data variables.product.prodname_dotcom %} hierarchy: the enterprise, organization, or repository level. This placement determines who will be able to manage the runner:
 
-**Centralised management:**
+**Centralized management:**
   - If you plan to have a centralized team own the self-hosted runners, then the recommendation is to add your runners at the highest mutual organization or enterprise level. This gives your team a single location to view and manage your runners.
   - If you only have a single organization, then adding your runners at the organization level is effectively the same approach, but you might encounter difficulties if you add another organization in the future.
 
-**De-centralised management:**
-  - If each team will manage their own self-hosted runners, then its recommended that you add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
+**Decentralized management:**
+  - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
   - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}

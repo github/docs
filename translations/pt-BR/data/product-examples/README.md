@@ -2,7 +2,7 @@
 
 As páginas que usam o layout de `product-landing` podem, opcionalmente, incluir uma seção de `exemplos`. Atualmente, apoiamos três tipos de exemplos:
 
-1. Exemplos de código Consulte https://docs.github.com/en/actions#code-examples.
+1. Exemplos de código Consulte https://docs.github.com/en/codespaces#code-examples.
 
 2. Exemplos da comunidade Consulte https://docs.github.com/en/discussions#community-examples.
 
@@ -10,7 +10,7 @@ As páginas que usam o layout de `product-landing` podem, opcionalmente, incluir
 
 ## Como funciona
 
-Os dados de exemplo para cada produto são definidos em `data/product-landing-examples`, em um subdiretório denominado para o produto **** e um arquivo YML denominado para o tipo de **** (p. ex., `data/product-examples/sponsors/user-examples.yml` ou `data/product-examples/actions/code-examples.yml`). Atualmente, temos compatibilidade com apenas um tipo de exemplo por produto.
+Os dados de exemplo para cada produto são definidos em `data/product-landing-examples`, em um subdiretório denominado para o produto **** e um arquivo YML denominado para o tipo de **** (p. ex., `data/product-examples/sponsors/user-examples.yml` ou `data/product-examples/codespaces/code-examples.yml`). Atualmente, temos compatibilidade com apenas um tipo de exemplo por produto.
 
 ### Controle de Versão
 

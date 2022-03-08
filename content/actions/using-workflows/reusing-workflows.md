@@ -16,6 +16,7 @@ topics:
 ---
 
 {% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -62,7 +63,7 @@ The assignment of {% data variables.product.prodname_dotcom %}-hosted runners is
 
 {% endif %}
 
-Called workflows can access self-hosted runners from caller's context. This means that a called workflow can access self-hosted runners that are:
+Called workflows that are owned by the same user or organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. This means that a called workflow can access self-hosted runners that are:
 * In the caller repository
 * In the caller repository's organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %}, provided that the runner has been made available to the caller repository
 
@@ -112,7 +113,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: ./.github/actions/my-action
+         - uses: ./.github/workflows/my-action
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -153,7 +154,7 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/my-action
+      - uses: ./.github/workflows/my-action
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}

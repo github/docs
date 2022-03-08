@@ -27,7 +27,9 @@ shortTitle: Configuration options
 
 The {% data variables.product.prodname_dependabot %} configuration file, *dependabot.yml*, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
-You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update. For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+You must store this file in the `.github` directory of your repository. When you add or update the *dependabot.yml* file, this triggers an immediate check for version updates. For more information and an example, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)."
+
+Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
 The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key. The file must start with `version: 2`.
 
@@ -490,9 +492,9 @@ updates:
 
 ### `registries`
 
-To allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you must include a `registries` setting within the relevant `updates` configuration. You can allow all of the defined registries to be used by setting `registries` to `"*"`. Alternatively, you can list the registries that the update can use. To do this, use the name of the registry as defined in the top-level `registries` section of the _dependabot.yml_ file. 
+To allow {% data variables.product.prodname_dependabot %} to access a private package registry when performing a version update, you must include a `registries` setting within the relevant `updates` configuration. You can allow all of the defined registries to be used by setting `registries` to `"*"`. Alternatively, you can list the registries that the update can use. To do this, use the name of the registry as defined in the top-level `registries` section of the _dependabot.yml_ file. For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
 
-To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution).
+To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
 
 ```yaml
 # Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 

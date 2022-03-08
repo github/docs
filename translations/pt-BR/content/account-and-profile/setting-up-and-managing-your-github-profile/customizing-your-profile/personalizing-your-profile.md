@@ -37,14 +37,14 @@ Ao se inscrever em uma conta, o {% data variables.product.product_name %} fornec
 
 ### Definir uma imagem de perfil
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Em **Profile Picture** (Imagem de perfil), clique em {% octicon "pencil" aria-label="The edit icon" %} **Edit** (Editar). ![Editar imagem de perfil](/assets/images/help/profile/edit-profile-photo.png)
 3. Clique em **Upload a photo...** (Fazer upload de uma foto...). ![Atualizar imagem de perfil](/assets/images/help/profile/edit-profile-picture-options.png)
 3. Recorte sua imagem. Quando terminar, clique em **Set new profile picture** (Definir nova imagem de perfil). ![Cortar foto carregada](/assets/images/help/profile/avatar_crop_and_save.png)
 
 ### Redefinir sua imagem de perfil para a identicon
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Em **Profile Picture** (Imagem de perfil), clique em {% octicon "pencil" aria-label="The edit icon" %} **Edit** (Editar). ![Editar imagem de perfil](/assets/images/help/profile/edit-profile-photo.png)
 3. Para reverter para sua identicon, clique em **Remove photo** (Remover foto). Se o seu endereço de e-mail está associado a um [Gravatar](https://en.gravatar.com/), você não pode reverter para sua identicon. Em vez disso, clique em **Revert to Gravatar** (Reverter para Gravatar). ![Atualizar imagem de perfil](/assets/images/help/profile/edit-profile-picture-options.png)
 
@@ -60,7 +60,7 @@ Você pode alterar o nome que é exbido em seu perfil. Este nome também pode se
 {% endnote %}
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Em "Name" (Nome), digite o nome que deseja exibir em seu perfil. ![Campo nome em configurações de perfil](/assets/images/help/profile/name-field.png)
 
 ## Adicionar uma bio ao seu perfil
@@ -79,7 +79,7 @@ Para um formulário mais longo e uma maneira mais proeminente de exibir informa�
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Em **Bio**, adicione o conteúdo que deseja exibir em seu perfil. O campo bio é limitado a 160 caracteres. ![Atualizar a bio no perfil](/assets/images/help/profile/bio-field.png)
 
   {% tip %}
@@ -133,7 +133,7 @@ Ao participar de determinados programas, {% data variables.product.prodname_dotc
 
 Você pode desabilitar alguns dos selos para programas de {% data variables.product.prodname_dotcom %} em que você participa, incluindo os selos de contribuidor PRO, {% data variables.product.prodname_arctic_vault %} contribuidor de helicóptero de Marte 2020.
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Em "Configurações de perfil", desmarque o selo que você deseja desabilitar. ![Caixa de seleção para deixar de exibir um selo no seu perfil](/assets/images/help/profile/profile-badge-settings.png)
 3. Clique em **Update preferences** (Atualizar preferências).
 

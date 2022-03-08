@@ -23,3 +23,5 @@ GitHub 商标政策可用于报告涉嫌使用您公司或企业的名称、徽�
 
 ## [GitHub 私人信息删除政策](/github/site-policy/github-private-information-removal-policy)
 GitHub 私人信息删除政策可用于报告私人（机密并且会造成安全风险）的数据，但这些数据不一定受版权或商标保护。
+
+印度的用户可以在[这里](https://support.github.com/contact/india-grievance-officer)联系 GitHub 的申诉官。

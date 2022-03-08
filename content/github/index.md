@@ -12,8 +12,7 @@ versions:
   ghae: '*'
 children:
   - /copilot
-  - /customizing-your-github-workflow
-  - /extending-github
   - /site-policy
   - /site-policy-deprecated
 ---
+

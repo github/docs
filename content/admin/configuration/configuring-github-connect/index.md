@@ -20,7 +20,7 @@ children:
   - /about-github-connect
   - /managing-github-connect
   - /enabling-automatic-user-license-sync-for-your-enterprise
-  - /enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise
+  - /enabling-dependabot-for-your-enterprise
   - /enabling-unified-search-for-your-enterprise
   - /enabling-unified-contributions-for-your-enterprise
 shortTitle: GitHub Connect

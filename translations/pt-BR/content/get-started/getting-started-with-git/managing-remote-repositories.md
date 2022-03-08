@@ -107,7 +107,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-Na próxima vez que você aplicar `git fetch`, `git pull` ou `git push` no repositório remote, precisará fornecer seu nome de usuário e a senha do GitHub. {% data reusables.user_settings.password-authentication-deprecation %}
+Na próxima vez que você aplicar `git fetch`, `git pull` ou `git push` no repositório remote, precisará fornecer seu nome de usuário e a senha do GitHub. {% data reusables.user-settings.password-authentication-deprecation %}
 
 Você pode [usar um auxiliar de credenciais](/github/getting-started-with-github/caching-your-github-credentials-in-git) para que o Git lembre seu nome de usuário e token de acesso pessoal toda vez que conversar com o GitHub.
 
@@ -194,6 +194,8 @@ Use o comando `git remote rm` para remover uma URL remota do seu repositório.
 
 O comando `git remote rm` tem um argumento:
 * O nome de um remote, como `destination`
+
+A remoção do URL remoto do repositório apenas desvincula os repositórios locais e remotos. Isso não exclui o repositório remoto.
 
 ## Exemplo
 

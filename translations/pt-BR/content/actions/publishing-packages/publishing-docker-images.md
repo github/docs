@@ -50,7 +50,7 @@ Neste guia, usaremos a ação `build-push-action` do Docker para criar a imagem 
 
 ## Publicar imagens no Docker Hub
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 No exemplo de fluxo de trabalho, nós usamos as ações de login do Docker `login-action` e `build-push-action` para construir a imagem do Docker e, se a construção for bem-sucedida, faça push da imagem construída para o Docker Hub.
 
@@ -110,7 +110,7 @@ O fluxo de trabalho acima verifica o repositório {% data variables.product.prod
 
 ## Publicar imagens em {% data variables.product.prodname_registry %}
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 No exemplo abaixo, usamos a `login-action do Docker`{% ifversion fpt or ghec %}, `metadados-ação`,{% endif %} e ações de `build-push-action` para construir a imagem Docker e, se a criação for bem-sucedida, faça push da imagem criada para {% data variables.product.prodname_registry %}.
 

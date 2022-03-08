@@ -2,8 +2,8 @@ You can use `permissions` to modify the default permissions granted to the `GITH
 
 您可以使用 `permissions` 作为顶级密钥，以应用于工作流程中的所有作业，或特定的作业。 当您在特定作业中添加 `permissions` 键时，该作业中的所有操作和运行命令使用 `GITHUB_TOKEN` 获取您指定的访问权限。  更多信息请参阅 [`jobs.<job_id>.permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions)。
 
-{% data reusables.github-actions.github-token-available-permissions %}
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.github-token-available-permissions %}
+{% data reusables.actions.forked-write-permission %}
 
 ### Example: Assigning permissions to GITHUB_TOKEN
 
