@@ -13,7 +13,6 @@ defaultPlatform: linux
 shortTitle: 启动时运行运行器应用程序
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 

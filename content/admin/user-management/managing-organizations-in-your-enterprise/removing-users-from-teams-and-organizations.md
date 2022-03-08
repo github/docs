@@ -38,7 +38,7 @@ To remove an existing member of a team synced to an LDAP group, contact your LDA
 {% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 4. Select the person or people you'd like to remove.
 ![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)
@@ -48,7 +48,7 @@ To remove an existing member of a team synced to an LDAP group, contact your LDA
 ## Removing a user from an organization
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Next to the name of the users you want to remove from the organization, click the check box.
 ![Remove user checkbox](/assets/images/help/organizations/Organization-remove-user.png)

@@ -86,7 +86,7 @@ Se você não conseguir clonar um repositório, verifique se:
 
 - Você consegue conectar-se usando HTTPS. Para obter mais informações, consulte "[Erros de clonagem por meio de HTTPS](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)".
 - Você tem permissão para acessar o repositório que você deseja clonar. Para obter mais informações, consulte "[Erro: Repositório não encontrado](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)".
-- O branch-padrão que você deseja clonar ainda existe. Para obter mais informações, consulte a permissão para acessar o repositório que você deseja clonar. Para ibter mais informações, consulte "[Erro: o HEAD remoto refere-se a uma ref inexistente, incapaz de fazer checkout](/github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)".
+- O branch-padrão que você deseja clonar ainda existe. Para ibter mais informações, consulte "[Erro: o HEAD remoto refere-se a uma ref inexistente, incapaz de fazer checkout](/repositories/creating-and-managing-repositories/troubleshooting-cloning-errors#error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)".
 
 {% ifversion fpt or ghec %}
 

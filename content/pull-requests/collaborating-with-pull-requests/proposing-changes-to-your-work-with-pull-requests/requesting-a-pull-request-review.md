@@ -1,6 +1,7 @@
 ---
 title: Requesting a pull request review
 intro: 'After you create a pull request, you can ask a specific person to review the changes you''ve proposed. If you''re an organization member, you can also request a specific team to review your changes.'
+product: '{% data reusables.gated-features.multiple-pr-reviewers %}'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review
   - /articles/requesting-a-pull-request-review
@@ -30,9 +31,9 @@ Organization members can also assign a pull request review to any person or team
 You can request a review from either a suggested or specific person. Suggested reviewers are based on [git blame data](/articles/tracking-changes-in-a-file/). If you request a review, other people with read access to the repository can still review your pull request. Once someone has reviewed your pull request and you've made the necessary changes, you can re-request review from the same reviewer. If the requested reviewer does not submit a review, and the pull request meets the repository's [mergeability requirements](/articles/defining-the-mergeability-of-pull-requests), you can still merge the pull request.
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request that you'd like to ask a specific person or a team to review.
-3. Navigate to **Reviewers** in the right sidebar.  
-4. To request a review from a suggested person under **Reviewers**, next to their username, click **Request**.
+1. In the list of pull requests, click the pull request that you'd like to ask a specific person or a team to review.
+2. Navigate to **Reviewers** in the right sidebar.  
+3. To request a review from a suggested person under **Reviewers**, next to their username, click **Request**.
  ![Reviewers request icon in the right sidebar](/assets/images/help/pull_requests/request-suggested-review.png)
 5. Optionally, to request a review from someone other than a suggested person, click **Reviewers**, then click on a name in the dropdown menu.
   ![Reviewers gear icon in the right sidebar](/assets/images/help/pull_requests/request-a-review-not-suggested.png)

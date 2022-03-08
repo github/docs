@@ -31,8 +31,8 @@ Puedes habilitar las fuentes de ancho fijo en cada campo de comentario de {% dat
 
 ![Captura de pantalla que muestra el campo de comentario de {% data variables.product.product_name %} con fuentes de ancho fijo habilitadas](/assets/images/help/writing/fixed-width-example.png)
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.appearance-settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.appearance-settings %}
 1. Debajo de "Preferencia de fuente en el editor de lenguaje de marcado", selecciona **Utilizar una fuente de ancho fijo (monoespacio) al editar el lenguaje de marcado**. ![Captura de pantalla que muestra el campo de comentario de {% data variables.product.product_name %} con fuentes de ancho fijo habilitadas](/assets/images/help/writing/enable-fixed-width.png)
 
 {% endif %}

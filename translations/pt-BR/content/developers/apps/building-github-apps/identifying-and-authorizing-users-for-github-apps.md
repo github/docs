@@ -26,11 +26,7 @@ Quando o seu aplicativo GitHub age em nome de um usuário, ele realiza solicita�
 
 Para autorizar usuários para aplicativos-padrão executados no navegador, use o [fluxo de aplicativo web](#web-application-flow).
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 Para autorizar usuários para aplicativos sem acesso direto ao navegador, como ferramentas de CLI ou gerentes de credenciais do Git, use o [fluxo de dispositivos](#device-flow). O fluxo de dispositivo usa o OAuth 2.0 [Concessão de autorização do dispositivo](https://tools.ietf.org/html/rfc8628).
-
-{% endif %}
 
 ## Fluxo do aplicativo web
 
@@ -51,13 +47,13 @@ Quando seu aplicativo GitHub especifica um parâmetro do `login`, ele solicita a
 
 #### Parâmetros
 
-| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                         |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`    | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub. Você pode encontrá-lo em suas [configurações do aplicativo GitHub](https://github.com/settings/apps) quando você selecionar seu aplicativo. **Observação:** O ID do aplicativo e o ID do cliente não são iguais e não são intercambiáveis.                                                                                         |
-| `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% ifversion fpt or ghes > 3.0 or ghec %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
-| `estado`       | `string` | Isso deve conter uma string aleatória para proteger contra ataques falsificados e pode conter quaisquer outros dados arbitrários.                                                                                                                                                                                                                                                                 |
-| `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                                       |
-| `allow_signup` | `string` | Independentemente de os usuários autenticados ou não atenticados terem a opção de iscrever-se em {% data variables.product.prodname_dotcom %} durante o fluxo do OAuth. O padrão é `verdadeiro`. Use `falso` quando uma política proibir inscrições.                                                                                                                                              |
+| Nome           | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                         |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`    | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub. Você pode encontrá-lo em suas [configurações do aplicativo GitHub](https://github.com/settings/apps) quando você selecionar seu aplicativo. **Observação:** O ID do aplicativo e o ID do cliente não são iguais e não são intercambiáveis.                                                                         |
+| `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters. |
+| `estado`       | `string` | Isso deve conter uma string aleatória para proteger contra ataques falsificados e pode conter quaisquer outros dados arbitrários.                                                                                                                                                                                                                                                 |
+| `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                       |
+| `allow_signup` | `string` | Independentemente de os usuários autenticados ou não atenticados terem a opção de iscrever-se em {% data variables.product.prodname_dotcom %} durante o fluxo do OAuth. O padrão é `verdadeiro`. Use `falso` quando uma política proibir inscrições.                                                                                                                              |
 
 {% note %}
 
@@ -75,9 +71,9 @@ Se o usuário aceitar o seu pedido, O GitHub irá fazer o redirecionamento para 
 
 {% endnote %}
 
-Troque este `código` por um token de acesso.  Quando os tokens vencidos estiverem habilitados, token de acesso irá expirar em 8 horas e o token de atualização irá expirar em 6 meses. Toda vez que você atualizar o token, você receberá um novo token de atualização. Para obter mais informações, consulte "[Atualizando tokens de acesso do usuário para servidor](/developers/apps/refreshing-user-to-server-access-tokens)."
+Exchange this `code` for an access token.  Quando os tokens vencidos estiverem habilitados, token de acesso irá expirar em 8 horas e o token de atualização irá expirar em 6 meses. Toda vez que você atualizar o token, você receberá um novo token de atualização. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
 
-Os tokens de usuário expirados são atualmente um recurso opcional e estão sujeitos a alterações. Para optar por participar do recurso de expiração de token de usuário para servidor, consulte "[Habilitar funcionalidades opcionais para aplicativos](/developers/apps/activating-optional-features-for-apps)."
+Os tokens de usuário expirados são atualmente um recurso opcional e estão sujeitos a alterações. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
 
 Faça um pedido para o seguinte ponto de extremidade para receber um token de acesso:
 
@@ -85,17 +81,17 @@ Faça um pedido para o seguinte ponto de extremidade para receber um token de ac
 
 #### Parâmetros
 
-| Nome            | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                                         |
-| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                                    |
-| `client_secret` | `string` | **Obrigatório.** O segredo do cliente do seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                                   |
-| `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                                                                                                                                                                                                                                                              |
-| `redirect_uri`  | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Este deve ser um match exato para {% ifversion fpt or ghes > 3.0 or ghec %} um dos URLs fornecidos como uma **URL de Callback**{% else %} a URL fornecida no campo de **URL de callback de autorização do usuário**{% endif %} ao configurar o aplicativo GitHub e não pode conter nenhum parâmetro adicional. |
-| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                                                                                                                                                                                                                                                     |
+| Nome            | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                                                         |
+| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **Obrigatório.** O ID do cliente para o seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                    |
+| `client_secret` | `string` | **Obrigatório.** O segredo do cliente do seu aplicativo GitHub.                                                                                                                                                                                                                                                                                                                   |
+| `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                                                                                                                                                                                                                                              |
+| `redirect_uri`  | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters. |
+| `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                                                                                                                                                                                                                                     |
 
 #### Resposta
 
-Por padrão, a resposta assume o seguinte formato. Os parâmetros de resposta `expires_in`, `refresh_token`, e `refresh_token_expires_in` só são retornados quando você habilita os token de acesso de usuário para servidor vencidos.
+By default, the response takes the following form. Os parâmetros de resposta `expires_in`, `refresh_token`, e `refresh_token_expires_in` só são retornados quando você habilita os token de acesso de usuário para servidor vencidos.
 
 ```json
 {
@@ -121,8 +117,6 @@ Por exemplo, no cURL você pode definir o cabeçalho de autorização da seguint
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ## Fluxo de dispositivo
 
 {% note %}
@@ -135,10 +129,7 @@ O fluxo de dispositivos permite que você autorize usuários para um aplicativo 
 
 Para obter mais informações sobre autorização de usuários que usam o fluxo do dispositivo, consulte "[Autorizar aplicativos OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
 
-{% endif %}
-
 ## Verifique quais recursos de instalação um usuário pode acessar
-
 
 Depois de ter um token OAuth para um usuário, você pode verificar quais instalações o usuário poderá acessar.
 
@@ -272,7 +263,8 @@ Embora a maior parte da interação da sua API deva ocorrer usando os tokens de 
 
 #### Refs do Git
 
-* [Criar uma referência](/rest/reference/git#create-a-reference)* [Obter uma referência](/rest/reference/git#get-a-reference)
+* [Criar referência](/rest/reference/git#create-a-reference)
+* [Obter uma referência](/rest/reference/git#get-a-reference)
 * [Lista de referências correspondentes](/rest/reference/git#list-matching-references)
 * [Atualizar uma referência](/rest/reference/git#update-a-reference)
 * [Excluir uma referência](/rest/reference/git#delete-a-reference)

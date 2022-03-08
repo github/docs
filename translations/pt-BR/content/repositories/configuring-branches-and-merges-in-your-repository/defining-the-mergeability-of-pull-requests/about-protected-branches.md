@@ -160,7 +160,7 @@ Você só pode dar acesso de push a um branch protegido a usuários, equipes ou 
 
 ### Permitir push forçado
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
 Por padrão, os blocks do {% data variables.product.product_name %} fazem push forçado em todos os branches protegidos. Ao habilitar push forçado em um branch protegido, você pode escolher um dos dois grupos que podem fazer push forçado:
 
 1. Permitir que todos com, no mínimo, permissões de gravação para que o repositório faça push forçado no branch, incluindo aqueles com permissões de administrador.

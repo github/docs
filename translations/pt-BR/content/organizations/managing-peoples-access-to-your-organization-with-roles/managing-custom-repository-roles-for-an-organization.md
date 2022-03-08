@@ -68,22 +68,24 @@ Você só pode escolher uma permissão adicional se já não estiver incluída n
 ### Pull Request
 
 - **Feche um pull request**
-- **Reopen a closed pull request**
-- **Request a pull request review**: Request a review from a user or team.
+- **Reabrir um pull request fechado**
+- **Solicitar uma revisão de pull request**: Solicitar uma revisão de um usuário ou equipe.
 
 ### Repositório
 
-- **Set milestones**: Add milestones to an issue or pull request.
-- **Manage wiki settings**: Turn on wikis for a repository.
-- **Manage project settings**: Turning on projects for a repository.
-- **Manage pull request merging settings**: Choose the type of merge commits that are allowed in your repository, such as merge, squash, or rebase.
-- **Manage {% data variables.product.prodname_pages %} settings**: Enable {% data variables.product.prodname_pages %} for the repository, and select the branch you want to publish. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".
-- **Manage webhooks**: Add webhooks to the repository.
-- **Manage deploy keys**: Add deploy keys to the repository.
-- **Edit repository metadata**: Update the repository description as well as the repository topics.
-- **Set interaction limits**: Temporarily restrict certain users from commenting, opening issues, or creating pull requests in your public repository to enforce a period of limited activity. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
+- **Definir marcos**: Adicionar marcos a um problema ou pull request.
+- **Gerenciar configurações de wiki**: Ative wikis para um repositório.
+- **Gerenciar configurações do projeto**: Ativando projetos para um repositório.
+- **Gerenciar configurações de merge do pull request**: Escolha o tipo de commits de merge permitidos no seu repositório, tais como merge, combinação por squash ou rebase.
+- **Gerenciar as configurações de {% data variables.product.prodname_pages %}**: Permitir {% data variables.product.prodname_pages %} para o repositório e selecione o branch que você deseja publicar. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".
+- **Gerenciar webhooks**: Adicione webhooks ao repositório.
+- **Gerenciar chaves de implantação**: Adicione chaves de deploy ao repositório.
+- **Editar os metadados do repositório**: Atualize a descrição do repositório, bem como os tópicos do repositório.
+- **Definir limites de interação**: Restrinja temporariamente certos usuários de comentários, problemas de abertura ou criação de pull requests no seu repositório público para aplicar um período de atividade limitada. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
 - **Set the social preview**: Add an identifying image to your repository that appears on social media platforms when your repository is linked. Para obter mais informações, consulte "[Personalizar a exibição das redes sociais do repositório](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)".
 - **Push commits to protected branches**: Push to a branch that is marked as a protected branch.
+- **Create protected tags**: Create tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+- **Delete protected tags**: Delete tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
 
 ### Segurança
 
@@ -99,7 +101,7 @@ Você só pode escolher uma permissão adicional se já não estiver incluída n
 
 If a person is given different levels of access through different avenues, such as team membership and the base permissions for an organization, the highest access overrides the others. For example, if an organization owner gives an organization member a custom role that uses the "Read" inherited role, and then an organization owner sets the organization's base permission to "Write", then this custom role will have write access, along with any additional permissions included in the custom role.
 
-If a person has been given conflicting access, you'll see a warning on the repository access page. The warning appears with "{% octicon "alert" aria-label="The alert icon" %} Mixed roles" next to the person with the conflicting access. To see the source of the conflicting access, hover over the warning icon or click **Mixed roles**.
+{% data reusables.organizations.mixed-roles-warning %}
 
 To resolve conflicting access, you can adjust your organization's base permissions or the team's access, or edit the custom role. Para obter mais informações, consulte:
   - "[Configurando permissões de base para uma organização](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"

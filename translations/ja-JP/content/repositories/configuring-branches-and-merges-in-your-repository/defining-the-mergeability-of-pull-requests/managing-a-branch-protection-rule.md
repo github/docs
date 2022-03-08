@@ -51,7 +51,7 @@ For more information about each of the available branch protection settings, see
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5506 %}
 1. Optionally, enable required pull requests.
    - Under "Protect matching branches", select **Require a pull request before merging**. ![プルリクエストレビューの制限チェックボックス](/assets/images/help/repository/PR-reviews-required-updated.png)
    - Optionally, to require approvals before a pull request can be merged, select **Require approvals**, click the **Required number of approvals before merging** drop-down menu, then select the number of approving reviews you would like to require on the branch. ![必須とするレビュー承認の数を選択するドロップダウンメニュー](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
@@ -62,8 +62,8 @@ For more information about each of the available branch protection settings, see
 {% endif %}
    - コードを変更するコミットがブランチにプッシュされたときにプルリクエストの承認レビューを却下する場合は、[**Dismiss stale pull request approvals when new commits are pushed**] を選択します。 ![新たなコミットがチェックボックスにプッシュされた際に古いプルリクエストの承認を却下するチェックボックス](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - 指定されたオーナーのコードにプルリクエストが影響する場合に、コードオーナーからのレビューを必須にする場合は、[**Require review from Code Owners**] を選択します。 詳細は「[コードオーナーについて](/github/creating-cloning-and-archiving-repositories/about-code-owners)」を参照してください。 ![コードオーナーのレビューを必要とする](/assets/images/help/repository/PR-review-required-code-owner.png)
-{% ifversion fpt or ghec %}
-   - Optionally, to allow specific people or teams to push code to the branch without being subject to the pull request rules above, select **Allow specific actors to bypass pull request requirements**. Then, search for and select the people or teams who are allowed to bypass the pull request requirements. ![Allow specific actors to bypass pull request requirements checkbox](/assets/images/help/repository/PR-bypass-requirements.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5611 %}
+   - Optionally, to allow specific people or teams to push code to the branch without creating pull requests when they're required, select **Allow specific actors to bypass required pull requests**. Then, search for and select the people or teams who should be allowed to skip creating a pull request. ![Allow specific actors to bypass pull request requirements checkbox](/assets/images/help/repository/PR-bypass-requirements.png)
 {% endif %}
    - リポジトリが Organization の一部である場合、[**Restrict who can dismiss pull request reviews**] を選択します。 そして、Pull Requestレビューを却下できるユーザまたは Team を検索して選択します。 詳しい情報については[プルリクエストレビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。 ![[Restrict who can dismiss pull request reviews] チェックボックス](/assets/images/help/repository/PR-review-required-dismissals.png)
 1. 必要に応じて、ステータスチェック必須を有効化します。 詳しい情報については[ステータスチェックについて](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)を参照してください。
@@ -88,7 +88,7 @@ For more information about each of the available branch protection settings, see
    - [**Restrict who can push to matching branches**] を選択します。 ![ブランチ制限のチェックボックス](/assets/images/help/repository/restrict-branch.png)
    - 保護されたブランチにプッシュできる権限を持つユーザ、Team、またはアプリを検索し、選択します。 ![ブランチ制限の検索](/assets/images/help/repository/restrict-branch-search.png)
 1. 必要に応じて、[Rules applied to everyone including administrators] で [**Allow force pushes**] を選択します。 ![フォースプッシュオプションを許可する](/assets/images/help/repository/allow-force-pushes.png)
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
   Then, choose who can force push to the branch.
     - Select **Everyone** to allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
     - Select **Specify who can force push** to allow only specific people or teams to force push to the branch. Then, search for and select those people or teams. ![Screenshot of the options to specify who can force push](/assets/images/help/repository/allow-force-pushes-specify-who.png)

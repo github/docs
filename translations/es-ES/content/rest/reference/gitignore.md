@@ -13,14 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Cuando creas un repositorio nuevo en {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} a través de la API, puedes especificar una [plantilla de.gitignore](/github/getting-started-with-github/ignoring-files) para aplicarla al repositorio cuando lo crees. La API de plantillas de .gitignore lista y recupera plantillas del [repositorio de .gitignore](https://github.com/github/gitignore) de {% data variables.product.product_name %}.
-
-### Tipos de medios personalizados para gitignore
-
-Puedes utilizar este tipo de medios personalizado cuando obtengas una plantilla de gitignore.
-
-    application/vnd.github.VERSION.raw
-
-Para obtener más información, consulta la sección "[Tipos de medios](/rest/overview/media-types)".
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/gitignore
+-->

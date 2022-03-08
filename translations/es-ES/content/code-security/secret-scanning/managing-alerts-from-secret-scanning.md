@@ -22,6 +22,14 @@ shortTitle: Administrar las alertas de los secretos
 
 ## Administrar las alertas del {% data variables.product.prodname_secret_scanning %}
 
+{% ifversion ghec %}
+{% note %}
+
+**Note:** Alerts are created only for repositories with {% data variables.product.prodname_secret_scanning_GHAS %} enabled. Secrets found in public repositories using the free {% data variables.product.prodname_secret_scanning_partner%} service are reported directly to the partner, without creating an alert.
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. En la barra lateral izquierda, haz clic en **Alertas del escaneo de secretos**.
@@ -55,6 +63,14 @@ Cuando un secreto se haya confirmado en un repositorio, deberás considerarlo en
 
 - Para un token de acceso personal de {% data variables.product.prodname_dotcom %} comprometido, elimina el token comprometido, crea un nuevo token y actualiza todo servicio que use el token antiguo. Para obtener más información, consulta la sección "[Crear un token de acceso personal para la línea de comandos](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)".
 - Para todos los demás secretos, verifica primero que aquellos que se hayan confirmado en {% data variables.product.product_name %} sean válidos. De ser así, crea un secreto nuevo, actualiza cualquier servicio que utilice el secreto anterior, y luego bórralo.
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[Supported secrets for partner patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)."
+
+{% endnote %}
+{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## Configurar las notificaciones para las alertas del {% data variables.product.prodname_secret_scanning %}

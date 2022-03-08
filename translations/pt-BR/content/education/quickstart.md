@@ -28,8 +28,8 @@ Primeiro, você precisará criar uma conta de usuário grátis em {% data variab
 
 Depois de criar a sua conta de usuário, crie uma conta grátis de organização. Você usará esta conta da organização para criar e gerenciar salas de aula de {% data variables.product.prodname_classroom %}.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 4. Siga as instruções para criar uma organização grátis.
 

@@ -58,7 +58,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.13.x
+          node-version: 16.14.x
           cache: npm
 
       - name: Install dependencies
@@ -112,8 +112,8 @@ jobs:
         run: |
           echo 'git remote add public-docs-repo https://github.com/github/docs.git'
           git remote add public-docs-repo https://github.com/github/docs.git
-          echo 'git lfs push --all public-docs-repo'
-          git lfs push --all public-docs-repo
+          echo 'GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 GIT_TRACE=1 git lfs push --all public-docs-repo'
+          GIT_TRANSFER_TRACE=1 GIT_CURL_VERBOSE=1 GIT_TRACE=1 git lfs push --all public-docs-repo
 
       - name: Send slack notification if workflow run fails
         uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340

@@ -30,6 +30,8 @@ Para ver os preços para uso de {% data variables.product.prodname_codespaces %}
 
 A cobrança do seu codespace é feita por minutos de computação e para a quantidade de armazenamento que usa no disco.
 
+Se você habilitar a pré-criação de códigos, isso acarretará custos adicionais. Para obter mais informações, consulte[Sobre as pré-criações de codespaces](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)".
+
 ### Ententendo quais minutos de computação são
 A cobrança do seu codespace é feita pelo número de minutos ativos. Se sua janela de codespace estiver inativa por 30 minutos, ela será desligada automaticamente, e o cálculo da cobrança para o codespace terminará até que você inicie o codespace novamente.
 

@@ -20,7 +20,7 @@ shortTitle: Cómo utiliza tus datos GitHub
 
 {% data reusables.repositories.about-github-archive-program %} Para obtener más información, consulta la sección "[Acerca de archivar contenido y datos en {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)".
 
-{% data reusables.user_settings.export-data %} Para obtener más información, consulta "[Solicitar un archivo de los datos de tu cuenta personal](/articles/requesting-an-archive-of-your-personal-account-s-data)".
+{% data reusables.user-settings.export-data %} For more information, see "[Requesting an archive of your personal account's data](/articles/requesting-an-archive-of-your-personal-account-s-data)."
 
 Si decides utilizar datos para un repositorio privado, seguiremos tratando tus datos privados, código abierto, o secretos comerciales como confidenciales y privados de acuerdo con nuestras [Condiciones de Servicio](/free-pro-team@latest/github/site-policy/github-terms-of-service). La información que obtenemos viene solo de los datos agregados. Para obtener más información, consulta la sección "[Administrar la configuración de uso de datos para tu repositorio privado](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)".
 

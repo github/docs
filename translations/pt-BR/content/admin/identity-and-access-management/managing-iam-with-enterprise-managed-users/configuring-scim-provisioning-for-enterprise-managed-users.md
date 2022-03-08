@@ -36,10 +36,10 @@ Para configurar o provisionamento para o seu {% data variables.product.prodname_
 {% endwarning %}
 
 1. Efetue o login em {% data variables.product.prodname_dotcom_the_website %} como usuário de configuração da sua nova empresa com o nome de usuário **@<em>SHORT-CODE</em>_admin**.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-{% data reusables.user_settings.personal_access_tokens %}
-{% data reusables.user_settings.generate_new_token %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.personal_access_tokens %}
+{% data reusables.user-settings.generate_new_token %}
 1. Em **Observação**, dê ao seu token um nome descritivo. ![Captura de tela que mostra o nome do token](/assets/images/help/enterprises/emu-pat-name.png)
 1. Selecione o menu suspenso **Expiração** e, em seguida, clique **Sem vencimento**. ![Captura de tela que mostra o vencimento do token definido como sem vencimento](/assets/images/help/enterprises/emu-pat-no-expiration.png)
 1. Selecione o escopo **admin:enterprise**. ![Captura de tela que mostra o escopo admin:enterprise](/assets/images/help/enterprises/enterprise-pat-scope.png)
@@ -50,6 +50,8 @@ Para configurar o provisionamento para o seu {% data variables.product.prodname_
 ## Configurando provisionamento para {% data variables.product.prodname_emus %}
 
 Depois de criar seu token de acesso pessoal e armazená-lo com segurança, você pode configurar o provisionamento no seu provedor de identidade.
+
+{% data reusables.scim.emu-scim-rate-limit %}
 
 Para configurar o Diretório Ativo do Azure para fornecer aos usuários do seu {% data variables.product.prodname_emu_enterprise %}, consulte [Tutorial: Configurar o usuário gerenciado do GitHub Enterprise para provisionamento automático de usuário](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) na documentação do Azure AD.
 

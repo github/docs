@@ -30,9 +30,9 @@ shortTitle: Ownership continuity
 ## 後継者を招待する
 後継者として招待する人は、{% data variables.product.company_short %} アカウントを所有している必要があります。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. [Successor settings] で後継者を招待し、ユーザ名、フルネーム、メールアドレスを入力して、名前が必要されたらそれをクリックします。 ![後継者招待の検索フィールド](/assets/images/help/settings/settings-invite-successor-search-field.png)
 4. [**Add successor**] をクリックします。
-{% data reusables.user_settings.sudo-mode-popup %}
+{% data reusables.user-settings.sudo-mode-popup %}
 5. 招待したユーザーは、後継者になることに合意するまで "Pending" としてリストされます。 ![後継者招待が Pending](/assets/images/help/settings/settings-pending-successor.png)

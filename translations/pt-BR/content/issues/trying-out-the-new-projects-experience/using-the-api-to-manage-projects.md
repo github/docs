@@ -365,6 +365,43 @@ A resposta conterá o ID do nó do item recém-criado.
 
 Se você tentar adicionar um item que já existe, o ID do item existente será retornado.
 
+### Atualizando configurações de um projeto
+
+O exemplo a seguir irá atualizar as configurações do seu projeto. Substitua `PROJECT_ID` pelo ID do nó do seu projeto. Defina `público` como `verdadeiro` para tornar o seu projeto público em {% data variables.product.product_name %}. Modifique a `descrição` para fazer alterações no README do seu projeto.
+
+{% curl %}
+```shell
+curl --request POST \
+--url https://api.github.com/graphql \
+--header 'Authorization: token <em>TOKEN</em>' \
+--data '{"query":"mutation { updateProjectNext(input: { projectId: \"<em>PROJECT_ID</em>\", title: \"Project title\", public: false, description: \"# Project README\n\nA long description\", shortDescription: \"A short description\"}) { projectNext { id, title, description, shortDescription }}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  mutation {
+    updateProjectNext(
+      input: {
+        projectId: "<em>PROJECT_ID</em>", 
+        title: "Project title",
+        public: false,
+        description: "# Project README\n\nA long description",
+        shortDescription: "A short description"
+      }
+    ) {
+      projectNext {
+        id
+        title
+        description
+        shortDescription
+      }
+    }
+  }'
+```
+{% endcli %}
+
 ### Atualizando um campo de texto, número ou data personalizado
 
 O exemplo a seguir atualizará o valor de um campo de data para um item. Substitua `PROJECT_ID` pelo ID do nó do seu projeto. Substitua `ITEM_ID` pelo ID do nó do item que você deseja atualizar. Substitua `FIELD_ID` pelo ID do campo que você deseja atualizar.

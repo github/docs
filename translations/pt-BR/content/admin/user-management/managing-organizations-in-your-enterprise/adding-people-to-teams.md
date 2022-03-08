@@ -26,7 +26,7 @@ Cada equipe tem suas próprias [ permissões de acesso definidas individualmente
 ## Configurar uma equipe
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.invite_to_team %}
 {% data reusables.organizations.review-team-repository-access %}

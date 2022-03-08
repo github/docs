@@ -33,7 +33,7 @@ shortTitle: 支払い方法の管理
 
 ## 個人アカウントの支払い方法を更新する
 
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
 1. If your account has existing billing information that you want to update, click **Edit**. ![支払の新しいカードボタン](/assets/images/help/billing/billing-information-edit-button.png)
 {% data reusables.dotcom_billing.enter-billing-info %}

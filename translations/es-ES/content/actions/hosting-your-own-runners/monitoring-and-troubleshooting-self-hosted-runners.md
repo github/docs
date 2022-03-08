@@ -15,16 +15,15 @@ defaultPlatform: linux
 shortTitle: Monitor & troubleshoot
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Checking the status of a self-hosted runner
 
-{% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
+{% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
-{% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
-{% data reusables.github-actions.settings-sidebar-actions-runners %}
+{% data reusables.actions.self-hosted-runner-navigate-repo-and-org %}
+{% data reusables.actions.settings-sidebar-actions-runners %}
 1. Under {% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}, you can view a list of registered runners, including the runner's name, labels, and status.
 
     The status can be one of the following:
@@ -46,12 +45,12 @@ For example:
 
 {% mac %}
 
-{% data reusables.github-actions.self-hosted-runner-check-mac-linux %}
+{% data reusables.actions.self-hosted-runner-check-mac-linux %}
 
 {% endmac %}
 {% linux %}
 
-{% data reusables.github-actions.self-hosted-runner-check-mac-linux %}
+{% data reusables.actions.self-hosted-runner-check-mac-linux %}
 
 {% endlinux %}
 {% windows %}

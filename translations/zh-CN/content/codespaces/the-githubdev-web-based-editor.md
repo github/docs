@@ -86,7 +86,7 @@ You can use the {% data variables.product.prodname_serverless %} to work with an
 2. Press `.` to open the pull request in the {% data variables.product.prodname_serverless %}.
 3. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
 
-## Using extensions
+## 使用扩展
 
 The {% data variables.product.prodname_serverless %} supports {% data variables.product.prodname_vscode %} extensions that have been specifically created or updated to run in the web. These extensions are known as "web extensions". To learn how you can create a web extension or update your existing extension to work for the web, see "[Web extensions](https://code.visualstudio.com/api/extension-guides/web-extensions)" in the {% data variables.product.prodname_vscode %} documentation.
 

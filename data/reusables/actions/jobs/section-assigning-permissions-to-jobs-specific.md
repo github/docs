@@ -2,8 +2,8 @@ For a specific job, you can use `jobs.<job_id>.permissions` to modify the defaul
 
 By specifying the permission within a job definition, you can configure a different set of permissions for the `GITHUB_TOKEN` for each job, if required. Alternatively, you can specify the permissions for all jobs in the workflow. For information on defining permissions at the workflow level, see [`permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#permissions).
 
-{% data reusables.github-actions.github-token-available-permissions %}
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.github-token-available-permissions %}
+{% data reusables.actions.forked-write-permission %}
 
 #### Example: Setting permissions for a specific job
 

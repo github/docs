@@ -13,7 +13,6 @@ defaultPlatform: linux
 shortTitle: Run runner app on startup
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 

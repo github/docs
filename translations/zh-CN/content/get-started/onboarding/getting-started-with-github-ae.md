@@ -16,13 +16,13 @@ You will first need to purchase {% data variables.product.product_name %}. For m
 {% data reusables.github-ae.initialize-enterprise %}
 
 ### 2. Initializing {% data variables.product.product_name %}
-After {% data variables.product.company_short %} creates the owner account for {% data variables.product.product_location %} on {% data variables.product.product_name %}, you will receive an email to sign in and complete the initialization. During initialization, you, as the enterprise owner, will name {% data variables.product.product_location %}, configure SAML SSO, create policies for all organizations in {% data variables.product.product_location %}, and configure a support contact for your enterprise members. 更多信息请参阅“[初始化 {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)。”
+After {% data variables.product.company_short %} creates the owner account for {% data variables.product.product_location %} on {% data variables.product.product_name %}, you will receive an email to sign in and complete the initialization. During initialization, you, as the enterprise owner, will name {% data variables.product.product_location %}, configure SAML SSO, create policies for all organizations in {% data variables.product.product_location %}, and configure a support contact for your enterprise members. For more information, see "[Initializing {% data variables.product.prodname_ghe_managed %}](/admin/configuration/configuring-your-enterprise/initializing-github-ae)."
 
-### 3. 限制网络流量
-You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. 更多信息请参阅“[限制到企业的网络流量](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)”。
+### 3. Restricting network traffic
+You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)."
 
 ### 4. Managing identity and access for {% data variables.product.product_location %}
-You can centrally manage access to {% data variables.product.product_location %} on {% data variables.product.product_name %} from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure provisioning, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. 更多信息请参阅“[关于企业的身份和访问权限管理](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)”。
+You can centrally manage access to {% data variables.product.product_location %} on {% data variables.product.product_name %} from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure provisioning, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. For more information, see "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
 
 ### 5. Managing billing for {% data variables.product.product_location %}
 Owners of the subscription for {% data variables.product.product_location %} on {% data variables.product.product_name %} can view billing details for {% data variables.product.product_name %} in the Azure portal. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
@@ -33,13 +33,13 @@ As an enterprise owner for {% data variables.product.product_name %}, you can ma
 ### 1. Managing members of {% data variables.product.product_location %}
 {% data reusables.getting-started.managing-enterprise-members %}
 
-### 2. 创建组织
+### 2. Creating organizations
 {% data reusables.getting-started.creating-organizations %}
 
 ### 3. Adding members to organizations
 {% data reusables.getting-started.adding-members-to-organizations %}
 
-### 4. 创建团队
+### 4. Creating teams
 {% data reusables.getting-started.creating-teams %}
 
 ### 5. Setting organization and repository permission levels

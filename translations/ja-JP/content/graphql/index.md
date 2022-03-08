@@ -1,6 +1,6 @@
 ---
 title: GitHubのGraphQL API
-intro: 'To create integrations, retrieve data, and automate your workflows, use the {% data variables.product.prodname_dotcom %} GraphQL API. The {% data variables.product.prodname_dotcom %} GraphQL API offers more precise and flexible queries than the {% data variables.product.prodname_dotcom %} REST API.'
+intro: 'インテグレーションを作成し、データを取り出し、ワークフローを自動化するために、{% data variables.product.prodname_dotcom %}のGraphQL APIを使ってください。 {% data variables.product.prodname_dotcom %}のGraphQL APIは、{% data variables.product.prodname_dotcom %} REST APIよりも正確で柔軟なクエリを提供します。'
 shortTitle: GraphQL API
 introLinks:
   overview: /graphql/overview/about-the-graphql-api

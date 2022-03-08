@@ -41,6 +41,8 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
 
+{% data reusables.codespaces.prebuilds-crossreference %}
+
 ## Access to {% data variables.product.prodname_codespaces %}
 
 {% data reusables.codespaces.availability %}

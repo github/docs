@@ -1,7 +1,7 @@
 
 Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configurations. A matrix allows you to create multiple jobs by performing variable substitution in a single job definition. For example, you can use a matrix to create jobs for more than one supported version of a programming language, operating system, or tool. A matrix reuses the job's configuration and creates a job for each matrix you configure.
 
-{% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.actions.usage-matrix-limits %}
 
 Each option you define in the `matrix` has a key and value. The keys you define become properties in the `matrix` context and you can reference the property in other areas of your workflow file. For example, if you define the key `os` that contains an array of operating systems, you can use the `matrix.os` property as the value of the `runs-on` keyword to create a job for each operating system. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
 
@@ -123,4 +123,4 @@ strategy:
 
 You can add custom environment variables for each test combination by using the `include` key. You can then refer to the custom environment variables in a later step.
 
-{% data reusables.github-actions.matrix-variable-example %}
+{% data reusables.actions.matrix-variable-example %}
