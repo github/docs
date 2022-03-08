@@ -51,6 +51,8 @@ Para configurar o provisionamento para o seu {% data variables.product.prodname_
 
 Depois de criar seu token de acesso pessoal e armazená-lo com segurança, você pode configurar o provisionamento no seu provedor de identidade.
 
+{% data reusables.scim.emu-scim-rate-limit %}
+
 Para configurar o Diretório Ativo do Azure para fornecer aos usuários do seu {% data variables.product.prodname_emu_enterprise %}, consulte [Tutorial: Configurar o usuário gerenciado do GitHub Enterprise para provisionamento automático de usuário](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) na documentação do Azure AD.
 
 Para configurar o Okta para prover usuários para seu {% data variables.product.prodname_emu_enterprise %}, consulte "[Configurando o provisionamento de SCIM para Usuários Corporativos Gerenciados com o Okta](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)".

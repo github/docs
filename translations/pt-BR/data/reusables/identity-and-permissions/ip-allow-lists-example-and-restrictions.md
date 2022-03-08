@@ -1,1 +1,1 @@
-Por exemplo, você pode permitir o acesso somente a partir do endereço IP da rede do escritório. A lista de permissão para endereços IP irá bloquear o acesso através da web, API, e Git de qualquer endereço IP que não esteja na lista de permissões.
+Por exemplo, você pode permitir o acesso somente a partir do endereço IP da rede do escritório. The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.
