@@ -194,6 +194,7 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(302)
       const expected = `/ja${redirectTo}`
       expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('redirect_from for renamed pages but ignore Accept-Language header if not recognized', async () => {
@@ -206,6 +207,7 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(302)
       const expected = `/en${redirectTo}`
       expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('redirect_from for renamed pages but ignore unrecognized Accept-Language header values', async () => {
@@ -218,6 +220,7 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(302)
       const expected = `/ja${redirectTo}`
       expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('will inject the preferred language from cookie', async () => {
@@ -231,6 +234,7 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(302)
       const expected = `/ja${redirectTo}`
       expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
   })
 

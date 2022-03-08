@@ -51,7 +51,7 @@ shortTitle: 禁用或限制操作
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. 在 **Policies（策略）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。
-   {%- ifversion ghes > 3.0 %}
+   {%- ifversion ghes %}
    ![添加操作到允许列表](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
    ![添加操作到允许列表](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)

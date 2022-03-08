@@ -10,12 +10,6 @@ topics:
 shortTitle: Share with your enterprise
 ---
 
-{% note %}
-
-**Note:** Allowing workflows to access actions in internal repositories is currently in beta and subject to change.
-
-{% endnote %}
-
 ## About {% data variables.product.prodname_actions %} access to internal repositories
 
 If your organization is owned by an enterprise account, you can share actions and workflows within your enterprise, without publishing the action or workflow publicly, by allowing {% data variables.product.prodname_actions %} workflows to access an internal repository that contains the action or workflow.

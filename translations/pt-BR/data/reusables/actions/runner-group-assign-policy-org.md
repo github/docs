@@ -1,3 +1,3 @@
 1. Insira um nome para o seu grupo de executor e atribua uma política para acesso à organização.
 
-    Você pode configurar um grupo de executores para que possa ser acessado por uma lista específica de organizações ou por todas as organizações da empresa. Por padrão, apenas repositórios privados podem acessar executores em um grupo de executores, mas você pode substituir isso. This setting can't be overridden if configuring an organization's runner group that was shared by an enterprise.
+    You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.{% ifversion ghec or ghes %} By default, only private repositories can access runners in a runner group, but you can override this. Esta configuração não pode ser substituída se configurar o grupo de executores da organização que foi compartilhado por uma empresa.{% endif %}

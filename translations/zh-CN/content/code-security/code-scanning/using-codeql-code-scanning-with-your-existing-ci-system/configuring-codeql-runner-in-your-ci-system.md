@@ -144,10 +144,8 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | 标志                                     | 必选 | 输入值                                                                                                                                 |
 | -------------------------------------- |:--:| ----------------------------------------------------------------------------------------------------------------------------------- |
 | `--repository`                         | ✓  | 要初始化的仓库名称。                                                                                                                          |
-| `--github-url`                         | ✓  | 托管仓库的 {% data variables.product.prodname_dotcom %} 实例的 URL。 |{% ifversion ghes < 3.1 %}
-| `--github-auth`                        | ✓  | {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。 |{% else %}
-| <nobr>`--github-auth-stdin`</nobr>   | ✓  | 从标准输入读取 {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。 
-{% endif %}
+| `--github-url`                         | ✓  | 托管仓库的 {% data variables.product.prodname_dotcom %} 实例的 URL。                                                                         |
+| <nobr>`--github-auth-stdin`</nobr>   | ✓  | 从标准输入读取 {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。                                                              |
 | `--languages`                          |    | 要分析的语言列表，以逗号分隔。 默认情况下，{% data variables.product.prodname_codeql_runner %} 检测和分析仓库中所有支持的语言。                                        |
 | `--queries`                            |    | 除了默认的安全查询套件之外，要运行的额外查询列表，以逗号分隔。 这将覆盖自定义配置文件中的 `queries` 设置。                                                                         |
 | `--config-file`                        |    | 自定义配置文件的路径。                                                                                                                         |
@@ -180,10 +178,8 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | `--repository`                       | ✓  | 要分析的仓库名称。                                                                                                                                                |
 | `--commit`                           | ✓  | 要分析的提交的 SHA。 在 Git 和 Azure DevOps 中，这对应于 `git rev-parse HEAD` 的值。 在 Jenkins 中，这对应于 `$GIT_COMMIT`。                                                        |
 | `--ref`                              | ✓  | 要分析的引用的名称，例如 `refs/heads/main` 或 `refs/pull/42/merge`。 在 Git 或 Jenkins 中，这对应于 `git symbolic-ref HEAD` 的值。 在 Azure DevOps 中，这对应于 `$(Build.SourceBranch)`。 |
-| `--github-url`                       | ✓  | 托管仓库的 {% data variables.product.prodname_dotcom %} 实例的 URL。 |{% ifversion ghes < 3.1 %}
-| `--github-auth`                      | ✓  | {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。 |{% else %}
-| <nobr>`--github-auth-stdin`</nobr> | ✓  | 从标准输入读取 {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。 
-{% endif %}
+| `--github-url`                       | ✓  | 托管仓库的 {% data variables.product.prodname_dotcom %} 实例的 URL。                                                                                              |
+| <nobr>`--github-auth-stdin`</nobr> | ✓  | 从标准输入读取 {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。                                                                                   |
 | <nobr>`--checkout-path`</nobr>     |    | 检出仓库的路径。 默认值为当前工作目录。                                                                                                                                     |
 | `--no-upload`                        |    | 无. 阻止 {% data variables.product.prodname_codeql_runner %} 将结果上传到 {% data variables.product.product_name %}。                                            |
 | `--output-dir`                       |    | 存储输出 SARIF 文件的目录。 默认在临时文件目录中。                                                                                                                            |
@@ -212,10 +208,8 @@ $ /path/to-runner/codeql-runner-linux autobuild --language csharp
 | `--repository`                       | ✓  | 已分析的仓库名称。                                                                                                                                                |
 | `--commit`                           | ✓  | 已分析的提交的 SHA。 在 Git 和 Azure DevOps 中，这对应于 `git rev-parse HEAD` 的值。 在 Jenkins 中，这对应于 `$GIT_COMMIT`。                                                        |
 | `--ref`                              | ✓  | 已分析的引用的名称，例如 `refs/heads/main` 或 `refs/pull/42/merge`。 在 Git 或 Jenkins 中，这对应于 `git symbolic-ref HEAD` 的值。 在 Azure DevOps 中，这对应于 `$(Build.SourceBranch)`。 |
-| `--github-url`                       | ✓  | 托管仓库的 {% data variables.product.prodname_dotcom %} 实例的 URL。 |{% ifversion ghes < 3.1 %}
-| `--github-auth`                      | ✓  | {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。 |{% else %}
-| <nobr>`--github-auth-stdin`</nobr> | ✓  | 从标准输入读取 {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。 
-{% endif %}
+| `--github-url`                       | ✓  | 托管仓库的 {% data variables.product.prodname_dotcom %} 实例的 URL。                                                                                              |
+| <nobr>`--github-auth-stdin`</nobr> | ✓  | 从标准输入读取 {% data variables.product.prodname_github_apps %} 令牌或个人访问令牌。                                                                                   |
 | <nobr>`--checkout-path`</nobr>     |    | 检出仓库的路径。 默认值为当前工作目录。                                                                                                                                     |
 | `--debug`                            |    | 无. 打印更详细的输出。                                                                                                                                             |
 | `-h`, `--help`                       |    | 无. 显示命令的帮助。                                                                                                                                              |

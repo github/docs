@@ -15,7 +15,7 @@ redirect_from:
 ---
 
 
-您可以通过 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}{% data variables.product.prodname_actions %} 和环境或使用 {% endif %} REST API 和第三方应用程序来交付部署。 {% ifversion fpt or ghae ghes > 3.0 or ghec %}For more information about using environments to deploy with {% data variables.product.prodname_actions %}, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." {% endif %}有关使用 REST API 进行部署的更多信息，请参阅“[仓库](/rest/reference/repos#deployments)”。
+You can deliver deployments through {% data variables.product.prodname_actions %} and environments or with the REST API and third party apps. {% ifversion fpt or ghae ghes > 3.0 or ghec %}For more information about using environments to deploy with {% data variables.product.prodname_actions %}, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." {% endif %}有关使用 REST API 进行部署的更多信息，请参阅“[仓库](/rest/reference/repos#deployments)”。
 
 要查看当前和过去的部署，请在仓库的主页上单击 **Environments（环境）**。
 {% ifversion ghae %}

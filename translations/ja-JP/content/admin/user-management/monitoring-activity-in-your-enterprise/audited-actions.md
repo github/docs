@@ -50,14 +50,14 @@ topics:
 
 ## Enterprise 設定
 
-| アクション                                                   | 説明                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes > 3.0 or ghae %}
-| `business.advanced_security_policy_update`              | A site admin creates, updates, or removes a policy for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."{% endif %}
+| アクション                                                   | 説明                                                                                                                                                                                                                                                                                                                 |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |{% ifversion ghes or ghae %}
+| `business.advanced_security_policy_update`              | A site admin creates, updates, or removes a policy for {% data variables.product.prodname_GH_advanced_security %}. 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_advanced_security %}のポリシーの施行](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)」を参照してください。{% endif %}
 | `business.clear_members_can_create_repos`               | サイトアドミンは、Enterprise 内の Organization でのリポジトリ作成の制限を解除します。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)」を参照してください。{% ifversion ghes > 3.1 %}
-| `business.referrer_override_enable`                     | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."                                                                                                     |
+| `business.referrer_override_enable`                     | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."                                                                        |
 | `business.referrer_override_disable`                    | A site admin disables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."{% endif %}
 | `business.update_member_repository_creation_permission` | サイトアドミンは、Enterprise 内の Organization でのリポジトリの作成を制限します。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)」を参照してください。{% ifversion ghes %}
-| `enterprise.config.lock_anonymous_git_access`           | サイトアドミンは匿名の Git 読み取りアクセスをロックして、リポジトリ管理者が Enterprise 内のリポジトリの既存の匿名 Git 読み取りアクセス設定を変更できないようにします。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)」を参照してください。                                                                         |
+| `enterprise.config.lock_anonymous_git_access`           | サイトアドミンは匿名の Git 読み取りアクセスをロックして、リポジトリ管理者が Enterprise 内のリポジトリの既存の匿名 Git 読み取りアクセス設定を変更できないようにします。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)」を参照してください。                                            |
 | `enterprise.config.unlock_anonymous_git_access`         | サイトアドミンは匿名 Git 読み取りアクセスのロックを解除して、リポジトリ管理者が Enterprise 内のリポジトリの既存の匿名 Git 読み取りアクセス設定を変更できるようにします。 詳しい情報については、「[Enterprise でリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)」を参照してください。{% endif %}
 
 {% ifversion ghae %}
@@ -98,18 +98,18 @@ topics:
 
 ## 保護されたブランチ
 
-| アクション                                                              | 説明                                                                                             |
-| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| `protected_branch.create`                                          | ブランチ保護がブランチで有効になっています。                                                                         |
-| `protected_branch.destroy`                                         | ブランチ保護がブランチで無効になっています。                                                                         |
-| `protected_branch.update_admin_enforced`                           | ブランチ保護がリポジトリ管理者に対して強制されます。                                                                     |
-| `protected_branch.update_require_code_owner_review`                | 必要なコードオーナーレビューの強制がブランチで更新されます。                                                                 |
-| `protected_branch.dismiss_stale_reviews`                           | 却下している古いプルリクエストの強制がブランチで更新されます。                                                                |
-| `protected_branch.update_signature_requirement_enforcement_level`  | 必要なコミット署名の強制がブランチで更新されます。                                                                      |
-| `protected_branch.update_pull_request_reviews_enforcement_level`   | 必要なプルリクエストレビューの強制がブランチで更新されます。 Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone). |
-| `protected_branch.update_required_status_checks_enforcement_level` | 必要なステータスチェックの強制がブランチで更新されます。                                                                   |
-| `protected_branch.rejected_ref_update`                             | ブランチ更新の試行が拒否されます。                                                                              |
-| `protected_branch.policy_override`                                 | ブランチ保護の要件がリポジトリ管理者によってオーバーライドされます。                                                             |
+| アクション                                                              | 説明                                                              |
+| ------------------------------------------------------------------ | --------------------------------------------------------------- |
+| `protected_branch.create`                                          | ブランチ保護がブランチで有効になっています。                                          |
+| `protected_branch.destroy`                                         | ブランチ保護がブランチで無効になっています。                                          |
+| `protected_branch.update_admin_enforced`                           | ブランチ保護がリポジトリ管理者に対して強制されます。                                      |
+| `protected_branch.update_require_code_owner_review`                | 必要なコードオーナーレビューの強制がブランチで更新されます。                                  |
+| `protected_branch.dismiss_stale_reviews`                           | 却下している古いプルリクエストの強制がブランチで更新されます。                                 |
+| `protected_branch.update_signature_requirement_enforcement_level`  | 必要なコミット署名の強制がブランチで更新されます。                                       |
+| `protected_branch.update_pull_request_reviews_enforcement_level`   | 必要なプルリクエストレビューの強制がブランチで更新されます。 `0`（無効化）、`1`（非管理者）、`2`（全員）のいずれか。 |
+| `protected_branch.update_required_status_checks_enforcement_level` | 必要なステータスチェックの強制がブランチで更新されます。                                    |
+| `protected_branch.rejected_ref_update`                             | ブランチ更新の試行が拒否されます。                                               |
+| `protected_branch.policy_override`                                 | ブランチ保護の要件がリポジトリ管理者によってオーバーライドされます。                              |
 
 ## リポジトリ
 

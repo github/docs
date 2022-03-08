@@ -120,11 +120,9 @@ Almacenar el nombre de tu proyecto como un secreto llamado `GKE_PROJECT`. Para o
 ### (Opcional) Configurar kustomize
 Kustomize es una herramietna opcional que se utiliza para administrar las especificaciones YAML. Después de crear un archivo de `kustomization`, el siguiente flujo de trabajo puede utilizarse para configurar campos de la imagen dinámicamente y agregar el resultado en `kubectl`. Para obtener más información, consulta la sección [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Opcional) Configurar un ambiente de despliegue
 
 {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Crear un flujo de trabajo
 

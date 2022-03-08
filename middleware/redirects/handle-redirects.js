@@ -92,6 +92,8 @@ export default function handleRedirects(req, res, next) {
   // do the redirect if the from-URL already had a language in it
   if (pathLanguagePrefixed(req.path)) {
     cacheControl(res)
+  } else {
+    noCacheControl(res)
   }
 
   const permanent = usePermanentRedirect(req)

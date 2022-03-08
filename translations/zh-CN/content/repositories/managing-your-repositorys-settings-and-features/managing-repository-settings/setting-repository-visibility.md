@@ -57,7 +57,7 @@ Members of an {% data variables.product.prodname_emu_enterprise %} can only set 
 
 {%- ifversion fpt or ghec %}
 * {% data variables.product.prodname_dotcom %} 不再在 {% data variables.product.prodname_archive %} 中包含该仓库。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program) 上存档内容和数据”。
-* {% data variables.product.prodname_GH_advanced_security %} features, such as {% data variables.product.prodname_code_scanning %}, will stop working{% ifversion ghec %} unless the repository is owned by an organization that is part of an enterprise with a license for {% data variables.product.prodname_advanced_security %} and sufficient spare seats{% endif %}. {% data reusables.advanced-security.more-info-ghas %}
+* {% data variables.product.prodname_GH_advanced_security %} 功能，例如 {% data variables.product.prodname_code_scanning %}，将停止工作{% ifversion ghec %}，除非拥有仓库的组织具有 {% data variables.product.prodname_advanced_security %} 许可证和充分的备用席位{% endif %}。 {% data reusables.advanced-security.more-info-ghas %}
 {%- endif %}
 
 {%- ifversion ghes %}

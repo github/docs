@@ -82,7 +82,7 @@ GraphQL APIの利用に関する詳しい情報については、以下を参照
 
 ### アイデンティティプロバイダを介したユーザのSCIM再プロビジョニング
 
-IdPを介して、ユーザのSCIMを手動で再プロビジョニングできます。 For example, to resolve provisioning errors for Okta, in the Okta admin portal, you can unassign and reassign users to the {% data variables.product.prodname_dotcom %} app. これにより、Oktaはそれらのユーザに対するSCIMメタデータを{% data variables.product.prodname_dotcom %}に展開するAPIコールを発行します。 詳しい情報についてはOktaのドキュメンテーションの「[Unassign users from applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)」あるいは「[Assign users to applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)」を参照してください。
+IdPを介して、ユーザのSCIMを手動で再プロビジョニングできます。 たとえば、Oktaのプロビジョニングのエラーを解決するために、Oktaの管理ポータルで、{% data variables.product.prodname_dotcom %}アプリケーションに対してユーザの割り当てを解除してから割り当て直すことができます。 これにより、Oktaはそれらのユーザに対するSCIMメタデータを{% data variables.product.prodname_dotcom %}に展開するAPIコールを発行します。 詳しい情報についてはOktaのドキュメンテーションの「[Unassign users from applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)」あるいは「[Assign users to applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)」を参照してください。
 
 ユーザのSCIMアイデンティティが作成されたことを確認するには、SCIMの外部アイデンティティを持っていないことが確認された一人のOrganizationメンバーで、このプロセスをテストすることをおすすめします。 手動でIdP内のユーザを更新したら、ユーザのSCIMアイデンティティが作成されたかを{% data variables.product.prodname_dotcom %} の SCIM APIを使ってチェックできます。 詳しい情報については「[ユーザのSCIMメタデータの欠如の監査](#auditing-users-for-missing-scim-metadata)」あるいはREST APIエンドポイントの「[ユーザのSCIMプロビジョニング情報の取得](/rest/reference/scim#get-scim-provisioning-information-for-a-user)」を参照してください。
 

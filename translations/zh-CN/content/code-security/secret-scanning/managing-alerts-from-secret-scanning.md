@@ -22,6 +22,14 @@ shortTitle: 管理秘密警报
 
 ## 管理 {% data variables.product.prodname_secret_scanning %} 警报
 
+{% ifversion ghec %}
+{% note %}
+
+**注意：**仅为启用了 {% data variables.product.prodname_secret_scanning_GHAS %} 的存储库创建警报。 使用免费 {% data variables.product.prodname_secret_scanning_partner%} 服务在公共存储库中发现的机密将直接报告给合作伙伴，而无需创建警报。
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. 在左侧边栏中，单击 **Secret scanning alerts（机密扫描警报）**。
@@ -55,6 +63,14 @@ shortTitle: 管理秘密警报
 
 - 对于受到威胁的 {% data variables.product.prodname_dotcom %} 个人访问令牌，请删除该令牌，创建新令牌，然后更新使用旧令牌的任何服务。 更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)。”
 - 对于所有其他密码，请先确认提交到 {% data variables.product.product_name %} 的密码是有效的。 如果有效，请创建新密码，更新使用旧密码的任何服务，然后删除旧密码。
+
+{% ifversion ghec %}
+{% note %}
+
+**注意：** 如果在 {% data variables.product.prodname_dotcom_the_website %} 上的公共存储库中检测到机密，并且该机密也与合作伙伴模式匹配，则会生成警报，并将潜在的机密报告给服务提供商。 有关合作伙伴模式的详细信息，请参阅“[合作伙伴模式支持的机密](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)”。
+
+{% endnote %}
+{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## 配置 {% data variables.product.prodname_secret_scanning %} 警报的通知

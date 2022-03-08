@@ -36,7 +36,7 @@ OrganizationがSSH証明書を必要とするなら、認証エラーを回避�
 
 リポジトリへの読み取りアクセスを持つ人は、リポジトリのメインページの**Code**ドロップダウンメニューを選択し、続いて**Use SSH（SSHを使用）**をクリックしてください。
 
-OrganizationがSSH証明書を必要としない場合は、メンバーは自分のSSHキーか、他の認証方法を使い続けることができます。 In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
+OrganizationがSSH証明書を必要としない場合は、メンバーは自分のSSHキーか、他の認証方法を使い続けることができます。 この場合は、特別なURLでも、`git@github.com`で始まる通常のURLでも動作します。
 
 ## 証明書の発行
 
