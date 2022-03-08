@@ -67,7 +67,7 @@ Você pode restringir o tráfego de rede para a sua empresa em {% data variables
 
 {% elsif ghec %}
 
-Os proprietários de empresas podem restringir o acesso a ativos pertencentes a organizações em uma empresa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+Enterprise owners can restrict access to private assets owned by organizations in an enterprise by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
