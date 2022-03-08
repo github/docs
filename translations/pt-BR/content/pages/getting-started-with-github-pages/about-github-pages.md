@@ -34,7 +34,7 @@ O {% data variables.product.prodname_pages %} é um serviço de hospedagem de si
 
 Para começar, consulte "[Criar um site do {% data variables.product.prodname_pages %}](/articles/creating-a-github-pages-site)".
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 Os proprietários da organização podem desabilitar a publicação de sites do {% data variables.product.prodname_pages %} nos repositórios da organização. Para obter mais informações, consulte "[Gerenciar a publicação de sites de {% data variables.product.prodname_pages %} para a sua organização](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)".
 {% endif %}
 
@@ -80,7 +80,6 @@ Se existir uma fonte de publicação padrão no repositório, o {% data variable
 Se você desejar manter os arquivos de origem do seu site em outro local, você poderá alterar a fonte de publicação do seu site. É possível publicar o site a partir de qualquer branch no repositório, a partir da raiz do repositório nesse branch, `/` ou a partir da pasta `/docs` nesse branch. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)".
 
 Se você escolher a pasta `/docs` de qualquer branch como a fonte de publicação, o {% data variables.product.prodname_pages %} lerá tudo a ser publicado no seu site{% ifversion fpt or ghec %}, inclusive o arquivo _CNAME_,{% endif %} na pasta `/docs`.{% ifversion fpt or ghec %} Por exemplo, quando você edita o domínio personalizado usando as configurações do {% data variables.product.prodname_pages %}, o domínio personalizado grava em `/docs/CNAME`. Para obter mais informações sobre arquivos _CNAME_, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
-
 
 ## Geradores de site estáticos
 

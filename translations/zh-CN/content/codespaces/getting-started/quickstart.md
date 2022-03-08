@@ -41,17 +41,17 @@ redirect_from:
 
     如果按照其他应用程序类型进行操作，请为该项目输入相应的启动命令。
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to forward that port so you can connect to it.
+2. 当应用程序启动时，代码空间会识别运行应用程序的端口，并显示转发该端口的提示，以便您可以连接到该端口。
 
   ![端口转发信息框](/assets/images/help/codespaces/quickstart-port-toast.png)
 
 3. 单击 **Open in Browser（在浏览器中打开）**，在新选项卡中查看正在运行的应用程序。
 
-## Edit the application and view changes
+## 编辑应用程序并查看更改
 
-1. Switch back to your codespace and open the `haikus.json` file by double-clicking it in the File Explorer.
+1. 切换回代码空间，并通过在文件资源管理器中双击 `haikus.json` 文件来打开该文件。
 
-2. Edit the `text` field of the first haiku to personalize the application with your own haiku.
+2. 编辑第一个俳句的`文本`字段，以使用您自己的俳句个性化应用程序。
 
 3. 返回到浏览器中正在运行的应用程序选项卡，然后刷新以查看所做的更改。
 

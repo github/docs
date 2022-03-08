@@ -6,7 +6,7 @@
 {% endnote %}
 {% endif %}
 
-{% ifversion ghes < 3.3 %}
+{% ifversion ghes < 3.3 or ghae %}
 {% note %}
 
 **Note:** When a workflow uses an action by referencing the repository where the action is stored, {% data variables.product.prodname_actions %} will try to find the repository on your {% data variables.product.prodname_ghe_server %} instance first before falling back to {% data variables.product.prodname_dotcom_the_website %}. Se um usuário criar uma organização e um repositório em sua empresa, que corresponde a uma organização e nome do repositório em {% data variables.product.prodname_dotcom %}, o repositório da sua empresa será usado no lugar do repositório de {% data variables.product.prodname_dotcom %}. Um usuário malicioso pode aproveitar este comportamento para executar o código como parte de um fluxo de trabalho.

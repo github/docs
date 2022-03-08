@@ -79,12 +79,12 @@ When you push commits to a repository with {% data variables.product.prodname_se
 If {% data variables.product.prodname_secret_scanning %} detects a secret, {% data variables.product.prodname_dotcom %} generates an alert.
 
 - {% data variables.product.prodname_dotcom %} sends an email alert to the repository administrators and organization owners.
-{% ifversion ghes > 3.0 or ghae or ghec %}
+{% ifversion ghes or ghae or ghec %}
 - {% data variables.product.prodname_dotcom %} sends an email alert to the contributor who committed the secret to the repository, with a link to the related {% data variables.product.prodname_secret_scanning %} alert. The commit author can then view the alert in the repository, and resolve the alert.
 {% endif %}
 - {% data variables.product.prodname_dotcom %} displays an alert in the "Security" tab of the repository.{% ifversion ghes = 3.0 %} For more information, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
 
-{% ifversion ghes > 3.0 or ghae or ghec %}
+{% ifversion ghes or ghae or ghec %}
 For more information about viewing and resolving {% data variables.product.prodname_secret_scanning %} alerts, see "[Managing alerts from {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/managing-alerts-from-secret-scanning)."{% endif %}
 
 Repository administrators and organization owners can grant users and teams access to {% data variables.product.prodname_secret_scanning %} alerts. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
@@ -94,7 +94,7 @@ You can use the security overview to see an organization-level view of which rep
 {% endif %}
 
 {%- ifversion ghec or ghes > 3.1 %}You can also use the REST API to {% elsif ghes = 3.1 %}You can use the REST API to {% endif %}
-{%- ifversion ghec or ghes > 3.0 %}monitor results from {% data variables.product.prodname_secret_scanning %} across your {% ifversion ghec %}private {% endif %}repositories{% ifversion ghes > 3.1 %} or your organization{% endif %}. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."{% endif %}
+monitor results from {% data variables.product.prodname_secret_scanning %} across your {% ifversion ghec %}private {% endif %}repositories{% ifversion ghes > 3.1 %} or your organization{% endif %}. For more information about API endpoints, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/reference/secret-scanning)."
 
 {% endif %}
 

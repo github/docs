@@ -166,7 +166,6 @@ A string identifier to associate with the secret.
 A boolean specifying whether the secret must be supplied.
 {% endif %}
 
-
 ## `on.workflow_run.<branches|branches-ignore>`
 
 {% data reusables.actions.workflows.section-specifying-branches %}
@@ -242,12 +241,9 @@ env:
 
 {% data reusables.actions.jobs.section-choosing-the-runner-for-a-job %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}
-
-{% endif %}
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`

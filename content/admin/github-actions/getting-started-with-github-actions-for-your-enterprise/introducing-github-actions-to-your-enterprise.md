@@ -1,7 +1,7 @@
 ---
 title: Introducing GitHub Actions to your enterprise
 shortTitle: Introduce Actions
-intro: "You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise."
+intro: 'You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -57,8 +57,7 @@ You should plan where you'll store your secrets. We recommend storing secrets in
 In {% data variables.product.prodname_dotcom %}, you can store secrets at the repository or organization level. Secrets at the repository level can be limited to workflows in certain environments, such as production or testing. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
 ![Screenshot of a list of secrets](/assets/images/help/settings/actions-org-secrets-list.png)
-{% ifversion fpt or ghes > 3.0 or ghec or ghae %}
-You should consider adding manual approval protection for sensitive environments, so that workflows must be approved before getting access to the environments' secrets. For more information, see "[Using environments for deployments](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."{% endif %}
+You should consider adding manual approval protection for sensitive environments, so that workflows must be approved before getting access to the environments' secrets. For more information, see "[Using environments for deployments](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
 ### Security considerations for third-party actions
 

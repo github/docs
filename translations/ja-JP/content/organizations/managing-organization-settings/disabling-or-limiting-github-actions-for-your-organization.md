@@ -51,7 +51,7 @@ Organization のワークフローをすべて無効にすることも、Organiz
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
 1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
-   {%- ifversion ghes > 3.0 %}
+   {%- ifversion ghes %}
    ![許可リストにアクションを追加する](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
    ![許可リストにアクションを追加する](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)

@@ -33,15 +33,6 @@ This article explains how site administrators can configure {% data variables.pr
 
 ## Review hardware requirements
 
-{% ifversion ghes = 3.0 %}
-
-{% note %}
-
-**Note**: If you're upgrading an existing {% data variables.product.prodname_ghe_server %} instance to 3.0 or later and want to configure {% data variables.product.prodname_actions %}, note that the minimum hardware requirements have increased. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)."
-
-{% endnote %}
-
-{% endif %}
 
 {%- ifversion ghes < 3.2 %}
 
@@ -157,6 +148,6 @@ For more information, see "[About using actions in your enterprise](/admin/githu
 
 {% endif %}
 
-## Reserved Names
+## Reserved names
 
 When you enable {% data variables.product.prodname_actions %} for your enterprise, two organizations are created: `github` and `actions`. If your enterprise already uses the `github` organization name, `github-org` (or `github-github-org` if `github-org` is also in use) will be used instead. If your enterprise already uses the `actions` organization name, `github-actions` (or `github-actions-org` if `github-actions` is also in use) will be used instead. Once actions is enabled, you won't be able to use these names anymore.
