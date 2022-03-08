@@ -1,6 +1,6 @@
 ---
-title: Managing your role in an organization owned by your enterprise
-intro: You can manage your membership in any organization owned by your enterprise and change your role within the organization.
+title: Gerenciando sua função em uma organização pertencente à sua empresa
+intro: Você pode gerenciar a sua ssoviação em qualquer organização pertencente à sua empresa e mudar sua função dentro da organização.
 permissions: Enterprise owners can manage their role in an organization owned by the enterprise.
 versions:
   feature: enterprise-owner-join-org
@@ -9,46 +9,46 @@ topics:
   - Administrator
   - Enterprise
   - Organizations
-shortTitle: Manage your organization roles
+shortTitle: Gerenciar as funções da sua organização
 ---
 
 {% note %}
 
-**Note:** The ability for enterprise owners to manage their role in an organization owned by the enterprise is in beta and subject to change.
+**Observação:** A habilidade dos proprietários da empresa de gerenciar sua função em uma organização que pertence à empresa está em fase beta e sujeita a alterações.
 
 {% endnote %}
 
-## About role management
+## Sobre o gerenciamento de funções
 
-You can choose to join an organization owned by your enterprise as a member or as an organization owner, change your role within the organization, or leave the organization.
+Você pode optar por participar de uma organização pertencente à sua empresa como integrante ou como proprietário da organização, mudar a sua função dentro da organização ou sair da organização.
 
 {% warning %}
 
-**Warning**: If an organization uses SCIM to provision users, joining the organization this way could have unintended consequences. Para obter mais informações, consulte "[Sobre o SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+**Aviso**: Se uma organização usar o SCIM para fornecer usuários, entrar na organização desta forma poderia ter consequências não desejadas. Para obter mais informações, consulte "[Sobre o SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
 
 {% endwarning %}
 
-## Managing your role with the enterprise settings
+## Gerenciando seu papel com as configurações corporativas
 
-You can join an organization owned by your enterprise and manage your role within the organization, directly from the settings for your enterprise account.
+Você pode participar de uma organização pertencente à sua empresa e gerenciar sua função na organização, diretamente nas configurações da conta corporativa.
 
-If an organization enforces SAML single sign-on (SSO), you cannot use the enterprise settings to join the organization. Instead, you must join the organization using that organization's identity provider (IdP). Then, you can manage your role in your enterprise settings. For more information, see "[Joining an organization that enforces SAML SSO](#joining-an-organization-that-enforces-saml-sso)."
+Se uma organização aplivar o logon único do SAML (SSO), você não poderá usar as configurações corporativas para participar da organização. Em vez disso, você deve participar da organização usando o provedor de identidade (IdP) dessa organização. Em seguida, você pode gerenciar a sua função nas configurações da sua empresa. Para obter mais informações, consulte[Entrando para uma organização que apliva o SAML SSO](#joining-an-organization-that-enforces-saml-sso)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. On the **Organizations** tab, to the right of the organization you want to manage your role in, select the {% octicon "gear" aria-label="The gear icon" %} dropdown menu and click the action you want to take.
+1. Na guia **Organizações**, à direita da organização em que você deseja gerenciar sua função, selecione o menu suspenso {% octicon "gear" aria-label="The gear icon" %} e clique na ação que você deseja assumir.
 
-   ![Screenshot of the dropdown menu for the gear icon for an organization](/assets/images/help/business-accounts/change-role-in-org.png)
+   ![Captura de tela do menu suspenso para o ícone de engrenagem de uma organização](/assets/images/help/business-accounts/change-role-in-org.png)
 
-## Joining an organization that enforces SAML SSO
+## Entrando para uma organização que apliva o SAML SSO
 
-If an organization enforces SAML SSO, you cannot use the enterprise settings to join the organization. Instead, you must join the organization using that organization's identity provider (IdP).
+Se uma organização aplicar o SSO SAML, você não poderá usar as configurações da empresa para participar da organização. Em vez disso, você deve participar da organização usando o provedor de identidade (IdP) dessa organização.
 
-1. You must be assigned access in your IdP to the application for {% data variables.product.prodname_ghe_cloud %} that is used by the organization. If you're unable to configure your IdP yourself, contact your IdP administrator.
-1. Authenticate to the organization using SAML SSO.
+1. Você deve ter acesso no seu IdP para o aplicativo {% data variables.product.prodname_ghe_cloud %} que é usado pela organização. Se você não conseguir configurar seu IdP, entre em contato com o administrador do seu IdP.
+1. Efetuar a autentivação na organização usando o SAML SSO.
 
-   - If the organization uses SCIM, accept the organization invitation that will be generated by the SCIM integration.
-   - If the organization does not use SCIM, visit the following URL, replacing ORGANIZATION with the name of the organization, then follow the prompts to authenticate.
+   - Se a organização usar o SCIM, aceite o convite da organização que será gerado pela integração do SCIM.
+   - Se a organização não usar o SCIM, acesse o URL a seguir, substituindo a ORGANIZAÇÃO pelo nome da organização e, em seguida, siga as instruções para efetuar a autenticação.
 
     `https://github.com/orgs/ORGANIZATION/sso`
 
-After you've joined the organization, you can use the enterprise settings to manage your role in the organization, such as becoming an organization owner. For more information, see "[Managing your role with the enterprise settings](#managing-your-role-with-the-enterprise-settings)."
+Depois de entrar na organização, você poderá usar as configurações corporativas para gerenciar a sua função na organização como, por exemplo, se tornar proprietário da organização. Para obter mais informações, consulte "[Gerenciando sua função com as configurações corporativas](#managing-your-role-with-the-enterprise-settings)".

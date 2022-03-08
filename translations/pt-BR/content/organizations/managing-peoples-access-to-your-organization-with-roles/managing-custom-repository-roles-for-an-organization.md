@@ -84,6 +84,8 @@ Você só pode escolher uma permissão adicional se já não estiver incluída n
 - **Definir limites de interação**: Restrinja temporariamente certos usuários de comentários, problemas de abertura ou criação de pull requests no seu repositório público para aplicar um período de atividade limitada. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
 - **Set the social preview**: Add an identifying image to your repository that appears on social media platforms when your repository is linked. Para obter mais informações, consulte "[Personalizar a exibição das redes sociais do repositório](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)".
 - **Push commits to protected branches**: Push to a branch that is marked as a protected branch.
+- **Create protected tags**: Create tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+- **Delete protected tags**: Delete tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
 
 ### Segurança
 

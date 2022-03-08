@@ -185,7 +185,7 @@ Um booleano que especifica se o segredo deve ser fornecido.
 
 Um `mapa` das variáveis de ambiente que estão disponíveis para as etapas de todos os trabalhos do fluxo de trabalho. Também é possível definir variáveis de ambiente que estão disponíveis apenas para as etapas de um único trabalho ou para uma única etapa. Para obter mais informações, consulte [`jobs.<job_id>.env`](#jobsjob_idenv) e [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
 
-Variables in the `env` map cannot be defined in terms of other variables in the map.
+As variáveis no mapa `env` não podem ser definidas em termos de outras variáveis no mapa.
 
 {% data reusables.repositories.actions-env-var-note %}
 

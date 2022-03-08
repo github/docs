@@ -1,6 +1,6 @@
 ---
 title: Configuring tag protection rules
-shortTitle: Configure tag rules
+shortTitle: Tag protection rules
 intro: You can configure tag protection rules for your repository to prevent contributors from creating or deleting tags.
 product: '{% data reusables.gated-features.tag-protection-rules %}'
 versions:

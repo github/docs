@@ -61,8 +61,8 @@ O gráfico de dependências permite explorar os ecossistemas e pacotes dos quais
 Você pode encontrar o gráfico de dependências na aba **Ideias** para o seu repositório. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 {% endif %}
 
-### Security overview for repositories
-For all public repositories, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.
+### Visão geral de segurança para repositórios
+Para todos os repositórios públicos, a visão geral de segurança mostra quais funcionalidades de segurança estão habilitadas no repositório e oferece a opção de configurar quaisquer recursos de segurança disponíveis que não estão habilitadas no momento.
 
 ## Disponível com {% data variables.product.prodname_GH_advanced_security %}
 
@@ -86,7 +86,7 @@ Detectar automaticamente vulnerabilidades de segurança e erros de codificação
 {% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_secret_scanning_partner_caps %}
 
-Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+Automatically detect leaked secrets across all public repositories. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. Para obter detalhes dos segredos e provedores de serviço compatíveis, consulte "[ Padrões de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)".
 {% endif %}
 
 {% ifversion not fpt %}

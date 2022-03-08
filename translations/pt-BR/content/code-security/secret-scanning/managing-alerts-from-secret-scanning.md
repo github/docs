@@ -25,7 +25,7 @@ shortTitle: Gerenciar alertas de segredos
 {% ifversion ghec %}
 {% note %}
 
-**Note:** Alerts are created only for repositories with {% data variables.product.prodname_secret_scanning_GHAS %} enabled. Secrets found in public repositories using the free {% data variables.product.prodname_secret_scanning_partner%} service are reported directly to the partner, without creating an alert.
+**Nota:** Os alertas são criados apenas para repositórios com {% data variables.product.prodname_secret_scanning_GHAS %} habilitado. Os segredos encontrados em repositórios públicos que usam o serviço gratuito de {% data variables.product.prodname_secret_scanning_partner%} são informados diretamente ao parceiro, sem criar um alerta.
 
 {% endnote %}
 {% endif %}
@@ -67,7 +67,7 @@ Uma vez que um segredo tenha sido committed a um repositório, você deve consid
 {% ifversion ghec %}
 {% note %}
 
-**Note:** If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[Supported secrets for partner patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)."
+**Nota:** Se um segredo for detectado em um repositório público em {% data variables.product.prodname_dotcom_the_website %} e o segredo também corresponder ao padrão de um parceiro, será gerado um alerta e o segredo potencial será informado ao provedor de serviços. Para obter detalhes sobre os padrões de parceiros, consulte "[segredos compatíveis com os padrões de parceiro](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)".
 
 {% endnote %}
 {% endif %}
