@@ -1,6 +1,6 @@
 ---
 title: Configurar a varredura de segredo para os seus repositórios
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for secrets that match advanced security patterns.'
+intro: 'Você pode configurar como {% data variables.product.prodname_dotcom %} digitaliza os seus repositórios vom relação a segredos que correspondem a padrões avançados de segurança.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning_GHAS %} for the repository.'
 redirect_from:
@@ -24,7 +24,7 @@ shortTitle: Configurar varreduras de segredos
 
 ## Habilitar o {% data variables.product.prodname_secret_scanning_GHAS %}
 
-Você pode habilitar {% data variables.product.prodname_secret_scanning_GHAS %} para qualquer repositório que pertença a uma organização. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
+Você pode habilitar {% data variables.product.prodname_secret_scanning_GHAS %} para qualquer repositório que pertença a uma organização. Uma vez habilitado, {% data reusables.secret-scanning.secret-scanning-process %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -41,7 +41,7 @@ Você pode habilitar {% data variables.product.prodname_secret_scanning_GHAS %} 
 3. À direita de "{% data variables.product.prodname_secret_scanning_caps %}", clique em **Habilitar**. ![Habilitar {% data variables.product.prodname_secret_scanning %} para o seu repositório](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
-## Excluding directories from {% data variables.product.prodname_secret_scanning_GHAS %}
+## Excluindo diretórios de {% data variables.product.prodname_secret_scanning_GHAS %}
 
 Você pode usar um arquivo *secret_scanning.yml* para excluir diretórios do {% data variables.product.prodname_secret_scanning %}. Por exemplo, você pode excluir diretórios que contenham testes ou conteúdo gerado aleatoriamente.
 

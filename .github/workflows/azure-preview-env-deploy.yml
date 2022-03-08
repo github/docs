@@ -162,6 +162,11 @@ jobs:
           rsync -rptovR ./user-code/content/./**/*.md ./content
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
+          rsync -rptovR ./user-code/components/./**/*.{ts,tsx} ./components
+          rsync -rptovR ./user-code/lib/./**/*.{js,ts,json} ./lib
+          rsync -rptovR ./user-code/middleware/./**/*.{js,ts} ./middleware
+          rsync -rptovR ./user-code/pages/./**/*.{tsx} ./pages
+          rsync -rptovR ./user-code/stylesheets/./**/*.{scss} ./stylesheets
 
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'

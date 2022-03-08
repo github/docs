@@ -164,7 +164,7 @@ Você pode configurar um assunto que filtra um nome de [ambiente](/actions/deplo
 
 #### Filtrando eventos `pull_request`
 
-The subject claim includes the `pull_request` string when the workflow is triggered by a pull request event, but only if the job doesn't reference an environment.
+A reivindicação do titular inclui a string `pull_request` quando o fluxo de trabalho é acionado por um evento de pull request, mas apenas se o trabalho não fizer referência a um ambiente.
 
 Você pode configurar um assunto que filtra o evento [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request). Neste exemplo, a execução do fluxo de trabalho deve ter sido acionada por um evento `pull_request` em um repositório denominado `octo-repo` que pertence à organização `octo-org`:
 
