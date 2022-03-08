@@ -38,7 +38,7 @@ If you plan to rename a repository that has a {% data variables.product.prodname
 
 {% note %}
 
-**Note:** {% data reusables.organizations.owners-and-admins-can %} rename a repository. {% data reusables.organizations.new-repo-permissions-more-info %}
+**Note:** If your repository hosts an action, we recommend that you avoid renaming your repository. The action is not automatically redirected when a workflow runs to avoid security issues, so all workflows that use that action will fail with error `repository not found`. Instead, you can create a new repository with the new name and deprecate the old repository.
 
 {% endnote %}
 
