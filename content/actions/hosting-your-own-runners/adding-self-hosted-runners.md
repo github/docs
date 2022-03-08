@@ -120,6 +120,19 @@ For more information on changing runner group access settings, see "[Managing ac
 
 {% ifversion ghec or ghes or ghae %}
 
+### Cloning VM with self-hosted runner
+
+If you have virtual machine with a self-hosted runner installed, you may found it useful to clone that virtual machine. To successfully clone a virtual machine with a self-hosted runner installed, you need to do folowing steps:
+
+1. Clone a virtual machine with a self-hosted runner.
+2. Start target virtual machine.
+3. Go to GitHub.com and create a new runner. **Do not close the page, that token will be necessary later.**
+4. Log on to the target virtual machine.
+5. Remove self-hosted runner using the token from the step 3.
+6. Configure it using the token from the step 3.
+
+Now you can configure runner as a service.
+
 ## Further reading
 
 - "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)"
