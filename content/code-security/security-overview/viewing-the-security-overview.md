@@ -1,6 +1,6 @@
 ---
 title: Viewing the security overview
-intro: 'Navigate to the different views available in the security overview'
+intro: Navigate to the different views available in the security overview
 permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:

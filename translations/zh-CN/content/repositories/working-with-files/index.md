@@ -1,6 +1,6 @@
 ---
-title: Working with files
-intro: Learn how to manage and use files in repositories.
+title: 使用文件
+intro: 了解如何管理和使用存储库中的文件。
 redirect_from:
   - /categories/81/articles
   - /categories/manipulating-files
@@ -17,6 +17,6 @@ children:
   - /managing-files
   - /using-files
   - /managing-large-files
-shortTitle: Work with files
+shortTitle: 使用文件
 ---
 

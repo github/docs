@@ -94,6 +94,11 @@ products:
       deprecation_notice: Aviso de descontinuação
   rest:
     reference:
+      default: Padrão
+      name: Nome
+      in: In
+      type: Tipo
+      description: Descrição
       notes: Observações
       parameters: Parâmetros
       response: Resposta
@@ -104,6 +109,7 @@ products:
       see_preview_notice: Ver aviso de pré-visualização
       see_preview_notices: Ver avisos de pré-visualização
       preview_header_is_required: Este cabeçalho é <strong>obrigatório</strong>
+      preview_notice_to_change: This API is under preview and subject to change
       works_with_github_apps: Works with GitHub Apps
 footer:
   all_rights_reserved: Todos os direitos reservados

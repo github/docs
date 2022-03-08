@@ -28,15 +28,15 @@ SSH 证书是一种机制：一个 SSH 密钥对另一个 SSH 密钥签名。 �
 即使您实施了 SAML 单点登录，组织成员也可使用其签名的证书进行身份验证。 除非您将 SSH 证书设为要求，组织成员可继续使用其他验证方式通过 Git 访问组织的资源，包括他们的用户名和密码、个人访问令牌及其自己的 SSH 密钥。
 {% endif %}
 
-Members will not be able to use their certificates to access forks of your repositories that are owned by their personal accounts.
+成员将无法使用其证书访问其个人帐户拥有的仓库的复刻。
 
-## About SSH URLs with SSH certificates
+## 关于使用 SSH 证书的 SSH URL
 
-If your organization requires SSH certificates, to prevent authentication errors, organization members should use a special URL that includes the organization ID when performing Git operations over SSH. This special URL allows the client and server to more easily negotiate which key on the member's computer should be used for authentication. If a member uses the normal URL, which starts with `git@github.com`, the SSH client might offer the wrong key, causing the operation to fail.
+如果您的组织需要 SSH 证书，为了防止身份验证错误，组织成员在通过 SSH 执行 Git 操作时应使用包含组织 ID 的特殊 URL。 此特殊 URL 允许客户端和服务器更轻松地协商应使用成员计算机上的哪个密钥进行身份验证。 如果成员使用以 `git@github.com`开头的正常 URL，则 SSH 客户端可能会提供错误的密钥，从而导致操作失败。
 
-Anyone with read access to the repository can find this URL by selecting the **Code** dropdown menu on the main page of the repository, then clicking **Use SSH**.
+对存储库具有读取访问权限的任何人都可以通过以下方式找到此 URL：选择存储库主页上的 **Code（代码）**下拉菜单，然后单击 **Use SSH（使用 SSH）**。
 
-If your organization doesn't require SSH certificates, members can continue to use their own SSH keys, or other means of authentication. In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
+如果您的组织不需要 SSH 证书，则成员可以继续使用自己的 SSH 密钥或其他身份验证方式。 在这种情况下，特殊 URL 或以 `git@github.com`开头的正常 URL 将起作用。
 
 ## 颁发证书
 

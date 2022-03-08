@@ -15,7 +15,7 @@ export function RestResponse({ responses }: Props) {
             <CodeBlock
               codeBlock={`Status: ${response.httpStatusCode} ${response.httpStatusMessage}`}
             />
-            <CodeBlock codeBlock={response.payload} setHTML={true} />
+            {response.payload ? <CodeBlock codeBlock={response.payload} highlight="json" /> : null}
           </div>
         )
       })}

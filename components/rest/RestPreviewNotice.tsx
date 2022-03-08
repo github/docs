@@ -21,7 +21,7 @@ export function RestPreviewNotice({ slug, previews }: Props) {
     )
   })
 
-  return (
+  return previews.length > 0 ? (
     <>
       <h4 id={`${slug}-preview-notices`}>
         {previews.length > 1
@@ -30,5 +30,5 @@ export function RestPreviewNotice({ slug, previews }: Props) {
       </h4>
       {previewNotices}
     </>
-  )
+  ) : null
 }

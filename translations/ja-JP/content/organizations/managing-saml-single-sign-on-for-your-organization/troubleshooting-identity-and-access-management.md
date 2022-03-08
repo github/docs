@@ -11,7 +11,11 @@ shortTitle: アクセスのトラブルシューティング
 
 ## プロビジョニングされていない、あるいはSCIMによってプロビジョニング解除されたユーザがいる
 
-ユーザのプロビジョニングの問題が生じた場合、ユーザがSCIMのメタデータを欠いているかどうかをチェックすることをおすすめします。 OrganizationのメンバーがSCIMのメタデータを欠いている場合は、IdPを通じてそのユーザに対し、手作業でSCIMをプロビジョニングし直すことができます。
+ユーザのプロビジョニングの問題が生じた場合、ユーザがSCIMのメタデータを欠いているかどうかをチェックすることをおすすめします。
+
+{% data reusables.scim.changes-should-come-from-idp %}
+
+OrganizationのメンバーがSCIMのメタデータを欠いている場合は、IdPを通じてそのユーザに対し、手作業でSCIMをプロビジョニングし直すことができます。
 
 ### SCIMメタデータを欠いたユーザの監査
 
@@ -78,7 +82,7 @@ GraphQL APIの利用に関する詳しい情報については、以下を参照
 
 ### アイデンティティプロバイダを介したユーザのSCIM再プロビジョニング
 
-IdPを介して、ユーザのSCIMを手動で再プロビジョニングできます。 たとえば、プロビジョニングのエラーを解決するために、Oktaの管理ポータルで、{% data variables.product.prodname_dotcom %}アプリケーションに対してユーザの割り当てを解除してから割り当て直すことができます。 これにより、Oktaはそれらのユーザに対するSCIMメタデータを{% data variables.product.prodname_dotcom %}に展開するAPIコールを発行します。 詳しい情報についてはOktaのドキュメンテーションの「[Unassign users from applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)」あるいは「[Assign users to applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)」を参照してください。
+IdPを介して、ユーザのSCIMを手動で再プロビジョニングできます。 たとえば、Oktaのプロビジョニングのエラーを解決するために、Oktaの管理ポータルで、{% data variables.product.prodname_dotcom %}アプリケーションに対してユーザの割り当てを解除してから割り当て直すことができます。 これにより、Oktaはそれらのユーザに対するSCIMメタデータを{% data variables.product.prodname_dotcom %}に展開するAPIコールを発行します。 詳しい情報についてはOktaのドキュメンテーションの「[Unassign users from applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)」あるいは「[Assign users to applications](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)」を参照してください。
 
 ユーザのSCIMアイデンティティが作成されたことを確認するには、SCIMの外部アイデンティティを持っていないことが確認された一人のOrganizationメンバーで、このプロセスをテストすることをおすすめします。 手動でIdP内のユーザを更新したら、ユーザのSCIMアイデンティティが作成されたかを{% data variables.product.prodname_dotcom %} の SCIM APIを使ってチェックできます。 詳しい情報については「[ユーザのSCIMメタデータの欠如の監査](#auditing-users-for-missing-scim-metadata)」あるいはREST APIエンドポイントの「[ユーザのSCIMプロビジョニング情報の取得](/rest/reference/scim#get-scim-provisioning-information-for-a-user)」を参照してください。
 

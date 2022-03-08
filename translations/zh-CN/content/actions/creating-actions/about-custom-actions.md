@@ -73,7 +73,6 @@ _复合_操作允许您在一个操作中组合多个工作流程步骤。 例�
 
 {% ifversion fpt or ghec %}If you're building an action that you don't plan to make available to others, you {% else %} You{% endif %} can store the action's files in any location in your repository. 如果计划将操作、工作流程和应用程序代码合并到一个仓库中，建议将操作存储在 `.github` 目录中。 例如，`.github/actions/action-a` 和 `.github/actions/action-b`。
 
-
 ## 与 {% data variables.product.prodname_ghe_server %} 的兼容性
 
 To ensure that your action is compatible with {% data variables.product.prodname_ghe_server %}, you should make sure that you do not use any hard-coded references to {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API URLs. You should instead use environment variables to refer to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API:
@@ -130,7 +129,7 @@ steps:
 
 ### 使用提交的 SHA 进行发行版管理
 
-每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}您必须使用提交的完整 SHA 值，而不是缩写值。{% else %}使用提交的完整 SHA 值而不使用缩写值有助于防止他人使用相同缩写值进行恶意提交。{% endif %}
+每个 Git 提交都会收到一个计算出来的 SHA 值，该值是唯一且不可更改的。 您操作的用户可能更喜欢依赖提交的 SHA 值，因为此方法会比指定可删除或移动的标记更可靠。 但是，这意味着用户将不会收到对该操作所做的进一步更新。 You must use a commit's full SHA value, and not an abbreviated value.
 
 ```yaml
 steps:

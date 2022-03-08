@@ -30,6 +30,10 @@ Organizationレベルのロールは、OrganizationやOrganizationのリポジ�
 
 個人やTeamに対して様々なOrganizationレベルのロールを付与して、Organization及びそのリソースに対するメンバーのアクセスを制御してもらうことができます。 各ロールに含まれる個々の権限に関する詳細については、「[Organizationロールの権限](#permissions-for-organization-roles)」を参照してください。
 
+{% if enterprise-owner-join-org %}
+OrganizationがEnterpriseアカウントに所有されている場合、EnterpriseオーナーはOrganizationに任意のロールで参加できます。 詳しい情報については「[自身のEnterpriseが所有しているOrganization内での自分のロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
+{% endif %}
+
 ### Organizationオーナー
 Organizationオーナーは、Organizationに対する完全な管理アクセスを持ちます。 このロールは制限する必要がありますが、Organization で少なくとも 2 人は指定する必要があります。 詳細は、「[Organization の所有権の継続性を管理する](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)」を参照してください。
 
@@ -65,7 +69,7 @@ Organizationでの{% data variables.product.prodname_github_app %}マネージ�
 ## Organizatonロールの権限
 
 {% ifversion fpt %}
-以下にリストされた機能の中には、{% data variables.product.prodname_ghe_cloud %}を使うOrganization限定のものもあります。 {% data reusables.enterprise.link-to-ghec-trial %}
+以下のリスト内の機能の中には、{% data variables.product.prodname_ghe_cloud %}を使っているOrganizationに限定されているものもあります。 {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
 {% ifversion fpt or ghec %}

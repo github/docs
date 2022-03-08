@@ -1,6 +1,6 @@
 ---
 title: 加密机密
-intro: '加密密码可让您将敏感信息存储在您的组织{% ifversion fpt or ghes > 3.0 or ghec %}、仓库或者仓库环境{% else %} 或仓库{% endif %} 中。'
+intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -19,13 +19,11 @@ versions:
 
 ## 关于加密密码
 
-机密是您在组织{% ifversion fpt or ghes > 3.0 or ghae or ghec %}、仓库或者仓库环境{% else %} 或仓库{% endif %} 中创建的加密环境变量。 您创建的机密可用于 {% data variables.product.prodname_actions %} 工作流程。 在机密到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对机密加密，并且在您于工作流程中使用它们之前一直保持加密状态。
+Secrets are encrypted environment variables that you create in an organization, repository, or repository environment. 您创建的机密可用于 {% data variables.product.prodname_actions %} 工作流程。 在机密到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对机密加密，并且在您于工作流程中使用它们之前一直保持加密状态。
 
 {% data reusables.actions.secrets-org-level-overview %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 对于存储在环境级别的机密，您可以启用所需的审查者来控制对机密的访问。 在必要的审查者授予批准之前，工作流程作业无法访问环境机密。
-{% endif %}
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -41,29 +39,27 @@ versions:
 
 {% data reusables.codespaces.secrets-naming %}
 
-  例如，{% ifversion fpt or ghes > 3.0 or ghae or ghec %}在环境级别创建的机密必须在环境中具有唯一的名称，{% endif %}在仓库级别创建的机密必须在该仓库中具有唯一的名称，而在组织级别创建的机密必须在该级别具有独特的名称。
+  For example, a secret created at the environment level must have a unique name in that environment, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
-  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %}同样，如果组织、仓库和环境都具有同名的密钥，则环境级密钥优先。{% endif %}
+  {% data reusables.codespaces.secret-precedence %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.
 
 为帮助确保 {% data variables.product.prodname_dotcom %} 在日志中编写密码，请勿将结构化数据用作密码的值。 例如，避免创建包含 JSON 或编码 Git blob 的密码。
 
 ### 访问您的密码
 
-为使密码用于操作，必须将密码设置为工作流程文件中的输入或环境变量。 查看操作的自述文件以了解操作预期的输入和环境变量。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)”。
+为使密码用于操作，必须将密码设置为工作流程文件中的输入或环境变量。 查看操作的自述文件以了解操作预期的输入和环境变量。 For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)."
 
 如果您拥有编辑文件的权限，便可在工作流程文件中使用和读取加密密码。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/github/getting-started-with-github/access-permissions-on-github)”。
 
 {% data reusables.actions.secrets-redaction-warning %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 当工作流程运行排队时读取组织和仓库机密，在引用环境的作业开始时读取环境机密。
-{% endif %}
 
-您还可以使用 REST API 管理密码。 更多信息请参阅“[密码](/rest/reference/actions#secrets)”。
+您还可以使用 REST API 管理密码。 For more information, see "[Secrets](/rest/reference/actions#secrets)."
 
 ### 限制凭据权限
 
-生成凭据时，建议尽可能授予最低的权限。 例如，不使用个人凭据，而使用[部署密钥](/developers/overview/managing-deploy-keys#deploy-keys)或服务帐户。 请考虑授予只读权限（如果这是所需的全部权限）并尽可能限制访问。 生成个人访问令牌 (PAT) 时，选择所需的最小范围。
+生成凭据时，建议尽可能授予最低的权限。 For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. 请考虑授予只读权限（如果这是所需的全部权限）并尽可能限制访问。 生成个人访问令牌 (PAT) 时，选择所需的最小范围。
 
 {% note %}
 
@@ -85,7 +81,7 @@ versions:
 1. 输入密码的值。
 1. 单击 **Add secret（添加密码）**。
 
-如果您的仓库 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}拥有环境机密或 {% endif %}可以访问父组织中的机密，则这些机密也会列入本页。
+If your repository has environment secrets or can access secrets from the parent organization, then those secrets are also listed on this page.
 
 {% endwebui %}
 
@@ -108,8 +104,6 @@ gh secret set <em>secret-name</em> < secret.txt
 要列出仓库的所有机密，请使用 `gh secret list` 子命令。
 
 {% endcli %}
-
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
 ## 为环境创建加密密码
 
@@ -143,8 +137,6 @@ gh secret list --env <em>environment-name</em>
 ```
 
 {% endcli %}
-
-{% endif %}
 
 ## 为组织创建加密密码
 
@@ -217,7 +209,7 @@ gh secret list --org <em>organization-name</em>
 
 {% note %}
 
-**注：**{% data reusables.actions.forked-secrets %}
+**Note:** {% data reusables.actions.forked-secrets %}
 
 {% endnote %}
 
@@ -234,7 +226,7 @@ steps:
 ```
 {% endraw %}
 
-尽可能避免使用命令行在进程之间传递密码。 命令行进程可能对其他用户可见（使用 `ps` 命令）或通过[安全审计事件](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing)获取。 为帮助保护密码，请考虑使用环境变量 `STDIN` 或目标进程支持的其他机制。
+尽可能避免使用命令行在进程之间传递密码。 Command-line processes may be visible to other users (using the `ps` command) or captured by [security audit events](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). 为帮助保护密码，请考虑使用环境变量 `STDIN` 或目标进程支持的其他机制。
 
 如果必须在命令行中传递密码，则将它们包含在适当的引用规则中。 密码通常包含可能意外影响 shell 的特殊字符。 要转义这些特殊字符，请引用环境变量。 例如：
 
@@ -279,19 +271,19 @@ steps:
 
 ## 密码的限制
 
-您可以存储最多 1,000 个组织密钥{% ifversion fpt or ghes > 3.0 or ghae or ghec %}、100 个仓库密钥和 100 个环境密钥{% else %} 以及 100 个仓库密钥{% endif %}。
+You can store up to 1,000 organization secrets, 100 repository secrets, and 100 environment secrets.
 
 在仓库中创建的工作流程可以访问以下数量的密钥：
 
 * 所有100个仓库密钥。
 * 如果分配仓库访问超过 100 个组织密钥，则工作流程只能使用前 100 个组织密钥（按密钥名称字母顺序排序）。
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}* 所有 100 个环境密钥。{% endif %}
+* All 100 environment secrets.
 
 密码大小限于 64 KB。 要使用大于 64 KB 的密码，可以将加密的密码存储在仓库中，并将解密短语在 {% data variables.product.prodname_dotcom %} 上存储为密码。 例如，在将文件检入您在 {% data variables.product.prodname_dotcom %} 上的仓库之前，可以使用 `gpg` 在本地对您的凭据加密。 更多信息请参阅“[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)”。
 
 {% warning %}
 
-**警告**：请注意，您的密码在操作运行时不会印出。 使用此解决方法时，{% data variables.product.prodname_dotcom %} 不会编写日志中印出的密码。
+**Warning**: Be careful that your secrets do not get printed when your action runs. 使用此解决方法时，{% data variables.product.prodname_dotcom %} 不会编写日志中印出的密码。
 
 {% endwarning %}
 
@@ -354,7 +346,6 @@ steps:
           run: cat $HOME/secrets/my_secret.json
   ```
 {% endraw %}
-
 
 ## Storing Base64 binary blobs as secrets
 

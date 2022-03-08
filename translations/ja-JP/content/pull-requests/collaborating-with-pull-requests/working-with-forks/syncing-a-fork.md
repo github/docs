@@ -26,10 +26,22 @@ permissions: People with write access for a forked repository can sync the fork 
 
 If the changes from the upstream repository cause conflicts, {% data variables.product.company_short %} will prompt you to create a pull request to resolve the conflicts.
 
+## Syncing a fork with the {% data variables.product.prodname_cli %}
+
+{% data reusables.cli.about-cli %} {% data variables.product.prodname_cli %}について学ぶには、「[{% data variables.product.prodname_cli %}について](/github-cli/github-cli/about-github-cli)」を参照してください。
+
+To update the remote fork from its parent, use the `gh repo sync` subcommand and supply your fork name as argument.
+
+```shell
+$ gh repo sync owner/cli-fork
+```
+
+If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
+
 ## Syncing a fork from the command line
 
 {% endif %}
-上流リポジトリとフォークを同期する前に、Git で[上流リポジトリをポイントするリモートの設定](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)をする必要があります。
+Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。
@@ -74,6 +86,6 @@ If the changes from the upstream repository cause conflicts, {% data variables.p
 
 {% tip %}
 
-**参考**: フォークの同期は、リポジトリのローカルコピーだけをアップデートします。 {% data variables.product.product_location %} 上のフォークをアップデートするには、[変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)必要があります。
+**Tip**: Syncing your fork only updates your local copy of the repository. {% data variables.product.product_location %} 上のフォークをアップデートするには、[変更をプッシュする](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)必要があります。
 
 {% endtip %}

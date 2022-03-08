@@ -135,4 +135,5 @@ jobs:
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
+          CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
         run: npm test -- tests/${{ matrix.test-group }}/
