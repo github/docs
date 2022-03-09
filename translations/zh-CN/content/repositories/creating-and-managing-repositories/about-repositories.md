@@ -26,7 +26,7 @@ topics:
 
 您可以通过选择仓库的可见性来限制谁可以访问仓库。 更多信息请参阅“[关于仓库可见性](#about-repository-visibility)”。
 
-对于用户拥有的仓库，您可以向其他人授予协作者访问权限，以便他们可以协作处理您的项目。 如果仓库归组织所有，您可以向组织成员授予访问权限，以便协作处理您的仓库。 For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+对于用户拥有的仓库，您可以向其他人授予协作者访问权限，以便他们可以协作处理您的项目。 如果仓库归组织所有，您可以向组织成员授予访问权限，以便协作处理您的仓库。 更多信息请参阅“[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository/)”和“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 {% ifversion fpt or ghec %}
 通过用户帐户和组织的 {% data variables.product.prodname_free_team %}，可与无限的协作者合作处理设置了完全功能的无限公共仓库，或者是设置了有限功能的无限私有仓库， 要获取对私有仓库的高级处理，您可以升级到 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.gated-features.more-info %}
@@ -48,11 +48,11 @@ topics:
 
 {% ifversion fpt or ghec or ghes %}
 
-When you create a repository, you can choose to make the repository public or private.{% ifversion ghec or ghes %} If you're creating the repository in an organization{% ifversion ghec %} that is owned by an enterprise account{% endif %}, you can also choose to make the repository internal.{% endif %}{% endif %}{% ifversion fpt %} Repositories in organizations that use {% data variables.product.prodname_ghe_cloud %} and are owned by an enterprise account can also be created with internal visibility. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories).
+创建存储库时，可以选择将存储库设为公开或私有。{% ifversion ghec or ghes %} 如果要在{% ifversion ghec %}企业帐户拥有的{% endif %} 组织中创建存储库，则还可以选择将存储库设为内部存储库。{% endif %}{% endif %}{% ifversion fpt %}还可以通过内部可见性创建使用 {% data variables.product.prodname_ghe_cloud %} 并由企业帐户拥有的组织中的存储库。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories)。
 
 {% elsif ghae %}
 
-When you create a repository owned by your user account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.
+当您创建由您的用户帐户拥有的仓库时，仓库始终是私有的。 创建组织拥有的存储库时，可以选择将存储库设为私有或内部存储库。
 
 {% endif %}
 
@@ -78,19 +78,19 @@ When you create a repository owned by your user account, the repository is alway
 
 {% data reusables.repositories.about-internal-repos %} 有关内部资源的更多信息，请参阅 {% data variables.product.prodname_dotcom %} 的白皮书“[内部资源简介](https://resources.github.com/whitepapers/introduction-to-innersource/)”。
 
-All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+所有企业成员对内部仓库具有读取权限，但内部仓库对{% ifversion fpt or ghec %}企业外部{% else %}非组织成员{% endif %}的人员不可见，包括组织仓库的外部协作者。 更多信息请参阅“[企业中的角色](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise#enterprise-members)”和“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 {% ifversion ghes %}
 {% note %}
 
-**Note:** A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.product.product_location %} is not a member of any organization, that user will not have access to internal repositories.
+**注意：** 用户必须是组织的一部分才能成为企业成员并有权访问内部存储库。 如果 {% data variables.product.product_location %} 上的用户不是任何组织的成员，则该用户将无权访问内部存储库。
 
 {% endnote %}
 {% endif %}
 
 {% data reusables.repositories.internal-repo-default %}
 
-Any member of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's user account, and the visibility of the fork will be private. 如果用户从企业拥有的所有组织中删除，该用户的内部仓库复刻也会自动删除。
+企业的任何成员都可以复刻企业中组织拥有的任何内部存储库。 复刻的存储库将属于成员的用户帐户，复刻的可见性将是私有的。 如果用户从企业拥有的所有组织中删除，该用户的内部仓库复刻也会自动删除。
 {% endif %}
 
 ## 限制查看仓库中的内容和差异
@@ -101,7 +101,7 @@ Any member of the enterprise can fork any internal repository owned by an organi
 
 ### 文本限制
 
-Text files over **512 KB** are always displayed as plain text. 代码不强调语法，散文文件不会转换成 HTML（如 Markdown、AsciiDoc *等*）。
+超过 **512 KB** 的文本文件始终显示为纯文本。 代码不强调语法，散文文件不会转换成 HTML（如 Markdown、AsciiDoc *等*）。
 
 超过 **5 MB** 的文本文件仅通过其源 URL 访问，将通过 `{% data variables.product.raw_github_com %}` 提供；例如 `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`。 单击 **Raw（源）**按钮获取文件的源 URL。
 
@@ -109,8 +109,8 @@ Text files over **512 KB** are always displayed as plain text. 代码不强调�
 
 因为差异可能很大，所以我们会对评论、拉取请求和比较视图的差异施加限制：
 
-- In a pull request, no total diff may exceed *20,000 lines that you can load* or *1 MB* of raw diff data.
-- No single file's diff may exceed *20,000 lines that you can load* or *500 KB* of raw diff data. *四百行*和 *20 KB* 会自动加载为一个文件。
+- 在拉取请求中，总差异不得超过*您可以加载的 20,000 行* 或 *1 MB* 的原始差异数据。
+- 任何单个文件的差异都不能超过*您可以加载的 20,000 行，*或 *500 KB* 的原始差异数据。 *四百行*和 *20 KB* 会自动加载为一个文件。
 - 单一差异中的最大文件数限于 *300*。
 - 单一差异中可呈现的文件（如图像、PDF 和 GeoJSON 文件）最大数量限于 *25*。
 

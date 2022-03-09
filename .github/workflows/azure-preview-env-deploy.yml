@@ -163,8 +163,8 @@ jobs:
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
           rsync -rptovR ./user-code/components/./**/*.{ts,tsx} ./components
-          rsync -rptovR ./user-code/lib/./**/*.{js,ts,json} ./lib
-          rsync -rptovR ./user-code/middleware/./**/*.{js,ts} ./middleware
+          rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
+          rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
           rsync -rptovR ./user-code/pages/./**/*.{tsx} ./pages
           rsync -rptovR ./user-code/stylesheets/./**/*.{scss} ./stylesheets
 

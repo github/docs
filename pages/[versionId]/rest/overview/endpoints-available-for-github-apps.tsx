@@ -1,14 +1,15 @@
 import { GetServerSideProps } from 'next'
+import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
-import {
-  getArticleContextFromRequest,
-  ArticleContextT,
-  ArticleContext,
-} from 'components/context/ArticleContext'
-import { ArticlePage } from 'components/article/ArticlePage'
 import { Link } from 'components/Link'
 import { getEnabledForApps } from 'lib/rest/index.js'
+import { ArticlePage } from 'components/article/ArticlePage'
+import {
+  ArticleContext,
+  ArticleContextT,
+  getArticleContextFromRequest,
+} from 'components/context/ArticleContext'
 
 type OperationT = {
   slug: string
@@ -36,7 +37,7 @@ export default function Category({ mainContext, enabledForApps, articleContext }
   const { locale } = useRouter()
 
   const content = Object.entries(enabledForApps).map(([category, operations]) => (
-    <div key={`enabledAppCategory-${category}`}>
+    <Fragment key={category}>
       {operations.length > 0 && (
         <h3 id={category}>
           <Link href={`/${locale}/rest/reference/${category}`}>{category}</Link>
@@ -53,13 +54,13 @@ export default function Category({ mainContext, enabledForApps, articleContext }
           </li>
         ))}
       </ul>
-    </div>
+    </Fragment>
   ))
 
   return (
     <MainContext.Provider value={mainContext}>
       <ArticleContext.Provider value={articleContext}>
-        <ArticlePage structuredContent={content} />
+        <ArticlePage>{content}</ArticlePage>
       </ArticleContext.Provider>
     </MainContext.Provider>
   )
