@@ -1,9 +1,11 @@
+import supertest from 'supertest'
+import { describe, jest, test } from '@jest/globals'
+
 import createApp from '../../lib/app.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { get, getDOM } from '../helpers/supertest.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
-import supertest from 'supertest'
-import { jest } from '@jest/globals'
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
 
 jest.useFakeTimers('legacy')
 
@@ -86,6 +88,73 @@ describe('enterprise deprecation', () => {
     expect($.res.statusCode).toBe(200)
     // this test assumes the Installation guide is the first link on the guides page
     expect($('h2').text()).toBe('Installing and configuring GitHub Enterprise')
+  })
+})
+
+// Starting with the deprecation of 3.0, it's the first time we deprecate
+// enterprise versions since redirects is a *function* rather than a
+// lookup in a big object.
+describe('recently deprecated redirects', () => {
+  test('basic enterprise 3.0 redirects', async () => {
+    const res = await get('/enterprise/3.0')
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe('/en/enterprise-server@3.0')
+    expect(res.headers['set-cookie']).toBeUndefined()
+    // Deliberately no cache control because it is user-dependent
+    expect(res.headers['cache-control']).toBe('private, no-store')
+  })
+  test('basic enterprise 3.0 redirects by cookie', async () => {
+    const res = await get('/enterprise/3.0', {
+      headers: {
+        Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
+      },
+    })
+    expect(res.statusCode).toBe(302)
+    expect(res.headers.location).toBe('/ja/enterprise-server@3.0')
+  })
+  test('already languaged enterprise 3.0 redirects', async () => {
+    const res = await get('/en/enterprise/3.0')
+    expect(res.statusCode).toBe(301)
+    expect(res.headers.location).toBe('/en/enterprise-server@3.0')
+    // 301 redirects are safe to cache aggressively
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+  })
+  test('redirects enterprise-server 3.0 with actual redirect without language', async () => {
+    const res = await get(
+      '/enterprise-server@3.0/github/getting-started-with-github/githubs-products'
+    )
+    expect(res.statusCode).toBe(302)
+    expect(res.headers['set-cookie']).toBeUndefined()
+    // Deliberately no cache control because it is user-dependent
+    expect(res.headers['cache-control']).toBe('private, no-store')
+    // This is based on
+    // https://github.com/github/help-docs-archived-enterprise-versions/blob/master/3.0/redirects.json
+    expect(res.headers.location).toBe(
+      '/en/enterprise-server@3.0/get-started/learning-about-github/githubs-products'
+    )
+  })
+  test('redirects enterprise-server 3.0 with actual redirect with language', async () => {
+    const res = await get(
+      '/ja/enterprise-server@3.0/github/getting-started-with-github/githubs-products'
+    )
+    expect(res.statusCode).toBe(301)
+    expect(res.headers['set-cookie']).toBeUndefined()
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
+    // This is based on
+    // https://github.com/github/help-docs-archived-enterprise-versions/blob/master/3.0/redirects.json
+    expect(res.headers.location).toBe(
+      '/ja/enterprise-server@3.0/get-started/learning-about-github/githubs-products'
+    )
+  })
+  test('follow redirects enterprise-server 3.0 with actual redirect without language', async () => {
+    const res = await get(
+      '/enterprise-server@3.0/github/getting-started-with-github/githubs-products',
+      { followAllRedirects: true }
+    )
+    expect(res.statusCode).toBe(200)
   })
 })
 
