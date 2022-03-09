@@ -69,3 +69,7 @@ export interface ChildParameter {
   description: string
   type: string
 }
+
+export interface RestCategoryOperationsT {
+  [subcategory: string]: Operation[]
+}
