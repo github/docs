@@ -1,8 +1,6 @@
 import languages from '../../lib/languages.js'
 import robotsParser from 'robots-parser'
-import robotsMiddleware from '../../middleware/robots.js'
 import { get } from '../helpers/supertest.js'
-import MockExpressResponse from 'mock-express-response'
 import { jest } from '@jest/globals'
 
 describe('robots.txt', () => {
@@ -36,17 +34,12 @@ describe('robots.txt', () => {
   })
 
   it('disallows indexing of azurecontainer.io domains', async () => {
-    const req = {
-      hostname: 'docs-internal-preview-12345-asdfz.azurecontainer.io',
-      path: '/robots.txt',
-    }
-    const res = new MockExpressResponse()
-    const next = () => {
-      /* no op */
-    }
-
-    await robotsMiddleware(req, res, next)
-    expect(res._getString()).toEqual('User-agent: *\nDisallow: /')
+    const res = await get('/robots.txt', {
+      headers: {
+        host: 'docs-internal-preview-12345-asdfz.azurecontainer.io',
+      },
+    })
+    expect(res.text).toEqual('User-agent: *\nDisallow: /')
   })
 
   it('does not have duplicate lines', () => {

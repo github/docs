@@ -57,7 +57,7 @@ versions:
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {% data reusables.repositories.navigate-to-job %}
-1. In the upper right corner, click {% octicon "gear" aria-label="The gear icon" %} and select **Download log archive**.
+1. 在右上角，单击 {% octicon "gear" aria-label="The gear icon" %} ，然后选择 **Download log archive（下载日志存档）**。
 
   ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
 
@@ -70,7 +70,7 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。
 
     ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
 
