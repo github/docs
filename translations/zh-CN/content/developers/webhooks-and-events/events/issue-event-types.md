@@ -320,6 +320,16 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 |:-------------------------- |:--------:|:---------:|
 | <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
 
+## head_ref_force_pushed
+
+The pull request's HEAD branch was force pushed.
+
+### 可用性
+
+| 议题类型                       | 议题事件 API | 时间表事件 API |
+|:-------------------------- |:--------:|:---------:|
+| <ul><li>拉取请求</li></ul> |  **X**   |   **X**   |
+
 ### 事件对象属性
 
 {% data reusables.issue-events.issue-event-common-properties %}
