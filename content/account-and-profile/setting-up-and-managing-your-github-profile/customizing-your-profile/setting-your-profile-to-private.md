@@ -41,9 +41,9 @@ By making your profile private, you will not remove or hide past activity; this 
 
 When your profile is private, your {% data variables.product.prodname_dotcom_the_website %} activity will not appear in the following locations:
 
-- Will not appear in other users' activity feeds.
-- Will not appear in Discussions leaderboards.
-- Will not appear in the [Trending page](/get-started/quickstart/be-social#exploring-other-projects-on-github).
+- Other user's activity feeds.
+- Discussions leaderboards.
+- The [Trending page](/get-started/quickstart/be-social#exploring-other-projects-on-github).
 
 {% note %}
 
