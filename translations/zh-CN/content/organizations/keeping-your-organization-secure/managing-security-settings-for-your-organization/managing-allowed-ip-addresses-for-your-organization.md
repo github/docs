@@ -1,6 +1,6 @@
 ---
 title: 管理组织允许的 IP 地址
-intro: 您可以通过配置允许连接的 IP 地址列表来限制对组织资产的访问。
+intro: You can restrict access to your organization's private assets by configuring a list of IP addresses that are allowed to connect.
 product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
@@ -19,7 +19,7 @@ shortTitle: 管理允许的 IP 地址
 
 ## 关于允许的 IP 地址
 
-您可以通过为特定 IP 地址配置允许列表来限制对组织资产的访问。 {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+You can restrict access to private organization assets by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
@@ -27,7 +27,7 @@ shortTitle: 管理允许的 IP 地址
 
 如果您设置了允许列表，您还可以选择将为组织中安装的 {% data variables.product.prodname_github_apps %} 配置的任何 IP 地址自动添加到允许列表中。 {% data variables.product.prodname_github_app %} 的创建者可以为其应用程序配置允许列表，指定应用程序运行的 IP 地址。 通过将允许列表继承到您的列表中，您可以避免申请中的连接请求被拒绝。 更多信息请参阅“[允许 {% data variables.product.prodname_github_apps %} 访问](#allowing-access-by-github-apps)”。
 
-您还可以为企业帐户中的组织配置允许的 IP 地址。 更多信息请参阅“[在企业中实施安全设置策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)”。
+您还可以为企业帐户中的组织配置允许的 IP 地址。 更多信息请参阅“[在企业中实施安全设置策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)”。
 
 ## 添加允许的 IP 地址
 

@@ -25,7 +25,11 @@ Con {% data variables.product.prodname_emus %}, tu empresa utiliza el SSO de SAM
 
 Después de que configures el SSO de SAML, te recomendamos que almacenes tus códigos de recuperación para que puedas recuperar el acceso a tu empresa en caso de que no esté disponible tu proveedor de identidad.
 
-{% data reusables.saml.cannot-update-existing-saml-settings %}
+{% note %}
+
+**Note:** When SAML SSO is enabled, the only setting you can update on {% data variables.product.prodname_dotcom %} for your existing SAML configuration is the SAML certificate. If you need to update the Sign on URL or Issuer, you must first disable SAML SSO and then reconfigure SAML SSO with the new settings.
+
+{% endnote %}
 
 ## Configurar el inicio de sesión único de SAML para {% data variables.product.prodname_emus %}
 
