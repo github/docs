@@ -74,6 +74,10 @@ If you have write permission for the repository, some annotations contain links 
 
 To see more information about an alert, users with write permission can click the **Show more details** link shown in the annotation. This allows you to see all of the context and metadata provided by the tool in an alert view. In the example below, you can see tags showing the severity, type, and relevant common weakness enumerations (CWEs) for the problem. The view also shows which commit introduced the problem.
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.alert-default-branch %}
+{% endif %}
+
 In the detailed view for an alert, some {% data variables.product.prodname_code_scanning %} tools, like {% data variables.product.prodname_codeql %} analysis, also include a description of the problem and a **Show more** link for guidance on how to fix your code.
 
 ![Alert description and link to show more information](/assets/images/help/repository/code-scanning-pr-alert.png)

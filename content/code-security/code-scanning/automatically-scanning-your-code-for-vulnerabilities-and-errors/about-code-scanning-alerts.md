@@ -27,6 +27,8 @@ By default, {% data variables.product.prodname_code_scanning %} analyzes your co
 
 Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the alert severity{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, security severity,{% endif %} and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
 
+{% data reusables.code-scanning.alert-default-branch %}
+
 ![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
 
 If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.

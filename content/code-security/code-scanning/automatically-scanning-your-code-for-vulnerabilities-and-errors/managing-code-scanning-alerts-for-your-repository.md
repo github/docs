@@ -46,9 +46,13 @@ By default, the code scanning alerts page is filtered to show alerts for the def
 {% else %}
    ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+1. {% data reusables.code-scanning.alert-default-branch %}
+   <!-- Insert screenshot with status and Affected branches sections highlighted-->
+{% endif %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
    ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
-1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
+2. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
    ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
 For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)."
@@ -79,6 +83,10 @@ You can filter the alerts shown in the {% data variables.product.prodname_code_s
 The benefit of using keyword filters is that only values with results are shown in the drop-down lists. This makes it easy to avoid setting filters that find no results.
 
 If you enter multiple filters, the view will show alerts matching _all_ these filters. For example, `is:closed severity:high branch:main` will only display closed high-severity alerts that are present on the `main` branch. The exception is filters relating to refs (`ref`, `branch` and `pr`): `is:open branch:main branch:next` will show you open alerts from both the `main` branch and the `next` branch.
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.filter-non-default-branches %}
+{% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghec %}
 
@@ -143,7 +151,11 @@ If you have write permission for a repository, you can view fixed alerts by view
 
 You can use{% ifversion fpt or ghes > 3.1 or ghae or ghec %} the free text search or{% endif %} the filters to display a subset of alerts and then in turn mark all matching alerts as closed. 
 
-Alerts may be fixed in one branch but not in another. You can use the "Branch" drop-down menu, on the summary of alerts, to check whether an alert is fixed in a particular branch.
+Alerts may be fixed in one branch but not in another. You can use the "Branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.filter-non-default-branches %}
+{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ![Filtering alerts by branch](/assets/images/help/repository/code-scanning-branch-filter.png)
