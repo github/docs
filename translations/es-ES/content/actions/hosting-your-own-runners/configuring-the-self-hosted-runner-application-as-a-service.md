@@ -78,6 +78,12 @@ Puedes administrar el servicio de ejecutor en la aplicación de **Servicios** de
    ```
 {% endmac %}
 
+The command takes an optional `user` argument to install the service as a different user.
+
+```shell
+./svc.sh install --user <em>USERNAME</em>
+```
+
 ## Iniciar el servicio
 
 Inicia el servicio con el siguiente comando:
