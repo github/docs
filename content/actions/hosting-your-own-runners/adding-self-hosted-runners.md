@@ -118,8 +118,6 @@ To make an enterprise-level self-hosted runner group available to an organizatio
 For more information on changing runner group access settings, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
 {% endif %}
 
-{% data reusables.actions.self-hosted-runner-public-repo-access %}
-
 ### Cloning VM with self-hosted runner
 
 If you have virtual machine with a self-hosted runner installed, you may found it useful to clone that virtual machine. To successfully clone a virtual machine with a self-hosted runner installed, you need to do folowing steps:
@@ -132,8 +130,6 @@ If you have virtual machine with a self-hosted runner installed, you may found i
 6. Configure it using the token from the step 3.
 
 Now you can configure runner as a service.
-
-{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
