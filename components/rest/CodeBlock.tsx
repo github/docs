@@ -34,7 +34,7 @@ export function CodeBlock({ verb, headingLang, codeBlock, highlight }: Props) {
             `${headingLang}`
           )}
           <Tooltip direction="w" aria-label={isCopied ? 'Copied!' : 'Copy to clipboard'}>
-            <button className="btn-octicon" onClick={() => setCopied()}>
+            <button className="js-btn-copy btn-octicon" onClick={() => setCopied()}>
               {isCopied ? <CheckIcon /> : <CopyIcon />}
             </button>
           </Tooltip>
@@ -57,7 +57,7 @@ export function CodeBlock({ verb, headingLang, codeBlock, highlight }: Props) {
         </code>
         {!headingLang && (
           <Tooltip direction="w" aria-label={isCopied ? 'Copied!' : 'Copy to clipboard'}>
-            <button className="btn-octicon" onClick={() => setCopied()}>
+            <button className="js-btn-copy btn-octicon" onClick={() => setCopied()}>
               {isCopied ? <CheckIcon /> : <CopyIcon />}
             </button>
           </Tooltip>
