@@ -1,7 +1,7 @@
 ---
-title: Repl.it with GitHub Classroom
-shortTitle: Repl.it with GitHub Classroom
-intro: 'As of July 13 2021, Repl.it integration is no longer available in {% data variables.product.prodname_classroom %}.'
+title: 使用 GitHub Classroom 的 Repl.it
+shortTitle: 使用 GitHub Classroom 的 Repl.it
+intro: '自 2021 年 7 月 13 日起，Repl.it 集成在 {% data variables.product.prodname_classroom %} 中不再可用。'
 versions:
   fpt: '*'
 redirect_from:
@@ -10,19 +10,19 @@ redirect_from:
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-replit-with-github-classroom
 ---
 
-## What’s changing with Repl.it integration
+## Repl.it 集成有什么变化
 
-As of July 13 2021, Repl.it integration is no longer available. Here’s what’s changed:
+自 2021 年 7 月 13 日起，Repl.it 集成不再可用。 变化如下：
 
-- New private and public repls can no longer be created from within GitHub Classroom.
-- Replit Hacker benefits, such as Always On and Boosts, are no longer available for new GitHub Classroom users.
+- 无法再从 GitHub Classroom 中创建新的私有和公共版本。
+- Replit Hacker 的权益（如 Always On 和 Boosts）不再适用于新的 GitHub Classroom 用户。
 
-## What does this mean for existing assignments?
-Your existing GitHub Classroom repls will remain private forever and you can submit work to GitHub Classroom via these repls until September 30 2021. After September 2021, the Replit icon on the assignment README will no longer work. We suggest you remove the instructions from any README using the integration and let students know that the icon will no longer work.
+## 这对现有作业意味着什么？
+您现有的 GitHub Classroom 回复将永远保持私密状态，在 2021 年 9 月 30 日之前您可以通过这些回复向 GitHub Classroom 提交作业。 2021 年 9 月之后，作业自述文件上的 Replit 图标将不再有效。 我们建议您使用集成从任何自述文件中删除说明，并让学生知道该图标将不再有效。
 
-While you can no longer create private repls from within Classroom, you can continue to create private repls in Replit until September 30th.
+虽然您无法再在 Classroom 中创建私有回复，但在 9 月 30 日之前您可以继续在 Replit 中创建私密回复。
 
-We know cloud IDE integrations are important to your classroom and are working hard to bring you more options.
+我们知道云 IDE 集成对您的课堂很重要，正在努力为您带来更多选择。
 
 ## 延伸阅读
 
