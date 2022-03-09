@@ -1,5 +1,5 @@
 ---
-title: Managing repository access for your organization's codespaces
+title: 管理组织代码空间的存储库访问
 shortTitle: 存储库访问
 intro: '您可以管理 {% data variables.product.prodname_codespaces %} 可以访问的组织仓库。'
 product: '{% data reusables.gated-features.codespaces %}'
@@ -18,7 +18,7 @@ redirect_from:
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
 ---
 
-默认情况下，代码空间只能访问创建它的仓库。 When you enable access and security for a repository owned by your organization, any codespaces that are created for that repository will also have read permissions to all other repositories the organization owns and the codespace creator has permissions to access. If you want to restrict the repositories a codespace can access, you can limit it to either the repository where the codespace was created, or to specific repositories. 您应该只对您信任的仓库启用访问和安全。
+默认情况下，代码空间只能访问创建它的仓库。 当您为组织拥有的存储库启用访问和安全性时，为该存储库创建的任何代码空间也将对组织拥有的所有其他存储库具有读取权限，并且代码空间创建者具有访问权限。 如果要限制代码空间可以访问的存储库，可以将其限制为创建代码空间的存储库或特定存储库。 您应该只对您信任的仓库启用访问和安全。
 
 要管理组织中的哪些用户可以使用 {% data variables.product.prodname_codespaces %}，请参阅“[管理组织的用户权限](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)”。
 
@@ -30,4 +30,4 @@ redirect_from:
 
 ## 延伸阅读
 
-- "[Managing repository access for your codespaces](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)"
+- "[管理代码空间的存储库访问](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)"
