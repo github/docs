@@ -16,15 +16,15 @@ topics:
 shortTitle: 团队和人员
 ---
 
-## About access management for repositories
+## 关于存储库的访问管理
 
-对于您在 {% data variables.product.prodname_dotcom %} 上管理的每个仓库，您可以查看有权访问仓库的每个团队或人员的概览。 From the overview, you can also invite new teams or people, change each team or person's role for the repository, or remove access to the repository.
+对于您在 {% data variables.product.prodname_dotcom %} 上管理的每个仓库，您可以查看有权访问仓库的每个团队或人员的概览。 在概述中，您还可以邀请新的团队或人员，更改存储库的每个团队或人员的角色，或删除对存储库的访问权限。
 
 此概览可帮助您审核对仓库、内部或外部承包商或员工的访问权限，并有效响应安全事件。
 
 {% data reusables.organizations.mixed-roles-warning %}
 
-For more information about repository roles, see "[Permission levels for a user account repository](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+有关存储库角色的详细信息，请参阅“[用户帐户存储库的权限级别](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)”和“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 ![访问权限管理概览](/assets/images/help/repository/manage-access-overview.png)
 
@@ -37,7 +37,7 @@ For more information about repository roles, see "[Permission levels for a user 
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% endif %}
-1. 在“Manage access（管理访问权限）”下的搜索字段中，开始输入您要查找的团队或人员的名称。 Optionally, use the dropdown menus to filter your search. ![用于过滤具有访问权限的团队或人员列表的搜索字段](/assets/images/help/repository/manage-access-filter.png)
+1. 在“Manage access（管理访问权限）”下的搜索字段中，开始输入您要查找的团队或人员的名称。 （可选）使用下拉菜单筛选搜索。 ![用于过滤具有访问权限的团队或人员列表的搜索字段](/assets/images/help/repository/manage-access-filter.png)
 
 ## 更改团队或人员的权限
 
@@ -48,7 +48,7 @@ For more information about repository roles, see "[Permission levels for a user 
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
 {% endif %}
-4. Under "Manage access", find the team or person whose role you'd like to change, then select the Role drop-down and click a new role. ![使用"Role（角色）"下拉菜单为团队或人员选择新权限](/assets/images/help/repository/manage-access-role-drop-down.png)
+4. 在“Manage access（管理访问）”下，找到您要更改其角色的团队或人员，然后选择 Role（角色）下拉菜单并点击新角色。 ![使用"Role（角色）"下拉菜单为团队或人员选择新权限](/assets/images/help/repository/manage-access-role-drop-down.png)
 
 ## 邀请团队或人员
 
@@ -61,7 +61,7 @@ For more information about repository roles, see "[Permission levels for a user 
 {% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
 5. 在搜索字段中，开始输入要邀请的团队或人员的名称，然后单击匹配列表中的名称。 ![用于输入要邀请加入仓库的团队或人员名称的搜索字段](/assets/images/help/repository/manage-access-invite-search-field.png)
-6. Under "Choose a role", select the repository role to grant to the team or person, then click **Add NAME to REPOSITORY**. ![为团队或人员选择权限](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
+6. 在“Choose a role（选择角色）”下，选择要授予该团队或人员的仓库角色，然后单击 **Add NAME to REPOSITORY（将名称添加到仓库）**。 ![为团队或人员选择权限](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 
 ## 删除团队或人员的访问权限
 

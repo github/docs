@@ -45,5 +45,5 @@ shortTitle: 更改默认分支
 1. 在“Default branch（默认分支）”下，在默认分支名称的右侧单击 {% octicon "arrow-switch" aria-label="The switch icon with two arrows" %}。 ![当前默认分支名称右侧的两个箭头切换图标](/assets/images/help/repository/repository-options-defaultbranch-change.png)
 1. 使用下拉菜单，然后单击分支名称。 ![选择新默认分支的下拉菜单](/assets/images/help/repository/repository-options-defaultbranch-drop-down.png)
 1. 单击 **Update（更新）**。 ![选择新默认分支后的"更新"按钮](/assets/images/help/repository/repository-options-defaultbranch-update.png)
-1. 阅读警告，然后单击 **I understand, update the default branch（我了解，请更新默认分支）**。 !["I understand, update the default branch." button to perform the update](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
+1. 阅读警告，然后单击 **I understand, update the default branch（我了解，请更新默认分支）**。 !["我了解，请更新默认分支" 按钮以执行更新](/assets/images/help/repository/repository-options-defaultbranch-i-understand.png)
 
