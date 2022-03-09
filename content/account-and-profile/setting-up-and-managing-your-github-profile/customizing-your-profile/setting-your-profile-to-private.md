@@ -1,0 +1,58 @@
+---
+title: Setting your profile to private
+intro: A private profile displays only limited information, and hides some activity.
+versions:
+  fpt: '*'
+topics:
+  - Profiles
+shortTitle: Set profile to private
+---
+{% note %}
+
+**Note:** Private profiles are currently in beta and are subject to change.
+
+{% endnote %}
+
+To hide parts of your profile page, you can make your profile private. This also hides your activity in various social features on {% data variables.product.prodname_dotcom_the_website %}. A private profile hides information from all users, and there is currently no option to allow specified users to see your activity.
+
+Private profiles cannot receive sponsorships under [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors). To be eligible for {% data variables.product.prodname_sponsors %}, your profile cannot be private.
+
+## Changes to your private profile
+
+When your profile is private, the following content is hidden from your profile page:
+
+- Achievements and highlights.
+- Activity overview and activity feed.
+- Contribution graph.
+- Follower and following counts.
+- Follow and Sponsor buttons.
+- Organization memberships.
+- Stars, projects, packages, and sponsoring tabs.
+
+{% note %}
+
+**Note**: When your profile is private, some optional fields are still publicly visible, such as the README, biography, and profile photo.
+
+{% endnote %}
+
+## Changes to your activities
+
+By making your profile private, you will not remove or hide past activity; this setting only applies to actions taken while the private setting is enabled.
+
+When your profile is private, your {% data variables.product.prodname_dotcom_the_website %} activity will not appear in the following locations:
+
+- Will not appear in other users' activity feeds.
+- Will not appear in Discussions leaderboards.
+- Will not appear in the [Trending page](/get-started/quickstart/be-social#exploring-other-projects-on-github).
+
+{% note %}
+
+**Note**: Your activity on public repositories will still be publicly visible to anyone viewing those repositories, and some activity data may still be available through the {% data variables.product.prodname_dotcom %} API.
+
+{% endnote %}
+
+## Changing your profile's privacy settings
+
+{% data reusables.user-settings.access_settings %}
+1. Under "Contributions & Activity", select the checkbox for **Make profile private and hide activity**.
+{% data reusables.user-settings.update-preferences %}

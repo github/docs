@@ -151,7 +151,7 @@ You can disable some of the badges for {% data variables.product.prodname_dotcom
 {% data reusables.user-settings.access_settings %}
 2. Under "Profile settings", deselect the badge you want you disable.
   ![Checkbox to no longer display a badge on your profile](/assets/images/help/profile/profile-badge-settings.png)
-3. Click **Update preferences**.
+{% data reusables.user-settings.update-preferences %}
 
 {% endif %}
 
