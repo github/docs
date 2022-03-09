@@ -38,7 +38,7 @@ up your application. It's the callback URL that {% data variables.product.produc
 successful authentication.
 
 Since we're running a regular Sinatra server, the location of the local instance
-is set to `http://localhost:4567`. Let's fill in the callback URL as `http://localhost:4567/callback`.
+is set to `http://127.0.0.1:4567`. Let's fill in the callback URL as `http://127.0.0.1:4567/callback`.
 
 ## Accepting user authorization
 
@@ -91,7 +91,7 @@ Also, notice that the URL uses the `scope` query parameter to define the
 [scopes][oauth scopes] requested by the application. For our application, we're
 requesting `user:email` scope for reading private email addresses.
 
-Navigate your browser to `http://localhost:4567`. After clicking on the link, you
+Navigate your browser to `http://127.0.0.1:4567`. After clicking on the link, you
 should be taken to {% data variables.product.product_name %}, and presented with a dialog that looks something like this:
 ![GitHub's OAuth Prompt](/assets/images/oauth_prompt.png)
 
@@ -215,7 +215,7 @@ We can do whatever we want with our results. In this case, we'll just dump them 
 
 It'd be a pretty bad model if we required users to log into the app every single
 time they needed to access the web page. For example, try navigating directly to
-`http://localhost:4567/basic`. You'll get an error.
+`http://127.0.0.1:4567/basic`. You'll get an error.
 
 What if we could circumvent the entire
 "click here" process, and just _remember_ that, as long as the user's logged into
@@ -348,7 +348,7 @@ Next, create a file in _views_ called _advanced.erb_, and paste this markup into
 
 From the command line, call `ruby advanced_server.rb`, which starts up your
 server on port `4567` -- the same port we used when we had a simple Sinatra app.
-When you navigate to `http://localhost:4567`, the app calls `authenticate!`
+When you navigate to `http://127.0.0.1:4567`, the app calls `authenticate!`
 which redirects you to `/callback`. `/callback` then sends us back to `/`,
 and since we've been authenticated, renders _advanced.erb_.
 

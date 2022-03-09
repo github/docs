@@ -52,6 +52,13 @@ Si bajas tu organización de nivel desde {% data variables.product.prodname_team
 
 Si bajas a tu organización de nivel desde {% data variables.product.prodname_ghe_cloud %} a {% data variables.product.prodname_team %} o {% data variables.product.prodname_free_team %}, la cuenta perderá acceso a los controles avanzados de seguridad, cumplimiento y despliegue. {% data reusables.gated-features.more-info %}
 
+
+{% note %}
+
+**Note:** If you're currently trialing {% data variables.product.prodname_ghe_cloud %}, and you don't purchase {% data variables.product.prodname_enterprise %} before the trial ends, your organization will be automatically downgraded to {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %}. Para obtener más información, consulta "[Configurar una prueba de {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)".
+
+{% endnote %}
+
 {% data reusables.organizations.billing-settings %}
 1. Debajo de "Plan actual", utiliza el menú desplegable **Editar** y haz clic en la opción a la que quieras bajar. ![Botón Bajar de categoría](/assets/images/help/billing/downgrade-option-button.png)
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}

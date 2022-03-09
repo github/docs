@@ -78,6 +78,12 @@ shortTitle: 启动时运行运行器应用程序
    ```
 {% endmac %}
 
+The command takes an optional `user` argument to install the service as a different user.
+
+```shell
+./svc.sh install --user <em>USERNAME</em>
+```
+
 ## 启动服务
 
 使用以下命令启动服务：
