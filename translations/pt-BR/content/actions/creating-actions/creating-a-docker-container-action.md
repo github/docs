@@ -237,7 +237,7 @@ trabalhos:
 ```
 {% endraw %}
 
-No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. Under **Jobs** or in the visualization graph, click **A job to say hello**. Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
+No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. Em **Trabalhos** ou no gráfico de visualização, clique em **A job to say hello**. Você deverá ver "Hello Mona the Octocat" ou o nome que você usou como entrada em `who-to-greet` e o horário impresso no log.
 
 ![Uma captura de tela de sua ação em um fluxo de trabalho](/assets/images/help/repository/docker-action-workflow-run-updated.png)
 

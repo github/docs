@@ -109,11 +109,14 @@ Some of the features listed below are limited to organizations using {% data var
 | Enable project boards | | | | **X** | **X** |
 | Configure [pull request merges](/articles/configuring-pull-request-merges) | | | | **X** | **X** |
 | Configure [a publishing source for {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages) | | | | **X** | **X** |
+| [Manage branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule) | | | | | **X** |
 | [Push to protected branches](/articles/about-protected-branches) | | | | **X** | **X** |
+| Merge pull requests on protected branches, even if there are no approving reviews | | | | | **X** |{% ifversion fpt or ghes > 3.4 or ghae-issue-6337 or ghec %}
+| Create tags that match a [tag protection rule](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules) | | | | **X** | **X** |
+| Delete tags that match a [tag protection rule](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules) | | | | | **X** |{% endif %}
 | [Create and edit repository social cards](/articles/customizing-your-repositorys-social-media-preview) | | | | **X** | **X** |{% ifversion fpt or ghec %}
 | Limit [interactions in a repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)| | | | **X** | **X** |{% endif %}
 | Delete an issue (see "[Deleting an issue](/articles/deleting-an-issue)") | | | | | **X** |
-| Merge pull requests on protected branches, even if there are no approving reviews | | | | | **X** |
 | [Define code owners for a repository](/articles/about-code-owners) | | | | | **X** |
 | Add a repository to a team (see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#giving-a-team-access-to-a-repository)" for details) | | | | | **X** |
 | [Manage outside collaborator access to a repository](/articles/adding-outside-collaborators-to-repositories-in-your-organization) | | | | | **X** |

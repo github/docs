@@ -7,6 +7,7 @@ redirect_from:
   - /github/administering-a-repository/about-github-dependabot-version-updates
   - /github/administering-a-repository/about-dependabot-version-updates
   - /code-security/supply-chain-security/about-dependabot-version-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/upgrading-from-dependabotcom-to-github-native-dependabot
 versions:
   fpt: '*'
   ghec: '*'

@@ -29,6 +29,6 @@ Você pode usar políticas para gerenciar o acesso a {% data variables.product.p
 
 ## Adicionar executores
 
-You must configure and host your own machines to run jobs for your enterprise on {% data variables.product.product_name %}. {% data reusables.actions.about-self-hosted-runners %} For more information, see "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)" and "[Hosting your own runners](/actions/hosting-your-own-runners)."
+Você deve configurar e hospedar suas próprias máquinas para executar trabalhos para sua empresa em {% data variables.product.product_name %}. {% data reusables.actions.about-self-hosted-runners %} Para obter mais informações, consulte "[Primeiros passos com executores auto-hospedados para a sua empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)" e "[Hospedando seus próprios executores](/actions/hosting-your-own-runners)."
 
 {% data reusables.actions.general-security-hardening %}
