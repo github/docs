@@ -1,0 +1,3 @@
+## Permissões
+
+A API de Permissões permite que você defina permissões para quais empresas, organizações e repositórios podem executar {% data variables.product.prodname_actions %}, e quais ações podem ser executadas.{% ifversion fpt or ghec or ghes %} Para obter mais informações, consulte "[Limites de uso, cobrança e administração](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)".{% endif %}

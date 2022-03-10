@@ -29,9 +29,8 @@ Puedes elegir recibir actualizaciones continuas sobre actividades específicas e
 Puedes elegir suscribirte a las notificaciones de:
 - Una conversación sobre un informe de problemas, solicitud de extracción o gist específico.
 - Todas las actividades en un repositorio o en un debate de equipo.
-- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- Repositorio {% data reusables.notifications-v2.custom-notification-types %} (si se habilitó).{% else %}
-- Lanzamientos en un repositorio.{% endif %}
+- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}.
+- Repositorio {% data reusables.notifications-v2.custom-notification-types %} (en caso de que estén habilitadas).
 
 También puedes elegir seguir automáticamente todos los repositorios en los que tienes acceso de escritura, con excepción de sus bifurcaciones. Puedes seguir de cerca manualmente a cualquier otro repositorio al que tengas acceso si das clic en **Seguir**.
 

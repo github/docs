@@ -30,7 +30,7 @@ topics:
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6329 %}
 {% note %}
 
-**Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)
+**Observação:** Os clientes que usam {% data variables.product.prodname_GH_advanced_security %} podem habilitar {% data variables.product.prodname_secret_scanning %} nos repositórios arquivados. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)
 
 {% endnote %}
 {% endif %}

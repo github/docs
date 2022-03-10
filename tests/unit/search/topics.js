@@ -10,7 +10,11 @@ const topics = walk(contentDir, { includeBasePath: true })
   .filter((filename) => filename.endsWith('.md') && !filename.includes('README'))
   .map((filename) => {
     const fileContent = fs.readFileSync(filename, 'utf8')
-    const { data } = readFrontmatter(fileContent)
+    const { data, errors } = readFrontmatter(fileContent)
+    if (errors.length > 0) {
+      console.warn(errors)
+      throw new Error(`More than 0 front-matter errors`)
+    }
     return data.topics || []
   })
   .flat()

@@ -16,7 +16,6 @@ shortTitle: 刷新用户到服务器的访问权限
 
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
-
 ## 关于过期用户访问令牌
 
 要实施定期令牌轮换并减少受威胁令牌的影响，您可以配置 {% data variables.product.prodname_github_app %} 以使用过期用户访问令牌。 有关发出用户到服务器请求的更多信息，请参阅“[识别和授权 GitHub 应用程序用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
@@ -60,8 +59,7 @@ shortTitle: 刷新用户到服务器的访问权限
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. 单击所选 {% data variables.product.prodname_github_app %} 旁边的 **Edit（编辑）**。 ![编辑 GitHub 应用程序的设置](/assets/images/github-apps/edit-test-app.png)
-5. 在左侧栏中，单击 **{% ifversion ghes < 3.1 %} 测试 {% else %} 可选 {% endif %} 功能**。
-  {% ifversion ghes < 3.1 %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
+5. 在左侧边栏中，单击 **Optional Features（可选功能）**。 ![可选功能选项卡](/assets/images/github-apps/optional-features-option.png)
 6. 在“User-to-server token expiration（用户到服务器令牌过期）”旁边，单击 **Opt-in（选择加入）**或 **Opt-out（选择退出）**。 应用此设置可能需要几秒钟的时间。
 
 ## 为新的 GitHub 应用程序选择退出过期令牌

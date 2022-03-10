@@ -4,7 +4,7 @@ intro: You can give users the ability to always update a pull request branch whe
 versions:
   fpt: '*'
   ghes: '> 3.4'
-  ghae: 'issue-6069'
+  ghae: issue-6069
   ghec: '*'
 topics:
   - Repositories

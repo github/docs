@@ -8,11 +8,7 @@ Por exemplo, um fluxo de trabalho de integração contínua para um projeto Java
 
 Agora, ao revisar um pull request, você poderá ver a execução do fluxo de trabalho e fazer o download do artefato produzido.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Menu suspenso do para fazer download do artefato](/assets/images/help/repository/artifact-drop-down-updated.png)
-{% else %}
-![Menu suspenso do para fazer download do artefato](/assets/images/help/repository/artifact-drop-down.png)
-{% endif %}
 
 Isso permitirá que você execute o código no pull request em sua máquina, o que pode ajudar a depurar ou testar o pull request.
 

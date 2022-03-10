@@ -1,6 +1,6 @@
 ---
 title: 使用非代码文件
-intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
+intro: '{% data variables.product.product_name %} 支持以多种非代码文件格式呈现和比较。'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -37,7 +37,7 @@ shortTitle: 使用非代码文件
 
 ## 呈现图像和比较差异
 
-{% data variables.product.product_name %} 可显示几种常见的图像格式，包括 PNG、JPG、GIF、PSD 和 SVG。 In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.'
+{% data variables.product.product_name %} 可显示几种常见的图像格式，包括 PNG、JPG、GIF、PSD 和 SVG。 除了简单地显示这些图像以外，还有几种方法可以比较这些图像格式版本之间的差异。
 
 {% note %}
 
@@ -47,7 +47,7 @@ shortTitle: 使用非代码文件
 
 ### 查看图像
 
-You can directly browse and view images in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}:
+您可以直接浏览和查看 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %} 上的{% endif %} 存储库中的图像：
 
 ![内联图像](/assets/images/help/images/view.png)
 
@@ -116,7 +116,7 @@ SVG 目前不支持内联脚本或动画。
 <script src="https://embed.github.com/view/3d/<username>/<repo>/<ref>/<path_to_file>"></script>
 ```
 
-For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl), your embed code would be:
+例如，如果模型的 URL 是 [`github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl`](https://github.com/skalnik/secret-bear-clip/blob/master/stl/clip.stl)，则嵌入的代码为：
 
 ```html
 <script src="https://embed.github.com/view/3d/skalnik/secret-bear-clip/master/stl/clip.stl"></script>
@@ -136,7 +136,7 @@ GitHub 支持以 *.csv*（逗号分隔）和 .*tsv*（制表符分隔）文件�
 
 ![呈现的 CSV 示例](/assets/images/help/repository/rendered_csv.png)
 
-When viewed, any _.csv_ or _.tsv_ file committed to a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} automatically renders as an interactive table, complete with headers and row numbering. 默认情况下，我们始终假设第一行是标题行。
+查看时，提交到 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %} 上的{% endif %} 存储库的任何 _.csv_ 或 _.tsv_ 文件都会自动呈现为交互式表格，包括标题和行号。 默认情况下，我们始终假设第一行是标题行。
 
 您可以通过单击行号链接到特定行，或通过按住 Shift 键选择多行。 只需复制 URL 并将其发送给好友即可。
 
@@ -225,7 +225,7 @@ GitHub 支持呈现 PDF 文档。
 
 一般来说，包含嵌入式 HTML 的文档更改的呈现视图将显示对 {% data variables.product.product_name %} 文档视图中支持元素的更改。 必须始终在呈现视图和源视图中检查对包含嵌入式 HTML 的文档的更改以确保完整性。
 
-## Mapping geoJSON files on {% data variables.product.prodname_dotcom %}
+## 映射 {% data variables.product.prodname_dotcom %} 上的 geoJSON 文件
 
 {% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 仓库中渲染 geoJSON 和 topoJSON 地图文件。 只需像平常一样提交扩展名为 `.geojson` 或 `.topojson` 的文件。 也支持扩展名为 `.json` 的文件，但仅当 `type` 设置为 `FeatureCollection`、`GeometryCollection` 或 `topology` 时才支持。 然后导航到 GitHub.com 上 geoJSON 文件的路径。
 
@@ -298,9 +298,9 @@ GitHub 支持呈现 PDF 文档。
 * [MapBox marker-styling 文档](http://www.mapbox.com/developers/simplestyle/)
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
-## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
+## 在 {% data variables.product.prodname_dotcom %} 上使用 Jupyter Notebook 文件
 
-When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.product.product_location %}, they will render as static HTML files in your repository.
+当您在 {% data variables.product.product_location %} 上添加具有 *.ipynb* 扩展名的 Jupyter Notebook 或 IPython Notebook 文件时，它们将在您的仓库中呈现为静态 HTML 文件。
 
 笔记本的交互式功能（例如自定义的 JavaScript 图）在 {% data variables.product.product_location %} 上的仓库中不起作用。 有关示例，请参阅 [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb)。
 

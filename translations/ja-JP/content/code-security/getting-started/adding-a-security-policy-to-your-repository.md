@@ -7,7 +7,7 @@ redirect_from:
   - /github/code-security/security-advisories/adding-a-security-policy-to-your-repository
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -21,7 +21,7 @@ shortTitle: セキュリティポリシーの追加
 
 ## セキュリティポリシーについて
 
-プロジェクト内のセキュリティ脆弱性を報告する手順を人々に示すには、{% ifversion fpt or ghes > 3.0 or ghec %}_SECURITY.md_ファイルをリポジトリのルート、`docs`、`.github`フォルダのいずれかに追加できます。{% else %}_SECURITY.md_ファイルをリポジトリのルートあるいは`docs`フォルダに追加できます。{% endif %}誰かがリポジトリでIssueを作成すると、リポジトリのセキュリティポリシーへのリンクが示されます。
+プロジェクト内のセキュリティ脆弱性を報告する手順を人々に示すには、{% ifversion fpt or ghes or ghec %}_SECURITY.md_ファイルをリポジトリのルート、`docs`、`.github`フォルダのいずれかに追加できます。{% else %}_SECURITY.md_ファイルをリポジトリのルートあるいは`docs`フォルダに追加できます。{% endif %}誰かがリポジトリでIssueを作成すると、リポジトリのセキュリティポリシーへのリンクが示されます。
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
@@ -39,7 +39,7 @@ shortTitle: セキュリティポリシーの追加
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% ifversion ghes > 3.0 or ghae %}
+{% ifversion ghes or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 セキュリティの報告の指示を明確に利用できる要することで、ユーザがあなたの好むコミュニケーションチャンネルを使ってリポジトリで見つけたセキュリティ脆弱性を報告することを容易にできます。
 {% endif %}

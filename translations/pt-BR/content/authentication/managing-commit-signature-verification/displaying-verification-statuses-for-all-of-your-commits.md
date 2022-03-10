@@ -33,8 +33,8 @@ Você só deve habilitar o modo vigilante se assinar todos os seus commits e tag
 
 ## Habilitando o modo vigilante
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. Na página de configurações de SSH, em "Modo Vigilante", selecione **Sinalizar commits não assinados como não verificados**.
 
    ![Sinalizar commits não assinados como caixa de seleção não verificada](/assets/images/help/commits/vigilant-mode-checkbox.png)

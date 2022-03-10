@@ -181,3 +181,4 @@ You can directly upload a support bundle to our server if:
 ## Further reading
 
 - "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Generating a Health Check for your enterprise](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

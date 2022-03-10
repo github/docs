@@ -1,7 +1,7 @@
 ---
 title: Restricting access to machine types
 shortTitle: Machine type access
-intro: 'You can set constraints on the types of machines users can choose when they create codespaces in your organization.'
+intro: You can set constraints on the types of machines users can choose when they create codespaces in your organization.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access to machine types for the repositories in an organization, you must be an organization owner.'
 versions:

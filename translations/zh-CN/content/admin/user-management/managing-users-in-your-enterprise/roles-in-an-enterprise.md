@@ -22,7 +22,7 @@ topics:
 {% data reusables.enterprise-accounts.enterprise-administrators %}
 
 {% ifversion ghec %}
-如果您的企业没有使用 {% data variables.product.prodname_emus %}，您可以邀请他人使用他们控制的 {% data variables.product.product_name %} 用户帐户来管理角色。 更多信息请参阅“[邀请人们管理您的企业](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)”。
+如果您的企业没有使用 {% data variables.product.prodname_emus %}，您可以邀请他人使用他们控制的 {% data variables.product.product_name %} 用户帐户来管理角色。 For more information, see "[Inviting people to manage your enterprise](/github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise)."
 
 在使用 {% data variables.product.prodname_emus %} 的企业中，必须通过身份提供商预配新所有者和成员。 企业所有者和组织所有者不能使用 {% data variables.product.prodname_dotcom %} 向企业添加新成员或所有者。 您可以使用 IdP 选择成员的企业角色，它不能在 {% data variables.product.prodname_dotcom %} 上更改。 您可以在 {% data variables.product.prodname_dotcom %} 上选择成员在组织中的角色。 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 {% else %}
@@ -30,16 +30,23 @@ topics:
 
 {% endif %}
 
-## 企业所有者
+## Enterprise owners
 
 企业所有者可以完全控制企业，并可以采取所有操作，包括：
 - 管理管理员
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise
+- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% if remove-enterprise-members %}
+- Removing enterprise members from all organizations owned by the enterprise{% endif %}
 - 管理企业设置
 - 在组织范围内强制实施政策
 {% ifversion ghec %}- 管理帐单设置{% endif %}
 
+{% if enterprise-owner-join-org %}
+Enterprise owners do not have access to organization settings or content by default. To gain access, enterprise owners can join any organization owned by their enterprise. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+
+Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
+{% else %}
 企业所有者无法访问组织设置或内容，除非将其设为组织所有者或授予直接访问组织所拥有仓库的权限。 同样，除非您将其设为企业所有者，否则企业中的组织所有者无权访问企业。
+{% endif %}
 
 企业所有者仅在他们是企业中至少一个组织的所有者或成员时才可使用许可证。 Even if an enterprise owner has a role in multiple organizations, they will consume a single license. {% ifversion ghec %}企业所有者必须在 {% data variables.product.prodname_dotcom %} 上拥有个人帐户。{% endif %} 作为最佳实践，我们建议只将少数人设为公司的企业所有者，以降低业务风险。
 

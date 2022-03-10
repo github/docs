@@ -75,6 +75,9 @@ También se puede acceder a la base de datos utilizando la API de GraphQL. Para 
 
 {% endnote %}
 
+## Editar una asesoría en la {% data variables.product.prodname_advisory_database %}
+Puedes sugerir mejoras a cualquier asesoría en la {% data variables.product.prodname_advisory_database %}. Para obtener más información, consulta la sección "[Editar las asesorías de seguridad en la {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)".
+
 ## Buscar en la {% data variables.product.prodname_advisory_database %} por coincidencia exacta
 
 Puedes buscar la base de datos y utilizar los calificadores para definir más tu búsqueda. Por ejemplo, puedes buscar las asesorías que se hayan creado en una fecha, ecosistema o biblioteca específicos.
@@ -114,4 +117,4 @@ Para cualquier asesoría que revise {% data variables.product.company_short %} e
 
 ## Leer más
 
-- [Definición de MITRE de "vulnerabilidad"](https://cve.mitre.org/about/terminology.html#vulnerability)
+- [Definición de MITRE de "vulnerabilidad"](https://www.cve.org/ResourcesSupport/Glossary#vulnerability)

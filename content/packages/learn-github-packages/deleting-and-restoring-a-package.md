@@ -9,7 +9,7 @@ redirect_from:
   - /packages/guides/deleting-a-container-image
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 shortTitle: Delete & restore a package
@@ -228,7 +228,7 @@ To review who can restore a package in an organization, see "[Required permissio
 
 You can restore a deleted package through your user account settings, if the package was in one of your repositories or scoped to your user account. For more information, see "[Required permissions](#required-permissions-to-delete-or-restore-a-package)."
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. On the left, click **Packages**.
 4. Under "Deleted Packages", next to the package you want to restore, click **Restore**.
   ![Restore button](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)

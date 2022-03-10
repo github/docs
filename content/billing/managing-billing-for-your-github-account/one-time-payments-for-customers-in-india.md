@@ -1,6 +1,6 @@
 ---
 title: One-time payments for customers in India
-intro: "Customers in India who have been impacted by the Reserve Bank of India's recurring payment regulation can now make one-time payments for their GitHub subscriptions and services."
+intro: Customers in India who have been impacted by the Reserve Bank of India's recurring payment regulation can now make one-time payments for their GitHub subscriptions and services.
 redirect_from:
   - /early-access/billing/india-rbi-regulation
 versions:
@@ -57,8 +57,8 @@ Existing sponsorships will remain in place during this period and maintainers wi
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 3. At the top of the page, click **Pay now**.
   ![One-time payment pay now button](/assets/images/help/billing/pay-now-button.png)
 4. Review your billing and payment information. If you need to make an edit, click **Edit** next to the relevant section. Otherwise, click **Submit payment**.

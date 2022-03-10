@@ -15,6 +15,13 @@ miniTocMaxHeadingLevel: 3
 
 ## Monitorear tus flujos de trabajo
 
+{% if github-runner-dashboard %}
+### Monitorear tus jobs actuales en tu organización o empresa
+
+{% data reusables.actions.github-hosted-runners-check-concurrency %}
+
+{% endif %}
+
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ### Utilizar la gráfica de visualización

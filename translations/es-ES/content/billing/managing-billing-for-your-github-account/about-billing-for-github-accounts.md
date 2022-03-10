@@ -32,7 +32,7 @@ Puedes comprar otras características o productos con tu información de pago de
 
 {% data reusables.accounts.accounts-billed-separately %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 {% tip %}
 

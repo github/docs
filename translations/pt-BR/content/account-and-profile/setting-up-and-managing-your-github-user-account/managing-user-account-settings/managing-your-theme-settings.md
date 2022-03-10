@@ -28,8 +28,8 @@ Você pode querer usar um tema escuro para reduzir o consumo de energia em certo
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.appearance-settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.appearance-settings %}
 
 1. Em "Modo do tema", selecione o menu suspenso e clique em uma preferência de tema.
 

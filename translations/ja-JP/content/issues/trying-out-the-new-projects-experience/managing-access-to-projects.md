@@ -15,7 +15,7 @@ topics:
 
 ## プロジェクトへのアクセスについて
 
-Admins of organization-level projects can manage access for the entire organization, for teams, for individual organization members, and for outside collaborators.
+Organizationレベルのプロジェクトの管理者は、Organization全体、Team、個々のOrganizationのメンバー、外部のコラボレータのアクセスを管理できます。
 
 ユーザレベルのプロジェクトの管理者は、個々のコラボレータを招待し、そのアクセスを管理できます。
 
@@ -37,13 +37,13 @@ Admins of organization-level projects can manage access for the entire organizat
 
 ### Team及びOrganizationの個々のメンバーのアクセス管理
 
-You can also add teams, external collaborators, and individual organization members as collaborators for an organization-level project. 詳細は「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
+Organizationレベルのプロジェクトには、Team、外部のコラボレータ、個々のOrganizationのメンバーをコラボレータとして追加することもできます。 詳細は「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
 
-You can only invite an individual user to collaborate on your organization-level project if they are already a member of the organization or an outside collaborator on at least one repository in the organization.
+個人ユーザが既にOrganizationのメンバーになっているか、Organizationの少なくとも1つのリポジトリで外部のコラボレータになっている場合にのみ、Organizationレベルのプロジェクトに共同作業をするように招待できます。
 
 {% data reusables.projects.project-settings %}
 1. **Manage access（アクセス管理）**をクリックしてください。
-2. Under **Invite collaborators**, search for the team or individual user that you want to invite.
+2. **Invite collaborators（コラボレータの招待）**の下で、招待したいTeamもしくは個人ユーザを検索してください。
 3. コラボレータのロールを選択してください。
    - **Read（読み取り）**: Teamあるいは個人はプロジェクトを見ることができます。
    - **Write（書き込み）**: Teamあるいは個人はプロジェクトを編集できます。

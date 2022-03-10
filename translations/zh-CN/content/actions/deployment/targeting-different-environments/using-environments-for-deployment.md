@@ -10,7 +10,7 @@ redirect_from:
   - /actions/deployment/using-environments-for-deployment
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
@@ -27,7 +27,7 @@ Environments are used to describe a general deployment target like `production`,
 
 **Note:** You can only configure environments for public repositories. 如果您将仓库从公开转换为私密，任何配置的保护规则或环境机密将被忽略， 并且您将无法配置任何环境。 如果将仓库转换回公共，您将有权访问以前配置的任何保护规则和环境机密。
 
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can configure environments for private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment). {% data reusables.enterprise.link-to-ghec-trial %}
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can configure environments for private repositories. 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/actions/deployment/targeting-different-environments/using-environments-for-deployment)。 {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
@@ -69,13 +69,13 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can confi
 
 ## 创建环境
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
-{% data reusables.github-actions.new-environment %}
-{% data reusables.github-actions.name-environment %}
+{% data reusables.actions.sidebar-environment %}
+{% data reusables.actions.new-environment %}
+{% data reusables.actions.name-environment %}
 1. Optionally, specify people or teams that must approve workflow jobs that use this environment.
    1. Select **Required reviewers**.
    1. Enter up to 6 people or teams. 只有一个必需的审查者需要批准该作业才能继续。
@@ -107,13 +107,13 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can confi
 
 ## 删除环境
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
 
 删除环境将删除与环境关联的所有机密和保护规则。 由于已删除环境的保护规则而正在等待的任何作业将自动失败。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
+{% data reusables.actions.sidebar-environment %}
 1. 在要删除的环境旁边，单击 {% octicon "trash" aria-label="The trash icon" %}。
 2. 单击 **I understand, delete this environment（我了解，删除此环境）**。
 

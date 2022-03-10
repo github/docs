@@ -19,7 +19,7 @@ redirect_from:
 
 如果您选择在仓库存档中包含 {% data variables.large_files.product_name_short %} 对象，则每次下载这些存档都会计入您帐户的带宽使用量。 每个帐户每月免费获得 {% data variables.large_files.initial_bandwidth_quota %} 的带宽，您可以付费获得额外用量。 更多信息请参阅“[关于存储和带宽使用](/github/managing-large-files/about-storage-and-bandwidth-usage)”和“[管理 {% data variables.large_files.product_name_long %} 的计费](/billing/managing-billing-for-git-large-file-storage)”。
 
-If you use an external LFS server (configured in your `.lfsconfig`), those LFS files will not be included in archives of the repository. The archive will only contain files that have been committed to {% data variables.product.product_name %}.
+如果您使用外部 LFS 服务器（在 `.lfsconfig` 中配置），则这些 LFS 文件将不会包含在存储库的存档中。 存档将仅包含已提交到 {% data variables.product.product_name %} 的文件。
 
 ## 管理存档中的 {% data variables.large_files.product_name_short %} 对象
 

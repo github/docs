@@ -6,7 +6,7 @@ import { loadPages } from '../../lib/page-data.js'
 import CspParse from 'csp-parse'
 import { productMap } from '../../lib/all-products.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
-import { jest } from '@jest/globals'
+import { describe, jest } from '@jest/globals'
 import { languageKeys } from '../../lib/languages.js'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
@@ -632,7 +632,7 @@ describe('server', () => {
       expect(res.statusCode).toBe(302)
       expect(res.headers['set-cookie']).toBeUndefined()
       // no cache control because a language prefix had to be injected
-      expect(res.headers['cache-control']).toBeUndefined()
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('redirects old articles to their slugified URL', async () => {
@@ -702,7 +702,8 @@ describe('server', () => {
       expect(res.statusCode).toBe(302)
       expect(res.headers.location.startsWith('/en/')).toBe(true)
       expect(res.headers['set-cookie']).toBeUndefined()
-      expect(res.headers['cache-control']).toBeUndefined()
+      // no cache control because a language prefix had to be injected
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
 
     test('redirects that not only injects /en/ should have cache-control', async () => {
@@ -1099,5 +1100,24 @@ describe('index pages', () => {
     const installationLatest = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation`
     const $ = await getDOM(installationLatest)
     expect($(`a[href^="${installationLatest}/"]`).length).toBeGreaterThan(0)
+  })
+})
+
+describe('REST reference pages', () => {
+  test('view the rest/repos page in English', async () => {
+    const res = await get('/en/rest/reference/repos')
+    expect(res.statusCode).toBe(200)
+  })
+  test('view the rest/repos page in Japanese', async () => {
+    const res = await get('/ja/rest/reference/repos')
+    expect(res.statusCode).toBe(200)
+  })
+  test('deeper pages in English', async () => {
+    const res = await get('/ja/enterprise-cloud@latest/rest/reference/code-scanning')
+    expect(res.statusCode).toBe(200)
+  })
+  test('deeper pages in Japanese', async () => {
+    const res = await get('/en/enterprise-cloud@latest/rest/reference/code-scanning')
+    expect(res.statusCode).toBe(200)
   })
 })

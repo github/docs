@@ -80,8 +80,8 @@ Some of the features listed below are limited to organizations using {% data var
 | [Report abusive or spammy content](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | Apply/dismiss labels | | **X** | **X** | **X** | **X** |
 | Create, edit, delete labels | | | **X** | **X** | **X** |
-| Close, reopen, and assign all issues and pull requests | | **X** | **X** | **X** | **X** |{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-| [Enable and disable auto-merge on a pull request](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository) | | | **X** | **X** | **X** |{% endif %}
+| Close, reopen, and assign all issues and pull requests | | **X** | **X** | **X** | **X** |
+| [Enable and disable auto-merge on a pull request](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository) | | | **X** | **X** | **X** |
 | Apply milestones |  | **X** | **X** | **X** | **X** |
 | Mark [duplicate issues and pull requests](/articles/about-duplicate-issues-and-pull-requests)| | **X** | **X** | **X** | **X** |
 | Request [pull request reviews](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review) | | **X** | **X** | **X** | **X** |
@@ -103,17 +103,20 @@ Some of the features listed below are limited to organizations using {% data var
 | Edit a repository's description | | | | **X** | **X** |{% ifversion fpt or ghae or ghec %}
 | [View and install packages](/packages/publishing-and-managing-packages) | **X** | **X** | **X** | **X** | **X** |
 | [Publish packages](/packages/publishing-and-managing-packages/publishing-a-package) | | | **X** | **X** | **X** |
-| {% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Delete and restore packages](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[Delete packages](/packages/learn-github-packages/deleting-a-package){% endif %} | | |  |  | **X** | {% endif %}
+| [Delete and restore packages](/packages/learn-github-packages/deleting-and-restoring-a-package) | | |  |  | **X** | {% endif %}
 | Manage [topics](/articles/classifying-your-repository-with-topics) | | | | **X** | **X** |
 | Enable wikis and restrict wiki editors | | | | **X** | **X** |
 | Enable project boards | | | | **X** | **X** |
 | Configure [pull request merges](/articles/configuring-pull-request-merges) | | | | **X** | **X** |
 | Configure [a publishing source for {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages) | | | | **X** | **X** |
+| [Manage branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule) | | | | | **X** |
 | [Push to protected branches](/articles/about-protected-branches) | | | | **X** | **X** |
+| Merge pull requests on protected branches, even if there are no approving reviews | | | | | **X** |{% ifversion fpt or ghes > 3.4 or ghae-issue-6337 or ghec %}
+| Create tags that match a [tag protection rule](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules) | | | | **X** | **X** |
+| Delete tags that match a [tag protection rule](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules) | | | | | **X** |{% endif %}
 | [Create and edit repository social cards](/articles/customizing-your-repositorys-social-media-preview) | | | | **X** | **X** |{% ifversion fpt or ghec %}
 | Limit [interactions in a repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)| | | | **X** | **X** |{% endif %}
 | Delete an issue (see "[Deleting an issue](/articles/deleting-an-issue)") | | | | | **X** |
-| Merge pull requests on protected branches, even if there are no approving reviews | | | | | **X** |
 | [Define code owners for a repository](/articles/about-code-owners) | | | | | **X** |
 | Add a repository to a team (see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#giving-a-team-access-to-a-repository)" for details) | | | | | **X** |
 | [Manage outside collaborator access to a repository](/articles/adding-outside-collaborators-to-repositories-in-your-organization) | | | | | **X** |
@@ -121,9 +124,9 @@ Some of the features listed below are limited to organizations using {% data var
 | Make a repository a template (see "[Creating a template repository](/articles/creating-a-template-repository)") | | | | | **X** |
 | Change a repository's settings | | | | | **X** |
 | Manage team and collaborator access to the repository | | | | | **X** |
-| Edit the repository's default branch | | | | | **X** |{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+| Edit the repository's default branch | | | | | **X** |
 | Rename the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | | | **X** |
-| Rename a branch other than the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | **X** | **X** | **X** |{% endif %}
+| Rename a branch other than the repository's default branch (see "[Renaming a branch](/github/administering-a-repository/renaming-a-branch)") | | | **X** | **X** | **X** |
 | Manage webhooks and deploy keys | | | | | **X** |{% ifversion fpt or ghec %}
 | [Manage data use settings for your private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository) | | | | | **X** |{% endif %}
 | [Manage the forking policy for a repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository) | | | | | **X** |
@@ -158,16 +161,12 @@ In this section, you can find the access required for security features, such as
 | [Enable the dependency graph](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository) for a private repository | | | | | **X** |{% endif %}{% ifversion ghes > 3.1 or ghae-issue-4864 or ghec %}
 | [View dependency reviews](/code-security/supply-chain-security/about-dependency-review) | **X** | **X** | **X** | **X** | **X** |{% endif %}
 | [View {% data variables.product.prodname_code_scanning %} alerts on pull requests](/github/finding-security-vulnerabilities-and-errors-in-your-code/triaging-code-scanning-alerts-in-pull-requests) | **X** | **X** | **X** | **X** | **X** |
-| [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-| [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X** |{% endif %}{% ifversion ghes > 3.0 or ghae or ghec %}<!--Not available for FPT-->
-| [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X** |{% endif %}{% ifversion ghes = 3.0 %}
-| [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |
-| [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | | | **X** |{% endif %}{% ifversion ghes or ghae-issue-4864 or ghec %}
+| [List, dismiss, and delete {% data variables.product.prodname_code_scanning %} alerts](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository) | | | **X** | **X** | **X** |
+| [View {% data variables.product.prodname_secret_scanning %} alerts in a repository](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X** |{% ifversion ghes or ghae or ghec %}<!--Not available for FPT-->
+| [Resolve, revoke, or re-open {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-alerts-from-secret-scanning) | | | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X**{% ifversion not ghae %}<sup>[1]</sup>{% endif %} | **X** |{% endif %}{% ifversion ghes or ghae-issue-4864 or ghec %}
 | [Designate additional people or teams to receive {% data variables.product.prodname_secret_scanning %} alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) in repositories | | | | | **X** |{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 [1] Repository writers and maintainers can only see alert information for their own commits.
-{% endif %}
 
 ## Further reading
 

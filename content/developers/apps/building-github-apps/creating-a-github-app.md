@@ -38,7 +38,7 @@ topics:
 ![Field for a description of your GitHub App](/assets/images/github-apps/github_apps_description.png)
 1. In "Homepage URL", type the full URL to your app's website.
 ![Field for the homepage URL of your GitHub App](/assets/images/github-apps/github_apps_homepage_url.png)
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 1. In "Callback URL", type the full URL to redirect to after a user authorizes the installation. This URL is used if your app needs to identify and authorize user-to-server requests.
 
   You can use **Add callback URL** to provide additional callback URLs, up to a maximum of 10.

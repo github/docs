@@ -51,7 +51,7 @@ versions:
 您可以查找并查看位于您所属组织的仓库中的包。
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 3. 在组织名称下，单击 {% octicon "package" aria-label="The package icon" %} **Packages（包）**。
 {% data reusables.package_registry.navigate-to-packages %}
 

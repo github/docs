@@ -25,7 +25,7 @@ topics:
 
 您可以为工作流程中的每个作业配置服务容器。 {% data variables.product.prodname_dotcom %} 为工作流中配置的每个服务创建一个新的 Docker 容器，并在作业完成后销毁该服务容器。 作业中的步骤可与属于同一作业的所有服务容器通信。
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## 与服务容器通信
 
