@@ -183,6 +183,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.action_path` | `string` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action. |
 | `github.action_ref` | `string` | For a step executing an action, this is the ref of the action being executed. For example, `v2`. |
 | `github.action_repository` | `string` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`. |
+| `github.action_status` | `string` | For a composite action, the current result of the composite action. |
 | `github.actor` | `string` | The username of the user that initiated the workflow run. |
 | `github.api_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} REST API. |
 | `github.base_ref` | `string` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |

@@ -1,21 +1,17 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
-import fs from 'fs'
 import { get, isPlainObject, has } from 'lodash-es'
 import flat from 'flat'
+import walkSync from 'walk-sync'
 import { ParseError } from 'liquidjs'
 import loadSiteData from '../../lib/site-data.js'
 import patterns from '../../lib/patterns.js'
 import { liquid } from '../../lib/render-content/index.js'
-import walkSync from 'walk-sync'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('siteData module (English)', () => {
-  let data
-  beforeAll(async () => {
-    data = await loadSiteData()
-  })
+  const data = loadSiteData()
 
   test('makes an object', async () => {
     expect(isPlainObject(data)).toBe(true)
@@ -47,21 +43,6 @@ describe('siteData module (English)', () => {
   test('includes Japanese reusables', async () => {
     const reusable = get(data, 'ja.site.data.reusables.audit_log.octicon_icon')
     expect(reusable.includes('任意のページの左上で')).toBe(true)
-  })
-
-  test('backfills missing translated site data with English values', async () => {
-    const newFile = path.join(__dirname, '../../data/newfile.yml')
-    fs.writeFileSync(newFile, 'newvalue: bar')
-    try {
-      const data = loadSiteData()
-      expect(get(data, 'en.site.data.newfile.newvalue')).toEqual('bar')
-      expect(get(data, 'ja.site.data.newfile.newvalue')).toEqual('bar')
-    } finally {
-      // If an error is thrown above, it will still "bubble up"
-      // to the jest reporter, but we still always need to clean up
-      // the temporary file.
-      fs.unlinkSync(newFile)
-    }
   })
 
   test('all Liquid tags are valid', async () => {
