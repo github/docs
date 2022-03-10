@@ -22,8 +22,6 @@ You can use this information to help off-board people, gather data for complianc
 
 {% ifversion fpt %}
 Organizations that use {% data variables.product.prodname_ghe_cloud %} can also export a CSV list of people who have access to a repository. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository).
-
-{% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
@@ -43,6 +41,14 @@ You can see a combined overview of teams and people with access to your reposito
 
 {% ifversion ghec or ghes or ghae %}
 ## Exporting a list of people with access to your repository
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can export a list of people with access to a repository. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

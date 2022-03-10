@@ -322,6 +322,7 @@ Take care to distinguish between product names and product elements. For more in
 | Product | Element |
 | --- | --- |
 | GitHub Actions | an action |
+| GitHub Codespaces | a codespace |
 | GitHub Packages | a package |
 | GitHub Pages | a GitHub Pages site |
 
@@ -594,7 +595,7 @@ Avoid ending a sentence with a preposition unless the rewritten sentence would s
 
 ### Product names
 
-See the “Product names” section of this guide.
+See the “[Product names](#product-names)” section of this guide.
 
 ### Terms to use or avoid
 
