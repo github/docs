@@ -18,6 +18,12 @@ on:
       - '**.js'
 ```
 
+{% note %}
+
+**Note:** There is an interaction between filter actions and required checks.  If an action is skipped due to path filtering and set as a required check, the check will remain pending. To work around this, you need a corresponding action of the same name that always passes and runs whenever the former does not, refer to [Handling skipped but required checks](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks) for details.
+
+{% endnote %}
+
 #### Example: Excluding paths
 
 When all the path names match patterns in `paths-ignore`, the workflow will not run. If any path names do not match patterns in `paths-ignore`, even if some path names match the patterns, the workflow will run.
