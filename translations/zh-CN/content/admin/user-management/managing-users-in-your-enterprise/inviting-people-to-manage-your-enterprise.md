@@ -47,7 +47,7 @@ shortTitle: 邀请人员进行管理
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. 在左侧边栏中，单击 **Administrators（管理员）**。 ![左侧边栏中的管理员选项卡](/assets/images/help/business-accounts/administrators-tab.png)
+{% data reusables.enterprise-accounts.administrators-tab %}
 1. 在管理员列表上方，单击 {% ifversion ghec %}**邀请管理员**{% elsif ghes %}**添加所有者**{% endif %}。
   {% ifversion ghec %}
   ![企业所有者列表上方的"邀请管理员"按钮](/assets/images/help/business-accounts/invite-admin-button.png)
@@ -65,10 +65,11 @@ shortTitle: 邀请人员进行管理
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. 在您要删除的人员用户名旁边，单击 {% octicon "gear" aria-label="The Settings gear" %}，然后单击 **Remove owner（删除所有者）**{% ifversion ghec %} 或**Remove billing manager（删除帐单管理员）**。{% endif %}
+{% data reusables.enterprise-accounts.administrators-tab %}
+1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Convert to member**{% endif %}.
   {% ifversion ghec %}
   ![包含删除企业管理员的菜单选项的设置齿轮](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}
   ![包含删除企业管理员的菜单选项的设置齿轮](/assets/images/help/business-accounts/ghes-remove-owner.png)
   {% endif %}
-1. 阅读确认，然后单击 **Remove owner（删除所有者）**{% ifversion ghec %} 或 **Remove billing manager（删除帐单管理员）**{% endif %}。
+1. Read the confirmation, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Yes, convert USERNAME to member**{% endif %}.
