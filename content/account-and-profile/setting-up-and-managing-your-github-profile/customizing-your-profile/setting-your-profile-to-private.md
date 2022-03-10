@@ -45,7 +45,7 @@ When your profile is private, your {% data variables.product.prodname_dotcom_the
 
 - Activity feeds for other users.
 - Discussions leaderboards.
-- The [Trending page](/get-started/quickstart/be-social#exploring-other-projects-on-github).
+- The [Trending](https://github.com/trending) page.
 
 {% note %}
 
