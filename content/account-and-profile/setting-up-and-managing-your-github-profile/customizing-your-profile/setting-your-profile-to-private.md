@@ -7,6 +7,8 @@ topics:
   - Profiles
 shortTitle: Set profile to private
 ---
+## About private profiles
+
 {% note %}
 
 **Note:** Private profiles are currently in beta and are subject to change.
@@ -17,7 +19,7 @@ To hide parts of your profile page, you can make your profile private. This also
 
 Private profiles cannot receive sponsorships under [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors). To be eligible for {% data variables.product.prodname_sponsors %}, your profile cannot be private.
 
-## Changes to your private profile
+## Differences between private and public profiles
 
 When your profile is private, the following content is hidden from your profile page:
 
@@ -35,13 +37,13 @@ When your profile is private, the following content is hidden from your profile 
 
 {% endnote %}
 
-## Changes to your activities
+## Changes to reporting on your activities
 
-By making your profile private, you will not remove or hide past activity; this setting only applies to actions taken while the private setting is enabled.
+By making your profile private, you will not remove or hide past activity; this setting only applies to your activity while the private setting is enabled.
 
 When your profile is private, your {% data variables.product.prodname_dotcom_the_website %} activity will not appear in the following locations:
 
-- Other user's activity feeds.
+- Activity feeds for other users.
 - Discussions leaderboards.
 - The [Trending page](/get-started/quickstart/be-social#exploring-other-projects-on-github).
 
