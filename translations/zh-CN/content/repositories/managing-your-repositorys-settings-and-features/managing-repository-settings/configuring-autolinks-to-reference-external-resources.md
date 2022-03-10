@@ -23,7 +23,7 @@ shortTitle: 配置自动链接
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-label="The cross-reference icon" %} Autolink references**.
+1. 在边栏的“Integrations（集成）”部分中，单击 **{% octicon "cross-reference" aria-label="The cross-reference icon" %} 自动链接引用**。
 {% else %}
 1. 在左侧边栏中，单击 **Autolink references（自动链接引用）**。 ![左侧边栏中的自动链接引用选项卡](/assets/images/help/repository/autolink-references-tab.png)
 {% endif %}
