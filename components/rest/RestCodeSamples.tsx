@@ -19,21 +19,9 @@ export function RestCodeSamples({ slug, xCodeSamples }: Props) {
         const sampleElements: JSX.Element[] = []
         if (sample.lang !== 'Ruby') {
           sampleElements.push(
-            sample.lang === 'JavaScript' ? (
-              <h5 key={`${sample.lang}-${index}`}>
-                {sample.lang} (
-                <a className="text-underline" href="https://github.com/octokit/core.js#readme">
-                  @octokit/core.js
-                </a>
-                )
-              </h5>
-            ) : (
-              <h5 key={`${sample.lang}-${index}`}>{sample.lang}</h5>
-            )
-          )
-          sampleElements.push(
             <CodeBlock
               key={sample.lang + index}
+              headingLang={sample.lang}
               codeBlock={sample.source}
               highlight={sample.lang === 'JavaScript' ? 'javascript' : 'curl'}
             ></CodeBlock>

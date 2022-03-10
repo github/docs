@@ -126,8 +126,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Pull (read) *all repositories* in the organization | **X** | | | **X** |
 | Push (write) and clone (copy) *all repositories* in the organization | **X** | | |  |
 | Convert organization members to [outside collaborators](#outside-collaborators) | **X** | | |  |
-| [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | | |  |
-| [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | | |  |
+| [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | | |  |{% ifversion ghec or ghes or ghae %}
+| [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | | |  |{% endif %}
 | Manage the default branch name (see "[Managing the default branch name for repositories in your organization](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)") | **X** | | |  |
 | Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | | |  |{% ifversion ghec %}
 | Enable team synchronization (see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)" for details) | **X** |  | |  |{% endif %}

@@ -24,6 +24,10 @@
   }
 
   tbody {
+    tr td {
+      width: auto;
+    }
+
     tr td:first-child {
       font-weight: bold;
     }
