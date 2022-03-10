@@ -48,11 +48,10 @@ By default, the code scanning alerts page is filtered to show alerts for the def
 {% endif %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 1. {% data reusables.code-scanning.alert-default-branch %}
-   <!-- Insert screenshot with status and Affected branches sections highlighted-->
-{% endif %}
+   <!-- Insert screenshot with status and Affected branches sections highlighted-->{% endif %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
    ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
-2. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
+1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
    ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
 For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)."
