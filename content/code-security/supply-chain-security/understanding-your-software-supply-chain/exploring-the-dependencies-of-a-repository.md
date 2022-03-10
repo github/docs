@@ -40,7 +40,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 ### Dependencies view
 
 {% ifversion fpt or ghec %}
-Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies. For dependencies on public repositories hosted on {% data variables.product.product_name %}, you can also click a dependency to view the repository. Dependencies on private repositories, private packages, or unrecognized files are shown in plain text.
+Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies. If the package manager for the dependency is in a public repository, a link to that repository will be displayed. However, dependencies on private repositories, private packages, or unrecognized files are shown in plain text.
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
