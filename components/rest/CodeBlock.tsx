@@ -8,6 +8,7 @@ import styles from './CodeBlock.module.scss'
 
 type Props = {
   verb?: string
+  // Only Code samples should have a copy icon - if there's a headingLang it's a code sample
   headingLang?: string
   codeBlock: string
   highlight?: string
@@ -55,13 +56,6 @@ export function CodeBlock({ verb, headingLang, codeBlock, highlight }: Props) {
           )}{' '}
           {codeBlock}
         </code>
-        {!headingLang && (
-          <Tooltip direction="w" aria-label={isCopied ? 'Copied!' : 'Copy to clipboard'}>
-            <button className="js-btn-copy btn-octicon" onClick={() => setCopied()}>
-              {isCopied ? <CheckIcon /> : <CopyIcon />}
-            </button>
-          </Tooltip>
-        )}
       </pre>
     </div>
   )
