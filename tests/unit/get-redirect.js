@@ -1,5 +1,35 @@
-import getRedirect from '../../lib/get-redirect.js'
+import { describe, expect, test } from '@jest/globals'
+
+import getRedirect, { splitPathByLanguage } from '../../lib/get-redirect.js'
 import { latest } from '../../lib/enterprise-server-releases.js'
+
+describe('splitPathByLanguage', () => {
+  test('basic', () => {
+    const [language, withoutLanguage] = splitPathByLanguage('/foo/')
+    expect(language).toBe('en')
+    expect(withoutLanguage).toBe('/foo/')
+  })
+  test('already has /en in it', () => {
+    const [language, withoutLanguage] = splitPathByLanguage('/en/foo/')
+    expect(language).toBe('en')
+    expect(withoutLanguage).toBe('/foo/')
+  })
+  test('basic with different fallback', () => {
+    const [language, withoutLanguage] = splitPathByLanguage('/foo/', 'ja')
+    expect(language).toBe('ja')
+    expect(withoutLanguage).toBe('/foo/')
+  })
+  test('already has /en different fallback', () => {
+    const [language, withoutLanguage] = splitPathByLanguage('/en/foo/', 'ja')
+    expect(language).toBe('en')
+    expect(withoutLanguage).toBe('/foo/')
+  })
+  test('unrecognized prefix is ignored', () => {
+    const [language, withoutLanguage] = splitPathByLanguage('/sv/foo/')
+    expect(language).toBe('en')
+    expect(withoutLanguage).toBe('/sv/foo/')
+  })
+})
 
 describe('getRedirect basics', () => {
   it('should sometimes not correct the version prefix', () => {
@@ -161,5 +191,16 @@ describe('getRedirect basics', () => {
     // falls back to 'en' if it's falsy
     ctx.userLanguage = null
     expect(getRedirect('/foo', ctx)).toBe(`/en/bar`)
+  })
+
+  it('should work for some deprecated enterprise-server URLs too', () => {
+    // Starting with enterprise-server 3.0, we have made redirects become
+    // a *function* rather than a lookup on a massive object.
+    const ctx = {
+      pages: {},
+      redirects: {},
+    }
+    expect(getRedirect('/enterprise/3.0', ctx)).toBe('/en/enterprise-server@3.0')
+    expect(getRedirect('/enterprise/3.0/foo', ctx)).toBe('/en/enterprise-server@3.0/foo')
   })
 })
