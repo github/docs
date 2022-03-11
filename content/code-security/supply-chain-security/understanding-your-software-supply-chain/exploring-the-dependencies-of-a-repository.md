@@ -84,7 +84,10 @@ You can disable the dependency graph at any time by clicking **Disable** next to
 
 ## Changing the "Used by" package
 
-If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+You may notice some repositories have a "Used by" section in the sidebar of their **Code** tab. In order for your repository to display this "Used by" section, three conditions must be met:
+  * The dependency graph is enabled for the repository (see the above section for more details).
+  * Your repository contains a package that is published on a [supported package ecosystem](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
+  * In said ecosystem, your package has a link to a *public* repository where the source is stored.
 
 The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
 
