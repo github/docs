@@ -13,7 +13,7 @@ versions:
 topics:
   - Accounts
 children:
-  - /managing-user-account-settings
+  - /managing-personal-account-settings
   - /managing-email-preferences
   - /managing-access-to-your-personal-repositories
   - /managing-your-membership-in-organizations

@@ -6,6 +6,7 @@ redirect_from:
   - /articles/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/converting-a-user-into-an-organization
 intro: You can convert your user account into an organization. This allows more granular permissions for repositories that belong to the organization.
 versions:
   fpt: '*'

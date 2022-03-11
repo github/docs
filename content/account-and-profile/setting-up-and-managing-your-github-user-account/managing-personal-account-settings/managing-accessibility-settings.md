@@ -3,6 +3,8 @@ title: Managing accessibility settings
 intro: 'You can disable character key shortcuts on {% data variables.product.prodname_dotcom %} in your accessibility settings.'
 versions:
   feature: keyboard-shortcut-accessibility-setting
+redirect_from:
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings
 ---
 
 ## About accessibility settings

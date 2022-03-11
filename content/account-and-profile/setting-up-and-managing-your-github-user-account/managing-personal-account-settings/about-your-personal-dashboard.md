@@ -6,6 +6,7 @@ redirect_from:
   - /articles/about-your-personal-dashboard
   - /github/setting-up-and-managing-your-github-user-account/about-your-personal-dashboard
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard
 intro: 'You can visit your personal dashboard to keep track of issues and pull requests you''re working on or following, navigate to your top repositories and team pages, stay updated on recent activities in organizations and repositories you''re subscribed to, and explore recommended repositories.'
 versions:
   fpt: '*'

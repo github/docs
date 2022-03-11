@@ -5,6 +5,7 @@ redirect_from:
   - /articles/best-practices-for-leaving-your-company
   - /github/setting-up-and-managing-your-github-user-account/best-practices-for-leaving-your-company
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/best-practices-for-leaving-your-company
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/best-practices-for-leaving-your-company
 versions:
   fpt: '*'
   ghec: '*'

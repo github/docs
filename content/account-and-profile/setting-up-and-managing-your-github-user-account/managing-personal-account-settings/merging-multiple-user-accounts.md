@@ -7,6 +7,7 @@ redirect_from:
   - /articles/merging-multiple-user-accounts
   - /github/setting-up-and-managing-your-github-user-account/merging-multiple-user-accounts
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/merging-multiple-user-accounts
 versions:
   fpt: '*'
   ghec: '*'
