@@ -1,3 +1,4 @@
+![bhm_wallpaper__fct4dd9hzn6u_sq](https://user-images.githubusercontent.com/100091955/157850809-b644102c-f84e-40a2-a50f-f5e276b5200a.png)
 ---
 title: Working with the npm registry
 intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
