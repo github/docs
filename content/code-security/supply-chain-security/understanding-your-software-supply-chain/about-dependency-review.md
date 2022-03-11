@@ -48,5 +48,5 @@ Dependency review supports the same languages and package management ecosystems 
 {% ifversion ghec or ghes or ghae %}
 ## Enabling dependency review
 
-The dependency review feature becomes available when you enable the dependency graph. {% ifversion fpt or ghec %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae %}For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
+The dependency review feature becomes available when you enable the dependency graph. {% ifversion ghec %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae %}For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
 {% endif %}
