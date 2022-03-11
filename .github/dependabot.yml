@@ -26,7 +26,3 @@ updates:
     schedule:
       interval: weekly
       day: thursday
-    ignore:
-      - dependency-name: '*'
-        update-types:
-          ['version-update:semver-patch', 'version-update:semver-minor']
