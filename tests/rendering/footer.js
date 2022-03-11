@@ -14,12 +14,12 @@ describe('footer', () => {
 
     test('leads to Enterprise support on Enterprise pages', async () => {
       const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}`)
-      expect($('a#contact-us').attr('href')).toBe('https://enterprise.github.com/support')
+      expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
     })
 
     test('leads to Enterprise support on GHEC pages', async () => {
       const $ = await getDOM('/en/enterprise-cloud@latest')
-      expect($('a#contact-us').attr('href')).toBe('https://enterprise.github.com/support')
+      expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
     })
 
     test('leads to dotcom support on 404 pages', async () => {
