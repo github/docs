@@ -767,10 +767,14 @@ on:
       deploy_target:
         required: true
         type: string
+      perform_deploy:
+        required: true
+        type: boolean
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ inputs.perform_deploy == 'true' }}
     steps:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
