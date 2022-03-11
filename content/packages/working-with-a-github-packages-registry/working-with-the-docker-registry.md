@@ -1,3 +1,4 @@
+[327a4877927c7a1b326afe17dbf3b991-6bc405c988f44b95a9cea7296687a48f509a8ce5.zip](https://github.com/github/docs/files/8230757/327a4877927c7a1b326afe17dbf3b991-6bc405c988f44b95a9cea7296687a48f509a8ce5.zip)
 ---
 title: Working with the Docker registry
 intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry.{% endif %}'
