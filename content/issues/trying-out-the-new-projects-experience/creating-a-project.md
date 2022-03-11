@@ -132,7 +132,7 @@ Custom fields can be text, number, date, single select, or iteration:
 - Number: The value must be a number.
 - Date: The value must be a date.
 - Single select: The value must be selected from a set of specified values.
-- Iteration: The value must be selected from a set of date ranges (iterations). Iterations in the past are automatically marked as "completed", and the iteration covering the current date range is marked as "current".
+- Iteration: The value must be selected from a set of date ranges (iterations). Iterations in the past are automatically marked as "completed", and the iteration covering the current date range is marked as "current". For more information, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
 
 1. {% data reusables.projects.open-command-palette %} Start typing any part of "Create new field". When "Create new field" displays in the command palette, select it.
 2. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} in the rightmost field header. A drop-down menu with the project fields will appear. Click **New field**.
@@ -148,7 +148,9 @@ You can later edit the drop down options for single select and iteration fields.
 {% data reusables.projects.project-settings %}
 1. Under **Fields**, select the field that you want to edit.
 1. For single select fields, you can add, delete, or reorder the options.
-2. For iteration fields, you can add or delete iterations, change iteration names, and change the start date and duration of the iteration.
+1. For iteration fields, you can add or delete iterations, change iteration names, and change the start date and duration of the iteration.
+
+   For more information on modifying iteration fields, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
 
 ## Customizing your views
 

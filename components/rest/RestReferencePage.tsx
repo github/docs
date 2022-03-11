@@ -98,7 +98,7 @@ export const RestReferencePage = ({
     // Note! This "core selector", which determines whether to bother
     // or not, needs to match what's used inside ClientSideHighlightJS.tsx
     if (document.querySelector('[data-highlight]')) {
-      setLazyLoadHighlightJS(true)
+      setLazyLoadHighlightJS(false)
     }
 
     // Important to depend on the current path because the first page you
