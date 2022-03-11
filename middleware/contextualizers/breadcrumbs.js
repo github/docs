@@ -23,10 +23,14 @@ async function getBreadcrumbs(req) {
   while (split.length > 2 && split[split.length - 1] !== currentVersion) {
     const href = split.join('/')
     const page = req.context.pages[href]
-    crumbs.push({
-      href,
-      title: await getShortTitle(page, req.context),
-    })
+    if (page) {
+      crumbs.push({
+        href,
+        title: await getShortTitle(page, req.context),
+      })
+    } else {
+      console.warn(`No page found with for '${href}'`)
+    }
     split.pop()
   }
   crumbs.reverse()
