@@ -47,7 +47,7 @@ By default, the code scanning alerts page is filtered to show alerts for the def
    ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
-1. {% data reusables.code-scanning.alert-default-branch %}
+     {% data reusables.code-scanning.alert-default-branch %}
    <!-- Insert screenshot with status and Affected branches sections highlighted-->{% endif %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
    ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
