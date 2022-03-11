@@ -1,6 +1,6 @@
 ---
 title: 查看组织中人员的角色
-intro: '您可以查看组织中人员的列表，并按其角色进行筛选。 For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
+intro: '您可以查看组织中人员的列表，并按其角色进行筛选。 有关组织角色的详细信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。'
 permissions: Organization members can see people's roles in the organization.
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
@@ -26,39 +26,39 @@ shortTitle: 查看组织中的人员
 
 {% ifversion fpt %}
 
-If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can also view the enterprise owners who manage billing settings and policies for all your enterprise's organizations. 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization#view-enterprise-owners-and-their-roles-in-an-organization)。
+如果您的组织使用 {% data variables.product.prodname_ghe_cloud %}，您还可以查看管理所有企业组织的计费设置和策略的企业所有者。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization#view-enterprise-owners-and-their-roles-in-an-organization)。
 
 {% endif %}
 
 {% if enterprise-owners-visible-for-org-members %}
-## View enterprise owners and their roles in an organization
+## 查看企业所有者及其在组织中的角色
 
-If your organization is managed by an enterprise account, then you can view the enterprise owners who manage billing settings and policies for all of your enterprise's organizations. For more information about enterprise accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+如果您的组织由企业帐户管理，则可以查看管理企业所有组织的帐单设置和策略的企业所有者。 有关企业帐户的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户类型](/get-started/learning-about-github/types-of-github-accounts)”。
 
-You can also view whether an enterprise owner has a specific role in the organization. Enterprise owners can also be an organization member, any other organization role, or be un-affililated with the organization.
+您还可以查看企业所有者是否在组织中具有特定角色。 企业所有者也可以是组织成员、任何其他组织角色或与组织无关。
 
 {% note %}
 
-**Note:** If you're an organization owner, you can also invite an enterprise owner to have a role in the organization. If an enterprise owner accepts the invitation, a seat or license in the organization is used from the available licenses for your enterprise. For more information about how licensing works, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
+**注意：**如果您是组织所有者，还可以邀请企业所有者在组织中担任角色。 如果企业所有者接受邀请，则会从企业的可用许可证中使用组织中的席位或许可证。 有关许可的工作原理的详细信息，请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)”。
 
 {% endnote %}
 
-| **Enterprise role** | **Organization role**                           | **Organization access or impact**                                                                                              |
-| ------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| 企业所有者               | Un-affililated or no official organization role | Cannot access organization content or repositories but manages enterprise settings and policies that impact your organization. |
-| 企业所有者               | Organization owner                              | Able to configure organization settings and manage access to the organization's resources through teams, etc.                  |
-| 企业所有者               | Organization member                             | Able to access organization resources and content, such as repositories, without access to the organization's settings.        |
+| **企业角色** | **组织角色**           | **组织访问或影响**                    |
+| -------- | ------------------ | ------------------------------ |
+| 企业所有者    | 非附属或无官方组织角色        | 无法访问组织内容或存储库，但可管理影响组织的企业设置和策略。 |
+| 企业所有者    | Organization owner | 能够配置组织设置并通过团队等管理对组织资源的访问。      |
+| 企业所有者    | 组织成员               | 能够访问组织资源和内容（如存储库），而无需访问组织的设置。  |
 
-To review all roles in an organization, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)." {% ifversion ghec %} An organization member can also have a custom role for a specific repository. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."{% endif %}
+要查看组织中的所有角色，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。 {% ifversion ghec %} 组织成员还可以具有特定存储库的自定义角色。 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。{% endif %}
 
-For more information about the enterprise owner role, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
+有关企业所有者角色的更多信息，请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)”。
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
-4. In the left sidebar, under "Enterprise permissions", click **Enterprise owners**. ![Screenshot of "Enterprise owners" option in sidebar menu](/assets/images/help/organizations/enterprise-owners-sidebar.png)
-5. View the list of the enterprise owners for your enterprise. If the enterprise owner is also a member of your organization, you can see their role in the organization.
+4. 在左侧边栏的“Enterprise permissions（企业权限）”下，单击 **Enterprise owners（企业所有者）**。 ![侧边栏菜单中 "企业所有者" 选项的屏幕截图](/assets/images/help/organizations/enterprise-owners-sidebar.png)
+5. 查看企业的企业所有者列表。 如果企业所有者也是您组织的成员，则您可以看到他们在组织中的角色。
 
-  ![Screenshot of list of Enterprise owners and their role in the organization](/assets/images/help/organizations/enterprise-owners-list-on-org-page.png)
+  ![企业所有者列表及其在组织中的角色的屏幕截图](/assets/images/help/organizations/enterprise-owners-list-on-org-page.png)
 
 {% endif %}

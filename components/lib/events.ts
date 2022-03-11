@@ -245,6 +245,15 @@ function initClipboardEvent() {
   })
 }
 
+function initCopyButtonEvent() {
+  document.documentElement.addEventListener('click', (evt) => {
+    const target = evt.target as HTMLElement
+    const button = target.closest('.js-btn-copy') as HTMLButtonElement
+    if (!button) return
+    sendEvent({ type: EventType.navigate, navigate_label: 'copy icon button' })
+  })
+}
+
 function initLinkEvent() {
   document.documentElement.addEventListener('click', (evt) => {
     const target = evt.target as HTMLElement
@@ -267,6 +276,7 @@ export default function initializeEvents() {
   initPageAndExitEvent() // must come first
   initLinkEvent()
   initClipboardEvent()
+  initCopyButtonEvent()
   initPrintEvent()
   // survey event in ./survey.js
   // experiment event in ./experiment.js

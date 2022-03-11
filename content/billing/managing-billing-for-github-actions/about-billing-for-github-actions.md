@@ -69,7 +69,7 @@ The number of jobs you can run concurrently across all repositories in your user
 
 ## Calculating minute and storage spending
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_actions %}
 
 At the end of the month, {% data variables.product.prodname_dotcom %} calculates the cost of minutes and storage used over the amount included in your account.
 

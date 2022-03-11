@@ -1,8 +1,8 @@
-### Using a single event
+### Usando um evento único
 
 {% data reusables.actions.on-single-example %}
 
-### Using multiple events
+### Usando eventos múltiplos
 
 {% data reusables.actions.on-multiple-example %}
 
@@ -10,10 +10,10 @@
 
 {% data reusables.actions.actions-activity-types %}
 
-### Using filters
+### Usando filtros
 
 {% data reusables.actions.actions-filters %}
 
-### Using activity types and filters with multiple events
+### Usando tipos de atividade e filtros com vários eventos
 
 {% data reusables.actions.actions-multiple-types %}

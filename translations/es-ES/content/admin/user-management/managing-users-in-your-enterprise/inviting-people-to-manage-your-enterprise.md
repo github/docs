@@ -47,7 +47,7 @@ Si tu empresa utiliza {% data variables.product.prodname_emus %}, solo se pueden
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. En la barra lateral izquierda, haz clic en **Administrators** (Administradores). ![Pestaña Administrators (Administradores) en la barra lateral izquierda](/assets/images/help/business-accounts/administrators-tab.png)
+{% data reusables.enterprise-accounts.administrators-tab %}
 1. Sobre la lista de administradores, haz clic en {% ifversion ghec %}**Invitar administrador**{% elsif ghes %}**Agregar propietario**{% endif %}.
   {% ifversion ghec %}
   ![botón de "invitar administrador" sobre la lista de propietarios empresariales](/assets/images/help/business-accounts/invite-admin-button.png)
@@ -65,10 +65,11 @@ Solo los propietarios de empresa pueden eliminar a otros administradores de empr
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Junto al nombre de usuario de la persona que te gustaría eliminar, haz clic en {% octicon "gear" aria-label="The Settings gear" %}, luego en **Eliminar propietario**{% ifversion ghec %} o **Eliminar gerente de facturación**{% endif %}.
+{% data reusables.enterprise-accounts.administrators-tab %}
+1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Convert to member**{% endif %}.
   {% ifversion ghec %}
   ![Parámetros con opción del menú para eliminar un administrador de empresa](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}
   ![Parámetros con opción del menú para eliminar un administrador de empresa](/assets/images/help/business-accounts/ghes-remove-owner.png)
   {% endif %}
-1. Lee la confirmación y luego haz clic en **Eliminar propietario**{% ifversion ghec %} o **Eliminar gerente de facturación**{% endif %}.
+1. Read the confirmation, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Yes, convert USERNAME to member**{% endif %}.

@@ -1,19 +1,9 @@
 import { GetServerSideProps } from 'next'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import getRest, { getRestOperationData } from 'lib/rest/index.js'
-import { RestOperation } from 'components/rest/RestOperation'
-import { Operation } from 'components/rest/types'
-import {
-  getArticleContextFromRequest,
-  ArticleContextT,
-  ArticleContext,
-  MiniTocItem,
-} from 'components/context/ArticleContext'
-import { ArticlePage } from 'components/article/ArticlePage'
-
-type RestCategoryOperationsT = {
-  [subcategory: string]: Operation[]
-}
+import { RestCategoryOperationsT } from 'components/rest/types'
+import { MiniTocItem } from 'components/context/ArticleContext'
+import { RestReferencePage } from 'components/rest/RestReferencePage'
 
 type RestOperationsT = {
   [version: string]: {
@@ -41,7 +31,7 @@ type Props = {
   mainContext: MainContextT
   restOperations: RestCategoryOperationsT
   descriptions: { [subcategory: string]: string }
-  articleContext: ArticleContextT
+  miniTocItems: MiniTocItem[]
   introContent: string
 }
 
@@ -50,39 +40,19 @@ let restOperationData: RestDataT | null = null
 
 export default function Category({
   mainContext,
-  articleContext,
   restOperations,
   descriptions,
+  miniTocItems,
   introContent,
 }: Props) {
-  const subcategories = Object.keys(restOperations)
-
-  const operations = subcategories.map((subcategory, index: number) => {
-    const operations = restOperations[subcategory].map((operation: Operation, index: number) => (
-      <RestOperation key={`restOperation-${index}`} operation={operation} index={index} />
-    ))
-    return (
-      <div key={`restCategory-${index}`}>
-        <div dangerouslySetInnerHTML={{ __html: descriptions[subcategory] }} />
-        {operations}
-      </div>
-    )
-  })
-
-  // This is Markdown content at the path
-  // data/reusables/rest-reference/<category>/<subcategory>
-  // that doesn't map directory to a group of operations.
-  operations.unshift(
-    <div key={`restCategory-introContent`}>
-      <div dangerouslySetInnerHTML={{ __html: introContent }} />
-    </div>
-  )
-
   return (
     <MainContext.Provider value={mainContext}>
-      <ArticleContext.Provider value={articleContext}>
-        <ArticlePage structuredContent={operations} />
-      </ArticleContext.Provider>
+      <RestReferencePage
+        descriptions={descriptions}
+        introContent={introContent}
+        restOperations={restOperations}
+        miniTocItems={miniTocItems}
+      />
     </MainContext.Provider>
   )
 }
@@ -130,20 +100,12 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     )) as CategoryDataT
   }
 
-  // Because the Markdown page in the content/rest/reference directory
-  // is only metadata, the miniTocItems and renderedPage properties
-  // are undefined. We need to populate those properties with the static
-  // data read from the decorated schema files.
-  const articleContext = getArticleContextFromRequest(req)
-  articleContext.miniTocItems =
-    restOperationData[currentLanguage][currentVersion][category].miniTocItems
-
   return {
     props: {
       restOperations,
       mainContext: getMainContext(req, res),
       descriptions: restOperationData[currentLanguage][currentVersion][category].descriptions,
-      articleContext: articleContext,
+      miniTocItems: restOperationData[currentLanguage][currentVersion][category].miniTocItems,
       introContent: restOperationData[currentLanguage][currentVersion][category].introContent,
     },
   }

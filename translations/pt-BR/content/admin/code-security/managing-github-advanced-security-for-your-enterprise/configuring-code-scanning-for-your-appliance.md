@@ -34,7 +34,7 @@ Você pode configurar {% data variables.product.prodname_code_scanning %} para e
 
 ## Pré-requisitos para {% data variables.product.prodname_code_scanning %}
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- Uma licença para {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (consulte "[Sobre cobrança para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
 - {% data variables.product.prodname_code_scanning_capc %} habilitado no console de gerenciamento (consulte "[Habilitando {% data variables.product.prodname_GH_advanced_security %} para a sua empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 
