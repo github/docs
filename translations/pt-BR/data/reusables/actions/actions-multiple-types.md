@@ -1,10 +1,10 @@
-If you specify activity types or filters for an event and your workflow triggers on multiple events, you must configure each event separately. Você deve anexar dois pontos (`:`) a todos os eventos, incluindo eventos sem configuração.
+Se você especificar tipos de atividade ou filtros para um evento e seu fluxo de trabalho for acionado em vários eventos, você deverá configurar cada evento separadamente. Você deve anexar dois pontos (`:`) a todos os eventos, incluindo eventos sem configuração.
 
-For example, a workflow with the following `on` value will run when:
+Por exemplo, um fluxo de trabalho com o seguinte valor `em` será executado quando:
 
-- A label is created
-- A push is made to the `main` branch in the repository
-- A push is made to a {% data variables.product.prodname_pages %}-enabled branch
+- Uma etiqueta foi criada
+- Um push é feito noo branch `principal` do repositório
+- Um push é feito para um branch habilitado para {% data variables.product.prodname_pages %}
 
 ```yaml
 on:
