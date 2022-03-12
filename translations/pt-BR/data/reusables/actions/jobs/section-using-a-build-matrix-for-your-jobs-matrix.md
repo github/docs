@@ -1,5 +1,5 @@
 
-Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configurations. Uma matriz permite que você crie vários trabalhos que realizam a substituição de variável em uma definição de trabalho único. Por exemplo, você pode usar uma matriz para criar trabalhos para mais de uma versão compatível de uma linguagem de programação, sistema operacional ou ferramenta. Uma matriz reutiliza a configuração do trabalho e cria trabalho para cada matriz que você configurar.
+Use `jobs.<job_id>.strategy.matrix` para definir uma matriz de diferentes configurações de trabalho. Uma matriz permite que você crie vários trabalhos que realizam a substituição de variável em uma definição de trabalho único. Por exemplo, você pode usar uma matriz para criar trabalhos para mais de uma versão compatível de uma linguagem de programação, sistema operacional ou ferramenta. Uma matriz reutiliza a configuração do trabalho e cria trabalho para cada matriz que você configurar.
 
 {% data reusables.actions.usage-matrix-limits %}
 
@@ -57,7 +57,7 @@ Para obter mais informações sobre a configuração de executores auto-hospedad
 {% else %}Para encontrar opções de configuração compatíveis com executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 {% endif %}
 
-#### Example: Including additional values in combinations
+#### Exemplo: Incluindo valores adicionais em combinações
 
 Você pode adicionar opções de configurações para um trabalho de matriz de compilação existente. Por exemplo, se você quer usar uma versão específica do `npm` quando o trabalho que usa o `windows-latest` e a versão 8 do `nó` é executado, você pode usar `incluir` para especificar a opção adicional.
 

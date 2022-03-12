@@ -325,7 +325,7 @@ Para criar esse vínculo, você precisará do `client_id` dos aplicativos OAuth,
 
 * "[Solucionando erros de solicitação de autorização](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[Solucionando erros na requisição de token de acesso do aplicativo OAuth](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-* "[Device flow errors](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+* "[Erros de fluxo do dispositivo](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 * "[Vencimento e revogação do Token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
 ## Leia mais

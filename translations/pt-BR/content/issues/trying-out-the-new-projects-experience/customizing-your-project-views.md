@@ -125,12 +125,7 @@ Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down
 
 Clique em {% octicon "filter" aria-label="the filter icon" %} na parte superior da tabela para mostrar a barra "Filtrar por palavra-chave ou por campo". Comece a digitar o nome do campo e o valor que você deseja filtrar. À medida que você digita, serão exibidos os possíveis valores.
 
-- Para filtrar vários valores, separe os valores por uma vírgula. Por exemplo, `label:"good first issue",bug` irá listar todos os problemas com uma etiqueta `good first issue` ou `erro`.
-- Para filtrar pela ausência de um valor específico, insira `-` antes do seu filtro. Por exemplo, `-label:"bug"` mostrará apenas os itens que não têm a etiqueta `erro`.
-- Para filtrar pela ausência de todos os valores, digite `no:` seguido pelo nome do campo. Por exemplo, `no:assignee` irá mostrar apenas os itens que não têm um responsável.
-- Para filtrar por status, digite `is:`. Por exemplo, `is: issue` ou `is:open`.
-- Separe vários filtros com um espaço. Por exemplo, `status:"In progress" -label:"bug" no:assignee` irá mostrar somente os itens que têm um status de `In progress`, não têm a etiqueta `erro` e não têm um responsável.
-- Para filtrar para a iteração atual de um campo de iteração, use `@current`. Por exemplo, `sprint:@current`.
+{% data reusables.projects.projects-filters %}
 
 Como alternativa, use a paleta de comando.
 
@@ -140,6 +135,8 @@ Como alternativa, use a paleta de comando.
 4. Digite o valor para o qual você deseja filtrar. Por exemplo: "Em andamento". Você também pode filtrar pela a ausência de valores específicos (por exemplo, escolha "Excluir status" e escolha um status) ou a ausência de todos os valores (por exemplo, "Sem status").
 
 No layout da tabela, você pode clicar nos dados de item para filtrar para itens com esse valor. Por exemplo, clique em um responsável para mostrar apenas itens para ele. Para remover o filtro, clique nos dados do item novamente.
+
+For more information, see "[Filtering projects](/issues/trying-out-the-new-projects-experience/filtering-projects)."
 
 ## Criando uma visualização do projeto
 
