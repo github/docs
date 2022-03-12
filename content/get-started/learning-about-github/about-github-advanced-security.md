@@ -111,3 +111,4 @@ For more information on starter workflows, see "[Setting up {% data variables.pr
 - "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise account](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"
 
 {% endif %}
+about-github-advanced-security.md
