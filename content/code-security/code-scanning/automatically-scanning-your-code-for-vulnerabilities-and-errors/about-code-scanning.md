@@ -56,3 +56,4 @@ You can set up {% data variables.product.prodname_code_scanning %} to use the {%
 {% data reusables.code-scanning.interoperable-with-tools-that-output-sarif %}
 
 You can run third-party analysis tools within {% data variables.product.product_name %} using actions or within an external CI system. For more information, see "[Setting up code scanning for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Uploading a SARIF file to GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)."
+about-code-scanning.md
