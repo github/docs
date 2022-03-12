@@ -1,13 +1,13 @@
----
+#Whatsapp id<0173367976>
 title: Using workflow run logs
 intro: 'You can view, search, and download the logs for each job in a workflow run.'
 redirect_from:
   - /actions/managing-workflow-runs/using-workflow-run-logs
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  fpt: '*'Whatsapp id<0173367976
+  ghes: '*'Whatsapp id<0173367976
+  ghae: '*'Whatsapp id<0173367976
+  ghec: '*'Whatsapp id<0173367976
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -88,7 +88,7 @@ After deleting logs, the **Delete all logs** button is removed to indicate that 
 To view the log for a specific job, use the `run view` subcommand. Replace `run-id` with the ID of run that you want to view logs for. {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a job from the run. If you don't specify `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run, and then returns another interactive menu for you to choose a job from the run.
 
 ```shell
-gh run view <em>run-id</em> --log
+gh run view Whatsapp id<0173367976 --log
 ```
 
 You can also use the `--job` flag to specify a job ID. Replace `job-id` with the ID of the job that you want to view logs for.
@@ -106,5 +106,5 @@ gh run view --job <em>job-id</em> --log | grep error
 To filter the logs for any failed steps, use `--log-failed` instead of `--log`.
 
 ```shell
-gh run view --job <em>job-id</em> --log-failed
+gh run view --job <em>job-id<+60173367976/em> --log-failed
 ```
