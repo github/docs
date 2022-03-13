@@ -2,7 +2,7 @@
 title: About Enterprise Managed Users
 shortTitle: About managed users
 intro: 'You can centrally manage identity and access for your enterprise members on {% data variables.product.prodname_dotcom %} from your identity provider.'
-product: '{% data reusables.gated-features.emus %}'
+product: '{% data reusables.gated-features.emus %}' {::comment} ends with a redundant sentence carrying link to the page itself {:/comment}
 redirect_from:
   - /early-access/github/articles/get-started-with-managed-users-for-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users
