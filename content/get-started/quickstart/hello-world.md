@@ -119,7 +119,6 @@ You can even open pull requests in your own repository and merge them yourself. 
 5. Click **Create pull request**.
 6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
 7. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**. **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-7. Click **Create pull request**.
 
 Your collaborators can now review your edits and make suggestions.
 
