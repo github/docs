@@ -27,7 +27,7 @@ children:
   - /permission-levels-for-user-owned-project-boards
   - /managing-accessibility-settings
   - /managing-the-default-branch-name-for-your-repositories
-  - /managing-security-and-analysis-settings-for-your-user-account
+  - /managing-security-and-analysis-settings-for-your-personal-account
   - /managing-access-to-your-user-accounts-project-boards
   - /integrating-jira-with-your-personal-projects
   - /best-practices-for-leaving-your-company
