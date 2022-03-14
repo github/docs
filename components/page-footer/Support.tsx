@@ -23,7 +23,7 @@ export const Support = () => {
       <div>
         <a
           id="contact-us"
-          href={'https://support.github.com/contact'}
+          href='https://support.github.com/contact'
           className="Link—secondary text-bold"
         >
           <CommentDiscussionIcon size="small" className="octicon mr-1" />
