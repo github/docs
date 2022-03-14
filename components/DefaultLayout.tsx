@@ -93,7 +93,7 @@ export const DefaultLayout = (props: Props) => {
         style={{ height: '100vh' }}
       >
         <Header />
-        <main id="main-content">
+        <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
           <DeprecationBanner />
           <RestBanner />
 

@@ -1,6 +1,6 @@
 ---
 title: 测试 SSH 连接
-intro: 'After you''ve set up your SSH key and added it to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can test your connection.'
+intro: '设置 SSH 密钥并将其添加到您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户后，您可以测试连接。'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection

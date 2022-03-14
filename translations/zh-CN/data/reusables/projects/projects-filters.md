@@ -1,0 +1,9 @@
+- To filter for any match of multiple values (an OR query), separate the values with a comma. For example `label:"good first issue",bug` will list all issues labelled `good first issue` or `bug`.
+- 要过滤缺少特定值的字段，请在过滤器之前加入 `-`。 例如， `-label:"bug"` 只会显示没有标签的 `bug` 的项。
+- 要过滤缺少所有值的字段, 请输入 `no:`，后接字段名称。 例如，`no:assignee` 仅显示没有受理人的项。
+- 要按状态过滤，请输入 `is:`。 例如 `is: issue` 或 `is:open`。
+- 多个过滤条件之间用逗号分隔。 例如，`status:"In progress" -label:"bug" no:assignee` 仅显示状态为 `In progress`、没有标签 `bug` 且没有受理人的项。
+- To filter for the previous, current, or next iteration of an iteration field, use `@previous`, `@current`, or `@next`. 例如 `sprint:@current`。
+- To filter for items assigned to the viewer, use `@me`. For example, `assignee:@me`. Anyone using this view will see items assigned to themselves.
+- To filter date and number fields, use `>`, `>=`, `<`, `<=`, and `..` range queries. For example: `target:2022-03-01..2022-03-15`. 更多信息请参阅“[了解搜索语法](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)”。
+- 

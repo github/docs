@@ -33,7 +33,7 @@ shortTitle: 构建和测试Ruby
 
 {% data variables.product.prodname_dotcom %} provides a Ruby starter workflow that will work for most Ruby projects. For more information, see the [Ruby starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. 下面显示的工作流假定仓库的默认分支是 `main`。
+要快速开始，请将初学者工作流程添加到仓库的 `.github/workflows` 目录中。 下面显示的工作流假定仓库的默认分支是 `main`。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}

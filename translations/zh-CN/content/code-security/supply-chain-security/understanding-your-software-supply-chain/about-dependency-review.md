@@ -27,11 +27,12 @@ redirect_from:
 
 如果拉取请求针对仓库的默认分支并且包含对包清单或锁定文件的更改，您可以显示依赖项审查以查看更改的内容。 依赖项审查包括对锁定文件中间接依赖项的更改详情，并告诉您任何已添加或更新的依赖项是否包含已知漏洞。
 
-{% ifversion fpt or ghec %}
-依赖项审查适用于：
+{% ifversion fpt %}
+依赖项审查在所有产品的所有公共存储库中都可用，并且无法禁用。 依赖项审查在使用 GitHub Enterprise Cloud 并拥有 {% data variables.product.prodname_GH_advanced_security %} 许可证的组织拥有的私有存储库中可用。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)。
 
-* 所有公共仓库。
-* 由具有 {% data variables.product.prodname_advanced_security %} 许可的组织所拥有并且启用了依赖关系图的私有仓库。 更多信息请参阅“[探索仓库的依赖项](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)”。
+{% elsif ghec %}
+依赖项审查包含在公共存储库的 {% data variables.product.product_name %} 中。 要在组织拥有的私有存储库中使用依赖项审查，您必须具有 {% data variables.product.prodname_GH_advanced_security %} 许可证并启用依赖关系图。 更多信息请参阅“[探索仓库的依赖项](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)”。
+
 {% elsif ghes or ghae %}
 为 {% data variables.product.product_location %} 启用依赖关系图并为组织或仓库启用{% data variables.product.prodname_advanced_security %} 时，依赖项审查可用。
 {% endif %}
@@ -44,6 +45,8 @@ redirect_from:
 
 依赖项审查支持与依赖关系图相同的语言和包管理生态系统。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)”。
 
+{% ifversion ghec or ghes or ghae %}
 ## 启用依赖项审查
 
-启用依赖关系图时，依赖项审查功能可用。 {% ifversion fpt or ghec %}更多信息请参阅“[启用依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)”。{% endif %}{% ifversion ghes or ghae %}更多信息请参阅“[为企业启用依赖关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)”。{% endif %}
+启用依赖关系图时，依赖项审查功能可用。 {% ifversion ghec %}更多信息请参阅“[启用依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)”。{% endif %}{% ifversion ghes or ghae %}更多信息请参阅“[为企业启用依赖关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)”。{% endif %}
+{% endif %}
