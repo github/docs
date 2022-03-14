@@ -127,3 +127,4 @@ Contact {% data variables.contact.github_support %} about {% data variables.prod
 If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.
 
 {% endif %}
+introduction-to-github-packages.md
