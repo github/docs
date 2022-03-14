@@ -1220,7 +1220,7 @@ on:
 | --------------------------- | ---- | --------------------------- | --------------------------- |
 | Same as the caller workflow | n/a  | Same as the caller workflow | Same as the caller workflow |
 
-`workflow_call` is used to indicate that a workflow can be called by another workflow. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+`workflow_call` is used to indicate that a workflow can be called by another workflow. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. 更多信息请参阅“[重用工作流程](/actions/learn-github-actions/reusing-workflows)”。
 
 The example below only runs the workflow when it's called from another workflow:
 

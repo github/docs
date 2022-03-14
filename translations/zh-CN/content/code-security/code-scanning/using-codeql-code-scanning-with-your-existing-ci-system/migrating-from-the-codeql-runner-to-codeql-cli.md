@@ -34,29 +34,29 @@ topics:
 
 使用 {% data variables.product.prodname_codeql_cli %} 分析代码库的典型工作流程具有以下步骤。
 - `codeql database create` 以创建 {% data variables.product.prodname_codeql %} 数据库。
-  - For compiled languages: Optionally provide a build command.
-- `codeql database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file. This command must be run once for each language or database.
-- `codeql github upload-results` to upload the resulting SARIF files to {% data variables.product.prodname_dotcom %}, to be displayed as code scanning alerts. This command must be run once for each language or SARIF file.
+  - 对于编译的语言：（可选）提供构建命令。
+- `codeql database analyze` 以运行查询，以分析每个 {% data variables.product.prodname_codeql %} 数据库，并在 SARIF 文件中概括结果。 必须对每种语言或每个数据库运行一次此命令。
+- `codeql github upload-results` 将生成的 SARIF 文件上传到 {% data variables.product.prodname_dotcom %}，显示为代码扫描警报。 必须对每种语言或每个 SARIF 文件运行一次此命令。
 
-The {% data variables.product.prodname_codeql_runner %} is multithreaded by default. The {% data variables.product.prodname_codeql_cli %} only uses a single thread by default, but allows you to specify the amount of threads you want it to use. If you want to replicate the behavior of the {% data variables.product.prodname_codeql_runner %} to use all threads available on the machine when using the {% data variables.product.prodname_codeql_cli %}, you can pass `--threads 0` to `codeql database analyze`.
+默认情况下，{% data variables.product.prodname_codeql_runner %} 是多线程的。 默认情况下，{% data variables.product.prodname_codeql_cli %} 仅使用单线程，但允许您指定希望它使用的线程数。 如果要复制 {% data variables.product.prodname_codeql_runner %} 的行为，以便在使用 {% data variables.product.prodname_codeql_cli %}时使用计算机上所有可用的线程，可以将 `--threads 0` 传递给 `codeql database analyze`。
 
-For more information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)."
+更多信息请参阅“[在 CI 系统中配置 {% data variables.product.prodname_codeql_cli %}](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system)”。
 
-## Examples of common uses for the {% data variables.product.prodname_codeql_cli %}
+## {% data variables.product.prodname_codeql_cli %} 的常见使用示例
 
-### About the examples
+### 关于示例
 
-These examples assume that the source code has been checked out to the current working directory. If you use a different directory, change the `--source-root` argument and the build steps accordingly.
+这些示例假定源代码已检出到当前工作目录。 如果使用其他目录，请相应地更改 `--source-root` 参数和构建步骤。
 
-These examples also assume that the {% data variables.product.prodname_codeql_cli %} is placed on the current PATH.
+这些示例还假定 {% data variables.product.prodname_codeql_cli %} 位于当前 PATH 上。
 
-In these examples, a {% data variables.product.prodname_dotcom %} token with suitable scopes is stored in the `$TOKEN` environment variable and passed to the example commands via `stdin`, or is stored in the `$GITHUB_TOKEN` environment variable.
+在这些示例中，具有合适作用域的 {% data variables.product.prodname_dotcom %} 令牌存储在 `$TOKEN` 环境变量中，并通过 `stdin` 传递给示例命令，或者存储在 `$GITHUB_TOKEN` 环境变量中。
 
-The ref name and commit SHA being checked out and analyzed in these examples are known during the workflow. For a branch, use `refs/heads/BRANCH-NAME` as the ref. For the head commit of a pull request, use `refs/pull/NUMBER/head`. For a {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request, use `refs/pull/NUMBER/merge`. The examples below all use `refs/heads/main`. If you use a different branch name, you must modify the sample code.
+在这些示例中检出和分析的引用名称和提交 SHA 在工作流程期间是已知的。 对于分支，请使用 `refs/heads/BRANCH-NAME` 作为引用。 对于拉取请求的头部提交，请使用 `refs/pull/NUMBER/head`。 对于 {% data variables.product.prodname_dotcom %} 生成的拉取请求合并提交，请使用 `refs/pull/NUMBER/merge`。 下面的示例都使用 `refs/heads/main`。 如果使用其他分支名称，则必须修改示例代码。
 
-### Single non-compiled language (JavaScript)
+### 单一非编译语言 (JavaScript)
 
-Runner:
+运行器：
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -85,7 +85,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 对于编译语言或多种语言，可以采用类似的方法。
 
-Runner:
+运行器：
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -115,7 +115,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 对于编译语言或多种语言，可以采用类似的方法。
 
-Runner:
+运行器：
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages javascript \
@@ -144,7 +144,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 ### 使用自动构建的单一编译语言 (Java)
 
-Runner:
+运行器：
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages java \
@@ -178,7 +178,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 ### 使用自定义构建命令的单一编译语言 (Java)
 
-Runner:
+运行器：
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages java \
@@ -213,7 +213,7 @@ echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
 
 当无法使用自动构建器或显式构建命令行构建代码时，已编译语言的间接构建跟踪可让 {% data variables.product.prodname_codeql %} 检测 `init` 与 `analyze` 之间的所有构建步骤。 这在使用 CI 系统中预配置的构建步骤（如 azure DevOps 中的 `VSBuild` 和 `MSBuild` 任务）时非常有用。
 
-Runner:
+运行器：
 ```yaml
 - task: CmdLine@1
   displayName: CodeQL Initialization
@@ -335,7 +335,7 @@ CLI:
 
 此示例在 {% data variables.product.prodname_codeql_runner %} 中并非严格可行。 将仅分析一种语言（文件最多的编译语言）。
 
-Runner:
+运行器：
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages cpp,python \
@@ -375,7 +375,7 @@ done
 
 ### 使用自定义构建命令的多种语言（C++、Python）
 
-Runner:
+运行器：
 ```bash
 echo "$TOKEN" | codeql-runner-linux init --repository my-org/example-repo \
     --languages cpp,python \
