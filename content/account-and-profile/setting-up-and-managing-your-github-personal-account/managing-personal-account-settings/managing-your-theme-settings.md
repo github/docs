@@ -12,6 +12,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-theme-settings
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-personal-account-settings/managing-your-theme-settings
 shortTitle: Manage theme settings
 ---
 

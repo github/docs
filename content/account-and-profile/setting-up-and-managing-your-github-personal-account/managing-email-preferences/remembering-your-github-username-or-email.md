@@ -7,6 +7,7 @@ redirect_from:
   - /articles/remembering-your-github-username-or-email
   - /github/setting-up-and-managing-your-github-user-account/remembering-your-github-username-or-email
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/remembering-your-github-username-or-email
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/remembering-your-github-username-or-email
 versions:
   fpt: '*'
   ghes: '*'

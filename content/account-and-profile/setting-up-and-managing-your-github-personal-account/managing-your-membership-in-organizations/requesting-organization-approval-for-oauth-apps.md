@@ -7,6 +7,7 @@ redirect_from:
   - /articles/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/requesting-organization-approval-for-oauth-apps
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps
 versions:
   fpt: '*'
   ghec: '*'

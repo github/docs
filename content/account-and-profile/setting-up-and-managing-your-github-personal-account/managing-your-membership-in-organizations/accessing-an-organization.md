@@ -8,6 +8,7 @@ redirect_from:
   - /articles/accessing-an-organization
   - /github/setting-up-and-managing-your-github-user-account/accessing-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/accessing-an-organization
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/accessing-an-organization
 versions:
   fpt: '*'
   ghes: '*'

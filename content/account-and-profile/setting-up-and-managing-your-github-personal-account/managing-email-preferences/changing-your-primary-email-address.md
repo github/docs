@@ -5,6 +5,7 @@ redirect_from:
   - /articles/changing-your-primary-email-address
   - /github/setting-up-and-managing-your-github-user-account/changing-your-primary-email-address
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/changing-your-primary-email-address
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/changing-your-primary-email-address
 versions:
   fpt: '*'
   ghes: '*'

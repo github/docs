@@ -5,6 +5,7 @@ redirect_from:
   - /articles/managing-marketing-emails-from-github
   - /github/setting-up-and-managing-your-github-user-account/managing-marketing-emails-from-github
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/managing-marketing-emails-from-github
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/managing-marketing-emails-from-github
 versions:
   fpt: '*'
   ghec: '*'

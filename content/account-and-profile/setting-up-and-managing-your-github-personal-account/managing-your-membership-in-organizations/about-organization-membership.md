@@ -5,6 +5,7 @@ redirect_from:
   - /articles/about-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/about-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/about-organization-membership
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/about-organization-membership
 versions:
   fpt: '*'
   ghes: '*'

@@ -5,6 +5,7 @@ redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
   - /github/setting-up-and-managing-your-github-user-account/blocking-command-line-pushes-that-expose-your-personal-email-address
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:
   fpt: '*'
   ghec: '*'

@@ -7,6 +7,7 @@ redirect_from:
   - /articles/managing-user-account-settings
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-personal-account-settings
 versions:
   fpt: '*'
   ghes: '*'

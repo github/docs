@@ -5,6 +5,7 @@ versions:
   feature: keyboard-shortcut-accessibility-setting
 redirect_from:
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-accessibility-settings
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-personal-account-settings/managing-accessibility-settings
 ---
 
 ## About accessibility settings

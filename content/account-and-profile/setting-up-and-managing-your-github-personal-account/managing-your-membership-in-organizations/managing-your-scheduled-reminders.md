@@ -9,6 +9,7 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-scheduled-reminders
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/managing-your-scheduled-reminders
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/managing-your-scheduled-reminders
 shortTitle: Manage scheduled reminders
 ---
 ## About scheduled reminders for users

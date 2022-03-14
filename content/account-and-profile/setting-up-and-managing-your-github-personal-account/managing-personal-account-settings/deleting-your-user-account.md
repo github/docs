@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/deleting-your-user-account
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/deleting-your-user-account
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-personal-account-settings/deleting-your-user-account
 versions:
   fpt: '*'
   ghes: '*'

@@ -5,6 +5,7 @@ redirect_from:
   - /articles/setting-a-backup-email-address
   - /github/setting-up-and-managing-your-github-user-account/setting-a-backup-email-address
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-a-backup-email-address
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-a-backup-email-address
 versions:
   fpt: '*'
   ghes: '*'

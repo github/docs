@@ -5,6 +5,7 @@ redirect_from:
   - /articles/adding-an-email-address-to-your-github-account
   - /github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account
 versions:
   fpt: '*'
   ghes: '*'

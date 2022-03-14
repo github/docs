@@ -6,6 +6,7 @@ redirect_from:
   - /articles/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-an-organization
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/removing-yourself-from-an-organization
 versions:
   fpt: '*'
   ghes: '*'

@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/what-does-the-available-for-hire-checkbox-do
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/what-does-the-available-for-hire-checkbox-do
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/what-does-the-available-for-hire-checkbox-do
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-personal-account-settings/what-does-the-available-for-hire-checkbox-do
 versions:
   fpt: '*'
   ghec: '*'

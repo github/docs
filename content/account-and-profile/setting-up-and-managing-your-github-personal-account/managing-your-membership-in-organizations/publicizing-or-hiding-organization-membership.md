@@ -6,6 +6,7 @@ redirect_from:
   - /articles/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/publicizing-or-hiding-organization-membership
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/publicizing-or-hiding-organization-membership
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/publicizing-or-hiding-organization-membership
 versions:
   fpt: '*'
   ghes: '*'

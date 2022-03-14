@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/integrating-jira-with-your-personal-projects
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/integrating-jira-with-your-personal-projects
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/integrating-jira-with-your-personal-projects
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-personal-account-settings/integrating-jira-with-your-personal-projects
 versions:
   ghes: '*'
   ghae: '*'

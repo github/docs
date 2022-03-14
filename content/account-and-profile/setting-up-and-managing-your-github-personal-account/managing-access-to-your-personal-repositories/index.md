@@ -6,6 +6,7 @@ redirect_from:
   - /categories/managing-repository-collaborators
   - /articles/managing-access-to-your-personal-repositories
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories
 product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   fpt: '*'

@@ -5,6 +5,7 @@ shortTitle: User accounts
 redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account
   - /github/setting-up-and-managing-your-github-user-account
+  - /account-and-profile/setting-up-and-managing-your-github-user-account
 versions:
   fpt: '*'
   ghes: '*'

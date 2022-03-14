@@ -5,6 +5,7 @@ redirect_from:
   - /categories/managing-email-preferences
   - /articles/managing-email-preferences
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences
 versions:
   fpt: '*'
   ghes: '*'

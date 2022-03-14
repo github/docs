@@ -10,6 +10,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/changing-your-github-username
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-personal-account-settings/changing-your-github-username
 versions:
   fpt: '*'
   ghes: '*'

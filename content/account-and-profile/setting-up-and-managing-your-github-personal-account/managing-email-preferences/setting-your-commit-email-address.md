@@ -12,6 +12,7 @@ redirect_from:
   - /articles/setting-your-commit-email-address
   - /github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address
   - /github/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address
 versions:
   fpt: '*'
   ghes: '*'

@@ -4,6 +4,7 @@ intro: 'If you''re a member of an organization, you can publicize or hide your m
 redirect_from:
   - /articles/managing-your-membership-in-organizations
   - /github/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations
 versions:
   fpt: '*'
   ghes: '*'
