@@ -37,10 +37,9 @@ Algunos eventos tienen tipos de actividad múltiple. Para ellos, puedes especifi
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando se cambian las reglas de protección de rama en el repositorio del flujo de trabajo. Para obtener más información sobre las reglas de protección de rama, consulta la sección "[Acerca de las ramas protegidasrama protegida](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)". Para obtener más información acerca de las API de regla de protección de rama, consulta la sección "[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)" en la documentación de la API de GraphQL o "[Ramas](/rest/reference/branches)" en la documentación de la API de REST.
-
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando una regla de protección de rama se muestre como `created` o `deleted`:
 
@@ -64,7 +63,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando ocurre actividad relacionada con una ejecución de verificación. Una ejecución de verificación es una prueba individual que forma parte de una suite de verificación. Para obtener más información, consulta la sección "[Iniciar con la API de verificaciones](/rest/guides/getting-started-with-the-checks-api)". Para obtener más información sobre las API de ejecución de verificación, consulta la sección "[CheckRun](/graphql/reference/objects#checkrun)" en la documentación de la API de GraphQL o "[Checks](/rest/reference/checks#runs)" en la documentación de la API de REST.
 
@@ -88,7 +87,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -133,7 +132,7 @@ on:
 | ---------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
 | [`delete`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#delete) | n/a                | Última confirmación en la rama predeterminada | Rama predeterminada |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -199,7 +198,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
@@ -225,7 +224,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
@@ -247,7 +246,7 @@ on:
 | ------------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
 | [`bifurcación`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#fork) | n/a                | Última confirmación en la rama predeterminada | Rama predeterminada |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando alguien bifurca un repositorio. Para obtener más información sobre la API de REST, consulta la sección "[Crear una bifurcación](/rest/reference/repos#create-a-fork)".
 
@@ -264,7 +263,7 @@ on:
 | ---------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
 | [`gollum`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#gollum) | n/a                | Última confirmación en la rama predeterminada | Rama predeterminada |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando alguien crea o actualiza una página de Wiki. Para obtener más información, consulta la sección "[Acerca de los wikis](/communities/documenting-your-project-with-wikis/about-wikis)".
 
@@ -287,7 +286,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando se crea, edita o borra un comentario en una propuesta o solicitud de cambios. Para obtener más información sobre las API de comentarios en propuestas, consulta la sección "[ssueComment](/graphql/reference/objects#issuecomment)" en la documentación de la API de GraphQL o "[comentarios de propuesta](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)" en la documentación de la API de REST.
 
@@ -344,7 +343,7 @@ jobs:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando se crea o modifica una propuesta en el repositorio de un flujo de trabajo. Para ver la actividad relacionada con los comentarios de una propuesta, utiliza el evento [`issue_comment`](#issue_comment). Para obtener más información acerca de los informes de problemas, consulta la sección "[Acerca de los informes de problemas](/issues/tracking-your-work-with-issues/about-issues)". Para obtener la información sobre las API de propuestas, consulta la sección "[Propuestas](/graphql/reference/objects#issue)" en la documentación de la API de GraphQL o "[Propuestas](/rest/reference/issues)" en la documentación de la API de REST.
 
@@ -368,7 +367,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando se crea o modifica una etiqueta en el repositorio del mismo. Para obtener más información sobre las etiquetas, consulta la sección "[Administrar etiquetas](/issues/using-labels-and-milestones-to-track-work/managing-labels)". Para obtener más información sobre las API de etiquetas, consulta la sección "[Etiqueta](/graphql/reference/objects#label)" en la documentación de la API de GraphQL o "[Etiquetas](/rest/reference/issues#labels)" en la documentación de la API de REST.
 
@@ -394,7 +393,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando se crea o modifica un hito en el repositorio de tu flujo de trabajo. Para obtener más información sobre los hitos, consulta la sección "[Acerca de los hitos](/issues/using-labels-and-milestones-to-track-work/about-milestones)". Para obtener más información sobre las API de hitos, consulta "[Hito](/graphql/reference/objects#milestone)" en la documentación de la API de GraphQL o "[Hitos](/rest/reference/issues#milestones)" en la documentación de la API de REST.
 
@@ -414,7 +413,7 @@ on:
 | ------------------------------------------------------------------------------------------------ | ------------------ | --------------------------------------------- | ------------ |
 | [`page_build`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#page_build) | n/a                | Última confirmación en la rama predeterminada | n/a          |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando alguien sube información a una rama que sea la fuente de publicación de {% data variables.product.prodname_pages %} si {% data variables.product.prodname_pages %} se encuentra habilitado para el repositorio. Para obtener más información sobre las fuentes de publicación de {% data variables.product.prodname_pages %}, consulta la sección "[Cojnfigurar una fuente de publicación para tu sitio de GitHub Pages](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)". Para obtener información acerca de la API de REST, consulta la sección "[Páginas](/rest/reference/repos#pages)".
 
@@ -437,7 +436,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -475,7 +474,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -513,7 +512,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -545,7 +544,7 @@ on:
 | ---------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
 | [`public`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#public) | n/a                | Última confirmación en la rama predeterminada | Rama predeterminada |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando el repositorio de tu flujo de trabajo cambia de privado a público. Para obtener más información acerca de la API de REST, consulta la sección "[Editar repositorios](/rest/reference/repos#edit)".
 
@@ -558,9 +557,9 @@ on:
 
 ### `solicitud_extracción`
 
-| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `GITHUB_SHA`                                          | `GITHUB_REF`                                     |
-| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------ |
-| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de fusión de PR `refs/pull/:prNumber/merge` |
+| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                         | `GITHUB_SHA`                                          | `GITHUB_REF`                                     |
+| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------ |
+| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de fusión de PR `refs/pull/:prNumber/merge` |
 
 {% note %}
 
@@ -625,7 +624,7 @@ on:
 
 {% note %}
 
-**Nota:** {% data reusables.github-actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajos solo se ejecutará cuando se abra una solicitud de cambios que incluya un cambio en un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -670,7 +669,7 @@ on:
 
 {% note %}
 
-**Nota:** {% data reusables.github-actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajos solo se ejecutará cuando se abra una solicitud de cambios que incluya un cambio en un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -684,6 +683,25 @@ on:
 ```
 
 {% endnote %}
+
+#### Ejecutar tu flujo de trabajo cuando se fusiona una solicitud de cambios
+
+Cuando se fusiona una solicitud de cambios, esta se cierra automáticamente. To run a workflow when a pull request merges, use the `pull_request` `closed` event type along with a conditional that checks the `merged` value of the event. Por ejemplo, el siguiente flujo de trabajo se ejecutará cada que se cierre una solicitud de cambios. El job `if_merged` solo se ejecutará si la solicitud de cambios también se fusionó.
+
+```yaml
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged
+```
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
@@ -758,9 +776,9 @@ on:
 
 ### `pull_request_target`
 
-| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `GITHUB_SHA`                                                      | `GITHUB_REF`                            |
-| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------- |
-| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | Última confirmación en la rama base de la solicitud de extracción | Rama base de la solicitud de extracción |
+| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                         | `GITHUB_SHA`                                                      | `GITHUB_REF`                            |
+| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------- |
+| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Última confirmación en la rama base de la solicitud de extracción | Rama base de la solicitud de extracción |
 
 {% note %}
 
@@ -809,7 +827,7 @@ on:
 
 {% note %}
 
-**Nota:** {% data reusables.github-actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajos solo se ejecutará cuando se abra una solicitud de cambios que incluya un cambio en un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -854,7 +872,7 @@ on:
 
 {% note %}
 
-**Nota:** {% data reusables.github-actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajos solo se ejecutará cuando se abra una solicitud de cambios que incluya un cambio en un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -868,6 +886,25 @@ on:
 ```
 
 {% endnote %}
+
+#### Ejecutar tu flujo de trabajo cuando se fusiona una solicitud de cambios
+
+Cuando se fusiona una solicitud de cambios, esta se cierra automáticamente. To run a workflow when a pull request merges, use the `pull_request_target` `closed` event type along with a conditional that checks the `merged` value of the event. Por ejemplo, el siguiente flujo de trabajo se ejecutará cada que se cierre una solicitud de cambios. El job `if_merged` solo se ejecutará si la solicitud de cambios también se fusionó.
+
+```yaml
+on:
+  pull_request_target:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request_target.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged
+```
 
 ### `subir`
 
@@ -912,7 +949,7 @@ on:
 
 {% note %}
 
-**Nota:** {% data reusables.github-actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando se suba información que incluya un cambio a un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -953,7 +990,7 @@ on:
 
 {% note %}
 
-**Nota:** {% data reusables.github-actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando se suba información que incluya un cambio a un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -978,7 +1015,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando ocurre actividad relacionada con el {% data variables.product.prodname_registry %} en tu repositorio. Para obtener más información, consulta la "[Documentación del {% data variables.product.prodname_registry %}](/packages)".
 
@@ -1030,7 +1067,7 @@ on:
 | ---------------------------------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------- |
 | [repository_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) | Personalizado      | Última confirmación en la rama predeterminada | Rama predeterminada |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Puedes utilizar la API de {% data variables.product.product_name %} para activar un evento de webhook llamado [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) cuando quieras activar un flujo de trabajo para una actividad que suceda fuera de {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Crear un evento de envío de repositorio](/rest/reference/repos#create-a-repository-dispatch-event)".
 
@@ -1122,7 +1159,7 @@ Las notificaciones para los flujos de trabajo programados se envían al usuario 
 | ---------------------------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------ |
 | [`estado`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#status) | n/a                | Última confirmación en la rama predeterminada | n/a          |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando cambia el estado de una confirmación de Git. Por ejemplo, las confirmaciones pueden marcarse como `error`, `failure`, `pending` o `success`. Si quieres proporcionar más detalles sobre el cambio de estado, puede que quieras utilizar el evento [`check_run`](#check_run). Para obtener más información sobre las API de estado de confirmación, consulta la sección "[Estado](/graphql/reference/objects#statue)" en la documentación de la API de GraphQL o "[Estados](/rest/reference/commits#commit-statuses)" en la documentación de la API de REST.
 
@@ -1163,7 +1200,7 @@ jobs:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Ejecuta tu flujo de trabajo cuando su repositorio se marcó como favorito. Para obtener más información sobre las API de solicitud de cambios, consulta la sección "[addStar](/graphql/reference/mutations#addstar)" en la documentación de la API de GraphQL o "[Marcar como favorito](/rest/reference/activity#starring)" en la documentación de la API de REST.
 
@@ -1262,7 +1299,6 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 
 For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
 
-
 {% else %}
 Este ejemplo define las entradas `name` y `home` y las imprime utilizando los contextos `github.event.inputs.name` y `github.event.inputs.home`. Si no se proporciona un `home`, se imprime el valor predeterminado 'The Octoverse'.
 
@@ -1305,7 +1341,7 @@ jobs:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -1393,7 +1429,7 @@ jobs:
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: pr_number
           path: pr/

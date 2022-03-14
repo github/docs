@@ -36,10 +36,6 @@ When you enable auto assignment, any time your team has been requested to review
 
 When code owners are automatically requested for review, the team is still removed and replaced with individuals unless a branch protection rule is configured to require review from code owners. If such a branch protection rule is in place, the team request cannot be removed and so the individual request will appear in addition.
 
-{% ifversion fpt %}
-为了进一步提高团队的协作能力，您可以升级到 {% data variables.product.prodname_ghe_cloud %}，其中包括受保护的分支机构和私有仓库的代码所有者等功能。 {% data reusables.enterprise.link-to-ghec-trial %}
-{% endif %}
-
 ### 路由算法
 
 代码审查分配根据两种可能的算法之一自动选择和分配审查者。
@@ -54,7 +50,7 @@ When code owners are automatically requested for review, the team is still remov
 ## Configuring team notifications
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
@@ -68,7 +64,7 @@ When code owners are automatically requested for review, the team is still remov
 
 ## Configuring auto assignment
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
@@ -92,7 +88,7 @@ When code owners are automatically requested for review, the team is still remov
 
 ## Disabling auto assignment
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 1. 选择 **Enable auto assignment（启用自动分配）**以删除复选标记。 ![代码审查分配按钮](/assets/images/help/teams/review-assignment-enable.png)

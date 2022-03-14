@@ -17,7 +17,7 @@ topics:
 
 SCIM を実装せずに SAML SSO を使った場合、自動のプロビジョニング解除は行われません。 Organization のメンバーのアクセスが ldP から削除された後、セッションの有効期限が切れても、そのメンバーは Organization から自動的には削除されません。 認証済みのトークンにより、セッションが期限切れになった後も Organization へのアクセスが許可されます。 アクセスを削除するには、Organization の管理者は手動で認証済みのトークンを Organization から削除するか、その削除を SCIM で自動化します。
 
-Organization の {% data variables.product.product_name %} の SCIM API と連携できるアイデンティティプロバイダとして、以下のものがあります。 For more information, see [SCIM](/rest/reference/scim) in the {% ifversion ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API documentation.
+Organization の {% data variables.product.product_name %} の SCIM API と連携できるアイデンティティプロバイダとして、以下のものがあります。 詳しい情報については{% ifversion ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIドキュメンテーション中の[SCIM](/rest/reference/scim)を参照してください。
 - Azure AD
 - Okta
 - OneLogin
@@ -28,11 +28,10 @@ Organization の {% data variables.product.product_name %} の SCIM API と連�
 
 {% endnote %}
 
+{% data reusables.scim.changes-should-come-from-idp %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 ## 参考リンク
 
-- [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)
-- [アイデンティティプロバイダの Organization への接続](/articles/connecting-your-identity-provider-to-your-organization)
-- [Organization での SAML シングルサインオンの有効化とテスト](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)
 - [Organization へのメンバーの SAML アクセスの表示と管理](/github/setting-up-and-managing-organizations-and-teams//viewing-and-managing-a-members-saml-access-to-your-organization)

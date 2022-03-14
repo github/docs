@@ -27,19 +27,19 @@ topics:
 
 IssueとPull Requestには、コラボレータと容易にコミュニケーションが取れるようにする組み込みの機能があります。 @メンションを使って、個人やTeam全体に対しコメントに関するアラートを発してください。 責任を伝えるために、Issueにコラボレータをアサインしてください。 関連性を伝えるために、関連するIssueやPull Requestにリンクしてください。
 
-## Make use of the description and README
+## 説明とREADMEの利用
 
-Use your project's description and README to share information about the project.
+プロジェクトの説明とREADMEを使って、プロジェクトに関する情報を共有してください。
 
 例:
 
-- Explaining the purpose of the project.
-- Describing the project views and how to use them.
-- Including relevant links and people to contact for more information.
+- プロジェクトの目的の説明。
+- プロジェクトのビューとその利用方法の説明。
+- 関連するリンクや、詳細情報のための連絡先を含める。
 
-Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers.
+プロジェクトのREADMEはMarkdownをサポートしており、画像や、リンク、リスト、ヘッダといった高度なフォーマットを使用できます。
 
-For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)."
+詳しい情報については「[プロジェクト（ベータ）の作成](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)」を参照してください。
 
 ## ビューの利用
 

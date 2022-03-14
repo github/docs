@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -48,7 +48,6 @@ Você deve fazer o download do pacote {% data variables.product.prodname_codeql 
 {% ifversion ghes %}
 
 {% note %}
-{% ifversion ghes = 3.0 %}Para {% data variables.product.prodname_ghe_server %} 3.0, recomendamos a ersão 2.6.3 de {% data variables.product.prodname_codeql_cli %}.{% endif %}
 {% ifversion ghes = 3.1 %}Para {% data variables.product.prodname_ghe_server %} 3.1, recomendamos a versão 2.6.3 de {% data variables.product.prodname_codeql_cli %}.{% endif %}
 {% ifversion ghes = 3.2 %}Para {% data variables.product.prodname_ghe_server %} 3.2, recomendamos a versão 2.6.3 de {% data variables.product.prodname_codeql_cli %}.{% endif %}
 {% ifversion ghes > 3.2 %}Para {% data variables.product.prodname_ghe_server %} 3.3 ou superior, recomendamos a versão 2.7.6 ou superior de {% data variables.product.prodname_codeql_cli %}.{% endif %}

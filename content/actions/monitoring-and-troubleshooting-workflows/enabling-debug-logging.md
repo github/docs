@@ -15,12 +15,10 @@ versions:
 
 These extra logs are enabled by setting secrets in the repository containing the workflow, so the same permissions requirements will apply:
 
-- {% data reusables.github-actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- {% data reusables.github-actions.permissions-statement-secrets-environment %}
-{% endif %}
-- {% data reusables.github-actions.permissions-statement-secrets-organization %}
-- {% data reusables.github-actions.permissions-statement-secrets-api %}
+- {% data reusables.actions.permissions-statement-secrets-repository %}
+- {% data reusables.actions.permissions-statement-secrets-environment %}
+- {% data reusables.actions.permissions-statement-secrets-organization %}
+- {% data reusables.actions.permissions-statement-secrets-api %}
 
 For more information on setting secrets, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 

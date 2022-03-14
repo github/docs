@@ -63,7 +63,7 @@ La asignación de ejecutores hospedados en {% data variables.product.prodname_do
 
 {% endif %}
 
-Los flujos de trabajo llamados pueden acceder a los ejecutores auto-hospedados desde el contexto del llamante. Esto significa que el flujo de trabajo llamado puede acceder a los ejecutores auto-hospedados que están:
+Called workflows that are owned by the same user or organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. Esto significa que el flujo de trabajo llamado puede acceder a los ejecutores auto-hospedados que están:
 * En el repositorio del llamador
 * En la organización{% ifversion ghes or ghec or ghae %} o empresa{% endif %}, de la organización del repositorio, siempre y cuando se haya hecho disponible al ejecutor para el repositorio llamante
 
@@ -113,7 +113,7 @@ Puedes definir entradas y secretos, las cuales pueden pasarse desde el flujo de 
        runs-on: ubuntu-latest
        environment: production
        steps:
-         - uses: ./.github/actions/my-action
+         - uses: ./.github/workflows/my-action
            with:
              username: ${{ inputs.username }}
              token: ${{ secrets.envPAT }}
@@ -154,7 +154,7 @@ jobs:
     name: Pass input and secrets to my-action
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/my-action
+      - uses: ./.github/workflows/my-action
         with:
           username: ${{ inputs.username }}
           token: ${{ secrets.token }}
@@ -307,3 +307,5 @@ Para obtener más información sobre cómo utilizar la API de REST para consulta
 ## Pasos siguientes
 
 Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Eventos que activan flujos de trabajo](/actions/learn-github-actions/events-that-trigger-workflows)".
+
+{% if restrict-groups-to-workflows %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}

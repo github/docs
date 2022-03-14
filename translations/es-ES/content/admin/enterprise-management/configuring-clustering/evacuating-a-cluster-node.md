@@ -13,33 +13,33 @@ topics:
   - Enterprise
 ---
 
-## About evacuation of cluster nodes
+## Acerca de la evacuación de los nodos de clúster
 
-In a cluster configuration for {% data variables.product.product_name %}, you can evacuate a node before taking the node offline. Evacuation ensures that the remaining nodes in a service tier contain all of the service's data. For example, when you replace the virtual machine for a node in your cluster, you should first evacuate the node.
+En una configuración de clúster para {% data variables.product.product_name %}, puedes evacuar un nodo antes de desconectarlo. La evacuación garantiza que los nodos restantes en un nivel de servicio contengan todos los datos de dicho servicio. Por ejemplo, cuando reemplazas la máquina virtual por un nodo en tu clúster, primero debes evacuarlo.
 
-For more information about nodes and service tiers for {% data variables.product.prodname_ghe_server %}, see "[About cluster nodes](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)."
+Para obtener más información sobre los nodos y niveles de servicio para {% data variables.product.prodname_ghe_server %}, consulta la sección "[Acerca de los nodos de clúster](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)".
 
 {% warning %}
 
 **Advertencias**:
 
-- To avoid data loss, {% data variables.product.company_short %} strongly recommends that you evacuate a node before taking the node offline.
+- Para evitar la pérdida de datos, {% data variables.product.company_short %} recomienda fuertemente que evacúes un nodo antes de desconectarlo.
 
-- If you only have three nodes in your data services cluster, you can't evacuate the nodes because `ghe-spokes` doesn't have another place to make a copy. Si tienes cuatro o más, `ghe-spokes` moverá todos los repositorios del nodo evacuado.
+- Si solo tienes tres nodos en tu clúster de servicios de datos, no puedes evacuar los nodos porque `ghe-spokes` no tiene otro lugar para hacer una copia. Si tienes cuatro o más, `ghe-spokes` moverá todos los repositorios del nodo evacuado.
 
 {% endwarning %}
 
 ## Evacuar un nodo de agrupación
 
-If you plan to take a node offline and the node runs a data service role like `git-server`, `pages-server`, or `storage-server`, evacuate each node before taking the node offline.
+Si planeas desconectar un nodo y este ejecuta un rol de servicio de datos como `git-server`, `pages-server` o `storage-server`, evacúa cada nodo antes de desconectarlo.
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
-1. To find the UUID of the node to evacuate, run the following command. Replace `HOSTNAME` with the node's hostname.
+1. Para encontrar la UUID del nodo a evacuar, ejecuta el siguiente comando. Reemplaza `HOSTNAME` con el nombre de host del nodo.
 
    ```shell
    $ ghe-config cluster.<em>HOSTNAME</em>.uuid
    ```
-1. Monitor the node's status while {% data variables.product.product_name %} copies the data. Don't take the node offline until the copy is complete. To monitor the status of your node, run any of the following commands, replacing `UUID` with the UUID from step 2.
+1. Monitorea el estado del nodo mientras {% data variables.product.product_name %} copia los datos. No desconectes el nodo sino hasta que se complete la copia. Para monitorear el estado de tu nodo, ejecuta cualquiera de los siguientes comandos, reemplazando `UUID` con la UUID del paso 2.
 
    - **Git**:
 

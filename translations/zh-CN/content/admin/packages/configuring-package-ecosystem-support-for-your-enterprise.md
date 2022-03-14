@@ -19,7 +19,6 @@ shortTitle: 配置包生态系统
 
 要防止上传新包，可以将以前启用的生态系统设置为**只读**，同时仍允许下载现有包。
 
-
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
@@ -29,7 +28,7 @@ shortTitle: 配置包生态系统
 ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion ghes = 3.0 or ghes > 3.0 %}
+{% ifversion ghes %}
 ## 连接到官方 npm 注册表
 
 如果您已在企业中启用了 npm 包，并希望允许访问官方 npm 注册表以及 {% data variables.product.prodname_registry %} npm 注册表，则必须执行一些附加配置。

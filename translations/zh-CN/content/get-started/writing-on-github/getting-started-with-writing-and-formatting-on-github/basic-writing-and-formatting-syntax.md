@@ -85,7 +85,7 @@ git commit
 
 更多信息请参阅“[创建和突出显示代码块](/articles/creating-and-highlighting-code-blocks)”。
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## 链接
 

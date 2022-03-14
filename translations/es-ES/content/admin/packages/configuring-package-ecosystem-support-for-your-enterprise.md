@@ -19,7 +19,6 @@ shortTitle: Configurar los ecosistemas de paquetes
 
 Para prevenir que los paquetes nuevos se carguen, puedes configurar un ecosistema que hayas habilitado previamente como **Solo lectura**, mientras aún permites que los paquetes existentes se descarguen.
 
-
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
@@ -29,7 +28,7 @@ Para prevenir que los paquetes nuevos se carguen, puedes configurar un ecosistem
 ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion ghes = 3.0 or ghes > 3.0 %}
+{% ifversion ghes %}
 ## Conectarse al registro oficial de npm
 
 Si habilitaste los paquetes de npm en tu empresa y quieres permitir el acceso tanto al registro oficial de npm como al registro de npm del {% data variables.product.prodname_registry %}, entonces debes realizar algunas configuraciones adicionales.

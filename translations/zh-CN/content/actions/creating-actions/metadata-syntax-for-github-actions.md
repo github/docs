@@ -110,6 +110,7 @@ outputs:
 
 **可选** `outputs` 使用与 `outputs.<output_id>` 及 `outputs.<output_id>.description` 相同的参数（请参阅“用于 Docker 容器和 JavaScript 操作的
 
+
 `outputs`”），但也包括 `value` 令牌。</p> 
 
 
@@ -349,7 +350,7 @@ runs:
 
 **可选** 您可以使用 `if` 条件使步骤仅在满足条件时才运行。 您可以使用任何支持上下文和表达式来创建条件。
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 **示例：使用上下文**
 
@@ -577,7 +578,7 @@ runs:
 
 `args` 用来代替 `Dockerfile` 中的 `CMD` 指令。 如果在 `Dockerfile` 中使用 `CMD`，请遵循按偏好顺序排序的指导方针：
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 如果需要将环境变量传递到操作中，请确保操作运行命令 shell 以执行变量替换。 例如，如果 `entrypoint` 属性设置为 `"sh -c"`，`args` 将在命令 shell 中运行。 或者，如果 `Dockerfile` 使用 `ENTRYPOINT` 运行同一命令 (`"sh -c"`)，`args` 将在命令 shell 中执行。
 
@@ -632,16 +633,45 @@ branding:
 
 ### `branding.icon`
 
-要使用的 [Feather](https://feathericons.com/) 图标的名称。 <!-- 
+要使用的 v4.28.0 [Feather](https://feathericons.com/) 图标的名称。 省略了品牌图标以及以下内容：
+
+<table>
+<tr>
+<td>coffee</td>
+<td>列</td>
+<td>divide-circle</td>
+<td>divide-square</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>frown</td>
+<td>hexagon</td>
+<td>键</td>
+</tr>
+<tr>
+<td>meh</td>
+<td>mouse-pointer</td>
+<td>smile</td>
+<td>工具</td>
+</tr>
+<tr>
+<td>x-octagon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+以下是当前支持的所有图标的详尽列表：
+
+<!-- 
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
-  This table does not match the latest version the feather library. 
-  (Brand icons are omitted, and our supported list is not necessarily up-to-date with the latest version of the feather icon library.)
   To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
 -->
 
 <table>
 <tr>
-<td>activity</td>
+<td>活动</td>
 <td>airplay</td>
 <td>alert-circle</td>
 <td>alert-octagon</td>
@@ -656,7 +686,7 @@ branding:
 <td>align-right</td>
 <td>anchor</td>
 <td>aperture</td>
-<td>archive</td>
+<td>存档</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -734,10 +764,10 @@ branding:
 <td>cloud-rain</td>
 <td>cloud-snow</td>
 <td>cloud</td>
-<td>code</td>
+<td>代码</td>
 </tr>
 <tr>
-<td>command</td>
+<td>命令</td>
 <td>compass</td>
 <td>copy</td>
 <td>corner-down-left</td>
@@ -780,14 +810,14 @@ branding:
 </tr>
 <tr>
 <td>facebook</td>
-<td>fast-forward</td>
+<td>快进</td>
 <td>feather</td>
 <td>file-minus</td>
 </tr>
 <tr>
 <td>file-plus</td>
 <td>file-text</td>
-<td>file</td>
+<td>文件</td>
 <td>film</td>
 </tr>
 <tr>
@@ -810,7 +840,7 @@ branding:
 </tr>
 <tr>
 <td>hard-drive</td>
-<td>hash</td>
+<td>哈希</td>
 <td>headphones</td>
 <td>heart</td>
 </tr>
@@ -912,7 +942,7 @@ branding:
 </tr>
 <tr>
 <td>repeat</td>
-<td>rewind</td>
+<td>倒回</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
 </tr>
@@ -937,7 +967,7 @@ branding:
 <tr>
 <td>shopping-cart</td>
 <td>shuffle</td>
-<td>sidebar</td>
+<td>边栏</td>
 <td>skip-back</td>
 </tr>
 <tr>
@@ -949,7 +979,7 @@ branding:
 <tr>
 <td>speaker</td>
 <td>square</td>
-<td>star</td>
+<td>星标</td>
 <td>stop-circle</td>
 </tr>
 <tr>
@@ -959,7 +989,7 @@ branding:
 <td>tablet</td>
 </tr>
 <tr>
-<td>tag</td>
+<td>标记</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
@@ -989,15 +1019,15 @@ branding:
 <td>upload-cloud</td>
 </tr>
 <tr>
-<td>upload</td>
+<td>上传</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
 </tr>
 <tr>
 <td>user-x</td>
-<td>user</td>
-<td>users</td>
+<td>用户</td>
+<td>用户</td>
 <td>video-off</td>
 </tr>
 <tr>
@@ -1009,7 +1039,7 @@ branding:
 <tr>
 <td>volume-x</td>
 <td>volume</td>
-<td>watch</td>
+<td>查看</td>
 <td>wifi-off</td>
 </tr>
 <tr>

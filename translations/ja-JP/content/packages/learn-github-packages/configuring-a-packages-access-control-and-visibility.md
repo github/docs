@@ -86,33 +86,33 @@ Organization が所有するコンテナイメージに対する管理者権限�
 
 コンテナイメージへのアクセスをさらにカスタマイズするには、「[Organizationのためのコンテナイメージへのアクセスの設定](#configuring-access-to-container-images-for-an-organization)」を参照してください。
 
-## Ensuring {% data variables.product.prodname_codespaces %} access to your package
+## パッケージへの{% data variables.product.prodname_codespaces %}アクセスの確保
 
-By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_dotcom %} Container Registry, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)."
+デフォルトでは、codespaceは**Inherit access（アクセスの継承）**オプションが選択された同じリポジトリ内で公開されたパッケージなど、{% data variables.product.prodname_dotcom %} Container Registry内の特定パッケージにシームレスにアクセスできます。 自動的に設定されるアクセスに関する詳しい情報については「[{% data variables.product.prodname_dotcom %} Container Registryに保存されたイメージへのアクセス](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)」を参照してください。
 
-Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
+あるいは、codespaceがパッケージに確実にアクセスできるようにするには、codespaceが起動されたリポジトリへのアクセスを許可しなければなりません。
 
-指定するリポジトリは、パッケージのソースコードが保存されているリポジトリである必要はありません。 You can give codespaces in multiple repositories access to a package.
+指定するリポジトリは、パッケージのソースコードが保存されているリポジトリである必要はありません。 codespeceには、複数のリポジトリでパッケージへのアクセスを付与できます。
 
-Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
+リポジトリ内でcodespaceと共有したいパッケージを選択したら、そのリポジトリへのアクセスを付与できます。
 
-1. In the right sidebar, click **Package settings**.
+1. 右のサイドバーで**Package settings（パッケージ設定）**をクリックしてください。
 
-   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
+   ![右のメニューの"パッケージ設定"オプション](/assets/images/help/package-registry/package-settings.png)
 
-2. Under "Manage Codespaces access", click **Add repository**.
+2. "Manage Codespaces access（Codespacesのアクセスの管理）"の下で、**Add repository（リポジトリの追加）**をクリックしてください。
 
    !["リポジトリの追加"ボタン](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
 
-3. Search for the repository you want to add.
+3. 追加したいリポジトリを検索してください。
 
    !["リポジトリの追加"ボタン](/assets/images/help/package-registry/manage-codespaces-access-search.png)
 
-4. Repeat for any additional repositories you would like to allow access.
+4. アクセスを許可したい追加のリポジトリについて、繰り返してください。
 
-5. If the codespaces for a repository no longer need access to an image, you can remove access.
+5. リポジトリのcodespaceがイメージへのアクセスを必要としなくなった場合は、アクセスを削除できます。
 
-   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+   !["リポジトリの削除"ボタン](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
 ## 個人アカウントにコンテナイメージの可視性を設定する
 
@@ -140,7 +140,7 @@ Once you've selected the package you're interested in sharing with codespaces in
 6. "Container creation（コンテナ作成）"の下で、パブリック、プライベート、インターナルのコンテナイメージの作成を有効化するかを選択してください。
     - Organization のメンバーがパブリックのコンテナイメージを作成できるようにするには、[**Public**] をクリックします。
     - Organization のメンバーに、Organization のメンバーのみが表示できるプライベートコンテナイメージの作成ができるようにするには、[**Private**] をクリックします。 プライベートコンテナイメージの可視性については、さらに細かくカスタマイズできます。
-    - To enable organization members to create internal container images that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the container images will be visible to all enterprise members. ![Organizationのメンバーが公開するコンテナイメージの可視性オプション](/assets/images/help/package-registry/container-creation-org-settings.png)
+    - OrganizationのメンバーがすべてのOrganizationのメンバーから見えるインターナルのコンテナイメージを作成できるようにするには、**Internal（インターナル）**をクリックしてください。 EnterpriseにそのOrganizationが所属している場合、コンテナイメージはEnterpriseのすべてのメンバーに見えるようになります。 ![Organizationのメンバーが公開するコンテナイメージの可視性オプション](/assets/images/help/package-registry/container-creation-org-settings.png)
 
 ## Organization にコンテナイメージの可視性を設定する
 

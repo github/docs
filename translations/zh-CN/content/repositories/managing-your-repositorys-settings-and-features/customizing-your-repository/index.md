@@ -1,6 +1,6 @@
 ---
-title: Customizing your repository
-intro: You can choose the way your repository appears by customizing your repository.
+title: 自定义存储库
+intro: 您可以通过自定义存储库来选择存储库的显示方式。
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,6 +17,6 @@ children:
   - /about-code-owners
   - /about-repository-languages
   - /about-citation-files
-shortTitle: Customize your repository
+shortTitle: 自定义存储库
 ---
 

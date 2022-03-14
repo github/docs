@@ -53,7 +53,7 @@ Você pode visualizar as ações referenciadas em seus fluxos de trabalho de {% 
 
 {% note %}
 
-**Note:** To enhance security, {% data variables.product.prodname_actions %} is deprecating redirects for actions. This means that when the owner or name of an action's repository is changed, any workflows using that action with the previous name will fail.
+**Observação:** Para aumentar a segurança, {% data variables.product.prodname_actions %} irá tornar obsoletos os redirecionamentos para ações. Isso significa que quando o proprietário ou o nome do repositório de uma ação é alterado, todos os fluxos de trabalho que usarem essa ação com o nome anterior irão falhar.
 
 {% endnote %}
 

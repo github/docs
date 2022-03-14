@@ -102,6 +102,12 @@ You can manually collect and send troubleshooting data to {% data variables.cont
 
 By default, the appliance also offers Secure Shell (SSH) access for both repository access using Git and administrative purposes. For more information, see "[About SSH](/enterprise/user/articles/about-ssh)" and "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)."
 
+{% ifversion ghes > 3.3 %}
+
+If you configure SAML authentication for {% data variables.product.product_location %}, you can enable encrypted assertions between the instance and your SAML IdP. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
+
+{% endif %}
+
 ### Users and access permissions
 
 {% data variables.product.prodname_ghe_server %} provides three types of accounts.

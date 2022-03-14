@@ -180,7 +180,7 @@ git:
 
 Travis CI and {% data variables.product.prodname_actions %} can both add custom environment variables to a test matrix, which allows you to refer to the variable in a later step.
 
-In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.github-actions.matrix-variable-example %}
+In {% data variables.product.prodname_actions %}, you can use the `include` key to add custom environment variables to a matrix. {% data reusables.actions.matrix-variable-example %}
 
 ## Key features in {% data variables.product.prodname_actions %}
 
@@ -188,7 +188,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 ### Storing secrets
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Environment protection rules can require manual approval for a workflow to access environment secrets. {% endif %}For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. Environment protection rules can require manual approval for a workflow to access environment secrets. For more information, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
 ### Sharing files between jobs and workflows
 

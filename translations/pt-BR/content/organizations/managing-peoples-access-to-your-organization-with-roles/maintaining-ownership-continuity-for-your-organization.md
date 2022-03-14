@@ -31,10 +31,14 @@ Os proprietários da organização têm pleno acesso administrativo à organiza�
 
 {% endnote %}
 
+{% if enterprise-owner-join-org %}
+Se sua organização é propriedade de uma conta corporativa, qualquer proprietário corporativo pode fazer de si mesmo um proprietário de sua organização. Para obter mais informações, consulte "[Gerenciando sua função em uma organização pertencente à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
+{% endif %}
+
 ## Designar um proprietário da organização
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Selecione a(s) pessoa(s) que deseja promover a proprietário. ![Lista de integrantes com dois integrantes selecionados](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Acesse o menu suspenso que está acima da lista de integrantes e clique em **Change role** (Alterar função). ![Menu suspenso com opção de remover integrantes](/assets/images/help/teams/user-bulk-management-options.png)

@@ -38,8 +38,8 @@ shortTitle: ユーザアカウントを削除
 
 ## ユーザアカウントを削除
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. アカウント設定ページの下部にある [Delete account] の下で [**Delete your account**] をクリックします。 自分のユーザアカウントを削除する前にすべきことは次のとおりです:
     - 自分が Organization で唯一のオーナーの場合、Organization を削除する前に所有権を別の人に移譲する必要があります。
     - Organization に別のオーナーがいる場合は、自分自身を Organization から削除する必要があります。 ![アカウント削除ボタン](/assets/images/help/settings/settings-account-delete.png)

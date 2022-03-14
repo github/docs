@@ -3,7 +3,7 @@ title: Implantando com GitHub Actions
 intro: Aprenda a controlar imolantações com funcionalidades como ambientes e simultaneidade.
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: overview

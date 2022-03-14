@@ -27,19 +27,19 @@ Para rastrear cómo las propuestas más pequeñas encajan en una meta más grand
 
 Las propuestas y solicitudes de cambio incluyen características integradas que te permiten comunicarte fácilmente con tus colaboradores. Utiliza las @menciones para alertar a una persona o a todo el equipo sobre un comentario. Asigna colaboradores a las propuestas para comunicar las responsabilidades. Enlaza las propuestas o solicitudes de cambio relacionadas para comunicar cómo están conectadas.
 
-## Make use of the description and README
+## Utilizar la descripción y el README
 
-Use your project's description and README to share information about the project.
+Utiliza la descripción y el README de tu proyecto para compartir información sobre este.
 
 Por ejemplo:
 
-- Explaining the purpose of the project.
-- Describing the project views and how to use them.
-- Including relevant links and people to contact for more information.
+- Para explicar el propósito del proyecto.
+- Para describir las vistas del proyecto y cómo utilizarlas.
+- Para incluir enlaces relevantes y personas a contactar para recibir más información.
 
-Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers.
+Los README de los proyectos son compatibles con el lenguaje de marcado, lo cual te permite utilizar imágenes y formatos avanzados, tales como enlaces, listas y encabezados.
 
-For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)."
+Para obtener más información, consulta la sección "[Crear un proyecto (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)".
 
 ## Utiliza las vistas
 
@@ -75,7 +75,7 @@ Adicionalmente, {% data variables.product.prodname_actions %} y la API de GraphQ
 
 Toma ventaja de los diversos tipos de campo para satisfacer tus necesidades.
 
-Utiliza el campo de iteración para programar trabajo o crear una línea de tiempo. Puedes agrupar por iteración para ver si los elementos se balancean entre iteraciones o puedes filtrarlos para enfocarte en una iteración simple. Los campos de iteración también te permiten ver el trabajo que completaste en las iteraciones pasadas, lo cual puede ayudarte con la planeación rápida y puede reflejar los logros de tu equipo.
+Utiliza el campo de iteración para programar trabajo o crear una línea de tiempo. Puedes agrupar por iteración para ver si los elementos se balancean entre iteraciones o puedes filtrarlos para enfocarte en una iteración simple. Los campos de iteración también te permiten ver el trabajo que completaste en las iteraciones pasadas, lo cual puede ayudarte con la planeación rápida y puede reflejar los logros de tu equipo. Iteration fields also support breaks to show when you and your team are taking time away from their iterations. For more information, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
 
 Utiliza un campo de selección simple para rastrear la información de una tarea con base en una lista de valores preconfigurados. Por ejemplo, rastrea la prioridad o fase de un proyecto. Ya que los valores se seleccionan desde una lista preconfigurada, puedes agrupar, filtrar o enfocarte fácilmente en elementos con un valor específico.
 

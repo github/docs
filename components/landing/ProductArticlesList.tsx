@@ -2,7 +2,7 @@ import cx from 'classnames'
 import { useState } from 'react'
 
 import { ChevronDownIcon } from '@primer/octicons-react'
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 
 import { ProductTreeNode, useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'

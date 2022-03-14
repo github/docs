@@ -32,7 +32,7 @@ Las personas con acceso de administrador a un repositorio pueden administrar el 
 Puedes otorgar a un equipo acceso a un repositorio o cambiar el nivel de acceso de dicho equipo a un repositorio en tus ajustes de repositorio. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)".
 {% else %}
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Encima de la lista de repositorios, haz clic en **Add repository (Agregar repositorio)**. ![Botón Agregar repositorio](/assets/images/help/organizations/add-repositories-button.png)
@@ -55,7 +55,7 @@ Puedes eliminar el acceso de un equipo a un repositorio si el equipo tiene acces
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-repositories-tab %}
 5. Selecciona el repositorio o los repositorios que deseas eliminar del equipo. ![Lista de repositorios de equipo con casillas de verificación para algunos repositorios seleccionados](/assets/images/help/teams/select-team-repositories-bulk.png)
