@@ -20,7 +20,7 @@ children:
   - /inviting-collaborators-to-a-personal-repository
   - /removing-a-collaborator-from-a-personal-repository
   - /removing-yourself-from-a-collaborators-repository
-  - /maintaining-ownership-continuity-of-your-user-accounts-repositories
+  - /maintaining-ownership-continuity-of-your-personal-accounts-repositories
 shortTitle: Access to your repositories
 ---
 
