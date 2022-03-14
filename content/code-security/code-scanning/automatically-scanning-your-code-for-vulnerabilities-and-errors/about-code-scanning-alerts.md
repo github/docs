@@ -31,7 +31,11 @@ Each alert highlights a problem with the code and the name of the tool that iden
 {% data reusables.code-scanning.alert-default-branch %}
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 ![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
+{% else %}
+![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert-old.png)
+{% endif %}
 
 If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
 
