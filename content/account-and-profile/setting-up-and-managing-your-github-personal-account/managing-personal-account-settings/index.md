@@ -20,7 +20,7 @@ children:
   - /managing-your-theme-settings
   - /managing-your-tab-size-rendering-preference
   - /changing-your-github-username
-  - /merging-multiple-user-accounts
+  - /merging-multiple-personal-accounts
   - /converting-a-user-into-an-organization
   - /deleting-your-user-account
   - /permission-levels-for-a-user-account-repository
