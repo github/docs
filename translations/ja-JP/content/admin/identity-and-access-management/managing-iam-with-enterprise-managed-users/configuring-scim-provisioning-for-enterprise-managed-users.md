@@ -51,6 +51,8 @@ To configure provisioning for your {% data variables.product.prodname_emu_enterp
 
 After creating your personal access token and storing it securely, you can configure provisioning on your identity provider.
 
+{% data reusables.scim.emu-scim-rate-limit %}
+
 To configure Azure Active Directory to provision users for your {% data variables.product.prodname_emu_enterprise %}, see [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) in the Azure AD documentation.
 
 To configure Okta to provision users for your {% data variables.product.prodname_emu_enterprise %}, see "[Configuring SCIM provisioning for Enterprise Managed Users with Okta](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)."
