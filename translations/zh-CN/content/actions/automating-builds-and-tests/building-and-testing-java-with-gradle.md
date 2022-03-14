@@ -40,11 +40,11 @@ shortTitle: 构建和测试 Java & Gradle
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## 使用 Gradle 初学者工作流程
+## 使用 Gradle 入门工作流程
 
-{% data variables.product.prodname_dotcom %} 提供有 Gradle 初学者工作流程，适用于大多数基于 Gradle 的 Java 项目。 更多信息请参阅 [Gradle 初学者工作流程](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml)。
+{% data variables.product.prodname_dotcom %} 提供有 Gradle 入门工作流程，适用于大多数基于 Gradle 的 Java 项目。 更多信息请参阅 [Gradle 入门工作流程](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml)。
 
-要快速开始，您可以在创建新工作流程时选择预配置的 Gradle 初学者工作流程。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
+要快速开始，您可以在创建新工作流程时选择预配置的 Gradle 入门工作流程。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
@@ -81,7 +81,7 @@ jobs:
 3. “验证 Gradle 包装器”步骤验证源树中存在的 Gradle Wrapper JAR 文件的校验和。
 4. “使用 Gradle 构建”步骤使用 Gradle 组织在 {% data variables.product.prodname_dotcom %}上提供的 `gradle/gradle-build-action` 操作进行构建。 该操作负责调用 Gradle、收集结果以及在作业之间缓存状态。 更多信息请参阅 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action)。
 
-在创建构建和测试工作流程时，默认初学者工作流程是很好的起点，然后您可以自定义初学者工作流程以满足项目的需求。
+在创建构建和测试工作流程时，默认入门工作流程是很好的起点，然后您可以自定义入门工作流程以满足项目的需求。
 
 {% data reusables.actions.example-github-runner %}
 

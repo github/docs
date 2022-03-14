@@ -31,11 +31,11 @@ shortTitle: 构建和测试 Swift
 
 我们建议您对 Swift 包有基本的了解。 更多信息请参阅 Apple 开发者文档中的“[Swift 包](https://developer.apple.com/documentation/swift_packages)”。
 
-## 使用 Swift 初学者工作流程
+## 使用 Swift 入门工作流程
 
-{% data variables.product.prodname_dotcom %} 提供有 Swift 初学者工作流程，应适合大多数 Swift 项目，本指南包括演示如何自定义此初学者工作流程的示例。 更多信息请参阅 [Swift 初学者工作流程](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml)。
+{% data variables.product.prodname_dotcom %} 提供有 Swift 入门工作流程，应适合大多数 Swift 项目，本指南包括演示如何自定义此入门工作流程的示例。 更多信息请参阅 [Swift 入门工作流程](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml)。
 
-要快速开始，请将初学者工作流程添加到仓库的 `.github/workflows` 目录中。
+要快速开始，请将入门工作流程添加到仓库的 `.github/workflows` 目录中。
 
 {% raw %}
 ```yaml{:copy}
