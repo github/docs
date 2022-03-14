@@ -9,6 +9,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-access-to-your-user-accounts-project-boards
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-access-to-your-user-accounts-project-boards
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-personal-account-settings/managing-access-to-your-user-accounts-project-boards
+  - /account-and-profile/setting-up-and-managing-your-github-personal-account/managing-personal-account-settings/managing-access-to-your-user-accounts-project-boards
 versions:
   fpt: '*'
   ghes: '*'
