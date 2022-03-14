@@ -23,7 +23,7 @@ children:
   - /merging-multiple-personal-accounts
   - /converting-a-user-into-an-organization
   - /deleting-your-personal-account
-  - /permission-levels-for-a-user-account-repository
+  - /permission-levels-for-a-personal-account-repository
   - /permission-levels-for-user-owned-project-boards
   - /managing-accessibility-settings
   - /managing-the-default-branch-name-for-your-repositories

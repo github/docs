@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-personal-account-settings/permission-levels-for-a-user-account-repository
+  - /account-and-profile/setting-up-and-managing-your-github-personal-account/managing-personal-account-settings/permission-levels-for-a-user-account-repository
 versions:
   fpt: '*'
   ghes: '*'
