@@ -31,6 +31,7 @@ children:
   - /guidelines-for-legal-requests-of-user-data
   - /github-government-takedown-policy
   - /github-acceptable-use-policies
+  - /github-appeal-and-reinstatement
   - /githubs-notice-about-the-california-consumer-privacy-act
   - /github-community-guidelines
   - /github-community-forum-code-of-conduct
