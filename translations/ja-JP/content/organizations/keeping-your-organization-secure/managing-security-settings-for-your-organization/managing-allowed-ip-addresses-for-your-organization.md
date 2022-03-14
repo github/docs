@@ -21,7 +21,7 @@ permissions: Organization owners can manage allowed IP addresses for an organiza
 {% ifversion ghec %}
 {% note %}
 
-**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+**ノート:** IP許可リストを使用できるのは、{% data variables.product.prodname_ghe_cloud %}を使用するOrganizationだけです。 {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
