@@ -76,7 +76,7 @@ jobs:
 2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “使用 Ant 构建”步骤以非交互模式运行 `build.xml` 中的默认目标。
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+在创建构建和测试工作流程时，默认初学者工作流程是很好的起点，然后您可以自定义初学者工作流程以满足项目的需求。
 
 {% data reusables.actions.example-github-runner %}
 

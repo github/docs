@@ -52,7 +52,9 @@ O uso do armazenamento é compartilhado com artefatos de construção produzidos
 
 O {% data variables.product.prodname_dotcom %} cobra o uso da conta que possui o repositório onde o pacote é publicado. Se o uso da sua conta ultrapassar esses limites e você definir um limite de gastos acima de US$ 0, você pagará US$ 0,25 por GB de armazenamento e US$ 0,50 por GB de transferência de dados.
 
-Por exemplo, se sua organização usa {% data variables.product.prodname_team %}, permite gastos ilimitados, usa 150GB de armazenamento, e possui 50GB de transferência de dados durante um mês, a organização teria excessos de 148GB para armazenamento e 40GB para transferência de dados para esse mês. O excesso de armazenamento custaria US$ 0,25 por GB ou US$ 37. O excesso para transferência de dados custaria US$ 0,50 ou US$ 20 por GB. {% data reusables.dotcom_billing.pricing_cal %}
+Por exemplo, se sua organização usa {% data variables.product.prodname_team %}, permite gastos ilimitados, usa 150GB de armazenamento, e possui 50GB de transferência de dados durante um mês, a organização teria excessos de 148GB para armazenamento e 40GB para transferência de dados para esse mês. O excesso de armazenamento custaria US$ 0,25 por GB ou US$ 37. O excesso para transferência de dados custaria US$ 0,50 ou US$ 20 por GB.
+
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_packages %}
 
 No final do mês, {% data variables.product.prodname_dotcom %} arredonda sua transferência de dados para o GB mais próximo.
 

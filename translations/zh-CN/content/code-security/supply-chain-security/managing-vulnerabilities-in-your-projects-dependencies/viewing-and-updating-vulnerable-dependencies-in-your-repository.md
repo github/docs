@@ -54,7 +54,7 @@ topics:
 1. 查看漏洞的详细信息以及包含自动安全更新的拉取请求（如果有）。
 1. （可选）如果还没有针对该警报的 {% data variables.product.prodname_dependabot_security_updates %} 更新，要创建拉取请求以解决该漏洞，请单击 **Create {% data variables.product.prodname_dependabot %} security update（创建 Dependabot 安全更新）**。 ![创建 {% data variables.product.prodname_dependabot %} 安全更新按钮](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
 1. 当您准备好更新依赖项并解决漏洞时，合并拉取请求。 {% data variables.product.prodname_dependabot %} 提出的每个拉取请求都包含可用于控制 {% data variables.product.prodname_dependabot %} 的命令的相关信息。 更多信息请参阅“[管理依赖项更新的拉取请求](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
-1. Optionally, if the alert is being fixed, if it's incorrect, or located in unused code, select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% if reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %} ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+1. （可选）如果警报正在修复、不正确或位于未使用的代码中，请选择“"Dismiss（忽略）”下拉列表，然后单击关闭警报的原因。{% if reopen-dependabot-alerts %} 未修复的已消除警报可以稍后重新打开。{% endif %} ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 
 {% elsif ghes = 3.3 %}
 {% data reusables.repositories.navigate-to-repo %}
@@ -85,14 +85,14 @@ topics:
 
 {% if reopen-dependabot-alerts %}
 
-## Viewing and updating closed alerts
+## 查看和更新已关闭的警报
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
-1. To just view closed alerts, click **Closed**. ![Screenshot showing the "Closed" option](/assets/images/help/repository/dependabot-alerts-closed.png)
-1. Click the alert that you would like to view or update. ![Screenshot showing a highlighted dependabot alert](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)
-2. Optionally, if the alert was dismissed and you wish to reopen it, click **Reopen**. ![Screenshot showing the "Reopen" button](/assets/images/help/repository/reopen-dismissed-alert.png)
+1. 要仅查看已关闭的警报，请单击 **Closed（已关闭）**。 ![显示"已关闭"选项的屏幕截图](/assets/images/help/repository/dependabot-alerts-closed.png)
+1. 单击要查看或更新的警报。 ![显示突出显示的 dependabot 警报的屏幕截图](/assets/images/help/repository/dependabot-alerts-select-closed-alert.png)
+2. （可选）如果警报已消除，并且您希望重新打开它，请单击 **Reopen（重新打开）**。 ![显示"重新打开"按钮的屏幕截图](/assets/images/help/repository/reopen-dismissed-alert.png)
 
 {% endif %}
 

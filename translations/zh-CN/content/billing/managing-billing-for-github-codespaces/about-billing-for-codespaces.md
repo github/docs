@@ -38,7 +38,7 @@ topics:
 如果您通过微软企业协议购买 {% data variables.product.prodname_enterprise %} ， 您可以将您的 Azure 订阅ID 连接到您的企业账户，以启用并支付您的 {% data variables.product.prodname_codespaces %} 使用费用。 更多信息请参阅“[将 Azure 订阅连接到您的企业](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)”。
 {% endif %}
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_codespaces %}
 
 ### {% data variables.product.prodname_codespaces %} 预构建的计费
 

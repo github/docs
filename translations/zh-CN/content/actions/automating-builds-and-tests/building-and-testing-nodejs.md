@@ -40,7 +40,7 @@ hasExperimentalAlternative: true
 
 {% data variables.product.prodname_dotcom %} provides a Node.js starter workflow that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the starter workflow. For more information, see the [Node.js starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. 下面显示的工作流假定仓库的默认分支是 `main`。
+要快速开始，请将初学者工作流程添加到仓库的 `.github/workflows` 目录中。 下面显示的工作流假定仓库的默认分支是 `main`。
 
 {% raw %}
 ```yaml{:copy}

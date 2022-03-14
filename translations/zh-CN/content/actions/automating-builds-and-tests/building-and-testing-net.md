@@ -32,7 +32,7 @@ shortTitle: 构建和测试 .NET
 
 {% data variables.product.prodname_dotcom %} provides a .NET starter workflow that should work for most .NET projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [.NET starter workflow](https://github.com/actions/setup-dotnet).
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+要快速开始，请将初学者工作流程添加到仓库的 `.github/workflows` 目录中。
 
 {% raw %}
 

@@ -26,7 +26,7 @@ shortTitle: Sobre a visão geral de segurança
 
 ## Sobre a visão geral de segurança
 
-Você pode usar a visão geral de segurança para uma visão de alto nível do status de segurança da sua organização ou para identificar repositórios problemáticos que exigem intervenção. You can view aggregate or repository-specific security information in the security overview. You can also use the security overview to see which which security features are enabled for your repositories and to configure any available security features that are not currently in use.
+Você pode usar a visão geral de segurança para uma visão de alto nível do status de segurança da sua organização ou para identificar repositórios problemáticos que exigem intervenção. É possível visualizar as informações de segurança de tipo agregado ou específico do repositório na visão geral de segurança. You can also use the security overview to see which security features are enabled for your repositories and to configure any available security features that are not currently in use.
 
 A visão geral de segurança indica se {% ifversion fpt or ghes > 3.1 or ghec %}os recursos de segurança{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} estão habilitados para os repositórios pertencentes à sua organização e consolida os alertas para cada recurso.{% ifversion fpt or ghes > 3.1 or ghec %} As funcionalidades de segurança incluem funcionalidaes de {% data variables.product.prodname_GH_advanced_security %} como, por exemplo, {% data variables.product.prodname_code_scanning %} e {% data variables.product.prodname_secret_scanning %}, bem como {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obter mais informações sobre as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} conuslte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} Para obter mais informações sobre {% data variables.product.prodname_dependabot_alerts %}, consulte "[Sobre alertas para dependências de vulnerabilidade](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
 
@@ -46,7 +46,7 @@ Na visão geral de segurança, tanto ao nível da organização como ao nível d
 
 ![A visão geral de segurança de uma organização](/assets/images/help/organizations/security-overview.png)
 
-Para cada repositório na visão de segurança, você verá ícones para cada tipo de recurso de segurança e quantos alertas existem de cada tipo. Se um recurso de segurança não estiver habilitado para um repositório, o ícone para esse recurso será cinza. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
+Para cada repositório na visão de segurança, você verá ícones para cada tipo de recurso de segurança e quantos alertas existem de cada tipo. Se um recurso de segurança não estiver habilitado para um repositório, o ícone para esse recurso será cinza. Além disso, uma pontuação de risco é calculada para cada repositório com base nos seus alertas de digitalização de código, Dependabot e de digitalização de segredo. Esta pontuação está em fase beta e deve ser usada com cuidado. O seu algoritmo e a abordagem estão sujeitos a mudanças.
 
 ![Ícones na visão geral de segurança](/assets/images/help/organizations/security-overview-icons.png)
 
@@ -60,23 +60,23 @@ Para cada repositório na visão de segurança, você verá ícones para cada ti
 
 A visão geral de segurança exibe alertas ativos criados por funcionalidades de segurança. Se não houver alertas na visão geral de segurança de um repositório, as vulnerabilidades de segurança não detectadas ou erros de código ainda poderão existir.
 
-### About the organization-level security overview
+### Sobre a visão geral de segurança a nível da organização
 
-A nível da organização, a visão geral de segurança exibe informações de segurança agregadas e específicas para repositórios pertencentes à sua organização. You can filter information by security features at the organization-level.
+A nível da organização, a visão geral de segurança exibe informações de segurança agregadas e específicas para repositórios pertencentes à sua organização. Você pode filtrar informações por funcionalidades de segurança a nível da organização.
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
-### About the enterprise-level security overview
-At the enterprise-level, the security overview displays aggregate and repository-specific security information for your enterprise. You can view repositories owned by your enterprise that have security alerts or view all {% data variables.product.prodname_secret_scanning %} alerts from across your enterprise.
+### Sobre a visão geral de segurança do nível da empresa
+A nível da empresa, a visão geral de segurança exibe informações de segurança agregadas e específicas ao repositório para sua empresa. Você pode visualizar repositórios pertencentes à sua empresa que tenham alertas de segurança ou ver todos os alertas de {% data variables.product.prodname_secret_scanning %} de toda a sua empresa.
 
-Organization owners and security managers for organizations in your enterprise also have limited access to the enterprise-level security overview. They can only view repositories and alerts for the organizations that they have full access to.
+Os proprietários da organização e os gerentes de segurança das organizações da sua empresa também têm acesso limitado à visão geral de segurança no nível da empresa. Eles só podem ver repositórios e alertas das organizações aos quais têm acesso total.
 
 {% elsif fpt %}
-### About the enterprise-level security overview
-At the enterprise-level, the security overview displays aggregate and repository-specific information for an enterprise. For more information, see "[About the enterprise-level security overview](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview#about-the-enterprise-level-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+### Sobre a visão geral de segurança do nível da empresa
+A nível da empresa, a visão geral de segurança exibe informações agregadas e específicas ao repositório de uma empresa. Para obter mais informações, consulte "[Sobre a visão geral de segurança noi nível da empresa](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview#about-the-enterprise-level-security-overview)" na documentação de {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
-### About the team-level security overview
+### Sobre a visão geral de segurança da equipe
 No nível da equipe, a visão geral de segurança exibe informações de segurança específicas para repositórios para os quais a equipe tem privilégios de administrador. Para obter mais informações, consulte "[Gerenciando o acesso da equipe ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
 
-### About the repository-level security overview
-At the repository-level, the security overview shows which security features are enabled for the repository, and offers the option to configure any available security features that are not currently enabled.
+### Sobre a visão geral de segurança do repositório
+No nível do repositório, a visão geral de segurança mostra quais funcionalidades de segurança são habilitados para o repositório e oferece a opção de configurar todos os funcionalidades de segurança disponíveis que não estejam habilitadas atualmente.
