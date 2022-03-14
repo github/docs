@@ -29,7 +29,7 @@ Você pode usar campos personalizados para adicionar metadados às suas tarefas.
 - um campo numérico para monitorar a complexidade de uma tarefa
 - um único campo de seleção para rastrear se uma tarefa tem prioridade baixa, média ou alta
 - um campo de texto para adicionar uma observação rápida
-- um campo de iteração para planejar o trabalho semanalmente
+- an iteration field to plan work week-by-week, including support for breaks
 
 ### Visualizando seu projeto de diferentes perspectivas
 
