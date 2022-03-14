@@ -22,7 +22,11 @@ permissions: People with admin access to a repository can add an outside collabo
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
+{% ifversion fpt %}
+{% data variables.product.prodname_ghe_cloud %}を使うOrganizationは、コラボレータの招待機能を制限できます。 詳しい情報については、{% data variables.product.prodname_ghe_cloud %}のドキュメンテーションの「[外部のコラボレータの追加権限の設定](/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)」を参照してください。
+{% else %}
 Organozationのオーナーは、コラボレータを招待する機能を制限できます。 詳しい情報については「[外部のコラボレータを追加する権限の設定](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)」を参照してください。
+{% endif %}
 
 {% ifversion ghes %}
 リポジトリに外部コラボレータとして誰かを追加するには、その人は{% data variables.product.product_location %}上にユーザアカウントを持っていなければなりません。 EnterpriseがSAMLやLDAPのような外部の認証システムを使っているなら、アカウントを作成するためには追加したい人はそのシステムを通じてサインインしなければなりません。 その人がその認証システムにアクセスできず、Enterpriseではビルトイン認証が有効化されているなら、サイト管理者がその人にユーザアカウントを作成できます。 詳しい情報については「[ビルトイン認証の利用](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)」を参照してください。
@@ -30,10 +34,6 @@ Organozationのオーナーは、コラボレータを招待する機能を制�
 
 {% ifversion not ghae %}
 Organizationで2要素認証が必須になっているなら、すべての外部のコラボレータはリポジトリでの共同作業への招待を承認する前に、2要素認証を有効化していなければなりません。 詳しい情報日手は「[Organizationでの2要素認証の必須化](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)」を参照してください。
-{% endif %}
-
-{% ifversion fpt %}
-Teamのコラボレーション機能をさらにサポートするために、保護されたブランチやプライベートリポジトリでのコードオーナーのような機能を含む{% data variables.product.prodname_ghe_cloud %}にアップグレードできます。 {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
 ## リポジトリへの外部のコラボレータの追加

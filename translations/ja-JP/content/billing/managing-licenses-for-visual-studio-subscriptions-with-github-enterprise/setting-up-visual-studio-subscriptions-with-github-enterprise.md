@@ -16,6 +16,8 @@ shortTitle: 設定
 
 This guide shows you how your team can get {% data variables.product.prodname_vs %} subscribers licensed and started with {% data variables.product.prodname_enterprise %}.
 
+If you prefer video, you can watch [Setting up your {% data variables.product.prodname_enterprise %} licenses with {% data variables.product.prodname_vs %} subscriptions](https://www.youtube.com/watch?v=P_zBgp_BE_I) on Microsoft Visual Studio's YouTube channel.
+
 ## Roles for {% data variables.product.prodname_vss_ghe %}
 
 Before setting up {% data variables.product.prodname_vss_ghe %}, it's important to understand the roles for this combined offering.
