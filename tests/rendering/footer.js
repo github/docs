@@ -1,5 +1,4 @@
 import { getDOM } from '../helpers/supertest.js'
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 import { jest } from '@jest/globals'
 
@@ -7,7 +6,7 @@ describe('footer', () => {
   jest.setTimeout(10 * 60 * 1000)
 
   describe('"contact us" link', () => {
-    test('leads to support and articles', async () => {
+    test('leads to support from articles', async () => {
       const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/github`)
       expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
     })
@@ -19,7 +18,7 @@ describe('footer', () => {
   })
 
   describe('"contact us" link with nextjs', () => {
-    test('leads to dotcom support on dotcom pages', async () => {
+    test('leads to support from articles', async () => {
       const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/github?nextjs=`)
       expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
     })
