@@ -70,7 +70,7 @@ The status of the tracked alert won't change if you change the checkbox state of
 {% endif %}
 1. Towards the top of the page, on the right side, click **Create issue**. 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
-   ![Create a tracking issue for the code scanning alert](/assets/images/help/repository/code-scanning-create-issue-for-alert-new.png)
+   ![Create a tracking issue for the code scanning alert](/assets/images/help/repository/code-scanning-create-issue-for-alert-button.png)
    {% else %}
    ![Create a tracking issue for the code scanning alert](/assets/images/help/repository/code-scanning-create-issue-for-alert.png)
    {% endif %}
