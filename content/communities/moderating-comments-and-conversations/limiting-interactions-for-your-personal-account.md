@@ -7,6 +7,7 @@ versions:
 permissions: Anyone can limit interactions for their own user account.
 redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account
+  - /communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account
 topics:
   - Community
 shortTitle: Limit interactions in account
