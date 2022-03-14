@@ -19,7 +19,7 @@ topics:
 
 最初に繰り返しフィールドを作成すると、3回の繰り返しが自動的に作成されます。  プロジェクトの設定ページから、繰り返しを追加したり、他の変更をしたりできます。
 
-![Screenshot showing the settings for an iteration field](/assets/images/help/issues/iterations-example.png)
+![繰り返しフィールドの設定を表示しているスクリーンショット](/assets/images/help/issues/iterations-example.png)
 
 ## 繰り返しフィールの作成
 
@@ -49,16 +49,16 @@ topics:
 {% data reusables.projects.project-settings %}
 1. 調整したい繰り返しフィールドの名前をクリックしてください。
 1. 繰り返しの名前を変更するには、名前をクリックして入力していってください。
-1. To change the date or duration of an iteration, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
-1. Optionally, to delete an iteration, click {% octicon "trash" aria-label="The trash icon" %}.
+1. 繰り返しの日付や期間を変更するには、日付をクリックしてカレンダーを開いてください。 開始日をクリックし、続いて終了日をクリックし、そして**Apply（適用）**をクリックしてください。
+1. あるいは、繰り返しを削除したい場合は{% octicon "trash" aria-label="The trash icon" %}をクリックしてください。
 1. [**Save changes**] をクリックします。
 
-## Inserting a break
+## 休憩の挿入
 
-You can insert breaks into your iterations to communicate when you are taking time away from scheduled work. The duration of a new break defaults to the length of the most recently created iteration.
+繰り返しには、スケジュールされた作業から離れることを知らせるために休憩を挿入できます。 新しい休憩期間のデフォルトは、直近に作成された繰り返しの長さです。
 
 {% data reusables.projects.project-settings %}
 1. 調整したい繰り返しフィールドの名前をクリックしてください。
-2. On the dividing line above an iteration and to the right, click **Insert break**. ![Screenshot showing location of "Insert break" button](/assets/images/help/issues/iteration-insert-break.png)
-3. Optionally, to change the duration of the break, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
+2. 繰り返しの上の分割線上の右で**Insert break（休憩の挿入）**をクリックしてください。 !["休憩の挿入"ボタンの場所を表示しているスクリーンショット](/assets/images/help/issues/iteration-insert-break.png)
+3. あるいは、休憩の期間を変更するには、日付をクリックしてカレンダーを開いてください。 開始日をクリックし、続いて終了日をクリックし、そして**Apply（適用）**をクリックしてください。
 4. [**Save changes**] をクリックします。

@@ -1,6 +1,6 @@
 ---
-title: Using insights with projects (beta)
-intro: You can view and customize charts that are built from your project's data.
+title: プロジェクト（ベータ）のインサイトの利用
+intro: プロジェクトのデータから構築されたグラフを表示させ、カスタマイズできます。
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:
@@ -13,17 +13,17 @@ topics:
 
 {% data reusables.projects.insights-alpha %}
 
-## About insights
+## インサイトについて
 
-You can use insights to view and customize charts that use the items added to your project as their source data. The default "Burn up" chart shows item status over time, allowing you to visualize progress. You can apply filters to the default chart and also customize and save charts that are available to everyone that can view the project.
+インサイトを使って、プロジェクトに追加されたアイテムをソースデータとして利用し、グラフを表示及びカスタマイズできます。 デフォルトの「バーンアップ」グラフは、時間の経過に伴うアイテムのステータスを表示し、進捗を可視化できます。 デフォルトのグラフにフィルタを適用し、プロジェクトを見ることができる誰もが利用できるグラフをカスタマイズして保存することもできます。
 
-![Screenshot showing an example of the default burn up chart for the current iteration](/assets/images/help/issues/burnup-example.png)
+![現在の繰り返しに対するデフォルトのバーンアップグラフの例を表示しているスクリーンショット](/assets/images/help/issues/burnup-example.png)
 
-## Creating a chart
+## グラフの作成
 
-1. Navigate to your project.
-2. In the top-right, click {% octicon "graph" aria-label="the graph icon" %} to access insights. This feature is currently in a private preview and is not yet available to all organizations. If insights is not yet enabled for your organization, the {% octicon "graph" aria-label="the graph icon" %} icon will not be available.
-3. In the menu on the left, click **New chart**.
-4. Optionally, to change the name of the new chart, click {% octicon "triangle-down" aria-label="The triangle icon" %}, type a new name, and press <kbd>Return</kbd>.
-5. Above the chart, type filters to change the data used to build the chart. 詳しい情報については「[プロジェクトのフィルタリング](/issues/trying-out-the-new-projects-experience/filtering-projects)」を参照してください。
-6. To the right of the filter text box, click **Save changes**.
+1. プロジェクトにアクセスします。
+2. 右上で{% octicon "graph" aria-label="the graph icon" %}をクリックし、インサイトにアクセスします。 この機能は現在プライベートプレビュー中であり、すべての組織で利用できるわけではありません。 Organizationでインサイトがまだ有効化されていない場合は、{% octicon "graph" aria-label="the graph icon" %}アイコンは利用できません。
+3. 左のメニューで**New chart（新規グラフ）**をクリックしてください。
+4. あるいは、新しいグラフの名前を変更するには{% octicon "triangle-down" aria-label="The triangle icon" %}をクリックし、新しい名前を入力し、<kbd>Return</kbd>を押してください。
+5. グラフの上で、グラフを構築するのに使われたデータを変更するフィルタを入力してください。 詳しい情報については「[プロジェクトのフィルタリング](/issues/trying-out-the-new-projects-experience/filtering-projects)」を参照してください。
+6. フィルタのテキストボックスの右で、**Save changes（変更を保存）**をクリックしてください。
