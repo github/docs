@@ -23,7 +23,7 @@ const Custom404 = () => {
           </p>
           <a
             id="contact-us"
-            href='https://support.github.com/contact'
+            href="https://support.github.com/contact"
             className="btn btn-outline mt-2"
           >
             <CommentDiscussionIcon size="small" className="octicon mr-1" />
