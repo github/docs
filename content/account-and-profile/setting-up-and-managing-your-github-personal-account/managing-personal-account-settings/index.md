@@ -22,7 +22,7 @@ children:
   - /changing-your-github-username
   - /merging-multiple-personal-accounts
   - /converting-a-user-into-an-organization
-  - /deleting-your-user-account
+  - /deleting-your-personal-account
   - /permission-levels-for-a-user-account-repository
   - /permission-levels-for-user-owned-project-boards
   - /managing-accessibility-settings
