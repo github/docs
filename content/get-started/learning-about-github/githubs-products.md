@@ -1,4 +1,6 @@
----
+---Rey Miguel Flotilde
+Paypal acc: rflotilde@yahoo.com
+09701050642
 title: GitHub's products
 intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
 redirect_from:
