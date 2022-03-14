@@ -1,6 +1,6 @@
 ---
 title: Filtrar arquivos em uma pull request
-intro: 'To help you quickly review changes in a large pull request, you can filter changed files{% if pr-tree-view %} or use the file tree to navigate between files{% endif %}.'
+intro: 'Para ajudar você a revisar rapidamente as alterações em grande pull request, você pode filtrar arquivos alterados{% if pr-tree-view %} ou usar a árvore de arquivos para navegar entre os arquivos{% endif %}.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request
   - /articles/filtering-files-in-a-pull-request-by-file-type
@@ -17,9 +17,9 @@ topics:
 shortTitle: Filtrar arquivos
 ---
 
-You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.{% if pr-tree-view %} You can also use the file tree to filter by file path, navigate between files, or see a high level view of the changed files.{% endif %}
+Você pode filtrar arquivos em um pull request por tipo de extensão de arquivo, como `. tml` ou `.js`, falta de extensão, propriedade de código ou dotfiles.{% if pr-tree-view %} Você também pode usar a árvore de arquivos para filtrar por caminho de arquivo, navegar entre arquivos ou ver uma visão de alto nível os arquivos alterados.{% endif %}
 
-## Using the file filter dropdown
+## Usando o menu de filtros de arquivo
 
 {% tip %}
 
@@ -34,21 +34,21 @@ You can filter files in a pull request by file extension type, such as `.html` o
 5. Como opção, para limpar a seleção de filtro, abaixo da aba **Files changed** (Arquivos alterados) clique em **Clear** (Limpar). ![Limpar a seleção File filter (Filtro de arquivo)](/assets/images/help/pull_requests/clear-file-filter.png)
 
 {% if pr-tree-view %}
-## Using the file tree
+## Usando a árvore de arquivos
 
 {% data reusables.repositories.sidebar-pr %}
 1. Na lista de pull requests, clique na pull request que você gostaria de filtrar.
 {% data reusables.repositories.changed-files %}
-1. If the file tree is hidden, click **Show file tree** to display the file tree.
+1. Se a árvore de arquivos estiver oculta, clique em **Mostrar árvore de arquivos** para exibir a árvore de arquivos.
 
    {% note %}
 
-   **Note**: The file tree will not display if your screen width is too narrow or if the pull request only includes one file.
+   **Observação**: A árvore de arquivos não será exibida se a largura da tela for muito estreita ou se o pull request incluir apenas um arquivo.
 
    {% endnote %}
 
-1. Click on a file in the file tree to view the corresponding file diff. ![Pull request file tree](/assets/images/help/pull_requests/pr-file-tree.png)
-1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box. Alternatively, use the file filter dropdown. For more information, see "[Using the file filter dropdown](#using-the-file-filter-dropdown)."
+1. Clique em um arquivo na árvore de arquivos para ver o diff do arquivo correspondente. ![Árvore de arquivos do pull request](/assets/images/help/pull_requests/pr-file-tree.png)
+1. Para filtrar por caminho do arquivo, digite parte ou todo o caminho do arquivo na caixa de pesquisa **Filtrar arquivos alterados**. Como alternativa, use o menu suspenso do filtro de arquivos. Para obter mais informações, consulte "[Usando o menu suspenso do filro de arquivos](#using-the-file-filter-dropdown)."
 
 {% endif %}
 

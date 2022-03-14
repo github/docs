@@ -1,6 +1,6 @@
 ---
 title: Definindo uma especificação mínima para máquinas de codespaces
-shortTitle: Set a minimum machine spec
+shortTitle: Defina uma especificação mínima da máquina
 intro: 'Você pode evitar que tipos de máquina com recursos insuficientes sejam usados no {% data variables.product.prodname_codespaces %} para o seu repositório.'
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
 versions:
