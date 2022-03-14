@@ -1,3 +1,4 @@
+[contributor_covenant-release (1).zip](https://github.com/github/docs/files/8241561/contributor_covenant-release.1.zip)
 ---
 title: Cloning a repository from GitHub to GitHub Desktop
 intro: 'You can use {% data variables.product.prodname_dotcom %} to clone remote repositories to {% data variables.product.prodname_desktop %}.'
