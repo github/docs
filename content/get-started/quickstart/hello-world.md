@@ -21,7 +21,7 @@ This tutorial teaches you {% data variables.product.product_name %} essentials l
 
 In this quickstart guide, you will:
 
-* Create and use a repository
+* Create and use a repositoryfdsa
 * Start and manage a new branch
 * Make changes to a file and push them to {% data variables.product.product_name %} as commits
 * Open and merge a pull request
