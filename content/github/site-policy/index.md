@@ -49,5 +49,14 @@ children:
   - /github-event-terms
   - /github-event-code-of-conduct
   - /github-gpl-cooperation-commitment
+  - /github-sexually-obscene-content
+  - /github-hate-speech-and-discrimination
+  - /github-misinformation-and-disinformation
+  - /github-bullying-and-harassment
+  - /github-threats-of-violence-and-gratuitously-violent-content
+  - /github-disrupting-the-experience-of-other-users
+  - /github-impersonation
+  - /github-doxxing-and-invasion-of-privacy
+  - /github-active-malware-or-exploits
 ---
 
