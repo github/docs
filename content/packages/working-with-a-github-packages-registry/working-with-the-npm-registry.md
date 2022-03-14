@@ -216,3 +216,4 @@ If your instance has subdomain isolation disabled:
 ## Further reading
 
 - "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+working-with-the-npm-registry.md
