@@ -53,7 +53,7 @@ jobs:
       # to link a PR to a list of environments later.
       url: ${{ env.APP_URL }}
     env:
-      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER }}
+      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
       COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
       IS_INTERNAL_BUILD: ${{ github.repository == 'github/docs-internal' }}
