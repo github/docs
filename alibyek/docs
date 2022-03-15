@@ -5,7 +5,7 @@ redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/syncing-a-fork
   - /articles/syncing-a-fork
   - /github/collaborating-with-issues-and-pull-requests/syncing-a-fork
-  - /github/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
+  - /github/collaborating-with-pull-req8uests/working-with-forks/syncing-a-fork
 versions:
   fpt: '*'
   ghes: '*'
