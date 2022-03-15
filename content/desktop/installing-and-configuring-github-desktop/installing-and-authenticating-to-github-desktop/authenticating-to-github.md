@@ -32,7 +32,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.2fa-in-browser %}
 7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
 
-## Authenticating an account on {% data variables.product.prodname_enterprise %}
+## Authenticating an account on {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
