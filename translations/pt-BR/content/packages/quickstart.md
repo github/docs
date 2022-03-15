@@ -18,7 +18,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
 
 ## Publicar o seu pacote
 
-1. Crie um novo repositório em {% data variables.product.prodname_dotcom %}, adicionando o `.gitignore` ao Node. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
+1. Crie um novo repositório em {% data variables.product.prodname_dotcom %}, adicionando o `.gitignore` ao Node. Para obter mais informações, consulte "[Criando um novo repositório](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
 2. Clone o repositório para a sua máquina local.
     ```shell
     $ git clone https://{% ifversion ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git

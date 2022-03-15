@@ -19,9 +19,9 @@ jobs:
         # ...deployment-specific steps
 ```
 
-When the above workflow runs, the `deployment` job will be subject to any rules configured for the `production` environment. For example, if the environment requires reviewers, the job will pause until one of the reviewers approves the job.
+Quando o fluxo de trabalho acima é executado, o trabalho de `implantação` estará sujeito a todas as regras configuradas para o ambiente de `produção`. Por exemplo, se o ambiente exigir revisores, o trabalho fará a pausa até que um dos revisores aprove o trabalho.
 
-You can also specify a URL for the environment. The specified URL will appear on the deployments page for the repository (accessed by clicking **Environments** on the home page of your repository) and in the visualization graph for the workflow run. If a pull request triggered the workflow, the URL is also displayed as a **View deployment** button in the pull request timeline.
+Você também pode especificar uma URL para o ambiente. A URL especificada aparecerá na página de implantações do repositório (acessado clicando em **Ambientes** na página inicial do seu repositório) e no gráfico de visualização para a execução do fluxo de trabalho. Se um pull request acionou o fluxo de trabalho, o URL também é exibido como um botão **Visualizar implantação** na linha do tempo do pull request.
 
 ```yaml
 name: Deployment
@@ -42,4 +42,4 @@ jobs:
         # ...deployment-specific steps
 ```
 
-![Workflow graph with URL](/assets/images/help/images/deploy-graph.png)
+![Gráfico do fluxo de trabalho com o URL](/assets/images/help/images/deploy-graph.png)

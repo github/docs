@@ -1,6 +1,6 @@
 ---
 title: REST API のリソース
-intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
+intro: '{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIが提供するリソースにアクセスする方法を学んでください。'
 redirect_from:
   - /rest/initialize-the-repo
 versions:
@@ -54,7 +54,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 空白のフィールドは、省略されるのではなく `null` として含まれます。
 
-All timestamps return in UTC time, ISO 8601 format:
+すべてのタイムスタンプは、 ISO 8601フォーマットのUTC時間で返されます。
 
     YYYY-MM-DDTHH:MM:SSZ
 

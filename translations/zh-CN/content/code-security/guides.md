@@ -31,6 +31,7 @@ includeGuides:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository
@@ -38,6 +39,7 @@ includeGuides:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs
   - /code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning
   - /code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning
   - /code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
@@ -45,6 +47,7 @@ includeGuides:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
+  - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
   - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
@@ -58,6 +61,8 @@ includeGuides:
   - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
   - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
   - /code-security/security-overview/about-the-security-overview
+  - /code-security/security-overview/filtering-alerts-in-the-security-overview
+  - /code-security/security-overview/viewing-the-security-overview
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates

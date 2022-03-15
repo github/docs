@@ -22,9 +22,9 @@
     - GitHub Actions
 - 
   #Security policies
-  title: Política de segurança da Microsoft
+  title: Microsoft security policy template
   description: Exemplo de política de segurança
-  href: /microsoft/microsoft.github.io/blob/master/SECURITY.MD
+  href: https://github.com/microsoft/repo-templates/blob/main/shared/SECURITY.md
   tags:
     - Política de segurança
 - 
@@ -54,8 +54,9 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.3'
 - 
-  #Dependabot configuration only relevant to GitHub.com
+  #Dependabot configuration only relevant to GitHub.com and GHES 3.3+
   #Convert "languages" to "package-ecosystems" for Dependabot configurations
   title: Configuração do Super linter
   description: Exemplo de configuração de atualizações de versão do Dependabot a partir do repositório do Super linter.
@@ -73,6 +74,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.3'
 - 
   title: PR de atualização da versão do Dependabot
   description: Exemplo de pull request gerado pela configuração de atualizações de versão do Dependabot no repositório do Super linter.
@@ -85,3 +87,4 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.3'

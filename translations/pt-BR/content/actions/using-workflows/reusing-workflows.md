@@ -307,3 +307,5 @@ Para obter informações sobre o uso da API REST para consultar o log de auditor
 ## Próximas etapas
 
 Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Eventos que desencadeiam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows)".
+
+{% if restrict-groups-to-workflows %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
