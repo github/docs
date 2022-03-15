@@ -33,7 +33,7 @@ topics:
 
 OrganizationあるいはEnterpriseのオーナーは、設定のコンテキストスイッチャーを使って様々なアカウントの設定を切り替えることができます。
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 1. ページの上部で、ユーザ名の右の**Switch to another account（他のアカウントに切り替え）** ![コンテキストスイッチャーボタン](/assets/images/help/settings/context-switcher-button.png)
 1. 切り替えたいアカウントの名前を入力し始め、そのアカウントの名前をクリックしてください。 ![コンテキストスイッチャーメニュー](/assets/images/help/settings/context-switcher-menu.png)
 1. In the left sidebar, click **{% octicon "credit-card" aria-label="The credit card icon" %} Billing and plans**.

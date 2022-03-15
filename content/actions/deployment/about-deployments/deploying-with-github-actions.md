@@ -3,7 +3,7 @@ title: Deploying with GitHub Actions
 intro: Learn how to control deployments with features like environments and concurrency.
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: overview
@@ -132,6 +132,8 @@ jobs:
         # ...deployment-specific steps
 ```
 
+For guidance on writing deployment-specific steps, see "[Finding deployment examples](#finding-deployment-examples)."
+
 ## Viewing deployment history
 
 When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see "[Viewing deployment history](/developers/overview/viewing-deployment-history)."
@@ -164,7 +166,7 @@ You can use a status badge to display the status of your deployment workflow. {%
 
 For more information, see "[Adding a workflow status badge](/actions/managing-workflow-runs/adding-a-workflow-status-badge)."
 
-## Next steps
+## Finding deployment examples
 
 This article demonstrated features of {% data variables.product.prodname_actions %} that you can add to your deployment workflows.
 

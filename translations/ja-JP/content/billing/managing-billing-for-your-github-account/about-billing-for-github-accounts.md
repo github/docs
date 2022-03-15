@@ -32,7 +32,7 @@ For more information about the products available for your account, see "[{% dat
 
 {% data reusables.accounts.accounts-billed-separately %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 {% tip %}
 

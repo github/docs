@@ -45,7 +45,7 @@ shortTitle: 创建 GitHub Pages 站点
 
   {% tip %}
 
-  **Tip:** If `index.html` is present, this will be used instead of `index.md`. If neither `index.html` nor `index.md` are present, `README.md` will be used.
+  **提示：** 如果存在 `index.html`，则将使用它而不是 `index.md`。 如果没有 `index.html` 或 `index.md`，将使用 `README.md`。
 
   {% endtip %}
 {% data reusables.pages.configure-publishing-source %}

@@ -59,8 +59,8 @@ shortTitle: アカウントからのブロック
 
 ## アカウント設定でのユーザのブロック
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.blocked_users %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.blocked_users %}
 3. \[Block a user\] (ユーザをブロック) の下で、ブロックしたいユーザのユーザ名を入力し、[**Block user**] をクリックしてます。 ![ユーザ名フィールドとブロックボタン](/assets/images/help/settings/user-settings-block-user.png)
 4. ブロックされたユーザがコントリビュータになっているリポジトリにアクセスした際に警告を表示させることもできます。それには [**Warn me when a blocked user is a prior contributor to a repository**] を選択します。 ![ブロックされたユーザについての警告オプション](/assets/images/help/settings/warn-block-user.png)
 

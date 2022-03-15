@@ -5,7 +5,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.3'
-  ghae: 'issue-4749'
+  ghae: issue-4749
 topics:
   - Organizations
 shortTitle: Customize organization profile

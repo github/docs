@@ -1,6 +1,6 @@
 When using the `pull_request` and `pull_request_target` events, you can configure a workflow to run only for pull requests that target specific branches.
 
-Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. You cannot use both the `branches` and `branches-ignore` filters for the same event in a workflow.
+Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. Você não pode usar ambos os filtros `branches` e `branches-ignore` para o mesmo evento em um fluxo de trabalho.
 
 If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
 
@@ -42,7 +42,7 @@ on:
 
 #### Example: Including and excluding branches
 
-You cannot use `branches` and `branches-ignore` to filter the same event in a single workflow. If you want to both include and exclude branch patterns for a single event, use the `branches` filter along with the `!` character to indicate which branches should be excluded.
+You cannot use `branches` and `branches-ignore` to filter the same event in a single workflow. Se você deseja incluir e excluir padrões de branch para um único evento, use o filtro `branches` junto com o caractere `!` para indicar quais branches devem ser excluídos.
 
 If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead.
 

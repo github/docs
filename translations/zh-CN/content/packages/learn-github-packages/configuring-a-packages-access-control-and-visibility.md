@@ -86,33 +86,33 @@ shortTitle: 访问控制和可见性
 
 要进一步自定义对容器映像的访问，请参阅“[配置对组织的容器映像的访问](#configuring-access-to-container-images-for-an-organization)”。
 
-## Ensuring {% data variables.product.prodname_codespaces %} access to your package
+## 确保 {% data variables.product.prodname_codespaces %} 访问您的软件包
 
-By default, a codespace can seamlessly access certain packages in the {% data variables.product.prodname_dotcom %} Container Registry, such as those published in the same repository with the **Inherit access** option selected. For more information on which access is automatically configured, see "[Accessing images stored in {% data variables.product.prodname_dotcom %} Container Registry](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)."
+默认情况下，代码空间可以无缝访问 {% data variables.product.prodname_dotcom %} 容器注册表中的某些包，例如在选中了 **Inherit access（继承访问）**选项的同一仓库中发布的包。 有关自动配置哪些访问权限的详细信息，请参阅“[访问存储在容器注册表 {% data variables.product.prodname_dotcom %} 中的映像](/codespaces/codespaces-reference/allowing-your-codespace-to-access-a-private-image-registry#accessing-images-stored-in-github-container-registry)”。
 
-Otherwise, to ensure that a codespace has access to your package, you must grant access to the repository where the codespace is being launched.
+否则，为了确保代码空间能够访问您的软件包，必须授予对启动代码空间的仓库的访问权限。
 
-指定的仓库不需要是保存包源代码的仓库。 You can give codespaces in multiple repositories access to a package.
+指定的仓库不需要是保存包源代码的仓库。 您可以授予多个仓库中的代码空间对包的访问权限。
 
-Once you've selected the package you're interested in sharing with codespaces in a repository, you can grant that repo access.
+选择您想与仓库中的代码空间共享的包后，可以授予该仓库访问权限。
 
-1. In the right sidebar, click **Package settings**.
+1. 在右侧边栏单击 **Package settings（包设置）**。
 
-   !["Package settings" option in right menu](/assets/images/help/package-registry/package-settings.png)
+   ![右侧菜单中的"Package settings（包设置）"选项](/assets/images/help/package-registry/package-settings.png)
 
-2. Under "Manage Codespaces access", click **Add repository**.
+2. 在“Manage Codespaces access（管理 Codespaces 访问）”下，单击 **Add repository（添加仓库）**。
 
    !["添加仓库"按钮](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
 
-3. Search for the repository you want to add.
+3. 搜索要添加的仓库。
 
    !["添加仓库"按钮](/assets/images/help/package-registry/manage-codespaces-access-search.png)
 
-4. Repeat for any additional repositories you would like to allow access.
+4. 对要允许访问的任何其他仓库重复此步骤。
 
-5. If the codespaces for a repository no longer need access to an image, you can remove access.
+5. 如果仓库的代码空间不再需要访问映像，则可以删除访问权限。
 
-   !["Remove repository" button](/assets/images/help/package-registry/manage-codespaces-access-item.png)
+   !["Remove repository（删除仓库）"按钮](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
 ## 为个人帐户配置容器映像的可见性
 
@@ -140,7 +140,7 @@ Once you've selected the package you're interested in sharing with codespaces in
 6. 在“Container creation（容器创建）”下，选择是要启用公共、私有或内部容器映像。
     - 要让组织成员创建公共容器映像，请单击 **Public（公共）**。
     - 要让组织成员创建只对其他组织成员可见的私有容器映像，请单击 **Private（私有）**。 您可以进一步自定义私有容器映像的可见性。
-    - To enable organization members to create internal container images that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the container images will be visible to all enterprise members. ![组织成员发布的容器图像的可见性选项](/assets/images/help/package-registry/container-creation-org-settings.png)
+    - 要使组织成员能够创建对所有组织成员可见的内部容器映像，请单击 **Internal（内部）**。 如果组织属于企业，则容器映像将对所有企业成员可见。 ![组织成员发布的容器图像的可见性选项](/assets/images/help/package-registry/container-creation-org-settings.png)
 
 ## 为组织配置容器映像的可见性
 

@@ -2,7 +2,7 @@
 title: Introdução ao GitHub Actions para GitHub AE
 shortTitle: Começar
 intro: 'Saiba mais sobre como configurar {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_managed %}.'
-permissions: 'Site administrators can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
+permissions: 'Enterprise owners can enable {% data variables.product.prodname_actions %} and configure enterprise settings.'
 versions:
   ghae: '*'
 type: how_to
@@ -17,9 +17,7 @@ redirect_from:
 
 ## Sobre {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_managed %}
 
-Este artigo explica como os administradores do site podem configurar {% data variables.product.prodname_ghe_managed %} para usar {% data variables.product.prodname_actions %}.
-
-Por padrão, {% data variables.product.prodname_actions %} está habilitado para {% data variables.product.prodname_ghe_managed %}. Para começar a usar {% data variables.product.prodname_actions %} na sua empresa, você deverá gerenciar as permissões de acesso para {% data variables.product.prodname_actions %} e adicionar executores para executar fluxos de trabalho.
+Por padrão, {% data variables.product.prodname_actions %} está habilitado para {% data variables.product.product_name %}. Para começar a usar {% data variables.product.prodname_actions %} na sua empresa, você deverá gerenciar as permissões de acesso para {% data variables.product.prodname_actions %} e adicionar executores para executar fluxos de trabalho.
 
 {% data reusables.actions.introducing-enterprise %}
 
@@ -31,6 +29,6 @@ Você pode usar políticas para gerenciar o acesso a {% data variables.product.p
 
 ## Adicionar executores
 
-Você pode configurar e hospedar servidores para executar trabalhos para sua empresa em {% data variables.product.product_name %}. {% data reusables.actions.about-self-hosted-runners %} Para obter mais informações, consulte "[Hospedando seus próprios executores](/actions/hosting-your-own-runners)".
+Você deve configurar e hospedar suas próprias máquinas para executar trabalhos para sua empresa em {% data variables.product.product_name %}. {% data reusables.actions.about-self-hosted-runners %} Para obter mais informações, consulte "[Primeiros passos com executores auto-hospedados para a sua empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)" e "[Hospedando seus próprios executores](/actions/hosting-your-own-runners)."
 
 {% data reusables.actions.general-security-hardening %}

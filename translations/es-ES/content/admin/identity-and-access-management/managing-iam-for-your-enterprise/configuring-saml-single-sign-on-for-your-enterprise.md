@@ -33,6 +33,8 @@ redirect_from:
 
 {% data reusables.saml.about-saml-access-enterprise-account %}Para obtener más información, consulta la sección "[Visualizar y administrar el acceso de SAML de un usuario a tu cuenta empresarial](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)".
 
+{% data reusables.saml.saml-disabled-linked-identities-removed %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 {% elsif ghae %}
@@ -77,6 +79,7 @@ Para obtener información más detallada sobre cómo habilitar el SAML utilizand
 9. Para verificar la integridad de las solicitudes de tu emisor de SAML, haz clic en {% octicon "pencil" aria-label="The edit icon" %}. Posteriormente, en los menús desplegables de "Método de firma" y "Método de resumen", elige el algoritmo de hash que utiliza tu emisor de SAML. ![Menús desplegables para los algoritmos de hash del Método de firma y del Método de resumen usados por tu emisor SAML](/assets/images/help/saml/saml_hashing_method.png)
 10. Antes de habilitar SAML SSO para tu empresa, haz clic en **Probar la configuración de SAML** para asegurarte de que la información que has ingresado sea correcta. ![Botón para probar la configuración de SAML antes de exigir el inicio de sesión único](/assets/images/help/saml/saml_test.png)
 11. Haz clic en **Save ** (guardar).
+{% data reusables.enterprise-accounts.download-recovery-codes %}
 
 {% elsif ghae %}
 

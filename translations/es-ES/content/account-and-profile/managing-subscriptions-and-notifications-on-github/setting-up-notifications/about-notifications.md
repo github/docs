@@ -29,9 +29,8 @@ Puedes elegir recibir actualizaciones continuas sobre actividades específicas e
 Puedes elegir suscribirte a las notificaciones de:
 - Una conversación sobre un informe de problemas, solicitud de extracción o gist específico.
 - Todas las actividades en un repositorio o en un debate de equipo.
-- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- Repositorio {% data reusables.notifications-v2.custom-notification-types %} (si se habilitó).{% else %}
-- Lanzamientos en un repositorio.{% endif %}
+- Actividades de CI, tales como el estado de los flujos de trabajo en los repositorios configurados con {% data variables.product.prodname_actions %}.
+- Repositorio {% data reusables.notifications-v2.custom-notification-types %} (en caso de que estén habilitadas).
 
 También puedes elegir seguir automáticamente todos los repositorios en los que tienes acceso de escritura, con excepción de sus bifurcaciones. Puedes seguir de cerca manualmente a cualquier otro repositorio al que tengas acceso si das clic en **Seguir**.
 
@@ -101,4 +100,4 @@ Las notificaciones que no se marquen como **Guardadas** se mantendrán por 5 mes
 
 ## Retroalimentación y soporte
 
-If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).
+Si tienes retroalimentación o solicitudes de características para las notificaciones, utiliza un [debate de retroalimentación de {% data variables.product.product_name %}](https://github.com/github/feedback/discussions/categories/general-feedback).
