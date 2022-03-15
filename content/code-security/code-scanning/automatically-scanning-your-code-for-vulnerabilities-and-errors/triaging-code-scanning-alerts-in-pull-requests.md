@@ -81,9 +81,9 @@ To see more information about an alert, users with write permission can click th
 In the detailed view for an alert, some {% data variables.product.prodname_code_scanning %} tools, like {% data variables.product.prodname_codeql %} analysis, also include a description of the problem and a **Show more** link for guidance on how to fix your code.
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
-![Alert description and link to show more information](/assets/images/help/repository/code-scanning-alert-description.png)
-{% else %}
 ![Alert description and link to show more information](/assets/images/help/repository/code-scanning-pr-alert.png)
+{% else %}
+![Alert description and link to show more information](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
 {% endif %}
 ## Fixing an alert on your pull request
 

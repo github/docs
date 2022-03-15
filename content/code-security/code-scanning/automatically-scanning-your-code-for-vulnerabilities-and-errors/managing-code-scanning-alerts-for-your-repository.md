@@ -51,9 +51,9 @@ By default, the code scanning alerts page is filtered to show alerts for the def
      ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
   {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
-   ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths-link.png)
-   {% else %}
    ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
+   {% else %}
+   ![The "Show paths" link on an alert](/assets/images/enterprise/3.4/repository/code-scanning-show-paths.png)
    {% endif %}
 2. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
    ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
@@ -107,10 +107,12 @@ You can use the "Only alerts in application code" filter or `autofilter:true` ke
 
 You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
 - The name of the alert
-- The alert description
 - The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
-
+ {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
  ![The alert information used in searches](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
+ {% else %}
+ ![The alert information used in searches](/assets/images/enterprise/3.4/repository/code-scanning-free-text-search-areas.png)
+ {% endif %}
 
 | Supported search | Syntax example | Results |
 | ---- | ---- | ---- |
@@ -124,7 +126,7 @@ You can search the list of alerts. This is useful if there is a large number of 
 
 **Tips:** 
 - The multiple word search is equivalent to an OR search.
-- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name, description, or details.
+- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
 
 {% endtip %}
 
