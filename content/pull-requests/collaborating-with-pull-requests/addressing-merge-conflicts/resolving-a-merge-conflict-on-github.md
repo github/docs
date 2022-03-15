@@ -59,6 +59,11 @@ If a site administrator disables the merge conflict editor for pull requests bet
    Click **Create branch and update my pull request** or **I understand, continue updating _BRANCH_**. The button text corresponds to the action you are performing.
 1. To merge your pull request, click **Merge pull request**. For more information about other pull request merge options, see "[Merging a pull request](/articles/merging-a-pull-request/)."
 
+ If the conflict is in binary data such as an image or sound file, this method of resolving conflicts cannot be used. 
+ In order to resolve conflicts involving binary files, immidiately make a back up, delete and re-clone the project, then re-introduce non-conflicting files.
+ 
+ For the conflicting files, examine the latest data in the freshly cloned project and decide if you can append your edits in a DCC program or whether to overwrite the changes entirely in a fresh pull request. 
+
 ## Further reading
 
 - "[About pull request merges](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
