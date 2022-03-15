@@ -346,7 +346,7 @@ steps:
 
 Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
 
-If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SECRET_IS_SET }}`{% endraw %} in the example) will be an empty string.
+If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
 
 {% raw %}
 ```yaml
@@ -356,11 +356,11 @@ jobs:
   my-jobname:
     runs-on: ubuntu-latest
     env:
-      SECRET_IS_SET: ${{ secrets.SECRET_IS_SET }}
+      super_secret: ${{ secrets.SuperSecret }}
     steps:
-      - if: ${{ env.SECRET_IS_SET != '' }}
+      - if: ${{ env.super_secret != '' }}
         run: echo 'This step will only run if the secret has a value set.'
-      - if: ${{ env.SECRET_IS_SET == '' }}
+      - if: ${{ env.super_secret == '' }}
         run: echo 'This step will only run if the secret does not have a value set.'
 ```
 {% endraw %}
