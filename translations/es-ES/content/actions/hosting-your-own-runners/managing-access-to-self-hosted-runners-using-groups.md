@@ -9,11 +9,12 @@ versions:
   ghae: '*'
   ghec: '*'
 type: tutorial
-shortTitle: Administrar grupos de ejecutores
+shortTitle: Manage access to runners
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
+{% data reusables.actions.restrict-runner-workflow-beta %}
 
 ## Acerca de los grupos de ejecutores auto-hospedados
 
@@ -31,9 +32,10 @@ Si utilizas
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
-Los grupos de ejecutores auto-hospedados se utilizan para controlar el acceso a los ejecutores auto-hospedados a nivel de empresas y organizaciones. Los administradores de la empresa pueden configurar políticas de acceso que controlan qué organizaciones en la empresa tienen acceso al grupo de ejecutores. Los administradores de las organizaciones pueden configurar políticas de acceso que controlen qué repositorios en una organización tienen acceso al grupo de ejecutores.
+Los grupos de ejecutores auto-hospedados se utilizan para controlar el acceso a los ejecutores auto-hospedados a nivel de empresas y organizaciones. Enterprise owners can configure access policies that control which organizations
+{% if restrict-groups-to-workflows %}and workflows {% endif %}in an enterprise have access to the runner group. Organization owners can configure access policies that control which repositories{% if restrict-groups-to-workflows %} and workflows{% endif %} in an organization have access to the runner group.
 
-Cuando un administrador de empresa otorga acceso a una organización para un grupo de ejecutores, los administradores de organización pueden ver que dicho grupo se lista en la configuración del ejecutor auto-hospedado de la organización. Los administradores de la organización pueden entonces asignar políticas de acceso adicionales para repositorios granulares en el grupo de ejecutores de la empresa.
+When an enterprise owner grants an organization access to a runner group, organization owners can see the runner group listed in the organization's self-hosted runner settings. The organization owners can then assign additional granular repository{% if restrict-groups-to-workflows %} and workflow{% endif %} access policies to the enterprise runner group.
 
 Cuando se crean nuevos ejecutores, se asignan automáticamente al grupo predeterminado. Los ejecutores solo pueden estar en un grupo a la vez. Puedes mover los ejecutores del grupo predeterminado a otro grupo. Para obtener más información, consulta la sección "[Mover un ejecutor auto-hospedado a un grupo](#moving-a-self-hosted-runner-to-a-group)".
 
@@ -43,13 +45,14 @@ Todas las organizaciones tienen un solo grupo predeterminado de ejecutores auto-
 
 Los ejecutores auto-hospedados se asignan automáticamente al grupo predeterminado cuando se crean y solo pueden ser mimebros de un grupo a la vez. Puedes mover un ejecutor del grupo predeterminado a cualquier grupo que crees.
 
-Cuando creas un grupo, debes elegir una política que defina qué repositorios tienen acceso al grupo ejecutor.
+When creating a group, you must choose a policy that defines which repositories{% if restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group.
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.actions.settings-sidebar-actions-runner-groups %}
 1. En la sección de "Grupos de ejecutores", haz clic en **Grupo de ejecutores nuevo**.
+1. Enter a name for your runner group.
  {% data reusables.actions.runner-group-assign-policy-repo %}
 
    {% warning %}
@@ -59,6 +62,7 @@ Cuando creas un grupo, debes elegir una política que defina qué repositorios t
    Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
    {% endwarning %}
+{% data reusables.actions.runner-group-assign-policy-workflow %}{%- if restrict-groups-to-workflows %} Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.{% endif %}
 {% data reusables.actions.self-hosted-runner-create-group %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
@@ -89,7 +93,7 @@ Cuando creas un grupo, debes elegir una política que defina qué repositorios t
 
 ## Crear un grupo de ejecutores auto-hospedados para una empresa
 
-Las empresas pueden agregar sus ejecutores auto-hospedados a grupos para su administración de accesos. Las empresas pueden crear grupos de ejecutores auto-hospedados a los cuales puedan acceder organizaciones específicas en la cuenta empresarial. Los administradores de la organización pueden entonces asignar políticas de acceso adicionales para los repositorios granulares a estos grupos de ejecutores para las empresas. Para obtener más información sobre cómo crear un grupo de ejecutores auto-hospedados con la API de REST, consulta las terminales empresariales en la [API de REST de {% data variables.product.prodname_actions %}](/rest/reference/actions#self-hosted-runner-groups).
+Las empresas pueden agregar sus ejecutores auto-hospedados a grupos para su administración de accesos. Enterprises can create groups of self-hosted runners that are accessible to specific organizations in the enterprise account{% if restrict-groups-to-workflows %} or to specific workflows{% endif %}. Organization owners can then assign additional granular repository{% if restrict-groups-to-workflows %} or workflow{% endif %} access policies to the enterprise runner groups. Para obtener más información sobre cómo crear un grupo de ejecutores auto-hospedados con la API de REST, consulta las terminales empresariales en la [API de REST de {% data variables.product.prodname_actions %}](/rest/reference/actions#self-hosted-runner-groups).
 
 Los ejecutores auto-hospedados se asignan automáticamente al grupo predeterminado cuando se crean y solo pueden ser mimebros de un grupo a la vez. Puedes asignar el ejecutor a un grupo específico durante el proceso de registro o puedes moverlo después desde el grupo predeterminado a un grupo personalizado.
 
@@ -116,17 +120,21 @@ Cuando creas un grupo, debes elegir la política que defina qué organizaciones 
 
    ![Agregar opciones de un grupo de ejecutores](/assets/images/help/settings/actions-enterprise-account-add-runner-group-options-ae.png)
    {%- endif %}
+{% data reusables.actions.runner-group-assign-policy-workflow %}
 1. Da clic en **Guardar grupo** para crear el grupo y aplicar la política.
 
 {% endif %}
 
 ## Cambiar la política de acceso de un grupo de ejecutores auto-hospedados
 
-Puedes actualizar la política de acceso de un grupo ejecutor o renombrarlo.
+For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group{% if restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}. For runner groups in an organization, you can change what repositories in the organization can access a runner group{% if restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}.
+
+### Changing what organizations or repositories can access a runner group
+
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-1. Modifica las opciones de acceso o cambia el nombre del grupo de ejecutores.
+1. For runner groups in an enterprise, under **Organization access**, modify what organizations can access the runner group. For runner groups in an organization, under **Repository access**, modify what repositories can access the runner group.
 
    {%- ifversion fpt or ghec or ghes %}
    {% warning %}
@@ -141,6 +149,35 @@ Puedes actualizar la política de acceso de un grupo ejecutor o renombrarlo.
    {%- endif %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.actions.self-hosted-runner-configure-runner-group-access %}
+{% endif %}
+
+{% if restrict-groups-to-workflows %}
+### Changing what workflows can access a runner group
+You can configure a self-hosted runner group to run either selected workflows or all workflows. For example, you might use this setting to protect secrets that are stored on self-hosted runners or to standardize deployment workflows by restricting a runner group to run only a specific reusable workflow. This setting cannot be overridden if you are configuring an organization's runner group that was shared by an enterprise.
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
+1. Under **Workflow access**, select the dropdown menu and click **Selected workflows**.
+1. Da clic en {% octicon "gear" aria-label="the gear icon" %}.
+1. Enter a comma separated list of the workflows that can access the runner group. Use the full path, including the repository name and owner. Pin the workflow to a branch, tag, or full SHA. For example: `octo-org/octo-repo/.github/workflows/build.yml@v2, octo-org/octo-repo/.github/workflows/deploy.yml@d6dc6c96df4f32fa27b039f2084f576ed2c5c2a5, monalisa/octo-test/.github/workflows/test.yml@main`.
+
+   Only jobs directly defined within the selected workflows will have access to the runner group.
+
+   Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.
+
+1. Haz clic en **Save ** (guardar).
+
+{% endif %}
+
+## Changing the name of a runner group
+
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
+{% data reusables.actions.self-hosted-runner-groups-navigate-to-repo-org-enterprise %}
+{% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
+1. Change the runner group name.
+
+{% elsif ghae or ghes < 3.4 %}
+{% data reusables.actions.self-hosted-runner-configure-runner-group %}
+1. Change the runner group name.
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}

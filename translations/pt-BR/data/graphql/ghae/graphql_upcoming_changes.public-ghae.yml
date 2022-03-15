@@ -114,15 +114,15 @@ upcoming_changes:
     owner: synthead
   - 
     location: PullRequest.viewerCanOverrideMergeQueue
-    description: '`viewerCanOverrideMergeQueue` will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.'
+    description: '`viewerCanOverrideMergeQueue` será removido. Use PullRequest.viewerCanMergeAsAdmin.'
     reason: '`viewer_can_override_merge_queue` will be removed'
     date: '2022-04-01'
     criticality: breaking
     owner: cbeaman
   - 
     location: Repository.defaultMergeQueue
-    description: '`defaultMergeQueue` will be removed. Use `Repository.mergeQueue` instead.'
-    reason: '`defaultMergeQueue` will be removed.'
+    description: 'O `defaultMergeQueue` será removido. Use `Repository.mergeQueue`.'
+    reason: '`defaultMergeQueue` será removido.'
     date: '2022-04-01'
     criticality: breaking
     owner: colinshum

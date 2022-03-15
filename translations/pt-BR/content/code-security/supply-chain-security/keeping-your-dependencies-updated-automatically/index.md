@@ -15,7 +15,6 @@ topics:
   - Pull requests
 children:
   - /about-dependabot-version-updates
-  - /upgrading-from-dependabotcom-to-github-native-dependabot
   - /enabling-and-disabling-dependabot-version-updates
   - /listing-dependencies-configured-for-version-updates
   - /managing-pull-requests-for-dependency-updates

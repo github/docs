@@ -132,6 +132,8 @@ jobs:
         # ...deployment-specific steps
 ```
 
+For guidance on writing deployment-specific steps, see "[Finding deployment examples](#finding-deployment-examples)."
+
 ## 查看部署历史记录
 
 When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see "[Viewing deployment history](/developers/overview/viewing-deployment-history)."
@@ -164,7 +166,7 @@ You can use a status badge to display the status of your deployment workflow. {%
 
 更多信息请参阅“[添加工作流程状态徽章](/actions/managing-workflow-runs/adding-a-workflow-status-badge)”。
 
-## 后续步骤
+## Finding deployment examples
 
 This article demonstrated features of {% data variables.product.prodname_actions %} that you can add to your deployment workflows.
 

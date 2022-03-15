@@ -22,8 +22,6 @@ shortTitle: 启用和测试 SAML SSO
 
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
 
-{% data reusables.saml.cannot-update-existing-saml-settings %}
-
 ## 启用和测试组织的 SAML 单点登录
 
 在组织中实施 SAML SSO 之前，请确保您已准备好组织。 更多信息请参阅“[准备在组织中实施 SAML 单点登录](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)”。

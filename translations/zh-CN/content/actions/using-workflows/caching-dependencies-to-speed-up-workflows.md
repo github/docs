@@ -162,7 +162,7 @@ jobs:
 
 ### 使用上下文创建缓存键
 
-缓存键可以包括 {% data variables.product.prodname_actions %} 支持的任何上下文、函数、文本和运算符。 For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+缓存键可以包括 {% data variables.product.prodname_actions %} 支持的任何上下文、函数、文本和运算符。 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 使用表达式创建 `key` 允许您在依赖项更改时自动创建新缓存。 例如，您可以使用计算 npm `package-lock.json` 文件哈希的表达式创建 `key`。
 
