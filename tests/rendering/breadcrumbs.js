@@ -196,19 +196,19 @@ describe('breadcrumbs', () => {
 
     test('works on articles that DO NOT have maptopics ', async () => {
       const breadcrumbs = await getJSON(
-        '/github/site-policy/github-privacy-statement?json=breadcrumbs'
+        '/site-policy/privacy-policies/github-privacy-statement?json=breadcrumbs'
       )
       const expected = [
         {
-          href: '/en/github',
-          title: 'GitHub',
-        },
-        {
-          href: '/en/github/site-policy',
+          href: '/en/site-policy',
           title: 'Site policy',
         },
         {
-          href: '/en/github/site-policy/github-privacy-statement',
+          href: '/en/site-policy/privacy-policies',
+          title: 'Privacy Policies',
+        },
+        {
+          href: '/en/site-policy/privacy-policies/github-privacy-statement',
           title: 'GitHub Privacy Statement',
         },
       ]
