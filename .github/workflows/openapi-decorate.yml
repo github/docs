@@ -57,7 +57,7 @@ jobs:
         uses: EndBug/add-and-commit@756d9ea820f11931e591eaf57f25e0f5b903d5b2
         with:
           # The arguments for the `git add` command
-          add: '["lib/rest/static/app", "lib/rest/static/decorated"]'
+          add: '["lib/rest/static/apps", "lib/rest/static/decorated"]'
 
           # The message for the commit
           message: 'Add decorated OpenAPI schema files'
