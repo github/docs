@@ -1,12 +1,5 @@
-date: '2022-02-15'
-release_candidate: true
-deprecated: true
+date: '2022-03-15'
 intro: |
-  {% note %}
-
-  **Note:** If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
-
-  {% endnote %}
 
   For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 
@@ -48,6 +41,9 @@ sections:
 
         # https://github.com/github/releases/issues/2062
         - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
+
+        # https://github.com/github/releases/issues/1722
+        - You can now give users access to enterprise-specific links by adding custom footers to {% data variables.product.prodname_ghe_server %}. For more information, see "[Configuring custom footers](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)."
 
     - heading: Performance Changes
       notes:
@@ -219,7 +215,7 @@ sections:
         # https://github.com/github/releases/issues/1943
         - '{% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve private repository secret scanning results at the enterprise level. The new endpoint supplements the existing repository-level and organization-level endpoints. For more information, see "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.'
 
-  # No security/bug fixes for the RC release
+  # No security/bug fixes for the GA release
   # security_fixes:
   #   - PLACEHOLDER
 
