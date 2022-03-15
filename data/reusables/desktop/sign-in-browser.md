@@ -1,0 +1,2 @@
+1. In the "Sign in" pane, click **Sign in using your browser**. {% data variables.product.prodname_desktop %} will open your default browser.
+  ![The Sign in using your browser link](/assets/images/help/desktop/sign-in-browser.png)
