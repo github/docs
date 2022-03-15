@@ -39,6 +39,10 @@ async function getBreadcrumbs(req) {
 }
 
 async function getShortTitle(page, context) {
+  // Note! Don't use `page.title` or `page.shortTitle` because if they get
+  // set during rendering, they become the HTML entities encoded string.
+  // E.g. "Delete &amp; restore a package"
+
   if (page.rawShortTitle) {
     if (page.rawShortTitle.includes('{')) {
       // Can't easily cache this because the `page` is reused for multiple
@@ -47,10 +51,10 @@ async function getShortTitle(page, context) {
       // this point it's probably not worth it.
       return await liquid.parseAndRender(page.rawShortTitle, context)
     }
-    return page.shortTitle
+    return page.rawShortTitle
   }
   if (page.rawTitle.includes('{')) {
     return await liquid.parseAndRender(page.rawTitle, context)
   }
-  return page.title
+  return page.rawTitle
 }

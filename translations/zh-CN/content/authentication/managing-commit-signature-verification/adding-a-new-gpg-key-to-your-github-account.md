@@ -1,6 +1,6 @@
 ---
 title: 新增 GPG 密钥到 GitHub 帐户
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to use your new (or existing) GPG key, you''ll also need the key to your account.'
+intro: '要在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上配置帐户以使用新的（或现有的）GPG 密钥，还需要将密钥添加到帐户。'
 redirect_from:
   - /articles/adding-a-new-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -16,7 +16,7 @@ topics:
 shortTitle: 添加新的 GPG 密钥
 ---
 
-Before adding a new GPG key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you should have:
+在将新的 GPG 密钥添加到 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户之前，您应该具有：
 - [检查现有 GPG 密钥](/articles/checking-for-existing-gpg-keys)
 - [生成并复制新 GPG 密钥](/articles/generating-a-new-gpg-key)
 

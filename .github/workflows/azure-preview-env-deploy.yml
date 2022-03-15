@@ -27,6 +27,9 @@ on:
         description: 'The commit SHA to build'
         type: string
         required: true
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: read

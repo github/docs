@@ -1,6 +1,6 @@
-Some events have filters that give you more control over when your workflow should run.
+Alguns eventos têm filtros que dão mais controle sobre quando seu fluxo de trabalho deve ser executado.
 
-For example, the `push` event has a `branches` filter that causes your workflow to run only when a push to a branch that matches the `branches` filter occurs, instead of when any push occurs.
+Por exemplo, o evento `push` tem um filtro de `branches` que faz com que o fluxo de trabalho seja executado apenas quando um push para um branch que corresponde ao filtro de `branches` ocorre, ao invés de quando qualquer push ocorre.
 
 ```yaml
 on:

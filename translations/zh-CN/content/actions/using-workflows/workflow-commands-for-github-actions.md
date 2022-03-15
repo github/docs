@@ -92,7 +92,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 设置操作的输出参数。
 
-（可选）您也可以在操作的元数据文件中声明输出参数。 For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
+（可选）您也可以在操作的元数据文件中声明输出参数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)”。
 
 ### 示例
 
