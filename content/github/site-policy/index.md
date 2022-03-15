@@ -31,6 +31,7 @@ children:
   - /guidelines-for-legal-requests-of-user-data
   - /github-government-takedown-policy
   - /github-acceptable-use-policies
+  - /github-appeal-and-reinstatement
   - /githubs-notice-about-the-california-consumer-privacy-act
   - /github-community-guidelines
   - /github-community-forum-code-of-conduct
@@ -48,5 +49,14 @@ children:
   - /github-event-terms
   - /github-event-code-of-conduct
   - /github-gpl-cooperation-commitment
+  - /github-sexually-obscene-content
+  - /github-hate-speech-and-discrimination
+  - /github-misinformation-and-disinformation
+  - /github-bullying-and-harassment
+  - /github-threats-of-violence-and-gratuitously-violent-content
+  - /github-disrupting-the-experience-of-other-users
+  - /github-impersonation
+  - /github-doxxing-and-invasion-of-privacy
+  - /github-active-malware-or-exploits
 ---
 

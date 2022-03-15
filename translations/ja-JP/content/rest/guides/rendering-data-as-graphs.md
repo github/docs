@@ -15,7 +15,7 @@ topics:
  
 
 
-このガイドでは、APIを使用して、所有するリポジトリと、それを構成するプログラミング言語についての情報を取得します。 次に、[D3.js][D3.js]ライブラリを使用して、その情報をいくつかの方法で視覚化します。 To interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
+このガイドでは、APIを使用して、所有するリポジトリと、それを構成するプログラミング言語についての情報を取得します。 次に、[D3.js][D3.js]ライブラリを使用して、その情報をいくつかの方法で視覚化します。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIとやりとりをするために、素晴らしいRubyのライブラリである[Octokit.rb][Octokit]を使います。
 
 まだ[「認証の基本」][basics-of-authentication]ガイドを読んでいない場合は、それを読んでからこの例に取りかかってください。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
 
@@ -76,7 +76,7 @@ run Example::MyGraphApp
 
 ## リポジトリ情報のフェッチ
 
-This time, in order to talk to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we're going to use the [Octokit Ruby library][Octokit]. これは、多くのREST呼び出しを直接行うよりもはるかに簡単です。 さらに、OctokitはGitHubberによって開発され、積極的にメンテナンスされているので、確実に動作します。
+今回は、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIと通信するために、[RubyのライブラリOctokit][Octokit]を使います。 これは、多くのREST呼び出しを直接行うよりもはるかに簡単です。 さらに、OctokitはGitHubberによって開発され、積極的にメンテナンスされているので、確実に動作します。
 
 Octokit経由のAPIによる認証は簡単です。 ログインとトークンを`Octokit::Client`コンストラクタに渡すだけです。
 

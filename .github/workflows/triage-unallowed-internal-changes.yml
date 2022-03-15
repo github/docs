@@ -12,6 +12,9 @@ on:
       - opened
       - reopened
       - synchronize
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   # This is needed by dorny/paths-filter

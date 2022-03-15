@@ -197,6 +197,8 @@ You must ensure that the machine has the appropriate network access to communica
 
 You can also use self-hosted runners with a proxy server. For more information, see "[Using a proxy server with self-hosted runners](/actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners)."
 
+For more information about troubleshooting common network connectivity issues, see "[Monitoring and troubleshooting self-hosted runners](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#troubleshooting-network-connectivity)."
+
 {% ifversion ghes %}
 
 ## Communication between self-hosted runners and {% data variables.product.prodname_dotcom_the_website %}
