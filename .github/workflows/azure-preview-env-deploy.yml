@@ -27,6 +27,9 @@ on:
         description: 'The commit SHA to build'
         type: string
         required: true
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -165,8 +168,8 @@ jobs:
           rsync -rptovR ./user-code/components/./**/*.{ts,tsx} ./components
           rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
           rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
-          rsync -rptovR ./user-code/pages/./**/*.{tsx} ./pages
-          rsync -rptovR ./user-code/stylesheets/./**/*.{scss} ./stylesheets
+          rsync -rptovR ./user-code/pages/./**/*.tsx ./pages
+          rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
 
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'

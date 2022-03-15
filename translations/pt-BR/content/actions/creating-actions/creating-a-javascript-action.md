@@ -141,7 +141,7 @@ No diretório `hello-world-javascript-action`, crie um arquivo `README.md` que e
 - Variáveis de ambiente usadas pela ação;
 - Um exemplo de uso da ação no fluxo de trabalho.
 
-```markdown
+```markdown{:copy}
 # Hello world javascript action
 
 Esta ação imprime "Hello World" ou "Hello" + o nome de uma pessoa a ser cumprimentada no log.
@@ -193,7 +193,7 @@ Verificar seu diretório `node_modules` pode causar problemas. Como alternativa,
 1. Se você já verificou o diretório `node_modules`, remova-o. `rm -rf node_modules/*`
 
 1. No seu terminal, faça commit das atualizações para os arquivos `action.yml`, `dist/index.js` e `node_modules`.
-```shell
+```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
 git tag -a -m "My first action release" v1.1

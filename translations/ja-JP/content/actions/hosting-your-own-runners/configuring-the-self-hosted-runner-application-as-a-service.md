@@ -78,6 +78,12 @@ Windowsでは、ランナーサービスは**サービス**アプリケーショ
    ```
 {% endmac %}
 
+The command takes an optional `user` argument to install the service as a different user.
+
+```shell
+./svc.sh install --user <em>USERNAME</em>
+```
+
 ## サービスの起動
 
 以下のコマンドでサービスを起動してください。

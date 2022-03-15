@@ -48,10 +48,11 @@ You cannot change the configuration of {% data variables.product.prodname_secret
 {% ifversion fpt %}
 {% note %}
 
-**Note:** Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %} can also enable {% data variables.product.prodname_secret_scanning_GHAS %} on any repository they own, including private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-advanced-security).
+{% data reusables.secret-scanning.fpt-GHAS-scans %}
 
 {% endnote %}
 {% endif %}
+
 
 {% endif %}
 

@@ -1,5 +1,5 @@
-1. Na seção {% ifversion fpt or ghes > 3.1 or ghae or ghec %}"Executores"{% else %}"Executores auto-hospedados"{% endif %} da página de configurações, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} ao lado do grupo executor que você gostaria de configurar e, em seguida, clique em **Editar nome e acesso [organization|repository]**. ![Gerenciar permissões do repositório](/assets/images/help/settings/actions-runner-manage-permissions.png)
-1. Modifique as suas opções de políticas, ou altere o nome do grupo do executor.
+{% data reusables.actions.self-hosted-runner-configure-runner-group %}
+1. Modify your policy options.
 
    {% ifversion not ghae %}
    {% warning %}

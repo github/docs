@@ -14,4 +14,4 @@ topics:
 shortTitle: GitHub APIが有効なエンドポイント
 ---
 
-**The content of this page is rendered as a NextJS page component.**
+**このページの内容は、NextJSページコンポーネントとしてレンダリングされます。**

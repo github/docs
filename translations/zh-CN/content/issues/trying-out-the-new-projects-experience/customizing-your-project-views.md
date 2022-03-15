@@ -125,12 +125,7 @@ topics:
 
 点击表格顶部的 {% octicon "filter" aria-label="the filter icon" %} 以显示“Filter by keyword or by field（按关键字或字段过滤）”列。 开始键入要过滤的字段名称和值。 当您输入时，可能的值将会出现。
 
-- 要过滤多个值，请用逗号分隔值。 例如， `label:"good first issue",bug` 将列出标签为 `good first issue` 或 `bug` 的所有议题。
-- 要过滤缺少特定值的字段，请在过滤器之前加入 `-`。 例如， `-label:"bug"` 只会显示没有标签的 `bug` 的项。
-- 要过滤缺少所有值的字段, 请输入 `no:`，后接字段名称。 例如，`no:assignee` 仅显示没有受理人的项。
-- 要按状态过滤，请输入 `is:`。 例如 `is: issue` 或 `is:open`。
-- 多个过滤条件之间用逗号分隔。 例如，`status:"In progress" -label:"bug" no:assignee` 仅显示状态为 `In progress`、没有标签 `bug` 且没有受理人的项。
-- 要过滤迭代字段的当前迭代，请使用 `@current`。 例如 `sprint:@current`。
+{% data reusables.projects.projects-filters %}
 
 或者，使用命令面板。
 
@@ -140,6 +135,8 @@ topics:
 4. 输入您想要过滤的值。 例如："In progress"。 您还可以过滤缺少特定值的字段（例如，选择“Exclude status（排除状态）”，然后选择一个状态）或缺少所有值的字段（例如，“No status（无状态）”）。
 
 在板布局中，您可以单击项目数据以过滤具有该值的项。 例如，单击某个受理人以仅显示该受理人的项。 要移除过滤器，请再次单击项数据。
+
+更多信息请参阅“[筛选项目](/issues/trying-out-the-new-projects-experience/filtering-projects)”。
 
 ## 创建项目视图
 

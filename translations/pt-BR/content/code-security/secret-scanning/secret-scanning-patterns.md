@@ -1,5 +1,5 @@
 ---
-title: Secret scanning patterns
+title: Padrões de digitalização de segredo
 intro: 'Lista de segredos compatíveis e parceiros com quem {% data variables.product.company_short %} trabalha para evitar o uso fraudulento de segredos cometidos acidentalmente.'
 product: '{% data reusables.gated-features.secret-scanning-partner %}'
 versions:
@@ -19,18 +19,18 @@ redirect_from:
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 {% ifversion fpt or ghec %}
-## About {% data variables.product.prodname_secret_scanning %} patterns
+## Sobre padrões de {% data variables.product.prodname_secret_scanning %}
 
-{% data variables.product.product_name %} maintains two different sets of {% data variables.product.prodname_secret_scanning %} patterns:
+{% data variables.product.product_name %} mantém dois conjuntos diferentes de padrões de {% data variables.product.prodname_secret_scanning %}:
 
-1. **Partner patterns.** Used to detect potential secrets in all public repositories. For details, see "[Supported secrets for partner patterns](#supported-secrets-for-partner-patterns)."
-2. **Advanced security patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} enabled. {% ifversion ghec %} For details, see "[Supported secrets for advanced security](#supported-secrets-for-advanced-security)."{% endif %}
+1. **Padrões de parceiros.** Usado para detectar segredos potenciais em todos os repositórios públicos. Para obter detalhes, consulte "[Segredos compatíveis com padrões de parceiros](#supported-secrets-for-partner-patterns). "
+2. **Padrões avançados de segurança.** Usado para detectar possíveis segredos em repositórios com {% data variables.product.prodname_secret_scanning %} habilitado. {% ifversion ghec %} Para obter detalhes, consulte "[Segredos compatíveis com a segurança avançada](#supported-secrets-for-advanced-security)."{% endif %}
 
 {% ifversion fpt %}
-Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning_GHAS %} on their repositories. For details of these patterns, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security).
+As organizações que usam {% data variables.product.prodname_ghe_cloud %} com {% data variables.product.prodname_GH_advanced_security %} podem habilitar {% data variables.product.prodname_secret_scanning_GHAS %} nos seus repositórios. Para obter detalhes sobre esses padrões, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-advanced-security).
 {% endif %}
 
-## Supported secrets for partner patterns
+## Segredos compatíveis com padrões de parceiros
 
 O {% data variables.product.product_name %} atualmente verifica repositórios públicos para encontrar segredos emitidos pelos seguintes provedores de serviços. Para obter mais informações sobre {% data variables.product.prodname_secret_scanning_partner %}, consulte "[Sobre {% data variables.product.prodname_secret_scanning_partner %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-partner-patterns)."
 
@@ -38,14 +38,14 @@ O {% data variables.product.product_name %} atualmente verifica repositórios p�
 {% endif %}
 
 {% ifversion ghec or ghae or ghes %}
-## Supported secrets{% ifversion ghec %} for advanced security{% endif %}
+## Segredos compatíveis {% ifversion ghec %} para segurança avançada{% endif %}
 
-When {% data variables.product.prodname_secret_scanning_GHAS %} is enabled, {% data variables.product.prodname_dotcom %} scans for secrets issued by the following service providers. {% ifversion ghec %}For more information about {% data variables.product.prodname_secret_scanning_GHAS %}, see "[About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."{% endif %}
+Quando {% data variables.product.prodname_secret_scanning_GHAS %} está habilitado, {% data variables.product.prodname_dotcom %} digitalia os segredos emitidos pelos seguintes prestadores de serviços. {% ifversion ghec %}Para obter mais informações sobre {% data variables.product.prodname_secret_scanning_GHAS %}, consulte "[Sobre {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."{% endif %}
 
 {% ifversion ghes > 3.1 or ghae or ghec %}
 {% note %}
 
-**Note:** You can also define custom {% data variables.product.prodname_secret_scanning %} patterns for your repository, organization, or enterprise. Para obter mais informações, consulte "[Definir padrões personalizados para {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)".
+**Obersvação:** Você também pode definir padrões personalizados de {% data variables.product.prodname_secret_scanning %} para seu repositório, organização ou empresa. Para obter mais informações, consulte "[Definir padrões personalizados para {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/defining-custom-patterns-for-secret-scanning)".
 
 {% endnote %}
 {% endif %}

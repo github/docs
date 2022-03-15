@@ -3,7 +3,7 @@
 security_advisories:
   title: 'Corrigir e revelar uma vulnerabilidade de segurança'
   description: 'Usando consultorias de segurança do repositório para corrigir de forma privada uma vulnerabilidade relatada e obter um CVE.'
-  featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'
+  featured_track: '{% ifversion fpt or ghec %}true{% else %}false{% endif %}'
   guides:
     - /code-security/repository-security-advisories/about-coordinated-disclosure-of-security-vulnerabilities
     - /code-security/repository-security-advisories/creating-a-repository-security-advisory
@@ -13,30 +13,30 @@ security_advisories:
     - /code-security/repository-security-advisories/editing-a-repository-security-advisory
     - /code-security/repository-security-advisories/withdrawing-a-repository-security-advisory
     - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
-#Feature available on dotcom and GHES
+#Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
 dependabot_alerts:
   title: 'Obter notificações para dependências vulneráveis'
   description: 'Configure o Dependabot para alertá-lo sobre novas vulnerabilidades nas suas dependências.'
   guides:
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
-    - '{% ifversion not ghae %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors
-#Feature available only on dotcom, so articles available hidden to hide the learning track in other versions
+#Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
 dependabot_security_updates:
   title: 'Obtenha pull requests para atualizar suas dependências vulneráveis'
   description: 'Configurar o Dependabot para criar pull requests quando novas vulnerabilidades forem relatadas.'
   guides:
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates
-    - '{% ifversion fpt %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies{% endif %}'
-    - '{% ifversion fpt %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies{% endif %}'
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
-    - '{% ifversion fpt %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies{% endif %}'
-#Feature available only on dotcom
+    - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies{% endif %}'
+#Feature available only on dotcom and GHES 3.3+
 dependency_version_updates:
   title: 'Mantenha suas dependências atualizadas'
   description: 'Use o Dependabot para verificar novas versões e criar pull requests para atualizar suas dependências.'
@@ -51,30 +51,32 @@ dependency_version_updates:
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot
     - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors
-#Feature available in all versions from GHES 3.0 up
+#Feature available in GHEC, GHES 3.0 up, and GHAE. Feature limited on FPT so hidden there.
 secret_scanning:
   title: 'Escanear em busca de segredos'
   description: 'Configure a varredura de segredo para evitar verificações acidentais de tokens, senhas e outros segredos do seu repositório.'
   guides:
-    - /code-security/secret-scanning/about-secret-scanning
-    - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
-    - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
-    - /code-security/secret-scanning/managing-alerts-from-secret-scanning
-#Security overview feature available only on dotcom currently, so other articles hidden to hide the learning path in other versions
+    - '{% ifversion not fpt %}/code-security/secret-scanning/about-secret-scanning{% endif %}'
+    - '{% ifversion not fpt %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
+    - '{% ifversion not fpt %}/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning{% endif %}'
+    - '{% ifversion not fpt %}/code-security/secret-scanning/managing-alerts-from-secret-scanning{% endif %}'
+    - '{% ifversion not fpt %}/code-security/secret-scanning/secret-scanning-patterns{% endif %}'
+#Security overview feature available in GHEC and GHES 3.2+, so other articles hidden to hide the learning path in other versions
 security_alerts:
   title: 'Explore e gerencie alertas de segurança'
   description: 'Saiba onde encontrar e resolver alertas de segurança.'
   guides:
-    - /code-security/security-overview/about-the-security-overview
-    - '{% ifversion fpt %}/code-security/secret-scanning/managing-alerts-from-secret-scanning {% endif %}'
-    - '{% ifversion fpt %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository{% endif %}'
-    - '{% ifversion fpt %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests{% endif %}'
-    - '{% ifversion fpt %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository{% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/security-overview/about-the-security-overview {% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/security-overview/viewing-the-security-overview {% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/secret-scanning/managing-alerts-from-secret-scanning {% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository{% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests{% endif %}'
+    - '{% ifversion ghec or ghes > 3.1 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository{% endif %}'
 #Feature available in all versions from GHES 2.22 up
 code_security_actions:
   title: 'Execute digitalização de código com GitHub Actions'
   description: 'Verifique seu branch padrão e cada pull request para manter vulnerabilidades e erros fora do repositório.'
-  featured_track: '{% ifversion ghae or ghes > 2.22 %}true{% else %}false{% endif %}'
+  featured_track: '{% ifversion ghae or ghes %}true{% else %}false{% endif %}'
   guides:
     - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
     - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository
@@ -99,6 +101,5 @@ code_security_ci:
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
-    - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system
-    - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system
+    - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system

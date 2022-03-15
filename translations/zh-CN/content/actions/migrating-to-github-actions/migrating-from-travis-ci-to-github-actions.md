@@ -187,7 +187,7 @@ Travis CI 和 {% data variables.product.prodname_actions %} 可以将自定义�
 
 ### 存储密码
 
-{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 Environment protection rules can require manual approval for a workflow to access environment secrets. 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
+{% data variables.product.prodname_actions %} 允许您存储密码并在作业中引用它们。 {% data variables.product.prodname_actions %} 组织可以限制哪些仓库能够访问组织机密。 环境保护规则可能需要手动批准工作流程才能访问环境秘密。 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 
 ### 在作业和工作流程之间共享文件
 
@@ -241,7 +241,7 @@ steps:
 
 ## 迁移条件和表达式的语法
 
-要在条件表达式下运行作业，Travis CI 和 {% data variables.product.prodname_actions %} 具有类似的 `if` 条件语法。 {% data variables.product.prodname_actions %} 允许您使用 `if` 条件使作业或步骤仅在满足条件时才运行。 For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+要在条件表达式下运行作业，Travis CI 和 {% data variables.product.prodname_actions %} 具有类似的 `if` 条件语法。 {% data variables.product.prodname_actions %} 允许您使用 `if` 条件使作业或步骤仅在满足条件时才运行。 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 此示例演示 `if` 条件如何控制是否执行步骤：
 
