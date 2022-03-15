@@ -120,6 +120,19 @@ You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ 
 
 {% tip %}
 
+**Tip:** You can append `#gh_color_mode=light` or `#gh_color_mode=dark` to a githubusercontent.com hosted image to only show it while the user is using the respective mode.
+
+{% endtip %}
+
+Here are some examples for using gh_color_mode to display the image only in respective mode.
+
+| Context | URL |
+|--------|--------|
+| Dark Mode | `![GitHub Light](https://github.com/github-light.png#gh_color_mode=dark)` |
+| Light Mode | `![GitHub Dark](https://github.com/github-dark.png#gh_color_mode=light)` |
+
+{% tip %}
+
 **Tip:** When you want to display an image which is in your repository, you should use relative links instead of absolute links.
 
 {% endtip %}
