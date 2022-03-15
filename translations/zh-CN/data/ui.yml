@@ -80,6 +80,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: 字段
       arguments: 参数
       name: 名称

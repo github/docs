@@ -125,12 +125,7 @@ Como alternativa, haz clic en el {% octicon "triangle-down" aria-label="the drop
 
 Haz clic en el {% octicon "filter" aria-label="the filter icon" %} en la parte superior de la tabla para mostrar la barra de "Filtrar por palabra clave o por campo". Comienza a teclear el nombre de campo y valor por el cuál quieras filtrar. Conforme teclees, se mostrarán los posibles valores.
 
-- Para filtrar valores múltiples, sepáralos con una coma. Por ejemplo `label:"good first issue",bug` listará las propuestas con una etiqueta de `good first issue` o de `bug`.
-- Para filtrar la ausencia de un valor específico, coloca `-` antes de tu filtro. Por ejemplo, `-label:"bug"` mostrará solo elementos que no tengan la etiqueta `bug`.
-- Para filtrar de acuerdo a la ausencia de todos los valores, ingresa `no:` seguido del nombre del campo. Por ejemplo, `no:assignee` solo mostrará los elementos que no tengan un asignado.
-- Para filtrar por estado, ingresa `is:`. Por ejemplo, `is: issue` o `is:open`.
-- Separa los filtros múltiples con un espacio. Por ejemplo, `status:"In progress" -label:"bug" no:assignee` solo mostrará los elementos que tengan un estado de `In progress`, que no tengan la etiqueta `bug` y que no tengan un asignado.
-- Para filtrar de acuerdo con la iteración actual de un campo de iteración, utiliza `@current`. Por ejemplo, `sprint:@current`.
+{% data reusables.projects.projects-filters %}
 
 Como alternativa, utiliza la paleta de comandos.
 
@@ -140,6 +135,8 @@ Como alternativa, utiliza la paleta de comandos.
 4. Ingresa el valor por el cual quieras filtrar. Por ejemplo: "En progreso". También puedes filtrar por el criterio de ausencia de algún valor específico (por ejemplo: elige "Excluir estado" y luego elige un estado) o por la ausencia de todos los valores (Por ejemplo: "Sin estado").
 
 En el diseño del tablero, puedes hacer clic en los datos del elemento o filtrar los elementos con este valor. Por ejemplo, haz clic en un asignado para mostrar únicamente los elementos de este. Para eliminar el filtro, haz clic en los datos de el elemento nuevamente.
+
+For more information, see "[Filtering projects](/issues/trying-out-the-new-projects-experience/filtering-projects)."
 
 ## Crear una vista de proyecto
 
