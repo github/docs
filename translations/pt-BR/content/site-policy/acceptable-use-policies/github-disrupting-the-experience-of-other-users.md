@@ -22,6 +22,6 @@ We do not allow behavior that significantly or continually disrupts the experien
 - Engaging with platform features in a way that causes excessive notifications for other users
 - Using any other platform feature in a way that creates disruption
 
-While we encourage maintainers to moderate their own projects on an individual basis, GitHub staff may take further restrictive action against accounts that are engaging in these types of behaviors.
+Embora incentivemos os mantenedores a moderar os seus próprios projetos individualmente, a equipe do GitHub pode ter uma ação restritiva contra contas que estão se envolvendo com esses tipos de comportamento.
 
 Please note that the above conduct may also violate other restrictions in our [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies). For example, depending on the nature and severity of the activity, it may rise to the level of [bullying and harassment](/github/site-policy/github-bullying-and-harassment).

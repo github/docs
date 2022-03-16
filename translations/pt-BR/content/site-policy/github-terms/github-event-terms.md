@@ -1,5 +1,5 @@
 ---
-title: GitHub Event Terms
+title: Termos de eventos do GitHub
 redirect_from:
   - /articles/github-event-terms
   - /github/site-policy/github-event-terms
@@ -10,51 +10,51 @@ topics:
   - Legal
 ---
 
-By RSVP'ing to or attending a GitHub event, including any of the events or activities organized by GitHub in association with the GitHub event (collectively the "Event"), you signal that you have read, understand, and agree to the following Event Terms and Conditions.
+Ao confirmar ou participar de um evento do GitHub, incluindo qualquer um dos eventos ou atividades organizadas pelo GitHub em associação com o evento do GitHub (coletivamente o "Evento"), você indica que leu, entendeu e concorda com os seguintes Termos e Condições do Evento.
 
-## 1. Basic requirements to attend - including the [Event Code of Conduct](/articles/github-event-code-of-conduct)
+## 1. Requisitos básicos para participar - incluindo o [Código de Conduta do Evento](/articles/github-event-code-of-conduct)
 
-In order to participate in the Event, you represent that
+Para participar do Evento, você confirma que:
 
-- you have the requisite power and authority to enter into these Event Terms
+- você possui poder e autoridade necessários para aderir a estes Termos do Evento
 
-- you have read and understood these Event Terms as well as the [GitHub.com Terms of Service](/articles/github-terms-of-service/)
+- você leu e compreendeu estes Termos do Evento, bem como os [Termos de Serviço do GitHub.com](/articles/github-terms-of-service/)
 
-- you agree to abide by the [Event Code of Conduct](/articles/github-event-code-of-conduct), which seeks to provide a harassment-free experience for everyone
+- você concorda em seguir o [Código de Conduta do Evento](/articles/github-event-code-of-conduct), que busca oferecer uma experiência livre de assédio para todos
 
-- if alcohol is being served at a GitHub event, you represent that you are at least 21 years old, or otherwise over the legal drinking age in your jurisdiction.
+- se for servido álcool em um evento do GitHub, você confirma que tem pelo menos 21 anos, ou a idade permitida para consumir bebidas alcoólicas em sua jurisdição.
 
-Participants asked to stop any harassing or other prohibited behavior are expected to comply immediately. If a participant engages in behavior that violates the [Event Code of Conduct](/articles/github-event-code-of-conduct) or these Terms, the event organizers may take any action they deem appropriate, including warning the offender or expulsion from the event or conference with no refund.
+Participantes para os quais forem solicitados a interrupção do assédio ou outro comportamento proibido devem cumprir a ordem imediatamente. Se um participante se envolver em comportamento que viole o [Código de Conduta do Evento](/articles/github-event-code-of-conduct) ou estes Termos, os organizadores do evento podem tomar todas as medidas que entenderem apropriadas, incluindo avisar o infrator ou expulsá-lo do evento ou da conferência sem reembolso.
 
-## 2. Pictures
+## 2. Fotos
 
-GitHub or its partners sometimes take photos and videos at GitHub events. By participating or attending the Event, you agree that you may appear in some of these photos and videos, and you authorize GitHub's use of them. On the flip side, if you take any photos or videos of attendees at the Event and provide them to us, you authorize us to use them in the same fashion, and represent that the attendees that appear in your photos and videos have also consented to such use.
+O GitHub ou seus parceiros às vezes tiram fotos e gravam vídeos nos eventos do GitHub. Ao participar ou comparecer ao Evento, você concorda que pode aparecer em algumas destas fotos e vídeos, e você autoriza o uso deles pelo GitHub. Por outro lado, se você tirar fotos ou gravar vídeos de participantes no Evento e fornecê-los a nós, você nos autoriza a usá-los da mesma forma, e concorda que os participantes que aparecem em suas fotos e vídeos também consentiram esse uso.
 
-## 3. Risk, liability, and indemnity
+## 3. Risco, responsabilidade e indenização
 
-### Assumption of risk
-Although we try to create a safe environment at the Event, accidents or other bad things happen, even to good people. We ask that you do your part to help limit the possibility that you might get injured at the Event.
+### Assunção de risco
+Embora tentemos criar um ambiente seguro no Evento, acidentes ou outras coisas ruins acontecem, até mesmo para boas pessoas. Pedimos que faça a sua parte para ajudar a limitar a possibilidade de você se machucar no Evento.
 
-You agree to carefully consider the risks inherent in any activities that you choose to take part in and to take reasonable precautions before you choose to attend or participate at a GitHub event. For example, you should ensure that you are in good physical health before engaging in any physical activity at a GitHub event, and you should always drink responsibly given the risks associated with drunk driving and participating in activities while your judgment is impaired. It's always good to remember that other event guests may be less responsible than you, and may themselves create additional risk to you despite their best intentions.
+Você concorda em considerar cuidadosamente os riscos inerentes a qualquer atividade em que você opte por participar e tomar precauções razoáveis antes de escolher participar ou assistir a um evento do GitHub. Por exemplo, você deve se certificar de que está com boa saúde física antes de se envolver em qualquer atividade física de um evento do GitHub, e deve sempre beber de forma responsável, tendo em conta os riscos associados à condução sob o efeito do álcool, bem como à participação em atividades, enquanto seu juízo estiver comprometido. É sempre bom lembrar que outros convidados podem ser menos responsáveis do que você, e eles podem criar riscos adicionais para você, apesar das suas melhores intenções.
 
-In short, you understand that your attendance and participation at any GitHub event is voluntary, and you agree to assume responsibility for any resulting injuries to the fullest extent permitted under applicable law.
+Em suma, você entende que sua presença e participação em qualquer evento do GitHub é voluntária, e concorda em assumir a responsabilidade pelas lesões resultantes na maior medida permitida pela lei aplicável.
 
-By the same token, you agree that GitHub is not responsible for any injuries or accidents that you might sustain at any events that GitHub doesn't organize or control.
+Pela mesma razão, você concorda que o GitHub não é responsável por quaisquer lesões ou acidentes que você possa suportar em qualquer evento que o GitHub não organize ou controle.
 
-### Release of liability
-You (for yourself, your heirs, personal representatives, or assigns, and anyone else who might make a claim on your behalf) hereby release, waive, discharge and covenant not to sue GitHub and its respective parent companies, subsidiaries, affiliates, officers, directors, partners, shareholders, members, agents, employees, vendors, sponsors, and volunteers from any and all claims, demands, causes of action, damages, losses or expenses (including court costs and reasonable attorneys' fees) which may arise out of, result from, or relate in any way to your attendance at the Event or any related event, except, of course, for any gross negligence or willful misconduct on our part.
+### Liberação de responsabilidade
+Você (por si mesmo, seus herdeiros, representantes pessoais ou mandatários e qualquer outra pessoa que possa reivindicar em seu nome), por meio deste instrumento, libera, renuncia, dispensa e concorda em não processar o GitHub e suas respectivas empresas-mãe, subsidiárias, afiliadas, executivos, diretores, parceiros, acionistas, membros, agentes, funcionários, fornecedores, patrocinadores e voluntários de todas e quaisquer reivindicações, demandas, causas, danos, perdas ou despesas (incluindo custas judiciais e honorários advocatícios razoáveis) que possam resultar de, ou que estejam relacionados de alguma forma à sua participação no Evento ou em qualquer evento relacionado, exceto, é claro, por qualquer negligência grave ou conduta dolosa de nossa parte.
 
-### Indemnity
-By the same token, you agree to indemnify and hold GitHub, its parents, subsidiaries, affiliates, officers, directors, employees, agents and representatives harmless, including costs, liabilities and legal fees, from any claim or demand made by any third party due to, related to, or connected with your attendance or conduct at the Event or any related event.
+### Indenização
+Da mesma forma, você concorda em indenizar e manter o GitHub, suas empresas-mãe, subsidiárias, afiliadas, executivos, diretores, funcionários, agentes e representantes isentos de responsabilidade incluindo custos, responsabilidades e taxas legais, de qualquer reivindicação ou demanda feita por terceiros devido a, relacionado a, ou conectado com sua presença ou conduta no Evento ou qualquer evento relacionado.
 
 ## 4. Rescisão
 
-While we hope not to, GitHub may prohibit your attendance at any GitHub event at any time if you fail to abide by these Event Terms and the [Event Code of Conduct](/articles/github-event-code-of-conduct), the [GitHub.com Terms of Service](/articles/github-terms-of-service/), or for any or no reason, without notice or liability of any kind. Section 3 (Risk, liability, and indemnity) will continue to apply following any termination.
+Embora esperemos não ter que fazê-lo, o GitHub pode proibir sua presença em qualquer evento do GitHub a qualquer momento, se você não cumprir estes Termos do Evento e o [Código de Conduta do Evento](/articles/github-event-code-of-conduct), os [Termos de Serviço GitHub.com](/articles/github-terms-of-service/), ou por qualquer razão, sem aviso ou responsabilidade de qualquer tipo. A seção 3 (risco, responsabilidade e indenização) continuará a aplicar-se após qualquer rescisão.
 
-## 5. Choice of law and venue
+## 5. Escolha da legislação e local
 
-California law will govern these Event Terms, as well as any claim, cause of action or dispute that might arise between you and GitHub (a "Claim"), without regard to conflict of law provisions. FOR ANY CLAIM BROUGHT BY EITHER PARTY, YOU AGREE TO SUBMIT AND CONSENT TO THE PERSONAL AND EXCLUSIVE JURISDICTION IN, AND THE EXCLUSIVE VENUE OF, THE STATE AND FEDERAL COURTS LOCATED WITHIN SAN FRANCISCO COUNTY, CALIFORNIA.
+A lei da Califórnia regerá estes Termos do Evento, bem como qualquer reivindicação, ação ou disputa que possam surgir entre você e o GitHub (uma "Reivindicação"), sem levar em conta as disposições sobre conflitos de leis. PARA QUALQUER REIVINDICAÇÃO APRESENTADA POR QUAISQUER DAS PARTES, VOCÊ CONCORDA EM SUBMETER E CONSENTIR COM A JURISDIÇÃO PESSOAL E O FORO EXCLUSIVO DOS TRIBUNAIS ESTADUAIS E FEDERAIS LOCALIZADOS NO CONDADO DE SÃO FRANCISCO, CALIFÓRNIA.
 
-## 6. Miscellaneous terms
+## 6. Termos diversos
 
-You agree that you will not represent yourself as an employee, representative, or agent of GitHub (unless, of course, you are actually employed by GitHub). We reserve the right to cancel the Event or any related event at any time, for any reason, and without liability or prejudice. Any failure on GitHub's part to exercise or enforce any right or provision of these terms does not constitute a waiver of such right or provision. If any provision of these terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary so that the Event Terms shall otherwise remain in full force and effect and enforceable.
+Você concorda que não irá se apresentar como funcionário, representante ou agente do GitHub (a menos que, é claro, você realmente seja empregado pelo GitHub). Reservamo-nos o direito de cancelar o Evento ou qualquer evento relacionado a qualquer momento, por qualquer motivo, e sem responsabilidade ou prejuízo. Qualquer falha do GitHub em exercer ou aplicar qualquer direito ou disposição destes termos não constituirá uma renúncia a esse direito ou disposição. Se qualquer disposição destes termos for considerada inválida ou inexequível, tal disposição será eliminada ou limitada na medida mínima necessária, de modo que os Termos do Evento permaneçam em pleno vigor, efeito e força executória.

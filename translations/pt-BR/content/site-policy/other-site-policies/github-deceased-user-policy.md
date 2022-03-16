@@ -1,5 +1,5 @@
 ---
-title: GitHub Deceased User Policy
+title: Política de Usuário Falecido do GitHub
 versions:
   fpt: '*'
 topics:
@@ -10,18 +10,18 @@ redirect_from:
   - /github/site-policy/github-terms-and-other-site-policies/github-deceased-user-policy
 ---
 
-In the event that a GitHub user passes away, we can work with an authorized individual to determine what happens to the account's content.
+No caso de um usuário do GitHub falecer, podemos trabalhar com um indivíduo autorizado para determinar o que acontecerá com o conteúdo da conta.
 
-If you are next of kin, a [pre-designated successor](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories), or other authorized individual (which could include a collaborator or business partner) of a deceased user and would like to make a request regarding their account, you can reach out to us at https://support.github.com/contact. Please provide the following information in your message:
+Se você é o parente mais próximo, um [sucessor pré-designado](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories), ou outro indivíduo autorizado (que pode incluir um colaborador ou parceiro de negócios) de um usuário falecido e gostaria de fazer uma solicitação sobre a conta dele, você pode entrar em contato conosco em https://support.github.com/contact. Por favor, forneça as seguintes informações em sua mensagem:
 
 - Nome
-- Contact Information
-- Name of the deceased account holder
-- GitHub username of the deceased account holder
-- Your relationship to the deceased account holder (please include whether you have been designated as the account successor on GitHub.com)
-- If designated as account successor, the username of your GitHub account
-- What action you are seeking (e.g. transfer public repositories, cancel billing on account)
+- Informações de contato
+- Nome do titular da conta falecido
+- O nome de usuário no GitHub do titular da conta falecido
+- Seu relacionamento com o titular da conta falecido (por favor, inclua se você foi designado como o sucessor da conta em GitHub.com)
+- Se designado como sucessor da conta, o nome de usuário da sua conta GitHub
+- Qual ação você está buscando (por exemplo, transferir repositórios públicos, cancelar o faturamento da conta)
 
-Once we have received your request, we may follow up with a request for additional information, such as a copy of your photo identification, copy of the death certificate, and documentation confirming you are authorized to act in relation to the deceased user’s account, to verify that we are properly authorized to process your request.
+Assim que recebermos sua solicitação, podemos respondê-la com um pedido de informações adicionais, como uma cópia de sua identidade com foto, cópia da certidão de óbito e documentação confirmando que você está autorizado a agir em relação à conta do usuário falecido, para verificar se estamos devidamente autorizados a processar sua solicitação.
 
-Please note, the information you provide in your request is collected in accordance with our [Privacy Statement](/github/site-policy/github-privacy-statement), and we will retain the information only as necessary to comply with our legal obligations and resolve disputes.
+Por favor, note que as informações que você fornece em sua solicitação são coletadas de acordo com a nossa [Declaração de Privacidade](/github/site-policy/github-privacy-statement), e manteremos as informações apenas conforme necessário para cumprir nossas obrigações legais e resolver disputas.
