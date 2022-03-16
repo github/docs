@@ -73,11 +73,9 @@ jobs:
 * `run: Test-Path resultsfile.log` - 检查仓库的根目录中是否存在名为 `resultsfile.log` 的文件。
 * `Should -Be $true` - 使用 Pester 定义预期结果。 如果结果是非预期的，则 {% data variables.product.prodname_actions %} 会将此标记为失败的测试。 例如：
 
-  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
   ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test-updated.png)
-  {% else %}
-  ![失败的 Pester 测试](/assets/images/help/repository/actions-failed-pester-test.png)
-  {% endif %}
+
 
 * `Invoke-Pester Unit.Tests.ps1 -Passthru` - 使用 Pester 执行文件 `Unit.Tests.ps1` 中定义的测试。 例如，要执行上述相同的测试， `Unit.Tests.ps1` 将包含以下内容：
   ```
@@ -215,7 +213,7 @@ jobs:
         shell: pwsh
         run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
       - name: Upload test results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ubuntu-Unit-Tests
           path: Unit.Tests.xml

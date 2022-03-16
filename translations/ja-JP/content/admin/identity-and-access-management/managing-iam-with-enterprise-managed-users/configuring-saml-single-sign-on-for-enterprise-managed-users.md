@@ -23,7 +23,13 @@ With {% data variables.product.prodname_emus %}, your enterprise uses SAML SSO t
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
-After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your identity provider is unavailable. For more information, see "[Saving your recovery codes](#saving-your-recovery-codes)."
+After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your identity provider is unavailable.
+
+{% note %}
+
+**Note:** When SAML SSO is enabled, the only setting you can update on {% data variables.product.prodname_dotcom %} for your existing SAML configuration is the SAML certificate. If you need to update the Sign on URL or Issuer, you must first disable SAML SSO and then reconfigure SAML SSO with the new settings.
+
+{% endnote %}
 
 ## Configuring SAML single sign-on for {% data variables.product.prodname_emus %}
 
@@ -95,20 +101,10 @@ After you install and configure the {% data variables.product.prodname_emu_idp_a
 
     {% endnote %}
 
-1. To ensure you can still access your enterprise in the event that your identity provider is ever unavailable in the future, click **Download**, **Print**, or **Copy** to save your recovery codes. ![強制化の前に SAML の構成をテストするためのボタン](/assets/images/help/saml/saml_recovery_code_options.png)
+{% data reusables.enterprise-accounts.download-recovery-codes %}
+
 
 ### Enabling provisioning
 
 After you enable SAML SSO, enable provisioning. For more information, see "[Configuring SCIM provisioning for enterprise managed users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users)."
 
-## Saving your recovery codes
-
-In the event that your identity provider is unavailable, you can use the setup user and a recovery code to sign in and access your enterprise. If you did not save your recovery codes when you configured SAML SSO, you can still access them from your enterprise's settings.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-
-1. Under "Require SAML authentication", click **Save your recovery codes**. ![強制化の前に SAML の構成をテストするためのボタン](/assets/images/help/enterprises/saml-recovery-codes-link.png)
-
-2. To save your recovery codes, click **Download**, **Print**, or **Copy**. ![強制化の前に SAML の構成をテストするためのボタン](/assets/images/help/saml/saml_recovery_code_options.png)

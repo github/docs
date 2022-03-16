@@ -25,7 +25,7 @@ shortTitle: Gerenciar acesso individual
 ## Conceder a um integrante da organização acesso a um quadro de projeto
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -38,7 +38,7 @@ shortTitle: Gerenciar acesso individual
 ## Alterar o acesso de um integrante da organização a um quadro de projeto
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
@@ -51,7 +51,7 @@ shortTitle: Gerenciar acesso individual
 Quando você remove um colaborador de um quadro de projeto, a pessoa ainda pode ter acesso ao quadro com base nas permisões que tem para outras funções. Para remover completamente o acesso ao quadro de projeto, você deve remover o acesso à cada função que a pessoa tem. Por exemplo, uma pessoa pode ter acesso ao quadro de projeto como integrante de uma organização ou equipe. Para obter mais informações, consulte "[Permissões de quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)".
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}

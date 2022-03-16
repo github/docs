@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: Contato
@@ -44,6 +46,7 @@ pages:
   miniToc: Neste artigo
   contributor_callout: This article is contributed and maintained by
   all_enterprise_releases: All Enterprise Server releases
+  about_versions: About versions
 errors:
   oops: Ops!
   something_went_wrong: Parece que algo deu errado.
@@ -77,6 +80,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: Campos
       arguments: Argumentos
       name: Nome
@@ -91,6 +95,12 @@ products:
       deprecation_notice: Aviso de descontinuação
   rest:
     reference:
+      default: Padrão
+      name: Nome
+      in: In
+      type: Tipo
+      description: Descrição
+      notes: Observações
       parameters: Parâmetros
       response: Resposta
       code_sample: Amostra de código
@@ -100,6 +110,8 @@ products:
       see_preview_notice: Ver aviso de pré-visualização
       see_preview_notices: Ver avisos de pré-visualização
       preview_header_is_required: Este cabeçalho é <strong>obrigatório</strong>
+      preview_notice_to_change: This API is under preview and subject to change
+      works_with_github_apps: Works with GitHub Apps
 footer:
   all_rights_reserved: Todos os direitos reservados
   terms: Termos

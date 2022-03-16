@@ -17,12 +17,11 @@ shortTitle: 使用 SAML 的 PAT
 
 {% data reusables.saml.authorized-creds-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-{% data reusables.user_settings.personal_access_tokens %}
-3. 在要授权的令牌旁边，单击 **Enable SSO（启用 SSO）**或 **Disable SSO（禁用 SSO）**。 ![SSO 令牌授权按钮](/assets/images/help/settings/sso-allowlist-button.png)
-4. 找到要为其授权访问令牌的组织。
-4. 单击 **Authorize（授权）**。 ![令牌授权按钮](/assets/images/help/settings/token-authorize-button.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.personal_access_tokens %}
+3. 在要授权的令牌旁边，单击 **Configure SSO（配置 SSO）**。 ![用于为个人访问令牌配置 SSO 的下拉菜单的屏幕截图](/assets/images/help/settings/sso-allowlist-button.png)
+4. 在要为其授权令牌的组织右侧，单击 **Authorize（授权）**。 ![令牌授权按钮](/assets/images/help/settings/token-authorize-button.png)
 
 ## 延伸阅读
 

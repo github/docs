@@ -35,7 +35,7 @@ topics:
 
 1. 必要に応じて、ユーザーに表示されるアプリケーションの説明を [Description] に入力します。 ![GitHub App の説明フィールド](/assets/images/github-apps/github_apps_description.png)
 1. [Homepage URL] に、アプリケーションのウェブサイトの完全な URL を入力します。 ![GitHub App のホームページ URL フィールド](/assets/images/github-apps/github_apps_homepage_url.png)
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 1. [Callback URL] に、ユーザがインストールを認可した後にリダイレクトされる URL を完全な形で入力します。 この URL は、アプリケーションがユーザからサーバへのリクエストを識別して承認する必要がある場合に使用されます。
 
   [**Add callback URL**] を使用して、コールバック URL を最大 10 個追加できます。

@@ -1,7 +1,7 @@
 ---
-title: Managing security settings for your organization
-shortTitle: Manage security settings
-intro: 'You can manage security settings and review the audit log{% ifversion ghec %}, compliance reports,{% endif %} and integrations for your organization.'
+title: Organizationのセキュリティ設定の管理
+shortTitle: セキュリティ設定の管理
+intro: 'セキュリティ設定を管理し、監査ログ{% ifversion ghec %}やコンプライアンスレポート{% endif %}、Organizationのインテグレーションをレビューできます。'
 versions:
   fpt: '*'
   ghes: '*'

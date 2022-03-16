@@ -10,7 +10,7 @@ redirect_from:
   - /actions/deployment/using-environments-for-deployment
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
@@ -69,13 +69,13 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can confi
 
 ## 環境の作成
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
-{% data reusables.github-actions.new-environment %}
-{% data reusables.github-actions.name-environment %}
+{% data reusables.actions.sidebar-environment %}
+{% data reusables.actions.new-environment %}
+{% data reusables.actions.name-environment %}
 1. Optionally, specify people or teams that must approve workflow jobs that use this environment.
    1. Select **Required reviewers**.
    1. Enter up to 6 people or teams. ジョブが進行するため承認が必要なレビュー担当者は1人だけです。
@@ -107,13 +107,13 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can confi
 
 ## 環境の削除
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
 
 環境を削除すると、その環境に関連づけられたすべてのシークレットと保護ルールが削除されます。 削除された環境の保護ルールのために待機していたジョブは、自動的に失敗します。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
+{% data reusables.actions.sidebar-environment %}
 1. 削除する環境の横にある {% octicon "trash" aria-label="The trash icon" %} をクリックします。
 2. **I understand, delete this environment（分かりました、この環境を削除してください）**をクリックしてください。
 

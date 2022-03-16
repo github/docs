@@ -20,7 +20,7 @@ O {% data variables.product.product_name %} agrega metadados e analisa padrões 
 
 {% data reusables.repositories.about-github-archive-program %} Para mais informações, consulte "[Sobre arquivar conteúdo e dados no {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
 
-{% data reusables.user_settings.export-data %} Para obter mais informações, consulte "[Solicitar um arquivamento dos dados da sua conta pessoal](/articles/requesting-an-archive-of-your-personal-account-s-data)".
+{% data reusables.user-settings.export-data %} Para obter mais informações, consulte "[Solicitando um arquivamento dos dados da sua conta pessoal](/articles/requesting-an-archive-of-your-personal-account-s-data)".
 
 Se você aceitar o uso de dados para um repositório privado, continuaremos tratando seus dados privados, código-fonte ou segredos comerciais como confidenciais e privados em conformidade com nossos [Termos de Serviço](/free-pro-team@latest/github/site-policy/github-terms-of-service). As informações apreendidas são provenientes apenas de dados agregados. Para obter mais informações, consulte "[Gerenciando configurações do uso de dados de seu repositório privado](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)".
 

@@ -13,7 +13,6 @@ defaultPlatform: linux
 shortTitle: Ejecutar la app del ejecutor al inicio
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -78,6 +77,12 @@ Puedes administrar el servicio de ejecutor en la aplicación de **Servicios** de
    ./svc.sh install
    ```
 {% endmac %}
+
+The command takes an optional `user` argument to install the service as a different user.
+
+```shell
+./svc.sh install --user <em>USERNAME</em>
+```
 
 ## Iniciar el servicio
 

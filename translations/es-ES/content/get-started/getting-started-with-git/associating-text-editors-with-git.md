@@ -49,7 +49,7 @@ shortTitle: Editores de texto asociados
 ## Usar TextMate como editor
 
 1. Instala [TextMate](https://macromates.com/).
-2. Instala la utilidad de shell `mate` de TextMate. For more information, see "[`mate` and `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)" in the TextMate documentation.
+2. Instala la utilidad de shell `mate` de TextMate. Para obtener más información, consulta "[`mate` y `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)" en la documentación de TextMate.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Escribe este comando:
   ```shell

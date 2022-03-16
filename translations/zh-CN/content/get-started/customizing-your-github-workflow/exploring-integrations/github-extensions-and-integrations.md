@@ -46,10 +46,12 @@ shortTitle: 扩展和集成
 
 ### Slack 与 {% data variables.product.product_name %} 集成
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. 您还可以执行关闭或打开议题等活动，并在不离开 Slack 的情况下提供丰富的议题和拉取请求参考。
+The Slack + {% data variables.product.prodname_dotcom %} app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, and you can see detailed references to issues and pull requests without leaving Slack. The app will also ping you personally in Slack if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
 
-The {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). 更多信息请访问 Marketplace 中的 [Slack 集成应用程序](https://github.com/marketplace/slack-github)。
+The Slack + {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). For more information, visit the [Slack + {% data variables.product.prodname_dotcom %} app](https://github.com/marketplace/slack-github) in the marketplace.
 
 ### Microsoft Teams 与 {% data variables.product.product_name %} 集成
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. 您也可以执行一些活动，如关闭或打开议题、评论您的议题和拉取请求，以及提供丰富的议题和拉取请求引用而不离开 Microsoft Teams。 更多信息请访问 Microsoft AppSource 中的 [Microsoft Teams 集成应用程序](https://appsource.microsoft.com/en-us/product/office/WA200002077)。
+The {% data variables.product.prodname_dotcom %} for Teams app lets you subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. You can also perform activities like opening and closing issues, commenting on your issues and pull requests, and you can see detailed references to issues and pull requests without leaving Microsoft Teams. The app will also ping you personally in Teams if you are mentioned as part of any {% data variables.product.prodname_dotcom %} notifications that you receive in your channels or personal chats.
+
+For more information, visit the [{% data variables.product.prodname_dotcom %} for Teams app](https://appsource.microsoft.com/en-us/product/office/WA200002077) in Microsoft AppSource.

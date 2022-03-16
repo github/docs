@@ -36,7 +36,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 
 ### Setting a profile picture
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
 ![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
 3. Click **Upload a photo...**.
@@ -46,7 +46,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 
 ### Resetting your profile picture to the identicon
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Under **Profile Picture**, click {% octicon "pencil" aria-label="The edit icon" %} **Edit**.
 ![Edit profile picture](/assets/images/help/profile/edit-profile-photo.png)
 3. To revert to your identicon, click **Remove photo**. If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
@@ -64,7 +64,7 @@ You can change the name that is displayed on your profile. This name may also be
 {% endnote %}
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Under "Name", type the name you want to be displayed on your profile.
   ![Name field in profile settings](/assets/images/help/profile/name-field.png)
 
@@ -85,7 +85,7 @@ For a longer-form and more prominent way of displaying customized information ab
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Under **Bio**, add the content that you want displayed on your profile. The bio field is limited to 160 characters.
 	![Update bio on profile](/assets/images/help/profile/bio-field.png)
 
@@ -148,7 +148,7 @@ When you participate in certain programs, {% data variables.product.prodname_dot
 
 You can disable some of the badges for {% data variables.product.prodname_dotcom %} programs you're participating in, including the PRO, {% data variables.product.prodname_arctic_vault %} and Mars 2020 Helicopter Contributor badges.
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Under "Profile settings", deselect the badge you want you disable.
   ![Checkbox to no longer display a badge on your profile](/assets/images/help/profile/profile-badge-settings.png)
 3. Click **Update preferences**.

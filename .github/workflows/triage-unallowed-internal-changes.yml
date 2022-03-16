@@ -12,6 +12,9 @@ on:
       - opened
       - reopened
       - synchronize
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   # This is needed by dorny/paths-filter
@@ -36,7 +39,7 @@ jobs:
         id: filter
         with:
           # Base branch used to get changed files
-          base: ${{ github.event.pull_request.base.ref }}
+          base: ${{ github.event.pull_request.base.ref || github.base_ref || github.ref }}
 
           # Enables setting an output in the format in `${FILTER_NAME}_files
           # with the names of the matching files formatted as JSON array
@@ -60,7 +63,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.13.x
+          node-version: 16.14.x
           cache: npm
 
       - name: Install dependencies

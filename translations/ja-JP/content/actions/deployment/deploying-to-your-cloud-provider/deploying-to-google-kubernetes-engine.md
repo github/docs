@@ -90,8 +90,12 @@ $ gcloud services enable \
   ```
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
     --member=serviceAccount:$SA_EMAIL \
-    --role=roles/container.admin \
-    --role=roles/storage.admin \
+    --role=roles/container.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/storage.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
     --role=roles/container.clusterViewer
   ```
   {% endraw %}
@@ -116,11 +120,9 @@ Store the name of your project as a secret named `GKE_PROJECT`. For more informa
 ### （オプション）kustomizeの設定
 Kustomizeは、YAML仕様を管理するために使われるオプションのツールです。 After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. 詳しい情報については、「[kustomize の使い方](https://github.com/kubernetes-sigs/kustomize#usage)」を参照してください。
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Optional) Configure a deployment environment
 
 {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## ワークフローの作成
 

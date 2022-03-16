@@ -64,7 +64,7 @@ Ao fazer envio por push de um grupo do Okta e mapear o grupo com uma equipe, tod
 Você pode mapear uma equipe na sua empresa com um grupo do Okta que você enviou por push anteriormente para {% data variables.product.prodname_ghe_managed %}. Os integrantes do grupo doOkta irão tornar-se automaticamente integrantes da equipe de {% data variables.product.prodname_ghe_managed %}. Todas as alterações subsequentes na associação do grupo do Okta serão automaticamente sincronizadas com a equipe de {% data variables.product.prodname_ghe_managed %}.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 6. Em "Grupo de Provedores de identidade", selecione o menu suspenso e clique em um grupo de provedores de identidade. ![Menu suspenso para escolher grupo de provedores de identidade](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)

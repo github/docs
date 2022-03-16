@@ -10,10 +10,10 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
 versions:
-  ghes: '>=3.1'
+  ghes: '*'
   fpt: '*'
   ghec: '*'
-  ghae: 'issue-5378'
+  ghae: issue-5378
 miniTocMaxHeadingLevel: 3
 type: how_to
 topics:

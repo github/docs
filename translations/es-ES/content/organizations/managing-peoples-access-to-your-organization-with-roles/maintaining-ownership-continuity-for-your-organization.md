@@ -31,10 +31,14 @@ Los propietarios de una organización tienen acceso administrativo completo a la
 
 {% endnote %}
 
+{% if enterprise-owner-join-org %}
+If your organization is owned by an enterprise account, any enterprise owner can make themself an owner of your organization. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+{% endif %}
+
 ## Designar un propietario de organización
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Selecciona la persona o las personas que quisieras promover a propietario. ![Lista de miembros con dos miembros seleccionados](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Arriba de la lista de miembros, usa el menú desplegable y haz clic en **Change role...** (Cambiar rol). ![Menú desplegable con la opción para eliminar miembros](/assets/images/help/teams/user-bulk-management-options.png)

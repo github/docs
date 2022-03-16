@@ -1,5 +1,5 @@
 ---
-title: Common validation errors when creating issue forms
+title: Errores de validación comunes al crear formatos de propuesta
 intro: 'You may see some of these common validation errors when creating, saving, or viewing issue forms.'
 versions:
   fpt: '*'
@@ -297,7 +297,7 @@ body:
     - label: Name
 ```
 
-`id` attributes are not visible in the issue body. If you want to distinguish the fields in the resulting issue, you should use distinct `label` attributes.
+Los atributos de `id` no estuvieron visibles en el cuerpo de la propuesta. Si quieres distinguir los campos en la propuesta resultante, deberías utilizar atributos distintos de `label`.
 
 ## Body[i]: required key type is missing
 
@@ -320,7 +320,7 @@ The error can be fixed by adding the key `type` with a valid input type as the v
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
+    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
     preview_only: false
 ```
 
@@ -328,7 +328,7 @@ body:
 
 One of the body blocks contains a type value that is not one of the [permitted types](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -336,7 +336,7 @@ Errors with `body` will be prefixed with `body[i]` where `i` represents the inde
 body:
 - type: x
   attributes:
-    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
+    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
     preview_only: false
 ```
 
@@ -346,7 +346,7 @@ The error can be fixed by changing `x` to one of the valid types.
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
+    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
     preview_only: false
 ```
 
@@ -354,7 +354,7 @@ body:
 
 One of the required `value` attributes has not been provided. The error occurs when a block does not have an `attributes` key or does not have a `value` key under the `attributes` key.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -362,7 +362,7 @@ Errors with `body` will be prefixed with `body[i]` where `i` represents the inde
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
+    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
     preview_only: false
 - type: markdown
 ```
@@ -373,7 +373,7 @@ The error in this example can be fixed by adding `value` as a key under `attribu
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
+    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
     preview_only: false
 - type: markdown
   attributes:
@@ -384,7 +384,7 @@ body:
 
 Within its `attributes` block, a value has the wrong data type.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -395,7 +395,7 @@ The `label` below is being parsed as a Boolean, but it should be a string.
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
+    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
 - type: textarea
   attributes:
     label: Bug Description
@@ -409,7 +409,7 @@ The error can be fixed by supplying a string value for `label`. If you want to u
 ```yaml
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
+    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
 - type: textarea
   attributes:
     label: Bug Description
@@ -420,7 +420,7 @@ The error can be fixed by supplying a string value for `label`. If you want to u
 
 Empty strings, or strings consisting of only whitespaces, are not permissible when an attribute expects a string. For example, `""` or `"     "` are not allowed.
 
-If the attribute is required, the value must be a non-empty string. If the field is not required, you should delete the key-value pair.
+If the attribute is required, the value must be a non-empty string. Si el campo no es requerido, deberías borrar el par de valor-llave.
 
 ```yaml
 body:
@@ -433,7 +433,7 @@ body:
 
 `id` attributes can only contain alphanumeric characters, `-`, and `_`. Your template may include non-permitted characters, such as whitespace, in an `id`.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -461,7 +461,7 @@ body:
 
 An unexpected key, `x`, was provided at the same indentation level as `type` and `attributes`.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -470,7 +470,7 @@ body:
 - type: markdown
   x: woof
   attributes:
-    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
+    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
 ```
 
 The error can be fixed by removing extra keys and only using `type`, `attributes`, and `id`.
@@ -479,14 +479,14 @@ The error can be fixed by removing extra keys and only using `type`, `attributes
 body:
 - type: markdown
   attributes:
-    value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
+    value: "Thanks for taking the time to fill out this bug! Si necesitas ayuda en tiempo real, únetenos en Discord."
 ```
 
 ## Body[i]: `label` contains forbidden word
 
 To minimize the risk of private information and credentials being posted publicly in GitHub Issues, some words commonly used by attackers are not permitted in the `label` of input or textarea elements.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -516,7 +516,7 @@ body:
 
 An invalid key has been supplied in an `attributes` block.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -541,7 +541,7 @@ body:
 
 For checkboxes and dropdown input types, the choices defined in the `options` array must be unique.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -572,7 +572,7 @@ body:
 
 "None" is a reserved word in an `options` set because it is used to indicate non-choice when a `dropdown` is not required.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 
@@ -607,7 +607,7 @@ In this example, "None" will be auto-populated as a selectable option.
 
 There are a number of English words that become processed into Boolean values by the YAML parser unless they are wrapped in quotes. For dropdown `options`, all items must be strings rather than Booleans.
 
-Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
+En los errores con `body` se utilizará el prefijo `body[i]`, en donde `i` representa el índice del bloque del cuerpo que contiene el error. Por ejemplo, `body[0]` nos dice que el primer bloque en la lista `body` ocasionó el error.
 
 ### Ejemplo
 

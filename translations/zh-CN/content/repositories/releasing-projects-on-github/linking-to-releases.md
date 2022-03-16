@@ -16,11 +16,11 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. To copy a unique URL to your clipboard, find the release you want to link to, right click the title, and copy the URL.
+3. 要将唯一 URL 复制到剪贴板，请找到要链接到的版本，右键单击标题，然后复制 URL。
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
-  ![Release title](/assets/images/help/releases/release-title.png)
+  ![版本标题](/assets/images/help/releases/release-title.png)
 {% else %}
-  ![Release title](/assets/images/help/releases/release-title-old.png)
+  ![版本标题](/assets/images/help/releases/release-title-old.png)
 {% endif %}
 1. 或者，右键单击 **Latest Release（最新发行版）**并复制 URL 以共享它。 此 URL 的后缀始终是 `/releases/latest`。
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}
@@ -28,4 +28,4 @@ topics:
    {% else %}
    ![最新发行版标记](/assets/images/help/releases/release_latest_release_tag.png)
    {% endif %}
-To link directly to a download of your latest release asset that was manually uploaded, link to `/owner/name/releases/latest/download/asset-name.zip`.
+要直接链接到手动上传的最新版本资产的下载，请链接到 `/owner/name/releases/latest/download/asset-name.zip`。

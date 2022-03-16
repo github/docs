@@ -125,12 +125,7 @@ Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" 
 
 Click {% octicon "filter" aria-label="the filter icon" %} at the top of the table to show the "Filter by keyword or by field" bar. Start typing the field name and value that you want to filter by. As you type, possible values will appear.
 
-- To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
-- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
-- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
-- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
-- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
-- To filter for the current iteration of an iteration field, use `@current`. For example, `sprint:@current`.
+{% data reusables.projects.projects-filters %}
 
 Alternatively, use the command palette.
 
@@ -140,6 +135,8 @@ Alternatively, use the command palette.
 4. Enter the value that you want to filter for. For example: "In progress". You can also filter for the absence of specific values (for example, choose "Exclude status" then choose a status) or the absence of all values (for example, "No status").
 
 In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
+
+For more information, see "[Filtering projects](/issues/trying-out-the-new-projects-experience/filtering-projects)."
 
 ## Creating a project view
 

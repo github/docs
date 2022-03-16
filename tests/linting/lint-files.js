@@ -25,6 +25,7 @@ import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-o
 import semver from 'semver'
 import { jest } from '@jest/globals'
 import { getDiffFiles } from '../helpers/diff-files.js'
+import loadSiteData from '../../lib/site-data.js'
 
 jest.useFakeTimers('legacy')
 
@@ -410,6 +411,9 @@ if (
 
 describe('lint markdown content', () => {
   if (mdToLint.length < 1) return
+
+  const siteData = loadSiteData()
+
   describe.each(mdToLint)('%s', (markdownRelPath, markdownAbsPath) => {
     let content,
       ast,
@@ -453,12 +457,14 @@ describe('lint markdown content', () => {
         }
       })
 
+      const context = { site: siteData.en.site }
+
       // visit is not async-friendly so we need to do an async map to parse the YML snippets
       yamlScheduledWorkflows = (
         await Promise.all(
           yamlScheduledWorkflows.map(async (snippet) => {
             // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
-            const rendered = await renderContent.liquid.parseAndRender(snippet)
+            const rendered = await renderContent.liquid.parseAndRender(snippet, context)
             const parsed = yaml.load(rendered)
             return parsed.on.schedule
           })
@@ -1031,6 +1037,9 @@ describe('lint GHAE release notes', () => {
 
 describe('lint learning tracks', () => {
   if (learningTracksToLint.length < 1) return
+
+  const siteData = loadSiteData()
+
   describe.each(learningTracksToLint)('%s', (yamlRelPath, yamlAbsPath) => {
     let dictionary
     let dictionaryError = false
@@ -1066,7 +1075,7 @@ describe('lint learning tracks', () => {
       const productVersions = getApplicableVersions(data.versions, productTocPath)
 
       const featuredTracks = {}
-      const context = { enterpriseServerVersions }
+      const context = { enterpriseServerVersions, site: siteData.en.site }
 
       // For each of the product's versions, render the learning track data and look for a featured track.
       await Promise.all(

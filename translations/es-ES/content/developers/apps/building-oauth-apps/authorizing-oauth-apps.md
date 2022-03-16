@@ -24,8 +24,8 @@ Si quieres saltar el proceso de autorización de tu app en el modo estándar, ta
 
 Para autorizar tu app de OAuth, considera qué flujo de autorizaciones queda mejor con ella.
 
-- [flujo web de aplicaciones](#web-application-flow): Se utiliza para autorizar a los usuarios para las aplicaciones de OAuth que se ejecutan en el buscador. (El [tipo de otorgamiento implícito](https://tools.ietf.org/html/rfc6749#section-4.2) no es compatible.){% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-- [flujo de dispositivos](#device-flow):  Se utiliza para las aplicaciones sin encabezado, tales como las herramientas de CLI.{% endif %}
+- [flujo web de aplicaciones](#web-application-flow): Se utiliza para autorizar a los usuarios para las aplicaciones de OAuth que se ejecutan en el buscador. (El [tipo de concesión implícito](https://tools.ietf.org/html/rfc6749#section-4.2) no es compatible)
+- [flujo de dispositivos](#device-flow): Se utiliza para las apps sin encabezado, tales como las herramientas de CLI.
 
 ## Flujo de aplicaciones Web
 
@@ -115,8 +115,6 @@ Por ejemplo, en curl, puedes configurar el encabezado de autorización de la sig
 ```shell
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
-
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ## Flujo de dispositivos
 
@@ -261,8 +259,6 @@ Si realizas más de una solicitud de acceso con token (`POST {% data variables.p
 
 Para obtener más información, consulta la sección "[Otorgamiento de Autorización de Dispositivo de OAuth 2.0](https://tools.ietf.org/html/rfc8628#section-3.5)".
 
-{% endif %}
-
 ## Flujo de aplicaciónes no web
 
 La autenticación no web está disponible para situaciones limitadas, como las pruebas. Si lo necesitas, puedes utilizar la [Autenticación Básica](/rest/overview/other-authentication-methods#basic-authentication) para crear un token de acceso personal utilizando tu [página de configuración de los tokens de acceso personal](/articles/creating-an-access-token-for-command-line-use). Esta técnica le permite al usuario revocar el acceso en cualquier momento.
@@ -293,7 +289,7 @@ El parámetro `redirect_uri` es opcional. Si se deja fuera, GitHub redireccionar
 
 El parámetro opcional `redirect_uri` también puede utilizarse para las URL de localhost. Si la aplicación especifica una URL y puerto de localhost, entonces, después de autorizar la aplicación, los usuarios se redireccionarán al puerto y URL proporcionados. La `redirect_uri` no necesita empatar con el puerto especificado en la url de rellamado para la app.
 
-For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
+Para la URL de rellamado `http://127.0.0.1/path`, puede sutilizar esta `redirect_uri`:
 
 ```
 http://127.0.0.1:1234/path
@@ -329,7 +325,7 @@ Para crear este vínculo, necesitarás el `client_id` de tus Apps de Oauth, el c
 
 * "[Solución de problemas para errores de solicitud de autorización](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[Solución de problemas para errores de solicitud de tokens de acceso para Apps de OAuth](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}* "[Errores de flujo de dispositivo](#error-codes-for-the-device-flow)"{% endif %}{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+* "[Device flow errors](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 * "[Vencimiento y revocación de token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
 ## Leer más

@@ -29,7 +29,7 @@ La página de perspectivas muestra estas métricas de rendimiento para el period
 
 * **Valor de la suscripción:** La ganancia total posible (en dólares estadounidenses) de las suscripciones. Este valor representa la ganancia posible si no se cancela ningún plan o periodo de prueba gratuito para que todas las transacciones de tarjetas bancarias tengan éxito. El valor de la suscripción incluye el valor total de los planes que comeinzan con un periodo de prueba gratuito en el periodo de tiempo seleccionado, aún cuando no hay transacciones financieras en dicho periodo de tiempo. El valor de la suscripción también incluye un valor completo de los planes actualizados en el periodo de tiempo seleccionado pero no incluye la cantidad prorrateada. Para ver y descargar las transacciones individuales, consulta la sección "[transacciones de GitHub Marketplace](/marketplace/github-marketplace-transactions/)".
 * **Visitantes:** Cantidad de personas que han visto una página en tu listado de GitHub Apps. Esta cantidad incluye tanto a los visitantes que han iniciado sesión como a los que salen de sesión.
-* **Visualizaciones de página:** Cantidad de visualizaciones que han recibido las páginas en tu listado de GitHub Apps. A single visitor can generate more than one page view.
+* **Visualizaciones de página:** Cantidad de visualizaciones que han recibido las páginas en tu listado de GitHub Apps. Un solo visitante puede generar más de una vista de página.
 
 {% note %}
 

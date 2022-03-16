@@ -114,7 +114,7 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
 ```
 
 {% ifversion ghes %}
-Allows you to exempt a list of users from API rate limits. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Allows you to exempt a list of users from API rate limits. A hard limit of 120,000 requests will still apply to these users. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
@@ -456,6 +456,16 @@ You can use these additional options with the utility:
 
 ```shell
 ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
+```
+
+### ghe-ssl-certificate-setup
+
+This utility allows you to update an SSL certificate for {% data variables.product.product_location %}. 
+
+For more information about this command or for additional options, use the `-h` flag.
+
+```shell
+ghe-ssl-certificate-setup
 ```
 
 ### ghe-ssl-generate-csr
