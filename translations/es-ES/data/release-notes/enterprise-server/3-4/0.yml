@@ -1,17 +1,10 @@
 ---
-date: '2022-02-15'
-release_candidate: true
-deprecated: true
+date: '2022-03-15'
 intro: |
-  {% note %}
 
-  **Nota:** Si {% data variables.product.product_location %} está ejecutando una compilación candidata a lanzamiento, no podrás mejorar la versión con un hotpatch. Te reocmendamos que solo ejecutes candidatos a lanzamiento en ambientes de prueba.
+  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 
-  {% endnote %}
-
-  Para encontrar las instrucciones de mejora de versiones, consulta la sección "[Mejorar la versión de {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)".
-
-  > Dedicamos este lanzamiento a nuestro colega y amigo John, un Hubber que siempre estuvo disponible para ayudar. Te vamos a extrañar mucho.
+  > This release is dedicated to our colleague and friend John, a Hubber who was always there to help. You will be greatly missed.
   >
   > **John "Ralph" Wiebalk 1986–2021**
 sections:
@@ -42,6 +35,7 @@ sections:
       notes:
         - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
         - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
+        - You can now give users access to enterprise-specific links by adding custom footers to {% data variables.product.prodname_ghe_server %}. For more information, see "[Configuring custom footers](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)."
     - 
       heading: Cambios de rendimiento
       notes:
@@ -135,7 +129,7 @@ sections:
 
           Para obtener más información, consulta la sección "[Escaneo de código](/rest/reference/code-scanning)" en la documentación de la API de REST.
         - 'Los clientes de la {% data variables.product.prodname_GH_advanced_security %} ahora pueden utilizar la API de REST para recuperar resultados del escaneo de secretos en repositorios privados a nivel empresarial. La terminal nueva complementa a las terminales existentes a nivel de repositorio y organización. Para obtener más información, consulta la sección "[Escaneo de secretos](/rest/reference/secret-scanning)" en la documentación de la API de REST.'
-  #No security/bug fixes for the RC release
+  #No security/bug fixes for the GA release
   #security_fixes:
   #- PLACEHOLDER
   #bugs:

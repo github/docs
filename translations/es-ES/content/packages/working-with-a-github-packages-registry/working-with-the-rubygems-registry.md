@@ -151,6 +151,10 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   $ gem install octo-gem --version "0.1.1"
   ```
 
+{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
+
 ## Further reading
 
 - "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+
+{% endif %}
