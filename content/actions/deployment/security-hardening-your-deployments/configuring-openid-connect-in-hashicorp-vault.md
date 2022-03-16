@@ -38,18 +38,23 @@ Configure Vault to accept JSON Web Tokens (JWT) for authentication with the [JWT
 Additionally, you must configure a [JWT auth backend role](https://www.vaultproject.io/api/auth/jwt#create-role).
 
 - Set `role_type` to `jwt`
-- Set `user_claim` to a field key (e.g., `run_id`) that is present in the OIDC token. See [Understanding the OIDC token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) for more information.
+- Set `user_claim` to a claim name (e.g., `run_id`) that is present in the OIDC token. See [Understanding the OIDC token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) for more information.
 
-Then, ensure that the bound parameters are correctly defined for your security requirements:
+Then, ensure that the `bound_*` parameters for the JWT auth backend role are correctly defined for your security requirements.
 
-- For a wildcard (non-exact) match, the `bound_claims` may be set to a map of the claim field to a wildcard value:
+- For a wildcard (non-exact) match, the `bound_claims_type` must be set to a value of `glob`. See the [Vault documentation](https://www.vaultproject.io/api/auth/jwt#bound_claims_type) for more information.
+  
+  The `bound_claims` parameter must be set to a JSON object. The object maps one or more claim names to corresponding wildcard values:
 
   ```json
   {"sub": "repo:<orgName>/*"}
   ```
-  This requires the `bound_claims_type` to be set to a value of `glob`. See the [Vault documentation](https://www.vaultproject.io/api/auth/jwt#bound_claims_type) for more information.
 
-- For an exact match, the `bound_subject` must be set to the `sub` field of the claim. For more details, see [Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims).
+- For an exact match, the `bound_claims_type` should be set to a value of `string`.
+
+  The `bound_subject` parameter must exactly match the `sub` claim in the OIDC token. 
+  
+  For more details, see [Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims).
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
