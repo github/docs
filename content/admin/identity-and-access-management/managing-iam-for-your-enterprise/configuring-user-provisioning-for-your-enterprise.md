@@ -1,7 +1,7 @@
 ---
 title: Configuring user provisioning for your enterprise
 shortTitle: Configuring user provisioning
-intro: 'You can configure System for Cross-domain Identity Management (SCIM) for your enterprise, which automatically provisions user accounts on {% data variables.product.product_location %} when you assign the application for {% data variables.product.product_location %} to a user on your identity provider (IdP).'
+intro: 'You can configure System for Cross-domain Identity Management (SCIM) for your enterprise, which automatically provisions personal accounts on {% data variables.product.product_location %} when you assign the application for {% data variables.product.product_location %} to a user on your identity provider (IdP).'
 permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 versions:
   ghae: '*'
@@ -65,7 +65,7 @@ You must have administrative access on your IdP to configure the application for
   {% endnote %}
   {% warning %}
 
-  **Warning**: If the user account for the enterprise owner who creates the personal access token is deactivated or deprovisioned, your IdP will no longer provision and deprovision user accounts for your enterprise automatically. Another enterprise owner must create a new personal access token and reconfigure provisioning on the IdP.
+  **Warning**: If the personal account for the enterprise owner who creates the personal access token is deactivated or deprovisioned, your IdP will no longer provision and deprovision personal accounts for your enterprise automatically. Another enterprise owner must create a new personal access token and reconfigure provisioning on the IdP.
 
   {% endwarning %}
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -84,7 +84,7 @@ You must have administrative access on your IdP to configure the application for
   | Azure AD | [Tutorial: Configure {% data variables.product.prodname_ghe_managed %} for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/github-ae-provisioning-tutorial) in the Microsoft Docs. To configure Azure AD for {% data variables.product.prodname_ghe_managed %}, see "[Configuring authentication and provisioning for your enterprise using Azure AD](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad)."|
 | Okta | (beta) To configure Okta for {% data variables.product.prodname_ghe_managed %}, see "[Configuring authentication and provisioning for your enterprise using Okta](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/configuring-authentication-and-provisioning-for-your-enterprise-using-okta)."|
 
-  The application on your IdP requires two values to provision or deprovision user accounts on {% data variables.product.product_location %}.
+  The application on your IdP requires two values to provision or deprovision personal accounts on {% data variables.product.product_location %}.
 
   | Value | Other names | Description | Example |
   | :- | :- | :- | :- |

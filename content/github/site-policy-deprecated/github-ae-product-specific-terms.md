@@ -14,7 +14,7 @@ The Agreement consists of these GitHub AE Product Specific Terms, the General Te
 
 ## 1. Accounts.
 
-**Account Responsibility.** Customer controls and is responsible for End User accounts and Content.
+**Account Responsibility.** Customer controls and is responsible for End Personal accounts and Content.
 
 **Account Security.** Customer is responsible for maintaining the security of its account login credentials.
 

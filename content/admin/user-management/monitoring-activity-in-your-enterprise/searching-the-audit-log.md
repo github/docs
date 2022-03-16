@@ -21,8 +21,8 @@ Compose a search query from one or more key:value pairs separated by AND/OR logi
 
 Key            | Value
 --------------:| --------------------------------------------------------
-`actor_id`     | ID of the user account that initiated the action
-`actor`        | Name of the user account that initiated the action
+`actor_id`     | ID of the personal account that initiated the action
+`actor`        | Name of the personal account that initiated the action
 `oauth_app_id` | ID of the OAuth application associated with the action
 `action`       | Name of the audited action
 `user_id`      | ID of the user affected by the action

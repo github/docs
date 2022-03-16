@@ -1,5 +1,5 @@
 ---
-title: Managing security and analysis settings for your user account
+title: Managing security and analysis settings for your personal account
 intro: 'You can control features that secure and analyze the code in your projects on {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
@@ -18,7 +18,7 @@ shortTitle: Manage security & analysis
 
 You can still manage the security and analysis features for individual repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
 
-You can also review the security log for all activity on your user account. For more information, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+You can also review the security log for all activity on your personal account. For more information, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 

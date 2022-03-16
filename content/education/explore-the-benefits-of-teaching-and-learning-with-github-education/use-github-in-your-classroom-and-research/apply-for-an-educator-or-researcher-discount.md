@@ -20,7 +20,7 @@ shortTitle: Apply for a discount
 
 {% data reusables.education.educator-requirements %}
 
-For more information about user accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
+For more information about personal accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
 
 ## Applying for an educator or researcher discount
 

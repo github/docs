@@ -1,5 +1,5 @@
 ---
-title: Setting up GitHub Sponsors for your user account
+title: Setting up GitHub Sponsors for your personal account
 intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication for your account on {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/becoming-a-sponsored-developer
@@ -10,9 +10,9 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - User account
+  - Personal account
   - Sponsors profile
-shortTitle: Set up for user account
+shortTitle: Set up for personal account
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}
@@ -22,7 +22,7 @@ shortTitle: Set up for user account
 To join {% data variables.product.prodname_sponsors %} as an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
-2. If you are an organization owner, you have more than one eligible account. Click **View your eligible accounts**, then in the list of accounts, find your user account.
+2. If you are an organization owner, you have more than one eligible account. Click **View your eligible accounts**, then in the list of accounts, find your personal account.
 3. Click **Join the waitlist**.
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}

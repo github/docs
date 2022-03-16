@@ -21,16 +21,16 @@ topics:
 
 Action                               | Description
 ------------------------------------ | ----------------------------------------
-`oauth_access.create`                | An [OAuth access token][] was [generated][generate token] for a user account.
-`oauth_access.destroy`               | An [OAuth access token][] was deleted from a user account.
+`oauth_access.create`                | An [OAuth access token][] was [generated][generate token] for a personal account.
+`oauth_access.destroy`               | An [OAuth access token][] was deleted from a personal account.
 `oauth_application.destroy`          | An [OAuth application][] was deleted from a user or organization account.
 `oauth_application.reset_secret`     | An [OAuth application][]'s secret key was reset.
 `oauth_application.transfer`         | An [OAuth application][] was transferred from one user or organization account to another.
-`public_key.create`                  | An SSH key was [added][add key] to a user account or a [deploy key][] was added to a repository.
-`public_key.delete`                  | An SSH key was removed from a user account or a [deploy key][] was removed from a repository.
-`public_key.update`                  | A user account's SSH key or a repository's [deploy key][] was updated.{% ifversion ghes %}
-`two_factor_authentication.enabled`  | [Two-factor authentication][2fa] was enabled for a user account.
-`two_factor_authentication.disabled` | [Two-factor authentication][2fa] was disabled for a user account.{% endif %}
+`public_key.create`                  | An SSH key was [added][add key] to a personal account or a [deploy key][] was added to a repository.
+`public_key.delete`                  | An SSH key was removed from a personal account or a [deploy key][] was removed from a repository.
+`public_key.update`                  | A personal account's SSH key or a repository's [deploy key][] was updated.{% ifversion ghes %}
+`two_factor_authentication.enabled`  | [Two-factor authentication][2fa] was enabled for a personal account.
+`two_factor_authentication.disabled` | [Two-factor authentication][2fa] was disabled for a personal account.{% endif %}
 
   [add key]: /articles/adding-a-new-ssh-key-to-your-github-account
   [deploy key]: /guides/managing-deploy-keys/#deploy-keys
@@ -97,7 +97,7 @@ Action             | Description
 ------------------ | ----------------------------------------------------------
 `org.async_delete` | A user initiated a background job to delete an organization.
 `org.delete`       | An organization was deleted by a user-initiated background job.{% ifversion not ghae %}
-`org.transform`    | A user account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."{% endif %}
+`org.transform`    | A personal account was converted into an organization. For more information, see "[Converting a user into an organization](/github/setting-up-and-managing-your-github-user-account/converting-a-user-into-an-organization)."{% endif %}
 
 ## Pull requests
 
@@ -169,8 +169,8 @@ Action                        | Description
 
 Action                            | Description
 --------------------------------- | -------------------------------------------
-`team.create`                     | A user account or repository was added to a team.
-`team.delete`                     | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
+`team.create`                     | A personal account or repository was added to a team.
+`team.delete`                     | A personal account or repository was removed from a team.{% ifversion ghes or ghae %}
 `team.demote_maintainer`          | A user was demoted from a team maintainer to a team member.{% endif %}
 `team.destroy`                    | A team was deleted.{% ifversion ghes or ghae %}
 `team.promote_maintainer`         | A user was promoted from a team member to a team maintainer.{% endif %}
@@ -179,23 +179,23 @@ Action                            | Description
 
 Action                            | Description
 --------------------------------- | -------------------------------------------
-`user.add_email`                  | An email address was added to a user account.
-`user.async_delete`               | An asynchronous job was started to destroy a user account, eventually triggering `user.delete`.{% ifversion ghes %}
+`user.add_email`                  | An email address was added to a personal account.
+`user.async_delete`               | An asynchronous job was started to destroy a personal account, eventually triggering `user.delete`.{% ifversion ghes %}
 `user.change_password`            | A user changed his or her password.{% endif %}
-`user.create`                     | A new user account was created.
-`user.delete`                     | A user account was destroyed by an asynchronous job.
-`user.demote`                     | A site admin was demoted to an ordinary user account.
+`user.create`                     | A new personal account was created.
+`user.delete`                     | A personal account was destroyed by an asynchronous job.
+`user.demote`                     | A site admin was demoted to an ordinary personal account.
 `user.destroy`                    | A user deleted his or her account, triggering `user.async_delete`.{% ifversion ghes %}
 `user.failed_login`               | A user tried to sign in with an incorrect username, password, or two-factor authentication code.
 `user.forgot_password`            | A user requested a password reset via the sign-in page.{% endif %}
 `user.login`                      | A user signed in.{% ifversion ghes or ghae %}
 `user.mandatory_message_viewed`   | A user views a mandatory message (see "[Customizing user messages](/admin/user-management/customizing-user-messages-for-your-enterprise)" for details) | {% endif %}
-`user.promote`                    | An ordinary user account was promoted to a site admin.
-`user.remove_email`               | An email address was removed from a user account.
+`user.promote`                    | An ordinary personal account was promoted to a site admin.
+`user.remove_email`               | An email address was removed from a personal account.
 `user.rename`                     | A username was changed.
-`user.suspend`                    | A user account was suspended by a site admin.{% ifversion ghes %}
+`user.suspend`                    | A personal account was suspended by a site admin.{% ifversion ghes %}
 `user.two_factor_requested`       | A user was prompted for a two-factor authentication code.{% endif %}
-`user.unsuspend`                  | A user account was unsuspended by a site admin.
+`user.unsuspend`                  | A personal account was unsuspended by a site admin.
 
 {% ifversion ghes > 3.1 or ghae %}
 ## Workflows

@@ -133,7 +133,7 @@ If the details for your IdP change, you'll need to edit the SAML SSO configurati
   !["Test SAML configuration" button](/assets/images/help/saml/ae-edit-idp-details-test-saml-configuration.png)
 1. Click **Save**.
     !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-edit-idp-details-save.png)
-1. Optionally, to automatically provision and deprovision user accounts for {% data variables.product.product_location %}, reconfigure user provisioning with SCIM. For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
+1. Optionally, to automatically provision and deprovision personal accounts for {% data variables.product.product_location %}, reconfigure user provisioning with SCIM. For more information, see "[Configuring user provisioning for your enterprise](/admin/authentication/configuring-user-provisioning-for-your-enterprise)."
 
 {% endif %}
 
@@ -158,7 +158,7 @@ If the details for your IdP change, you'll need to edit the SAML SSO configurati
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "SAML single sign-on", unselect **Enable SAML authentication**.
   ![Checkbox for "Enable SAML authentication"](/assets/images/help/saml/ae-saml-disabled.png)
-1. To disable SAML SSO and require signing in with the built-in user account you created during initialization, click **Save**.
+1. To disable SAML SSO and require signing in with the built-in personal account you created during initialization, click **Save**.
     !["Save" button for SAML SSO configuration](/assets/images/help/saml/ae-saml-disabled-save.png)
 
 {% endif %}

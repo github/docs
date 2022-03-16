@@ -11,7 +11,7 @@ type: reference
 topics:
   - Enterprise
   - Security
-  - User account
+  - Personal account
 shortTitle: User security best practices
 ---
 {% ifversion ghes %}

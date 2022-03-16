@@ -15,7 +15,7 @@ topics:
   - Enterprise
   - Organizations
   - Security
-  - User account
+  - Personal account
 shortTitle: Audit users
 ---
 ## Accessing the audit log

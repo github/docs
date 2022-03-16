@@ -1,5 +1,5 @@
 ---
-title: Managing user account settings
+title: Managing personal account settings
 intro: 'You can change several settings for your personal account, including changing your username and deleting your account.'
 redirect_from:
   - /categories/29/articles
@@ -30,6 +30,6 @@ children:
   - /integrating-jira-with-your-personal-projects
   - /best-practices-for-leaving-your-company
   - /what-does-the-available-for-hire-checkbox-do
-shortTitle: User account settings
+shortTitle: Personal account settings
 ---
 

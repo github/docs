@@ -17,7 +17,7 @@ shortTitle: App creation query parameters
 
 You can add query parameters to these URLs to preselect the configuration of a {% data variables.product.prodname_github_app %} on a personal or organization account:
 
-* **User account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **Personal account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
 * **Organization account:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 The person creating the app can edit the preselected values from the {% data variables.product.prodname_github_app %} registration page, before submitting the app. If you do not include required parameters in the URL query string, like `name`, the person creating the app will need to input a value before submitting the app.

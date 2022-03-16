@@ -14,7 +14,7 @@ You can navigate, search, and run commands on {% data variables.product.product_
 
 ### Fast navigation
 
-When you open the command palette, the suggestions are optimized to give you easy access from anywhere in a repository, user account, or organization to top-level pages like the Issues page. If the location you want isn't listed, start entering the name or number for the location to refine the suggestions.
+When you open the command palette, the suggestions are optimized to give you easy access from anywhere in a repository, personal account, or organization to top-level pages like the Issues page. If the location you want isn't listed, start entering the name or number for the location to refine the suggestions.
 
 ![Command palette repository suggestions](/assets/images/help/command-palette/command-palette-navigation-repo-default.png)
 

@@ -20,17 +20,17 @@ topics:
 ---
 ## About {% data variables.product.prodname_dotcom %}'s products
 
-{% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to user accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+{% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to personal accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
 You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
 
 When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your product. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
-## {% data variables.product.prodname_free_user %} for user accounts
+## {% data variables.product.prodname_free_user %} for personal accounts
 
-With {% data variables.product.prodname_free_team %} for user accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
+With {% data variables.product.prodname_free_team %} for personal accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
 
-With {% data variables.product.prodname_free_user %}, your user account includes:
+With {% data variables.product.prodname_free_user %}, your personal account includes:
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
 - Two-factor authentication enforcement
@@ -39,7 +39,7 @@ With {% data variables.product.prodname_free_user %}, your user account includes
 
 ## {% data variables.product.prodname_pro %}
 
-In addition to the features available with {% data variables.product.prodname_free_user %} for user accounts, {% data variables.product.prodname_pro %} includes:
+In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_pro %} includes:
 - {% data variables.contact.github_support %} via email
 - 3,000 {% data variables.product.prodname_actions %} minutes
 - 2GB {% data variables.product.prodname_registry %} storage
@@ -57,7 +57,7 @@ In addition to the features available with {% data variables.product.prodname_fr
 
 With {% data variables.product.prodname_free_team %} for organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set.
 
-In addition to the features available with {% data variables.product.prodname_free_user %} for user accounts, {% data variables.product.prodname_free_team %} for organizations includes:
+In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
 - {% data variables.product.prodname_gcf %}
 - Team discussions
 - Team access controls for managing groups

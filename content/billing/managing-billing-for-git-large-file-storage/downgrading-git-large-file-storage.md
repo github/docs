@@ -15,7 +15,7 @@ topics:
   - Downgrades
   - LFS
   - Organizations
-  - User account
+  - Personal account
 shortTitle: Downgrade Git LFS storage
 ---
 When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)."

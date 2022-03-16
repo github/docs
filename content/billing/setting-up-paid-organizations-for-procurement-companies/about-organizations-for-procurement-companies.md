@@ -14,7 +14,7 @@ topics:
   - Organizations
 shortTitle: About organizations
 ---
-To access an organization, each member must sign into their own personal user account.
+To access an organization, each member must sign into their own personal account.
 
 Organization members can have different roles, such as *owner* or *billing manager*:
 

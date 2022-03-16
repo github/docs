@@ -11,7 +11,7 @@ topics:
   - Enterprise
   - Organizations
   - Spending limits
-  - User account
+  - Personal account
   - Billing
 shortTitle: Spending limits
 ---

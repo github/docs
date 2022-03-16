@@ -14,7 +14,7 @@ shortTitle: Enforce SAML single sign-on
 
 ## About enforcement of SAML SSO for your organization
 
-When you enable SAML SSO, {% data variables.product.prodname_dotcom %} will prompt members who visit the organization's resources on {% data variables.product.prodname_dotcom_the_website %} to authenticate on your IdP, which links the member's user account to an identity on the IdP. Members can still access the organization's resources before authentication with your IdP.
+When you enable SAML SSO, {% data variables.product.prodname_dotcom %} will prompt members who visit the organization's resources on {% data variables.product.prodname_dotcom_the_website %} to authenticate on your IdP, which links the member's personal account to an identity on the IdP. Members can still access the organization's resources before authentication with your IdP.
 
 ![Banner with prompt to authenticate via SAML SSO to access organization](/assets/images/help/saml/sso-has-been-enabled.png)
 

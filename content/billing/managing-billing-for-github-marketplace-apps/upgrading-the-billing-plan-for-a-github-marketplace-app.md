@@ -15,7 +15,7 @@ topics:
   - Marketplace
   - Organizations
   - Upgrades
-  - User account
+  - Personal account
 shortTitle: Upgrade billing plan
 ---
 When you upgrade an app, your payment method is charged a prorated amount based on the time remaining until your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."

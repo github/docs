@@ -16,7 +16,7 @@ topics:
   - Access management
   - Enterprise
   - Security
-  - User account
+  - Personal account
 shortTitle: Manage user suspension
 ---
 If employees leave the company, you can suspend their {% data variables.product.prodname_ghe_server %} accounts to open up user licenses in your {% data variables.product.prodname_enterprise %} license while preserving the issues, comments, repositories, gists, and other data they created. Suspended users cannot sign into your instance, nor can they push or pull code.
@@ -57,7 +57,7 @@ As when suspending a user, unsuspending a user takes effect immediately. The use
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. In the left sidebar, click **Suspended users**.
 ![Suspended users tab](/assets/images/enterprise/site-admin-settings/user/suspended-users-tab.png)
-2. Click the name of the user account that you would like to unsuspend.
+2. Click the name of the personal account that you would like to unsuspend.
 ![Suspended user](/assets/images/enterprise/site-admin-settings/user/suspended-user.png)
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}

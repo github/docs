@@ -9,13 +9,13 @@ type: how_to
 topics:
   - Administrator
   - Enterprise
-  - User account
+  - Personal account
 shortTitle: Impersonate a user
 ---
 
 ## About user impersonation
 
-If you need to temporarily take over a user account, for example when troubleshooting a user problem, or when the user is unavailable and urgent action is required, you can start an impersonation session to act on their behalf.
+If you need to temporarily take over a personal account, for example when troubleshooting a user problem, or when the user is unavailable and urgent action is required, you can start an impersonation session to act on their behalf.
 
 For each impersonation session, you need to provide a reason for the impersonation. A session is limited to one hour, and you will have the same access as the user being impersonated.
 
