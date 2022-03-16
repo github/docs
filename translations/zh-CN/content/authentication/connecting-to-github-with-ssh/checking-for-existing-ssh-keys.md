@@ -1,6 +1,6 @@
 ---
-title: 检查现有 SSH 密钥
-intro: 在生成 SSH 密钥之前，您可以检查是否有任何现有的 SSH 密钥。
+title: Checking for existing SSH keys
+intro: 'Before you generate an SSH key, you can check to see if you have any existing SSH keys.'
 redirect_from:
   - /articles/checking-for-existing-ssh-keys
   - /github/authenticating-to-github/checking-for-existing-ssh-keys
@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 topics:
   - SSH
-shortTitle: 检查现有 SSH 密钥
+shortTitle: Check for existing SSH key
 ---
 
 {% data reusables.ssh.key-type-support %}
@@ -25,7 +25,7 @@ shortTitle: 检查现有 SSH 密钥
   # Lists the files in your .ssh directory, if they exist
   ```
 
-3. 检查目录列表以查看是否已经有 SSH 公钥。 By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is *id_rsa.pub*.{% elsif fpt or ghes %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
+3. Check the directory listing to see if you already have a public SSH key. By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is *id_rsa.pub*.{% elsif fpt or ghes %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
     - *id_rsa.pub*
     - *id_ecdsa.pub*
     - *id_ed25519.pub*{% endif %}

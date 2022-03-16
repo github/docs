@@ -22,8 +22,6 @@ SAML SSO を有効化しても強制はしない場合、SAML SSO を使用し�
 
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
 
-{% data reusables.saml.cannot-update-existing-saml-settings %}
-
 ## Organization 向けの SAML シングルサインオンを有効化してテストする
 
 OrganizationでSAML SSOを施行する前に、Organizationの準備ができていることを確認してください。 詳細は「[Organization での SAML シングルサインオンの施行を準備する](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)」を参照してください。

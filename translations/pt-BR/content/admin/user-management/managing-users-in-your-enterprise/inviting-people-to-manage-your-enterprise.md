@@ -66,10 +66,10 @@ Somente proprietários corporativos podem remover outros administradores corpora
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Convert to member**{% endif %}.
+1. Ao lado do nome de usuário da pessoa que você deseja remover, clique em {% octicon "gear" aria-label="The Settings gear" %} e, em seguida, clique em {% ifversion ghes %}**Remover o proprietário**{% elsif ghec %}**Converter em integrante**{% endif %}.
   {% ifversion ghec %}
   ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}
   ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/ghes-remove-owner.png)
   {% endif %}
-1. Read the confirmation, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Yes, convert USERNAME to member**{% endif %}.
+1. Leia a confirmação e, em seguida, clique em {% ifversion ghes %}**Remover o proprietário**{% elsif ghec %}**Sim, converter nome de usuário em integrante**{% endif %}.

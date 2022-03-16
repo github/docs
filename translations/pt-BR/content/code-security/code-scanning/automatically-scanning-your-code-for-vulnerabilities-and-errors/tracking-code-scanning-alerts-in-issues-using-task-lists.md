@@ -35,7 +35,7 @@ Você pode usar mais de um problema para rastrear o mesmo alerta de {% data vari
 
 - A página da lista de alertas de digitalização de código mostrará quais alertas são rastreados nos problemas para que você possa ver com rapidamente quais alertas ainda precisam de processamento.
 
-  ![Tracked in pill on code scanning alert page](/assets/images/help/repository/code-scanning-alert-list-tracked-issues.png)
+  ![Dispositivo de rastreamento na página de alerta de digitalização do código](/assets/images/help/repository/code-scanning-alert-list-tracked-issues.png)
 
 - Uma seção "rastreado em" também será exibida na página de alerta correspondente.
 

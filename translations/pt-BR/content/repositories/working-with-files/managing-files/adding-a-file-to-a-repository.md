@@ -69,4 +69,4 @@ Você pode enviar um arquivo existente para um repositório em {% ifversion ghae
 
 ## Leia mais
 
-- "[Adicionar um projeto existente ao GitHub usando a linha de comando](/articles/adding-an-existing-project-to-github-using-the-command-line)"
+- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"
