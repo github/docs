@@ -141,7 +141,7 @@ try {
 - アクションが使用する環境変数
 - ワークフローでアクションを使う使用方法の例
 
-```markdown
+```markdown{:copy}
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
@@ -193,7 +193,7 @@ git push --follow-tags
 1. すでに `node_modules` ディレクトリをチェックインしていた場合、次のコマンドで削除します: `rm -rf node_modules/*`
 
 1. ターミナルから、`action.yml`、`dist/index.js`、および `node_modules` ファイルをコミットします。
-```shell
+```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
 git tag -a -m "My first action release" v1.1

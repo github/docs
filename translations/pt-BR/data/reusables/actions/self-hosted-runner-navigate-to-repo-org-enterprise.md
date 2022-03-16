@@ -1,6 +1,6 @@
 {% ifversion fpt %}
 1. Navigate to the main page of the organization or repository where your self-hosted runner group is registered.
-2. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+2. Clique em {% octicon "gear" aria-label="The Settings gear" %} **Configurações**.
 3. Na barra lateral esquerda, clique em **Actions** (Ações).
 4. Click **Runners**.
 {% elsif ghec or ghes or ghae %}

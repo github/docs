@@ -40,11 +40,11 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Maven starter workflow
+## 使用 Maven 入门工作流程
 
-{% data variables.product.prodname_dotcom %} provides a Maven starter workflow that will work for most Maven-based Java projects. For more information, see the [Maven starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml).
+{% data variables.product.prodname_dotcom %} 提供有 Maven 入门工作流程，适用于大多数基于 Maven 的 Java 项目。 更多信息请参阅 [Maven 入门工作流程](https://github.com/actions/starter-workflows/blob/main/ci/maven.yml)。
 
-To get started quickly, you can choose the preconfigured Maven starter workflow when you create a new workflow. 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
+要快速开始，您可以在创建新工作流程时选择预配置的 Maven 入门工作流程。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
@@ -76,7 +76,7 @@ jobs:
 2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “使用 Maven 构建”步骤以非交互模式运行 Maven `package` 目标，以确保创建代码版本、测试通行证和软件包。
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+在创建构建和测试工作流程时，默认入门工作流程是很好的起点，然后您可以自定义入门工作流程以满足项目的需求。
 
 {% data reusables.actions.example-github-runner %}
 

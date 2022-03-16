@@ -132,6 +132,8 @@ jobs:
         # ...deployment-specific steps
 ```
 
+For guidance on writing deployment-specific steps, see "[Finding deployment examples](#finding-deployment-examples)."
+
 ## Visualizar el historial de despliegues
 
 Cuando se despliega un flujo de trabajo de {% data variables.product.prodname_actions %} en un ambiente, dicho ambiente se desplegará en la página principal del repositorio. Para obtener más información sobre cómo visualizar los despliegues hacia los ambientes, consulta la sección "[Ver el historial de despliegue](/developers/overview/viewing-deployment-history)".
@@ -164,7 +166,7 @@ Puedes utilizar una insignia de estado para mostrar el estado de tu flujo de tra
 
 Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
-## Pasos siguientes
+## Finding deployment examples
 
 Este artículo demostró características de las {% data variables.product.prodname_actions %} que puedes agregar a tus flujos de trabajo de despliegue.
 

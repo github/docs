@@ -118,7 +118,7 @@ jobs:
 * `password`：您可以使用自动生成的 `GITHUB_TOKEN` 密码作为密码。 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)”。
 
 {% ifversion fpt or ghec %}
-The `metadata-action` option required for {% data variables.product.prodname_registry %} is:
+{% data variables.product.prodname_registry %} 需要的 `metadata-action` 选项包括：
 * `images`：您构建的 Docker 映像的命名空间和名称。
 {% endif %}
 
@@ -170,7 +170,7 @@ jobs:
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}/${{ github.repository }}/octo-image:${{ github.event.release.tag_name }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to the Docker registry, and apply the commit SHA and release version as image tags.
+上述工作流程检出 {% data variables.product.prodname_dotcom %} 仓库，使用 `login-action` 登录到注册表，然后使用 `build-push-action` 操作：基于仓库的 `Dockerfile` 构建 Docker 映像；将该映像推送到 Docker 注册表，然后提交 SHA 和发行版本应用为映像标记。
 {% endif %}
 
 ## 发布映像到 Docker Hub 和 {% data variables.product.prodname_registry %}
@@ -229,4 +229,4 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-上面的工作流程检出 {% data variables.product.prodname_dotcom %} 仓库，使用两次 `login-action` 操作登录两个注册表，然后使用 `metadata-action` 操作生成标记和标签。 Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% ifversion fpt or ghec %}{% data variables.product.prodname_container_registry %}{% else %}Docker registry{% endif %}.
+上面的工作流程检出 {% data variables.product.prodname_dotcom %} 仓库，使用两次 `login-action` 操作登录两个注册表，然后使用 `metadata-action` 操作生成标记和标签。 然后，`build-pow-action` 操作构建并推送 Docker 映像到 Docker Hub 和 {% ifversion fpt or ghec %}{% data variables.product.prodname_container_registry %}{% else %}Docker 注册表{% endif %}。

@@ -52,9 +52,9 @@ The audit log lists events triggered by activities that affect your organization
 | [`discussion_post_reply`](#discussion_post_reply-category-actions)                                                                                                                        | 包含与发布到团队页面的讨论回复相关的所有活动。{% ifversion fpt or ghes or ghec %}
 | [`企业`](#enterprise-category-actions)                                                                                                                                                      | 包含与企业设置相关的活动。                                                                                                                                                                                                                                               |{% endif %}
 | [`挂钩`](#hook-category-actions)                                                                                                                                                            | 包含与 web 挂钩相关的所有活动。                                                                                                                                                                                                                                          |
-| [`integration_installation_request`](#integration_installation_request-category-actions)                                                                                                  | 包含与组织成员请求所有者批准用于组织的集成相关的所有活动。                                                                                                                                                                                                                               |
-| [`ip_allow_list`](#ip_allow_list)                                                                                                                                                         | Contains activities related to enabling or disabling the IP allow list for an organization.                                                                                                                                                                 |
-| [`ip_allow_list_entry`](#ip_allow_list_entry)                                                                                                                                             | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.                                                                                                                                           |
+| [`integration_installation_request`](#integration_installation_request-category-actions)                                                                                                  | 包含与组织成员请求所有者批准用于组织的集成相关的所有活动。 |{% ifversion ghec or ghae %}
+| [`ip_allow_list`](#ip_allow_list-category-actions)                                                                                                                                        | Contains activities related to enabling or disabling the IP allow list for an organization.                                                                                                                                                                 |
+| [`ip_allow_list_entry`](#ip_allow_list_entry-category-actions)                                                                                                                            | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.{% endif %}
 | [`议题`](#issue-category-actions)                                                                                                                                                           | 包含与删除议题相关的活动。                                                                                                                                                                                                                                               |{% ifversion fpt or ghec %}
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions)                                                                                                    | 包含与签署 {% data variables.product.prodname_marketplace %} 开发者协议相关的所有活动。                                                                                                                                                                                       |
 | [`marketplace_listing`](#marketplace_listing-category-actions)                                                                                                                            | 包含与在 {% data variables.product.prodname_marketplace %} 中上架应用程序相关的所有活动。{% endif %}{% ifversion fpt or ghes or ghec %}
@@ -361,6 +361,7 @@ By default, only events from the past three months are returned. To include olde
 | `create` | 当组织成员请求组织所有者安装集成以用于组织时触发。                   |
 | `close`  | 当安装集成以用于组织的请求被组织所有者批准或拒绝，或者被提出请求的组成成员取消时触发。 |
 
+{% ifversion ghec or ghae %}
 ### `ip_allow_list` 类操作
 
 | 操作                           | 描述                                                                       |
@@ -377,6 +378,7 @@ By default, only events from the past three months are returned. To include olde
 | `create`  | IP 地址添加到 IP 允许列表中时触发。                                           |
 | `update`  | Triggered when an IP address or its description was changed.    |
 | `destroy` | Triggered when an IP address was deleted from an IP allow list. |
+{% endif %}
 
 ### `issue` 类操作
 

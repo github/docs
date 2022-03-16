@@ -29,11 +29,11 @@ shortTitle: 构建和测试Ruby
 - [了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
 - [Ruby 20 分钟](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Using the Ruby starter workflow
+## 使用 Ruby 入门工作流程
 
-{% data variables.product.prodname_dotcom %} provides a Ruby starter workflow that will work for most Ruby projects. For more information, see the [Ruby starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
+{% data variables.product.prodname_dotcom %} 提供有 Ruby 入门工作流程，该工作流程将适用于大多数 Ruby 项目。 更多信息请参阅 [Ruby 入门工作流程](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml)。
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. 下面显示的工作流假定仓库的默认分支是 `main`。
+要快速开始，请将入门工作流程添加到仓库的 `.github/workflows` 目录中。 下面显示的工作流假定仓库的默认分支是 `main`。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -87,7 +87,7 @@ steps:
 
 ## 使用多个版本的 Ruby 进行测试
 
-您可以添加矩阵策略，以在多个版本的 Ruby 上运行工作流程。 For example, you can test your code against the latest patch releases of versions 3.1, 3.0, and 2.7.
+您可以添加矩阵策略，以在多个版本的 Ruby 上运行工作流程。 例如，您可以根据版本 3.1、3.0 和 2.7 的最新修补程序版本测试代码。
 
 {% raw %}
 ```yaml
@@ -97,7 +97,7 @@ strategy:
 ```
 {% endraw %}
 
-`ruby-version` 阵列中指定的每个 Ruby 版本都会创建一个运行相同步骤的作业。 {% raw %}`${{ matrix.ruby-version }}`{% endraw %} 上下文用于访问当前作业的版本。 For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions)" and "[Contexts](/actions/learn-github-actions/contexts)."
+`ruby-version` 阵列中指定的每个 Ruby 版本都会创建一个运行相同步骤的作业。 {% raw %}`${{ matrix.ruby-version }}`{% endraw %} 上下文用于访问当前作业的版本。 有关矩阵策略和上下文的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions)”和“[上下文](/actions/learn-github-actions/contexts)”。
 
 包含矩阵策略的完整更新工作流程可能看起如下：
 
@@ -238,7 +238,7 @@ jobs:
 
 ## 嵌入代码
 
-下面的示例安装 `rubocop` 并用它来嵌入所有文件。 For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). 您可以[配置 Rubocop](https://docs.rubocop.org/rubocop/configuration.html) 来决定特定的嵌入规则。
+下面的示例安装 `rubocop` 并用它来嵌入所有文件。 更多信息请参阅 [RuboCop](https://github.com/rubocop-hq/rubocop)。 您可以[配置 Rubocop](https://docs.rubocop.org/rubocop/configuration.html) 来决定特定的嵌入规则。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}

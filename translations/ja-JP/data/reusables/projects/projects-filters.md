@@ -1,0 +1,9 @@
+- To filter for any match of multiple values (an OR query), separate the values with a comma. For example `label:"good first issue",bug` will list all issues labelled `good first issue` or `bug`.
+- 特定の値が欠けているものをフィルタリングするには、フィルタの前に`-`を置いてください。 たとえば`-label:"bug"`とすれば、`bug`というラベルを持たないアイテムだけが表示されます。
+- すべての値が欠けているものをフィルタリングするには、`no:`に続けてフィールド名を入力してください。 たとえば`no:assignee`とすれば、アサインされた人のないアイテムだけが表示されます。
+- 状態でフィルタリングするには、`is:`を入力してください。 たとえば`is: issue`あるいは`is:open`としてください。
+- 複数のフィルタは空白で区切ってください。 たとえば`status:"In progress" -label:"bug" no:assignee`とすれば、ステータスが`In progress`であり、`bug`というラベルを持たず、アサインされた人がいないアイテムだけが表示されます。
+- To filter for the previous, current, or next iteration of an iteration field, use `@previous`, `@current`, or `@next`. たとえば`sprint:@current`としてください。
+- To filter for items assigned to the viewer, use `@me`. For example, `assignee:@me`. Anyone using this view will see items assigned to themselves.
+- To filter date and number fields, use `>`, `>=`, `<`, `<=`, and `..` range queries. For example: `target:2022-03-01..2022-03-15`. 詳しい情報については、「[検索構文を理解する](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)」を参照してください。
+- 

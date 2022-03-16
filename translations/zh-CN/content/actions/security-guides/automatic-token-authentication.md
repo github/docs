@@ -1,5 +1,5 @@
 ---
-title: Automatic token authentication
+title: 自动令牌身份验证
 intro: '{% data variables.product.prodname_dotcom %} 提供一个令牌，可用于代表 {% data variables.product.prodname_actions %} 进行身份验证。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
@@ -11,7 +11,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Automatic token authentication
+shortTitle: 自动令牌身份验证
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -29,7 +29,7 @@ shortTitle: Automatic token authentication
 
 ## 在工作流程中使用 `GITHUB_TOKEN`
 
-您可以使用标准语法引用密钥以使用 `GITHUB_TOKEN`：{%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}。 Examples of using the `GITHUB_TOKEN` include passing the token as an input to an action, or using it to make an authenticated {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API request.
+您可以使用标准语法引用密钥以使用 `GITHUB_TOKEN`：{%raw%}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}。 使用 `GITHUB_TOKEN` 的示例包括将令牌作为操作的输入，或使用它来建立验证的 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API 请求。
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 {% note %}
@@ -78,7 +78,7 @@ jobs:
 有关 {% data variables.product.prodname_github_apps %} 可通过各种权限访问的 API 端点的信息，请参阅“[{% data variables.product.prodname_github_app %} 权限](/rest/reference/permissions-required-for-github-apps)”。
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-下表显示默认情况下授予 `GITHUB_TOKEN` 的权限。 People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
+下表显示默认情况下授予 `GITHUB_TOKEN` 的权限。 对{% ifversion not ghes %}企业、组织或仓库、{% else %}组织或仓库{% endif %}具有管理权限的人可以设置默认权限为允许或限制。 有关如何为企业、组织或存储库设置 `GITHUB_TOKEN` 默认权限的信息，请参阅“[在企业中强制实施 {% data variables.product.prodname_actions %} 策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)”、“[对组织禁用或限制 {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)”或“[管理存储库的 {% data variables.product.prodname_actions %} 设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)”。
 
 | 作用域      | 默认访问<br>（允许） | 默认访问<br>（限制） | 复刻的仓库的最大访问权限<br>            |
 | -------- | ------------------ | ------------------ | --------------------------------- |
@@ -141,4 +141,4 @@ jobs:
 
 ### 延伸阅读
 
-- "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)"
+- "[REST API 中的资源](/rest/overview/resources-in-the-rest-api#rate-limiting)"

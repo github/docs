@@ -40,11 +40,11 @@ shortTitle: 构建和测试 Java & Gradle
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Gradle starter workflow
+## 使用 Gradle 入门工作流程
 
-{% data variables.product.prodname_dotcom %} provides a Gradle starter workflow that will work for most Gradle-based Java projects. For more information, see the [Gradle starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml).
+{% data variables.product.prodname_dotcom %} 提供有 Gradle 入门工作流程，适用于大多数基于 Gradle 的 Java 项目。 更多信息请参阅 [Gradle 入门工作流程](https://github.com/actions/starter-workflows/blob/main/ci/gradle.yml)。
 
-To get started quickly, you can choose the preconfigured Gradle starter workflow when you create a new workflow. 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
+要快速开始，您可以在创建新工作流程时选择预配置的 Gradle 入门工作流程。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
@@ -79,9 +79,9 @@ jobs:
 1. `checkout` 步骤在运行器上下载仓库的副本。
 2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “验证 Gradle 包装器”步骤验证源树中存在的 Gradle Wrapper JAR 文件的校验和。
-4. The "Build with Gradle" step does a build using the `gradle/gradle-build-action` action provided by the Gradle organization on {% data variables.product.prodname_dotcom %}. The action takes care of invoking Gradle, collecting results, and caching state between jobs. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
+4. “使用 Gradle 构建”步骤使用 Gradle 组织在 {% data variables.product.prodname_dotcom %}上提供的 `gradle/gradle-build-action` 操作进行构建。 该操作负责调用 Gradle、收集结果以及在作业之间缓存状态。 更多信息请参阅 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action)。
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+在创建构建和测试工作流程时，默认入门工作流程是很好的起点，然后您可以自定义入门工作流程以满足项目的需求。
 
 {% data reusables.actions.example-github-runner %}
 
@@ -114,9 +114,9 @@ steps:
 
 ## 缓存依赖项
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, your build dependencies can be cached to speed up your workflow runs. After a successful run, the `gradle/gradle-build-action` caches important parts of the Gradle user home directory. In future jobs, the cache will be restored so that build scripts won't need to be recompiled and dependencies won't need to be downloaded from remote package repositories.
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，可以缓存构建依赖项以加快工作流程运行速度。 成功运行后， `gradle/gradle-build-action` 会缓存 Gradle 用户主目录的重要部分。 在将来的作业中，将还原缓存，这样就不需要重新编译构建脚本，也不需要从远程包存储库下载依赖项。
 
-Caching is enabled by default when using the `gradle/gradle-build-action` action. For more information, see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching).
+使用 `gradle/gradle-build-action` 操作时，缓存默认启用。 更多信息请参阅 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action#caching)。
 
 ## 将工作流数据打包为构件
 

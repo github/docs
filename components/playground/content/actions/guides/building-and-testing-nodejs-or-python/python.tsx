@@ -225,7 +225,7 @@ const article: PlaygroundArticleT = {
           runs-on: ubuntu-latest
           strategy:
             matrix:
-              python-version: [3.6, 3.7, 3.8, 3.9]
+              python-version: ["3.6", "3.7", "3.8", "3.9"]
 
           steps:
             - uses: actions/checkout@v2
@@ -265,7 +265,7 @@ const article: PlaygroundArticleT = {
             # You can use PyPy versions in python-version.
             # For example, pypy2 and pypy3
             matrix:
-              python-version: [2.7, 3.6, 3.7, 3.8, 3.9]
+              python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
 
           steps:
             - uses: actions/checkout@v2
@@ -320,12 +320,12 @@ const article: PlaygroundArticleT = {
           strategy:
             matrix:
               os: [ubuntu-latest, macos-latest, windows-latest]
-              python-version: [3.6, 3.7, 3.8, 3.9, pypy2, pypy3]
+              python-version: ["3.6", "3.7", "3.8", "3.9", pypy2, pypy3]
               exclude:
                 - os: macos-latest
-                  python-version: 3.6
+                  python-version: "3.6"
                 - os: windows-latest
-                  python-version: 3.6
+                  python-version: "3.6"
       `,
     },
     '4': {
@@ -468,7 +468,7 @@ const article: PlaygroundArticleT = {
             runs-on: ubuntu-latest
             strategy:
               matrix:
-                python: [3.7, 3.8, 3.9]
+                python: ["3.7", "3.8", "3.9"]
 
             steps:
               - uses: actions/checkout@v2
@@ -490,15 +490,15 @@ const article: PlaygroundArticleT = {
         name: Python package
 
         on: [push]
-        
+
         jobs:
           build:
-        
+
             runs-on: ubuntu-latest
             strategy:
               matrix:
-                python-version: [3.6, 3.7, 3.8, 3.9]
-        
+                python-version: ["3.6", "3.7", "3.8", "3.9"]
+
             steps:
               - uses: actions/checkout@v2
               - name: Setup Python # Set Python version
