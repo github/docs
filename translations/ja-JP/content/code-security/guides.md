@@ -18,6 +18,7 @@ learningTracks:
   - code_security_actions
   - code_security_ci
   - code_security_integration
+  - end_to_end_supply_chain
 includeGuides:
   - /code-security/getting-started/adding-a-security-policy-to-your-repository
   - /code-security/getting-started/github-security-features
