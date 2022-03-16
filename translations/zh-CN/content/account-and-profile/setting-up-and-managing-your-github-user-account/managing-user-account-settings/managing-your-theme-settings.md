@@ -18,11 +18,11 @@ shortTitle: 管理主题设置
 
 您可能需要使用深色主题来减少某些设备的功耗，以在低光条件下减小眼睛的压力，或者因为您更喜欢主题的外观。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}如果您视力不佳，则可以从前景和背景元素之间对比度更高的高对比度主题中受益。{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} 如果您有色盲，可能会从我们的浅色盲和深色盲主题中受益。
 
 {% note %}
 
-**Note:** The colorblind themes are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
+**注意：**色盲主题目前处于公开测试阶段。 有关在公开测试版中启用功能的更多信息，请参阅“[使用功能预览版探索抢先体验版本](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。
 
 {% endnote %}
 
@@ -31,7 +31,7 @@ shortTitle: 管理主题设置
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.appearance-settings %}
 
-1. Under "Theme mode", select the drop-down menu, then click a theme preference.
+1. 在“Theme mode（主题模式）”下，选择下拉菜单，然后单击主题首选项。
 
    !["主题模式"下的下拉菜单用于选择主题首选项](/assets/images/help/settings/theme-mode-drop-down-menu.png)
 1. 单击想要使用的主题。
@@ -42,13 +42,13 @@ shortTitle: 管理主题设置
 
       {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
     {% ifversion fpt or ghae-issue-4619 or ghec %}
-    - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
+    - 如果您想选择当前处于公开测试阶段的主题，则首先需要通过功能预览启用它。 更多信息请参阅“[通过功能预览了解早期访问版本](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。{% endif %}
 
 {% if command-palette %}
 
 {% note %}
 
-**Note:** You can also change your theme settings with the command palette. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".
+**注意：**您还可以使用命令面板更改主题设置。 更多信息请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。
 
 {% endnote %}
 

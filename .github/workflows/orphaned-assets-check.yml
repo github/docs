@@ -6,6 +6,9 @@ name: 'Orphaned assets check'
 
 on:
   pull_request:
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: read

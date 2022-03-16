@@ -16,9 +16,9 @@ miniTocMaxHeadingLevel: 3
 ## Monitorando seus fluxos de trabalho
 
 {% if github-runner-dashboard %}
-### Monitoring your current jobs in your organization or enterprise
+### Monitorando os seus trabalhos atuais na sua organização ou empresa
 
-{% data reusables.github-actions.github-hosted-runners-check-concurrency %}
+{% data reusables.actions.github-hosted-runners-check-concurrency %}
 
 {% endif %}
 

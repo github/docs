@@ -1,3 +1,5 @@
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: Contact
@@ -88,6 +90,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: Fields
       arguments: Arguments
       name: Name
@@ -102,8 +105,16 @@ products:
       deprecation_notice: Deprecation notice
   rest:
     reference:
+      default: Default
+      name: Name
+      in: In
+      type: Type
+      description: Description
+      notes: Notes
       parameters: Parameters
       response: Response
+      error_codes: Error Codes
+      http_status_code: HTTP Status Code
       code_sample: Code sample
       code_samples: Code samples
       preview_notice: Preview notice
@@ -111,6 +122,8 @@ products:
       see_preview_notice: See preview notice
       see_preview_notices: See preview notices
       preview_header_is_required: This header is <strong>required</strong>
+      preview_notice_to_change: This API is under preview and subject to change
+      works_with_github_apps: Works with GitHub Apps
 footer:
   all_rights_reserved: All rights reserved
   terms: Terms

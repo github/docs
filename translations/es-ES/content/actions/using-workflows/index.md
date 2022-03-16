@@ -1,6 +1,6 @@
 ---
-title: Using workflows
-shortTitle: Using workflows
+title: Utilizar flujos de trabajo
+shortTitle: Utilizar flujos de trabajo
 intro: 'Creating and managing {% data variables.product.prodname_actions %} workflows.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/configuring-a-workflow

@@ -52,17 +52,17 @@ The audit log lists events triggered by activities that affect your organization
 | [`discussion_post_reply`](#discussion_post_reply-category-actions)                                                                                                                        | 包含与发布到团队页面的讨论回复相关的所有活动。{% ifversion fpt or ghes or ghec %}
 | [`企业`](#enterprise-category-actions)                                                                                                                                                      | 包含与企业设置相关的活动。                                                                                                                                                                                                                                               |{% endif %}
 | [`挂钩`](#hook-category-actions)                                                                                                                                                            | 包含与 web 挂钩相关的所有活动。                                                                                                                                                                                                                                          |
-| [`integration_installation_request`](#integration_installation_request-category-actions)                                                                                                  | 包含与组织成员请求所有者批准用于组织的集成相关的所有活动。                                                                                                                                                                                                                               |
-| [`ip_allow_list`](#ip_allow_list)                                                                                                                                                         | Contains activities related to enabling or disabling the IP allow list for an organization.                                                                                                                                                                 |
-| [`ip_allow_list_entry`](#ip_allow_list_entry)                                                                                                                                             | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.                                                                                                                                           |
+| [`integration_installation_request`](#integration_installation_request-category-actions)                                                                                                  | 包含与组织成员请求所有者批准用于组织的集成相关的所有活动。 |{% ifversion ghec or ghae %}
+| [`ip_allow_list`](#ip_allow_list-category-actions)                                                                                                                                        | Contains activities related to enabling or disabling the IP allow list for an organization.                                                                                                                                                                 |
+| [`ip_allow_list_entry`](#ip_allow_list_entry-category-actions)                                                                                                                            | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.{% endif %}
 | [`议题`](#issue-category-actions)                                                                                                                                                           | 包含与删除议题相关的活动。                                                                                                                                                                                                                                               |{% ifversion fpt or ghec %}
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions)                                                                                                    | 包含与签署 {% data variables.product.prodname_marketplace %} 开发者协议相关的所有活动。                                                                                                                                                                                       |
-| [`marketplace_listing`](#marketplace_listing-category-actions)                                                                                                                            | 包含与在 {% data variables.product.prodname_marketplace %} 中上架应用程序相关的所有活动。{% endif %}{% ifversion fpt or ghes > 3.0 or ghec %}
+| [`marketplace_listing`](#marketplace_listing-category-actions)                                                                                                                            | 包含与在 {% data variables.product.prodname_marketplace %} 中上架应用程序相关的所有活动。{% endif %}{% ifversion fpt or ghes or ghec %}
 | [`members_can_create_pages`](#members_can_create_pages-category-actions)                                                                                                                  | 包含与管理组织仓库的 {% data variables.product.prodname_pages %} 站点发布相关的所有活动。 更多信息请参阅“[管理组织的 {% data variables.product.prodname_pages %} 站点发布](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)”。  |{% endif %}
 | [`org`](#org-category-actions)                                                                                                                                                            | 包含与组织成员身份相关的活动。{% ifversion ghec %}
 | [`org_credential_authorization`](#org_credential_authorization-category-actions)                                                                                                          | 包含与授权凭据以用于 SAML 单点登录相关的所有活动。{% endif %}{% ifversion fpt or ghes or ghae or ghec %}
 | [`organization_label`](#organization_label-category-actions)                                                                                                                              | 包含与组织中仓库的默认标签相关的所有活动。{% endif %}
-| [`oauth_application`](#oauth_application-category-actions)                                                                                                                                | 包含与 OAuth 应用程序相关的所有活动。{% ifversion fpt or ghes > 3.0 or ghec %}
+| [`oauth_application`](#oauth_application-category-actions)                                                                                                                                | 包含与 OAuth 应用程序相关的所有活动。{% ifversion fpt or ghes or ghec %}
 | [`包`](#packages-category-actions)                                                                                                                                                         | 包含与 {% data variables.product.prodname_registry %} 相关的所有活动。{% endif %}{% ifversion fpt or ghec %}
 | [`payment_method`](#payment_method-category-actions)                                                                                                                                      | 包含与组织如何支付 GitHub 相关的所有活动。{% endif %}
 | [`profile_picture`](#profile_picture-category-actions)                                                                                                                                    | 包含与组织的头像相关的所有活动。                                                                                                                                                                                                                                            |
@@ -106,7 +106,6 @@ The audit log lists events triggered by activities that affect your organization
   * `created:>=2014-07-08` 查找在 2014 年 7 月 8 日或之后发生的所有事件。
   * `created:<=2014-07-08` 查找在 2014 年 7 月 8 日或之前发生的所有事件。
   * `created:2014-07-01..2014-07-31` 会找到在 2014 年 7 月发生的所有事件。
-
 
 {% note %}
 
@@ -362,6 +361,7 @@ By default, only events from the past three months are returned. To include olde
 | `create` | 当组织成员请求组织所有者安装集成以用于组织时触发。                   |
 | `close`  | 当安装集成以用于组织的请求被组织所有者批准或拒绝，或者被提出请求的组成成员取消时触发。 |
 
+{% ifversion ghec or ghae %}
 ### `ip_allow_list` 类操作
 
 | 操作                           | 描述                                                                       |
@@ -378,6 +378,7 @@ By default, only events from the past three months are returned. To include olde
 | `create`  | IP 地址添加到 IP 允许列表中时触发。                                           |
 | `update`  | Triggered when an IP address or its description was changed.    |
 | `destroy` | Triggered when an IP address was deleted from an IP allow list. |
+{% endif %}
 
 ### `issue` 类操作
 
@@ -405,7 +406,7 @@ By default, only events from the past three months are returned. To include olde
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 
 ### `members_can_create_pages` 类操作
 
@@ -422,9 +423,9 @@ By default, only events from the past three months are returned. To include olde
 
 | 操作                                                  | 描述                                                                                                                                                                                                                                                                                                                                                           |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `add_member`                                        | Triggered when a user joins an organization.{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+| `add_member`                                        | Triggered when a user joins an organization.                                                                                                                                                                                                                                                                                                                 |
 | `advanced_security_policy_selected_member_disabled` | 当企业所有者阻止为组织拥有的仓库启用 {% data variables.product.prodname_GH_advanced_security %} 功能时触发。 {% data reusables.advanced-security.more-information-about-enforcement-policy %}
-| `advanced_security_policy_selected_member_enabled`  | 当企业所有者允许为组织拥有的仓库启用 {% data variables.product.prodname_GH_advanced_security %} 功能时触发。 {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% endif %}{% ifversion fpt or ghec %}
+| `advanced_security_policy_selected_member_enabled`  | 当企业所有者允许为组织拥有的仓库启用 {% data variables.product.prodname_GH_advanced_security %} 功能时触发。 {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% ifversion fpt or ghec %}
 | `audit_log_export`                                  | 组织管理员[创建组织审核日志导出](#exporting-the-audit-log)时触发。 如果导出包含查询，则日志将列出所使用的查询以及与该查询匹配的审核日志条目数量。                                                                                                                                                                                                                                                                      |
 | `block_user`                                        | 当组织所有者[阻止用户访问组织的仓库](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)时触发。                                                                                                                                                                                                                                               |
 | `cancel_invitation`                                 | 当组织邀请被撤销时触发的。                                                                                                                                                                                                                                                                                                                                                |{% endif %}{% ifversion fpt or ghes or ghec %}
@@ -503,7 +504,7 @@ By default, only events from the past three months are returned. To include olde
 | `revoke_tokens` | 当 {% data variables.product.prodname_oauth_app %} 的用户令牌被撤销时触发。  |
 | `转让`            | 当现有 {% data variables.product.prodname_oauth_app %} 被转让到新组织时触发。 |
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ### `packages` 类操作
 
 | 操作                          | 描述                                                                                                     |
@@ -607,9 +608,9 @@ By default, only events from the past three months are returned. To include olde
 | `access`                               | 当用户[更改组织中仓库的可见性](/github/administering-a-repository/setting-repository-visibility)时触发。                                                                                                                                                                                                                                                                                                                                |
 | `actions_enabled`                      | 为仓库启用 {% data variables.product.prodname_actions %} 时触发。 可以使用用户界面查看。 当您使用 REST API 访问审计日志时，不包括此事件。 更多信息请参阅“[使用 REST API](#using-the-rest-api)”。                                                                                                                                                                                                                                                                       |
 | `add_member`                           | 当用户接受[邀请以获取仓库协作权限](/articles/inviting-collaborators-to-a-personal-repository)时触发。                                                                                                                                                                                                                                                                                                                                     |
-| `add_topic`                            | 当仓库管理员向仓库[添加主题](/articles/classifying-your-repository-with-topics)时触发。{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+| `add_topic`                            | 当仓库管理员向仓库[添加主题](/articles/classifying-your-repository-with-topics)时触发。                                                                                                                                                                                                                                                                                                                                                |
 | `advanced_security_disabled`           | 当仓库管理员为仓库禁用 {% data variables.product.prodname_GH_advanced_security %} 功能时触发。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。                                                                                                                                                                                                              |
-| `advanced_security_enabled`            | 当仓库管理员为仓库启用 {% data variables.product.prodname_GH_advanced_security %} 功能时触发。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。{% endif %}
+| `advanced_security_enabled`            | 当仓库管理员为仓库启用 {% data variables.product.prodname_GH_advanced_security %} 功能时触发。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。                                                                                                                                                                                                              |
 | `archived`                             | 当仓库管理员[存档仓库](/articles/about-archiving-repositories)时触发。{% ifversion ghes %}
 | `config.disable_anonymous_git_access`  | 当公共仓库中[禁用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                                                                                                                                                                                         |
 | `config.enable_anonymous_git_access`   | 当公共仓库中[启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                                                                                                                                                                                         |

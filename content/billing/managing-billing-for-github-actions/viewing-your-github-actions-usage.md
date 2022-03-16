@@ -42,7 +42,7 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 
 {% note %}
 
-**Note:** Billing details for enterprise accounts don't summarize the usage minutes for each operating system. {% data reusables.github-actions.enterprise-billing-details %}
+**Note:** Billing details for enterprise accounts don't summarize the usage minutes for each operating system. {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

@@ -24,8 +24,8 @@ Se você desejar ignorar a autorização do seu aplicativo da forma-padrão, com
 
 Para autorizar o seu aplicativo OAuth, considere qual fluxo de autorização melhor se adequa ao seu aplicativo.
 
-- [Fluxo de aplicativos web](#web-application-flow): Usado para autorizar usuários para aplicativos OAuth padrão executados no navegador. (O [implícito tipo de concessão](https://tools.ietf.org/html/rfc6749#section-4.2) não é compatível){% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-- [fluxo do dispositivo](#device-flow): usado para sem cabeçalho, como ferramentas de CLI.{% endif %}
+- [Fluxo de aplicativos web](#web-application-flow): Usado para autorizar usuários para aplicativos OAuth padrão executados no navegador. (O [tipo implícito de concessão](https://tools.ietf.org/html/rfc6749#section-4.2) não é compatível)
+- [fluxo de dispositivo](#device-flow): Usado para aplicativos sem cabeçalho, como ferramentas de CLI.
 
 ## Fluxo do aplicativo web
 
@@ -115,8 +115,6 @@ Por exemplo, no cURL você pode definir o cabeçalho de autorização da seguint
 ```shell
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
-
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ## Fluxo de dispositivo
 
@@ -261,8 +259,6 @@ Se você fizer mais de uma solicitação de token de acesso (`POST {% data varia
 
 Para obter mais informações, consulte "[Concessão de Autorização do Dispositivo OAuth 2.0](https://tools.ietf.org/html/rfc8628#section-3.5)".
 
-{% endif %}
-
 ## Fluxo do aplicativo que não são da web
 
 A autenticação que não é da web está disponível para situações limitadas como testes. Se necessário, você pode usar a [autenticação básica](/rest/overview/other-authentication-methods#basic-authentication) para criar um token de acesso usando a sua [página pessoal de configurações de tokens de acesso](/articles/creating-an-access-token-for-command-line-use). Essa técnica permite ao usuário revogar o acesso a qualquer momento.
@@ -329,7 +325,7 @@ Para criar esse vínculo, você precisará do `client_id` dos aplicativos OAuth,
 
 * "[Solucionando erros de solicitação de autorização](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[Solucionando erros na requisição de token de acesso do aplicativo OAuth](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}* "[Erros do fluxo do aplicativo](#error-codes-for-the-device-flow)"{% endif %}{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+* "[Erros de fluxo do dispositivo](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 * "[Vencimento e revogação do Token](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
 ## Leia mais

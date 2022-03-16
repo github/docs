@@ -28,7 +28,7 @@ shortTitle: GitHub Pagesにおけるカスタムドメイン
 
 サイトには、Apex及び`www`サブドメインのいずれか、あるいは両方の設定をセットアップできます。 Apexドメインに関する詳しい情報については「[{% data variables.product.prodname_pages %}サイトでのApexドメインの利用](#using-an-apex-domain-for-your-github-pages-site)」を参照してください。
 
-Apex ドメインを使用している場合でも、`www` サブドメインを使用することをおすすめします。 Apexドメインで新しいサイトを作成する場合、サイトのコンテンツを提供する際に`www`サブドメインも利用できるように保護が自動的に試みられます。 `www`サブドメインを設定すれば、関連するApexドメインの保護が自動的に試みられます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
+Apex ドメインを使用している場合でも、`www` サブドメインを使用することをおすすめします。 When you create a new site with an apex domain, we automatically attempt to secure the `www` subdomain for use when serving your site's content, but you need to make the DNS changes to use the `www` subdomain. `www`サブドメインを設定すれば、関連するApexドメインの保護が自動的に試みられます。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
 
 ユーザまたは Organization サイトのカスタムドメインを設定すると、カスタムドメインを設定していないアカウントが所有するプロジェクトサイトの URL で、`<user>.github.io` または `<organization>.github.io` の部分がカスタムドメインによって置き換えられます。 たとえば、サイトのカスタムドメインが `www.octocat.com` で、`octo-project` というリポジトリから公開されているプロジェクトサイトにまだカスタムドメインを設定していない場合、そのリポジトリの {% data variables.product.prodname_pages %} サイトは、`www.octocat.com/octo-project` で公開されます。
 

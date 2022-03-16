@@ -29,7 +29,7 @@ module.exports = {
   },
   reporters,
   modulePathIgnorePatterns: ['assets/'],
-  setupFilesAfterEnv: ['@alex_neo/jest-expect-message'],
+  setupFilesAfterEnv: ['./jest.setup.js', '@alex_neo/jest-expect-message'],
   ...(isBrowser ? {} : { testEnvironment: 'node' }),
   testPathIgnorePatterns: [
     'node_modules/',

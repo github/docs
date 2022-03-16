@@ -15,9 +15,9 @@ topics:
 shortTitle: Permiso denegado (publickey)
 ---
 
-## ¿El comando `sudo` se debe usar con Git?
+## Should the `sudo` command or elevated privileges be used with Git?
 
-No deberías estar usando el comando `sudo` con Git. Si tienes una *muy buena razón* para usar `sudo`, asegúrate de estar usándolo con todos los comandos (probablemente es mejor que uses `su` para obtener un shell como raíz en este punto). Si [generas claves SSH](/articles/generating-an-ssh-key) sin `sudo` y luego intentas usar un comando como `sudo git push`, no estarás usando las mismas claves que generaste.
+You should not be using the `sudo` command or elevated privileges, such as administrator permissions, with Git. Si tienes una *muy buena razón* para usar `sudo`, asegúrate de estar usándolo con todos los comandos (probablemente es mejor que uses `su` para obtener un shell como raíz en este punto). Si [generas claves SSH](/articles/generating-an-ssh-key) sin `sudo` y luego intentas usar un comando como `sudo git push`, no estarás usando las mismas claves que generaste.
 
 ## Verifica si estás conectado al servidor correcto
 

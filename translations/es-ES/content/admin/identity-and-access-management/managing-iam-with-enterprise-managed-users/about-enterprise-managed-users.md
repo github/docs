@@ -76,7 +76,7 @@ El nombre de usuario del usuario de configuración es el código corto de tu emp
 
 Los {% data variables.product.prodname_managed_users_caps %} se deben autenticar mediante su proveedor de identidad. To authenticate, a {% data variables.product.prodname_managed_user %} can visit their IdP application portal or use the login page on {% data variables.product.prodname_dotcom_the_website %}.
 
-{% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
+{% data reusables.enterprise-accounts.about-recovery-codes %} Para obtener más información, consulta la sección "[Administrar los códigos de recuperación de tu empresa](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)".
 
 ### Authenticating as a {% data variables.product.prodname_managed_user %} via {% data variables.product.prodname_dotcom_the_website %}
 

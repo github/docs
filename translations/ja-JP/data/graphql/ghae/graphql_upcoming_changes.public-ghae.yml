@@ -112,3 +112,17 @@ upcoming_changes:
     date: '2021-10-01T00:00:00+00:00'
     criticality: 破壊的
     owner: synthead
+  - 
+    location: PullRequest.viewerCanOverrideMergeQueue
+    description: '`viewerCanOverrideMergeQueue` will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.'
+    reason: '`viewer_can_override_merge_queue` will be removed'
+    date: '2022-04-01'
+    criticality: 破壊的
+    owner: cbeaman
+  - 
+    location: Repository.defaultMergeQueue
+    description: '`defaultMergeQueue` will be removed. Use `Repository.mergeQueue` instead.'
+    reason: '`defaultMergeQueue` will be removed.'
+    date: '2022-04-01'
+    criticality: 破壊的
+    owner: colinshum

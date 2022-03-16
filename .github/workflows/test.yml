@@ -7,6 +7,9 @@ name: Node.js Tests
 on:
   workflow_dispatch:
   pull_request:
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -132,7 +135,13 @@ jobs:
       - name: Run build script
         run: npm run build
 
+      - name: Warm possible disk caching
+        env:
+          NODE_ENV: test
+        run: ./script/warm-before-tests.mjs
+
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
+          CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
         run: npm test -- tests/${{ matrix.test-group }}/

@@ -52,6 +52,13 @@ Se você fizer o downgrade da sua organização de {% data variables.product.pro
 
 Se você fizer o downgrade da sua organização de {% data variables.product.prodname_ghe_cloud %} para {% data variables.product.prodname_team %} ou {% data variables.product.prodname_free_team %}, a conta perderá o acesso a controles avançados de segurança, conformidade e implantação. {% data reusables.gated-features.more-info %}
 
+
+{% note %}
+
+**Nota:** Se você estiver testando {% data variables.product.prodname_ghe_cloud %} no momento e você não comprar {% data variables.product.prodname_enterprise %} antes do término do teste, sua organização será automaticamente rebaixada para {% data variables.product.prodname_free_team %} ou {% data variables.product.prodname_team %}. Para obter mais informações, consulte "[Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)".
+
+{% endnote %}
+
 {% data reusables.organizations.billing-settings %}
 1. Em "Plano atual", use o menu suspenso **Editar** e clique na opção de downgrade que você deseja. ![Botão Downgrade (Fazer downgrade)](/assets/images/help/billing/downgrade-option-button.png)
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}

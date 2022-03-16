@@ -43,7 +43,7 @@ También puede ser útil tener un entendimiento básico de lo siguiente:
 
  Los campos `Nombre` y `Versión` en el archivo *package.json* crean un identificador único que los registros usan para vincular tu paquete a un registro. Puedes agregar un resumen para la página de descripción del paquete al incluir un campo `Descripción` en el archivo *package.json*. Para obtener más información, consulta "[Crear un archivo package.json](https://docs.npmjs.com/creating-a-package-json-file) y [Crear módulos Node.js](https://docs.npmjs.com/creating-node-js-modules)"en la documentación de npm.
 
-Cuando existe un archivo *.npmrc* local y tiene un valor especificado de `registro`, el comando `npm publish` usa el registro configurado en el archivo *.npmrc*. {% data reusables.github-actions.setup-node-intro %}
+Cuando existe un archivo *.npmrc* local y tiene un valor especificado de `registro`, el comando `npm publish` usa el registro configurado en el archivo *.npmrc*. {% data reusables.actions.setup-node-intro %}
 
 Puedes especificar la versión de Node.js instalada en el ejecutor utilizando la acción `setup-node`.
 
@@ -115,7 +115,7 @@ Sin embargo, si no proporcionas la clave del `repository`, entonces el repositor
 
 ### Autenticarse en el repositorio de destino
 
-Para realizar operaciones autenticadas en el registro {% data variables.product.prodname_registry %} de tu flujo de trabajo, puedes utilizar el `GITHUB_TOKEN`. {% data reusables.github-actions.github-token-permissions %}
+Para realizar operaciones autenticadas en el registro {% data variables.product.prodname_registry %} de tu flujo de trabajo, puedes utilizar el `GITHUB_TOKEN`. {% data reusables.actions.github-token-permissions %}
 
 Si quieres publicar tu paquete en un repositorio diferente, debes utilizar un token de acceso personal (PAT) que tenga permisos de escritura en los paquetes del repositorio destino. Para obtener más información, consulta las secciones "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)" y "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 

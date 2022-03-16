@@ -12,7 +12,7 @@ topics:
 shortTitle: SAML SSOの有効化とテスト
 ---
 
-## About SAML single sign-on
+## SAMLシングルサインオンについて
 
 すべてのメンバーに使用するように強制する必要なく、Organization 内で SAML SSO を有効化できます。 SAML SSO を Organization 内で強制せずに有効化することで、Organization での SAML SSO の導入がスムーズになります。 Organization 内の大半のメンバーが SAML SSO を使用するようになったら、Organization 内で強制化できます。
 
@@ -22,13 +22,11 @@ SAML SSO を有効化しても強制はしない場合、SAML SSO を使用し�
 
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
 
-{% data reusables.saml.cannot-update-existing-saml-settings %}
-
 ## Organization 向けの SAML シングルサインオンを有効化してテストする
 
-Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. 詳細は「[Organization での SAML シングルサインオンの施行を準備する](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)」を参照してください。
+OrganizationでSAML SSOを施行する前に、Organizationの準備ができていることを確認してください。 詳細は「[Organization での SAML シングルサインオンの施行を準備する](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)」を参照してください。
 
-For more information about the identity providers (IdPs) that {% data variables.product.company_short %} supports for SAML SSO, see "[Connecting your identity provider to your organization](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)."
+{% data variables.product.company_short %}がSAML SSOをサポートしているアイデンティティプロバイダ（IdP）に関する詳しい情報については「[Organizationへのアイデンティティプロバイダの接続](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)」を参照してください。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

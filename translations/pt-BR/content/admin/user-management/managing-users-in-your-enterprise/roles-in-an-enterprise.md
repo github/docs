@@ -30,16 +30,23 @@ Para obter mais informações sobre como adicionar pessoas à sua empresa, consu
 
 {% endif %}
 
-## Proprietário corporativo
+## Proprietários de empresas
 
 Os proprietários corporativos têm controle total da empresa e podem executar todas as ações, incluindo:
 - Gerenciar os administradores
-- {% ifversion ghec %}Adicionar e remover {% elsif ghae or ghes %}Managing{% endif %} organizações{% ifversion ghec %}para e de {% elsif ghae or ghes %} na{% endif %} empresa
+- {% ifversion ghec %}Adicionando e removendo {% elsif ghae or ghes %}gerenciando{% endif %} organizações {% ifversion ghec %}de {% elsif ghae or ghes %} na{% endif %} empresa{% if remove-enterprise-members %}
+- Removendo integrantes da empresa de todas as organizações pertencentes à empresa{% endif %}
 - Gerenciar as configurações da empresa
 - Aplicar a política nas organizações
 {% ifversion ghec %}- Managing billing settings{% endif %}
 
+{% if enterprise-owner-join-org %}
+Os proprietários das empresas não têm acesso às configurações da organização ou ao conteúdo por padrão. Para obter acesso, os proprietários das empresas podem se juntar a qualquer organização pertencente à sua empresa. Para obter mais informações, consulte "[Gerenciando sua função em uma organização pertencente à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
+
+Os proprietários de organizações na sua empresa não têm acesso à empresa propriamente dita, a não ser que você os torne proprietários da empresa.
+{% else %}
 Os proprietários corporativos não podem acessar as configurações ou o conteúdo da organização, a menos que sejam incluídos como proprietário da organização ou recebam acesso direto a um repositório de propriedade da organização. Da mesma forma, os proprietários de organizações na sua empresa não têm acesso à empresa propriamente dita, a não ser que você os torne proprietários da empresa.
+{% endif %}
 
 Um proprietário da empresa só consumirá uma licença se for um proprietário ou integrante de pelo menos uma organização dentro da empresa. Mesmo que o proprietário de uma empresa tenha uma função em várias organizações, ele consumirá uma única licença. {% ifversion ghec %}Os proprietários de empresas devem ter uma conta pessoal em {% data variables.product.prodname_dotcom %}.{% endif %} Como prática recomendada, sugerimos que você converta apenas algumas pessoas da sua empresa em proprietários para reduzir o risco para a sua empresa.
 
@@ -55,7 +62,7 @@ Pessoas com acesso de colaborador externo aos repositórios pertencentes à sua 
 
 {% ifversion ghec %}
 
-## Gerente de cobrança
+## Gerentes de cobrança
 
 Os gerentes de cobrança só têm acesso às configurações de cobrança da sua empresa. Gerentes de cobrança para a sua empresa podem:
 - Visualizar e gerenciar licenças de usuário, pacotes do {% data variables.large_files.product_name_short %} e outras configurações de cobrança
