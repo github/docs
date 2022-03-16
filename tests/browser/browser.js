@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals'
-import { latest } from '../../lib/enterprise-server-releases.js'
+import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
 import languages from '../../lib/languages.js'
 
 jest.useFakeTimers('legacy')
@@ -62,13 +62,15 @@ describe('browser search', () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/ja/enterprise-server@3.0/admin/installation')
+    await newPage.goto(
+      `http://localhost:4001/ja/enterprise-server@${oldestSupported}/admin/installation`
+    )
 
     await newPage.setRequestInterception(true)
     newPage.on('request', (interceptedRequest) => {
       if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe('3.0')
+        expect(searchParams.get('version')).toBe(oldestSupported)
         expect(searchParams.get('language')).toBe('ja')
       }
       interceptedRequest.continue()
@@ -371,7 +373,7 @@ describe('tool specific content', () => {
 
 describe('code examples', () => {
   it('loads correctly', async () => {
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4001/en/code-security')
     const shownCards = await page.$$('[data-testid=code-example-card]')
     const shownNoResult = await page.$('[data-testid=code-examples-no-results]')
     expect(shownCards.length).toBeGreaterThan(0)
@@ -379,23 +381,24 @@ describe('code examples', () => {
   })
 
   it('filters cards', async () => {
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4001/en/code-security')
     await page.click('[data-testid=code-examples-input]')
-    await page.type('[data-testid=code-examples-input]', 'issues')
+    await page.type('[data-testid=code-examples-input]', 'policy')
+    await page.click('[data-testid=code-examples-search-btn]')
     const shownCards = await page.$$('[data-testid=code-example-card]')
     expect(shownCards.length).toBeGreaterThan(1)
   })
 
   it('shows more cards', async () => {
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4001/en/code-security')
     const initialCards = await page.$$('[data-testid=code-example-card]')
     await page.click('[data-testid=code-examples-show-more]')
     const moreCards = await page.$$('[data-testid=code-example-card]')
-    expect(moreCards.length).toBe(initialCards.length * 2)
+    expect(moreCards.length).toBeGreaterThan(initialCards.length)
   })
 
   it('displays no result message', async () => {
-    await page.goto('http://localhost:4001/en/actions')
+    await page.goto('http://localhost:4001/en/code-security')
     await page.click('[data-testid=code-examples-input]')
     await page.type('[data-testid=code-examples-input]', 'this should not work')
     await page.click('[data-testid=code-examples-search-btn]')
@@ -472,5 +475,36 @@ describe.skip('next/link client-side navigation', () => {
 
     expect(response.status()).toBe(200)
     await page.setViewport(initialViewport)
+  })
+})
+
+describe('iframe pages', () => {
+  it('can open YouTube embed iframes', async () => {
+    // Going to create a fresh page instance, so we can intercept the requests.
+    const newPage = await browser.newPage()
+
+    await newPage.setRequestInterception(true)
+    const interceptedURLs = []
+    newPage.on('request', (request) => {
+      interceptedURLs.push(request.url())
+      request.continue()
+    })
+    const failedURLs = []
+    newPage.on('requestfailed', (request) => {
+      failedURLs.push(request.url())
+      request.continue()
+    })
+
+    // Hardcoded path to a page where we know we have a YouTube embed
+    const res = await newPage.goto('http://localhost:4001/en/codespaces')
+
+    expect(res.ok()).toBeTruthy()
+    expect(failedURLs.length, `Following URLs ${failedURLs.join(', ')} failed`).toBeFalsy()
+
+    const iframeSrc = await newPage.$eval('iframe', (el) => el.src)
+    expect(iframeSrc.startsWith('https://www.youtube-nocookie.com/embed')).toBeTruthy()
+    expect(
+      interceptedURLs.filter((url) => url.startsWith('https://www.youtube-nocookie.com/')).length
+    ).toBeTruthy()
   })
 })

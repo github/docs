@@ -38,17 +38,19 @@ topics:
 
 ## 上传自定义 TLS 证书
 
+{% data reusables.enterprise_site_admin_settings.tls-downtime %}
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 {% data reusables.enterprise_management_console.select-tls-only %}
 4. 在“TLS Protocol support”下，选择您想要允许的协议。 ![包含用于选择 TLS 协议的选项的单选按钮](/assets/images/enterprise/management-console/tls-protocol-support.png)
 5. 在“Certificate”下，单击 **Choose File**，选择要安装的 TLS 证书或证书链（PEM 格式）。 此文件通常采用 *.pem*、*.crt* 或 *.cer* 扩展名。 ![用于查找 TLS 证书文件的按钮](/assets/images/enterprise/management-console/install-tls-certificate.png)
-6. Under "Unencrypted key", click **Choose File** to choose an RSA key (in PEM format) to install. 此文件通常采用 *.key* 扩展名。 ![用于查找 TLS 密钥文件的按钮](/assets/images/enterprise/management-console/install-tls-key.png)
+6. 在“Unencrypted key（未加密密钥）”下，单击 **Choose File（选择文件）**选择要安装的 RSA 密钥（PEM 格式）。 此文件通常采用 *.key* 扩展名。 ![用于查找 TLS 密钥文件的按钮](/assets/images/enterprise/management-console/install-tls-key.png)
 
   {% warning %}
 
-  **Warning**: Your key must be an RSA key and must not have a passphrase. 更多信息请参阅“[将密码从密钥文件中移除](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)”。
+  **警告**：您的密钥必须是 RSA 密钥，并且不能有密码。 更多信息请参阅“[将密码从密钥文件中移除](/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)”。
 
   {% endwarning %}
 {% data reusables.enterprise_management_console.save-settings %}
@@ -66,6 +68,8 @@ Let's Encrypt 是公共证书颁发机构，他们使用 ACME 协议颁发受浏
 ## 使用 Let's Encrypt 配置 TLS
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
+
+{% data reusables.enterprise_site_admin_settings.tls-downtime %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

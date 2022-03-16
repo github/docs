@@ -85,7 +85,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet: [ '3.0', '3.1.x', '5.0.x' ]
+        dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
     steps:
       - uses: actions/checkout@v2
@@ -218,7 +218,7 @@ jobs:
         - name: Test with dotnet
           run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
         - name: Upload dotnet test results
-          uses: actions/upload-artifact@v2
+          uses: actions/upload-artifact@v3
           with:
             name: dotnet-results-${{ matrix.dotnet-version }}
             path: TestResults-${{ matrix.dotnet-version }}
@@ -229,7 +229,7 @@ jobs:
 
 ## Publicar nos registros do pacote
 
-You can configure your workflow to publish your .NET package to a package registry when your CI tests pass. Você pode usar segredos do repositório para armazenar quaisquer tokens ou credenciais necessárias para publicar seu binário. O exemplo a seguir cria e publica um pacote em {% data variables.product.prodname_registry %} usando `dotnet core cli`.
+É possível configurar o seu fluxo de trabalho para publicar o pacote .NET em um pacote de registro quando o CI teste é aprovado. Você pode usar segredos do repositório para armazenar quaisquer tokens ou credenciais necessárias para publicar seu binário. O exemplo a seguir cria e publica um pacote em {% data variables.product.prodname_registry %} usando `dotnet core cli`.
 
 ```yaml
 name: Upload dotnet package

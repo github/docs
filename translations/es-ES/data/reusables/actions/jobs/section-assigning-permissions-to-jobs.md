@@ -2,8 +2,8 @@ You can use `permissions` to modify the default permissions granted to the `GITH
 
 Puedes utilizar los `permissions` ya sea como una clave de nivel superior, para aplicar todos los jobs en el flujo de trabajo, o dentro de jobs específicos. Cuando agregas la clave `permissions` dentro de un job específico, todas las acciones y comandos de ejecución dentro de este que utilicen el `GITHUB_TOKEN` obtendrán los derechos de acceso que especificas.  Para obtener más información, consulta los [`jobs<job_id>permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions).
 
-{% data reusables.github-actions.github-token-available-permissions %}
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.github-token-available-permissions %}
+{% data reusables.actions.forked-write-permission %}
 
 ### Example: Assigning permissions to GITHUB_TOKEN
 

@@ -42,7 +42,8 @@ Edit the trust relationship to add the `sub` field to the validation conditions.
 
 ```json{:copy}
 "Condition": {
-  "StringEquals": {
+  "ForAllValues:StringEquals": {
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
@@ -56,14 +57,7 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 
 ### Adding permissions settings
 
-The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. 例:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-You may need to specify additional permissions here, depending on your workflow's requirements.
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Requesting the access token
 
@@ -93,7 +87,7 @@ jobs:
       - name: Git clone the repository
         uses: actions/checkout@v2
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession

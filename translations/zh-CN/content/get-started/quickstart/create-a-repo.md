@@ -57,10 +57,10 @@ topics:
 
 {% data reusables.cli.cli-learn-more %}
 
-1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
-2. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your user account, specify the organization name and project name with `organization-name/project-name`.
-3. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.
-4. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag.  For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
+1. 在命令行中，导航到要在其中创建新项目的本地克隆的目录。
+2. 要为项目创建存储库，请使用 `gh repo create` 子命令。 出现提示时，选择**从头开始在 GitHub 上创建新存储库** ，然后输入新项目的名称。 如果希望项目属于某个组织而不是您的用户帐户，请使用 `organization-name/project-name` 指定组织名称和项目名称。
+3. 按照交互式提示进行操作。 要在本地克隆存储库，请在询问您是否要克隆远程项目目录时确认是。
+4. 或者，要跳过提示，请提供存储库名称和可见性标志（`--public`、`--private` 或 `--internal`）。 例如 `gh repo create project-name --public`。 要在本地克隆存储库，请传递 `--clone` 标志。  有关可能的参数的详细信息，请参阅 [GitHub CLI 手册](https://cli.github.com/manual/gh_repo_create)。
 
 {% endcli %}
 
@@ -87,18 +87,18 @@ A *[提交](/articles/github-glossary#commit)*就像是项目中所有文件在�
 
 {% cli %}
 
-Now that you have created a project, you can start committing changes.
+创建项目后，可以开始提交更改。
 
-*自述文件*是详细介绍项目的好工具，您也可以添加一些文档，例如介绍如何安装或使用项目的文档。 *自述文件*的内容自动显示在仓库的首页上。 Follow these steps to add a *README* file.
+*自述文件*是详细介绍项目的好工具，您也可以添加一些文档，例如介绍如何安装或使用项目的文档。 *自述文件*的内容自动显示在仓库的首页上。 请按照以下步骤添加 *README* 文件。
 
-1. In the command line, navigate to the root directory of your new project. (This directory was created when you ran the `gh repo create` command.)
-1. Create a *README* file with some information about the project.
+1. 在命令行中，导航到新项目的根目录。 （此目录是在运行 `gh repo create` 命令时创建的。）
+1. 创建 *README* 文件，其中包含有关项目的一些信息。
 
     ```shell
     echo "info about this project" >> README.md
     ```
 
-1. Enter `git status`. You will see that you have an untracked `README.md` file.
+1. 输入 `git status`。 您将看到您有一个未跟踪的 `README.md` 文件。
 
     ```shell
     $ git status
@@ -110,13 +110,13 @@ Now that you have created a project, you can start committing changes.
     nothing added to commit but untracked files present (use "git add" to track)
     ```
 
-1. Stage and commit the file.
+1. 暂存并提交文件。
 
     ```shell
     git add README.md && git commit -m "Add README"
     ```
 
-1. Push the changes to your branch.
+1. 将更改推送到您的分支。
 
     ```shell
     git push --set-upstream origin HEAD

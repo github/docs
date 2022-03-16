@@ -108,7 +108,7 @@ The `mentions` qualifier finds issues that mention a certain user. For more info
 
 | Qualifier     | Example
 | ------------- | -------------
-| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt.
+| <code>mentions:<em>USERNAME</em></code> | [**`resque mentions:defunkt`**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt.
 
 ## Search by team mention
 
@@ -116,7 +116,7 @@ For organizations and teams you belong to, you can use the `team` qualifier to f
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** matches issues where the `@jekyll/owners` team is mentioned.
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **`team:jekyll/owners`** matches issues where the `@jekyll/owners` team is mentioned.
 | | **team:myorg/ops is:open is:pr** matches open pull requests where the `@myorg/ops` team is mentioned.
 
 ## Search by commenter
@@ -178,7 +178,7 @@ You can use the `project` qualifier to find issues that are associated with a sp
 
 ## Search by commit status
 
-You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/repos#statuses) or a CI service.
+You can filter pull requests based on the status of the commits. This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -299,7 +299,7 @@ This qualifier takes a date as its parameter. {% data reusables.time_date.date_f
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>merged:<em>YYYY-MM-DD</em></code> | [**language:javascript merged:<2011-01-01**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.
+| <code>merged:<em>YYYY-MM-DD</em></code> | [**`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.
 | | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) matches pull requests in Ruby with the word "fast" in the title that were merged after May 2014.
 
 ## Search based on whether a pull request is merged or unmerged
@@ -308,7 +308,7 @@ You can filter pull requests based on whether they're merged or unmerged using t
 
 | Qualifier        | Example
 | ------------- | -------------
-| `is:merged` | [**bugfix is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) matches merged pull requests with the word "bugfix."
+| `is:merged` | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) matches merged pull requests with the word "bug."
 | `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) matches closed issues and pull requests with the word "error."
 
 ## Search based on whether a repository is archived

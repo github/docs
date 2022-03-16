@@ -22,7 +22,7 @@ topics:
 
 **注：**在处理拉取请求时，请记住：
 * 如果操作的是[共享仓库型号](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)，建议对拉取请求使用主题分支。 从任何分支或提交都可发送拉取请求，但如果需要更新提议的更改，则可使用主题分支推送跟进提交。
-* 在推送提交到拉取请求时，请勿强制推送。 Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
+* Be very careful when force pushing commits to a pull request. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
 
 {% endnote %}
 
@@ -32,7 +32,7 @@ You can create pull requests on {% data variables.product.prodname_dotcom_the_we
 
 在创建拉取请求后，您可以从主题分支推送提交，以将它们添加到现有的拉取请求。 这些提交将以时间顺序显示在您的拉取请求中，在 "Files changed"（更改的文件）选项卡中可以看到更改。
 
-其他贡献者可以审查您提议的更改，添加审查注释，参与拉取请求讨论，甚至对拉取请求添加评论。
+其他贡献者可以审查您提议的更改，添加审查注释，参与拉取请求讨论，甚至对拉取请求添加评论。 {% if pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
 
 {% ifversion fpt or ghec %}
 您可以在“Conversation（对话）”选项卡上查看有关分支当前部署状态和以前部署活动的信息。 更多信息请参阅“[查看仓库的部署活动](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)”。
@@ -72,6 +72,6 @@ You can create pull requests on {% data variables.product.prodname_dotcom_the_we
 ## 延伸阅读
 
 - {% data variables.product.prodname_dotcom %} 词汇中的“[拉取请求](/articles/github-glossary/#pull-request)”
-- "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[关于分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - "[评论拉取请求](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)"
 - "[关闭拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)"

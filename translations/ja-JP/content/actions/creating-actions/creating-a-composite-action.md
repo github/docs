@@ -23,7 +23,7 @@ In this guide, you'll learn about the basic components needed to create and use 
 
 Once you complete this project, you should understand how to build your own composite action and test it in a workflow.
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## 必要な環境
 
@@ -84,7 +84,9 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
         - id: random-number-generator
           run: echo "::set-output name=random-id::$(echo $RANDOM)"
           shell: bash
-        - run: ${{ github.action_path }}/goodbye.sh
+        - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+          shell: bash          
+        - run: goodbye.sh
           shell: bash
     ```
     {% endraw %}

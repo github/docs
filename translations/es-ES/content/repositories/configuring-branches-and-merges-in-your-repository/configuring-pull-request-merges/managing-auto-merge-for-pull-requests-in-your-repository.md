@@ -4,7 +4,7 @@ intro: You can allow or disallow auto-merge for pull requests in your repository
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 permissions: People with maintainer permissions can manage auto-merge for pull requests in a repository.
@@ -25,5 +25,5 @@ If you allow auto-merge for pull requests in your repository, people with write 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Merge button", select or deselect **Allow auto-merge**.
+1. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or deselect **Allow auto-merge**.
   ![Checkbox to allow or disallow auto-merge](/assets/images/help/pull_requests/allow-auto-merge-checkbox.png)

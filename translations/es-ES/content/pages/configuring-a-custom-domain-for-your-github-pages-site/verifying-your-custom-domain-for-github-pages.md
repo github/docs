@@ -1,6 +1,6 @@
 ---
 title: Verifying your custom domain for GitHub Pages
-intro: 'You can increase the security of your custom domain and avoid takeover attacks by verifying your domain.'
+intro: You can increase the security of your custom domain and avoid takeover attacks by verifying your domain.
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
@@ -22,9 +22,8 @@ It's also possible to verify a domain for your organization{% ifversion ghec %} 
 
 ## Verifying a domain for your user site
 
-{% data reusables.user_settings.access_settings %}
-1. In the left sidebar, click **Pages**.
-![Pages option in the settings menu](/assets/images/help/settings/user-settings-pages.png)
+{% data reusables.user-settings.access_settings %}
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-label="The pages icon" %} Pages**.
 {% data reusables.pages.settings-verify-domain-setup %}
 1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `USERNAME` with your username and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
   ```
@@ -38,8 +37,7 @@ Organization owners can verify custom domains for their organization.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, click **Pages**.
-![Pages option in the settings menu](/assets/images/help/settings/org-settings-pages.png)
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-label="The browser icon" %} Pages**.
 {% data reusables.pages.settings-verify-domain-setup %}
 1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `ORGANIZATION` with the name of your organization and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
   ```

@@ -24,9 +24,9 @@ topics:
 
 在工作流程中使用的操作可以定义于：
 
-- The same repository as your workflow file{% if internal-actions %}
-- An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
-- Any public repository
+- 与工作流程文件相同的仓库{% if internal-actions %}
+- 在同一企业帐户中被配置为允许访问工作流程的内部仓库{% endif %}
+- 任何公共仓库
 - Docker Hub 上发布的 Docker 容器图像
 
 {% data variables.product.prodname_marketplace %} 是您查找 {% data variables.product.prodname_dotcom %} 社区创建的操作的中心位置。{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} 页面](https://github.com/marketplace/actions/)可用于按类别筛选操作。 {% endif %}
@@ -45,9 +45,21 @@ topics:
 
 ## 添加操作到工作流程
 
-You can add an action to your workflow by referencing the action in your workflow file.
+您可以通过在工作流程文件中引用操作来向工作流程添加操作。
 
-### Adding an action from {% data variables.product.prodname_marketplace %}
+您可以将 {% data variables.product.prodname_actions %} 工作流程中引用的操作视为包含工作流程的仓库依赖图中的依赖项。 更多信息请参阅“[关于依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6269 %}
+
+{% note %}
+
+**注意：**为了增强安全性，{% data variables.product.prodname_actions %} 弃用了操作的重定向。 这意味着，当操作存储库的所有者或名称发生更改时，使用该操作并具有先前名称的任何工作流程都将失败。
+
+{% endnote %}
+
+{% endif %}
+
+### 从 {% data variables.product.prodname_marketplace %} 添加操作
 
 操作的列表页包括操作的版本以及使用操作所需的工作流程语法。 为使工作流程在操作有更新时也保持稳定，您可以在工作流程文件中指定 Git 或 Docker 标记号以引用所用操作的版本。
 
@@ -60,7 +72,7 @@ You can add an action to your workflow by referencing the action in your workflo
 
 {% endif %}
 
-### Adding an action from the same repository
+### 从相同仓库添加操作
 
 如果操作在工作流程文件使用该操作的同一仓库中定义，您可以在工作流程文件中通过 ‌`{owner}/{repo}@{ref}` 或 `./path/to/dir` 语法引用操作。
 
@@ -89,13 +101,13 @@ jobs:
       - uses: ./.github/actions/hello-world-action
 ```
 
-`action.yml` 文件用于提供操作的元数据。 Learn about the content of this file in "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions)."
+`action.yml` 文件用于提供操作的元数据。 要了解此文件的内容，请参阅“[GitHub Actions 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”。
 
-### Adding an action from a different repository
+### 从不同仓库添加操作
 
-If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
+如果在与工作流程文件不同的仓库中定义了某个操作，则可以在工作流程文件中使用 `{owner}/{repo}@{ref}` 语法引用该操作。
 
-The action must be stored in a public repository{% if internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
+该操作必须存储在公共仓库{% if internal-actions %} 或配置为允许访问工作流程的内部仓库中。 更多信息请参阅“[与您的企业分享操作和工作流程](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)。”{% else %}。{% endif %}
 
 ```yaml
 jobs:

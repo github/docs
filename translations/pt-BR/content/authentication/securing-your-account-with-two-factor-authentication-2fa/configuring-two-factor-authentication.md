@@ -50,8 +50,8 @@ Um aplicativo de senhas avulsas por tempo limitado (TOTP, Time-based One-Time Pa
 {% endtip %}
 
 1. Baixe um app TOTP.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 {%- ifversion fpt or ghes > 3.1 %}
 5. Em "Autenticação de dois fatores", selecione **Configurar usando um aplicativo** e clique em **Continuar**.
@@ -88,8 +88,8 @@ Antes de usar esse método, certifique-se de que é possível receber mensagens 
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 4. Em "Autenticação de dois fatores", selecione **Configurar usando SMS** e clique em **Continuar**.
 5. Em "Verificação de autenticação", selecione o código do seu país e digite seu número de telefone celular, incluindo o código de área. Confirme se as informações estão corretas e clique em **Send authentication code** (Enviar código de autenticação).
@@ -114,8 +114,8 @@ A autenticação com uma chave de segurança é *uma alternativa* à autenticaç
 
 1. Você já deve ter configurado a 2FA usando um app móvel TOTP{% ifversion fpt or ghec %} ou por SMS{% endif %}.
 2. Certifique-se de que você tem uma chave de segurança compatível com o WebAuthn inserido em seu computador.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 5. Ao lado de "Security keys" (Chaves de segurança), clique em **Add** (Adicionar). ![Opção para adicionar chaves de segurança](/assets/images/help/2fa/add-security-keys-option.png)
 6. Em "Security keys" (Chaves de segurança), clique em **Register new security key** (Registrar nova chave de segurança). ![Registrar uma nova chave de segurança](/assets/images/help/2fa/security-key-register.png)
 7. Digite um apelido para a chave de segurança e clique em **Add** (Adicionar). ![Fornecer um apelido para uma chave de segurança](/assets/images/help/2fa/security-key-nickname.png)
@@ -124,17 +124,17 @@ A autenticação com uma chave de segurança é *uma alternativa* à autenticaç
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% ifversion fpt or ghec %}
-## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
+## Configurando a autenticação de dois fatores usando {% data variables.product.prodname_mobile %}
 
-You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.
+Você pode usar {% data variables.product.prodname_mobile %} para 2FA ao efetuar o login na sua conta {% data variables.product.prodname_dotcom %} em um navegador web. A 2FA com o {% data variables.product.prodname_mobile %} não depende do TOTP e usa criptografia de chave pública para proteger sua conta.
 
-Once you have configured a TOTP application, or SMS, you can also use {% data variables.product.prodname_mobile %} to authenticate. If, in the future, you no longer have access to {% data variables.product.prodname_mobile %}, you will still be able to use security keys or TOTP applications to sign in.
+Depois que você tiver configurado um aplicativo TOTP ou SMS, você também poderá usar {% data variables.product.prodname_mobile %} para efetuar a autenticação. Se, posteriormente, você não tiver mais acesso a {% data variables.product.prodname_mobile %}, você ainda poderá usar as chaves de segurança ou aplicativos TOTP para efetuar o login.
 
-1. You must have already configured 2FA via a TOTP mobile app or via SMS.
-2. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
-3. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+1. Você deve ter configurado a 2FA por meio de um aplicativo móvel TOTP ou via SMS.
+2. Instale [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
+3. Efetue o login na sua conta de {% data variables.product.product_name %} em {% data variables.product.prodname_mobile %}.
 
-After signing in, you can now use your device for 2FA.
+Após o login, você poderá usar o seu dispositivo para 2FA.
 {% endif %}
 
 ## Leia mais

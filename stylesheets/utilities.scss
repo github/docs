@@ -24,6 +24,10 @@
   .no-print {
     display: none;
   }
+
+  .print-overflow-visible {
+    overflow: visible !important;
+  }
 }
 
 /* Opacity utilities
@@ -74,6 +78,12 @@
   border-color: transparent !important;
 }
 
+/* Background colors
+------------------------------------------------------------------------------*/
+.background-transparent {
+  background-color: transparent;
+}
+
 /* Widths / Heights
 ------------------------------------------------------------------------------*/
 .max-w-xs {
@@ -104,4 +114,9 @@
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.keyboard-focus:hover,
+.keyboard-focus:focus {
+  outline: 1px auto -webkit-focus-ring-color;
 }

@@ -1,6 +1,7 @@
 import { getDOM, getJSON } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
 
+// TODO: Use `describeViaActionsOnly` instead. See tests/rendering/server.js
 const describeInternalOnly =
   process.env.GITHUB_REPOSITORY === 'github/docs-internal' ? describe : describe.skip
 // Breadcrumbs were moved to the Header and in the Menu for mobile, so there are now double the Breadcrumbs
@@ -119,7 +120,6 @@ describe('breadcrumbs', () => {
       const breadcrumbs = await getJSON('/en/github?json=breadcrumbs')
       const expected = [
         {
-          documentType: 'product',
           href: '/en/github',
           title: 'GitHub',
         },
@@ -133,17 +133,14 @@ describe('breadcrumbs', () => {
       )
       const expected = [
         {
-          documentType: 'product',
           href: '/en/issues',
           title: 'GitHub Issues',
         },
         {
-          documentType: 'category',
           href: '/en/issues/tracking-your-work-with-issues',
           title: 'Issues',
         },
         {
-          documentType: 'article',
           href: '/en/issues/tracking-your-work-with-issues/quickstart',
           title: 'Quickstart for GitHub Issues',
         },
@@ -157,17 +154,14 @@ describe('breadcrumbs', () => {
       )
       const expected = [
         {
-          documentType: 'product',
           href: '/en/account-and-profile',
           title: 'Account and profile',
         },
         {
-          documentType: 'category',
           href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
           title: 'User accounts',
         },
         {
-          documentType: 'mapTopic',
           href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
           title: 'User account settings',
         },
@@ -181,22 +175,18 @@ describe('breadcrumbs', () => {
       )
       const expected = [
         {
-          documentType: 'product',
           href: '/en/account-and-profile',
           title: 'Account and profile',
         },
         {
-          documentType: 'category',
           href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
           title: 'User accounts',
         },
         {
-          documentType: 'mapTopic',
           href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
           title: 'User account settings',
         },
         {
-          documentType: 'article',
           href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard',
           title: 'Your personal dashboard',
         },
@@ -206,22 +196,19 @@ describe('breadcrumbs', () => {
 
     test('works on articles that DO NOT have maptopics ', async () => {
       const breadcrumbs = await getJSON(
-        '/github/site-policy/github-privacy-statement?json=breadcrumbs'
+        '/site-policy/privacy-policies/github-privacy-statement?json=breadcrumbs'
       )
       const expected = [
         {
-          documentType: 'product',
-          href: '/en/github',
-          title: 'GitHub',
-        },
-        {
-          documentType: 'category',
-          href: '/en/github/site-policy',
+          href: '/en/site-policy',
           title: 'Site policy',
         },
         {
-          documentType: 'article',
-          href: '/en/github/site-policy/github-privacy-statement',
+          href: '/en/site-policy/privacy-policies',
+          title: 'Privacy Policies',
+        },
+        {
+          href: '/en/site-policy/privacy-policies/github-privacy-statement',
           title: 'GitHub Privacy Statement',
         },
       ]

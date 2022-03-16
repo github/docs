@@ -24,8 +24,8 @@ topics:
 
 要授权您的 OAuth 应用程序，请考虑哪个授权流程最适合您的应用程序。
 
-- [Web 应用程序流程](#web-application-flow)：用于授权在浏览器中运行标准 OAuth 应用程序的用户。 （不支持 [隐含的授予类型](https://tools.ietf.org/html/rfc6749#section-4.2)。）{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-- [设备流程](#device-flow)：用于无头应用程序，例如 CLI 工具。{% endif %}
+- [Web 应用程序流程](#web-application-flow)：用于授权在浏览器中运行标准 OAuth 应用程序的用户。 （不支持[隐式授予类型](https://tools.ietf.org/html/rfc6749#section-4.2)。）
+- [设备流程](#device-flow)：用于无头应用程序，例如 CLI 工具。
 
 ## Web 应用程序流程
 
@@ -115,8 +115,6 @@ Accept: application/xml
 ```shell
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
-
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ## 设备流程
 
@@ -261,8 +259,6 @@ Accept: application/xml
 
 更多信息请参阅“[OAuth 2.0 设备授权授予](https://tools.ietf.org/html/rfc8628#section-3.5)”。
 
-{% endif %}
-
 ## 非 Web 应用程序流程
 
 非 web 身份验证适用于测试等有限的情况。 如果您需要，可以使用[基本验证](/rest/overview/other-authentication-methods#basic-authentication)，通过[个人访问令牌设置页面](/articles/creating-an-access-token-for-command-line-use)创建个人访问令牌。 此方法支持用户随时撤销访问权限。
@@ -293,10 +289,10 @@ Accept: application/xml
 
 可选的 `redirect_uri` 参数也可用于本地主机 URL。 如果应用程序指定 URL 和端口，授权后，应用程序用户将被重定向到提供的 URL 和端口。 `redirect_uri` 不需要匹配应用程序回调 url 中指定的端口。
 
-对于 `http://localhost/path` 回调 URL，您可以使用此 `redirect_uri`：
+对于 `http://127.0.0.1/path` 回调 URL，您可以使用此 `redirect_uri`：
 
 ```
-http://localhost:1234/path
+http://127.0.0.1:1234/path
 ```
 
 ## 为 OAuth 应用程序创建多个令牌
@@ -329,7 +325,7 @@ http://localhost:1234/path
 
 * "[对授权请求错误进行故障排除](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[对 OAuth 应用程序访问令牌请求错误进行故障排除](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}* "[Device flow errors](#error-codes-for-the-device-flow)"{% endif %}{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
+* "[设备流错误](#error-codes-for-the-device-flow)"{% ifversion fpt or ghae-issue-4374 or ghes > 3.2 or ghec %}
 * "[令牌到期和撤销](/github/authenticating-to-github/keeping-your-account-and-data-secure/token-expiration-and-revocation)"{% endif %}
 
 ## 延伸阅读

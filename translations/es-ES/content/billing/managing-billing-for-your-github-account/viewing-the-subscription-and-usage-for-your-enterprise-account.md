@@ -37,6 +37,10 @@ Si quieres ver un resumen de tu uso y suscripción de {% data variables.product.
 
 ## Ver la suscripción y el uso de tu cuenta de empresa
 
+Puedes ver la suscripción y uso de tu empresa y descargar un archivo con los detalles de la licencia.
+
+{% data reusables.billing.license-statuses %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}

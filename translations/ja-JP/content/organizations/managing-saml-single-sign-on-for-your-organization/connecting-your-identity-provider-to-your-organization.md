@@ -12,9 +12,9 @@ topics:
 shortTitle: IdPの接続
 ---
 
-When you enable SAML SSO for your {% data variables.product.product_name %} organization, you connect your identity provider (IdP) to your organization. 詳細は「[Organization での SAML シングルサインオンの有効化とテスト](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)」を参照してください。
+{% data variables.product.product_name %} OrganizationでSAML SSOを有効化すると、アイデンティティプロバイダ（IdP）をOrganizationに接続することになります。 詳細は「[Organization での SAML シングルサインオンの有効化とテスト](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)」を参照してください。
 
-You can find the SAML and SCIM implementation details for your IdP in the IdP's documentation.
+IdPのSAML及びSCIMの実装の詳細は、IdPのドキュメンテーションにあります。
 - Active Directory フェデレーションサービス (AD FS): [SAML](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
 - Azure Active Directory (Azure AD): [SAML](https://docs.microsoft.com/azure/active-directory/active-directory-saas-github-tutorial) および [SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-saas-github-provisioning-tutorial)
 - Okta: [SAML](http://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github-com.html) および [SCIM](http://developer.okta.com/standards/SCIM/)
@@ -22,7 +22,7 @@ You can find the SAML and SCIM implementation details for your IdP in the IdP's 
 - PingOne: [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector)
 - Shibboleth: [SAML](https://wiki.shibboleth.net/confluence/display/IDP30/Home)
 
-You can access your organization's service provider metadata at the following URL, replacing ORGANIZATION with your organization's username.
+Organizationのサービスプロバイダのメタデータには、以下のURLでアクセスできます。ORGANIZATIONを自分のOrganizationのユーザ名で置き換えてください。
 
 ```
 http(s)://github.com/orgs/ORGANIZATION/saml/metadata.xml

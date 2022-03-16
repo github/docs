@@ -32,10 +32,9 @@ The first step to securing a repository is to set up who can see and modify your
 
 From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %}Settings**, then scroll down to the "Danger Zone."
 
-- To change who can view your repository, click **Change visibility**. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec %}
+- To change who can view your repository, click **Change visibility**. For more information, see "[Setting repository visibility](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
 - To change who can access your repository and adjust permissions, click **Manage access**. For more information, see"[Managing teams and people with access to your repository](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)."{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## Setting a security policy
 
 1. From the main page of your repository, click **{% octicon "shield" aria-label="The shield symbol" %} Security**.
@@ -44,8 +43,6 @@ From the main page of your repository, click **{% octicon "gear" aria-label="The
 4. Add information about supported versions of your project and how to report vulnerabilities.
 
 For more information, see "[Adding a security policy to your repository](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
-
-{% endif %}
 
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Managing the dependency graph

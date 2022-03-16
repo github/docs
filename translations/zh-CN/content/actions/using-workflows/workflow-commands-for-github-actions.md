@@ -92,7 +92,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 设置操作的输出参数。
 
-（可选）您也可以在操作的元数据文件中声明输出参数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions#outputs)”。
+（可选）您也可以在操作的元数据文件中声明输出参数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)”。
 
 ### 示例
 
@@ -292,7 +292,7 @@ Only the second `set-output` and `echo` workflow commands are included in the lo
 
 您可以使用 `save-state` 命令来创建环境变量，以便与工作流程的 `pre:` 或 `post:` 操作共享。 例如，您可以使用 `pre:` 操作创建文件，将该文件位置传给 `main:` 操作，然后使用 `post:` 操作删除文件。 或者，您可以使用 `main:` 操作创建文件，将该文件位置传给 `post:` 操作，然后使用 `post:` 操作删除文件。
 
-如果您有多个 `pre:` 或 `post:` 操作，则只能访问使用了 `save-state` 的操作中的已保存值。 有关 `post:` 操作的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions#post)”。
+如果您有多个 `pre:` 或 `post:` 操作，则只能访问使用了 `save-state` 的操作中的已保存值。 有关 `post:` 操作的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions#runspost)”。
 
 `save-state` 命令只能在操作内运行，并且对 YAML 文件不可用。 保存的值将作为环境值存储，带 `STATE_` 前缀。
 
@@ -314,7 +314,9 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 {% warning %}
 
-**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default. 请确保使用正确的编码写入文件。 例如，在设置路径时需要设置 UTF-8 编码：
+**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default.
+
+When using `shell: powershell`, you must specify UTF-8 encoding. 例如：
 
 ```yaml
 jobs:
@@ -325,22 +327,7 @@ jobs:
         run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-Or switch to PowerShell Core, which defaults to UTF-8:
-
-```yaml
-jobs:
-  modern-pwsh-example:
-    uses: windows-2019
-    steps:
-      - shell: pwsh
-        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append # no need for -Encoding utf8
-```
-
-More detail about UTF-8 and PowerShell Core found on this great [Stack Overflow answer](https://stackoverflow.com/a/40098904/162694):
-
-> ### Optional reading: The cross-platform perspective: PowerShell _Core_:
-> 
-> [PowerShell is now cross-platform](https://blogs.msdn.microsoft.com/powershell/2016/08/18/powershell-on-linux-and-open-source-2/), via its **[PowerShell _Core_](https://github.com/PowerShell/PowerShell)** edition, whose encoding - sensibly - ***defaults to ***BOM-less UTF-8******, in line with Unix-like platforms.
+Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UTF-8.
 
 {% endwarning %}
 

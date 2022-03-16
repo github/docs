@@ -33,7 +33,7 @@ Use o {% data variables.enterprise.management_console %} para atividades adminis
 
 Para acessar o {% data variables.enterprise.management_console %}, você deve usar a senha de administrador definida na configuração inicial da {% data variables.product.product_location %}. Você também deve poder se conectar ao host da máquina virtual na porta 8443. Se tiver problemas para chegar ao {% data variables.enterprise.management_console %}, verifique as configurações intermediárias de firewall e grupo de segurança.
 
-The {% data variables.enterprise.management_console %} password hash is stored in `/data/user/common/secrets.conf`, and that file is automatically synced from the primary appliance to any high-availability replicas. Any change to the primary's password will automatically be replicated to high-availability replicas. For more information about high availability, see "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
+O hash da senha de {% data variables.enterprise.management_console %} é armazenado em `/data/user/common/secrets.conf` e esse arquivo é automaticamente sincronizado no dispositivo principal para qualquer réplica de alta disponibilidade. Qualquer alteração na senha principal será automaticamente replicada em réplicas de alta disponibilidade. Para obter mais informações sobre alta disponibilidade, consulte "[Sobre configuração de alta disponibilidade](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)".
 
 ## Acessar o {% data variables.enterprise.management_console %} como administrador do site
 

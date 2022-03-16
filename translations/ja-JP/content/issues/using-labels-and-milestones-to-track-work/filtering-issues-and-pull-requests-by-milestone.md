@@ -32,5 +32,5 @@ shortTitle: マイルストーンでフィルタ
 
 ## 参考リンク
 
-- "[Filtering and searching issues and pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+- 「[IssueやPull Requestのフィルタリングと検索](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)」
 - 「[プロジェクトボードでカードをフィルタリングする](/articles/filtering-cards-on-a-project-board)」

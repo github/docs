@@ -19,12 +19,12 @@
     "url": "https://octocoders.github.io/Codertocat/Hello-World/commit/6113728f27ae82c7b1a177c8d03f9e96e0adf246",
     "author": {
       "name": "Codertocat",
-      "email": "Codertocat@Octocoders.io",
+      "email": "Codertocat@octocoders.github.io",
       "username": "Codertocat"
     },
     "committer": {
       "name": "Codertocat",
-      "email": "Codertocat@Octocoders.io",
+      "email": "Codertocat@octocoders.github.io",
       "username": "Codertocat"
     },
     "added": [
@@ -41,7 +41,7 @@
     "private": false,
     "owner": {
       "name": "Codertocat",
-      "email": "Codertocat@Octocoders.io",
+      "email": "Codertocat@octocoders.github.io",
       "login": "Codertocat",
       "id": 4,
       "node_id": "MDQ6VXNlcjQ=",
@@ -133,7 +133,7 @@
   },
   "pusher": {
     "name": "Codertocat",
-    "email": "Codertocat@Octocoders.io"
+    "email": "Codertocat@octocoders.github.io"
   },
   "enterprise": {
     "id": 1,

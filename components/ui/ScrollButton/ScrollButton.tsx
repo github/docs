@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { ChevronUpIcon } from '@primer/octicons-react'
-import { useTranslation } from '../../hooks/useTranslation'
 
 export type ScrollButtonPropsT = {
   className?: string
@@ -10,40 +9,40 @@ export type ScrollButtonPropsT = {
 
 export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
   const [show, setShow] = useState(false)
-  const { t } = useTranslation(['scroll_button'])
 
   useEffect(() => {
-    // show scroll button only when view is scrolled down
-    const onScroll = function () {
-      const y = document.documentElement.scrollTop // get the height from page top
-      if (y < 100) {
-        setShow(false)
-      } else if (y >= 100) {
-        setShow(true)
-      }
-    }
-    window.addEventListener('scroll', onScroll)
+    // We cannot determine document.documentElement.scrollTop height because we set the height: 100vh and set overflow to auto to keep the header sticky
+    // That means window.scrollTop height is always 0
+    // Using IntersectionObserver we can detemine if the h1 header is in view or not. If not, we show the scroll to top button, if so, we hide it
+    const observer = new IntersectionObserver(
+      function (entries) {
+        if (entries[0].isIntersecting === false) {
+          setShow(true)
+        } else {
+          setShow(false)
+        }
+      },
+      { threshold: [0] }
+    )
 
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
+    observer.observe(document.getElementsByTagName('h1')[0])
   }, [])
 
   const onClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    document?.getElementById('github-logo')?.focus()
+    document?.getElementById('main-content')?.scrollIntoView()
   }
 
   return (
-    <div className={cx(className, 'transition-200', show ? 'opacity-100' : 'opacity-0')}>
+    <div
+      role="tooltip"
+      className={cx(className, 'transition-200', show ? 'opacity-100' : 'opacity-0')}
+    >
       <button
         onClick={onClick}
-        className="color-bg-default color-fg-default border-0 d-inline-block mr-2 f6"
-      >
-        {t('scroll_to_top')}
-      </button>
-      <button
-        onClick={onClick}
-        className={cx('color-bg-accent-emphasis color-fg-on-emphasis circle border-0')}
+        className={cx(
+          'tooltipped tooltipped-n tooltipped-no-delay color-bg-accent-emphasis color-fg-on-emphasis circle border-0'
+        )}
         style={{ width: 40, height: 40 }}
         aria-label={ariaLabel}
       >

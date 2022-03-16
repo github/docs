@@ -31,7 +31,7 @@ Para encontrar una lista completa de versiones disponibles de Xamarin SDK en los
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md#xamarin-bundles)
 * [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md#xamarin-bundles)
 
-{% data reusables.github-actions.macos-runner-preview %}
+{% data reusables.actions.macos-runner-preview %}
 
 ## Prerrequisitos
 

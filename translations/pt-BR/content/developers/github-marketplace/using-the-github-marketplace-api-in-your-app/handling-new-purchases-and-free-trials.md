@@ -59,7 +59,7 @@ Quando um cliente compra seu aplicativo, você deve enviar o cliente por meio do
 
 * Se seu aplicativo for um {% data variables.product.prodname_oauth_app %}, inicie o fluxo de autorização assim que {% data variables.product.product_name %} redirecionar o cliente para a **URL de instalação**. Siga as etapas em "[Autorizar {% data variables.product.prodname_oauth_apps %}](/apps/building-oauth-apps/authorizing-oauth-apps/)".
 
-Para qualquer tipo de aplicativo, o primeiro passo é redirecionar o cliente para https://github.com/login/oauth/authorize.
+Para qualquer tipo de aplicativo, o primeiro passo é redirecionar o cliente para [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize).
 
 Depois que o cliente concluir a autorização, seu aplicativo receberá um token de acesso do OAuth para o cliente. Você prrecisará desse token para a próxima etapa.
 

@@ -41,7 +41,7 @@ As pessoas com o papel de mantenedor da equipe podem gerenciar as configuraçõe
 Antes de poder promover um integrante da organização para chefe de uma equipe, a pessoa deverá ser integrante da equipe.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
 4. Selecione a pessoa que você gostaria de promover a mantenedor de equipe. ![Caixa de seleção ao lado de integrante de organização](/assets/images/help/teams/team-member-check-box.png)

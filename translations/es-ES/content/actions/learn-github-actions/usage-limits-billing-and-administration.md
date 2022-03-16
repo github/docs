@@ -18,15 +18,22 @@ shortTitle: Límites & facturación de los flujos de trabajo
 
 ## Acerca de la facturación para {% data variables.product.prodname_actions %}
 
+{% data reusables.repositories.about-github-actions %} Para obtener más información, consulta las secciones "[Entender las {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}".{% elsif ghes or ghec %}" y "[Acerca de {% data variables.product.prodname_actions %} para las empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)".{% endif %}
+
 {% ifversion fpt or ghec %}
-{% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Acerca de la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
+{% data reusables.actions.actions-billing %} Para obtener más información, consulta "[Acerca de la facturación de {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 {% else %}
-El uso de GitHub Actions es gratuito para los {% data variables.product.prodname_ghe_server %} que utilicen ejecutores auto-hospedados.
+El uso de GitHub Actions es gratuito para las instancias de {% data variables.product.prodname_ghe_server %} que utilizan ejecutores auto-hospedados. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% endif %}
+
+
+{% ifversion fpt or ghec %}
 
 ## Disponibilidad
 
 {% data variables.product.prodname_actions %} está disponible en todos los productos de {% data variables.product.prodname_dotcom %}, pero {% data variables.product.prodname_actions %} no está disponible para los repositorios privados que pertenezcan a cuentas que utilicen planes tradicionales por repositorio. {% data reusables.gated-features.more-info %}
+
+{% endif %}
 
 ## Límites de uso
 
@@ -40,8 +47,8 @@ Hay algunos límites de uso de {% data variables.product.prodname_actions %} cua
 {% endnote %}
 
 - **Tiempo de ejecución de jobs** - Cada job en un flujo de trabajo puede ejecutarse hasta por 6 horas en tiempo de ejecución. Si un job llega a este límite, éste se terminará y fallará en completarse.
-{% data reusables.github-actions.usage-workflow-run-time %}
-{% data reusables.github-actions.usage-api-requests %}
+{% data reusables.actions.usage-workflow-run-time %}
+{% data reusables.actions.usage-api-requests %}
 - **Jobs simultáneos** - La cantidad de jobs que puedes ejecutar simultáneamente en tu cuenta depende de tu plan de GitHub, como se indica en la siguiente tabla. Si eso se excede, cualquier job adicional se pondrá en cola de espera.
 
   | Plan de GitHub | Jobs simultáneos totales | Jobs simultáneos de macOS máximos |
@@ -50,8 +57,8 @@ Hay algunos límites de uso de {% data variables.product.prodname_actions %} cua
   | Pro            | 40                       | 5                                 |
   | Team           | 60                       | 5                                 |
   | Empresa        | 180                      | 50                                |
-- **Matiz de jobs** - {% data reusables.github-actions.usage-matrix-limits %}
-{% data reusables.github-actions.usage-workflow-queue-limits %}
+- **Matiz de jobs** - {% data reusables.actions.usage-matrix-limits %}
+{% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
 Los límites de uso aplican a los ejecutores auto-hospedados. Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)."
@@ -66,7 +73,9 @@ Además de los límites de uso, debes asegurarte de usar las {% data variables.p
 {% ifversion fpt or ghes > 3.3 or ghec %}
 ## Facturación para los flujos de trabajo reutilizables
 
-Si vuelves a utilizar un flujo de trabajo la facturación siempre se asociará con aquél del que llama. La asignación de los ejecutores hospedados en {% data variables.product.prodname_dotcom %} siempre se evalúa utilizando únicamente el contexto del llamador. El llamador no puede utilizar ejecutores hospedados en {% data variables.product.prodname_dotcom %} desde el repositorio llamado.
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
+Si reutilizas un flujo de trabajo, la facturación siempre se asociará con el flujo de trabajo llamante. La asignación de los ejecutores hospedados en {% data variables.product.prodname_dotcom %} siempre se evalúa utilizando únicamente el contexto del llamador. El llamador no puede utilizar ejecutores hospedados en {% data variables.product.prodname_dotcom %} desde el repositorio llamado.
 
 Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
@@ -85,7 +94,7 @@ Para obtener más información, consulta:
 
 ## Inhabilitar o limitar {% data variables.product.prodname_actions %} para tu repositorio u organización
 
-{% data reusables.github-actions.disabling-github-actions %}
+{% data reusables.actions.disabling-github-actions %}
 
 Para obtener más información, consulta:
 - "[Administrar los ajustes de {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
@@ -94,7 +103,7 @@ Para obtener más información, consulta:
 
 ## Inhabilitar y habilitar flujos de trabajo
 
-Puedes habilitar e inhabilitar flujos de trabajo independientes en tu repositorio en {% data variables.product.prodname_dotcom %}.
+Puedes habilitar e inhabilitar flujos de trabajo independientes en tu repositorio de {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 

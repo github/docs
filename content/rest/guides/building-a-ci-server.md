@@ -170,7 +170,7 @@ build your own CI setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
 [deploy API]: /rest/reference/repos#deployments
-[status API]: /rest/reference/repos#statuses
+[status API]: /rest/reference/commits#commit-statuses
 [ngrok]: https://ngrok.com/
 [using ngrok]: /webhooks/configuring/#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server

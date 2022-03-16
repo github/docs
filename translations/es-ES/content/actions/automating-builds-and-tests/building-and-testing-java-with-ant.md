@@ -78,9 +78,9 @@ Este flujo de trabajo realiza los siguientes pasos:
 
 Los flujos de trabajo iniciales predeterminados son un punto de partida excelente para crear tu flujo de trabajo de prueba y de compilación y puedes personalizarlos de acuerdo con las necesidades de tu proyecto.
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## Construir y probar tu código
 
@@ -88,7 +88,7 @@ Puedes usar los mismos comandos que usas de forma local para construir y probar 
 
 El flujo de trabajo de inicio ejecutará el destino predeterminado especificado en tu archivo _build.xml_.  Normalmente, tu objetivo predeterminado se configurará para crear clases, ejecutar pruebas y empaquetar clases en su formato distribuible, por ejemplo, un archivo JAR.
 
-Si usas diferentes comandos para construir tu proyecto, o si deseas ejecutar un objetivo diferente, puedes especificarlos. For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
+Si usas diferentes comandos para construir tu proyecto, o si deseas ejecutar un objetivo diferente, puedes especificarlos. Por ejemplo, es posible que desees ejecutar el destino `jar` que está configurado en tu archivo `-ci.xml_`.
 
 {% raw %}
 ```yaml{:copy}
@@ -119,7 +119,7 @@ steps:
       distribution: 'adopt'
 
   - run: ant -noinput -buildfile build.xml
-  - uses: actions/upload-artifact@v2
+  - uses: actions/upload-artifact@v3
     with:
       name: Package
       path: build/jar

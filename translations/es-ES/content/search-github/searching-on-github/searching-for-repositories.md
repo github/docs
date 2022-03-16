@@ -111,17 +111,17 @@ Ambos toman una fecha como su parámetro. {% data reusables.time_date.date_forma
 
 Puedes buscar repositorios con base en el lenguaje de programación del código que contienen.
 
-| Qualifier                 | Ejemplo                                                                                                                                                                                    |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>language:<em>LANGUAGE</em></code> | [**rails language:javascript**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) encuentra repositorios con la palabra "rails" que están escritos en JavaScript. |
+| Qualifier                 | Ejemplo                                                                                                                                                                                                      |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>language:<em>LANGUAGE</em></code> | [**`rails language:javascript`**](https://github.com/search?q=rails+language%3Ajavascript&type=Repositories) coincide con los repositorios que tienen la palabra "rails" y que están escritos en javaScript. |
 
 ## Buscar por tema
 
 Puedes encontrar todos los repositorios que se clasifiquen con un tema particular. Para obtener más información, consulta "[Clasificar tu repositorio con temas](/github/administering-a-repository/classifying-your-repository-with-topics)".
 
-| Qualifier                 | Ejemplo                                                                                                                                                                               |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>topic:<em>TOPIC</em></code> | [**topic:jekyll**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults) encuentra repositorios que se han clasificado con el tema "jekyll." |
+| Qualifier                 | Ejemplo                                                                                                                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>topic:<em>TOPIC</em></code> | [**`topic:jekyll`**](https://github.com/search?utf8=%E2%9C%93&q=topic%3Ajekyll&type=Repositories&ref=searchresults) coincide con los repositorios que se clasificaron con el tema "Jekyll". |
 
 ## Buscar por cantidad de temas
 
@@ -178,10 +178,10 @@ Puedes buscar los repositorios con base en si se archivaron o no. Para obtener m
 
 Puedes buscar repositorios que tienen una cantidad mínima de propuestas etiquetadas como `help-wanted` (se necesita ayuda) o `good-first-issue` (buena propuesta inicial) con los calificadores `help-wanted-issues:>n` y `good-first-issues:>n`. Para encontrar más información, consulta "[Fomentar las contribuciones útiles a tu proyecto con etiquetas](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)."
 
-| Qualifier                  | Ejemplo                                                                                                                                                                                                                                                            |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `good-first-issues:>n`  | [**good-first-issues:&gt;2 javascript**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) encuentra repositorios con más de dos propuestas etiquetadas como `good-first-issue` y que contienen la palabra "javascript." |
-| `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) encuentra repositorios con más de cuatro propuestas etiquetadas como `help-wanted` y que contienen la palabra "React."                |
+| Qualifier                  | Ejemplo                                                                                                                                                                                                                                                                          |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `good-first-issues:>n`  | [**`good-first-issues:&gt;2 javascript`**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) coincide con los repositorios que tienen más de dos propuestas etiquetadas como `good-first-issue` y que contienen la palabra "javascript". |
+| `help-wanted-issues:>n` | [**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) encuentra repositorios con más de cuatro propuestas etiquetadas como `help-wanted` y que contienen la palabra "React."                              |
 
 ## Búsqueda basada en la capacidad de patrocinar
 

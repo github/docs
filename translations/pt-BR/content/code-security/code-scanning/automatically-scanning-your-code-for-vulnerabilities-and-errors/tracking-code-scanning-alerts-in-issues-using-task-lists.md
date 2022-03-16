@@ -5,9 +5,7 @@ intro: Você pode adicionar alertas de digitalização de código a problemas us
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can track {% data variables.product.prodname_code_scanning %} alerts in issues using task lists.'
 versions:
-  fpt: '*'
-  ghes: '> 3.3'
-  ghae: issue-5036
+  feature: code-scanning-task-lists
 type: how_to
 topics:
   - Advanced Security
@@ -37,7 +35,7 @@ Você pode usar mais de um problema para rastrear o mesmo alerta de {% data vari
 
 - A página da lista de alertas de digitalização de código mostrará quais alertas são rastreados nos problemas para que você possa ver com rapidamente quais alertas ainda precisam de processamento.
 
-  ![Tracked in pill on code scanning alert page](/assets/images/help/repository/code-scanning-alert-list-tracked-issues.png)
+  ![Dispositivo de rastreamento na página de alerta de digitalização do código](/assets/images/help/repository/code-scanning-alert-list-tracked-issues.png)
 
 - Uma seção "rastreado em" também será exibida na página de alerta correspondente.
 

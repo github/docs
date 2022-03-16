@@ -31,4 +31,4 @@ shortTitle: 用户安全最佳实践
 
 要限制出现安全漏洞时的潜在攻击面，我们强烈建议仅向用户授予完成工作所需的团队和仓库的访问权限。 由于具有所有者角色的成员可以访问组织中的所有团队和仓库，我们强烈建议尽可能减小团队的规模。
 
-For more information on configuring teams and team permissions, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+有关配置团队和团队权限的详细信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
