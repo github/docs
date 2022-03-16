@@ -1,17 +1,10 @@
 ---
-date: '2022-02-15'
-release_candidate: true
-deprecated: true
+date: '2022-03-15'
 intro: |
-  {% note %}
 
-  **Observação:** Se {% data variables.product.product_location %} estiver executando uma compilação candidata de versão, você não poderá fazer a atualiação com um hotpatch. Apenas recomendamos executar candidatos a versão em ambientes de teste.
+  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 
-  {% endnote %}
-
-  Para obter instruções de atualização, consulte "[Atualizando {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server).
-
-  > Esta versão é dedicada ao nosso colega e amigo John, um Hubber que sempre esteve disposto a ajudar. Sentiremos muito a sua falta.
+  > This release is dedicated to our colleague and friend John, a Hubber who was always there to help. You will be greatly missed.
   >
   > **John "Ralph" Wiebalk 1986–2021**
 sections:
@@ -42,6 +35,7 @@ sections:
       notes:
         - Os usuários agora podem escolher o número de espaços ao qual uma aba equivale, definindo o seu tamanho da aba preferido nas configurações de "Aparência" da sua conta de usuário. Todos os códigos com um recuo de aba serão interpretados utilizando o tamanho preferido da aba.
         - O registro de conexão de dados de {% data variables.product.prodname_github_connect %} agora inclui uma contagem do número de usuários ativos e inativos e o período de inavitidade configurado.
+        - You can now give users access to enterprise-specific links by adding custom footers to {% data variables.product.prodname_ghe_server %}. For more information, see "[Configuring custom footers](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)."
     - 
       heading: Mudanças de desempenho
       notes:
@@ -135,7 +129,7 @@ sections:
 
           For more information, see "[Code scanning](/rest/reference/code-scanning)" in the REST API documentation.
         - '{% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve private repository secret scanning results at the enterprise level. The new endpoint supplements the existing repository-level and organization-level endpoints. For more information, see "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.'
-  #No security/bug fixes for the RC release
+  #No security/bug fixes for the GA release
   #security_fixes:
   #- PLACEHOLDER
   #bugs:

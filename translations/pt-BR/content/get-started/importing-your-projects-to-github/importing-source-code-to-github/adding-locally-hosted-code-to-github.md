@@ -1,6 +1,6 @@
 ---
-title: Adding locally hosted code to GitHub
-intro: 'Learn how to add existing source code or repositories to {% data variables.product.product_name %} from the command line using {% data variables.product.prodname_cli %} or Git Commands. Then, share your code and invite others to work with you.'
+title: Adicionando o código localmente hospedado no GitHub
+intro: 'Aprenda a adicionar código-fonte ou repositórios existentes em {% data variables.product.product_name %} pela linha de comando usando {% data variables.product.prodname_cli %} ou Comandos do Git. Em seguida, compartilhe seu código e convide outras pessoas a trabalhar com você.'
 redirect_from:
   - /articles/add-an-existing-project-to-github
   - /articles/adding-an-existing-project-to-github-using-the-command-line
@@ -12,12 +12,12 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Add locally hosted code
+shortTitle: Adicionar código hospedado localmente
 ---
 
-## About adding existing source code to {% data variables.product.product_name %}
+## Sobre a adição do código-fonte existente para {% data variables.product.product_name %}
 
-If you have existing source code or repositories stored locally on your computer or private network you can add them to {% data variables.product.product_name %} by typing commands in a terminal. You can do this by typing Git commands directly, or by using {% data variables.product.prodname_cli %}.
+Se você tiver código-fonte ou repositórios armazenados localmente no computador ou em uma rede privada, você poderá adicioná-los a {% data variables.product.product_name %}, digitando comandos em um terminal. Você pode fazer isso digitando comandos do Git diretamente ou usando {% data variables.product.prodname_cli %}.
 
 {% data variables.product.prodname_cli %} é uma ferramenta de código aberto para usar {% data variables.product.prodname_dotcom %} a partir da linha de comando do seu computador. {% data variables.product.prodname_cli %} pode simplificar o processo de adicionar um projeto existente a {% data variables.product.product_name %} usando a linha de comando. Para saber mais sobre {% data variables.product.prodname_cli %}, consulte "[Sobre {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)."
 
@@ -29,7 +29,7 @@ If you have existing source code or repositories stored locally on your computer
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-## Adding a local repository to {% data variables.product.product_name %} with {% data variables.product.prodname_cli %}
+## Adicionando um repositório local para {% data variables.product.product_name %} com {% data variables.product.prodname_cli %}
 
 1. Na linha de comando, acesse o diretório raiz do seu projeto.
 1. Inicialize o diretório local como um repositório Git.
@@ -50,7 +50,7 @@ If you have existing source code or repositories stored locally on your computer
 
 1. Como alternativa, para pular todas as instruções, fornecer o caminho do repositório com o sinalizador `--source` e passar um sinalizador de visibilidade (`--public`, `--privado` ou `--interno`). Por exemplo, `gh repo create --source=. --public`. Especifique um controle remoto com o o sinalizador `--remote`. Para fazer push dos seus commits, passe o sinalizador `--push`. Para obter mais informações sobre possíveis argumentos, consulte o [manual da CLI do GitHub](https://cli.github.com/manual/gh_repo_create).
 
-## Adding a local repository to {% data variables.product.product_name %} using Git
+## Adicionando um repositório local para {% data variables.product.product_name %} usando o Git
 
 {% mac %}
 

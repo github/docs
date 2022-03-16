@@ -1,5 +1,5 @@
 ---
-title: GitHub Event Code of Conduct
+title: Código de conduta de eventos do GitHub
 redirect_from:
   - /articles/github-event-code-of-conduct
   - /github/site-policy/github-event-code-of-conduct
@@ -10,44 +10,44 @@ topics:
   - Legal
 ---
 
-GitHub events are community events intended for networking and collaboration in the tech community.
+Eventos do GitHub são eventos da comunidade destinados a networking e colaboração na comunidade tecnológica.
 
-We value the participation of each member and want all attendees to have an enjoyable and fulfilling experience. Accordingly, all attendees are expected to show respect and courtesy to other attendees throughout all events hosted in the GitHub space.
+Valorizamos a participação de cada membro e queremos que todos os participantes tenham uma experiência agradável e gratificante. Consequentemente, espera-se que todos os participantes mostrem respeito e cortesia a outros participantes em todos os eventos organizados no espaço do GitHub.
 
-To make clear what is expected, all attendees, speakers, exhibitors, organizers, and volunteers at any event in the GitHub space are required to conform to the following Code of Conduct. Organizers will enforce this code throughout the event.
+Para deixar claro o que se espera, todos os participantes, palestrantes, expositores, organizadores e voluntários de qualquer evento no espaço do GitHub são obrigados a cumprir o seguinte Código de Conduta. Os organizadores aplicarão esse código durante todo o evento.
 
-## Code of Conduct
+## Código de Conduta
 
-GitHub is dedicated to providing a positive and harassment-free event experience for everyone, regardless of age, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, ethnicity, race, religion, nationality, or level of experience. We do not tolerate harassment of event participants in any form, nor do we tolerate any behavior that would reasonably lead to another event participant being made to feel unsafe, insecure, or frightened for their physical or emotional well-being. All communication should be appropriate for a professional audience including people of many different backgrounds.
+O GitHub dedica-se a oferecer uma experiência de evento positiva e sem assédio para todos, independentemente da idade, gênero, identidade e expressão de gênero, orientação sexual, deficiência, aparência pessoal, tamanho corporal, etnia, raça, religião, nacionalidade ou nível de experiência. Não toleramos o assédio de participantes do evento de qualquer forma nem toleramos qualquer comportamento que razoavelmente leve outro participante a se sentir inseguro, desprotegido ou assustado em relação ao seu bem-estar físico ou emocional. Todas as comunicações devem ser apropriadas para um público profissional, incluindo pessoas de muitas origens diferentes.
 
-Examples of encouraged behavior that contributes to a positive environment include:
+Exemplos de comportamento encorajado que contribuem para criar um ambiente positivo incluem:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for everyone at the event
-* Showing empathy towards other participants
+* Usar linguagem inclusiva e acolhedora
+* Ser respeitoso com pontos de vista e experiências diferentes
+* Aceitar críticas construtivas de bom grado
+* Concentrar-se no que é melhor para todos no evento
+* Demonstrar empatia para com outros participantes
 
-Unacceptable behavior includes:
+Comportamentos inaceitáveis incluem:
 
-* The use of sexualized language or imagery, or inappropriate physical contact, sexual attention, or advances
-* Trolling, insulting or derogatory comments, personal or political attacks, or sustained disruption of talks or other events
-* Deliberate intimidation, stalking, following, or harassing photography or recording
-* Harassment of any kind, even in a joking or ironic manner
-* Other conduct which could reasonably be considered inappropriate in a professional setting
+* Uso de linguagem ou imagens sexualizadas, ou contato físico inapropriado, abordagens ou investidas de cunho sexual
+* Trolagem, insultos ou comentários depreciativos, ataques pessoais ou políticos, ou interrupções prolongadas de conversas ou outros eventos
+* Intimidação deliberada, stalking, perseguição ou assédio por fotografia ou gravação
+* Assédio de qualquer espécie, mesmo de forma irônica ou com brincadeiras
+* Outras condutas que poderiam ser consideradas razoavelmente inapropriadas, dentro de um contexto profissional
 
-Be kind to others. Do not insult or put down other attendees. Behave professionally. Remember that harassment and sexist, racist, or exclusionary jokes are not appropriate at this event.
+Seja gentil com os outros. Não insulte ou deprecie outros participantes. Comporte-se profissionalmente. Lembrem-se de que o assédio e as piadas sexistas, racistas ou excludentes não são apropriados neste evento.
 
-Each event guest is entirely responsible for their own actions.
+Cada convidado do eventos é inteiramente responsável pelas suas próprias ações.
 
-Thank you for helping to make this a welcoming, friendly space for all.
+Obrigado por ajudar a fazer deste um espaço de boas-vindas e amigável para todos.
 
-### Reporting an incident
+### Relatando um incidente
 
-If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact the organizer by email (events@github.com) or phone/text (+1 415 842 2837), or by speaking to another GitHub employee or a security officer.
+Se você estiver sendo assediado, notar que outra pessoa está sendo assediada ou tiver qualquer outro problema, por favor, entre em contato com o organizador por e-mail (events@github.com) ou telefone/sms (+1 415 842 2837), ou fale com outro funcionário do GitHub ou um funcionário da segurança.
 
-GitHubbers will be happy to help participants contact security or local law enforcement, escort to safety, or otherwise assist those experiencing harassment to feel safe for the duration of the conference. We value your attendance.
+Os GitHubbers ficarão felizes em ajudar os participantes a contactar a segurança ou o agente policial local, acompanhá-lo em segurança ou, de outra forma, ajudar as pessoas que estão sofrendo assédio a sentirem-se seguras durante a conferência. Valorizamos a sua presença.
 
-## Credit
+## Crédito
 
-Portions of this Code of Conduct are based on the [example anti-harassment policy](https://geekfeminism.wikia.org/wiki/Conference_anti-harassment/Policy) from the Geek Feminism wiki, created by the Ada Initiative and other volunteers, under a Creative Commons Zero license.
+Partes deste Código de Conduta são baseadas no [exemplo de política de anti-assédio](https://geekfeminism.wikia.org/wiki/Conference_anti-harassment/Policy) da wikipédia Geek Feminism criada pela Iniciativa Ada e outros voluntários, sob uma licença Creative Commons Zero.

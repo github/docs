@@ -37,7 +37,7 @@ Quando você testar a conexão, precisará autenticar essa ação usando sua sen
   > Tem certeza de que deseja continuar com a conexão (sim/não)?
   ```
 
-3. Verify that the fingerprint in the message you see matches {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %}'s public key fingerprint](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. Se isso acontecer, digite `sim`:
+3. Verifique se a impressão digital da mensagem que você vê corresponde à {% ifversion fpt or ghec %}[ impressão digital da chave pública de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} impressão digital da chave pública da sua empresa{% endif %}. Se isso acontecer, digite `sim`:
   ```shell
   > Olá, <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.
