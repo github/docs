@@ -1,1 +1,1 @@
-{% data variables.product.product_name %} provides starter workflows for security features such as {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch.
+{% data variables.product.product_name %} provides starter workflows for security features such as {% data variables.product.prodname_code_scanning %}. 您可以使用这些建议的工作流程来构建 {% data variables.product.prodname_code_scanning %} 工作流程，而不是从头开始。
