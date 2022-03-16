@@ -247,6 +247,11 @@
         "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/logs"
       },
       {
+        "slug": "re-run-a-job-from-a-workflow-run",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun"
+      },
+      {
         "slug": "get-github-actions-permissions-for-a-repository",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions"
@@ -405,6 +410,11 @@
         "slug": "review-pending-deployments-for-a-workflow-run",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
+      },
+      {
+        "slug": "re-run-failed-jobs-from-a-workflow-run",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/rerun-failed-jobs"
       },
       {
         "slug": "list-repository-secrets",
