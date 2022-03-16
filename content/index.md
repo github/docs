@@ -21,6 +21,7 @@ children:
   - github
   - admin
   - billing
+  - site-policy
   - organizations
   - code-security
   - pull-requests
@@ -49,6 +50,7 @@ childGroups:
       - account-and-profile
       - authentication
       - billing
+      - site-policy
   - name: Collaborative coding
     octicon: CommentDiscussionIcon
     children:

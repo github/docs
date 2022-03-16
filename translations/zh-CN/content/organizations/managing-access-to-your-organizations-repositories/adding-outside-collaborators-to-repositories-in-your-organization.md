@@ -22,7 +22,11 @@ permissions: People with admin access to a repository can add an outside collabo
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
+{% ifversion fpt %}
+使用 {% data variables.product.prodname_ghe_cloud %} 的组织可以限制邀请协作者的能力。 更多信息请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[设置添加外部协作者的权限](/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)”。
+{% else %}
 组织所有者可以限制邀请协作者的能力。 更多信息请参阅“[设置添加外部协作者的权限](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)”。.
+{% endif %}
 
 {% ifversion ghes %}
 要将某人添加为仓库的外部协作者，此人必须在 {% data variables.product.product_location %} 上拥有用户帐户。 如果您的企业使用外部身份验证系统（如 SAML 或 LDAP），则要添加的人员必须通过该系统登录才能创建帐户。 如果此人无权访问身份验证系统，并且为您的企业启用了内置身份验证，则站点管理员可以为该人员创建用户帐户。 更多信息请参阅“[使用内置身份验证](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)”。
@@ -30,10 +34,6 @@ permissions: People with admin access to a repository can add an outside collabo
 
 {% ifversion not ghae %}
 如果您的组织需要双重身份验证，则在接受您的邀请以在仓库上进行协作之前，所有外部协作者都必须启用双重身份验证。 更多信息请参阅“[您的组织中需要双重身份验证](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)”。
-{% endif %}
-
-{% ifversion fpt %}
-为了进一步支持团队的协作能力，您可以升级到 {% data variables.product.prodname_ghe_cloud %}，其中包括受保护的分支机构和私有仓库的代码所有者等功能。 {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
 ## 添加外部协作者到仓库

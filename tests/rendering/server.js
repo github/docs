@@ -776,9 +776,10 @@ describe('server', () => {
 
 describe('URLs by language', () => {
   test('heading IDs and links on translated pages are in English', async () => {
-    const $ = await getDOM('/ja/github/site-policy/github-terms-of-service')
+    const $ = await getDOM('/ja/site-policy/github-terms/github-terms-of-service')
     expect($.res.statusCode).toBe(200)
-    expect($('h1')[0].children[0].data).toBe('GitHub利用規約')
+    // This check is true on either the translated version of the page, or when the title is pending translation and is in English.
+    expect($('h1')[0].children[0].data).toMatch(/(GitHub利用規約|GitHub Terms of Service)/)
     expect($('h2 a[href="#summary"]').length).toBe(1)
   })
 })

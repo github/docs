@@ -2277,9 +2277,19 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
       },
       {
+        "slug": "list-reactions-for-a-release",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
         "slug": "create-reaction-for-a-release",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
+        "slug": "delete-a-release-reaction",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
       },
       {
         "slug": "list-reactions-for-a-team-discussion-comment-legacy",
@@ -7420,9 +7430,19 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
       },
       {
+        "slug": "list-reactions-for-a-release",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
         "slug": "create-reaction-for-a-release",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
+        "slug": "delete-a-release-reaction",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
       },
       {
         "slug": "list-reactions-for-a-team-discussion-comment-legacy",
@@ -9993,9 +10013,19 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
       },
       {
+        "slug": "list-reactions-for-a-release",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
         "slug": "create-reaction-for-a-release",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
+        "slug": "delete-a-release-reaction",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
       },
       {
         "slug": "list-reactions-for-a-team-discussion-comment-legacy",
@@ -12731,9 +12761,19 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
       },
       {
+        "slug": "list-reactions-for-a-release",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
         "slug": "create-reaction-for-a-release",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
+        "slug": "delete-a-release-reaction",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
       },
       {
         "slug": "list-reactions-for-a-team-discussion-comment-legacy",
@@ -13459,9 +13499,19 @@
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
       {
+        "slug": "list-self-hosted-runner-groups-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups"
+      },
+      {
         "slug": "create-a-self-hosted-runner-group-for-an-organization",
         "verb": "post",
         "requestPath": "/orgs/{org}/actions/runner-groups"
+      },
+      {
+        "slug": "get-a-self-hosted-runner-group-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
       },
       {
         "slug": "update-a-self-hosted-runner-group-for-an-organization",
@@ -13472,6 +13522,36 @@
         "slug": "delete-a-self-hosted-runner-group-from-an-organization",
         "verb": "delete",
         "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+      },
+      {
+        "slug": "add-a-self-hosted-runner-to-a-group-for-an-organization",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
+      },
+      {
+        "slug": "list-self-hosted-runners-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runners"
+      },
+      {
+        "slug": "list-runner-applications-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runners/downloads"
+      },
+      {
+        "slug": "create-a-registration-token-for-an-organization",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/runners/registration-token"
+      },
+      {
+        "slug": "create-a-remove-token-for-an-organization",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/runners/remove-token"
+      },
+      {
+        "slug": "get-a-self-hosted-runner-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runners/{runner_id}"
       },
       {
         "slug": "delete-a-self-hosted-runner-from-an-organization",
@@ -13577,6 +13657,26 @@
         "slug": "list-self-hosted-runners-for-a-repository",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/runners"
+      },
+      {
+        "slug": "list-runner-applications-for-a-repository",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/downloads"
+      },
+      {
+        "slug": "create-a-registration-token-for-a-repository",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/registration-token"
+      },
+      {
+        "slug": "create-a-remove-token-for-a-repository",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/remove-token"
+      },
+      {
+        "slug": "get-a-self-hosted-runner-for-a-repository",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/{runner_id}"
       },
       {
         "slug": "delete-a-self-hosted-runner-from-a-repository",
@@ -15134,24 +15234,19 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
       },
       {
+        "slug": "list-reactions-for-a-release",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
         "slug": "create-reaction-for-a-release",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
       },
       {
-        "slug": "list-reactions-for-a-team-discussion-comment-legacy",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-      },
-      {
-        "slug": "create-reaction-for-a-team-discussion-comment-legacy",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-      },
-      {
-        "slug": "list-reactions-for-a-team-discussion-legacy",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions"
+        "slug": "delete-a-release-reaction",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
       }
     ],
     "releases": [
@@ -15288,6 +15383,11 @@
         "requestPath": "/repos/{owner}/{repo}/contributors"
       },
       {
+        "slug": "create-a-repository-dispatch-event",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/dispatches"
+      },
+      {
         "slug": "list-forks",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/forks"
@@ -15408,11 +15508,6 @@
       }
     ],
     "teams": [
-      {
-        "slug": "list-a-connection-between-an-external-group-and-a-team",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/team/{team_slug}/external-groups"
-      },
       {
         "slug": "get-an-external-group",
         "verb": "get",
