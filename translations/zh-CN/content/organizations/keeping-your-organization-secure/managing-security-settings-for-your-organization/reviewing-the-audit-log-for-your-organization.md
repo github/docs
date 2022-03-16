@@ -507,13 +507,13 @@ By default, only events from the past three months are returned. To include olde
 {% ifversion fpt or ghes or ghec %}
 ### `packages` 类操作
 
-| 操作                          | 描述                                                                                                     |
-| --------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `package_version_published` | 当软件包版本发布时触发。                                                                                           |
-| `package_version_deleted`   | 当特定软件包版本被删除时触发。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。 |
-| `package_deleted`           | 在整个软件包被删除时触发。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。   |
-| `package_version_restored`  | 当特定软件包版本被删除时触发。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。 |
-| `package_restored`          | 在整个软件包恢复时触发。 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。    |
+| 操作                          | 描述                                                                                                                                                                                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `package_version_published` | 当软件包版本发布时触发。                                                                                                                                                                                                                                |
+| `package_version_deleted`   | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_deleted`           | Triggered when an entire package is deleted.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_version_restored`  | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_restored`          | Triggered when an entire package is restored.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
 {% endif %}
 

@@ -9,7 +9,7 @@ redirect_from:
   - /packages/guides/deleting-a-container-image
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '>=3.2'
   ghec: '*'
   ghae: '*'
 shortTitle: 删除和恢复包
