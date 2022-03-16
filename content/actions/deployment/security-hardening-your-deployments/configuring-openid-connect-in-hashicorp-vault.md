@@ -31,10 +31,25 @@ This guide gives an overview of how to configure HashiCorp Vault to trust {% dat
 
 To use OIDC with HashiCorp Vault, you will need to add a trust configuration for the {% data variables.product.prodname_dotcom %} OIDC provider. For more information, see the HashiCorp Vault [documentation](https://www.vaultproject.io/docs/auth/jwt).
 
-Configure the vault to accept JSON Web Tokens (JWT) for authentication:
+Configure Vault to accept JSON Web Tokens (JWT) for authentication with the [JWT authentication method](https://www.vaultproject.io/api/auth/jwt#configure):
 - For the `oidc_discovery_url`, use `https://token.actions.githubusercontent.com`
 - For `bound_issuer`, use `https://token.actions.githubusercontent.com`
-- Ensure that `bound_subject` is correctly defined for your security requirements. For more information, see ["Configuring the OIDC trust with the cloud"](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud) and [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action).
+
+Additionally, you must configure a [JWT auth backend role](https://www.vaultproject.io/api/auth/jwt#create-role).
+
+- Set `role_type` to `jwt`
+- Set `user_claim` to a field key (e.g., `run_id`) that is present in the OIDC token. See [Understanding the OIDC token](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token) for more information.
+
+Then, ensure that the bound parameters are correctly defined for your security requirements:
+
+- For a wildcard (non-exact) match, the `bound_claims` may be set to a map of the claim field to a wildcard value:
+
+  ```json
+  {"sub": "repo:<orgName>/*"}
+  ```
+  This requires the `bound_claims_type` to be set to a value of `glob`. See the [Vault documentation](https://www.vaultproject.io/api/auth/jwt#bound_claims_type) for more information.
+
+- For an exact match, the `bound_subject` must be set to the `sub` field of the claim. For more details, see [Defining trust conditions on cloud roles using OIDC claims](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims).
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
@@ -46,9 +61,9 @@ To update your workflows for OIDC, you will need to make two changes to your YAM
 To add OIDC integration to your workflows that allow them to access secrets in Vault, you will need to add the following code changes:
 
 - Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
-  - The workflow needs `permissions:` settings with the `id-token` value set to `write`. This lets you fetch the OIDC token from every job in the workflow.
+  - The workflow needs `permissions:` settings with the `id-token` value set to `write` and the `content` value set to `read`. This lets you fetch the OIDC token from every job in the workflow.
 - Request the JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and present it to HashiCorp Vault to receive an access token:
-  - You could use the [Actions toolkit](https://github.com/actions/toolkit/) to fetch the tokens for your job, or you can use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to fetch the JWT and receive the access token from the Vault.
+  - You can use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to fetch the JWT and receive the access token from Vault, or you could use the [Actions toolkit](https://github.com/actions/toolkit/) to fetch the tokens for your job.
 
 This example demonstrates how to use OIDC with the official action to request a secret from HashiCorp Vault.
 
@@ -63,20 +78,32 @@ The `hashicorp/vault-action` action receives a JWT from the {% data variables.pr
 This example demonstrates how to create a job that requests a secret from HashiCorp Vault.
 
 - `<Vault URL>`: Replace this with the URL of your HashiCorp Vault.
-- `<Role name>`: Replace this with the role you've set in the HashiCorp Vault trust relationship.
+- `<Vault Role name>`: Replace this with the role you've set in the HashiCorp Vault trust relationship.
+- `<Vault Namespace>`: Replace this with the Namespace you've set in HashiCorp Vault. For example: `admin`.
 - `<Audience>`: Replace this with the audience you've defined in the HashiCorp Vault trust relationship.
 - `<Secret-Path>`: Replace this with the path to the secret you're retrieving from HashiCorp Vault. For example: `secret/data/ci npmToken`.
+
+{% note %}
+
+**Note:** `<Vault Namespace>` must be set for a Vault Enterprise (including HCP Vault) deployment. See [Vault namespace](https://www.vaultproject.io/docs/enterprise/namespaces) for more information.
+
+{% endnote %}
 
 ```yaml{:copy}
 jobs:
     retrieve-secret:
+        permissions:
+            contents: read
+            id-token: write
+
         steps:
             - name: Retrieve secret from Vault
               uses: hashicorp/vault-action@v2.4.0
               with:
                 url: <Vault URL>
-                role: <Role name>
+                role: <Vault Role name>
                 method: jwt
+                namespace: <Vault Namespace - HCP Vault and Vault Enterprise only>
                 jwtGithubAudience: <Audience>
                 secrets: <Secret-Path>
                 
