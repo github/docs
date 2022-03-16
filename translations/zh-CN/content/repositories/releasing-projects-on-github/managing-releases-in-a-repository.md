@@ -40,16 +40,16 @@ shortTitle: 管理版本
 3. 单击 **Draft a new release（草拟新发行版）**。
 
    {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-4974 %}![Releases draft button](/assets/images/help/releases/draft-release-button-with-search.png){% else %}![Releases draft button](/assets/images/help/releases/draft_release_button.png){% endif %}
-4. {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}单击 **Choose a tag（选择标记）**，键入{% else %}类型{% endif %} 版本号{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}，然后按 **Enter**{% endif %}。 Alternatively, select an existing tag.
+4. {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}单击 **Choose a tag（选择标记）**，键入{% else %}类型{% endif %} 版本号{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}，然后按 **Enter**{% endif %}。 或者，选择现有标记。
 
-   {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-5. If you are creating a new tag, click **Create new tag**.
+   {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![输入标记](/assets/images/help/releases/releases-tag-create.png)
+5. 如果要创建新标记，请单击 **Create new tag（创建新标记）**。
 
-   ![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
+   ![确认您要创建新标记](/assets/images/help/releases/releases-tag-create-confirm.png)
    {% else %}
    ![发行版标记版本](/assets/images/enterprise/releases/releases-tag-version.png)
 {% endif %}
-5. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
+5. 如果已创建新标记，请使用下拉菜单选择包含要发布的项目的分支。
 
    {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4865 %}![选择分支](/assets/images/help/releases/releases-choose-branch.png)
    {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png){% endif %}

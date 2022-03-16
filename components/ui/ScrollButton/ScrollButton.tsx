@@ -24,8 +24,10 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
       },
       { threshold: [0] }
     )
-
     observer.observe(document.getElementsByTagName('h1')[0])
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   const onClick = () => {

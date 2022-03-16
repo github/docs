@@ -175,7 +175,7 @@ jobs:
 ```
 
 {% data reusables.actions.gradle-workflow-steps %}
-1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to {% data variables.product.prodname_registry %}. `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+1. 运行具有 `publish` 参数的 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作，以发布到 {% data variables.product.prodname_registry %}。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %} `permissions` 键指定 `GITHUB_TOKEN` 密钥允许的访问权限。{% endif %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
@@ -256,6 +256,6 @@ jobs:
 ```
 
 {% data reusables.actions.gradle-workflow-steps %}
-1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to the `OSSRH` Maven repository and {% data variables.product.prodname_registry %}. `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+1. 运行具有 `publish` 参数的 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作，以发布到 `OSSRH` Maven 存储库和 {% data variables.product.prodname_registry %}。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %} `permissions` 键指定 `GITHUB_TOKEN` 密钥允许的访问权限。{% endif %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
