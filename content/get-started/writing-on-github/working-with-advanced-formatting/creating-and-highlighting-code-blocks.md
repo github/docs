@@ -69,10 +69,9 @@ We use [Linguist](https://github.com/github/linguist) to perform language detect
 {% if mermaid %}
 ## Creating diagrams
 
-You can use Mermaid syntax to add diagrams. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
+You can also use code blocks to create diagrams in Markdown. GitHub supports Mermaid, geoJSON, topoJSON, and ASCII STL syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
 
 {% endif %}
-
 ## Further reading
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
