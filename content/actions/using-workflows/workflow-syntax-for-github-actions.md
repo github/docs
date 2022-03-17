@@ -342,7 +342,7 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-### Example: Using secrets
+#### Example: Using secrets
 
 Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
 
