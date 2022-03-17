@@ -1,6 +1,6 @@
 ---
-title: GitHub Hate Speech and Discrimination
-shortTitle: Hate Speech and Discrimination
+title: Discriminação e discurso de ódio no GitHub
+shortTitle: Discriminação e discurso de ódio
 versions:
   fpt: '*'
 topics:
@@ -11,14 +11,14 @@ redirect_from:
   - /github/site-policy/github-community-guidelines#hate-speech-and-discrimination
 ---
 
-GitHub does not tolerate speech that attacks or promotes hate toward an individual or group of people on the basis of who they are, including age, body size, ability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, sexual identity, or sexual orientation. Isto inclui:
+O GitHub não tolera o discurso que ataca ou promove o ódio a um indivíduo ou grupo de pessoas com base em quem eles são, incluindo idade, tamanho do corpo, capacidade, etnia, identidade e expressão de gênero, nível de experiência, nacionalidade, aparência pessoal, raça, religião, identidade sexual ou orientação sexual. Isto inclui:
 
-- Mocking, attacking, or excluding a person or group based on their beliefs or the characteristics listed above
-- Displaying clear affiliation or identification with known terrorist or violent extremist organizations
-- Supporting or promoting hate groups or hate-based conspiracy theories
-- Sharing symbols or images synonymous with hate
-- Using harmful stereotypes, slurs, or dehumanizing speech
-- Attacking an individual based on their perceived gender
-- Dog whistling; or using coded or suggestive language and/or symbols to promote abuse or hate
+- Humilhar, atacar ou excluir uma pessoa ou grupo com base em suas crenças ou nas características listadas acima
+- Exibir clara afiliação ou identificação com organizações extremistas conhecidas ou terroristas violentas
+- Apoiar ou promover grupos de ódio ou teorias de conspiração com base no ódio
+- Compartilhar símbolos ou imagens associadas ao ódio
+- Usar estereótipos perigosos, insultors ou discurso desumanizado
+- Atacae um indivíduo com base no seu gênero percebido
+- Apito de cachorro ou uso de uma linguagem ou símbolos codificados ou sugestivos para promover abuso ou ódio
 
-While GitHub takes all instances of abuse and harassment on the platform seriously, we are especially committed to fighting hate-based abuse where it disproportionately affects communities that have historically been targeted by such abuse. We aim to make GitHub a place where all individuals feel welcome and safe. 
+Embora o GitHub leve a sério todos os abusos e assédio na plataforma, estamos especialmente empenhados em combater os abusos com base no ódio, nos casos em que afetam de forma desproporcionada as comunidades que historicamente vêm sendo alvo desses abusos. Nosso objetivo é fazer do GitHub um lugar onde todos os indivíduos se sintam bem-vindos e seguros. 

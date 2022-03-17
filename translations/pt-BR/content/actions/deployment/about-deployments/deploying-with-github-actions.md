@@ -132,7 +132,7 @@ jobs:
         # ...deployment-specific steps
 ```
 
-For guidance on writing deployment-specific steps, see "[Finding deployment examples](#finding-deployment-examples)."
+Para orientação sobre a escrita de etapas específicas de implantação, consulte "[Encontrando exemplos de implantação](#finding-deployment-examples)".
 
 ## Visualizar histórico de implantação
 
@@ -166,7 +166,7 @@ Você pode usar um selo de status para exibir o status do seu fluxo de trabalho 
 
 Para obter mais informações, consulte "[Adicionando um selo de status do fluxo de trabalho](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
-## Finding deployment examples
+## Procurando exemplos de implantação
 
 Este artigo mostrou as funcionalidades de {% data variables.product.prodname_actions %} que você pode adicionar aos seus fluxos de trabalho de implantação.
 
