@@ -376,7 +376,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 
 {% warning %}
 
-**Warning:** Make sure the token you're using is randomly generated and unique for each run. As demonstrated in the example below, you can generate a unique hash of your `github.token` for each run.
+**Warning:** Make sure the token you're using is randomly generated and unique for each run.
 
 {% endwarning %}
 
