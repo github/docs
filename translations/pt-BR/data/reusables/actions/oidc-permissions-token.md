@@ -1,9 +1,9 @@
-The job or workflow run requires a `permissions` setting with [`id-token: write`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token). You won't be able to request the OIDC JWT ID token if the `permissions` setting for `id-token` is set to `read` or `none`.
+A execução do trabalho ou fluxo de trabalho exige uma configuração de `permissões` com [`id-token: write`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token). Você não poderá o token de ID OIDC JWT se a configuração das `permissões` para `id-token` estiverem definidas como `leitura` ou `nenhum`.
 
-The `id-token: write` setting allows the JWT to be requested from {% data variables.product.prodname_dotcom %}'s OIDC provider using one of these approaches:
+A configuração `id-token: write` permite que o JWT seja solicitado do provedor OIDC de {% data variables.product.prodname_dotcom %} usando uma dessas abordagens:
 
-- Using environment variables on the runner (`ACTIONS_ID_TOKEN_REQUEST_URL` and `ACTIONS_ID_TOKEN_REQUEST_TOKEN`).
-- Using `getIDToken()` from the Actions toolkit.
+- Usando variáveis de ambiente no executor (`ACTIONS_ID_TOKEN_REQUEST_URL` e `ACTIONS_ID_TOKEN_REQUEST_TOKEN`).
+- Usando `getIDToken()` do conjunto de ferramentas de ações.
 
 If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por exemplo:
 

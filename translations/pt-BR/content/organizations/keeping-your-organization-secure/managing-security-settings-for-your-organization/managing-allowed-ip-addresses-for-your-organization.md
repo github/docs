@@ -1,25 +1,30 @@
 ---
 title: Gerenciar endereços IP permitidos para sua organização
-intro: You can restrict access to your organization's private assets by configuring a list of IP addresses that are allowed to connect.
-product: '{% data reusables.gated-features.allowed-ip-addresses %}'
+intro: Você pode restringir o acesso aos ativos privados da sua organização configurando uma lista de endereços IP autorizados a se conectar.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
   - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 versions:
-  fpt: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Gerenciar endereços IP permitidos
+permissions: Organization owners can manage allowed IP addresses for an organization.
 ---
-
-Os proprietários da organização podem gerenciar endereços IP permitidos para uma organização.
 
 ## Sobre endereços IP permitidos
 
-You can restrict access to private organization assets by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+Você pode restringir o acesso a ativos privados da organização configurando uma lista de permissões para endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+
+{% ifversion ghec %}
+{% note %}
+
+**Observação:** Apenas organizações que usam {% data variables.product.prodname_ghe_cloud %} podem usar listas de permissão de IP. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 

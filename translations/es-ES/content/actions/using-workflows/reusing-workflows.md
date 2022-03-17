@@ -307,3 +307,5 @@ Para obtener más información sobre cómo utilizar la API de REST para consulta
 ## Pasos siguientes
 
 Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Eventos que activan flujos de trabajo](/actions/learn-github-actions/events-that-trigger-workflows)".
+
+{% if restrict-groups-to-workflows %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}

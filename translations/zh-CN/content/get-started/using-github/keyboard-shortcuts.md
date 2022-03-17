@@ -24,7 +24,7 @@ versions:
 
 下面是一些可用键盘快捷键的列表。
 {% if command-palette %}
-{% data variables.product.prodname_command_palette %} 还可让您快速访问各种操作，而无需记住键盘快捷键。 For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+{% data variables.product.prodname_command_palette %} 还可让您快速访问各种操作，而无需记住键盘快捷键。 更多信息请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。{% endif %}
 
 ## 站点快捷键
 
@@ -36,7 +36,7 @@ versions:
 
 {% if command-palette %}
 
-<kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | 打开 {% data variables.product.prodname_command_palette %}。 如果要编辑 Markdown 文本，请使用 <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> 或 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>打开命令面板。 For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+<kbd>Command</kbd>+<kbd>K</kbd> (Mac) 或 </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | 打开 {% data variables.product.prodname_command_palette %}。 如果要编辑 Markdown 文本，请使用 <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> 或 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>打开命令面板。 更多信息请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。{% endif %}
 
 ## 仓库
 
