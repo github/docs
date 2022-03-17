@@ -51,7 +51,9 @@ Before you can use Jekyll to test a site, you must:
 3. To preview your site, in your web browser, navigate to `http://localhost:4000`.
 
 {% note %}
-**Note**: If you are using Ruby 3.0 and Jekyll v4.2.x or older, you will need to add the gem "webrick" to your project's Gemfile and run `bundle install`
+
+**Note:** If you are using Ruby 3.0 and Jekyll 4.2.x or older, you will need to add the `webrick` gem to your project's Gemfile prior to running `bundle install`.
+
 {% endnote %}
 
 ## Updating the {% data variables.product.prodname_pages %} gem
