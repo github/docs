@@ -182,7 +182,7 @@ If the `Command Processor` registry entries are modified, {% data variables.prod
 2. Check to see if there is an `Autorun` value in either location.
 3. If there is an `Autorun` value, delete it.
 
-If your Windows username has extended Unicode characters, it may cause an AskPass response error. To troubleshoot, create a new Windows personal account and migrate your files to that account. For more information, see "[Create a user account in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)" in the Microsoft documentation.
+If your Windows username has extended Unicode characters, it may cause an AskPass response error. To troubleshoot, create a new Windows user account and migrate your files to that account. For more information, see "[Create a user account in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)" in the Microsoft documentation.
 
 {% endwindows %}
 
