@@ -127,7 +127,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 设备流程允许您授权用户使用无头应用程序，例如 CLI 工具或 Git 凭据管理器。
 
-有关使用设备流程授权用户的更多信息，请参阅“[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps#device-flow)”。
+{% if device-flow-is-opt-in %}Before you can use the device flow to identify and authorize users, you must first enable it in your app's settings. For more information on enabling device flow, see "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)." {% endif %}For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)."
 
 ## 检查用户可以访问哪些安装资源
 
