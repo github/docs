@@ -38,9 +38,9 @@ Se uso de {% data variables.product.prodname_codespaces %} compartilha a data de
 Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o seu ID de assinatura do Azure à sua conta corporativa para habilitar e pagar o uso de {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
 {% endif %}
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_codespaces %}
 
-### Billing for {% data variables.product.prodname_codespaces %} prebuilds
+### Cobrnça para pré-compilações de {% data variables.product.prodname_codespaces %}
 
 {% data reusables.codespaces.prebuilds-beta-note %}
 

@@ -215,5 +215,5 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 
 ## Further reading
 
-- "[Working with the Apache Maven registry](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"
-- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+- "[Working with the Apache Maven registry](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry)"{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
+- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"{% endif %}

@@ -80,6 +80,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: Campos
       arguments: Argumentos
       name: Nome
@@ -102,6 +103,8 @@ products:
       notes: Observações
       parameters: Parâmetros
       response: Resposta
+      error_codes: Error Codes
+      http_status_code: HTTP Status Code
       code_sample: Amostra de código
       code_samples: Amostras de código
       preview_notice: Aviso de pré-visualização

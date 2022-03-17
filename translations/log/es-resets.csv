@@ -129,7 +129,6 @@ translations/es-ES/content/code-security/supply-chain-security/keeping-your-depe
 translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates.md,Listed in localization-support#489
 translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot.md,Listed in localization-support#489
 translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates.md,Listed in localization-support#489
-translations/es-ES/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/upgrading-from-dependabotcom-to-github-native-dependabot.md,broken liquid tags
 translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies.md,Listed in localization-support#489
 translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates.md,Listed in localization-support#489
 translations/es-ES/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-managing-vulnerable-dependencies.md,Listed in localization-support#489
@@ -193,10 +192,6 @@ translations/es-ES/content/get-started/using-github/keyboard-shortcuts.md,Listed
 translations/es-ES/content/github-cli/github-cli/github-cli-reference.md,Listed in localization-support#489
 translations/es-ES/content/github/copilot/index.md,Listed in localization-support#489
 translations/es-ES/content/github/index.md,Listed in localization-support#489
-translations/es-ES/content/github/site-policy/coordinated-disclosure-of-security-vulnerabilities.md,Listed in localization-support#489
-translations/es-ES/content/github/site-policy/github-bug-bounty-program-legal-safe-harbor.md,Listed in localization-support#489
-translations/es-ES/content/github/site-policy/github-terms-for-additional-products-and-features.md,Listed in localization-support#489
-translations/es-ES/content/github/site-policy/index.md,Listed in localization-support#489
 translations/es-ES/content/graphql/overview/breaking-changes.md,Listed in localization-support#489
 translations/es-ES/content/index.md,Listed in localization-support#489
 translations/es-ES/content/issues/tracking-your-work-with-issues/about-task-lists.md,Listed in localization-support#489
