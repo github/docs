@@ -4,6 +4,7 @@ intro: 'You manage pull requests raised by {% data variables.product.prodname_de
 redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -41,7 +42,7 @@ If you have many dependencies to manage, you may want to customize the configura
 
 ## Changing the rebase strategy for {% data variables.product.prodname_dependabot %} pull requests
 
-By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)."
+By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)."
 
 ## Managing {% data variables.product.prodname_dependabot %} pull requests with comment commands
 
@@ -62,4 +63,4 @@ You can use any of the following commands on a {% data variables.product.prodnam
 
 {% data variables.product.prodname_dependabot %} will react with a "thumbs up" emoji to acknowledge the command, and may respond with a comment on the pull request. While {% data variables.product.prodname_dependabot %} usually responds quickly, some commands may take several minutes to complete if {% data variables.product.prodname_dependabot %} is busy processing other updates or commands.
 
-If you run any of the commands for ignoring dependencies or versions, {% data variables.product.prodname_dependabot %} stores the preferences for the repository centrally. While this is a quick solution, for repositories with more than one contributor it is better to explicitly define the dependencies and versions to ignore in the configuration file. This makes it easy for all contributors to see why a particular dependency isn't being updated automatically. For more information, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
+If you run any of the commands for ignoring dependencies or versions, {% data variables.product.prodname_dependabot %} stores the preferences for the repository centrally. While this is a quick solution, for repositories with more than one contributor it is better to explicitly define the dependencies and versions to ignore in the configuration file. This makes it easy for all contributors to see why a particular dependency isn't being updated automatically. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."

@@ -9,6 +9,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates
   - /github/managing-security-vulnerabilities/configuring-dependabot-security-updates
   - /code-security/supply-chain-security/configuring-dependabot-security-updates
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -74,6 +75,6 @@ You can also enable or disable {% data variables.product.prodname_dependabot_sec
 
 ## Further reading
 
-- "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"{% ifversion fpt or ghec %}
+- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"{% ifversion fpt or ghec %}
 - "[Managing data use settings for your private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"{% endif %}
 - "[Supported package ecosystems](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)"

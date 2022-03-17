@@ -5,6 +5,7 @@ permissions: 'People with write permissions to a repository can configure {% dat
 redirect_from:
   - /github/administering-a-repository/customizing-dependency-updates
   - /code-security/supply-chain-security/customizing-dependency-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -34,7 +35,7 @@ After you've enabled version updates, you can customize how {% data variables.pr
 - Change the maximum number of open pull requests for version updates from the default of 5: `open-pull-requests-limit`
 - Open pull requests for version updates to target a specific branch, instead of the default branch: `target-branch`
 
-For more information about the configuration options, see "[Configuration options for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+For more information about the configuration options, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
 
 When you update the *dependabot.yml* file in your repository, {% data variables.product.prodname_dependabot %} runs an immediate check with the new configuration. Within minutes you will see an updated list of dependencies on the **{% data variables.product.prodname_dependabot %}** tab, this may take longer if the repository has many dependencies. You may also see new pull requests for version updates. For more information, see "[Listing dependencies configured for version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates)."
 
@@ -140,4 +141,4 @@ updates:
 
 ## More examples
 
-For more examples, see "[Configuration options for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
+For more examples, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."
