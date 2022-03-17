@@ -80,6 +80,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: 字段
       arguments: 参数
       name: 名称
@@ -102,6 +103,8 @@ products:
       notes: 注：
       parameters: 参数
       response: 响应
+      error_codes: Error Codes
+      http_status_code: HTTP Status Code
       code_sample: 代码示例
       code_samples: 代码示例
       preview_notice: 预览通知

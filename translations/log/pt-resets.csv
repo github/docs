@@ -21,6 +21,7 @@ translations/pt-BR/content/code-security/code-scanning/automatically-scanning-yo
 translations/pt-BR/content/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system.md,broken liquid tags
+translations/pt-BR/content/code-security/secret-scanning/about-secret-scanning.md,broken liquid tags
 translations/pt-BR/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,broken liquid tags
 translations/pt-BR/content/desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop.md,broken liquid tags
 translations/pt-BR/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags

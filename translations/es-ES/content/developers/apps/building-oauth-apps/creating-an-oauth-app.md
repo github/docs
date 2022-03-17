@@ -49,5 +49,6 @@ topics:
    **Nota:** Las apps de OAuth no puede tener URL de rellamado múltiples, a diferencia de las {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
-{% endif %}
-10. Haz clic en **Register application** (Registrar aplicación). ![Botón para registrar una aplicación](/assets/images/oauth-apps/oauth_apps_register_application.png)
+{% endif %}{% if device-flow-is-opt-in %}
+1. If your OAuth App will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)." ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
+2.  Haz clic en **Register application** (Registrar aplicación). ![Botón para registrar una aplicación](/assets/images/oauth-apps/oauth_apps_register_application.png)

@@ -1,5 +1,6 @@
 .parameterTable {
   table-layout: fixed !important;
+  z-index: 0;
 
   thead {
     tr {
@@ -24,6 +25,10 @@
   }
 
   tbody {
+    tr td {
+      width: auto;
+    }
+
     tr td:first-child {
       font-weight: bold;
     }

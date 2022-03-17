@@ -29,7 +29,7 @@ Primero, necesitas [registrar tu aplicación][new oauth app]. A cada aplicación
 
 Puedes llenar toda la información como más te guste, con excepción de la **URL de rellamado para la autorización**. Esta es fácilmente la parte más importante para configurar tu aplicación. Es la URL de rellamado a la cual {% data variables.product.product_name %} devuelve al usuario después de una autenticación exitosa.
 
-Ya que estamos ejecutando un servidor común de Sinatra, la ubicación de la instancia local se configura como `http://localhost:4567`. Vamos a llenar la URL de rellamado como `http://localhost:4567/callback`.
+Since we're running a regular Sinatra server, the location of the local instance is set to `http://127.0.0.1:4567`. Let's fill in the callback URL as `http://127.0.0.1:4567/callback`.
 
 ## Aceptar la autorización del usuario
 
@@ -80,7 +80,7 @@ Posteriormente, pega este contenido en _views/index.erb_:
 
 También, ten en cuenta que la URL utiliza el parámetro de consulta `scope` para definir los [alcances][oauth scopes] que solicita la aplicación. Para nuestra aplicación, estamos solicitando el alcance `user:email` para leer las direcciones de correo electrónico privadas.
 
-Navega en tu buscador hacia `http://localhost:4567`. Después de dar clic en el enlace, se te llevará a {% data variables.product.product_name %} y se te mostrará un diálogo que se ve más o menos así: ![Diálogo de OAuth de GitHub](/assets/images/oauth_prompt.png)
+Navigate your browser to `http://127.0.0.1:4567`. Después de dar clic en el enlace, se te llevará a {% data variables.product.product_name %} y se te mostrará un diálogo que se ve más o menos así: ![Diálogo de OAuth de GitHub](/assets/images/oauth_prompt.png)
 
 Si confías en ti mismo, da clic en **Autorizar App**. ¡Oh-oh! Sinatra te arroja un error `404`. ¡¿Qué pasa?!
 
@@ -175,7 +175,7 @@ Podemos hacer lo que queramos con nuestros resultados. En este caso, solo las va
 
 ## Implementar la autenticación "persistente"
 
-Estaríamos hablando de un pésimo modelo si requerimos que los usuarios inicien sesión en la app cada vez que necesiten acceder a la página web. Por ejemplo, intenta navegar directamente a `http://localhost:4567/basic`. Obtendrás un error.
+Estaríamos hablando de un pésimo modelo si requerimos que los usuarios inicien sesión en la app cada vez que necesiten acceder a la página web. For example, try navigating directly to `http://127.0.0.1:4567/basic`. Obtendrás un error.
 
 ¿Qué pasaría si pudiéramos evitar todo el proceso de "da clic aquí", y solo lo _recordáramos_, mientras que los usuarios sigan en sesión dentro de
 {% data variables.product.product_name %}, y pudieran acceder a esta aplicación? Agárrate,
@@ -294,7 +294,7 @@ Después, crea un archivo en _views_, el cual se llame _advanced.erb_ y pega est
 </html>
 ```
 
-Desde la líne de comandos, llama a `ruby advanced_server.rb`, lo cual inicia tu servidor en el puerto `4567` -- el mismo puerto que utilizamos cuando tuvimos una app de Sinatra sencilla. Cuando navegas a `http://localhost:4567`, la app llama a `authenticate!`, lo cual te redirige a `/callback`. Entonces, `/callback` nos regresa a `/` y, ya que estuvimos autenticados, interpreta a _advanced.erb_.
+Desde la líne de comandos, llama a `ruby advanced_server.rb`, lo cual inicia tu servidor en el puerto `4567` -- el mismo puerto que utilizamos cuando tuvimos una app de Sinatra sencilla. When you navigate to `http://127.0.0.1:4567`, the app calls `authenticate!` which redirects you to `/callback`. Entonces, `/callback` nos regresa a `/` y, ya que estuvimos autenticados, interpreta a _advanced.erb_.
 
 Podríamos simplificar completamente esta ruta redonda si solo cambiamos nuestra URL de rellamado en {% data variables.product.product_name %} a `/`. Pero, ya que tanto _server.rb_ como _advanced.rb_ dependen de la misma URL de rellamado, necesitamos hacer un poco más de ajustes para que funcione.
 

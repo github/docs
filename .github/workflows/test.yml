@@ -7,6 +7,9 @@ name: Node.js Tests
 on:
   workflow_dispatch:
   pull_request:
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -131,6 +134,11 @@ jobs:
 
       - name: Run build script
         run: npm run build
+
+      - name: Warm possible disk caching
+        env:
+          NODE_ENV: test
+        run: ./script/warm-before-tests.mjs
 
       - name: Run tests
         env:

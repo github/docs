@@ -76,6 +76,8 @@ Para configurar o provisionamento, o usuário configurado com o nome de usuário
 
 Depois de configurar o SAML SSO e o provisionamento, você poderá fornecer novos usuários no {% data variables.product.prodname_dotcom_the_website %} atribuindo usuários ao aplicativo de {% data variables.product.prodname_emu_idp_application %}.
 
+{% data reusables.scim.emu-scim-rate-limit %}
+
 Você também pode gerenciar automaticamente a associação da organização ao atribuir grupos ao aplicativo e adicioná-los à aba "Grupos de Push" no Okta. Quando o grupo for provisionado com sucesso, ele estará disponível para conectar-se a equipes das organizações da empresa. Para obter mais informações sobre gerenciamento de equipes, consulte "[Gerenciando associações de equipe com grupos de provedores de identidade](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
 
 Ao atribuir aos usuários, você poderá usar o atributo "Funções" no aplicativo de {% data variables.product.prodname_emu_idp_application %} para definir a função de um usuário na sua empresa em {% data variables.product.product_name %}. Para obter mais informações sobre funções, consulte "[Funções em uma empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)".

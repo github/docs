@@ -30,20 +30,20 @@ Para obter mais informações sobre como adicionar pessoas à sua empresa, consu
 
 {% endif %}
 
-## Enterprise owners
+## Proprietários de empresas
 
 Os proprietários corporativos têm controle total da empresa e podem executar todas as ações, incluindo:
 - Gerenciar os administradores
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% if remove-enterprise-members %}
-- Removing enterprise members from all organizations owned by the enterprise{% endif %}
+- {% ifversion ghec %}Adicionando e removendo {% elsif ghae or ghes %}gerenciando{% endif %} organizações {% ifversion ghec %}de {% elsif ghae or ghes %} na{% endif %} empresa{% if remove-enterprise-members %}
+- Removendo integrantes da empresa de todas as organizações pertencentes à empresa{% endif %}
 - Gerenciar as configurações da empresa
 - Aplicar a política nas organizações
 {% ifversion ghec %}- Managing billing settings{% endif %}
 
 {% if enterprise-owner-join-org %}
-Enterprise owners do not have access to organization settings or content by default. To gain access, enterprise owners can join any organization owned by their enterprise. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+Os proprietários das empresas não têm acesso às configurações da organização ou ao conteúdo por padrão. Para obter acesso, os proprietários das empresas podem se juntar a qualquer organização pertencente à sua empresa. Para obter mais informações, consulte "[Gerenciando sua função em uma organização pertencente à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
 
-Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
+Os proprietários de organizações na sua empresa não têm acesso à empresa propriamente dita, a não ser que você os torne proprietários da empresa.
 {% else %}
 Os proprietários corporativos não podem acessar as configurações ou o conteúdo da organização, a menos que sejam incluídos como proprietário da organização ou recebam acesso direto a um repositório de propriedade da organização. Da mesma forma, os proprietários de organizações na sua empresa não têm acesso à empresa propriamente dita, a não ser que você os torne proprietários da empresa.
 {% endif %}

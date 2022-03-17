@@ -73,7 +73,7 @@ The following table indicates where each context and special function can be use
 | <code>concurrency</code>  | <code>github, inputs</code>  |                            |
 | <code>env</code>  | <code>github, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.concurrency</code>  | <code>github, needs, strategy, matrix, inputs</code>  |                            |
-| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix, secrets, inputs</code>  |                            |
+| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, needs, strategy, matrix, env, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container.credentials</code>  | <code>github, needs, strategy, matrix, env, secrets, inputs</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> |                            |
 | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> |                            |
@@ -180,6 +180,7 @@ jobs:
 | `github.action_path`       | `string` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `github.action_ref`        | `string` | For a step executing an action, this is the ref of the action being executed. For example, `v2`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `github.action_repository` | `string` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `github.action_status`     | `string` | For a composite action, the current result of the composite action.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `github.actor`             | `string` | The username of the user that initiated the workflow run.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `github.api_url`           | `string` | The URL of the {% data variables.product.prodname_dotcom %} REST API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `github.base_ref`          | `string` | ワークフローの実行における `base_ref` またはプルリクエストのターゲットブランチ。  このプロパティは、ワークフローの実行をトリガーするイベントが `pull_request` または `pull_request_target` のいずれかである場合にのみ使用できます。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -198,7 +199,7 @@ jobs:
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
 {%- endif %}
-| `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. | | `github.sha` | `string` | The commit SHA that triggered the workflow run. | | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. これは機能的に`GITHUB_TOKEN`シークレットに等価です。 For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." | | `github.workflow` | `string` | The name of the workflow. ワークフローファイルで `name` を指定していない場合、このプロパティの値は、リポジトリ内にあるワークフローファイルのフルパスになります。 | | `github.workspace` | `string` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
+| `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. | | `github.sha` | `string` | The commit SHA that triggered the workflow run. | | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. これは機能的に`GITHUB_TOKEN`シークレットに等価です。 詳しい情報については「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。 | | `github.workflow` | `string` | The name of the workflow. ワークフローファイルで `name` を指定していない場合、このプロパティの値は、リポジトリ内にあるワークフローファイルのフルパスになります。 | | `github.workspace` | `string` | The default working directory on the runner for steps, and the default location of your repository when using the [`checkout`](https://github.com/actions/checkout) action. |
 
 ### Example contents of the `github` context
 
@@ -512,15 +513,15 @@ jobs:
 
 The `secrets` context contains the names and values of secrets that are available to a workflow run. The `secrets` context is not available for composite actions. For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
 
-`GITHUB_TOKEN` is a secret that is automatically created for every workflow run, and is always included in the `secrets` context. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+`GITHUB_TOKEN` is a secret that is automatically created for every workflow run, and is always included in the `secrets` context. 詳しい情報については「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。
 
 {% data reusables.actions.secrets-redaction-warning %}
 
-| プロパティ名                        | 種類       | 説明                                                                                                                                                                        |
-| ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `secrets`                     | `オブジェクト` | This context is the same for each job in a workflow run. このコンテキストには、ジョブのあらゆるステップからアクセスできます。 This object contains all the properties listed below.                         |
-| `secrets.GITHUB_TOKEN`        | `string` | Automatically created token for each workflow run. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." |
-| `secrets.<secret_name>` | `string` | The value of a specific secret.                                                                                                                                           |
+| プロパティ名                        | 種類       | 説明                                                                                                                                                |
+| ----------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secrets`                     | `オブジェクト` | This context is the same for each job in a workflow run. このコンテキストには、ジョブのあらゆるステップからアクセスできます。 This object contains all the properties listed below. |
+| `secrets.GITHUB_TOKEN`        | `string` | Automatically created token for each workflow run. 詳しい情報については「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。      |
+| `secrets.<secret_name>` | `string` | The value of a specific secret.                                                                                                                   |
 
 ### Example contents of the `secrets` context
 
@@ -751,10 +752,14 @@ on:
       deploy_target:
         required: true
         type: string
+      perform_deploy:
+        required: true
+        type: boolean
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ inputs.perform_deploy == 'true' }}
     steps:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}

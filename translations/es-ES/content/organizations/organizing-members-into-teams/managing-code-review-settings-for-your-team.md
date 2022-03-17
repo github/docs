@@ -36,10 +36,6 @@ When you enable auto assignment, any time your team has been requested to review
 
 When code owners are automatically requested for review, the team is still removed and replaced with individuals unless a branch protection rule is configured to require review from code owners. If such a branch protection rule is in place, the team request cannot be removed and so the individual request will appear in addition.
 
-{% ifversion fpt %}
-To further enhance your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like protected branches and code owners on private repositories. {% data reusables.enterprise.link-to-ghec-trial %}
-{% endif %}
-
 ### Routing algorithms
 
 Code review assignments automatically choose and assign reviewers based on one of two possible algorithms. 

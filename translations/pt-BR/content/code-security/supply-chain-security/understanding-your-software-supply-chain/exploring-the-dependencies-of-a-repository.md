@@ -96,7 +96,7 @@ A seção "Usado por" representa um único pacote do repositório. Se você tive
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package. ![Escolha um pacote "Usado por"](/assets/images/help/repository/choose-used-by-package.png)
+4. Em "Segurança e análise de código" clique no menu suspenso na seção "Usado pelo contador" e escolha um pacote. ![Escolha um pacote "Usado por"](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 

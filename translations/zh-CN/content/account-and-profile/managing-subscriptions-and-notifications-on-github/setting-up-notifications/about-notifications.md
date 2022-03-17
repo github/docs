@@ -100,4 +100,4 @@ topics:
 
 ## 反馈和支持
 
-If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).
+如果您有针对通知的反馈或功能请求，请使用 [{% data variables.product.product_name %} 反馈讨论](https://github.com/github/feedback/discussions/categories/general-feedback)。

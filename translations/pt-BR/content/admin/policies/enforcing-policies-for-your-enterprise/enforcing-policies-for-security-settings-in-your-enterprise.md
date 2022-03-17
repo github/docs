@@ -67,7 +67,7 @@ Você pode restringir o tráfego de rede para a sua empresa em {% data variables
 
 {% elsif ghec %}
 
-Os proprietários de empresas podem restringir o acesso a ativos pertencentes a organizações em uma empresa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+Os proprietários de empresas podem restringir o acesso a ativos privados pertencentes a organizações em uma empresa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
@@ -130,7 +130,7 @@ Você pode usar as autoridades de certificados SSH (CA) para permitir que os int
 
 ### Adicionar uma autoridade certificada de SSH
 
-If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)".
+Se você precisar de certificados SSH para sua empresa, os integrantes da empresa deverão usar um URL especial para operações do Git por meio do SSH. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
