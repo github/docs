@@ -106,7 +106,7 @@ code_security_ci:
 #Feature available in all versions
 end_to_end_supply_chain:
   title: 'Cadeia de suprimentos de ponta a ponta'
-  description: 'How to think about securing your user accounts, your code, and your build process.'
+  description: 'Como pensar em proteger suas contas de usuário, seu código e seu processo de criação.'
   guides:
     - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
     - /code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts

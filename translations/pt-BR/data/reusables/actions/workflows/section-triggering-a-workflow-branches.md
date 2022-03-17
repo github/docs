@@ -1,18 +1,18 @@
-When using the `pull_request` and `pull_request_target` events, you can configure a workflow to run only for pull requests that target specific branches.
+Ao usar os eventos de `pull_request` e `pull_request_target`, é possível configurar um fluxo de trabalho para que seja executado somente para pull requests que apontem para branches específicos.
 
-Use the `branches` filter when you want to include branch name patterns or when you want to both include and exclude branch names patterns. Use the `branches-ignore` filter when you only want to exclude branch name patterns. Você não pode usar ambos os filtros `branches` e `branches-ignore` para o mesmo evento em um fluxo de trabalho.
+Use o filtro `branches` quando você deseja incluir padrões de nomes de branches ou quando você deseja incluir e excluir padrões de nomes de branches. Use o filtro `branches-ignore` quando você deseja excluir apenas padrões de nome de branches. Você não pode usar ambos os filtros `branches` e `branches-ignore` para o mesmo evento em um fluxo de trabalho.
 
-If you define both `branches`/`branches-ignore` and [`paths`](#onpushpull_requestpull_request_targetpathspaths-ignore), the workflow will only run when both filters are satisfied.
+Se você definir os `branches`/`branches-ignore` e [`caminhos`](#onpushpull_requestpull_request_targetpathspaths-ignore), o fluxo de trabalho só será executado quando ambos os filtros forem satisfeitos.
 
-The `branches` and `branches-ignore` keywords accept glob patterns that use characters like `*`, `**`, `+`, `?`, `!` and others to match more than one branch name. If a name contains any of these characters and you want a literal match, you need to escape each of these special characters with `\`. Para obter mais informações sobre padrões de glob, consulte a "[Folha de informações para filtrar padrões](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
+As palavras-chave `branches` e `branches-ignore` aceitam padrões do glob que usam caracteres como `*`, `**`, `+`, `?`, `!` e outros para combinar com mais de um nome de branch. Se um nome contiver qualquer um desses caracteres e você quiser uma correspondência literal, você deverá escapar de cada um desses caracteres especiais com `\`. Para obter mais informações sobre padrões de glob, consulte a "[Folha de informações para filtrar padrões](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
-#### Example: Including branches
+#### Exemplo: Incluindo branches
 
-The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event for a pull request targeting:
+Os padrões definidos em `branches` são avaliados com base no nome do ref do Git. Por exemplo, o fluxo de trabalho a seguir seria executado sempre que houvesse um evento `pull_request` para um direcionamento de pull request:
 
-- A branch named `main` (`refs/heads/main`)
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name starts with `releases/`, like `releases/10` (`refs/heads/releases/10`)
+- Uma branch denominado `principal` (`refs/heads/main`)
+- Uma branch denominado `mona/octocat` (`refs/heads/mona/octocat`)
+- Um branch cujo nome começa com `releases/`, como `releases/10` (`refs/heads/releases/10`)
 
 ```yaml
 on:
@@ -24,12 +24,12 @@ on:
       - 'releases/**'
 ```
 
-#### Example: Excluding branches
+#### Exemplo: Excluir branches
 
-When a pattern matches the `branches-ignore` pattern, the workflow will not run. The patterns defined in `branches` are evaluated against the Git ref's name. For example, the following workflow would run whenever there is a `pull_request` event unless the pull request is targeting:
+Quando um padrão corresponde ao padrão `branches-ignore`, o fluxo de trabalho não será executado. Os padrões definidos em `branches` são avaliados com base no nome do ref do Git. Por exemplo, o fluxo de trabalho a seguir seria executado sempre que houver um evento `pull_request`, a menos que o pull request esteja apontando para:
 
-- A branch named `mona/octocat` (`refs/heads/mona/octocat`)
-- A branch whose name matches `releases/**-alpha`, like `beta/3-alpha` (`refs/releases/beta/3-alpha`)
+- Uma branch denominado `mona/octocat` (`refs/heads/mona/octocat`)
+- Uma branch cujo nome corresponde a `releases/**-alpha`, como `beta/3-alpha` (`refs/releases/beta/3-alpha`)
 
 ```yaml
 on:
@@ -40,18 +40,18 @@ on:
       - 'releases/**-alpha'
 ```
 
-#### Example: Including and excluding branches
+#### Exemplo: Incluindo e excluindo branches
 
-You cannot use `branches` and `branches-ignore` to filter the same event in a single workflow. Se você deseja incluir e excluir padrões de branch para um único evento, use o filtro `branches` junto com o caractere `!` para indicar quais branches devem ser excluídos.
+Você não pode usar `branches` e `branches-ignore` para filtrar o mesmo evento em um único fluxo de trabalho. Se você deseja incluir e excluir padrões de branch para um único evento, use o filtro `branches` junto com o caractere `!` para indicar quais branches devem ser excluídos.
 
-If you define a branch with the `!` character, you must also define at least one branch without the `!` character. If you only want to exclude branches, use `branches-ignore` instead.
+Se você definir um branch com o caractere `!`, você deverá definir pelo menos um branch sem o caractere `!`. Se você deseja apenas excluir branches, use `branches-ignore`.
 
 A ordem de definição dos padrões é importante.
 
 - Um padrão negativo (precedido por `!`) depois de uma correspondência positiva excluirá o Git ref.
 - Um padrão positivo correspondente após uma correspondência negativa incluirá a Git ref novamente.
 
-The following workflow will run on `pull_request` events for pull requests that target `releases/10` or `releases/beta/mona`, but for pull requests that target `releases/10-alpha` or `releases/beta/3-alpha` because the negative pattern `!releases/**-alpha` follows the positive pattern.
+O fluxo de trabalho a seguir será executado em eventos `pull_request` para pull requests que apontem para `releases/10` ou `releases/beta/mona`, mas para pull requests que apontma para `releases/10-alpha` ou `releases/beta/3-alpha` porque o padrão negativo `!releases/**-alpha` segue o padrão positivo.
 
 ```yaml
 on:

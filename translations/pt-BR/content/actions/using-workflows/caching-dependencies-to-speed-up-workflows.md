@@ -237,8 +237,8 @@ Por exemplo, se um pull request contiver um branch de`recurso` (escopo atual) e 
 
 {% if actions-cache-management %}
 
-## Managing caches
+## Gerenciando caches
 
-You can use the {% data variables.product.product_name %} REST API to manage your caches. At present, you can use the API to see your cache usage, with more functionality expected in future updates. For more information, see the "[Actions](/rest/reference/actions#cache)" REST API documentation.
+Você pode usar a API REST de {% data variables.product.product_name %} para gerenciar seus caches. No momento, você pode usar a API para ver o uso ddo seu cache, cpodendo esperar outras funcionalidades em atualizações futuras. Para obter mais informações, consulte as "[Ações](/rest/reference/actions#cache)" na documentação da API REST.
 
 {% endif %}
