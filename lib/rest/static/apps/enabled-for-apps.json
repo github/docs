@@ -2,6 +2,21 @@
   "api.github.com": {
     "actions": [
       {
+        "slug": "get-github-actions-cache-usage-for-an-enterprise",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
+      },
+      {
+        "slug": "get-github-actions-cache-usage-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/cache/usage"
+      },
+      {
+        "slug": "list-repositories-with-github-actions-cache-usage-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/cache/usage-by-repository"
+      },
+      {
         "slug": "get-github-actions-permissions-for-an-organization",
         "verb": "get",
         "requestPath": "/orgs/{org}/actions/permissions"
@@ -235,6 +250,11 @@
         "slug": "download-an-artifact",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}"
+      },
+      {
+        "slug": "get-github-actions-cache-usage-for-a-repository",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/usage"
       },
       {
         "slug": "get-a-job-for-a-workflow-run",
