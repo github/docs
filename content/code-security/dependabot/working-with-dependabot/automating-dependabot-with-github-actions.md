@@ -17,6 +17,8 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Use Dependabot with Actions
+redirect_from:
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
 ---
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
