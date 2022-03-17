@@ -40,7 +40,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 ### Dependencies view
 
 {% ifversion fpt or ghec %}
-Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies. If the package manager for the dependency is in a public repository, a link to that repository will be displayed. However, dependencies on private repositories, private packages, or unrecognized files are shown in plain text.
+Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies.  Dependencies on private repositories, private packages, or unrecognized files are shown in plain text. If the package manager for the dependency is in a public repository, {% data variables.product.product_name %} will display a link to that repository.
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -84,10 +84,10 @@ You can disable the dependency graph at any time by clicking **Disable** next to
 
 ## Changing the "Used by" package
 
-You may notice some repositories have a "Used by" section in the sidebar of their **Code** tab. In order for your repository to display this "Used by" section, three conditions must be met:
+You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
   * The dependency graph is enabled for the repository (see the above section for more details).
   * Your repository contains a package that is published on a [supported package ecosystem](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
-  * In said ecosystem, your package has a link to a *public* repository where the source is stored.
+  * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
 
 The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
 
