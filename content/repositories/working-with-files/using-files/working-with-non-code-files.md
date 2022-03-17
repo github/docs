@@ -341,7 +341,7 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 - [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
 
 {% if mermaid %}
-## Displaying mermaid files on {% data variables.product.prodname_dotcom %}
+## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
 
@@ -367,7 +367,7 @@ If the chart displays, but does not appear as you'd expect, you can create a new
 
 #### Known issues
 
-* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the mMermaid library.
+* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
 * Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
 * Not all charts are a11y compliant. This may affect users who rely on a screen reader.
 
