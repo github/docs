@@ -40,11 +40,11 @@ shortTitle: 构建和测试 Java & Ant
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Ant starter workflow
+## 使用 Ant 入门工作流程
 
-{% data variables.product.prodname_dotcom %} provides an Ant starter workflow that will work for most Ant-based Java projects. For more information, see the [Ant starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
+{% data variables.product.prodname_dotcom %} 提供有 Ant 入门工作流程，适用于大多数基于 Ant 的 Java 项目。 更多信息请参阅 [Ant 入门工作流程](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml)。
 
-To get started quickly, you can choose the preconfigured Ant starter workflow when you create a new workflow. 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
+要快速开始，您可以在创建新工作流程时选择预配置的 Ant 入门工作流程。 更多信息请参阅“[{% data variables.product.prodname_actions %} 快速入门](/actions/quickstart)”。
 
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
@@ -76,7 +76,7 @@ jobs:
 2. `setup-java` 步骤配置 Adoptium 的 Java 11 JDK。
 3. “使用 Ant 构建”步骤以非交互模式运行 `build.xml` 中的默认目标。
 
-The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
+在创建构建和测试工作流程时，默认入门工作流程是很好的起点，然后您可以自定义入门工作流程以满足项目的需求。
 
 {% data reusables.actions.example-github-runner %}
 
@@ -88,7 +88,7 @@ The default starter workflows are excellent starting points when creating your b
 
 初学者工作流程将运行 _build.xml_ 文件中指定的默认目标。  默认目标通常设置为将类、运行测试和包类设置为其可分发格式，例如 JAR 文件。
 
-如果使用不同的命令来构建项目，或者想要运行不同的目标，则可以指定这些命令。 For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
+如果使用不同的命令来构建项目，或者想要运行不同的目标，则可以指定这些命令。 例如，您可能想要运行在 `_build-ci.xml_` 文件中配置的 `jar` 目标。
 
 {% raw %}
 ```yaml{:copy}

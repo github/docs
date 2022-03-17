@@ -27,6 +27,9 @@ on:
         description: 'The commit SHA to build'
         type: string
         required: true
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -50,7 +53,7 @@ jobs:
       # to link a PR to a list of environments later.
       url: ${{ env.APP_URL }}
     env:
-      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER }}
+      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
       COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
       IS_INTERNAL_BUILD: ${{ github.repository == 'github/docs-internal' }}
@@ -162,7 +165,7 @@ jobs:
           rsync -rptovR ./user-code/content/./**/*.md ./content
           rsync -rptovR ./user-code/assets/./**/*.png ./assets
           rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
-          rsync -rptovR ./user-code/components/./**/*.{ts,tsx} ./components
+          rsync -rptovR ./user-code/components/./**/*.{scss,ts,tsx} ./components
           rsync -rptovR --ignore-missing-args ./user-code/lib/./**/*.{js,ts} ./lib
           rsync -rptovR --ignore-missing-args ./user-code/middleware/./**/*.{js,ts} ./middleware
           rsync -rptovR ./user-code/pages/./**/*.tsx ./pages

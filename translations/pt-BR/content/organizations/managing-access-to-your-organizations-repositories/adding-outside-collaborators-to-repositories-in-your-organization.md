@@ -22,7 +22,11 @@ Um colaborador externo é uma pessoa que não é integrante da sua organização
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
+{% ifversion fpt %}
+As organizações que usam {% data variables.product.prodname_ghe_cloud %} podem restringir a capacidade de convidar colaboradores. Para obter mais informações, consulte "[Configurações de permissões para adicionar colaboradores externos](/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)" na documentação de {% data variables.product.prodname_ghe_cloud %}.
+{% else %}
 O proprietário da organização pode restringir a capacidade de convidar colaboradores. Para obter mais informações, consulte "[Configurar permissões para adicionar colaboradores externos](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)".
+{% endif %}
 
 {% ifversion ghes %}
 Antes de adicionar alguém como colaborador externo em um repositório, a pessoa deve ter uma conta de usuário em {% data variables.product.product_location %}. Se a empresa usa um sistema de autenticação externa, como SAML ou LDAP, a pessoa que você deseja adicionar deverá efetuar o login por meio desse sistema para criar uma conta. Se a pessoa não tiver acesso ao sistema de autenticação e a autenticação integrada estiver habilitada para a sua empresa, um administrador do site poderá criar uma conta de usuário para a pessoa. Para obter mais informações, consulte "[Usar autenticação integrada](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)".
@@ -30,10 +34,6 @@ Antes de adicionar alguém como colaborador externo em um repositório, a pessoa
 
 {% ifversion not ghae %}
 Se a sua organização exigir a autenticação de dois fatores, todos os colaboradores externos deverão habilitar a autenticação de dois fatores antes de aceitar o convite para colaborar em um repositório. Para obter mais informações, consulte "[Exigir autenticação de dois fatores em sua organização](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)".
-{% endif %}
-
-{% ifversion fpt %}
-Para apoiar ainda mais as habilidades de colaboração da sua equipe, você pode fazer a atualização para {% data variables.product.prodname_ghe_cloud %}, que inclui funcionalidades como branches protegidos e proprietários de códigos em repositórios privados. {% data reusables.enterprise.link-to-ghec-trial %}
 {% endif %}
 
 ## Adicionando colaboradores externos a um repositório

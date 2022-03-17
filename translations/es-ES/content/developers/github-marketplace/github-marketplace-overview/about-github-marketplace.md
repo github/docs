@@ -50,7 +50,7 @@ Cuando termines de crear tu app, puedes compartirla con otros usuarios si la pub
 
 1. Agrega un plan de precios. Para obtener más información, consulta la sección "[Configurar planes de precios para tu listado](/developers/github-marketplace/setting-pricing-plans-for-your-listing)".
 
-1. Lee y acepta las condiciones del "\[Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}\](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement".
+1. Lee y acepta las condiciones del "[Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement)".
 
 1. Emite tu listado para que se publique en {% data variables.product.prodname_marketplace %}. Para obtener más información, consulta la sección "[Emitir tu lista para su publicación](/developers/github-marketplace/submitting-your-listing-for-publication)".
 

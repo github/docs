@@ -54,7 +54,7 @@ Se crea un mapeo entre la `NameID` y el nombre de usuario de {% data variables.p
 
 {% note %}
 
-**Nota**: Si la `NameID` de un usuario sí cambia en el IdP, el usuario verá un mensaje de error cuando intente ingresar en tu instancia de {% data variables.product.prodname_ghe_server %}. {% ifversion ghes %}To restore the user's access, you'll need to update the user account's `NameID` mapping. Para obtener más información, consulta la sección "[Actualizar la `NameID`](#updating-a-users-saml-nameid) de SAML de un usuario.{% else %} Para obtener más información, consulta "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)".{% endif %}
+**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign into {% data variables.product.product_location %}. To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."
 
 {% endnote %}
 
@@ -96,6 +96,14 @@ Para especificar más de un valor para un atributo, utiliza elementos múltiples
 
 ## Configurar parámetros SAML
 
+You can enable or disable SAML authentication for {% data variables.product.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings for {% data variables.product.product_name %} in the {% data variables.enterprise.management_console %}. Para obtener más información, consulta la sección "[Acceder a la consola de administración](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)".
+
+{% note %}
+
+**Note**: {% data reusables.enterprise.test-in-staging %}
+
+{% endnote %}
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
@@ -118,19 +126,11 @@ Para especificar más de un valor para un atributo, utiliza elementos múltiples
 1. Selecciona **Disable administrator demotion/promotion (Desactivar la degradación/promoción del administrador)** si **no** quieres que tu proveedor de SAML determine los derechos del administrador para los usuarios en {% data variables.product.product_location %}.
 
    ![Screenshot of option to enable option to respect the "administrator" attribute from the IdP to enable or disable administrative rights](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-1. Optionally, to allow {% data variables.product.product_location %} to send and receive encrypted assertions to and from your SAML IdP, select **Require encrypted assertions**. Para obtener más información, consulta la sección "[Habilitar las aserciones cifradas](#enabling-encrypted-assertions)".
+{%- ifversion ghes > 3.3 %}
+1. Optionally, to allow {% data variables.product.product_location %} to receive encrypted assertions from your SAML IdP, select **Require encrypted assertions**. You must ensure that your IdP supports encrypted assertions and that the encryption and key transport methods in the management console match the values configured on your IdP. You must also provide {% data variables.product.product_location %}'s public certificate to your IdP. Para obtener más información, consulta la sección "[Habilitar las aserciones cifradas](#enabling-encrypted-assertions)".
 
    ![Captura de pantalla de la casilla de verificación "Habilitar aserciones cifradas" dentro de la sección de "Autenticación"de la consola de administración](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
-
-   {% warning %}
-
-   **Advertencia**: El configurar aserciones cifradas incorrectamente puede causar que toda la autenticación a {% data variables.product.product_location %} falle.
-
-   - You must ensure that your IdP supports encrypted assertions and that the encryption and key transport methods in the management console match the values configured on your IdP. You must also provide {% data variables.product.product_location %}'s public certificate to your IdP. Para obtener más información, consulta la sección "[Habilitar las aserciones cifradas](#enabling-encrypted-assertions)".
-
-   - Before enabling encrypted assertions, {% data variables.product.company_short %} recommends testing encrypted assertions in a staging environment, and confirming that SAML authentication functions as you expect. Para obtener más información, consulta "[Configurar una instancia de preparación](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
-
-   {% endwarning %}
+{%- endif %}
 1. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. Este valor lo provee la configuración de tu IdP. If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
 
    ![Screenshot of text field for single sign-on URL](/assets/images/enterprise/management-console/saml-single-sign-url.png)
@@ -153,36 +153,37 @@ Para especificar más de un valor para un atributo, utiliza elementos múltiples
 
 To enable encrypted assertions, your SAML IdP must also support encrypted assertions. You must provide {% data variables.product.product_location %}'s public certificate to your IdP, and configure encryption settings that match your IdP.
 
-{% warning %}
+{% note %}
 
-**Advertencia**: El configurar aserciones cifradas incorrectamente puede causar que toda la autenticación a {% data variables.product.product_location %} falle. {% data variables.product.company_short %} strongly recommends testing your SAML configuration in a staging environment. For more information about staging instances, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+**Note**: {% data reusables.enterprise.test-in-staging %}
 
-{% endwarning %}
+{% endnote %}
 
-1. Configure SAML for {% data variables.product.product_location %}. For more information, see "[Configuring SAML settings](#configuring-saml-settings)."
-{% data reusables.enterprise_installation.ssh-into-instance %}
-1. Run the following command to output {% data variables.product.product_location %}'s public certificate.
-   
-        openssl pkcs12 -in /data/user/common/saml-sp.p12 -nokeys -passin pass:
-1. In the output, copy the text beginning with `-----BEGIN CERTIFICATE-----` and ending with `-----END CERTIFICATE-----`, and paste the output into a plaintext file.
-1. Sign into your SAML IdP as an administrator.
-1. In the application for {% data variables.product.product_location %}, enable encrypted assertions.
-   - Note the encryption method and key transport method.
-   - Provide the public certificate from step 3.
+1. Optionally, enable SAML debugging. SAML debugging records verbose entries in {% data variables.product.product_name %}'s authentication log, and may help you troubleshoot failed authentication attempts. For more information, see "[Configuring SAML debugging](#configuring-saml-debugging)."
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
 1. Select **Require encrypted assertions**.
 
    ![Captura de pantalla de la casilla de verificación "Habilitar aserciones cifradas" dentro de la sección de "Autenticación"de la consola de administración](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
-1. To the right of "Encryption Method", select the encryption method for your IdP from step 5.
+1. To the right of "Encryption Certificate", click **Download** to save a copy of {% data variables.product.product_location %}'s public certificate on your local machine.
+
+   ![Screenshot of "Download" button for public certificate for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-download-certificate.png)
+1. Sign into your SAML IdP as an administrator.
+1. In the application for {% data variables.product.product_location %}, enable encrypted assertions.
+   - Note the encryption method and key transport method.
+   - Provide the public certificate you downloaded in step 7.
+1. Return to the management console on {% data variables.product.product_location %}.
+1. To the right of "Encryption Method", select the encryption method for your IdP from step 9.
 
    ![Screenshot of "Encryption Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-encryption-method.png)
-1. To the right of "Key Transport Method", select the key transport method for your IdP from step 5.
+1. To the right of "Key Transport Method", select the key transport method for your IdP from step 9.
 
    ![Screenshot of "Key Transport Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-key-transport-method.png)
 1. Haz clic en **Guardar parámetros**.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
+
+If you enabled SAML debugging to test authentication with encrypted assertions, disable SAML debugging when you're done testing. For more information, see "[Configuring SAML debugging](#configuring-saml-debugging)."
 
 {% endif %}
 
@@ -240,11 +241,11 @@ Cuando el usuario vuelve a ingresar, {% data variables.product.prodname_ghe_serv
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-Este mensaje habitualmente indica que el nombre de usuario o dirección de correo electrónico cambió en el IdP. {% ifversion ghes %}Asegúrate de que el mapeo de la `NameID` para la cuenta de usuario en {% data variables.product.prodname_ghe_server %} empate con la `NameID` en tu IdP. Para obtener más información, consulta la sección "[Actualizar la `NameID` de SAML de un usuario](#updating-a-users-saml-nameid)".{% else %}Para encontrar ayuda para actualizar el mapeo de la `NameID`, contacta a {% data variables.contact.contact_ent_support %}.{% endif %}
+Este mensaje habitualmente indica que el nombre de usuario o dirección de correo electrónico cambió en el IdP. Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."
 
 ### Si la respuesta SAML no está firmada o la firma no coincide con los contenidos, se presentará el siguiente mensaje de error en el registro de autenticación:
 
-Si el `Recipient` no coincide con la URL ACS para tu instancia de {% data variables.product.prodname_ghe_server %}, se presentará uno de los siguientes mensajes de error en el registro de autenticación cuando un usuario intente autenticarse.
+If the `Recipient` does not match the ACS URL for {% data variables.product.product_location %}, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
 
 ```
 El destinatario en la respuesta SAML no debe estar en blanco.
@@ -254,7 +255,7 @@ El destinatario en la respuesta SAML no debe estar en blanco.
 El destinatario en la respuesta SAML no era válido.
 ```
 
-Asegúrate de que configuraste el valor para `Recipient` en tu IdP como la URL de ACS completa para tu instancia de {% data variables.product.prodname_ghe_server %}. Por ejemplo, `https://ghe.corp.example.com/saml/consume`.
+Ensure that you set the value for `Recipient` on your IdP to the full ACS URL for {% data variables.product.product_location %}. Por ejemplo, `https://ghe.corp.example.com/saml/consume`.
 
 ### Error: "SAML Response is not signed or has been modified"
 
@@ -274,4 +275,40 @@ Si la respuesta del IdP carece o tiene un valor incorrecto para `Audience`, se m
 La audiencia es no válida. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
 ```
 
-Asegúrate de haber configurado el valor para `Audience` en tu IdP como la `EntityId` para tu instancia de {% data variables.product.prodname_ghe_server %}, la cual es la URL completa para tu instancia de {% data variables.product.prodname_ghe_server %}. Por ejemplo, `https://ghe.corp.example.com`.
+Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.product.product_location %}, which is the full URL to {% data variables.product.product_location %}. Por ejemplo, `https://ghe.corp.example.com`.
+
+### Configuring SAML debugging
+
+You can configure {% data variables.product.product_name %} to write verbose debug logs to _/var/log/github/auth.log_ for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
+
+{% warning %}
+
+**Advertencias**:
+
+- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of your log may increase much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
+- Test new authentication settings for {% data variables.product.product_location %} in a staging environment before you apply the settings in your production environment. Para obtener más información, consulta "[Configurar una instancia de preparación](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+
+{% endwarning %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
+1. Under "SAML debugging", select the drop-down and click **Enabled**.
+
+   ![Screenshot of drop-down to enable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-enabled.png)
+
+1. Attempt to sign into {% data variables.product.product_location %} through your SAML IdP.
+
+1. Review the debug output in _/var/log/github/auth.log_ on {% data variables.product.product_location %}.
+
+1. When you're done troubleshooting, select the drop-down and click **Disabled**.
+
+   ![Screenshot of drop-down to disable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-disabled.png)
+
+### Decoding responses in _auth.log_
+
+Some output in _auth.log_ may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.product.product_location %} to decode these responses. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+
+```shell
+$ base64 --decode <em>ENCODED OUTPUT</em>
+```

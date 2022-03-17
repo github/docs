@@ -27,7 +27,7 @@ Depois de configurar o SAM SSO, recomendamos armazenar seus códigos de recupera
 
 {% note %}
 
-**Note:** When SAML SSO is enabled, the only setting you can update on {% data variables.product.prodname_dotcom %} for your existing SAML configuration is the SAML certificate. If you need to update the Sign on URL or Issuer, you must first disable SAML SSO and then reconfigure SAML SSO with the new settings.
+**Observação:** Quando SAML SSO está habilitado, a única configuração que você pode atualizar em {% data variables.product.prodname_dotcom %} para a sua configuração SAML existente é o certificado SAML. Se você precisar atualizar o URL de login ou o emissor, primeiro desabilite o SAML SSO e, em seguida, redefina o SAML SSO com as novas configurações.
 
 {% endnote %}
 

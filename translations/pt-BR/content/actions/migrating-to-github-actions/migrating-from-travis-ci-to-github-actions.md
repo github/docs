@@ -187,7 +187,7 @@ Ao fazer a migração do Travis CI, considere os recursos principais a seguir em
 
 ### Armazenar segredos
 
-{% data variables.product.prodname_actions %} permite armazenar segredos e referenciá-los em seus trabalhos. Organizações de {% data variables.product.prodname_actions %} podem limitar quais repositórios podem acessar segredos da organização. Environment protection rules can require manual approval for a workflow to access environment secrets. Para obter mais informações, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
+{% data variables.product.prodname_actions %} permite armazenar segredos e referenciá-los em seus trabalhos. Organizações de {% data variables.product.prodname_actions %} podem limitar quais repositórios podem acessar segredos da organização. As regras de proteção de ambiente podem exigir a aprovação manual de um fluxo de trabalho para acessar segredos de ambiente. Para obter mais informações, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 
 ### Compartilhar arquivos entre trabalhos e fluxos de trabalho
 

@@ -1,6 +1,6 @@
 ---
-title: 关于 SSH
-intro: '使用 SSH 协议可以连接远程服务器和服务并向它们验证。 利用 SSH 密钥可以连接 {% data variables.product.product_name %}，而无需在每次访问时都提供用户名和个人访问令牌。'
+title: About SSH
+intro: 'Using the SSH protocol, you can connect and authenticate to remote servers and services. With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and personal access token at each visit.'
 redirect_from:
   - /articles/about-ssh
   - /github/authenticating-to-github/about-ssh
@@ -13,23 +13,22 @@ versions:
 topics:
   - SSH
 ---
+When you set up SSH, you will need to generate a new SSH key and add it to the ssh-agent. You must add the SSH key to your account on {% data variables.product.product_name %} before you use the key to authenticate. For more information, see "[Generating a new SSH key and adding it to the ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)" and "[Adding a new SSH key to your {% data variables.product.prodname_dotcom %} account](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)."
 
-设置 SSH 时，您需要生成新的 SSH 密钥并将其添加到 ssh 代理中。 使用密钥进行身份验证之前，您必须将 SSH 密钥添加到 {% data variables.product.product_name %} 上的帐户中。 更多信息请参阅“[生成新的 SSH 密钥并将其添加到 ssh 代理](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”和“[添加新的 SSH 密钥到 {% data variables.product.prodname_dotcom %} 帐户](/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)”。
+You can further secure your SSH key by using a hardware security key, which requires the physical hardware security key to be attached to your computer when the key pair is used to authenticate with SSH. You can also secure your SSH key by adding your key to the ssh-agent and using a passphrase. For more information, see "[Working with SSH key passphrases](/github/authenticating-to-github/working-with-ssh-key-passphrases)."
 
-您可以使用硬件安全密钥来进一步保护 SSH 密钥，当密钥对用于通过 SSH 进行身份验证时，需要将物理硬件安全密钥附加到计算机上。 您还可以通过将密钥添加到 ssh 代理并使用密码来保护您的 SSH 密钥。 更多信息请参阅“[使用 SSH 密钥密码](/github/authenticating-to-github/working-with-ssh-key-passphrases)”。
+{% ifversion fpt or ghec %}To use your SSH key with a repository owned by an organization that uses SAML single sign-on, you must authorize the key. For more information, see "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
-{% ifversion fpt or ghec %}要对使用 SAML 单点登录的组织所拥有的仓库使用 SSH 密钥，您必须授权密钥。 For more information, see "[Authorizing an SSH key for use with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
-
-为了保持帐户安全，您可以定期检查您的 SSH 密钥列表，并撤销任何无效或已泄漏的密钥。 更多信息请参阅“[审查 SSH 密钥](/github/authenticating-to-github/reviewing-your-ssh-keys)”。
+To maintain account security, you can regularly review your SSH keys list and revoke any keys that are invalid or have been compromised. For more information, see "[Reviewing your SSH keys](/github/authenticating-to-github/reviewing-your-ssh-keys)."
 
 {% ifversion fpt or ghec %}
-如果 SSH 密钥一年未使用，则作为安全预防措施，{% data variables.product.prodname_dotcom %} 会自动删除非活动的 SSH 密钥。 更多信息请参阅“[删除或缺失的 SSH 密钥](/articles/deleted-or-missing-ssh-keys)”。
+If you haven't used your SSH key for a year, then {% data variables.product.prodname_dotcom %} will automatically delete your inactive SSH key as a security precaution. For more information, see "[Deleted or missing SSH keys](/articles/deleted-or-missing-ssh-keys)."
 {% endif %}
 
-If you're a member of an organization that provides SSH certificates, you can use your certificate to access that organization's repositories without adding the certificate to your account on {% data variables.product.product_name %}. You cannot use your certificate to access forks of the organization's repositories that are owned by your user account. 更多信息请参阅“[关于 SSH 认证中心](/articles/about-ssh-certificate-authorities)”。
+If you're a member of an organization that provides SSH certificates, you can use your certificate to access that organization's repositories without adding the certificate to your account on {% data variables.product.product_name %}. You cannot use your certificate to access forks of the organization's repositories that are owned by your user account. For more information, see "[About SSH certificate authorities](/articles/about-ssh-certificate-authorities)."
 
-## 延伸阅读
+## Further reading
 
-- "[检查现有 SSH 密钥](/articles/checking-for-existing-ssh-keys)"
-- "[测试 SSH 连接](/articles/testing-your-ssh-connection)"
-- "[SSH 故障排除](/articles/troubleshooting-ssh)"
+- "[Checking for existing SSH keys](/articles/checking-for-existing-ssh-keys)"
+- "[Testing your SSH connection](/articles/testing-your-ssh-connection)"
+- "[Troubleshooting SSH](/articles/troubleshooting-ssh)"

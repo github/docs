@@ -110,3 +110,13 @@ code_security_ci:
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
+
+# Feature available in all versions
+end_to_end_supply_chain:
+  title: 'End-to-end supply chain'
+  description: 'How to think about securing your user accounts, your code, and your build process.'
+  guides:
+    - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
+    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts
+    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-code
+    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-builds
