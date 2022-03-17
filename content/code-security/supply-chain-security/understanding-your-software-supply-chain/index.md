@@ -9,10 +9,11 @@ topics:
   - Dependency graph
   - Dependencies
   - Repositories
+shortTitle: Understand your supply chain
 children:
   - /about-the-dependency-graph
-  - /exploring-the-dependencies-of-a-repository
   - /about-dependency-review
-shortTitle: Understand your supply chain
+  - /exploring-the-dependencies-of-a-repository
+  - /troubleshooting-the-dependency-graph
 ---
 

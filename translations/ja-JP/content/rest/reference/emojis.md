@@ -1,6 +1,6 @@
 ---
 title: 絵文字
-intro: 'With the Emojis API, you can list and view all the available emojis to use in {% data variables.product.product_name %}.'
+intro: 'Emojis APIを使用すると、{% data variables.product.product_name %}で利用できるすべての絵文字のリストと表示ができます。'
 redirect_from:
   - /v3/emojis
   - /v3/misc

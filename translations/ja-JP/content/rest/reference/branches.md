@@ -1,6 +1,6 @@
 ---
 title: ブランチ
-intro: The branches API allows you to modify branches and their protection settings.
+intro: ブランチAPIを使うと、ブランチとブランチの保護設定を変更できます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

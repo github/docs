@@ -39,45 +39,45 @@ Este Contrato aplica-se às seguintes ofertas do GitHub, conforme definido a seg
 
 **"Conteúdo"** significa, sem limitação, código, texto, dados, artigos, imagens, pacotes, fotografias, gráficos, softwares, aplicativos, designs, recursos e outros materiais que são apresentados, exibidos ou disponibilizados por meio do Serviço.
 
-**"Corporate Account"** means an account created by a User on behalf of an entity.
+**"Conta corporativa"** significa uma conta criada por um Usuário em nome de uma entidade.
 
 **"Cliente"** significa a empresa ou organização que entrou neste Contrato com o GitHub, clicando no botão "EU CONCORDO" ou semelhante ou acessando os Produtos.
 
-**"Customer Content"** means Content that Customer creates, owns, or to which Customer holds the rights.
+**"Conteúdo do cliente"** significa Conteúdo que o cliente cria, possui ou para o qual o cliente detém os direitos.
 
 **"Documentação"** significa qualquer manual, documentação e outros materiais de suporte relacionados aos Produtos que o GitHub fornece ou disponibiliza ao Cliente.
 
 **"Entrada em vigor"** é a data em que o Cliente (i) clica em "Eu concordo" com os termos e condições deste Contrato, ou (ii) faz um pedido pela primeira vez nos Produtos.
 
-**"External User"** means an individual, not including Customer’s Users, who visit or use the Service.
+**"Usuário externo"** significa um indivíduo, com exceção de Usuários do Cliente, que visitam ou usam o Serviço.
 
-**"Feedback"** means any ideas, know-how, algorithms, code contributions, suggestions, enhancement requests, recommendations or any other feedback on GitHub products or services.
+**"Feedback"** significa ideias, conhecimento, algoritmos, contribuições de código, sugestões, solicitações de aprimoramento, recomendações ou qualquer outro feedback sobre produtos ou serviços do GitHub.
 
 **"Taxas"** significa as taxas que o Cliente deve pagar ao GitHub para (i) usar os Produtos durante o Termo aplicável ou (ii) receber Serviços Profissionais, pois essas taxas estão refletidas em um Formulário de Pedido ou Declaração de Trabalho (SOW).
 
-**“Fork”** means to copy the Content of one repository into another repository.
+**"Bifurcação"** significa copiar o Conteúdo de um repositório para outro.
 
 **"GitHub"** significa GitHub, Inc., suas Afiliadas e seus Representantes.
 
-**"GitHub Content"** means Content that GitHub creates, owns, or to which it holds the rights.
+**"Conteúdo do GitHub"** significa Conteúdo que o GitHub cria, possui ou para o qual detém os direitos.
 
-**“Machine Account”** means an account registered by an individual human who accepts the applicable terms of service on behalf of the Machine Account, provides a valid email address, and is responsible for its actions. Uma Conta de máquina é usada exclusivamente para executar tarefas automatizadas. Vários Usuários podem direcionar as ações de uma Conta de máquina, mas o proprietário da conta é o responsável final pelas ações da máquina.
+**"Conta de máquina"** significa uma conta registrada por um indivíduo que aceita os termos de serviço aplicáveis em nome da Conta da máquina, fornece um endereço de e-mail válido e é responsável por suas ações. Uma Conta de máquina é usada exclusivamente para executar tarefas automatizadas. Vários Usuários podem direcionar as ações de uma Conta de máquina, mas o proprietário da conta é o responsável final pelas ações da máquina.
 
 **"Formulário de Pedido"** significa documentação escrita ou eletrônica (inclusive cotação) que as Partes utilizam para encomendar os Produtos.
 
-**“Organization”** means a shared workspace that may be associated with a single entity or with one or more Users where multiple Users can collaborate across many projects at once. Um Usuário pode ser integrante de mais de uma Organização.
+**“Organização”** significa um espaço de trabalho compartilhado que pode estar associado a uma única entidade ou a um ou mais Usuários em que vários Usuários podem colaborar em vários projetos de uma só vez. Um Usuário pode ser integrante de mais de uma Organização.
 
-**“Private Repository”** means a repository which allows a User to control access to Content.
+**"Repositório privado"** significa um repositório que permite que um Usuário controle o acesso ao Conteúdo.
 
 **"Serviços Profissionais"** significa serviços de implementação, consultoria ou treinamento que o GitHub fornece ao Cliente de acordo com uma Declaração de Trabalho (SOW) executada mutuamente. Os Serviços profissionais não incluem Suporte.
 
-**"Professional Services Credits"** means the upfront payment method for purchasing Professional Services (exclusive of travel and lodging expenses) that Customer may use over a period of twelve (12) months (unless otherwise stated in an Order Form) for Professional Services. Os Créditos de serviços profissionais que não forem utilizados ao final de 12 (doze) meses a partir da data da compra (ou conforme indicado em um Formulário de pedido) são não reembolsáveis e serão automaticamente cancelados.
+**"Créditos de serviços profissionais"** significa o método de pagamento adiantado para a compra de Serviços profissionais (exclusivos para despesas de viagem e hospedagem) que o cliente pode usar durante um período de 12 (doze) meses (salvo indicação em contrário em um Formulário de pedido) para Serviços profissionais. Os Créditos de serviços profissionais que não forem utilizados ao final de 12 (doze) meses a partir da data da compra (ou conforme indicado em um Formulário de pedido) são não reembolsáveis e serão automaticamente cancelados.
 
-**“Public Repository”** means a repository whose Content is visible to All Users.
+**"Repositório público"** significa um repositório cujo Conteúdo é visível para Todos os usuários.
 
 **"Representantes"** significa funcionários, dirigentes, agentes, contratados independentes, consultores, advogados e consultores financeiros da Parte.
 
-**“Scraping”** means extracting data from the Service via an automated process, such as a bot or webcrawler, and does not include the collection of information through GitHub's API.
+**"Scraping"** (raspagem) significa extrair dados do Serviço por meio de um processo automatizado, como um bot ou rastreador web (webcrawler), e não inclui a coleta de informações por meio da API do GitHub.
 
 **"Serviço"** significa o serviço hospedado pelo GitHub e qualquer Documentação aplicável.
 
@@ -89,12 +89,12 @@ Este Contrato aplica-se às seguintes ofertas do GitHub, conforme definido a seg
 
 **"Usuário"** significa uma Conta individual ou de Máquina que (a) acessa ou usa o Serviço, (b) acessa ou usa qualquer parte da conta do Cliente; ou (c) direciona o uso da conta do Cliente no desempenho das funções, em cada caso em nome do Cliente. O número de Usuários não deve exceder o número de Licenças de assinatura que o Cliente adquiriu.
 
-**“User-Generated Content”** means Content created or owned by a third party or External User.
+**"Conteúdo gerado pelo usuário"** significa conteúdo criado ou pertencente a um terceiro ou Usuário externo.
 
 ## B. Termos da conta
 
 ### 1. Controles da conta.
-  * _Usuários._ O cliente reconhece que os Usuários mantêm o controle administrativo definitivo sobre suas contas individuais e o Conteúdo dentro delas. [GitHub's Standard Terms of Service](/articles/github-terms-of-service) govern Users' use of the Service, except with respect to Users' activities under this Section B.
+  * _Usuários._ O cliente reconhece que os Usuários mantêm o controle administrativo definitivo sobre suas contas individuais e o Conteúdo dentro delas. [Termos de Serviço Padrão do GitHub](/articles/github-terms-of-service) rege o uso do Serviço pelos Usuários, exceto no que diz respeito às atividades dos Usuários, sob esta Seção B.
 
   * _(ii) Organizações._ O Cliente mantém o controle administrativo definitivo sobre qualquer Organização criada em nome do Cliente e qualquer Conteúdo Gerado pelo Usuário que seja postado nos repositórios dentro de sua(s) Organização(ões), sujeitos a esta Seção B. Esta Seção B regerá o uso da(s) Organização(ões) do Cliente.
 
@@ -105,7 +105,7 @@ Para criar uma conta, o Cliente deve atender às seguintes condições:
 
 *   O login de um Usuário não pode ser compartilhado por várias pessoas.
 
-- O cliente não deve utilizar os Produtos (a) em violação do controle das exportações ou da legislação sancionatória dos Estados Unidos ou de qualquer outra jurisdição aplicável; (b) se estiver localizado ou normalmente domiciliado em país ou território sujeito a sanções abrangentes administradas pelo governo dos EUA. O Escritório e Controle de Ativos Estrangeiros (OFAC); ou (c) se estiver trabalhando em nome de uma [Nacional Especialmente Designado (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) ou de pessoa sujeita a bloqueios semelhantes ou proibições de partes negadas. For more information, please see our [Export Controls policy](/articles/github-and-export-controls).
+- O cliente não deve utilizar os Produtos (a) em violação do controle das exportações ou da legislação sancionatória dos Estados Unidos ou de qualquer outra jurisdição aplicável; (b) se estiver localizado ou normalmente domiciliado em país ou território sujeito a sanções abrangentes administradas pelo governo dos EUA. O Escritório e Controle de Ativos Estrangeiros (OFAC); ou (c) se estiver trabalhando em nome de uma [Nacional Especialmente Designado (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) ou de pessoa sujeita a bloqueios semelhantes ou proibições de partes negadas. Para obter mais informações, por favor veja nossa [política de Controles de Exportação](/articles/github-and-export-controls).
 
 ### 3. Segurança da conta
 O Cliente é responsável por: (i) todo o Conteúdo publicado e a atividade que ocorre sob sua Conta Corporativa; (ii) manter a segurança de suas credenciais de login da conta; e (iii) [prontamente notificar o GitHub](https://github.com/contact) após tomar conhecimento de qualquer uso ou acesso não autorizado do Serviço através de sua conta.  O GitHub não será responsabilizado por qualquer perda ou dano causado se o Cliente não cumprir o disposto nesta Seção B.
@@ -124,8 +124,8 @@ O compromisso trimestral de tempo de atividade do GitHub para o GitHub Enterpris
 ### 1. Cumprimento de leis e regulamentos
 O uso dos Produtos pelo Cliente não deve violar quaisquer leis aplicáveis, inclusive leis de direitos autorais ou de marcas registradas, leis de controle de exportação ou regulamentos em sua jurisdição.
 
-### 2. Acceptable Use
-Customer’s use of the Service must comply with [GitHub's Acceptable Use Policies](/articles/github-acceptable-use-policies) and [GitHub’s Community Guidelines](/articles/github-community-guidelines). O Cliente não deve usar o Serviço em qualquer jurisdição para atividade ou Conteúdo ilegal, obsceno, ofensivo ou fraudulento, como defender ou causar danos, interferir ou violar a integridade ou a segurança de uma rede ou um sistema, enganar os filtros, enviar vírus ou código nocivo e mensagens não solicitadas, abusivas ou enganosas ou violar direitos de terceiros.
+### 2. Uso aceitável
+O uso do Serviço pelo Cliente deve estar em conformidade com a [Política de Uso Aceitável do GitHub](/articles/github-acceptable-use-policies) e as [Diretrizes da Comunidade do GitHub](/articles/github-community-guidelines). O Cliente não deve usar o Serviço em qualquer jurisdição para atividade ou Conteúdo ilegal, obsceno, ofensivo ou fraudulento, como defender ou causar danos, interferir ou violar a integridade ou a segurança de uma rede ou um sistema, enganar os filtros, enviar vírus ou código nocivo e mensagens não solicitadas, abusivas ou enganosas ou violar direitos de terceiros.
 
 ### 3. Privacidade
 A [Declaração de Privacidade do GitHub](/articles/github-privacy-statement) e o [Contrato de Proteção de Dados do GitHub](/github/site-policy/github-data-protection-agreement-non-enterprise-customers) fornecem aviso detalhado das práticas de privacidade e uso de dados do GitHub, bem como do processamento e das obrigações de segurança do GitHub no que diz respeito aos Dados Pessoais do Cliente. Qualquer pessoa, entidade ou serviço que colete dados do Serviço deve estar em conformidade com a Declaração de Privacidade do GitHub, especialmente no que diz respeito à coleta de Informações Pessoais dos Usuários (conforme definido na Declaração de Privacidade do GitHub). Se o Cliente coletar qualquer Informação pessoal do usuário no GitHub, só a utilizará para a finalidade para a qual o Usuário externo o autorizou. O Cliente protegerá essas Informações pessoais, e o Cliente responderá prontamente a reclamações, solicitações de remoção e pedidos para "não contatar" do GitHub ou de Usuários externos.
@@ -142,7 +142,7 @@ O Cliente mantém a propriedade do Conteúdo que o Cliente cria ou possui. O Cli
 Cliente concede ao GitHub o direito de armazenar, arquivar, analisar e exibir Conteúdo do Cliente, e fazer cópias incidentais, apenas conforme necessário para prestar o Serviço, incluindo a melhoria do Serviço ao longo do tempo. Essa licença inclui o direito de copiar o Conteúdo do cliente para o banco de dados do GitHub e fazer backups; exibir o Conteúdo do cliente para ele e para quem o Cliente resolver mostrá-lo; analisar o Conteúdo do cliente em um índice de pesquisa ou analisá-lo nos servidores do GitHub; compartilhar o Conteúdo do cliente com Usuários externos com os quais o Cliente opte por compartilhá-lo; e executar o Conteúdo do cliente caso seja algo como música ou vídeo. Esses direitos se aplicam a Repositórios públicos e privados. Esta licença não concede ao GitHub o direito de vender Conteúdo do Cliente. Isso também não concede ao GitHub o direito de distribuir ou utilizar o Conteúdo do Cliente fora da nossa prestação do Serviço, salvo como parte do direito de arquivar o conteúdo do cliente, O GitHub pode permitir que nossos parceiros armazenem e arquivem conteúdo do cliente em repositórios públicos, relacionados ao GitHub Code Vault e o GitHub Archive Program. O Cliente concede ao GitHub os direitos de que precisa para usar o Conteúdo do cliente sem atribuição e fazer adaptações razoáveis dele, conforme necessário, para fornecer o Serviço.
 
 ### 4. Concessão de licença a usuários externos
-Qualquer Conteúdo que o Cliente posta publicamente, como problemas, comentários e contribuições a repositórios de Usuários Externos, pode ser visualizado por outras pessoas. Ao definir quais repositórios serão visualizados publicamente, o Cliente concorda em permitir que Usuários externos visualizem e bifurquem os repositórios do Cliente. Se o Cliente define páginas e repositórios para serem visualizados publicamente, ele concede a Usuários Externos uma licença mundial e não exclusiva para usar, exibir e executar o Conteúdo do Cliente por meio do Serviço e reproduzi-lo exclusivamente no Serviço conforme permitido através da funcionalidade fornecida pelo GitHub (por exemplo, através de Bifurcação). O Cliente pode conceder mais direitos ao Conteúdo do Cliente se o Cliente adotar uma licença. If Customer is uploading Customer Content that it did not create or own, Customer is responsible for ensuring that the Customer Content it uploads is licensed under terms that grant these permissions to External Users
+Qualquer Conteúdo que o Cliente posta publicamente, como problemas, comentários e contribuições a repositórios de Usuários Externos, pode ser visualizado por outras pessoas. Ao definir quais repositórios serão visualizados publicamente, o Cliente concorda em permitir que Usuários externos visualizem e bifurquem os repositórios do Cliente. Se o Cliente define páginas e repositórios para serem visualizados publicamente, ele concede a Usuários Externos uma licença mundial e não exclusiva para usar, exibir e executar o Conteúdo do Cliente por meio do Serviço e reproduzi-lo exclusivamente no Serviço conforme permitido através da funcionalidade fornecida pelo GitHub (por exemplo, através de Bifurcação). O Cliente pode conceder mais direitos ao Conteúdo do Cliente se o Cliente adotar uma licença. Se o cliente estiver fazendo upload de um Conteúdo do cliente que ele não criou nem possuiu, será responsável por garantir que o Conteúdo do cliente carregado seja licenciado sob os termos que concedem essas permissões a Usuários externos
 
 ### 5. Contribuições na licença de repositório
 Sempre que o Cliente adiciona Conteúdo a um repositório que contém notificação de uma licença, ele licencia essa contribuição nos mesmos termos e concorda que tem o direito de licenciá-la nesses termos. Se o Cliente tiver um contrato separado para licenciar o Conteúdo em termos diferentes, como um contrato de licença de colaborador, esse contrato será substituído.
@@ -150,7 +150,7 @@ Sempre que o Cliente adiciona Conteúdo a um repositório que contém notificaç
 ### 6. Direitos Morais
 O Cliente detém todos os direitos morais ao Conteúdo do cliente que ele carrega, publica ou envia para qualquer parte do Serviço, inclusive os direitos de integridade e atribuição. No entanto, o Cliente renuncia a esses direitos e concorda em não fazê-los valer contra o GitHub somente no intuito de permitir que o GitHub exerça razoavelmente os direitos concedidos na Seção D, mas não de outra forma.
 
-## E. Private Repositories
+## E. Repositórios privados
 
 ### 1. Controle
 O Cliente é responsável por gerenciar o acesso a seus Repositórios Privados, incluindo convites, controle administrativo de Organizações e equipes e de acesso.
@@ -193,7 +193,7 @@ As Licenças de assinatura são concedidas por Usuário, e vários Usuários nã
 ## I. Afiliados
 Os Afiliados do Cliente estão autorizados a utilizar os Produtos de acordo com este Contrato, desde que o Cliente permaneça plenamente responsável pelo acesso deles e pela utilização dos Produtos.
 
-## J. Payment
+## J. Pagamento
 
 ### 1. Preços; Taxas
 
@@ -250,7 +250,7 @@ _Garantia de Serviços Profissionais._ A menos que estabelecido de outra forma e
 
 _Isenção de Serviço._ O GitHub fornece o Serviço **"COMO ESTÁ"** e **"CONFORME DISPONÍVEL"** sem qualquer tipo de garantia. Sem limitar isso, o GitHub se isenta expressamente de todas as garantias (expressas, implícitas ou estatutárias), relativas ao Serviço, incluindo, sem limitação, qualquer garantia de comercialização, adequação a uma finalidade específica, título, segurança, precisão e não violação. O GitHub não garante que o Serviço atenderá aos requisitos do Cliente; que o Serviço será ininterrupto, pontual, seguro ou isento de erros; que qualquer defeito ou erro será corrigido; que o Serviço estará disponível em um momento ou local específico; que as informações fornecidas por meio do Serviço sejam exatas, confiáveis ou corretas; ou que o serviço esteja isento de vírus ou outros componentes nocivos. O GitHub não será responsável por qualquer risco de perda resultante do download do Cliente e/ou do uso de arquivos, informações, conteúdo ou outro material obtido com o Serviço.
 
-_Isenção de Visualizações Beta._ O Cliente pode optar por usar Visualizações Beta a seu exclusivo critério. As Visualizações Beta podem não ser compatíveis, podem ser alteradas a qualquer momento sem aviso prévio e podem não ser tão confiáveis ou disponíveis como o Serviço. As Visualizações Beta não estão sujeitas às mesmas medidas de segurança e auditoria a que o Serviço esteve e está sujeito. O GitHub não terá nenhuma responsabilidade decorrentes das Visualizações Beta ou relacionadas a elas. **Customer uses Beta Previews at its own risk.**
+_Isenção de Visualizações Beta._ O Cliente pode optar por usar Visualizações Beta a seu exclusivo critério. As Visualizações Beta podem não ser compatíveis, podem ser alteradas a qualquer momento sem aviso prévio e podem não ser tão confiáveis ou disponíveis como o Serviço. As Visualizações Beta não estão sujeitas às mesmas medidas de segurança e auditoria a que o Serviço esteve e está sujeito. O GitHub não terá nenhuma responsabilidade decorrentes das Visualizações Beta ou relacionadas a elas. **O Cliente usa Visualizações Beta por sua própria conta e risco.**
 
 ## N. Limitações de responsabilidade
 **_Danos indiretos._ Na medida máxima permitida pela lei aplicável, em nenhum caso a parte será responsável perante a outra ou perante terceiros por qualquer dano indireto, especial, acidental, punitivo ou consequente (incluindo por perda de lucros, receitas, ou dados) ou pelo custo da obtenção de produtos de substituição decorrentes ou relacionados com este Contrato, seja qual for a causa, se essa responsabilidade resulta de qualquer reclamação baseada no contrato, garantia, dano (incluindo negligência), responsabilidade estrita ou não, e se uma parte foi ou não aconselhada sobre a possibilidade de tais danos.**
@@ -286,7 +286,7 @@ O GitHub altera o Serviço através de Atualizações e adição de novos recurs
 ## S. Suporte
 O GitHub fornecerá suporte técnico padrão para o Serviço sem cobrança adicional, vinte e quatro (24) horas por dia, cinco (5) dias por semana, excluindo fins de semana e feriados americanos. feriados. O Suporte padrão só é oferecido por meio de tíquetes na Web pelo Suporte do GitHub, e as solicitações de Suporte devem ser iniciadas a partir de um Usuário com o qual a equipe de Suporte do GitHub possa interagir. O GitHub pode oferecer Suporte premium (sujeito aos termos do [Suporte Premium para Enterprise Cloud](/articles/about-github-premium-support) ) ou Suporte técnico dedicado para o Serviço no nível de Suporte, Taxas e Termos de Assinatura especificados em um Formulário de Pedido ou SOW.
 
-## T. Miscellaneous
+## T. Diversos
 
 ### 1. Lei Governamental
 Se o escritório principal do cliente estiver localizado nas Américas, este Contrato será regido e interpretado pelas leis do Estado da Califórnia, sem acionar os princípios de conflito da lei, qualquer processo ou ação judicial decorrente do presente Contrato será levado exclusivamente aos tribunais localizados na comarca do Norte da Califórnia e as Partes concordam com a jurisdição e o foro nesse local. Se o escritório principal do cliente estiver localizado fora das Américas, este Contrato será regido pelas leis da Irlanda, qualquer ação judicial ou processo decorrente do presente Contrato será levado exclusivamente aos tribunais localizados em Dublin e as Partes concordam com a jurisdição e o foro nesse local. As Partes concordam expressamente que a Convenção das Nações Unidas para a Venda Internacional de Mercadorias e a Lei Uniforme Para Transação de Informações no Computador não se aplicarão a este Contrato. Não obstante qualquer disposição em contrário no acima exposto, o GitHub pode apresentar um pedido de recurso em equidade em qualquer tribunal com jurisdição adequada.
@@ -312,7 +312,7 @@ Se o Cliente exibir publicamente o nome de sua empresa ou organização em sua c
 ### 8. Força Maior
 O GitHub será dispensado da responsabilidade quando não for possível cumprir qualquer obrigação deste Contrato devido a causas extraordinárias além do controle razoável, como fenômenos da natureza, desastres naturais, greves, bloqueios, tumultos, atos de guerra, epidemias ou falhas de energia, telecomunicações ou rede.
 
-### 9. Independent Contractors
+### 9. Contratados Independentes
 Cada Parte é um contratado independente no que diz respeito ao objeto deste Contrato. Nada do presente Contrato será considerado ou interpretado de forma a criar uma associação jurídica, parceria, joint venture, emprego, agência, relação fiduciária ou qualquer outra semelhante entre as Partes, e nenhuma Parte poderá vincular a outra contratualmente.
 
 ### 10. Perguntas
