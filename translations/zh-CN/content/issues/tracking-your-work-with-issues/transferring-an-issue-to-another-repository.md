@@ -20,7 +20,7 @@ shortTitle: 转移议题
 
 {% note %}
 
-**Note**: You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes or ghec %}A private repository issue cannot be transferred to a public repository.{% endif %}
+**注意**：您只能在同一用户或组织帐户拥有的仓库之间转移议题。 {% ifversion fpt or ghes or ghec %}私有存储库问题无法转移到公共存储库。{% endif %}
 
 {% endnote %}
 
