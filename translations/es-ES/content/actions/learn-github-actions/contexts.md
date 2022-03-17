@@ -31,7 +31,7 @@ You can access contexts using the expression syntax. For more information, see "
 `${{ <context> }}`
 {% endraw %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 | Context name | Type | Description |
 |---------------|------|-------------|
@@ -59,7 +59,7 @@ In order to use property dereference syntax, the property name must:
 
 ### Determining when to use contexts
 
-{% data reusables.github-actions.using-context-or-environment-variables %}
+{% data reusables.actions.using-context-or-environment-variables %}
 
 ### Context availability
 
@@ -76,7 +76,7 @@ The following table indicates where each context and special function can be use
 | <code>concurrency</code> | <code>github, inputs</code> | |
 | <code>env</code> | <code>github, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.concurrency</code> | <code>github, needs, strategy, matrix, inputs</code> | |
-| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, inputs</code> | |
+| <code>jobs.&lt;job_id&gt;.container</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.container.credentials</code> | <code>github, needs, strategy, matrix, env, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, needs, strategy, matrix, job, runner, env, secrets, inputs</code> | |
 | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, needs, strategy, matrix, inputs</code> | |
@@ -142,7 +142,7 @@ The following table indicates where each context and special function can be use
 
 You can print the contents of contexts to the log for debugging. The [`toJSON` function](/actions/learn-github-actions/expressions#tojson) is required to pretty-print JSON objects to the log.
 
-{% data reusables.github-actions.github-context-warning %}
+{% data reusables.actions.github-context-warning %}
 
 {% raw %}
 ```yaml{:copy}
@@ -173,20 +173,21 @@ jobs:
 
 The `github` context contains information about the workflow run and the event that triggered the run. You can also read most of the `github` context data in environment variables. For more information about environment variables, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)."
 
-{% data reusables.github-actions.github-context-warning %}
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.github-context-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `github` | `object` | The top-level context available during any job or step in a workflow. This object contains all the properties listed below. |
 | `github.action` | `string` | The name of the action currently running, or the [`id`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsid) of a step. {% data variables.product.prodname_dotcom %} removes special characters, and uses the name `__run` when the current step runs a script without an `id`. If you use the same action more than once in the same job, the name will include a suffix with the sequence number with underscore before it. For example, the first script you run will have the name `__run`, and the second script will be named `__run_2`. Similarly, the second invocation of `actions/checkout` will be `actionscheckout2`. |
 | `github.action_path` | `string` | The path where an action is located. This property is only supported in composite actions. You can use this path to access files located in the same repository as the action. |
-| `github.action_ref` | `string` | For a step executing an action, this is the ref of the action being executed. For example, `v2`.
-| `github.action_repository` | `string` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`.
+| `github.action_ref` | `string` | For a step executing an action, this is the ref of the action being executed. For example, `v2`. |
+| `github.action_repository` | `string` | For a step executing an action, this is the owner and repository name of the action. For example, `actions/checkout`. |
+| `github.action_status` | `string` | For a composite action, the current result of the composite action. |
 | `github.actor` | `string` | The username of the user that initiated the workflow run. |
 | `github.api_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} REST API. |
 | `github.base_ref` | `string` | The `base_ref` or target branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
-| `github.env` | `string` | Path on the runner to the file that sets environment variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#setting-an-environment-variable)."
+| `github.env` | `string` | Path on the runner to the file that sets environment variables from workflow commands. This file is unique to the current step and is a different file for each step in a job. For more information, see "[Workflow commands for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-commands-for-github-actions#setting-an-environment-variable)." |
 | `github.event` | `object` | The full event webhook payload. You can access individual properties of the event using this context. This object is identical to the webhook payload of the event that triggered the workflow run, and is different for each event. The webhooks for each {% data variables.product.prodname_actions %} event is linked in "[Events that trigger workflows](/articles/events-that-trigger-workflows/)." For example, for a workflow run triggered by the [`push` event](/actions/using-workflows/events-that-trigger-workflows#push), this object contains the contents of the [push webhook payload](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#push). |
 | `github.event_name` | `string` | The name of the event that triggered the workflow run. |
 | `github.event_path` | `string` | The path to the file on the runner that contains the full event webhook payload. |
@@ -204,9 +205,11 @@ The `github` context contains information about the workflow run and the event t
 | `github.repository_owner` | `string` | The repository owner's name. For example, `Codertocat`. |
 | `github.repositoryUrl` | `string` | The Git URL to the repository. For example, `git://github.com/codertocat/hello-world.git`. |
 | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
-| `github.run_id` | `string` | {% data reusables.github-actions.run_id_description %} |
-| `github.run_number` | `string` | {% data reusables.github-actions.run_number_description %} |
+| `github.run_id` | `string` | {% data reusables.actions.run_id_description %} |
+| `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
+{%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
+{%- endif %}
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
 | `github.sha` | `string` | The commit SHA that triggered the workflow run. |
 | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." |
@@ -514,7 +517,7 @@ jobs:
           ./build.sh --log-path ${{ runner.temp }}/build_logs
       - name: Upload logs on fail
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Build failure logs
           path: ${{ runner.temp }}/build_logs
@@ -527,7 +530,7 @@ The `secrets` context contains the names and values of secrets that are availabl
 
 `GITHUB_TOKEN` is a secret that is automatically created for every workflow run, and is always included in the `secrets` context. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
 
-{% data reusables.github-actions.secrets-redaction-warning %}
+{% data reusables.actions.secrets-redaction-warning %}
 
 | Property name | Type | Description |
 |---------------|------|-------------|
@@ -549,7 +552,7 @@ The following example contents of the `secrets` context shows the automatic `GIT
 
 ### Example usage of the `secrets` context
 
-{% data reusables.github-actions.github_token-input-example %}
+{% data reusables.actions.github_token-input-example %}
 
 ## `strategy` context
 
@@ -596,7 +599,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm test > test-job-${{ strategy.job-index }}.txt
       - name: Upload logs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Build log for job ${{ strategy.job-index }}
           path: test-job-${{ strategy.job-index }}.txt
@@ -728,6 +731,8 @@ The `inputs` context contains input properties passed to a reusable workflow. Th
 
 There are no standard properties in the `inputs` context, only those which are defined in the reusable workflow file.
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)".
 
 | Property name | Type | Description |
@@ -762,10 +767,14 @@ on:
       deploy_target:
         required: true
         type: string
+      perform_deploy:
+        required: true
+        type: boolean
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ inputs.perform_deploy == 'true' }}
     steps:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}

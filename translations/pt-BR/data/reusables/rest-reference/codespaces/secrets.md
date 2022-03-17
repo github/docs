@@ -1,0 +1,2 @@
+## Segredos
+A API de Segredos permite que um usuário crie, liste e exclua segredos (como tokens de acesso para serviços de nuvem), além de atribuir segredos para repositórios aos quais o usuário tem acesso. Estes segredos são disponibilizados para o codespace em tempo de execução. Para obter mais informações, consulte "[Gerenciar segredos criptografados para seus codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)".

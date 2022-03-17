@@ -1,5 +1,5 @@
 import { jest } from '@jest/globals'
-import { latest } from '../../lib/enterprise-server-releases.js'
+import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
 import languages from '../../lib/languages.js'
 
 jest.useFakeTimers('legacy')
@@ -62,13 +62,15 @@ describe('browser search', () => {
     expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/ja/enterprise-server@3.0/admin/installation')
+    await newPage.goto(
+      `http://localhost:4001/ja/enterprise-server@${oldestSupported}/admin/installation`
+    )
 
     await newPage.setRequestInterception(true)
     newPage.on('request', (interceptedRequest) => {
       if (interceptedRequest.method() === 'GET' && /search\?/i.test(interceptedRequest.url())) {
         const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe('3.0')
+        expect(searchParams.get('version')).toBe(oldestSupported)
         expect(searchParams.get('language')).toBe('ja')
       }
       interceptedRequest.continue()

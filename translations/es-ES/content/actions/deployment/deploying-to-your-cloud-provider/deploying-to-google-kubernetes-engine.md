@@ -90,8 +90,12 @@ Este procedimiento demuestra cómo crear la cuenta de servicio para tu integraci
   ```
   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
     --member=serviceAccount:$SA_EMAIL \
-    --role=roles/container.admin \
-    --role=roles/storage.admin \
+    --role=roles/container.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
+    --role=roles/storage.admin
+  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+    --member=serviceAccount:$SA_EMAIL \
     --role=roles/container.clusterViewer
   ```
   {% endraw %}
@@ -114,13 +118,11 @@ Este procedimiento demuestra cómo crear la cuenta de servicio para tu integraci
 Almacenar el nombre de tu proyecto como un secreto llamado `GKE_PROJECT`. Para obtener más información sobre cómo almacenar un secreto, consulta la sección "[Secretos cifrados](/actions/security-guides/encrypted-secrets)".
 
 ### (Opcional) Configurar kustomize
-Kustomize es una herramietna opcional que se utiliza para administrar las especificaciones YAML. After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. Para obtener más información, consulta la sección [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
+Kustomize es una herramietna opcional que se utiliza para administrar las especificaciones YAML. Después de crear un archivo de `kustomization`, el siguiente flujo de trabajo puede utilizarse para configurar campos de la imagen dinámicamente y agregar el resultado en `kubectl`. Para obtener más información, consulta la sección [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Opcional) Configurar un ambiente de despliegue
 
 {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Crear un flujo de trabajo
 

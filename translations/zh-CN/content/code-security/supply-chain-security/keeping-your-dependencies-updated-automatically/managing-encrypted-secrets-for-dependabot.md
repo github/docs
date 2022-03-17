@@ -44,11 +44,11 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
 ## 为 {% data variables.product.prodname_dependabot %} 添加仓库密码
 
-{% data reusables.github-actions.permissions-statement-secrets-repository %}
+{% data reusables.actions.permissions-statement-secrets-repository %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 {% data reusables.dependabot.dependabot-secrets-button %}
 1. 单击 **New repository secret（新仓库机密）**。
 1. 在 **Name（名称）**输入框中键入密码的名称。
@@ -63,11 +63,11 @@ password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 
 在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 {% data reusables.dependabot.dependabot-secrets-button %}
 1. 单击 **New organization secret（新组织机密）**。
 1. 在 **Name（名称）**输入框中键入密码的名称。

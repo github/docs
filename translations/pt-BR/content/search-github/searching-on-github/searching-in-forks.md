@@ -1,6 +1,6 @@
 ---
 title: Pesquisar em bifurcações
-intro: 'By default, [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) are not shown in search results. Você poderá optar por incluí-las nas pesquisas de repositórios e nas pesquisas de códigos se elas atenderem a determinados critérios.'
+intro: 'Por padrão, [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) não são exibidas nos resultados de pesquisas. Você poderá optar por incluí-las nas pesquisas de repositórios e nas pesquisas de códigos se elas atenderem a determinados critérios.'
 redirect_from:
   - /articles/searching-in-forks
   - /github/searching-for-information-on-github/searching-in-forks

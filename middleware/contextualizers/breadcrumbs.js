@@ -1,3 +1,5 @@
+import liquid from '../../lib/render-content/liquid.js'
+
 export default async function breadcrumbs(req, res, next) {
   if (!req.context.page) return next()
   if (req.context.page.hidden) return next()
@@ -9,95 +11,50 @@ export default async function breadcrumbs(req, res, next) {
     return next()
   }
 
-  const currentSiteTree =
-    req.context.siteTree[req.context.currentLanguage][req.context.currentVersion]
-  const fallbackSiteTree = req.context.siteTree.en[req.context.currentVersion]
-
-  req.context.breadcrumbs = await getBreadcrumbs(
-    // Array of child pages on the root, i.e., the product level.
-    currentSiteTree.childPages,
-    fallbackSiteTree.childPages,
-    req.context.currentPath.slice(3),
-    req.context.currentLanguage
-  )
+  req.context.breadcrumbs = await getBreadcrumbs(req)
 
   return next()
 }
 
-async function getBreadcrumbs(
-  pageArray,
-  fallbackPageArray,
-  currentPathWithoutLanguage,
-  intendedLanguage
-) {
-  // Find the page that starts with the requested path
-  let childPage = findPageWithPath(currentPathWithoutLanguage, pageArray)
-
-  // Find the page in the fallback page array (likely the English sub-tree)
-  const fallbackChildPage =
-    findPageWithPath(currentPathWithoutLanguage, fallbackPageArray || []) || childPage
-
-  // No matches, we bail
-  if (!childPage && !fallbackChildPage) {
-    return []
+async function getBreadcrumbs(req) {
+  const crumbs = []
+  const { currentPath, currentVersion } = req.context
+  const split = currentPath.split('/')
+  while (split.length > 2 && split[split.length - 1] !== currentVersion) {
+    const href = split.join('/')
+    const page = req.context.pages[href]
+    if (page) {
+      crumbs.push({
+        href,
+        title: await getShortTitle(page, req.context),
+      })
+    } else {
+      console.warn(`No page found with for '${href}'`)
+    }
+    split.pop()
   }
+  crumbs.reverse()
 
-  // Didn't find the intended page, but found the fallback
-  if (!childPage) {
-    childPage = fallbackChildPage
-  }
-
-  const breadcrumb = {
-    documentType: childPage.page.documentType,
-    // give the breadcrumb the intendedLanguage, so nav through breadcrumbs doesn't inadvertantly change the user's selected language
-    href: `/${intendedLanguage}/${childPage.href.slice(4)}`,
-    title: childPage.renderedShortTitle || childPage.renderedFullTitle,
-  }
-
-  // Recursively loop through the childPages and create each breadcrumb, until we reach the
-  // point where the current siteTree page is the same as the requested page. Then stop.
-  if (childPage.childPages && currentPathWithoutLanguage !== childPage.href.slice(3)) {
-    return [
-      breadcrumb,
-      ...(await getBreadcrumbs(
-        childPage.childPages,
-        fallbackChildPage.childPages,
-        currentPathWithoutLanguage,
-        intendedLanguage
-      )),
-    ]
-  } else {
-    return [breadcrumb]
-  }
+  return crumbs
 }
 
-// Finds the page that starts with or equals the requested path in the array of
-// pages e.g. if the current page is /actions/learn-github-actions/understanding-github-actions,
-// depending on the pages in the pageArray agrument, would find:
-//
-// * /actions
-// * /actions/learn-github-actions
-// * /actions/learn-github-actions/understanding-github-actions
-function findPageWithPath(pageToFind, pageArray) {
-  return pageArray.find((page) => {
-    const pageWithoutLanguage = page.href.slice(3)
-    const numPathSegments = pageWithoutLanguage.split('/').length
-    const pageToFindNumPathSegments = pageToFind.split('/').length
+async function getShortTitle(page, context) {
+  // Note! Don't use `page.title` or `page.shortTitle` because if they get
+  // set during rendering, they become the HTML entities encoded string.
+  // E.g. "Delete &amp; restore a package"
 
-    if (pageToFindNumPathSegments > numPathSegments) {
-      // if the current page to find has more path segments, add a trailing
-      // slash to the page comparison to avoid an overlap like:
-      //
-      // * /github-cli/github-cli/about-github-cli with /github
-      return pageToFind.startsWith(`${pageWithoutLanguage}/`)
-    } else if (pageToFindNumPathSegments === numPathSegments) {
-      // if the current page has the same number of path segments, only match
-      // if the paths are the same to avoid an overlap like:
-      //
-      // * /get-started/using-github with /get-started/using-git
-      return pageToFind === pageWithoutLanguage
-    } else {
-      return false
+  if (page.rawShortTitle) {
+    if (page.rawShortTitle.includes('{')) {
+      // Can't easily cache this because the `page` is reused for multiple
+      // permalinks. We could do what the `Page.render()` method does which
+      // specifically caches based on the `context.currentPath` but at
+      // this point it's probably not worth it.
+      return await liquid.parseAndRender(page.rawShortTitle, context)
     }
-  })
+    return page.rawShortTitle
+  }
+  if (page.rawTitle.includes('{')) {
+    return await liquid.parseAndRender(page.rawTitle, context)
+  }
+  return page.rawTitle
 }

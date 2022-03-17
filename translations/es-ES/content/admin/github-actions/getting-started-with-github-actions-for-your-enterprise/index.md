@@ -15,6 +15,7 @@ children:
   - /getting-started-with-github-actions-for-github-enterprise-cloud
   - /getting-started-with-github-actions-for-github-enterprise-server
   - /getting-started-with-github-actions-for-github-ae
+  - /getting-started-with-self-hosted-runners-for-your-enterprise
 shortTitle: Empezar
 ---
 

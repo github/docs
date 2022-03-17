@@ -28,7 +28,7 @@ Para obtener más información acerca de cómo se calculan las contribuciones, c
 {% note %}
 
 **Notas:**
-- The connection between your accounts is governed by [GitHub's Privacy Statement](/free-pro-team@latest/github/site-policy/github-privacy-statement/) and users enabling the connection agree to the [GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service).
+- La conexión entre tus cuentas está regulada por la [Declaración de privacidad de GitHub](/free-pro-team@latest/github/site-policy/github-privacy-statement/) y los usuarios que habilitan la conexión aceptan los Términos de servicio de GitHub[](/free-pro-team@latest/github/site-policy/github-terms-of-service).
 
 - Antes de que puedas conectar tu perfil de {% ifversion fpt or ghec %}{% data variables.product.prodname_enterprise %}{% else %}{% data variables.product.product_name %}{% endif %} a tu perfil de {% data variables.product.prodname_dotcom_the_website %}, tu empresa debe habilitar {% data variables.product.prodname_github_connect %} y también el compartir contribuciones entre los ambientes. Para obtener más información, contacta a tu propietario de empresa.
 

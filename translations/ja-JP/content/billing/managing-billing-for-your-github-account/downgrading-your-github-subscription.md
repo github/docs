@@ -37,8 +37,8 @@ shortTitle: サブスクリプションのダウングレード
 
 ユーザアカウントを{% data variables.product.prodname_pro %}から{% data variables.product.prodname_free_user %}にダウングレードした場合、プライベートリポジトリでの高度なコードレビューツールにはアクセスできなくなります。 {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. "Current plan（現在のプラン）"の下で、**Edit（編集）**ドロップダウンを使い、**Downgrade to Free（Freeへのダウングレード）**をクリックしてください。 ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
 5. 次回の請求日にユーザアカウントがアクセスできなくなる機能に関する情報を読み、[**I understand. Continue with downgrade**] をクリックします。 ![[Continue with downgrade] ボタン](/assets/images/help/billing/continue-with-downgrade.png)
 
@@ -51,6 +51,13 @@ shortTitle: サブスクリプションのダウングレード
 Organizationを{% data variables.product.prodname_team %}から{% data variables.product.prodname_free_team %}にダウングレードした場合、そのアカウントはチームの高度なコラボレーションおよび管理ツールにはアクセスできなくなります。
 
 Organizationを{% data variables.product.prodname_ghe_cloud %}から{% data variables.product.prodname_team %}または{% data variables.product.prodname_free_team %}にダウングレードした場合、そのアカウントは高度なセキュリティ、コンプライアンス、およびデプロイメントコントロールにアクセスできなくなります。 {% data reusables.gated-features.more-info %}
+
+
+{% note %}
+
+**Note:** If you're currently trialing {% data variables.product.prodname_ghe_cloud %}, and you don't purchase {% data variables.product.prodname_enterprise %} before the trial ends, your organization will be automatically downgraded to {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %}. 詳しい情報については、「[{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)」を参照してください。
+
+{% endnote %}
 
 {% data reusables.organizations.billing-settings %}
 1. "Current plan（現在のプラン）"の下で、[**Edit**] ドロップダウンから必要なダウングレード オプションをクリックします。 ![[Downgrade] ボタン](/assets/images/help/billing/downgrade-option-button.png)

@@ -25,9 +25,12 @@ children:
   - /adding-people-to-teams
   - /viewing-the-audit-logs-for-organizations-in-your-enterprise
   - /streaming-the-audit-logs-for-organizations-in-your-enterprise-account
+  - /managing-your-role-in-an-organization-owned-by-your-enterprise
   - /removing-users-from-teams-and-organizations
   - /removing-organizations-from-your-enterprise
+  - /restoring-a-deleted-organization
   - /managing-projects-using-jira
   - /continuous-integration-using-jenkins
 shortTitle: Manage organizations
 ---
+

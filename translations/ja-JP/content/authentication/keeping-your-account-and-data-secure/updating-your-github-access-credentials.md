@@ -41,8 +41,8 @@ To avoid losing your password in the future, we suggest using a secure password 
 {% data reusables.repositories.blocked-passwords %}
 
 1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 4. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)"
 5. Click **Update password**.
 
@@ -55,6 +55,12 @@ For greater security, enable two-factor authentication in addition to changing y
 ## Updating your access tokens
 
 See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+
+{% ifversion not ghae %}
+
+If you have reset your account password and would also like to trigger a sign-out from the GitHub Mobile app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. For additional information, see "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)."
+
+{% endif %}
 
 ## Updating your SSH keys
 

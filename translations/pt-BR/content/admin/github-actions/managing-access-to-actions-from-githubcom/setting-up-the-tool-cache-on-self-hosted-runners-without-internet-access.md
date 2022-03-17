@@ -73,7 +73,7 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
              cd "${{ runner.tool_cache }}"
              tar -czf tool_cache.tar.gz *
          - name: Upload tool cache artifact
-           uses: actions/upload-artifact@v2
+           uses: actions/upload-artifact@v3
            with:
              path: ${{runner.tool_cache}}/tool_cache.tar.gz
    ```

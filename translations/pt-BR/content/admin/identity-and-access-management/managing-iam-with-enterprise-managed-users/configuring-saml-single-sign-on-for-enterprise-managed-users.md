@@ -23,7 +23,13 @@ Com {% data variables.product.prodname_emus %}, a sua empresa usa o SAML SSO par
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
-Depois de configurar o SAM SSO, recomendamos armazenar seus códigos de recuperação para que você possa recuperar o acesso à sua empresa no caso de o seu provedor de identidade não estar disponível. Para obter mais informações, consulte[Salvando seus códigos de recuperação](#saving-your-recovery-codes)".
+Depois de configurar o SAM SSO, recomendamos armazenar seus códigos de recuperação para que você possa recuperar o acesso à sua empresa no caso de o seu provedor de identidade não estar disponível.
+
+{% note %}
+
+**Observação:** Quando SAML SSO está habilitado, a única configuração que você pode atualizar em {% data variables.product.prodname_dotcom %} para a sua configuração SAML existente é o certificado SAML. Se você precisar atualizar o URL de login ou o emissor, primeiro desabilite o SAML SSO e, em seguida, redefina o SAML SSO com as novas configurações.
+
+{% endnote %}
 
 ## Configurando o logon único da SAML para {% data variables.product.prodname_emus %}
 
@@ -95,20 +101,10 @@ Após instalar e configurar o aplicativo de {% data variables.product.prodname_e
 
     {% endnote %}
 
-1. Para garantir que você ainda pode acessar a sua empresa no caso de o seu provedor de identidade ficar indisponível no futuro clique em **Download**, **Imprimir** ou **Copiar** para salvar seus códigos de recuperação. ![Botão para testar a configuração de SAML antes da aplicação](/assets/images/help/saml/saml_recovery_code_options.png)
+{% data reusables.enterprise-accounts.download-recovery-codes %}
+
 
 ### Habilitando o provisionamento
 
 Depois que você habilitar o SAML SSO, habilite o provisionamento. Para obter mais informações, consulte "[Configurando o provisionamento de SCIM para usuários gerenciados pela empresa](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users)".
 
-## Salvando os seus códigos de recuperação
-
-Caso o seu provedor de identidade esteja indisponível, você poderá usar o usuário de configuração e um código de recuperação para entrar e acessar a sua empresa. Se você não salvou seus códigos de recuperação ao configurar SAML SSO, você ainda poderá acessá-los nas configurações da sua empresa.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.security-tab %}
-
-1. Em "Exigir autenticação do SAML", clique em **Salvar seus códigos de recuperação**. ![Botão para testar a configuração de SAML antes da aplicação](/assets/images/help/enterprises/saml-recovery-codes-link.png)
-
-2. Para salvar seus códigos de recuperação, clique em **Download**, **Imprimir**ou **Copiar**. ![Botão para testar a configuração de SAML antes da aplicação](/assets/images/help/saml/saml_recovery_code_options.png)

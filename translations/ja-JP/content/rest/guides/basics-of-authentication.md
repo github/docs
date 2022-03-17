@@ -29,7 +29,7 @@ topics:
 
 どのような情報を入力しても構いませんが、**認証コールバック URL** は例外です。 これが、アプリケーションの設定にあたってもっとも重要な情報と言えるでしょう。 認証の成功後に {% data variables.product.product_name %} がユーザに返すのは、コールバックURLなのです。
 
-通常の Sinatra サーバーを実行しているので、ローカルインスタンスの場所は `http://localhost:4567` に設定されています。 コールバック URL を `http://localhost:4567/callback` と入力しましょう。
+通常の Sinatra サーバーを実行しているので、ローカルインスタンスの場所は `http://127.0.0.1:4567` に設定されています。 コールバック URL を `http://127.0.0.1:4567/callback` と入力しましょう。
 
 ## ユーザ認証の承認
 
@@ -51,7 +51,7 @@ end
 ```
 
 クライアント ID とクライアントシークレットは、[アプリケーションの設定ページ][app settings]から取得されます。
-{% ifversion fpt or ghec %} You should **never, _ever_** store these values in
+{% ifversion fpt or ghec %}これらの値は**いかなる場合も_決して_**
 {% data variables.product.product_name %} や、それに限らず公開の場に保存しないでください。{% endif %}これらは
 [環境変数][about env vars]として保存することをお勧めします。この例でも、そのようにしています。
 
@@ -76,11 +76,11 @@ end
 </html>
 ```
 
-(シナトラの仕組みに詳しくない方は、[Sinatraのガイド][Sinatra guide]を読むことをお勧めします。)
+(Sinatraの仕組みに詳しくない方は、[Sinatraのガイド][Sinatra guide]を読むことをお勧めします。)
 
 URLはアプリケーションに要求された[スコープ][oauth scopes]を`scope`クエリパラメータで定義していることにも注目しましょう。 このアプリケーションでは、プライベートのメールアドレスを読み込むため、`user:email`スコープをリクエストしています。
 
-ブラウザで`http://localhost:4567`に移動します。 リンクをクリックすると、{% data variables.product.product_name %}に移動し、以下のようなダイアログが表示されます。 ![GitHubのOAuthプロンプト](/assets/images/oauth_prompt.png)
+ブラウザで`http://127.0.0.1:4567`にアクセスしてください。 リンクをクリックすると、{% data variables.product.product_name %}に移動し、以下のようなダイアログが表示されます。 ![GitHubのOAuthプロンプト](/assets/images/oauth_prompt.png)
 
 あなた自身を信用する場合は、[**Authorize App**]をクリックします。 おっと、 Sinatraが`404`エラーを吐き出しました。 いったい何が起こったのでしょうか。
 
@@ -133,7 +133,7 @@ end
 
 リクエストを行う前にのみスコープを確認するだけでは不十分です。確認時と実際のリクエスト時の間に、ユーザがスコープを変更する可能性があります。 このような場合には、成功すると思っていたAPIの呼び出しが`404`または`401`ステータスになって失敗したり、情報の別のサブセットを返したりします。
 
-この状況にうまく対応できるように、有効なトークンによるリクエストに対するすべてのAPIレスポンスには、[`X-OAuth-Scopes`ヘッダ][oauth scopes]も含まれています。 このヘッダには、リクエストを行うために使用されたトークンのスコープのリストが含まれています。 In addition to that, the OAuth Applications API provides an endpoint to {% ifversion fpt or ghes or ghec %} [check a token for validity](/rest/reference/apps#check-a-token){% else %}[check a token for validity](/rest/reference/apps#check-an-authorization){% endif %}. この情報を使用してトークンのスコープにおける変更を検出し、利用可能なアプリケーション機能の変更をユーザに通知します。
+この状況にうまく対応できるように、有効なトークンによるリクエストに対するすべてのAPIレスポンスには、[`X-OAuth-Scopes`ヘッダ][oauth scopes]も含まれています。 このヘッダには、リクエストを行うために使用されたトークンのスコープのリストが含まれています。 それに加えて、OAuthアプリケーションAPIは、{% ifversion fpt or ghes or ghec %}[トークンの有効性のチェック](/rest/reference/apps#check-a-token){% else %}[トークンの有効性のチェック](/rest/reference/apps#check-an-authorization){% endif %}のためのエンドポイントを提供します。 この情報を使用してトークンのスコープにおける変更を検出し、利用可能なアプリケーション機能の変更をユーザに通知します。
 
 ### 認証リクエストの実施
 
@@ -175,7 +175,7 @@ erb :basic, :locals => auth_result
 
 ## 「永続的な」認証の実装
 
-ウェブページにアクセスするたびに、ユーザにアプリケーションへのログインを求めるというのは非常に悪いモデルです。 たとえば、`http://localhost:4567/basic`に直接移動してみてください。 エラーになるでしょう。
+ウェブページにアクセスするたびに、ユーザにアプリケーションへのログインを求めるというのは非常に悪いモデルです。 たとえば、`http://127.0.0.1:4567/basic`に直接アクセスしてみてください。 エラーになるでしょう。
 
 「ここをクリック」というプロセスをすべてなくし、ユーザが__
 {% data variables.product.product_name %} にログインしている限りそれを記憶して、このアプリケーションにアクセスできるとしたらどうでしょうか。 実のところ、
@@ -265,7 +265,7 @@ get '/callback' do
 end
 ```
 
-コードの大部分は見慣れたもののはずです。 For example, we're still using `RestClient.get` to call out to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and we're still passing our results to be rendered in an ERB template (this time, it's called `advanced.erb`).
+コードの大部分は見慣れたもののはずです。 たとえば、ここでも{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIを呼び出すために`RestClient.get`を使用し、 またERBテンプレート (この例では`advanced.erb`) に結果をレンダリングするため結果を渡しています。
 
 また、ここでは`authenticated?`メソッドを使い、ユーザがすでに認証されているかを確認しています。 認証されていない場合は、`authenticate!`メソッドが呼び出され、OAuthのフローを実行して、付与されたトークンとスコープでセッションを更新します。
 
@@ -294,7 +294,7 @@ end
 </html>
 ```
 
-コマンドラインから`ruby advanced_server.rb`を呼び出します。このコマンドは、ポート`4567` (単純なSinatraアプリケーションを使用していた時と同じポート) でサーバーを起動します。 `http://localhost:4567` に移動すると、アプリケーションは`authenticate!`を呼び出し、`/callback`にリダイレクトします。 そして`/callback`で`/`に戻され、認証が終わっているので_advanced.erb_がレンダリングされます。
+コマンドラインから`ruby advanced_server.rb`を呼び出します。このコマンドは、ポート`4567` (単純なSinatraアプリケーションを使用していた時と同じポート) でサーバーを起動します。 `http://127.0.0.1:4567` にアクセスすると、アプリケーションは`authenticate!`を呼び出し、`/callback`にリダイレクトします。 そして`/callback`で`/`に戻され、認証が終わっているので_advanced.erb_がレンダリングされます。
 
 {% data variables.product.product_name %}のコールバックURLを`/`にするだけで、このラウンドトリップ経路を単純化できました。 ただし、_server.rb_と_advanced.rb_の両方が同じコールバックURLに依存しているため、動作は少し不安定になります。
 

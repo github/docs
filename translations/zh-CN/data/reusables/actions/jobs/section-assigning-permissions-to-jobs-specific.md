@@ -2,8 +2,8 @@ For a specific job, you can use `jobs.<job_id>.permissions` to modify the defaul
 
 通过在工作定义中指定权限，您可以根据需要为每个作业的 `GITHUB_TOKEN` 配置一组不同的权限。 或者，您也可以为工作流程中的所有作业指定权限。 有关在工作流程级别定义权限的信息，请参阅 [`permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#permissions)。
 
-{% data reusables.github-actions.github-token-available-permissions %}
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.github-token-available-permissions %}
+{% data reusables.actions.forked-write-permission %}
 
 #### Example: Setting permissions for a specific job
 

@@ -82,12 +82,14 @@ Adicionalmente a las características disponibles con {% data variables.product.
   - {% data variables.product.prodname_pages %}
   - Wikis
   - Gráficos de información del repositorio: pulso, contribuyentes, tráfico, confirmaciones, frecuencia de código, red y bifurcaciones
-{% ifversion fpt or ghec %}
+{%- ifversion fpt or ghec %}
 - La opción para habilitar {% data variables.product.prodname_github_codespaces %}
   - Los propietarios de organizaciones pueden habilitar los {% data variables.product.prodname_github_codespaces %} para la organización si configuran un límite de gastos y otorgan permisos de usuario para los miembros de su organziación. Para obtener más información, consulta la sección "[Habilitar los Codespaces para tu organización](/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization)".
-{% endif %}
+{%- endif %}
 
-{% data reusables.github-actions.actions-billing %}
+{% data variables.product.company_short %} factura por {% data variables.product.prodname_team %} en una modalidad "por usuario". Para obtener más información, consulta la sección "[Acerca de los precios por usuario]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion fpt %}".{% else %}" en la documentación de los tipos de cuenta gratuito, Pro & de equipo.{% endif %}
+
+{% data reusables.actions.actions-billing %}
 
 ## {% data variables.product.prodname_enterprise %}
 
@@ -109,6 +111,8 @@ Adicionalmente a las características disponibles con {% data variables.product.
 - Un acuerdo de nivel de servicio del 99.9% de tiempo activo mensual
 - La opción de configurar tu empresa para los {% data variables.product.prodname_emus %}, para que puedas aprovisionar y administrar a los miembros con tu proveedor de identidad y restringir sus contribuciones para que solo se hagan en tu empresa. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
 - La opción de administrar de forma centralizada las políticas y la facturación de múltiples organizaciones {% data variables.product.prodname_dotcom_the_website %} con una cuenta de empresa. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)".
+
+{% data variables.product.company_short %} factura por {% data variables.product.prodname_ghe_cloud %} en una modalidad "por usuario". Para obtener más información, consulta la sección "[Acerca de los precios por usuario]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion ghec %}".{% else %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% endif %}
 
 Puedes configurar una prueba para evaluar {% data variables.product.prodname_ghe_cloud %}. Para obtener más información, consulta "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Configurar una prueba de {% data variables.product.prodname_ghe_cloud %}</a>".
 

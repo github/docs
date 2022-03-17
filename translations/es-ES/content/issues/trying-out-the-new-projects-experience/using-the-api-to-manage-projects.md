@@ -365,6 +365,43 @@ La respuesta contendrá la ID de nodo del elemento recién creado.
 
 Si intentas agregar un elemento que ya existe, se devolverá la ID de este.
 
+### Actualizar los ajustes de un proyecto
+
+El siguiente ejemplo actualizará los ajustes de tu proyecto. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto. Configura `public` en `true` para que tu proyecto sea público en {% data variables.product.product_name %}. Modifica `description` para hacer cambios al README de tu proyecto.
+
+{% curl %}
+```shell
+curl --request POST \
+--url https://api.github.com/graphql \
+--header 'Authorization: token <em>TOKEN</em>' \
+--data '{"query":"mutation { updateProjectNext(input: { projectId: \"<em>PROJECT_ID</em>\", title: \"Project title\", public: false, description: \"# Project README\n\nA long description\", shortDescription: \"A short description\"}) { projectNext { id, title, description, shortDescription }}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  mutation {
+    updateProjectNext(
+      input: {
+        projectId: "<em>PROJECT_ID</em>", 
+        title: "Project title",
+        public: false,
+        description: "# Project README\n\nA long description",
+        shortDescription: "A short description"
+      }
+    ) {
+      projectNext {
+        id
+        title
+        description
+        shortDescription
+      }
+    }
+  }'
+```
+{% endcli %}
+
 ### Actualizar un campo personalizado de texto, número o fecha
 
 El siguiente ejemplo actualizará el valor de un campo de fecha para un elemento. Reemplaza a `PROJECT_ID` con la ID de nodo de tu proyecto. Reemplaza a `ITEM_ID` con la ID de nodo del elemento que quieras actualizar. Reemplaza a `FIELD_ID` con la ID del campo que quieras actualizar.

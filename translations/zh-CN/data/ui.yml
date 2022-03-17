@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: 联系我们
@@ -44,6 +46,7 @@ pages:
   miniToc: 本文内容
   contributor_callout: 这篇文章的参与者和维护者是
   all_enterprise_releases: All Enterprise Server releases
+  about_versions: About versions
 errors:
   oops: 哎呀！
   something_went_wrong: 看来出现了错误。
@@ -77,6 +80,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: 字段
       arguments: 参数
       name: 名称
@@ -91,8 +95,16 @@ products:
       deprecation_notice: 废弃通知
   rest:
     reference:
+      default: 默认值
+      name: 名称
+      in: In
+      type: 类型
+      description: 描述
+      notes: 注：
       parameters: 参数
       response: 响应
+      error_codes: Error Codes
+      http_status_code: HTTP Status Code
       code_sample: 代码示例
       code_samples: 代码示例
       preview_notice: 预览通知
@@ -100,6 +112,8 @@ products:
       see_preview_notice: 查看预览通知
       see_preview_notices: 查看预览通知
       preview_header_is_required: 此标头<strong>必填</strong>
+      preview_notice_to_change: This API is under preview and subject to change
+      works_with_github_apps: Works with GitHub Apps
 footer:
   all_rights_reserved: 保留所有权利
   terms: 条款

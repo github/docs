@@ -21,7 +21,7 @@ shortTitle: 关于 Git LFS 计费
 
 {% data reusables.large_files.owner_quota_only %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## 购买附加存储空间和带宽
 

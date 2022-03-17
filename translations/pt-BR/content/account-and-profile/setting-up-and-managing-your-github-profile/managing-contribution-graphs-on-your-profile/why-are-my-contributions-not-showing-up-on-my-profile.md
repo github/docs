@@ -19,6 +19,8 @@ shortTitle: Contribuições ausentes
 
 Seu gráfico de contribuições de perfil é um registro de contribuições que você fez para repositórios {% ifversion ghae %}pertencentes a{% else %}em{% endif %} {% data variables.product.product_location %}. As contribuições recebem registros de data e hora de acordo com o UTC (Coordinated Universal Time, Horário universal coordenado), e não com o fuso horário local. As contribuições só serão contabilizadas se atenderem a determinados critérios. Em alguns casos, pode ser necessário recriar o gráfico para que as contribuições sejam exibidas.
 
+Se você faz parte de uma organização que usa o logon único SAML (SSO), você não poderá ver a atividade de contribuição da organização em seu perfil se não tiver uma sessão SSO ativa. As pessoas que visualizarem o seu perfil de fora da sua organização verão a atividade de contribuição anônima de sua atividade de contribuição para sua organização.
+
 ## Contribuições que são contabilizadas
 
 ### Problemas, pull requests e discussões

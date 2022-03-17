@@ -51,7 +51,7 @@ Ao criar uma regra de branch, o branch que você especificar ainda não existe n
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5506 %}
 1. Opcionalmente, habilite os pull requests necessários.
    - Em "Proteger os branches correspondentes", selecione **Exigir um pull request antes de realizar o merge**. ![Caixa de seleção Pull request review restriction (Restrição de revisão de pull request)](/assets/images/help/repository/PR-reviews-required-updated.png)
    - Opcionalmente, para exigir aprovações antes que um pull request possa ser mesclado, selecione **Exigir aprovações**, clique no menu suspenso **Número necessário de aprovações antes do merge** e, em seguida, selecione o número de aprovações de revisões que deseja exigir no branch. ![Menu suspenso para selecionar o número de revisões de aprovação obrigatórias](/assets/images/help/repository/number-of-required-review-approvals-updated.png)
@@ -62,8 +62,8 @@ Ao criar uma regra de branch, o branch que você especificar ainda não existe n
 {% endif %}
    - Opcionalmente, para ignorar uma revisão de aprovação de pull request quando um commit de modificação de código for enviado por push para o branch, selecione **Ignorar aprovações obsoletas de pull request quando novos commits forem enviados por push**. ![Caixa de seleção Dismiss stale pull request approvals when new commits are pushed (Ignorar aprovações de pull requests obsoletas ao fazer push de novos commits)](/assets/images/help/repository/PR-reviews-required-dismiss-stale.png)
    - Opcionalmente, para exigir a revisão de um proprietário do código quando o pull request afeta o código que tem um proprietário designado, selecione **Exigir revisão de Proprietários do Código**. Para obter mais informações, consulte "[Sobre proprietários do código](/github/creating-cloning-and-archiving-repositories/about-code-owners)". ![Require review from code owners (Exigir revisão de proprietários de código)](/assets/images/help/repository/PR-review-required-code-owner.png)
-{% ifversion fpt or ghec %}
-   - Opcionalmente, para permitir que pessoas ou equipes específicas façam push de código para o branch sem estar sujeito às regras de pull request acima, selecione **Permitir que atores específicos ignorem os requisitos de pull request**. Em seguida, pesquise e selecione as pessoas ou equipes que têm permissão para ignorar os requisitos do pull request. ![Permitir que os atores específicos ignorem a caixa de seleção de requisitos de pull request](/assets/images/help/repository/PR-bypass-requirements.png)
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5611 %}
+   - Opcionalmente, para permitir que pessoas ou equipes específicas enviem código por push para o branch sem criar pull requests quando necessário, selecione **permitir que atores específicos ignorem pull requests**. Em seguida, pesquise e selecione as pessoas ou equipes que devem ter permissão para pular a criação de um pull request. ![Permitir que os atores específicos ignorem a caixa de seleção de requisitos de pull request](/assets/images/help/repository/PR-bypass-requirements.png)
 {% endif %}
    - Opcionalmente, se o repositório fizer parte de uma organização, selecione **Restringir quem pode ignorar as revisões de pull request**. Em seguida, procure e selecione as pessoas ou equipes que têm permissão para ignorar as revisões de pull request. Para obter mais informações, consulte "[Ignorar uma revisão de pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)". ![Caixa de seleção Restrict who can dismiss pull request reviews (Restringir quem pode ignorar revisões de pull request)](/assets/images/help/repository/PR-review-required-dismissals.png)
 1. Opcionalmente, habilite as verificações de status obrigatórias. Para obter mais informações, consulte "[Sobre verificações de status](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)".
@@ -88,7 +88,7 @@ Ao criar uma regra de branch, o branch que você especificar ainda não existe n
    - Selecione **Restringir quem pode fazer push para os branches correspondentes**. ![Caixa de seleção Branch restriction (Restrição de branch)](/assets/images/help/repository/restrict-branch.png)
    - Procurar e selecionar pessoas, equipes ou aplicativos que tenham permissão para fazer push para o branch protegido. ![Pesquisa de restrição de branch](/assets/images/help/repository/restrict-branch-search.png)
 1. Opcionalmente, em "Regras aplicadas a todos incluindo administradores", selecione **Permitir pushes forçados**. ![Permitir opção push forçado](/assets/images/help/repository/allow-force-pushes.png)
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
   Em seguida, escolha quem pode fazer push forçado no branch.
     - Selecione **Todos** para permitir que todos com pelo menos permissões de escrita no repositório para forçar push para o branch, incluindo aqueles com permissões de administrador.
     - Selecione **Especificar quem pode fazer push forçado** para permitir que apenas pessoas ou equipes específicas possam fazer push forçado no branch. Em seguida, procure e selecione essas pessoas ou equipes. ![Captura de tela das opções para especificar quem pode fazer push forçado](/assets/images/help/repository/allow-force-pushes-specify-who.png)

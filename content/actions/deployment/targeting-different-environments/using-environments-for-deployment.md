@@ -10,7 +10,7 @@ redirect_from:
   - /actions/deployment/using-environments-for-deployment
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 ---
@@ -69,13 +69,13 @@ Secrets stored in an environment are only available to workflow jobs that refere
 
 ## Creating an environment
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
-{% data reusables.github-actions.new-environment %}
-{% data reusables.github-actions.name-environment %}
+{% data reusables.actions.sidebar-environment %}
+{% data reusables.actions.new-environment %}
+{% data reusables.actions.name-environment %}
 1. Optionally, specify people or teams that must approve workflow jobs that use this environment.
    1. Select **Required reviewers**.
    1. Enter up to 6 people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
@@ -107,13 +107,13 @@ When a workflow references an environment, the environment will appear in the re
 
 ## Deleting an environment
 
-{% data reusables.github-actions.permissions-statement-environment %}
+{% data reusables.actions.permissions-statement-environment %}
 
 Deleting an environment will delete all secrets and protection rules associated with the environment. Any jobs currently waiting because of protection rules from the deleted environment will automatically fail.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-environment %}
+{% data reusables.actions.sidebar-environment %}
 1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
 2. Click **I understand, delete this environment**.
 
