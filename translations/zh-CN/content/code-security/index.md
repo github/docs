@@ -19,6 +19,7 @@ featuredLinks:
     - '{% ifversion ghes < 3.3 or ghae %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
     - '{% ifversion ghae %}/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github{% endif %}'
     - '{% ifversion ghae %}/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system{% endif %}'
+    - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
   popular:
     - '{% ifversion ghes %}/admin/release-notes{% endif %}'
     - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies

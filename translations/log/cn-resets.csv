@@ -15,6 +15,7 @@ translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-r
 translations/zh-CN/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,Listed in localization-support#489
 translations/zh-CN/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,broken liquid tags
 translations/zh-CN/content/actions/learn-github-actions/usage-limits-billing-and-administration.md,broken liquid tags
+translations/zh-CN/content/actions/managing-workflow-runs/re-running-workflows-and-jobs.md,parsing error
 translations/zh-CN/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,broken liquid tags
 translations/zh-CN/content/actions/managing-workflow-runs/reviewing-deployments.md,Listed in localization-support#489
 translations/zh-CN/content/actions/security-guides/security-hardening-for-github-actions.md,broken liquid tags
@@ -136,6 +137,7 @@ translations/zh-CN/content/codespaces/developing-in-codespaces/developing-in-a-c
 translations/zh-CN/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,broken liquid tags
 translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization.md,broken liquid tags
+translations/zh-CN/content/codespaces/the-githubdev-web-based-editor.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces.md,broken liquid tags
 translations/zh-CN/content/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam.md,broken liquid tags
 translations/zh-CN/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/adding-an-existing-project-to-github-using-github-desktop.md,broken liquid tags
@@ -220,6 +222,7 @@ translations/zh-CN/content/rest/overview/other-authentication-methods.md,broken 
 translations/zh-CN/content/rest/overview/resources-in-the-rest-api.md,Listed in localization-support#489
 translations/zh-CN/content/rest/reference/enterprise-admin.md,broken liquid tags
 translations/zh-CN/content/search-github/getting-started-with-searching-on-github/about-searching-on-github.md,broken liquid tags
+translations/zh-CN/content/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment.md,broken liquid tags
 translations/zh-CN/content/sponsors/getting-started-with-github-sponsors/about-github-sponsors.md,broken liquid tags
 translations/zh-CN/content/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors.md,broken liquid tags
 translations/zh-CN/content/support/contacting-github-support/creating-a-support-ticket.md,broken liquid tags

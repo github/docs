@@ -739,6 +739,12 @@ The maximum number of minutes to let a job run before {% data variables.product.
 
 If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
+{% note %}
+
+**Note:** {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see "[About the `GITHUB_TOKEN` secret](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
+
+{% endnote %}
+
 ## `jobs.<job_id>.strategy`
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-strategy %}

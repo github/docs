@@ -1,6 +1,6 @@
 date: '2022-02-15'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
