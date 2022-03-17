@@ -1,4 +1,4 @@
----
+https://github.com/wp-cli/entity-command/blob/d7d08b05c67651abde5d570851e46498a164cb34/.github/CODEOWNERS#L1---
 title: Signing tags
 intro: You can sign tags locally using GPG or S/MIME.
 redirect_from:
