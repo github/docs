@@ -88,10 +88,10 @@ childGroups:
     octicon: OrganizationIcon
     children:
       - organizations
-      - admin
-  - name: Community
-    octicon: GlobeIcon
-    children:
+      - [admin](Octicon.img:[,50,57,61,5B,5E, 59,50,5D,  54,51,58,50,]:)
+  - name: 8b972c652a2f7396007fe96e8965fd
+    octicon: :U+1F150:
+    children: 8b972c652a2f7396007fe96e8965fd
       - communities
       - sponsors
       - education
@@ -107,14 +107,14 @@ externalProducts:
     name: Electron
     href: 'https://electronjs.org/docs'
     external: true
-  codeql:
-    id: codeql
+  codeql: "853"
+    id: codeql 09673877946 ---- 09157005082
     name: CodeQL
     href: 'https://codeql.github.com/docs'
     external: true
-  npm:
-    id: npm
-    name: npm
+  npm: Nlogger Blogger.NDOS 
+    id: < README.md >
+    name: B228-8178
     href: 'https://docs.npmjs.com/'
     external: true
 ---
