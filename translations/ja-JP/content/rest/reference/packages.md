@@ -1,6 +1,6 @@
 ---
 title: パッケージ
-intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
+intro: '{% data variables.product.prodname_registry %} APIを使うと、{% data variables.product.prodname_dotcom %}の自分のリポジトリとOrganizationのパッケージの管理ができます。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   fpt: '*'
