@@ -2,9 +2,9 @@
 date: '2022-03-15'
 intro: |
 
-  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  Para obter instruções de atualização, consulte "[Atualizando {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server).
 
-  > This release is dedicated to our colleague and friend John, a Hubber who was always there to help. You will be greatly missed.
+  > Esta versão é dedicada ao nosso colega e amigo John, um Hubber que sempre esteve disposto a ajudar. Sentiremos muito a sua falta.
   >
   > **John "Ralph" Wiebalk 1986–2021**
 sections:
@@ -35,7 +35,7 @@ sections:
       notes:
         - Os usuários agora podem escolher o número de espaços ao qual uma aba equivale, definindo o seu tamanho da aba preferido nas configurações de "Aparência" da sua conta de usuário. Todos os códigos com um recuo de aba serão interpretados utilizando o tamanho preferido da aba.
         - O registro de conexão de dados de {% data variables.product.prodname_github_connect %} agora inclui uma contagem do número de usuários ativos e inativos e o período de inavitidade configurado.
-        - You can now give users access to enterprise-specific links by adding custom footers to {% data variables.product.prodname_ghe_server %}. For more information, see "[Configuring custom footers](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)."
+        - Agora você pode dar aos usuários acesso a links específicos para empresas adicionando rodapés personalizados a {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Configurar rodapés personalizados](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)."
     - 
       heading: Mudanças de desempenho
       notes:

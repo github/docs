@@ -1,5 +1,5 @@
 ---
-title: Privacy Policies
+title: Políticas de Privacidade
 versions:
   fpt: '*'
 topics:

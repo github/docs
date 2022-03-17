@@ -23,7 +23,7 @@ shortTitle: 关于配置
 {% endif %}
 
 {% ifversion ghae %}
-To get started with {% data variables.product.product_name %}, you first need to deploy {% data variables.product.product_name %}. For more information, see "[Deploying {% data variables.product.product_name %}](/admin/configuration/configuring-your-enterprise/deploying-github-ae)."
+要开始使用 {% data variables.product.product_name %}，需要先部署 {% data variables.product.product_name %}。 更多信息请参阅“[部署 {% data variables.product.product_name %}](/admin/configuration/configuring-your-enterprise/deploying-github-ae)”。
 
 第一次访问您的企业时，您将完成初始配置，以便 {% data variables.product.product_name %} 可供使用。 初始配置包括连接您的企业与身份提供程序 (IdP) 连接、通过 SAML SSO 进行身份验证、配置企业中仓库和组织的策略，以及为出站电子邮件配置 SMTP。 更多信息请参阅“[初始化 {% data variables.product.prodname_ghe_managed %}](/admin/configuration/initializing-github-ae)。”
 

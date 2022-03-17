@@ -46,7 +46,7 @@ A cadeia de fornecedores do GitHub consiste em bens e serviços para nossos prod
 
 **O Padrão de Conduta do GitHub** proíbe condutas inseguras e ilegais, incluindo o uso consciente, a participação, o apoio ou a tolerância à escravidão moderna (escravidão, trabalho forçado ou obrigatório, tráfico, servidão ou trabalhadores presos, coagidos ou obrigados) ou ao trabalho infantil.
 
-GitHub complies with laws prohibiting trafficking and child labor in the jurisdictions in which it operates, including [U.S. Regulamento 2.17 da Aquisição Federal sobre o combate ao tráfico de seres humanos](https://www.govinfo.gov/content/pkg/CFR-2009-title48-vol1/pdf/CFR-2009-title48-vol1-part22-subpart22-17.pdf).
+O GitHub está em conformidade com as leis que proíbem o tráfico e o trabalho infantil nas jurisdições em que opera, incluindo [EUA. Regulamento 2.17 da Aquisição Federal sobre o combate ao tráfico de seres humanos](https://www.govinfo.gov/content/pkg/CFR-2009-title48-vol1/pdf/CFR-2009-title48-vol1-part22-subpart22-17.pdf).
 
 Além disso, o GitHub estabeleceu uma parceria com o Programa FairHotel, o que significa que o GitHub encoraja os seus funcionários a escolherem os hotéis endossados pelo FairHotel, certificando que os trabalhadores têm salários justos, benefícios adequados e têm suas opiniões ouvidas no ambiente de trabalho. Ser um parceiro do FairHotel também significa que o GitHub oferece negócios para hotéis como um empregador justo.
 

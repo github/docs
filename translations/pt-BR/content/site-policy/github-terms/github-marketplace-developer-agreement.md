@@ -66,12 +66,12 @@ Não obstante qualquer um dos requisitos estabelecidos na Seção 2 acima, Prop�
 - 2\. Contenha ou instale qualquer malware ou explorações ativas, ou use nossa plataforma para explorar a entrega (como uma parte de um comando ou sistema de controle);
 - 3\. Interfira, interrompa, danifique, prejudique ou acesse de forma não autorizada as máquinas, sistemas, hardware, servidores, redes, dispositivos, dados ou outros bens ou serviços de terceiros;
 - 4\. Inclua conteúdo falso ou enganoso;
-- 5\. Infringes on any proprietary right of any party, including patent, trademark, trade secret, copyright, right of publicity, or other rights;
+- 5\. Infringe qualquer direito de propriedade de qualquer parte, incluindo patentes, marcas comerciais, segredos comerciais, direito de publicidade ou outros direitos;
 - 6\. Seja injurioso, difamatório ou fraudulento;
 - 7\. Permita o download não autorizado de conteúdo ou mídia de streaming;
 - 8\. Exiba ou linque conteúdo ilegal;
 - 9\. assedie, abuse, ameace ou incite a violência contra qualquer indivíduo ou grupo, incluindo nossos funcionários, dirigentes e agentes ou outros usuários;
-- 10\. Is or contains sexually obscene content;
+- 10\. é ou tem conteúdo sexualmente obsceno;
 - 11\. Seja discriminatório ou abusivo contra qualquer indivíduo ou grupo;
 - 12\. Desvie Usuários Finais ou forneça links para qualquer outro site que imite o Marketplace ou finja ser o o Marketplace.
 
@@ -147,7 +147,7 @@ No caso de sua Listagem ser involuntariamente removida por ser defeituosa, malic
 
 **6.1** O GitHub será o vendedor de registro de Produtos de Desenvolvedor comprados pelos Usuários Finais via Marketplace.
 
-**6.2**  Os preços para as Listagens do Marketplace de Aplicações para Desenvolvedores serão definidos em dólares americanos (USD). O Desenvolvedor tem controle completo sobre a definição de preços para cada Listagem e, uma vez definidos, tais preços não podem ser alterados. Você pode aposentar um plano de preços para uma Listagem existente e adicionar um novo plano de preços para tal Listagem, desde que esse novo plano de preços não impacte negativamente os Usuários Finais existentes. Os preços definidos para Produtos de Desenvolvedor determinarão o valor de pagamento que você receberá. GitHub will remit 95% of the sale price in USD without reduction for Taxes except for any withholding taxes that are required under applicable law. The remaining 5% of the sales price will be allotted to and retained by GitHub.  No final de cada mês, e ao atingir um valor mínimo de 500 dólares, o GitHub efetuará sua parte dos pagamentos.
+**6.2**  Os preços para as Listagens do Marketplace de Aplicações para Desenvolvedores serão definidos em dólares americanos (USD). O Desenvolvedor tem controle completo sobre a definição de preços para cada Listagem e, uma vez definidos, tais preços não podem ser alterados. Você pode aposentar um plano de preços para uma Listagem existente e adicionar um novo plano de preços para tal Listagem, desde que esse novo plano de preços não impacte negativamente os Usuários Finais existentes. Os preços definidos para Produtos de Desenvolvedor determinarão o valor de pagamento que você receberá. O GitHub repassará 95% do preço de venda em dólares americanos sem redução de impostos, exceto para quaisquer impostos retidos que sejam exigidos pela lei aplicável. Os 5% restantes do preço de venda serão alocados e retidos pelo GitHub.  No final de cada mês, e ao atingir um valor mínimo de 500 dólares, o GitHub efetuará sua parte dos pagamentos.
 
 **6.3** Requisitos de Reembolso. Você será responsável por especificar os termos e as condições em relação aos reembolsos aos seus Usuários Finais. Em nenhuma circunstância o GitHub será responsável por oferecer suporte para reembolsos e o GitHUb não terá responsabilidade pelo pagamento de quaisquer reembolsos.
 
