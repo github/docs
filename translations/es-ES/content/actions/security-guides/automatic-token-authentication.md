@@ -23,7 +23,7 @@ At the start of each workflow run, {% data variables.product.prodname_dotcom %} 
 
 When you enable {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dotcom %} installs a {% data variables.product.prodname_github_app %} on your repository. The `GITHUB_TOKEN` secret is a {% data variables.product.prodname_github_app %} installation access token. You can use the installation access token to authenticate on behalf of the {% data variables.product.prodname_github_app %} installed on your repository. The token's permissions are limited to the repository that contains your workflow. For more information, see "[Permissions for the `GITHUB_TOKEN`](#permissions-for-the-github_token)."
 
-Before each job begins, {% data variables.product.prodname_dotcom %} fetches an installation access token for the job. The token expires when the job is finished.
+Before each job begins, {% data variables.product.prodname_dotcom %} fetches an installation access token for the job. {% data reusables.actions.github-token-expiration %}
 
 The token is also available in the `github.token` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
 

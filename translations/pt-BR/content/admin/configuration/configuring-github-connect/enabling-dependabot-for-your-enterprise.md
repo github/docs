@@ -100,7 +100,7 @@ Após habilitar {% data variables.product.prodname_dependabot_alerts %} para a s
 {% ifversion ghes %}
 Antes de habilitar {% data variables.product.prodname_dependabot_updates %}, você deverá configurar {% data variables.product.product_location %} para usar {% data variables.product.prodname_actions %} com executores auto-hospedados. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para o GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
 
-{% data variables.product.prodname_dependabot_updates %} are not supported on {% data variables.product.product_name %} if your enterprise uses clustering.
+{% data variables.product.prodname_dependabot_updates %} não são compatíveis em {% data variables.product.product_name %} se sua empresa usar clustering.
 {% endif %}
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
