@@ -66,7 +66,7 @@ Você pode fazer o download dos arquivos de registro da execução do seu fluxo 
 
   {% note %}
 
-  **Note**: When you download the log archive for a workflow that was partially re-run, the archive only includes the jobs that were re-run. To get a complete set of logs for jobs that were run from a workflow, you must download the log archives for the previous run attempts that ran the other jobs.
+  **Obersvação**: Ao fazer o download do arquivo de registro de um fluxo de trabalho que foi parcialmente executado, o arquivo só incluirá os trabalhos que foram reexecutados. Para obter um conjunto completo de registro para trabalhos foram executados de um fluxo de trabalho, você deverá fazer o download dos arquivos de registro para as tentativas de execução anteriores que executaram os outros trabalhos.
 
   {% endnote %}
 

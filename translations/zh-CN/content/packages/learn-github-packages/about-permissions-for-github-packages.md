@@ -47,8 +47,7 @@ shortTitle: 关于权限
 
 例如：
 -  要从仓库下载和安装包，您的令牌必须具有 `read:packages` 作用域，并且您的用户帐户必须具有读取权限。
-- {% ifversion fpt or ghes or ghec %}要在 {% data variables.product.product_name %}上删除软件包，您的令牌至少必须有 `delete:packages` 和 `read:packages` 作用域。 `repo` 作用域的软件包也需要存储库。{% elsif ghae %}若要删除 {% data variables.product.product_name %} 上包的指定版本，令牌必须具有 `delete:packages` 和 `repo` 作用域。{% endif %} 更多信息请参阅“[删除和恢复包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。
-
+- |{% ifversion fpt or ghes > 3.1 or ghec %}To delete a package on {% data variables.product.product_name %}, your token must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope. 更多信息请参阅“[删除和恢复软件包](/packages/learn-github-packages/deleting-and-restoring-a-package)”。{% endif %}
 | 作用域                                                                                                                                                                               | 描述                                                      | 所需权限   |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------ |
 | `read:packages`                                                                                                                                                                   | 从 {% data variables.product.prodname_registry %} 下载和安装包 | 读取     |

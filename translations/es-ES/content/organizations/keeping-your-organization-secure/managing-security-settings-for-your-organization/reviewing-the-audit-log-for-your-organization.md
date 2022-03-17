@@ -507,13 +507,13 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 {% ifversion fpt or ghes or ghec %}
 ### Acciones de la categoría `packages`
 
-| Acción                      | Descripción                                                                                                                                                                                                           |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `package_version_published` | Se activa cuando se publica una versión del paquete.                                                                                                                                                                  |
-| `package_version_deleted`   | Se activa cuando se borra una versión de paquete específica. Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)". |
-| `package_deleted`           | Se activa cuando se borra un paquete completo. Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".               |
-| `package_version_restored`  | Se activa cuando se borra una versión de paquete específica. Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)". |
-| `package_restored`          | Se activa cuando se restablece un paquete completo. Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".          |
+| Acción                      | Descripción                                                                                                                                                                                                                                 |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `package_version_published` | Se activa cuando se publica una versión del paquete.                                                                                                                                                                                        |
+| `package_version_deleted`   | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_deleted`           | Triggered when an entire package is deleted.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_version_restored`  | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_restored`          | Triggered when an entire package is restored.{% ifversion fpt or ghec or ghes > 3.1 %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
 {% endif %}
 

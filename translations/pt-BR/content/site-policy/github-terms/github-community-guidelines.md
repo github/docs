@@ -1,5 +1,5 @@
 ---
-title: GitHub Community Guidelines
+title: Diretrizes da comunidade do GitHub
 redirect_from:
   - /community-guidelines
   - /articles/github-community-guidelines
@@ -32,7 +32,7 @@ A finalidade principal da comunidade do GitHub é colaborar em projetos de softw
 * **Be empathetic** - GitHub is a global community with people from a wide variety of backgrounds and perspectives, many of which may not be your own. Try to put yourself in others’ shoes and understand their feelings before you address them. Do your best to help make GitHub a community where others feel safe to make contributions, participate in discussions, and share different ideas.
 
 
-## What if something or someone offends you?
+## E se algo ou alguém ofender você?
 
 While some disagreements can be resolved with direct, respectful communication between community members, we understand that is not always the case. We encourage our community to [let us know](https://support.github.com/contact/report-abuse?category=report-abuse&report=other&report_type=unspecified) when they believe content or activity they’ve encountered violates our policies. However, if you run into something or someone on the site that you find objectionable, here are some ways GitHub enables you to take action:
 
@@ -69,7 +69,7 @@ Where we have decided that moderation action is warranted, these are some of the
 * Suspending a user account or organization
 
 
-## Appeal and Reinstatement
+## Apelação e reinstauração
 
 In some cases there may be a basis to reverse a moderation action taken by GitHub Staff.
 
@@ -81,6 +81,6 @@ If you seek reinstatement or wish to appeal an enforcement action, please contac
 
 ## Avisos Legais
 
-We dedicate these Community Guidelines to the public domain for anyone to use, reuse, adapt, or whatever, under the terms of [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+Colocamos essas Diretrizes da Comunidade em domínio público para que qualquer pessoa use, reutilize, adapte, ou seja o que for, nos termos de [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/).
 
-These are only guidelines; they do not modify our [Terms of Service](/articles/github-terms-of-service/) and are not intended to be a complete list. Under those terms, GitHub retains full discretion to remove any content or terminate any accounts for activity that violates our [Acceptable Use Policies](/articles/github-acceptable-use-policies). These guidelines describe when we will exercise that discretion.
+Estas são apenas diretrizes; elas não modificam nossos [Termos de Serviço](/articles/github-terms-of-service/) e não pretendem ser uma lista completa. Under those terms, GitHub retains full discretion to remove any content or terminate any accounts for activity that violates our [Acceptable Use Policies](/articles/github-acceptable-use-policies). Estas diretrizes descrevem quando iremos exercer esse critério.
