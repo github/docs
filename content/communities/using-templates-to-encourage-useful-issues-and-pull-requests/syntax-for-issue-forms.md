@@ -24,20 +24,20 @@ This example YAML configuration file defines an issue form using several inputs 
 
 ## Top-level syntax
 
-All issue form configuration files must begin with `name`, `description`, and `body` key-value pairs.
+All issue form configuration files must begin with `name`, `about`, and `body` key-value pairs.
 
 ```YAML{:copy}
 name:
-description:
+about:
 body:
 ```
 
 You can set the following top-level keys for each issue form.
 
-| Key | Description | Required | Type |
+| Key | About | Required | Type |
 | :-- | :-- | :-- | :-- | :-- |
 | `name` | A name for the issue form template. Must be unique from all other templates, including Markdown templates. | Required | String |
-| `description` | A description for the issue form template, which appears in the template chooser interface. | Required | String |
+| `about` | A description for the issue form template, which appears in the template chooser interface. | Required | String |
 | `body` | Definition of the input types in the form. | Required | Array |
 | `assignees` | People who will be automatically assigned to issues created with this template. | Optional | Array or comma-delimited string |
 | `labels` | Labels that will automatically be added to issues created with this template. | Optional | Array or comma-delimited string |
@@ -102,7 +102,7 @@ Links? References? Anything that will give us more context about the issue that 
 
 ```yaml{:copy}
 name: 🐞 Bug
-description: File a bug/issue
+about: File a bug/issue
 title: "[BUG] <title>"
 labels: [Bug, Needs Triage]
 body:
