@@ -29,7 +29,7 @@ Puedes utilizar los campos personalizados para agregar metadatos a tus tareas. P
 - un número de campo para rastrear la complejidad de una tarea
 - un campo de selección sencillo para rastrear si una tarea tiene prioridad baja, media o alta
 - un campo de texto para agregar una nota rápida
-- un campo de iteración para planear el trabajo cada semana
+- an iteration field to plan work week-by-week, including support for breaks
 
 ### Visualizar tu proyecto desde perspectivas diferentes
 

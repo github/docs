@@ -1,6 +1,6 @@
 ---
 title: 在 GitHub 上查找文件
-intro: '您可以使用文件查找器在仓库中搜索文件。 To search for a file in multiple repositories on {% data variables.product.product_name %}, use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename).'
+intro: '您可以使用文件查找器在仓库中搜索文件。 要在 {% data variables.product.product_name %} 上的多个仓库中搜索文件，请使用 [`filename` 代码搜索限定符](/search-github/searching-on-github/searching-code#search-by-filename)。'
 redirect_from:
   - /articles/finding-files-on-github
   - /github/searching-for-information-on-github/finding-files-on-github

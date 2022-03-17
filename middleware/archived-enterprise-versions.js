@@ -4,6 +4,7 @@ import statsd from '../lib/statsd.js'
 import {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,
+  deprecatedWithFunctionalRedirects,
 } from '../lib/enterprise-server-releases.js'
 import patterns from '../lib/patterns.js'
 import versionSatisfiesRange from '../lib/version-satisfies-range.js'
@@ -13,6 +14,7 @@ import got from 'got'
 import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
 import { cacheControlFactory } from './cache-control.js'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '../lib/languages.js'
+import getRedirect, { splitPathByLanguage } from '../lib/get-redirect.js'
 
 function splitByLanguage(uri) {
   let language = null
@@ -35,6 +37,7 @@ const archivedFrontmatterFallbacks = readCompressedJsonFileFallbackLazily(
 )
 
 const cacheControl = cacheControlFactory(60 * 60 * 24 * 365)
+const noCacheControl = cacheControlFactory(0)
 
 // Combine all the things you need to make sure the response is
 // aggresively cached.
@@ -99,6 +102,39 @@ export default async function archivedEnterpriseVersions(req, res, next) {
 
   const redirectCode = pathLanguagePrefixed(req.path) ? 301 : 302
 
+  if (deprecatedWithFunctionalRedirects.includes(requestedVersion)) {
+    const redirectTo = getRedirect(req.path, req.context)
+    if (redirectTo) {
+      if (redirectCode === 301) {
+        cacheControl(res)
+      } else {
+        noCacheControl(res)
+      }
+      res.removeHeader('set-cookie')
+      return res.redirect(redirectCode, redirectTo)
+    }
+
+    const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
+      retry: retryConfiguration,
+      // This is allowed to be different compared to the other requests
+      // we make because downloading the `redirects.json` once is very
+      // useful because it caches so well.
+      // And, as of 2021 that `redirects.json` is 10MB so it's more likely
+      // to time out.
+      timeout: 1000,
+    })
+    const [language, withoutLanguage] = splitPathByLanguage(req.path, req.context.userLanguage)
+    const newRedirectTo = redirectJson[withoutLanguage]
+    if (newRedirectTo) {
+      if (redirectCode === 301) {
+        cacheControl(res)
+      } else {
+        noCacheControl(res)
+      }
+      res.removeHeader('set-cookie')
+      return res.redirect(redirectCode, `/${language}${newRedirectTo}`)
+    }
+  }
   // redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
   // (this only applies to versions <2.13)
   if (
@@ -135,7 +171,10 @@ export default async function archivedEnterpriseVersions(req, res, next) {
     }
   }
 
-  if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`)) {
+  if (
+    versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutArchivedRedirectsFile}`) &&
+    !deprecatedWithFunctionalRedirects.includes(requestedVersion)
+  ) {
     const redirectJson = await getRemoteJSON(getProxyPath('redirects.json', requestedVersion), {
       retry: retryConfiguration,
       // This is allowed to be different compared to the other requests

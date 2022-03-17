@@ -29,7 +29,7 @@ Primeiro, você precisará [registrar o seu aplicativo][new oauth app]. A cada a
 
 Você pode preencher cada informação da forma que preferir, exceto a **URL de chamada de retorno de autorização**. Esta é facilmente a parte mais importante para configurar o seu aplicativo. É a URL de chamada de retorno que o {% data variables.product.product_name %} retorna ao usuário após a autenticação bem-sucedida.
 
-Como estamos executando um servidor regular Sinatra, a localidade da instância local está definido como `http://localhost:4567`. Vamos preencher a URL de chamada de retorno como `http://localhost:4567/callback`.
+Como estamos executando um servidor do Sinatra regular, a localização da instância local está definida como `http://127.0.0.1:4567`. Vamos preencher o URL de retorno como `http://127.0.0.1:4567/callback`.
 
 ## Aceitar a autorização do usuário
 
@@ -80,7 +80,7 @@ Em seguida, em _views/index.erb_, cole este conteúdo:
 
 Observe também que a URL usa o parâmetro da consulta do `escopo` para definir os [escopos][oauth scopes] solicitados pelo aplicativo. Para o nosso aplicativo, estamos solicitando o escopo `user:email` para ler endereços de e-mail privados.
 
-Acesse, a partir do seu navegador, `http://localhost:4567`. Depois de clicar no link, você será direcionado para {% data variables.product.product_name %} e visualizará uma caixa de diálogo que se parece com isso: ![Diálogo do GitHub's OAuth](/assets/images/oauth_prompt.png)
+Acesse `http://127.0.0.1:4567`. Depois de clicar no link, você será direcionado para {% data variables.product.product_name %} e visualizará uma caixa de diálogo que se parece com isso: ![Diálogo do GitHub's OAuth](/assets/images/oauth_prompt.png)
 
 Se você confiar em você, clique em **Autorizar aplicativo**. Ah ha! O Sinatra envia um erro `404`. O que está acontecendo?!
 
@@ -175,7 +175,7 @@ Podemos fazer o que quisermos com os nossos resultados. Nesse caso, vamos simple
 
 ## Implementar autenticação "persistente"
 
-Seria um modelo muito ruim se exigíssemos que os usuários se conectassem ao aplicativo todas as vezes que eles precisassem para acessar a página web. Por exemplo, tente acessar diretamente `http://localhost:4567/basic`. Você receberá uma mensagem de erro.
+Seria um modelo muito ruim se exigíssemos que os usuários se conectassem ao aplicativo todas as vezes que eles precisassem para acessar a página web. Por exemplo, tente acessar diretamente `http://127.0.0.1:4567/basic`. Você receberá uma mensagem de erro.
 
 E se pudéssemos contornar todo o processo de "clique aqui", e apenas _lembrar-se_ disso, enquanto o usuário estiver conectado
 {% data variables.product.product_name %}, devem conseguir acessar este aplicativo? Espere um pouco,
@@ -294,7 +294,7 @@ Em seguida, crie um arquivo em _views_ denominado _advanced.erb_, e cole este ma
 </html>
 ```
 
-A partir da linha de comando, chame `ruby advanced_server.rb`, que inicia o seu servidor na porta `4567` -- a mesma porta que usamos quando tínhamos um aplicativo Sinatra simples. Ao acessar `http://localhost:4567`, o aplicativo chama `authenticate!`, que redireciona você para `/callback`. Em seguida, `/callback` nos envia de volta para `/`, e, já que fomos autenticados, interpreta _advanced.erb_.
+A partir da linha de comando, chame `ruby advanced_server.rb`, que inicia o seu servidor na porta `4567` -- a mesma porta que usamos quando tínhamos um aplicativo Sinatra simples. Ao acessar `http://127.0.0.1:4567`, o aplicativo chama `authenticate!` que redireciona você para `/callback`. Em seguida, `/callback` nos envia de volta para `/`, e, já que fomos autenticados, interpreta _advanced.erb_.
 
 Nós poderíamos simplificar completamente este encaminhamento de ida e volta simplesmente mudando a nossa URL de chamada de retorno em {% data variables.product.product_name %} para `/`. No entanto, uma vez que _server.rb_ e _advanced.rb_ dependem da mesma URL de chamada de retorno, temos que fazer um pouco mais de ajuste para que funcione.
 

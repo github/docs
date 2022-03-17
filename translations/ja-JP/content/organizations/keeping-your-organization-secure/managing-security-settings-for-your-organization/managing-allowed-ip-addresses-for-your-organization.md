@@ -1,25 +1,30 @@
 ---
 title: Organization に対する許可 IP アドレスを管理する
-intro: 接続を許可される IP アドレスのリストを設定することで、Organization のアセットに対するアクセスを制限することができます。
-product: '{% data reusables.gated-features.allowed-ip-addresses %}'
+intro: 接続を許可される IP アドレスのリストを設定することで、Organizationのプライベートアセットに対するアクセスを制限することができます。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
   - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 versions:
-  fpt: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: 許可 IPアドレスの管理
+permissions: Organization owners can manage allowed IP addresses for an organization.
 ---
-
-Organization のオーナーは、Organization に対する許可 IP アドレスを管理できます。
 
 ## 許可 IP アドレスについて
 
-特定の IP アドレスに対する許可リストを設定することで、Organization アセットへのアクセスを制限できます。 {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+特定の IP アドレスに対する許可リストを設定することで、Organizationのプライベートアセットへのアクセスを制限できます。 {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+
+{% ifversion ghec %}
+{% note %}
+
+**ノート:** IP許可リストを使用できるのは、{% data variables.product.prodname_ghe_cloud %}を使用するOrganizationだけです。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
@@ -27,7 +32,7 @@ Organization のオーナーは、Organization に対する許可 IP アドレ�
 
 許可リストをセットアップした場合は、Organizationにインストールした{% data variables.product.prodname_github_apps %}に設定されたIPアドレスを自動的に許可リストに追加するかを選択することもできます。 {% data variables.product.prodname_github_app %}の作者は、自分のアプリケーションのための許可リストを、アプリケーションが実行されるIPアドレスを指定して設定できます。 それらの許可リストを継承すれば、アプリケーションからの接続リクエストが拒否されるのを避けられます。 詳しい情報については「[{% data variables.product.prodname_github_apps %}によるアクセスの許可](#allowing-access-by-github-apps)」を参照してください。
 
-Enterprise アカウントで Organization に対して許可される IP アドレスを設定することもできます。 詳しい情報については、「[Enterprise にセキュリティ設定のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)」以下を参照してください。
+Enterprise アカウントで Organization に対して許可される IP アドレスを設定することもできます。 詳しい情報については、「[Enterprise にセキュリティ設定のポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)」以下を参照してください。
 
 ## 許可 IP アドレスを追加する
 

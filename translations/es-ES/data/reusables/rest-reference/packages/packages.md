@@ -1,4 +1,4 @@
-La API de {% data variables.product.prodname_registry %} te permite administrar paquetes utilizando la API de REST. Para aprender más sobre cómo restablecer o borrar paquetes, consulta la sección "[Restablecer y borrar paquetes](/packages/learn-github-packages/deleting-and-restoring-a-package)".
+The {% data variables.product.prodname_registry %} API enables you to manage packages using the REST API.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} To learn more about restoring or deleting packages, see "[Restoring and deleting packages](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
 Para utilizar esta API, primero tienes que autenticarte utilizando un token de acceso personal.
   - Para acceder a los metadatos del paquete, tu token debe incluir el alcance `read:packages`.

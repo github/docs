@@ -32,7 +32,9 @@ shortTitle: Monitor & troubleshoot
     * **Active**: The runner is currently executing a job.
     * **Offline**: The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
 
-## Checking self-hosted runner network connectivity
+## Troubleshooting network connectivity
+
+### Checking self-hosted runner network connectivity
 
 You can use the self-hosted runner application's `run` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.product.product_location %}.
 
@@ -64,6 +66,27 @@ run.cmd --check --url <em>https://github.com/octo-org/octo-repo</em> --pat <em>g
 The script tests each service, and outputs either a `PASS` or `FAIL` for each one. If you have any failing checks, you can see more details on the problem in the log file for the check. The log files are located in the `_diag` directory where you installed the runner application, and the path of the log file for each check is shown in the console output of the script.
 
 If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#communication-requirements)."
+
+### Disabling TLS certificate verification
+{% ifversion ghes %}
+By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If your {% data variables.product.product_name %} has a self-signed or internally-issued certificate, you may wish to disable TLS certificate verification for testing purposes.
+{% else %}
+By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If you encounter network problems, you may wish to disable TLS certificate verification for testing purposes.
+{% endif %}
+
+To disable TLS certification verification in the self-hosted runner application, set the `GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY` environment variable to `1` before configuring and running the self-hosted runner application.
+
+```shell
+export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
+./config.sh --url <em>https://github.com/octo-org/octo-repo</em> --token
+./run.sh
+```
+
+{% warning %}
+
+**Warning**: Disabling TLS verification is not recommended since TLS provides privacy and data integrity between the self-hosted runner application and {% data variables.product.product_name %}. We recommend that you install the {% data variables.product.product_name %} certificate in the operating system certificate store for your self-hosted runner. For guidance on how to install the {% data variables.product.product_name %} certificate, check with your operating system vendor.
+
+{% endwarning %}
 
 ## Reviewing the self-hosted runner application log files
 

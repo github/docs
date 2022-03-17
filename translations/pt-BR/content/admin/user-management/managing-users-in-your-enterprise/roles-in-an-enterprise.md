@@ -41,7 +41,7 @@ Os proprietários corporativos têm controle total da empresa e podem executar t
 {% ifversion ghec %}- Managing billing settings{% endif %}
 
 {% if enterprise-owner-join-org %}
-Os proprietários das empresas não têm acesso às configurações da organização ou ao conteúdo por padrão. Para obter acesso, os proprietários das empresas podem se juntar a qualquer organização pertencente à sua empresa. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+Os proprietários das empresas não têm acesso às configurações da organização ou ao conteúdo por padrão. Para obter acesso, os proprietários das empresas podem se juntar a qualquer organização pertencente à sua empresa. Para obter mais informações, consulte "[Gerenciando sua função em uma organização pertencente à sua empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
 
 Os proprietários de organizações na sua empresa não têm acesso à empresa propriamente dita, a não ser que você os torne proprietários da empresa.
 {% else %}

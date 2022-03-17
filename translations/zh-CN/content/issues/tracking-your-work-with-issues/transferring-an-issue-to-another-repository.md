@@ -18,7 +18,11 @@ shortTitle: 转移议题
 
 要将打开的议题转让给另一个仓库，必须对议题所在的仓库以及议题要转让到的仓库都有写入权限。 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
-您只能在同一用户或组织帐户拥有的仓库之间转让议题。 {% ifversion fpt or ghes or ghec %}你不能将议题从私有仓库转移到公共仓库。{% endif %}
+{% note %}
+
+**Note**: You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes or ghec %}A private repository issue cannot be transferred to a public repository.{% endif %}
+
+{% endnote %}
 
 转让议题时，评论、标签和受理人将保留。 不会保留议题的里程碑。 此议题将留在任何用户拥有或组织范围的项目板上，并从任何仓库项目板中删除。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。
 
