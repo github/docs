@@ -1,10 +1,11 @@
 ---
-title: Configurar las notificaciones para las dependencias vulnerables
-shortTitle: Configurar notificaciones
+title: Configuring notifications for Dependabot alerts
+shortTitle: Configure notifications
 intro: 'Optimiza la forma en la que recibes notificaciones de {% data variables.product.prodname_dependabot_alerts %}.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies
 versions:
   fpt: '*'
   ghes: '*'
@@ -51,7 +52,7 @@ Puedes configurar los ajustes de notificaciones para ti mismo o para tu organiza
 
 {% note %}
 
-**Nota:** Puedes filtrar tus notificaciones en {% data variables.product.company_short %} para mostrar las {% data variables.product.prodname_dependabot_alerts %}. Para recibir más información, consulta la sección "[Administrar las notificaciones desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".
+**Nota:** Puedes filtrar tus notificaciones en {% data variables.product.company_short %} para mostrar las {% data variables.product.prodname_dependabot_alerts %}. Para obtener más información, consulta la sección "[Administrar notificación desde tu bandeja de entrada](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)".
 
 {% endnote %}
 
@@ -59,7 +60,7 @@ Puedes configurar los ajustes de notificaciones para ti mismo o para tu organiza
 
 ## Cómo reducir el ruido de las notificaciones para las dependencias vulnerables
 
-Si te preocupa recibir demasiadas notificaciones para las {% data variables.product.prodname_dependabot_alerts %}, te recomendamos que te unas al resumen semanal por correo electrónico o que apagues las notificaciones mientras mantienes habilitadas las {% data variables.product.prodname_dependabot_alerts %}. Aún puedes navegar para ver tus {% data variables.product.prodname_dependabot_alerts %} en la pestaña de seguridad de tu repositorio. Para obtener más información, consulta la sección "[Visualizar y actualizar las dependencias vulnerables en tu repositiorio](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)".
+Si te preocupa recibir demasiadas notificaciones para las {% data variables.product.prodname_dependabot_alerts %}, te recomendamos que te unas al resumen semanal por correo electrónico o que apagues las notificaciones mientras mantienes habilitadas las {% data variables.product.prodname_dependabot_alerts %}. Aún puedes navegar para ver tus {% data variables.product.prodname_dependabot_alerts %} en la pestaña de seguridad de tu repositorio. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
 
 ## Leer más
 
