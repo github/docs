@@ -11,6 +11,7 @@ topics:
   - Repositories
 shortTitle: Understand your supply chain
 children:
+  - /about-supply-chain-security
   - /about-the-dependency-graph
   - /about-dependency-review
   - /exploring-the-dependencies-of-a-repository
