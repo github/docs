@@ -140,16 +140,6 @@ jobs:
           NODE_ENV: test
         run: ./script/warm-before-tests.mjs
 
-      - name: Start production-like server in the background
-        if: ${{ matrix.test-group == 'rendering' || matrix.test-group == 'routing' || matrix.test-group == 'content' }}
-        env:
-          NODE_ENV: test
-          PORT: 4000
-        run: |
-          node server.mjs &
-          sleep 3
-          curl --retry-connrefused --retry 5 -I --fail http://localhost:4000/healthz
-
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
