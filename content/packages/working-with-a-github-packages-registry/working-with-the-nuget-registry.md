@@ -237,3 +237,4 @@ If you're using a nuspec file, ensure that it has a `repository` element with th
 
 - "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
 {% endif %}
+working-with-the-nuget-registry.md
