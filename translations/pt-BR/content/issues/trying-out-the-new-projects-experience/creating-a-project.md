@@ -148,7 +148,7 @@ Posteriormente, você poderá editar as opções de seleção única e iteraçã
 1. Para campos de seleção única, você pode adicionar, excluir ou reordenar as opções.
 1. Para campos de iteração, você pode adicionar ou excluir as iterações, alterar nomes da iteração e alterar a data e a duração de início da iteração.
 
-   For more information on modifying iteration fields, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
+   Para obter mais informações sobre como modificar campos de iteração, consulte "[Gerenciando iterações nos projetos](/issues/trying-out-the-new-projects-experience/managing-iterations).
 
 ## Personalizando as suas visualizações
 

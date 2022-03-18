@@ -3,6 +3,7 @@ title: Editando consultorias de segurança no banco de dados consultivo do GitHu
 intro: 'Você pode enviar melhorias para qualquer consultoria publicada no {% data variables.product.prodname_advisory_database %}.'
 redirect_from:
   - /code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database
 versions:
   fpt: '*'
   ghec: '*'
