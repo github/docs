@@ -1,6 +1,7 @@
-import { getDOM } from '../helpers/supertest.js'
-import getRest, { getEnabledForApps } from '../../lib/rest/index.js'
 import { jest } from '@jest/globals'
+
+import { getDOM } from '../helpers/e2etest.js'
+import getRest, { getEnabledForApps } from '../../lib/rest/index.js'
 import { allVersions } from '../../lib/all-versions.js'
 
 describe('REST references docs', () => {
