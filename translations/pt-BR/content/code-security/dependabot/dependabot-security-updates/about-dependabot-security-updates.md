@@ -6,6 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-github-dependabot-security-updates
   - /github/managing-security-vulnerabilities/about-dependabot-security-updates
   - /code-security/supply-chain-security/about-dependabot-security-updates
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -27,7 +28,7 @@ topics:
 
 ## Sobre o {% data variables.product.prodname_dependabot_security_updates %}
 
-{% data variables.product.prodname_dependabot_security_updates %} torna mais fácil para você corrigir dependências vulneráveis no seu repositório. Se você habilitar este recurso, quando um alerta de {% data variables.product.prodname_dependabot %} for criado para uma dependência vulnerável no gráfico de dependências do seu repositório, {% data variables.product.prodname_dependabot %} tenta corrigir isso automaticamente. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis de](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)" e "[Configurar {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
+{% data variables.product.prodname_dependabot_security_updates %} torna mais fácil para você corrigir dependências vulneráveis no seu repositório. Se você habilitar este recurso, quando um alerta de {% data variables.product.prodname_dependabot %} for criado para uma dependência vulnerável no gráfico de dependências do seu repositório, {% data variables.product.prodname_dependabot %} tenta corrigir isso automaticamente. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)" e "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)".
 
 {% data variables.product.prodname_dotcom %} pode enviar  {% data variables.product.prodname_dependabot_alerts %} para repositórios afetados por uma vulnerabilidade revelada por uma consultoria de segurança de {% data variables.product.prodname_dotcom %} recentemente publicada. {% data reusables.security-advisory.link-browsing-advisory-db %}
 

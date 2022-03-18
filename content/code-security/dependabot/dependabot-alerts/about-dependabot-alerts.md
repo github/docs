@@ -7,7 +7,6 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies
   - /code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies
 versions:
   fpt: '*'
   ghes: '*'

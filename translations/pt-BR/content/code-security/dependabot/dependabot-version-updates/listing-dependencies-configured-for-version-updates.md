@@ -4,6 +4,7 @@ intro: 'Você pode visualizar as dependências que {% data variables.product.pro
 redirect_from:
   - /github/administering-a-repository/listing-dependencies-configured-for-version-updates
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -22,7 +23,7 @@ shortTitle: Listar dependências configuradas
 
 ## Visualizando dependências monitoradas por {% data variables.product.prodname_dependabot %}
 
-Depois de habilitar as atualizações de versão, você pode confirmar que a sua configuração está correta usando a aba **{% data variables.product.prodname_dependabot %}** no gráfico de dependências para o repositório. Para obter mais informações, consulte "[Habilitando e desabilitando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
+Depois de habilitar as atualizações de versão, você pode confirmar que a sua configuração está correta usando a aba **{% data variables.product.prodname_dependabot %}** no gráfico de dependências para o repositório. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
