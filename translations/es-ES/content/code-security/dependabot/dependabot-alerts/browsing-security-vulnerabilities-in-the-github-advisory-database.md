@@ -6,6 +6,7 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
   fpt: '*'
   ghec: '*'
@@ -36,7 +37,7 @@ Las asesorías que revisa {% data variables.product.company_short %} son vulnera
 
 Revisamos la validez de cada asesoría cuidadosamente. Cada asesoría que revisa {% data variables.product.company_short %} tiene una descripción completa y contiene información tanto del ecosistema como del paquete.
 
-Si habilitas las {% data variables.product.prodname_dependabot_alerts %} para tus repositorios, se te notifica automáticamente cuando una asesoría que revisa {% data variables.product.company_short %} afecta a los paquetes de los que dependes. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
+Si habilitas las {% data variables.product.prodname_dependabot_alerts %} para tus repositorios, se te notifica automáticamente cuando una asesoría que revisa {% data variables.product.company_short %} afecta a los paquetes de los que dependes. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
 
 ### Acerca de las asesorías sin revisar
 
@@ -76,7 +77,7 @@ También se puede acceder a la base de datos utilizando la API de GraphQL. Para 
 {% endnote %}
 
 ## Editar una asesoría en la {% data variables.product.prodname_advisory_database %}
-Puedes sugerir mejoras a cualquier asesoría en la {% data variables.product.prodname_advisory_database %}. Para obtener más información, consulta la sección "[Editar las asesorías de seguridad en la {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)".
+Puedes sugerir mejoras a cualquier asesoría en la {% data variables.product.prodname_advisory_database %}. For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)."
 
 ## Buscar en la {% data variables.product.prodname_advisory_database %} por coincidencia exacta
 
@@ -107,7 +108,7 @@ Puedes buscar la base de datos y utilizar los calificadores para definir más tu
 
 ## Visualizar tus repositorios vulnerables
 
-Para cualquier asesoría que revise {% data variables.product.company_short %} en la {% data variables.product.prodname_advisory_database %}, puedes ver cuáles de tus repositorios se ven afectados por esa vulnerabilidad de seguridad. Para ver un repositorio vulnerable, debes tener acceso a las {% data variables.product.prodname_dependabot_alerts %} de este. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)".
+Para cualquier asesoría que revise {% data variables.product.company_short %} en la {% data variables.product.prodname_advisory_database %}, puedes ver cuáles de tus repositorios se ven afectados por esa vulnerabilidad de seguridad. Para ver un repositorio vulnerable, debes tener acceso a las {% data variables.product.prodname_dependabot_alerts %} de este. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)".
 
 1. Navega hasta https://github.com/advisories.
 2. Haz clic en una asesoría.

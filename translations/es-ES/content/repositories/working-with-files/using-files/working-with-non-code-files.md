@@ -130,6 +130,12 @@ Por defecto, la representación insertada es de 420 píxeles de ancho por 620 de
 
 {% endtip %}
 
+{% if mermaid %}
+### Rendering in Markdown
+
+You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+{% endif %}
+
 ## Representar datos CSV y TSV
 
 GitHub admite la representación de datos tabulares en la forma de archivos *.csv* (separados por coma) y .*tsv* (separados por pestaña).
@@ -233,7 +239,7 @@ Cuando haces clic en el ícono de papel a la derecha, también verás los cambio
 
 ![Captura de pantalla de conmutación de representación de fuente](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### Tipos de Geometry
+### Geometry types
 
 Los mapas en {% data variables.product.product_name %} utilizan [Leaflet.js](http://leafletjs.com) y admiten todos los tipos de Geometry indicados en [las especificaciones de geoJSON](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon y GeometryCollection). Los archivos TopoJSON deberían ser del tipo "Topology" y adherir a las especificaciones [topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
 
@@ -274,6 +280,12 @@ Por defecto, el mapa incrustado es 420px x 620px, pero puedes personalizar el re
 
 {% endtip %}
 
+{% if mermaid %}
+### Mapping in Markdown
+
+You can embed geoJSON and topoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+{% endif %}
+
 ### Agrupación
 
 Si tu mapa contiende una gran cantidad de marcadores (aproximadamente más de 750), GitHub automáticamente agrupará marcadores cercanos en niveles superiores de zoom. Simplemente haz clic la agrupación o el zoom de acercamiento para ver los marcadores individuales.
@@ -292,7 +304,7 @@ Por otra parte, si tu archivo `.geojson` es particularmente grande (superior a 1
 
 Todavía se podrían representar los datos al convertir el archivo `.geojson` a [TopoJSON](https://github.com/mbostock/topojson), un formato de compresión que, en algunos casos, puede reducir el tamaño del archivo hasta un 80 %. Por supuesto, siempre puedes partir el archivo en fragmentos más pequeños (como por estado o por año), y almacenar los datos como archivos múltiples dentro del repositorio.
 
-### Recursos adicionales
+### Leer más
 
 * [Documentación Leaflet.js geojson](http://leafletjs.com/examples/geojson.html)
 * [Documentación de estilización de marcador MapBox](http://www.mapbox.com/developers/simplestyle/)
@@ -320,3 +332,44 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 
 - [Repositorio GitHub de notebook Jupyter](https://github.com/jupyter/jupyter_notebook)
 - [Galería de notebooks Jupyter](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+
+{% if mermaid %}
+## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
+
+{% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
+
+For example, if you add a `.mmd` file with the following content to your repository:
+
+```
+graph TD
+    A[Friend's Birthday] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D["Cool <br> Laptop"]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+When you view the file in the repository, it is rendered as a flow chart. ![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
+
+### Solución de problemas
+
+If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
+
+If the chart displays, but does not appear as you'd expect, you can create a new [feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback), and add the `mermaid` tag.
+
+#### Problemas conocidos
+
+* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
+* Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
+* Not all charts are a11y compliant. This may affect users who rely on a screen reader.
+
+### Mermaid in Markdown
+
+You can embed Mermaid syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+
+### Leer más
+
+* [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
+* [Mermaid.js live editor](https://mermaid.live/edit)
+{% endif %}
+

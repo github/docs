@@ -3,6 +3,7 @@ title: Editing security advisories in the GitHub Advisory Database
 intro: 'You can submit improvements to any advisory published in the {% data variables.product.prodname_advisory_database %}.'
 redirect_from:
   - /code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database
 versions:
   fpt: '*'
   ghec: '*'
