@@ -69,4 +69,4 @@ Você pode enviar um arquivo existente para um repositório em {% ifversion ghae
 
 ## Leia mais
 
-- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"
+- "[Adicionando um código localmente hospedado em {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

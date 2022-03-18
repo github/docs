@@ -52,7 +52,7 @@ Exceto conforme proibido por lei, você entende e concorda que não seremos resp
 
 Nossa responsabilidade está limitada ao fato de termos ou não sido informados da possibilidade de tais danos, e mesmo que se encontre uma solução neste Contrato que não tenha falhado em seu propósito essencial. Não teremos qualquer responsabilidade por qualquer falha ou atraso devido a questões que não sejam passíveis de um controle razoável.
 
-## H. Miscellaneous
+## H. Diversos
 
 ### 1. Lei Governamental
 Exceto se a lei aplicável prever o contrário, este Contrato entre você e o GitHub e qualquer acesso ou uso do Site ou do Serviço são regidos pelas leis federais dos Estados Unidos da América e pelas leis do Estado da Califórnia, sem ter em conta as disposições em matéria de conflito de leis. Você e o GitHub aceitam submeterem-se à jurisdição exclusiva e aos tribunais localizados na Cidade e no Condado de São Francisco, Califórnia.

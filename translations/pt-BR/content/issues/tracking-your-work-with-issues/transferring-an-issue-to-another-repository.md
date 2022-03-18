@@ -20,7 +20,7 @@ Para transferir um problema aberto para outro repositório, é preciso ter acess
 
 {% note %}
 
-**Note**: You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes or ghec %}A private repository issue cannot be transferred to a public repository.{% endif %}
+**Observação**: Você só pode transferir problemas entre repositórios pertencentes à mesma conta de usuário ou de organização. {% ifversion fpt or ghes or ghec %}Um problema de repositório privado não pode ser transferido para um repositório público.{% endif %}
 
 {% endnote %}
 

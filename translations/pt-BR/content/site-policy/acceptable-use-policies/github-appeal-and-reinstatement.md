@@ -9,7 +9,7 @@ topics:
 
 ## Apelação e reinstauração
 
-While the majority of interactions between individuals in GitHub’s community fall within our Acceptable Use Policies and Community Guidelines, violations of those policies do occur at times. When they do, GitHub staff may need to take enforcement action to address the violations. However, in some cases there may be a basis to reverse a moderation action taken by GitHub Staff.
+Enquanto a maioria das interações entre indivíduos na comunidade do GitHub se enquadram em nossas Políticas de Uso Aceitáveis e Diretrizes da Comunidade. Âs vezes, ocorrem violações dessas políticas ocorrem. Quando ocorrem, a equipe do GitHub pode precisar tomar medidas de execução para resolver as violações. No entanto, em alguns casos, pode haver uma base para reverter uma medida de moderação tomada pelo pessoal do GitHub.
 
 ## What are appeals and reinstatements?
 

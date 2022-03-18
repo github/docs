@@ -104,7 +104,7 @@ Este Contrato é um acordo legal entre você ("você") e o GitHub, Inc. ("GitHub
 
   Estamos sempre tentando melhorar, e seu feedback nos ajudará a fazer isso. Se você optar por nos dar feedback, sugestões ou recomendações para o Programa ou para nossos produtos ou serviços (coletivamente, "Feedback"), você reconhece e concorda que estamos livres para usar esse Feedback da maneira que quisermos, sem restrições (sujeito a a quaisquer patentes ou direitos autorais aplicáveis, é claro).
 
-17. **Independent Contractors**
+17. **Contratados Independentes**
 
   As partes deste Acordo são contratantes independentes. Nenhum de nós será considerado empregado, agente, sócio, franqueador, franqueado ou representante legal do outro para qualquer finalidade e nenhum de nós terá qualquer direito, poder ou autoridade para criar qualquer obrigação ou responsabilidade em nome do outro.
 
