@@ -1,11 +1,12 @@
 ---
-title: Habilitando e desabilitando as atualizações da versão do Dependabot
+title: Configuring Dependabot version updates
 intro: 'Você pode configurar seu repositório para que o {% data variables.product.prodname_dependabot %} atualize automaticamente os pacotes que você usa.'
 permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
   - /code-security/supply-chain-security/enabling-and-disabling-version-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,7 +18,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Habilitar e desabilitar atualizações
+shortTitle: Configure version updates
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
@@ -34,7 +35,7 @@ Você habilita {% data variables.product.prodname_dependabot_version_updates %},
 
 ## Habilitar {% data variables.product.prodname_dependabot_version_updates %}
 
-{% data reusables.dependabot.create-dependabot-yml %} Para obter informações, consulte "[Opções de configuração para atualizações de dependência](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+{% data reusables.dependabot.create-dependabot-yml %} For information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
 1. Adicione uma `versão`.
 1. Opcionalmente, se você tiver dependências em um registro privado, adicione uma seção de `registros` que contém detalhes de autenticação.
 1. Adicione uma seção de `atualizações` com uma entrada para cada gerenciador de pacotes que você deseja que {% data variables.product.prodname_dependabot %} monitore.
@@ -138,4 +139,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-Para obter mais informações sobre as verificações para preferências de ignore existentes, consulte "[Opções de configuração para atualizações de dependências](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)".
+For more information about checking for existing ignore preferences, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
