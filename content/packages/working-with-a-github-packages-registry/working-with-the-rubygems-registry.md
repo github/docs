@@ -158,3 +158,4 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
 - "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
 
 {% endif %}
+working-with-the-rubygems-registry.md
