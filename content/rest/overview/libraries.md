@@ -138,6 +138,7 @@ topics:
 | Library name | Repository |
 |---|---|
 |**Octocrab**|[XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)|
+|**Octocat**|[octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs)|
 
 ### Scala
 
