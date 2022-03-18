@@ -50,6 +50,12 @@ shortTitle: 使用 Jekyll 本地测试站点
   ```
 3. 要预览站点，请在 web 浏览器中导航到 `http://localhost:4000`。
 
+{% note %}
+
+**Note:** If you are using Ruby 3.0 and Jekyll 4.2.x or older, you will need to add the `webrick` gem to your project's Gemfile prior to running `bundle install`.
+
+{% endnote %}
+
 ## 更新 {% data variables.product.prodname_pages %} gem
 
 Jekyll 是一个活跃的开源项目，经常更新。 如果您计算机上的 `github-pages` gem 版本落后于 {% data variables.product.prodname_pages %} 服务器上的 `github-pages` gem 版本，则您的站点在本地构建时的外观与在 {% data variables.product.product_name %} 上发布时的外观可能不同。 为避免这种情况，请定期更新计算机上的 `github-pages` gem。

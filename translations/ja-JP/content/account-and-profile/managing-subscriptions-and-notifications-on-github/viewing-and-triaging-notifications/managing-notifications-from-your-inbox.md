@@ -174,7 +174,7 @@ If you use {% data variables.product.prodname_dependabot %} to keep your depende
 - `reason:security_alert` は {% data variables.product.prodname_dependabot_alerts %} とセキュリティアップデートのプルリクエストの通知を表示します。
 - `author:app/dependabot` は {% data variables.product.prodname_dependabot %} によって生成された通知を表示します。 これには、{% data variables.product.prodname_dependabot_alerts %}、セキュリティアップデートのプルリクエスト、およびバージョン更新のプルリクエストが含まれます。
 
-For more information about {% data variables.product.prodname_dependabot %}, see "[About managing vulnerable dependencies](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)."
+{% data variables.product.prodname_dependabot %} の詳細については、「[{% data variables.product.prodname_dependabot_alerts %} について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
 {% endif %}
 
 {% ifversion ghes < 3.3 or ghae-issue-4864 %}
@@ -183,7 +183,7 @@ If you use {% data variables.product.prodname_dependabot %} to tell you about vu
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 
-{% data variables.product.prodname_dependabot %} に関する詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
+{% data variables.product.prodname_dependabot %} の詳細については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 {% endif %}
 
 {% endif %}
