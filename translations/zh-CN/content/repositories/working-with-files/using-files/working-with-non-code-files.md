@@ -130,6 +130,12 @@ SVG 目前不支持内联脚本或动画。
 
 {% endtip %}
 
+{% if mermaid %}
+### Rendering in Markdown
+
+You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+{% endif %}
+
 ## 呈现 CSV 和 TSV 数据
 
 GitHub 支持以 *.csv*（逗号分隔）和 .*tsv*（制表符分隔）文件的形式呈现表格数据。
@@ -233,7 +239,7 @@ GitHub 支持呈现 PDF 文档。
 
 ![源渲染切换屏幕截图](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### 几何类型
+### Geometry types
 
 {% data variables.product.product_name %} 上的地图使用 [Leaflet.js](http://leafletjs.com)，并且支持 [geoJSON 规格](http://www.geojson.org/geojson-spec.html)中列出的所有几何类型（Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 GeometryCollection）。 TopoJSON 文件类型应为 "Topology"（拓扑），并且遵守 [topoJSON 规格](https://github.com/mbostock/topojson/wiki/Specification)。
 
@@ -274,6 +280,12 @@ GitHub 支持呈现 PDF 文档。
 
 {% endtip %}
 
+{% if mermaid %}
+### Mapping in Markdown
+
+You can embed geoJSON and topoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+{% endif %}
+
 ### 集群
 
 如果地图包含大量标记（大约超过 750 个），GitHub 将自动以较高的缩放比例集群附近的标记。 只需单击群集或放大便可查看个别标记。
@@ -292,7 +304,7 @@ GitHub 支持呈现 PDF 文档。
 
 如果将 `.geojson` 文件转换为 [TopoJSON](https://github.com/mbostock/topojson)，可能还是能够渲染数据，TopoJSON 是一种压缩格式，有时能将文件减小 80%。 当然，您始终可以将文件分解为更小的数据块（例如按州或年分解），并将数据在仓库中存储为多个文件。
 
-### 其他资源
+### 延伸阅读
 
 * [Leaflet.js geojson 文档](http://leafletjs.com/examples/geojson.html)
 * [MapBox marker-styling 文档](http://www.mapbox.com/developers/simplestyle/)
@@ -320,3 +332,44 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 
 - [Jupyter Notebook 的 GitHub 仓库](https://github.com/jupyter/jupyter_notebook)
 - [Jupyter Notebook 的图片库](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+
+{% if mermaid %}
+## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
+
+{% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
+
+For example, if you add a `.mmd` file with the following content to your repository:
+
+```
+graph TD
+    A[Friend's Birthday] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D["Cool <br> Laptop"]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+When you view the file in the repository, it is rendered as a flow chart. ![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
+
+### 疑难解答
+
+If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
+
+If the chart displays, but does not appear as you'd expect, you can create a new [feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback), and add the `mermaid` tag.
+
+#### 已知问题
+
+* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
+* Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
+* Not all charts are a11y compliant. This may affect users who rely on a screen reader.
+
+### Mermaid in Markdown
+
+You can embed Mermaid syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+
+### 延伸阅读
+
+* [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
+* [Mermaid.js live editor](https://mermaid.live/edit)
+{% endif %}
+

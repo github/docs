@@ -5,6 +5,7 @@ redirect_from:
   - /github/administering-a-repository/keeping-your-actions-up-to-date-with-github-dependabot
   - /github/administering-a-repository/keeping-your-actions-up-to-date-with-dependabot
   - /code-security/supply-chain-security/keeping-your-actions-up-to-date-with-dependabot
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
 versions:
   fpt: '*'
   ghec: '*'
@@ -36,7 +37,7 @@ Actions are often updated with bug fixes and new features to make automated proc
 1. Set a `schedule.interval` to specify how often to check for new versions.
 {% data reusables.dependabot.check-in-dependabot-yml %} If you have edited an existing file, save your changes.
 
-You can also enable {% data variables.product.prodname_dependabot_version_updates %} on forks. For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-version-updates-on-forks)."
+You can also enable {% data variables.product.prodname_dependabot_version_updates %} on forks. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-version-updates-on-forks)."
 
 ### Example *dependabot.yml* file for {% data variables.product.prodname_actions %}
 
@@ -57,7 +58,7 @@ updates:
 
 ## Configuring {% data variables.product.prodname_dependabot_version_updates %} for actions
 
-When enabling {% data variables.product.prodname_dependabot_version_updates %} for actions, you must specify values for `package-ecosystem`, `directory`, and `schedule.interval`. There are many more optional properties that you can set to further customize your version updates. For more information, see "[Configuration options for dependency updates](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+When enabling {% data variables.product.prodname_dependabot_version_updates %} for actions, you must specify values for `package-ecosystem`, `directory`, and `schedule.interval`. There are many more optional properties that you can set to further customize your version updates. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
 
 ## Further reading
 

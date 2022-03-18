@@ -1,11 +1,12 @@
 ---
-title: Enabling and disabling Dependabot version updates
+title: Configuring Dependabot version updates
 intro: '您可以配置仓库，以便 {% data variables.product.prodname_dependabot %} 自动更新您使用的包。'
 permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
   - /code-security/supply-chain-security/enabling-and-disabling-version-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,7 +18,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: 启用和禁用更新
+shortTitle: Configure version updates
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
@@ -34,7 +35,7 @@ shortTitle: 启用和禁用更新
 
 ## 启用 {% data variables.product.prodname_dependabot_version_updates %}
 
-{% data reusables.dependabot.create-dependabot-yml %}有关信息，请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates)”。
+{% data reusables.dependabot.create-dependabot-yml %} For information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
 1. 添加 `version`。
 1. （可选）如果您在私人注册表中包含依赖项，请添加包含身份验证详细信息的 `registries` 部分。
 1. 添加 `updates` 部分，并输入您希望 {% data variables.product.prodname_dependabot %} 监控的每个包管理器的条目。
@@ -138,4 +139,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-有关检查现有忽略首选项的更多信息，请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)。”
+For more information about checking for existing ignore preferences, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."

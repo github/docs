@@ -1,6 +1,6 @@
 ---
 title: Hello World
-intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
+intro: '按照此 Hello World 练习开始使用 {% data variables.product.product_name %}。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,39 +15,39 @@ miniTocMaxHeadingLevel: 3
 
 ## 简介
 
-{% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+{% data variables.product.product_name %} 是一个用于版本控制和协作的代码托管平台。 它允许您和其他人随时随地协同处理项目。
 
-This tutorial teaches you {% data variables.product.product_name %} essentials like repositories, branches, commits, and pull requests. You'll create your own Hello World repository and learn {% data variables.product.product_name %}'s pull request workflow, a popular way to create and review code.
+本教程培训 {% data variables.product.product_name %} 的基本知识，如存储库、分支、提交和拉取请求等。 您将创建自己的 Hello World 存储库，并了解 {% data variables.product.product_name %} 的拉取请求工作流，这是创建和查看代码的常用方法。
 
-In this quickstart guide, you will:
+在本快速入门指南中，您将：
 
-* Create and use a repository
-* Start and manage a new branch
-* Make changes to a file and push them to {% data variables.product.product_name %} as commits
-* Open and merge a pull request
+* 创建和使用存储库
+* 启动和管理新分支
+* 对文件进行更改并将其作为提交推送到 {% data variables.product.product_name %}
+* 打开与合并拉取请求
 
-To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on). If you have a question about any of the expressions used in this guide, head on over to the [glossary](/get-started/quickstart/github-glossary) to find out more about our terminology.
+要完成本教程，您需要 [{% data variables.product.product_name %} 帐户](http://github.com)和连接互联网。 您不需要知道如何编码、使用命令行或安装 Git（构建 {% data variables.product.product_name %} 的版本控制软件）。 如果您对本指南中使用的任何表达方式有疑问，请转到[词汇表](/get-started/quickstart/github-glossary)了解术语的更多信息。
 
 ## 创建仓库
 
-A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a _README_ file, a file with information about your project. _README_ files are written in the plain text Markdown language. You can use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. {% data variables.product.product_name %} lets you add a _README_ file at the same time you create your new repository. {% data variables.product.product_name %} also offers other common options such as a license file, but you do not have to select any of them now.
+存储库通常用于组织单个项目。 存储库可以包含文件夹和文件、图像、视频、电子表格和数据集 - 项目所需的任何内容。 通常，存储库包括一个 _README_ 文件，其中含项目的相关信息。 _README_ 文件以纯文本 Markdown 语言编写。 您可以使用此[备忘单](https://www.markdownguide.org/cheat-sheet/)开始使用 Markdown 语法。 {% data variables.product.product_name %} 允许您在创建新存储库的同时添加 _README_ 文件。 {% data variables.product.product_name %} 还提供了其他常用选项，例如许可证文件，但您现在不必选择其中任何一个。
 
-Your `hello-world` repository can be a place where you store ideas, resources, or even share and discuss things with others.
+您的 `hello-world` 存储库可以是您存储想法、资源甚至与他人共享和讨论的地方。
 
 {% data reusables.repositories.create_new %}
-1. In the **Repository name** box, enter `hello-world`.
-2. In the **Description** box, write a short description.
-3. Select **Add a README file**.
-4. Select whether your repository will be **Public** or **Private**.
+1. 在 **Repository name（存储库名称）**框中，输入 `hello-world`。
+2. 在 **Description（说明）**框中，编写简短说明。
+3. 选择 **Add a README file（添加 README 文件）**。
+4. 选择您的存储库是**公有**还是**私有**。
 5. 单击 **Create repository（创建仓库）**。
 
-   ![Create a hello world repository](/assets/images/help/repository/hello-world-repo.png)
+   ![创建 hello world 存储库](/assets/images/help/repository/hello-world-repo.png)
 
 ## 创建分支
 
-Branching lets you have different versions of a repository at one time.
+通过分支，您可以同时拥有不同版本的存储库。
 
-By default, your repository has one branch named `main` that is considered to be the definitive branch. You can create additional branches off of `main` in your repository. You can use branches to have different versions of a project at one time. This is helpful when you want to add new features to a project without changing the main source of code. The work done on different branches will not show up on the main branch until you merge it, which we will cover later in this guide. You can use branches to experiment and make edits before committing them to `main`.
+默认情况下，存储库有一个名为 `main` 的分支，被视为最终分支。 您可以在存储库中创建 `main` 以外的其他分支。 You can use branches to have different versions of a project at one time. This is helpful when you want to add new features to a project without changing the main source of code. The work done on different branches will not show up on the main branch until you merge it, which we will cover later in this guide. You can use branches to experiment and make edits before committing them to `main`.
 
 When you create a branch off the `main` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
 
@@ -87,7 +87,7 @@ When you created a new branch in the previous step, {% data variables.product.pr
 You can make and save changes to the files in your repository. On {% data variables.product.product_name %}, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
 
 1. Under the `readme-edits` branch you created, click the _README.md_ file.
-2. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
+2. 单击 {% octicon "pencil" aria-label="The edit icon" %} 编辑文件。
 3. In the editor, write a bit about yourself. Try using different Markdown elements.
 4. In the **Commit changes** box, write a commit message that describes your changes.
 5. 单击 **Commit changes（提交更改）**。

@@ -1,11 +1,12 @@
 ---
-title: About alerts for vulnerable dependencies
+title: About Dependabot alerts
 intro: '{% data variables.product.product_name %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect vulnerabilities affecting your repository.'
 redirect_from:
   - /articles/about-security-alerts-for-vulnerable-dependencies
   - /github/managing-security-vulnerabilities/about-security-alerts-for-vulnerable-dependencies
   - /github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies
   - /code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
 versions:
   fpt: '*'
   ghes: '*'
@@ -81,7 +82,7 @@ For repositories where {% data variables.product.prodname_dependabot_security_up
 
 ## Access to  {% data variables.product.prodname_dependabot_alerts %}
 
-You can see all of the alerts that affect a particular project{% ifversion fpt or ghec %} on the repository's Security tab or{% endif %} in the repository's dependency graph. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
+You can see all of the alerts that affect a particular project{% ifversion fpt or ghec %} on the repository's Security tab or{% endif %} in the repository's dependency graph. For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
 
 By default, we notify people with admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% ifversion fpt or ghec %}{% data variables.product.product_name %} never publicly discloses identified vulnerabilities for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working repositories that you own or have admin permissions for. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 {% endif %}
@@ -95,5 +96,5 @@ You can also see all the {% data variables.product.prodname_dependabot_alerts %}
 ## Further reading
 
 - "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)"
-- "[Viewing and updating vulnerable dependencies in your repository](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% endif %}
+- "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% endif %}
 {% ifversion fpt or ghec %}- "[Privacy on {% data variables.product.prodname_dotcom %}](/get-started/privacy-on-github)"{% endif %}

@@ -4,6 +4,7 @@ intro: '您可以查看由 {% data variables.product.prodname_dependabot %} 监�
 redirect_from:
   - /github/administering-a-repository/listing-dependencies-configured-for-version-updates
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -22,7 +23,7 @@ shortTitle: 列出已配置的依赖项
 
 ## 查看由 {% data variables.product.prodname_dependabot %} 监视的依赖项
 
-启用版本更新后，可以使用仓库依赖关系图中的 **{% data variables.product.prodname_dependabot %}** 选项卡确认配置是否正确。 更多信息请参阅“[启用和禁用 {% data variables.product.prodname_dependabot %} 版本更新](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)”。
+启用版本更新后，可以使用仓库依赖关系图中的 **{% data variables.product.prodname_dependabot %}** 选项卡确认配置是否正确。 For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

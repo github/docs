@@ -1,10 +1,11 @@
 ---
-title: 配置有漏洞依赖项的通知
-shortTitle: 配置通知
+title: Configuring notifications for Dependabot alerts
+shortTitle: Configure notifications
 intro: '优化接收 {% data variables.product.prodname_dependabot_alerts %} 相关通知的方式。'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies
 versions:
   fpt: '*'
   ghes: '*'
@@ -59,7 +60,7 @@ topics:
 
 ## 如何减少有漏洞依赖项通知的干扰
 
-如果您想要收到太多 {% data variables.product.prodname_dependabot_alerts %} 的通知，我们建议您选择加入每周的电子邮件摘要，或者在保持 {% data variables.product.prodname_dependabot_alerts %} 启用时关闭通知。 您仍可导航到仓库的 Security（安全性）选项卡查看 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)”。
+如果您想要收到太多 {% data variables.product.prodname_dependabot_alerts %} 的通知，我们建议您选择加入每周的电子邮件摘要，或者在保持 {% data variables.product.prodname_dependabot_alerts %} 启用时关闭通知。 您仍可导航到仓库的 Security（安全性）选项卡查看 {% data variables.product.prodname_dependabot_alerts %}。 For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
 
 ## 延伸阅读
 
