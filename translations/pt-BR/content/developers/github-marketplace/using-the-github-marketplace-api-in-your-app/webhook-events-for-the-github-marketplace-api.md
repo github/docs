@@ -46,17 +46,17 @@ O objeto `marketplace_purchase` tem as seguintes chaves:
 
 O objeto `plano` tem as chaves a seguir:
 
-| Tecla                    | Tipo               | Descrição                                                                                                                             |
-| ------------------------ | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                     | `inteiro`          | O identificador exclusivo para este plano.                                                                                            |
-| `name`                   | `string`           | O nome do plano.                                                                                                                      |
-| `descrição`              | `string`           | Descrição deste plano.                                                                                                                |
-| `monthly_price_in_cents` | `inteiro`          | O preço mensal deste plano em centavos (moeda americana). Por exemplo, uma listagem que custa 10 dólares por mês será 1000 centavos.  |
-| `yearly_price_in_cents`  | `inteiro`          | O preço anual deste plano em centavos (moeda americana). Por exemplo, uma listagem que custa 100 dólares por mês será 10000 centavos. |
-| `price_model`            | `string`           | O modelo de preço para esta listagem. Pode ser uma das `tarifas fixas`, `por unidade`, ou `grátis`.                                   |
-| `has_free_trial`         | `boolean`          | `verdadeiro` quando esta listagem oferece um teste grátis.                                                                            |
-| `unit_name`              | `string`           | O nome da unidade. Se o modelo de preços não é `por unidade`, será `nulo`.                                                            |
-| `marcador`               | `array de strigns` | Os nomes dos marcadores estabelecidos no plano de preços.                                                                             |
+| Tecla                    | Tipo               | Descrição                                                                                                                              |
+| ------------------------ | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                     | `inteiro`          | O identificador exclusivo para este plano.                                                                                             |
+| `name`                   | `string`           | O nome do plano.                                                                                                                       |
+| `descrição`              | `string`           | Descrição deste plano.                                                                                                                 |
+| `monthly_price_in_cents` | `inteiro`          | O preço mensal deste plano em centavos (moeda americana). Por exemplo, uma listagem que custa 10 dólares por mês será 1000 centavos.   |
+| `yearly_price_in_cents`  | `inteiro`          | O preço anual deste plano em centavos (moeda americana). Por exemplo, uma listagem que custa 100 dólares por mês será 120000 centavos. |
+| `price_model`            | `string`           | O modelo de preço para esta listagem. Pode ser uma das `tarifas fixas`, `por unidade`, ou `grátis`.                                    |
+| `has_free_trial`         | `boolean`          | `verdadeiro` quando esta listagem oferece um teste grátis.                                                                             |
+| `unit_name`              | `string`           | O nome da unidade. Se o modelo de preços não é `por unidade`, será `nulo`.                                                             |
+| `marcador`               | `array de strigns` | Os nomes dos marcadores estabelecidos no plano de preços.                                                                              |
 
 <br/>
 

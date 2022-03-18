@@ -1,5 +1,5 @@
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-1. In the left sidebar, click **{% octicon "paintbrush" aria-label="The paintbrush icon" %} Appearance**.
+1. 在左侧边栏中，单击 **{% octicon "paintbrush" aria-label="The paintbrush icon" %} 外观**。
 {% else %}
 1. 在用户设置侧边栏中，单击 **Appearance（外观）**。
 

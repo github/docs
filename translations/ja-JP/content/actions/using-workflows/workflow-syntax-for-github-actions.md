@@ -64,7 +64,7 @@ Use `on.workflow_call` to define the inputs and outputs for a reusable workflow.
 
 When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
 
-In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
+In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. 詳しい情報については[`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype)を参照してください。
 
 If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
 
@@ -713,6 +713,12 @@ steps:
 {% data variables.product.prodname_dotcom %}で自動的にキャンセルされるまでジョブを実行する最長時間 (分)。 デフォルト: 360
 
 If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+
+{% note %}
+
+**Note:** {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see "[About the `GITHUB_TOKEN` secret](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
+
+{% endnote %}
 
 ## `jobs.<job_id>.strategy`
 

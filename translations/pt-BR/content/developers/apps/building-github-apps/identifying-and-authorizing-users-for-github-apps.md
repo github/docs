@@ -127,7 +127,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 O fluxo de dispositivos permite que você autorize usuários para um aplicativo sem cabeçalho, como uma ferramenta de CLI ou um gerenciador de credenciais do Git.
 
-Para obter mais informações sobre autorização de usuários que usam o fluxo do dispositivo, consulte "[Autorizar aplicativos OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
+{% if device-flow-is-opt-in %}Before you can use the device flow to identify and authorize users, you must first enable it in your app's settings. For more information on enabling device flow, see "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)." {% endif %}For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)."
 
 ## Verifique quais recursos de instalação um usuário pode acessar
 
