@@ -19,7 +19,7 @@ module.exports = {
   },
   i18n: {
     // locales: Object.values(languages).map(({ code }) => code),
-    locales: ['en', 'cn', 'ja', 'es', 'pt', 'de'],
+    locales: ['en', 'cn', 'ja', 'es', 'pt'],
     defaultLocale: 'en',
   },
   sassOptions: {
