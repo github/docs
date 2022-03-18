@@ -1,6 +1,7 @@
-import '../../lib/feature-flags.js'
-import { getDOM } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+
+import '../../lib/feature-flags.js'
+import { getDOM } from '../helpers/e2etest.js'
 
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)

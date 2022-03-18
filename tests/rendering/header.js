@@ -1,6 +1,7 @@
-import { getDOM } from '../helpers/supertest.js'
-import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 import { jest } from '@jest/globals'
+
+import { getDOM } from '../helpers/e2etest.js'
+import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 
 describe('header', () => {
   jest.setTimeout(5 * 60 * 1000)
