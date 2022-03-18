@@ -20,7 +20,7 @@ shortTitle: GitHub's use of your data
 
 {% data reusables.repositories.about-github-archive-program %} For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
 
-{% data reusables.user_settings.export-data %} For more information, see "[Requesting an archive of your personal account's data](/articles/requesting-an-archive-of-your-personal-account-s-data)."
+{% data reusables.user-settings.export-data %} For more information, see "[Requesting an archive of your personal account's data](/articles/requesting-an-archive-of-your-personal-account-s-data)."
 
 If you opt in to data use for a private repository, we will continue to treat your private data, source code, or trade secrets as confidential and private consistent with our [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service). The information we learn only comes from aggregated data. For more information, see "[Managing data use settings for your private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)."
 
@@ -28,7 +28,7 @@ We'll announce substantial new features that use metadata or aggregate data on t
 
 ## How data improves security recommendations
 
-As an example of how your data might be used, we can detect and alert you to a security vulnerability in your public repository's dependencies. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+As an example of how your data might be used, we can detect and alert you to a security vulnerability in your public repository's dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 
 To detect potential security vulnerabilities, {% data variables.product.product_name %} scans the contents of your dependency manifest file to draw a list of your project's dependencies.
 

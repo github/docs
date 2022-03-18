@@ -33,6 +33,8 @@ redirect_from:
 
 {% data reusables.saml.about-saml-access-enterprise-account %}詳細は「[Enterprise アカウントへのユーザの SAML アクセスの表示および管理](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)」を参照してください。
 
+{% data reusables.saml.saml-disabled-linked-identities-removed %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 {% elsif ghae %}
@@ -77,6 +79,7 @@ For more detailed information about how to enable SAML using Okta, see "[Configu
 9. SAML 発行者からのリクエストの完全性を確認するには、{% octicon "pencil" aria-label="The edit icon" %} をクリックします。 次に、[Signature Method] および [Digest Method] ドロップダウンで、SAML 発行者が使用するハッシュアルゴリズムを選択します。 ![SAML 発行者が使用する署名方式とダイジェスト方式のハッシュアルゴリズム用のドロップダウン](/assets/images/help/saml/saml_hashing_method.png)
 10. Enterprise で SAML SSO を有効化する前に、[**Test SAML configuration**] をクリックして、入力した情報が正しいか確認します。 ![強制化の前に SAML の構成をテストするためのボタン](/assets/images/help/saml/saml_test.png)
 11. [**Save**] をクリックします。
+{% data reusables.enterprise-accounts.download-recovery-codes %}
 
 {% elsif ghae %}
 

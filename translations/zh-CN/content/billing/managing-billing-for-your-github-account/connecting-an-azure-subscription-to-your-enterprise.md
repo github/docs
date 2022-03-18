@@ -28,6 +28,12 @@ shortTitle: 连接 Azure 订阅
 1. 要登录到您的 Microsoft 帐户，请按照提示执行。
 1. 查看“请求的权限”提示。 如果您同意条款，请单击 **Accept（接受）**。
 1. 在“Select a subscription（选择订阅）”下，选择您想要连接到企业的 Azure 订阅 ID。
+
+   {% note %}
+
+   **注意：**{% data variables.product.company_short %}的订阅权限验证请求只读访问权限以显示可用订阅的列表。 要选择 Azure 订阅，必须对订阅拥有所有者权限。 如果默认租户没有正确的权限，则可能需要指定其他租户 ID。 更多信息请参阅 Microsoft 文档中的 [Microsoft 身份平台和 OAuth 2.0 授权代码流](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code)。
+
+   {% endnote %}
 1. 单击 **Connect（连接）**。
 
 ## 从企业帐户断开您的 Azure 订阅

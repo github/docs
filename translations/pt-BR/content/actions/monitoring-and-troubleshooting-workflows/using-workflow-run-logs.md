@@ -19,7 +19,7 @@ Se a execução estiver concluída, será possível ver se o resultado teve êxi
 
 O {% data variables.product.prodname_actions %} usa a API de Verificação para mostrar os status, resultados e logs de um fluxo de trabalho. O {% data variables.product.prodname_dotcom %} cria um novo conjunto de verificações para cada execução de fluxo de trabalho. O conjunto de verificações contêm uma execução de verificação para cada trabalho no fluxo de trabalho, e cada trabalho inclui etapas. As ações do {% data variables.product.prodname_actions %} são executadas como etapas no fluxo de trabalho. Para obter mais informações sobre a API de verificações, consulte "[Verificações](/rest/reference/checks)".
 
-{% data reusables.github-actions.invalid-workflow-files %}
+{% data reusables.actions.invalid-workflow-files %}
 
 ## Exibir logs para diagnosticar falhas
 
@@ -31,11 +31,11 @@ Para trabalhos executados em executores hospedados no {% data variables.product.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-{% data reusables.repositories.view-failed-job-results-superlinter %}
-{% data reusables.repositories.view-specific-line-superlinter %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+{% data reusables.repositories.view-failed-job-results %}
+{% data reusables.repositories.view-specific-line %}
 
 ## Pesquisar logs
 
@@ -43,15 +43,10 @@ Para trabalhos executados em executores hospedados no {% data variables.product.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-1. No canto superior direito da saída do log, na caixa **Search logs** (Pesquisar logs), digite um termo de consulta.
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-  ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated-2.png)
-{% else %}
-  ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+1. No canto superior direito da saída do log, na caixa **Search logs** (Pesquisar logs), digite um termo de consulta. ![Caixa de pesquisa de logs](/assets/images/help/repository/search-log-box-updated-2.png)
 
 ## Fazer download dos registros
 
@@ -59,14 +54,22 @@ Você pode fazer o download dos arquivos de registro da execução do seu fluxo 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-1. No canto superior direito, clique em {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} e selecione **Fazer download do arquivo de registro**.
-  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+1. No canto superior direito, clique em {% octicon "gear" aria-label="The gear icon" %} e selecione **Fazer o download do arquivo de registro**.
+
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
-  {% else %}
-  ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated.png)
+
+
+  {% if re-run-jobs %}
+
+  {% note %}
+
+  **Obersvação**: Ao fazer o download do arquivo de registro de um fluxo de trabalho que foi parcialmente executado, o arquivo só incluirá os trabalhos que foram reexecutados. Para obter um conjunto completo de registro para trabalhos foram executados de um fluxo de trabalho, você deverá fazer o download dos arquivos de registro para as tentativas de execução anteriores que executaram os outros trabalhos.
+
+  {% endnote %}
+
   {% endif %}
 
 ## Excluir registros
@@ -75,20 +78,16 @@ Você pode excluir arquivos de registro da execução do seu fluxo de trabalho. 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
 1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
     ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
-    {% else %}
-    ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
-    {% endif %}
+
 2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação.
-  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
   ![Excluir todos os registros](/assets/images/help/repository/delete-all-logs-updated-2.png)
-  {% else %}
-  ![Excluir todos os registros](/assets/images/help/repository/delete-all-logs-updated.png)
-  {% endif %}
+
 Após excluir os registros, o botão **Excluir todos os registros** será removido para indicar que nenhum arquivo de registro permaneça na execução do fluxo de trabalho.
 
 ## Visualizar registros com {% data variables.product.prodname_cli %}

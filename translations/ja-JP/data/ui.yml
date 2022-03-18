@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products.
 header:
   github_docs: GitHub Docs
   contact: お問い合わせ
@@ -44,6 +46,7 @@ pages:
   miniToc: 'ここには以下の内容があります:'
   contributor_callout: この記事は、次の人によってコントリビュートされ、管理されています。
   all_enterprise_releases: All Enterprise Server releases
+  about_versions: About versions
 errors:
   oops: 問題が発生しています。
   something_went_wrong: 何か問題が生じています。
@@ -77,6 +80,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: フィールド
       arguments: 引数
       name: 名前
@@ -91,8 +95,16 @@ products:
       deprecation_notice: 非推奨通知
   rest:
     reference:
+      default: デフォルト
+      name: 名前
+      in: In
+      type: 種類
+      description: 説明
+      notes: 注釈
       parameters: パラメータ
       response: レスポンス
+      error_codes: Error Codes
+      http_status_code: HTTP Status Code
       code_sample: コードサンプル
       code_samples: コードサンプル
       preview_notice: プレビュー通知
@@ -100,6 +112,8 @@ products:
       see_preview_notice: プレビューの通知を見る
       see_preview_notices: プレビューの通知を見る
       preview_header_is_required: このヘッダは<strong>必須</strong>です
+      preview_notice_to_change: This API is under preview and subject to change
+      works_with_github_apps: Works with GitHub Apps
 footer:
   all_rights_reserved: All rights reserved
   terms: 規約

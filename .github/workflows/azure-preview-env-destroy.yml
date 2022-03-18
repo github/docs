@@ -19,6 +19,11 @@ on:
 permissions:
   contents: read
 
+# This allows one deploy workflow to interrupt another
+concurrency:
+  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
+  cancel-in-progress: true
+
 jobs:
   destory-azure-preview-env:
     name: Destroy
@@ -56,7 +61,7 @@ jobs:
       # This will fail if the IMAGE_REPO doesn't exist, but we don't care
       - name: 'Untag all docker images for this PR'
         run: |
-          az acr repository delete -n ${{ secrets.NONPROD_REGISTRY_NAME }} --repository ${{ env.IMAGE_REPO }} -y || true
+          az acr repository delete -n ${{ secrets.NONPROD_REGISTRY_SERVER }} --repository ${{ env.IMAGE_REPO }} -y || true
 
       # Remove all GitHub deployments from this environment and remove the environment
       - uses: strumwolf/delete-deployment-environment@45c821e46baa405e25410700fe2e9643929706a0

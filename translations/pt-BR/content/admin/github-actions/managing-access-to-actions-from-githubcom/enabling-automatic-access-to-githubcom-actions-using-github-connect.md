@@ -1,7 +1,7 @@
 ---
 title: Habilitar o acesso automático às ações do GitHub.com usando o GitHub Connect
 intro: 'Para permitir que {% data variables.product.prodname_actions %} na sua empresa use ações a partir de {% data variables.product.prodname_dotcom_the_website %}, você pode conectar a sua instância corporativa a {% data variables.product.prodname_ghe_cloud %}.'
-permissions: 'Site administrators for {% data variables.product.product_name %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
+permissions: 'Enterprise owners can enable access to all {% data variables.product.prodname_dotcom_the_website %} actions.'
 redirect_from:
   - /enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
   - /admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect
@@ -29,20 +29,15 @@ Para usar ações de {% data variables.product.prodname_dotcom_the_website %}, s
 
 ## Habilitar o acesso automático a todas as ações de {% data variables.product.prodname_dotcom_the_website %}
 
+Antes de permitir o acesso a todas as ações de {% data variables.product.prodname_dotcom_the_website %} para sua empresa, você deve {% ifversion ghes %}:
+- Configure {% data variables.product.product_location %} para usar {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para o GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+- Habilitar {% else %} habilitar{% endif %} {% data variables.product.prodname_github_connect %}. Para obter mais informações, consulte "[Gerenciando {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)".
+
 {% data reusables.actions.enterprise-github-connect-warning %}
 
-Antes de habilitar o acesso a todas as ações de {% data variables.product.prodname_dotcom_the_website %} na sua instância corporativa, você deve conectar sua empresa a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Conectando sua empresa a {% data variables.product.prodname_ghe_cloud %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)".
-
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion ghes < 3.1 %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{%- endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-{%- ifversion ghes > 3.0 or ghae %}
 1. Em "Os usuários podem usar as ações do GitHub.com em execuções do fluxo de trabalho", use o menu suspenso e selecione **Habilitado**. ![Menu suspenso para ações do GitHub.com em execuções do fluxos de trabalho](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
-{%- else %}
-1. Em "Servidor pode usar ações do GitHub.com em execuções de fluxos de trabalho", use o menu suspenso e selecione **Habilitado**. ![Menu suspenso para ações do GitHub.com em execuções do fluxos de trabalho](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down.png)
-{%- endif %}
 1. {% data reusables.actions.enterprise-limit-actions-use %}
 
 {% ifversion ghes > 3.2 or ghae-issue-4815 %}

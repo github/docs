@@ -1,6 +1,6 @@
 ---
 title: 使用角色管理人们对您的组织的访问
-intro: 'You can control access to your organizations''s settings and repositories by giving people organization, repository, and team roles.'
+intro: 您可以通过为人员提供组织、仓库和团队角色来控制对组织设置和仓库的访问。
 redirect_from:
   - /articles/managing-people-s-access-to-your-organization-with-roles
   - /articles/managing-peoples-access-to-your-organization-with-roles

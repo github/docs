@@ -102,6 +102,12 @@ topics:
 
 默认情况下，该设备还为使用 Git 的仓库访问和管理目的提供安全 Shell (SSH) 访问。 更多信息请参阅“[关于 SSH](/enterprise/user/articles/about-ssh)”和“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)“。
 
+{% ifversion ghes > 3.3 %}
+
+如果您为 {% data variables.product.product_location %} 配置 SAML 身份验证，则可以在实例和 SAML IdP 之间启用加密断言。 更多信息请参阅“[使用 SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)”。
+
+{% endif %}
+
 ### 用户和访问权限
 
 {% data variables.product.prodname_ghe_server %} 提供三种类型的帐户。

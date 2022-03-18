@@ -18,18 +18,18 @@ shortTitle: Reinstaurar a un miembro
 
 ## Acerca de la reinstauración de miembros
 
-If a user is removed from your organization in one of the following ways, the user's access privileges and settings are saved for three months.
+Si se elimina a un usuario de tu organización en alguna de las siguientes formas, sus privilegios de acceso y ajustes se guardarán durante tres meses.
 
-- You manually removed the user from your organization. For more information, see "[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."{% ifversion not ghae %}
-- The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[Requiring two-factor authentication in your organization](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
-- The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[Enforcing SAML single sign-on for your organization](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
-- You converted an organization member to an outside collaborator. Para obtener más información, consulta la sección "[Convertir a un miembro de la organización en colaborador externo](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
+- Eliminaste al usuario manualmente de tu organización. Para obtener más información, consulta la sección "[Eliminar a un miembro de tu organización](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)".{% ifversion not ghae %}
+- Se eliminó al usuario de tu organización porque requeriste que los miembros y colaboradores externos habilitaran la autenticación bifactorial (2FA). Para obtener más información, consulta la sección "[Solicitar la autenticación bifactorial en tu organización](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".{% endif %}{% ifversion fpt or ghec %}
+- Se eliminó al usuario de tu organización porque requeriste el inicio de sesión único de SAML. Para obtener más información, consulta la sección "[Requerir el inicio de sesión único de SAML en tu organización](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" en la documentaciòn de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}{% endif %}
+- Convertiste a un miembro de la organización en colaborador externo. Para obtener más información, consulta la sección "[Convertir a un miembro de la organización en colaborador externo](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
 
 Puedes restablecer los privilegios del usuario si los vuelves a{% ifversion fpt or ghec %}invitar{% else %} agregar{% endif %} a la organización dentro de este periodo de tiempo.
 
 {% note %}
 
-**Note:** {% data reusables.saml.removed-users-can-rejoin %} You do not need to invite these users to rejoin. Instead, the user can sign into their personal account, navigate to the organization, and click the banner to authenticate via SAML single sign-on.
+**Nota:** {% data reusables.saml.removed-users-can-rejoin %} No necesitas invitar a estos usuarios a que se vuelvan a unir. En vez de esto, el usuario puede iniciar sesión en su cuenta personal, navegar a la organización y hacer clic en el letrero para autenticarse a través del inicio de sesión único de SAML.
 
 {% endnote %}
 
@@ -55,7 +55,7 @@ Si tu organización tiene una suscripción de pago por usuario, debes de contar 
 ## Volver a admitir a un miembro anterior de tu organización
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.reinstate-user-type-username %}

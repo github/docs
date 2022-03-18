@@ -28,9 +28,9 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 ## Enabling or disabling features for existing repositories
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security-analysis %}
-3. Under "Configure security and analysis features", to the right of the feature, click **Disable all** or **Enable all**.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
+3. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**.
   {% ifversion ghes > 3.2 %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/settings/security-and-analysis-disable-or-enable-all.png){% else %}!["Enable all" or "Disable all" button for "Configure security and analysis" features](/assets/images/help/settings/security-and-analysis-disable-or-enable-all.png){% endif %}
 6. Optionally, enable the feature by default for new repositories that you own.
   {% ifversion ghes > 3.2 %}!["Enable by default" option for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-by-default-in-modal.png){% else %}!["Enable by default" option for new repositories](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
@@ -41,13 +41,13 @@ For an overview of repository-level security, see "[Securing your repository](/c
 
 ## Enabling or disabling features for new repositories
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security-analysis %}
-3. Under "Configure security and analysis features", to the right of the feature, enable or disable the feature by default for new repositories that you own.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security-analysis %}
+3. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories that you own.
   {% ifversion ghes > 3.2 %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/help/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% endif %}
 
 ## Further reading
 
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Managing vulnerabilities in your project's dependencies](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"
+- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
 - "[Keeping your dependencies updated automatically](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"

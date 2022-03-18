@@ -1,5 +1,5 @@
 ---
-title: Sharing actions and workflows with your enterprise
+title: Compartir acciones y flujos de trabajo con tu empresa
 intro: You can share an action or workflow with your enterprise without publishing the action or workflow publicly.
 versions:
   feature: internal-actions
@@ -9,12 +9,6 @@ topics:
   - Action development
 shortTitle: Share with your enterprise
 ---
-
-{% note %}
-
-**Note:** Allowing workflows to access actions in internal repositories is currently in beta and subject to change.
-
-{% endnote %}
 
 ## About {% data variables.product.prodname_actions %} access to internal repositories
 

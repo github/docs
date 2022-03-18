@@ -28,8 +28,8 @@ Primero, necesitas crear una cuenta de usuario gratuita en {% data variables.pro
 
 Después de que crees tu cuenta de usuario, crea una cuenta de organización gratuita. Utilizarás esta cuenta de organización para crear y administrar las aulas {% data variables.product.prodname_classroom %}.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 4. Sigue las indicaciones para crear una organización gratuita.
 

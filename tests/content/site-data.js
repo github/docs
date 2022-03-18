@@ -1,20 +1,17 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
-import fs from 'fs'
 import { get, isPlainObject, has } from 'lodash-es'
 import flat from 'flat'
+import walkSync from 'walk-sync'
+import { ParseError } from 'liquidjs'
 import loadSiteData from '../../lib/site-data.js'
 import patterns from '../../lib/patterns.js'
 import { liquid } from '../../lib/render-content/index.js'
-import walkSync from 'walk-sync'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('siteData module (English)', () => {
-  let data
-  beforeAll(async () => {
-    data = await loadSiteData()
-  })
+  const data = loadSiteData()
 
   test('makes an object', async () => {
     expect(isPlainObject(data)).toBe(true)
@@ -48,31 +45,22 @@ describe('siteData module (English)', () => {
     expect(reusable.includes('任意のページの左上で')).toBe(true)
   })
 
-  // TODO: re-enable once Janky flakyness is resolved
-  // Docs Engineering issue: 964
-  test.skip('backfills missing translated site data with English values', async () => {
-    const newFile = path.join(__dirname, '../../data/newfile.yml')
-    await fs.writeFile(newFile, 'newvalue: bar')
-    const data = await loadSiteData()
-    expect(get(data, 'en.site.data.newfile.newvalue')).toEqual('bar')
-    expect(get(data, 'ja.site.data.newfile.newvalue')).toEqual('bar')
-    await fs.unlink(newFile)
-  })
-
-  test('all Liquid templating is valid', async () => {
+  test('all Liquid tags are valid', async () => {
     const dataMap = flat(data)
     for (const key in dataMap) {
       const value = dataMap[key]
       if (!patterns.hasLiquid.test(value)) continue
-      let message = `${key} contains a malformed Liquid expression`
-      let result = null
       try {
-        result = await liquid.parseAndRender(value)
+        await liquid.parseAndRender(value)
       } catch (err) {
-        console.trace(err)
-        message += `: ${err.message}`
+        if (err instanceof ParseError) {
+          console.warn('value that failed to parse:', value)
+          throw new Error(`Unable to parse with Liquid: ${err.message}`)
+        }
+        // Note, the parseAndRender() might throw other errors. For
+        // example errors about the the data. But at least it
+        // managed to get paste the Liquid parsing phase.
       }
-      expect(typeof result, message).toBe('string')
     }
   })
 

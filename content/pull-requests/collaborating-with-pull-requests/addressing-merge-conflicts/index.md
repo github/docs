@@ -18,3 +18,4 @@ children:
   - /resolving-a-merge-conflict-using-the-command-line
 shortTitle: Address merge conflicts
 ---
+

@@ -20,6 +20,8 @@ If you enable but don't enforce SAML SSO, organization members who choose not to
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
+{% data reusables.saml.saml-disabled-linked-identities-removed %}
+
 ## Enabling and testing SAML single sign-on for your organization
 
 Before your enforce SAML SSO in your organization, ensure that you've prepared the organization. For more information, see "[Preparing to enforce SAML single sign-on in your organization](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)."

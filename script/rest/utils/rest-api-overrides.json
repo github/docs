@@ -130,24 +130,54 @@
     "originalUrl": "/rest/reference/repos#delete-a-repository-invitation"
   },
   "repos/list-deploy-keys": {
-    "category": "deployments",
-    "subcategory": "keys",
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
     "originalUrl": "/rest/reference/repos#list-deploy-keys"
   },
   "repos/create-deploy-key": {
-    "category": "deployments",
-    "subcategory": "keys",
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
     "originalUrl": "/rest/reference/repos#create-a-deploy-key"
   },
   "repos/get-deploy-key": {
-    "category": "deployments",
-    "subcategory": "keys",
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
     "originalUrl": "/rest/reference/repos#get-a-deploy-key"
   },
   "repos/delete-deploy-key": {
-    "category": "deployments",
-    "subcategory": "keys",
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
     "originalUrl": "/rest/reference/repos#delete-a-deploy-key"
+  },
+  "repos#deploy-keys": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/repos#deploy-keys"
+  },
+  "deployments/list-deploy-keys": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/deployments#list-deploy-keys"
+  },
+  "deployments/create-deploy-key": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/deployments#create-a-deploy-key"
+  },
+  "deployments/get-deploy-key": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/deployments#get-a-deploy-key"
+  },
+  "deployments/delete-deploy-key": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/deployments#delete-a-deploy-key"
+  },
+  "deployments#deploy-keys": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/deployments#deploy-keys"
   },
   "repos/get-pages": {
     "category": "pages",
@@ -608,5 +638,165 @@
     "category": "webhooks",
     "subcategory": "repo-deliveries",
     "originalUrl": "/rest/reference/repos#redeliver-a-delivery-for-a-repository-webhook"
+  },
+  "enterprise-admin/add-custom-labels-to-self-hosted-runner-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#add-custom-labels-to-a-self-hosted-runner-for-an-enterprise"
+  },
+  "enterprise-admin/add-org-access-to-self-hosted-runner-group-in-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#add-organization-access-to-a-self-hosted-runner-group-in-an-enterprise"
+  },
+  "enterprise-admin/add-self-hosted-runner-to-group-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#add-custom-labels-to-a-self-hosted-runner-for-an-enterprise"
+  },
+  "enterprise-admin/create-registration-token-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#create-a-registration-token-for-an-enterprise"
+  },
+  "enterprise-admin/create-remove-token-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#create-a-remove-token-for-an-enterprise"
+  },
+  "enterprise-admin/create-self-hosted-runner-group-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#create-self-hosted-runner-group-for-an-enterprise"
+  },
+  "enterprise-admin/delete-self-hosted-runner-from-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#delete-self-hosted-runner-from-an-enterprise"
+  },
+  "enterprise-admin/delete-self-hosted-runner-group-from-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#delete-a-self-hosted-runner-group-from-an-enterprise"
+  },
+  "enterprise-admin/disable-selected-organization-github-actions-enterprise": {
+    "category": "actions",
+    "subcategory": "permissions",
+    "originalUrl": "/rest/reference/enterprise-admin#disable-a-selected-organization-for-github-actions-in-an-enterprise"
+  },
+  "enterprise-admin/enable-selected-organization-github-actions-enterprise": {
+    "category": "actions",
+    "subcategory": "permissions",
+    "originalUrl": "/rest/reference/enterprise-admin#enable-a-selected-organization-for-github-actions-in-an-enterprise"
+  },
+  "enterprise-admin/get-allowed-actions-enterprise": {
+    "category": "actions",
+    "subcategory": "permissions",
+    "originalUrl": "/rest/reference/enterprise-admin#get-allowed-actions-for-an-enterprise"
+  },
+  "enterprise-admin/get-github-actions-permissions-enterprise": {
+    "category": "actions",
+    "subcategory": "permissions",
+    "originalUrl": "/rest/reference/enterprise-admin#get-github-actions-permissions-for-an-enterprise"
+  },
+  "enterprise-admin/get-self-hosted-runner-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#get-a-self-hosted-runner-for-an-enterprise"
+  },
+  "enterprise-admin/get-self-hosted-runner-group-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#get-a-self-hosted-runner-group-for-an-enterprise"
+  },
+  "enterprise-admin/list-labels-for-self-hosted-runner-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise"
+  },
+  "enterprise-admin/list-org-access-to-self-hosted-runner-group-in-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#list-organization-access-to-a-self-hosted-runner-group-in-a-enterprise"
+  },
+  "enterprise-admin/list-runner-applications-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#list-runner-applications-for-an-enterprise"
+  },
+  "enterprise-admin/list-selected-organizations-enabled-github-actions-enterprise": {
+    "category": "actions",
+    "subcategory": "permissions",
+    "originalUrl": "/rest/reference/enterprise-admin#list-selected-organizations-enabled-for-github-actions-in-an-enterprise"
+  },
+  "enterprise-admin/list-self-hosted-runner-groups-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise"
+  },
+  "enterprise-admin/list-self-hosted-runners-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#list-self-hosted-runners-for-an-enterprise"
+  },
+  "enterprise-admin/list-self-hosted-runners-in-group-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#list-self-hosted-runners-in-a-group-for-an-enterprise"
+  },
+  "enterprise-admin/remove-all-custom-labels-from-self-hosted-runner-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#remove-all-custom-labels-from-a-self-hosted-runner-for-an-enterprise"
+  },
+  "enterprise-admin/remove-custom-label-from-self-hosted-runner-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#remove-a-custom-label-from-a-self-hosted-runner-for-an-enterprise"
+  },
+  "enterprise-admin/remove-org-access-to-self-hosted-runner-group-in-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#remove-organization-access-to-a-self-hosted-runner-group-in-an-enterprise"
+  },
+  "enterprise-admin/remove-self-hosted-runner-from-group-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#remove-a-self-hosted-runner-from-a-group-for-an-enterprise"
+  },
+  "enterprise-admin/set-allowed-actions-enterprise": {
+    "category": "actions",
+    "subcategory": "permissions",
+    "originalUrl": "/rest/reference/enterprise-admin#set-allowed-actions-for-an-enterprise"
+  },
+  "enterprise-admin/set-custom-labels-for-self-hosted-runner-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runners",
+    "originalUrl": "/rest/reference/enterprise-admin#set-custom-labels-for-a-self-hosted-runner-for-an-enterprise"
+  },
+  "enterprise-admin/set-github-actions-permissions-enterprise": {
+    "category": "actions",
+    "subcategory": "permissions",
+    "originalUrl": "/rest/reference/enterprise-admin#set-github-actions-permissions-for-an-enterprise"
+  },
+  "enterprise-admin/set-org-access-to-self-hosted-runner-group-in-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#set-organization-access-to-a-self-hosted-runner-group-in-an-enterprise"
+  },
+  "enterprise-admin/set-selected-organizations-enabled-github-actions-enterprise": {
+    "category": "actions",
+    "subcategory": "permissions",
+    "originalUrl": "/rest/reference/enterprise-admin#set-selected-organizations-enabled-for-github-actions-in-an-enterprise"
+  },
+  "enterprise-admin/set-self-hosted-runners-in-group-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#set-self-hosted-runners-in-a-group-for-an-enterprise"
+  },
+  "enterprise-admin/update-self-hosted-runner-group-for-enterprise": {
+    "category": "actions",
+    "subcategory": "self-hosted-runner-groups",
+    "originalUrl": "/rest/reference/enterprise-admin#update-a-self-hosted-runner-group-for-an-enterprise"
   }
 }

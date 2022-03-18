@@ -1,6 +1,6 @@
 ---
 title: 重命名文件
-intro: 'You can rename any file in your repository directly in {% data variables.product.product_name %} or by using the command line.'
+intro: '您可以直接在 {% data variables.product.product_name %} 中或使用命令行重命名存储库中的任何文件。'
 redirect_from:
   - /articles/renaming-a-file
   - /github/managing-files-in-a-repository/renaming-a-file
@@ -17,9 +17,9 @@ topics:
   - Repositories
 ---
 
-## Renaming a file on {% data variables.product.product_name %}
+## 重命名 {% data variables.product.product_name %} 上的文件
 
-Renaming a file also gives you the opportunity to [move the file to a new location](/articles/moving-a-file-to-a-new-location)
+重命名文件还使您有机会[将文件移动到新位置](/articles/moving-a-file-to-a-new-location)
 
 {% tip %}
 

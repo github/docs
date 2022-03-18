@@ -165,4 +165,10 @@ For more information about the available settings for `devcontainer.json`, see [
    - Para diagnosticar o erro revisando os registros de criação, clique em **Visualizar registro de criação**.
    - Para corrigir os erros identificados nos registros, atualize seu arquivo </code>devcontainer.json..</li>
 <li>Para aplicar as alterações, reconstrua seu contêiner.</li>
-</ul> 
+</ul>
+
+<h2 spaces-before="0">Leia mais</h2>
+
+<ul>
+<li>"<a href="/codespaces/prebuilding-your-codespaces">Pré-criando os seus codespaces</a>"</li>
+</ul>

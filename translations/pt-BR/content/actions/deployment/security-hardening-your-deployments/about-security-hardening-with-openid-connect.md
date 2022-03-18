@@ -47,7 +47,7 @@ O diagrama a seguir fornece uma visão geral de como o provedor OIDC de {% data 
 Ao configurar sua nuvem para confiar no provedor do OIDC de {% data variables.product.prodname_dotcom %}, você **deve** adicionar condições para filtrar as solicitações de entrada, para que os repositórios ou fluxos de trabalho não confiáveis não possam solicitar acesso aos tokens para seus recursos na nuvem:
 
 - Antes de conceder um token de acesso, o seu provedor da nuvem verifica se o [`assunto`](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) e outras reivindicações usadas para definir condições nas suas configurações de confiança correspondem às do token web do JSON da solicitação (JWT). Como resultado, você deve ter cuidado para definir corretamente o _assunto_ e outras condições no seu provedor de nuvem.
-- As etapas de configuração de confiança xo OIDC e a sintaxe para definir condições para as funções da nuvem (usando_Assunto_ e outras reivindicações) variarão dependendo do provedor de nuvem que você estiver usando. Para obter alguns exemplos, consulte "[Exemplos](#examples)".
+- As etapas de configuração de confiança xo OIDC e a sintaxe para definir condições para as funções da nuvem (usando_Assunto_ e outras reivindicações) variarão dependendo do provedor de nuvem que você estiver usando. Para obter alguns exemplos, consulte "[Exemplo de reivindicações do assunto](#example-subject-claims)".
 
 ### Entendendo o token do OIDC
 
@@ -135,7 +135,9 @@ Com o OIDC, um fluxo de trabalho de {% data variables.product.prodname_actions %
 
 As reivindicações de Audiência e Assunto são normalmente usadas em combinação, ao definir as condições da função/recursos em nuvem para definir o escopo do seu acesso aos fluxos de trabalho do GitHub.
 - **Audiência**: Por padrão, esse valor usa a URL do proprietário da organização ou do repositório. Isto pode ser usado para definir uma condição para que apenas os fluxos de trabalho na organização específica possam acessar a função da nuvem.
-- **Assunto**: Tem um formato predefinido e é uma concatenação de alguns dos metadados da chave sobre o fluxo de trabalho como, por exemplo, a organização, repositório, branch de {% data variables.product.prodname_dotcom %} ou [`trabalho`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idenvironment) associado. Há também muitas reivindicações adicionais compatíveis com o token do OIDC que também podem ser usadas para definir essas condições.
+- **Assunto**: Tem um formato predefinido e é uma concatenação de alguns dos metadados da chave sobre o fluxo de trabalho como, por exemplo, a organização, repositório, branch de {% data variables.product.prodname_dotcom %} ou [`trabalho`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idenvironment) associado. Consulte "[Exemplo de assunto reivindica](#example-subject-claims)" para ver como a reivindicação de assunto é montada a partir de metadados concatenados.
+
+Há também muitas reivindicações adicionais compatíveis com o token do OIDC que também podem ser usadas para definir essas condições.
 
 Além disso, seu provedor de nuvem poderia permitir que você atribuísse uma função aos tokens de acesso, permitindo que você especifique ainda mais permissões granulares.
 
@@ -145,46 +147,53 @@ Além disso, seu provedor de nuvem poderia permitir que você atribuísse uma fu
 
 {% endnote %}
 
-### Exemplos
+### Exemplo de reivindicações de assunto
 
-Os exemplos a seguir demonstram como usar "Assunto" como uma condição. O [assunto](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) usa informações do contexto [trabalho`` trabalho da execução do fluxo de trabalho](/actions/learn-github-actions/contexts#job-context) e orienta o seu provedor na nuvem que as solicitações do token de acesso só podem ser concedidas para solicitações de fluxos de trabalho em execução em branches e ambientes específicos. As seguintes secções descrevem alguns assuntos comuns que você pode usar.
+Os exemplos a seguir demonstram como usar "Assunto" como condição e explicam como o "Assunto" é montado a partir de metadados concatenados. O [assunto](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) usa informações do contexto [trabalho`` trabalho da execução do fluxo de trabalho](/actions/learn-github-actions/contexts#job-context) e orienta o seu provedor na nuvem que as solicitações do token de acesso só podem ser concedidas para solicitações de fluxos de trabalho em execução em branches e ambientes específicos. As seguintes secções descrevem alguns assuntos comuns que você pode usar.
 
 #### Filtragem para um ambiente específico
 
+A reivindicação de assunto inclui o nome do ambiente quando o trabalho fizer referência a um ambiente.
+
 Você pode configurar um assunto que filtra um nome de [ambiente](/actions/deployment/using-environments-for-deployment) específico. Neste exemplo, a execução do fluxo de trabalho deve ter sido originada de um trabalho que com um ambiente denominado `Produção`, em um repositório denominado `octo-repo` que pertence à organização `octo-org`:
 
-|          |                                                     |
-| -------- | --------------------------------------------------- |
-| Sintaxe: | `repo:orgName/repoName:environment:environmentName` |
-| Exemplo: | `repo:octo-org/octo-repo:environment:Production`    |
+|          |                                                                     |
+| -------- | ------------------------------------------------------------------- |
+| Sintaxe: | `repo:<orgName/repoName>:environment:<environmentName>` |
+| Exemplo: | `repo:octo-org/octo-repo:environment:Production`                    |
 
 #### Filtrando eventos `pull_request`
 
+A reivindicação do titular inclui a string `pull_request` quando o fluxo de trabalho é acionado por um evento de pull request, mas apenas se o trabalho não fizer referência a um ambiente.
+
 Você pode configurar um assunto que filtra o evento [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request). Neste exemplo, a execução do fluxo de trabalho deve ter sido acionada por um evento `pull_request` em um repositório denominado `octo-repo` que pertence à organização `octo-org`:
 
-
-|          |                                        |
-| -------- | -------------------------------------- |
-| Sintaxe: | `repo:orgName/repoName:pull_request`   |
-| Exemplo: | `repo:octo-org/octo-repo:pull_request` |
+|          |                                              |
+| -------- | -------------------------------------------- |
+| Sintaxe: | `repo:<orgName/repoName>:pull_request` |
+| Exemplo: | `repo:octo-org/octo-repo:pull_request`       |
 
 #### Filtrando um branch específico
 
+A reivindicação de assunto inclui o nome do branch do fluxo de trabalho, mas somente se o trabalho não fizer referência a um ambiente e se o fluxo de trabalho não for acionado por um evento de pull request.
+
 Você pode configurar um assunto que filtra para um nome de branch específico. Neste exemplo, a execução do fluxo de trabalho deve sido originada de um branch denominado `demo-branch`, em um repositório denominado `octo-repo` que pertence à organização `octo-org`:
 
-|          |                                                      |
-| -------- | ---------------------------------------------------- |
-| Sintaxe: | `repo:orgName/repoName:ref:refs/heads/branchName`    |
-| Exemplo: | `repo:octo-org/octo-repo:ref:refs/heads/demo-branch` |
+|          |                                                           |
+| -------- | --------------------------------------------------------- |
+| Sintaxe: | `repo:<orgName/repoName>:ref:refs/heads/branchName` |
+| Exemplo: | `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`      |
 
 #### Filtrando uma tag específica
 
+A reivindicação de assunto inclui o nome da tag do fluxo de trabalho, mas somente se o trabalho não fizer referência a um ambiente e se o fluxo de trabalho não for acionado por um evento de pull request.
+
 Você pode criar um assunto que filtra uma tag específica. Neste exemplo, a execução do fluxo de trabalho deve ter sido originada com uma tag denominada `demo-tag` em um repositório denominado `octo-repo` que pertence à organização `octo-org`:
 
-|          |                                                  |
-| -------- | ------------------------------------------------ |
-| Sintaxe: | `repo:orgName/repoName:ref:refs/tags/tagName`    |
-| Exemplo: | `repo:octo-org/octo-repo:ref:refs/tags/demo-tag` |
+|          |                                                               |
+| -------- | ------------------------------------------------------------- |
+| Sintaxe: | `repo:<orgName/repoName>:ref:refs/tags/<tagName>` |
+| Exemplo: | `repo:octo-org/octo-repo:ref:refs/tags/demo-tag`              |
 
 ### Configurando o assunto no seu provedor de nuvem
 

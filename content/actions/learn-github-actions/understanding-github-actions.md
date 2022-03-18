@@ -26,7 +26,21 @@ topics:
 
 {% data variables.product.prodname_actions %} goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
 
-{% data variables.product.prodname_dotcom %} provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.  
+{% ifversion fpt or ghec %}
+
+{% data variables.product.prodname_dotcom %} provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
+
+{% elsif ghes or ghae %}
+
+You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+
+For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+
+{% endif %}
 
 ## The components of {% data variables.product.prodname_actions %}
 
@@ -38,7 +52,7 @@ You can configure a {% data variables.product.prodname_actions %} _workflow_ to 
 
 A workflow is a configurable automated process that will run one or more jobs.  Workflows are defined by a YAML file checked in to your repository and will run when triggered by an event in your repository, or they can be triggered manually, or at a defined schedule.
 
-Your repository can have multiple workflows in a repository, each of which can perform a different set of steps.  For example, you can have one workflow to build and test pull requests, another workflow to deploy your application every time a release is created, and still another workflow that adds a label every time someone opens a new issue.
+You can have multiple workflows in a repository, each of which can perform a different set of steps.  For example, you can have one workflow to build and test pull requests, another workflow to deploy your application every time a release is created, and still another workflow that adds a label every time someone opens a new issue.
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}You can reference a workflow within another workflow, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."{% endif %}
 
@@ -225,7 +239,7 @@ In this diagram, you can see the workflow file you just created and how the {% d
 
 ## Viewing the workflow's activity
 
-Once your workflow has started running, you can {% ifversion fpt or ghes > 3.0 or ghae or ghec %}see a visualization graph of the run's progress and {% endif %}view each step's activity on {% data variables.product.prodname_dotcom %}.
+Once your workflow has started running, you can see a visualization graph of the run's progress and view each step's activity on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click **Actions**.
@@ -234,20 +248,10 @@ Once your workflow has started running, you can {% ifversion fpt or ghes > 3.0 o
     ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Under "Workflow runs", click the name of the run you want to see.
     ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. Under **Jobs** or in the visualization graph, click the job you want to see.
    ![Select job](/assets/images/help/images/overview-actions-result-navigate.png)
-{% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. View the results of each step.
     ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated-2.png)
-{% elsif ghes %}
-1. Click on the job name to see the results of each step.
-    ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated.png)
-{% else %}
-1. Click on the job name to see the results of each step.
-    ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result.png)
-{% endif %}
 
 ## Next steps
 
@@ -261,7 +265,7 @@ To understand how billing works for {% data variables.product.prodname_actions %
 
 ## Contacting support
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
 
 ## Further reading
 

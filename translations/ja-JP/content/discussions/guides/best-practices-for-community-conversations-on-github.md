@@ -23,7 +23,7 @@ Issue のオープンおよびディスカッションの相互参照につい�
 希望する会話のタイプに応じて、ディスカッション、Issue、プルリクエストを作成して参加できます。
 
 {% data variables.product.prodname_discussions %} を使用して、全体像のアイデアについて話し合い、ブレインストーミングを行って、プロジェクトを Issue にコミットする前にプロジェクトの特定の詳細をスパイクして、スコープを設定できます。 {% data variables.product.prodname_discussions %} is useful for teams if:
-- プロジェクトの発見段階で、Team が参加するディレクターを検討している場合
+- You are in the discovery phase of a project and are still learning which direction your team wants to go in
 - より広いコミュニティからプロジェクトについてのフィードバックを収集する必要がある場合
 - バグ修正、機能リクエスト、一般的な会話を別々に保持する必要がある場合
 
