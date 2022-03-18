@@ -8,6 +8,7 @@ redirect_from:
   - /github/administering-a-repository/about-dependabot-version-updates
   - /code-security/supply-chain-security/about-dependabot-version-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/upgrading-from-dependabotcom-to-github-native-dependabot
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -25,13 +26,13 @@ shortTitle: Dependabotバージョンアップデート
 {% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## {% data variables.product.prodname_dependabot_version_updates %} について
+## {% data variables.product.prodname_dependabot_version_updates %}について
 
 {% data variables.product.prodname_dependabot %} は、依存関係を維持する手間を省きます。 これを使用して、リポジトリが依存するパッケージおよびアプリケーションの最新リリースに自動的に対応できるようにすることができます。
 
 設定ファイルをリポジトリにチェックインすることにより、{% data variables.product.prodname_dependabot_version_updates %} を有効化します。 設定ファイルは、リポジトリに保存されているマニフェストまたは他のパッケージ定義ファイルの場所を指定します。 {% data variables.product.prodname_dependabot %} はこの情報を使用して、古いパッケージとアプリケーションをチェックします。 {% data variables.product.prodname_dependabot %} は、依存関係のセマンティックバージョニング（[semver](https://semver.org/)）を調べて、そのバージョンへの更新の必要性を判断することにより、依存関係の新しいバージョンの有無を決定します。 特定のパッケージマネージャーでは、{% data variables.product.prodname_dependabot_version_updates %} もベンダをサポートしています。 ベンダ (またはキャッシュ) された依存関係は、マニフェストで参照されるのではなく、リポジトリ内の特定のディレクトリにチェックインされる依存関係です。 パッケージサーバーが利用できない場合でも、ビルド時にベンダ依存関係を利用できます。 {% data variables.product.prodname_dependabot_version_updates %} は、ベンダの依存関係をチェックして新しいバージョンを確認し、必要に応じて更新するように設定できます。
 
-{% data variables.product.prodname_dependabot %} が古い依存関係を特定すると、プルリクエストを発行して、マニフェストを依存関係の最新バージョンに更新します。 ベンダーの依存関係の場合、{% data variables.product.prodname_dependabot %} はプルリクエストを生成して、古い依存関係を新しいバージョンに直接置き換えます。 テストに合格したことを確認し、プルリクエストの概要に含まれている変更履歴とリリースノートを確認して、マージします。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+{% data variables.product.prodname_dependabot %} が古い依存関係を特定すると、プルリクエストを発行して、マニフェストを依存関係の最新バージョンに更新します。 ベンダーの依存関係の場合、{% data variables.product.prodname_dependabot %} はプルリクエストを生成して、古い依存関係を新しいバージョンに直接置き換えます。 テストに合格したことを確認し、プルリクエストの概要に含まれている変更履歴とリリースノートを確認して、マージします。 For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 If you enable _security updates_, {% data variables.product.prodname_dependabot %} also raises pull requests to update vulnerable dependencies. 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-dependabot-security-updates)」を参照してください。
 
@@ -50,7 +51,7 @@ If you enable _security updates_, {% data variables.product.prodname_dependabot 
 ## サポートされているリポジトリとエコシステム
 <!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported repositories or ecosystems. -->
 
-サポートされているパッケージマネージャーのいずれかの依存関係マニフェストまたはロックファイルを含むリポジトリのバージョン更新を設定できます。 一部のパッケージマネージャーでは、依存関係のベンダを設定することもできます。 詳しい情報については、「[依存関係の更新の設定オプション](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#vendor) 」を参照してください。
+サポートされているパッケージマネージャーのいずれかの依存関係マニフェストまたはロックファイルを含むリポジトリのバージョン更新を設定できます。 一部のパッケージマネージャーでは、依存関係のベンダを設定することもできます。 For more information, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#vendor)."
 {% note %}
 
 {% data reusables.dependabot.private-dependencies-note %}

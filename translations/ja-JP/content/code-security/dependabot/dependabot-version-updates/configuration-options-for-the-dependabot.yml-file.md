@@ -1,10 +1,12 @@
 ---
-title: 依存関係の更新の設定オプション
+title: Configuration options for the dependabot.yml file
 intro: '{% data variables.product.prodname_dependabot %} がリポジトリを維持する方法をカスタマイズする場合に使用可能なすべてのオプションの詳細情報。'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /github/administering-a-repository/configuration-options-for-dependency-updates
   - /code-security/supply-chain-security/configuration-options-for-dependency-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
@@ -17,7 +19,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: 設定オプション
+shortTitle: Configure dependabot.yml
 ---
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
@@ -27,9 +29,9 @@ shortTitle: 設定オプション
 
 {% data variables.product.prodname_dependabot %} の設定ファイルである *dependabot.yml* では YAML 構文を使用します。 YAMLについて詳しくなく、学んでいきたい場合は、「[Learn YAML in five minutes (5分で学ぶYAML)](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)」をお読みください。
 
-このファイルは、リポジトリの `.github` ディレクトリに保存する必要があります。 *dependabot.yml* ファイルを追加または更新すると、即座にバージョン更新を確認します。 For more information and an example, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)."
+このファイルは、リポジトリの `.github` ディレクトリに保存する必要があります。 *dependabot.yml* ファイルを追加または更新すると、即座にバージョン更新を確認します。 For more information and an example, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)."
 
-セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのためのプルリクエストをトリガーするときにも使用されます。  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
+セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのためのプルリクエストをトリガーするときにも使用されます。  詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)」を参照してください。
 
 *dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 必要に応じて、最上位に `registries` キーを含めることができます。 ファイルは、`version: 2` で始まる必要があります。
 
@@ -53,7 +55,7 @@ shortTitle: 設定オプション
 | [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する                                              |
 | [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                                                         |
 | [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} がアクセスできるプライベートリポジトリ |
-| [`reviewers`](#reviewers)                                                  |       | プルリクエストのレビュー担当者                                                      |
+| [`レビュー担当者`](#reviewers)                                                    |       | プルリクエストのレビュー担当者                                                      |
 | [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                                                            |
 | [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)                                                    |
 | [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）                                                    |
@@ -170,7 +172,7 @@ updates:
 
 {% note %}
 
-**注釈**: `schedule` は、{% data variables.product.prodname_dependabot %} が新規更新を試行するタイミングを設定します。 ただし、プルリクエストを受け取るタイミングはこれだけではありません。 更新は、 `dependabot.yml` ファイルへの変更、更新失敗後のマニフェストファイルへの変更、または {% data variables.product.prodname_dependabot_security_updates %} に基づいてトリガーされることがあります。 詳しい情報については、「[{% data variables.product.prodname_dependabot %} プルリクエストの頻度](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)」および「[{% data variables.product.prodname_dependabot_security_updates %} について](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」を参照してください。
+**注釈**: `schedule` は、{% data variables.product.prodname_dependabot %} が新規更新を試行するタイミングを設定します。 ただし、プルリクエストを受け取るタイミングはこれだけではありません。 更新は、 `dependabot.yml` ファイルへの変更、更新失敗後のマニフェストファイルへの変更、または {% data variables.product.prodname_dependabot_security_updates %} に基づいてトリガーされることがあります。 For more information, see "[Frequency of {% data variables.product.prodname_dependabot %} pull requests](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
 
 {% endnote %}
 
@@ -187,7 +189,7 @@ updates:
   | ------------- | ----------------------------------------------- | ----------------------------------------------------------------------------- |
   | `direct`      | すべて                                             | 明示的に定義されたすべての依存関係。                                                            |
   | `indirect`    | `bundler`、`pip`、`composer`、`cargo`              | 直接依存関係の依存関係 (サブ依存関係、または過渡依存関係とも呼ばれる)。                                         |
-  | `すべて`         | すべて                                             | 明示的に定義されたすべての依存関係。 `bundler`、`pip`、`composer`、`cargo` についても、直接依存関係の依存関係になります。 |
+  | `all`         | すべて                                             | 明示的に定義されたすべての依存関係。 `bundler`、`pip`、`composer`、`cargo` についても、直接依存関係の依存関係になります。 |
   | `production`  | `bundler`、`composer`、`mix`, `maven`、`npm`、`pip` | Only dependencies in the "Production dependency group".                       |
   | `development` | `bundler`、`composer`、`mix`, `maven`、`npm`、`pip` | [Development dependency group] 内の依存関係のみ。                                      |
 
@@ -307,7 +309,7 @@ updates:
 
 リポジトリが`ignore`の設定を保存したかは、リポジトリで`"@dependabot ignore" in:comments`を検索すれば調べられます。 この方法で無視された依存関係の無視を解除したいなら、Pull Requestを再度オープンしてください。
 
-`@dependabot ignore` コマンドに関する詳細については、「[依存関係の更新に関するプルリクエストを管理する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」をご覧ください。
+For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 #### 無視する依存関係とバージョンを指定する
 
@@ -322,7 +324,7 @@ updates:
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# 更新されるべきではない依存関係を、`ignore`を使って指定する
+# `ignore`を使って更新されるべきではない依存関係を指定
 
 version: 2
 updates:
@@ -332,7 +334,7 @@ updates:
       interval: "daily"
     ignore:
       - dependency-name: "express"
-        # Expressではバージョン4と5に対するすべての更新を無視
+        # Expressについてはバージョン4と5に対するすべての更新を無視
         versions: ["4.x", "5.x"]
         # Lodashについてはすべての更新を無視
       - dependency-name: "lodash"
@@ -521,7 +523,7 @@ updates:
 {% endraw %}
 ```
 
-### `reviewers`
+### `レビュー担当者`
 
 `reviewers` を使用して、パッケージマネージャーに対して発行されたすべてのプルリクエストの個々のレビュー担当者またはレビュー担当者の Team を指定します。 チームを@メンションしている場合と同様に、Organization を含む完全な Team 名を使用する必要があります。
 
@@ -725,7 +727,7 @@ updates:
 
 {% raw %}
 ```yaml
-# 1つのプライベートリポジトリで依存関係を更新するための最低限の設定
+# 1つのプライベートリポジトリ内の依存関係の更新のための最小設定
 
 version: 2
 registries:

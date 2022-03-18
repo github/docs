@@ -6,6 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors
   - /github/managing-security-vulnerabilities/troubleshooting-dependabot-errors
   - /code-security/supply-chain-security/troubleshooting-dependabot-errors
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors
 versions:
   fpt: '*'
   ghec: '*'
@@ -76,7 +77,7 @@ To see the logs for any manifest file, click the **Last checked TIME ago** link,
 
 依存関係を含むすべてのアプリケーションには、依存関係グラフ、つまり、アプリケーションが直接または間接的に依存するすべてのパッケージバージョンの有向非巡回グラフがあります。 依存関係が更新されるたびに、このグラフを解決する必要があります。解決しない場合、アプリケーションがビルドされません。 npm や RubyGems のように、エコシステムに深く複雑な依存関係グラフがある場合、エコシステム全体をアップグレードせずに単一の依存関係をアップグレードすることは不可能な場合があります。
 
-この問題を回避する最善策としては、たとえばバージョン更新を有効化するなどして、最新のリリースバージョンで最新の状態に保つことです。 これにより、依存関係グラフを壊さない単純なアップグレードで 1 つの依存関係の脆弱性を解決できる可能性が高くなります。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+この問題を回避する最善策としては、たとえばバージョン更新を有効化するなどして、最新のリリースバージョンで最新の状態に保つことです。 これにより、依存関係グラフを壊さない単純なアップグレードで 1 つの依存関係の脆弱性を解決できる可能性が高くなります。 For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 ### 最新バージョンのオープンプルリクエストがすでに存在するため、{% data variables.product.prodname_dependabot %} を必要なバージョンに更新できない
 
@@ -90,13 +91,13 @@ To see the logs for any manifest file, click the **Last checked TIME ago** link,
 
 これは対処が難しいエラーです。 バージョン更新がタイムアウトした場合は、`allow` パラメーターを使用して更新する最も重要な依存関係を指定するか、または、`ignore` パラメーターを使用して更新から一部の依存関係を除外できます。 設定を更新すると、{% data variables.product.prodname_dependabot %} がバージョンの更新を確認し、利用可能な時間内にプルリクエストを生成できます。
 
-セキュリティアップデートがタイムアウトする場合、たとえばバージョン更新を有効にするなどして依存関係を最新に保つことで、タイムアウトが発生する可能性を減らすことができます。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+セキュリティアップデートがタイムアウトする場合、たとえばバージョン更新を有効にするなどして依存関係を最新に保つことで、タイムアウトが発生する可能性を減らすことができます。 For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 ### {% data variables.product.prodname_dependabot %} で追加のプルリクエストをオープンできない
 
 {% data variables.product.prodname_dependabot %} が生成するオープンプルリクエスト数には制限があります。 上限に達すると、新しいプルリクエストはオープンされず、このエラーが報告されます。 エラーを解決する最善策として、複数のオープンプルリクエストを確認してマージします。
 
-セキュリティアップデートとバージョン更新のプルリクエストには個別の制限があるため、オープンなバージョン更新のプルリクエストがセキュリティアップデートのプルリクエストの作成をブロックすることはできません。 セキュリティアップデートのプルリクエストの上限は 10 件です。 デフォルトではバージョン更新の上限は 5 件ですが、設定ファイルの `open-pull-requests-limit` パラメータを使用して変更できます。 詳しい情報については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit) 」を参照してください。
+セキュリティアップデートとバージョン更新のプルリクエストには個別の制限があるため、オープンなバージョン更新のプルリクエストがセキュリティアップデートのプルリクエストの作成をブロックすることはできません。 セキュリティアップデートのプルリクエストの上限は 10 件です。 デフォルトではバージョン更新の上限は 5 件ですが、設定ファイルの `open-pull-requests-limit` パラメータを使用して変更できます。 For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit)."
 
 このエラーを解決する最善策として、既存のプルリクエストの一部をマージまたはクローズして、新しいプルリクエストを手動でトリガーします。 詳しい情報については、「[{% data variables.product.prodname_dependabot %} のプルリクエストを手動でトリガーする](#triggering-a-dependabot-pull-request-manually)」を参照してください。
 
@@ -121,3 +122,8 @@ To see the logs for any manifest file, click the **Last checked TIME ago** link,
 
 - **セキュリティアップデート** — 修正済みのエラーを示す {% data variables.product.prodname_dependabot %} アラートを表示します。[**Create {% data variables.product.prodname_dependabot %} security update**] をクリックします。
 - **バージョン更新** — リポジトリの [**Insights**] タブで、[**Dependency graph**] をクリックし、[**Dependabot**] タブをクリックします。 [**Last checked *TIME* ago**] をクリックして、バージョン更新の最終チェック中に {% data variables.product.prodname_dependabot %} が生成したログファイルを表示します。 [**Check for updates**] をクリックします。
+
+## 参考リンク
+
+- "[Troubleshooting the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)"
+- 「[脆弱性のある依存関係の検出のトラブルシューティング](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)」

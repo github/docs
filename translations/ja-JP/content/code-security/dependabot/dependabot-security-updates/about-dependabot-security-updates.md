@@ -6,6 +6,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/about-github-dependabot-security-updates
   - /github/managing-security-vulnerabilities/about-dependabot-security-updates
   - /code-security/supply-chain-security/about-dependabot-security-updates
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -25,9 +26,9 @@ topics:
 {% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## {% data variables.product.prodname_dependabot_security_updates %} について
+## {% data variables.product.prodname_dependabot_security_updates %}について
 
-{% data variables.product.prodname_dependabot_security_updates %} で、リポジトリ内の脆弱性のある依存関係を簡単に修正できます。 この機能を有効にすると、リポジトリの依存関係グラフで脆弱性のある依存関係に対して {% data variables.product.prodname_dependabot %} アラートが発生すると、{% data variables.product.prodname_dependabot %} は自動的にそれを修正しようとします。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」 および「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
+{% data variables.product.prodname_dependabot_security_updates %} で、リポジトリ内の脆弱性のある依存関係を簡単に修正できます。 この機能を有効にすると、リポジトリの依存関係グラフで脆弱性のある依存関係に対して {% data variables.product.prodname_dependabot %} アラートが発生すると、{% data variables.product.prodname_dependabot %} は自動的にそれを修正しようとします。 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」および「[{% data variables.product.prodname_dependabot_security_updates %} の設定](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)」を参照してください。
 
 {% data variables.product.prodname_dotcom %} may send  {% data variables.product.prodname_dependabot_alerts %} to repositories affected by a vulnerability disclosed by a recently published {% data variables.product.prodname_dotcom %} security advisory. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
@@ -63,4 +64,4 @@ topics:
 
 ## {% data variables.product.prodname_dependabot %} セキュリティアップデートの通知について
 
-{% data variables.product.company_short %} で通知をフィルタして、{% data variables.product.prodname_dependabot %} セキュリティアップデートを表示できます。 詳しい情報については「[インボックスからの通知の管理](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)」を参照してください。
+{% data variables.product.company_short %} で通知をフィルタして、{% data variables.product.prodname_dependabot %} セキュリティアップデートを表示できます。 詳しい情報については「[インボックスからの通知を管理する](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)」を参照してください。

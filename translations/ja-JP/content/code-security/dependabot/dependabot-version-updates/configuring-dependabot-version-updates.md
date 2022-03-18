@@ -1,11 +1,12 @@
 ---
-title: Enabling and disabling Dependabot version updates
+title: Configuring Dependabot version updates
 intro: '{% data variables.product.prodname_dependabot %} が使用するパッケージを自動的に更新するようにリポジトリを設定できます。'
 permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
   - /github/administering-a-repository/enabling-and-disabling-version-updates
   - /code-security/supply-chain-security/enabling-and-disabling-version-updates
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-version-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,7 +18,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: 更新の有効化と無効化
+shortTitle: Configure version updates
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
@@ -34,7 +35,7 @@ shortTitle: 更新の有効化と無効化
 
 ## {% data variables.product.prodname_dependabot_version_updates %} を有効化する
 
-{% data reusables.dependabot.create-dependabot-yml %}詳しい情報については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates)」を参照してください。
+{% data reusables.dependabot.create-dependabot-yml %} For information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
 1. `version` を追加します。
 1. プライベートレジストリに依存関係がある場合、必要に応じて認証情報を含む `registries` セクションを追加します。
 1. `updates` セクションを追加し、{% data variables.product.prodname_dependabot %} に監視させるパッケージマネージャーごとにエントリを追加します。
@@ -138,4 +139,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-既存の無視設定の確認に関する詳細については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)」を参照してください。
+For more information about checking for existing ignore preferences, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."

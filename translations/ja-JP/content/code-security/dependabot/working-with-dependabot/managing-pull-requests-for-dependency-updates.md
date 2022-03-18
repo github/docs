@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_dependabot %} によって生成さ�
 redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -41,7 +42,7 @@ shortTitle: Dependabot PRの管理
 
 ## {% data variables.product.prodname_dependabot %} Pull Requestのリベース戦略を変更する
 
-デフォルトでは、{% data variables.product.prodname_dependabot %} は自動的にプルリクエストをリベースして競合を解決します。 マージの競合を手動で処理する場合は、`rebase-strategy` オプションを使用してこれを無効にできます。 詳細については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy) 」を参照してください。
+デフォルトでは、{% data variables.product.prodname_dependabot %} は自動的にプルリクエストをリベースして競合を解決します。 マージの競合を手動で処理する場合は、`rebase-strategy` オプションを使用してこれを無効にできます。 For details, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#rebase-strategy)."
 
 ## {% data variables.product.prodname_dependabot %} Pull Requestをコメントコマンドで管理する
 
@@ -62,4 +63,4 @@ shortTitle: Dependabot PRの管理
 
 {% data variables.product.prodname_dependabot %}はコマンドを認識すると"thumbs up"の絵文字で反応し、Pull Requestのコメントで応答することがあります。 {% data variables.product.prodname_dependabot %}は通常すぐに反応しますが、コマンドによっては{% data variables.product.prodname_dependabot %}が他の更新やコマンドを処理するのに忙しい場合、完了に数分かかることがあります。
 
-依存関係やバージョンを無視するコマンドを実行すると、{% data variables.product.prodname_dependabot %} はリポジトリの設定を一元的に保存します。 これは簡単な解決策ですが、複数のコントリビューターがいるリポジトリの場合は、設定ファイルで無視する依存関係とバージョンを明示的に定義することをお勧めします。 これにより、特定の依存関係が自動的に更新されない理由をすべてのコントリビューターが簡単に確認できます。 詳しい情報については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore) 」を参照してください。
+依存関係やバージョンを無視するコマンドを実行すると、{% data variables.product.prodname_dependabot %} はリポジトリの設定を一元的に保存します。 これは簡単な解決策ですが、複数のコントリビューターがいるリポジトリの場合は、設定ファイルで無視する依存関係とバージョンを明示的に定義することをお勧めします。 これにより、特定の依存関係が自動的に更新されない理由をすべてのコントリビューターが簡単に確認できます。 For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."

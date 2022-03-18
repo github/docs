@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_dependabot %} が更新を監視し�
 redirect_from:
   - /github/administering-a-repository/listing-dependencies-configured-for-version-updates
   - /code-security/supply-chain-security/listing-dependencies-configured-for-version-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -22,7 +23,7 @@ shortTitle: 設定された依存関係の一覧
 
 ## {% data variables.product.prodname_dependabot %} によって監視されている依存関係を表示する
 
-バージョン更新を有効にした後、リポジトリの依存関係グラフの [**{% data variables.product.prodname_dependabot %}**] タブで、設定が正しいかどうかを確認できます。 For more information, see "[Enabling and disabling {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+バージョン更新を有効にした後、リポジトリの依存関係グラフの [**{% data variables.product.prodname_dependabot %}**] タブで、設定が正しいかどうかを確認できます。 For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}

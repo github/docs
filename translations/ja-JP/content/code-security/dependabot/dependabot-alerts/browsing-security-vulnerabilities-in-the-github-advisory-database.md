@@ -6,6 +6,7 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database
+  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database
 versions:
   fpt: '*'
   ghec: '*'
@@ -36,7 +37,7 @@ The {% data variables.product.prodname_advisory_database %} contains a list of k
 
 We carefully review each advisory for validity. Each {% data variables.product.company_short %}-reviewed advisory has a full description, and contains both ecosystem and package information.
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory affects packages you depend on. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
+If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory affects packages you depend on. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
 
 ### About unreviewed advisories
 
@@ -107,7 +108,7 @@ You can suggest improvements to any advisory in the {% data variables.product.pr
 
 ## 脆弱性のあるリポジトリを表示する
 
-For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability. 脆弱性のあるリポジトリを確認するには、そのリポジトリの {% data variables.product.prodname_dependabot_alerts %} にアクセスできる必要があります。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)」を参照してください。
+For any {% data variables.product.company_short %}-reviewed advisory in the {% data variables.product.prodname_advisory_database %}, you can see which of your repositories are affected by that security vulnerability. 脆弱性のあるリポジトリを確認するには、そのリポジトリの {% data variables.product.prodname_dependabot_alerts %} にアクセスできる必要があります。 詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies#access-to-dependabot-alerts)」を参照してください。
 
 1. Https://github.com/advisories にアクセスします。
 2. アドバイザリをクリックします。
