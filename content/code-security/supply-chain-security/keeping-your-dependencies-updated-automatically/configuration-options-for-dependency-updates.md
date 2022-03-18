@@ -254,6 +254,12 @@ By default, {% data variables.product.prodname_dependabot %} attempts to detect 
 
 Supported options
 
+{% note %}
+
+**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+
+{% endnote %}
+
 - `prefix` specifies a prefix for all commit messages.
 - `prefix-development` specifies a separate prefix for all commit messages that update dependencies in the Development dependency group. When you specify a value for this option, the `prefix` is used only for updates to dependencies in the Production dependency group. This is supported by: `bundler`, `composer`, `mix`, `maven`, `npm`, and `pip`.
 - `include: "scope"` specifies that any prefix is followed by a list of the dependencies updated in the commit.
