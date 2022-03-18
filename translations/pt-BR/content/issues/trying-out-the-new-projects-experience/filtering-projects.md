@@ -1,6 +1,6 @@
 ---
-title: Filtering projects (beta)
-intro: You can filter your projects to focus on specific information.
+title: Filtrando projetos (beta)
+intro: Você pode filtrar seus projetos para focar em informações específicas.
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:
@@ -13,14 +13,14 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## About filtering projects
+## Sobre a filtragem de projetos
 
-You can customize views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. Para obter mais informações, consulte "[Personalizar as visualizações do seu projeto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
+Você pode personalizar as visualizações usando filtros para os metadados do item, como os responsáveis e as etiquetas aplicadas aos problemas e pelos campos no seu projeto. Você pode combinar filtros e salvá-los como visualizações. Para obter mais informações, consulte "[Personalizar as visualizações do seu projeto](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)".
 
-To filter a project, click {% octicon "filter" aria-label="The Filter icon" %} and start typing the fields and values you would like to filter for. À medida que você digita, serão exibidos os possíveis valores. You can also open the command pallet and type "Filter by" to choose from the available filters.
+Para filtrar um projeto, clique em {% octicon "filter" aria-label="The Filter icon" %} e comece a digitar os campos e valores que você gostaria de filtrar. À medida que você digita, serão exibidos os possíveis valores. Você também pode abrir a paleta de comandos e digitar "Filtrar por" para escolher um dos filtros disponíveis.
 
-The same filters are available for insights, allowing you to filter the data used to create your charts. For more information, see "[Using insights with projects](/issues/trying-out-the-new-projects-experience/using-insights-with-projects)."
+Os mesmos filtros estão disponíveis para indights, permitindo que você filtre os dados usados para criar seus gráficos. Para obter mais informações, consulte "[Usando insights com projetos](/issues/trying-out-the-new-projects-experience/using-insights-with-projects)".
 
-## Syntax for filtering projects
+## Sintaxe para filtrar projetos
 
 {% data reusables.projects.projects-filters %}

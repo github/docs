@@ -1,8 +1,4 @@
 .codeBlock {
-  pre {
-    margin-bottom: 0;
-    border: 1px solid var(--color-border-default);
-    max-height: 32rem;
-    overflow: auto;
-  }
+  max-height: 32rem;
+  overflow: auto;
 }

@@ -126,6 +126,12 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 设备流程允许您授权用户使用无头应用程序，例如 CLI 工具或 Git 凭据管理器。
 
+{% if device-flow-is-opt-in %}
+
+Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[Modifying an OAuth App](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)" for OAuth Apps and "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)" for GitHub Apps.
+
+{% endif %}
+
 ### 设备流程概述
 
 1. 您的应用程序会请求设备和用户验证码，并获取用户将在其中输入用户验证码的授权 URL。
@@ -255,9 +261,11 @@ Accept: application/xml
 | `unsupported_grant_type`       | 授予类型必须为 `urn:ietf:params:oauth:grant-type:device_code`，并在您轮询 OAuth 令牌请求 `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` 时作为输入参数包括在内。                                                                                      |
 | `incorrect_client_credentials` | 对于设备流程，您必须传递应用程序的客户端 ID，您可以在应用程序设置页面上找到该 ID。 设备流程不需要 `client_secret`。                                                                                                                                                                                  |
 | `incorrect_device_code`        | 提供的 device_code 无效。                                                                                                                                                                                                                                    |
-| `access_denied`                | 当用户在授权过程中单击取消时，您将收到 `access_denied` 错误，用户将无法再次使用验证码。                                                                                                                                                                                                   |
+| `access_denied`                | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.{% if device-flow-is-opt-in %}
+| `device_flow_disabled`         | Device flow has not been enabled in the app's settings. For more information, see "[Device flow](#device-flow)."{% endif %}
 
 更多信息请参阅“[OAuth 2.0 设备授权授予](https://tools.ietf.org/html/rfc8628#section-3.5)”。
+
 
 ## 非 Web 应用程序流程
 

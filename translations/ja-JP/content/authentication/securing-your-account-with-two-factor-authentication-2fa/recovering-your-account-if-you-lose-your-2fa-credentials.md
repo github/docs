@@ -23,7 +23,6 @@ shortTitle: Recover an account with 2FA
 **警告**:
 
 - {% data reusables.two_fa.support-may-not-help %}
-- {% data reusables.accounts.you-must-know-your-password %}
 
 {% endwarning %}
 
@@ -33,7 +32,13 @@ shortTitle: Recover an account with 2FA
 
 リカバリコードのうち 1 つを使用して、アカウントへのエントリを自動で再取得します。 リカバリコード は、多くの場合、パスワードマネージャまたはご使用のコンピュータのダウンロードフォルダに保存されています。 リカバリコードのデフォルトのファイル名は `github-recovery-codes.txt` です。 リカバリコードの詳しい情報については「[2 要素認証リカバリ方法を設定する](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)」を参照してください。
 
-{% data reusables.two_fa.username-password %}
+1. 認証を求めるためにユーザ名とパスワードを入力してください。
+
+    {% warning %}
+
+    **Warning**: {% data reusables.accounts.you-must-know-your-password %}
+
+    {% endwarning %}
 
 {% ifversion fpt or ghec %}
 1. Under "Having problems?", click **Use a recovery code or request a reset**.
