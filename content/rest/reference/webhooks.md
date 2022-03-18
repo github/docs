@@ -1,6 +1,6 @@
 ---
 title: Webhooks
-intro: 'The webhooks API allows you to create and manage webhooks for your repositories.'
+intro: The webhooks API allows you to create and manage webhooks for your repositories.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

@@ -47,13 +47,13 @@ To use or manage a package hosted by a package registry, you must use a token wi
 
 For example:
 -  To download and install packages from a repository, your token must have the `read:packages` scope, and your user account must have read permission.
-- {% ifversion fpt or ghes > 3.0 or ghec %}To delete a package on {% data variables.product.product_name %}, your token must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages.{% elsif ghes < 3.1 %}To delete a specified version of a private package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope. Public packages cannot be deleted.{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope.{% endif %} For more information, see "{% ifversion fpt or ghes > 3.0 or ghec or ghae %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}."
+- {% ifversion fpt or ghes > 3.1 or ghec %}To delete a package on {% data variables.product.product_name %}, your token must at least have the `delete:packages` and `read:packages` scope. The `repo` scope is also required for repo-scoped packages. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% elsif ghae %}To delete a specified version of a package on {% data variables.product.product_name %}, your token must have the `delete:packages` and `repo` scope. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
 | Scope | Description | Required permission |
 | --- | --- | --- |
 |`read:packages`| Download and install packages from {% data variables.product.prodname_registry %} | read |
 |`write:packages`| Upload and publish packages to {% data variables.product.prodname_registry %} | write |
-| `delete:packages` | {% ifversion fpt or ghes > 3.0 or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghes < 3.1 %} Delete specified versions of private packages from {% data variables.product.prodname_registry %}{% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} | admin |
+| `delete:packages` | {% ifversion fpt or ghes or ghec %} Delete packages from {% data variables.product.prodname_registry %} {% elsif ghae %} Delete specified versions of packages from {% data variables.product.prodname_registry %} {% endif %} | admin |
 | `repo` | Upload and delete packages (along with `write:packages`, or `delete:packages`) | write or admin |
 
 When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token.

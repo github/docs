@@ -22,7 +22,7 @@ topics:
 
 ## About {% data variables.product.prodname_actions %} for enterprises
 
-With {% data variables.product.prodname_actions %}, you can improve developer productivity by automating every phase of your enterprise's software development workflow.
+{% data reusables.actions.about-actions-for-enterprises %}
 
 | Task | More information |
 | ---- | ---------------- |

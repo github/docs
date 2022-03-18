@@ -39,22 +39,22 @@ remote: error: Required status check "ci-build" is failing
 
 {% ifversion fpt or ghae or ghes or ghec %}
 
-## Conflicts between head commit and test merge commit
+## 头部提交与测试合并提交之间的冲突
 
 有时，测试合并提交与头部提交的状态检查结果存在冲突。 如果测试合并提交具有状态，则测试合并提交必须通过。 否则，必须传递头部提交的状态后才可合并该分支。 有关测试合并提交的更多信息，请参阅“[拉取](/rest/reference/pulls#get-a-pull-request)”。
 
 ![具有冲突的合并提交的分支](/assets/images/help/repository/req-status-check-conflicting-merge-commits.png)
 {% endif %}
 
-## Handling skipped but required checks
+## 处理已跳过但需要检查
 
-Sometimes a required status check is skipped on pull requests due to path filtering. For example, a Node.JS test will be skipped on a pull request that just fixes a typo in your README file and makes no changes to the JavaScript and TypeScript files in the `scripts` directory.
+有时，由于路径筛选，在拉取请求上会跳过所需的状态检查。 例如，Node.JS 测试在仅修复自述文件中拼写错误的拉取请求上将跳过，并且不会更改 `scripts` 目录中的 JavaScript 和 TypeScript 文件。
 
-If this check is required and it gets skipped, then the check's status is shown as pending, because it's required. In this situation you won't be able to merge the pull request.
+如果此检查是必需的，并且被跳过，则检查的状态将显示为挂起，因为它是必需的。 在此情况下，您将无法合并拉取请求。
 
 ### 示例
 
-In this example you have a workflow that's required to pass.
+在此示例中，您有一个需要通过的工作流程。
 
 ```yaml
 name: ci
@@ -81,11 +81,11 @@ jobs:
     - run: npm test
 ```
 
-If someone submits a pull request that changes a markdown file in the root of the repository, then the workflow above won't run at all because of the path filtering. As a result you won't be able to merge the pull request. You would see the following status on the pull request:
+如果有人提交更改存储库根目录中 Markdown 文件的拉取请求，则上述工作流程将因路径筛选而完全不会运行。 因此，您将无法合并拉取请求。 您将在拉取请求上看到以下状态：
 
-![Required check skipped but shown as pending](/assets/images/help/repository/PR-required-check-skipped.png)
+![必需的检查已跳过，但显示为挂起](/assets/images/help/repository/PR-required-check-skipped.png)
 
-You can fix this by creating a generic workflow, with the same name, that will return true in any case similar to the workflow below :
+您可以通过创建具有相同名称的通用工作流程来解决此问题，该工作流程在任何情况下都将返回 true，类似于下面的工作流程：
 
 ```yaml
 name: ci
@@ -100,21 +100,21 @@ jobs:
     steps:
       - run: 'echo "No build required" '
 ```
-Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
+现在，每当有人发送拉取请求时，检查将始终通过，该请求不会更改第一个工作流程中`路径下`列出的文件。
 
-![Check skipped but passes due to generic workflow](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
+![检查已跳过，但由于通用工作流程而通过](/assets/images/help/repository/PR-required-check-passed-using-generic.png)
 
 {% note %}
 
 **注意：**
-* Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions)".
-* The example above uses {% data variables.product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data variables.product.company_short %}.
+* 确保两个工作流程文件中`名称`键和所需的作业名称相同。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/reference/workflow-syntax-for-github-actions)”。
+* 上面的示例使用 {% data variables.product.prodname_actions %} 但此解决方法也适用于与 {% data variables.product.company_short %} 集成的其他 CI/CD 提供程序。
 
 {% endnote %}
 
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}It's also possible for a protected branch to require a status check from a specific {% data variables.product.prodname_github_app %}. If you see a message similar to the following, then you should verify that the check listed in the merge box was set by the expected app.
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5379 or ghec %}受保护分支也可能要求特定 {% data variables.product.prodname_github_app %} 进行状态检查。 如果看到类似于以下内容的消息，则应验证合并框中列出的检查项是否由预期的应用设置。
 
 ```
-Required status check "build" was not set by the expected {% data variables.product.prodname_github_app %}.
+必需状态检查 "build" 未由预期的 {% data variables.product.prodname_github_app %} 设置。
 ```
 {% endif %}

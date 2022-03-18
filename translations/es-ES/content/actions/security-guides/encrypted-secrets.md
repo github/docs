@@ -1,6 +1,6 @@
 ---
 title: Secretos cifrados
-intro: 'Los secretos cifrados te permiten almacenar información sensible en tu organización{% ifversion fpt or ghes > 3.0 or ghec %}, repositorio o ambientes de repositorio{% else %} o repositorio{% endif %}.'
+intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -19,13 +19,11 @@ versions:
 
 ## Acerca de los secretos cifrados
 
-Los secretos son variables de ambiente cifradas que creas en una organización{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, repositorio, o ambiente de repositorio{% else %} o repositorio{% endif %}. Los secretos que creas están disponibles para utilizarse en los flujos de trabajo de {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} utiliza una [caja sellada de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ayudarte a garantizar que los secretos se cifran antes de llegar a {% data variables.product.prodname_dotcom %} y que permanezcan cifrados hasta que los utilices en un flujo de trabajo.
+Secrets are encrypted environment variables that you create in an organization, repository, or repository environment. Los secretos que creas están disponibles para utilizarse en los flujos de trabajo de {% data variables.product.prodname_actions %}. {% data variables.product.prodname_dotcom %} utiliza una [caja sellada de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ayudarte a garantizar que los secretos se cifran antes de llegar a {% data variables.product.prodname_dotcom %} y que permanezcan cifrados hasta que los utilices en un flujo de trabajo.
 
 {% data reusables.actions.secrets-org-level-overview %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Para que los secretos se almacenen a nivel de ambiente, puedes habilitar los revisores requeridos para controlar el acceso a los secretos. Un job de flujo de trabajo no puede acceder a los secretos del ambiente hasta que los revisores requeridos le otorguen aprobación.
-{% endif %}
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -41,9 +39,9 @@ Para que los secretos se almacenen a nivel de ambiente, puedes habilitar los rev
 
 {% data reusables.codespaces.secrets-naming %}
 
-  Por ejemplo, {% ifversion fpt or ghes > 3.0 or ghae or ghec %}un secreto que se creó a nivel de ambiente debe tener un nombre único en éste, {% endif %}un secreto que se creó a nivel de repositorio debe tener un nombre único en éste, y un secreto que se creó a nivel de organización debe tener un nombre único en este nivel.
+  For example, a secret created at the environment level must have a unique name in that environment, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
 
-  {% data reusables.codespaces.secret-precedence %}{% ifversion fpt or ghes > 3.0 or ghae or ghec %} De forma similar, si una organización, repositorio y ambiente tienen el mismo secreto con el mismo nombre, el secreto a nivel de ambiente tomará precedencia.{% endif %}
+  {% data reusables.codespaces.secret-precedence %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.
 
 Para ayudarte a garantizar que {% data variables.product.prodname_dotcom %} redacta tus secretos en bitácoras, evita utilizar datos estructurados como los valores de los secretos. Por ejemplo, evita crear secretos que contengan JSON o blobs de Git codificados.
 
@@ -55,15 +53,13 @@ Puedes usar y leer secretos cifrados en un archivo de flujo de trabajo si tienes
 
 {% data reusables.actions.secrets-redaction-warning %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Los secretos de organización y de repositorio se leen cuando una ejecución de flujo de trabajo está en cola y los secretos de ambiente se leen cuando un job que referencia el ambiente comienza.
-{% endif %}
 
-También puedes administrar secretos utilizando la API de REST. Para obtener más información, consulta la sección "[Secretos](/rest/reference/actions#secrets)".
+También puedes administrar secretos utilizando la API de REST. For more information, see "[Secrets](/rest/reference/actions#secrets)."
 
 ### Limitar permisos de credenciales
 
-Cuando generes credenciales, te recomendamos que otorgues los mínimos permisos posibles. Por ejemplo, en lugar de usar credenciales personales, usa [implementar claves](/developers/overview/managing-deploy-keys#deploy-keys) o una cuenta de servicio. Considera otorgar permisos de solo lectura si eso es todo lo que se necesita, y limita el acceso lo máximo posible. Cuando generes un token de acceso personal (PAT), selecciona el menor número de ámbitos necesarios.
+Cuando generes credenciales, te recomendamos que otorgues los mínimos permisos posibles. For example, instead of using personal credentials, use [deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) or a service account. Considera otorgar permisos de solo lectura si eso es todo lo que se necesita, y limita el acceso lo máximo posible. Cuando generes un token de acceso personal (PAT), selecciona el menor número de ámbitos necesarios.
 
 {% note %}
 
@@ -85,7 +81,7 @@ Cuando generes credenciales, te recomendamos que otorgues los mínimos permisos 
 1. Ingresa el valor de tu secreto.
 1. Haz clic en **Agregar secreto** (Agregar secreto).
 
-Si tu repositorio {% ifversion fpt or ghes > 3.0 or ghae or ghec %}tiene secretos de ambiente o {% endif %}puede acceder a los secretos de la organización padre, entonces estos secretos también se listan en esta página.
+If your repository has environment secrets or can access secrets from the parent organization, then those secrets are also listed on this page.
 
 {% endwebui %}
 
@@ -108,8 +104,6 @@ gh secret set <em>secret-name</em> < secret.txt
 Para listar todos los secretos del repositorio, utiliza el subcomando `gh secret list`.
 
 {% endcli %}
-
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 
 ## Crear secretos cifrados para un ambiente
 
@@ -143,8 +137,6 @@ gh secret list --env <em>environment-name</em>
 ```
 
 {% endcli %}
-
-{% endif %}
 
 ## Crear secretos cifrados para una organización
 
@@ -217,7 +209,7 @@ Puedes revisar qué políticas de acceso se están aplicando a un secreto en tu 
 
 {% note %}
 
-**Nota:**{% data reusables.actions.forked-secrets %}
+**Note:** {% data reusables.actions.forked-secrets %}
 
 {% endnote %}
 
@@ -234,7 +226,11 @@ steps:
 ```
 {% endraw %}
 
-Evita pasar secretos entre procesos desde la línea de comando, siempre que sea posible. Los procesos de la línea de comando pueden ser visibles para otros usuarios (utilizando el comando `ps`) o ser capturados por [eventos de auditoría de seguridad](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). Para ayudar a proteger los secretos, considera usar variables de entorno, `STDIN` u otros mecanismos admitidos por el proceso de destino.
+Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job. For more information, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)" and [`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif).
+
+If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
+
+Evita pasar secretos entre procesos desde la línea de comando, siempre que sea posible. Command-line processes may be visible to other users (using the `ps` command) or captured by [security audit events](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). Para ayudar a proteger los secretos, considera usar variables de entorno, `STDIN` u otros mecanismos admitidos por el proceso de destino.
 
 Si debes pasar secretos dentro de una línea de comando, enciérralos usando las normas de uso de comillas adecuadas. Los secretos suelen contener caracteres especiales que pueden afectar involuntariamente a tu shell. Para evitar estos caracteres especiales, usa comillas en tus variables de entorno. Por ejemplo:
 
@@ -279,13 +275,13 @@ steps:
 
 ## Límites para los secretos
 
-Puedes almacenar hasta 1000 secretos de organización{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, 100 secretos de repositoirio y 100 secretos de ambiente{% else %} y 100 secretos de repositorio{% endif %}.
+You can store up to 1,000 organization secrets, 100 repository secrets, and 100 environment secrets.
 
 Un flujo de trabajo que se haya creado en un repositorio puede acceder a la siguiente cantidad de secretos:
 
 * Todos los 100 secretos de repositorio.
 * Si se asigna acceso a más de 100 secretos de la organización para este repositorio, el flujo de trabajo solo puede utilizar los primeros 100 secretos de organización (que se almacenan por orden alfabético por nombre de secreto).
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}* Todos los 100 secretos de ambiente.{% endif %}
+* All 100 environment secrets.
 
 Los secretos tienen un tamaño máximo de 64 KB. Para usar secretos de un tamaño mayor a 64 KB, puedes almacenar los secretos cifrados en tu repositorio y guardar la contraseña de descifrado como un secreto en {% data variables.product.prodname_dotcom %}. Por ejemplo, puedes usar `gpg` para cifrar tus credenciales de manera local antes de verificar el archivo en tu repositorio en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la página del manual "[gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
 
@@ -354,7 +350,6 @@ Los secretos tienen un tamaño máximo de 64 KB. Para usar secretos de un tamañ
           run: cat $HOME/secrets/my_secret.json
   ```
 {% endraw %}
-
 
 ## Almacenar blobs binarios en Base64 como secretos
 

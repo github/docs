@@ -25,8 +25,6 @@ Para obter mais informações, consulte "[Ambientes virtuais para executores hos
 ### Escolhendo executores auto-hospedados
 {% endif %}
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
-
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
 #### Exemplo: Usando etiquetas para seleção do executor

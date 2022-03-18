@@ -48,6 +48,7 @@ export function RestOperation({ operation }: Props) {
       {previews && (
         <RestPreviewNotice slug={operation.slug} previews={operation['x-github'].previews} />
       )}
+      <RestResponse responses={operation.responses} variant="error" />
     </div>
   )
 }

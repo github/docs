@@ -39,7 +39,7 @@ export interface CodeResponse {
 
 export interface xCodeSample {
   lang: string
-  sourceHTML: string
+  source: string
 }
 
 export interface Preview {
@@ -68,4 +68,8 @@ export interface ChildParameter {
   name: string
   description: string
   type: string
+}
+
+export interface RestCategoryOperationsT {
+  [subcategory: string]: Operation[]
 }

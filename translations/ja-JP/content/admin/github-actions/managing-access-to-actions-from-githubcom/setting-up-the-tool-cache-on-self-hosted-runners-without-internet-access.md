@@ -72,7 +72,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
              cd "${{ runner.tool_cache }}"
              tar -czf tool_cache.tar.gz *
          - name: Upload tool cache artifact
-           uses: actions/upload-artifact@v2
+           uses: actions/upload-artifact@v3
            with:
              path: ${{runner.tool_cache}}/tool_cache.tar.gz
    ```

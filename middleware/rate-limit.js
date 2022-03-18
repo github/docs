@@ -3,7 +3,7 @@ import statsd from '../lib/statsd.js'
 
 const EXPIRES_IN_AS_SECONDS = 60
 
-const MAX = process.env.RATE_LIMIT_MAX ? parseInt(process.env.RATE_LIMIT_MAX, 10) : 1000
+const MAX = process.env.RATE_LIMIT_MAX ? parseInt(process.env.RATE_LIMIT_MAX, 10) : 10000
 if (isNaN(MAX)) {
   throw new Error(`process.env.RATE_LIMIT_MAX (${process.env.RATE_LIMIT_MAX}) not a number`)
 }

@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghes: '>=3.0'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -47,7 +47,6 @@ You should download the {% data variables.product.prodname_codeql %} bundle from
 {% ifversion ghes %}
 
 {% note %}
-{% ifversion ghes = 3.0 %}For {% data variables.product.prodname_ghe_server %} 3.0, we recommend {% data variables.product.prodname_codeql_cli %} version 2.6.3.{% endif %}
 {% ifversion ghes = 3.1 %}For {% data variables.product.prodname_ghe_server %} 3.1, we recommend {% data variables.product.prodname_codeql_cli %} version 2.6.3.{% endif %}
 {% ifversion ghes = 3.2 %}For {% data variables.product.prodname_ghe_server %} 3.2, we recommend {% data variables.product.prodname_codeql_cli %} version 2.6.3.{% endif %}
 {% ifversion ghes > 3.2 %}For {% data variables.product.prodname_ghe_server %} 3.3 and greater, we recommend {% data variables.product.prodname_codeql_cli %} version 2.7.6 or greater.{% endif %}

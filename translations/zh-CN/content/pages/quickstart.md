@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Pages
-intro: 'You can use {% data variables.product.prodname_pages %} to showcase some open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.'
+title: GitHub Pages 快速入门
+intro: '您可以使用 {% data variables.product.prodname_pages %} 来展示一些开源项目、主持博客甚或分享您的简历。 本指南将帮助您开始创建下一个网站。'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,30 +16,30 @@ product: '{% data reusables.gated-features.pages %}'
 
 ## 简介
 
-{% data variables.product.prodname_pages %} are public webpages hosted and published through {% data variables.product.product_name %}. The quickest way to get up and running is by using the Jekyll Theme Chooser to load a pre-made theme. You can then modify your {% data variables.product.prodname_pages %}' content and style.
+{% data variables.product.prodname_pages %} 是通过 {% data variables.product.product_name %} 托管和发布的公共网页。 启动和运行的最快方法是使用 Jekyll 主题选择器加载预置主题。 然后，您可以修改 {% data variables.product.prodname_pages %} 的内容和样式。
 
-This guide will lead you through creating a user site at `username.github.io`.
+本指南将引导您完成在 `username.github.io` 创建用户站点的过程。
 
-## Creating your website
+## 创建网站
 
 {% data reusables.repositories.create_new %}
-1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`. ![Repository name field](/assets/images/help/pages/create-repository-name-pages.png)
+1. 输入 `username.github.io` 作为存储库名称。 Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`. ![存储库名称字段](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 1. Click **Choose a theme**. ![选择主题按钮](/assets/images/help/pages/choose-theme.png)
 2. The Theme Chooser will open. Browse the available themes, then click **Select theme** to select a theme. It's easy to change your theme later, so if you're not sure, just choose one for now. ![主题选项和选择主题按钮](/assets/images/help/pages/select-theme.png)
 3. After you select a theme, your repository's `README.md` file will open in the file editor. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
-4. When you are done editing the file, click **Commit changes**.
+4. 编辑完文件后，单击 **Commit changes（提交更改）**。
 5. Visit `username.github.io` to view your new website. **注：**对站点的更改在推送到 {% data variables.product.product_name %} 后，最长可能需要 20 分钟才会发布。
 
 ## Changing the title and description
 
-By default, the title of your site is `username.github.io`. You can change the title by editing the `_config.yml` file in your repository. You can also add a description for your site.
+默认情况下，网站的标题为 `username.github.io`。 您可以通过编辑存储库中的 `_config.yml` 文件来更改标题。 您还可以为您的网站添加说明。
 
-1. Click the **Code** tab of your repository.
-1. In the file list, click `_config.yml` to open the file.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
-1. The `_config.yml` file already contains a line that specifies the theme for your site. Add a new line with `title:` followed by the title you want. Add a new line with `description:` followed by the description you want. 例如：
+1. 单击存储库的 **Code（代码）**选项卡。
+1. 在文件列表中，单击 `_config.yml` 打开该文件。
+1. 单击 {% octicon "pencil" aria-label="The edit icon" %} 编辑文件。
+1. `_config.yml` 文件已包含指定网站主题的行。 添加一个新行，其中包含 `title:`，后跟所需的标题。 添加一个新行，其中包含 `description:`，后跟所需的说明。 例如：
 
    ```yaml
    theme: jekyll-theme-minimal
@@ -47,10 +47,10 @@ By default, the title of your site is `username.github.io`. You can change the t
    description: Bookmark this to keep an eye on my project updates!
    ```
 
-1. When you are done editing the file, click **Commit changes**.
+1. 编辑完文件后，单击 **Commit changes（提交更改）**。
 
 ## 后续步骤
 
-For more information about how to add additional pages to your site, see "[Adding content to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites)."
+有关如何向站点添加其他页面的详细信息，请参阅“[使用 Jekyll 向 GitHub Pages 站点添加内容](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites)”。
 
-For more information about setting up a {% data variables.product.prodname_pages %} site with Jekyll, see "[About GitHub Pages and Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)."
+有关使用 Jekyll 设置 {% data variables.product.prodname_pages %} 站点的更多信息，请参阅“[关于 GitHub Pages 和 Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)”。

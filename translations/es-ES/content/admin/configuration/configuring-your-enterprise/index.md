@@ -16,6 +16,7 @@ topics:
   - Enterprise
 children:
   - /about-enterprise-configuration
+  - /deploying-github-ae
   - /initializing-github-ae
   - /accessing-the-management-console
   - /accessing-the-administrative-shell-ssh

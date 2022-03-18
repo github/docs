@@ -51,6 +51,8 @@ Para configurar el aprovisionamiento de tu {% data variables.product.prodname_em
 
 Después de crear tu token de acceso personal y almacenarlo de forma segura, puedes configurar el aprovisionamiento en tu proveedor de identidad.
 
+{% data reusables.scim.emu-scim-rate-limit %}
+
 Para configurar a Azure Active Directory para que aprovisione usuarios para tu {% data variables.product.prodname_emu_enterprise %}, consulta el [Tutorial: Configurar a los Usuarios Administrados Empresariales de Github para un aprovisionamiento de usuarios automático](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) en la documentación de Azure AD.
 
 Para configurar Okta para que aprovisione usuarios para tu {% data variables.product.prodname_emu_enterprise %}, consulta la sección "[Configurar el aprovisionamiento de SCIM para los Usuarios Administrados Empresariales con Okta](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)".

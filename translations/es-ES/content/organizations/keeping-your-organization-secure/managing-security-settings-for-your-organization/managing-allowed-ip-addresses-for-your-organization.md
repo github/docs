@@ -1,25 +1,30 @@
 ---
 title: Administrar las direcciones IP permitidas en tu organización
-intro: Puedes restringir el acceso a los activos de tu organización si configuras una lista de direcciones IP que se pueden conectar a ella.
-product: '{% data reusables.gated-features.allowed-ip-addresses %}'
+intro: You can restrict access to your organization's private assets by configuring a list of IP addresses that are allowed to connect.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
   - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 versions:
-  fpt: '*'
   ghae: '*'
   ghec: '*'
 topics:
   - Organizations
   - Teams
 shortTitle: Administrar las direcciones IP permitidas
+permissions: Organization owners can manage allowed IP addresses for an organization.
 ---
-
-Los propietarios de las organizaciones pueden administrar las direcciones IP permitidas en las mismas.
 
 ## Acerca de las direcciones IP permitidas
 
-Puedes restringir el acceso a los activos de la organización configurando un listado de direcciones IP específicas permitidas. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+You can restrict access to private organization assets by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
@@ -27,7 +32,7 @@ Puedes restringir el acceso a los activos de la organización configurando un li
 
 Si configuras una lista de direcciones permitidas, también puedes elegir agregar automáticamente a ella cualquier dirección IP que hayas configurado para las {% data variables.product.prodname_github_apps %} que instales en tu organización. El creador de una {% data variables.product.prodname_github_app %} puede configurar una lista de direcciones permitidas para su aplicación, las cuales especifiquen las direcciones IP en las cuales se ejecuta esta. Al heredar la lista de direcciones permitidas en la tuya, estás evitando las solicitudes de conexión de la aplicación que se está rehusando. Para obtener más información, consulta la sección "[Permitir el acceso mediante {% data variables.product.prodname_github_apps %}](#allowing-access-by-github-apps)".
 
-También puedes configurar las direcciones IP permitidas para las organizaciones en una cuenta empresarial. Para obtener más información, consulta la sección "[Requerir políticas para la configuración de seguridad en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise)".
+También puedes configurar las direcciones IP permitidas para las organizaciones en una cuenta empresarial. Para obtener más información, consulta la sección "[Requerir políticas para la configuración de seguridad en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)".
 
 ## Agregar una dirección IP permitida
 

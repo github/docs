@@ -22,6 +22,7 @@ children:
   - /collaborators
   - /commits
   - /dependabot
+  - /deploy_keys
   - /deployments
   - /emojis
   - /enterprise-admin
@@ -52,3 +53,4 @@ children:
   - /users
   - /webhooks
 ---
+

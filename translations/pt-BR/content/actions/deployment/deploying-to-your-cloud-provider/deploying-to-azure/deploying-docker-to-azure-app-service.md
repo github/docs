@@ -66,9 +66,7 @@ Antes de criar seu fluxo de trabalho de {% data variables.product.prodname_actio
         --settings DOCKER_REGISTRY_SERVER_URL=https://ghcr.io DOCKER_REGISTRY_SERVER_USERNAME=MY_REPOSITORY_OWNER DOCKER_REGISTRY_SERVER_PASSWORD=MY_PERSONAL_ACCESS_TOKEN
 ```
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Opcionalmente, configure um ambiente de implantação. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Criar o fluxo de trabalho
 
