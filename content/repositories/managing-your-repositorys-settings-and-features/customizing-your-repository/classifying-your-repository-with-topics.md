@@ -40,3 +40,4 @@ You can search for repositories that are associated with a particular topic. For
   ![Form to enter topics](/assets/images/help/repository/add-topic-form.png)
 4. After you've finished adding topics, click **Save changes**.
   !["Save changes" button in "Edit repository details"](/assets/images/help/repository/edit-repository-details-save-changes-button.png)
+classifying-your-repository-with-topics.md
