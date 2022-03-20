@@ -131,9 +131,9 @@ SVG 目前不支持内联脚本或动画。
 {% endtip %}
 
 {% if mermaid %}
-### Rendering in Markdown
+### 在 Markdown 中渲染
 
-You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+您可以直接在 Markdown 中嵌入 ASCII STL 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)”。
 {% endif %}
 
 ## 呈现 CSV 和 TSV 数据
@@ -239,7 +239,7 @@ GitHub 支持呈现 PDF 文档。
 
 ![源渲染切换屏幕截图](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### Geometry types
+### 几何类型
 
 {% data variables.product.product_name %} 上的地图使用 [Leaflet.js](http://leafletjs.com)，并且支持 [geoJSON 规格](http://www.geojson.org/geojson-spec.html)中列出的所有几何类型（Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 GeometryCollection）。 TopoJSON 文件类型应为 "Topology"（拓扑），并且遵守 [topoJSON 规格](https://github.com/mbostock/topojson/wiki/Specification)。
 
@@ -281,9 +281,9 @@ GitHub 支持呈现 PDF 文档。
 {% endtip %}
 
 {% if mermaid %}
-### Mapping in Markdown
+### 在 Markdown 嵌入地图
 
-You can embed geoJSON and topoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+您可以直接在 Markdown 中嵌入 geoJSON 和 topoJSON。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)”。
 {% endif %}
 
 ### 集群
@@ -334,11 +334,11 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 - [Jupyter Notebook 的图片库](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
 
 {% if mermaid %}
-## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
+## 在 {% data variables.product.prodname_dotcom %} 上显示 Mermaid 文件
 
-{% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
+{% data variables.product.product_name %} 支持在存储库中呈现 Mermaid 文件。 像往常一样使用 `.mermaid` 或 `.mmd` 扩展名提交文件。 然后，导航到 {% data variables.product.prodname_dotcom %}上的 Mermaid 文件的路径。
 
-For example, if you add a `.mmd` file with the following content to your repository:
+例如，如果将包含以下内容的 `.mmd` 文件添加到存储库中：
 
 ```
 graph TD
@@ -349,27 +349,27 @@ graph TD
     C -->|Three| F[fa:fa-car Car]
 ```
 
-When you view the file in the repository, it is rendered as a flow chart. ![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
+当您在存储库中查看文件时，它将呈现为流程图。 ![渲染的 mermaid 文件图](/assets/images/help/repository/mermaid-file-diagram.png)
 
 ### 疑难解答
 
-If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
+如果您的图表根本没有呈现，请使用 [Mermaid 实时编辑器](https://mermaid.live/edit)检查您的图表，以验证它是否包含有效的 Mermaid Markdown 语法。
 
-If the chart displays, but does not appear as you'd expect, you can create a new [feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback), and add the `mermaid` tag.
+如果图表显示，但未按预期显示，则可以创建新的[反馈讨论](https://github.com/github/feedback/discussions/categories/general-feedback)，并添加 `mermaid` 标记。
 
 #### 已知问题
 
-* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
-* Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
-* Not all charts are a11y compliant. This may affect users who rely on a screen reader.
+* 序列图图表经常在图表下方使用额外的填充进行呈现，随着图表大小的增加，还会添加更多的填充。 这是 Mermaid 库的已知问题。
+* 具有弹出菜单的执行组件节点在序列图图表中无法按预期工作。 这是由于当 Mermaid 库的 API 用于呈现图表时，JavaScript 事件添加到图表的方式存在差异。
+* 并非所有图表都符合 a11y 标准。 这可能会影响依赖屏幕阅读器的用户。
 
 ### Mermaid in Markdown
 
-You can embed Mermaid syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+您可以直接在 Markdown 中嵌入 Mermaid 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)”。
 
 ### 延伸阅读
 
-* [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
-* [Mermaid.js live editor](https://mermaid.live/edit)
+* [Mermaid.js 文档](https://mermaid-js.github.io/mermaid/#/)
+* [Mermaid.js 实时编辑器](https://mermaid.live/edit)
 {% endif %}
 
