@@ -42,11 +42,11 @@ hasExperimentalAlternative: true
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-## Using the Python starter workflow
+## 使用 Python 入门工作流程
 
-{% data variables.product.prodname_dotcom %} provides a Python starter workflow that should work for most Python projects. This guide includes examples that you can use to customize the starter workflow. For more information, see the [Python starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
+{% data variables.product.prodname_dotcom %} 提供了一个适用于大多数 Python 项目的 Python 入门工作流程。 本指南包含可用于自定义入门工作流程的示例。 更多信息请参阅 [Python 入门工作流程](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml)。
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+要快速开始，请将入门工作流程添加到仓库的 `.github/workflows` 目录中。
 
 {% raw %}
 ```yaml{:copy}
@@ -278,9 +278,9 @@ steps:
 
 ### 缓存依赖项
 
-When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-python` action](https://github.com/actions/setup-python).
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以使用 [`setup-python` 操作](https://github.com/actions/setup-python)缓存和恢复依赖项。
 
-The following example caches dependencies for pip.
+以下示例缓存 pip 的依赖项。
 
 
 
@@ -296,9 +296,9 @@ steps:
 ```
 
 
-By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip or `Pipfile.lock` for pipenv) in the whole repository. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching packages dependencies</a>" in the `setup-python` actions README. 
+默认情况下， `setup-python` 操作会在整个存储库中搜索依赖项文件（对于 pip 为`requirements.txt`，对于 pipenv 为 `Pipfile.lock`）。 更多信息请参阅 `setup-python` 操作自述文件中的“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存包依赖项</a>”。 
 
-If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 The path you'll need to cache may differ from the Ubuntu example above, depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip) in the `cache` action repository.
+如果您有自定义要求或需要更精确的缓存控制，则可以使用 [`cache` 操作](https://github.com/marketplace/actions/cache)。 Pip 根据运行器的操作系统将依赖项缓存在不同的位置。 您需要缓存的路径可能不同于上面的 Ubuntu 示例，具体取决于您使用的操作系统。 更多信息请参阅 `cache` 操作存储库中的 [Python 缓存示例](https://github.com/actions/cache/blob/main/examples.md#python---pip)。
 
 
 
@@ -497,4 +497,4 @@ jobs:
 ```
 
 
-For more information about the starter workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).
+有关入门工作流程的更多信息，请参阅 [`python-published`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml)。

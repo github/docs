@@ -8,6 +8,7 @@ get_started_with_github_ae:
   guides:
     - /admin/overview/about-github-ae
     - /admin/overview/about-data-residency
+    - /admin/configuration/configuring-your-enterprise/deploying-github-ae
     - /admin/configuration/initializing-github-ae
     - /admin/configuration/restricting-network-traffic-to-your-enterprise
     - /admin/github-actions/getting-started-with-github-actions-for-github-ae

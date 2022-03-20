@@ -131,7 +131,7 @@ Las opciones de `build-push-action` que se requieren para {% data variables.prod
 {% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
-El flujo de trabajo anterior se activa mediante una subida a la rama de "lanzamiento". Verifica el repositorio de GitHub y utiliza la `login-action` para ingresar en el {% data variables.product.prodname_container_registry %}. Luego extrae las etiquetas y marcas de la imagen de Docker. Finalmente, utiliza la acción `build-push-action` para crear la imagen y publicarla en el {% data variables.product.prodname_container_registry %}.
+The above workflow is triggered by a push to the "release" branch. Verifica el repositorio de GitHub y utiliza la `login-action` para ingresar en el {% data variables.product.prodname_container_registry %}. Luego extrae las etiquetas y marcas de la imagen de Docker. Finalmente, utiliza la acción `build-push-action` para crear la imagen y publicarla en el {% data variables.product.prodname_container_registry %}.
 
 {% else %}
 ```yaml{:copy}

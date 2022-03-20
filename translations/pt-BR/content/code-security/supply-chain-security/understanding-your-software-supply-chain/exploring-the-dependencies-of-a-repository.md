@@ -40,7 +40,7 @@ Os proprietários das empresas podem configurar o gráfico de dependências a n�
 ### Vista de dependências
 
 {% ifversion fpt or ghec %}
-As dependências são agrupadas por ecossistema. Você pode expandir sua dependência para visualizar suas dependências. Para dependências em repositórios públicos hospedadas no {% data variables.product.product_name %}, você também pode clicar em uma dependência para visualizar o repositório. Dependências de repositórios privados, pacotes privados ou arquivos não reconhecidos são exibidos em texto sem formatação.
+As dependências são agrupadas por ecossistema. Você pode expandir sua dependência para visualizar suas dependências.  Dependências de repositórios privados, pacotes privados ou arquivos não reconhecidos são exibidos em texto sem formatação. If the package manager for the dependency is in a public repository, {% data variables.product.product_name %} will display a link to that repository.
 
 Se foram detectadas vulnerabilidades no repositório, estas são exibidas na parte superior da visualização para usuários com acesso ao {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -83,7 +83,10 @@ Você pode desabilitar o gráfico de dependências a qualquer momento clicando e
 
 ## Alterar o pacote "Usado por"
 
-Se o gráfico de dependências estiver habilitado e o seu repositório contiver um pacote publicado em um ecossistema de pacote compatível, {% data variables.product.prodname_dotcom %} exibirá uma seção "Usado por" na barra lateral da aba do **Código** do seu repositório. Para obter mais informações sobre os ecossistemas de pacotes compatíveis, consulte "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
+You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
+  * The dependency graph is enabled for the repository (see the above section for more details).
+  * Your repository contains a package that is published on a [supported package ecosystem](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
+  * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
 
 A seção "Usado por" mostra o número de referências públicas ao pacote que foi encontrado, e exibe os avatares de alguns dos proprietários dos projetos dependentes.
 
@@ -112,7 +115,7 @@ Se um arquivo de manifesto ou de bloqueio não for processado, suas dependência
 ## Leia mais
 
 - "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Visualizar e atualizar dependências vulneráveis no seu repositório](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
-- "[Visualizar informações da organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
+- "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
+- "[Visualizar informações da sua organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
 - "[Entender como o {% data variables.product.prodname_dotcom %} usa e protege seus dados](/get-started/privacy-on-github)"
 {% endif %}

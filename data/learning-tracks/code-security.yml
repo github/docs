@@ -18,24 +18,24 @@ dependabot_alerts:
   title: 'Get notifications for vulnerable dependencies'
   description: 'Set up Dependabot to alert you to new vulnerabilities in your dependencies.'
   guides:
-    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
+    - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
     - '{% ifversion fpt or ghec or ghes > 3.2 %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
-    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository
-    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
-    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies
-    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors
+    - /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
+    - /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
+    - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+    - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
+    - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
 
 # Feature available on dotcom and GHES 3.3+, so articles available on GHAE and earlier GHES hidden to hide the learning track
 dependabot_security_updates:
   title: 'Get pull requests to update your vulnerable dependencies'
   description: 'Set up Dependabot to create pull requests when new vulnerabilities are reported.'
   guides:
-    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
-    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates
+    - /code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
+    - /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
     - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies{% endif %}'
     - '{% ifversion fpt or ghec or ghes > 3.2 %}/github/administering-a-repository/managing-repository-settings/managing-security-and-analysis-settings-for-your-repository{% endif %}'
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
+    - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
     - '{% ifversion fpt or ghec or ghes > 3.2 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies{% endif %}'
 
 # Feature available only on dotcom and GHES 3.3+
@@ -43,16 +43,16 @@ dependency_version_updates:
   title: 'Keep your dependencies up-to-date'
   description: 'Use Dependabot to check for new releases and create pull requests to update your dependencies.'
   guides:
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/listing-dependencies-configured-for-version-updates
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot
-    - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
-    - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors
+    - /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
+    - /code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates
+    - /code-security/dependabot/dependabot-version-updates/customizing-dependency-updates
+    - /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+    - /code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot
+    - /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
+    - /code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates
+    - /code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot
+    - /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
+    - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
 
 # Feature available in GHEC, GHES 3.0 up, and GHAE. Feature limited on FPT so hidden there.
 secret_scanning:
@@ -110,3 +110,13 @@ code_security_ci:
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
+
+# Feature available in all versions
+end_to_end_supply_chain:
+  title: 'End-to-end supply chain'
+  description: 'How to think about securing your user accounts, your code, and your build process.'
+  guides:
+    - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
+    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts
+    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-code
+    - /code-security/supply-chain-security/end-to-end-supply-chain/securing-builds

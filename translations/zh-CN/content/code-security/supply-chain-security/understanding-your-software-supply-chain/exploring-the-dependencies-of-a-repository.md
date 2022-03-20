@@ -40,7 +40,7 @@ shortTitle: 探索依赖项
 ### 依赖项视图
 
 {% ifversion fpt or ghec %}
-依赖项按生态系统分组。 您可以展开依赖项以查看其依赖项。 对于托管在 {% data variables.product.product_name %} 上公共仓库中的依赖项，您也可以单击依赖项来查看仓库。 私有仓库、私有包或无法识别文件上的依赖项以纯文本显示。
+依赖项按生态系统分组。 您可以展开依赖项以查看其依赖项。  私有仓库、私有包或无法识别文件上的依赖项以纯文本显示。 If the package manager for the dependency is in a public repository, {% data variables.product.product_name %} will display a link to that repository.
 
 如果在仓库中检测到漏洞，这些漏洞将显示在视图顶部，供有权访问 {% data variables.product.prodname_dependabot_alerts %} 的用户查看。
 
@@ -83,7 +83,10 @@ shortTitle: 探索依赖项
 
 ## 更改“Used by（使用者）”包
 
-如果启用了依赖项图，并且您的仓库包含已发布在受支持包生态系统上的包，则 {% data variables.product.prodname_dotcom %} 将在仓库的 **Code（代码）**选项卡的边栏中显示“Used by（使用者）”部分。 有关受支持包生态系统的更多信息，请参阅“[关于依赖项图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)”。
+You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
+  * The dependency graph is enabled for the repository (see the above section for more details).
+  * Your repository contains a package that is published on a [supported package ecosystem](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
+  * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
 
 “Used by（使用者）”部分显示已发现对包的公开引用数量，并显示某些依赖项所有者的头像。
 
@@ -112,7 +115,7 @@ shortTitle: 探索依赖项
 ## 延伸阅读
 
 - “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
-- "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
+- "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
 - "[查看用于组织的洞见](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
 - "[了解 {% data variables.product.prodname_dotcom %} 如何使用和保护数据](/get-started/privacy-on-github)"
 {% endif %}

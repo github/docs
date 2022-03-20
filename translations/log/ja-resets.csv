@@ -61,12 +61,14 @@ translations/ja-JP/content/admin/packages/enabling-github-packages-with-minio.md
 translations/ja-JP/content/admin/packages/getting-started-with-github-packages-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages.md,broken liquid tags
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment.md,Listed in localization-support#489
+translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-environment.md,rendering error
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/creating-a-pre-receive-hook-script.md,broken liquid tags
 translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance.md,Listed in localization-support#489
+translations/ja-JP/content/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance.md,rendering error
 translations/ja-JP/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,broken liquid tags
 translations/ja-JP/content/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator.md,broken liquid tags
-translations/ja-JP/content/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users.md,broken liquid tags
+translations/ja-JP/content/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users.md,rendering error
 translations/ja-JP/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom.md,broken liquid tags
 translations/ja-JP/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on.md,broken liquid tags
@@ -96,16 +98,17 @@ translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scannin
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/dependabot-alerts/about-dependabot-alerts.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies.md,broken liquid tags
 translations/ja-JP/content/code-security/getting-started/securing-your-organization.md,broken liquid tags
 translations/ja-JP/content/code-security/getting-started/securing-your-repository.md,broken liquid tags
 translations/ja-JP/content/code-security/index.md,broken liquid tags
 translations/ja-JP/content/code-security/secret-scanning/about-secret-scanning.md,broken liquid tags
-translations/ja-JP/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/keeping-your-actions-up-to-date-with-dependabot.md,broken liquid tags
-translations/ja-JP/content/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/upgrading-from-dependabotcom-to-github-native-dependabot.md,broken liquid tags
-translations/ja-JP/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies.md,broken liquid tags
-translations/ja-JP/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates.md,broken liquid tags
-translations/ja-JP/content/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies.md,broken liquid tags
+translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
+translations/ja-JP/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
 translations/ja-JP/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,broken liquid tags
 translations/ja-JP/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,broken liquid tags
 translations/ja-JP/content/codespaces/prebuilding-your-codespaces/configuring-prebuilds.md,broken liquid tags
@@ -157,6 +160,7 @@ translations/ja-JP/content/organizations/organizing-members-into-teams/about-tea
 translations/ja-JP/content/organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions.md,broken liquid tags
 translations/ja-JP/content/packages/learn-github-packages/installing-a-package.md,broken liquid tags
 translations/ja-JP/content/packages/learn-github-packages/introduction-to-github-packages.md,broken liquid tags
+translations/ja-JP/content/packages/learn-github-packages/publishing-a-package.md,broken liquid tags
 translations/ja-JP/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,broken liquid tags
 translations/ja-JP/content/packages/quickstart.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,broken liquid tags
@@ -176,6 +180,7 @@ translations/ja-JP/content/repositories/viewing-activity-and-data-for-your-repos
 translations/ja-JP/content/repositories/working-with-files/managing-files/deleting-files-in-a-repository.md,broken liquid tags
 translations/ja-JP/content/repositories/working-with-files/managing-large-files/about-git-large-file-storage.md,broken liquid tags
 translations/ja-JP/content/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage.md,broken liquid tags
+translations/ja-JP/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/ja-JP/content/rest/reference/enterprise-admin.md,broken liquid tags
 translations/ja-JP/content/sponsors/getting-started-with-github-sponsors/about-github-sponsors.md,broken liquid tags
 translations/ja-JP/content/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors.md,broken liquid tags

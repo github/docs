@@ -212,7 +212,7 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 ## 作业之间的依赖关系
 

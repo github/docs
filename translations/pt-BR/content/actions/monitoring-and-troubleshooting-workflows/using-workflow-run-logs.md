@@ -62,6 +62,16 @@ Você pode fazer o download dos arquivos de registro da execução do seu fluxo 
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
 
 
+  {% if re-run-jobs %}
+
+  {% note %}
+
+  **Obersvação**: Ao fazer o download do arquivo de registro de um fluxo de trabalho que foi parcialmente executado, o arquivo só incluirá os trabalhos que foram reexecutados. Para obter um conjunto completo de registro para trabalhos foram executados de um fluxo de trabalho, você deverá fazer o download dos arquivos de registro para as tentativas de execução anteriores que executaram os outros trabalhos.
+
+  {% endnote %}
+
+  {% endif %}
+
 ## Excluir registros
 
 Você pode excluir arquivos de registro da execução do seu fluxo de trabalho. {% data reusables.repositories.permissions-statement-write %}

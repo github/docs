@@ -131,7 +131,7 @@ topics:
 - 数字：值必须是数字。
 - 日期：值必须是日期。
 - 单选：必须从一组指定的值中选择值。
-- 迭代：必须从一组日期范围（迭代）中选择值。 过去的迭代将自动标记为“已完成”，覆盖当前日期范围的迭代将标记为“当前”。
+- 迭代：必须从一组日期范围（迭代）中选择值。 过去的迭代将自动标记为“已完成”，覆盖当前日期范围的迭代将标记为“当前”。 更多信息请参阅“[管理项目中的迭代](/issues/trying-out-the-new-projects-experience/managing-iterations)”。
 
 1. {% data reusables.projects.open-command-palette %} 开始输入 "Create new field" 的任何部分。 当 "Create new field" 显示在命令板中时，选择它。
 2. 或者，单击最右侧字段标题中的 {% octicon "plus" aria-label="the plus icon" %} 。 将显示带有项目字段的下拉菜单。 单击 **New field（新建字段）**。
@@ -146,7 +146,9 @@ topics:
 {% data reusables.projects.project-settings %}
 1. 在 **Fields（字段）**下，选择要编辑的字段。
 1. 对于单选字段，您可以添加、删除或重新排序选项。
-2. 对于迭代字段，您可以添加或删除迭代、更改迭代名称以及更改迭代的开始日期和持续时间。
+1. 对于迭代字段，您可以添加或删除迭代、更改迭代名称以及更改迭代的开始日期和持续时间。
+
+   有关修改迭代字段的详细信息，请参阅“[管理项目中的迭代](/issues/trying-out-the-new-projects-experience/managing-iterations)”。
 
 ## 自定义视图
 

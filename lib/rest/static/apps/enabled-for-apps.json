@@ -2,6 +2,21 @@
   "api.github.com": {
     "actions": [
       {
+        "slug": "get-github-actions-cache-usage-for-an-enterprise",
+        "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
+      },
+      {
+        "slug": "get-github-actions-cache-usage-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/cache/usage"
+      },
+      {
+        "slug": "list-repositories-with-github-actions-cache-usage-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/cache/usage-by-repository"
+      },
+      {
         "slug": "get-github-actions-permissions-for-an-organization",
         "verb": "get",
         "requestPath": "/orgs/{org}/actions/permissions"
@@ -32,12 +47,12 @@
         "requestPath": "/orgs/{org}/actions/permissions/repositories/{repository_id}"
       },
       {
-        "slug": "get-allowed-actions-for-an-organization",
+        "slug": "get-allowed-actions-and-workflows-for-an-organization",
         "verb": "get",
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-for-an-organization",
+        "slug": "set-allowed-actions-and-workflows-for-an-organization",
         "verb": "put",
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
@@ -237,6 +252,11 @@
         "requestPath": "/repos/{owner}/{repo}/actions/artifacts/{artifact_id}/{archive_format}"
       },
       {
+        "slug": "get-github-actions-cache-usage-for-a-repository",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/cache/usage"
+      },
+      {
         "slug": "get-a-job-for-a-workflow-run",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}"
@@ -245,6 +265,11 @@
         "slug": "download-job-logs-for-a-workflow-run",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/logs"
+      },
+      {
+        "slug": "re-run-a-job-from-a-workflow-run",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/rerun"
       },
       {
         "slug": "get-github-actions-permissions-for-a-repository",
@@ -267,12 +292,12 @@
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/access"
       },
       {
-        "slug": "get-allowed-actions-for-a-repository",
+        "slug": "get-allowed-actions-and-workflows-for-a-repository",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-for-a-repository",
+        "slug": "set-allowed-actions-and-workflows-for-a-repository",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
       },
@@ -405,6 +430,11 @@
         "slug": "review-pending-deployments-for-a-workflow-run",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments"
+      },
+      {
+        "slug": "re-run-failed-jobs-from-a-workflow-run",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/rerun-failed-jobs"
       },
       {
         "slug": "list-repository-secrets",
@@ -1103,6 +1133,28 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -1158,26 +1210,6 @@
         "slug": "delete-an-environment",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -2277,9 +2309,19 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
       },
       {
+        "slug": "list-reactions-for-a-release",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
         "slug": "create-reaction-for-a-release",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
+        "slug": "delete-a-release-reaction",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
       },
       {
         "slug": "list-reactions-for-a-team-discussion-comment-legacy",
@@ -3928,6 +3970,28 @@
         "requestPath": "/repos/{owner}/{repo}/statuses/{sha}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -3963,26 +4027,6 @@
         "slug": "get-a-deployment-status",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -6431,6 +6475,28 @@
         "requestPath": "/repos/{owner}/{repo}/statuses/{sha}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -6486,26 +6552,6 @@
         "slug": "delete-an-environment",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -7420,9 +7466,19 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
       },
       {
+        "slug": "list-reactions-for-a-release",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
         "slug": "create-reaction-for-a-release",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
+        "slug": "delete-a-release-reaction",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
       },
       {
         "slug": "list-reactions-for-a-team-discussion-comment-legacy",
@@ -8999,6 +9055,28 @@
         "requestPath": "/repos/{owner}/{repo}/statuses/{sha}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -9054,26 +9132,6 @@
         "slug": "delete-an-environment",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -9993,9 +10051,19 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
       },
       {
+        "slug": "list-reactions-for-a-release",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
         "slug": "create-reaction-for-a-release",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
+        "slug": "delete-a-release-reaction",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
       },
       {
         "slug": "list-reactions-for-a-team-discussion-comment-legacy",
@@ -11731,6 +11799,28 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -11786,26 +11876,6 @@
         "slug": "delete-an-environment",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -12731,9 +12801,19 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
       },
       {
+        "slug": "list-reactions-for-a-release",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
         "slug": "create-reaction-for-a-release",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
+        "slug": "delete-a-release-reaction",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
       },
       {
         "slug": "list-reactions-for-a-team-discussion-comment-legacy",
@@ -13459,9 +13539,19 @@
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
       {
+        "slug": "list-self-hosted-runner-groups-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups"
+      },
+      {
         "slug": "create-a-self-hosted-runner-group-for-an-organization",
         "verb": "post",
         "requestPath": "/orgs/{org}/actions/runner-groups"
+      },
+      {
+        "slug": "get-a-self-hosted-runner-group-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
       },
       {
         "slug": "update-a-self-hosted-runner-group-for-an-organization",
@@ -13472,6 +13562,36 @@
         "slug": "delete-a-self-hosted-runner-group-from-an-organization",
         "verb": "delete",
         "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}"
+      },
+      {
+        "slug": "add-a-self-hosted-runner-to-a-group-for-an-organization",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/actions/runner-groups/{runner_group_id}/runners/{runner_id}"
+      },
+      {
+        "slug": "list-self-hosted-runners-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runners"
+      },
+      {
+        "slug": "list-runner-applications-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runners/downloads"
+      },
+      {
+        "slug": "create-a-registration-token-for-an-organization",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/runners/registration-token"
+      },
+      {
+        "slug": "create-a-remove-token-for-an-organization",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/runners/remove-token"
+      },
+      {
+        "slug": "get-a-self-hosted-runner-for-an-organization",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/actions/runners/{runner_id}"
       },
       {
         "slug": "delete-a-self-hosted-runner-from-an-organization",
@@ -13577,6 +13697,26 @@
         "slug": "list-self-hosted-runners-for-a-repository",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/runners"
+      },
+      {
+        "slug": "list-runner-applications-for-a-repository",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/downloads"
+      },
+      {
+        "slug": "create-a-registration-token-for-a-repository",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/registration-token"
+      },
+      {
+        "slug": "create-a-remove-token-for-a-repository",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/remove-token"
+      },
+      {
+        "slug": "get-a-self-hosted-runner-for-a-repository",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/{runner_id}"
       },
       {
         "slug": "delete-a-self-hosted-runner-from-a-repository",
@@ -14190,6 +14330,28 @@
         "requestPath": "/repos/{owner}/{repo}/statuses/{sha}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -14225,26 +14387,6 @@
         "slug": "get-a-deployment-status",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -15134,24 +15276,19 @@
         "requestPath": "/repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}"
       },
       {
+        "slug": "list-reactions-for-a-release",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
+      },
+      {
         "slug": "create-reaction-for-a-release",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions"
       },
       {
-        "slug": "list-reactions-for-a-team-discussion-comment-legacy",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-      },
-      {
-        "slug": "create-reaction-for-a-team-discussion-comment-legacy",
-        "verb": "post",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/comments/{comment_number}/reactions"
-      },
-      {
-        "slug": "list-reactions-for-a-team-discussion-legacy",
-        "verb": "get",
-        "requestPath": "/teams/{team_id}/discussions/{discussion_number}/reactions"
+        "slug": "delete-a-release-reaction",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/reactions/{reaction_id}"
       }
     ],
     "releases": [
@@ -15288,6 +15425,11 @@
         "requestPath": "/repos/{owner}/{repo}/contributors"
       },
       {
+        "slug": "create-a-repository-dispatch-event",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/dispatches"
+      },
+      {
         "slug": "list-forks",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/forks"
@@ -15408,11 +15550,6 @@
       }
     ],
     "teams": [
-      {
-        "slug": "list-a-connection-between-an-external-group-and-a-team",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/team/{team_slug}/external-groups"
-      },
       {
         "slug": "get-an-external-group",
         "verb": "get",

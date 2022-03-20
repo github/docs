@@ -29,7 +29,7 @@ shortTitle: Revisar alterações de dependência
 
 {% data reusables.dependency-review.feature-overview %}
 
-{% ifversion ghec %}Before you can use dependency review in a private repository, you must enable the dependency graph. For more information, see "[Exploring the dependencies of a repository](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)."{% endif %}
+{% ifversion ghec %}Antes de usar a revisão de dependências em um repositório privado, você deve habilitar o gráfico de dependências. Para obter mais informações, consulte "[Explorando as dependências de um repositório](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)"{% endif %}
 
 {% ifversion ghes > 3.1 %} Antes de você poder usar a revisão de dependências, você deverá habilitar o gráfico de dependências e conectar {% data variables.product.product_location %} a {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitar alertas para dependências vulneráveis em {% data variables.product.prodname_ghe_server %}](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server){% endif %}
 

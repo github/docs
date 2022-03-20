@@ -39,7 +39,11 @@ You can use more than one issue to track the same {% data variables.product.prod
 
 - A "tracked in" section will also show in the corresponding alert page.
 
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
   ![Tracked in section on code scanning alert page](/assets/images/help/repository/code-scanning-alert-tracked-in-pill.png)
+  {% else %}
+  ![Tracked in section on code scanning alert page](/assets/images/enterprise/3.4/repository/code-scanning-alert-tracked-in-pill.png)
+  {% endif %}
 
 - On the tracking issue, {% data variables.product.prodname_dotcom %} displays a security badge icon in the task list and on the hovercard.
 
@@ -64,7 +68,12 @@ The status of the tracked alert won't change if you change the checkbox state of
 {% data reusables.code-scanning.explore-alert %}
 1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. 更多信息请参阅“[管理仓库的代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)”。
 {% endif %}
-1. Towards the top of the page, on the right side, click **Create issue**. ![Create a tracking issue for the code scanning alert](/assets/images/help/repository/code-scanning-create-issue-for-alert.png)
+1. Towards the top of the page, on the right side, click **Create issue**.
+   {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+   ![Create a tracking issue for the code scanning alert](/assets/images/help/repository/code-scanning-create-issue-for-alert.png)
+   {% else %}
+   ![Create a tracking issue for the code scanning alert](/assets/images/enterprise/3.4/repository/code-scanning-create-issue-for-alert.png)
+   {% endif %}
    {% data variables.product.prodname_dotcom %} automatically creates an issue to track the alert and adds the alert as a task list item.
    {% data variables.product.prodname_dotcom %} prepopulates the issue:
    - The title contains the name of the {% data variables.product.prodname_code_scanning %} alert.
