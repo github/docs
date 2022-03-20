@@ -1042,6 +1042,12 @@ on:
     types: [on-demand-test]
 ```
 
+{% note %}
+
+**Note:** The `event_type` value is limited to 100 characters.
+
+{% endnote %}
+
 Any data that you send through the `client_payload` parameter will be available in the `github.event` context in your workflow. For example, if you send this request body when you create a repository dispatch event:
 
 ```json
