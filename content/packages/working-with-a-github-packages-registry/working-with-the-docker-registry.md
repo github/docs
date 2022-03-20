@@ -17,7 +17,7 @@ versions:
 shortTitle: Docker registry
 ---
 
-<!-- Main versioning block. Short page for dotcom -->
+<!-- Main versioning blocks. Short page for dotcom -->
 {% ifversion fpt or ghec %}
 
 {% data variables.product.prodname_dotcom %}'s Docker registry (which used the namespace `docker.pkg.github.com`) has been replaced by the {% data variables.product.prodname_container_registry %} (which uses the namespace `https://ghcr.io`). The {% data variables.product.prodname_container_registry %} offers benefits such as granular permissions and storage optimization for Docker images.
