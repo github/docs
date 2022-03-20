@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Delete organization
+shortTitle: Borrar organización
 ---
 
 {% ifversion fpt or ghec %}
