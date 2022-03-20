@@ -17,11 +17,11 @@ translations/ja-JP/content/actions/learn-github-actions/finding-and-customizing-
 translations/ja-JP/content/actions/managing-workflow-runs/removing-workflow-artifacts.md,broken liquid tags
 translations/ja-JP/content/actions/publishing-packages/about-packaging-with-github-actions.md,broken liquid tags
 translations/ja-JP/content/actions/quickstart.md,broken liquid tags
-translations/ja-JP/content/actions/security-guides/automatic-token-authentication.md,parsing error
 translations/ja-JP/content/actions/using-github-hosted-runners/about-github-hosted-runners.md,broken liquid tags
 translations/ja-JP/content/actions/using-workflows/storing-workflow-data-as-artifacts.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
 translations/ja-JP/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance.md,broken liquid tags
+translations/ja-JP/content/admin/configuration/configuring-network-settings/network-ports.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/accessing-the-management-console.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance.md,broken liquid tags
@@ -31,7 +31,7 @@ translations/ja-JP/content/admin/configuration/configuring-your-enterprise/initi
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
 translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,Listed in localization-support#489
-translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,parsing error
+translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,rendering error
 translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,broken liquid tags
 translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/index.md,broken liquid tags
@@ -78,7 +78,7 @@ translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/u
 translations/ja-JP/content/authentication/managing-commit-signature-verification/about-commit-signature-verification.md,broken liquid tags
 translations/ja-JP/content/authentication/troubleshooting-ssh/error-permission-denied-publickey.md,Listed in localization-support#489
 translations/ja-JP/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,Listed in localization-support#489
-translations/ja-JP/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,parsing error
+translations/ja-JP/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,rendering error
 translations/ja-JP/content/billing/managing-billing-for-github-packages/about-billing-for-github-packages.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process.md,broken liquid tags
 translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
@@ -143,7 +143,7 @@ translations/ja-JP/content/education/manage-coursework-with-github-classroom/tea
 translations/ja-JP/content/get-started/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,broken liquid tags
 translations/ja-JP/content/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain.md,broken liquid tags
 translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,Listed in localization-support#489
-translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,parsing error
+translations/ja-JP/content/get-started/learning-about-github/about-github-advanced-security.md,rendering error
 translations/ja-JP/content/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository.md,broken liquid tags
 translations/ja-JP/content/get-started/quickstart/git-and-github-learning-resources.md,broken liquid tags
 translations/ja-JP/content/get-started/using-github/github-mobile.md,broken liquid tags
@@ -238,9 +238,9 @@ translations/ja-JP/data/reusables/education/apply-for-team.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-packages-report-download-enterprise-accounts.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,parsing error
+translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,parsing error
+translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/download-appliance.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
