@@ -50,5 +50,5 @@ shortTitle: 管理安全和分析
 ## 延伸阅读
 
 - “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
-- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
+- "[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
 - "[自动更新依赖项](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"

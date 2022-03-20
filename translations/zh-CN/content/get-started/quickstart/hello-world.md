@@ -47,104 +47,104 @@ miniTocMaxHeadingLevel: 3
 
 通过分支，您可以同时拥有不同版本的存储库。
 
-默认情况下，存储库有一个名为 `main` 的分支，被视为最终分支。 您可以在存储库中创建 `main` 以外的其他分支。 You can use branches to have different versions of a project at one time. This is helpful when you want to add new features to a project without changing the main source of code. The work done on different branches will not show up on the main branch until you merge it, which we will cover later in this guide. You can use branches to experiment and make edits before committing them to `main`.
+默认情况下，存储库有一个名为 `main` 的分支，被视为最终分支。 您可以在存储库中创建 `main` 以外的其他分支。 您可以使用分支一次拥有项目的不同版本。 当您想要在不更改主要代码源的情况下向项目添加新功能时，这非常有用。 在合并主分支之前，在不同分支上完成的工作不会显示在主分支上，我们将在本指南的后面部分介绍。 您可以使用分支进行试验和编辑，然后再将其提交到 `main`。
 
-When you create a branch off the `main` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
+当您创建 `main` 分支以外的分支时，创建的是 `main` 在当时的副本或快照。 如果其他人在您处理分支时对 `main` 分支进行了更改，您可以拉入这些更新。
 
-This diagram shows:
+此图显示：
 
-* The `main` branch
-* A new branch called `feature`
-* The journey that `feature` takes before it's merged into `main`
+* `main` 分支
+* 一个名为 `feature` 的新分支
+* `feature` 在合并到 `main` 之前的历程
 
-![branching diagram](/assets/images/help/repository/branching.png)
+![分支图](/assets/images/help/repository/branching.png)
 
-Have you ever saved different versions of a file? Something like:
+您是否曾经保存过文件的不同版本？ 像这样：
 
 * `story.txt`
 * `story-edit.txt`
 * `story-edit-reviewed.txt`
 
-Branches accomplish similar goals in {% data variables.product.product_name %} repositories.
+分支在 {% data variables.product.product_name %} 存储库中实现了类似的目标。
 
-Here at {% data variables.product.product_name %}, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our `main` (production) branch. When a change is ready, they merge their branch into `main`.
+在 {% data variables.product.product_name %}，我们的开发人员、编写者和设计师使用分支将错误修复和功能工作与我们的 `main`（生产）分支分开。 当更改准备就绪时，他们会将其分支合并到 `main`。
 
 ### 创建分支
 
-1. Click the **Code** tab of your `hello-world` repository.
-2. Click the drop down at the top of the file list that says **main**. ![Branch menu](/assets/images/help/branch/branch-selection-dropdown.png)
-4. Type a branch name, `readme-edits`, into the text box.
-5. Click **Create branch: readme-edits from main**.
+1. 单击 `hello-world` 存储库的 **Code（代码）**选项卡。
+2. 单击其中显示 **main** 的文件列表顶部的下拉列表。 ![分支菜单](/assets/images/help/branch/branch-selection-dropdown.png)
+4. 在文本框中键入分支名称 `readme-edits`。
+5. 单击 **Create branch: readme-edits from main（创建分支：从 main 创建 readme-edits）**。
 
-![Branch menu](/assets/images/help/repository/new-branch.png)
+![分支菜单](/assets/images/help/repository/new-branch.png)
 
-Now you have two branches, `main` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new branch.
+此时您有两个分支：`main` 和 `readme-edits`。 现在，它们看起来完全相同。 接下来，您将向新分支添加更改。
 
-## Making and committing changes
+## 创建和提交更改
 
-When you created a new branch in the previous step, {% data variables.product.product_name %} brought you to the code page for your new `readme-edits` branch, which is a copy of `main`.
+在上一步中创建新分支时， {% data variables.product.product_name %} 会将您带到作为 `main` 副本的新 `readme-edits` 分支的代码页。
 
-You can make and save changes to the files in your repository. On {% data variables.product.product_name %}, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
+您可以对存储库中的文件进行更改并保存更改。 在 {% data variables.product.product_name %} 上，保存的更改称为提交。 每个提交都有一个关联的提交消息，该消息是解释为什么进行特定更改的说明。 提交消息会捕获您更改的历史记录，以便其他参与者可以了解您执行了哪些操作及其原因。
 
-1. Under the `readme-edits` branch you created, click the _README.md_ file.
+1. 在您创建的 `readme-edits` 分支下，单击 _README.md_ 文件。
 2. 单击 {% octicon "pencil" aria-label="The edit icon" %} 编辑文件。
-3. In the editor, write a bit about yourself. Try using different Markdown elements.
-4. In the **Commit changes** box, write a commit message that describes your changes.
+3. 在编辑器中，编写一些关于您自己的内容。 尝试使用不同的 Markdown 元素。
+4. 在 **Commit changes（提交更改）** 框中，编写描述更改的提交消息。
 5. 单击 **Commit changes（提交更改）**。
 
-   ![Commit example](/assets/images/help/repository/first-commit.png)
+   ![提交示例](/assets/images/help/repository/first-commit.png)
 
-These changes will be made only to the README file on your `readme-edits` branch, so now this branch contains content that's different from `main`.
+这些更改将仅适用于 `readme-edits` 分支上的 README 文件，所以这个分支现在包含不同于 `main` 的内容。
 
 ## 打开拉取请求
 
-Now that you have changes in a branch off of `main`, you can open a pull request.
+现在，您在 `main` 以外的分支中进行了更改，可以打开拉取请求。
 
-Pull requests are the heart of collaboration on {% data variables.product.product_name %}. When you open a pull request, you're proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in different colors.
+拉取请求是 {% data variables.product.product_name %} 上协作的核心。 打开拉取请求后，可以提出更改，要求某人审查和提取您的贡献并将其合并到其分支中。 拉取请求显示两个分支中内容的差异。 变化、增减以不同的颜色显示。
 
-As soon as you make a commit, you can open a pull request and start a discussion, even before the code is finished.
+只要进行提交，便可打开拉取请求并开始讨论，即使在代码完成之前亦可。
 
-By using {% data variables.product.product_name %}'s `@mention` feature in your pull request message, you can ask for feedback from specific people or teams, whether they're down the hall or 10 time zones away.
+通过在拉取请求消息中使用 {% data variables.product.product_name %} 的 `@提及`功能，您可以向特定人员或团队请求反馈，无论他们近在大厅还是远在 10 个时区之外。
 
-You can even open pull requests in your own repository and merge them yourself. It's a great way to learn the {% data variables.product.product_name %} flow before working on larger projects.
+您甚至可以在自己的存储库中打开拉取请求并自行合并。 这是在处理大型项目之前了解 {% data variables.product.product_name %} 流程的好方法。
 
-1. Click the **Pull requests** tab of your `hello-world` repository.
-2. Click **New pull request**
-3. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
-4. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
+1. 单击 `hello-world` 存储库的 **Pull requests（拉取请求）**选项卡。
+2. 单击 **New pull request（新拉取请求）**。
+3. 在 **Example Comparisons（示例比较）**框中，选择您创建的分支 `readme-edits` 以与 `main`（原始分支）进行比较。
+4. 在 Compare（比较）页面上的差异中查看您的更改，确保它们是您要提交的内容。
 
-   ![diff example](/assets/images/help/repository/diffs.png)
+   ![差异示例](/assets/images/help/repository/diffs.png)
 
 5. 单击 **Create pull request（创建拉取请求）**。
-6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
-7. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**. **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. 更多信息请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
+6. 为拉取请求指定一个标题，并写下更改的简要说明。 您可以包含表情符号以及拖放图像和 gif。
+7. （可选）在标题和说明右侧，单击 **Reviewers（审查者）**旁边的 {% octicon "gear" aria-label="The Gear icon" %}。 单击 **Assignees（受理人）**、**Labels（标签）**、**Projects（项目）**或 **Milestone（里程碑）**以将这些选项添加到您的拉取请求。 您不需要添加任何内容，但这些选项提供了使用拉取请求进行协作的不同方式。 更多信息请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
 7. 单击 **Create pull request（创建拉取请求）**。
 
-Your collaborators can now review your edits and make suggestions.
+您的协作者现在可以查看您的编辑内容并提出建议。
 
-## Merging your pull request
+## 合并拉取请求
 
-In this final step, you will merge your `readme-edits` branch into the `main` branch.  After you merge your pull request, the changes on your `readme-edits` branch will be incorporated into `main`.
+在最后一步中，您将 `readme-edits` 分支合并到 `main` 分支中。  合并拉取请求后，`readme-edits` 分支上的更改将合并到 `main`。
 
-Sometimes, a pull request may introduce changes to code that conflict with the existing code on `main`. If there are any conflicts, {% data variables.product.product_name %} will alert you about the conflicting code and prevent merging until the conflicts are resolved. You can make a commit that resolves the conflicts or use comments in the pull request to discuss the conflicts with your team members.
+有时，拉取请求可能会引入与 `main` 上现有代码冲突的代码更改。 如果存在任何冲突， {% data variables.product.product_name %} 将提醒您有关冲突代码的信息，并防止合并，直到冲突解决为止。 您可以进行解决冲突的提交，也可以使用拉取请求中的注释与团队成员讨论冲突。
 
-In this walk-through, you should not have any conflicts, so you are ready to merge your branch into the main branch.
+在本演练中，应该没有任何冲突，因此您已准备好将分支合并到主分支中。
 
-1. Click **Merge pull request** to merge the changes into `main`. ![Screen shot of merge button.](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
-2. 单击 **Confirm merge（确认合并）**。 You will receive a message that the request was successfully merged and the request was closed.
-3. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
+1. 单击 **Merge pull request（合并拉取请求）**，将更改合并到 `main`。 ![合并按钮的屏幕截图。](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
+2. 单击 **Confirm merge（确认合并）**。 您将收到一条消息，指出请求已成功合并且请求已关闭。
+3. 单击 **Delete branch（删除分支）**。 现在，您的拉取请求已合并，并且您的更改位于 `main` 上，您可以安全地删除 `readme-edits` 分支。 如果要对项目进行更多更改，可以随时创建新分支并重复此过程。
 
 ## 后续步骤
 
-By completing this tutorial, you've learned to create a project and make a pull request on {% data variables.product.product_name %}.
+通过完成本教程，您已经学会了创建项目和在 {% data variables.product.product_name %} 上发出拉取请求。
 
-Here's what you accomplished in this tutorial:
+以下是您在本教程中完成的工作：
 
-* Created an open source repository
-* Started and managed a new branch
-* Changed a file and committed those changes to {% data variables.product.product_name %}
-* Opened and merged a pull request
+* 创建了一个开源仓库
+* 启动并管理了新的分支
+* 更改了文件并将这些更改提交到 {% data variables.product.product_name %}
+* 打开并合并了拉取请求
 
-Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
+查看您的 {% data variables.product.product_name %} 个人资料，将会看到您的工作反映在您的贡献图表上。
 
-For more information about the power of branches and pull requests, see "[GitHub flow](/get-started/quickstart/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).
+有关分支和拉取请求的强大功能的更多信息，请参阅“[GitHub 流程](/get-started/quickstart/github-flow)”。 有关开始使用 {% data variables.product.product_name %} 的详细信息，请参阅[快速入门](/get-started/quickstart)中的其他指南。
