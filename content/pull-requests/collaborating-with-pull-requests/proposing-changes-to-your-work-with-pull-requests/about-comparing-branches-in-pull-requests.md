@@ -48,6 +48,10 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 
   ![File filter drop-down menu](/assets/images/help/pull_requests/file-filter-menu.png)
 
+## Reasons diffs will not display
+- You've exceeded the total limit of files or certain file types. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
+- Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[Customizing how changed files appear on GitHub](/articles/customizing-how-changed-files-appear-on-github)."
+
 ## Three-dot and two-dot Git diff comparisons
 
 By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff, or a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
@@ -62,9 +66,6 @@ If you want to simulate a two-dot diff in a pull request and see a comparison be
 
 For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
-## Reasons diffs will not display
-- You've exceeded the total limit of files or certain file types. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
-- Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[Customizing how changed files appear on GitHub](/articles/customizing-how-changed-files-appear-on-github)."
 
 ## Further reading
 
