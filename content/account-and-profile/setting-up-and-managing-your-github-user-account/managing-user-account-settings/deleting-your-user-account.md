@@ -1,5 +1,5 @@
 ---
-title: Deleting your personal account
+title: Deleting your user account
 intro: 'You can delete your {% data variables.product.product_name %} personal account at any time.'
 redirect_from:
   - /articles/deleting-a-user-account
