@@ -1,4 +1,3 @@
-<!-- table to be reviewed when this makes to to other products -->
 Provider | Supported secret | API slug
 --- | --- | ---
 Adafruit IO | Adafruit IO Key | adafruit_io_key
