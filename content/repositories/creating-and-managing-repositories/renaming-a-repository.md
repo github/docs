@@ -38,7 +38,7 @@ If you plan to rename a repository that has a {% data variables.product.prodname
 
 {% note %}
 
-**Note:** If your repository hosts an action, we recommend that you avoid renaming your repository. The action is not automatically redirected when a workflow runs to avoid security issues, so all workflows that use that action will fail with error `repository not found`. Instead, you can create a new repository with the new name and deprecate the old repository.
+**Note:** {% data variables.product.prodname %} will not redirect calls to an action hosted by a renamed repository. Any workflow that uses that action will fail with the error `repository not found`. Instead, create a new repository and action with the new name and archive the old repository. For more information, see "[Archiving repositories] (/repositories/archiving-a-github-repository/archiving-repositories)."
 
 {% endnote %}
 
