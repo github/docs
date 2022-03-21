@@ -40,7 +40,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 ### Dependencies view
 
 {% ifversion fpt or ghec %}
-Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies. For dependencies on public repositories hosted on {% data variables.product.product_name %}, you can also click a dependency to view the repository. Dependencies on private repositories, private packages, or unrecognized files are shown in plain text.
+Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies.  Dependencies on private repositories, private packages, or unrecognized files are shown in plain text. If the package manager for the dependency is in a public repository, {% data variables.product.product_name %} will display a link to that repository.
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -84,7 +84,10 @@ You can disable the dependency graph at any time by clicking **Disable** next to
 
 ## Changing the "Used by" package
 
-If the dependency graph is enabled, and your repository contains a package that's published on a supported package ecosystem, {% data variables.product.prodname_dotcom %} displays a "Used by" section in the sidebar of the **Code** tab of your repository. For more information about the supported package ecosystems, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)."
+You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
+  * The dependency graph is enabled for the repository (see the above section for more details).
+  * Your repository contains a package that is published on a [supported package ecosystem](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
+  * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
 
 The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
 
@@ -114,7 +117,7 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 ## Further reading
 
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
+- "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
 - "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
 - "[Understanding how {% data variables.product.prodname_dotcom %} uses and protects your data](/get-started/privacy-on-github)"
 {% endif %}

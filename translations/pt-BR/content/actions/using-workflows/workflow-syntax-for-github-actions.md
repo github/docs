@@ -342,6 +342,31 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
+#### Example: Using secrets
+
+Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
+
+If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
+
+{% raw %}
+```yaml
+name: Run a step if a secret has been set
+on: push
+jobs:
+  my-jobname:
+    runs-on: ubuntu-latest
+    env:
+      super_secret: ${{ secrets.SuperSecret }}
+    steps:
+      - if: ${{ env.super_secret != '' }}
+        run: echo 'This step will only run if the secret has a value set.'
+      - if: ${{ env.super_secret == '' }}
+        run: echo 'This step will only run if the secret does not have a value set.'
+```
+{% endraw %}
+
+For more information, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)" and "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+
 ### `jobs.<job_id>.steps[*].name`
 
 Nome da etapa no {% data variables.product.prodname_dotcom %}.
@@ -716,7 +741,7 @@ Se o tempo-limite exceder o tempo limite de execução do trabalho para o runner
 
 {% note %}
 
-**Note:** {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see "[About the `GITHUB_TOKEN` secret](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
+**Observação:** {% data reusables.actions.github-token-expiration %} para executores auto-hospedados, o token pode ser o fator de limitação se o tempo limite do trabalho for superior a 24 horas. Para obter mais informações sobre o `GITHUB_TOKEN`, consulte "[Sobre ](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)segredo do `GITHUB_TOKEN`."
 
 {% endnote %}
 

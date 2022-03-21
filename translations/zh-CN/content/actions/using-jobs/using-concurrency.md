@@ -1,6 +1,6 @@
 ---
-title: Using concurrency
-shortTitle: Using concurrency
+title: 使用并发
+shortTitle: 使用并发
 intro: Run a single job at a time.
 versions:
   fpt: '*'

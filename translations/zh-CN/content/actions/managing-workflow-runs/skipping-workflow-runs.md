@@ -1,6 +1,6 @@
 ---
 title: 跳过工作流程运行
-intro: You can skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message.
+intro: 您可以通过在提交消息中包含命令来跳过由 `push` 和 `pull_request` 事件触发的工作流程运行。
 versions:
   fpt: '*'
   ghes: '*'
@@ -30,4 +30,4 @@ shortTitle: 跳过工作流程运行
 
 {% endnote %}
 
-Skip instructions only apply to the workflow run(s) that would be triggered by the commit that contains the skip instructions. You can also disable a workflow from running. 更多信息请参阅“[禁用和启用工作流程](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)。
+跳过指令仅适用于由包含跳过指令的提交触发的工作流程运行。 您还可以禁用工作流程的运行。 更多信息请参阅“[禁用和启用工作流程](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)。

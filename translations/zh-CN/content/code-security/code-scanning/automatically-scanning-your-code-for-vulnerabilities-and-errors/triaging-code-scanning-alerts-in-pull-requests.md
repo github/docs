@@ -74,10 +74,17 @@ topics:
 
 要查看有关警报的更多信息，拥有写入权限的用户可单击注释中所示的 **Show more details（显示更多详情）**链接。 这允许您在警报视图中查看工具提供的所有上下文和元数据。 在下例中，您可以查看显示问题的严重性、类型和相关通用缺陷枚举 (CWE) 的标记。 该视图还显示哪个提交引入了问题。
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.alert-default-branch %}
+{% endif %}
+
 在警报的详细视图中，有些 {% data variables.product.prodname_code_scanning %} 工具，例如 {% data variables.product.prodname_codeql %} 分析，还包括问题描述和 **Show more（显示更多）**链接以指导您如何修复代码。
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 ![显示更多信息的警报说明和链接](/assets/images/help/repository/code-scanning-pr-alert.png)
-
+{% else %}
+![显示更多信息的警报说明和链接](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
+{% endif %}
 ## 修复拉取请求上的警报
 
 任何对拉取请求具有推送权限的人都可以修复在该拉取请求上已识别的 {% data variables.product.prodname_code_scanning %} 警报。 如果将更改提交到拉取请求，这将触发拉取请求检查的新运行。 如果您的更改修复了问题，则警报将被关闭，注释将被删除。

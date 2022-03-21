@@ -73,7 +73,7 @@ Se qualquer trabalho na execução de um fluxo de trabalho falhar, você poderá
 
 {% cli %}
 
-To re-run failed jobs in a workflow run, use the `run rerun` subcommand with the `--failed` flag. Replace `run-id` with the ID of the run for which you want to re-run failed jobs. Se você não especificar um `run-id`, {% data variables.product.prodname_cli %} irá retornar um menu interativo para você escolher uma execução com falha recente.
+Para executar novamente trabalhos que falharam em um fluxo de trabalho executado, use o subcomando `executar novamente` com o sinalizador `--failed`. Substitua `run-id` pelo ID da execução para o qual você deseja reexecutar trabalhos que falharam. Se você não especificar um `run-id`, {% data variables.product.prodname_cli %} irá retornar um menu interativo para você escolher uma execução com falha recente.
 
 ```shell
 gh run rerun <em>run-id</em> --failed
@@ -99,7 +99,7 @@ Ao executar novamente um trabalho específico em um fluxo de trabalho, uma nova 
 
 {% cli %}
 
-To re-run a specific job in a workflow run, use the `run rerun` subcommand with the `--job` flag. Replace `job-id` with the ID of the job that you want to re-run.
+Para executar novamente um trabalho específico em uma execução de fluxo de trabalho, use o subcomando `executar novamente` com o sinalizador `--job`. Substitua `job-id` pelo ID do trabalho que você deseja executar novamente.
 
 ```shell
 gh run rerun --job <em>job-id</em>
