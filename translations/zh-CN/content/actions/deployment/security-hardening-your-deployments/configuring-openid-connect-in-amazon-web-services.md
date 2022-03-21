@@ -51,11 +51,11 @@ Edit the trust relationship to add the `sub` field to the validation conditions.
 
 ## 更新 {% data variables.product.prodname_actions %} 工作流程
 
-To update your workflows for OIDC, you will need to make two changes to your YAML:
-1. Add permissions settings for the token.
+要更新 OIDC 的工作流程，您需要对 YAML 进行两项更改：
+1. 为令牌添加权限设置。
 2. Use the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) action to exchange the OIDC token (JWT) for a cloud access token.
 
-### Adding permissions settings
+### 添加权限设置
 
  {% data reusables.actions.oidc-permissions-token %}
 

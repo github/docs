@@ -226,7 +226,7 @@ You could also use a `curl` command to request the JWT, using the following envi
 curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://AzureADTokenExchange"
 ```
 
-### Adding permissions settings
+### 添加权限设置
 
 {% data reusables.actions.oidc-permissions-token %}
 
