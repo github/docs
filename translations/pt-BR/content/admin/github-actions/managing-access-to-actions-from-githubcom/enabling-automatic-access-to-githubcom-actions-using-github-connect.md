@@ -27,11 +27,11 @@ Por padrão, os fluxos de trabalho {% data variables.product.prodname_actions %}
 
 Como alternativa, se você quiser ter um controle mais rigoroso sobre quais as ações que são permitidas na sua empresa, você pode fazer o download e sincronizar manualmente as ações na instância da sua empresa usando a ferramenta de `actions-sync`. Para obter mais informações, consulte "[Sincronizando ações manualmente com o {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/manually-syncing-actions-from-githubcom)".
 
-## About resolution for actions using {% data variables.product.prodname_github_connect %}
+## Sobre resolução para ações usando {% data variables.product.prodname_github_connect %}
 
 {% data reusables.actions.github-connect-resolution %}
 
-If a user has already created an organization and repository in your enterprise that matches an organization and repository name on {% data variables.product.prodname_dotcom_the_website %}, the repository on your enterprise will be used instead of the {% data variables.product.prodname_dotcom_the_website %} repository. {% ifversion ghes < 3.3 or ghae %}A malicious user could take advantage of this behavior to run code as part of a workflow{% else %}For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
+Se um usuário tiver criado uma organização e um repositório em sua empresa, que corresponde a uma organização e nome do repositório em {% data variables.product.prodname_dotcom_the_website %}, o repositório da sua empresa será usado em vez do repositório de {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghes < 3.3 or ghae %}Um usuário malicioso poderia aproveitar esse comportamento para executar o código como parte de um fluxo de trabalho{% else %}Para obter mais informações, consulte "[Desativação automática de namespaces para ações acessadas em {% data variables.product.prodname_dotcom_the_website%}](#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)".
 {% endif %}
 
 ## Habilitar o acesso automático a todas as ações de {% data variables.product.prodname_dotcom_the_website %}
