@@ -77,7 +77,7 @@ topics:
 
 每个具有依赖项的应用程序都有一个依赖关系图，即应用程序直接或间接依赖的每个包版本的定向非循环图。 每次更新依赖项时，必须解决此图，否则将无法构建应用程序。 当生态系统具有深刻而复杂的依赖关系图（例如 npm 和 RubyGems）时，如果不升级整个生态系统，往往难以升级单个依赖项。
 
-避免这个问题的最佳办法是跟上最新发布的版本，例如启用版本更新。 这增加了通过不破坏依赖关系图的简单升级解决一个依赖项中的漏洞的可能性。 For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+避免这个问题的最佳办法是跟上最新发布的版本，例如启用版本更新。 这增加了通过不破坏依赖关系图的简单升级解决一个依赖项中的漏洞的可能性。 更多信息请参阅“[配置 {% data variables.product.prodname_dependabot %} 版本更新](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)”。
 
 ### {% data variables.product.prodname_dependabot %} 无法更新到所需的版本，因为已经为最新版本打开了拉取请求
 
@@ -91,7 +91,7 @@ topics:
 
 此错误难以解决。 如果版本更新超时，您可以使用 `allow` 参数来指定更新最重要的依赖项，或者使用 `ignore` 参数从更新中排除某些依赖项。 更新配置可能使 {% data variables.product.prodname_dependabot %} 能够在规定时间内检查版本更新并生成请求。
 
-如果安全更新超时，您可以通过保持依赖项更新（例如，启用版本更新）来减少更新需要。 For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+如果安全更新超时，您可以通过保持依赖项更新（例如，启用版本更新）来减少更新需要。 更多信息请参阅“[配置 {% data variables.product.prodname_dependabot %} 版本更新](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)”。
 
 ### {% data variables.product.prodname_dependabot %} 无法再打开拉取请求
 

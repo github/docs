@@ -52,7 +52,7 @@ shortTitle: 使用 Jekyll 本地测试站点
 
 {% note %}
 
-**Note:** If you are using Ruby 3.0 and Jekyll 4.2.x or older, you will need to add the `webrick` gem to your project's Gemfile prior to running `bundle install`.
+**注意：** 如果您使用的是 Ruby 3.0 和 Jekyll 4.2.x 或更早版本，则需要在运行 `bundle install` 之前，将 `webrick` gem 添加到项目的 Gemfile 中。
 
 {% endnote %}
 

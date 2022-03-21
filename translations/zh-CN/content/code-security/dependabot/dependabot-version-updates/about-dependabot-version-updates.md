@@ -32,7 +32,7 @@ shortTitle: Dependabot 版本更新
 
 通过将配置文件检入仓库，可启用 {% data variables.product.prodname_dependabot_version_updates %}。 配置文件指定存储在仓库中的清单或其他包定义文件的位置。 {% data variables.product.prodname_dependabot %} 使用此信息来检查过时的软件包和应用程序。 {% data variables.product.prodname_dependabot %} 确定依赖项是否有新版本，它通过查看依赖的语义版本 ([semver](https://semver.org/)) 来决定是否应更新该版本。 对于某些软件包管理器，{% data variables.product.prodname_dependabot_version_updates %} 也支持供应。 供应（或缓存）的依赖项是检入仓库中特定目录的依赖项，而不是在清单中引用的依赖项。 即使包服务器不可用，供应的依赖项在生成时也可用。 {% data variables.product.prodname_dependabot_version_updates %} 可以配置为检查为新版本供应的依赖项，并在必要时更新它们。
 
-当 {% data variables.product.prodname_dependabot %} 发现过时的依赖项时，它会发起拉取请求以将清单更新到依赖项的最新版本。 对于供应和依赖项，{% data variables.product.prodname_dependabot %} 提出拉取请求以直接将过时的依赖项替换为新版本。 检查测试是否通过，查看拉取请求摘要中包含的更改日志和发行说明，然后合并它。 For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+当 {% data variables.product.prodname_dependabot %} 发现过时的依赖项时，它会发起拉取请求以将清单更新到依赖项的最新版本。 对于供应和依赖项，{% data variables.product.prodname_dependabot %} 提出拉取请求以直接将过时的依赖项替换为新版本。 检查测试是否通过，查看拉取请求摘要中包含的更改日志和发行说明，然后合并它。 更多信息请参阅“[配置 {% data variables.product.prodname_dependabot %} 版本更新](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)”。
 
 如果启用_安全更新_，{% data variables.product.prodname_dependabot %} 还会发起拉取请求以更新易受攻击依赖项。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)”。
 

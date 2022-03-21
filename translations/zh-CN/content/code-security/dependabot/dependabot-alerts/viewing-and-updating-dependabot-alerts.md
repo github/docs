@@ -26,7 +26,7 @@ topics:
 {% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-仓库的 {% data variables.product.prodname_dependabot_alerts %} 选项卡列出所有打开和关闭的 {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes > 3.2 %} 以及对应的 {% data variables.product.prodname_dependabot_security_updates %}{% endif %}。 可以{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %} 按程序包、生态系统或清单筛选警报。 您还可以{% endif %} 对警报列表进行排序，单击特定警报以获取更多详细信息。 For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+仓库的 {% data variables.product.prodname_dependabot_alerts %} 选项卡列出所有打开和关闭的 {% data variables.product.prodname_dependabot_alerts %}{% ifversion fpt or ghec or ghes > 3.2 %} 以及对应的 {% data variables.product.prodname_dependabot_security_updates %}{% endif %}。 可以{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %} 按程序包、生态系统或清单筛选警报。 您还可以{% endif %} 对警报列表进行排序，单击特定警报以获取更多详细信息。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %} 警报](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
 您可以为使用 {% data variables.product.prodname_dependabot_alerts %} 和依赖关系图的任何仓库启用自动安全更新。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)“。
