@@ -8,7 +8,7 @@ versions:
   ghec: '*'
 type: quick_start
 topics:
-  - Pull requests
+  - Pull requestsdocs/content/get-started/quickstart/hello-world.md
   - Fundamentals
 miniTocMaxHeadingLevel: 3
 ---
