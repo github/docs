@@ -112,9 +112,9 @@ If you configure SAML authentication for {% data variables.product.product_locat
 
 {% data variables.product.prodname_ghe_server %} provides three types of accounts.
 
-- The `admin` Linux personal account has controlled access to the underlying operating system, including direct filesystem and database access. A small set of trusted administrators should have access to this account, which they can access over SSH. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)."
-- Personal accounts in the appliance's web application have full access to their own data and any data that other users or organizations explicitly grant.
-- Site administrators in the appliance's web application are personal accounts that can manage high-level web application and appliance settings, user and organization account settings, and repository data.
+- The `admin` Linux user account has controlled access to the underlying operating system, including direct filesystem and database access. A small set of trusted administrators should have access to this account, which they can access over SSH. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/installation/accessing-the-administrative-shell-ssh)."
+- User accounts in the appliance's web application have full access to their own data and any data that other users or organizations explicitly grant.
+- Site administrators in the appliance's web application are user accounts that can manage high-level web application and appliance settings, user and organization account settings, and repository data.
 
 For more information about {% data variables.product.prodname_ghe_server %}'s user permissions, see "[Access permissions on GitHub](/enterprise/user/articles/access-permissions-on-github)."
 
