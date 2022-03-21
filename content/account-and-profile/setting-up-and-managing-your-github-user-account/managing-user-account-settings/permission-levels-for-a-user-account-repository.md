@@ -22,7 +22,7 @@ You can also {% ifversion fpt or ghec %}invite{% else %}add{% endif %} users on 
 
 {% tip %}
 
-**Tip:** If you require more granular access to a repository owned by your personal account, consider transferring the repository to an organization. For more information, see "[Transferring a repository](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)."
+**Tip:** If you require more granular access to a repository owned by your personal account, consider transferring the repository to an organization. For more information, see "[Transferring a repository](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-personal-account)."
 
 {% endtip %}
 
