@@ -24,7 +24,7 @@ package.json @github/docs-engineering
 /translations/log/ @github/docs-localization @Octomerger
 
 # Site Policy
-/content/github/site-policy/ @github/site-policy-admins
+/content/site-policy/ @github/site-policy-admins
 
 # Content strategy
 /contributing/content-markup-reference.md @github/docs-content-strategy
