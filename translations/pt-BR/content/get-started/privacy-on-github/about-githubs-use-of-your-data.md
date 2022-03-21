@@ -28,7 +28,7 @@ Anunciaremos novos recursos importantes que usam metadados ou dados agregados no
 
 ## Como os dados melhoram as recomendações de segurança
 
-Para dar um exemplo de como os dados podem ser usados, podemos detectar e alertar você para uma vulnerabilidade de segurança nas dependências do seu repositório público. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
+Para dar um exemplo de como os dados podem ser usados, podemos detectar e alertar você para uma vulnerabilidade de segurança nas dependências do seu repositório público. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
 
 Para detectar possíveis vulnerabilidades de segurança, o {% data variables.product.product_name %} verifica o conteúdo do arquivo de manifesto de dependência para extrair uma lista de dependências do seu projeto.
 

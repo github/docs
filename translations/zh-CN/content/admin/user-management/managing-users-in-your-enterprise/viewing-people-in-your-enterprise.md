@@ -39,19 +39,19 @@ shortTitle: 查看企业中的人员
 
 {% ifversion ghec %}
 
-## Viewing suspended members in an {% data variables.product.prodname_emu_enterprise %}
+## 在 {% data variables.product.prodname_emu_enterprise %} 中查看暂停的成员
 
-If your enterprise uses {% data variables.product.prodname_emus %}, you can also view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. 更多信息请参阅“[关于企业管理用户](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)”。
+如果您的企业使用 {% data variables.product.prodname_emus %}，您还可以查看已暂停的用户。 暂停的用户是在从 {% data variables.product.prodname_emu_idp_application %} 应用程序取消分配或从身份提供商中删除后已取消预配的成员。 更多信息请参阅“[关于企业管理用户](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. To view a list of suspended members, above the list of active members, click **Suspended**. ![Screenshot showing "Suspended" option](/assets/images/help/enterprises/view-suspended-members.png)
+1. 要查看已暂停成员的列表，请在活动成员列表上方单击 **Suspended（已暂停）**。 ![显示"已暂停"选项的屏幕截图](/assets/images/help/enterprises/view-suspended-members.png)
 
 {% endif %}
 
 ## 查看休眠用户
 
-You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} 更多信息请参阅“[管理休眠用户](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”。
+您可以查看{% ifversion ghes or ghae %}尚未暂停以及{% endif %}不是站点管理员的所有休眠用户列表。 {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} 更多信息请参阅“[管理休眠用户](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”。
 
 ## 延伸阅读
 

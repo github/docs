@@ -58,6 +58,7 @@ MessageBird | MessageBird API Key
 Meta | Facebook Access Token
 npm | npm Access Token
 NuGet | NuGet API Key
+Octopus Deploy | Octopus Deploy API Key
 OpenAI | OpenAI API Key
 Palantir | Palantir JSON Web Token
 PlanetScale | PlanetScale Database Password
