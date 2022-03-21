@@ -38,6 +38,13 @@ If your project communicates with an external service, you might use a token or 
 
 Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. {% data reusables.secret-scanning.partner-program-link %}
 
+{% if secret-scanning-push-protection %}
+
+You can also enable {% data variables.product.prodname_secret_scanning %} as a push protection for a repository or an organization. When this feature is enabled, {% data variables.product.prodname_secret_scanning %} prevents contributors from pushing their changes via the CLI whenever a new secret is detected in the push. To proceed, contributors must either remove the secret(s) from the push, or bypass the protection through a custom URL provided in the CLI message. The URL points to a page on {% data variables.product.product_name %} where contributors can allow their secret past the protection as a false positive, a test secret, or a real secret that they’ll fix later. For more information, see "[Protecting pushes with {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+
+{% endif %}
+
+
 {% ifversion fpt or ghec %}
 ## About {% data variables.product.prodname_secret_scanning_partner %}
 
