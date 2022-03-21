@@ -18,7 +18,7 @@ redirect_from:
 ---
 ## About authentication and user provisioning with Azure AD
 
-Azure Active Directory (Azure AD) is a service from Microsoft that allows you to centrally manage personal accounts and access to web applications. For more information, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) in the Microsoft Docs.
+Azure Active Directory (Azure AD) is a service from Microsoft that allows you to centrally manage user accounts and access to web applications. For more information, see [What is Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) in the Microsoft Docs.
 
 To manage identity and access for {% data variables.product.product_name %}, you can use an Azure AD tenant as a SAML IdP for authentication. You can also configure Azure AD to automatically provision accounts and access membership with SCIM, which allows you to create {% data variables.product.prodname_ghe_managed %} users and manage team and organization membership from your Azure AD tenant.
 
