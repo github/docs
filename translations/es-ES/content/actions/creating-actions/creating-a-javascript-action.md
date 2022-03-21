@@ -263,6 +263,6 @@ jobs:
 ```
 {% endraw %}
 
-Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. Under **Jobs** or in the visualization graph, click **A job to say hello**. Deberías ver "Hello Mona the Octocat" o el nombre que usaste para la entrada `who-to-greet` y la marcación de hora impresa en el registro.
+Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. Debajo de **Jobs** o en la gráfica de visualización, haz clic en **A job to say hello**. Deberías ver "Hello Mona the Octocat" o el nombre que usaste para la entrada `who-to-greet` y la marcación de hora impresa en el registro.
 
 ![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)

@@ -13,7 +13,7 @@ type: overview
 topics:
   - Actions
   - Enterprise
-shortTitle: Adicionar ações à sua empresa
+shortTitle: About actions in your enterprise
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -23,13 +23,24 @@ shortTitle: Adicionar ações à sua empresa
 
 Os fluxos de trabalho de {% data variables.product.prodname_actions %} podem usar _ações_, que são tarefas individuais que você pode combinar para criar tarefas e personalizar seu fluxo de trabalho. Você pode criar suas próprias ações ou usar e personalizar ações compartilhadas pela comunidade {% data variables.product.prodname_dotcom %}.
 
-{% data reusables.actions.enterprise-no-internet-actions %}
+{% data reusables.actions.enterprise-no-internet-actions %} You can restrict your developers to using actions that are stored on {% data variables.product.product_location %}, which includes most official {% data variables.product.company_short %}-authored actions, as well as any actions your developers create. Alternatively, to allow your developers to benefit from the full ecosystem of actions built by industry leaders and the open source community, you can configure access to other actions from {% data variables.product.prodname_dotcom_the_website %}.
+
+We recommend allowing automatic access to all actions from {% data variables.product.prodname_dotcom_the_website %}. {% ifversion ghes %}However, this does require {% data variables.product.product_name %} to make outbound connections to {% data variables.product.prodname_dotcom_the_website %}. If you don't want to allow these connections, or{% else %}If{% endif %} you want to have greater control over which actions are used on your enterprise, you can manually sync specific actions from {% data variables.product.prodname_dotcom_the_website %}.
 
 ## Ações oficiais agrupadas com a sua instância corporativa
 
 {% data reusables.actions.actions-bundled-with-ghes %}
 
-As ações oficiais empacotadas incluem `ações/checkout`, `actions/upload-artefact`, `actions/download-artefact`, `actions/labeler`, e várias ações de `actions/setup-`, entre outras. Para ver todas as ações oficiais incluídas na instância da sua empresa, acesse a organização das `ações` na sua instância: <code>https://<em>HOSTNAME</em>/actions</code>.
+The bundled official actions include the following, among others.
+- `actions/checkout`
+- `actions/upload-artifact`
+- `actions/download-artifact`
+- `actions/labeler`
+- Various `actions/setup-` actions
+
+Para ver todas as ações oficiais incluídas na instância da sua empresa, acesse a organização das `ações` na sua instância: <code>https://<em>HOSTNAME</em>/actions</code>.
+
+There is no connection required between {% data variables.product.product_location %} and {% data variables.product.prodname_dotcom_the_website %} to use these actions.
 
 Cada ação é um repositório na organização de `ações`, e cada repositório de ação inclui as tags necessárias, branches e commit de SHAs que seus fluxos de trabalho podem usar para fazer referência à ação. Para obter informações sobre como atualizar as ações oficiais empacotadas, consulte "[Usar a versão mais recente das ações oficiais empacotadas](/admin/github-actions/using-the-latest-version-of-the-official-bundled-actions)".
 
@@ -43,14 +54,21 @@ Cada ação é um repositório na organização de `ações`, e cada repositóri
 
 ## Configurar o acesso a ações no {% data variables.product.prodname_dotcom_the_website %}
 
-{% ifversion ghes %}
-Antes que você possa configurar o acesso a ações em {% data variables.product.prodname_dotcom_the_website %}, você deve configurar {% data variables.product.product_location %} para usar {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para o GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
-{% endif %}
-
 {% data reusables.actions.access-actions-on-dotcom %}
 
 A abordagem recomendada é habilitar o acesso automático para todas as ações a partir de {% data variables.product.prodname_dotcom_the_website %}. Você pode fazer isso usando {% data variables.product.prodname_github_connect %} para integrar {% data variables.product.product_name %} com {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte "[Habilitar acesso automático a ações de {% data variables.product.prodname_dotcom_the_website %} usando {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 
+{% ifversion ghes %}
+{% note %}
+
+**Note:** Before you can configure access to actions on {% data variables.product.prodname_dotcom_the_website %}, you must configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para o GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
+
+
+{% endnote %}
+{% endif %}
+
+{% data reusables.actions.self-hosted-runner-networking-to-dotcom %}
+
 {% data reusables.actions.enterprise-limit-actions-use %}
 
-Como alternativa, se você quiser ter um controle mais rigoroso sobre quais as ações que são permitidas na sua empresa, você pode fazer o download e sincronizar manualmente as ações na instância da sua empresa usando a ferramenta de `actions-sync`. Para obter mais informações, consulte "[Sincronizando ações manualmente com o {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/manually-syncing-actions-from-githubcom)".
+Alternatively, if you want stricter control over which actions are allowed in your enterprise, or you do not want to allow outbound connections to {% data variables.product.prodname_dotcom_the_website %}, you can manually download and sync actions onto your enterprise instance using the `actions-sync` tool. Para obter mais informações, consulte "[Sincronizando ações manualmente com o {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/manually-syncing-actions-from-githubcom)".

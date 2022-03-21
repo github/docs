@@ -1,6 +1,6 @@
 ---
 title: Secret scanning
-intro: 'Use the secret scanning API to retrieve and update secret alerts from a repository.'
+intro: Secret scanning APIを使うと、リポジトリのシークレットアラートの取得と更新ができます。
 versions:
   fpt: '*'
   ghes: '*'

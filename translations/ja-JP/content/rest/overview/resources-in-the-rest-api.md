@@ -614,14 +614,14 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 
 ## タイムゾーン
 
-新しいコミットの作成など、新しいデータを作成する一部のリクエストでは、タイムスタンプを指定または生成するときにタイムゾーン情報を提供できます。 We apply the following rules, in order of priority, to determine timezone information for such API calls.
+新しいコミットの作成など、新しいデータを作成する一部のリクエストでは、タイムスタンプを指定または生成するときにタイムゾーン情報を提供できます。 そういったAPI 呼び出しのタイムゾーン情報を決定する際に、優先順位に従って次のルールを適用します。
 
 * [ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
 * [`Time-Zone` ヘッダを使用する](#using-the-time-zone-header)
 * [ユーザが最後に認識されたタイムゾーンを使用する](#using-the-last-known-timezone-for-the-user)
 * [他のタイムゾーン情報を含まない UTC をデフォルトにする](#defaulting-to-utc-without-other-timezone-information)
 
-Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
+これらのルールは、APIに渡されたデータに対してのみ適用され、APIが返す日付には適用されないことに注意してください。 「[スキーマ](#schema)」にあるように、APIが返すタイムスタンプはUTCでISO8601フォーマットです。
 
 ### ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する
 

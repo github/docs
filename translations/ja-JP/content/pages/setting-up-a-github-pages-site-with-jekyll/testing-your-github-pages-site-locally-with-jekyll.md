@@ -50,6 +50,12 @@ Jekyll を使用してサイトをテストする前に、以下の操作が必�
   ```
 3. サイトをプレビューするには、ウェブブラウザで `http://localhost:4000` を開きます。
 
+{% note %}
+
+**Note:** If you are using Ruby 3.0 and Jekyll 4.2.x or older, you will need to add the `webrick` gem to your project's Gemfile prior to running `bundle install`.
+
+{% endnote %}
+
 ## {% data variables.product.prodname_pages %} gem の更新
 
 Jekyll は、頻繁に更新されているアクティブなオープンソースプロジェクトです。 お使いのコンピュータ上の `github-pages` gem が {% data variables.product.prodname_pages %} サーバー上の `github-pages` gem と比較して古くなっている場合は、ローカルでビルドしたときと {% data variables.product.product_name %} に公開したときで、サイトの見え方が異なることがあります。 こうならないように、お使いのコンピュータ上の `github-pages` gem は常にアップデートしておきましょう。

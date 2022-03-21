@@ -174,7 +174,7 @@ shortTitle: 从收件箱管理
 - `reason:security_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知和安全更新拉取请求。
 - `author:app/dependabot`，显示 {% data variables.product.prodname_dependabot %} 生成的通知。 这包括 {% data variables.product.prodname_dependabot_alerts %}、安全更新拉取请求和版本更新拉取请求。
 
-有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于管理有漏洞的依赖项](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)”。
+有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
 {% ifversion ghes < 3.3 or ghae-issue-4864 %}
@@ -183,7 +183,7 @@ shortTitle: 从收件箱管理
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 
-有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于有漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
 {% endif %}

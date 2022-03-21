@@ -59,7 +59,7 @@ Puedes habilitar o inhabilitar los tokens de autorización de usuario a servidor
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. Da clic en la opción**Editar** junto a la {% data variables.product.prodname_github_app %} que escogiste. ![Configuración para editar una GitHub App](/assets/images/github-apps/edit-test-app.png)
-5. In the left sidebar, click **Optional Features**. ![Optional features tab](/assets/images/github-apps/optional-features-option.png)
+5. En la barra lateral izquierda, haz clic en **Características opcionales**. ![Pestaña de características opcionales](/assets/images/github-apps/optional-features-option.png)
 6. Junto a "caducidad de token de usuario a servidor", da clic en **Unirse** o en **No unirse**. Esta característica podría tardar un par de segundos para su aplicación.
 
 ## Decidir no unirse a los tokens con caducidad para las GitHub Apps nuevas
