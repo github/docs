@@ -5,6 +5,8 @@ product: '{% data reusables.gated-features.secret-scanning-partner %}'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: 'secret-scanning-push-protection'
+redirect_from:
+  - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
 type: how_to
 topics:
   - Secret scanning
@@ -30,7 +32,7 @@ Up to now, {% data variables.product.prodname_secret_scanning %} for {% data var
 
 For you to use {% data variables.product.prodname_secret_scanning %} as a push protection, the organization or repository needs to have both {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)," "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)," and "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
 
-Organization owners, security managers, and repository administrators can enable push protection for {% data variables.product.prodname_secret_scanning %} via the UI and API. For more information, see "[Repositories](/rest/reference/repos#update-a-repository)" in the REST API documentation.
+Organization owners, security managers, and repository administrators can enable push protection for {% data variables.product.prodname_secret_scanning %} via the UI and API. For more information, see "[Repositories](/rest/reference/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
 
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for an organization
 
