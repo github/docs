@@ -29,6 +29,11 @@ sections:
       notes:
         - |
           El {% data variables.product.prodname_dependabot %} ahora está disponible en {% data variables.product.prodname_ghe_server %} 3.4 como un beta público y ofrece tanto actualziaciones de versión como de seguridad para varios ecosistemas populares. El {% data variables.product.prodname_dependabot %} en {% data variables.product.prodname_ghe_server %} requiere {% data variables.product.prodname_actions %} y un conjunto de ejecutores auto-hospedados configurado para que el mismo {% data variables.product.prodname_dependabot %} los utilice. El {% data variables.product.prodname_dependabot %} en {% data variables.product.prodname_ghe_server %} también requiere que un administrador habilite tanto {% data variables.product.prodname_github_connect %} como el mismo {% data variables.product.prodname_dependabot %}. Puedes compartir tu retroalimentación y sugerencias en el [Debate de GitHub sobre la retroalimentación para el {% data variables.product.prodname_dependabot %}](https://github.com/github/feedback/discussions/categories/dependabot-feedback). Para obtener más información y probar el beta, consulta la sección "[Configurar la seguridad y las actualizaciones de versión del {% data variables.product.prodname_dependabot %} en tu empresa](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)".
+    - 
+      heading: SAML authentication supports encrypted assertions
+      notes:
+        - |
+          If you use SAML authentication for {% data variables.product.prodname_ghe_server %}, you can now configure encrypted assertions from your IdP to improve security. Encrypted assertions add an additional layer of encryption when your IdP transmits information to {% data variables.product.product_location %}. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
   changes:
     - 
       heading: Cambios en la administración
