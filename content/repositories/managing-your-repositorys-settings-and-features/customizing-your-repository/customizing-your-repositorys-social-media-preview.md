@@ -29,3 +29,13 @@ Tip: Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the be
     - To remove an image, click **Remove image**
 
     ![Social preview dropdown](/assets/images/help/repository/social-preview.png)
+
+## Transparency
+
+PNGs with transparency are supported. Many communication platforms support a dark mode, so using a transparent social preview may be beneficial. The transparent image below is acceptable on a dark background; however, this is not always the case. When using an image with transparency keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
+
+{% tip %}
+Tip: If you are not sure, we recommend using an image with a solid background.
+{% endtip %}
+
+![Social preview transparency](/assets/images/help/repository/social-preview-transparency.png)
