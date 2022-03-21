@@ -142,7 +142,7 @@ prodname_vs: 'Visual Studio'
 prodname_vscode: 'Visual Studio Code'
 prodname_vss_ghe: 'Visual Studio subscriptions with GitHub Enterprise'
 prodname_vss_admin_portal_with_url: '[Visual Studio 订阅的管理员门户](https://visualstudio.microsoft.com/subscriptions-administration/)'
-prodname_vscode_command_palette: 'VS Code Command Palette'
+prodname_vscode_command_palette: 'VS 代码命令面板'
 #GitHub Dependabot
 prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot 警报'
