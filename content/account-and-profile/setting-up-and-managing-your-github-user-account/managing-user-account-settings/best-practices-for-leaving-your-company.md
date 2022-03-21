@@ -1,6 +1,6 @@
 ---
 title: Best practices for leaving your company
-intro: 'Changing jobs is a fact of life. If you use your GitHub personal account for both personal *and* work purposes, there are a few things to keep in mind when you leave your company or organization.'
+intro: 'If you use your account on {% data variables.product.product_name %} for both personal and work purposes, there are a few things to keep in mind when you leave your company or organization.'
 redirect_from:
   - /articles/best-practices-for-leaving-your-company
   - /github/setting-up-and-managing-your-github-user-account/best-practices-for-leaving-your-company
