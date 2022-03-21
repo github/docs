@@ -246,7 +246,7 @@ When the user signs in again, {% data variables.product.prodname_ghe_server %} c
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` mapping for the personal account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."
+The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` mapping for the personal account on {% data variables.product.prodname_ghe_server %} matches the account's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."
 
 ### Error: Recipient in SAML response was blank or not valid
 
