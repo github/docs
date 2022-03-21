@@ -17,7 +17,11 @@ topics:
 
 Se configurar um nome de host em vez de um endereço IP codificado, você poderá alterar o hardware físico em que a {% data variables.product.product_location %} é executada sem afetar os usuários ou o software cliente.
 
-A configuração do nome de host no {% data variables.enterprise.management_console %} deve ser definida como um nome de domínio totalmente qualificado (FQDN) que seja resolvido na internet ou dentro da sua rede interna. Por exemplo, a configuração do nome de host pode ser `github.nomedaempresa.com.` Também recomendamos habilitar o isolamento de subdomínio para o nome do host escolhido a fim de mitigar várias vulnerabilidades no estilo de script entre sites. Para obter mais informações sobre as configurações de nome de host, consulte a [Seção 2.1 em HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
+A configuração do nome de host no {% data variables.enterprise.management_console %} deve ser definida como um nome de domínio totalmente qualificado (FQDN) que seja resolvido na internet ou dentro da sua rede interna. For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}.
+
+After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)".
+
+For more information on the supported hostname types, see [Section 2.1 of the HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -29,4 +33,4 @@ A configuração do nome de host no {% data variables.enterprise.management_cons
 {% data reusables.enterprise_management_console.test-domain-settings-failure %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-Depois de configurar um nome de host, recomendamos que você habilite o isolamento de subdomínio para a {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)".
+To help mitigate various cross-site scripting vulnerabilities, we recommend that you enable subdomain isolation for {% data variables.product.product_location %} after you configure a hostname. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)".

@@ -70,7 +70,7 @@ Usamos [Linguist](https://github.com/github/linguist) para executar a detecção
 {% if mermaid %}
 ## Criando diagramas
 
-You can also use code blocks to create diagrams in Markdown. GitHub supports Mermaid, geoJSON, topoJSON, and ASCII STL syntax. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
+Você também pode usar blocos de código para criar diagramas em Markdown. O GitHub é compatível com a sintaxe do Mermaid, geoJSON, topoJSON e ASCII STL. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
 
 {% endif %}
 ## Leia mais

@@ -1,7 +1,7 @@
 {% if restrict-groups-to-workflows %}
 {% note %}
 
-**Note:** Configuring the workflows that can access a runner group is currently in beta and subject to change.
+**Nota:** A configuração dos fluxos de trabalho que podem acessar um grupo de executores está atualmente na versão beta e sujeita a alterações.
 
 {% endnote %}
 {% endif %}
