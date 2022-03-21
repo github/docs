@@ -10,7 +10,6 @@ redirect_from:
   - /actions/reference/logging-commands-for-github-actions
   - /actions/reference/workflow-commands-for-github-actions
   - /actions/learn-github-actions/workflow-commands-for-github-actions
-defaultTool: bash
 versions:
   fpt: '*'
   ghes: '*'
