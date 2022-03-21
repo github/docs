@@ -28,7 +28,7 @@ We'll announce substantial new features that use metadata or aggregate data on t
 
 ## How data improves security recommendations
 
-As an example of how your data might be used, we can detect and alert you to a security vulnerability in your public repository's dependencies. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+As an example of how your data might be used, we can detect and alert you to a security vulnerability in your public repository's dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 
 To detect potential security vulnerabilities, {% data variables.product.product_name %} scans the contents of your dependency manifest file to draw a list of your project's dependencies.
 

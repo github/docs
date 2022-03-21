@@ -80,6 +80,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: フィールド
       arguments: 引数
       name: 名前
@@ -102,6 +103,8 @@ products:
       notes: 注釈
       parameters: パラメータ
       response: レスポンス
+      error_codes: Error Codes
+      http_status_code: HTTP Status Code
       code_sample: コードサンプル
       code_samples: コードサンプル
       preview_notice: プレビュー通知

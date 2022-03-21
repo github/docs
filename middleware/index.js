@@ -9,6 +9,7 @@ import timeout from './timeout.js'
 import morgan from 'morgan'
 import datadog from './connect-datadog.js'
 import rateLimit from './rate-limit.js'
+import slowDown from './slow-down.js'
 import cors from './cors.js'
 import helmet from 'helmet'
 import csp from './csp.js'
@@ -212,6 +213,7 @@ export default function (app) {
   }
 
   // *** Early exits ***
+  app.use(slowDown)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))

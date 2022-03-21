@@ -1,6 +1,7 @@
 import type { xCodeSample } from './types'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { CodeBlock } from './CodeBlock'
+import { Fragment } from 'react'
 
 type Props = {
   slug: string
@@ -11,7 +12,7 @@ export function RestCodeSamples({ slug, xCodeSamples }: Props) {
   const { t } = useTranslation('products')
 
   return (
-    <>
+    <Fragment key={xCodeSamples + slug}>
       <h4 id={`${slug}--code-samples`}>
         <a href={`#${slug}--code-samples`}>{`${t('rest.reference.code_samples')}`}</a>
       </h4>
@@ -29,6 +30,6 @@ export function RestCodeSamples({ slug, xCodeSamples }: Props) {
         }
         return sampleElements
       })}
-    </>
+    </Fragment>
   )
 }

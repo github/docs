@@ -141,7 +141,7 @@ In your `hello-world-javascript-action` directory, create a `README.md` file tha
 - Environment variables the action uses.
 - An example of how to use your action in a workflow.
 
-```markdown
+```markdown{:copy}
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
@@ -198,7 +198,7 @@ Checking in your `node_modules` directory can cause problems. As an alternative,
   `rm -rf node_modules/*`
 
 1. From your terminal, commit the updates to your `action.yml`, `dist/index.js`, and `node_modules` files.
-```shell
+```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
 git tag -a -m "My first action release" v1.1

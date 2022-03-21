@@ -78,3 +78,5 @@ In your `docs-internal` checkout:
 - [ ] In `github/github`, edit the release's config file in `app/api/description/config/releases/`, and change `deprecated: false` to `deprecated: true`.
 - [ ] Open a new PR, and get the required code owner approvals. A docs-content team member can approve it for the docs team.
 - [ ] When the PR is approved, [deploy the `github/github` PR](https://thehub.github.com/engineering/devops/deployment/deploying-dotcom/).  If you haven't deployed a `github/github` PR before, work with someone that has -- the process isn't too involved depending on how you deploy, but there are a lot of details that can potentially be confusing as you can see from the documentation.
+
+**Note**: you can do this step independently of the other steps after a GHES version is deprecated since it should no longer get updates in github/github.  You should plan to get this PR merged as soon as possible, otherwise if you wait too long our OpenAPI automation may re-add the static files that you removed in step 5.

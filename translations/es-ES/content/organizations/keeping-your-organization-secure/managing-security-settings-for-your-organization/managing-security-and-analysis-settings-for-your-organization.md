@@ -122,7 +122,7 @@ El {% data variables.product.prodname_dependabot %} puede verificar si hay refer
 
 Predeterminadamente, el {% data variables.product.prodname_dependabot %} no puede actualizar las dependencias que se ubican en los repositorios o en los registros de paquetes privados. Sin embargo, si una dependencia se encuentra en un repositorio privado de {% data variables.product.prodname_dotcom %} dentro de la misma organización que el proyecto que la utiliza, puedes permitir al {% data variables.product.prodname_dependabot %} actualizar la versión exitosamente si le otorgas acceso al repositorio en el que se hospeda.
 
-Si tu código depende de paquetes en un registro privado, puedes permitir que el {% data variables.product.prodname_dependabot %} actualice las versiones de estas dependencias si configuras esto a nivel del repositorio. Puedes hacer esto si agregas los detalles de autenticación al archivo _dependabot.yml_ para el repositorio. Para obtener más información, consulta la sección "[Opciones de configuración para las actualizaciones de dependencias](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)".
+Si tu código depende de paquetes en un registro privado, puedes permitir que el {% data variables.product.prodname_dependabot %} actualice las versiones de estas dependencias si configuras esto a nivel del repositorio. Puedes hacer esto si agregas los detalles de autenticación al archivo _dependabot.yml_ para el repositorio. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)."
 
 Para permitir que el {% data variables.product.prodname_dependabot %} acceda a un repositorio privado de {% data variables.product.prodname_dotcom %}:
 
@@ -157,6 +157,5 @@ Puedes administrar el acceso a las características de la {% data variables.prod
 
 - "[Asegurar tu repositorio](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
 - "[Acerca del escaneo de secretos](/github/administering-a-repository/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Administrar las vulnerabilidades en las dependencias de tus proyectos](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
-- "[Mantener tus dependencias actualizacas automáticamente](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
+- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}{% ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+- "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"{% endif %}

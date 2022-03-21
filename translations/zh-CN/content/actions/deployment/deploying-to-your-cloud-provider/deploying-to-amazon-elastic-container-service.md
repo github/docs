@@ -22,15 +22,15 @@ shortTitle: 部署到 Amazon ECS
 
 ## 简介
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/), and deploy it to [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/) when there is a push to the `main` branch.
+本指南介绍如何使用 {% data variables.product.prodname_actions %} 构建容器化应用程序，将其推送到 [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/)，以及要推送到 `main` 分支时将其部署到 [Amazon Elastic Container Service (ECS)](https://aws.amazon.com/ecs/)。
 
-On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
+在每次推送到 {% data variables.product.company_short %} 仓库中的 `main` 时，{% data variables.product.prodname_actions %} 工作流程将构建新的容器映像并将其推送到 Amazon ECR，然后将新的任务定义部署到 Amazon ECS。
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and ["Configuring OpenID Connect in Amazon Web Services"](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services).
+**注意**：{% data reusables.actions.about-oidc-short-overview %} 和[“在 Amazon Web Services 中配置 OpenID Connect”](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services)。
 
 {% endnote %}
 
@@ -161,7 +161,7 @@ jobs:
 
 ## 其他资源
 
-For the original starter workflow, see [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`aws.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/aws.yml)。
 
 有关这些示例中使用的服务的详细信息，请参阅以下文档：
 

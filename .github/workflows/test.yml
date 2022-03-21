@@ -7,6 +7,9 @@ name: Node.js Tests
 on:
   workflow_dispatch:
   pull_request:
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: read

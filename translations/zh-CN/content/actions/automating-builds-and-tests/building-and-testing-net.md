@@ -18,7 +18,7 @@ shortTitle: 构建和测试 .NET
 
 本指南介绍如何构建、测试和发布 .NET 包。
 
-{% ifversion ghae %} To build and test your .NET project on {% data variables.product.prodname_ghe_managed %}, the .NET Core SDK is required. {% data reusables.actions.self-hosted-runners-software %}
+{% ifversion ghae %} 若要在 {% data variables.product.prodname_ghe_managed %} 上构建和测试 .NET 项目，需要 .NET Core SDK。 {% data reusables.actions.self-hosted-runners-software %}
 {% else %} {% data variables.product.prodname_dotcom %} 托管的运行器有工具缓存预安装的软件，包括 .NET Core SDK。 有关最新版软件以及 .NET Core SDK 预安装版本的完整列表，请参阅 [{% data variables.product.prodname_dotcom %} 自托管运行器上安装的软件](/actions/reference/specifications-for-github-hosted-runners)。
 {% endif %}
 
@@ -28,11 +28,11 @@ shortTitle: 构建和测试 .NET
 
 建议您对 .NET Core SDK 有个基本的了解。 更多信息请参阅“[开始使用 .NET](https://dotnet.microsoft.com/learn)”。
 
-## Using the .NET starter workflow
+## 使用 .NET 入门工作流程
 
-{% data variables.product.prodname_dotcom %} provides a .NET starter workflow that should work for most .NET projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [.NET starter workflow](https://github.com/actions/setup-dotnet).
+{% data variables.product.prodname_dotcom %} 提供有 .NET 入门工作流程，应适合大多数 .NET 项目，本指南包括演示如何自定义此入门工作流程的示例。 更多信息请参阅 [.NET 入门工作流程](https://github.com/actions/setup-dotnet)。
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+要快速开始，请将入门工作流程添加到仓库的 `.github/workflows` 目录中。
 
 {% raw %}
 
@@ -229,7 +229,7 @@ jobs:
 
 ## 发布到包注册表
 
-You can configure your workflow to publish your .NET package to a package registry when your CI tests pass. 您可以使用仓库机密来存储发布二进制文件所需的任何令牌或凭据。 下面的示例使用 `dotnet core cli`创建并发布软件包到 {% data variables.product.prodname_registry %}。
+您可以配置工作流程在 CI 测试通过后将 .NET 包发布到包注册表。 您可以使用仓库机密来存储发布二进制文件所需的任何令牌或凭据。 下面的示例使用 `dotnet core cli`创建并发布软件包到 {% data variables.product.prodname_registry %}。
 
 ```yaml
 name: Upload dotnet package

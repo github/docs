@@ -20,7 +20,7 @@ shortTitle: Cómo utiliza tus datos GitHub
 
 {% data reusables.repositories.about-github-archive-program %} Para obtener más información, consulta la sección "[Acerca de archivar contenido y datos en {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)".
 
-{% data reusables.user-settings.export-data %} For more information, see "[Requesting an archive of your personal account's data](/articles/requesting-an-archive-of-your-personal-account-s-data)."
+{% data reusables.user-settings.export-data %} Para obtener más información, consulta "[Solicitar un archivo de los datos de tu cuenta personal](/articles/requesting-an-archive-of-your-personal-account-s-data)".
 
 Si decides utilizar datos para un repositorio privado, seguiremos tratando tus datos privados, código abierto, o secretos comerciales como confidenciales y privados de acuerdo con nuestras [Condiciones de Servicio](/free-pro-team@latest/github/site-policy/github-terms-of-service). La información que obtenemos viene solo de los datos agregados. Para obtener más información, consulta la sección "[Administrar la configuración de uso de datos para tu repositorio privado](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)".
 
@@ -28,7 +28,7 @@ Anunciaremos nuevas funciones sustanciales que usen metadatos o datos agregados 
 
 ## Cómo mejoran los datos las recomendaciones de seguridad
 
-Como ejemplo de cómo deberían usarse tus datos, podemos detectar y alertarte sobre una vulnerabilidad de seguridad en las dependencias de tu repositorio público. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
+Como ejemplo de cómo deberían usarse tus datos, podemos detectar y alertarte sobre una vulnerabilidad de seguridad en las dependencias de tu repositorio público. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
 
 Para detectar posibles vulnerabilidades de seguridad {% data variables.product.product_name %} escanea los contenidos del archivo de manifiesto de dependencias para hacer una lista de las dependencias de tu proyecto.
 
