@@ -24,7 +24,7 @@
   #Security policies
   title: Microsoft security policy template
   description: Política de seguridad de ejemplo
-  href: https://github.com/microsoft/repo-templates/blob/main/shared/SECURITY.md
+  href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
   tags:
     - Política de seguridad
 - 

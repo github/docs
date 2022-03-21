@@ -1,6 +1,6 @@
 ---
 title: デプロイメント
-intro: デプロイメントAPIを使うと、デプロイーキー、デプロイメント、デプロイメント環境の作成と削除ができます。
+intro: The deployments API allows you to create and delete deployments and deployment environments.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

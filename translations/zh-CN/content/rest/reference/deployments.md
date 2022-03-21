@@ -1,6 +1,6 @@
 ---
 title: 部署
-intro: 'The deployments API allows you to create and delete deploy keys, deployments, and deployment environments.'
+intro: The deployments API allows you to create and delete deployments and deployment environments.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
