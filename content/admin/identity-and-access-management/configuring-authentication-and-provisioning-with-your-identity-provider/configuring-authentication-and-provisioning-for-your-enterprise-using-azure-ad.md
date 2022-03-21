@@ -25,7 +25,7 @@ To manage identity and access for {% data variables.product.product_name %}, you
 After you enable SAML SSO and SCIM for {% data variables.product.prodname_ghe_managed %} using Azure AD, you can accomplish the following from your Azure AD tenant.
 
 * Assign the {% data variables.product.prodname_ghe_managed %} application on Azure AD to a user account to automatically create and grant access to a corresponding personal account on {% data variables.product.product_name %}.
-* Unassign the {% data variables.product.prodname_ghe_managed %} application to a personal account on Azure AD to deactivate the corresponding personal account on {% data variables.product.product_name %}.
+* Unassign the {% data variables.product.prodname_ghe_managed %} application to a user account on Azure AD to deactivate the corresponding personal account on {% data variables.product.product_name %}.
 * Assign the {% data variables.product.prodname_ghe_managed %} application to an IdP group on Azure AD to automatically create and grant access to personal accounts on {% data variables.product.product_name %} for all members of the IdP group. In addition, the IdP group is available on {% data variables.product.prodname_ghe_managed %} for connection to a team and its parent organization.
 * Unassign the {% data variables.product.prodname_ghe_managed %} application from an IdP group to deactivate the {% data variables.product.product_name %} personal accounts of all IdP users who had access only through that IdP group and remove the users from the parent organization. The IdP group will be disconnected from any teams on {% data variables.product.product_name %}.
 
