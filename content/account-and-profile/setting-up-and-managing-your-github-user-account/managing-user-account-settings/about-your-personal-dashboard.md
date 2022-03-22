@@ -65,7 +65,7 @@ You'll see updates in your news feed when a user you follow:
 - Forks a public repository.{% endif %}
 - Publishes a new release.
 
-For more information about starring repositories and following people, see "[Following people](/articles/following-people)" and "[Be social](/get-started/quickstart/be-social)."
+For more information about following people and watching repositories, see "[Following people](/get-started/exploring-projects-on-github/following-people)" and "[Be social](/get-started/quickstart/be-social)."
 
 {% if for-you-feed %}
 ### For you feed
