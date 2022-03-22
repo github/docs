@@ -37,7 +37,7 @@ Las asesorías que revisa {% data variables.product.company_short %} son vulnera
 
 Revisamos la validez de cada asesoría cuidadosamente. Cada asesoría que revisa {% data variables.product.company_short %} tiene una descripción completa y contiene información tanto del ecosistema como del paquete.
 
-Si habilitas las {% data variables.product.prodname_dependabot_alerts %} para tus repositorios, se te notifica automáticamente cuando una asesoría que revisa {% data variables.product.company_short %} afecta a los paquetes de los que dependes. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+Si habilitas las {% data variables.product.prodname_dependabot_alerts %} para tus repositorios, se te notifica automáticamente cuando una asesoría que revisa {% data variables.product.company_short %} afecta a los paquetes de los que dependes. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
 
 ### Acerca de las asesorías sin revisar
 
