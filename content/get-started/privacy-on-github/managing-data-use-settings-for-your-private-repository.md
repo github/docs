@@ -17,7 +17,10 @@ shortTitle: Manage data use for private repo
 ## About data use for your private repository
 
 
-Control data use for your private repository with the security and analysis features. Enable the dependency graph to enable read-only data analysis on your repository. Disable the dependency graph to disable read-only data analysis of your repository. 
+You can control data use for your private repository with the security and analysis features. 
+
+- Enable the dependency graph to allow read-only data analysis on your repository. 
+- Disable the dependency graph to block read-only data analysis of your repository. 
 
 When you enable data use for your private repository, you'll be able to access the dependency graph, where you can track your repository's dependencies and receive {% data variables.product.prodname_dependabot_alerts %} when {% data variables.product.product_name %} detects vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."
 
