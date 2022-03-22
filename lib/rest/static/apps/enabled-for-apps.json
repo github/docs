@@ -14387,6 +14387,26 @@
         "slug": "get-a-deployment-status",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
+      },
+      {
+        "slug": "get-all-environments",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments"
+      },
+      {
+        "slug": "get-an-environment",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "create-or-update-an-environment",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "delete-an-environment",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
       }
     ],
     "emojis": [
