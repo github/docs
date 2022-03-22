@@ -66,10 +66,10 @@ Solo los propietarios de empresa pueden eliminar a otros administradores de empr
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Convert to member**{% endif %}.
+1. Junto al nombre de usuario de la persona que te gustaría eliminar, haz clic en {% octicon "gear" aria-label="The Settings gear" %} y luego en {% ifversion ghes %}**Eliminar propietario**{% elsif ghec %}**Convertir en miembro**{% endif %}.
   {% ifversion ghec %}
   ![Parámetros con opción del menú para eliminar un administrador de empresa](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}
   ![Parámetros con opción del menú para eliminar un administrador de empresa](/assets/images/help/business-accounts/ghes-remove-owner.png)
   {% endif %}
-1. Read the confirmation, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Yes, convert USERNAME to member**{% endif %}.
+1. Lee la confirmación y luego haz clic en {% ifversion ghes %}**Eliminar propietario**{% elsif ghec %}**Sí, convertir a USERNAME en miembro**{% endif %}.
