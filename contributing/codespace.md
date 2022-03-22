@@ -24,7 +24,8 @@ The steps described below assume you have GitHub Codespaces set up to edit files
 1. Edit the markdown file as required.
 1. Save your changes.
 1. Commit and push your changes, either using the Source Control pane, or using Git commands from the Terminal. For more information, see "[About Git](https://docs.github.com/en/get-started/using-git/about-git)."
-1. Go to the **Pull requests** tab of the `github/docs` repository and click **New pull request**.
+1. Go to the **Pull requests** tab of the `github/docs` repository: https://github.com/github/docs/pulls
+1. Click **New pull request**.
 1. Click **compare across forks** and choose the forked repository you created, and your working branch.
 1. Check that the changes displayed include all of the changes you made in the codespace. If they do not, it indicates there are changes you have not pushed from the codespace to GitHub.
 1. Click **Create pull request**.
