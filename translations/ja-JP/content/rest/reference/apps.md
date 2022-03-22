@@ -1,6 +1,6 @@
 ---
 title: アプリ
-intro: The GitHub Apps API enables you to retrieve the information about the installation as well as specific information about GitHub Apps.
+intro: GitHub Apps APIを使うと、インストールに関する情報や、GitHub Appに関する特定の情報を取得できます。
 redirect_from:
   - /v3/apps
 versions:

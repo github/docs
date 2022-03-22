@@ -64,4 +64,4 @@ O que acontece se você não seguir a política e o GitHub acabar pagando para u
 MULTAS e PRISÃO. Não necessariamente apenas para o GitHub. Você pode passar alguns anos na cadeia, você mesmo, e não importa se o cliente alguma vez enviou um pedido ao GitHub após sua viagem ao Japão ou se o funcionário do governo mesmo pegou a mala de dinheiro. Basicamente, não importa se você realmente _fez_ um suborno. Apesar disso, caro Yoda, tentativa é o que importa.
 
 ## Mais informações
-Para obter mais informações e contexto sobre regras, aplicação e sanções, os EUA. Department of Justice’s [Resource Guide to the U.S. A Lei das Práticas Internacionais de Corrupção](https://www.justice.gov/sites/default/files/criminal-fraud/legacy/2015/01/16/guide.pdf) é um excelente recurso.
+Para obter mais informações e contexto sobre regras, aplicação e sanções, os EUA. [Guia de Recursos do Departamento de Justiça dos EUA A Lei das Práticas Internacionais de Corrupção](https://www.justice.gov/sites/default/files/criminal-fraud/legacy/2015/01/16/guide.pdf) é um excelente recurso.

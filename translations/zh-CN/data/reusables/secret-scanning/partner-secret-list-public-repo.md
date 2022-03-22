@@ -58,6 +58,7 @@
 | 元数据                       | Facebook Access Token               |
 | npm                       | npm 访问令牌                            |
 | NuGet                     | NuGet API 密钥                        |
+| Octopus Deploy            | Octopus Deploy API Key              |
 | OpenAI                    | OpenAI API 密钥                       |
 | Palantir                  | Palantir JSON Web 令牌                |
 | PlanetScale               | PlanetScale Database Password       |
