@@ -1,5 +1,5 @@
 ---
-title: Reviewing proposed changes in a pull request
+title:sukydapps  Reviewing proposed changes in a pull request
 intro: 'In a pull request, you can review and discuss commits, changed files, and the differences (or "diff") between the files in the base and compare branches.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request
