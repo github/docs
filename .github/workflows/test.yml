@@ -110,12 +110,12 @@ jobs:
           # a string like `foo.js path/bar.md`
           output: ' '
 
-      - name: Insight into changed files
-        run: |
+      # - name: Insight into changed files
+      #   run: |
 
-          # Must to do this because the list of files can be HUGE. Especially
-          # in a repo-sync when there are lots of translation files involved.
-          echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
+      #     # Must to do this because the list of files can be HUGE. Especially
+      #     # in a repo-sync when there are lots of translation files involved.
+      #     echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
 
       - name: Setup node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
@@ -137,6 +137,6 @@ jobs:
 
       - name: Run tests
         env:
-          DIFF_FILE: get_diff_files.txt
+          # DIFF_FILE: get_diff_files.txt
           CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
         run: npm test -- tests/${{ matrix.test-group }}/
