@@ -14,7 +14,7 @@ shortTitle: 手动运行工作流程
 
 ## 配置工作流程手动运行
 
-要手动运行工作流程，工作流程必须配置为在发生 `workflow_dispatch` 事件时运行。 要触发 `Workflow_spoch` 事件，您的工作流程必须在默认分支中。 有关配置 `workflow_paid` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#workflow_dispatch)”。
+要手动运行工作流程，工作流程必须配置为在发生 `workflow_dispatch` 事件时运行。 要触发 `workflow_dispatch` 事件，您的工作流程必须在默认分支中。 有关配置 `workflow_dispatch` 事件的更多信息，请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#workflow_dispatch)”。
 
 {% data reusables.repositories.permissions-statement-write %}
 
