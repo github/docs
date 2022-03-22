@@ -142,7 +142,7 @@
     "japanese-characters": "^1.1.0",
     "javascript-stringify": "^2.1.0",
     "jest": "^27.4.7",
-    "jest-environment-puppeteer": "5.0.4",
+    "jest-environment-puppeteer": "6.0.3",
     "jest-fail-on-console": "^2.2.3",
     "jest-github-actions-reporter": "^1.0.3",
     "jest-slow-test-reporter": "^1.0.0",
