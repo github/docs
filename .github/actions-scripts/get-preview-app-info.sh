@@ -22,7 +22,6 @@ DEPLOYMENT_NAME="${REPO_NAME}-pr-${PR_NUMBER}"
 echo "DEPLOYMENT_NAME=${DEPLOYMENT_NAME}" >> $GITHUB_ENV
 
 APP_NAME_BASE="${REPO_NAME}-preview-${PR_NUMBER}"
-echo "APP_NAME_BASE=${APP_NAME_BASE}" >> $GITHUB_ENV
 
 # pseudo random string so guessing a preview env URL is more difficult
 APP_SHA=$(echo -n "${APP_NAME_SEED}-${APP_NAME_BASE}" | sha1sum | cut -c1-6)
@@ -30,7 +29,7 @@ APP_SHA=$(echo -n "${APP_NAME_SEED}-${APP_NAME_BASE}" | sha1sum | cut -c1-6)
 APP_NAME="${APP_NAME_BASE}-${APP_SHA}"
 echo "APP_NAME=${APP_NAME}" >> $GITHUB_ENV
 
-APP_URL="https://${APP_NAME}.${PREVIEW_ENV_LOCATION}.azurecontainer.io"
+APP_URL="https://${REPO_NAME}-${PR_NUMBER}-${APP_SHA}.preview.ghdocs.com"
 echo "APP_URL=${APP_URL}" >> $GITHUB_ENV
 
 IMAGE_REPO="${GITHUB_REPOSITORY}/pr-${PR_NUMBER}"
