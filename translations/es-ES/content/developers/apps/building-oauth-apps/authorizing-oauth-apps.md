@@ -126,6 +126,12 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 Este flujo de dispositivos te permite autorizar usuarios para una app sin encabezado, tal como una herramienta de CLI o un administrador de credenciales de Git.
 
+{% if device-flow-is-opt-in %}
+
+Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[Modifying an OAuth App](/developers/apps/managing-oauth-apps/modifying-an-oauth-app)" for OAuth Apps and "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)" for GitHub Apps.
+
+{% endif %}
+
 ### Resumen del flujo de dispositivos
 
 1. Tu app solicita el dispositivo y los códigos de verificación de usuario y obtiene una URL de autoización en donde el usuario ignresará su código de verificación de usuario.
@@ -255,9 +261,11 @@ Si realizas más de una solicitud de acceso con token (`POST {% data variables.p
 | `unsupported_grant_type`       | El tipo de otorgamiento debe ser `urn:ietf:params:oauth:grant-type:device_code` y se debe incluir como un parámetro de entrada cuando sondeas la solicitud de token de OAuth `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.                                                                                                                                                                                                                                                                                                                           |
 | `incorrect_client_credentials` | Para el flujo de dispositivos, debes pasar la ID de cliente de tu app, la cual puedes encontrar en la página de configuración de la misma. No se necesita el `client_secret` para el flujo del dispositivo.                                                                                                                                                                                                                                                                                                                                                                          |
 | `incorrect_device_code`        | El device_code que se proporcionó es inválido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `access_denied`                | Cuando un usuario da clic en cancelar durante el proceso de autorización, recibirás un error de `access_denied` y el usuario no podrá utilizar el código de verificación nuevamente.                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `access_denied`                | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.{% if device-flow-is-opt-in %}
+| `device_flow_disabled`         | Device flow has not been enabled in the app's settings. For more information, see "[Device flow](#device-flow)."{% endif %}
 
 Para obtener más información, consulta la sección "[Otorgamiento de Autorización de Dispositivo de OAuth 2.0](https://tools.ietf.org/html/rfc8628#section-3.5)".
+
 
 ## Flujo de aplicaciónes no web
 

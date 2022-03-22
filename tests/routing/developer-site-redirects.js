@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals'
 import path from 'path'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import { get } from '../helpers/supertest.js'
+import { get } from '../helpers/e2etest.js'
 import readJsonFile from '../../lib/read-json-file.js'
 
 jest.useFakeTimers('legacy')
@@ -27,7 +27,7 @@ describe('developer redirects', () => {
     test('graphql enterprise homepage', async () => {
       const res = await get('/enterprise/v4', { followAllRedirects: true })
       expect(res.statusCode).toBe(200)
-      const finalPath = new URL(res.request.url).pathname
+      const finalPath = new URL(res.url).pathname
       const expectedFinalPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/graphql`
       expect(finalPath).toBe(expectedFinalPath)
     })
@@ -41,7 +41,7 @@ describe('developer redirects', () => {
 
       const enterpriseRes = await get(`/enterprise${oldPath}`, { followAllRedirects: true })
       expect(enterpriseRes.statusCode).toBe(200)
-      const finalPath = new URL(enterpriseRes.request.url).pathname
+      const finalPath = new URL(enterpriseRes.url).pathname
       const expectedFinalPath = path.join(
         '/',
         `enterprise-server@${enterpriseServerReleases.latest}`,
