@@ -19,25 +19,32 @@ shortTitle: 启动故障转移到设备
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. 要允许复制在切换设备之前完成，请将主设备置于维护模式：
-    - 要使用 Management Console，请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”。
-    - 您也可以使用 `ghe-maintenance -s` 命令。
+1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
+
+    - Put the appliance into maintenance mode.
+
+       - 要使用 Management Console，请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”。
+
+       - 您也可以使用 `ghe-maintenance -s` 命令。
+         ```shell
+         $ ghe-maintenance -s
+         ```
+
+   - 当活动 Git 操作、MySQL 查询和 Resque 作业数量达到零时，等待 30 秒。
+
+      {% note %}
+
+      **注意：** Nomad 将始终有作业在运行，即使是在维护模式下，因此您可以安全地忽略这些作业。
+
+      {% endnote %}
+
+   - 要验证所有复制通道均报告 `OK`，请使用 `ghe-repl-status -vv` 命令。
+
       ```shell
-      $ ghe-maintenance -s
+      $ ghe-repl-status -vv
       ```
-2.  当活动 Git 操作、MySQL 查询和 Resque 作业数量达到零时，等待 30 秒。
 
-    {% note %}
-
-    **注意：** Nomad 将始终有作业在运行，即使是在维护模式下，因此您可以安全地忽略这些作业。
-
-    {% endnote %}
-
-3. 要验证所有复制通道均报告 `OK`，请使用 `ghe-repl-status -vv` 命令。
-  ```shell
-  $ ghe-repl-status -vv
-  ```
-4. 要停止复制并将副本设备升级为主设备，请使用 `ghe-repl-promote` 命令。 此操作还会自动将主节点（若可到达）置于维护模式。
+4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. 此操作还会自动将主节点（若可到达）置于维护模式。
   ```shell
   $ ghe-repl-promote
   ```

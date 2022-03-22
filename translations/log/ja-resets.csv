@@ -171,8 +171,10 @@ translations/ja-JP/content/packages/working-with-a-github-packages-registry/work
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry.md,broken liquid tags
 translations/ja-JP/content/pages/getting-started-with-github-pages/about-github-pages.md,broken liquid tags
 translations/ja-JP/content/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site.md,broken liquid tags
+translations/ja-JP/content/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site.md,broken liquid tags
 translations/ja-JP/content/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll.md,broken liquid tags
 translations/ja-JP/content/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites.md,broken liquid tags
+translations/ja-JP/content/pages/setting-up-a-github-pages-site-with-jekyll/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll.md,broken liquid tags
 translations/ja-JP/content/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md,broken liquid tags
 translations/ja-JP/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository.md,broken liquid tags
@@ -238,9 +240,9 @@ translations/ja-JP/data/reusables/education/apply-for-team.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-packages-report-download-enterprise-accounts.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/download-appliance.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags

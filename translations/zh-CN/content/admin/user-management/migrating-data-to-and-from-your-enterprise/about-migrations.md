@@ -25,7 +25,7 @@ topics:
 
 在迁移中，一切都围绕仓库进行。 与仓库关联的大多数数据都可以迁移。 例如，组织内的仓库将迁移仓库*和*组织，以及与该仓库关联的任何用户、团队、问题和拉取请求。
 
-下表中的项可随仓库一起迁移。 迁移的数据列表中未显示的任何项都无法迁移。
+下表中的项可随仓库一起迁移。 Any items not shown in the list of migrated data can not be migrated, including {% data variables.large_files.product_name_short %} assets.
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 

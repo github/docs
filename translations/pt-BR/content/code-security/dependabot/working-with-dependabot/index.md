@@ -1,7 +1,7 @@
 ---
-title: Working with Dependabot
-shortTitle: Work with Dependabot
-intro: 'Guidance and recommendations for working with {% data variables.product.prodname_dependabot %}, such as managing pull requests raised by {% data variables.product.prodname_dependabot %}, using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_dependabot %}, and troubleshooting {% data variables.product.prodname_dependabot %} errors.'
+title: Trabalhando com Dependabot
+shortTitle: Trabalhe com Dependabot
+intro: 'Orientação e recomendações para trabalhar com {% data variables.product.prodname_dependabot %}, como gerenciar pull requests levantados por {% data variables.product.prodname_dependabot %}, usando {% data variables.product.prodname_actions %} com {% data variables.product.prodname_dependabot %} e solucionando erros de {% data variables.product.prodname_dependabot %}.'
 versions:
   fpt: '*'
   ghec: '*'
