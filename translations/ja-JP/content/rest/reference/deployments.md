@@ -1,6 +1,6 @@
 ---
 title: デプロイメント
-intro: デプロイメントAPIを使うと、デプロイーキー、デプロイメント、デプロイメント環境の作成と削除ができます。
+intro: デプロイメントAPIを使うと、デプロイメント及びデプロイメント環境の作成と削除ができます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

@@ -20,7 +20,7 @@ shortTitle: GitHub's use of your data
 
 {% data reusables.repositories.about-github-archive-program %} 詳細は「[{% data variables.product.prodname_dotcom %} 上のコンテンツとデータのアーカイブ処理について](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。
 
-{% data reusables.user-settings.export-data %} For more information, see "[Requesting an archive of your personal account's data](/articles/requesting-an-archive-of-your-personal-account-s-data)."
+{% data reusables.user-settings.export-data %}詳細は「[個人アカウントのデータのアーカイブをリクエストする](/articles/requesting-an-archive-of-your-personal-account-s-data)」を参照してください。
 
 プライベートリポジトリのデータの利用をオプトインした場合でも、プライベートデータ、ソースコード、企業秘密は引き続き弊社の[利用規約](/free-pro-team@latest/github/site-policy/github-terms-of-service)の下で機密事項として扱われます。 弊社が知る情報は、集約されたデータからのみです。 詳しい情報については、「[プライベートリポジトリのデータ使用を管理する](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)」を参照してください。
 
@@ -28,7 +28,7 @@ shortTitle: GitHub's use of your data
 
 ## データによるセキュリティの推奨事項の改善
 
-データの利用方法の例として、パブリックリポジトリの依存対象のセキュリティの脆弱性を検出し、アラートを出すことができます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
+データの利用方法の例として、パブリックリポジトリの依存対象のセキュリティの脆弱性を検出し、アラートを出すことができます。 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
 潜在的なセキュリティの脆弱性を検出するために、{% data variables.product.product_name %}は依存対象のマニフェストファイルの内容をスキャンし、プロジェクトの依存対象のリストを作成します。
 

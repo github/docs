@@ -7,7 +7,7 @@ import nock from 'nock'
 import japaneseCharacters from 'japanese-characters'
 
 import '../../lib/feature-flags.js'
-import { getDOM, getJSON } from '../helpers/supertest.js'
+import { getDOM, getJSON } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
