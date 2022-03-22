@@ -452,8 +452,8 @@
 - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 - /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization
 
-# This feature is coming out of private beta in https://github.com/github/docs-content/issues/6311 but some UI links on GitHub still link to early-access docs.
-# I've raised a PR on github/github to update the early-access links to public links, but the redirect in the public article frontmatter is causing a test to fail.
+# This feature is coming out of private beta in issue 6311 but some UI links on GitHub still link to pre-release docs.
+# I've raised a PR to update the pre-release links to public links, but the redirect in the public article frontmatter is causing a test to fail.
 
 /code-security/secret-scanning/protecting-pushes-with-secret-scanning
 - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
