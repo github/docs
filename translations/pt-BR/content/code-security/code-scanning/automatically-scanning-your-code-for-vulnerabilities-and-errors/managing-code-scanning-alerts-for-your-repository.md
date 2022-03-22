@@ -121,7 +121,7 @@ Você pode pesquisar na lista de alertas. Isso é útil se houver um grande núm
 
 **Dicas:**
 - A busca múltipla de palavras é equivalente a uma busca OU.
-- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
+- A pesquisa E retornará resultados em que os termos da pesquisa são encontrados _em qualquer lugar_, em qualquer ordem no nome ou informações do alerta.
 
 {% endtip %}
 
@@ -150,7 +150,7 @@ Se você tem permissão de escrita em um repositório, você pode visualizar ale
 
 Você pode usar{% ifversion fpt or ghes > 3.1 or ghae or ghec %} a pesquisa de texto livre ou{% endif %} os filtros para exibir um subconjunto de alertas e, em seguida, marcar, por sua vez, todos os alertas correspondentes como fechados.
 
-Alertas podem ser corrigidos em um branch, mas não em outro. You can use the "Branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
+Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o filtro "Branch", no resumo dos alertas, para verificar se um alerta é corrigido em um branch específico.
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ![Filtrar alertas por branch](/assets/images/help/repository/code-scanning-branch-filter.png)

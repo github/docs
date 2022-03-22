@@ -33,7 +33,7 @@ $ ssh -T -p 443 git@ssh.github.com
 
 If you are able to SSH into `git@ssh.{% data variables.command_line.backticks %}` over port 443, you can override your SSH settings to force any connection to {% data variables.product.product_location %} to run through that server and port.
 
-To set this in your SSH confifguration file, edit the file at `~/.ssh/config`, and add this section:
+To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
 
 ```
 Host {% data variables.command_line.codeblock %}
