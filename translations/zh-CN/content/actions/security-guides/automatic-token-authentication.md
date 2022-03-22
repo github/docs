@@ -23,7 +23,7 @@ shortTitle: 自动令牌身份验证
 
 当您启用 {% data variables.product.prodname_actions %} 时，{% data variables.product.prodname_dotcom %} 在您的仓库中安装 {% data variables.product.prodname_github_app %}。 `GITHUB_TOKEN` 密码是一种 {% data variables.product.prodname_github_app %} 安装访问令牌。 您可以使用安装访问令牌代表仓库中安装的 {% data variables.product.prodname_github_app %} 进行身份验证。 令牌的权限仅限于包含您的工作流程的仓库。 更多信息请参阅“[`GITHUB_TOKEN`](#permissions-for-the-github_token) 的权限”。
 
-在每个作业开始之前， {% data variables.product.prodname_dotcom %} 将为作业提取安装访问令牌。 令牌在作业完成后过期。
+在每个作业开始之前， {% data variables.product.prodname_dotcom %} 将为作业提取安装访问令牌。 {% data reusables.actions.github-token-expiration %}
 
 令牌在 `github.token` 上下文中也可用。 更多信息请参阅“[上下文](/actions/learn-github-actions/contexts#github-context)”。
 

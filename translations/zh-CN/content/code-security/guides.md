@@ -18,6 +18,7 @@ learningTracks:
   - code_security_actions
   - code_security_ci
   - code_security_integration
+  - end_to_end_supply_chain
 includeGuides:
   - /code-security/getting-started/adding-a-security-policy-to-your-repository
   - /code-security/getting-started/github-security-features
@@ -74,7 +75,6 @@ includeGuides:
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-managing-vulnerable-dependencies
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates

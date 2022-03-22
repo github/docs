@@ -28,7 +28,7 @@ translations/pt-BR/content/education/explore-the-benefits-of-teaching-and-learni
 translations/pt-BR/content/get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations.md,broken liquid tags
 translations/pt-BR/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud.md,broken liquid tags
 translations/pt-BR/content/github/index.md,Listed in localization-support#489
-translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,parsing error
+translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
 translations/pt-BR/content/packages/learn-github-packages/introduction-to-github-packages.md,broken liquid tags
 translations/pt-BR/content/packages/learn-github-packages/publishing-a-package.md,broken liquid tags
@@ -39,7 +39,7 @@ translations/pt-BR/content/packages/working-with-a-github-packages-registry/work
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry.md,Listed in localization-support#489
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry.md,broken liquid tags
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry.md,broken liquid tags
-translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,parsing error
+translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,broken liquid tags
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository.md,broken liquid tags
 translations/pt-BR/content/rest/reference/enterprise-admin.md,Listed in localization-support#489
 translations/pt-BR/content/rest/reference/enterprise-admin.md,broken liquid tags

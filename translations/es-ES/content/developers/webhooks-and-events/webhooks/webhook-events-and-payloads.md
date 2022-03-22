@@ -1246,7 +1246,7 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 
 La actividad relacionada con una asesoría de seguridad que revisó {% data variables.product.company_short %}. Una asesoría de seguridad que haya revisado {% data variables.product.company_short %} proporciona información sobre las vulnerabilidades relacionadas con la seguridad en el software de {% data variables.product.prodname_dotcom %}.
 
-El conjunto de datos de asesoría de seguridad también impulsa las {% data variables.product.prodname_dependabot_alerts %} de GitHub. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
+El conjunto de datos de asesoría de seguridad también impulsa las {% data variables.product.prodname_dependabot_alerts %} de GitHub. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
 
 ### Disponibilidad
 

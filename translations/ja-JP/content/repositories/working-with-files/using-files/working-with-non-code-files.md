@@ -130,6 +130,12 @@ For example, if your model's URL is [`github.com/skalnik/secret-bear-clip/blob/m
 
 {% endtip %}
 
+{% if mermaid %}
+### Rendering in Markdown
+
+You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+{% endif %}
+
 ## CSV および TSV データをレンダリングする
 
 GitHub では、*.csv* (カンマ区切り) 形式および *.tsv* (タブ区切り) 形式のファイルのレンダリングがサポートされています。
@@ -233,7 +239,7 @@ HTML ドキュメントへのコミットのレンダリング済みビューは
 
 ![ソースとレンダリングの切り替えのスクリーンショット](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### ジオメトリのタイプ
+### Geometry types
 
 {% data variables.product.product_name %} のマップは [Leaflet.js](http://leafletjs.com) を使用し、[geoJSON の仕様](http://www.geojson.org/geojson-spec.html) (Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon、GeometryCollection) に概要が示されているジオメトリのタイプをすべてサポートしています。 TopoJSON ファイルは "Topology" タイプで、[topoJSON の仕様](https://github.com/mbostock/topojson/wiki/Specification)に従っている必要があります。
 
@@ -274,6 +280,12 @@ GeoJSON マップを {% data variables.product.product_name %} 以外の場所�
 
 {% endtip %}
 
+{% if mermaid %}
+### Mapping in Markdown
+
+You can embed geoJSON and topoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+{% endif %}
+
 ### クラスタリング
 
 マップに大量のマーカー (およそ 750 以上) が設定されている場合、ズーム レベルが大きいときは近隣のマーカーが自動的にクラスタ化されます。 クラスタをクリックしてズームするだけで、個々のマーカーが表示されます。
@@ -292,7 +304,7 @@ geoJSON ファイルのレンダリングに問題がある場合は、[geoJSON 
 
 その場合でも、`.geojson` ファイルを [TopoJSON](https://github.com/mbostock/topojson) に変換すればデータをレンダリングできます。TopoJSONは、ファイルサイズを最大 80% まで縮小できる圧縮形式です。 ファイルを小さいチャンクに分割し (州ごと、年ごとなど)、データを複数のファイルとしてリポジトリに格納することは、もちろんいつでもできます。
 
-### 他のリソース
+### 参考リンク
 
 * [Leaflet.js geojson ドキュメント](http://leafletjs.com/examples/geojson.html)
 * [MapBox マーカースタイリングのドキュメント](http://www.mapbox.com/developers/simplestyle/)
@@ -320,3 +332,44 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 
 - [Jupyter notebook の GitHub リポジトリ](https://github.com/jupyter/jupyter_notebook)
 - [Jupyter notebooks のギャラリー](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+
+{% if mermaid %}
+## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
+
+{% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
+
+For example, if you add a `.mmd` file with the following content to your repository:
+
+```
+graph TD
+    A[Friend's Birthday] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D["Cool <br> Laptop"]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+When you view the file in the repository, it is rendered as a flow chart. ![Rendered mermaid file diagram](/assets/images/help/repository/mermaid-file-diagram.png)
+
+### トラブルシューティング
+
+If your chart does not render at all, verify that it contains valid Mermaid Markdown syntax by checking your chart with the [Mermaid live editor](https://mermaid.live/edit).
+
+If the chart displays, but does not appear as you'd expect, you can create a new [feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback), and add the `mermaid` tag.
+
+#### 既知の問題
+
+* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
+* Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
+* Not all charts are a11y compliant. This may affect users who rely on a screen reader.
+
+### Mermaid in Markdown
+
+You can embed Mermaid syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+
+### 参考リンク
+
+* [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
+* [Mermaid.js live editor](https://mermaid.live/edit)
+{% endif %}
+

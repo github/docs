@@ -37,7 +37,7 @@ shortTitle: 测试 SSH 连接
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. 验证所看到消息中的指纹是否匹配 {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} 的 RSA 公钥指纹](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}您企业的公钥指纹{% endif %}。 如果是，则输入 `yes`：
+3. 验证所看到消息中的指纹是否匹配 {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} 的公钥指纹](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}您企业的公钥指纹{% endif %}。 如果是，则输入 `yes`：
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

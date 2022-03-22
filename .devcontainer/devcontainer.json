@@ -22,7 +22,7 @@
 		"davidanson.vscode-markdownlint",
 		"bierner.markdown-preview-github-styles",
 		"streetsidesoftware.code-spell-checker",
-		"hubwriter.open-reusable"
+		"alistairchristie.open-reusables"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
