@@ -1,7 +1,7 @@
 ---
 title: Protecting pushes with secret scanning
 intro: 'You can use {% data variables.product.prodname_secret_scanning %} to prevent supported secrets from being pushed into your organization or repository by enabling push protection.'
-product: '{% data reusables.gated-features.secret-scanning-partner %}'
+product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
   feature: 'secret-scanning-push-protection'
