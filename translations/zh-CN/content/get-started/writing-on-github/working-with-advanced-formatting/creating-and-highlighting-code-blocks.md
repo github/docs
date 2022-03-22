@@ -70,10 +70,9 @@ Look! You can see my backticks.
 {% if mermaid %}
 ## Creating diagrams
 
-You can use Mermaid syntax to add diagrams. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
+You can also use code blocks to create diagrams in Markdown. GitHub supports Mermaid, geoJSON, topoJSON, and ASCII STL syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
 
 {% endif %}
-
 ## 延伸阅读
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown 规格](https://github.github.com/gfm/)
