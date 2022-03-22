@@ -28,7 +28,7 @@ The steps described below assume you have GitHub Codespaces set up to edit files
 1. Click **New pull request**.
 1. If you're an open source contributor: click **compare across forks** and choose the forked repository you created, and your working branch.<br>
    Otherwise: change the "compare" branch to your working branch.
-3. Check that the changes displayed include all of the changes you made in the codespace. If they do not, it indicates there are changes you have not pushed from the codespace to GitHub.
-4. Click **Create pull request**.
-5. Fill out the details for your pull request and click **Create pull request**.<br>
+1. Check that the changes displayed include all of the changes you made in the codespace. If they do not, it indicates there are changes you have not pushed from the codespace to GitHub.
+1. Click **Create pull request**.
+1. Fill out the details for your pull request and click **Create pull request**.<br>
    Your pull request will be reviewed by a member of the GitHub documentation team.
