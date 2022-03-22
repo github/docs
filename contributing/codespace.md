@@ -15,7 +15,7 @@ For more information, see "[GitHub Codespaces overview](https://docs.github.com/
 The steps described below assume you have GitHub Codespaces set up to edit files using Visual Studio Code for Web. The steps are very similar if you have configured a different editor. For more information, see "[Setting your default editor for GitHub Codespaces](https://docs.github.com/en/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)."
 
 1. Go to the `docs` repository: [https://github.com/github/docs](https://github.com/github/docs).
-1. [Fork the repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo) to your own organization.
+1. If you're an open source contributor, [fork the repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo) to your own organization.
 1. [Create a branch to work on](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository).
 1. On the main page of the new `docs` repository, click the **Code** button and click **Create codespace on BRANCHNAME**.<br>
    The "Setting up your codespace" page is displayed. After a short time the browser-based version of Visual Studio Code is displayed.
