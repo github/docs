@@ -2671,11 +2671,6 @@
     ],
     "teams": [
       {
-        "slug": "list-a-connection-between-an-external-group-and-a-team",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/team/{team_slug}/external-groups"
-      },
-      {
         "slug": "get-an-external-group",
         "verb": "get",
         "requestPath": "/orgs/{org}/external-group/{group_id}"
@@ -2764,6 +2759,11 @@
         "slug": "delete-a-discussion-comment",
         "verb": "delete",
         "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
+      },
+      {
+        "slug": "list-a-connection-between-an-external-group-and-a-team",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups"
       },
       {
         "slug": "list-pending-team-invitations",
