@@ -6,7 +6,7 @@ This document describes how to use GitHub Codespaces for working on articles for
 
 GitHub Codespaces allows you to work in a development environment that's hosted remotely from your machine. You can get started very quickly, with no need to set up the working environment, and without having to download files to your local computer.
 
-GitHub Codespaces is currently only available if you are a member of an organization using GitHub Team or GitHub Enterprise Cloud. 
+**Note**: GitHub Codespaces is currently only available if you are a member of an organization using GitHub Team or GitHub Enterprise Cloud. 
 
 For more information, see "[GitHub Codespaces overview](https://docs.github.com/en/codespaces/overview)."
 
