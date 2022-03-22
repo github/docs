@@ -22,7 +22,9 @@ topics:
 shortTitle: About security overview
 ---
 
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## About the security overview
 

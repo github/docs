@@ -18,7 +18,9 @@ topics:
 shortTitle: Filtering alerts
 ---
 
+{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## About filtering the security overview
 
