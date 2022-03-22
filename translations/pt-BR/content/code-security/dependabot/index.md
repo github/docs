@@ -1,7 +1,7 @@
 ---
-title: Keeping your supply chain secure with Dependabot
+title: Mantendo sua cadeia de suprimentos em segurança com o Dependabot
 shortTitle: Dependabot
-intro: 'Monitor vulnerabilities in dependencies used in your project{% ifversion fpt or ghec or ghes > 3.2 %} and keep your dependencies up-to-date{% endif %} with {% data variables.product.prodname_dependabot %}.'
+intro: 'Monitore as vulnerabilidades em dependências usadas no seu projeto{% ifversion fpt or ghec or ghes > 3.2 %} e mantenha suas dependências atualizadas{% endif %} com {% data variables.product.prodname_dependabot %}.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

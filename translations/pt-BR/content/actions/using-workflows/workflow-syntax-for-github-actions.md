@@ -342,11 +342,11 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-#### Example: Using secrets
+#### Exemplo: Usando segredos
 
-Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
+Não é possível fazer referência a segredos nas condicionais `if:`. Em vez disso, considere definir segredos como variáveis de ambiente no nível de trabalho e, em seguida, fazer referência às variáveis de ambiente para executar etapas condicionalmente no trabalho.
 
-If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
+Se um segredo não tiver sido definido, o valor de retorno de uma expressão referente ao segredo (como {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} no exemplo) será uma string vazia.
 
 {% raw %}
 ```yaml
@@ -365,7 +365,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)" and "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Para obter mais informações, consulte "[Disponibilidade de contexto](/actions/learn-github-actions/contexts#context-availability)" e "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
 ### `jobs.<job_id>.steps[*].name`
 
