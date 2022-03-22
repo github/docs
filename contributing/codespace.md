@@ -17,10 +17,10 @@ The steps described below assume you have GitHub Codespaces set up to edit files
 1. Go to the `docs` repository: [https://github.com/github/docs](https://github.com/github/docs).
 1. [Fork the repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo) to your own organization.
 1. [Create a branch to work on](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository).
-1. Click the **Code** button and click **Create codespace on BRANCHNAME**.
+1. On the main page of the new `docs` repository, click the **Code** button and click **Create codespace on BRANCHNAME**.
    The "Setting up your codespace" page is displayed. After a short time the browser-based version of Visual Studio Code is displayed.
 1. Use the Explorer to navigate to the markdown file you want to edit. This will be located below the `content` directory. 
-   In most cases, the path to the file, below the `content` directory, matches the path in URL, minus the `.md` file name extension. For example, the source for the article `https://docs.github.com/en/`**`codespaces/getting-started/quickstart`** is the markdown file `content/`**`codespaces/getting-started/quickstart`**`.md`.
+   In most cases, the path to the file, below the `content` directory, matches the path in URL, minus the `.md` file name extension. For example, the source for the article <code>https<span></span>://docs.github.com/en/**codespaces/getting-started/quickstart**</code> is the markdown file <code>content/**codespaces/getting-started/quickstart**.md</code>.
 1. Edit the markdown file as required.
 1. Save your changes.
 1. Commit and push your changes, either using the Source Control pane, or using Git commands from the Terminal. For more information, see "[About Git](https://docs.github.com/en/get-started/using-git/about-git)."
