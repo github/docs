@@ -52,7 +52,7 @@ Wikis are part of Git repositories, so you can make changes locally and push the
 ### Cloning wikis to your computer
 
 Every wiki provides an easy way to clone its contents down to your computer.
-You can clone the repository to your computer with the provided URL:
+You can clone the repository to your computer with the provided URL [after you create an intial page via Github.com](https://stackoverflow.com/a/41423798):
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git
