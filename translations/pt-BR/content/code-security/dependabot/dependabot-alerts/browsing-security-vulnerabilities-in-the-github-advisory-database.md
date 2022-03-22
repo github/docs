@@ -37,7 +37,7 @@ As consultorias revisadas por {% data variables.product.company_short %} são vu
 
 Analisamos cuidadosamente cada consultoria com relação à sua validade. Cada consultoria revisada por {% data variables.product.company_short %} tem uma descrição completa e contém informações de pacote e ecossistema.
 
-Se você habilitar {% data variables.product.prodname_dependabot_alerts %} para os seus repositórios, você será notificado automaticamente quando uma nova consultoria revisada por {% data variables.product.company_short %} afetar pacotes dos quais você depende. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)."
+Se você habilitar {% data variables.product.prodname_dependabot_alerts %} para os seus repositórios, você será notificado automaticamente quando uma nova consultoria revisada por {% data variables.product.company_short %} afetar pacotes dos quais você depende. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)".
 
 ### Sobre consultorias não revisadas
 
