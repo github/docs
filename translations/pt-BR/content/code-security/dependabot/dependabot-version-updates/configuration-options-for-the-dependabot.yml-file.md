@@ -256,6 +256,12 @@ Por padrão, o {% data variables.product.prodname_dependabot %} tenta detectar s
 
 Opções suportadas
 
+{% note %}
+
+**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+
+{% endnote %}
+
 - `prefix` especifica um prefixo para todas as mensagens do commit.
 - `prefix-development` especifica um prefixo separado para todas as mensagens do commit que atualizam dependências no grupo de dependências de Desenvolvimento. Quando você especificar um valor para esta opção, o `prefix` é usado apenas para atualizações para dependências no grupo de dependência de Produção. Isto é suportado por: `bundler`, `composer`, `mix`, `maven`, `npm` e `pip`.
 - `include: "scope"` especifica que qualquer prefixo é seguido por uma lista das dependências atualizadas no commit.

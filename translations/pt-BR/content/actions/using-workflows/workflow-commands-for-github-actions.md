@@ -258,6 +258,7 @@ Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
 {% endpowershell %}
+
 ## Agrupar linhas dos registros
 
 Cria um grupo expansível no registro. Para criar um grupo, use o comando `grupo` e especifique um `título`. Qualquer coisa que você imprimir no registro entre os comandos `grupo` e `endgroup` estará aninhada dentro de uma entrada expansível no registro.
