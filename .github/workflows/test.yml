@@ -31,15 +31,14 @@ jobs:
       fail-fast: false
       matrix:
         # The same array lives in test-windows.yml, so make any updates there too.
-        test-group:
-          [
+        test-group: [
             content,
             graphql,
             meta,
             rendering,
             routing,
             unit,
-            linting,
+            # linting,
             translations,
           ]
     steps:
