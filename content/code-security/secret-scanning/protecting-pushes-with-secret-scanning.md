@@ -22,7 +22,7 @@ shortTitle: Push protection
 
 ## About push protection for secrets
 
-Up to now, {% data variables.product.prodname_secret_scanning %} for {% data variables.product.prodname_advanced_security %} checks for secrets _after_ a push and alerts users of exposed secrets. When you enable push protection, {% data variables.product.prodname_secret_scanning %} will also check for high-confidence secrets (those identified with a low false positive rate) and block the push. The author of the push then has the opportunity to review the detected secrets and allow those secrets to be pushed.
+Up to now, {% data variables.product.prodname_secret_scanning %} for {% data variables.product.prodname_advanced_security %} checks for secrets _after_ a push and alerts users of exposed secrets. {% data reusables.secret-scanning.push-protection-overview %}
 
 {% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans private repositories for secrets issued by the following service providers.
 
