@@ -16,7 +16,6 @@ topics:
   - Developer
 shortTitle: Visual Studio Code
 ---
-
  
 ## About {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_vscode %}
 
