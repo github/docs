@@ -58,6 +58,14 @@ Before you can configure prebuilds for your project the following must be true:
 
    {% endnote %}
 
+1. Choose how you want to automatically trigger updates of the prebuild template.
+
+   * **Every push** - This will ensure that codespaces generated from a prebuild template always contain the latest codespace configuration, including any recently added or updated dependencies.
+   * **On configuration change** - This ensure that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild template. The Actions workflow that updates the prebuild template will run less often, so this option will use fewer Actions minutes. However, this option will not guarantee that codespaces always include recently added or updated dependencies, so these may have to be added or updated manually after a codespace has been created.
+   * **Scheduled** - This can reduce consumption of Actions minutes, and reduce the amount of time that prebuilds are unavailable because they are being updated. However, with this option, codespaces may be created that do not use the latest dev container configuration changes.
+
+   ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png) ---------SCREENSHOT TO BE ADDED
+
 1. Click **Create**.
 
    The prebuild configuration is listed on the {% data variables.product.prodname_codespaces %} page of your repository settings. A {% data variables.product.prodname_actions %} workflow is queued and then run to create prebuild templates, based on the branch you selected, in the regions you specified. 
