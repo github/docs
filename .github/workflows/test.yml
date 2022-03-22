@@ -102,13 +102,13 @@ jobs:
       - name: Checkout LFS objects
         run: git lfs checkout
 
-      - name: Gather files changed
-        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        id: get_diff_files
-        with:
-          # So that `steps.get_diff_files.outputs.files` becomes
-          # a string like `foo.js path/bar.md`
-          output: ' '
+      # - name: Gather files changed
+      #   uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
+      #   id: get_diff_files
+      #   with:
+      #     # So that `steps.get_diff_files.outputs.files` becomes
+      #     # a string like `foo.js path/bar.md`
+      #     output: ' '
 
       # - name: Insight into changed files
       #   run: |
