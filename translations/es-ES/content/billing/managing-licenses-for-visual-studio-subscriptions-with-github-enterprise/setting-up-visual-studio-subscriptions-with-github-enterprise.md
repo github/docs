@@ -16,7 +16,7 @@ shortTitle: Configuración
 
 Esta guía te muestra cómo tu equipo puede obtener suscriptores de {% data variables.product.prodname_vs %} con licencia y comenzar a utilizar {% data variables.product.prodname_enterprise %}.
 
-If you prefer video, you can watch [Setting up your {% data variables.product.prodname_enterprise %} licenses with {% data variables.product.prodname_vs %} subscriptions](https://www.youtube.com/watch?v=P_zBgp_BE_I) on Microsoft Visual Studio's YouTube channel.
+Si prefieres ver un video, puedes ver [Configurar tus licencias de {% data variables.product.prodname_enterprise %} con suscripciones de {% data variables.product.prodname_vs %}](https://www.youtube.com/watch?v=P_zBgp_BE_I) en el canal de YouTube de Microsoft Visual Studio.
 
 ## Roles para {% data variables.product.prodname_vss_ghe %}
 
