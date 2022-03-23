@@ -256,6 +256,12 @@ updates:
 
 支持的选项
 
+{% note %}
+
+**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+
+{% endnote %}
+
 - `prefix` 指定所有提交消息的前缀。
 - `prefix-development` 为更新“开发”依赖项组中依赖项的所有提交消息指定单独的前缀。 指定此选项的值时，`prefix` 仅用于更新“生产”依赖项组中的依赖项。 支持的包管理器：`bundler`、`composer`、`mix`、`maven`、`npm` 和 `pip`。
 - `include: "scope"` 指定任何前缀后接提交中更新的依赖项列表。
@@ -309,7 +315,7 @@ updates:
 
 您可以搜索仓库中是否有 `"@dependabot ignore" in:comments`，以检查仓库是否存储了 `ignore` 首选项。 如果您希望取消忽略以这种方式忽略的依赖项，请重新打开拉取请求。
 
-For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+有关 `@dependabot ignore` 命令的更多信息，请参阅“[管理依赖关系更新的拉取请求](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
 
 #### 指定要忽略的依赖项和版本
 

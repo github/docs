@@ -1,45 +1,45 @@
 ---
-title: Verifying your custom domain for GitHub Pages
-intro: You can increase the security of your custom domain and avoid takeover attacks by verifying your domain.
+title: 验证 GitHub Pages 的自定义域
+intro: 您可以通过验证您的域来提高自定义域的安全性并避免接管攻击。
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Pages
-shortTitle: Verify a custom domain
+shortTitle: 验证自定义域
 ---
 
-## About domain verification for GitHub Pages
+## 关于 GitHub Pages 的域验证
 
-When you verify your custom domain for your user account or organization, only repositories owned by your user account or organization may be used to publish a {% data variables.product.prodname_pages %} site to the verified custom domain or the domain's immediate subdomains.
+验证用户帐户或组织的自定义域时，只能使用您的用户帐户或组织拥有的存储库将 {% data variables.product.prodname_pages %} 站点发布到已验证的自定义域或域的直接子域。
 
-Verifying your domain stops other GitHub users from taking over your custom domain and using it to publish their own {% data variables.product.prodname_pages %} site. Domain takeovers can happen when you delete your repository, when your billing plan is downgraded, or after any other change which unlinks the custom domain or disables {% data variables.product.prodname_pages %} while the domain remains configured for {% data variables.product.prodname_pages %} and is not verified.
+验证您的域会阻止其他 GitHub 用户接管您的自定义域并使用它来发布他们自己的 {% data variables.product.prodname_pages %} 站点。 当您删除存储库、降低计费计划级别时，或者在取消链接自定义域或禁用 {% data variables.product.prodname_pages %} 而域仍配置为 {% data variables.product.prodname_pages %} 且未进行验证的任何其他更改之后，可能会发生域接管。
 
-When you verify a domain, any immediate subdomains are also included in the verification. For example, if the `github.com` custom domain is verified, `docs.github.com`, `support.github.com`, and any other immediate subdomains will also be protected from takeovers.
+验证域时，验证中还会包含任何直接子域。 例如，如果 `github.com` 自定义域经过验证，则 `docs.github.com`、`support.github.com` 和任何其他直接子域也将受到保护，以防止被接管。
 
-It's also possible to verify a domain for your organization{% ifversion ghec %} or enterprise{% endif %}, which displays a "Verified" badge on the organization {% ifversion ghec %}or enterprise{% endif %} profile{% ifversion ghec %} and, on {% data variables.product.prodname_ghe_cloud %},  allows you to restrict notifications to email addresses using the verified domain{% endif %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}" and "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}."
+还可以验证组织{% ifversion ghec %} 或企业{% endif %}的域，这会在组织 {% ifversion ghec %}或企业{% endif %} 配置文件{% ifversion ghec %} 以及 {% data variables.product.prodname_ghe_cloud %} 上显示“已验证”徽章，允许您使用已验证的域将通知限于电子邮件地址{% endif %}。 更多信息请参阅“[验证或批准组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}”和“[验证或批准企业的域](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}”。
 
-## Verifying a domain for your user site
+## 验证用户站点的域
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-label="The pages icon" %} Pages**.
+1. 在侧边栏的“Code planning, and automation（代码规划和自动化）”部分中，点击 **{% octicon "browser" aria-label="The pages icon" %} Pages**。
 {% data reusables.pages.settings-verify-domain-setup %}
-1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `USERNAME` with your username and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
+1. 等待您的 DNS 配置更改，这可能是立即更改或最多需要 24 小时。 您可以通过在命令行上运行 `dig` 命令来确认对 DNS 配置的更改。 在下面的命令中，将 `USERNAME` 替换为您的用户名，将 `example.com` 替换为要验证的域。 如果您的 DNS 配置已更新，您应该会在输出中看到新的 TXT 记录。
   ```
   dig _github-pages-challenge-USERNAME.example.com +nostats +nocomments +nocmd TXT
   ```
 {% data reusables.pages.settings-verify-domain-confirm %}
 
-## Verifying a domain for your organization site
+## 验证组织站点的域
 
-Organization owners can verify custom domains for their organization.
+组织所有者可以验证其组织的自定义域。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-label="The browser icon" %} Pages**.
+1. 在边栏的“Code, planning, and automation（代码、规划和自动化）”部分中，点击 **{% octicon "browser" aria-label="The browser icon" %} Pages**。
 {% data reusables.pages.settings-verify-domain-setup %}
-1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `ORGANIZATION` with the name of your organization and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
+1. 等待您的 DNS 配置更改，这可能是立即更改或最多需要 24 小时。 您可以通过在命令行上运行 `dig` 命令来确认对 DNS 配置的更改。 在下面的命令中，将 `ORGANIZATION` 替换为您的组织名称，并将 `example.com` 替换为要验证的域。 如果您的 DNS 配置已更新，您应该会在输出中看到新的 TXT 记录。
   ```
   dig _github-pages-challenge-ORGANIZATION.example.com +nostats +nocomments +nocmd TXT
   ```
