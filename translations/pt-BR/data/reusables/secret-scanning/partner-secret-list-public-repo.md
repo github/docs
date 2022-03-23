@@ -58,6 +58,7 @@
 | Meta                      | Facebook Access Token                                     |
 | npm                       | Token de acesso de npm                                    |
 | NuGet                     | Chave de API de NuGet                                     |
+| Octopus Deploy            | Octopus Deploy API Key                                    |
 | OpenAI                    | OpenAI API Key                                            |
 | Palantir                  | Token web de JSON de Palantir                             |
 | PlanetScale               | PlanetScale Database Password                             |

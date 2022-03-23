@@ -70,10 +70,9 @@ Usamos [Linguist](https://github.com/github/linguist) para executar a detecção
 {% if mermaid %}
 ## Criando diagramas
 
-Você pode usar a sintaxe do Mermaid para adicionar diagramas. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
+Você também pode usar blocos de código para criar diagramas em Markdown. O GitHub é compatível com a sintaxe do Mermaid, geoJSON, topoJSON e ASCII STL. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)".
 
 {% endif %}
-
 ## Leia mais
 
 - [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)

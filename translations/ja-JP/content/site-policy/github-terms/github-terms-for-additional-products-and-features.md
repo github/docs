@@ -3,6 +3,10 @@ title: GitHub 追加製品および機能の利用規約
 redirect_from:
   - /github/site-policy/github-additional-product-terms
   - /github/site-policy/github-terms-for-additional-products-and-features
+  - /github/site-policy-deprecated/github-connect-addendum-to-the-github-enterprise-license-agreement
+  - /articles/github-com-connection-addendum-to-the-github-enterprise-license-agreement
+  - /articles/github-connect-addendum-to-the-github-enterprise-license-agreement
+  - /github/site-policy/github-connect-addendum-to-the-github-enterprise-license-agreement
 versions:
   fpt: '*'
 topics:

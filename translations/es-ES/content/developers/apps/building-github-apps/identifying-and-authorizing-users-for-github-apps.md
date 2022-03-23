@@ -71,9 +71,9 @@ Si el usuario acepta tu solicitud, GitHub te redirecciona de regreso a tu sitio 
 
 {% endnote %}
 
-Exchange this `code` for an access token.  Cuando se habilita el vencimiento de tokens, el token de acceso vence en 8 horas y el token de actualización en 6 meses. Cada que actualizas el token, obtienes un nuevo token de actualización. For more information, see "[Refreshing user-to-server access tokens](/developers/apps/refreshing-user-to-server-access-tokens)."
+Exchange this `code` for an access token.  Cuando se habilita el vencimiento de tokens, el token de acceso vence en 8 horas y el token de actualización en 6 meses. Cada que actualizas el token, obtienes un nuevo token de actualización. Para obtener más información, consulta la sección "[Actualziar los tokens de acceso usuario-servidor](/developers/apps/refreshing-user-to-server-access-tokens)".
 
-Los tokens de usuario con vigencia determinada son una característica opcional actualmente y están sujetos a cambios. To opt-in to the user-to-server token expiration feature, see "[Activating optional features for apps](/developers/apps/activating-optional-features-for-apps)."
+Los tokens de usuario con vigencia determinada son una característica opcional actualmente y están sujetos a cambios. Para decidir participar en la característica de vencimiento de tokens usuario-servidor, consulta la sección "[Activar las características opcionales para las apps](/developers/apps/activating-optional-features-for-apps)".
 
 Haz una solicitud a la siguiente terminal para recibir un token de acceso:
 
@@ -91,7 +91,7 @@ Haz una solicitud a la siguiente terminal para recibir un token de acceso:
 
 #### Respuesta
 
-By default, the response takes the following form. Los parámetros de respuesta `expires_in`, `refresh_token`,  y `refresh_token_expires_in` solo se devuelven cuando habilitas la vigencia determinada para los tokens de acceso de usuario a servidor.
+Predeterminadametne, la respuesta lleva el siguiente formato. Los parámetros de respuesta `expires_in`, `refresh_token`,  y `refresh_token_expires_in` solo se devuelven cuando habilitas la vigencia determinada para los tokens de acceso de usuario a servidor.
 
 ```json
 {
@@ -127,7 +127,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 Este flujo de dispositivos te permite autorizar usuarios para una app sin encabezado, tal como una herramienta de CLI o un administrador de credenciales de Git.
 
-{% if device-flow-is-opt-in %}Before you can use the device flow to identify and authorize users, you must first enable it in your app's settings. For more information on enabling device flow, see "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)." {% endif %}For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)."
+{% if device-flow-is-opt-in %}Antes de que puedas utilizar el flujo de dispositivos para identificar y autorizar usuarios, primero debes habilitarlo en los ajustes de tu app. Para obtener más información sobre cómo habilitar el flujo de dispositivos, consulta la sección "[Modificar una GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)". {% endif %}Para obtener más información sobre cómo autorizar usuarios utilizando el flujo de dispositivos, consulta la sección "[Autorizar las Apps de OAuth](/developers/apps/authorizing-oauth-apps#device-flow)".
 
 ## Revisar a qué recursos de instalación puede acceder un usuario
 

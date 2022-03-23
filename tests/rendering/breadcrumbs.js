@@ -1,5 +1,6 @@
-import { getDOM, getJSON } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+
+import { getDOM, getJSON } from '../helpers/e2etest.js'
 
 // TODO: Use `describeViaActionsOnly` instead. See tests/rendering/server.js
 const describeInternalOnly =
