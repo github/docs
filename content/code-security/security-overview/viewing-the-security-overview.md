@@ -18,7 +18,7 @@ topics:
 shortTitle: View the security overview
 ---
 
-{% ifversion ghes < 3.5 or ghae %}
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
 {% endif %}
 
