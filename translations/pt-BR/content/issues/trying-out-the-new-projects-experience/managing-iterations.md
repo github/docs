@@ -1,6 +1,6 @@
 ---
-title: Managing iterations in projects (beta)
-intro: You can create iterations to plan upcoming work and group items.
+title: Gerenciando iterações em projetos (beta)
+intro: Você pode criar iterações para planejar os itens de trabalho e grupos futuros.
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:
@@ -13,52 +13,52 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## About iterations
+## Sobre iterações
 
-You can create an iteration field to associate items with specific repeating blocks of time. Iterations can be set to any length of time, can include breaks, and can be individually edited to modify name and date range. With projects, you can group by iteration to visualize the balance of upcoming work, use filters to focus on a single iteration, and sort by iteration.
+Você pode criar um campo de iteração para associar itens com blocos de tempo repetidos específicos. As iterações podem ser definidas para qualquer período de tempo, podem incluir intervalos e podem ser editadas individualmente para modificar o nome e o intervalo de datas. Com os projetos, você pode agrupar por iteração para visualizar o equilíbrio do trabalho futuro, usar filtros para focar em uma única iteração, bem como ordenar por iteração.
 
-When you first create an iteration field, three iterations are automatically created.  You can add additional iterations and make other changes on your project's settings page.
+Ao criar um campo de iteração, três iterações serão criadas automaticamente.  Você pode adicionar iterações adicionais e fazer outras alterações na página de configurações do seu projeto.
 
-![Screenshot showing the settings for an iteration field](/assets/images/help/issues/iterations-example.png)
+![Captura de tela que mostra as configurações para um campo de iteração](/assets/images/help/issues/iterations-example.png)
 
-## Creating an iteration field
+## Criando um campo de iteração
 
-You can create an iteration field using the command palette or the project's interface.
+Você pode criar um campo de iteração usando a paleta de comandos ou a interface do projeto.
 
 1. {% data reusables.projects.open-command-palette %} Comece a digitar qualquer parte de "Criar novo campo". Quando "Criar novo campo" for exibido na paleta de comandos, selecione-o.
 
    Como alternativa, clique em {% octicon "plus" aria-label="the plus icon" %} no cabeçalho do campo mais à direita. Será exibido um menu suspenso com os campos do projeto. Clique em **Novo campo**.
-1. In the text box, enter a name for the new iteration field.
-1. Select the dropdown menu below and click **Iteration**.
-1. Optionally, if you want to change the starting date from the current day, select the calendar dropdown next to "Starts on" and click on a new starting date.
-2. To change the duration of each iteration, type a new number, then select the dropdown and click either **days** or **weeks**.
-3. Click **Save & create**.
+1. Na caixa de texto, digite um nome para o novo campo de iteração.
+1. Selecione o menu suspenso abaixo e clique em **Iteração**.
+1. Opcionalmente, se quiser mudar a data de início a partir do dia atual, selecione o calendário suspenso ao lado de "Começa em" e clique em uma nova data de início.
+2. Para mudar a duração de cada iteração, digite um novo número, em seguida, selecione o menu suspenso e clique em **dias** ou **semanas**.
+3. Clique em **Salvar & Criar**.
 
-## Adding new iterations
+## Adicionando novas iterações
 
 {% data reusables.projects.project-settings %}
-1. Click the name of the iteration field you want to adjust.
-1. To add a new iteration of the same duration, click **Add iteration**.
-1. Optionally, to customize the duration of the new iteration and when it will start, click {% octicon "triangle-down" aria-label="The triangle icon" %} next to "Add iteration", select a starting date and duration, and click **Add**.
+1. Clique no nome do campo de iteração que você deseja ajustar.
+1. Para adicionar uma nova iteração da mesma duração, clique em **Adicionar iteração**.
+1. Opcionalmente, para personalizar a duração da nova iteração e quando ela vai começar, clique em {% octicon "triangle-down" aria-label="The triangle icon" %} ao lado de "Adicionar iteração", selecione uma data e duração iniciais, e clique em **Adicionar**.
 1. Clique em **Save changes** (Salvar alterações).
 
-## Editing an iteration
+## Editando uma iteração
 
-You can edit iterations in your project settings. You can also access the settings for an iteration field by clicking {% octicon "triangle-down" aria-label="The triangle icon" %} in the table header for the field and clicking **Edit values**.
+Você pode editar as iterações nas configurações do seu projeto. Você também pode acessar as configurações para um campo de iteração clicando em {% octicon "triangle-down" aria-label="The triangle icon" %} no cabeçalho da tabela para o campo e clicando em **Editar valores**.
 
 {% data reusables.projects.project-settings %}
-1. Click the name of the iteration field you want to adjust.
-1. To change the name of an iteration, click on the name and start typing.
-1. To change the date or duration of an iteration, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
-1. Optionally, to delete an iteration, click {% octicon "trash" aria-label="The trash icon" %}.
+1. Clique no nome do campo de iteração que você deseja ajustar.
+1. Para alterar o nome de uma iteração, clique no nome e comece a digitar.
+1. Para alterar a data ou a duração de uma iteração, clique na data para abrir o calendário. Clique no dia de início, depois clique no dia de fim e depois clique em **Aplicar**.
+1. Opcionalmente, para excluir uma iteração, clique em {% octicon "trash" aria-label="The trash icon" %}.
 1. Clique em **Save changes** (Salvar alterações).
 
-## Inserting a break
+## Inserindo uma pausa
 
-You can insert breaks into your iterations to communicate when you are taking time away from scheduled work. The duration of a new break defaults to the length of the most recently created iteration.
+Você pode inserir pausas em suas iterações para se comunicar quando você está tirando o tempo do trabalho agendado. O padrão da duração de uma nova pausa é o comprimento da iteração criada mais recentemente.
 
 {% data reusables.projects.project-settings %}
-1. Click the name of the iteration field you want to adjust.
-2. On the dividing line above an iteration and to the right, click **Insert break**. ![Screenshot showing location of "Insert break" button](/assets/images/help/issues/iteration-insert-break.png)
-3. Optionally, to change the duration of the break, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
+1. Clique no nome do campo de iteração que você deseja ajustar.
+2. Na linha de divisão acima de uma iteração e à direita, clique em **Inserir pausa**. ![Captura de tela que mostra a localização do botão "Inserir pausa"](/assets/images/help/issues/iteration-insert-break.png)
+3. Opcionalmente, para alterar a duração da pausa, clique na data para abrir o calendário. Clique no dia de início, depois clique no dia de fim e depois clique em **Aplicar**.
 4. Clique em **Save changes** (Salvar alterações).

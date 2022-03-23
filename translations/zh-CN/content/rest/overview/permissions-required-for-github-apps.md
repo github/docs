@@ -121,6 +121,9 @@ _搜索_
 - [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#get-an-artifact) (:read)
 - [`DELETE /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#delete-an-artifact) (:write)
 - [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id/zip`](/rest/reference/actions#download-an-artifact) (:read)
+{% if actions-cache-management -%}
+- [`GET /repos/:owner/:repo/actions/cache/usage`](/rest/reference/actions#get-github-actions-cache-usage-for-a-repository) (:read)
+{% endif -%}
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id`](/rest/reference/actions#get-a-job-for-a-workflow-run) (:read)
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run) (:read)
 - [`GET /repos/:owner/:repo/actions/runs`](/rest/reference/actions#list-workflow-runs-for-a-repository) (:read)
@@ -644,6 +647,10 @@ _团队_
 ### 有关“组织管理”的权限
 
 - [`PATCH /orgs/:org`](/rest/reference/orgs#update-an-organization) (:write)
+{% if actions-cache-management -%}
+- [`GET /orgs/:org/actions/cache/usage`](/rest/reference/actions#get-github-actions-cache-usage-for-an-organization) (:read)
+- [`GET /orgs/:org/actions/cache/usage-by-repository`](/rest/reference/actions#list-repositories-with-github-actions-cache-usage-for-an-organization) (:read)
+{% endif -%}
 {% ifversion fpt -%}
 - [`GET /orgs/:org/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-an-organization) (:read)
 {% endif -%}

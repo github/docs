@@ -234,3 +234,11 @@ Por exemplo, se um pull request contiver um branch de`recurso` (escopo atual) e 
 ## Limites de uso e política de eliminação
 
 {% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. Não há limite no número de caches que você pode armazenar, mas o tamanho total de todos os caches em um repositório é limitado a 10 GB. Se você exceder esse limite, {% data variables.product.prodname_dotcom %} salvará seu cache mas começará a despejar caches até que o tamanho total seja inferior a 10 GB.
+
+{% if actions-cache-management %}
+
+## Gerenciando caches
+
+Você pode usar a API REST de {% data variables.product.product_name %} para gerenciar seus caches. No momento, você pode usar a API para ver o uso ddo seu cache, cpodendo esperar outras funcionalidades em atualizações futuras. Para obter mais informações, consulte as "[Ações](/rest/reference/actions#cache)" na documentação da API REST.
+
+{% endif %}

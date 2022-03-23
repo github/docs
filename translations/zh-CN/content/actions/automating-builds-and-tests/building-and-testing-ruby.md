@@ -65,7 +65,7 @@ jobs:
 
 ## 指定 Ruby 版本
 
-指定 Ruby 版本的最简单方法是使用 Ruby 组织在 GitHub 上提供的 `ruby/setup-ruby` 操作。 该操作将任何受支持的 Ruby 版本添加到工作流程中运行的每个作业的 `PATH`。 For more information and available Ruby versions, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
+指定 Ruby 版本的最简单方法是使用 Ruby 组织在 GitHub 上提供的 `ruby/setup-ruby` 操作。 该操作将任何受支持的 Ruby 版本添加到工作流程中运行的每个作业的 `PATH`。 有关详细信息和可用的 Ruby 版本，请参阅 [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)。
 
 使用 Ruby 的 `ruby/setup-ruby` 操作是 Python 与 GitHub Actions 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 Ruby 行为一致。
 

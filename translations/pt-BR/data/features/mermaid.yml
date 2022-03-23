@@ -1,8 +1,8 @@
 ---
-#Issue 5812 and 6172
-#Mermaid syntax support
+#Issues 5812 and 6172, also 6411
+#Mermaid syntax support, also ASCII STL and geoJSON/topoJSON syntax support
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '>=3.6'
   ghae: 'issue-6172'

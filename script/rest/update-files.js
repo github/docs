@@ -140,10 +140,15 @@ async function updateRedirectOverrides() {
 
   const redirects = {}
   console.log('\n➡️  Updating REST API redirect exception list.\n')
-  for (const value of Object.values(overrides)) {
+  for (const [key, value] of Object.entries(overrides)) {
     const oldUrl = value.originalUrl
     const anchor = oldUrl.replace('/rest/reference', '').split('#')[1]
-    redirects[oldUrl] = `/rest/reference/${value.category}#${anchor}`
+    if (key.includes('#')) {
+      // We are updating a subcategory into a category
+      redirects[oldUrl] = `/rest/reference/${value.category}`
+    } else {
+      redirects[oldUrl] = `/rest/reference/${value.category}#${anchor}`
+    }
   }
   await writeFile(
     'lib/redirects/static/client-side-rest-api-redirects.json',

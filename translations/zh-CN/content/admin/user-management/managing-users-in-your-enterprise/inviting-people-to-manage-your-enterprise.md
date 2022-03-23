@@ -43,7 +43,7 @@ shortTitle: 邀请人员进行管理
 
 ## {% ifversion ghec %}邀请{% elsif ghes %}添加{% endif %} 企业管理员到您的企业帐户
 
-{% ifversion ghec %}在邀请别人加入企业帐户后，他们必须接受电子邮件邀请，然后才可访问企业帐户。 Pending invitations will expire after 7 days.{% endif %}
+{% ifversion ghec %}在邀请别人加入企业帐户后，他们必须接受电子邮件邀请，然后才可访问企业帐户。 待处理的邀请将在 7 天后过期。{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
@@ -66,10 +66,10 @@ shortTitle: 邀请人员进行管理
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Convert to member**{% endif %}.
+1. 在您要删除的人员用户名旁边，单击 {% octicon "gear" aria-label="The Settings gear" %}，然后单击 {% ifversion ghes %}**Remove owner（删除所有者）**{% elsif ghec %}**Convert to member（转换为成员）**{% endif %}。
   {% ifversion ghec %}
   ![包含删除企业管理员的菜单选项的设置齿轮](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}
   ![包含删除企业管理员的菜单选项的设置齿轮](/assets/images/help/business-accounts/ghes-remove-owner.png)
   {% endif %}
-1. Read the confirmation, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Yes, convert USERNAME to member**{% endif %}.
+1. 阅读确认信息，然后单击 {% ifversion ghes %}**Remove owner（删除所有者）**{% elsif ghec %}**Yes, convert USERNAME to member（是，将 [用户名] 转换为成员）**{% endif %}。

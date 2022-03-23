@@ -1,6 +1,6 @@
 ---
 title: 行動規範
-intro: The Codes of Conduct API lets you to retrieve the information about a particular repository's code of conduct.
+intro: Codes of Conduct APIを使うと、特定のリポジトリの行動規範に関する情報を取得できます。
 redirect_from:
   - /v3/codes_of_conduct
   - /v3/codes-of-conduct
