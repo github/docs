@@ -1,15 +1,16 @@
 ---
 title: Dependency graph
-intro: 'With the {% data variables.product.prodname_dependabot %} Secrets API, you can manage and control {% data variables.product.prodname_dependabot %} secrets for an organization or repository.'
+intro: 'With the Dependency Graph API, you can view dependency changes and their security impact on your repository.'
 versions:
   fpt: '*'
-  ghes: '>=3.4'
+  ghes: '>=3.6'
   ghec: '*'
+  ghae: 'issue-6396'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
 
 <!--
-  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/dependabot
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/dependency-graph
 -->
