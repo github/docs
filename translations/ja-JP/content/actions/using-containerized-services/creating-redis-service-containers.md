@@ -24,11 +24,11 @@ topics:
 
 このガイドでは、Docker Hubの`redis`イメージを使ってサービスコンテナを設定するワークフローの例を紹介します。 このワークフローは、Redisのクライアントを作成してクライアントにデータを展開するスクリプトを実行します。 Redisクライアントを作成して展開するワークフローをテストするために、このスクリプトはクライアントのデータをコンソールに出力します。
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## 必要な環境
 
-{% data reusables.github-actions.service-container-prereqs %}
+{% data reusables.actions.service-container-prereqs %}
 
 YAML、{% data variables.product.prodname_actions %}の構文、Redisの基本な理解があれば役立つかも知れません。 詳しい情報については、以下を参照してください。
 
@@ -37,9 +37,9 @@ YAML、{% data variables.product.prodname_actions %}の構文、Redisの基本�
 
 ## コンテナ内でのジョブの実行
 
-{% data reusables.github-actions.container-jobs-intro %}
+{% data reusables.actions.container-jobs-intro %}
 
-{% data reusables.github-actions.copy-workflow-file %}
+{% data reusables.actions.copy-workflow-file %}
 
 {% raw %}
 ```yaml{:copy}
@@ -92,9 +92,9 @@ jobs:
 
 ### コンテナジョブの設定
 
-{% data reusables.github-actions.service-container-host %}
+{% data reusables.actions.service-container-host %}
 
-{% data reusables.github-actions.redis-label-description %}
+{% data reusables.actions.redis-label-description %}
 
 ```yaml{:copy}
 jobs:
@@ -121,7 +121,7 @@ jobs:
 
 ### ステップの設定
 
-{% data reusables.github-actions.service-template-steps %}
+{% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
 steps:
@@ -146,7 +146,7 @@ steps:
           REDIS_PORT: 6379
 ```
 
-{% data reusables.github-actions.redis-environment-variables %}
+{% data reusables.actions.redis-environment-variables %}
 
 Redisサービスのホスト名は、ワークフロー中で設定されたラベルで、ここでは`redis`です。 同じユーザー定義ブリッジネットワーク上のDockerコンテナは、デフォルトですべてのポートをオープンするので、サービスコンテナにはデフォルトのRedisのポートである6379でアクセスできます。
 
@@ -154,7 +154,7 @@ Redisサービスのホスト名は、ワークフロー中で設定されたラ
 
 ランナーマシン上で直接ジョブを実行する場合、サービスコンテナ上のポートをDockerホスト上のポートにマップしなければなりません。 Dockerホストからサービスコンテナへは、`localhost`とDockerホストのポート番号を使ってアクセスできます。
 
-{% data reusables.github-actions.copy-workflow-file %}
+{% data reusables.actions.copy-workflow-file %}
 
 {% raw %}
 ```yaml{:copy}
@@ -209,9 +209,9 @@ jobs:
 
 ### ランナージョブの設定
 
-{% data reusables.github-actions.service-container-host-runner %}
+{% data reusables.actions.service-container-host-runner %}
 
-{% data reusables.github-actions.redis-label-description %}
+{% data reusables.actions.redis-label-description %}
 
 このワークフローはRedisサービスコンテナ上のポート6379をDockerホストにマップします。 `ports`キーワードに関する詳しい情報については「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)」を参照してください。
 
@@ -241,7 +241,7 @@ jobs:
 
 ### ステップの設定
 
-{% data reusables.github-actions.service-template-steps %}
+{% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
 steps:
@@ -267,9 +267,9 @@ steps:
           REDIS_PORT: 6379
 ```
 
-{% data reusables.github-actions.redis-environment-variables %}
+{% data reusables.actions.redis-environment-variables %}
 
-{% data reusables.github-actions.service-container-localhost %}
+{% data reusables.actions.service-container-localhost %}
 
 ## Redisサービスコンテナのテスト
 
@@ -277,7 +277,7 @@ steps:
 
 *client.js*を修正して、ワークフローで必要なRedisの操作を含めることができます。 この例では、スクリプトはRedisクライアントのインスタンスを作成し、プレースホルダーデータを追加し、そしてそのデータを取り出します。
 
-{% data reusables.github-actions.service-container-add-script %}
+{% data reusables.actions.service-container-add-script %}
 
 ```javascript{:copy}
 const redis = require("redis");

@@ -20,6 +20,8 @@ const supportedTools = [
   'vscode',
   'importer_cli',
   'graphql',
+  'powershell',
+  'bash',
 ]
 const toolTitles = {
   webui: 'Web browser',
@@ -30,6 +32,8 @@ const toolTitles = {
   vscode: 'Visual Studio Code',
   importer_cli: 'GitHub Enterprise Importer CLI',
   graphql: 'GraphQL API',
+  powershell: 'PowerShell',
+  bash: 'Bash',
 } as Record<string, string>
 
 // Imperatively modify article content to show only the selected tool
@@ -117,6 +121,16 @@ export const ToolPicker = ({ variant = 'subnav' }: Props) => {
             data-tool={tool}
             as="button"
             selected={tool === currentTool}
+            // Temporary fix: This should be removed when this merges: PR 24123
+            sx={{
+              color: 'var(--color-fg-default)',
+              '&.selected': { color: 'var(--color-fg-default)' },
+              ':hover': { color: 'var(--color-fg-default)' },
+              ':focus': {
+                color: 'var(--color-fg-default)',
+                outline: '-webkit-focus-ring-color auto 1px;',
+              },
+            }}
             onClick={() => {
               onClickTool(tool)
             }}

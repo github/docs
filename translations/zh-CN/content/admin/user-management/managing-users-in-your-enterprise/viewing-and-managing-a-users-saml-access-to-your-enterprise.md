@@ -16,7 +16,7 @@ shortTitle: 查看和管理 SAML 访问
 
 ## 关于对企业帐户的 SAML 访问
 
-When you enable SAML single sign-on for your enterprise account, each enterprise member can link their external identity on your identity provider (IdP) to their existing account on {% data variables.product.product_location %}. {% data reusables.saml.about-saml-access-enterprise-account %}
+当您为企业帐户启用 SAML 单点登录时，每个企业成员都可以将其身份提供商 (IdP) 上的外部身份链接到 {% data variables.product.product_location %} 上的现有帐户。 {% data reusables.saml.about-saml-access-enterprise-account %}
 
 如果您的企业使用 {% data variables.product.prodname_emus %}，成员将使用通过您的 IdP 预配的帐户。 {% data variables.product.prodname_managed_users_caps %} 将不会在 {% data variables.product.product_name %} 上使用他们现有的用户帐户。 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 

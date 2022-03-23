@@ -13,7 +13,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: Delete a codespace
+shortTitle: 删除代码空间
 ---
 
 

@@ -21,7 +21,7 @@ shortTitle: 添加电子邮件地址
 
 **注意**：
   - {% data reusables.user-settings.no-verification-disposable-emails %}
-  -  If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot make changes to your email address on {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+  -  如果您是 {% data variables.product.prodname_emu_enterprise %} 的成员，则无法在 {% data variables.product.prodname_dotcom_the_website %} 上更改您的电子邮件地址。 {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endnote %}
 

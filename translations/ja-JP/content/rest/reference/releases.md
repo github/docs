@@ -1,6 +1,6 @@
 ---
 title: リリース
-intro: 'The releases API allows you to create, modify, and delete releases and release assets.'
+intro: リリースAPIを使うと、リリースとリリースアセットの作成、変更、削除ができます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,18 +12,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% note %}
-
-**注釈:** Releases API は Downloads API を置き換えるものです。 リリースを返し、アセットをリリースする、この API のエンドポイントからダウンロード数と ブラウザのダウンロード URL を取得できます。
-
-{% endnote %}
-
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## Release assets
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'assets' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated below. Markdown for subcategories is located in data/reusables/rest-reference/releases
+-->

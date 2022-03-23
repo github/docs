@@ -4,7 +4,7 @@ intro: 您可以通过启用拉取请求自动合并（使拉取请求在满足�
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -45,7 +45,7 @@ You can provide feedback about auto-merge through a [{% data variables.product.p
 
   {% endnote %}
   {% endif %}
-  {% ifversion ghes > 3.0 or ghae or ghec %}
+  {% ifversion ghes or ghae or ghec %}
 1. If you chose the merge or squash and merge methods, type a commit message and description. ![Fields to enter commit message and description](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
   {% endif %}
 1. 单击 **Confirm auto-merge（确认自动合并）**。

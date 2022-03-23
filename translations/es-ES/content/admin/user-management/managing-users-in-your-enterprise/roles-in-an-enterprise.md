@@ -30,16 +30,23 @@ Para obtener más información acerca de cómo agregar personas a tu empresa, co
 
 {% endif %}
 
-## Propietario de empresa
+## Propietarios empresariales
 
 Los propietarios de las empresas tienen el control absoluto de las mismas y pueden tomar todas las acciones, incluyendo:
 - Gestionar administradores
-- {% ifversion ghec %}Agregar y eliminar {% elsif ghae or ghes %}Administrar{% endif %} organizaciones{% ifversion ghec %}to and from {% elsif ghae or ghes %} en{% endif %} la empresa
+- {% ifversion ghec %}Agregar y eliminar {% elsif ghae or ghes %}Administrar{% endif %} organizaciones {% ifversion ghec %}hacia y desde {% elsif ghae or ghes %} en{% endif %} la empresa{% if remove-enterprise-members %}
+- Eliminar miembros empresariales desde todas las organizaciones que pertenecen a la empresa{% endif %}
 - Administrar parámetros de la empresa
 - Aplicar políticas en las organizaciones
 {% ifversion ghec %}- Administrar la configuración de facturación{% endif %}
 
+{% if enterprise-owner-join-org %}
+Los propietarios empresariales no tienen acceso a los ajustes o contenido de la organización predeterminadamente. Para obtener acceso, los propietarios de empresas pueden unirse a cualquier organización que le pertenezca a su empresa. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+
+Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
+{% else %}
 Los propietarios de empresa no pueden acceder a los parámetros o el contenido de la organización, a menos que se conviertan en propietarios de la organización o que se les otorgue acceso directo al repositorio que le pertenece a una organización. De forma similar, los propietarios de las organizaciones en tu empresa no tienen acceso a la empresa misma a menos de que los conviertas en propietarios de ella.
+{% endif %}
 
 Un propietario de la empresa solo consumirá una licencia si son propietarios o miembros de por lo menos una organización dentro de la emrpesa. Incluso si un propietario de empresa tiene un rol en varias organizaciones, consumirán una sola licencia. {% ifversion ghec %}Los propietrios de la empresa deben tener una cuenta personal en {% data variables.product.prodname_dotcom %}.{% endif %} Como mejor práctica, te recomendamos que solo algunas personas en tu compañía se conviertan en propietarios, para reducir el riesgo en tu negocio.
 
@@ -55,7 +62,7 @@ Las personas con acceso de colaborador externo a los repositorios que pertenecen
 
 {% ifversion ghec %}
 
-## Gerente de facturación
+## Gerentes de facturación
 
 Los gerentes de facturación solo tienen acceso a la configuración de facturación de tu empresa. Los gerentes de facturación de tu empresa pueden:
 - Ver y administrar las licencias de usuario, {% data variables.large_files.product_name_short %} los paquetes y otros parámetros de facturación

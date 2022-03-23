@@ -25,7 +25,7 @@ Esta guía explica cómo configurar el fortalecimiento de seguridad para ciertas
 
 ## Utilizar secretos
 
-Los valores sensibles jamás deben almacenarse como texto simple e archivos de flujo de trabajo, sino más bien como secretos. Los [Secretos](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) pueden configurarse a nivel de la organización{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, repositorio o ambiente{% else %} o repositorio{% endif %}, y permitirte almacenar información sensible en {% data variables.product.product_name %}.
+Los valores sensibles jamás deben almacenarse como texto simple e archivos de flujo de trabajo, sino más bien como secretos. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization, repository, or environment level, and allow you to store sensitive information in {% data variables.product.product_name %}.
 
 Los secretos utilizan [Cajas selladas de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) de manera que se cifran antes de llegar a {% data variables.product.product_name %}. Esto ocurre cuando el secreto se emite [utilizando la IU](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) o a través de la [API de REST](/rest/reference/actions#secrets). Este cifrado del lado del cliente ayuda a minimizar los riesgos relacionados con el registro accidental (por ejemplo, bitácoras de excepción y de solicitud, entre otras) dentro de la infraestructura de {% data variables.product.product_name %}. Una vez que se carga el secreto, {% data variables.product.product_name %} puede entonces descifrarlo para que se pueda inyectar en el tiempo de ejecución del flujo de trabajo.
 
@@ -45,10 +45,8 @@ Para ayudar a prevenir la divulgación accidental, {% data variables.product.pro
 - **Audita y rota los secretos registrados**
     - Revisa con frecuencia los secretos que se han registrado para confirmar que aún se requieran. Elimina aquellos que ya no se necesiten.
     - Rota los secretos con frecuencia para reducir la ventana de tiempo en la que un secreto puesto en riesgo es aún válido.
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - **Considera requerir revisiones para el acceso a los secretos**
     - Puedes utilizar revisiones requeridas para proteger los secretos del ambiente. Un job del flujo de trabajo no podrá acceder a los secretos del ambiente hasta que el revisor otorgue la aprobación. Para obtener más información sobre cómo almacenar los secretos en los ambientes o cómo requerir las revisiones para estos, consulta las secciones "[Secretos cifrados](/actions/reference/encrypted-secrets)" y "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
-{% endif %}
 
 ## Utilizar `CODEOWNERS` para monitorear cambios
 
@@ -175,13 +173,7 @@ Puedes ayudar a mitigar este riesgo si sigues estas buenas prácticas:
 
   Fijar una acción a un SHA de confirmación de longitud completa es actualmente la única forma de utilizar una acción como un lanzamiento inmutable. Fijar las acciones a un SHA en particular ayuda a mitigar el riesgo de que un actor malinencionado agregue una puerta trasera al repositorio de la acción, ya que necesitarían generar una colisión de SHA-1 para una carga útil vlálida de un objeto de Git.
 
-  {% ifversion ghes < 3.1 %}
-  {% warning %}
 
-  **Advertencia:** La versión corta del SHA de confirmación no es segura y jamás debería utilizarse para especificar la referencia de Git de una acción. Debido a cómo funcionan las redes de los repositorios, cualquier usuario puede bifurcar el repositorio y cargar una confirmación creada a éste, la cual colisione con el SHA corto. Esto causa que fallen los clones subsecuentes a ese SHA, debido a que se convierte en una confirmación ambigua. Como resultado, cualquier flujo de trabajo que utilice el SHA acortado fallará de inmediato.
-
-  {% endwarning %}
-  {% endif %}
 
 * **Audita el código fuente de la acción**
 
@@ -271,9 +263,9 @@ Los ejecutores **hospedados en {% data variables.product.prodname_dotcom %}** ej
 
 {% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. De forma similar, ten {% elsif ghes or ghae %}Ten{% endif %} cuidado al utilizar ejecutores auto-hospedados en repositorios privados o internos, ya que cualquiera que pueda bifurcar el repositorio y abrir una solicitud de cambios (que son generalmente aquellos con acceso de lectura al repositorio) podrán poner en riesgo el ambiente del ejecutor auto-hospedado, incluyendo el obtener acceso a los secretos y al `GITHUB_TOKEN` que{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, dependiendo de su configuración, podría otorgar{% else %} otorga{% endif %}permisos de acceso de escritura en el repositorio. Aunque los flujos de trabajo pueden controlar el acceso a los secretos de ambiente utilizando ambientes y revisiones requeridas, estos flujos de trabajo no se encuentran en un ambiente aislado y aún son susceptibles a los mismos riesgos cuando se ejecutan en un ejecutor auto-hospedado.
+{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. De forma similar, ten{% elsif ghes or ghae %}Ten{% endif %} cuidado al utilizar ejecutores auto-hospedados en repositorios privados o internos, ya que cualquiera que pueda bifurcar el repositorio y abrir una solicitud de cambios (habitualmente, aquellos con acceso de lectura al mismo) pueden poner en riesgo el ambiente del ejecutor auto-hospedado, incluyendo el obtener acceso a los secretos y al `GITHUB_TOKEN` que,{% ifversion fpt or ghes > 3.1 or ghae or ghec %} dependiendo de su configuración, puede otorgar{% else %} otorga{% endif %}acceso de escritura al repositorio. Aunque los flujos de trabajo pueden controlar el acceso a los secretos de ambiente utilizando ambientes y revisiones requeridas, estos flujos de trabajo no se encuentran en un ambiente aislado y aún son susceptibles a los mismos riesgos cuando se ejecutan en un ejecutor auto-hospedado.
 
-Cuando se define un ejecutor auto-hospedado a nivel de organización o de empresa, {% data variables.product.product_name %} puede programar flujos de trabajo de repositorios múltiples en el mismo ejecutor. Como consecuencia, si se pone en riesgo la seguridad de estos ambientes, se puede ocasionar un impacto amplio. Para ayudar a reducir el alcance de esta vulneración, puedes crear límites si organizas tus ejecutores auto-hospedados en grupos separados. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
+Cuando se define un ejecutor auto-hospedado a nivel de organización o de empresa, {% data variables.product.product_name %} puede programar flujos de trabajo de repositorios múltiples en el mismo ejecutor. Como consecuencia, si se pone en riesgo la seguridad de estos ambientes, se puede ocasionar un impacto amplio. Para ayudar a reducir el alcance de esta vulneración, puedes crear límites si organizas tus ejecutores auto-hospedados en grupos separados. You can restrict what {% if restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories can access runner groups. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
 También deberás considerar el ambiente de las máquinas del ejecutor auto-hospedado:
 - ¿Qué información sensible reside en la máquina configurada como el ejecutor auto-hospedado? Por ejemplo, llaves SSH privadas, tokens de acceso a la API, entre otros.
@@ -285,12 +277,12 @@ Algunos clientes podrían intentar mitigar estos riesgos parcialmente implementa
 
 Un ejecutor auto-hospedado puede agregarse a varios niveles en tu jerarquía de {% data variables.product.prodname_dotcom %}: el nivel de empresa, organización o repositorio. Esta colocación determina quién podrá administrar el ejecutor:
 
-**Administración centralizada:**
+**Centralized management:**
   - Si planeas que un equipo centralizado sea el propietario de los ejecutores auto-hospedados, entonces la recomendación es agregar tus ejecutores en el nivel de empresa u organización mutua más alto. Esto otorga a tu equipo una ubicación única para ver y administrar tus ejecutores.
   - Si solo tienes una organización sencilla, entonces el agregar tus ejecutores a nivel organizacional es efectivamente el mismo acercamiento, pero puede que encuentres dificultades si agregas otra organización en el futuro.
 
-**Administración descentralizada:**
-  - Si cada equipo administrará sus propios ejecutores auto-hospedados, entonces se recomienda que los agregues en el nivel más alto de propiedad del equipo. Por ejemplo, si cada equipo es dueño de su propia organización, entonces será más simple si los ejecutores se agregan a nivel de organización también.
+**Decentralized management:**
+  - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. Por ejemplo, si cada equipo es dueño de su propia organización, entonces será más simple si los ejecutores se agregan a nivel de organización también.
   - También podrías agregar ejecutores a nivel de repositorio, pero esto agregará una sobrecarga de administración y también incrementará la cantidad de ejecutores que necesitas, ya que no puedes compartir ejecutores entre repositorios.
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}

@@ -2,4 +2,4 @@ Email notifications are sent to account owners and billing managers when spendin
 
 You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
 
-![Screenshot of the billing email notification settings](/assets/images/help/billing/actions-packages-spending-limit-notifications.png)
+![帐单邮箱通知设置的屏幕截图](/assets/images/help/billing/actions-packages-spending-limit-notifications.png)

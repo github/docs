@@ -5,7 +5,6 @@ redirect_from:
   - /articles/about-saved-replies
   - /github/writing-on-github/about-saved-replies
   - /github/writing-on-github/working-with-saved-replies/about-saved-replies
-
 versions:
   fpt: '*'
   ghes: '*'

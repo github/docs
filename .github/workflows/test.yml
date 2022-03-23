@@ -7,6 +7,9 @@ name: Node.js Tests
 on:
   workflow_dispatch:
   pull_request:
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -28,15 +31,14 @@ jobs:
       fail-fast: false
       matrix:
         # The same array lives in test-windows.yml, so make any updates there too.
-        test-group:
-          [
+        test-group: [
             content,
             graphql,
             meta,
             rendering,
             routing,
             unit,
-            linting,
+            # linting,
             translations,
           ]
     steps:
@@ -99,20 +101,20 @@ jobs:
       - name: Checkout LFS objects
         run: git lfs checkout
 
-      - name: Gather files changed
-        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        id: get_diff_files
-        with:
-          # So that `steps.get_diff_files.outputs.files` becomes
-          # a string like `foo.js path/bar.md`
-          output: ' '
+      # - name: Gather files changed
+      #   uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
+      #   id: get_diff_files
+      #   with:
+      #     # So that `steps.get_diff_files.outputs.files` becomes
+      #     # a string like `foo.js path/bar.md`
+      #     output: ' '
 
-      - name: Insight into changed files
-        run: |
+      # - name: Insight into changed files
+      #   run: |
 
-          # Must to do this because the list of files can be HUGE. Especially
-          # in a repo-sync when there are lots of translation files involved.
-          echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
+      #     # Must to do this because the list of files can be HUGE. Especially
+      #     # in a repo-sync when there are lots of translation files involved.
+      #     echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
 
       - name: Setup node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
@@ -134,5 +136,6 @@ jobs:
 
       - name: Run tests
         env:
-          DIFF_FILE: get_diff_files.txt
+          # DIFF_FILE: get_diff_files.txt
+          CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
         run: npm test -- tests/${{ matrix.test-group }}/

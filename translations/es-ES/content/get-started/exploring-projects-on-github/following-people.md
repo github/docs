@@ -17,7 +17,7 @@ topics:
 
 ## Aceca de los seguidores en {% data variables.product.product_name %}
 
-Cuando sigues a las personas, verás su actividad pública en la vista de actividad de tus noticias.{% ifversion fpt or ghec %} Si alguien que sigues marca un repositorio público como favorito, {% data variables.product.product_name %} podría recomendártelo en la vista de descubrimientos de tus noticias.{% endif %}
+When you follow people, you'll see their public activity on your personal dashboard.{% ifversion fpt or ghec %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you.{% endif %} For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 
 Puedes dejar de seguir a alguien si no quieres ver su actividad pública en {% data variables.product.product_name %}.
 

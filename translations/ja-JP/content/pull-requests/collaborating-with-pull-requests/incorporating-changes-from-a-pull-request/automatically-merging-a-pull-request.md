@@ -4,7 +4,7 @@ intro: プルリクエストの自動マージを有効にすると、すべて�
 product: '{% data reusables.gated-features.auto-merge %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -45,7 +45,7 @@ You can provide feedback about auto-merge through a [{% data variables.product.p
 
   {% endnote %}
   {% endif %}
-  {% ifversion ghes > 3.0 or ghae or ghec %}
+  {% ifversion ghes or ghae or ghec %}
 1. If you chose the merge or squash and merge methods, type a commit message and description. ![Fields to enter commit message and description](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
   {% endif %}
 1. [**Confirm auto-merge**] をクリックします。

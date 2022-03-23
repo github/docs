@@ -42,7 +42,7 @@ shortTitle: 查看使用情况
 
 {% note %}
 
-**注：**企业帐户的计费详细信息仅汇总每个组织的存储数据使用情况。 {% data reusables.github-actions.enterprise-billing-details %}
+**注：**企业帐户的计费详细信息仅汇总每个组织的存储数据使用情况。 {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

@@ -22,6 +22,7 @@ children:
   - /collaborators
   - /commits
   - /dependabot
+  - /deploy_keys
   - /deployments
   - /emojis
   - /enterprise-admin
@@ -51,6 +52,5 @@ children:
   - /teams
   - /users
   - /webhooks
-  - /permissions-required-for-github-apps
 ---
 
