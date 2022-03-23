@@ -51,7 +51,7 @@ Dependency review supports the same languages and package management ecosystems 
 The dependency review feature becomes available when you enable the dependency graph. {% ifversion ghec %}For more information, see "[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae %}For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
 {% endif %}
 
-{% ifversion fpt or ghec or ghes>3.5 or ghae-issue-6396 %}
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
 ## Dependency review enforcement
 
 You can use the Dependency Review GitHub Action in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility into what is changing in a pull request and prevents vulnerabilities from being introduced to your repository. <!-- Will add link to the Action here once available -->
