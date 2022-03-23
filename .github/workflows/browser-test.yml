@@ -54,7 +54,7 @@ jobs:
         run: npm ci --include=optional
 
       - name: Cache nextjs build
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        uses: actions/cache@4b0cf6cc4619e737324ddfcec08fff2413359514
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
