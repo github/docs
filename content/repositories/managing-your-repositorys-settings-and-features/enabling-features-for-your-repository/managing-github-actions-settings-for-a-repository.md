@@ -44,7 +44,7 @@ You can disable all workflows for a repository or set a policy that configures w
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Actions permissions**, select an option.
 
   ![Set actions policy for this organization](/assets/images/help/repository/actions-policy.png)
@@ -57,7 +57,7 @@ You can disable all workflows for a repository or set a policy that configures w
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list.
 
    {%- ifversion ghes %}
@@ -77,7 +77,7 @@ You can configure this behavior for a repository using the procedure below. Modi
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.repositories.settings-sidebar-actions %}
 {% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
@@ -95,7 +95,7 @@ If a policy is disabled for an {% ifversion ghec or ghae or ghes %}enterprise or
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.repositories.settings-sidebar-actions %}
 {% data reusables.actions.private-repository-forks-configure %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
@@ -111,7 +111,7 @@ The default permissions can also be configured in the organization settings. If 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
 
   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
@@ -128,7 +128,7 @@ You can use the steps below to configure whether {% if internal-actions%}actions
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
 1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
-{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.repositories.settings-sidebar-actions %}
 1. Under **Access**, choose one of the access settings:
    
    {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png){% else %}![Set the access to Actions components](/assets/images/enterprise/3.4/actions-access-settings.png){% endif %}
@@ -151,5 +151,5 @@ You can also define a custom retention period for a specific artifact created by
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.repositories.settings-sidebar-actions %}
 {% data reusables.actions.change-retention-period-for-artifacts-logs  %}

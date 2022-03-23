@@ -32,13 +32,14 @@ To remove a self-hosted runner from a user repository you must be the repository
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-runners %}
+{% data reusables.actions.settings-sidebar-actions %}
+{% data reusables.actions.settings-sidebar-actions-runners-updated %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.self-hosted-runner-removing-a-runner-updated %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions-runners %}
+{% data reusables.actions.settings-sidebar-actions-runners %}
 {% data reusables.actions.self-hosted-runner-removing-a-runner %}
 {% endif %}
 
@@ -58,13 +59,14 @@ To remove a self-hosted runner from an organization, you must be an organization
 {% ifversion fpt or ghes > 3.3 or ghec %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
+{% data reusables.actions.settings-sidebar-actions %}
+{% data reusables.actions.settings-sidebar-actions-runners-updated %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.self-hosted-runner-removing-a-runner-updated %}
 {% elsif ghes < 3.4 or ghae %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
+{% data reusables.actions.settings-sidebar-actions-runners %}
 {% data reusables.actions.self-hosted-runner-removing-a-runner %}
 {% endif %}
 
