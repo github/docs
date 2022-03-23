@@ -15,6 +15,10 @@
 		"cSpell.language": ",en"
 	},
 
+	"features": {
+		"git-lfs": "latest"
+	 }
+
 	// Visual Studio Code extensions which help authoring for docs.github.com.
 	"extensions": [
 		"dbaeumer.vscode-eslint",
