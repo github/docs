@@ -119,7 +119,7 @@ Puedes ver los resultados desde tus intentos anteriores para ejecutar un flujo d
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {%- if re-run-jobs %}
-1. Any previous run attempts are shown in the **Latest** drop-down menu. ![Previous run attempts](/assets/images/help/repository/previous-run-attempts.png)
+1. Cualquier intento de ejecución previo se muestra en el menú desplegable de **Más recientes**. ![Intentos previos](/assets/images/help/repository/previous-run-attempts.png)
 {%- else %}
 1. Cualquier intento de ejecución anterior se muestra en el panel izquierdo. ![Volver a ejecutar un flujo de trabajo](/assets/images/help/settings/actions-review-workflow-rerun.png)
 {%- endif %}

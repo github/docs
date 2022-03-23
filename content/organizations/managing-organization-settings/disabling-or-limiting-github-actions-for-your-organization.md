@@ -39,7 +39,7 @@ You can disable all workflows for an organization or set a policy that configure
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under **Policies**, select an option.
   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
 1. Click **Save**.
@@ -50,7 +50,7 @@ You can disable all workflows for an organization or set a policy that configure
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
    {%- ifversion ghes %}
    ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
@@ -68,7 +68,7 @@ You can configure this behavior for an organization using the procedure below. M
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
@@ -87,7 +87,7 @@ You can configure this behavior for an organization using the procedure below. M
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.private-repository-forks-configure %}
 {% endif %}
 
@@ -105,7 +105,7 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
   ![Set GITHUB_TOKEN permissions for this organization](/assets/images/help/settings/actions-workflow-permissions-organization.png)
 1. Click **Save** to apply the settings.

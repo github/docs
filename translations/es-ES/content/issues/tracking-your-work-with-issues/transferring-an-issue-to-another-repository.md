@@ -20,7 +20,7 @@ Para transferir una propuesta abierta a otro repositorio, debes tener acceso de 
 
 {% note %}
 
-**Note**: You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes or ghec %}A private repository issue cannot be transferred to a public repository.{% endif %}
+**Nota**: Solo puedes transferir propuestas entre los repositorios que pertenezcan a la misma cuenta de usuario o de organización. {% ifversion fpt or ghes or ghec %}Una propuesta de repositorio privado no puede transferirse a un repositorio público.{% endif %}
 
 {% endnote %}
 

@@ -25,5 +25,5 @@ You can use insights to view and customize charts that use the items added to yo
 2. In the top-right, click {% octicon "graph" aria-label="the graph icon" %} to access insights. This feature is currently in a private preview and is not yet available to all organizations. If insights is not yet enabled for your organization, the {% octicon "graph" aria-label="the graph icon" %} icon will not be available.
 3. In the menu on the left, click **New chart**.
 4. Optionally, to change the name of the new chart, click {% octicon "triangle-down" aria-label="The triangle icon" %}, type a new name, and press <kbd>Return</kbd>.
-5. Above the chart, type filters to change the data used to build the chart. For more information, see "[Filtering projects](/issues/trying-out-the-new-projects-experience/filtering-projects)."
+5. Above the chart, type filters to change the data used to build the chart. Para obtener más información, consulta la sección "[Filtrar proyectos](/issues/trying-out-the-new-projects-experience/filtering-projects)".
 6. To the right of the filter text box, click **Save changes**.

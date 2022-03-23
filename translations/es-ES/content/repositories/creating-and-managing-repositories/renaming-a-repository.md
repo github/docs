@@ -37,11 +37,11 @@ Si planeas renombrar un repositorio que tenga un sitio {% data variables.product
 
 {% endif %}
 
-{% tip %}
+{% note %}
 
-**Sugerencia:** {% data reusables.organizations.owners-and-admins-can %} renombra un repositorio. {% data reusables.organizations.new-repo-permissions-more-info %}
+**Note:** {% data variables.product.prodname_dotcom %} will not redirect calls to an action hosted by a renamed repository. Any workflow that uses that action will fail with the error `repository not found`. Instead, create a new repository and action with the new name and archive the old repository. Para obtener más información, consulta la sección "[Archivar los repositorios](/repositories/archiving-a-github-repository/archiving-repositories)".
 
-{% endtip %}
+{% endnote %}
 
 {% warning %}
 
