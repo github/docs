@@ -41,6 +41,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 - [Authy](https://authy.com/guides/github/)
 - [LastPass Authenticator](https://lastpass.com/auth/)
 - [Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator/)
+- [Google Authenticator](https://support.google.com/accounts/answer/1066447/)
 
 {% tip %}
 
