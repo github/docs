@@ -1,1 +1,1 @@
-1. Under "Code security and analysis", find "{% data variables.product.prodname_GH_advanced_security %}."
+1. Debajo de "Seguridad y análisis de código", encuentra "{% data variables.product.prodname_GH_advanced_security %}".

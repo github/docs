@@ -14,7 +14,6 @@ shortTitle: Administrar el acceso a los ejecutores
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.restrict-runner-workflow-beta %}
 
 ## Acerca de los grupos de ejecutores auto-hospedados
 

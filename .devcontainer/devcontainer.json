@@ -15,6 +15,11 @@
 		"cSpell.language": ",en"
 	},
 
+	// Install features. Type 'feature' in the VS Code command palette for a full list.
+	"features": {
+		"git-lfs": "latest"
+	 },
+
 	// Visual Studio Code extensions which help authoring for docs.github.com.
 	"extensions": [
 		"dbaeumer.vscode-eslint",

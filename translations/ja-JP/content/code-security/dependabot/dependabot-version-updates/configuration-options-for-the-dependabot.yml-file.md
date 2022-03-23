@@ -256,6 +256,12 @@ updates:
 
 対応しているオプション
 
+{% note %}
+
+**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+
+{% endnote %}
+
 - `prefix` では、すべてのコミットメッセージのプレフィックスを指定します。
 - `prefix-development` は、Development の依存関係グループ内の依存関係を更新するすべてのコミットメッセージに個別のプレフィックスを指定します。 このオプションの値を指定すると、`prefix` は、Production の依存関係グループの依存関係の更新にのみ使用されます。 これは、`bundler`、`composer`、`mix`、`maven`、`npm`、`pip` に対応しています。
 - `include: "scope"` では、任意のプレフィックスの後に、コミットで更新された依存関係のリストが続くことを指定します。
@@ -309,7 +315,7 @@ updates:
 
 リポジトリが`ignore`の設定を保存したかは、リポジトリで`"@dependabot ignore" in:comments`を検索すれば調べられます。 この方法で無視された依存関係の無視を解除したいなら、Pull Requestを再度オープンしてください。
 
-For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+`@dependabot ignore` コマンドに関する詳細については、「[依存関係の更新に関するプルリクエストを管理する](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)」をご覧ください。
 
 #### 無視する依存関係とバージョンを指定する
 

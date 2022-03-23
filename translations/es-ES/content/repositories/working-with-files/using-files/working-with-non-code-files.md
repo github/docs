@@ -131,9 +131,9 @@ Por defecto, la representación insertada es de 420 píxeles de ancho por 620 de
 {% endtip %}
 
 {% if mermaid %}
-### Rendering in Markdown
+### Representar en lenguaje de marcado
 
-You can embed ASCII STL syntax directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+Puedes embeber una sintaxis de ASCII STL directamente en el lenguaje de marcado. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)".
 {% endif %}
 
 ## Representar datos CSV y TSV
@@ -207,7 +207,7 @@ Puedes hacer clic en {% octicon "file" aria-label="The paper icon" %} para ver l
 
 Proporcionamos una información de herramienta que describe los cambios en los atributos que, a diferencia de las palabras, no serían visibles en el documento representado. Por ejemplo, si la URL de un enlace cambia de un sitio web a otro, mostraríamos una información de herramienta como la siguiente:
 
-![Cambios en atributos de la prosa representados](/assets/images/help/repository/prose_diff_attributes.png)
+![Cambios en atributos de la prosa representados](/assets/images/help/repository/previous-run-attempts.png)
 
 ### Comentar cambios
 
@@ -239,7 +239,7 @@ Cuando haces clic en el ícono de papel a la derecha, también verás los cambio
 
 ![Captura de pantalla de conmutación de representación de fuente](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### Geometry types
+### Tipos de geometría
 
 Los mapas en {% data variables.product.product_name %} utilizan [Leaflet.js](http://leafletjs.com) y admiten todos los tipos de Geometry indicados en [las especificaciones de geoJSON](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon y GeometryCollection). Los archivos TopoJSON deberían ser del tipo "Topology" y adherir a las especificaciones [topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
 
@@ -281,9 +281,9 @@ Por defecto, el mapa incrustado es 420px x 620px, pero puedes personalizar el re
 {% endtip %}
 
 {% if mermaid %}
-### Mapping in Markdown
+### Mapear en lenguaje de marcado
 
-You can embed geoJSON and topoJSON directly in Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+Puedes embeber geoJSON y topoJSON directamente en el lenguaje de marcado. Para obtener más información, consulta la sección "[Crear diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)".
 {% endif %}
 
 ### Agrupación
