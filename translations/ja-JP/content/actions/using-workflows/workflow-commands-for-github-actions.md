@@ -258,6 +258,7 @@ Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
 {% endpowershell %}
+
 ## ログの行のグループ化
 
 展開可能なグループをログ中に作成します。 グループを作成するには、`group`コマンドを使って`title`を指定してください。 `group`と`endgroup`コマンド間でログに出力したすべての内容は、ログ中の展開可能なエントリ内にネストされます。

@@ -98,7 +98,7 @@ We do not allow content or activity on GitHub that:
 
 我们理解，您可能想通过在帐户中发布支持者的姓名或徽标来推广您的内容，但在帐户中或通过帐户发布到服务的内容不应侧重于广告或促销。 这包括在页面、包、仓库和服务所有其他部分或者通过它们发布的内容。 您可在与您的帐户关联的自述文件中或项目说明部分包含静态图像、链接和宣传文本，但它们必须与您在 GitHub 上托管的项目相关。 您不能在其他用户的帐户中发布广告，例如在议题中发布货币化或过多的批量内容。
 
-You may not promote or distribute content or activity that is illegal or otherwise prohibited by our [Terms of Service](/github/site-policy/github-terms-of-service/)or [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies/), including excessive automated bulk activity (for example, spamming), get-rich-quick schemes, and misrepresentation or deception related to your promotion.
+You may not promote or distribute content or activity that is illegal or otherwise prohibited by our [Terms of Service](/github/site-policy/github-terms-of-service/) or [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies/), including excessive automated bulk activity (for example, spamming), get-rich-quick schemes, and misrepresentation or deception related to your promotion.
 
 如果您决定在帐户中发布任何宣传材料，您将自行负责遵守所有适用的法律和法规，包括但不限于美国联邦贸易委员会的背书和推荐准则。 联邦贸易委员会的背书和推荐准则。 我们保留删除我们单方面认为违反了任何 GitHub 条款或政策的任何宣传材料或广告的权利。
 

@@ -41,9 +41,23 @@ También puedes encontrar un listado de los repositorios, los equipos y los tabl
 
 ## Estar actualizado con la actividad desde tu organización
 
-En la sección "All activity" (Todas las actividades) de tus noticias, puedes ver las actualizaciones de los repositorios a los que estás suscrito y de las personas que sigues. La sección "All activity" (Todas las actividades) muestra las actualizaciones de los repositorios que observas o has marcado con una estrella, y de los usuarios a quienes sigues.
+{% if for-you-feed %}
+The main section of your dashboard has two activity feeds:
+
+- Following: Activity by people you follow and from repositories you watch.
+- For you: Activity and recommendations based on your {% data variables.product.product_name %} network.
+
+### Following feed
+
+This feed shows activity from repositories and users you have shown a direct interest in, by following a user or watching a repository. For example, you'll see updates when a user you follow:
+
+{% else %}
+In the "All activity" section of your news feed, you can view updates from repositories you watch and users you follow.
 
 Verás actualizaciones en tus noticias cuando un usuario que sigues:
+{% endif %}
+
+
 - Destaca un repositorio.
 - Sigue otro usuario.{% ifversion fpt or ghes or ghec %}
 - Crea un repositorio público.{% endif %}
@@ -52,7 +66,26 @@ Verás actualizaciones en tus noticias cuando un usuario que sigues:
 - Bifurque un repositorio público.{% endif %}
 - Publica un lanzamiento nuevo.
 
-Para obtener más información acerca de cómo destacar repositorios y seguir personas, consulta "[Guardar repositorios con estrellas](/articles/saving-repositories-with-stars/)" y "[Seguir a personas](/articles/following-people)".
+For more information about following people and watching repositories, see "[Following people](/get-started/exploring-projects-on-github/following-people)" and "[Be social](/get-started/quickstart/be-social)."
+
+{% if for-you-feed %}
+### For you feed
+
+{% note %}
+
+**Note:** This new tab is currently in public beta and subject to change.
+
+{% endnote %}
+
+This feed shows activity and recommendations based on your network on {% data variables.product.product_name %}. It's designed to provide updates that inspire you, keep you up-to-date, and help you find new communities you want to participate in. Your network includes:
+
+- Repositories you have starred
+- Repositories you've contributed to
+- Users you follow or sponsor
+- Users you've collaborated with
+- Organizations you follow
+
+{% endif %}
 
 ## Explorar los repositorios recomendados
 
