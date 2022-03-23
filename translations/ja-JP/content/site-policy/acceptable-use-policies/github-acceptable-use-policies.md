@@ -98,7 +98,7 @@ We do not allow content or activity on GitHub that:
 
 当社は、お客様が支持者の名前またはロゴをアカウントに掲載することによって自身の「コンテンツ」のプロモーションを行いたい場合があることを理解していますが、「アカウント」内あるいは「アカウント」を通して「サービス」へと投稿される「コンテンツ」の主な目的が広告またはプロモーション活動であってはなりません。 これには、「ページ」、「パッケージ」、リポジトリ、および「サービス」のその他一切の部分内か、またはこれを通じて投稿される「コンテンツ」が含まれます。 お客様の「アカウント」に関連する README ドキュメントまたはプロジェクト説明セクションに、静止画像、リンク、広告文を記載することはできますが、それは GitHub でホスティングしているプロジェクトに関連するものでなければなりません。 収益目的または過度に大きいコンテンツを Issue に投稿するなど、他の「ユーザ」の「アカウント」で広告を行うことはできません。
 
-You may not promote or distribute content or activity that is illegal or otherwise prohibited by our [Terms of Service](/github/site-policy/github-terms-of-service/)or [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies/), including excessive automated bulk activity (for example, spamming), get-rich-quick schemes, and misrepresentation or deception related to your promotion.
+You may not promote or distribute content or activity that is illegal or otherwise prohibited by our [Terms of Service](/github/site-policy/github-terms-of-service/) or [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies/), including excessive automated bulk activity (for example, spamming), get-rich-quick schemes, and misrepresentation or deception related to your promotion.
 
 「アカウント」に何らかの宣伝材料を投稿することを決めた場合、お客様はすべての適用される法令に従う責任を負うものとします。 この法令には、「推奨・証言に関する米国連邦取引委員会のガイドライン」が含まれますが、それに限定されません。 当社は、GitHub の何らかの規約またはポリシーに違反すると当社が独自に裁量した、一切の宣伝材料または広告を削除する権利を留保します。
 

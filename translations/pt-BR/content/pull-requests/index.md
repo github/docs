@@ -1,6 +1,6 @@
 ---
 title: Pull requests
-intro: 'Learn how to use pull requests to suggest changes to a project, receive suggested changes to your own projects, and address issues in pull requests, such as merge conflicts.'
+intro: 'Aprenda a usar pull requests para sugerir alterações a um projeto, receber alterações sugeridas em seus próprios projetos e resolver problemas em pull requests, como conflitos de merge.'
 introLinks:
   overview: /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 featuredLinks:

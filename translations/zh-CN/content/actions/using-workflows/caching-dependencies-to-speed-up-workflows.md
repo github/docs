@@ -234,3 +234,11 @@ restore-keys: |
 ## 使用限制和收回政策
 
 {% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 10 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 10 GB.
+
+{% if actions-cache-management %}
+
+## Managing caches
+
+You can use the {% data variables.product.product_name %} REST API to manage your caches. At present, you can use the API to see your cache usage, with more functionality expected in future updates. For more information, see the "[Actions](/rest/reference/actions#cache)" REST API documentation.
+
+{% endif %}

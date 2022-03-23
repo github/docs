@@ -1,4 +1,4 @@
-import { getDOM } from '../helpers/supertest.js'
+import { getDOM } from '../helpers/e2etest.js'
 import languages from '../../lib/languages.js'
 import { jest } from '@jest/globals'
 

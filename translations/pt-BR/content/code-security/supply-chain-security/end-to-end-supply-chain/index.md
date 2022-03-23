@@ -1,6 +1,6 @@
 ---
-title: End-to-end supply chain
-intro: 'How to think about securing your user accounts, your code, and your build process'
+title: Cadeia de suprimentos de ponta a ponta
+intro: 'Como pensar em proteger suas contas de usuário, seu código e seu processo de criação'
 versions:
   fpt: '*'
   ghec: '*'

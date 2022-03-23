@@ -7,9 +7,9 @@ topics:
   - Legal
 ---
 
-## Appeal and Reinstatement
+## Apelação e reinstauração
 
-While the majority of interactions between individuals in GitHub’s community fall within our Acceptable Use Policies and Community Guidelines, violations of those policies do occur at times. When they do, GitHub staff may need to take enforcement action to address the violations. However, in some cases there may be a basis to reverse a moderation action taken by GitHub Staff.
+Enquanto a maioria das interações entre indivíduos na comunidade do GitHub se enquadram em nossas Políticas de Uso Aceitáveis e Diretrizes da Comunidade. Âs vezes, ocorrem violações dessas políticas ocorrem. Quando ocorrem, a equipe do GitHub pode precisar tomar medidas de execução para resolver as violações. No entanto, em alguns casos, pode haver uma base para reverter uma medida de moderação tomada pelo pessoal do GitHub.
 
 ## What are appeals and reinstatements?
 
@@ -33,6 +33,6 @@ All legitimate reinstatement requests will be reviewed initially by GitHub staff
 
 If the GitHub staff reviewer is the same person who made the initial determination and that staff member believes their initial conclusion was correct (and thus would be inclined to deny the appeal), a different member of GitHub’s staff will independently review the appeal. All legitimate appeals will be answered with a final decision.
 
-## Transparency
+## Transparência
 
 We track appeals and reinstatements in our [transparency reports](https://github.blog/2022-01-27-2021-transparency-report/#Appeals_and_other_reinstatements).

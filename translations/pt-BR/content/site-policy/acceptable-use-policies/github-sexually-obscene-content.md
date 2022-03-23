@@ -1,6 +1,6 @@
 ---
-title: GitHub Sexually Obscene Content
-shortTitle: Sexually Obscene Content
+title: Conteúdo sexualmente obsceno do GitHub
+shortTitle: Conteúdo Sexualmente Obsceno
 versions:
   fpt: '*'
 topics:
@@ -11,10 +11,10 @@ redirect_from:
   - /github/site-policy/github-community-guidelines#sexually-obscene-content
 ---
 
-We do not tolerate content associated with sexual exploitation or abuse of another individual, including where minors are concerned. We do not allow sexually themed or suggestive content that serves little or no purpose other than to solicit an erotic or shocking response, particularly where that content is amplified by its placement in profiles or other social contexts. Isto inclui:
+Não toleramos conteúdos associados à exploração sexual ou ao abuso de outro indivíduo, inclusive no que se refere aos menores. Não permitimos conteúdos com temas sexuais ou sugestivos que não têm utilidade além de solicitar uma resposta erótica ou chocante, particularmente quando esse conteúdo é amplificado pela sua colocação em perfis ou outros contextos sociais. Isto inclui:
 
-- Pornographic content
-- Non-consensual intimate imagery
-- Graphic depictions of sexual acts including photographs, video, animation, drawings, computer-generated images, or text-based content
+- Conteúdo pornográfico
+- Imagens íntimas não consensuais
+- Representações gráficas de atos sexuais incluindo fotos, vídeo, animação, desenhos, imagens geradas por computador ou conteúdo baseado em texto
 
-We recognize that not all nudity or content related to sexuality is obscene. We may allow visual and/or textual depictions in artistic, educational, historical or journalistic contexts, or as it relates to victim advocacy. In some cases a disclaimer can help communicate the context of the project. However, please understand that we may choose to limit the content by giving users the option to opt in before viewing.
+Reconhecemos que nem toda a nudez ou todo o conteúdo relacionado à sexualidade é obsceno. Podemos permitir representações visuais e/ou textuais em contextos artísticos, educacionais, históricos ou jornalísticos, ou no que se refere à defesa de vítimas. Em alguns casos, um denunciante pode ajudar a comunicar o contexto do projeto. No entanto, entenda que podemos limitar o conteúdo, dando aos usuários a opção de optar ppor participar antes de visualizar.

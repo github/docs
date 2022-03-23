@@ -130,6 +130,12 @@ Por padrão, o renderizador incorporado tem 420 pixels de largura por 620 pixels
 
 {% endtip %}
 
+{% if mermaid %}
+### Interpretação em Markdown
+
+Você pode incorporar a sintaxe do ASCII STL diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)".
+{% endif %}
+
 ## Renderizar dados CSV e TSV
 
 O GitHub oferece suporte à renderização de dados tabulares na forma de arquivos *.csv* (separados por vírgula) e .*tsv* (separados por tubulação).
@@ -233,7 +239,7 @@ Quando você clicar no ícone de folha de papel à direita, também verá as alt
 
 ![Captura de tela seletor Source Render (Renderizar fonte)](/assets/images/help/repository/source-render-toggle-geojson.png)
 
-### Tipos geométricos
+### Tipos de geometria
 
 Os mapas no {% data variables.product.product_name %} usam [Leaflet.js](http://leafletjs.com) e são compatíveis com todos os tipos geométricos descritos nas [especificações geoJSON](http://www.geojson.org/geojson-spec.html) (Ponto, LineString, Polígono, Múltiplos Pontos, MultiLineString, MultiPolygon e GeometryCollection). Os arquivos TopoJSON devem ser do tipo "Topology" (Topologia) e estar de acordo com as [especificações topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
 
@@ -274,6 +280,12 @@ Por padrão, o mapa incorporado tem 420px x 620px, mas é possível personalizar
 
 {% endtip %}
 
+{% if mermaid %}
+### Mapeamento em Markdown
+
+Você pode incorporar geoJSON e topoJSON diretamente ao Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)".
+{% endif %}
+
 ### Clustering
 
 Se o seu mapa contém um número grande de marcadores (aproximadamente mais de 750), em níveis de zoom maiores, o GitHub automaticamente fará cluster de marcadores próximos. Simplesmente clique em cluster ou aumentar o zoom para ver os marcadores individuais.
@@ -292,7 +304,7 @@ Além disso, se o seu arquivo `.geojson` for particularmente grande (acima de 10
 
 Ainda pode ser possível renderizar os dados convertendo o arquivo `.geojson` em [TopoJSON](https://github.com/mbostock/topojson), um formato compactado que pode reduzir o tamanho dos arquivos em até 80%, em alguns casos. Claro que você sempre pode quebrar os arquivos em pedaços menores (como por estado ou por ano) e armazenar os dados em vários arquivos no repositório.
 
-### Recursos adicionais
+### Leia mais
 
 * [Documentação geojson Leaflet.js](http://leafletjs.com/examples/geojson.html)
 * [Documentação MapBox marcadores de estilo](http://www.mapbox.com/developers/simplestyle/)
@@ -320,3 +332,44 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 
 - [Repositório do GitHub do Jupyter Notebook](https://github.com/jupyter/jupyter_notebook)
 - [Galeria de Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+
+{% if mermaid %}
+## Exibindo arquivos do Mermaid em {% data variables.product.prodname_dotcom %}
+
+{% data variables.product.product_name %} é compatível com os arquivos de interpretação do Mermaid dentro dos repositórios. Faça o commit do arquivo como você faria normalmente, usando a extensão `.mermaid` ou `.mmd`. Em seguida, acesse o caminho do arquivo do Mermaid em {% data variables.product.prodname_dotcom %}.
+
+Por exemplo, se você adicionar um arquivo `.mmd` com o seguinte conteúdo para o repositório:
+
+```
+graph TD
+    A[Friend's Birthday] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D["Cool <br> Laptop"]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+Ao visualizar o arquivo no repositório, ele é interpretado como um gráfico de fluxo. ![Diagrama de arquivo do mermaid interpretado](/assets/images/help/repository/mermaid-file-diagram.png)
+
+### Solução de Problemas
+
+Se o seu gráfico não faz nenhuma interpretação, verifique se ele contém uma sintaxe válida do Markdown do Mermaid, verificando sua carta com [editor ativo do Mermaid](https://mermaid.live/edit).
+
+Se o gráfico é exibido, mas não aparece como você esperava, você pode criar uma nova discussão de feedback [](https://github.com/github/feedback/discussions/categories/general-feedback) e adicionar a tag `mermaid`.
+
+#### Problemas conhecidos
+
+* O gráfico do diagrama de sequência é frequentemente interpretado com preenchimento adicional abaixo do gráfico, com preenchimento adicional acrescentado à medida que o tamanho do gráfico aumenta. Este é um problema conhecido com a biblioteca do Mermaid.
+* Os nós do ator com menus popover não funcionam como esperado dentro de gráficos de diagrama de sequência. Isto se deve uma discrepância na forma como eventos do JavaScript são adicionados a um gráfico quando a API da biblioteca do Mermaid é usada para interpretar um gráfico.
+* Nem todos os gráficos são conformes com a11y. Isso pode afetar os usuários que dependem de um leitor de tela.
+
+### Mermaid no Markdown
+
+Você pode incorporar a sintaxe do Mermaid diretamente no Markdown. Para obter mais informações, consulte "[Criando diagramas](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)".
+
+### Leia mais
+
+* [Documentação do Mermaid.js](https://mermaid-js.github.io/mermaid/#/)
+* [Editor ativo do Mermaid.js](https://mermaid.live/edit)
+{% endif %}
+

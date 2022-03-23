@@ -73,7 +73,11 @@ If any jobs in a workflow run failed, you can re-run just the jobs that failed. 
 
 {% cli %}
 
-You cannot re-run all failed jobs through the {% data variables.product.prodname_cli %} at this time. Instead, use the {% data variables.product.product_name %} web browser interface.
+To re-run failed jobs in a workflow run, use the `run rerun` subcommand with the `--failed` flag. Replace `run-id` with the ID of the run for which you want to re-run failed jobs. Si no especificas una `run-id`, {% data variables.product.prodname_cli %} devolverá un menú interactivo para que elijas una ejecución fallida reciente.
+
+```shell
+gh run rerun <em>run-id</em> --failed
+```
 
 {% endcli %}
 
@@ -95,7 +99,11 @@ When you re-run a specific job in a workflow, a new workflow run will start for 
 
 {% cli %}
 
-You cannot re-run a single job through the {% data variables.product.prodname_cli %} at this time. Instead, use the {% data variables.product.product_name %} browser interface.
+To re-run a specific job in a workflow run, use the `run rerun` subcommand with the `--job` flag. Replace `job-id` with the ID of the job that you want to re-run.
+
+```shell
+gh run rerun --job <em>job-id</em>
+```
 
 {% endcli %}
 
@@ -111,7 +119,7 @@ Puedes ver los resultados desde tus intentos anteriores para ejecutar un flujo d
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 {%- if re-run-jobs %}
-1. Any previous run attempts are shown in the **Latest** drop-down menu. ![Previous run attempts](/assets/images/help/repository/previous-run-attempts.png)
+1. Cualquier intento de ejecución previo se muestra en el menú desplegable de **Más recientes**. ![Intentos previos](/assets/images/help/repository/previous-run-attempts.png)
 {%- else %}
 1. Cualquier intento de ejecución anterior se muestra en el panel izquierdo. ![Volver a ejecutar un flujo de trabajo](/assets/images/help/settings/actions-review-workflow-rerun.png)
 {%- endif %}

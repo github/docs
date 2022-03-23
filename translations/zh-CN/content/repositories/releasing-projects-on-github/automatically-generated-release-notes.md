@@ -54,14 +54,14 @@ communityRedirect:
 
 ### 配置选项
 
-| 参数                                        | 描述                                                                                                                                                             |
-|:----------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `changelog.exclude.labels`                | 不在发行说明中显示拉取请求的标签列表。                                                                                                                                            |
-| `changelog.exclude.authors`               | 要从发行说明中排除其拉取请求的用户或自动程序登录句柄的列表。                                                                                                                                 |
-| `changelog.categories[*].title`           | **Required.** The title of a category of changes in release notes.                                                                                             |
-| `changelog.categories[*].labels`          | **Required.** Labels that qualify a pull request for this category. Use `*` as a catch-all for pull requests that didn't match any of the previous categories. |
-| `changelog.categories[*].exclude.labels`  | 不在此类别中显示拉取请求的标签列表。                                                                                                                                             |
-| `changelog.categories[*].exclude.authors` | 要从此类别中排除其拉取请求的用户或自动程序登录句柄的列表。                                                                                                                                  |
+| 参数                                        | 描述                                                    |
+|:----------------------------------------- |:----------------------------------------------------- |
+| `changelog.exclude.labels`                | 不在发行说明中显示拉取请求的标签列表。                                   |
+| `changelog.exclude.authors`               | 要从发行说明中排除其拉取请求的用户或自动程序登录句柄的列表。                        |
+| `changelog.categories[*].title`           | **必需。**发行说明中更改类别的标题。                                  |
+| `changelog.categories[*].labels`          | **必需。**符合此类别的拉取请求条件的标签。 使用 `*` 作为与上述任何类别都不匹配的拉取请求的统称。 |
+| `changelog.categories[*].exclude.labels`  | 不在此类别中显示拉取请求的标签列表。                                    |
+| `changelog.categories[*].exclude.authors` | 要从此类别中排除其拉取请求的用户或自动程序登录句柄的列表。                         |
 
 ### 示例配置
 
