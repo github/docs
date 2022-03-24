@@ -365,7 +365,7 @@ steps:
 Examples:
 - See the code block in "[Publishing to package registries](https://docs.github.com/en/actions/guides/building-and-testing-python#publishing-to-package-registries)"
 
-### Pinning version numbers to SHA
+#### Pinning version numbers to SHA
 
 Code examples that use third-party actions must always pin to a full length commit SHA, instead of the version number or branch:
 
@@ -382,6 +382,12 @@ steps:
 ```
 
 For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-shas)"
+
+### GitHub Codespaces 
+
+Always use "GitHub Codespaces" (`{% data variables.product.prodname_github_codespaces %}`) as the product name, not just "Codespaces". This helps to avoid confusion with "codespaces" (lowercase c), which refers to instances of remote coding workspaces created with GitHub Codespaces.
+
+Always use "dev container" (or its longer form "development container) and not "devcontainer" (one word), except in file/path names. Although "devcontainer" is very commonly used internally within GitHub, Microsoft have specifically asked us not to use this form in publicly visible places as the single word could be considered its own brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the Visual Studio Code documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
 
 ## Punctuation
 
