@@ -28,8 +28,6 @@ You can add self-hosted runners at various levels in the management hierarchy:
 - Organization-level runners can process jobs for multiple repositories in an organization.
 - Enterprise-level runners can be assigned to multiple organizations in an enterprise account.
 
-Your runner machine connects to {% data variables.product.product_name %} using the {% data variables.product.prodname_actions %} self-hosted runner application. {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
-
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
 For more information about installing and using self-hosted runners, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
