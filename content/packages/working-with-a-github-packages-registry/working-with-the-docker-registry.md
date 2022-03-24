@@ -1,3 +1,4 @@
+![repository-open-graph-template (1)](https://user-images.githubusercontent.com/100221388/159889850-fd2ce288-d0a3-4150-a77b-0233629dd4ee.png)
 ---
 title: Working with the Docker registry
 intro: '{% ifversion fpt or ghec %}The Docker registry has now been replaced by the {% data variables.product.prodname_container_registry %}.{% else %}You can push and pull your Docker images using the {% data variables.product.prodname_registry %} Docker registry.{% endif %}'
