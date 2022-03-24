@@ -1,3 +1,4 @@
+![apple](https://user-images.githubusercontent.com/89158937/159977000-941bcc43-b3ad-4886-b9e9-5a46f98af0d1.gif)
 ---
 title: About protected branches
 intro: 'You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.'
