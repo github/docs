@@ -6,7 +6,7 @@ featuredLinks:
     - /github/authenticating-to-github/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
     - /github/writing-on-github/basic-writing-and-formatting-syntax
-  popular:
+  popular:& "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AX4XfWh1JBEJ65l-d5NXEQM2aWk5Lf44LyvYaAjAI8cQBBtIf8ElG5WgP4lMXg-r8cHYTA" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
     - /get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github
