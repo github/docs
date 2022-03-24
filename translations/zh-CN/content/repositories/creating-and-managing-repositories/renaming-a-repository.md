@@ -37,11 +37,11 @@ $ git remote set-url origin <em>new_url</em>
 
 {% endif %}
 
-{% tip %}
+{% note %}
 
-**提示：**{% data reusables.organizations.owners-and-admins-can %}重命名仓库。 {% data reusables.organizations.new-repo-permissions-more-info %}
+**Note:** {% data variables.product.prodname_dotcom %} will not redirect calls to an action hosted by a renamed repository. Any workflow that uses that action will fail with the error `repository not found`. Instead, create a new repository and action with the new name and archive the old repository. 更多信息请参阅“[存档仓库](/repositories/archiving-a-github-repository/archiving-repositories)”。
 
-{% endtip %}
+{% endnote %}
 
 {% warning %}
 

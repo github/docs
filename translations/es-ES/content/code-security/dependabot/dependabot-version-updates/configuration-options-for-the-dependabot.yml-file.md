@@ -256,6 +256,12 @@ Predeterminadamente, el {% data variables.product.prodname_dependabot %} intenta
 
 Opciones compatibles
 
+{% note %}
+
+**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+
+{% endnote %}
+
 - `prefix` especifica un prefijo para todos los mensajes de confirmación.
 - `prefix-development` especifica un prefijo separado para todos los mensajes de confirmación que actualizan dependencias en el grupo de dependencias de desarrollo. Cuando especificas un valor para esta opción, `prefix` se utiliza únicamente para las actualizaciones a las dependencias en el grupo de dependencias de producción. Esto es compatible con: `bundler`, `composer`, `mix`, `maven`, `npm`, y `pip`.
 - `include: "scope"` especifica que cualquier prefijo es sucedido por una lista de dependencias actualizadas en la confirmación.

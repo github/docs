@@ -134,6 +134,7 @@ translations/zh-CN/content/code-security/secret-scanning/about-secret-scanning.m
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
+translations/zh-CN/content/codespaces/codespaces-reference/using-github-copilot-in-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,broken liquid tags
@@ -186,6 +187,7 @@ translations/zh-CN/content/get-started/signing-up-for-github/setting-up-a-trial-
 translations/zh-CN/content/get-started/signing-up-for-github/signing-up-for-a-new-github-account.md,broken liquid tags
 translations/zh-CN/content/get-started/signing-up-for-github/verifying-your-email-address.md,broken liquid tags
 translations/zh-CN/content/get-started/using-git/dealing-with-non-fast-forward-errors.md,broken liquid tags
+translations/zh-CN/content/get-started/using-github/github-command-palette.md,broken liquid tags
 translations/zh-CN/content/get-started/using-github/github-mobile.md,broken liquid tags
 translations/zh-CN/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
 translations/zh-CN/content/issues/using-labels-and-milestones-to-track-work/managing-labels.md,broken liquid tags
@@ -272,7 +274,7 @@ translations/zh-CN/data/reusables/rest-reference/activity/events.md,broken liqui
 translations/zh-CN/data/reusables/rest-reference/apps/marketplace.md,broken liquid tags
 translations/zh-CN/data/reusables/rest-reference/packages/packages.md,broken liquid tags
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,Listed in localization-support#489
-translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
+translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
 translations/zh-CN/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/sponsors/feedback.md,broken liquid tags

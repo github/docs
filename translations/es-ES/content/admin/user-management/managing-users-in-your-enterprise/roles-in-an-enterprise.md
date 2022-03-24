@@ -30,18 +30,18 @@ Para obtener más información acerca de cómo agregar personas a tu empresa, co
 
 {% endif %}
 
-## Enterprise owners
+## Propietarios empresariales
 
 Los propietarios de las empresas tienen el control absoluto de las mismas y pueden tomar todas las acciones, incluyendo:
 - Gestionar administradores
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% if remove-enterprise-members %}
-- Removing enterprise members from all organizations owned by the enterprise{% endif %}
+- {% ifversion ghec %}Agregar y eliminar {% elsif ghae or ghes %}Administrar{% endif %} organizaciones {% ifversion ghec %}hacia y desde {% elsif ghae or ghes %} en{% endif %} la empresa{% if remove-enterprise-members %}
+- Eliminar miembros empresariales desde todas las organizaciones que pertenecen a la empresa{% endif %}
 - Administrar parámetros de la empresa
 - Aplicar políticas en las organizaciones
 {% ifversion ghec %}- Administrar la configuración de facturación{% endif %}
 
 {% if enterprise-owner-join-org %}
-Enterprise owners do not have access to organization settings or content by default. To gain access, enterprise owners can join any organization owned by their enterprise. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+Los propietarios empresariales no tienen acceso a los ajustes o contenido de la organización predeterminadamente. Para obtener acceso, los propietarios de empresas pueden unirse a cualquier organización que le pertenezca a su empresa. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
 
 Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
 {% else %}

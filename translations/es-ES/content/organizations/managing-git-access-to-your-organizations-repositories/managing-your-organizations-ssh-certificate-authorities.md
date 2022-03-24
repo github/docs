@@ -24,7 +24,7 @@ Puedes permitir que los miembros accedan a los repositorios d ela organización 
 
 ## Agregar una autoridad de certificado de SSH
 
-If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. Para obtener más información, consulta [Acerca de las autoridades de certificación de SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)".
+Si requieres certificados SSH para tu empresa, los miembros empresariales deberán utilizar una URL especial para las operaciones de Git por SSH. Para obtener más información, consulta [Acerca de las autoridades de certificación de SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)".
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -28,7 +28,7 @@ shortTitle: Eliminar los artefactos de un flujo de trabajo
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Under **Artifacts**, click {% octicon "trash" aria-label="The trash icon" %} next to the artifact you want to remove.
+1. Debajo de **Artefactos**, haz clic en {% octicon "trash" aria-label="The trash icon" %} junto al artefacto que quieras eliminar.
 
     ![Menú desplegable Delete artifact (Eliminar artefacto)](/assets/images/help/repository/actions-delete-artifact-updated.png)
 

@@ -65,7 +65,7 @@ If you need to remove the secret from your latest commit (that is, `HEAD`) on th
 
 **Notes**: 
 
-* If your git configuration supports pushes to multiple branches, and not only to the default branch, your push may be blocked due to additional refs being pushed that may not have been intended. For more information, see the [`push.default` options](https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault) in the Git Docs.
+* If your git configuration supports pushes to multiple branches, and not only to the default branch, your push may be blocked due to additional and unintended refs being pushed. For more information, see the [`push.default` options](https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault) in the Git Docs.
 * If {% data variables.product.prodname_secret_scanning %} upon a push times out, {% data variables.product.prodname_dotcom %} will still run a scan after the push.
 
 {% endnote %}
@@ -74,7 +74,7 @@ If you need to remove the secret from your latest commit (that is, `HEAD`) on th
 
 If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
 
-If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret or remove the secret from the repository's commit history. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
 When you allow a secret to be pushed, an alert is created in the "Security" tab. The alert is closed and no notifications are sent if you specify that the secret is a false positive or used only in tests. If you specify that the secret is real and that you will fix it later, the security alert remains open and notifications are sent to the author of the commit and repository administrators. For more information, see "[Managing alerts from secret scanning](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 

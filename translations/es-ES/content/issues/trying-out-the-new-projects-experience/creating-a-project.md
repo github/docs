@@ -148,7 +148,7 @@ Puedes editar las opciones del menú desplegable posteriormente para los campos 
 1. Para los campos de selección sencilla, puedes agregar, borrar o reordenar las opciones.
 1. Para los campos de iteración, puedes agregar o borrar las iteraciones, cambiar los nombres de estas y cambiar la fecha de inicio y duración de las mismas.
 
-   For more information on modifying iteration fields, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
+   Para encontrar más información sobre cómo modificar los campos de iteración, consulta "[Administrar las iteraciones en los proyectos](/issues/trying-out-the-new-projects-experience/managing-iterations)".
 
 ## Personalizar tus vistas
 
