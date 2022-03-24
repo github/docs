@@ -387,7 +387,7 @@ For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn
 
 Always use "GitHub Codespaces" (`{% data variables.product.prodname_github_codespaces %}`) as the product name, not just "Codespaces". This helps to avoid confusion with "codespaces" (lowercase c), which refers to instances of remote coding workspaces created with GitHub Codespaces.
 
-Always use "dev container" (or its longer form "development container) and not "devcontainer" (one word), except in file/path names. Although "devcontainer" is very commonly used internally within GitHub, Microsoft have specifically asked us not to use this form in publicly visible places as the single word could be considered its own brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the Visual Studio Code documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
+Always use "dev container" (or its longer form "development container) and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the Visual Studio Code documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
 
 ## Punctuation
 
