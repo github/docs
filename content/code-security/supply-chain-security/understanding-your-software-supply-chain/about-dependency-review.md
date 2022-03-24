@@ -54,7 +54,7 @@ The dependency review feature becomes available when you enable the dependency g
 {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
 ## Dependency review enforcement
 
-You can use the Dependency Review GitHub Action in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility into what is changing in a pull request and prevents vulnerabilities from being introduced to your repository. <!-- Will add link to the Action here once available -->
+You can use the Dependency Review GitHub Action in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility of what's changing in a pull request, and helps prevent vulnerabilities being added to your repository. <!-- Will add link to the Action here once available -->
 
 The Dependency Review GitHub Action check will fail if it discovers any vulnerable package, but will only block a pull request from being merged if the repository owner has required the check to pass before merging. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
 
