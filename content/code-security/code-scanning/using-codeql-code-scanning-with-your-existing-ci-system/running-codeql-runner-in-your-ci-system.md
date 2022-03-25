@@ -1,5 +1,5 @@
 ---
-title: Running CodeQL runner in your CI system
+title: Running CodeQL runner in your CI system ([DEPRECATED](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/)) Please use [the CLI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)
 shortTitle: Run CodeQL runner
 intro: 'You can use the {% data variables.product.prodname_codeql_runner %} to perform {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in a third-party continuous integration system.'
 product: '{% data reusables.gated-features.code-scanning %}'
