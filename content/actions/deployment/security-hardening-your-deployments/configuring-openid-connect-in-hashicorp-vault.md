@@ -91,7 +91,7 @@ To add OIDC integration to your workflows that allow them to access secrets in V
 - Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
   - The workflow needs `permissions:` settings with the `id-token` value set to `write`. This lets you fetch the OIDC token from every job in the workflow.
 - Request the JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and present it to HashiCorp Vault to receive an access token:
-  - You could use the [Actions toolkit](https://github.com/actions/toolkit/) to fetch the tokens for your job, or you can use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to fetch the JWT and receive the access token from the Vault.
+  - You can use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to fetch the JWT and receive the access token from Vault, or you could use the [Actions toolkit](https://github.com/actions/toolkit/) to fetch the tokens for your job.
 
 This example demonstrates how to use OIDC with the official action to request a secret from HashiCorp Vault.
 
@@ -106,6 +106,7 @@ The `hashicorp/vault-action` action receives a JWT from the {% data variables.pr
 This example demonstrates how to create a job that requests a secret from HashiCorp Vault.
 
 - `<Vault URL>`: Replace this with the URL of your HashiCorp Vault.
+- `<Vault Namespace>`: Replace this with the Namespace you've set in HashiCorp Vault. For example: `admin`.
 - `<Role name>`: Replace this with the role you've set in the HashiCorp Vault trust relationship.
 - `<Secret-Path>`: Replace this with the path to the secret you're retrieving from HashiCorp Vault. For example: `secret/data/production/ci npmToken`.
 
@@ -122,6 +123,7 @@ jobs:
           with:
             method: jwt
             url: <Vault URL>
+            namespace: <Vault Namespace - HCP Vault and Vault Enterprise only>
             role: <Role name>
             secrets: <Secret-Path>
                 
@@ -132,7 +134,10 @@ jobs:
 
 {% note %}
 
-**Note**: If your Vault server is not accessible from the public network, you may use the [self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners).
+**Note**:
+
+- If your Vault server is not accessible from the public network, you may use the [self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners).
+- `<Vault Namespace>` must be set for a Vault Enterprise (including HCP Vault) deployment. See [Vault namespace](https://www.vaultproject.io/docs/enterprise/namespaces) for more information.
 
 {% endnote %}
 
