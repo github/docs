@@ -16,7 +16,7 @@ topics:
   - Repositories
 ---
 
-## About vulnerable dependencies
+## About Dependabot alerts for vulnerable dependencies
 
 {% data reusables.repositories.a-vulnerability-is %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
