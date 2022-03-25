@@ -52,7 +52,7 @@ Antes de que puedas usar Jekyll para probar un sitio, debes hacer lo siguiente:
 
 {% note %}
 
-**Note:** If you are using Ruby 3.0 and Jekyll 4.2.x or older, you will need to add the `webrick` gem to your project's Gemfile prior to running `bundle install`.
+**Nota:** Si estás utilizando Ruby 3.0 y Jekyll 4.2.x o anterior, necesitarás agregar la gema de `webrick` al Gemfile de tu proyecto antes de ejecutar `bundle install`.
 
 {% endnote %}
 

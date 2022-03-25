@@ -16,16 +16,29 @@ shortTitle: Administrar el uso de datos para un repositorio privado
 
 ## Acerca del uso de datos para tu repositorio privado
 
+
+You can control data use for your private repository with the security and analysis features.
+
+- Enable the dependency graph to allow read-only data analysis on your repository.
+- Disable the dependency graph to block read-only data analysis of your repository.
+
 Cuando habilitas el uso de datos para tu repositorio privado, podrás acceder a la gráfica de dependencias, en donde puedes rastrear las dependencias de tus repositorios y recibir las {% data variables.product.prodname_dependabot_alerts %} cuando {% data variables.product.product_name %} detecte las dependencias vulnerables. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."
 
-## Habilitar o inhabilitar las características para el uso de datos
+
+{% note %}
+
+**Note:** If you disable the dependency graph, {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are also disabled. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+
+{% endnote %}
+
+## Enabling or disabling data use through security and analysis features
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
+4. Debajo de "Análisis y seguridad de código", a la derecha de la característica, haz clic en **Inhabilitar** o **Habilitar**.{% ifversion fpt %}!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% endif %}
 
 ## Leer más

@@ -50,5 +50,5 @@ topics:
 
    {% endnote %}
 {% endif %}{% if device-flow-is-opt-in %}
-1. If your OAuth App will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)." ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
+1. Si tu App de OAuth va a utilizar el flujo de dispositivos para identificar y autorizar usuarios, haz clic en **Habilitar el flujo de dispositivos**. Para obtener más información sobre el flujo de dispositivos, consulta la sección "[Autorizar las Apps de OAuth](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)". ![Screenshot showing field for enabling device flow](/assets/images/oauth-apps/enable-device-flow.png){% endif %}
 2.  Haz clic en **Register application** (Registrar aplicación). ![Botón para registrar una aplicación](/assets/images/oauth-apps/oauth_apps_register_application.png)

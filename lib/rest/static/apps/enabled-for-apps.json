@@ -2671,11 +2671,6 @@
     ],
     "teams": [
       {
-        "slug": "list-a-connection-between-an-external-group-and-a-team",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/team/{team_slug}/external-groups"
-      },
-      {
         "slug": "get-an-external-group",
         "verb": "get",
         "requestPath": "/orgs/{org}/external-group/{group_id}"
@@ -2764,6 +2759,11 @@
         "slug": "delete-a-discussion-comment",
         "verb": "delete",
         "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
+      },
+      {
+        "slug": "list-a-connection-between-an-external-group-and-a-team",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups"
       },
       {
         "slug": "list-pending-team-invitations",
@@ -14387,6 +14387,26 @@
         "slug": "get-a-deployment-status",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
+      },
+      {
+        "slug": "get-all-environments",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments"
+      },
+      {
+        "slug": "get-an-environment",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "create-or-update-an-environment",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "delete-an-environment",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
       }
     ],
     "emojis": [
