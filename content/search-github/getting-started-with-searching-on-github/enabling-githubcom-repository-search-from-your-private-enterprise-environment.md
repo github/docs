@@ -24,10 +24,11 @@ You can search for designated private repositories on {% data variables.product.
 
 ## Prerequisites
 
-- An enterprise owner for {% ifversion fpt or ghec %}your private {% data variables.product.prodname_enterprise %} environment{% else %}{% data variables.product.product_name %}{% endif %} must enable {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_unified_search %} for private repositories. For more information, see the following.{% ifversion fpt or ghes or ghec %}
+- An enterprise owner for {% ifversion fpt or ghec %}your private {% data variables.product.prodname_enterprise %} environment{% else %}{% data variables.product.product_name %}{% endif %} must enable {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_unified_search %} for private repositories. For more information, see the following.
 {% ifversion fpt %}
   - "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/enterprise-server@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghec %}
-  - "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/enterprise-server@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}
+  - "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/enterprise-server@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}{% ifversion ghes %}
+  - "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)"{% endif %}{% ifversion fpt or ghec or ghae %}
   - "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/github-ae@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)"{% ifversion fpt or ghec %} in the {% data variables.product.prodname_ghe_managed %} documentation{% endif %}
 {% endif %}
 
