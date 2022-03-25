@@ -14,7 +14,7 @@ redirect_from:
   - /categories/authenticating-to-github
   - /github/authenticating-to-github
 versions:
-  fpt: '*'
+  fpt: '*'https://docs.github.com/en/apps/building-github-apps
   ghes: '*'
   ghae: '*'
   ghec: '*'
