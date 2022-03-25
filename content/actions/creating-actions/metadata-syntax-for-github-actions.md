@@ -286,7 +286,7 @@ steps:
 
 **Example: Using status check functions**
 
-The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
 
 ```yaml
 steps:
