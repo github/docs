@@ -235,5 +235,5 @@ If you're using a nuspec file, ensure that it has a `repository` element with th
 {% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 ## Further reading
 
-- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
-{% endif %}
+
+
