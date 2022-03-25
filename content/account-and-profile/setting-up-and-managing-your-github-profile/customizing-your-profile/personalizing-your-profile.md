@@ -1,6 +1,6 @@
 ---
-title: Personalizing your profile
-intro: 'You can share information about yourself with other {% data variables.product.product_name %} users by setting a profile picture and adding a bio to your profile.'
+Title: Personalise your profile
+Intro: 'You can share information about yourself with other {% data variables.product.product_name %} users by setting a profile picture and adding a bio to your profile.'
 redirect_from:
   - /articles/adding-a-bio-to-your-profile
   - /articles/setting-your-profile-picture
