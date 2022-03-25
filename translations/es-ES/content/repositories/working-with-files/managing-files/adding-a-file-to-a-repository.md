@@ -69,4 +69,4 @@ Puedes cargar un archivo existente a un repositorio en {% ifversion ghae %}{% da
 
 ## Leer más
 
-- "[Adding locally hosted code to {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"
+- "[Agregar código hspedado localmente en {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"
