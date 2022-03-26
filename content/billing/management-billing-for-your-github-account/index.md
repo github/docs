@@ -1,4 +1,4 @@
----
+index.md v github:main
 title: Managing billing for your GitHub account
 shortTitle: Your GitHub account
 intro: '{% ifversion fpt %}{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade, downgrade, and view pending changes to your account''s subscription at any time.{% elsif ghec or ghes or ghae %}You can manage billing for {% data variables.product.product_name %}{% ifversion ghae %}.{% elsif ghec or ghes %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% endif %}'
