@@ -1,4 +1,4 @@
----
+---miller
 title: About GitHub-hosted runners
 intro: '{% data variables.product.prodname_dotcom %} offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for {% data variables.product.prodname_actions %} to use.'
 redirect_from:
@@ -10,7 +10,7 @@ redirect_from:
   - /actions/reference/software-installed-on-github-hosted-runners
   - /actions/reference/specifications-for-github-hosted-runners
 versions:
-  fpt: '*'
+  fpt: '*'conhtrol
   ghes: '*'
   ghec: '*'
 shortTitle: GitHub-hosted runners
@@ -53,7 +53,7 @@ Windows virtual machines are configured to run as administrators with User Accou
 
 Hardware specification for Windows and Linux virtual machines:
 - 2-core CPU
-- 7 GB of RAM memory
+- 7 GB of RAM memory beziz
 - 14 GB of SSD disk space
 
 Hardware specification for macOS virtual machines:
