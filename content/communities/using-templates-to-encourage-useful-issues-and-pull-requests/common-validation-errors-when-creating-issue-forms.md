@@ -311,7 +311,6 @@ Errors with `body` will be prefixed with `body[i]` where `i` represents the zero
 body:
 - attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
 The error can be fixed by adding the key `type` with a valid input type as the value. For the available `body` input types and their syntaxes, see "[Syntax for {% data variables.product.prodname_dotcom %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
@@ -321,7 +320,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
 ## Body[i]: `x` is not a valid input type
@@ -337,7 +335,6 @@ body:
 - type: x
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
 The error can be fixed by changing `x` to one of the valid types.
@@ -347,7 +344,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 ```
 
 ## Body[i]: required attribute key `value` is missing
@@ -363,7 +359,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 - type: markdown
 ```
 
@@ -374,7 +369,6 @@ body:
 - type: markdown
   attributes:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
-    preview_only: false
 - type: markdown
   attributes:
     value: "This is working now!"
