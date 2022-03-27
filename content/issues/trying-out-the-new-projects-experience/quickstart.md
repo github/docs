@@ -1,3 +1,7 @@
+Example usage of LLVM BranchProbabilityInfo function pass.
+
+This software is in the public domain.
+
 ---
 title: Quickstart for projects (beta)
 intro: 'Experience the speed, flexibility, and customization of projects (beta) by creating a project in this interactive guide.'
