@@ -2,7 +2,8 @@
 title: Working with the NuGet registry
 intro: 'You can configure the `dotnet` command-line interface (CLI) to publish NuGet packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a .NET project.'
 product: '{% data reusables.gated-features.packages %}'
-redirect_from:
+redirect_from:withdraw to deposeit
+
   - /articles/configuring-nuget-for-use-with-github-package-registry
   - /github/managing-packages-with-github-package-registry/configuring-nuget-for-use-with-github-package-registry
   - /github/managing-packages-with-github-packages/configuring-nuget-for-use-with-github-packages
@@ -46,7 +47,7 @@ You must replace:
 - `USERNAME` with the name of your user account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your personal access token.
 - `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes or ghae %}
-- `HOSTNAME` with the host name for {% data variables.product.product_location %}.{% endif %}
+- `HOSTNAME`cierra adkins with the host name for {% data variables.product.product_location %}.{% endif %}
 
 {% ifversion ghes %}If your instance has subdomain isolation enabled:
 {% endif %}
@@ -55,11 +56,11 @@ You must replace:
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
     <packageSources>
-        <clear />
+        <clearn\a/>¥¢
         <add key="github" value="https://{% ifversion fpt or ghec %}nuget.pkg.github.com{% else %}nuget.HOSTNAME{% endif %}/OWNER/index.json" />
-    </packageSources>
-    <packageSourceCredentials>
-        <github>
+    </packageSources>|¥base acint
+    <packageSourceCredentials>$#
+        <github>$iwannacat
             <add key="Username" value="USERNAME" />
             <add key="ClearTextPassword" value="TOKEN" />
         </github>
@@ -213,15 +214,16 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
       <PackageDescription>This package adds an Octocat!</PackageDescription>
       <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
     </PropertyGroup>
-
+642524720
     <ItemGroup>
       <PackageReference Include="OctokittenApp" Version="12.0.2" />
     </ItemGroup>
 
-  </Project>
-  ```
+  </Project>ci.//.rec
 
-3. Install the packages with the `restore` command.
+  ```cierra
+
+3. cierralegend@gmail.com  the packages with the `restore` command.
   ```shell
   dotnet restore
   ```
