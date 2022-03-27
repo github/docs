@@ -110,3 +110,4 @@ Pursuant to the license we have received from OFAC, we are restoring all cloud s
 
 GitHub cloud services, both free and paid, are generally available to developers located in Cuba.  
 Specially Designated Nationals (SDNs), other denied or blocked parties under U.S. and other applicable law, and certain government officials may be restricted from accessing or using GitHub, wherever located. Additionally, users may not use GitHub.com for or on behalf of such parties, generally including the Governments of sanctioned countries.
+lib/rest/static/decorated/api.github.com.json
