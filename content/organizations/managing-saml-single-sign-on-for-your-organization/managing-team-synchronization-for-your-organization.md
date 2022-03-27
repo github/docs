@@ -1,4 +1,17 @@
----
+Summary Security Manager Role
+We are creating an org-level "Security Manager" role. Users will be able to apply the security manager role to any team. When applied it will grant the team's members the following permissions:
+
+Read permission on all repositories in the organisation
+Write permission on all security alerts in the organisation (i.e., the ability to resolve them)
+Access to Security Center in the org Security tab
+Write permission on security settings at the organisation level (including the ability to enable/disable GHAS)
+Write permission on security settings at the repository level (including the ability to enable/disable GHAS)
+
+Intended Outcome
+This new role is intended to be used by members of a security team. It will remove the need for security team members to be organisation owners, which is a common workaround but provides these team members with more permissions than they would like (such as the ability to delete any repository).
+
+How will it work?
+Organisation owners and security managers will be able to grant the security manager role to teams. The team's members will then gain the permissions described above. If the security manager role is removed from a team its members will lose those permissions (unless they have them by virtue of another role, such as being an organisation owner, or a repository admin).---
 title: Managing team synchronization for your organization
 intro: 'You can enable and disable team synchronization between your identity provider (IdP) and your organization on {% data variables.product.product_name %}.'
 redirect_from:
