@@ -1,4 +1,4 @@
----
+By Default domain---
 title: Managing team synchronization for your organization
 intro: 'You can enable and disable team synchronization between your identity provider (IdP) and your organization on {% data variables.product.product_name %}.'
 redirect_from:
