@@ -1,4 +1,4 @@
----
+-----
 title: Migrating to the Container registry from the Docker registry
 intro: 'Docker images previously stored in the Docker registry are being automatically migrated to the {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
