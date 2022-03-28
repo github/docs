@@ -1,3 +1,4 @@
+[KAMPANAT THUMWONG.txt](https://github.com/github/docs/files/8360697/KAMPANAT.THUMWONG.txt)
 ---
 title: GitHub Enterprise Server releases
 intro: 'Documentation for the currently supported and previously deprecated versions of {{ site.data.variables.product.prodname_ghe_server }}.'
