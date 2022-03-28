@@ -38,7 +38,7 @@ Cada arquivo CODEOWNERS atribui os proprietários do código para um único bran
 
 Para que os proprietários do código recebam solicitações de revisão, o arquivo CODEOWNERS deve estar no branch base da pull request. Por exemplo, se você atribuir `@octocat` como o proprietário do código para arquivos *.js* no branch `gh-pages` do seu repositório, `@octocat` receberá solicitações de revisão quando uma pull request com alterações nos arquivos *.js* for aberta entre o branch head e `gh-pages`.
 
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-9273 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4675 %}
 ## Tamanho do arquivo CODEOWNERS
 
 Os arquivos CODEOWNERS devem ter menos de 3 MB. Um arquivo CODEOWNERS acima deste limite não será carregado, o que significa que as informações do proprietário do código não serão mostradas e não será solicitado que os proprietários do código apropriado revise as alterações em um pull request.
@@ -53,7 +53,7 @@ Um arquivo CODEOWNERS usa um padrão que segue a maioria das mesmas regras usada
 Os caminhos dos CODEOWNERS diferenciam maiúsculas de minúsculas, porque {% data variables.product.prodname_dotcom %} usa um sistema de arquivos que diferencia maiúsculas e minúsculas. Uma vez que os CODEOWNERS são avaliados por {% data variables.product.prodname_dotcom %}, até mesmo sistemas que diferenciam maiúsculas de minúsculas (por exemplo, macOS) devem usar caminhos e arquivos que são tratados corretamente no arquivo dos CODEOWNERS.
 
 {% if codeowners-errors %}
-If any line in your CODEOWNERS file contains invalid syntax, that line will be skipped. When you navigate to the CODEOWNERS file in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can see any errors highlighted. A list of errors in a repository's CODEOWNERS file is also accessible via the API. Para obter mais informações, consulte "[Repositórios](/rest/reference/repos#list-codeowners-errors)" na documentação da API REST.
+Se alguma linha do seu arquivo do CODEOWNERS contiver uma sintaxe inválida, essa linha será ignorada. Ao acessar o arquivo do CODEOWNERS no seu repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, você poderá ver todos os erros destacados. Uma lista de erros no arquivo CODEOWNERS de um repositório também pode ser acessada por meio da API. Para obter mais informações, consulte "[Repositórios](/rest/reference/repos#list-codeowners-errors)" na documentação da API REST.
 {% else %}
 Se qualquer linha do seu arquivo CODEOWNERS contiver uma sintaxe inválida, o arquivo não será detectado e não será usado para solicitar revisões.
 {% endif %}

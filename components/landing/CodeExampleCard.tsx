@@ -1,7 +1,7 @@
 import { RepoIcon } from '@primer/octicons-react'
 import { CodeExample } from 'components/context/ProductLandingContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
-import { Label } from '@primer/components'
+import { Label } from '@primer/react'
 
 type Props = {
   example: CodeExample

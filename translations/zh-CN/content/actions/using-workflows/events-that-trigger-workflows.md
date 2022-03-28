@@ -37,10 +37,9 @@ Some events have multiple activity types. For these events, you can specify whic
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
-Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." For information about the branch protection rule APIs, see "[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[Branches](/rest/reference/branches)" in the REST API documentation.
-
+Runs your workflow when branch protection rules in the workflow repository are changed. 有关分支保护规则的更多信息，请参阅“[关于受保护分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)”。 For information about the branch protection rule APIs, see "[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[Branches](/rest/reference/branches)" in the REST API documentation.
 
 For example, you can run a workflow when a branch protection rule has been `created` or `deleted`:
 
@@ -64,7 +63,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when activity related to a check run occurs. 检查运行是检查套件中的单个测试。 For information, see "[Getting started with the Checks API](/rest/guides/getting-started-with-the-checks-api)." For information about the check run APIs, see "[CheckRun](/graphql/reference/objects#checkrun)" in the GraphQL API documentation or "[Checks](/rest/reference/checks#runs)" in the REST API documentation.
 
@@ -88,7 +87,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -133,7 +132,7 @@ on:
 | ---------------------------------------------------------------------------------------- | ---- | ------------ | ------------ |
 | [`delete`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#delete) | n/a  | 默认分支上的最新提交   | 默认分支         |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -199,7 +198,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
@@ -225,7 +224,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% data reusables.webhooks.discussions-webhooks-beta %}
 
@@ -247,7 +246,7 @@ on:
 | ---------------------------------------------------------------------------------- | ---- | ------------ | ------------ |
 | [`复刻`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#fork) | n/a  | 默认分支上的最新提交   | 默认分支         |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when someone forks a repository. 有关 REST API 的信息，请参阅“[创建复刻](/rest/reference/repos#create-a-fork)”。
 
@@ -264,7 +263,7 @@ on:
 | ---------------------------------------------------------------------------------------- | ---- | ------------ | ------------ |
 | [`gollum`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#gollum) | n/a  | 默认分支上的最新提交   | 默认分支         |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when someone creates or updates a Wiki page. 更多信息请参阅“[关于 wiki](/communities/documenting-your-project-with-wikis/about-wikis)”。
 
@@ -287,7 +286,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when an issue or pull request comment is created, edited, or deleted. For information about the issue comment APIs, see "[IssueComment](/graphql/reference/objects#issuecomment)" in the GraphQL API documentation or "[Issue comments](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)" in the REST API documentation.
 
@@ -344,7 +343,7 @@ jobs:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when an issue in the workflow's repository is created or modified. For activity related to comments in an issue, use the [`issue_comment`](#issue_comment) event. 有关议题的更多信息，请参阅“[关于议题](/issues/tracking-your-work-with-issues/about-issues)”。 For information about the issue APIs, see "[Issue](/graphql/reference/objects#issue)" in the GraphQL API documentation or "[Issues](/rest/reference/issues)" in the REST API documentation.
 
@@ -368,7 +367,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when a label in your workflow's repository is created or modified. For more information about labels, see "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)." For information about the label APIs, see "[Label](/graphql/reference/objects#label)" in the GraphQL API documentation or "[Labels](/rest/reference/issues#labels)" in the REST API documentation.
 
@@ -394,7 +393,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when a milestone in the workflow's repository is created or modified. For more information about milestones, see "[About milestones](/issues/using-labels-and-milestones-to-track-work/about-milestones)." For information about the milestone APIs, see "[Milestone](/graphql/reference/objects#milestone)" in the GraphQL API documentation or "[Milestones](/rest/reference/issues#milestones)" in the REST API documentation.
 
@@ -414,7 +413,7 @@ on:
 | ------------------------------------------------------------------------------------------------ | ---- | ------------ | ------------ |
 | [`page_build`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#page_build) | n/a  | 默认分支上的最新提交   | n/a          |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when someone pushes to a branch that is the publishing source for {% data variables.product.prodname_pages %}, if {% data variables.product.prodname_pages %} is enabled for the repository. For more information about {% data variables.product.prodname_pages %} publishing sources, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)." 有关 REST API 的信息，请参阅“[页面](/rest/reference/repos#pages)”。
 
@@ -437,7 +436,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -475,7 +474,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -513,7 +512,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -545,7 +544,7 @@ on:
 | ---------------------------------------------------------------------------------------- | ---- | ------------ | ------------ |
 | [`public`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#public) | n/a  | 默认分支上的最新提交   | 默认分支         |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when your workflow's repository changes from private to public. 有关 REST API 的信息，请参阅“[编辑仓库](/rest/reference/repos#edit)”。
 
@@ -558,9 +557,9 @@ on:
 
 ### `pull_request`
 
-| Web 挂钩事件有效负载                                                                                         | 活动类型                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `GITHUB_SHA`            | `GITHUB_REF`                        |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------------------- |
-| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | `GITHUB_REF` 分支上的最新合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
+| Web 挂钩事件有效负载                                                                                         | 活动类型                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `GITHUB_SHA`            | `GITHUB_REF`                        |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------------------------------- |
+| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | `GITHUB_REF` 分支上的最新合并提交 | PR 合并分支 `refs/pull/:prNumber/merge` |
 
 {% note %}
 
@@ -625,7 +624,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.github-actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -670,7 +669,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.github-actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -684,6 +683,25 @@ on:
 ```
 
 {% endnote %}
+
+#### Running your workflow when a pull request merges
+
+When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+
+```yaml
+on:
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged
+```
 
 {% data reusables.developer-site.pull_request_forked_repos_link %}
 
@@ -758,9 +776,9 @@ on:
 
 ### `pull_request_target`
 
-| Web 挂钩事件有效负载                                                                                         | 活动类型                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `GITHUB_SHA`   | `GITHUB_REF` |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
-| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | PR 基分支上的最后一次提交 | PR 基础分支      |
+| Web 挂钩事件有效负载                                                                                         | 活动类型                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `GITHUB_SHA`   | `GITHUB_REF` |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------ |
+| [`pull_request`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | PR 基分支上的最后一次提交 | PR 基础分支      |
 
 {% note %}
 
@@ -809,7 +827,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.github-actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -854,7 +872,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.github-actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -868,6 +886,25 @@ on:
 ```
 
 {% endnote %}
+
+#### Running your workflow when a pull request merges
+
+When a pull request merges, the pull request is automatically closed. To run a workflow when a pull request merges, use the `pull_request_target` `closed` event type along with a conditional that checks the `merged` value of the event. For example, the following workflow will run whenever a pull request closes. The `if_merged` job will only run if the pull request was also merged.
+
+```yaml
+on:
+  pull_request_target:
+    types:
+      - closed
+
+jobs:
+  if_merged:
+    if: github.event.pull_request_target.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged
+```
 
 ### `推送`
 
@@ -912,7 +949,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.github-actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -953,7 +990,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.github-actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
 
 ```yaml
 on:
@@ -978,7 +1015,7 @@ on:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. 更多信息请参阅“[{% data variables.product.prodname_registry %} 文档](/packages)”。
 
@@ -1030,7 +1067,7 @@ on:
 | ---------------------------------------------------------------------------------------------------------------- | ---- | ------------ | ------------ |
 | [repository_dispatch](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) | 自定义  | 默认分支上的最新提交   | 默认分支         |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 当您想要触发在 {% data variables.product.product_name %} 外发生的活动的工作流程时，可以使用 {% data variables.product.product_name %} API 触发名为 [`repository_dispatch`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#repository_dispatch) 的 web 挂钩事件。 更多信息请参阅“[创建仓库调度事件](/rest/reference/repos#create-a-repository-dispatch-event)”。
 
@@ -1122,7 +1159,7 @@ jobs:
 | ------------------------------------------------------------------------------------ | ---- | ------------ | ------------ |
 | [`状态`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#status) | n/a  | 默认分支上的最新提交   | n/a          |
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when the status of a Git commit changes. For example, commits can be marked as `error`, `failure`, `pending`, or `success`. If you want to provide more details about the status change, you may want to use the [`check_run`](#check_run) event. For information about the commit status APIs, see "[Status](/graphql/reference/objects#statue)" in the GraphQL API documentation or "[Statuses](/rest/reference/commits#commit-statuses)" in the REST API documentation.
 
@@ -1163,7 +1200,7 @@ jobs:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see "[addStar](/graphql/reference/mutations#addstar)" in the GraphQL API documentation or "[Starring](/rest/reference/activity#starring)" in the REST API documentation.
 
@@ -1183,7 +1220,7 @@ on:
 | --------------------------- | ---- | --------------------------- | --------------------------- |
 | Same as the caller workflow | n/a  | Same as the caller workflow | Same as the caller workflow |
 
-`workflow_call` is used to indicate that a workflow can be called by another workflow. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. For more information see, "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+`workflow_call` is used to indicate that a workflow can be called by another workflow. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. 更多信息请参阅“[重用工作流程](/actions/learn-github-actions/reusing-workflows)”。
 
 The example below only runs the workflow when it's called from another workflow:
 
@@ -1262,7 +1299,6 @@ gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=s
 
 For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
 
-
 {% else %}
 此示例定义了 `name` 和 `home` 输入，并使用 `github.event.inputs.name` 和 `github.event.inputs.home` 上下文打印。 如果未提供 `home` ，则打印默认值“The Octoverse”。
 
@@ -1305,7 +1341,7 @@ jobs:
 
 {% endnote %}
 
-{% data reusables.github-actions.branch-requirement %}
+{% data reusables.actions.branch-requirement %}
 
 {% note %}
 
@@ -1393,7 +1429,7 @@ jobs:
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: pr_number
           path: pr/

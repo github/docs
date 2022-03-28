@@ -42,7 +42,6 @@ topics:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. 在“Dormancy threshold”，使用下拉菜单，然后单击所需的休眠阈值。 ![Dormancy threshold 下拉菜单](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
 
@@ -51,12 +50,6 @@ topics:
 {% ifversion ghec %}
 
 {% data reusables.enterprise-accounts.dormant-user-release-phase %}
-
-{% warning %}
-
-**注意：** 在私人测试期间，对报告下载功能的持续改进可能会限制其可用性。
-
-{% endwarning %}
 
 ## 从企业帐户下载休眠用户报告
 

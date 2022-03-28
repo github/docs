@@ -1,6 +1,6 @@
 ---
 title: REST API のリソース
-intro: 'Learn how to navigate the resources provided by the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
+intro: '{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIが提供するリソースにアクセスする方法を学んでください。'
 redirect_from:
   - /rest/initialize-the-repo
 versions:
@@ -54,7 +54,7 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 空白のフィールドは、省略されるのではなく `null` として含まれます。
 
-All timestamps return in UTC time, ISO 8601 format:
+すべてのタイムスタンプは、 ISO 8601フォーマットのUTC時間で返されます。
 
     YYYY-MM-DDTHH:MM:SSZ
 
@@ -111,7 +111,7 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. アクセス許可はユーザにのみ付与され、アプリケーションには付与されません。また、認証されていないユーザに表示されるデータのみが返されます。 このため、サーバー間のシナリオでのみ OAuth2 キー/シークレットを使用する必要があります。 Don't leak your OAuth App's client secret to your users.
+`client_id` と `client_secret` を使用してもユーザとして認証_されず_、OAuth アプリケーションを識別してレート制限を増やすだけです。 アクセス許可はユーザにのみ付与され、アプリケーションには付与されません。また、認証されていないユーザに表示されるデータのみが返されます。 このため、サーバー間のシナリオでのみ OAuth2 キー/シークレットを使用する必要があります。 OAuth アプリケーションのクライアントシークレットをユーザーに漏らさないようにしてください。
 
 {% ifversion ghes %}
 プライベートモードでは、OAuth2 キーとシークレットを使用して認証することはできません。認証しようとすると `401 Unauthorized` が返されます。 詳しい情報については、 「[プライベートモードを有効化する](/admin/configuration/configuring-your-enterprise/enabling-private-mode)」を参照してください。
@@ -311,19 +311,19 @@ _この例は、読みやすいように改行されています。_
 
 ## レート制限
 
-Different types of API requests to {% data variables.product.product_location %} are subject to different rate limits.
+{% data variables.product.product_location %}への様々な種類のAPIリクエストは、様々なレート制限に従います。
 
-Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
+加えて、Search APIには専用の制限があります。 詳しい情報についてはREST APIのドキュメンテーションの「[検索](/rest/reference/search#rate-limit)」を参照してください。
 
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### Requests from user accounts
+### ユーザアカウントからのリクエスト
 
-Direct API requests that you authenticate with a personal access token are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
+個人アクセストークンで認証された直接のAPIリクエストは、user-to-serverリクエストです。 OAuth AppあるいはGitHub Appは、ユーザが認可した後、user-to-serverリクエストをユーザの代わりに発行することもできます。 詳しい情報については「[個人アクセストークンの作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」、「[OAuth Appの認可](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)」、「[GitHub Appの認可](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)」を参照してください。
 
-{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
+{% data variables.product.product_name %}は、すべてのuser-to-serverリクエストを認証されたユーザと関連づけます。 OAuth App及びGitHubについては、これはアプリケーションを認可したユーザです。 すべてのuser-to-serverリクエストは、認証されたユーザのレート制限に対してカウントされます。
 
 {% data reusables.apps.user-to-server-rate-limits %}
 
@@ -333,31 +333,31 @@ Direct API requests that you authenticate with a personal access token are user-
 
 {% ifversion fpt or ghec or ghes %}
 
-認証されていないリクエストでは、レート制限により 1 時間あたり最大 60 リクエストまで可能です。 Unauthenticated requests are associated with the originating IP address, and not the person making requests.
+認証されていないリクエストでは、レート制限により 1 時間あたり最大 60 リクエストまで可能です。 認証されていないリクエストは、リクエストを発行した人ではなく、発信元の IP アドレスに関連付けられます。
 
 {% endif %}
 
 {% endif %}
 
-### Requests from GitHub Apps
+### GitHub Appからのリクエスト
 
-Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)."
+GitHub Appからのリクエストは、user-to-serverあるいはserver-to-serverリクエストのいずれかになります。 GitHub Appのレート制限に関する詳しい情報については「[GitHub Appのレート制限](/developers/apps/building-github-apps/rate-limits-for-github-apps)」を参照してください。
 
-### Requests from GitHub Actions
+### GitHub Actionsからのリクエスト
 
-You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+GitHub Actionsワークフロー内のリクエストの認証には、ビルトインの`GITHUB_TOKEN`が使えます。 詳しい情報については「[自動トークン認証](/actions/security-guides/automatic-token-authentication)」を参照してください。
 
-When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.product.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
+`GITHUB_TOKEN`を使う場合、レート制限はリポジトリごとに1時間あたり1,000リクエストです。{% ifversion fpt or ghec %}{% data variables.product.product_location %}上のEnterpriseアカウントに属するリソースへのアクセスについては{% data variables.product.prodname_ghe_cloud %}のレート制限が適用され、その制限はリポジトリごとに1時間あたり15,000リクエストです。{% endif %}
 
-### Checking your rate limit status
+### レート制限のステータスのチェック
 
-The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
+レート制限APIとレスポンスのHTTPヘッダは、任意の時点におけるユーザまたはユーザのアプリケーションが利用できるAPIコール数の信頼できるソースです。
 
-#### Rate Limit API
+#### レート制限API
 
-You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
+レート制限APIを使って、現在の制限に達することなくレート制限のステータスをチェックできます。 詳しい情報については「[レート制限](/rest/reference/rate-limit)」を参照してください。
 
-#### Rate limit HTTP headers
+#### レート制限HTTPヘッダ
 
 API リクエストの返された HTTP ヘッダは、現在のレート制限ステータスを示しています。
 
@@ -398,9 +398,9 @@ new Date(1372700873 * 1000)
 > }
 ```
 
-### Increasing the unauthenticated rate limit for OAuth Apps
+### OAuth Appの認証されていないレート制限の増加
 
-If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
+OAuth Appが認証されていない呼び出しをより高いレート制限で行う必要がある場合は、エンドポイントルートの前にアプリのクライアント ID とシークレットを渡すことができます。
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
@@ -421,11 +421,11 @@ $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}
 
 Basic 認証または OAuth を使用してレート制限を超えた場合、API レスポンスをキャッシュし、[条件付きリクエスト](#conditional-requests)を使用することで問題を解決できます。
 
-### Secondary rate limits
+### セカンダリレート制限
 
-{% data variables.product.product_name %} で高品質のサービスを提供するにあたって、API を使用するときに、いくつかのアクションに追加のレート制限が適用される場合があります。 For example, using the API to rapidly create content, poll aggressively instead of using webhooks, make multiple concurrent requests, or repeatedly request data that is computationally expensive may result in secondary rate limiting.
+{% data variables.product.product_name %} で高品質のサービスを提供するにあたって、API を使用するときに、いくつかのアクションに追加のレート制限が適用される場合があります。 たとえば、API を使用してコンテンツを急速に作成する、webhook を使用する代わりに積極的にポーリングする、複数の同時リクエストを行う、計算コストが高いデータを繰り返しリクエストするなどの行為によって、セカンダリレート制限が適用される場合があります。
 
-Secondary rate limits are not intended to interfere with legitimate use of the API. 通常のレート制限が、ユーザにとって唯一の制限であるべきです。 優良な API ユーザにふさわしい振る舞いをしているかどうかを確認するには、[ベストプラクティスのガイドライン](/guides/best-practices-for-integrators/)をご覧ください。
+セカンダリレート制限は、API の正当な使用を妨げることを意図したものではありません。 通常のレート制限が、ユーザにとって唯一の制限であるべきです。 優良な API ユーザにふさわしい振る舞いをしているかどうかを確認するには、[ベストプラクティスのガイドライン](/guides/best-practices-for-integrators/)をご覧ください。
 
 アプリケーションがこのレート制限をトリガーすると、次のような有益なレスポンスを受け取ります。
 
@@ -614,14 +614,14 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 
 ## タイムゾーン
 
-新しいコミットの作成など、新しいデータを作成する一部のリクエストでは、タイムスタンプを指定または生成するときにタイムゾーン情報を提供できます。 We apply the following rules, in order of priority, to determine timezone information for such API calls.
+新しいコミットの作成など、新しいデータを作成する一部のリクエストでは、タイムスタンプを指定または生成するときにタイムゾーン情報を提供できます。 そういったAPI 呼び出しのタイムゾーン情報を決定する際に、優先順位に従って次のルールを適用します。
 
 * [ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する](#explicitly-providing-an-iso-8601-timestamp-with-timezone-information)
 * [`Time-Zone` ヘッダを使用する](#using-the-time-zone-header)
 * [ユーザが最後に認識されたタイムゾーンを使用する](#using-the-last-known-timezone-for-the-user)
 * [他のタイムゾーン情報を含まない UTC をデフォルトにする](#defaulting-to-utc-without-other-timezone-information)
 
-Note that these rules apply only to data passed to the API, not to data returned by the API. As mentioned in "[Schema](#schema)," timestamps returned by the API are in UTC time, ISO 8601 format.
+これらのルールは、APIに渡されたデータに対してのみ適用され、APIが返す日付には適用されないことに注意してください。 「[スキーマ](#schema)」にあるように、APIが返すタイムスタンプはUTCでISO8601フォーマットです。
 
 ### ISO 8601 タイムスタンプにタイムゾーン情報を明示的に提供する
 

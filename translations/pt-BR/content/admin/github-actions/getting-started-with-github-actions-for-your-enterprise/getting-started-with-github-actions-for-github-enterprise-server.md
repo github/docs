@@ -26,7 +26,7 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-Por padrão, {% data variables.product.prodname_actions %} não está habilitado para {% data variables.product.prodname_ghe_server %}. Você precisará determinar se a sua instância tem recursos adequados de CPU e memória para administrar a carga do {% data variables.product.prodname_actions %} sem causar perda de desempenho, e possivelmente aumentar esses recursos. Você também deverá decidir qual provedor de armazenamento você usará para o armazenamento do blob necessário para armazenar os artefatos gerados pela execução do fluxo de trabalho. Em seguida, você irá habilitar {% data variables.product.prodname_actions %} para a sua empresa, gerenciar permissões de acesso e adicionar executores auto-hospedados para executar fluxos de trabalho.
+{% data reusables.actions.ghes-actions-not-enabled-by-default %} Você deberá determinar se a sua instância possui recursos adequados de CPU e memória para lidar com a carga do {% data variables.product.prodname_actions %} sem causar perda de desempenho e possivelmente aumentar esses recursos. Você também deverá decidir qual provedor de armazenamento você usará para o armazenamento do blob necessário para armazenar os artefatos gerados pela execução do fluxo de trabalho. Em seguida, você irá habilitar {% data variables.product.prodname_actions %} para a sua empresa, gerenciar permissões de acesso e adicionar executores auto-hospedados para executar fluxos de trabalho.
 
 {% data reusables.actions.introducing-enterprise %}
 
@@ -34,15 +34,6 @@ Por padrão, {% data variables.product.prodname_actions %} não está habilitado
 
 ## Revisar os requisitos de hardware
 
-{% ifversion ghes = 3.0 %}
-
-{% note %}
-
-**Observação**: Se você estiver atualizando uma instância de {% data variables.product.prodname_ghe_server %} existente para 3.0 ou posterior e deseja configurar {% data variables.product.prodname_actions %}, observe que os requisitos mínimos de hardware aumentaram. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".
-
-{% endnote %}
-
-{% endif %}
 
 {%- ifversion ghes < 3.2 %}
 

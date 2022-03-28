@@ -50,7 +50,7 @@ En esta guía, utilizaremos la acción `build-push-action` de Docker para compil
 
 ## Publicar imágenes en Docker Hub
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 En el flujo de trabajo de ejemplo a continuación, utilizamos las acciones `login-action` y `build-push-action` para crear la imagen de Docker y, si la compilación es exitosa, subimos la imagen compilada a Docker Hub.
 
@@ -108,7 +108,7 @@ El flujo de trabajo anterior verifica el repositorio de {% data variables.produc
 
 ## Publicar imágenes en {% data variables.product.prodname_registry %}
 
-{% data reusables.github-actions.release-trigger-workflow %}
+{% data reusables.actions.release-trigger-workflow %}
 
 En el siguiente ejemplo de flujo de trabajo, utilizamos las acciones `login-action` {% ifversion fpt or ghec %}, `metadata-action`,{% endif %} y `build-push-action` de Docker para crear la imagen de Docker y, si la compilación tiene éxito, sube la imagen cargada al {% data variables.product.prodname_registry %}.
 
@@ -131,7 +131,7 @@ Las opciones de `build-push-action` que se requieren para {% data variables.prod
 {% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
-El flujo de trabajo anterior se activa mediante una subida a la rama de "lanzamiento". Verifica el repositorio de GitHub y utiliza la `login-action` para ingresar en el {% data variables.product.prodname_container_registry %}. Luego extrae las etiquetas y marcas de la imagen de Docker. Finalmente, utiliza la acción `build-push-action` para crear la imagen y publicarla en el {% data variables.product.prodname_container_registry %}.
+El flujo de trabajo anterior se activa mediante una subida a la rama "release". Verifica el repositorio de GitHub y utiliza la `login-action` para ingresar en el {% data variables.product.prodname_container_registry %}. Luego extrae las etiquetas y marcas de la imagen de Docker. Finalmente, utiliza la acción `build-push-action` para crear la imagen y publicarla en el {% data variables.product.prodname_container_registry %}.
 
 {% else %}
 ```yaml{:copy}

@@ -26,11 +26,7 @@ shortTitle: 识别和授权用户
 
 要授权用户使用在浏览器中运行的标准应用程序，请使用 [web 应用程序流程](#web-application-flow)。
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 要授权用户使用不直接访问浏览器的无头应用程序（例如 CLI 工具或 Git 凭据管理器），请使用[设备流程](#device-flow)。 设备流程使用 OAuth 2.0 [设备授权授予](https://tools.ietf.org/html/rfc8628)。
-
-{% endif %}
 
 ## Web 应用程序流程
 
@@ -51,13 +47,13 @@ shortTitle: 识别和授权用户
 
 #### 参数
 
-| 名称             | 类型    | 描述                                                                                                                                                                                                                             |
-| -------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `client_id`    | `字符串` | **必填。**GitHub 应用程序的客户端 ID。 选择应用程序时，您可以在 [GitHub 应用程序设置](https://github.com/settings/apps)中找到它。 **注意：** 应用程序 ID 和客户端 ID 不相同，无法互换。                                                                                               |
-| `redirect_uri` | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 它必须完全匹配设置 GitHub 应用程序时 {% ifversion fpt or ghes > 3.0 or ghec %} 作为 **Callback URL（回调 URL）**提供的 URL 之一 {% else %} 在 **User authorization callback URL（用户授权回调 URL）**字段中提供的 URL{% endif %}，并且不能包含任何其他参数。 |
-| `state`        | `字符串` | 它应该包含一个随机字符串以防止伪造攻击，并且可以包含任何其他任意数据。                                                                                                                                                                                            |
-| `login`        | `字符串` | 提供用于登录和授权应用程序的特定账户。                                                                                                                                                                                                            |
-| `allow_signup` | `字符串` | 在 OAuth 流程中，是否向经过验证的用户提供注册 {% data variables.product.prodname_dotcom %} 的选项。 默认值为 `true`。 如有政策禁止注册，请使用 `false`。                                                                                                                |
+| 名称             | 类型    | 描述                                                                                                                                                                                                                       |
+| -------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `client_id`    | `字符串` | **必填。**GitHub 应用程序的客户端 ID。 选择应用程序时，您可以在 [GitHub 应用程序设置](https://github.com/settings/apps)中找到它。 **注意：** 应用程序 ID 和客户端 ID 不相同，无法互换。                                                                                         |
+| `redirect_uri` | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 它必须完全匹配设置 GitHub 应用程序时 {% ifversion fpt or ghes or ghec %} 作为 **Callback URL（回调 URL）**提供的 URL 之一 {% else %} 在 **User authorization callback URL（用户授权回调 URL）**字段中提供的 URL{% endif %}，并且不能包含任何其他参数。 |
+| `state`        | `字符串` | 它应该包含一个随机字符串以防止伪造攻击，并且可以包含任何其他任意数据。                                                                                                                                                                                      |
+| `login`        | `字符串` | 提供用于登录和授权应用程序的特定账户。                                                                                                                                                                                                      |
+| `allow_signup` | `字符串` | 在 OAuth 流程中，是否向经过验证的用户提供注册 {% data variables.product.prodname_dotcom %} 的选项。 默认值为 `true`。 如有政策禁止注册，请使用 `false`。                                                                                                          |
 
 {% note %}
 
@@ -85,13 +81,13 @@ shortTitle: 识别和授权用户
 
 #### 参数
 
-| 名称              | 类型    | 描述                                                                                                                                                                                                                             |
-| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `client_id`     | `字符串` | **必填。**GitHub 应用程序的客户端 ID。                                                                                                                                                                                                     |
-| `client_secret` | `字符串` | **必填。**GitHub 应用程序的客户端密钥。                                                                                                                                                                                                      |
-| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                                                                                                                                         |
-| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 它必须完全匹配设置 GitHub 应用程序时 {% ifversion fpt or ghes > 3.0 or ghec %} 作为 **Callback URL（回调 URL）**提供的 URL 之一 {% else %} 在 **User authorization callback URL（用户授权回调 URL）**字段中提供的 URL{% endif %}，并且不能包含任何其他参数。 |
-| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                                                                                                                                          |
+| 名称              | 类型    | 描述                                                                                                                                                                                                                       |
+| --------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `client_id`     | `字符串` | **必填。**GitHub 应用程序的客户端 ID。                                                                                                                                                                                               |
+| `client_secret` | `字符串` | **必填。**GitHub 应用程序的客户端密钥。                                                                                                                                                                                                |
+| `代码`            | `字符串` | **必填。**您收到的响应第 1 步的代码。                                                                                                                                                                                                   |
+| `redirect_uri`  | `字符串` | 用户获得授权后被发送到的应用程序中的 URL。 它必须完全匹配设置 GitHub 应用程序时 {% ifversion fpt or ghes or ghec %} 作为 **Callback URL（回调 URL）**提供的 URL 之一 {% else %} 在 **User authorization callback URL（用户授权回调 URL）**字段中提供的 URL{% endif %}，并且不能包含任何其他参数。 |
+| `state`         | `字符串` | 您在第 1 步提供的不可猜测的随机字符串。                                                                                                                                                                                                    |
 
 #### 响应
 
@@ -121,8 +117,6 @@ shortTitle: 识别和授权用户
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ## 设备流程
 
 {% note %}
@@ -133,12 +127,9 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 设备流程允许您授权用户使用无头应用程序，例如 CLI 工具或 Git 凭据管理器。
 
-有关使用设备流程授权用户的更多信息，请参阅“[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps#device-flow)”。
-
-{% endif %}
+{% if device-flow-is-opt-in %}在使用设备流识别和授权用户之前，必须先在应用的设置中启用它。 有关启用设备流的详细信息，请参阅“[修改 GitHub 应用程序](/developers/apps/managing-github-apps/modifying-a-github-app)”。 {% endif %}有关使用设备流程授权用户的更多信息，请参阅“[授权 OAuth 应用程序](/developers/apps/authorizing-oauth-apps#device-flow)”。
 
 ## 检查用户可以访问哪些安装资源
-
 
 获得用户的 OAuth 令牌后，您可以检查该用户可以访问哪些安装。
 
@@ -272,8 +263,8 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 #### Git 引用
 
-* [Create a reference](/rest/reference/git#create-a-reference)
-* [Get a reference](/rest/reference/git#get-a-reference)
+* [创建引用](/rest/reference/git#create-a-reference)
+* [获取引用](/rest/reference/git#get-a-reference)
 * [列出匹配的引用](/rest/reference/git#list-matching-references)
 * [更新引用](/rest/reference/git#update-a-reference)
 * [删除引用](/rest/reference/git#delete-a-reference)

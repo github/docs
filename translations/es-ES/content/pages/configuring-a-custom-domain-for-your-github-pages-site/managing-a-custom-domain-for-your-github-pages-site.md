@@ -116,7 +116,7 @@ To set up an apex domain, such as `example.com`, you must configure a _CNAME_ fi
 
 When using an apex domain, we recommend configuring your {% data variables.product.prodname_pages %} site to host content at both the apex domain and that domain's `www` subdomain variant.
 
-To set up a `www` subdomain alongside the apex domain, you must first configure an apex domain, which will create an `ALIAS`, `ANAME`, or `A` record with your DNS provider. For more information, see "[Configuring an apex domain](#configuring-an-apex-domain)."
+To set up a `www` subdomain alongside the apex domain, you must first configure an apex domain by creating an `ALIAS`, `ANAME`, or `A` record with your DNS provider. For more information, see "[Configuring an apex domain](#configuring-an-apex-domain)."
 
 After you configure the apex domain, you must configure a CNAME record with your DNS provider.
 

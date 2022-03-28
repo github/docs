@@ -21,7 +21,7 @@ shortTitle: 管理Teamの移行
 
 レガシーの 管理者 Team を改善された Organization の権限に移行すれば、この機能をなくすことができます。
 
-For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+詳しい情報については「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」を参照してください。
 
 {% warning %}
 

@@ -1,6 +1,6 @@
 ---
-title: Using concurrency
-shortTitle: Using concurrency
+title: 使用并发
+shortTitle: 使用并发
 intro: Run a single job at a time.
 versions:
   fpt: '*'
@@ -17,3 +17,8 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.section-using-concurrency-jobs %}
 
+{% if github-runner-dashboard %}
+## 监控组织或企业中的当前作业
+
+{% data reusables.actions.github-hosted-runners-check-concurrency %}
+{% endif %}

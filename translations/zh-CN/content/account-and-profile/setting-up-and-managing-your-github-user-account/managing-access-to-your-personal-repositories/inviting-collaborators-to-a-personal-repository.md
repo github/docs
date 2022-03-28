@@ -25,7 +25,7 @@ shortTitle: 邀请协作者
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you can only invite other members of your enterprise to collaborate with you. {% data reusables.enterprise-accounts.emu-more-info-account %}
+如果您是 {% data variables.product.prodname_emu_enterprise %} 的成员，则只能邀请企业的其他成员与您协作。 {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% note %}
 
@@ -47,7 +47,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 5. 在左侧边栏中，单击 **Collaborators（协作者）**。 ![突出显示协作者的仓库设置侧边栏](/assets/images/help/repository/user-account-repo-settings-collaborators.png)
 6. 在 "Collaborators"（协作者）下，开始输入协作者的用户名。
 7. 从下拉菜单中选择协作者的用户名。 ![协作者列表下拉菜单](/assets/images/help/repository/repo-settings-collab-autofill.png)
-8. 单击 **Add collaborator（添加协作者）**。 !["Add collaborator" button](/assets/images/help/repository/repo-settings-collab-add.png)
+8. 单击 **Add collaborator（添加协作者）**。 !["添加协作者"按钮](/assets/images/help/repository/repo-settings-collab-add.png)
 {% endif %}
 {% ifversion fpt or ghec %}
 9. 用户将会收到一封邀请他们参加仓库的电子邮件。 在接受邀请后，他们便对仓库具有协作者访问权限。

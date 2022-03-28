@@ -30,6 +30,8 @@ shortTitle: 了解计费
 
 代码空间将根据其计算分钟数及其在磁盘上使用的存储量付费。
 
+如果启用代码空间的预构建，则会产生额外费用。 更多信息请参阅“[关于代码空间预构建](/codespaces/prebuilding-your-codespaces/about-codespaces-prebuilds#about-billing-for-codespaces-prebuilds)”。
+
 ### 了解什么是计算分钟数
 代码空间按其处于活动状态的分钟数计费。 如果代码空间窗口空闲 30 分钟，它将自动关闭，并且代码空间的计算计费将结束，直到您再次启动代码空间。
 

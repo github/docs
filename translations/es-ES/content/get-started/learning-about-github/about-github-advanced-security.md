@@ -19,15 +19,15 @@ shortTitle: GitHub Advanced Security
 
 {% data variables.product.prodname_dotcom %} tiene muchas características que te ayudan a mejorar y mantener la calidad de tu código. Algunas de estas se incluyen en todos los planes{% ifversion not ghae %}, tales como la gráfica de dependencias y las {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Otras características de seguridad requieren que la {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} se ejecute en otros repositorios aparte de aquellos públicos de {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
-{% ifversion ghes > 3.0 or ghec %}Para obtener más información sobre cómo comprar una licenca de {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de la facturación de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".{% elsif ghae %} No se cobra por {% data variables.product.prodname_GH_advanced_security %} en {% data variables.product.prodname_ghe_managed %} durante el lanzamiento del beta.{% elsif fpt %}Para comprar una licencia de {% data variables.product.prodname_GH_advanced_security %}, debes utilizar {% data variables.product.prodname_enterprise %}. Para obtener más información sobre cómo mejorar a {% data variables.product.prodname_enterprise %} con {% data variables.product.prodname_GH_advanced_security %}, consulta las secciones "[Productos de GitHub](/get-started/learning-about-github/githubs-products)" y "[Acerca de la facturación de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".{% endif %}
+{% ifversion ghes or ghec %}Para obtener más información sobre cómo comprar una licencia de {% data variables.product.prodname_GH_advanced_security %}, consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".{% elsif ghae %}No se cobra por {% data variables.product.prodname_GH_advanced_security %} en {% data variables.product.prodname_ghe_managed %} durante el lanzamiento beta.{% elsif fpt %}Para comprar una licencia de {% data variables.product.prodname_GH_advanced_security %}, debes estar utilizando {% data variables.product.prodname_enterprise %}. Para obtener más información sobre cómo mejorar a {% data variables.product.prodname_enterprise %} con {% data variables.product.prodname_GH_advanced_security %}, consulta las secciones "[Productos de GitHub](/get-started/learning-about-github/githubs-products)" y "[Acerca de la facturación de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)".{% endif %}
 
 ## Acerca de las características de {% data variables.product.prodname_advanced_security %}
 
 Una licencia de {% data variables.product.prodname_GH_advanced_security %} proporciona las siguientes características adicionales:
 
-- **{% data variables.product.prodname_code_scanning_capc %}** - Busca vulnerabilidades de seguridad potenciales y errores dentro de tu código. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)".
+- **{% data variables.product.prodname_code_scanning_capc %}** - Busca vulnerabilidades de seguridad potenciales y errores dentro de tu código. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)".
 
-- **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han dado de alta en el repositorio. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning)".
+- **{% data variables.product.prodname_secret_scanning_caps %}** - Detecta secretos, por ejemplo claves y tokens, que se han dado de alta en el repositorio. Para obtener más información, consulta la sección "[Acerca del {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/about-secret-scanning)".
 
 {% ifversion fpt or ghes > 3.1 or ghec or ghae-issue-4864 %}
 - **Revisión de dependencias** - Muestra todo el impacto de los cambios a las dependencias y vee los detalles de las versiones vulnerables antes de que fusiones una solicitud de cambios. Para obtener más información, consulta la sección "[Acerca de la revisión de dependencias](/code-security/supply-chain-security/about-dependency-review)".
@@ -88,13 +88,23 @@ Puedes habilitar e inhabilitar estas características a nivel de repositorio u o
 {%- endif %}
 Para obtener más información, consulta las secciones "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)" y "[Administrar la configuración de seguridad y análisis para tu repositorio](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)".
 
-{% ifversion ghec or ghes > 3.0 %}
+{% ifversion ghec or ghes %}
 Si tienes una cuenta empresarial, el uso de la licencia para toda la empresa se muestra en tu página de licencia empresarial. Para obtener más información, consulta la sección "[Visualizar tu uso de {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage)".
 {% endif %}
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.0 or ghae  %}
+{% ifversion fpt or ghec %}
+## Acerca de los flujos de trabajo iniciales para {% data variables.product.prodname_advanced_security %}
+
+{% data reusables.advanced-security.starter-workflows-beta %}
+{% data reusables.advanced-security.starter-workflow-overview %}
+
+Para obtener más información sobre los flujos de trabajo iniciales, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %} utilizando flujos de trabajo iniciales](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)" y "[Utilizar los flujos de trabajo iniciales](/actions/using-workflows/using-starter-workflows)".
+
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
 ## Leer más
 
 - "[Requerir políticas para la {% data variables.product.prodname_advanced_security %} en tu cuenta empresarial](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"

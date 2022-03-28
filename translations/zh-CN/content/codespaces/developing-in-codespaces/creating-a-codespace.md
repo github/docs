@@ -14,7 +14,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: Create a codespace
+shortTitle: 创建代码空间
 ---
 
 ## 关于代码空间的创建
@@ -40,6 +40,8 @@ shortTitle: Create a codespace
 {% data reusables.codespaces.use-visual-studio-features %}
 
 {% data reusables.codespaces.you-can-see-all-your-codespaces %}
+
+{% data reusables.codespaces.prebuilds-crossreference %}
 
 ## 访问 {% data variables.product.prodname_codespaces %}
 

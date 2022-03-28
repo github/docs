@@ -29,7 +29,7 @@ Pessoas com acesso de administrador a um repositório podem gerenciar o acesso d
 ## Conceder a uma equipe acesso a um repositório
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
-You can give a team access to a repository or change a team's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person)."
+Você pode dar a uma equipe acesso a um repositório ou alterar o nível de acesso de uma equipe a um repositório nas configurações do repositório. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#inviting-a-team-or-person). "
 {% else %}
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -42,9 +42,9 @@ You can give a team access to a repository or change a team's level of access to
 ## Remover acesso de uma equipe a um repositório
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
-You can remove a team's access to an organization repository in your repository settings. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person). "
+É possível remover o acesso de uma equipe ao repositório de uma organização nas configurações do repositório. Para obter mais informações, consulte "[Gerenciar equipes e pessoas com acesso ao seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person). "
 
-If a team has direct access to a repository, you can remove that team's access to the repository. Se o acesso da equipe ao repositório é herdado de uma equipe principal, você deve remover o repositório da equipe principal para remover o repositório das equipes secundárias.
+Se uma equipe tiver acesso direto a um repositório, você poderá remover o acesso dessa equipe ao repositório. Se o acesso da equipe ao repositório é herdado de uma equipe principal, você deve remover o repositório da equipe principal para remover o repositório das equipes secundárias.
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 

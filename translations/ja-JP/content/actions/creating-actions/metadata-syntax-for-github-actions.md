@@ -272,7 +272,7 @@ runs:
 
 **Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 **Example: Using contexts**
 
@@ -441,7 +441,7 @@ runs:
 
 `args`は、`Dockerfile`中の`CMD`命令の場所で使われます。 `Dockerfile`中で`CMD`を使うなら、以下の優先順位順のガイドラインを利用してください。
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 環境変数をアクションに渡す必要がある場合は、変数置換を行えるようアクションがコマンドシェルで実行されていることを確認してください。 たとえば、`entrypoint`属性が`"sh -c"`に設定されているなら、`args`はコマンドシェル内で実行されます。 あるいは、`Dockerfile`が`ENTRYPOINT`を使って同じコマンド（`"sh -c"`）を実行しているなら、`args`はコマンドシェル内で実行されます。
 
@@ -479,16 +479,46 @@ branding:
 
 ### `branding.icon`
 
-利用する[Feather](https://feathericons.com/)アイコンの名前。 <!-- 
+The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand icons are omitted as well as the following:
+
+<table>
+<tr>
+<td>coffee</td>
+<td>カラム</td>
+<td>divide-circle</td>
+<td>divide-square</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>frown</td>
+<td>hexagon</td>
+<td>key</td>
+</tr>
+<tr>
+<td>meh</td>
+<td>mouse-pointer</td>
+<td>smile</td>
+<td>ツール</td>
+</tr>
+<tr>
+<td>x-octagon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+Here is an exhaustive list of all currently supported icons:
+
+
+<!-- 
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
-  This table does not match the latest version the feather library. 
-  (Brand icons are omitted, and our supported list is not necessarily up-to-date with the latest version of the feather icon library.)
   To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
 -->
 
 <table>
 <tr>
-<td>activity</td>
+<td>アクティビティ</td>
 <td>airplay</td>
 <td>alert-circle</td>
 <td>alert-octagon</td>
@@ -503,7 +533,7 @@ branding:
 <td>align-right</td>
 <td>anchor</td>
 <td>aperture</td>
-<td>archive</td>
+<td>アーカイブ</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -582,10 +612,10 @@ branding:
 <td>cloud-rain</td>
 <td>cloud-snow</td>
 <td>cloud</td>
-<td>code</td>
+<td>コード</td>
 </tr>
 <tr>
-<td>command</td>
+<td>コマンド</td>
 <td>compass</td>
 <td>copy</td>
 <td>corner-down-left</td>
@@ -635,12 +665,12 @@ branding:
 <tr>
 <td>file-plus</td>
 <td>file-text</td>
-<td>file</td>
+<td>ファイル</td>
 <td>film</td>
 </tr>
 <tr>
 <td>filter</td>
-<td>flag</td>
+<td>フラグ</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
 </tr>
@@ -658,7 +688,7 @@ branding:
 </tr>
 <tr>
 <td>hard-drive</td>
-<td>hash</td>
+<td>ハッシュ</td>
 <td>headphones</td>
 <td>heart</td>
 </tr>
@@ -760,13 +790,13 @@ branding:
 </tr>
 <tr>
 <td>repeat</td>
-<td>rewind</td>
+<td>巻き戻し</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
 </tr>
 <tr>
 <td>rss</td>
-<td>save</td>
+<td>保存</td>
 <td>scissors</td>
 <td>search</td>
 </tr>
@@ -785,7 +815,7 @@ branding:
 <tr>
 <td>shopping-cart</td>
 <td>shuffle</td>
-<td>sidebar</td>
+<td>サイドバー</td>
 <td>skip-back</td>
 </tr>
 <tr>
@@ -807,7 +837,7 @@ branding:
 <td>tablet</td>
 </tr>
 <tr>
-<td>tag</td>
+<td>タグ</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
@@ -837,14 +867,14 @@ branding:
 <td>upload-cloud</td>
 </tr>
 <tr>
-<td>upload</td>
+<td>アップロード</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
 </tr>
 <tr>
 <td>user-x</td>
-<td>user</td>
+<td>ユーザ</td>
 <td>users</td>
 <td>video-off</td>
 </tr>

@@ -8,12 +8,12 @@ sections:
   bugs:
     - 'El restablecimiento pudo haber fallado para el servidor empresarial en modo de clústering si el orquestador no estaba saludable.'
     - 'Los enlaces de los codespaces se mostraron en los ajustes de la organización.'
-    - 'Several parts of the application were unusable for users who are owners of many organizations.'
+    - 'Los usuarios que son propietarios de muchas organizaciones no pudieron utilizar varias partes de la aplicación.'
     - 'Se arregló un enlace a https://docs.github.com.'
   changes:
-    - 'Browsing and job performance optimizations for repositories with many refs.'
+    - 'Las optimizaciones de búsqueda y rendimiento de jobs para los repositorios con muchas refs.'
   known_issues:
-    - After saving a new release on a repository, the `/releases` page shows a 500 error. A fix for this issue is expected to ship in 3.2.3.
+    - Después de guardar un lanzamiento nuevo en un repositorio, la página de `/releases` mostró un error 500. Se espera tener una solución a este problema en la versión 3.2.3.
     - En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.
     - Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.
     - Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.

@@ -9,11 +9,11 @@ _Full TOC :arrow_upper_left:_
 
 ## Introduction
 
-This content model explains the goals of each type of content we create within GitHub Docs, and what to include when you're writing or updating an article. We use a model to ensure that our content consistently, clearly, and comprehensively communicates what our customers need to achieve their goals with GitHub quickly and easily.  
+This content model explains the goals of each type of content we create within GitHub Docs, and what to include when you're writing or updating an article. We use a model to ensure that our content consistently, clearly, and comprehensively communicates what people need to achieve their goals with GitHub quickly and easily.
 
-We use these types across all documentation sets to provide a consistent user experience––any content type applies to any product or audience. Our content types evolve over time and we add new types as needed. We don't publish content that doesn't follow the model. 
+We use these types across all documentation sets to provide a consistent user experience––any content type applies to any product or audience. Our content types evolve over time and we add new types as needed. We only publish content that follows the model.
 
-Consistency helps customers form mental models of the documentation and understand how to find the information they need as they return to GitHub Docs over time. It’s also more efficient to maintain and update consistent content, making it easier and quicker to contribute to docs whether you're an open source contributor making your first commit or a GitHub writer documenting an entire new product.
+Consistency helps people form mental models of the documentation and understand how to find the information they need as they return to GitHub Docs over time. It’s also more efficient to maintain and update consistent content, making it easier and quicker to contribute to docs whether you're an open source contributor making your first commit or a GitHub writer documenting an entire new product.
 
 ## Content structure
 
@@ -114,12 +114,12 @@ Topics are used to filter articles and are searchable across the docs site. For 
 #### Topics for all content types
 - All articles should have at least one topic
 - Use nouns as topics
-- Topics help customers meaningfully group content
+- Topics help people meaningfully group content
   - When possible, use more specific topics that are relevant and not just broad topics. For example, `REST` or `GraphQL` rather than just `API`
   - Ensure that topics on similar articles are consistent so that people who filter by a topic get all of the relevant articles. For example, all articles about CI should have the `CI` topic plus more specific topics
   - Avoid ambiguous topics. For example, `Actions` may not be a useful topic within the Actions product since it could refer to the product GitHub Actions or the product element called an action
 - Topics add value beyond and do not replicate the article’s title, type, or category
-  - For example, within the Actions product, `Actions` does not add value since a customer already knows they are looking at Actions docs
+  - For example, within the Actions product, `Actions` does not add value since someone in this section of the docs would already know that they are looking at Actions docs
 - Use `Fundamentals` for articles related to the core concepts of a product area.
   - Use: `Fundamentals` in an article like “Introduction to GitHub Actions”
   - Avoid: `Actions` in an article like "Introduction to GitHub Actions"
@@ -155,7 +155,7 @@ Any of these content types can be shared as an article on its own, and some cont
 
 ### Conceptual
 
-Conceptual content helps customers understand a feature or topic by providing a clear, high-level overview, explanation of how the feature or topic can help them on their journey, and context like use cases or examples. Conceptual content is clear enough for a novice audience but also includes relevant information for advanced users. Customers most often use conceptual content when they're learning.
+Conceptual content helps people understand a feature or topic by providing a clear, high-level overview, explanation of how the feature or topic can help them on their journey, and context like use cases or examples. Conceptual content is clear enough for a novice audience but also includes relevant information for advanced users. People most often use conceptual content when they're learning.
 
 We create conceptual articles and conceptual sections within other articles. Most major products, features, or subjects have their own conceptual article.
 
@@ -186,7 +186,7 @@ Use the [conceptual content template](https://github.com/github/docs/blob/main/c
 
 ### Referential
 
-Referential content provides detailed information that customers need while they're actively using a feature. 
+Referential content provides detailed information that people need while they're actively using a feature.
 
 We create referential articles and referential sections within other articles.
 - Some major subjects may require their own referential article, especially if there is a large amount of referential content, such as for search syntax or YAML syntax in GitHub Actions.
@@ -224,9 +224,9 @@ Use the [referential content template](https://github.com/github/docs/blob/main/
 
 ### Procedural
 
-Procedural content helps customers complete a task from start to finish while they're using GitHub. Procedural content gives context on how the task fits into the customer's larger journey.
+Procedural content helps people complete a task from start to finish while they're using GitHub. Procedural content gives context on how the task fits into someone's larger journey.
 
-We create procedural articles and procedural sections within larger articles. 
+We create procedural articles and procedural sections within larger articles.
 
 #### How to write procedural articles
 Use the [procedural content template](https://github.com/github/docs/blob/main/contributing/content-templates.md#procedural) to write a procedural article.
@@ -253,7 +253,7 @@ Use the [procedural content template](https://github.com/github/docs/blob/main/c
 
 ### Combining multiple content types
 
-Often, it's helpful to group information in context to help customers complete a complex task, understand a set of related tasks, or illustrate an entire workflow. Use longer articles combining content types to ensure the customer finds contextual content in the right place. Longer articles also help eliminate duplication of content and prepare content to scale as more options are added to the product. Customers most often need longer articles while actively using the product, and may need to consult the article at different points on their journey.
+Often, it's helpful to group information in context to help people complete a complex task, understand a set of related tasks, or illustrate an entire workflow. Use longer articles combining content types to ensure people find contextual content in the right place. Longer articles also help eliminate duplication of content and prepare content to scale as more options are added to the product. People most often need longer articles while actively using the product, and they may need to consult the article at different points on their journey.
 
 #### How to combine multiple content types in an article
 - Use conceptual, procedural, referential, or troubleshooting content in a longer article, and do not use quickstart or tutorials
@@ -278,7 +278,7 @@ Often, it's helpful to group information in context to help customers complete a
 
 Quickstarts enable a user to quickly complete a discrete, focused task by illustrating a workflow with only essential steps, in about five minutes or 600 words. Quickstarts can be used for quickly getting set up with a new tool, or for quickly completing another task. For more complex tasks, use a tutorial.
 
-Quickstarts are useful when the customer already understands the feature or product and is ready to try it out. Users of quickstarts are not looking for an explanation and don't need to be convinced to use the product––they just want instructions quickly. Users who don't understand a step are willing to dig deeper in a separate doc.
+Quickstarts are useful when someone already understands the feature or product and is ready to try it out. Users of quickstarts are not looking for an explanation and don't need to be convinced to use the product––they just want instructions quickly. Users who don't understand a step are willing to dig deeper in a separate doc.
 
 #### How to write a quickstart
 Use the [quickstart template](https://github.com/github/docs/blob/main/contributing/content-templates.md#quickstart) to create a quickstart guide.
@@ -313,9 +313,9 @@ Contents of quickstarts:
 
 ### Tutorial
 
-Tutorials help customers learn about products and solve real world problems by guiding them through the entire workflow to complete a task. Tutorials are more conversational in tone than other content. A tutorial feels like a developer-to-developer conversation while remaining accessible to readers with varied technical knowledge. Products with tutorials must already have a quickstart. For bite-sized workflows, use the quickstart model instead.
+Tutorials help people learn about products and solve real world problems by guiding them through the entire workflow to complete a task. Tutorials are more conversational in tone than other content. A tutorial feels like a developer-to-developer conversation while remaining accessible to readers with varied technical knowledge. Products with tutorials must already have a quickstart. For bite-sized workflows, use the quickstart model instead.
 
-Tutorials are useful when the customer has a basic understanding of the product and is interested in extending their understanding to solve a specific problem. Tutorials are for customers who want expert advice and a detailed discussion of best practices related to their problem. Tutorials also help customers who've implemented similar solutions in the past with other products use GitHub. Tutorials can also help customers validate whether the solution is appropriate for their needs. 
+Tutorials are useful when someone has a basic understanding of the product and is interested in extending their understanding to solve a specific problem. Tutorials are for people who want expert advice and a detailed discussion of best practices related to their problem. Tutorials also help people who've implemented similar solutions in the past with other products use GitHub. Tutorials can also help people validate whether the solution is appropriate for their needs.
 
 #### How to write a tutorial
 Use the [tutorial template](https://github.com/github/docs/blob/main/contributing/content-templates.md#tutorial) to create a tutorial. 
@@ -423,7 +423,7 @@ Check the source files and `gated-features` to see how source content is written
 
 ### Permissions statements
 
-Every procedure includes a permissions statement explaining the role required to take the action described in the procedure, helping customers understand whether they'll be able to complete the task.
+Every procedure includes a permissions statement explaining the role required to take the action described in the procedure, which helps people understand whether they'll be able to complete the task.
 
 Occasionally, it's relevant to mention required permissions in conceptual content, especially in standalone conceptual articles. Make sure to also include a permissions statement in related procedures (or write a longer article combining all of the content).
 
@@ -446,7 +446,7 @@ Tables of contents are automatically generated. For more information see "[Autog
 
 ### Prerequisites
 
-Prerequisites are information that customers need to know before proceeding with a procedure, so that they can prepare everything they need before starting the task.
+Prerequisites are information that people need to know before proceeding with a procedure, so that they can prepare everything they need before starting the task.
 
 #### How to write prerequisites
 - Write prerequisites immediately before a procedure's numbered steps.

@@ -7,8 +7,8 @@ sections:
   bugs:
     - 'El ejecutar `ghe-config-apply` pudo fallar en ocasiones debido a problemas con los permisos en /data/user/tmp/pages`.'
     - 'No se pudo acceder al botón de guardar en la consola de administración si se desplazaba en buscadores de menor resolución.'
-    - 'IOPS and Storage Traffic monitoring graphs were not updating after collectd version upgrade.'
-    - 'Some webhook related jobs could generated large amount of logs.'
+    - 'Las gráficas de monitoreo de tráfico de almacenamiento e IOPS no se actualizaron después de la mejora de versión de collectd.'
+    - 'Algunos jobs relacionados con webhooks pudieron haber generdo una gran cantidad de bitácoras.'
   known_issues:
     - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'
     - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'

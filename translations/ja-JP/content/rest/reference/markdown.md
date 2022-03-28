@@ -1,6 +1,6 @@
 ---
 title: Markdown
-intro: The Markdown API enables you to render a markdown document as an HTML page or as raw text.
+intro: MarkdownAPIを使うと、MarkdownドキュメントをHTMLページあるいは生のテキストとしてレンダリングできます。
 redirect_from:
   - /v3/markdown
 versions:
@@ -13,4 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/markdown
+-->

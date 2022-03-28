@@ -25,7 +25,7 @@ This guide explains how to configure security hardening for certain {% data vari
 
 ## Using secrets
 
-Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, repository, or environment{% else %} or repository{% endif %} level, and allow you to store sensitive information in {% data variables.product.product_name %}.
+Sensitive values should never be stored as plaintext in workflow files, but rather as secrets. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization, repository, or environment level, and allow you to store sensitive information in {% data variables.product.product_name %}.
 
 Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes), so that they are encrypted before reaching {% data variables.product.product_name %}. This occurs when the secret is submitted [using the UI](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) or through the [REST API](/rest/reference/actions#secrets). This client-side encryption helps minimize the risks related to accidental logging (for example, exception logs and request logs, among others) within {% data variables.product.product_name %}'s infrastructure. Once the secret is uploaded, {% data variables.product.product_name %} is then able to decrypt it so that it can be injected into the workflow runtime.
 
@@ -45,10 +45,8 @@ To help prevent accidental disclosure, {% data variables.product.product_name %}
 - **Audit and rotate registered secrets**
     - Periodically review the registered secrets to confirm they are still required. Remove those that are no longer needed.
     - Rotate secrets periodically to reduce the window of time during which a compromised secret is valid.
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - **Consider requiring review for access to secrets**
     - You can use required reviewers to protect environment secrets. A workflow job cannot access environment secrets until approval is granted by a reviewer. For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
-{% endif %}
 
 ## Using `CODEOWNERS` to monitor changes
 
@@ -175,13 +173,7 @@ You can help mitigate this risk by following these good practices:
 
   Pinning an action to a full length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload.
 
-  {% ifversion ghes < 3.1 %}
-  {% warning %}
-
-  **Warning:** The short version of the commit SHA is insecure and should never be used for specifying an action's Git reference. Because of how repository networks work, any user can fork the repository and push a crafted commit to it that collides with the short SHA. This causes subsequent clones at that SHA to fail because it becomes an ambiguous commit. As a result, any workflows that use the shortened SHA will immediately fail.
-
-  {% endwarning %}
-  {% endif %}
+  
 
 * **Audit the source code of the action**
 
@@ -265,15 +257,15 @@ This list describes the recommended approaches for accessing repository data wit
 
 ## Hardening for self-hosted runners
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 **{% data variables.product.prodname_dotcom %}-hosted** runners execute code within ephemeral and clean isolated virtual machines, meaning there is no way to persistently compromise this environment, or otherwise gain access to more information than was placed in this environment during the bootstrap process.
 {% endif %}
 
-{% ifversion fpt %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
+{% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
-{% ifversion fpt %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read-access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write-access permissions on the repository. Although workflows can control access to environment secrets by using environments and required reviews, these workflows are not run in an isolated environment and are still susceptible to the same risks when run on a self-hosted runner.
+{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write access to the repository. Although workflows can control access to environment secrets by using environments and required reviews, these workflows are not run in an isolated environment and are still susceptible to the same risks when run on a self-hosted runner.
 
-When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.product_name %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.product_name %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. You can restrict what {% if restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories can access runner groups. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
 
 You should also consider the environment of the self-hosted runner machines:
 - What sensitive information resides on the machine configured as a self-hosted runner? For example, private SSH keys, API access tokens, among others.
@@ -285,12 +277,12 @@ Some customers might attempt to partially mitigate these risks by implementing s
 
 A self-hosted runner can be added to various levels in your {% data variables.product.prodname_dotcom %} hierarchy: the enterprise, organization, or repository level. This placement determines who will be able to manage the runner:
 
-**Centralised management:**
+**Centralized management:**
   - If you plan to have a centralized team own the self-hosted runners, then the recommendation is to add your runners at the highest mutual organization or enterprise level. This gives your team a single location to view and manage your runners. 
   - If you only have a single organization, then adding your runners at the organization level is effectively the same approach, but you might encounter difficulties if you add another organization in the future.
 
-**De-centralised management:**
-  - If each team will manage their own self-hosted runners, then its recommended that you add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too. 
+**Decentralized management:**
+  - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too. 
   - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}

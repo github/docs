@@ -125,8 +125,13 @@ prodname_security: 'GitHub Security Lab'
 prodname_security_link: 'https://securitylab.github.com/'
 prodname_security_advisories: 'GitHub Security Advisories'
 #Security features and code scanning platform
-prodname_secret_scanning: '秘密扫描'
+prodname_secret_scanning: '秘密扫描' #Overall feature name and name for GHES and GHAE
 prodname_secret_scanning_caps: '秘密扫描'
+prodname_secret_scanning_partner: 'secret scanning for partner patterns' #GitHub.com feature for public repos only
+prodname_secret_scanning_partner_caps: 'Secret scanning for partner patterns'
+prodname_secret_scanning_GHAS: '>- {% ifversion fpt or ghec %}secret scanning for advanced security{% else %}secret scanning{% endif %}' #Includes GitHub.com name for GHAS licenced feature
+prodname_secret_scanning_GHAS_caps: >-
+  {% ifversion fpt or ghec %}Secret scanning for advanced security{% else %}Secret scanning{% endif %}
 prodname_code_scanning: '代码扫描'
 prodname_code_scanning_capc: '代码扫描'
 prodname_codeql_runner: 'CodeQL runner'
@@ -137,7 +142,7 @@ prodname_vs: 'Visual Studio'
 prodname_vscode: 'Visual Studio Code'
 prodname_vss_ghe: 'Visual Studio subscriptions with GitHub Enterprise'
 prodname_vss_admin_portal_with_url: '[Visual Studio 订阅的管理员门户](https://visualstudio.microsoft.com/subscriptions-administration/)'
-prodname_vscode_command_palette: 'VS Code Command Palette'
+prodname_vscode_command_palette: 'VS 代码命令面板'
 #GitHub Dependabot
 prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot 警报'
@@ -151,7 +156,7 @@ prodname_arctic_vault: 'Arctic 代码库'
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
 #Command Palette
-prodname_command_palette: 'GitHub Command Palette'
+prodname_command_palette: 'GitHub 命令面板'
 #Links
 product_url: >-
   {% ifversion fpt or ghec %}github.com{% else %}[hostname]{% endif %}

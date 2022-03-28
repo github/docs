@@ -1,6 +1,6 @@
 ---
-title: Setting up your Node.js project for Codespaces
-shortTitle: Setting up your Node.js project
+title: 为代码空间设置 Node.js 项目
+shortTitle: 设置 Node.js 项目
 intro: '通过创建自定义开发容器，开始在 {% data variables.product.prodname_codespaces %} 中使用 JavaScript、Node.js 或 TypeScript 项目。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -48,7 +48,7 @@ hidden: true
 
 默认代码空间容器将支持运行 Node.js 项目，如开箱即用 [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node)。 通过设置自定义容器，您可以自定义在代码空间创建过程中运行的工具和脚本，并确保为仓库中的所有 {% data variables.product.prodname_codespaces %} 用户提供完全可复制的环境。
 
-要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 For more information on dev containers, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+要使用自定义容器设置项目，您需要使用 `devcontainer.json` 文件来定义环境。 在 {% data variables.product.prodname_codespaces %} 中，您可以从模板添加它，也可以自己创建。 有关开发容器的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 
 {% data reusables.codespaces.command-palette-container %}
 3. 对于此示例，单击 **Node.js**。  如果需要其他功能，您可以选择任何特定于节点或工具（如节点和 MongoDB）组合的容器。 ![从列表中选择节点选项](/assets/images/help/codespaces/add-node-prebuilt-container.png)

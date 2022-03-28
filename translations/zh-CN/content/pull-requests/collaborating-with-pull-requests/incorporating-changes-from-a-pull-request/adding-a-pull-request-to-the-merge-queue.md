@@ -13,7 +13,7 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
-## About pull request merge queue
+## 关于拉取请求合并队列
 
 {% data reusables.pull_requests.merge-queue-overview-short %}
 {% data reusables.pull_requests.merge-queue-references %}

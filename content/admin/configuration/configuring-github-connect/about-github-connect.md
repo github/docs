@@ -1,6 +1,6 @@
 ---
 title: About GitHub Connect
-intro: "{% data variables.product.prodname_github_connect %} enhances {% data variables.product.product_name %} by giving you access to additional features and workflows that rely on the power of {% data variables.product.prodname_dotcom_the_website %}."
+intro: '{% data variables.product.prodname_github_connect %} enhances {% data variables.product.product_name %} by giving you access to additional features and workflows that rely on the power of {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
   ghae: '*'

@@ -26,7 +26,7 @@ topics:
 
 Artifacts allow you to persist data after a job has completed, and share that data with another job in the same workflow. An artifact is a file or collection of files produced during a workflow run. For example, you can use artifacts to save your build and test output after a workflow run has ended. {% data reusables.actions.reusable-workflow-artifacts %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
+{% data reusables.actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
 
 These are some of the common artifacts that you can upload:
 
@@ -37,7 +37,7 @@ These are some of the common artifacts that you can upload:
 
 {% ifversion fpt or ghec %}
 
-Storing artifacts uses storage space on {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)."
+Storing artifacts uses storage space on {% data variables.product.product_name %}. {% data reusables.actions.actions-billing %} For more information, see "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)."
 
 {% else %}
 
@@ -101,14 +101,14 @@ jobs:
           npm run build --if-present
           npm test
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dist-without-markdown
           path: |
             dist
             !dist/**/*.md
       - name: Archive code coverage results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: code-coverage-report
           path: output/test/code-coverage.html
@@ -120,7 +120,7 @@ You can define a custom retention period for individual artifacts created by a w
 
 ```yaml{:copy}
   - name: 'Upload Artifact'
-    uses: actions/upload-artifact@v2
+    uses: actions/upload-artifact@v3
     with:
       name: my-artifact
       path: my_file.txt
@@ -149,7 +149,7 @@ Specify an artifact's name to download an individual artifact. If you uploaded a
 
 ```yaml
 - name: Download a single artifact
-  uses: actions/download-artifact@v2
+  uses: actions/download-artifact@v3
   with:
     name: my-artifact
 ```
@@ -158,7 +158,7 @@ You can also download all artifacts in a workflow run by not specifying a name. 
 
 ```yaml
 - name: Download all workflow run artifacts
-  uses: actions/download-artifact@v2
+  uses: actions/download-artifact@v3
 ```
 
 If you download all workflow run's artifacts, a directory for each artifact is created using its name.
@@ -200,7 +200,7 @@ jobs:
         run: |
           expr 3 + 7 > math-homework.txt
       - name: Upload math result for job 1
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: homework
           path: math-homework.txt
@@ -211,7 +211,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Download math result for job 1
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: homework
       - shell: bash
@@ -219,7 +219,7 @@ jobs:
           value=`cat math-homework.txt`
           expr $value \* 9 > math-homework.txt
       - name: Upload math result for job 2
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: homework
           path: math-homework.txt
@@ -230,7 +230,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Download math result for job 2
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: homework
       - name: Print the final result
@@ -241,11 +241,7 @@ jobs:
 ```
 
 The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
-{% else %}
-![Workflow that passes data between jobs to perform math](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
-{% endif %}
 
 {% ifversion fpt or ghec %}
 

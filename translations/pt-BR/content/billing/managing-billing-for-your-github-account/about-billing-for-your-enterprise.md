@@ -1,6 +1,6 @@
 ---
 title: Sobre a cobrança para a sua empresa
-intro: 'You can view billing information for your enterprise{% ifversion ghec or ghes %} account on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.'
+intro: 'Você pode visualizar as informações de cobrança da empresa{% ifversion ghec or ghes %} conta corporativa em {% data variables.product.prodname_dotcom_the_website %}{% endif %}.'
 redirect_from:
   - /admin/overview/managing-billing-for-your-enterprise
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
@@ -53,15 +53,15 @@ Cada usuário em {% data variables.product.product_location %} consome uma esta�
 
 {% endif %}
 
-{% data reusables.billing.about-invoices-for-enterprises %} For more information about {% ifversion ghes %}licensing, usage, and invoices{% elsif ghec %}usage and invoices{% endif %}, see the following{% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+{% data reusables.billing.about-invoices-for-enterprises %} Para mais informações sobre {% ifversion ghes %} licenciamento, uso e faturas{% elsif ghec %}uso e faturas{% endif %}, consulte o seguinte{% ifversion ghes %} na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}.{% endif %}
 
 {%- ifversion ghes %}
 - "[Sobre preços por usuário](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)"
 {%- endif %}
-- "[Viewing the subscription and usage for your enterprise account]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)"
-- "[Managing invoices for your enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise)"
+- "[Visualizando a assinatura e o uso da sua conta corporativa]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)"
+- "[Gerenciando faturas da sua empresa]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise)"
 
-Os administradores da conta corporativa em {% data variables.product.prodname_dotcom_the_website %} podem acessar e gerenciar a cobrança da empresa. For more information, see "[Roles in an enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){% ifversion ghec %}."{% elsif ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+Os administradores da conta corporativa em {% data variables.product.prodname_dotcom_the_website %} podem acessar e gerenciar a cobrança da empresa. Para obter mais informações, consulte "[Funções em uma empresa]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){% ifversion ghec %}".{% elsif ghes %}" na documentação de {% data variables.product.prodname_ghe_cloud %} .{% endif %}
 
 {% ifversion ghec %}
 
@@ -77,15 +77,15 @@ Os administradores da conta corporativa em {% data variables.product.prodname_do
 
 {% ifversion ghec %}
 
-## Per-user pricing
+## Preços por usuário
 
-{% data variables.product.company_short %} bills for services consumed on {% data variables.product.prodname_dotcom_the_website %}, each user for deployments of {% data variables.product.prodname_ghe_server %}, and each member of organizations on {% data variables.product.prodname_ghe_cloud %}. For more information about per-user pricing, see "[About per-user pricing](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+{% data variables.product.company_short %} cobra serviços consumidos em {% data variables.product.prodname_dotcom_the_website %}, cada usuário para implantações de {% data variables.product.prodname_ghe_server %} e cada integrante de organizações em {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações sobre os preços por usuário, consulte "[Sobre o preço por usuário](/billing/managing-billing-for-your-github-account/about-per-user-pricing)".
 
 {% data reusables.billing.per-user-pricing-reference %}
 
-For more information about roles, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" or "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Para obter mais informações sobre funções, consulte "[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" ou "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-For more information about outside collaborators, see "[Adding outside collaborators to repositories in your organization](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
+Para obter mais informações sobre colaboradores externos, consulte "[Adicionando colaboradores externos aos repositórios da organização](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)".
 
 {% endif %}
 

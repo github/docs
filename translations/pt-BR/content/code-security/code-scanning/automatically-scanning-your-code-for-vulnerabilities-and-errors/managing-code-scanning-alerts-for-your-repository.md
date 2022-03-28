@@ -45,8 +45,16 @@ Por padrão, a página de verificação de código de alertas é filtrada para m
 {% else %}
    ![Lista de alertas de {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
-1. Opcionalmente, se o alerta destacar um problema com o fluxo de dados, clique em **Mostrar caminhos** para exibir o caminho da fonte de dados até o destino onde é usado. ![O link "Exibir caminhos" em um alerta](/assets/images/help/repository/code-scanning-show-paths.png)
-1. Alertas da análise de {% data variables.product.prodname_codeql %} incluem uma descrição do problema. Clique em **Mostrar mais** para obter orientação sobre como corrigir seu código. ![Detalhes para um alerta](/assets/images/help/repository/code-scanning-alert-details.png)
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+     {% data reusables.code-scanning.alert-default-branch %}
+  ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
+1. Opcionalmente, se o alerta destacar um problema com o fluxo de dados, clique em **Mostrar caminhos** para exibir o caminho da fonte de dados até o destino onde é usado.
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+   ![O link "Exibir caminhos" em um alerta](/assets/images/help/repository/code-scanning-show-paths.png)
+   {% else %}
+   ![O link "Exibir caminhos" em um alerta](/assets/images/enterprise/3.4/repository/code-scanning-show-paths.png)
+   {% endif %}
+2. Alertas da análise de {% data variables.product.prodname_codeql %} incluem uma descrição do problema. Clique em **Mostrar mais** para obter orientação sobre como corrigir seu código. ![Detalhes para um alerta](/assets/images/help/repository/code-scanning-alert-details.png)
 
 Para obter mais informações, consulte "[Sobre alertas de {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)".
 
@@ -65,7 +73,7 @@ Por exemplo, você pode ver quando o último scanner foi executada, o número de
 Você pode filtrar os alertas exibidos no modo de exibição de alertas de {% data variables.product.prodname_code_scanning %}. Isso é útil caso haja muitos alertas pois você pode se concentrar em um determinado tipo de alerta. Existem alguns filtros predefinidos e uma série de palavras-chave que você pode usar para refinar a lista de alertas exibidos.
 
 - Para usar um filtro predefinido, clique **Filtros** ou em um filtro exibido no cabeçalho da lista de alertas e escolha um filtro na lista suspensa.
-  {% ifversion fpt or ghes > 3.0 or ghec %}![Filtros predefinidos](/assets/images/help/repository/code-scanning-predefined-filters.png)
+  {% ifversion fpt or ghes or ghec %}![Filtros predefinidos](/assets/images/help/repository/code-scanning-predefined-filters.png)
   {% else %}![Predefined filters](/assets/images/enterprise/3.0/code-scanning-predefined-filters.png){% endif %}
 - Para usar uma palavra-chave, digite diretamente na caixa de texto dos filtros ou:
   1. Clique na caixa de filtros para exibir uma lista de todas as palavras-chave de filtro disponíveis.
@@ -74,6 +82,10 @@ Você pode filtrar os alertas exibidos no modo de exibição de alertas de {% da
 O benefício de usar filtros de palavra-chave é que apenas os valores com resultados são exibidos nas listas suspensas. Isso facilita evitar filtros de configuração que não encontram resultados.
 
 Se você inserir vários filtros, a visualização mostrará alertas que correspondem a _todos_ esses filtros. Por exemplo, `is:closed severity:high branch:main` só exibirá alertas de alta gravidade fechados e que estão presentes no branch `principal`. A exceção são os filtros relacionados a refs (`ref`, `branch` e `pr`): `is:open branch:main branch:next` irá mostrar alertas abertos do branch `principal` do `próximo` branch.
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.filter-non-default-branches %}
+{% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghec %}
 
@@ -91,11 +103,12 @@ Você pode usar o filtro "Apenas alertas no código do aplicativo" ou a palavra-
 
 Você pode pesquisar na lista de alertas. Isso é útil se houver um grande número de alertas no seu repositório, ou, por exemplo, se você não souber o nome exato de um alerta. {% data variables.product.product_name %} realiza a pesquisa de texto livre:
 - O nome do alerta
-- A descrição do alerta
 - Os detalhes do alerta (isso também inclui as informações ocultas da visualização por padrão na seção ocultável **Mostrar mais**)
-
+ {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
  ![Informações de alerta usadas em pesquisas](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
-
+ {% else %}
+ ![Informações de alerta usadas em pesquisas](/assets/images/enterprise/3.4/repository/code-scanning-free-text-search-areas.png) 
+{% endif %}
 | Pesquisa compatível                                      | Exemplo de sintaxe | Resultados                                                              |
 | -------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------- |
 | Pesquisa de uma palavra                                  | `injeção`          | Retorna todos os alertas que contêm a palavra `injeção`                 |
@@ -108,7 +121,7 @@ Você pode pesquisar na lista de alertas. Isso é útil se houver um grande núm
 
 **Dicas:**
 - A busca múltipla de palavras é equivalente a uma busca OU.
-- A busca E retornará resultados em que os termos da pesquisa são encontrados _em qualquer lugar_, em qualquer ordem no nome do alerta, descrição ou detalhes.
+- A pesquisa E retornará resultados em que os termos da pesquisa são encontrados _em qualquer lugar_, em qualquer ordem no nome ou informações do alerta.
 
 {% endtip %}
 
@@ -137,7 +150,7 @@ Se você tem permissão de escrita em um repositório, você pode visualizar ale
 
 Você pode usar{% ifversion fpt or ghes > 3.1 or ghae or ghec %} a pesquisa de texto livre ou{% endif %} os filtros para exibir um subconjunto de alertas e, em seguida, marcar, por sua vez, todos os alertas correspondentes como fechados.
 
-Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o menu suspenso "Branch", no resumo dos alertas, para verificar se um alerta é corrigido em um branch específico.
+Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o filtro "Branch", no resumo dos alertas, para verificar se um alerta é corrigido em um branch específico.
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ![Filtrar alertas por branch](/assets/images/help/repository/code-scanning-branch-filter.png)
@@ -145,6 +158,9 @@ Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o 
 ![Filtrar alertas por branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.filter-non-default-branches %}
+{% endif %}
 ## Ignorar ou excluir alertas
 
 Há duas formas de fechar um alerta. Você pode corrigir o problema no código ou pode ignorar o alerta. Como alternativa, se você tiver permissões de administrador para o repositório, será possível excluir alertas. Excluir alertas é útil em situações em que você configurou uma ferramenta {% data variables.product.prodname_code_scanning %} e, em seguida, decidiu removê-la ou em situações em que você configurou a análise de {% data variables.product.prodname_codeql %} com um conjunto de consultas maior do que você deseja continuar usando, e, em seguida, você removeu algumas consultas da ferramenta. Em ambos os casos, excluir alertas permite limpar os seus resultados de {% data variables.product.prodname_code_scanning %}. Você pode excluir alertas da lista de resumo dentro da aba **Segurança**.

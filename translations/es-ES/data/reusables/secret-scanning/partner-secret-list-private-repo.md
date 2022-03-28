@@ -36,23 +36,13 @@ Checkout.com | Llave Secreta de Pruebas de Checkout.com | checkout_test_secret_k
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 CloudBees CodeShip | Credencial de CodeShip de CloudBees | codeship_credential{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
-Contentful | Token de Acceso Personal a Contentful | contentful_personal_access_token{% endif %} Databricks | Token de Acceso a Databricks | databricks_access_token Discord | Token de Bot de Discord | discord_bot_token
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-Doppler | Token Personal de Doppler | doppler_personal_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-Doppler | Token de Servicio de Doppler | doppler_service_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-Doppler | Token del CLI de Doppler | doppler_cli_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-Doppler | Token de SCIM de Doppler | doppler_scim_token{% endif %}
+Contentful | Token de Acceso Personal de Contentful | contentful_personal_access_token{% endif %} Databricks | Token de Acceso de Databricks | databricks_access_token Discord | Token del Bot de Discord | discord_bot_token Doppler | Token Personal de Doppler | doppler_personal_token Doppler | Token de Servicio de Doppler | doppler_service_token Doppler | Token de CLI de Doppler | doppler_cli_token Doppler | Token de SCIM de Doppler | doppler_scim_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Doppler | Token de Auditoría de Doppler | doppler_audit_token{% endif %} Dropbox | Token de Acceso a Dropbox | dropbox_access_token Dropbox | Token de Acceso de Vida Corta a Dropbox | dropbox_short_lived_access_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Duffel | Token de Acceso en Vivo de Duffel | duffel_live_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-Duffel | Token de Acceso de Prueba de Duffel | duffel_test_access_token{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-Dynatrace | Token de Acceso a Dynatrace | dynatrace_access_token{% endif %} Dynatrace | Token Interno de Dynatrace | dynatrace_internal_token
+Duffel | Token de Acceso de Pruebas de Duffel | duffel_test_access_token{% endif %} Dynatrace | Token de Acceso de Dynatrace | dynatrace_access_token Dynatrace | Token Interno de Dynatrace | dynatrace_internal_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 EasyPost | Llave de la API de Producción de EasyPost | easypost_production_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -99,6 +89,8 @@ Intercom | Token de Acceso a Intercom | intercom_access_token{% endif %}
 Ionic | Token de Acceso Personal de Ionic | ionic_personal_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Ionic | Token de Actualización de Ionic | ionic_refresh_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 %}
+JD Cloud | Llave de Acceso de JD Cloud | jd_cloud_access_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
 JFrog | Token de Acceso a la Plataforma de JFrog | jfrog_platform_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 %}
@@ -172,15 +164,7 @@ Square | Token de Acceso a Square | square_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
 Square | Secreto de la Aplicación de Producción de Square | square_production_application_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 %}
-Square | Secreto de la Aplicación de Pruebas de Square | square_sandbox_application_secret{% endif %} SSLMate | Llave de la API de SSLMate | sslmate_api_key SSLMate | Secreto de Clúster de SSLMate | sslmate_cluster_secret Stripe | Llave de la API de Stripe | stripe_api_key
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-Stripe | Llave Secreta en Vivo de la API de Stripe | stripe_live_secret_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-Stripe | Llave Secreta de la API de Prueba de Stripe | stripe_test_secret_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-Stripe | Llave Restringida de la API en Vivo de Stripe | stripe_live_restricted_key{% endif %}
-{%- ifversion fpt or ghec or ghes > 3.0 or ghae %}
-Stripe | Llave Restringida de la API de Prueba de Stripe | stripe_test_restricted_key{% endif %}
+Square | Secreto de Aplicación de Pruebas de Square | square_sandbox_application_secret{% endif %} SSLMate | Llave de la API de SSLMate | sslmate_api_key SSLMate | Secreto de Clúster de SSLMate | sslmate_cluster_secret Stripe | Llave de la API de Stripe | stripe_api_key Stripe | Llave del Secreto de la API en Vivo de Stripe | stripe_live_secret_key Stripe | Llave del Secreto de la API de Pruebas de Stripe | stripe_test_secret_key Stripe | Llave Restringida de la API en Vivo de Stripe | stripe_live_restricted_key Stripe | Llave Restringida de la API de Pruebas de Stripe | stripe_test_restricted_key
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Stripe | Secreto de Firmado de Webhook de Stripe | stripe_webhook_signing_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
