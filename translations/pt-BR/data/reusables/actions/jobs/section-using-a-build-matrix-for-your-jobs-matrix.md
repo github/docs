@@ -1,7 +1,7 @@
 
-Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configurations. Uma matriz permite que você crie vários trabalhos que realizam a substituição de variável em uma definição de trabalho único. Por exemplo, você pode usar uma matriz para criar trabalhos para mais de uma versão compatível de uma linguagem de programação, sistema operacional ou ferramenta. Uma matriz reutiliza a configuração do trabalho e cria trabalho para cada matriz que você configurar.
+Use `jobs.<job_id>.strategy.matrix` para definir uma matriz de diferentes configurações de trabalho. Uma matriz permite que você crie vários trabalhos que realizam a substituição de variável em uma definição de trabalho único. Por exemplo, você pode usar uma matriz para criar trabalhos para mais de uma versão compatível de uma linguagem de programação, sistema operacional ou ferramenta. Uma matriz reutiliza a configuração do trabalho e cria trabalho para cada matriz que você configurar.
 
-{% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.actions.usage-matrix-limits %}
 
 Cada opção que você define na `matriz` tem uma chave e um valor. As chaves que você define tornam-se propriedades no contexto da `matriz` e você pode fazer referência à propriedade em outras áreas do seu arquivo de fluxo de trabalho. Por exemplo, se você definir a chave `os` que contém um array de sistemas operacionais, você poderá usar a propriedade `matrix.os` como o valor da palavra-chave `runs-on` para criar um trabalho para cada sistema operacional. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts)".
 
@@ -57,7 +57,7 @@ Para obter mais informações sobre a configuração de executores auto-hospedad
 {% else %}Para encontrar opções de configuração compatíveis com executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 {% endif %}
 
-#### Example: Including additional values in combinations
+#### Exemplo: Incluindo valores adicionais em combinações
 
 Você pode adicionar opções de configurações para um trabalho de matriz de compilação existente. Por exemplo, se você quer usar uma versão específica do `npm` quando o trabalho que usa o `windows-latest` e a versão 8 do `nó` é executado, você pode usar `incluir` para especificar a opção adicional.
 
@@ -123,4 +123,4 @@ strategy:
 
 Você pode adicionar variáveis de ambiente personalizadas para cada combinação de testes usando a chave `include`. Em seguida, você pode se referir às variáveis de ambiente personalizadas em um passo posterior.
 
-{% data reusables.github-actions.matrix-variable-example %}
+{% data reusables.actions.matrix-variable-example %}

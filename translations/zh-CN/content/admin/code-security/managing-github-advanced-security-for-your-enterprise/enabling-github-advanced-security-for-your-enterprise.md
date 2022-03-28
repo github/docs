@@ -20,10 +20,10 @@ topics:
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-{% ifversion ghes > 3.0 %}
+{% ifversion ghes %}
 为企业启用 {% data variables.product.prodname_GH_advanced_security %} 后，所有组织的仓库管理员都可以启用这些功能，除非您设置了限制访问的策略。 更多信息请参阅“[在企业中执行 {% data variables.product.prodname_advanced_security %} 的策略](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)”。
 {% else %}
-为企业启用 {% data variables.product.prodname_GH_advanced_security %} 后，所有组织的仓库管理员都可以启用这些功能。 {% ifversion ghes = 3.0 %}更多信息请参阅“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”或“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。{% endif %}
+为企业启用 {% data variables.product.prodname_GH_advanced_security %} 后，所有组织的仓库管理员都可以启用这些功能。
 {% endif %}
 
 {% ifversion ghes %}
@@ -32,24 +32,16 @@ topics:
 
 ## 检查您的许可是否包含 {% data variables.product.prodname_GH_advanced_security %}
 
-{% ifversion ghes > 3.0 %}
+{% ifversion ghes %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 1. 如果您的许可包括 {% data variables.product.prodname_GH_advanced_security %}，则许可页面将包括显示当前使用情况详细信息的部分。 ![企业许可证的 {% data variables.product.prodname_GH_advanced_security %} 部分](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
 {% endif %}
 
-{% ifversion ghes = 3.0 %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-1. 如果您的许可包括 {% data variables.product.prodname_GH_advanced_security %}，则左侧边栏中有一个 **{% data variables.product.prodname_advanced_security %}** 条目。 ![高级安全侧边栏](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
-
-{% data reusables.enterprise_management_console.advanced-security-license %}
-{% endif %}
-
 ## 启用 {% data variables.product.prodname_GH_advanced_security %} 的前提条件
 
-1. 升级 {% data variables.product.product_name %} 许可以包括 {% data variables.product.prodname_GH_advanced_security %}。{% ifversion ghes > 3.0 %}有关许可的更多信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)”。{% endif %}
+1. 升级 {% data variables.product.product_name %} 许可以包括 {% data variables.product.prodname_GH_advanced_security %}。{% ifversion ghes %}有关许可的更多信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %} 的计费](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)”。{% endif %}
 2. 下载新的许可文件。 更多信息请参阅“[下载 {% data variables.product.prodname_enterprise %} 的许可](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)”。
 3. 将新许可文件上传到 {% data variables.product.product_location %}。 更多信息请参阅“[上传新许可到 {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)”。{% ifversion ghes %}
 4. 审查您计划启用的功能的先决条件。

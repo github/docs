@@ -3,4 +3,4 @@ Para acionar automaticamente um fluxo de trabalho, use `on` para definir quais e
 
 Você pode definir um ou vários eventos que possam acionar um fluxo de trabalho ou definir um cronograma. Também é possível restringir a execução de um fluxo de trabalho para que ocorra apenas para altearções específicas para arquivos, tags ou alterações no branch. Estas opções são descritas nas seguintes seções.
 
-{% data reusables.github-actions.actions-on-examples %}
+{% data reusables.actions.actions-on-examples %}

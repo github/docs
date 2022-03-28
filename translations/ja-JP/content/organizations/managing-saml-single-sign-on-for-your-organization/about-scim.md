@@ -28,11 +28,10 @@ Organization の {% data variables.product.product_name %} の SCIM API と連�
 
 {% endnote %}
 
+{% data reusables.scim.changes-should-come-from-idp %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 ## 参考リンク
 
-- [SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/articles/about-identity-and-access-management-with-saml-single-sign-on)
-- [アイデンティティプロバイダの Organization への接続](/articles/connecting-your-identity-provider-to-your-organization)
-- [Organization での SAML シングルサインオンの有効化とテスト](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)
 - [Organization へのメンバーの SAML アクセスの表示と管理](/github/setting-up-and-managing-organizations-and-teams//viewing-and-managing-a-members-saml-access-to-your-organization)

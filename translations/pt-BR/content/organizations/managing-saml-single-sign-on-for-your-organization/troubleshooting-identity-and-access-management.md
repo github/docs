@@ -11,7 +11,11 @@ shortTitle: Solução de problemas de acesso
 
 ## Alguns usuários não são provisionados ou desprovisionados pelo SCIM
 
-Ao encontrar problemas de provisionamento com os usuários, recomendamos que verifique se os usuários não têm metadados de SCIM. Se um integrante da organização não tiver metadados do SCIM, você poderá provisionar o SCIM novamente para o usuário manualmente por meio do seu IdP.
+Ao encontrar problemas de provisionamento com os usuários, recomendamos que verifique se os usuários não têm metadados de SCIM.
+
+{% data reusables.scim.changes-should-come-from-idp %}
+
+Se um integrante da organização não tiver metadados do SCIM, você poderá provisionar o SCIM novamente para o usuário manualmente por meio do seu IdP.
 
 ### Auditoria de usuários com relação à falta de metadados do SCIM
 
@@ -78,7 +82,7 @@ Para obter mais informações sobre o uso da API do GraphQL, consulte:
 
 ### Reprovisionando o SCIM para os usuários por meio do seu provedor de identidade
 
-Você pode provisionar o SCIM novamente para os usuários manualmente por meio do seu IdP. Por exemplo, para resolver erros de provisionamento, no portal de administração do Okta, você pode desatribuir e reatribuir os usuários para o aplicativo de {% data variables.product.prodname_dotcom %}. Isto deve acionar o Okta para fazer uma chamada da API para preencher os metadados do SCIM para esses usuários em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Desatribuir usuários de aplicativos](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)" ou "[Atribuir usuários aos aplicativos](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)" na documentação do Okta.
+Você pode provisionar o SCIM novamente para os usuários manualmente por meio do seu IdP. Por exemplo, para resolver erros de provisionamento para o Okta, no portal de administração do Okta, você pode desatribuir e reatribuir os usuários para o aplicativo de {% data variables.product.prodname_dotcom %}. Isto deve acionar o Okta para fazer uma chamada da API para preencher os metadados do SCIM para esses usuários em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Desatribuir usuários de aplicativos](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-unassign-apps.htm)" ou "[Atribuir usuários aos aplicativos](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-assign-apps.htm)" na documentação do Okta.
 
 Para confirmar que a identidade do SCIM de um usuário foi criada. Recomendamos testar este processo com um único integrante de uma organização que você tenha confirmado que não tem uma identidade externa do SCIM. Depois de atualizar manualmente os usuários do seu IdP, você poderá verificar se a identidade SCIM do usuário foi criada usando a API SCIM ou em {% data variables.product.prodname_dotcom %}. Para mais informações consulte "[Usuários de auditoria por falta de metadados SCIM](#auditing-users-for-missing-scim-metadata)" ou o ponto de extremidade da API REST "[Obtenha informações de provisionamento do SCIM para um usuário](/rest/reference/scim#get-scim-provisioning-information-for-a-user)."
 

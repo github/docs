@@ -252,7 +252,7 @@ jobs:
 
 `hashFiles(path)`
 
-Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
+Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. If the `path` pattern does not match any files, this returns an empty string. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
 
 You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)."
 
@@ -366,4 +366,40 @@ For example, consider an array of objects named `fruits`.
 ]
 ```
 
-The filter `fruits.*.name` returns the array `[ "apple", "orange", "pear" ]`
+The filter `fruits.*.name` returns the array `[ "apple", "orange", "pear" ]`.
+
+You may also use the `*` syntax on an object. For example, suppose you have an object named `vegetables`.
+
+```json
+
+{
+  "scallions":
+  {
+    "colors": ["green", "white", "red"],
+    "ediblePortions": ["roots", "stalks"],
+  },
+  "beets":
+  {
+    "colors": ["purple", "red", "gold", "white", "pink"],
+    "ediblePortions": ["roots", "stems", "leaves"],
+  },
+  "artichokes":
+  {
+    "colors": ["green", "purple", "red", "black"],
+    "ediblePortions": ["hearts", "stems", "leaves"],
+  },
+}
+```
+
+The filter `vegetables.*.ediblePortions` could evaluate to:
+
+```json
+
+[
+  ["roots", "stalks"],
+  ["hearts", "stems", "leaves"],
+  ["roots", "stems", "leaves"],
+]
+```
+
+Since objects don't preserve order, the order of the output can not be guaranteed.

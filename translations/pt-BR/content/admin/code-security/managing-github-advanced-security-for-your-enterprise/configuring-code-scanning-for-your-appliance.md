@@ -34,7 +34,7 @@ Você pode configurar {% data variables.product.prodname_code_scanning %} para e
 
 ## Pré-requisitos para {% data variables.product.prodname_code_scanning %}
 
-- Uma licença para {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes > 3.0 %} (consulte "[Sobre cobrança para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- Uma licença para {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (consulte "[Sobre cobrança para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
 - {% data variables.product.prodname_code_scanning_capc %} habilitado no console de gerenciamento (consulte "[Habilitando {% data variables.product.prodname_GH_advanced_security %} para a sua empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 
@@ -64,20 +64,17 @@ Se você configurar a ferramenta de sincronização de ação de {% data variabl
 
 {% endif %}
 
-
 ### Configurar {% data variables.product.prodname_github_connect %} para sincronizar {% data variables.product.prodname_actions %}
 1. Se você deseja fazer o download dos fluxos de trabalho de ação sob demanda a partir de {% data variables.product.prodname_dotcom_the_website %}, você deverá habilitar o {% data variables.product.prodname_github_connect %}. Para obter mais informações, consulte "[Habilitando {% data variables.product.prodname_github_connect %}](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud#enabling-github-connect)."
 2. Você também precisa habilitar o {% data variables.product.prodname_actions %} para {% data variables.product.product_location %}. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server)".
 3. A próxima etapa é configurar o acesso a ações no {% data variables.product.prodname_dotcom_the_website %} usando {% data variables.product.prodname_github_connect %}. Para obter mais informações, consulte "[Habilitar o acesso automático às ações de {% data variables.product.prodname_dotcom_the_website %} usando o {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 4. Adicione um executor auto-hospedado ao seu repositório, organização ou conta corporativa. Para obter mais informações, consulte "[Adicionando executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
 
-
 ## Executando a digitalização de código usando o {% data variables.product.prodname_codeql_cli %}
 
 Se você não quiser usar {% data variables.product.prodname_actions %}, você deverá executar {% data variables.product.prodname_code_scanning %} usando o {% data variables.product.prodname_codeql_cli %}.
 
 O {% data variables.product.prodname_codeql_cli %} é uma ferramenta de linha de comando que você usa para analisar bases de código em qualquer máquina, incluindo um sistema de CI/CD de terceiros. Para obter mais informações, consulte "[Instalando a CLI do CodeQL no seu sistema de CI](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
-
 
 {% if codeql-runner-supported %}
 

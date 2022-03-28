@@ -15,7 +15,7 @@ permissions: Enterprise owners can use a recovery code to access an enterprise a
 
 You can use a recovery code to access your enterprise account when a SAML configuration error or an issue with your identity provider (IdP) prevents you from using SAML SSO.
 
-In order to access your enterprise account this way, you must have previously downloaded and stored the recovery codes for your enterprise. For more information, see "[Downloading your enterprise account's SAML single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes)."
+In order to access your enterprise account this way, you must have previously downloaded and stored the recovery codes for your enterprise. Para obtener más información, consulta la sección "[Descargar los códigos de recuperación del inicio de sesión único de SAML de tu cuenta empresarial](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes)".
 
 {% data reusables.saml.recovery-code-caveats %}
 

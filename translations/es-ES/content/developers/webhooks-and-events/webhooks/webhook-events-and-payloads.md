@@ -219,7 +219,7 @@ Se sincronizó una Git ref exitosamente en una réplica de caché. Para obtener 
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | Si la `action` está como `reopened_by_user` o `closed_by_user`, el objeto que sea el `sender` será el usuario que activó el evento. El objeto `sender` está {% ifversion fpt or ghec %}`github` {% elsif ghes > 3.0 or ghae %}`github-enterprise` {% else %}vacío{% endif %} para el resto de las acciones.
+`sender` | `object` | Si la `action` está como `reopened_by_user` o `closed_by_user`, el objeto que sea el `sender` será el usuario que activó el evento. El objeto `sender` está {% ifversion fpt or ghec %}`github` {% elsif ghes or ghae %}`github-enterprise` {% else %}vacío{% endif %} para el resto de las acciones.
 
 ### Ejemplo de carga útil del webhook
 
@@ -1216,7 +1216,7 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 
 ## secret_scanning_alert
 
@@ -1246,7 +1246,7 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 
 La actividad relacionada con una asesoría de seguridad que revisó {% data variables.product.company_short %}. Una asesoría de seguridad que haya revisado {% data variables.product.company_short %} proporciona información sobre las vulnerabilidades relacionadas con la seguridad en el software de {% data variables.product.prodname_dotcom %}.
 
-El conjunto de datos de asesoría de seguridad también impulsa las {% data variables.product.prodname_dependabot_alerts %} de GitHub. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
+El conjunto de datos de asesoría de seguridad también impulsa las {% data variables.product.prodname_dependabot_alerts %} de GitHub. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
 
 ### Disponibilidad
 
@@ -1448,7 +1448,7 @@ Este evento ocurre cuando alguien activa una ejecución de flujo de trabajo en G
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae-issue-4462 %}
 
 ## workflow_job
 

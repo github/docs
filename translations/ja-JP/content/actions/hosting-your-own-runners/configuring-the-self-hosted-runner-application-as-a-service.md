@@ -13,7 +13,6 @@ defaultPlatform: linux
 shortTitle: Run runner app on startup
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -78,6 +77,12 @@ Windowsでは、ランナーサービスは**サービス**アプリケーショ
    ./svc.sh install
    ```
 {% endmac %}
+
+The command takes an optional `user` argument to install the service as a different user.
+
+```shell
+./svc.sh install --user <em>USERNAME</em>
+```
 
 ## サービスの起動
 

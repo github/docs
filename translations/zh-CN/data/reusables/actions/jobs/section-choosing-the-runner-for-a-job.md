@@ -10,7 +10,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. {% 
 
 可用的 {% data variables.product.prodname_dotcom %} 托管的运行器类型包括：
 
-{% data reusables.github-actions.supported-github-runners %}
+{% data reusables.actions.supported-github-runners %}
 
 #### Example: Specifying an operating system
 
@@ -25,9 +25,7 @@ runs-on: ubuntu-latest
 ### Choosing self-hosted runners
 {% endif %}
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
-
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
 #### Example: Using labels for runner selection
 

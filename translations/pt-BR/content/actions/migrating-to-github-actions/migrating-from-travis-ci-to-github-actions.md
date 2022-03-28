@@ -179,7 +179,7 @@ git:
 
 O Travis CI e {% data variables.product.prodname_actions %} podem adicionar variáveis de ambiente personalizadas a uma matriz de teste, que permite que você faça referência à variável em uma etapa posterior.
 
-Em {% data variables.product.prodname_actions %}, você pode usar a chave `incluir` para adicionar variáveis de ambiente personalizadas a uma matriz. {% data reusables.github-actions.matrix-variable-example %}
+Em {% data variables.product.prodname_actions %}, você pode usar a chave `incluir` para adicionar variáveis de ambiente personalizadas a uma matriz. {% data reusables.actions.matrix-variable-example %}
 
 ## Principais recursos em {% data variables.product.prodname_actions %}
 
@@ -187,7 +187,7 @@ Ao fazer a migração do Travis CI, considere os recursos principais a seguir em
 
 ### Armazenar segredos
 
-{% data variables.product.prodname_actions %} permite armazenar segredos e referenciá-los em seus trabalhos. Organizações de {% data variables.product.prodname_actions %} podem limitar quais repositórios podem acessar segredos da organização. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}As regras de proteção de ambiente podem exigir a aprovação manual de um fluxo de trabalho para acessar segredos de ambiente. {% endif %}Para obter mais informações, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
+{% data variables.product.prodname_actions %} permite armazenar segredos e referenciá-los em seus trabalhos. Organizações de {% data variables.product.prodname_actions %} podem limitar quais repositórios podem acessar segredos da organização. As regras de proteção de ambiente podem exigir a aprovação manual de um fluxo de trabalho para acessar segredos de ambiente. Para obter mais informações, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 
 ### Compartilhar arquivos entre trabalhos e fluxos de trabalho
 

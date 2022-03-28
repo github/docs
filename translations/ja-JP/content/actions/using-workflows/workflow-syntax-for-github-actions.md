@@ -64,7 +64,7 @@ Use `on.workflow_call` to define the inputs and outputs for a reusable workflow.
 
 When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
 
-In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
+In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. 詳しい情報については[`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype)を参照してください。
 
 If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
 
@@ -166,14 +166,13 @@ A string identifier to associate with the secret.
 A boolean specifying whether the secret must be supplied.
 {% endif %}
 
-
 ## `on.workflow_run.<branches|branches-ignore>`
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
 ## `on.workflow_dispatch.inputs`
 
-{% data reusables.github-actions.workflow-dispatch-inputs %}
+{% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissions`
@@ -184,7 +183,9 @@ A boolean specifying whether the secret must be supplied.
 
 ## `env`
 
-A `map` of environment variables that are available to the steps of all jobs in the workflow. You can also set environment variables that are only available to the steps of a single job or to a single step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+ワークフロー中のすべてのジョブのステップから利用できる環境変数の`map`です。 1つのジョブのステップ、あるいは1つのステップからだけ利用できる環境変数を設定することもできます。 詳しい情報については「[`jobs.<job_id>.env`](#jobsjob_idenv)」及び「[`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)を参照してください。
+
+Variables in the `env` map cannot be defined in terms of other variables in the map.
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -240,12 +241,9 @@ env:
 
 {% data reusables.actions.jobs.section-choosing-the-runner-for-a-job %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}
-
-{% endif %}
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
@@ -259,7 +257,7 @@ env:
 
 ## `jobs.<job_id>.env`
 
-A `map` of environment variables that are available to all steps in the job. You can also set environment variables for the entire workflow or an individual step. For more information, see [`env`](#env) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+ジョブ中のすべてのステップから利用できる環境変数の`map`です。 ワークフロー全体あるいは個別のステップのための環境変数を設定することもできます。 詳しい情報については[`env`](#env)及び[`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)を参照してください。
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -282,9 +280,9 @@ jobs:
 
 ## `jobs.<job_id>.steps`
 
-A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
+1つのジョブには、`steps` (ステップ) と呼ばれる一連のタスクがあります。 ステップでは、コマンドを実行する、設定タスクを実行する、あるいはリポジトリやパブリックリポジトリ、Dockerレジストリで公開されたアクションを実行することができます。 すべてのステップでアクションを実行するとは限りませんが、すべてのアクションはステップとして実行されます。 各ステップは、ランナー環境のそれ自体のプロセスで実行され、ワークスペースとファイルシステムにアクセスします。 ステップはそれ自体のプロセスで実行されるため、環境変数を変更しても、ステップ間では反映されません。 {% data variables.product.prodname_dotcom %}には、ジョブを設定して完了するステップが組み込まれています。
 
-You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+ワークフローの利用限度内であれば、実行するステップ数に限度はありません。 For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
 ### サンプル
 
@@ -312,13 +310,13 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].id`
 
-A unique identifier for the step. `id`を使って、コンテキストのステップを参照することができます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
+ステップの一意の識別子。 `id`を使って、コンテキストのステップを参照することができます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
 ### `jobs.<job_id>.steps[*].if`
 
-You can use the `if` conditional to prevent a step from running unless a condition is met. 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
+条件文の`if`を使って、条件が満たされなければステップを実行しないようにできます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 #### Example: Using contexts
 
@@ -333,7 +331,7 @@ steps:
 
 #### Example: Using status check functions
 
-The `my backup step` only runs when the previous step of a job fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+`my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
 
 ```yaml
 steps:
@@ -344,22 +342,47 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
+#### Example: Using secrets
+
+Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
+
+If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
+
+{% raw %}
+```yaml
+name: Run a step if a secret has been set
+on: push
+jobs:
+  my-jobname:
+    runs-on: ubuntu-latest
+    env:
+      super_secret: ${{ secrets.SuperSecret }}
+    steps:
+      - if: ${{ env.super_secret != '' }}
+        run: echo 'This step will only run if the secret has a value set.'
+      - if: ${{ env.super_secret == '' }}
+        run: echo 'This step will only run if the secret does not have a value set.'
+```
+{% endraw %}
+
+For more information, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)" and "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+
 ### `jobs.<job_id>.steps[*].name`
 
-A name for your step to display on {% data variables.product.prodname_dotcom %}.
+{% data variables.product.prodname_dotcom %}で表示されるステップの名前。
 
 ### `jobs.<job_id>.steps[*].uses`
 
-Selects an action to run as part of a step in your job. アクションとは、再利用可能なコードの単位です。 ワークフロー、パブリックリポジトリ、または[公開されているDockerコンテナイメージ](https://hub.docker.com/)と同じリポジトリで定義されているアクションを使用できます。
+ジョブでステップの一部として実行されるアクションを選択します。 アクションとは、再利用可能なコードの単位です。 ワークフロー、パブリックリポジトリ、または[公開されているDockerコンテナイメージ](https://hub.docker.com/)と同じリポジトリで定義されているアクションを使用できます。
 
 Git ref、SHA、またはDockerタグ番号を指定して、使用しているアクションのバージョンを含めることを強く推奨します。 バージョンを指定しないと、アクションのオーナーがアップデートを公開したときに、ワークフローが中断したり、予期せぬ動作をしたりすることがあります。
 - リリースされたアクションバージョンのコミットSHAを使用するのが、安定性とセキュリティのうえで最も安全です。
 - 特定のメジャーアクションバージョンを使用すると、互換性を維持したまま重要な修正とセキュリティパッチを受け取ることができます。 ワークフローが引き続き動作することも保証できます。
 - アクションのデフォルトブランチを使用すると便利なこともありますが、別のユーザが破壊的変更を加えた新しいメジャーバージョンをリリースすると、ワークフローが動作しなくなる場合があります。
 
-Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
+入力が必要なアクションもあり、入力を[`with`](#jobsjob_idstepswith)キーワードを使って設定する必要があります。 必要な入力を判断するには、アクションのREADMEファイルをお読みください。
 
-Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
+アクションは、JavaScriptのファイルもしくはDockerコンテナです。 使用するアクションがDockerコンテナの場合は、Linux環境で実行する必要があります。 詳細については[`runs-on`](#jobsjob_idruns-on)を参照してください。
 
 #### Example: Using versioned actions
 
@@ -397,7 +420,7 @@ jobs:
 
 `{owner}/{repo}/{path}@{ref}`
 
-A subdirectory in a public {% data variables.product.prodname_dotcom %} repository at a specific branch, ref, or SHA.
+パブリック{% data variables.product.prodname_dotcom %}リポジトリで特定のブランチ、ref、SHAにあるサブディレクトリ。
 
 ```yaml
 jobs:
@@ -411,7 +434,7 @@ jobs:
 
 `./path/to/dir`
 
-The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action.
+ワークフローのリポジトリにあるアクションを含むディレクトリのパス。 アクションを使用する前にリポジトリをチェックアウトする必要があります。
 
 ```yaml
 jobs:
@@ -427,7 +450,7 @@ jobs:
 
 `docker://{image}:{tag}`
 
-A Docker image published on [Docker Hub](https://hub.docker.com/).
+[Docker Hub](https://hub.docker.com/)で公開されているDockerイメージ。
 
 ```yaml
 jobs:
@@ -442,7 +465,7 @@ jobs:
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
+{% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} の Docker イメージ
 
 ```yaml
 jobs:
@@ -456,7 +479,7 @@ jobs:
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in a public registry. This example uses the Google Container Registry at `gcr.io`.
+パブリックレジストリのDockerイメージ。 この例では、`gcr.io` にある Google Container Registry を使用しています。
 
 ```yaml
 jobs:
@@ -468,9 +491,9 @@ jobs:
 
 #### Example: Using an action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as an encrypted secret. 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」および「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
+ワークフローはプライベートリポジトリをチェックアウトし、アクションをローカルで参照する必要があります。 個人アクセストークンを生成し、暗号化されたシークレットとしてトークンを追加します。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」および「[暗号化されたシークレット](/actions/reference/encrypted-secrets)」を参照してください。
 
-Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
+例にある `PERSONAL_ACCESS_TOKEN` をシークレットの名前に置き換えます。
 
 {% raw %}
 ```yaml
@@ -491,11 +514,11 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].run`
 
-Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
+オペレーティングシステムのシェルを使用してコマンドラインプログラムを実行します。 `name`を指定しない場合、ステップ名はデフォルトで`run`コマンドで指定された文字列になります。
 
-Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
+コマンドは、デフォルトでは非ログインシェルを使用して実行されます。 別のシェルを選択して、コマンドを実行するシェルをカスタマイズできます。 For more information, see [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
 
-Each `run` keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. 例:
+`run`キーワードは、それぞれがランナー環境での新しいプロセスとシェルです。 複数行のコマンドを指定すると、各行が同じシェルで実行されます。 例:
 
 * 1行のコマンド：
 
@@ -513,7 +536,7 @@ Each `run` keyword represents a new process and shell in the runner environment.
       npm run build
   ```
 
-Using the `working-directory` keyword, you can specify the working directory of where to run the command.
+`working-directory`キーワードを使えば、コマンドが実行されるワーキングディレクトリを指定できます。
 
 ```yaml
 - name: Clean temp directory
@@ -523,7 +546,7 @@ Using the `working-directory` keyword, you can specify the working directory of 
 
 ### `jobs.<job_id>.steps[*].shell`
 
-You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
+`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルの設定を上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
 | サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                                                                                                        | 内部で実行されるコマンド                                    |
 | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -584,7 +607,7 @@ steps:
 
 #### カスタムシェル
 
-You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
+`command […options] {0} [..more_options]`を使用すると、テンプレート文字列に`shell`値を設定できます。 {% data variables.product.prodname_dotcom %}は、空白区切りで最初の文字列をコマンドとして解釈し、`{0}`にある一時的なスクリプトのファイル名を挿入します。
 
 例:
 
@@ -596,17 +619,17 @@ steps:
     shell: perl {0}
 ```
 
-The command used, `perl` in this example, must be installed on the runner.
+使われるコマンドは（この例では`perl`）は、ランナーにインストールされていなければなりません。
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
 {% elsif fpt or ghec %}
-For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+GitHubホストランナーに含まれるソフトウェアに関する情報については「[GitHubホストランナーの仕様](/actions/reference/specifications-for-github-hosted-runners#supported-software)」を参照してください。
 {% endif %}
 
 #### 終了コードとエラーアクションの環境設定
 
-For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
+組み込みのshellキーワードについては、{% data variables.product.prodname_dotcom %}がホストする実行環境で以下のデフォルトが提供されます。 シェルスクリプトを実行する際には、以下のガイドラインを使ってください。
 
 - `bash`/`sh`:
   - `set -eo pipefail`を使用したフェイルファースト動作 : `bash`及び組み込みの`shell`のデフォルト。 Windows以外のプラットフォームでオプションを指定しない場合のデフォルトでもあります。
@@ -624,11 +647,11 @@ For built-in shell keywords, we provide the following defaults that are executed
 
 ### `jobs.<job_id>.steps[*].with`
 
-A `map` of the input parameters defined by the action. 各入力パラメータはキー/値ペアです。 入力パラメータは環境変数として設定されます。 The variable is prefixed with `INPUT_` and converted to upper case.
+アクションによって定義される入力パラメータの`map`。 各入力パラメータはキー/値ペアです。 入力パラメータは環境変数として設定されます。 変数の前には`INPUT_`が付けられ、大文字に変換されます。
 
 #### サンプル
 
-Defines the three input parameters (`first_name`, `middle_name`, and `last_name`) defined by the `hello_world` action. These input variables will be accessible to the `hello-world` action as `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME`, and `INPUT_LAST_NAME` environment variables.
+`hello_world`アクションで定義される3つの入力パラメータ (`first_name`、`middle_name`、`last_name`) を定義します。 `hello-world`アクションからは、これらの入力変数は`INPUT_FIRST_NAME`、`INPUT_MIDDLE_NAME`、`INPUT_LAST_NAME`という環境変数としてアクセスできます。
 
 ```yaml
 jobs:
@@ -644,7 +667,7 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].with.args`
 
-A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %}は、コンテナの起動時に`args`をコンテナの`ENTRYPOINT`に渡します。 An `array of strings` is not supported by this parameter.
+Dockerコンテナへの入力を定義する`文字列`。 {% data variables.product.prodname_dotcom %}は、コンテナの起動時に`args`をコンテナの`ENTRYPOINT`に渡します。 このパラメータは、`文字列の配列`をサポートしません。
 
 #### サンプル
 
@@ -667,7 +690,7 @@ steps:
 
 ### `jobs.<job_id>.steps[*].with.entrypoint`
 
-Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
+`Dockerfile`中のDockerの`ENTRYPOINT`をオーバーライドします。あるいは、もしそれが指定されていなかった場合に設定します。 shellやexec形式を持つDockerの`ENTRYPOINT`命令とは異なり、`entrypoint`キーワードは実行する実行可能ファイルを定義する単一の文字列だけを受け付けます。
 
 #### サンプル
 
@@ -679,15 +702,15 @@ steps:
       entrypoint: /a/different/executable
 ```
 
-The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
+`entrypoint`キーワードはDockerコンテナアクションで使われることを意図したものですが、入力を定義しないJavaScriptのアクションでも使うことができます。
 
 ### `jobs.<job_id>.steps[*].env`
 
-Sets environment variables for steps to use in the runner environment. You can also set environment variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
+ランナー環境でステップが使う環境変数を設定します。 ワークフロー全体あるいはジョブのための環境変数を設定することもできます。 詳しい情報については「[`env`](#env)」及び「[`jobs.<job_id>.env`](#jobsjob_idenv)」を参照してください。
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Public actions may specify expected environment variables in the README file. If you are setting a secret in an environment variable, you must set secrets using the `secrets` context. For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数に秘密情報を設定しようとしている場合、秘密情報は`secrets`コンテキストを使って設定しなければなりません。 For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
 #### サンプル
 
@@ -704,17 +727,23 @@ steps:
 
 ### `jobs.<job_id>.steps[*].continue-on-error`
 
-Prevents a job from failing when a step fails. Set to `true` to allow a job to pass when this step fails.
+ステップが失敗してもジョブが失敗にならないようにします。 `true`に設定すれば、このステップが失敗した場合にジョブが次へ進めるようになります。
 
 ### `jobs.<job_id>.steps[*].timeout-minutes`
 
-The maximum number of minutes to run the step before killing the process.
+プロセスがkillされるまでにステップが実行できる最大の分数。
 
 ## `jobs.<job_id>.timeout-minutes`
 
-The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
+{% data variables.product.prodname_dotcom %}で自動的にキャンセルされるまでジョブを実行する最長時間 (分)。 デフォルト: 360
 
 If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+
+{% note %}
+
+**Note:** {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see "[About the `GITHUB_TOKEN` secret](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
+
+{% endnote %}
 
 ## `jobs.<job_id>.strategy`
 
@@ -734,11 +763,11 @@ If the timeout exceeds the job execution time limit for the runner, the job will
 
 ## `jobs.<job_id>.continue-on-error`
 
-Prevents a workflow run from failing when a job fails. Set to `true` to allow a workflow run to pass when this job fails.
+ジョブが失敗した時に、ワークフローの実行が失敗にならないようにします。 `true`に設定すれば、ジョブが失敗した時にワークフローの実行が次へ進めるようになります。
 
 ### Example: Preventing a specific failing matrix job from failing a workflow run
 
-You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
+ジョブマトリックス中の特定のジョブが失敗しても、ワークフローの実行が失敗にならないようにすることができます。 For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
 
 {% raw %}
 ```yaml
@@ -759,7 +788,7 @@ strategy:
 
 ## `jobs.<job_id>.container`
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
@@ -789,19 +818,19 @@ strategy:
 
 ## `jobs.<job_id>.services`
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
-Used to host service containers for a job in a workflow. Service containers are useful for creating databases or cache services like Redis. The runner  automatically creates a Docker network and manages the life cycle of the service containers.
+ワークフロー中のジョブのためのサービスコンテナをホストするために使われます。 サービスコンテナは、データベースやRedisのようなキャッシュサービスの作成に役立ちます。 ランナーは自動的にDockerネットワークを作成し、サービスコンテナのライフサイクルを管理します。
 
-If you configure your job to run in a container, or your step uses container actions, you don't need to map ports to access the service or action. Docker automatically exposes all ports between containers on the same Docker user-defined bridge network. You can directly reference the service container by its hostname. The hostname is automatically mapped to the label name you configure for the service in the workflow.
+コンテナを実行するようにジョブを設定した場合、あるいはステップがコンテナアクションを使う場合は、サービスもしくはアクションにアクセスするためにポートをマップする必要はありません。 Dockerは自動的に、同じDockerのユーザ定義ブリッジネットワーク上のコンテナ間のすべてのポートを公開します。 サービスコンテナは、ホスト名で直接参照できます。 ホスト名は自動的に、ワークフロー中のサービスに設定したラベル名にマップされます。
 
-If you configure the job to run directly on the runner machine and your step doesn't use a container action, you must map any required Docker service container ports to the Docker host (the runner machine). You can access the service container using localhost and the mapped port.
+ランナーマシン上で直接実行されるようにジョブを設定し、ステップがコンテナアクションを使わないのであれば、必要なDockerサービスコンテナのポートはDockerホスト（ランナーマシン）にマップしなければなりません サービスコンテナには、localhostとマップされたポートを使ってアクセスできます。
 
-For more information about the differences between networking service containers, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers)."
+ネットワーキングサービスコンテナ間の差異に関する詳しい情報については「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers)」を参照してください。
 
 ### Example: Using localhost
 
-This example creates two services: nginx and redis. Dockerホストのポートを指定して、コンテナのポートを指定しなかった場合、コンテナのポートは空いているポートにランダムに割り当てられます。 {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
+この例では、nginxとredisという2つのサービスを作成します。 Dockerホストのポートを指定して、コンテナのポートを指定しなかった場合、コンテナのポートは空いているポートにランダムに割り当てられます。 {% data variables.product.prodname_dotcom %}は、割り当てられたコンテナポートを{% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}コンテキストに設定します。 以下の例では、サービスコンテナのポートへは{% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} 及び{% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} コンテキストでアクセスできます。
 
 ```yaml
 services:
@@ -819,7 +848,7 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.image`
 
-The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a  registry name.
+アクションを実行するサービスコンテナとして使用するDockerイメージ。 The value can be the Docker Hub image name or a  registry name.
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -845,15 +874,15 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.env`
 
-Sets a `map` of environment variables in the service container.
+サービスコンテナ中の環境変数の`map`を設定します。
 
 ### `jobs.<job_id>.services.<service_id>.ports`
 
-Sets an `array` of ports to expose on the service container.
+サービスコンテナで公開するポートの`array`を設定します。
 
 ### `jobs.<job_id>.services.<service_id>.volumes`
 
-Sets an `array` of volumes for the service container to use. volumes (ボリューム) を使用すると、サービス間で、または1つのジョブのステップ間でデータを共有できます。 指定できるのは、名前付きDockerボリューム、匿名Dockerボリューム、またはホスト上のバインドマウントです。
+使用するサービスコンテナにボリュームの`array`を設定します。 volumes (ボリューム) を使用すると、サービス間で、または1つのジョブのステップ間でデータを共有できます。 指定できるのは、名前付きDockerボリューム、匿名Dockerボリューム、またはホスト上のバインドマウントです。
 
 ボリュームを指定するには、ソースパスとターゲットパスを指定してください。
 
@@ -872,7 +901,7 @@ volumes:
 
 ### `jobs.<job_id>.services.<service_id>.options`
 
-Additional Docker container resource options. オプションの一覧は、「[`docker create`のオプション](https://docs.docker.com/engine/reference/commandline/create/#options)」を参照してください。
+追加のDockerコンテナリソースのオプション。 オプションの一覧は、「[`docker create`のオプション](https://docs.docker.com/engine/reference/commandline/create/#options)」を参照してください。
 
 {% warning %}
 
@@ -946,7 +975,7 @@ Allowed expression contexts: `github`, `needs`, and `secrets`.
 
 ## フィルタパターンのチートシート
 
-You can use special characters in path, branch, and tag filters.
+特別なキャラクタをパス、ブランチ、タグフィルタで利用できます。
 
 - `*`ゼロ個以上のキャラクタにマッチしますが、`/`にはマッチしません。 たとえば`Octo*`は`Octocat`にマッチします。
 - `**`ゼロ個以上の任意のキャラクタにマッチします。
@@ -955,7 +984,7 @@ You can use special characters in path, branch, and tag filters.
 - `[]` 括弧内にリストされた、あるいは範囲に含まれる1つのキャラクタにマッチします。 範囲に含めることができるのは`a-z`、`A-Z`、`0-9`のみです。 たとえば、`[0-9a-z]`という範囲は任意の数字もしくは小文字にマッチします。 たとえば`[CB]at`は`Cat`あるいは`Bat`にマッチし、`[1-2]00`は`100`や`200`にマッチします。
 - `!`: パターンの先頭に置くと、肯定のパターンを否定にします。 先頭のキャラクタではない場合は、特別な意味を持ちません。
 
-The characters `*`, `[`, and `!` are special characters in YAML. If you start a pattern with `*`, `[`, or `!`, you must enclose the pattern in quotes.
+YAMLにおいては、`*`、`[`、`!`は特別なキャラクタです。 パターンを`*`、`[`、`!`で始める場合、そのパターンをクオートで囲まなければなりません。
 
 ```yaml
 # 有効
@@ -983,7 +1012,7 @@ For more information about branch, tag, and path filter syntax, see "[`on.<push>
 
 ### ファイルパスにマッチするパターン
 
-Path patterns must match the whole path, and start from the repository's root.
+パスパターンはパス全体にマッチしなければならず、リポジトリのルートを出発点とします。
 
 | パターン                                                                    | マッチの説明                                                                                                      | マッチの例                                                                                                                    |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |

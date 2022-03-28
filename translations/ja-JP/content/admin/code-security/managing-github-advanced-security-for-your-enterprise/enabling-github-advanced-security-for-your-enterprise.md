@@ -20,10 +20,10 @@ topics:
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-{% ifversion ghes > 3.0 %}
+{% ifversion ghes %}
 When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features unless you set up a policy to restrict access. 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_advanced_security %}のポリシーの施行](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)」を参照してください。
 {% else %}
-When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features. {% ifversion ghes = 3.0 %}詳しい情報については、「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」と「[リポジトリのセキュリティと分析設定を管理する](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。{% endif %}
+When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features.
 {% endif %}
 
 {% ifversion ghes %}
@@ -32,24 +32,16 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[Deploying
 
 ## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
 
-{% ifversion ghes > 3.0 %}
+{% ifversion ghes %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, the license page includes a section showing details of current usage. ![{% data variables.product.prodname_GH_advanced_security %} section of Enterprise license](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
-{% endif %}
-
-{% ifversion ghes = 3.0 %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, there is an **{% data variables.product.prodname_advanced_security %}** entry in the left sidebar. ![[Advanced Security] サイドバー](/assets/images/enterprise/management-console/sidebar-advanced-security.png)
-
-{% data reusables.enterprise_management_console.advanced-security-license %}
+1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, the license page includes a section showing details of current usage. ![Enterpriseライセンスの{% data variables.product.prodname_GH_advanced_security %}セクション](/assets/images/help/billing/ghas-orgs-list-enterprise-ghes.png)
 {% endif %}
 
 ## Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}
 
-1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes > 3.0 %} For information about licensing, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
+1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes %} For information about licensing, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
 2. Download the new license file. For more information, see "[Downloading your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
 3. Upload the new license file to {% data variables.product.product_location %}. For more information, see "[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes %}
 4. Review the prerequisites for the features you plan to enable.

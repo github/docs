@@ -53,7 +53,7 @@ Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para tod
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Debajo de **Políticas**, selecciona **Permitir las acciones seleccionadas** y agrega tus acciones requeridas a la lista.
-   {%- ifversion ghes > 3.0 or ghae-issue-5094 %}
+   {%- ifversion ghes or ghae-issue-5094 %}
    ![Agregar acciones a la lista de permitidos](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
    ![Agregar acciones a la lista de permitidos](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
@@ -71,7 +71,7 @@ Las {% data variables.product.prodname_actions %} pueden restablecer los archivo
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
+{% data reusables.actions.change-retention-period-for-artifacts-logs  %}
 
 {% endif %}
 
@@ -88,7 +88,7 @@ Puedes requerir políticas para controlar la forma en la que se comportan las {%
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.workflows-from-public-fork-setting %}
+{% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
 
@@ -98,16 +98,16 @@ Puedes requerir políticas para controlar la forma en la que se comportan las {%
 
 ### Requerir una política para bifurcar solicitudes de cambio en repositorios privados
 
-{% data reusables.github-actions.private-repository-forks-overview %}
+{% data reusables.actions.private-repository-forks-overview %}
 
 Si se habilita una política para una empresa, esta puede inhabilitarse selectivamente en organizaciones o repositorios individuales. Si se inhabilita una política para una empresa, las organizaciones o repositorios individuales no pueden habilitarla.
 
-{% data reusables.github-actions.private-repository-forks-options %}
+{% data reusables.actions.private-repository-forks-options %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.private-repository-forks-configure %}
+{% data reusables.actions.private-repository-forks-configure %}
 
 {% endif %}
 
@@ -115,11 +115,11 @@ Si se habilita una política para una empresa, esta puede inhabilitarse selectiv
 
 ## Requerir una política para los permisos de flujo de trabajo en tu empresa
 
-{% data reusables.github-actions.workflow-permissions-intro %}
+{% data reusables.actions.workflow-permissions-intro %}
 
 Puedes configurar los permisos predeterminados para del `GITHUB_TOKEN` en la configuración de tu empresa, organización o repositorio. Si eliges la opción restringida como lo predeterminado en la configuración de tu empresa, esto previene que puedas elegir más configuraciones permisivas en la configuración de tu organización o repositorio.
 
-{% data reusables.github-actions.workflow-permissions-modifying %}
+{% data reusables.actions.workflow-permissions-modifying %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

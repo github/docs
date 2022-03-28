@@ -84,6 +84,8 @@ Organizationが{% data variables.product.prodname_ghe_cloud %}を使っている
 - **Set interaction limits（インタラクションの制限を設定）**: 自分のパブリックリポジトリで特定のユーザによるコメント、Issueのオープン、Pull Requestの作成を一時的に制限し、アクティビティの制限期間を施行。 詳しい情報については「[リポジトリでのインタラクションの制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。
 - **Set the social preview（ソーシャルプレビューの設定）**: リポジトリがリンクされたときにソーシャルメディア上に表示される識別画像をリポジトリに追加。 詳細は「[リポジトリのソーシャルメディア向けプレビューをカスタマイズする](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)」を参照してください。
 - **Push commits to protected branches（保護されたブランチにコミットをプッシュ）**: 保護されたブランチとしてマークされているブランチにプッシュ。
+- **Create protected tags（保護されたタグの作成）**: タグの保護ルールにマッチしたタグの作成。 詳しい情報については「[タグ保護ルールの設定](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)」を参照してください。
+- **Delete protected tags（タグ保護ルールの削除）**: タグ保護ルールにマッチしたタグの削除。 詳しい情報については「[タグ保護ルールの設定](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)」を参照してください。
 
 ### セキュリティ
 

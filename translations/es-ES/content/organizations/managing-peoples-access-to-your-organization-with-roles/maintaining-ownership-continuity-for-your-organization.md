@@ -31,6 +31,10 @@ Los propietarios de una organización tienen acceso administrativo completo a la
 
 {% endnote %}
 
+{% if enterprise-owner-join-org %}
+Si tu organización le pertenece a una cuenta empresarial, cualquier propietario de empresa podrá hacerse propietario de esta. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+{% endif %}
+
 ## Designar un propietario de organización
 
 {% data reusables.profile.access_org %}

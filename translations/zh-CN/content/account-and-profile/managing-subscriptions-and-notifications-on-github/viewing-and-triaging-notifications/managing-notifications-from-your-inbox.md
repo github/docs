@@ -109,7 +109,7 @@ shortTitle: 从收件箱管理
 
 ### 支持的 `is:` 查询
 
-要在 {% data variables.product.product_location %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`{% ifversion not ghae %}, and to only see {% data variables.product.prodname_dependabot_alerts %}, use `is:repository-vulnerability-alert`{% endif %}.
+要在 {% data variables.product.product_location %} 上过滤特定活动的通知，您可以使用 `is` 查询。 例如，若要仅查看存储库邀请更新，请使用 `is:repository-invitation`{% ifversion not ghae %}，若要仅查看 {% data variables.product.prodname_dependabot_alerts %}，则使用 `is:repository-vulnerability-alert`{% endif %}。
 
 - `is:check-suite`
 - `is:commit`
@@ -174,16 +174,16 @@ shortTitle: 从收件箱管理
 - `reason:security_alert`，显示 {% data variables.product.prodname_dependabot_alerts %} 的通知和安全更新拉取请求。
 - `author:app/dependabot`，显示 {% data variables.product.prodname_dependabot %} 生成的通知。 这包括 {% data variables.product.prodname_dependabot_alerts %}、安全更新拉取请求和版本更新拉取请求。
 
-有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于管理有漏洞的依赖项](/github/managing-security-vulnerabilities/about-managing-vulnerable-dependencies)”。
+有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
 {% ifversion ghes < 3.3 or ghae-issue-4864 %}
 
-If you use {% data variables.product.prodname_dependabot %} to tell you about vulnerable dependencies, you can use and save these custom filters to show notifications for {% data variables.product.prodname_dependabot_alerts %}:
+如果使用 {% data variables.product.prodname_dependabot %} 来告知易受攻击的依赖项，则可以使用并保存这些自定义筛选器来显示 {% data variables.product.prodname_dependabot_alerts %} 的通知：
 - `is:repository_vulnerability_alert`
 - `reason:security_alert`
 
-有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于有漏洞依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+有关 {% data variables.product.prodname_dependabot %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
 {% endif %}

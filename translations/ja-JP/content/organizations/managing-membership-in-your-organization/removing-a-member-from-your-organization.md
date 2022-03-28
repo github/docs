@@ -13,9 +13,8 @@ topics:
   - Organizations
   - Teams
 shortTitle: メンバーの削除
+permissions: Organization owners can remove members from an organization.
 ---
-
-Organization からメンバーを削除できるのは、Organization のオーナーだけです。
 
 {% ifversion fpt or ghec %}
 
@@ -63,4 +62,5 @@ Organization から削除する個人の移行と、その個人による機密�
 
 ## 参考リンク
 
-- 「[チームから Organization メンバーを削除する](/articles/removing-organization-members-from-a-team)」
+- 「[TeamからのOrganizationメンバーの削除](/articles/removing-organization-members-from-a-team)」{% if remove-enterprise-members %}
+- 「[Enterpriseからのメンバーの削除](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)」{% endif %}

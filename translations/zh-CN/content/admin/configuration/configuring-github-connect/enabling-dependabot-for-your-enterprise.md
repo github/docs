@@ -28,7 +28,7 @@ topics:
 
 {% data variables.product.prodname_dependabot %} helps users of {% data variables.product.product_location %} find and fix vulnerabilities in their dependencies.{% ifversion ghes > 3.2 %} You can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
 
-### About {% data variables.product.prodname_dependabot_alerts %}
+### 关于 {% data variables.product.prodname_dependabot_alerts %}
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
@@ -39,7 +39,7 @@ With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.
 
 After you enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. Only {% data variables.product.company_short %}-reviewed advisories are synchronized. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
-You can also choose to manually sync vulnerability data at any time. For more information, see "[Viewing the vulnerability data for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise)."
+您还可以随时选择手动同步漏洞数据。 For more information, see "[Viewing the vulnerability data for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise)."
 
 {% note %}
 
@@ -49,10 +49,10 @@ You can also choose to manually sync vulnerability data at any time. For more in
 
 When {% data variables.product.product_location %} receives information about a vulnerability, it identifies repositories in  {% data variables.product.product_location %} that use the affected version of the dependency and generates {% data variables.product.prodname_dependabot_alerts %}. You can choose whether or not to notify users automatically about new {% data variables.product.prodname_dependabot_alerts %}.
 
-For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning is triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added to {% data variables.product.product_location %}, {% data variables.product.product_name %} scans all existing repositories on {% data variables.product.product_location %} and generates alerts for any repository that is vulnerable. 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+For repositories with {% data variables.product.prodname_dependabot_alerts %} enabled, scanning is triggered on any push to the default branch that contains a manifest file or lock file. Additionally, when a new vulnerability record is added to {% data variables.product.product_location %}, {% data variables.product.product_name %} scans all existing repositories on {% data variables.product.product_location %} and generates alerts for any repository that is vulnerable. 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 
 {% ifversion ghes > 3.2 %}
-### About {% data variables.product.prodname_dependabot_updates %}
+### 关于 {% data variables.product.prodname_dependabot_updates %}
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
 
@@ -66,18 +66,17 @@ After you enable {% data variables.product.prodname_dependabot_alerts %}, you ca
 
 With {% data variables.product.prodname_dependabot_updates %}, {% data variables.product.company_short %} automatically creates pull requests to update dependencies in two ways.
 
-- **{% data variables.product.prodname_dependabot_version_updates %}**: Users add a {% data variables.product.prodname_dependabot %} configuration file to the repository to enable {% data variables.product.prodname_dependabot %} to create pull requests when a new version of a tracked dependency is released. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)."
-- **{% data variables.product.prodname_dependabot_security_updates %}**: Users toggle a repository setting to enable {% data variables.product.prodname_dependabot %} to create pull requests when {% data variables.product.prodname_dotcom %} detects a vulnerability in one of the dependencies of the dependency graph for the repository. For more information, see "[About alerts for vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+- **{% data variables.product.prodname_dependabot_version_updates %}**: Users add a {% data variables.product.prodname_dependabot %} configuration file to the repository to enable {% data variables.product.prodname_dependabot %} to create pull requests when a new version of a tracked dependency is released. 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)“。
+- **{% data variables.product.prodname_dependabot_security_updates %}**: Users toggle a repository setting to enable {% data variables.product.prodname_dependabot %} to create pull requests when {% data variables.product.prodname_dotcom %} detects a vulnerability in one of the dependencies of the dependency graph for the repository. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
 {% endif %}
 
-## Enabling {% data variables.product.prodname_dependabot_alerts %}
+## 启用 {% data variables.product.prodname_dependabot_alerts %}
 
 Before you can enable {% data variables.product.prodname_dependabot_alerts %}:
 - You must enable {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."{% ifversion ghes %}
-- You must enable the dependency graph. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
+- 您必须启用依赖关系图。 For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{%- ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 {%- if dependabot-updates-github-connect %}
 1. Under "{% data variables.product.prodname_dependabot %}", to the right of "Users can receive vulnerability alerts for open source code dependencies", select the dropdown menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
@@ -85,23 +84,23 @@ Before you can enable {% data variables.product.prodname_dependabot_alerts %}:
    ![Screenshot of the dropdown menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/dependabot-alerts-dropdown.png)
 
 {%- else %}
-1. Under "Repositories can be scanned for vulnerabilities", select the drop-down menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**. ![Drop-down menu to enable scanning repositories for vulnerabilities](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
+1. Under "Repositories can be scanned for vulnerabilities", select the drop-down menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**. ![用于启用扫描仓库有无漏洞的下拉菜单](/assets/images/enterprise/site-admin-settings/enable-vulnerability-scanning-in-repositories.png)
 {%- endif %}
    {% tip %}
 
-   **Tip**: We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of emails. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
+   **Tip**: We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of emails. 几天后，您可以开启通知，像往常一样接收 {% data variables.product.prodname_dependabot_alerts %}。
 
    {% endtip %}
 
 {% if dependabot-updates-github-connect %}
-## Enabling {% data variables.product.prodname_dependabot_updates %}
+## 启用 {% data variables.product.prodname_dependabot_updates %}
 
 After you enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise, you can enable {% data variables.product.prodname_dependabot_updates %}.
 
 {% ifversion ghes %}
 Before you enable {% data variables.product.prodname_dependabot_updates %}, you must configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. 更多信息请参阅“[开始使用 GitHub Enterprise Server 的 {% data variables.product.prodname_actions %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)”。
 
-{% data variables.product.prodname_dependabot_updates %} are not supported on {% data variables.product.product_name %} if your enterprise uses clustering or a high-availability configuration.
+{% data variables.product.prodname_dependabot_updates %} are not supported on {% data variables.product.product_name %} if your enterprise uses clustering.
 {% endif %}
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}

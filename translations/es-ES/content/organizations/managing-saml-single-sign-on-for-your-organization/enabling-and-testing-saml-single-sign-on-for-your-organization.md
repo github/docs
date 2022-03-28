@@ -22,8 +22,6 @@ Si habilitas pero no exiges SAML SSO, los miembros de la organización que elija
 
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
 
-{% data reusables.saml.cannot-update-existing-saml-settings %}
-
 ## Habilitar y probar el inicio de sesión único SAML para tu organización
 
 Antes de requerir el SSO de SAML en tu organización, asegúrate de que la hayas preparado. Para obtener más información, consulta "[Preparación para exigir inicio de sesión único SAML en tu organización](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".

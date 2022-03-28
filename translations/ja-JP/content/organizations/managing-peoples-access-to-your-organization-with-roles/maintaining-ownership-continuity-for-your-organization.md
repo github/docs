@@ -31,6 +31,10 @@ Organizationのオーナーには、Organization に対する管理アクセス�
 
 {% endnote %}
 
+{% if enterprise-owner-join-org %}
+OrganizationがEnterpriseアカウントに所有されている場合、Enterpriseオーナーは誰でも自分をOrganizationのオーナーにすることができます。 詳しい情報については「[自身のEnterpriseが所有しているOrganization内での自分のロールの管理](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)」を参照してください。
+{% endif %}
+
 ## Organizationのオーナーの指名
 
 {% data reusables.profile.access_org %}

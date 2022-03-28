@@ -92,7 +92,7 @@ A variável `$GITHUB_VIA` está disponível no ambiente de pre-receive quando a 
 | <pre>git refs update api</pre> | Atualização de um ref através da API                                        | "[Banco de dados Git](/rest/reference/git#update-a-reference)" na documentação da API REST                                                                                          |
 | <pre>git repo contents api</pre> | Mudança no conteúdo de um arquivo através da API                            | "[Criar ou atualizar o conteúdo do arquivo](/rest/reference/repos#create-or-update-file-contents)" na documentação da API REST                                                      |
 
-{%- ifversion ghes > 3.0 %}
+{%- ifversion ghes %}
 | 
 
 `merge` | Merge de um pull request usando o merge automático | "[Merge automático de um pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |

@@ -12,18 +12,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% note %}
-
-**注：**发布 API 取代了下载 API。 您可以从返回发行版和发行版资产的 API 端点检索下载次数和浏览器下载 URL。
-
-{% endnote %}
-
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## Release assets
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'assets' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated below. Markdown for subcategories is located in data/reusables/rest-reference/releases
+-->

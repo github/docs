@@ -1,6 +1,7 @@
-import { getDOM } from '../helpers/supertest.js'
-import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 import { jest } from '@jest/globals'
+
+import { getDOM } from '../helpers/e2etest.js'
+import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 
 describe('header', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -75,11 +76,15 @@ describe('header', () => {
     })
 
     test('displays translation disclaimer notice on localized site-policy pages', async () => {
-      const $ = await getDOM('/ja/github/site-policy/github-logo-policy')
+      const $ = await getDOM('/ja/site-policy/other-site-policies/github-logo-policy')
+      // The first case is for a complete translation, the second case is for a page pending complete translation.
       expect(
         $(
           '[data-testid=header-notification][data-type=TRANSLATION] a[href="https://github.com/github/site-policy/issues"]'
-        ).length
+        ).length ||
+          $(
+            '[data-testid=header-notification][data-type=TRANSLATION] a[href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]="]'
+          ).length
       ).toBe(1)
     })
 
