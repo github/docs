@@ -1,4 +1,4 @@
----
+Server Git History---
 title: About merge methods on GitHub
 intro: 'You can allow contributors with push access to your repository to merge their pull requests on {% data variables.product.product_location %} with different merge options or enforce a specific merge method for all of your repository''s pull requests.'
 redirect_from:
