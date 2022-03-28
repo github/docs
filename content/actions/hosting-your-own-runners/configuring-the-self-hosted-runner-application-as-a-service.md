@@ -78,10 +78,10 @@ You can manage the runner service in the Windows **Services** application, or yo
    ```
 {% endmac %}
 
-The command takes an optional `user` argument to install the service as a different user.
+The command takes an optional second argument to install the service as a different user.
 
 ```shell
-./svc.sh install --user <em>USERNAME</em>
+./svc.sh install <em>USERNAME</em>
 ```
 
 ## Starting the service
