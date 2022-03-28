@@ -28,4 +28,4 @@ You can see a list of features that are available in beta and a brief descriptio
 
 {% data reusables.feature-preview.feature-preview-setting  %}
 2. Optionally, to the right of a feature, click **Enable** or **Disable**.
-  ![Enable button in feature preview](/assets/images/help/settings/enable-feature-button.png)
+  [Enable button in feature preview](/assets/images/help/settings/enable-feature-button.png)
