@@ -25,7 +25,7 @@ Service containers are Docker containers that provide a simple and portable way 
 
 You can configure service containers for each job in a workflow. Service containers are not meant to be used inside composite actions and are not supported to be run inside composite actions. {% data variables.product.prodname_dotcom %} creates a fresh Docker container for each service configured in the workflow, and destroys the service container when the job completes. Steps in a job can communicate with all service containers that are part of the same job.
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## Communicating with service containers
 

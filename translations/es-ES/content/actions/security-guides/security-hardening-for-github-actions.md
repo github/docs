@@ -25,7 +25,7 @@ Esta guía explica cómo configurar el fortalecimiento de seguridad para ciertas
 
 ## Utilizar secretos
 
-Los valores sensibles jamás deben almacenarse como texto simple e archivos de flujo de trabajo, sino más bien como secretos. Los [Secretos](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) pueden configurarse a nivel de la organización{% ifversion fpt or ghes > 3.0 or ghae or ghec %}, repositorio o ambiente{% else %} o repositorio{% endif %}, y permitirte almacenar información sensible en {% data variables.product.product_name %}.
+Los valores sensibles jamás deben almacenarse como texto simple e archivos de flujo de trabajo, sino más bien como secretos. Los [secretos](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) pueden configurarse a nivel de organización, repositorio o ambiente y te permiten almacenar información sensible en {% data variables.product.product_name %}.
 
 Los secretos utilizan [Cajas selladas de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) de manera que se cifran antes de llegar a {% data variables.product.product_name %}. Esto ocurre cuando el secreto se emite [utilizando la IU](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) o a través de la [API de REST](/rest/reference/actions#secrets). Este cifrado del lado del cliente ayuda a minimizar los riesgos relacionados con el registro accidental (por ejemplo, bitácoras de excepción y de solicitud, entre otras) dentro de la infraestructura de {% data variables.product.product_name %}. Una vez que se carga el secreto, {% data variables.product.product_name %} puede entonces descifrarlo para que se pueda inyectar en el tiempo de ejecución del flujo de trabajo.
 
@@ -45,10 +45,8 @@ Para ayudar a prevenir la divulgación accidental, {% data variables.product.pro
 - **Audita y rota los secretos registrados**
     - Revisa con frecuencia los secretos que se han registrado para confirmar que aún se requieran. Elimina aquellos que ya no se necesiten.
     - Rota los secretos con frecuencia para reducir la ventana de tiempo en la que un secreto puesto en riesgo es aún válido.
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - **Considera requerir revisiones para el acceso a los secretos**
     - Puedes utilizar revisiones requeridas para proteger los secretos del ambiente. Un job del flujo de trabajo no podrá acceder a los secretos del ambiente hasta que el revisor otorgue la aprobación. Para obtener más información sobre cómo almacenar los secretos en los ambientes o cómo requerir las revisiones para estos, consulta las secciones "[Secretos cifrados](/actions/reference/encrypted-secrets)" y "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
-{% endif %}
 
 ## Utilizar `CODEOWNERS` para monitorear cambios
 
@@ -141,14 +139,15 @@ En este ejemplo, el script que se intenta inyectar no tuvo éxito:
 
 Con este enfoque, el valor de la expresón {% raw %}`${{ github.event.issue.title }}`{% endraw %} se almacena en la memoria y se utiliza como una variable y no interactúa con el proceso de generación del script. Adicionalmente, considera utilizar variables de cita doble del shell para evitar la [separación de palabras](https://github.com/koalaman/shellcheck/wiki/SC2086), pero esta es solo [una de muchas](https://mywiki.wooledge.org/BashPitfalls) recomendaciones generales para escribir scripts del shell y no es específica de {% data variables.product.prodname_actions %}.
 
-### Utilizar CodeQL para analizar tu código
+{% ifversion fpt or ghec %}
+### Utilizar flujos de trabajo inicial para el escaneo de código
 
-Para ayudarte a admnistrar el riesgo que representan los patrones peligrosos tan pronto como sea posible en el ciclo de vida de desarrollo, el Laboratorio de Seguridad de {% data variables.product.prodname_dotcom %} ha desarrollado [consultas de CodeQL](https://github.com/github/codeql/tree/main/javascript/ql/src/experimental/Security/CWE-094) que los propietarios de los repositorios pueden [integrar](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#running-additional-queries) en sus mapeos de IC/DC. Para obtener más información, consulta la sección "[Acerca del escaneo de código"](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning).
+{% data reusables.advanced-security.starter-workflows-beta %}
+El {% data variables.product.prodname_code_scanning_capc %} te permite encontrar vulnerabilidades de seguridad antes de que lleguen a producción. {% data variables.product.product_name %} proporciona flujos de trabajo iniciales para el {% data variables.product.prodname_code_scanning %}. Puedes utilizar estos flujos de trabajo sugeridos para construir tus flujos de trabajo del {% data variables.product.prodname_code_scanning %} en vez de comenzar desde cero. El flujo de trabajo de {% data variables.product.company_short%}, el {% data variables.product.prodname_codeql_workflow %}, funciona con {% data variables.product.prodname_codeql %}. También existen flujos de trabajo iniciales de terceros disponibles.
 
-Los scripts dependen actualmente de las bibliotecas de JavaScript de CodeQL, lo que significa que el repositorio analizado debe contener por lo menos un archivo de JavaScript y que CodeQL debe [configurarse para analizar este lenguaje](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed).
+Para obtener más información, consulta las secciones "[Acerca del {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" y "[Configurar el {% data variables.product.prodname_code_scanning %} utilizando flujos de trabajo iniciales](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-starter-workflows)".
 
-- `ExpressionInjection.ql`: Cubre las inyecciones de expresiòn que se describen en este artìculo y se le considera como razonablemente preciso. Sin embargo, no realiza un rastreo de flujo de datos entre los pasos de flujo de trabajo.
-- `UntrustedCheckout.ql`: Los resultados de este script necesitan de una revisiòn manual para determinar si el còdigo de una solicitud de cambios se trata realmente de forma no segura. Para obtener màs informaciòn, consulta la secciòn "[Mantener seguras tus GitHub Actions y flujos de trabajo: Prevenir solicitudes de tipo pwn](https://securitylab.github.com/research/github-actions-preventing-pwn-requests)" en el blog del Laboratorio de Seguridad de {% data variables.product.prodname_dotcom %}.
+{% endif %}
 
 ### Restringir los permisos para los tokens
 
@@ -174,13 +173,7 @@ Puedes ayudar a mitigar este riesgo si sigues estas buenas prácticas:
 
   Fijar una acción a un SHA de confirmación de longitud completa es actualmente la única forma de utilizar una acción como un lanzamiento inmutable. Fijar las acciones a un SHA en particular ayuda a mitigar el riesgo de que un actor malinencionado agregue una puerta trasera al repositorio de la acción, ya que necesitarían generar una colisión de SHA-1 para una carga útil vlálida de un objeto de Git.
 
-  {% ifversion ghes < 3.1 %}
-  {% warning %}
 
-  **Advertencia:** La versión corta del SHA de confirmación no es segura y jamás debería utilizarse para especificar la referencia de Git de una acción. Debido a cómo funcionan las redes de los repositorios, cualquier usuario puede bifurcar el repositorio y cargar una confirmación creada a éste, la cual colisione con el SHA corto. Esto causa que fallen los clones subsecuentes a ese SHA, debido a que se convierte en una confirmación ambigua. Como resultado, cualquier flujo de trabajo que utilice el SHA acortado fallará de inmediato.
-
-  {% endwarning %}
-  {% endif %}
 
 * **Audita el código fuente de la acción**
 
@@ -201,6 +194,10 @@ El mismo principio que se describió anteriormente para utilizar acciones de ter
 
 {% data reusables.actions.outside-collaborators-internal-actions %} Para obtener más información, consulta la sección "[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)".
 {% endif %}
+
+## Utilizar las tarjetas de puntuación para asegurar los flujos de trabajo
+
+[Las tarjetas de puntuación](https://github.com/ossf/scorecard) son una herramienta de seguridad automatizada que resalta las prácticas riesgosas en la cadena de suministro. Puedes utilizar la [Acción de tarjetas de puntuación](https://github.com/marketplace/actions/ossf-scorecard-action) y el [flujo de trabajo inicial](https://github.com/actions/starter-workflows) para seguir las mejores prácticas de seguridad. Una vez que se configure, la acción de tarjetas de puntuación se ejecutará automáticamente en los cambios de repositorio y alertará a los desarrolladores sobre las prácticas riesgosas en la cadena de suministro utilizando la experiencia de escaneo en el código integrado. El proyecto de tarjetas de puntuación ejecuta varias verificaciones, incluyendo las de ataques de inyección de scripts, permisos de tokens y acciones fijadas.
 
 ## Impacto potencial de un ejecutor puesto en riesgo
 
@@ -260,15 +257,15 @@ Esta lista describe los acercamientos recomendatos para acceder alos datos de un
 
 ## Fortalecimiento para los ejecutores auto-hospedados
 
-{% ifversion fpt %}
+{% ifversion fpt or ghec %}
 Los ejecutores **hospedados en {% data variables.product.prodname_dotcom %}** ejecutan código dentro de máquinas virtuales aisladas, limpias y efímeras, lo cual significa que no hay forma de poner este ambiente en riesgo de forma persistente, o de obtener acceso de otra forma a más información de la que se colocó en este ambiente durante el proceso de arranque.
 {% endif %}
 
-{% ifversion fpt %}Los ejecutores **auto-hospedados**{% elsif ghes or ghae %}Los ejecutores auto-hospedados{% endif %} para {% data variables.product.product_name %} no tienen las garantías de ejecutarse en máquinas virtuales limpias y efímeras y pueden estar en riesgo constante si hay código no confiable en un flujo de trabajo.
+{% ifversion fpt or ghec %}Los ejecutores **auto-hospedados**{% elsif ghes or ghae %}Los ejecutores auto-hospedados{% endif %} para {% data variables.product.product_name %} no tienen garantías sobre ejecutar en máquinas virtuales limpias y efímeras y pueden ponerse en riesgo persistentemente mediante el código no confiable en un flujo de trabajo.
 
-{% ifversion fpt %}omo resultado, los ejecutores auto-hospedados no deberán [utilizarse casi nunca para repositorios públicos](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) en {% data variables.product.product_name %}, ya que cualquier usuario puede abrir solicitudes de extracción contra este repositorio y poner en riesgo el ambiente. De forma similar, ten {% elsif ghes or ghae %}Ten{% endif %} cuidado al utilizar ejecutores auto-hospedados en repositorios privados o internos, ya que cualquiera que pueda bifurcar el repositorio y abrir una solicitud de cambios (que son generalmente aquellos con acceso de lectura al repositorio) podrán poner en riesgo el ambiente del ejecutor auto-hospedado, incluyendo el obtener acceso a los secretos y al `GITHUB_TOKEN` que{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, dependiendo de su configuración, podría otorgar{% else %} otorga{% endif %}permisos de acceso de escritura en el repositorio. Aunque los flujos de trabajo pueden controlar el acceso a los secretos de ambiente utilizando ambientes y revisiones requeridas, estos flujos de trabajo no se encuentran en un ambiente aislado y aún son susceptibles a los mismos riesgos cuando se ejecutan en un ejecutor auto-hospedado.
+{% ifversion fpt or ghec %}Como resultado, los ejecutores auto-hospedados no deberán [utilizarse casi nunca para repositorios públicos](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) en {% data variables.product.product_name %}, ya que cualquier usuario puede abrir solicitudes de extracción contra este repositorio y poner en riesgo el ambiente. De forma similar, ten{% elsif ghes or ghae %}Ten{% endif %} cuidado al utilizar ejecutores auto-hospedados en repositorios privados o internos, ya que cualquiera que pueda bifurcar el repositorio y abrir una solicitud de cambios (habitualmente, aquellos con acceso de lectura al mismo) pueden poner en riesgo el ambiente del ejecutor auto-hospedado, incluyendo el obtener acceso a los secretos y al `GITHUB_TOKEN` que,{% ifversion fpt or ghes > 3.1 or ghae or ghec %} dependiendo de su configuración, puede otorgar{% else %} otorga{% endif %}acceso de escritura al repositorio. Aunque los flujos de trabajo pueden controlar el acceso a los secretos de ambiente utilizando ambientes y revisiones requeridas, estos flujos de trabajo no se encuentran en un ambiente aislado y aún son susceptibles a los mismos riesgos cuando se ejecutan en un ejecutor auto-hospedado.
 
-Cuando se define un ejecutor auto-hospedado a nivel de organización o de empresa, {% data variables.product.product_name %} puede programar flujos de trabajo de repositorios múltiples en el mismo ejecutor. Como consecuencia, si se pone en riesgo la seguridad de estos ambientes, se puede ocasionar un impacto amplio. Para ayudar a reducir el alcance de esta vulneración, puedes crear límites si organizas tus ejecutores auto-hospedados en grupos separados. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
+Cuando se define un ejecutor auto-hospedado a nivel de organización o de empresa, {% data variables.product.product_name %} puede programar flujos de trabajo de repositorios múltiples en el mismo ejecutor. Como consecuencia, si se pone en riesgo la seguridad de estos ambientes, se puede ocasionar un impacto amplio. Para ayudar a reducir el alcance de esta vulneración, puedes crear límites si organizas tus ejecutores auto-hospedados en grupos separados. Puedes restringir qué {% if restrict-groups-to-workflows %}flujios de trabajo, {% endif %}organizaciones y repositorios pueden acceder a los grupos de ejecutores. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
 También deberás considerar el ambiente de las máquinas del ejecutor auto-hospedado:
 - ¿Qué información sensible reside en la máquina configurada como el ejecutor auto-hospedado? Por ejemplo, llaves SSH privadas, tokens de acceso a la API, entre otros.
@@ -285,7 +282,7 @@ Un ejecutor auto-hospedado puede agregarse a varios niveles en tu jerarquía de 
   - Si solo tienes una organización sencilla, entonces el agregar tus ejecutores a nivel organizacional es efectivamente el mismo acercamiento, pero puede que encuentres dificultades si agregas otra organización en el futuro.
 
 **Administración descentralizada:**
-  - Si cada equipo administrará sus propios ejecutores auto-hospedados, entonces se recomienda que los agregues en el nivel más alto de propiedad del equipo. Por ejemplo, si cada equipo es dueño de su propia organización, entonces será más simple si los ejecutores se agregan a nivel de organización también.
+  - Si cada equipo administrará sus propios ejecutores auto-hospedados, entonces se recomienda agregarlos en el nivel más alto de propiedad del equipo. Por ejemplo, si cada equipo es dueño de su propia organización, entonces será más simple si los ejecutores se agregan a nivel de organización también.
   - También podrías agregar ejecutores a nivel de repositorio, pero esto agregará una sobrecarga de administración y también incrementará la cantidad de ejecutores que necesitas, ya que no puedes compartir ejecutores entre repositorios.
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}

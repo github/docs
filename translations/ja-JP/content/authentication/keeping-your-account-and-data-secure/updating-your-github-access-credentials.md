@@ -24,7 +24,7 @@ shortTitle: Update access credentials
 2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured.
   ![Password reset email request dialog](/assets/images/help/settings/password-recovery-email-request.png)
 3. We'll email you a link that will allow you to reset your password. You must click on this link within 3 hours of receiving the email. If you didn't receive an email from us, make sure to check your spam folder.
-4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials. Type your 2FA credentials or one of your 2FA recovery codes and click **Verify**.
+4. If you have enabled two-factor authentication, you will be prompted for your 2FA credentials. Type your authentication code or one of your recovery codes and click **Verify**. If you have added a security key to your account, you can insert the key and click **Use security key** instead of typing an authentication code.
   ![Two-factor authentication prompt](/assets/images/help/2fa/2fa-password-reset.png)
 5. Type a new password, confirm your new password, and click **Change password**. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)."
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
@@ -41,8 +41,8 @@ To avoid losing your password in the future, we suggest using a secure password 
 {% data reusables.repositories.blocked-passwords %}
 
 1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 4. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see "[Creating a strong password](/articles/creating-a-strong-password)"
 5. Click **Update password**.
 
@@ -55,6 +55,12 @@ For greater security, enable two-factor authentication in addition to changing y
 ## Updating your access tokens
 
 See "[Reviewing your authorized integrations](/articles/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+
+{% ifversion not ghae %}
+
+If you have reset your account password and would also like to trigger a sign-out from the GitHub Mobile app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. For additional information, see "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)."
+
+{% endif %}
 
 ## Updating your SSH keys
 

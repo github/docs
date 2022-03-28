@@ -29,15 +29,15 @@ shortTitle: JavaScript 操作
 
 完成此项目后，您应了解如何构建自己的 JavaScript 操作和在工作流程测试该操作。
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## 基本要求
 
 在开始之前，您需要下载 Node.js 并创建公共 {% data variables.product.prodname_dotcom %} 仓库。
 
-1. Download and install Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}, which includes npm.
+1. 下载并安装 Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}16.x{% else %}12.x{% endif %}，其中包含 npm。
 
   {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}https://nodejs.org/en/download/{% else %}https://nodejs.org/en/download/releases/{% endif %}
 
@@ -141,7 +141,7 @@ try {
 - 操作使用的环境变量。
 - 如何在工作流程中使用操作的示例。
 
-```markdown
+```markdown{:copy}
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
@@ -193,7 +193,7 @@ git push --follow-tags
 1. 如果已检入您的 `node_modules` 目录，请删除它。 `rm -rf node_modules/*`
 
 1. 从您的终端，将更新提交到 `action.yml`、`dist/index.js` 和 `node_modules` 文件。
-```shell
+```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
 git tag -a -m "My first action release" v1.1
@@ -263,12 +263,6 @@ jobs:
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 在 **Jobs（作业）**下或可视化图形中，单击 **A job to say hello（打招呼的作业）**。 您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)
-{% elsif ghes %}
-![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
-{% else %}
-![在工作流中使用操作的屏幕截图](/assets/images/help/repository/javascript-action-workflow-run.png)
-{% endif %}

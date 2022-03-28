@@ -61,9 +61,8 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
  | `name`                | `string`           | GitHub App の名前。                                                                                                                                        |
  | `url`                 | `string`           | **必須。**GitHub App のホームページ。                                                                                                                             |
  | `hook_attributes`     | `オブジェクト`           | GitHub App の webhook の構成。                                                                                                                              |
- | `redirect_url`        | `string`           | ユーザがマニフェストから GitHub App の作成を開始した後にリダイレクトする完全な URL。{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
- | `callback_urls`       | `array of strings` | インストールの承認後にリダイレクトする完全な URL。 コールバック URL を最大 10 個指定できます。{% else %}
- | `callback_url`        | `string`           | インストールの承認後にリダイレクトする完全な URL。{% endif %}
+ | `redirect_url`        | `string`           | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.                                                       |
+ | `callback_urls`       | `array of strings` | インストールの承認後にリダイレクトする完全な URL。 最大 10 個のコールバック URL を指定できます。                                                                                                |
  | `説明`                  | `string`           | GitHub App の説明。                                                                                                                                        |
  | `public`              | `boolean`          | GitHub App を公開する場合には `true` に、アプリケーションの所有者のみがアクセスできるようにするには `false` を設定。                                                                               |
  | `default_events`      | `array`            | GitHub App がサブスクライブする[イベント](/webhooks/event-payloads)のリスト。                                                                                             |
@@ -101,9 +100,9 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% ifversion fpt or ghae or ghes > 3.0 or ghec %}"callback_urls": [
+   "callback_urls": [
      "https://example.com/callback"
-   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
+   ],
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -136,9 +135,9 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% ifversion fpt or ghae or ghes > 3.0 or ghec %}"callback_urls": [
+   "callback_urls": [
      "https://example.com/callback"
-   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
+   ],
    "public": true,
    "default_permissions": {
      "issues": "write",

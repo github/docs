@@ -12,7 +12,7 @@ topics:
 
 ## Visão Geral
 
-Aqui estão alguns links rápidos para ajudá-lo colocar em funcionamento a API v4 do GraphQL:
+Aqui estão alguns links rápidos para ajudar você a colocar em funcionamento a API do GraphQL:
 
 * [Autenticação](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
 * [Ponto de extremidade raiz](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
@@ -36,9 +36,9 @@ A linguagem de consulta de dados do [GraphQL](https://graphql.github.io/) é:
 
 ## Por que o GitHub está usando GraphQL
 
-O GitHub escolheu o GraphQL para a nossa API v4 porque ele oferece muito mais flexibilidade para os nossos integradores. A capacidade de definir precisamente os dados que você deseja&mdash;e _apenas_ os dados que você quer&mdash;é uma vantagem poderosa dos pontos de extremidades da API REST v3. O GraphQL permite que você substitua várias solicitações de REST por _uma única chamada_ para buscar os dados que você especificar.
+O GitHub escolheu o GraphQL, porque oferece muito mais flexibilidade para os nossos integradores. A capacidade de definir precisamente os dados que você deseja&mdash;e _apenas_ os dados que você desejar&mdash;é uma vantagem poderosa em comparação com os pontos de extremidade tradicionais da API REST. O GraphQL permite que você substitua várias solicitações de REST por _uma única chamada_ para buscar os dados que você especificar.
 
-Para obter mais informações sobre por que o GitHub fez a migração para o GraphQL, consulte o [post de anúncio do blogue](https://githubengineering.com/the-github-graphql-api/) original.
+Para obter mais detalhes sobre o porquê do GitHub ter investido no GraphQL, consulte o [post de anúncio do blogue](https://github.blog/2016-09-14-the-github-graphql-api/).
 
 ## Sobre a referência do esquema do GraphQL
 

@@ -1,6 +1,6 @@
 ---
-title: Quickstart for GitHub Pages
-intro: 'You can use {% data variables.product.prodname_pages %} to showcase some open source projects, host a blog, or even share your résumé. This guide will help get you started on creating your next website.'
+title: GitHub Pagesのクイックスタート
+intro: '{% data variables.product.prodname_pages %}を使って、オープンソースプロジェクトを紹介したり、ブログをホストしたり、履歴書を共有することさえもできます。 このガイドは、次のWebサイトを作成し始めるための役に立ちます。'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,30 +16,30 @@ product: '{% data reusables.gated-features.pages %}'
 
 ## はじめに
 
-{% data variables.product.prodname_pages %} are public webpages hosted and published through {% data variables.product.product_name %}. The quickest way to get up and running is by using the Jekyll Theme Chooser to load a pre-made theme. You can then modify your {% data variables.product.prodname_pages %}' content and style.
+{% data variables.product.prodname_pages %}は、{% data variables.product.product_name %}を通じてホストされ、公開されるパブリックなWebページです。 立ち上げて実行するための最速の方法は、Jekyll テーマ選択画面を使って事前作成されたテーマをロードすることです。 その後、{% data variables.product.prodname_pages %}のコンテンツやスタイルを変更できます。
 
-This guide will lead you through creating a user site at `username.github.io`.
+このガイドは、`username.github.io`でのユーザサイトの作成をご案内します。
 
-## Creating your website
+## Webサイトの作成
 
 {% data reusables.repositories.create_new %}
-1. Enter `username.github.io` as the repository name. Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`. ![Repository name field](/assets/images/help/pages/create-repository-name-pages.png)
+1. リポジトリ名として`username.github.io`を入力してください。 `username`を自分の{% data variables.product.prodname_dotcom %}ユーザ名で置き換えてください。 たとえば、ユーザ名が`octocat`なら、リポジトリ名は`octocat.github.io`となります。 ![リポジトリ名フィールド](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
-1. 左のサイドバーで**Pages（ページ）**をクリックしてください。 ![左のサイドバーのPageタブ](/assets/images/help/pages/pages-tab.png)
-1. Click **Choose a theme**. ![[Choose a theme] ボタン](/assets/images/help/pages/choose-theme.png)
-1. The Theme Chooser will open. Browse the available themes, then click **Select theme** to select a theme. It's easy to change your theme later, so if you're not sure, just choose one for now. ![テーマのオプションおよび [Select theme] ボタン](/assets/images/help/pages/select-theme.png)
-1. After you select a theme, your repository's `README.md` file will open in the file editor. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
-1. When you are done editing the file, click **Commit changes**.
-1. Visit `username.github.io` to view your new website. **メモ:** サイトに対する変更は、その変更を{% data variables.product.product_name %}にプッシュしてから公開されるまでに、最大20分かかることがあります。
+{% data reusables.pages.sidebar-pages %}
+1. **Choose a theme（テーマの選択）**をクリックしてください。 ![[Choose a theme] ボタン](/assets/images/help/pages/choose-theme.png)
+2. テーマ選択画面が開きます。 利用可能なテーマをブラウズし、**Select theme（テーマの選択）**をクリックしてテーマを選択してください。 後でテーマを変更することも容易なので、はっきりしない場合はとりあえずどれか1つを選択しておいてください。 ![テーマのオプションおよび [Select theme] ボタン](/assets/images/help/pages/select-theme.png)
+3. テーマとを選択すると、ファイルエディタで`README.md`ファイルが開かれます。 `README.md`ファイルは、サイトの内容を書くところです。 このファイルを編集することも、あるいはとりあえずデフォルトの内容をそのままにしておくこともできます。
+4. ファイルの編集が終わったら、**Commit changes（変更をコミット）**をクリックしてください。
+5. `username.github.io`にアクセスして、新しいWebサイトを見てみてください。 **メモ:** サイトに対する変更は、その変更を{% data variables.product.product_name %}にプッシュしてから公開されるまでに、最大20分かかることがあります。
 
-## Changing the title and description
+## タイトルと説明の変更
 
-By default, the title of your site is `username.github.io`. You can change the title by editing the `_config.yml` file in your repository. You can also add a description for your site.
+デフォルトでは、サイトのタイトルは`username.github.io`です。 リポジトリ内の`_config.yml`ファイルを編集すれば、タイトルを変更できます。 サイトの説明を追加することもできます。
 
-1. Click the **Code** tab of your repository.
-1. In the file list, click `_config.yml` to open the file.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
-1. The `_config.yml` file already contains a line that specifies the theme for your site. Add a new line with `title:` followed by the title you want. Add a new line with `description:` followed by the description you want. 例:
+1. リポジトリの**Code（コード）**タブをクリックしてください。
+1. ファイルリスト中で`_config.yml`をクリックしてオープンしてください。
+1. {% octicon "pencil" aria-label="The edit icon" %}をクリックしてファイルを編集してください。
+1. `_config.yml`には、既にサイトのテーマを指定する行が含まれています。 新しい行として`title:`の後に指定したいタイトルを続けてください。 新しい行を追加して`description:`の後に指定したい説明を続けてください。 例:
 
    ```yaml
    theme: jekyll-theme-minimal
@@ -47,10 +47,10 @@ By default, the title of your site is `username.github.io`. You can change the t
    description: Bookmark this to keep an eye on my project updates!
    ```
 
-1. When you are done editing the file, click **Commit changes**.
+1. ファイルの編集を終えたら、**Commit changes（変更をコミット）**をクリックしてください。
 
 ## 次のステップ
 
-For more information about how to add additional pages to your site, see "[Adding content to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites)."
+サイトへのページの追加方法に関する詳しい情報については「[Jekyllを使ったGitHub Pagesサイトへのコンテンツの追加](/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll#about-content-in-jekyll-sites)」を参照してください。
 
-For more information about setting up a {% data variables.product.prodname_pages %} site with Jekyll, see "[About GitHub Pages and Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)."
+Jekyllと合わせて{% data variables.product.prodname_pages %}をセットアップすることに関する詳しい情報については「[GitHub PagesとJekyllについて](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)」を参照してください。

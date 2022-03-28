@@ -179,7 +179,7 @@ git:
 
 Tanto {% data variables.product.prodname_actions %} como Travis CI pueden agregar variables de ambiente personalizadas a una matriz de pruebas, lo cual te permite referirte a la variable en un paso subsecuente.
 
-En {% data variables.product.prodname_actions %}, puedes utilizar la clave `include` para agregar variables de ambiente personalizadas a una matriz. {% data reusables.github-actions.matrix-variable-example %}
+En {% data variables.product.prodname_actions %}, puedes utilizar la clave `include` para agregar variables de ambiente personalizadas a una matriz. {% data reusables.actions.matrix-variable-example %}
 
 ## Características clave en {% data variables.product.prodname_actions %}
 
@@ -187,7 +187,7 @@ Cuando te migres de Travis CI, consider las siguientes características clave en
 
 ### Almacenar secretos
 
-{% data variables.product.prodname_actions %} te permite almacenar secretos y referenciarlos en tus jobs. Las organizaciones de {% data variables.product.prodname_actions %} pueden limitar qué repositorios pueden acceder a sus secretos. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Las reglas de protección de ambiente pueden requerir aprobación manual para que un flujo de trabajo acceda a los secretos del ambiente. {% endif %}Para obtener más información, consulta la sección "[Secretos cifrados](/actions/reference/encrypted-secrets)".
+{% data variables.product.prodname_actions %} te permite almacenar secretos y referenciarlos en tus jobs. Las organizaciones de {% data variables.product.prodname_actions %} pueden limitar qué repositorios pueden acceder a sus secretos. Las reglas de protección de ambiente pueden requerir aprobación manual para que un flujo de trabajo acceda a los secretos del ambiente. Para obtener más información, consulta "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 
 ### Compartir archivos entre jobs y flujos de trabajo
 

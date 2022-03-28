@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
-import { ActionList } from '@primer/components'
+import { ActionList } from '@primer/react'
 import { useState } from 'react'
 import { FeaturedTrack } from 'components/context/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'

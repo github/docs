@@ -17,7 +17,7 @@ topics:
 
 Bifurcar um repositório é semelhante a copiar um repositório, com duas grandes diferenças:
 
-* Você pode usar uma pull request para sugerir alterações da sua bifurcação user-owned para o repositório original, também conhecido como o repositório *upstream*.
+* Você pode usar um pull request para sugerir alterações na sua bifurcação pertencente ao usuário no repositório original na sua instância do GitHub, também conhecido como repositório *upstream*.
 * Você pode transmitir alterações do repositório upstream para a sua bifurcação local sincronizando a bifurcação com o repositório upstream.
 
 {% data reusables.repositories.you-can-fork %}

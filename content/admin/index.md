@@ -10,9 +10,7 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/key-metrics-for-collaboration-in-pull-requests
   - /github/installing-and-configuring-github-insights/viewing-and-filtering-key-metrics-and-reports
   - /github/installing-and-configuring-github-insights/github-insights-and-data-protection-for-your-organization
-  - /enterprise-server@2.22/github/site-policy/github-insights-and-data-protection-for-your-organization
-  - /enterprise-server@2.21/github/site-policy/github-insights-and-data-protection-for-your-organization
-  - /enterprise-server@2.20/github/site-policy/github-insights-and-data-protection-for-your-organization
+  - /github/site-policy/github-insights-and-data-protection-for-your-organization
   - /insights/installing-and-configuring-github-insights/configuring-the-connection-between-github-insights-and-github-enterprise
   - /github/installing-and-configuring-github-insights/navigating-between-github-insights-and-github-enterprise
   - /github/installing-and-configuring-github-insights/enabling-a-link-between-github-insights-and-github-enterprise
@@ -71,7 +69,6 @@ changelog:
   label: enterprise
 featuredLinks:
   guides:
-    - '{% ifversion ghae %}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
     - '{% ifversion ghae %}/admin/user-management/auditing-users-across-your-enterprise{% endif %}'
     - '{% ifversion ghae %}/admin/configuration/restricting-network-traffic-to-your-enterprise{% endif %}'
     - '{% ifversion ghes %}/admin/configuration/configuring-backups-on-your-appliance{% endif %}'
@@ -81,6 +78,7 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users{% endif %}'
     - '{% ifversion ghec %}/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise{% endif %}'
+    - /admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise
   guideCards:
     - '{% ifversion ghes > 2.22 %} /admin/github-actions/getting-started-with-github-actions-for-github-enterprise-server {% elsif ghes < 3.0 %} /admin/enterprise-management/upgrading-github-enterprise-server {% endif %}'
     - '{% ifversion ghes > 2.22 %} /admin/packages/getting-started-with-github-packages-for-your-enterprise {% elsif ghes < 3.0 %} /admin/user-management/customizing-user-messages-for-your-enterprise {% endif %}'
@@ -96,20 +94,23 @@ featuredLinks:
     - '{% ifversion ghes %}/github/getting-started-with-github/setting-up-a-trial-of-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/installation{% endif %}'
     - '{% ifversion ghae %}/admin/identity-and-access-management/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad{% endif %}'
+    - '{% ifversion ghae %}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
     - '{% ifversion ghae %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
+    - '{% ifversion ghae %}/admin/configuration/configuring-your-enterprise/deploying-github-ae{% endif %}'
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise{% endif %}'
     - '{% ifversion ghes %}/admin/configuration/command-line-utilities{% endif %}'
     - '{% ifversion ghec %}/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise{% endif %}'
     - '{% ifversion ghec %}/admin/user-management/monitoring-activity-in-your-enterprise/managing-global-webhooks{% endif %}'
     - '{% ifversion ghec %}/billing/managing-your-license-for-github-enterprise/using-visual-studio-subscription-with-github-enterprise/setting-up-visual-studio-subscription-with-github-enterprise{% endif %}'
+    - /admin/configuration/configuring-github-connect/managing-github-connect
     - /admin/enterprise-support/about-github-enterprise-support
   videos:
-    - title: "GitHub in the Enterprise – Maya Ross"
+    - title: GitHub in the Enterprise – Maya Ross
       href: 'https://www.youtube-nocookie.com/embed/1-i39RqaxRs'
-    - title: "What's new for GitHub Enterprise – Jarryd McCree"
+    - title: What's new for GitHub Enterprise – Jarryd McCree
       href: 'https://www.youtube-nocookie.com/embed/ZZviWZgrqhM'
-    - title: "Enforcing information security policy through GitHub Enterprise – Thomas Worley"
+    - title: Enforcing information security policy through GitHub Enterprise – Thomas Worley
       href: 'https://www.youtube-nocookie.com/embed/DCu-ZTT7WTI'
   videosHeading: GitHub Universe 2021 videos
 layout: product-landing
@@ -127,7 +128,7 @@ children:
   - /enterprise-management
   - /github-actions
   - /packages
-  - /advanced-security
+  - /code-security
   - /guides
   - /release-notes
   - /all-releases

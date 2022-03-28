@@ -15,6 +15,13 @@ miniTocMaxHeadingLevel: 3
 
 ## Monitoring your workflows
 
+{% if github-runner-dashboard %}
+### Monitoring your current jobs in your organization or enterprise
+
+{% data reusables.actions.github-hosted-runners-check-concurrency %}
+
+{% endif %}
+
 {% ifversion fpt or ghae or ghes > 3.0 or ghec %}
 
 ### 視覚化グラフの利用

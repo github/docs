@@ -55,6 +55,7 @@ const PUBLIC_REPOS = new Set([
   'help-docs-archived-enterprise-versions',
   'stack-graphs',
   'codespaces-precache',
+  'advisory-database',
 ])
 
 const ALLOW_DOCS_PATHS = [
@@ -67,7 +68,6 @@ const ALLOW_DOCS_PATHS = [
   'ownership.yaml',
   'docs/index.yaml',
   'lib/excluded-links.js',
-  'script/deploy.js',
   'script/README.md',
   'script/toggle-ghae-feature-flags.js',
   '.github/workflows/hubber-contribution-help.yml',

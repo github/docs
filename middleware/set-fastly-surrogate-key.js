@@ -23,11 +23,6 @@ export function setFastlySurrogateKey(res, enumKey) {
   res.set(KEY, enumKey)
 }
 
-export function setManualFastlySurrogateKey(req, res, next) {
-  res.set(KEY, SURROGATE_ENUMS.MANUAL)
-  return next()
-}
-
 export function setDefaultFastlySurrogateKey(req, res, next) {
   res.set(KEY, SURROGATE_ENUMS.DEFAULT)
   return next()

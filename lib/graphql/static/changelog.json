@@ -4,6 +4,136 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `DependencyGraphEcosystem` was added",
+          "Field `viewerCanMergeAsAdmin` was added to object type `PullRequest`",
+          "Argument `ecosystem: DependencyGraphEcosystem` added to field `Query.sponsorables`",
+          "Input field `accessToken` was added to input object type `StartRepositoryMigrationInput`",
+          "Input field `githubPat` was added to input object type `StartRepositoryMigrationInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `PullRequest.viewerCanOverrideMergeQueue`:`viewerCanOverrideMergeQueue` will be removed. Use PullRequest.viewerCanMergeAsAdmin instead. **Effective 2022-04-01**.",
+          "On member `Repository.defaultMergeQueue`:`defaultMergeQueue` will be removed. Use `Repository.mergeQueue` instead. **Effective 2022-04-01**.",
+          "On member `Query.sponsorables.dependencyEcosystem`:`dependencyEcosystem` will be removed. Use the ecosystem argument instead. **Effective 2022-07-01**."
+        ]
+      }
+    ],
+    "date": "2022-02-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `RepositoryCodeowners` was added",
+          "Type `RepositoryCodeownersError` was added",
+          "Type `RepositoryVulnerabilityAlertState` was added",
+          "Type `UpdateProjectNextInput` was added",
+          "Type `UpdateProjectNextPayload` was added",
+          "Input field `milestoneNumber` was added to input object type `IssueFilters`",
+          "Field `updateProjectNext` was added to object type `Mutation`",
+          "Field `repositories` was added to object type `ProjectNext`",
+          "Argument `userLinkedOnly: Boolean` added to field `PullRequest.closingIssuesReferences`",
+          "Field `codeowners` was added to object type `Repository`",
+          "Field `projectNext` was added to object type `Repository`",
+          "Field `projectsNext` was added to object type `Repository`",
+          "Argument 'states: [RepositoryVulnerabilityAlertState!]` added to field `Repository.vulnerabilityAlerts'",
+          "Field `fixReason` was added to object type `RepositoryVulnerabilityAlert`",
+          "Field `fixedAt` was added to object type `RepositoryVulnerabilityAlert`",
+          "Field `number` was added to object type `RepositoryVulnerabilityAlert`",
+          "Field `state` was added to object type `RepositoryVulnerabilityAlert`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-02-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `Import` was removed",
+          "Input field `gitArchiveUrl` was added to input object type `StartRepositoryMigrationInput`",
+          "Input field `metadataArchiveUrl` was added to input object type `StartRepositoryMigrationInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-02-07"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `AbortQueuedMigrationsInput` was added",
+          "Type `AbortQueuedMigrationsPayload` was added",
+          "Type `ActorType` was added",
+          "Type `CreateMigrationSourceInput` was added",
+          "Type `CreateMigrationSourcePayload` was added",
+          "Type `GrantEnterpriseOrganizationsMigratorRoleInput` was added",
+          "Type `GrantEnterpriseOrganizationsMigratorRolePayload` was added",
+          "Type `GrantMigratorRoleInput` was added",
+          "Type `GrantMigratorRolePayload` was added",
+          "Type `Import` was added",
+          "Type `Migration` was added",
+          "Type `MigrationSource` was added",
+          "Type `MigrationSourceType` was added",
+          "Type `MigrationState` was added",
+          "Type `RepositoryMigration` was added",
+          "Type `RepositoryMigrationConnection` was added",
+          "Type `RepositoryMigrationEdge` was added",
+          "Type `RepositoryMigrationOrder` was added",
+          "Type `RepositoryMigrationOrderDirection` was added",
+          "Type `RepositoryMigrationOrderField` was added",
+          "Type `RevokeEnterpriseOrganizationsMigratorRoleInput` was added",
+          "Type `RevokeEnterpriseOrganizationsMigratorRolePayload` was added",
+          "Type `RevokeMigratorRoleInput` was added",
+          "Type `RevokeMigratorRolePayload` was added",
+          "Type `StartRepositoryMigrationInput` was added",
+          "Type `StartRepositoryMigrationPayload` was added",
+          "Type `UpdateEnterpriseOwnerOrganizationRoleInput` was added",
+          "Type `UpdateEnterpriseOwnerOrganizationRolePayload` was added",
+          "Argument `login: String` added to field `EnterpriseIdentityProvider.externalIdentities`",
+          "Argument `userName: String` added to field `EnterpriseIdentityProvider.externalIdentities`",
+          "Field `projectNextItems` was added to object type `Issue`",
+          "Field `abortQueuedMigrations` was added to object type `Mutation`",
+          "Field `createMigrationSource` was added to object type `Mutation`",
+          "Field `grantEnterpriseOrganizationsMigratorRole` was added to object type `Mutation`",
+          "Field `grantMigratorRole` was added to object type `Mutation`",
+          "Field `revokeEnterpriseOrganizationsMigratorRole` was added to object type `Mutation`",
+          "Field `revokeMigratorRole` was added to object type `Mutation`",
+          "Field `startRepositoryMigration` was added to object type `Mutation`",
+          "Field `updateEnterpriseOwnerOrganizationRole` was added to object type `Mutation`",
+          "Argument `login: String` added to field `OIDCProvider.externalIdentities`",
+          "Argument `userName: String` added to field `OIDCProvider.externalIdentities`",
+          "Field `repositoryMigrations` was added to object type `Organization`",
+          "Argument `login: String` added to field `OrganizationIdentityProvider.externalIdentities`",
+          "Argument `userName: String` added to field `OrganizationIdentityProvider.externalIdentities`",
+          "Field `public` was added to object type `ProjectNext`",
+          "Field `shortDescription` was added to object type `ProjectNext`",
+          "Field `isArchived` was added to object type `ProjectNextItem`",
+          "Field `projectNextItems` was added to object type `PullRequest`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-02-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `OrgEnterpriseOwnerOrder` was added",
           "Type `OrgEnterpriseOwnerOrderField` was added",
           "Type `OrganizationEnterpriseOwnerConnection` was added",

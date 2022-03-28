@@ -62,5 +62,7 @@ children:
   - /exploring-projects-on-github
   - /getting-started-with-git
   - /using-git
+  - /customizing-your-github-workflow
   - /privacy-on-github
 ---
+

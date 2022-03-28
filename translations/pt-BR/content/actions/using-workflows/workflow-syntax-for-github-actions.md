@@ -56,6 +56,8 @@ Nome do fluxo de trabalho. O {% data variables.product.prodname_dotcom %} exibe 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call`
 
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
 Use `on.workflow_call` para definir as entradas e saídas para um fluxo de trabalho reutilizável. Você também pode mapear os segredos disponíveis para o fluxo de trabalho chamado. Para obter mais informações sobre fluxos de trabalho reutilizáveis, consulte "[Reutilizando fluxos de trabalho](/actions/using-workflows/reusing-workflows)".
 
 ### `on.workflow_call.inputs`
@@ -164,14 +166,13 @@ Um identificador de string para associar ao segredo.
 Um booleano que especifica se o segredo deve ser fornecido.
 {% endif %}
 
-
 ## `on.workflow_run.<branches|branches-ignore>`
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
 ## `on.workflow_dispatch.inputs`
 
-{% data reusables.github-actions.workflow-dispatch-inputs %}
+{% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `permissões`
@@ -183,6 +184,8 @@ Um booleano que especifica se o segredo deve ser fornecido.
 ## `env`
 
 Um `mapa` das variáveis de ambiente que estão disponíveis para as etapas de todos os trabalhos do fluxo de trabalho. Também é possível definir variáveis de ambiente que estão disponíveis apenas para as etapas de um único trabalho ou para uma única etapa. Para obter mais informações, consulte [`jobs.<job_id>.env`](#jobsjob_idenv) e [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
+
+As variáveis no mapa `env` não podem ser definidas em termos de outras variáveis no mapa.
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -238,12 +241,9 @@ env:
 
 {% data reusables.actions.jobs.section-choosing-the-runner-for-a-job %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}
-
-{% endif %}
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
@@ -316,7 +316,7 @@ Identificador exclusivo da etapa. Você pode usar `id` para fazer referência à
 
 Você pode usar a condicional `if` (se) para evitar que uma etapa trabalho seja executada a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
+{% data reusables.actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 #### Exemplo: Usando contextos
 
@@ -341,6 +341,31 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@1.0.0
 ```
+
+#### Exemplo: Usando segredos
+
+Não é possível fazer referência a segredos nas condicionais `if:`. Em vez disso, considere definir segredos como variáveis de ambiente no nível de trabalho e, em seguida, fazer referência às variáveis de ambiente para executar etapas condicionalmente no trabalho.
+
+Se um segredo não tiver sido definido, o valor de retorno de uma expressão referente ao segredo (como {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} no exemplo) será uma string vazia.
+
+{% raw %}
+```yaml
+name: Run a step if a secret has been set
+on: push
+jobs:
+  my-jobname:
+    runs-on: ubuntu-latest
+    env:
+      super_secret: ${{ secrets.SuperSecret }}
+    steps:
+      - if: ${{ env.super_secret != '' }}
+        run: echo 'This step will only run if the secret has a value set.'
+      - if: ${{ env.super_secret == '' }}
+        run: echo 'This step will only run if the secret does not have a value set.'
+```
+{% endraw %}
+
+Para obter mais informações, consulte "[Disponibilidade de contexto](/actions/learn-github-actions/contexts#context-availability)" e "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
 ### `jobs.<job_id>.steps[*].name`
 
@@ -714,6 +739,12 @@ Número máximo de minutos para permitir a execução de um trabalho o antes que
 
 Se o tempo-limite exceder o tempo limite de execução do trabalho para o runner, o trabalho será cancelada quando o tempo limite de execução for atingido. Para obter mais informações sobre o limite de tempo de execução do trabalho, consulte {% ifversion fpt or ghec or ghes %}"[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration#usage-limits)" para executores hospedados em {% data variables.product.prodname_dotcom %} e {% endif %}"[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" para limites de uso de executores auto-hospedados.{% elsif ghae %}."{% endif %}
 
+{% note %}
+
+**Observação:** {% data reusables.actions.github-token-expiration %} para executores auto-hospedados, o token pode ser o fator de limitação se o tempo limite do trabalho for superior a 24 horas. Para obter mais informações sobre o `GITHUB_TOKEN`, consulte "[Sobre ](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)segredo do `GITHUB_TOKEN`."
+
+{% endnote %}
+
 ## `jobs.<job_id>.strategy`
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-strategy %}
@@ -757,6 +788,8 @@ strategy:
 
 ## `jobs.<job_id>.container`
 
+{% data reusables.actions.docker-container-os-support %}
+
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
 ### `jobs.<job_id>.container.image`
@@ -785,7 +818,7 @@ strategy:
 
 ## `jobs.<job_id>.services`
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 Usado para hospedar contêineres de serviço para um trabalho em um fluxo de trabalho. Contêineres de serviço são úteis para a criação de bancos de dados ou serviços armazenamento em cache como o Redis. O executor cria automaticamente uma rede do Docker e gerencia o ciclo de vida dos contêineres do serviço.
 
@@ -830,7 +863,7 @@ services:
     image: ghcr.io/owner/myservice1
     credentials:
       username: ${{ github.actor }}
-      password: ${{ secrets.ghcr_token }}
+      password: ${{ secrets.github_token }}
   myservice2:
     image: dockerhub_org/myservice2
     credentials:
@@ -879,7 +912,9 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
-O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use uma das seguintes sintaxes:{% endif %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
+O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como trabalho. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use uma das seguintes sintaxes:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
@@ -973,7 +1008,7 @@ Par aobte rmais informações sobre branch, tag e sintaxe de filtro do caminho, 
 | `'**'`                                                  | Corresponde a todos os nomes de branches e tags. Esse é o comportamento padrão quando você não usa um filtro de `branches` ou `tags`.                                               | `all/the/branches`<br/><br/>`every/tag`                                                                   |
 | `'*feature'`                                            | O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas.                                                                                 | `mona-feature`<br/><br/>`feature`<br/><br/>`ver-10-feature`                                   |
 | `v2*`                                                   | Corresponde aos nomes de branches e tags que iniciam com `v2`.                                                                                                                      | `v2`<br/><br/>`v2.0`<br/><br/>`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                                   | Corresponde a todas as tags de versão de branch semântica com a versão principal 1 ou 2                                                                                             | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
+| `v[12].[0-9]+.[0-9]+`                                   | Corresponde a todas as tags de versão de branch semântica com a versão principal 1 ou 2.                                                                                            | `v1.10.1`<br/><br/>`v2.0.0`                                                                               |
 
 ### Padrões para corresponder a caminhos de arquivos
 

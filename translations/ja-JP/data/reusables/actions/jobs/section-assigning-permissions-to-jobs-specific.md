@@ -2,8 +2,8 @@ For a specific job, you can use `jobs.<job_id>.permissions` to modify the defaul
 
 ジョブ定義内で権限を指定することで、必要に応じて、ジョブごとに `GITHUB_TOKEN` に異なる権限のセットを設定できます。 または、ワークフロー内のすべてのジョブの権限を指定することもできます。 ワークフローレベルでの権限の定義については、 [`permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#permissions) を参照してください。
 
-{% data reusables.github-actions.github-token-available-permissions %}
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.github-token-available-permissions %}
+{% data reusables.actions.forked-write-permission %}
 
 #### Example: Setting permissions for a specific job
 

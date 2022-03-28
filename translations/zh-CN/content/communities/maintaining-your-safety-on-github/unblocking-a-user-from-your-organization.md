@@ -33,7 +33,7 @@ shortTitle: 从您的组织中解除阻止
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}
+{% data reusables.organizations.moderation-settings %}，然后单击“**阻止的用户**”。
 5. 在“Blocked users（已阻止的用户）”下您想要取消阻止的用户旁边，单击 **Unblock（取消阻止）**。 ![取消阻止用户按钮](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## 延伸阅读

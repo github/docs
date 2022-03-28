@@ -28,9 +28,15 @@ Por exemplo, você pode desenvolver um sistema interno que emite um novo certifi
 Integrantes da organização podem usar os certificados assinados para autenticação mesmo que você tenha aplicado o logon único SAML. A menos que você exija certificados SSH, os integrantes podem continuar a usar outros meios de autenticação para acessar os recursos da organização no Git, como o nome de usuário e senha deles, tokens de acesso pessoais e outras chaves SSH próprias.
 {% endif %}
 
-Os integrantes não poderão usar seus certificados para acessar bifurcações dos seus repositórios que são propriedade das contas de usuário.
+Os integrantes não poderão usar seus certificados para acessar bifurcações dos seus repositórios que são propriedade das contas pessoais.
 
-Para evitar erros de autenticação, os integrantes da organização devem usar uma URL especial que inclua o ID da organização para clonar repositórios usando certificados assinados. Qualquer pessoa com acesso de leitura no repositório pode localizar essa URL na página do repositório. Para obter mais informações, consulte "[Clonar um repositório](/articles/cloning-a-repository)".
+## Sobre os URLs do SSH com certificados SSH
+
+Se sua organização exigir certificados SSH, para evitar erros de autenticação, os integrantes da organização deverão usar um URL especial que inclua o ID da organização quando executar operações Git por meio do SSH. Este URL especial permite que o cliente e servidor negociem mais facilmente qual chave no computador do integrante deverá ser usada para autenticação. Se um integrante usar a URL normal, que começa com `git@github. om`, o cliente do SSH poderá oferecer a chave incorreta, causando falha na operação.
+
+Qualquer pessoa com acesso de leitura ao repositório pode encontrar esse URL selecionando o menu suspenso do **Código** na página principal do repositório e, em seguida, clicando em **Usar SSH**.
+
+Se sua organização não exigir certificados SSH, os integrantes poderão continuar usando suas próprias chaves SSH ou outros meios de autenticação. Nesse caso, o URL especial ou o URL normal, que começa com `git@github.com`, irá funcionar.
 
 ## Emitindo certificados
 

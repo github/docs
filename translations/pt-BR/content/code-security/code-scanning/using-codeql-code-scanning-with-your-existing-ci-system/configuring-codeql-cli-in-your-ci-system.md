@@ -8,7 +8,7 @@ redirect_from:
   - /code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -24,6 +24,14 @@ topics:
 ---
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
+
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Observação:** Este artigo descreve as funcionalidades presentes na versão de {% data variables.product.prodname_codeql_cli %} disponível no momento da versão de {% data variables.product.product_name %}. Se a sua empresa usar uma versão mais recente de {% data variables.product.prodname_codeql_cli %}, consulte a [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system).
+
+{% endnote %}
+{% endif %}
 
 ## Sobre como gerar resultados de varredura de código com {% data variables.product.prodname_codeql_cli %}
 
@@ -325,7 +333,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Especifique pacotes ou consultas de {% data variables.product.prodname_codeql %} para executar. Para executar as consultas padrão usadas para {% data variables.product.prodname_code_scanning %}, omita este parâmetro. To see the other query suites included in the {% data variables.product.prodname_codeql_cli %} bundle, look in <code>/&lt;extraction-root&gt;/qlpacks/codeql/&lt;language&gt;-queries/codeql-suites</code>. Para obter informações sobre como criar seu próprio conjunto de consulta, consulte <a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">Criando conjuntos de consultas de CodeQL</a> na documentação do {% data variables.product.prodname_codeql_cli %}.
+      Especifique pacotes ou consultas de {% data variables.product.prodname_codeql %} para executar. Para executar as consultas padrão usadas para {% data variables.product.prodname_code_scanning %}, omita este parâmetro. Para ver os outros itens de consulta incluídos no pacote de {% data variables.product.prodname_codeql_cli %}, consulte <code>/&lt;extraction-root&gt;/qlpacks/codeql/&lt;language&gt;-queries/codeql-suites</code>. Para obter informações sobre como criar seu próprio conjunto de consulta, consulte <a href="https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/">Criando conjuntos de consultas de CodeQL</a> na documentação do {% data variables.product.prodname_codeql_cli %}.
     </td>
   </tr>
   
@@ -367,7 +375,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Opcional para análise única do banco de dados. Necessário para definir a linguagem quando você analisa vários bancos de dados para um único commit em um repositório. Especifique uma categoria a incluir no arquivo de resultados SARIF para esta análise. Usa-e uma categoria para distinguir várias análises para a mesma ferramenta e commit, mas é realizada em diferentes linguagens ou diferentes partes do código.{% endif %}{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
+      Opcional para análise única do banco de dados. Necessário para definir a linguagem quando você analisa vários bancos de dados para um único commit em um repositório. Especifique uma categoria a incluir no arquivo de resultados SARIF para esta análise. Uma categoria é usada para distinguir várias análises para a mesma ferramenta e commit, mas executada em diferentes linguagens ou em diferentes partes do código.{% endif %}{% ifversion fpt or ghes > 3.3 or ghae or ghec %}
     </td>
   </tr>
   
@@ -500,7 +508,7 @@ Quando você decidir o método mais seguro e confiável para o seu servidor de C
     </td>
     
     <td>
-      Especifique o nome do <code>ref</code> que você verificou e analisou para que os resultados possam ser correspondidos ao código correto. Para o uso de um branch: <code>refs/heads/BRANCH-NAME</code>, para o commit principal de um pull request, use <code>refs/pulls/NUMBER/head</code> ou para o commit de merge gerado por {% data variables.product.prodname_dotcom %} do uso de um pull request <code>refs/pulls/NUMBER/merge</code>.
+      Especifique o nome do <code>ref</code> que você verificou e analisou para que os resultados possam ser correspondidos ao código correto. Para o uso de um branch: <code>refs/heads/BRANCH-NAME</code>, para o commit principal de um pull request, use <code>refs/pull/NUMBER/head</code> ou para o commit de merge gerado por {% data variables.product.prodname_dotcom %} do uso de um pull request <code>refs/pull/NUMBER/merge</code>.
     </td>
   </tr>
   
@@ -705,22 +713,6 @@ Para obter mais informações sobre o tipo de informações de diagnóstico disp
 Por padrão, {% data variables.product.prodname_code_scanning %} espera um arquivo de resultados SARIF por análise de um repositório. Consequentemente, quando se faz o upload de um segundo arquivo SARIF para um compromisso, ele é tratado como uma substituição do conjunto original de dados.
 
 Se desejar fazer o upload de mais de um conjunto de resultados para a API de {% data variables.product.prodname_code_scanning %} para um commit em um repositório, você deve identificar cada conjunto de resultados como um conjunto único. Para repositórios em que você cria mais de um banco de dados de {% data variables.product.prodname_codeql %} para analisar para cada commit, use a opção `--sarif-category` para especificar uma linguagem ou outra categoria exclusiva para cada arquivo SARIF que você gerar para esse repositório.
-
-### Alternativa caso o seu sistema de CI não puder acionar {% data variables.product.prodname_codeql_cli %}
-
-{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
-
-Se o seu sistema CI não puder habilitar o autobuild {% data variables.product.prodname_codeql_cli %} e você não puder especificar uma linha de comando para a compilação, você poderá usar o rastreamento de compilação indireto para criar bancos de dados de {% data variables.product.prodname_codeql %} para linguagens compiladas. Para obter mais informações, consulte [Usando o rastreamento indireto de compilação](https://codeql.github.com/docs/codeql-cli/creating-codeql-databases/#using-indirect-build-tracing) na documentação de {% data variables.product.prodname_codeql_cli %}.
-
-{% endif %}
-
-{% ifversion ghes < 3.3 %}
-
-{% data reusables.code-scanning.use-codeql-runner-not-cli %}
-
-{% data reusables.code-scanning.deprecation-codeql-runner %}
-
-{% endif %}
 
 {% endif %}
 

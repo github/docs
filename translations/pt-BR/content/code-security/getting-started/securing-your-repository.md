@@ -32,10 +32,9 @@ O primeiro passo para proteger um repositório é configurar quem pode ver e mod
 
 Na página principal do seu repositório, clique em **{% octicon "gear" aria-label="The Settings gear" %}configurações**e, em seguida, desça a barra de rolagem até a "Zona de perigo".
 
-- Para alterar quem pode visualizar seu repositório, clique em **Alterar a visibilidade**. Para obter mais informações, consulte "[Configurar a visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)."{% ifversion fpt or ghec %}
+- Para alterar quem pode visualizar seu repositório, clique em **Alterar a visibilidade**. Para obter mais informações, consulte "[Configuração da visibilidade do repositório](/github/administering-a-repository/setting-repository-visibility)".{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
 - Para alterar quem pode acessar o seu repositório e ajustar as permissões, clique em **Gerenciar acesso**. Para obter mais informações, consulte[Gerenciar equipes e pessoas com acesso ao seu repositório](/github/administering-a-repository/managing-teams-and-people-with-access-to-your-repository)".{% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## Definir uma política de segurança
 
 1. Na página principal do repositório, clique em **{% octicon "shield" aria-label="The shield symbol" %} Segurança**.
@@ -44,8 +43,6 @@ Na página principal do seu repositório, clique em **{% octicon "gear" aria-lab
 4. Adicione informações sobre versões compatíveis do seu projeto e como relatar vulnerabilidades.
 
 Para obter mais informações, consulte "[Adicionar uma política de segurança ao seu repositório](/code-security/getting-started/adding-a-security-policy-to-your-repository)".
-
-{% endif %}
 
 {% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ## Gerenciar o gráfico de dependências
@@ -78,7 +75,7 @@ Para obter mais informações, consulte "[Explorar as dependências de um reposi
 {% data reusables.dependabot.dependabot-alerts-beta %}
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
-Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies){% ifversion fpt or ghec %}" e[Gerenciar as configurações de segurança e análise da sua conta de usuário](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account){% endif %}."
+Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies){% ifversion fpt or ghec %}" e "[Gerenciando configurações de segurança e análise da sua conta de usuário](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account){% endif %}".
 
 {% endif %}
 
@@ -114,7 +111,7 @@ Para obter mais informações, consulte "[Sobre {% data variables.product.prodna
 
 Você pode habilitar {% data variables.product.prodname_dependabot %} para aumentar automaticamente os pull requests para manter suas dependências atualizadas. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/about-dependabot-version-updates)".
 
-Para habilitar {% data variables.product.prodname_dependabot_version_updates %}, você deve criar um arquivo de configuração *dependabot.yml*. Para obter mais informações, consulte "[Habilitando e desabilitando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
+Para habilitar {% data variables.product.prodname_dependabot_version_updates %}, você deve criar um arquivo de configuração *dependabot.yml*. Para obter mais informações, consulte "[Configurando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
 
 {% endif %}
 
@@ -135,7 +132,7 @@ Você pode configurar {% data variables.product.prodname_code_scanning %} para i
 {% endif %}
 
 ## Próximas etapas
-Você pode visualizar e gerenciar alertas de funcionalidades de segurança para resolver dependências e vulnerabilidades no seu código. Para obter mais informações, consulte {% ifversion fpt or ghes or ghec %} "[Visualizar e atualizar as dependências vulneráveis no seu repositório](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),"{% endif %} {% ifversion fpt or ghec or ghes > 3.2 %}"[Gerenciar pull requests para atualizações de dependência](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates)," {% endif %}"[Gernciar {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)," e "[Gerenciar alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
+Você pode visualizar e gerenciar alertas de funcionalidades de segurança para resolver dependências e vulnerabilidades no seu código. Para obter mais informações, consulte {% ifversion fpt or ghes or ghec %} "[Visualizando {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),{% endif %} {% ifversion fpt or ghec or ghes > 3.2 %}"[Gerenciando pull requests para atualizações de dependências](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates), {% endif %}"[Gerenciando {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)" e "[Gerenciando alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
 {% ifversion fpt or ghec %}Se você tiver uma vulnerabilidade de segurança, você poderá criar uma consultoria de segurança para discutir em privado e corrigir a vulnerabilidade. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)" e " "[Criar uma consultoria de segurança](/code-security/security-advisories/creating-a-security-advisory)".
 {% endif %}

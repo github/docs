@@ -31,9 +31,12 @@ export default async function genericToc(req, res, next) {
   )
 
   // Do not include hidden child items on a TOC page unless it's an Early Access category page.
+  // We need to account for the extra 'articles' segment with Early Access as well, we don't
+  // want to show hidden child items in that case.
   req.context.showHiddenTocItems =
     (req.context.page.documentType === 'category' &&
-      req.context.currentPath.includes('/early-access/')) ||
+      req.context.currentPath.includes('/early-access/') &&
+      !req.context.currentPath.endsWith('/articles')) ||
     (req.context.page.documentType === 'product' &&
       req.context.currentPath.includes('/early-access/') &&
       req.context.page.shortTitle === 'GitHub Insights')

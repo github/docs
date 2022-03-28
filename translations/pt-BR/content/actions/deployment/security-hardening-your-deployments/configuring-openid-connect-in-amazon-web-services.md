@@ -42,7 +42,8 @@ Edite o relacionamento de confiança para adicionar o campo `sub` às condiçõe
 
 ```json{:copy}
 "Condition": {
-  "StringEquals": {
+  "ForAllValues:StringEquals": {
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
@@ -56,14 +57,7 @@ Para atualizar seus fluxos de trabalho para o OIDC, você deverá fazer duas alt
 
 ### Adicionando configurações de permissões
 
-O fluxo de trabalho exigirá uma configuração `permissões` com um valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por exemplo:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-Você pode precisar especificar permissões adicionais aqui, dependendo das necessidades do seu fluxo de trabalho.
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Solicitando o token de acesso
 

@@ -33,6 +33,8 @@ redirect_from:
 
 {% data reusables.saml.about-saml-access-enterprise-account %} For more information, see "[Viewing and managing a user's SAML access to your enterprise account](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
 
+{% data reusables.saml.saml-disabled-linked-identities-removed %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 {% elsif ghae %}
@@ -82,6 +84,7 @@ For more detailed information about how to enable SAML using Okta, see "[Configu
 ![Drop-downs for the Signature Method and Digest method hashing algorithms used by your SAML issuer](/assets/images/help/saml/saml_hashing_method.png)
 10. Before enabling SAML SSO for your enterprise, click **Test SAML configuration** to ensure that the information you've entered is correct. ![Button to test SAML configuration before enforcing](/assets/images/help/saml/saml_test.png)
 11. Click **Save**.
+{% data reusables.enterprise-accounts.download-recovery-codes %}
 
 {% elsif ghae %}
 

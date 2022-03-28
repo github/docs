@@ -25,6 +25,11 @@ Para crear un encabezado, agrega uno a seis símbolos <kbd>#</kbd> antes del enc
 
 ![Encabezados H1, H2 y H6 representados](/assets/images/help/writing/headings-rendered.png)
 
+When you use two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section.
+
+![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
+
+
 ## Estilo de texto
 
 Puedes indicar énfasis con texto en negritas, itálicas o tachadas en los campos de comentario y archivos `.md`.
@@ -80,11 +85,11 @@ git commit
 
 Para obtener más información, consulta "[Crear y resaltar bloques de código](/articles/creating-and-highlighting-code-blocks)".
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## Enlaces
 
-Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can also use the keyboard shortcut <kbd>Command</kbd>+<kbd>K</kbd> to create a link.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} When you have text selected, you can paste a URL from your clipboard to automatically create a link from the selection.{% endif %}
+Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes `[ ]`, y luego encerrar la URL entre paréntesis `( )`. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}También puedes utilizar el atajo de teclado <kbd>Command</kbd>+<kbd>K</kbd> para crear un enlace.{% endif %}{% ifversion fpt or ghae-issue-5434 or ghes > 3.3 or ghec %} Cuando tengas texto seleccionado, puedes pegar una URL desde tu portapapeles para crear un enlace automáticamente desde la selección.{% endif %}
 
 `Este sitio se construyó usando [GitHub Pages](https://pages.github.com/).`
 

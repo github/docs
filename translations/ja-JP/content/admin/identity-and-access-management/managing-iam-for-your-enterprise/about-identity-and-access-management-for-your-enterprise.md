@@ -27,6 +27,8 @@ redirect_from:
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
 
+{% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
+
 SAML SSO を有効にした後、使用する IdP によっては、追加のアイデンティおよびアクセス管理機能を有効にできる場合があります。 {% data reusables.scim.enterprise-account-scim %}
 
 IdP として Azure AD を使用している場合は、Team 同期を使用して、各 Organization 内の Team メンバーシップを管理できます。 {% data reusables.identity-and-permissions.about-team-sync %} 詳しい情報については、「[Enterprise アカウントで Organization の Team 同期を管理する](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)」を参照してください。
@@ -47,6 +49,7 @@ Configuring {% data variables.product.prodname_emus %} for SAML single-sign on a
 | ------------------------------------- |:--------------------------------------------------------------:|:-------------------------------------------------------------:|
 | Active Directory フェデレーションサービス (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} |                                                               |
 | Azure Active Directory (Azure AD)     | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %}
+| Okta                                  | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | OneLogin                              | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | PingOne                               | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | Shibboleth                            | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |

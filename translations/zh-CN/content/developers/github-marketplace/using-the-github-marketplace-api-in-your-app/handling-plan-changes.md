@@ -50,7 +50,7 @@ topics:
 
 您可以使用升级 URL 将用户从应用程序的 UI 重定向到 GitHub 上的升级页面：
 
-```
+```text
 https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>
 ```
 

@@ -42,9 +42,9 @@ $ curl -I {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Content-Type: application/json; charset=utf-8
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% ifversion ghes %}
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4987
+> x-ratelimit-reset: 1350085394{% ifversion ghes %}
 > X-GitHub-Enterprise-Version: {{ currentVersion | remove: "enterprise-server@" }}.0{% elsif ghae %}
 > X-GitHub-Enterprise-Version: GitHub AE{% endif %}
 > Content-Length: 5
@@ -111,7 +111,7 @@ Lee [más acerca de OAuth2](/apps/building-oauth-apps/).  Nota que los tokens de
 curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
-Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth App to increase your rate limit. Los permisos se otorgan únicamente a usuarios, no a aplicaciones, y úicamente obtendrás datos que un usuario no autenticado vería. Es por esto que deberías utilizar únicamente la llave/secreto de OAuth2 en escenarios de servidor a servidor. Don't leak your OAuth App's client secret to your users.
+El utilizar tu `client_id` y `client_secret` _no_ te autentica como usuario, sino que solo identifica a tu App de OAuth para incrementar tu límite de tasa. Los permisos se otorgan únicamente a usuarios, no a aplicaciones, y úicamente obtendrás datos que un usuario no autenticado vería. Es por esto que deberías utilizar únicamente la llave/secreto de OAuth2 en escenarios de servidor a servidor. No filtres tu secreto de cliente de la App de OAuth a tus usuarios.
 
 {% ifversion ghes %}
 No podrás autenticarte utilizndo tu llave y secreto de OAuth2 si estás en modo privado, y el intentarlo regresará el mensaje `401 Unauthorized`. Para obtener más información, consulta la sección "[Habilitar el modo privado](/admin/configuration/configuring-your-enterprise/enabling-private-mode)".
@@ -312,19 +312,19 @@ Los valores de `rel` posibles son:
 
 ## Limitación de tasas
 
-Different types of API requests to {% data variables.product.product_location %} are subject to different rate limits.
+Los distintos tipos de solicitudes de la API a {% data variables.product.product_location %} están sujetas a límites de tasa diferentes.
 
-Additionally, the Search API has dedicated limits. For more information, see "[Search](/rest/reference/search#rate-limit)" in the REST API documentation.
+Adicionalmente, la API de búsqueda tiene límites dedicados. Para obtener más información, consulta la sección "[Buscar](/rest/reference/search#rate-limit)" en la documentación de la API de REST.
 
 {% data reusables.enterprise.rate_limit %}
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### Requests from user accounts
+### Solicitudes de cuentas de usuario
 
-Direct API requests that you authenticate with a personal access token are user-to-server requests. An OAuth App or GitHub App can also make a user-to-server request on your behalf after you authorize the app. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[Authorizing OAuth Apps](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)," and "[Authorizing GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)."
+Las solicitudes directas de la API que autentiques con un token de acceso personal son de tipo usuario a servidor. Una App de OAuth o GitHub App también puede hacer una solicitud de usuario a servidor en tu nombre después de que la autorices para ello. Para obtener más información, consulta las secciones "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)", "[Autorizar Apps de OAuth](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)" y [Autorizar GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)".
 
-{% data variables.product.product_name %} associates all user-to-server requests with the authenticated user. For OAuth Apps and GitHub Apps, this is the user who authorized the app. All user-to-server requests count toward the authenticated user's rate limit.
+{% data variables.product.product_name %} asocia todas las solicitudes de usuario a servidor con el usuario autenticado. En el caso de las Apps de OAuth y GitHub Apps, este es el usuario que autorizó la app. Todas las solicitudes de usuario a servidor cuentan en el límite de tasa del usuario autenticado.
 
 {% data reusables.apps.user-to-server-rate-limits %}
 
@@ -334,31 +334,31 @@ Direct API requests that you authenticate with a personal access token are user-
 
 {% ifversion fpt or ghec or ghes %}
 
-Para las solicitudes no autenticadas, el límite de tasa permite hasta 60 solicitudes por hora. Unauthenticated requests are associated with the originating IP address, and not the person making requests.
+Para las solicitudes no autenticadas, el límite de tasa permite hasta 60 solicitudes por hora. Las solicitudes sin autenticar se asocian con la dirección IP original y no con la persona que las realiza.
 
 {% endif %}
 
 {% endif %}
 
-### Requests from GitHub Apps
+### Solicitudes desde GitHub Apps
 
-Requests from a GitHub App may be either user-to-server or server-to-server requests. For more information about rate limits for GitHub Apps, see "[Rate limits for GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)."
+Las solicitudes desde las GitHub Apps podrían ser de usuario a servidor o de servidor a servidor. Para obtener más información sobre los límites de tasa para las GitHub Apps, consulta la sección "[Límites de tasa para las GitHub Apps](/developers/apps/building-github-apps/rate-limits-for-github-apps)".
 
-### Requests from GitHub Actions
+### Solicitudes desde las GitHub Actions
 
-You can use the built-in `GITHUB_TOKEN` to authenticate requests in GitHub Actions workflows. Para obtener más información, consulta la sección "[Autenticación automática de tokens](/actions/security-guides/automatic-token-authentication)".
+Puedes utilizar el `GITHUB_TOKEN` integrado para autenticar las solicitudes en los flujos de trabajo de las GitHub Actions. Para obtener más información, consulta la sección "[Autenticación automática de tokens](/actions/security-guides/automatic-token-authentication)".
 
-When using `GITHUB_TOKEN`, the rate limit is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to an enterprise account on {% data variables.product.product_location %}, {% data variables.product.prodname_ghe_cloud %}'s rate limit applies, and the limit is 15,000 requests per hour per repository.{% endif %}
+Cuando utilizas un `GITHUB_TOKEN`, el límite de tasa es de 1,000 solicitudes por hora por repositorio.{% ifversion fpt or ghec %} Para las solicitudes a los recursos que pertenecen a una cuenta empresarial de {% data variables.product.product_location %}, el límite de tasa de {% data variables.product.prodname_ghe_cloud %} aplica y es de 15,000 solicitudes por hora por repositorio.{% endif %}
 
-### Checking your rate limit status
+### Verificar el estado de tu límite de tasa
 
-The Rate Limit API and a response's HTTP headers are authoritative sources for the current number of API calls available to you or your app at any given time.
+La API de límite de tasa y los encabezados HTTP de una respuesta son fuentes autoritativas para la cantidad actual de llamadas a la API disponibles para ti o para tu app en un momento dado.
 
-#### Rate Limit API
+#### API de Límite de Tasa
 
-You can use the Rate Limit API to check your rate limit status without incurring a hit to the current limit. For more information, see "[Rate limit](/rest/reference/rate-limit)."
+Puedes utilizar la API de Límite de Tasa para verificar tu estado de límite de tasa sin incurrir en el uso de dicho límite. Para obtener más información, consulta la sección "[Límite de tasa](/rest/reference/rate-limit)".
 
-#### Rate limit HTTP headers
+#### Encabezados HTTP de límite de tasa
 
 Los encabezados HTTP recuperados para cualquier solicitud de la API muestran tu estado actual de límite de tasa:
 
@@ -366,16 +366,16 @@ Los encabezados HTTP recuperados para cualquier solicitud de la API muestran tu 
 $ curl -I {% data variables.product.api_url_pre %}/users/octocat
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> X-RateLimit-Limit: 60
-> X-RateLimit-Remaining: 56
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 60
+> x-ratelimit-remaining: 56
+> x-ratelimit-reset: 1372700873
 ```
 
 | Nombre del Encabezado   | Descripción                                                                                                                                          |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `X-RateLimit-Limit`     | La cantidad máxima de solicitudes que puedes hacer por hora.                                                                                         |
-| `X-RateLimit-Remaining` | La cantidad de solicitudes que quedan en la ventana de límite de tasa actual.                                                                        |
-| `X-RateLimit-Reset`     | La hora en la que se restablecerá la ventana de límite de tasa actual en [segundos de tiempo satelital UTC](http://en.wikipedia.org/wiki/Unix_time). |
+| `x-ratelimit-limit`     | La cantidad máxima de solicitudes que puedes hacer por hora.                                                                                         |
+| `x-ratelimit-remaining` | La cantidad de solicitudes que quedan en la ventana de límite de tasa actual.                                                                        |
+| `x-ratelimit-reset`     | La hora en la que se restablecerá la ventana de límite de tasa actual en [segundos de tiempo satelital UTC](http://en.wikipedia.org/wiki/Unix_time). |
 
 Si necesitas ver la hora en un formato diferente, cualquier lenguaje de programación moderno puede ayudarte con esta tarea. Por ejemplo, si abres la consola en tu buscador web, puedes obtener fácilmente el tiempo de restablecimiento como un objeto de Tiempo de JavaScript.
 
@@ -389,9 +389,9 @@ Si excedes el límite de tasa, se regresará una respuesta de error:
 ```shell
 > HTTP/2 403
 > Date: Tue, 20 Aug 2013 14:50:41 GMT
-> X-RateLimit-Limit: 60
-> X-RateLimit-Remaining: 0
-> X-RateLimit-Reset: 1377013266
+> x-ratelimit-limit: 60
+> x-ratelimit-remaining: 0
+> x-ratelimit-reset: 1377013266
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
@@ -399,17 +399,17 @@ Si excedes el límite de tasa, se regresará una respuesta de error:
 > }
 ```
 
-### Increasing the unauthenticated rate limit for OAuth Apps
+### Incrementar el límite de tasa no autenticado para las Apps de OAuth
 
-If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
+Si tu App de OAuth necesita hacer llamadas sin autenticar con un límite de tasa más alto, puedes pasar la ID de cliente y secreto de tu app antes de la ruta de la terminal.
 
 ```shell
 $ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4966
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4966
+> x-ratelimit-reset: 1372700873
 ```
 
 {% note %}
@@ -489,9 +489,9 @@ $ curl -I {% data variables.product.api_url_pre %}/user
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
 > Vary: Accept, Authorization, Cookie
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4996
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4996
+> x-ratelimit-reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
 > HTTP/2 304
@@ -499,18 +499,18 @@ $ curl -I {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
 > Vary: Accept, Authorization, Cookie
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4996
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4996
+> x-ratelimit-reset: 1372700873
 
 $ curl -I {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
 > HTTP/2 304
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
 > Vary: Accept, Authorization, Cookie
-> X-RateLimit-Limit: 5000
-> X-RateLimit-Remaining: 4996
-> X-RateLimit-Reset: 1372700873
+> x-ratelimit-limit: 5000
+> x-ratelimit-remaining: 4996
+> x-ratelimit-reset: 1372700873
 ```
 
 ## Intercambio de recursos de origen cruzado
@@ -523,7 +523,7 @@ Aquí hay una solicitud de ejemplo que se envió desde una consulta de buscador 
 $ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
 HTTP/2 302
 Access-Control-Allow-Origin: *
-Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 ```
 
 Así se ve una solicitud de prevuelo de CORS:
@@ -534,7 +534,7 @@ HTTP/2 204
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
 Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE
-Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
 Access-Control-Max-Age: 86400
 ```
 
@@ -548,9 +548,9 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 > /**/foo({
 >   "meta": {
 >     "status": 200,
->     "X-RateLimit-Limit": "5000",
->     "X-RateLimit-Remaining": "4966",
->     "X-RateLimit-Reset": "1372700873",
+>     "x-ratelimit-limit": "5000",
+>     "x-ratelimit-remaining": "4966",
+>     "x-ratelimit-reset": "1372700873",
 >     "Link": [ // pagination headers and other links
 >       ["{% data variables.product.api_url_pre %}?page=2", {"rel": "next"}]
 >     ]
@@ -652,3 +652,4 @@ Si los pasos anteriores no dan como resultado ninguna información, utilizaremos
 [uri]: https://github.com/hannesg/uri_template
 
 [pagination-guide]: /guides/traversing-with-pagination
+

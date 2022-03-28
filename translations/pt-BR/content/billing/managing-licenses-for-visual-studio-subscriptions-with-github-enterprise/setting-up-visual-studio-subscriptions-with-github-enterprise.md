@@ -16,6 +16,8 @@ shortTitle: Configurar
 
 Este guia mostra como a sua equipe pode obter assinantes licenciados de {% data variables.product.prodname_vs %} e dar os primeiros passos com {% data variables.product.prodname_enterprise %}.
 
+Se você preferir vídeo, você pode assistir [Configurando suas licenças de {% data variables.product.prodname_enterprise %} com {% data variables.product.prodname_vs %} assinaturas](https://www.youtube.com/watch?v=P_zBgp_BE_I) no canal do YouTube do Microsoft Visual Studio.
+
 ## Funções para {% data variables.product.prodname_vss_ghe %}
 
 Antes de configurar {% data variables.product.prodname_vss_ghe %}, é importante entender as funções para esta oferta combinada.

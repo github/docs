@@ -37,8 +37,8 @@ shortTitle: 降级订阅
 
 如果您将您的用户帐户从 {% data variables.product.prodname_pro %} 降级为 {% data variables.product.prodname_free_user %}，该帐户将失去对私有仓库中高级代码审查工具的访问权限。 {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. 在“Current plan（当前计划）”下，使用 **Edit（编辑）**下拉菜单并单击 **Downgrade to Free（降级到免费 ）**。 ![降级到免费按钮](/assets/images/help/billing/downgrade-to-free.png)
 5. 阅读有关信息，了解您的用户帐户在下一个结算日期将不再拥有访问权限的功能，然后单击 **I understand. Continue with downgrade（我明白。继续降级）**。 ![继续降级按钮](/assets/images/help/billing/continue-with-downgrade.png)
 
@@ -51,6 +51,13 @@ shortTitle: 降级订阅
 如果将您的组织从 {% data variables.product.prodname_team %} 降级到 {% data variables.product.prodname_free_team %}，该帐户将失去对团队高级协作和管理工具的访问权限。
 
 如果将您的组织从 {% data variables.product.prodname_ghe_cloud %} 降级到 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_free_team %}，该帐户将失去对高级安全性、合规性和部署控件的访问权限。 {% data reusables.gated-features.more-info %}
+
+
+{% note %}
+
+**注意：** 如果您当前正在试用 {% data variables.product.prodname_ghe_cloud %}，并且在试用期结束前未购买 {% data variables.product.prodname_enterprise %} ，则您的组织将自动降级为 {% data variables.product.prodname_free_team %} 或 {% data variables.product.prodname_team %}。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_cloud %} 的试用](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)”。
+
+{% endnote %}
 
 {% data reusables.organizations.billing-settings %}
 1. 在“Current plan（当前计划）”下，使用 **Edit（编辑）**下拉菜单，单击您想要的降级选项。 ![降级按钮](/assets/images/help/billing/downgrade-option-button.png)

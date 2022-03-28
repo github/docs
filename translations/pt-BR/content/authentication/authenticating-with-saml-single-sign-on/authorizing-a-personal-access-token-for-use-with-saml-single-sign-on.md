@@ -17,12 +17,11 @@ Você pode autorizar um token de acesso pessoal existente ou [criar um](/github/
 
 {% data reusables.saml.authorized-creds-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-{% data reusables.user_settings.personal_access_tokens %}
-3. Ao lado do token que deseja autorizar, clique em **Enable SSO** (Habilitar SSO) ou **Disable SSO** (Desabilitar SSO). ![Botão de autorização do token SSO](/assets/images/help/settings/sso-allowlist-button.png)
-4. Encontre a organização para a qual deseja autorizar o token de acesso.
-4. Clique em **Autorizar**. ![Botão de autorização do token](/assets/images/help/settings/token-authorize-button.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.personal_access_tokens %}
+3. Ao lado do token que você gostaria de autorizar, clique em **Configurar SSO**. ![Captura de tela do menu suspenso para configurar o SSO para um token de acesso pessoal](/assets/images/help/settings/sso-allowlist-button.png)
+4. À direita da organização para autorizar o token, clique em **Autorizar**. ![Botão de autorização do token](/assets/images/help/settings/token-authorize-button.png)
 
 ## Leia mais
 

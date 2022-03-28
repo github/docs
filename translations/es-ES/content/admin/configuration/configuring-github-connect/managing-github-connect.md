@@ -41,7 +41,9 @@ Cuando habilitas {% data variables.product.prodname_github_connect %}, configura
 To use {% data variables.product.prodname_github_connect %}, you must have an organization or enterprise account on {% data variables.product.prodname_dotcom_the_website %} that uses {% data variables.product.prodname_ghe_cloud %}. You may already have {% data variables.product.prodname_ghe_cloud %} included in your plan. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% ifversion ghes %}
-To configure a connection, your proxy configuration must allow connectivity to `github.com`, `api.github.com`, and `uploads.github.com`. Para obtener más información, consulta "[Configuring an outbound web proxy server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-an-outbound-web-proxy-server)."
+If your organization or enterprise account on {% data variables.product.prodname_dotcom_the_website %} uses IP allow lists, you must add the IP address or network for {% data variables.product.product_location %} to your IP allow list on {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta las secciones "[Administrar las direcciones IP permitidas en tu organización](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)" y "[Requerir políticas para los ajustes de seguridad en tu empresa](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" en la documentación de {% data variables.product.prodname_ghe_cloud %}.
+
+To configure a connection, your proxy configuration must allow connectivity to `github.com`, `api.github.com`, and `uploads.github.com`. For more information, see "[Configuring an outbound web proxy server](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-an-outbound-web-proxy-server)."
 {% endif %}
 
 ## Habilitar {% data variables.product.prodname_github_connect %}
@@ -54,7 +56,8 @@ Si estás conectando {% data variables.product.product_location %} a una organiz
 
 {% ifversion ghes %}
 1. Iniciar sesión en {% data variables.product.product_location %} y {% data variables.product.prodname_dotcom_the_website %}.
-{% data reusables.enterprise-accounts.access-enterprise %}{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.github-connect-tab %}{% else %}
 1. Iniciar sesión en {% data variables.product.product_location %} y {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise-accounts.access-enterprise %}{% data reusables.enterprise-accounts.github-connect-tab %}{% endif %}
 1. En "{% data variables.product.prodname_github_connect %} aún no está habilitado", haz clic en **Enable {% data variables.product.prodname_github_connect %}** (Habilitar). Cuando haces clic en **Habilitar {% data variables.product.prodname_github_connect %}**, estás confirmando que estás de acuerdo con los "<a href="/github/site-policy/github-terms-for-additional-products-and-features#connect" class="dotcom-only">Términos de {% data variables.product.prodname_dotcom %} para las Características y Productos Adicionales</a>".
@@ -68,13 +71,14 @@ Si estás conectando {% data variables.product.product_location %} a una organiz
 
 Los propietarios de empresas pueden inhabilitar {% data variables.product.prodname_github_connect %}.
 
-Cuando te desconectas de {% data variables.product.prodname_ghe_cloud %}, se elimina la {% data variables.product.prodname_github_connect %} {% data variables.product.prodname_github_app %} de tu cuenta de empresa u organización, y las credenciales almacenadas en {% data variables.product.product_location %} se eliminan.
+When you disconnect from {% data variables.product.prodname_ghe_cloud %}, the {% data variables.product.prodname_github_connect %} {% data variables.product.prodname_github_app %} is deleted from your enterprise account or organization and credentials stored on {% data variables.product.product_location %} are deleted.
 
-{% data reusables.enterprise-accounts.access-enterprise %}{% ifversion ghes < 3.1 %}{% data reusables.enterprise-accounts.settings-tab %}{% endif %}{% data reusables.enterprise-accounts.github-connect-tab %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.github-connect-tab %}
 1. Next to the enterprise account or organization you'd like to disconnect, click **Disable {% data variables.product.prodname_github_connect %}**.
 {% ifversion ghes %}
   ![Inhabilitar el botón Conectar de GitHub para una cuenta de empresa o nombre de organización](/assets/images/enterprise/business-accounts/disable-github-connect-button.png)
-1. Read the information about disconnecting and click **Disable {% data variables.product.prodname_github_connect %}**. ![Modal con información de advertencia acerca de la desconexión y el botón de confirmación](/assets/images/enterprise/business-accounts/confirm-disable-github-connect.png)
+1. Lee la información sobre la desconexión y haz clic en **Inhabilitar {% data variables.product.prodname_github_connect %}**. ![Modal con información de advertencia acerca de la desconexión y el botón de confirmación](/assets/images/enterprise/business-accounts/confirm-disable-github-connect.png)
 {% else %}
   ![Inhabilitar el botón Conectar de GitHub para una cuenta de empresa o nombre de organización](/assets/images/enterprise/github-ae/disable-github-connect-button.png)
 1. Lee la información sobre la desconexión y haz clic en **Inhabilitar {% data variables.product.prodname_github_connect %}**. ![Modal con información de advertencia acerca de la desconexión y el botón de confirmación](/assets/images/enterprise/github-ae/confirm-disable-github-connect.png)

@@ -1,7 +1,7 @@
 ---
 title: Viewing people's roles in an organization
 intro: 'You can view a list of the people in your organization and filter by their role. For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
-permissions: "Organization members can see people's roles in the organization."
+permissions: Organization members can see people's roles in the organization.
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
   - /articles/viewing-peoples-roles-in-an-organization
@@ -20,7 +20,7 @@ shortTitle: View people in an organization
 ## View organization roles
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. You will see a list of the people in your organization. To filter the list by role, click **Role** and select the role you're searching for.
   ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)
@@ -55,7 +55,7 @@ To review all roles in an organization, see "[Roles in an organization](/organiz
 For more information about the enterprise owner role, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)." 
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. In the left sidebar, under "Enterprise permissions", click **Enterprise owners**.
   ![Screenshot of "Enterprise owners" option in sidebar menu](/assets/images/help/organizations/enterprise-owners-sidebar.png)

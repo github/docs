@@ -1,7 +1,7 @@
 ---
 title: Codespaces の支払いについて
 shortTitle: 支払いについて
-intro: 'View pricing and see how to manage {% data variables.product.prodname_codespaces %} billing for your organization.'
+intro: '価格を見て、Organizationでの{% data variables.product.prodname_codespaces %}の支払いの管理方法を確認してください。'
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
@@ -13,20 +13,20 @@ topics:
   - Billing
 ---
 
-## {% data variables.product.prodname_codespaces %} pricing
+## {% data variables.product.prodname_codespaces %}の価格
 
-{% data variables.product.prodname_codespaces %} usage is billed for all accounts on the Team and Enterprise plans, and does not include any entitlements. Individual accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
+{% data variables.product.prodname_codespaces %} usage is billed for all accounts on the Team and Enterprise plans, and does not include any entitlements. 現在の処、個人のアカウントは{% data variables.product.prodname_codespaces %}の利用に対して課金されません。
 
-{% data variables.product.prodname_codespaces %} usage is billed according to the units of measure in the following table:
+{% data variables.product.prodname_codespaces %}の利用については、以下の表に示す計測単位に従って課金されます。
 
-| 製品                 | SKU   | Unit of measure | Price |
-| ------------------ | ----- | --------------- | ----- |
-| Codespaces Compute | 2コア   | 1 hour          | $0.18 |
-|                    | 4コア   | 1 hour          | $0.36 |
-|                    | 8コア   | 1 hour          | $0.72 |
-|                    | 16コア  | 1 hour          | $1.44 |
-|                    | 32コア  | 1 hour          | $2.88 |
-| Codespaces Storage | ストレージ | 1 GB-month      | $0.07 |
+| 製品                 | SKU   | 計測単位  | 価格    |
+| ------------------ | ----- | ----- | ----- |
+| Codespaces Compute | 2コア   | 1時間   | $0.18 |
+|                    | 4コア   | 1時間   | $0.36 |
+|                    | 8コア   | 1時間   | $0.72 |
+|                    | 16コア  | 1時間   | $1.44 |
+|                    | 32コア  | 1時間   | $2.88 |
+| Codespaces Storage | ストレージ | 1GB-月 | $0.07 |
 
 ## {% data variables.product.prodname_codespaces %}の支払いについて
 
@@ -35,12 +35,18 @@ topics:
 {% data variables.product.prodname_codespaces %} の利用については、アカウントの既存の請求日、支払い方法、領収書が共有されます。 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 {% ifversion ghec %}
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
+Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_enterprise %} を購入した場合、Azure サブスクリプションID をEnterpriseアカウントに接続して、 {% data variables.product.prodname_codespaces %} の使用を有効にして支払うことができます。 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
 {% endif %}
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_codespaces %}
 
-## Setting a spending limit
+### {% data variables.product.prodname_codespaces %}プレビルドに対する支払い
+
+{% data reusables.codespaces.prebuilds-beta-note %}
+
+{% data reusables.codespaces.billing-for-prebuilds %}
+
+## 利用限度の設定
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 

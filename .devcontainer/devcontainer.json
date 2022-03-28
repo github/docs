@@ -1,5 +1,6 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
+// -
 {
 	"name": "docs.github.com",
 	"build": {
@@ -14,15 +15,19 @@
 		"cSpell.language": ",en"
 	},
 
+	// Install features. Type 'feature' in the VS Code command palette for a full list.
+	"features": {
+		"git-lfs": "latest"
+	 },
+
 	// Visual Studio Code extensions which help authoring for docs.github.com.
 	"extensions": [
 		"dbaeumer.vscode-eslint",
 		"sissel.shopify-liquid",
 		"davidanson.vscode-markdownlint",
 		"bierner.markdown-preview-github-styles",
-		"yzhang.markdown-all-in-one",
 		"streetsidesoftware.code-spell-checker",
-		"hubwriter.open-reusable"
+		"alistairchristie.open-reusables"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

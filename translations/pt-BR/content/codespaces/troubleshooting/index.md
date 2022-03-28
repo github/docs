@@ -16,6 +16,7 @@ children:
   - /exporting-changes-to-a-branch
   - /troubleshooting-creation-and-deletion-of-codespaces
   - /troubleshooting-your-connection-to-codespaces
+  - /troubleshooting-prebuilds
   - /troubleshooting-dotfiles-for-codespaces
   - /troubleshooting-port-forwarding-for-codespaces
   - /troubleshooting-codespaces-clients
