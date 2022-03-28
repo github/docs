@@ -14,7 +14,6 @@ shortTitle: 管理对运行器的访问
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.restrict-runner-workflow-beta %}
 
 ## 关于自托管运行器组
 
