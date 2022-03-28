@@ -1,4 +1,4 @@
----
+@composerinteralia whitelist---
 title: Basic writing and formatting syntax
 intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
 redirect_from:
@@ -346,3 +346,4 @@ For more information, see Daring Fireball's "[Markdown Syntax](https://daringfir
 - "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
 - "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
 - "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"
+@composerinteralia whitelist
