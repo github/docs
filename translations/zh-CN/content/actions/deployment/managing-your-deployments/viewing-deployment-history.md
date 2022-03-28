@@ -15,14 +15,14 @@ redirect_from:
 ---
 
 
-You can deliver deployments through {% data variables.product.prodname_actions %} and environments or with the REST API and third party apps. {% ifversion fpt or ghae ghes > 3.0 or ghec %}For more information about using environments to deploy with {% data variables.product.prodname_actions %}, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." {% endif %}有关使用 REST API 进行部署的更多信息，请参阅“[仓库](/rest/reference/repos#deployments)”。
+您可以通过 {% data variables.product.prodname_actions %} 和环境或使用 REST API 和第三方应用交付部署。 {% ifversion fpt or ghae ghes > 3.0 or ghec %}有关使用环境进行部署 {% data variables.product.prodname_actions %}的详细信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。 {% endif %}有关使用 REST API 进行部署的更多信息，请参阅“[仓库](/rest/reference/repos#deployments)”。
 
 要查看当前和过去的部署，请在仓库的主页上单击 **Environments（环境）**。
 {% ifversion ghae %}
 ![环境](/assets/images/enterprise/2.22/environments-sidebar.png){% else %}
 ![Environments](/assets/images/environments-sidebar.png){% endif %}
 
-部署页显示仓库中每个环境的最新活动部署。 If the deployment includes an environment URL, a **View deployment** button that links to the URL is shown next to the deployment.
+部署页显示仓库中每个环境的最新活动部署。 如果部署包含环境 URL，则部署旁边将显示链接到 URL 的 **View deployment（查看部署）**按钮。
 
 活动日志显示环境的部署历史记录。 默认情况下，只有环境的最新部署具有 `Active` 状态；所有先前的活动部署具有 `Inactive` 状态。 有关自动失活部署的更多信息，请参阅“[非活动部署](/rest/reference/deployments#inactive-deployments)”。
 

@@ -46,9 +46,16 @@ By default, the code scanning alerts page is filtered to show alerts for the def
 {% else %}
    ![List of alerts from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.1/help/repository/code-scanning-click-alert.png)
 {% endif %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+     {% data reusables.code-scanning.alert-default-branch %}
+     ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
+  {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
    ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
-1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
+   {% else %}
+   ![The "Show paths" link on an alert](/assets/images/enterprise/3.4/repository/code-scanning-show-paths.png)
+   {% endif %}
+2. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
    ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
 For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)."
@@ -80,6 +87,10 @@ The benefit of using keyword filters is that only values with results are shown 
 
 If you enter multiple filters, the view will show alerts matching _all_ these filters. For example, `is:closed severity:high branch:main` will only display closed high-severity alerts that are present on the `main` branch. The exception is filters relating to refs (`ref`, `branch` and `pr`): `is:open branch:main branch:next` will show you open alerts from both the `main` branch and the `next` branch.
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.filter-non-default-branches %}
+{% endif %}
+
 {% ifversion fpt or ghes > 3.3 or ghec %}
 
 You can prefix the `tag` filter with `-` to exclude results with that tag. For example, `-tag:style` only shows alerts that do not have the `style` tag{% if codeql-ml-queries %} and `-tag:experimental` will omit all experimental alerts. For more information, see "[About {% data variables.product.prodname_code_scanning %} alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."{% else %}.{% endif %}
@@ -96,10 +107,12 @@ You can use the "Only alerts in application code" filter or `autofilter:true` ke
 
 You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
 - The name of the alert
-- The alert description
 - The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
-
+ {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
  ![The alert information used in searches](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
+ {% else %}
+ ![The alert information used in searches](/assets/images/enterprise/3.4/repository/code-scanning-free-text-search-areas.png)
+ {% endif %}
 
 | Supported search | Syntax example | Results |
 | ---- | ---- | ---- |
@@ -113,7 +126,7 @@ You can search the list of alerts. This is useful if there is a large number of 
 
 **Tips:** 
 - The multiple word search is equivalent to an OR search.
-- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name, description, or details.
+- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
 
 {% endtip %}
 
@@ -143,7 +156,7 @@ If you have write permission for a repository, you can view fixed alerts by view
 
 You can use{% ifversion fpt or ghes > 3.1 or ghae or ghec %} the free text search or{% endif %} the filters to display a subset of alerts and then in turn mark all matching alerts as closed. 
 
-Alerts may be fixed in one branch but not in another. You can use the "Branch" drop-down menu, on the summary of alerts, to check whether an alert is fixed in a particular branch.
+Alerts may be fixed in one branch but not in another. You can use the "Branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ![Filtering alerts by branch](/assets/images/help/repository/code-scanning-branch-filter.png)
@@ -151,6 +164,9 @@ Alerts may be fixed in one branch but not in another. You can use the "Branch" d
 ![Filtering alerts by branch](/assets/images/enterprise/3.1/help/repository/code-scanning-branch-filter.png)
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.filter-non-default-branches %}
+{% endif %}
 ## Dismissing or deleting alerts
 
 There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert. Alternatively, if you have admin permissions for the repository, you can delete alerts. Deleting alerts is useful in situations where you have set up a {% data variables.product.prodname_code_scanning %} tool and then decided to remove it, or where you have configured {% data variables.product.prodname_codeql %} analysis with a larger set of queries than you want to continue using, and you've then removed some queries from the tool. In both cases, deleting alerts allows you to clean up your {% data variables.product.prodname_code_scanning %} results. You can delete alerts from the summary list within the **Security** tab.

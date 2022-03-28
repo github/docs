@@ -73,5 +73,5 @@ shortTitle: 存储库之间的连接
 
 依赖关系图提供了可视化和探索仓库依赖关系的好方法。 更多信息请参阅“[关于依赖关系图](/code-security/supply-chain-security/about-the-dependency-graph)”和“[探索仓库的依赖关系](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)”。
 
-您也可以设置仓库，以便在您的一个依赖项中发现安全漏洞时，{% data variables.product.company_short %} 会自动提醒您。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+您也可以设置仓库，以便在您的一个依赖项中发现安全漏洞时，{% data variables.product.company_short %} 会自动提醒您。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 {% endif %}

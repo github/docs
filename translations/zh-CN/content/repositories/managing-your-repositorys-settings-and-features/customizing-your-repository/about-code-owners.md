@@ -38,7 +38,7 @@ topics:
 
 为使代码所有者接收审查请求，CODEOWNERS 文件必须在拉取请求的基本分支上。 例如，如果您将 `@octocat` 分配为仓库 `gh-pages` 分支上 *.js* 文件的代码所有者，则在头部分支与 `gh-pages` 之间打开更改 *.js* 文件的拉取请求时，`@octocat` 将会收到审查请求。
 
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-9273 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4675 %}
 ## CODEOWNERS 文件大小
 
 CODEOWNERS 文件大小必须低于 3MB。 将不会加载超过此限制的 CODEOWNERS 文件，这意味着不会显示代码所有者信息，并且不会要求相应的代码所有者查看拉取请求中的更改。

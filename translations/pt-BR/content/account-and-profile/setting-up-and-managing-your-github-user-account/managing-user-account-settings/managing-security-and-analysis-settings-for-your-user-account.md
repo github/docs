@@ -50,5 +50,5 @@ Para obter uma visão geral da segurança do repositório, consulte "[Proteger s
 ## Leia mais
 
 - "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Gerenciar vulnerabilidades nas dependências do seu projeto](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"
+- "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
 - "[Manter suas dependências atualizadas automaticamente](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"
