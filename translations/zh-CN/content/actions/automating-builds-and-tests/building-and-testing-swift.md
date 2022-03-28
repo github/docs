@@ -22,7 +22,7 @@ shortTitle: 构建和测试 Swift
 
 本指南介绍如何构建和测试 Swift 包。
 
-{% ifversion ghae %} To build and test your Swift project on {% data variables.product.prodname_ghe_managed %}, the necessary Swift dependencies are required. {% data reusables.actions.self-hosted-runners-software %}
+{% ifversion ghae %} 要在 {% data variables.product.prodname_ghe_managed %}上构建和测试 Swift 项目，需要必要的 Swift 依赖项。 {% data reusables.actions.self-hosted-runners-software %}
 {% else %}{% data variables.product.prodname_dotcom %} 托管的运行器带有预装软件的工具缓存，Ubuntu 和 macOS 运行器包括用于构建 Swift 包的依赖项。 有关最新版软件以及 Swift 和 Xcode 预安装版本的完整列表，请参阅“[关于 GitHub 托管的运行器](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)”。{% endif %}
 
 ## 基本要求
@@ -31,11 +31,11 @@ shortTitle: 构建和测试 Swift
 
 我们建议您对 Swift 包有基本的了解。 更多信息请参阅 Apple 开发者文档中的“[Swift 包](https://developer.apple.com/documentation/swift_packages)”。
 
-## Using the Swift starter workflow
+## 使用 Swift 入门工作流程
 
-{% data variables.product.prodname_dotcom %} provides a Swift starter workflow that should work for most Swift projects, and this guide includes examples that show you how to customize this starter workflow. For more information, see the [Swift starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml).
+{% data variables.product.prodname_dotcom %} 提供有 Swift 入门工作流程，应适合大多数 Swift 项目，本指南包括演示如何自定义此入门工作流程的示例。 更多信息请参阅 [Swift 入门工作流程](https://github.com/actions/starter-workflows/blob/main/ci/swift.yml)。
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
+要快速开始，请将入门工作流程添加到仓库的 `.github/workflows` 目录中。
 
 {% raw %}
 ```yaml{:copy}

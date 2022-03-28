@@ -51,7 +51,7 @@ topics:
 ## 企业配置设置
 
 | 操作                                                      | 描述                                                                                                                                                                                                                                                      |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes > 3.0 or ghae %}
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion ghes or ghae %}
 | `business.advanced_security_policy_update`              | 站点管理员创建、更新或删除 {% data variables.product.prodname_GH_advanced_security %} 策略。 更多信息请参阅“[在企业中执行 {% data variables.product.prodname_advanced_security %} 的策略](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)”。{% endif %}
 | `business.clear_members_can_create_repos`               | 站点管理员取消了对在企业中的组织中创建仓库的限制。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。{% ifversion ghes > 3.1 %}
 | `business.referrer_override_enable`                     | 站点管理员可以改写推荐策略。 更多信息请参阅“[配置企业的推荐策略](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)”。                                                                                                              |
@@ -98,18 +98,18 @@ topics:
 
 ## 受保护分支
 
-| 操作                                                                 | 描述                                                                                    |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
-| `protected_branch.create`                                          | 已在分支上启用分支保护。                                                                          |
-| `protected_branch.destroy`                                         | 已在分支上禁用分支保护。                                                                          |
-| `protected_branch.update_admin_enforced`                           | 已为仓库管理员强制执行分支保护。                                                                      |
-| `protected_branch.update_require_code_owner_review`                | 已在分支上更新必需代码所有者审查的强制执行。                                                                |
-| `protected_branch.dismiss_stale_reviews`                           | 已在分支上更新忽略旧拉取请求的强制执行。                                                                  |
-| `protected_branch.update_signature_requirement_enforcement_level`  | 已在分支上更新必需提交签名的强制执行。                                                                   |
-| `protected_branch.update_pull_request_reviews_enforcement_level`   | 已在分支上更新必需拉取请求审查的强制执行。 Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone). |
-| `protected_branch.update_required_status_checks_enforcement_level` | 已在分支上更新必需状态检查的强制执行。                                                                   |
-| `protected_branch.rejected_ref_update`                             | 分支更新尝试被拒。                                                                             |
-| `protected_branch.policy_override`                                 | 分支保护要求被仓库管理员覆盖。                                                                       |
+| 操作                                                                 | 描述                                                      |
+| ------------------------------------------------------------------ | ------------------------------------------------------- |
+| `protected_branch.create`                                          | 已在分支上启用分支保护。                                            |
+| `protected_branch.destroy`                                         | 已在分支上禁用分支保护。                                            |
+| `protected_branch.update_admin_enforced`                           | 已为仓库管理员强制执行分支保护。                                        |
+| `protected_branch.update_require_code_owner_review`                | 已在分支上更新必需代码所有者审查的强制执行。                                  |
+| `protected_branch.dismiss_stale_reviews`                           | 已在分支上更新忽略旧拉取请求的强制执行。                                    |
+| `protected_branch.update_signature_requirement_enforcement_level`  | 已在分支上更新必需提交签名的强制执行。                                     |
+| `protected_branch.update_pull_request_reviews_enforcement_level`   | 已在分支上更新必需拉取请求审查的强制执行。 可以是 `0`（已停用）、`1`（非管理员）`2`（所有人）之一。 |
+| `protected_branch.update_required_status_checks_enforcement_level` | 已在分支上更新必需状态检查的强制执行。                                     |
+| `protected_branch.rejected_ref_update`                             | 分支更新尝试被拒。                                               |
+| `protected_branch.policy_override`                                 | 分支保护要求被仓库管理员覆盖。                                         |
 
 ## 仓库
 
@@ -133,21 +133,21 @@ topics:
 
 ## 站点管理员工具
 
-| 操作                      | 描述                                                                                                     |
-| ----------------------- | ------------------------------------------------------------------------------------------------------ |
-| `staff.disable_repo`    | 站点管理员已禁用对仓库及其所有复刻的访问。                                                                                  |
-| `staff.enable_repo`     | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghae or ghes > 3.2 %}
-| `staff.exit_fake_login` | A site admin ended an impersonation session on {% data variables.product.product_name %}.              |
-| `staff.fake_login`      | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
-| `staff.repo_unlock`     | 站点管理员已解锁（临时获得完全访问权限）用户的一个私有仓库。                                                                         |
-| `staff.unlock`          | 站点管理员已解锁（临时获得完全访问权限）用户的所有私有仓库。                                                                         |
+| 操作                      | 描述                                                                    |
+| ----------------------- | --------------------------------------------------------------------- |
+| `staff.disable_repo`    | 站点管理员已禁用对仓库及其所有复刻的访问。                                                 |
+| `staff.enable_repo`     | 站点管理员重新启用了对仓库及其所有复刻的访问权限。{% ifversion ghae or ghes > 3.2 %}
+| `staff.exit_fake_login` | 站点管理员在 {% data variables.product.product_name %} 上结束了模拟会话。            |
+| `staff.fake_login`      | 站点管理员以另一用户的身份登录 {% data variables.product.product_name %}。{% endif %}
+| `staff.repo_unlock`     | 站点管理员已解锁（临时获得完全访问权限）用户的一个私有仓库。                                        |
+| `staff.unlock`          | 站点管理员已解锁（临时获得完全访问权限）用户的所有私有仓库。                                        |
 
 ## 团队
 
-| 操作                        | 描述                                                                                |
-| ------------------------- | --------------------------------------------------------------------------------- |
-| `team.create`             | 已向团队添加用户帐户或仓库。                                                                    |
-| `team.delete`             | A user account or repository was removed from a team.{% ifversion ghes or ghae %}
+| 操作                        | 描述                                          |
+| ------------------------- | ------------------------------------------- |
+| `team.create`             | 已向团队添加用户帐户或仓库。                              |
+| `team.delete`             | 用户帐户或仓库已从团队中删除。{% ifversion ghes or ghae %}
 | `team.demote_maintainer`  | 用户从团队维护员降级为团队成员。{% endif %}
 | `team.destroy`            | 团队被删除。{% ifversion ghes or ghae %}
 | `team.promote_maintainer` | 用户从团队成员晋升为团队维护员。{% endif %}

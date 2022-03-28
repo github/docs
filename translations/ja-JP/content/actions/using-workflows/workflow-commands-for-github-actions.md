@@ -2,6 +2,7 @@
 title: GitHub Actionsのワークフローコマンド
 shortTitle: ワークフロー コマンド
 intro: ワークフロー内あるいはアクションのコード内でシェルコマンドを実行する際には、ワークフローコマンドを利用できます。
+defaultTool: bash
 redirect_from:
   - /articles/development-tools-for-github-actions
   - /github/automating-your-workflow-with-github-actions/development-tools-for-github-actions
@@ -26,9 +27,23 @@ versions:
 
 ほとんどのワークフローコマンドは特定の形式で `echo` コマンドを使用しますが、他のワークフローコマンドはファイルへの書き込みによって呼び出されます。 詳しい情報については、「[環境ファイル](#environment-files)」を参照してください。
 
-``` bash
+### サンプル
+
+{% bash %}
+
+```bash{:copy}
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 ```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::workflow-command parameter1={data},parameter2={data}::{command value}"
+```
+
+{% endpowershell %}
 
 {% note %}
 
@@ -46,14 +61,18 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 [actions/toolkit](https://github.com/actions/toolkit)には、ワークフローコマンドとして実行できる多くの関数があります。 `::`構文を使って、YAMLファイル内でワークフローコマンドを実行してください。それらのコマンドは`stdout`を通じてランナーに送信されます。 たとえば、コードを使用して出力を設定する代わりに、以下のようにします。
 
-```javascript
+```javascript{:copy}
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
+### Example: Setting a value
+
 ワークフローで `set-output` コマンドを使用して、同じ値を設定できます。
 
+{% bash %}
+
 {% raw %}
-``` yaml
+```yaml{:copy}
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
@@ -61,6 +80,22 @@ core.setOutput('SELECTED_COLOR', 'green');
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
 {% endraw %}
+
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+```yaml{:copy}
+      - name: Set selected color
+        run: Write-Output "::set-output name=SELECTED_COLOR::green"
+        id: random-color-generator
+      - name: Get color
+        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+```
+{% endraw %}
+
+{% endpowershell %}
 
 以下の表は、ワークフロー内で使えるツールキット関数を示しています。
 
@@ -86,176 +121,325 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 ## 出力パラメータの設定
 
-```
+アクションの出力パラメータを設定します。
+
+```{:copy}
 ::set-output name={name}::{value}
 ```
 
-アクションの出力パラメータを設定します。
-
 あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
 
-### サンプル
+### Example: Setting an output parameter
 
-``` bash
+{% bash %}
+
+```bash{:copy}
 echo "::set-output name=action_fruit::strawberry"
 ```
 
-## デバッグメッセージの設定
+{% endbash %}
 
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::set-output name=action_fruit::strawberry"
 ```
-::debug::{message}
-```
+
+{% endpowershell %}
+
+## デバッグメッセージの設定
 
 デバッグメッセージをログに出力します。 ログでこのコマンドにより設定されたデバッグメッセージを表示するには、`ACTIONS_STEP_DEBUG` という名前のシークレットを作成し、値を `true` に設定する必要があります。 詳しい情報については、「[デバッグログの有効化](/actions/managing-workflow-runs/enabling-debug-logging)」を参照してください。
 
-### サンプル
+```{:copy}
+::debug::{message}
+```
 
-``` bash
+### Example: Setting a debug message
+
+{% bash %}
+
+```bash{:copy}
 echo "::debug::Set the Octocat variable"
 ```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::debug::Set the Octocat variable"
+```
+
+{% endpowershell %}
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 
 ## Setting a notice message
 
-```
+Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
+
+```{:copy}
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
-Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
-
 {% data reusables.actions.message-parameters %}
 
-### サンプル
+### Example: Setting a notice message
 
-``` bash
+{% bash %}
+
+```bash{:copy}
 echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
+
+{% endpowershell %}
 {% endif %}
 
 ## 警告メッセージの設定
 
-```
+警告メッセージを作成し、ログにそのメッセージを出力します。 {% data reusables.actions.message-annotation-explanation %}
+
+```{:copy}
 ::warning file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
-警告メッセージを作成し、ログにそのメッセージを出力します。 {% data reusables.actions.message-annotation-explanation %}
-
 {% data reusables.actions.message-parameters %}
 
-### サンプル
+### Example: Setting a warning message
 
-``` bash
+{% bash %}
+
+```bash{:copy}
 echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
+
+{% endpowershell %}
 
 ## エラーメッセージの設定
 
-```
+エラーメッセージを作成し、ログにそのメッセージを出力します。 {% data reusables.actions.message-annotation-explanation %}
+
+```{:copy}
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
-エラーメッセージを作成し、ログにそのメッセージを出力します。 {% data reusables.actions.message-annotation-explanation %}
-
 {% data reusables.actions.message-parameters %}
 
-### サンプル
+### Example: Setting an error message
 
-``` bash
+{% bash %}
+
+```bash{:copy}
 echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
+```
+
+{% endpowershell %}
+
 ## ログの行のグループ化
 
-```
+展開可能なグループをログ中に作成します。 グループを作成するには、`group`コマンドを使って`title`を指定してください。 `group`と`endgroup`コマンド間でログに出力したすべての内容は、ログ中の展開可能なエントリ内にネストされます。
+
+```{:copy}
 ::group::{title}
 ::endgroup::
 ```
 
-展開可能なグループをログ中に作成します。 グループを作成するには、`group`コマンドを使って`title`を指定してください。 `group`と`endgroup`コマンド間でログに出力したすべての内容は、ログ中の展開可能なエントリ内にネストされます。
+### Example: Grouping log lines
 
-### サンプル
+{% bash %}
 
-```bash
-echo "::group::My title"
-echo "Inside group"
-echo "::endgroup::"
+```yaml{:copy}
+jobs:
+  bash-example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Group of log lines
+        run: |
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::"
 ```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml{:copy}
+jobs:
+  powershell-example:
+    runs-on: windows-latest
+    steps:
+      - name: Group of log lines
+        run: |
+            Write-Output "::group::My title"
+            Write-Output "Inside group"
+            Write-Output "::endgroup::"
+```
+
+{% endpowershell %}
 
 ![ワークフローの実行ログ中の折りたたみ可能なグループ](/assets/images/actions-log-group.png)
 
 ## ログ中での値のマスク
 
-```
+```{:copy}
 ::add-mask::{value}
 ```
 
 値をマスクすることにより、文字列または値がログに出力されることを防ぎます。 空白で分離された、マスクされた各語は "`*`" という文字で置き換えられます。 マスクの `value` には、環境変数または文字列を用いることができます。
 
-### 文字列をマスクするサンプル
+### Example: Masking a string
 
 ログに `"Mona The Octocat"` を出力すると、`"***"` が表示されます。
 
-```bash
+{% bash %}
+
+```bash{:copy}
 echo "::add-mask::Mona The Octocat"
 ```
 
-### 環境変数をマスクするサンプル
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+Write-Output "::add-mask::Mona The Octocat"
+```
+
+{% endpowershell %}
+
+### Example: Masking an environment variable
 
 変数 `MY_NAME` または値 `"Mona The Octocat"` をログに出力すると、`"Mona The Octocat"` の代わりに `"***"` が表示されます。
 
-```bash
-MY_NAME="Mona The Octocat"
-echo "::add-mask::$MY_NAME"
+{% bash %}
+
+```yaml{:copy}
+jobs:
+  bash-example:
+    runs-on: ubuntu-latest
+    env:
+      MY_NAME: "Mona The Octocat"
+    steps:
+      - name: bash-version
+        run: echo "::add-mask::$MY_NAME"
 ```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml{:copy}
+jobs:
+  powershell-example:
+    runs-on: windows-latest
+    env:
+      MY_NAME: "Mona The Octocat"
+    steps:
+      - name: powershell-version
+        run: Write-Output "::add-mask::$env:MY_NAME"
+```
+
+{% endpowershell %}
 
 ## ワークフローコマンドの停止と開始
 
-`::stop-commands::{endtoken}`
-
 ワークフローコマンドの処理を停止します。 この特殊コマンドを使うと、意図せずワークフローコマンドを実行することなくいかなるログも取れます。 たとえば、コメントがあるスクリプト全体を出力するためにログ取得を停止できます。
+
+```{:copy}
+::stop-commands::{endtoken}
+```
 
 To stop the processing of workflow commands, pass a unique token to `stop-commands`. To resume processing workflow commands, pass the same token that you used to stop workflow commands.
 
 {% warning %}
 
-**Warning:** Make sure the token you're using is randomly generated and unique for each run. As demonstrated in the example below, you can generate a unique hash of your `github.token` for each run.
+**Warning:** Make sure the token you're using is randomly generated and unique for each run.
 
 {% endwarning %}
 
-```
+```{:copy}
 ::{endtoken}::
 ```
 
-### Example stopping and starting workflow commands
+### Example: Stopping and starting workflow commands
+
+{% bash %}
 
 {% raw %}
 
-```yaml
+```yaml{:copy}
 jobs:
   workflow-command-job:
     runs-on: ubuntu-latest
     steps:
-      - name: disable workflow commands
+      - name: Disable workflow commands
         run: |
-          echo '::warning:: this is a warning'
-          echo "::stop-commands::`echo -n ${{ github.token }} | sha256sum | head -c 64`"
-          echo '::warning:: this will NOT be a warning'
-          echo "::`echo -n ${{ github.token }} | sha256sum | head -c 64`::"
-          echo '::warning:: this is a warning again'
+          echo '::warning:: This is a warning message, to demonstrate that commands are being processed.'
+          stopMarker=$(uuidgen)
+          echo "::stop-commands::$stopMarker"
+          echo '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
+          echo "::$stopMarker::"
+          echo '::warning:: This is a warning again, because stop-commands has been turned off.'
+```
+{% endraw %}
+
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+```yaml{:copy}
+jobs:
+  workflow-command-job:
+    runs-on: windows-latest
+    steps:
+      - name: Disable workflow commands
+        run: |
+          Write-Output '::warning:: This is a warning message, to demonstrate that commands are being processed.'
+          $stopMarker = New-Guid
+          Write-Output "::stop-commands::$stopMarker"
+          Write-Output '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
+          Write-Output "::$stopMarker::"
+          Write-Output '::warning:: This is a warning again, because stop-commands has been turned off.'
 ```
 
 {% endraw %}
 
+{% endpowershell %}
+
 ## Echoing command outputs
 
-```
+Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
+
+```{:copy}
 ::echo::on
 ::echo::off
 ```
-
-Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
 
 Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
 
@@ -263,9 +447,11 @@ The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing 
 
 You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
 
-### Example toggling command echoing
+### Example: Toggling command echoing
 
-```yaml
+{% bash %}
+
+```yaml{:copy}
 jobs:
   workflow-command-job:
     runs-on: ubuntu-latest
@@ -279,9 +465,29 @@ jobs:
           echo '::set-output name=action_echo::disabled'
 ```
 
-The step above prints the following lines to the log:
+{% endbash %}
 
+{% powershell %}
+
+```yaml{:copy}
+jobs:
+  workflow-command-job:
+    runs-on: windows-latest
+    steps:
+      - name: toggle workflow command echoing
+        run: |
+          write-output "::set-output name=action_echo::disabled"
+          write-output "::echo::on"
+          write-output "::set-output name=action_echo::enabled"
+          write-output "::echo::off"
+          write-output "::set-output name=action_echo::disabled"
 ```
+
+{% endpowershell %}
+
+The example above prints the following lines to the log:
+
+```{:copy}
 ::set-output name=action_echo::enabled
 ::echo::off
 ```
@@ -298,13 +504,13 @@ Only the second `set-output` and `echo` workflow commands are included in the lo
 
 以下の例はJavaScriptを使って`save-state`コマンドを実行します。 結果の環境変数は`STATE_processID`という名前になり、`12345`という値を持ちます。
 
-``` javascript
+```javascript{:copy}
 console.log('::save-state name=processID::12345')
 ```
 
 そして、`STATE_processID`変数は`main`アクションの下で実行されるクリーンアップスクリプトからのみ利用できます。 以下の例は`main`を実行し、JavaScriptを使って環境変数`STATE_processID`に割り当てられた値を表示します。
 
-``` javascript
+```javascript{:copy}
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
@@ -312,37 +518,70 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 ワークフローの実行中に、ランナーは特定のアクションを実行する際に使用できる一時ファイルを生成します。 これらのファイルへのパスは、環境変数を介して公開されます。 コマンドを適切に処理するには、これらのファイルに書き込むときに UTF-8 エンコーディングを使用する必要があります。 複数のコマンドを、改行で区切って同じファイルに書き込むことができます。
 
-{% warning %}
+{% powershell %}
 
-**Warning:** On Windows, legacy PowerShell (`shell: powershell`) does not use UTF-8 by default.
+{% note %}
 
-When using `shell: powershell`, you must specify UTF-8 encoding. 例:
+**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. 例:
 
-```yaml
+```yaml{:copy}
 jobs:
   legacy-powershell-example:
-    uses: windows-2019
+    runs-on: windows-latest
     steps:
       - shell: powershell
-        run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        run: |
+          "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-Alternatively, you can use PowerShell Core (`shell: pwsh`), which defaults to UTF-8.
+PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. 例:
 
-{% endwarning %}
+```yaml{:copy}
+jobs:
+  powershell-core-example:
+    runs-on: windows-latest
+    steps:
+      - shell: pwsh
+        run: |
+          "mypath" >> $env:GITHUB_PATH
+```
+
+{% endnote %}
+
+{% endpowershell %}
 
 ## 環境変数の設定
 
-``` bash
+{% bash %}
+
+```bash{:copy}
 echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 ```
+
+{% endbash %}
+
+{% powershell %}
+
+- Using PowerShell version 6 and higher:
+```pwsh{:copy}
+"{environment_variable_name}={value}" >> $env:GITHUB_ENV
+```
+
+- Using PowerShell version 5.1 and below:
+```powershell{:copy}
+"{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+```
+
+{% endpowershell %}
 
 You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. 詳しい情報については、「[環境変数](/actions/learn-github-actions/environment-variables)」を参照してください。
 
 ### サンプル
 
+{% bash %}
+
 {% raw %}
-```
+```yaml{:copy}
 steps:
   - name: Set the value
     id: step_one
@@ -355,11 +594,31 @@ steps:
 ```
 {% endraw %}
 
+{% endbash %}
+
+{% powershell %}
+
+{% raw %}
+```yaml{:copy}
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+      "action_state=yellow" >> $env:GITHUB_ENV
+  - name: Use the value
+    id: step_two
+    run: |
+      Write-Output "${{ env.action_state }}" # This will output 'yellow'
+```
+{% endraw %}
+
+{% endpowershell %}
+
 ### 複数行の文字列
 
 複数行の文字列の場合、次の構文で区切り文字を使用できます。
 
-```
+```{:copy}
 {name}<<{delimiter}
 {value}
 {delimiter}
@@ -367,29 +626,75 @@ steps:
 
 #### サンプル
 
-この例では、区切り文字として `EOF` を使用し、`JSON_RESPONSE` 環境変数を cURL レスポンスの値に設定します。
-```yaml
+This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+
+{% bash %}
+
+```yaml{:copy}
 steps:
-  - name: Set the value
+  - name: Set the value in bash
     id: step_one
     run: |
       echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-      curl https://httpbin.org/json >> $GITHUB_ENV
+      curl https://example.lab >> $GITHUB_ENV
       echo 'EOF' >> $GITHUB_ENV
 ```
 
-## システムパスの追加
+{% endbash %}
 
-``` bash
-echo "{path}" >> $GITHUB_PATH
+{% powershell %}
+
+```yaml{:copy}
+steps:
+  - name: Set the value in pwsh
+    id: step_one
+    run: |
+      "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
+      (Invoke-WebRequest -Uri "https://example.lab").Content >> $env:GITHUB_ENV
+      "EOF" >> $env:GITHUB_ENV
+    shell: pwsh
 ```
 
+{% endpowershell %}
+
+## システムパスの追加
+
 Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. ジョブに現在定義されているパスを見るには、ステップもしくはアクション中で`echo "$PATH"`を使うことができます。
+
+{% bash %}
+
+```bash{:copy}
+echo "{path}" >> $GITHUB_PATH
+```
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{path}" >> $env:GITHUB_PATH
+```
+
+{% endpowershell %}
 
 ### サンプル
 
 この例は、ユーザの`$HOME/.local/bin`ディレクトリを`PATH`に追加する方法を示しています。
 
-``` bash
+{% bash %}
+
+```bash{:copy}
 echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
+
+{% endbash %}
+
+
+This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
+
+{% powershell %}
+
+```pwsh{:copy}
+"$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH
+```
+
+{% endpowershell %}

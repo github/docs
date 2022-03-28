@@ -1,7 +1,7 @@
 import { expect } from '@jest/globals'
 
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
-import { get } from '../helpers/supertest.js'
+import { get } from '../helpers/e2etest.js'
 
 describe('favicon assets', () => {
   it('should serve a valid and aggressively caching /favicon.ico', async () => {

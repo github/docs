@@ -1,5 +1,5 @@
 ---
-title: Guides for GitHub Actions
+title: GitHub Actions 指南
 intro: '{% data variables.product.prodname_actions %} 的这些指南包含具体的使用案例和示例来帮助您配置工作流程。'
 allowTitleToDifferFromFilename: true
 layout: product-guides
@@ -13,7 +13,8 @@ learningTracks:
   - continuous_integration
   - continuous_deployment
   - deploy_to_the_cloud
-  - '{% ifversion ghec or ghes or ghae %}adopting_github_actions_for_your_enterprise{% endif %}'
+  - adopting_github_actions_for_your_enterprise_ghec
+  - adopting_github_actions_for_your_enterprise_ghes_and_ghae
   - hosting_your_own_runners
   - create_actions
 includeGuides:

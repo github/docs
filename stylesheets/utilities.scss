@@ -24,6 +24,10 @@
   .no-print {
     display: none;
   }
+
+  .print-overflow-visible {
+    overflow: visible !important;
+  }
 }
 
 /* Opacity utilities
@@ -72,6 +76,12 @@
 ------------------------------------------------------------------------------*/
 .color-border-transparent {
   border-color: transparent !important;
+}
+
+/* Background colors
+------------------------------------------------------------------------------*/
+.background-transparent {
+  background-color: transparent;
 }
 
 /* Widths / Heights

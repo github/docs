@@ -1,6 +1,6 @@
 ---
 title: Organization に参加するようユーザを招待する
-intro: 'You can invite anyone to become a member of your organization using their username or email address for {% data variables.product.product_location %}.'
+intro: '{% data variables.product.product_location %}のためのユーザ名もしくはメールアドレスを使って、Organizationのメンバーになるよう誰でも招待できます。'
 permissions: Organization owners can invite users to join an organization.
 redirect_from:
   - /articles/adding-or-inviting-members-to-a-team-in-an-organization
@@ -15,7 +15,7 @@ topics:
 shortTitle: ユーザに参加するよう招待
 ---
 
-## About organization invitations
+## Organizationの招待について
 
 Organization がユーザ単位の有料プランである場合、新しいメンバーを招待して参加させる、または Organization の以前のメンバーを復帰させる前に、そのためのライセンスが用意されている必要があります。 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。
 
@@ -23,12 +23,12 @@ Organization がユーザ単位の有料プランである場合、新しいメ�
 
 Organization がメンバーに 2 要素認証を使うことを要求している場合、招待するユーザは招待を受ける前に 2 要素認証を有効化する必要があります。 詳細については、「[Organization で 2 要素認証を要求する](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)」と「[2要素認証 (2FA) でアカウントをセキュアにする](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)」を参照してください。
 
-{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% else %}You{% endif %} can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.prodname_dotcom_the_website %} through an identity provider (IdP). For more information, see "[About SCIM](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %}を使用するOrganization{% else %}あなた{% endif %}はSCIMを実装して、アイデンティティプロバイダ（IdP）を通じて{% data variables.product.prodname_dotcom_the_website %}へのメンバーのアクセスを追加、管理、削除できます。 詳しい情報については{% ifversion fpt %}、{% data variables.product.prodname_ghe_cloud %}ドキュメンテーションの{% else %}、{% endif %}「[SCIMについて](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)を参照してください。
 
-## Inviting a user to join your organization
+## Organizationに参加するようユーザを招待する
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.invite_member_from_people_tab %}
 {% data reusables.organizations.invite_to_org %}

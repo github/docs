@@ -1,7 +1,7 @@
 ---
 title: Organizaciones y equipos
 shortTitle: Organizaciones
-intro: 'You can use organizations to collaborate with an unlimited number of people across many projects at once, while managing access to your data and customizing settings.'
+intro: 'Puedes utilizar las organizaciones para colaborar con una cantidad ilimitada de personas en muchos proyectos al mismo tiempo, mientras administras el acceso a tus datos y ajustes de personalización.'
 redirect_from:
   - /articles/about-improved-organization-permissions
   - /categories/setting-up-and-managing-organizations-and-teams

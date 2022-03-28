@@ -23,6 +23,10 @@ jobs:
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
           ref: ${{ github.head_ref }}
+          # Need to specify a PAT here because otherwise GITHUB_TOKEN is used
+          # by default.  Workflows won't trigger in that case because actions
+          # performed with GITHUB_TOKEN don't trigger other workflows.
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Check out base ref
         run: git fetch --no-tags --depth=1 origin $GITHUB_BASE_REF
@@ -41,10 +45,10 @@ jobs:
           git checkout $GITHUB_HEAD_REF
 
           echo "List the files that changed"
-          git diff --name-only $GITHUB_HEAD_REF $GITHUB_BASE_REF
+          git diff --name-only --diff-filter=d $GITHUB_BASE_REF $GITHUB_HEAD_REF
 
           echo "Run optipng on pngs in from the diff"
-          git diff --name-only -z $GITHUB_HEAD_REF $GITHUB_BASE_REF -- '*.png' | xargs -0 optipng -nx
+          git diff --name-only -z --diff-filter=d $GITHUB_BASE_REF $GITHUB_HEAD_REF -- '*.png' | xargs -0 optipng -nx
 
       - name: Make a commit and a push
         run: |

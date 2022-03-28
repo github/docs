@@ -1,6 +1,6 @@
 ---
-title: Filtering and searching issues and pull requests
-intro: 'To find detailed information about a repository on {% data variables.product.product_name %}, you can filter, sort, and search issues and pull requests that are relevant to the repository.'
+title: 筛选和搜索议题以及拉取请求
+intro: '要在 {% data variables.product.product_name %} 上查找有关仓库的详细信息，您可以过滤、排序和搜索与仓库相关的议题和拉取请求。'
 redirect_from:
   - /github/managing-your-work-on-github/finding-information-in-a-repository/filtering-issues-and-pull-requests-by-assignees
   - /articles/filtering-issues-and-pull-requests-by-assignees
@@ -41,7 +41,7 @@ versions:
 topics:
   - Issues
   - Pull requests
-shortTitle: Filter and search
+shortTitle: 筛选和搜索
 type: how_to
 ---
 
@@ -67,7 +67,7 @@ type: how_to
 
 ## 按受理人过滤议题和拉取请求
 
-Once you've [assigned an issue or pull request to someone](/articles/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who's working on them.
+将[议题或拉取请求分配给某人](/articles/assigning-issues-and-pull-requests-to-other-github-users)后，您可以根据处理这些项目的人来查找项。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -82,7 +82,7 @@ Once you've [assigned an issue or pull request to someone](/articles/assigning-i
 
 ## 按标签过滤议题和拉取请求
 
-Once you've [applied labels to an issue or pull request](/articles/applying-labels-to-issues-and-pull-requests), you can find items based on their labels.
+将[标签应用于议题或拉取请求](/articles/applying-labels-to-issues-and-pull-requests)后，您可以根据项目的标签查找项。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
@@ -104,8 +104,8 @@ Once you've [applied labels to an issue or pull request](/articles/applying-labe
 - [需要审查](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)后才能合并的拉取请求
 - 审查者已批准的拉取请求
 - 审查者要求更改的拉取请求
-- Pull requests that you have reviewed{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
-- Pull requests that someone has asked you directly to review{% endif %}
+- 您已审核的拉取请求{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
+- 有人要求您直接审核的拉取请求{% endif %}
 - [有人要求您或您所属团队进行审查](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)的拉取请求
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -115,9 +115,9 @@ Once you've [applied labels to an issue or pull request](/articles/applying-labe
 
 ## 使用搜索过滤议题和拉取请求
 
-You can use advanced filters to search for issues and pull requests that meet specific criteria.
+您可以使用高级筛选器来搜索符合特定条件的议题和拉取请求。
 
-### Searching for issues and pull requests
+### 搜索议题和拉取请求
 
 {% webui %}
 
@@ -137,15 +137,15 @@ You can use advanced filters to search for issues and pull requests that meet sp
 
 {% data reusables.cli.cli-learn-more %}
 
-You can use the {% data variables.product.prodname_cli %} to search for issues or pull requests. Use the `gh issue list` or `gh pr list` subcommand along with the `--search` argument and a search query.
+您可以使用 {% data variables.product.prodname_cli %} 来搜索议题或拉取请求。 使用 `gh issue list` 或 `gh pr list` 子命令以及 `--search` 参数和搜索查询。
 
-For example, you can list, in order of date created, all issues that have no assignee and that have the label `help wanted` or `bug`.
+例如，您可以按创建日期的顺序列出所有没有受理人且有标签 `help wanted` 或 `bug` 的议题。
 
 ```shell
 gh issue list --search 'no:assignee label:"help wanted",bug sort:created-asc'
 ```
 
-You can also list all pull requests that mention the `octo-org/octo-team` team.
+您还可以列出所有提及 `octo-org/octo-team` 团队的拉取请求。
 
 ```shell
 gh pr list --search "team:octo-org/octo-team"
@@ -153,7 +153,7 @@ gh pr list --search "team:octo-org/octo-team"
 
 {% endcli %}
 
-### About search terms
+### 关于搜索词
 
 使用议题和拉取请求搜索词，您可以：
 
@@ -166,9 +166,9 @@ gh pr list --search "team:octo-org/octo-team"
 {% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 {% tip %}
 
-**Tip:** You can filter issues and pull requests by label using logical OR or using logical AND.
-- To filter issues using logical OR, use the comma syntax: `label:"bug","wip"`.
-- To filter issues using logical AND, use separate label filters: `label:"bug" label:"wip"`.
+**提示：** 您可以使用逻辑 OR 或使用逻辑 AND 按标签筛选问题和拉取请求。
+- 要使用逻辑 OR 筛选议题，请使用逗号语法：`label:"bug","wip"`。
+- 要使用逻辑 AND 筛选问题，请使用单独的标签筛选器：`label:"bug" label:"wip"`。
 
 {% endtip %}
 {% endif %}
@@ -186,8 +186,8 @@ gh pr list --search "team:octo-org/octo-team"
 - 过滤审查者已批准的拉取请求：`state:open type:pr review:approved`
 - 过滤审查者要求更改的拉取请求：`state:open type:pr review:changes_requested`
 - 按[审查者](/articles/about-pull-request-reviews/)过滤拉取请求：`state:open type:pr reviewed-by:octocat`
-- Filter pull requests by the specific user [requested for review](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
-- Filter pull requests that someone has asked you directly to review: `state:open type:pr user-review-requested:@me`{% endif %}
+- 按[请求审查](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)的特定用户过滤拉取请求：`state:open type:pr review-requested:octocat`{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
+- 过滤有人直接要求您审核的拉取请求：`state:open type:pr user-review-requested:@me`{% endif %}
 - 按申请审查的团队过滤拉取请求：`state:open type:pr team-review-requested:github/atom`{% ifversion fpt or ghes or ghae or ghec %}
 - 过滤链接到拉取请求可能关闭的议题的拉取请求：`linked:issue`{% endif %}
 
@@ -226,4 +226,4 @@ gh pr list --search "team:octo-org/octo-team"
 
 ## 延伸阅读
 
-- "[Searching issues and pull requests](/articles/searching-issues)"
+- "[搜索议题和拉取请求](/articles/searching-issues)"

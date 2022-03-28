@@ -1,6 +1,6 @@
 ---
 title: ブランチ
-intro: The branches API allows you to modify branches and their protection settings.
+intro: ブランチAPIを使うと、ブランチとブランチの保護設定を変更できます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,11 +12,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## 保護されたブランチ
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'branch-protection' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/branches
+-->

@@ -1,6 +1,7 @@
-Before you can authorize a personal access token or SSH key, you must have a linked SAML identity. If you're a member of an organization where SAML SSO is enabled, you can create a linked identity by authenticating to your organization with your IdP at least once. Para obtener más información, consulta la sección "[Acerca de la autenticación con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)".
+Antes de que puedas autorizar un token de acceso personal o llave SSH, debes haber vinculado una identidad de SAML. Si eres miembro de una organización en donde está habilitado el SSO de SAML, puedes crear una identidad vinculada autenticándote en tu organización con tu IdP por lo menos una vez. Para obtener más información, consulta la sección "[Acerca de la autenticación con el inicio de sesión único de SAML](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)".
 
-After you authorize a personal access token or SSH key, the authorization does not expire. The token or key will stay authorized until revoked in one of these ways.
-- An organization owner revokes the authorization.
-- You are removed from the organization.
-- The scopes in a personal access token are edited, or the token is regenerated.
+Después de autorizar un token de acceso personal o llave SSH. El token o llave permanecerá autorizado hasta que se revoque en una de estas formas.
+- Un propietario de la organización revoca la autorización.
+- Se te elimina de la organización.
+- Se editan los alcances en un token de acceso personal o este se regenera.
+- El token de acceso personal venció conforme a lo definido durante su creación.

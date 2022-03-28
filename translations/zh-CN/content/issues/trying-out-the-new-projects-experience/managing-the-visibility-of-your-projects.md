@@ -1,6 +1,6 @@
 ---
-title: Managing the visibility of your projects (beta)
-intro: You can control who can view your projects.
+title: 管理项目的可见性（测试版）
+intro: 您可以控制谁可以查看您的项目。
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 3
 versions:
@@ -13,21 +13,21 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## About project visibility
+## 关于项目可见性
 
-Projects (beta) can be public or private. For public projects, everyone on the internet can view the project. For private projects, only users granted at least read access can see the project.
+项目（测试版）可以是公共的，也可以是私有的。 对于公共项目，互联网上的每个人都可以查看。 对于私有项目，只有被授予至少读取访问权限的用户才能查看。
 
-Only the project visibility is affected; to view an item on the project, someone must have the required permissions for the repository that the item belongs to. If your project includes items from a private repository, people who are not collaborators in the repository will not be able to view items from that repository.
+只有项目可见性会受影响；要查看项目上的项，必须有人具有该项所属存储库所需的权限。 如果项目包含私有存储库中的项目，则不是存储库协作者的用户将无法查看该存储库中的项。
 
-![Project with hidden item](/assets/images/help/projects/hidden-items.png)
+![包含隐藏项的项目](/assets/images/help/projects/hidden-items.png)
 
-Only project admins can control project visibility.
+只有项目管理员才能控制项目可见性。
 
-In private, organization-owned projects, the avatars of users who are current making updates to the project are displayed in the project UI.
+在组织拥有的私有项目中，当前对项目进行更新的用户的头像将显示在项目 UI 中。
 
-Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see "[Managing access to projects](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)."
+项目管理员还可以管理对其项目的写入和管理员访问权限，并控制单个用户的读取访问权限。 更多信息请参阅“[管理对项目的访问](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)”。
 
-## Changing project visibility
+## 更改项目可见性
 
 {% data reusables.projects.project-settings %}
-1. Under **Visibility**, select **Private** or **Public**.
+1. 在 **Visibility（可见性）**下，选择 **Private（私有）**或 **Public（公共）**。

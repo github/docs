@@ -9,7 +9,7 @@ redirect_from:
   - /packages/guides/deleting-a-container-image
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '>=3.2'
   ghec: '*'
   ghae: '*'
 shortTitle: Excluir & restaurar um pacote
@@ -46,7 +46,7 @@ Você pode usar a API REST para gerenciar seus pacotes. Para obter mais informa�
 
 {% endif %}
 
-For packages that inherit their permissions and access from repositories, you can use GraphQL to delete a specific package version.{% ifversion fpt or ghec %} The {% data variables.product.prodname_registry %} GraphQL API does not support containers or Docker images that use the package namespace `https://ghcr.io/OWNER/PACKAGE-NAME`.{% endif %} For more information about GraphQL support, see "[Deleting a version of a repository-scoped package with GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)."
+Para pacotes que herdam suas permissões e acesso dos repositórios, você pode usar o GraphQL para excluir uma versão específica de pacotes.{% ifversion fpt or ghec %} A API do GraphQL de {% data variables.product.prodname_registry %} não é compatível com contêineres ou imagens Docker que usam o namespace `https://ghcr. o/OWNER/PACKAGE-NAME`.{% endif %} Para obter mais informações sobre o suporte do GraphQL, consulte "[Excluindo uma versão de um pacote com escopo de repositório com o GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)".
 
 {% endif %}
 
@@ -211,7 +211,7 @@ Para revisar quem pode restaurar um pacote em uma organização, consulte "[Perm
 
 Você pode restaurar um pacote excluído por meio das configurações da sua conta de usuário, se o pacote estiver em um de seus repositórios ou escopo para sua conta de usuário. Para obter mais informações, consulte "[Permissões necessárias](#required-permissions-to-delete-or-restore-a-package)".
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. À esquerda, clique em **Pacotes**.
 4. Em "Pacotes excluídos", ao lado do pacote que você deseja restaurar, clique em **Restaurar**. ![Botão de restaurar](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. Para confirmar, digite o nome do pacote e clique em **Eu entendo as consequências, restaure este pacote**. ![Restaurar botão de confirmação do pacote](/assets/images/help/package-registry/type-package-name-and-restore-button.png)

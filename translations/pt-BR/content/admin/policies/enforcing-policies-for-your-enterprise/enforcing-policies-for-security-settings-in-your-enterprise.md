@@ -67,7 +67,7 @@ Você pode restringir o tráfego de rede para a sua empresa em {% data variables
 
 {% elsif ghec %}
 
-Os proprietários de empresas podem restringir o acesso a ativos pertencentes a organizações em uma empresa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+Os proprietários de empresas podem restringir o acesso a ativos privados pertencentes a organizações em uma empresa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
@@ -116,7 +116,7 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 ### Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
-{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
+{% data reusables.actions.ip-allow-list-self-hosted-runners %}
 
 {% endif %}
 
@@ -126,9 +126,11 @@ Você também pode configurar endereços IP permitidos para uma organização in
 
 Você pode usar as autoridades de certificados SSH (CA) para permitir que os integrantes de qualquer organização pertencente à sua empresa acessem os repositórios da organização usando certificados SSH que você fornecer. {% data reusables.organizations.can-require-ssh-cert %} Para obter mais informações, consulte "[Sobre autoridades certificadas de SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)".
 
+{% data reusables.organizations.add-extension-to-cert %}
+
 ### Adicionar uma autoridade certificada de SSH
 
-{% data reusables.organizations.add-extension-to-cert %}
+Se você precisar de certificados SSH para sua empresa, os integrantes da empresa deverão usar um URL especial para operações do Git por meio do SSH. Para obter mais informações, consulte "[Sobre autoridades certificadas SSH](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)".
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

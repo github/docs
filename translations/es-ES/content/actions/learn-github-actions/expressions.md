@@ -15,7 +15,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Acerca de las expresiones
 
-You can use expressions to programmatically set environment variables in workflow files and access contexts. Una expresión puede ser cualquier combinación de valores literales, referencias a un contexto o funciones. Puedes combinar valores literales, referencias de contexto y funciones usando operadores. Para obtener más información sobre los contextos, consulta la sección "[Contextos](/actions/learn-github-actions/contexts)".
+Puedes utilizar expresiones para configurar variables de ambiente con programación en los archivos de flujo de trabajo y contextos de acceso. Una expresión puede ser cualquier combinación de valores literales, referencias a un contexto o funciones. Puedes combinar valores literales, referencias de contexto y funciones usando operadores. Para obtener más información sobre los contextos, consulta la sección "[Contextos](/actions/learn-github-actions/contexts)".
 
 Las expresiones se utilizan comúnmente con la palabra clave condicional `if` en un archivo de flujo de trabajo para determinar si un paso debe ejecutar. Cuando un condicional `if` es `true`, se ejecutará el paso.
 
@@ -25,9 +25,9 @@ Debes usar una sintaxis específica para decirle a {% data variables.product.pro
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %} Para obtener más información acerca de los condicionales `if`, consulta la sección "[sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+{% data reusables.actions.expression-syntax-if %} Para obtener más información acerca de los condicionales `if`, consulta la sección "[sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 #### Expresión de ejemplo en un condicional `if`
 
@@ -50,12 +50,12 @@ env:
 
 Como parte de una expresión, puedes usar tipos de datos `boolean`, `null`, `number` o `string`.
 
-| Tipo de datos | Valor literal                                                                                                                                                                                                                                                                                                                         |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `boolean`     | `verdadero` o `falso`                                                                                                                                                                                                                                                                                                                 |
-| `null`        | `null`                                                                                                                                                                                                                                                                                                                                |
-| `number`      | Cualquier formato de número compatible con JSON.                                                                                                                                                                                                                                                                                      |
-| `secuencia`   | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
+| Tipo de datos | Valor literal                                                                                                                                                                                                                                                                                                                                                     |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `boolean`     | `verdadero` o `falso`                                                                                                                                                                                                                                                                                                                                             |
+| `null`        | `null`                                                                                                                                                                                                                                                                                                                                                            |
+| `number`      | Cualquier formato de número compatible con JSON.                                                                                                                                                                                                                                                                                                                  |
+| `secuencia`   | No necesitas meter secuencias entre `{% raw %}${{{% endraw %}` y `{% raw %}}}{% endraw %}`. Sin embargo, en caso de que lo hagas, debes utilizar comillas simples (`'`) al rededor de la secuencia. ra utilizar una comilla simple literal, escápala utilizando una comilla simple adicional (`''`). Si envuelves las comillas dobles (`"`) se mostrará un error. |
 
 #### Ejemplo
 
@@ -77,20 +77,20 @@ env:
 
 ## Operadores
 
-| Operador                  | Descripción           |
-| ------------------------- | --------------------- |
-| `( )`                     | Agrupación lógica     |
-| `[ ]`                     | Índice                |
-| `.`                       | Property de-reference |
-| `!`                       | No                    |
-| `<`                    | Menor que             |
-| `<`                    | Menor o igual         |
-| `>`                    | Mayor que             |
-| `>=`                   | Mayor o igual         |
-| `==`                      | Igual                 |
-| `!=`                      | No es igual           |
-| `&&`              | Y                     |
-| <code>\|\|</code> | O                     |
+| Operador                  | Descripción                |
+| ------------------------- | -------------------------- |
+| `( )`                     | Agrupación lógica          |
+| `[ ]`                     | Índice                     |
+| `.`                       | Desreferencia de propiedad |
+| `!`                       | No                         |
+| `<`                    | Menor que                  |
+| `<`                    | Menor o igual              |
+| `>`                    | Mayor que                  |
+| `>=`                   | Mayor o igual              |
+| `==`                      | Igual                      |
+| `!=`                      | No es igual                |
+| `&&`              | Y                          |
+| <code>\|\|</code> | O                          |
 
 {% data variables.product.prodname_dotcom %} realiza comparaciones de igualdad flexible.
 
@@ -252,7 +252,7 @@ jobs:
 
 `hashFiles(path)`
 
-Arroja un solo hash para el conjunto de archivos que coincide con el patrón de `path`. Puedes proporcionar un patrón de `path` o `path` múltiples se parados por comas. El `path` está relacionado con el directorio `GITHUB_WORKSPACE` y solo puede incluir archivos dentro del directorio `GITHUB_WORKSPACE`. Esta función calcula un hash SHA-256 individual para cada archivo coincidente, y luego usa esos hashes para calcular un hash SHA-256 final para el conjunto de archivos. Para más información sobre SHA-256, consulta "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
+Arroja un solo hash para el conjunto de archivos que coincide con el patrón de `path`. Puedes proporcionar un patrón de `path` o `path` múltiples se parados por comas. El `path` está relacionado con el directorio `GITHUB_WORKSPACE` y solo puede incluir archivos dentro del directorio `GITHUB_WORKSPACE`. Esta función calcula un hash SHA-256 individual para cada archivo coincidente, y luego usa esos hashes para calcular un hash SHA-256 final para el conjunto de archivos. Si el patrón `path` no empata con ningún archivo, esto devolverá una secuencia vacía. Para más información sobre SHA-256, consulta "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)".
 
 Puedes usar caracteres de coincidencia de patrones para encontrar nombres de archivos. La coincidencia de patrones no distingue mayúsculas de minúsculas en Windows. Para obtener más información acerca de los caracteres compatibles con los patrones, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/actions/using-workflows/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)".
 
@@ -274,8 +274,8 @@ Crea un hash para cualquier archivo de `package-lock.json` y de `Gemfile.lock` e
 
 Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if` (si). Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. Para obtener más información sobre los condicionales `if`, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" y "[Sintaxis de metadatos para las Acciones Compuestas de GitHub](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
 {% else %}
-## Check Functions
-Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if` (si). Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
+## Funciones de verificación
+Puedes usar las siguientes funciones de verificación de estado como expresiones en condicionales `if` (si). Se aplicará una verificación de estado predeterminado de `success()` a menos de que incluyas una de estas funciones. Para obtener más información sobre los condicionales `if`, consulta la sección "[Sintaxis de flujo de trabajo para GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)".
 {% endif %}
 
 ### success

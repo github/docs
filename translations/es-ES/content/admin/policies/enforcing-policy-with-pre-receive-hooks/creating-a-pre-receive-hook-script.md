@@ -92,7 +92,7 @@ La variable `$GITHUB_VIA` se encuentra disponible en el ambiente de gancho de pr
 | <pre>git refs update api</pre> | Actualización de una referencia a tracvés de la API                              | "[Base de datos de Git](/rest/reference/git#update-a-reference)" en la documentación de la API de REST                                                                         |
 | <pre>git repo contents api</pre> | Cambio al contenido de un archivo a través de la API                             | "[Crear o actualizar el contenido de un archivo](/rest/reference/repos#create-or-update-file-contents)" en la API de REST                                                      |
 
-{%- ifversion ghes > 3.0 %}
+{%- ifversion ghes %}
 | 
 
 `merge` | Fusión de una solicitud de cambios utilizando la fusión automática | "[Fusionar una solicitud de cambios automáticamente](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |

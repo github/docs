@@ -23,8 +23,8 @@ shortTitle: Git LFSストレージのダウングレード
 
 ## 個人アカウントのストレージと帯域幅をダウングレード
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-remove-data %}
 {% data reusables.large_files.downgrade_data_packs %}
 

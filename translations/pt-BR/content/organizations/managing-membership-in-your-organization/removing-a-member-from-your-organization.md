@@ -13,9 +13,8 @@ topics:
   - Organizations
   - Teams
 shortTitle: Remover um integrante
+permissions: Organization owners can remove members from an organization.
 ---
-
-Somente proprietários da organização podem remover integrantes da organização.
 
 {% ifversion fpt or ghec %}
 
@@ -55,7 +54,7 @@ Para auxiliar a transição e garantir a exclusão das informações confidencia
 ## Revogar a associação do usuário
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Selecione um ou mais integrantes que deseja remover da organização. ![Lista de integrantes com dois integrantes selecionados](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Acima da lista de integrantes, use o menu suspenso e clique **Remove from organization** (Remover da organização). ![Menu suspenso com opção de remover integrantes](/assets/images/help/teams/user-bulk-management-options.png)
@@ -63,4 +62,5 @@ Para auxiliar a transição e garantir a exclusão das informações confidencia
 
 ## Leia mais
 
-- "[Remover integrantes da organização de uma equipe](/articles/removing-organization-members-from-a-team)"
+- "[Removendo integrantes da organização de uma equipe](/articles/removing-organization-members-from-a-team)"{% if remove-enterprise-members %}
+- "[Removendo um integrante da sua empresa](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

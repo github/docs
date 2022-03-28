@@ -440,3 +440,14 @@
 - /github/administering-a-repository/managing-alerts-from-secret-scanning
 - /code-security/secret-security/managing-alerts-from-secret-scanning
 - /code-security/secret-scanning/managing-alerts-from-secret-scanning
+
+/enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators
+- /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
+- /articles/setting-permissions-for-adding-outside-collaborators
+- /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-adding-outside-collaborators
+- /organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators
+
+/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization
+- /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
+- /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
+- /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization

@@ -46,8 +46,8 @@ Você também pode converter sua conta de usuário pessoal diretamente em uma or
 
 1. Crie uma conta pessoal, que você usará para entrar no GitHub e acessar a organização e seus repositórios após conversão.
 2.  [Saia das organizações](/articles/removing-yourself-from-an-organization) nas quais a conta de usuário que você está convertendo ingressou.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 5. Em "Transform account" (Transformar conta), clique em **Turn <username> into an organization** (Transformar <username> em uma organização). ![Botão de conversão da organização](/assets/images/help/settings/convert-to-organization.png)
 6. Na caixa de diálogo Account Transformation Warning (Aviso de transformação da conta), revise e confirme a conversão. Observe que as informações nessa caixa são as mesmas do aviso no início deste artigo. ![Aviso de conversão](/assets/images/help/organizations/organization-account-transformation-warning.png)
 7. Na página "Transform your user into an organization" (Transformar usuário em uma organização), em "Choose an organization owner" (Escolher um proprietário da organização), escolha a conta pessoal secundária que você criou na seção anterior ou outro usuário em que confia para gerenciar a organização. ![Página Add organization owner (Adicionar proprietário da organização)](/assets/images/help/organizations/organization-add-owner.png)

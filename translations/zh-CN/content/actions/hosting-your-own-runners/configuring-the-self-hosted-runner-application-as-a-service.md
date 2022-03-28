@@ -13,7 +13,6 @@ defaultPlatform: linux
 shortTitle: 启动时运行运行器应用程序
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -78,6 +77,12 @@ shortTitle: 启动时运行运行器应用程序
    ./svc.sh install
    ```
 {% endmac %}
+
+该命令采用可选的 `user` 参数，以其他用户身份安装服务。
+
+```shell
+./svc.sh install --user <em>USERNAME</em>
+```
 
 ## 启动服务
 

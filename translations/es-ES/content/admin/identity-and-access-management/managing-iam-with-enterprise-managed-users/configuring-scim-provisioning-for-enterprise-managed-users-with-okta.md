@@ -76,6 +76,8 @@ Para configurar el aprovisionamiento, el usuario de configuración con el nombre
 
 Después de haber configurado el SSO de SAML y el aprovisionamiento, podrás aprovisionar usuarios nuevos en {% data variables.product.prodname_dotcom_the_website %} asignando a los usuarios a la aplicación de {% data variables.product.prodname_emu_idp_application %}.
 
+{% data reusables.scim.emu-scim-rate-limit %}
+
 You can also automatically manage organization membership by assigning groups to the application and adding them to the "Push Groups" tab in Okta. When the group is provisioned successfully, it will be available to connect to teams in the enterprise's organizations. Para obtener más información sobre cómo administrar los equipos, consulta la sección "[Administrar las membrecías de los quipos con grupos de proveedor de identidad](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
 
 Cuando asignas usuarios, puedes utilizar el atributo de "Roles" en la aplicación de {% data variables.product.prodname_emu_idp_application %} para configurar el rol de un usuario en tu empresa en {% data variables.product.product_name %}. Para obtener más información sobre los roles, consulta la sección "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)".

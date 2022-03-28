@@ -1,4 +1,6 @@
 ---
+meta:
+  default_description: Inicia, soluciona problemas y saca el mayor provecho de GitHub. Documentación para usuarios nuevos, desarrolladores, administradores y todos los productos de GitHub.
 header:
   github_docs: GitHub Docs
   contact: Contacto
@@ -44,6 +46,7 @@ pages:
   miniToc: En este artículo
   contributor_callout: En este artículo contribuye y lo mantiene
   all_enterprise_releases: Todos los lanzamientos de Enterprise Server
+  about_versions: Acerca de las versiones
 errors:
   oops: '¡Ups!'
   something_went_wrong: Parece que algo salió mal.
@@ -77,6 +80,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implementa
       fields: Campos
       arguments: Argumentos
       name: Nombre
@@ -91,8 +95,16 @@ products:
       deprecation_notice: Aviso de depreciación
   rest:
     reference:
+      default: Predeterminado
+      name: Nombre
+      in: En
+      type: Tipo
+      description: Descripción
+      notes: Notas
       parameters: Parámetros
       response: Respuesta
+      error_codes: Códigos de error
+      http_status_code: Código de estado HTTP
       code_sample: Ejemplo de código
       code_samples: Ejemplos de código
       preview_notice: Aviso de previsualización
@@ -100,6 +112,8 @@ products:
       see_preview_notice: Ver aviso de previsualización
       see_preview_notices: Ver avisos de previsualización
       preview_header_is_required: El encabezado es <strong>requerido</strong>
+      preview_notice_to_change: Esta API está en vista previa y sujeta al cambio
+      works_with_github_apps: Funciona con las GitHub Apps
 footer:
   all_rights_reserved: Todos los derechos reservados
   terms: Términos

@@ -1,5 +1,5 @@
 ---
-title: Accessing compliance reports for your enterprise
+title: Acceder a los reportes de cumplimiento de tu empresa
 intro: 'You can access {% data variables.product.company_short %}''s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your enterprise.'
 versions:
   ghec: '*'
@@ -9,16 +9,16 @@ topics:
   - Enterprise
   - Fundamentals
 permissions: Enterprise owners can access compliance reports for the enterprise.
-shortTitle: Access compliance reports
+shortTitle: Acceso a los reportes de cumplimiento
 ---
 
-## About {% data variables.product.company_short %}'s compliance reports
+## Acerca de los reportes de cumplimiento de {% data variables.product.company_short %}
 
 You can access {% data variables.product.company_short %}'s compliance reports in your enterprise settings.
 
 {% data reusables.security.compliance-report-list %}
 
-## Accessing compliance reports for your enterprise
+## Acceder a los reportes de cumplimiento de tu empresa
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
@@ -28,4 +28,4 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 ## Leer más
 
-- "[Accessing compliance reports for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"
+- "[Acceder a los reportes de cumplimiento de tu organización](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Box, themeGet } from '@primer/components'
+import { Box, themeGet } from '@primer/react'
 
 type Props = {
   intro?: React.ReactNode

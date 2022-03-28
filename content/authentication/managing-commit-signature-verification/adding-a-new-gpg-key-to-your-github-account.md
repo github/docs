@@ -25,8 +25,8 @@ When verifying a signature, we extract the signature and attempt to parse its ke
 
 ## Adding a GPG key
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. Click **New GPG key**.
    ![GPG Key button](/assets/images/help/settings/gpg-add-gpg-key.png)
 4. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/articles/generating-a-new-gpg-key).

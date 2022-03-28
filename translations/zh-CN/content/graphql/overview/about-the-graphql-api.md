@@ -12,7 +12,7 @@ topics:
 
 ## 概览
 
-Here are some quick links to get you up and running with the GraphQL API:
+下面是一些帮助您启动和运行 GraphQL API 的快速链接：
 
 * [身份验证](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
 * [根端点](/graphql/guides/forming-calls-with-graphql#the-graphql-endpoint)
@@ -36,9 +36,9 @@ Here are some quick links to get you up and running with the GraphQL API:
 
 ## GitHub 为什么使用 GraphQL
 
-GitHub chose GraphQL because it offers significantly more flexibility for our integrators. The ability to define precisely the data you want&mdash;and _only_ the data you want&mdash;is a powerful advantage over traditional REST API endpoints. GraphQL 可用于将多个 REST 请求替换为_单个调用_，以获取您指定的数据。
+GitHub 选择 GraphQL，因为它可以为我们的集成商提供明显更高的灵活性。 准确定义所需数据&mdash;_仅仅_是您所需的数据&mdash;的能力是它超越传统 REST API 端点的强大优势。 GraphQL 可用于将多个 REST 请求替换为_单个调用_，以获取您指定的数据。
 
-For more details about why GitHub invested in GraphQL, see the original [announcement blog post](https://github.blog/2016-09-14-the-github-graphql-api/).
+有关 GitHub 为什么投资 GraphQL 的详细信息，请参阅原始[公告博客文章](https://github.blog/2016-09-14-the-github-graphql-api/)。
 
 ## 关于 GraphQL 架构引用
 

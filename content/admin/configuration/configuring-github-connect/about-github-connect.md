@@ -1,6 +1,6 @@
 ---
 title: About GitHub Connect
-intro: "{% data variables.product.prodname_github_connect %} enhances {% data variables.product.product_name %} by giving you access to additional features and workflows that rely on the power of {% data variables.product.prodname_dotcom_the_website %}."
+intro: '{% data variables.product.prodname_github_connect %} enhances {% data variables.product.product_name %} by giving you access to additional features and workflows that rely on the power of {% data variables.product.prodname_dotcom_the_website %}.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -47,6 +47,9 @@ When you enable {% data variables.product.prodname_github_connect %} or specific
 - The authentication token that's used by {% data variables.product.product_location %} to make requests to {% data variables.product.prodname_ghe_cloud %}
 - If Transport Layer Security (TLS) is enabled and configured on {% data variables.product.product_location %}{% ifversion ghes %}
 - The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.product.product_location %}, and the date and time of enablement{% endif %}
+- The dormancy threshold for your enterprise
+- The number of dormant users for your enterprise
+- A count of license-consuming seats, which does not include suspended users
 
 {% data variables.product.prodname_github_connect %} syncs the above connection data between {% data variables.product.product_location %} and {% data variables.product.prodname_ghe_cloud %} weekly, from the day and approximate time that {% data variables.product.prodname_github_connect %} was enabled.
 

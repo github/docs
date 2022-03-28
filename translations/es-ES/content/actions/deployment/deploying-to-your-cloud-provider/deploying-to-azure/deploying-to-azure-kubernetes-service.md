@@ -44,7 +44,7 @@ Una vez que hayas completado los prerequisitos, puedes proceder con la creación
 
 The following example workflow demonstrates how to build and deploy a project to Azure Kubernetes Service when code is pushed to your repository.
 
-Under the workflow `env` key, change the following values:
+Debajo de la llave de flujo de trabajo `env`, cambia los siguientes valores:
 - `AZURE_CONTAINER_REGISTRY` to the name of your container registry
 - `PROJECT_NAME` to the name of your project
 - `RESOURCE_GROUP` to the resource group containing your AKS cluster

@@ -28,6 +28,6 @@ Para obter mais informações, consulte "[Transferir a propriedade da organizaç
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 3. Em "Organizations" (Organizações), encontre a organização da qual deseja remover a si mesmo, depois clique em **Leave** (Sair). ![Botão Leave organization (Sair da organização) mostrando as funções](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

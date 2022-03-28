@@ -13,7 +13,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: Delete a codespace
+shortTitle: 删除代码空间
 ---
 
 
@@ -48,17 +48,17 @@ shortTitle: Delete a codespace
 
 {% data reusables.cli.cli-learn-more %}
 
-To delete a codespace use the `gh codespace delete` subcommand and then choose a codespace from the list that's displayed.
+若要删除代码空间，请使用 `gh codespace delete` 子命令，然后从显示的列表中选择一个代码空间。
 
 ```shell
 gh codespace delete
 ```
 
-If you have unsaved changes, you'll be prompted to confirm deletion. You can use the `-f` flag to force deletion, avoiding this prompt.
+如果您有未保存的更改，系统将提示您确认删除。 您可以使用 `-f` 标志强制删除，从而避免出现此提示。
 
-For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_delete).
+有关此命令的详细信息，请参阅 [ {% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_codespace_delete)。
 
 {% endcli %}
 
 ## 延伸阅读
-- [Codespaces lifecycle](/codespaces/developing-in-codespaces/codespaces-lifecycle)
+- [代码空间生命周期](/codespaces/developing-in-codespaces/codespaces-lifecycle)
