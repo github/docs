@@ -1,3 +1,4 @@
+Disabling issue
 ---
 title: Quickstart for GitHub Issues
 intro: 'Follow this brief interactive guide to learn about {% data variables.product.prodname_github_issues %}.'
