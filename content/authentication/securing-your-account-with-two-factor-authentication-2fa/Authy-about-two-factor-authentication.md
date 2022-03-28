@@ -1,4 +1,4 @@
----
+Authy---
 title: About two-factor authentication
 intro: '{% data reusables.two_fa.about-2fa %} With 2FA, you have to log in with your username and password and provide another form of authentication that only you know or have access to.'
 redirect_from:
