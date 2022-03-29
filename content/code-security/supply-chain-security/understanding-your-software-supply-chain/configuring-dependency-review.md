@@ -20,6 +20,12 @@ redirect_from:
 
 {% data reusables.dependency-review.beta %}
 
+## About dependency review
+
+{% data reusables.dependency-review.feature-overview %}   
+
+For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+
 ## About configuring dependency review
 
 {% ifversion fpt %}

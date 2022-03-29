@@ -4,8 +4,9 @@ intro: 'Enable {% data variables.product.prodname_dependabot_alerts %} to be not
 shortTitle: Configure Dependabot alerts
 versions:
   fpt: '*'
+  ghes: '*'
+  ghae: issue-4864
   ghec: '*'
-  ghes: '>3.2'
 type: how_to
 topics:
   - Dependabot
@@ -40,28 +41,14 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
-3. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, enable or disable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories that you own.
+3. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, enable or disable {% data variables.product.prodname_dependabot_alerts %} by default for new repositories that you create.
   {% ifversion ghes > 3.2 %}![Checkbox for enabling or disabling a feature for new repositories](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-or-disable-feature-checkbox.png){% else %}![Screenshot of "Configure security and analysis" with "Enable  for all new private repositories" check emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-for-all-new-repositories.png){% endif %}{% ifversion fpt or ghec %}
 
 ## Managing Dependabot alerts for your repository
 
 By default, we notify people with admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% ifversion fpt or ghec %}{% data variables.product.product_name %} never publicly discloses identified vulnerabilities for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working repositories that you own or have admin permissions for.{% endif %}
 
-### Enabling or disabling Dependabot alerts for public repositories
-
-You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for public repositories. Other features are permanently enabled, including dependency graph and secret scanning.
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable** or **Enable**.{% ifversion fpt %}
-  ![Screenshot of Dependabot alerts in a public repository with "Enable" button emphasized](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt-public-repositories.png){% elsif ghec %}
-  !["Enable" or "Disable" button for "Configure security and analysis" features in a public repository](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-public.png){% endif %}
-{% endif %}
-
-### Enabling or disabling Dependabot alerts{% ifversion fpt or ghec %} for private repositories{% endif %}
-
-You can manage {% data variables.product.prodname_dependabot_alerts %} for your {% ifversion fpt or ghec %}private or internal {% endif %}repository.{% ifversion ghes or ghec %} If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
+You can manage {% data variables.product.prodname_dependabot_alerts %} for your public, private or internal repository.{% ifversion ghes or ghec %} If your organization belongs to an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %} then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
 {% elsif fpt %} Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} have extra options available. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories).
 {% endif %}
 
@@ -71,11 +58,11 @@ You can manage {% data variables.product.prodname_dependabot_alerts %} for your 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
 {% ifversion fpt or ghes or ghec %}
-4. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable** or **Enable**. {% ifversion not fpt %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% endif %}{% ifversion fpt %}
+1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable** or **Enable**. {% ifversion not fpt %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% endif %}{% ifversion fpt %}
   ![Screenshot of "Configure security and analysis" features with the "Disable" button emphasized for Dependabot alerts](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt-private.png){% elsif ghec %}
   !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% elsif ghes > 3.2 %}
   !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% else %}
-  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
+  !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/enterprise/3.1/help/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}{% endif %}
   
   {% ifversion not fpt %}
   {% note %}
@@ -96,11 +83,8 @@ You can manage {% data variables.product.prodname_dependabot_alerts %} for your 
 
 ## Managing Dependabot alerts for your organization
 You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your organization.
-
-### Enabling or disabling Dependabot alerts for all existing repositories
-
-You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories.
 {% ifversion fpt or ghec %}Your changes affect all repositories.{% endif %}
+### Enabling or disabling Dependabot alerts for all existing repositories
 
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
@@ -142,5 +126,3 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 5. Click **Enable/Disable all** or **Enable/Disable for eligible repositories** to confirm the change.
    ![Button to enable feature for all the eligible repositories in the organization](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-secret-scanning-existing-repos-ghae.png)
    {% endif %}
-
-   {% data reusables.security.displayed-information %}
