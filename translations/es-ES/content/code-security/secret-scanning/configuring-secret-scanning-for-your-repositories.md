@@ -1,6 +1,6 @@
 ---
 title: Configurar el escaneo de secretos para tus repositorios
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} scans your repositories for secrets that match advanced security patterns.'
+intro: 'Puedes configurar la forma en la que {% data variables.product.prodname_dotcom %} escanea tus repositorios en búsqueda de secretos que coincidan con los patrones de seguridad avanzada.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 permissions: 'People with admin permissions to a repository can enable {% data variables.product.prodname_secret_scanning_GHAS %} for the repository.'
 redirect_from:
@@ -24,7 +24,7 @@ shortTitle: Configurar escaneos de secretos
 
 ## Habilitar {% data variables.product.prodname_secret_scanning_GHAS %}
 
-Puedes habilitar el {% data variables.product.prodname_secret_scanning_GHAS %} para cualquier repositorio que pertenezca a una organización. Once enabled, {% data reusables.secret-scanning.secret-scanning-process %}
+Puedes habilitar el {% data variables.product.prodname_secret_scanning_GHAS %} para cualquier repositorio que pertenezca a una organización. Una vez que se habilite, {% data reusables.secret-scanning.secret-scanning-process %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -41,7 +41,7 @@ Puedes habilitar el {% data variables.product.prodname_secret_scanning_GHAS %} p
 3. A la derecha de "{% data variables.product.prodname_secret_scanning_caps %}", da clic en **Habilitar**. ![Habilitar el {% data variables.product.prodname_secret_scanning %} para tu repositorio](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
-## Excluding directories from {% data variables.product.prodname_secret_scanning_GHAS %}
+## Excluir directorios de la {% data variables.product.prodname_secret_scanning_GHAS %}
 
 Puedes utilizar un archivo *secret_scanning.yml* para excluir los directorios de {% data variables.product.prodname_secret_scanning %}. Por ejemplo, puedes excluir directorios que contengan pruebas o contenido generado aleatoriamente.
 

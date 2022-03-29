@@ -37,8 +37,23 @@ No podrán utilizarse las acciones ni cualquier elemento del servicio de este pr
 - cualquier actividad que coloque un peso en nuestros servidores, ya sea que dicho peso sea excesivo para los beneficios que se proporcionan a los usuarios (por ejemplo, no utilizamos acciones como una red de entrega de contenido o como parte de una aplicación sin servidores, pero una acción de beneficio mínimo podría estar bien si también implica un peso mínimo); o
 - si estás utilizando los ejecutores hospedados en GitHub, cualquier otra actividad sin relación a la producción, pruebas, despliegue o publicación del proyecto de software asociado con el repositorio en donde se utilizan las GitHub Actions.
 
-Para evitar violaciones de estas limitaciones y abuso de las Acciones de GitHub, GitHub puede controlar tu uso de Acciones de GitHub. El mal uso de las GitHub Actions podría dar como resultado la terminación de jobs, restricciones en tu capacidad para utilizar las GitHub Actions, o inhabilitar los repositorios que se crearon para ejecutar las acciones de una forma que viole estas condiciones.
+Para evitar violaciones de estas limitaciones y abuso de las Acciones de GitHub, GitHub puede controlar tu uso de Acciones de GitHub. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.
 
+*Use for Development and Testing*
+
+You may only access and use GitHub Actions to develop and test your application(s). Only one licensed user may access a virtual machine provided by Actions at any time.
+
+*Authorized Developer*
+
+You appoint GitHub as your authorized developer with respect to Apple software included in Actions. GitHub is responsible for complying with the terms for any such software included in Actions and will keep confidential any confidential information of Apple accessed as part of Actions.
+
+*Third Party Repository Service Access*
+
+If you grant GitHub access to your third-party repository service account(s), you authorize GitHub to scan the account(s), including the contents of your Public and Private Repositories, for purposes of providing GitHub Actions.
+
+*Self-Hosted Runners on GitHub Actions*
+
+If you use self-hosted runners, you have the ability to turn off automatic updates but GitHub reserves the right to override your choice for critical security updates.
 
 ## Advanced Security
 GitHub hace características de seguridad adicionales para los clientes bajo una licencia de Seguridad Avanzada. Estas características incluyen el escaneo de código, escaneo de secretos y revisión de dependencias. La [Documentación de la seguridad avanzada](/github/getting-started-with-github/about-github-advanced-security) proporciona más detalles.
