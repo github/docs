@@ -340,6 +340,8 @@ For more information, see Daring Fireball's "[Markdown Syntax](https://daringfir
 
 {% endif %}
 
+To cite an author,  name them in parenthese  () and written in italics. For example ( | ‘- - ‘ | ) or ( | ‘ * *  ‘ | )
+
 ## Further reading
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
