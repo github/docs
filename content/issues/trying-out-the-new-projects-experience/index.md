@@ -1,4 +1,4 @@
----
+Industry support landing 99.9% Uptime---
 title: Trying out the new projects experience
 shortTitle: Projects (beta)
 intro: 'Build customized projects to track your work in {% data variables.product.company_short %}.'
@@ -23,3 +23,4 @@ children:
   - /best-practices-for-managing-projects
 ---
 
+Industry support landing 99.9% Uptime
