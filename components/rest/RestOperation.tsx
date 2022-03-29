@@ -6,6 +6,8 @@ import { RestResponse } from './RestResponse'
 import { Operation } from './types'
 import { RestNotes } from './RestNotes'
 import { RestPreviewNotice } from './RestPreviewNotice'
+import { useTranslation } from 'components/hooks/useTranslation'
+import { RestStatusCodes } from './RestStatusCodes'
 
 type Props = {
   operation: Operation
@@ -13,7 +15,11 @@ type Props = {
 }
 
 export function RestOperation({ operation }: Props) {
+  const { t } = useTranslation('products')
   const previews = operation['x-github'].previews
+  const nonErrorResponses = operation.responses.filter(
+    (response) => parseInt(response.httpStatusCode) < 400
+  )
 
   return (
     <div>
@@ -34,7 +40,7 @@ export function RestOperation({ operation }: Props) {
       {operation['x-codeSamples'] && operation['x-codeSamples'].length > 0 && (
         <RestCodeSamples slug={operation.slug} xCodeSamples={operation['x-codeSamples']} />
       )}
-      <RestResponse responses={operation.responses} />
+      <RestResponse responses={nonErrorResponses} />
       {(operation.notes.length > 0 || operation['x-github'].enabledForGitHubApps) && (
         <RestNotes
           notes={operation.notes}
@@ -44,7 +50,7 @@ export function RestOperation({ operation }: Props) {
       {previews && (
         <RestPreviewNotice slug={operation.slug} previews={operation['x-github'].previews} />
       )}
-      <RestResponse responses={operation.responses} variant="error" />
+      <RestStatusCodes heading={t('rest.reference.status_codes')} responses={operation.responses} />
     </div>
   )
 }
