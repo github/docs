@@ -14,9 +14,6 @@ type Props = {
 
 export function RestOperation({ operation }: Props) {
   const previews = operation['x-github'].previews
-  const hasRequiredPreviews = previews
-    ? previews.filter((preview) => preview.required).length > 0
-    : false
 
   return (
     <div>
@@ -29,7 +26,6 @@ export function RestOperation({ operation }: Props) {
       {operation.parameters && (
         <RestParameterTable
           slug={operation.slug}
-          hasRequiredPreviews={hasRequiredPreviews}
           xGitHub={operation['x-github']}
           parameters={operation.parameters}
           bodyParameters={operation.bodyParameters}
