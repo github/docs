@@ -313,7 +313,7 @@ It may still be possible to render the data by converting the `.geojson` file to
 
 ### Further reading
 
-* [Leaflet.js geojson documentation](http://leafletjs.com/examples/geojson.html)
+* [Leaflet.js documentation](https://leafletjs.com/)
 * [MapBox marker-styling documentation](http://www.mapbox.com/developers/simplestyle/)
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
