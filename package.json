@@ -11,7 +11,7 @@
   "dependencies": {
     "@github/failbot": "0.8.0",
     "@primer/css": "^19.4.0",
-    "@primer/react": "^34.7.1",
+    "@primer/react": "^35.1.0",
     "@primer/octicons": "17.0.0",
     "@primer/octicons-react": "17.0.0",
     "@react-aria/ssr": "^3.1.0",
