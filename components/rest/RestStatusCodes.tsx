@@ -8,7 +8,7 @@ type Props = {
   responses: Array<CodeResponse>
 }
 
-export function RestResponseTable({ heading, responses }: Props) {
+export function RestStatusCodes({ heading, responses }: Props) {
   const { t } = useTranslation('products')
 
   return (
@@ -22,22 +22,21 @@ export function RestResponseTable({ heading, responses }: Props) {
           </tr>
         </thead>
         <tbody>
-          {responses.map((response, index) => {
-            return (
-              <tr key={`${response.description}-${index}}`}>
-                <td>
-                  <code>{response.httpStatusCode}</code>
-                </td>
-                <td>
-                  {response.description ? (
-                    <div dangerouslySetInnerHTML={{ __html: response.description }} />
-                  ) : (
-                    response.httpStatusMessage
-                  )}
-                </td>
-              </tr>
-            )
-          })}
+          {responses.map((response, index) => (
+            <tr key={`${response.description}-${index}}`}>
+              <td>
+                <code>{response.httpStatusCode}</code>
+              </td>
+              <td>
+                {response.description &&
+                response.description.toLowerCase() !== '<p>response</p>' ? (
+                  <div dangerouslySetInnerHTML={{ __html: response.description }} />
+                ) : (
+                  response.httpStatusMessage
+                )}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </>
