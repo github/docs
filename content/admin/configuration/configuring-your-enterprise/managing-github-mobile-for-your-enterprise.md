@@ -13,9 +13,6 @@ redirect_from:
   - /admin/configuration/managing-github-for-mobile-for-your-enterprise
 shortTitle: Manage GitHub Mobile
 ---
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
 
 ## About {% data variables.product.prodname_mobile %}
 
