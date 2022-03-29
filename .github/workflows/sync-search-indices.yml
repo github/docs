@@ -77,6 +77,14 @@ jobs:
         env:
           VERSION: ${{ github.event.inputs.version }}
           LANGUAGE: ${{ github.event.inputs.language }}
+          # If a reusable, or anything in the `data/*` directory is deleted
+          # you might get a
+          #
+          #   RenderError: Can't find the key 'site.data.reusables...' in the scope
+          #
+          # But that'll get fixed in the next translation pipeline. For now,
+          # let's just accept an empty string instead.
+          THROW_ON_EMPTY: false
         run: npm run sync-search
 
       - name: Update private docs repository search indexes
