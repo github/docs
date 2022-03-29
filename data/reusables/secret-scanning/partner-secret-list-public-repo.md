@@ -91,6 +91,7 @@ Stripe | Stripe Live API Secret Key
 Stripe | Stripe Test API Secret Key
 Stripe | Stripe Live API Restricted Key
 Stripe | Stripe Test API Restricted Key
+Supabase | Supabase Service Key
 Tencent Cloud | Tencent Cloud Secret ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
