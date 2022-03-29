@@ -52,7 +52,7 @@ During the beta for {% data variables.product.prodname_mobile %} with {% data va
 
 ### Adding, switching, or signing out of accounts
 
-You can sign into mobile with a user account on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap {% octicon "plus" aria-label="The plus icon" %} **Add Enterprise Account**. Follow the prompts to sign in.
+You can sign into mobile with a user account on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} ****, then tap {% octicon "plus" aria-label="The plus icon" %} **Add Enterprise Account**. Follow the prompts to sign in.
 
 After you sign into mobile with a user account on {% data variables.product.prodname_ghe_server %}, you can switch between the account and your account on {% data variables.product.prodname_dotcom_the_website %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap the account you want to switch to.
 
