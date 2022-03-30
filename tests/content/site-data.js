@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
-import { get, isPlainObject, has } from 'lodash-es'
+import { get, isPlainObject } from 'lodash-es'
 import flat from 'flat'
 import walkSync from 'walk-sync'
 import { ParseError } from 'liquidjs'
@@ -87,18 +87,5 @@ describe('siteData module (English)', () => {
       '\n'
     )}`
     expect(yamlReusables.length, message).toBe(0)
-  })
-
-  test('all non-English data has matching English data', async () => {
-    for (const languageCode of Object.keys(data)) {
-      if (languageCode === 'en') continue
-
-      const nonEnglishKeys = Object.keys(flat(data[languageCode]))
-      for (const key of nonEnglishKeys) {
-        if (!has(data.en, key)) {
-          throw new Error(`matching data not found for ${languageCode}.${key}`)
-        }
-      }
-    }
   })
 })
