@@ -35,9 +35,9 @@ shortTitle: 支払い方法の管理
 
 {% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.update_payment_method %}
-1. If your account has existing billing information that you want to update, click **Edit**. ![支払の新しいカードボタン](/assets/images/help/billing/billing-information-edit-button.png)
+1. 更新したい既存の支払い情報をアカウントが持っているなら、**Edit（編集）**をクリックしてください。 ![支払の新しいカードボタン](/assets/images/help/billing/billing-information-edit-button.png)
 {% data reusables.dotcom_billing.enter-billing-info %}
-1. If your account has an existing payment method that you want to update, click **Edit**. ![支払の新しいカードボタン](/assets/images/help/billing/billing-payment-method-edit-button.png)
+1. 更新したい既存の支払い方法をアカウントが持っているなら、**Edit（編集）**をクリックしてください。 ![支払の新しいカードボタン](/assets/images/help/billing/billing-payment-method-edit-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
 ## Organization の支払い方法を更新する

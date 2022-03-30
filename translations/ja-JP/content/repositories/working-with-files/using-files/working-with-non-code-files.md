@@ -37,11 +37,13 @@ shortTitle: 非コードファイルでの作業
 
 ## 画像をレンダリングして違いを見極める
 
-{% data variables.product.product_name %} では、一般的な画像形式のいくつか (PNG、JPG、GIF、PSD、SVG など) を表示できます。 In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.'
+{% data variables.product.product_name %} では、一般的な画像形式のいくつか (PNG、JPG、GIF、PSD、SVG など) を表示できます。 単に表示するだけではなく、画像を異なるバージョン間で比較する方法もいくつかあります。
 
 {% note %}
 
-**メモ:** Firefox ブラウザを使用している場合、{% data variables.product.prodname_dotcom %} では SVG がレンダリングされない可能性があります。
+**注釈:**
+- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
+- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 {% endnote %}
 
@@ -306,7 +308,7 @@ geoJSON ファイルのレンダリングに問題がある場合は、[geoJSON 
 
 ### 参考リンク
 
-* [Leaflet.js geojson ドキュメント](http://leafletjs.com/examples/geojson.html)
+* [Leaflet.js documentation](https://leafletjs.com/)
 * [MapBox マーカースタイリングのドキュメント](http://www.mapbox.com/developers/simplestyle/)
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
