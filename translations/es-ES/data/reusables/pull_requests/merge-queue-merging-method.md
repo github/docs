@@ -1,2 +1,2 @@
-Once CI checks pass, {% data variables.product.product_name %} merges the pull request by fast-forwarding the default branch. The merge queue will use merge commits if the "Require linear history" branch protection setting is turned off, and the "Rebase and merge" method otherwise. 
+Una vez que se verifique la IC, {% data variables.product.product_name %} fusiona la solicitud de cambios reenviando la rama predeterminada. La cola de fusión utilizará confirmaciones de fusión si se apagó el ajuste de protección de rama "Requerir un historial linear" y utilizará el método de "Rebase y fusión" de otra forma. 
  

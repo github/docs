@@ -1,5 +1,5 @@
 ---
-title: Managing IAM for your enterprise
+title: Administrar el IAM para tu empresa
 shortTitle: IAM para tu empresa
 intro: 'Puedes administrar centralmente las {% ifversion ghae %}cuentas y {% endif %}el acceso a tus {% ifversion ghae %}empresas{% elsif ghec %}recursos empresariales{% endif %} en {% data variables.product.product_name %} con el inicio de sesión único de (SSO) de SAML y la Administración de Identidad Entre Dominios (SCIM).'
 versions:
