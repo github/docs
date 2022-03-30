@@ -6,7 +6,6 @@ export interface Operation {
   notes: Array<string>
   requestPath: string
   responses: Array<CodeResponse>
-  hasRequiredPreviews: boolean
   parameters: Array<Parameter>
   bodyParameters: Array<BodyParameter>
   'x-github': xGitHub
