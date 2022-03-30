@@ -15,9 +15,6 @@ topics:
   - Notifications
 shortTitle: Manage from your inbox
 ---
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
 
 ## About your inbox
 
