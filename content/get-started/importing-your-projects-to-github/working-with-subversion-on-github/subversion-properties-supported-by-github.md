@@ -1,28 +1,21 @@
----
-title: Subversion properties supported by GitHub
-intro: 'There are several Subversion workflows and properties that are similar to existing functionality on {% data variables.product.product_name %}.'
-redirect_from:
-  - /articles/subversion-properties-supported-by-github
-  - /github/importing-your-projects-to-github/subversion-properties-supported-by-github
-  - /github/importing-your-projects-to-github/working-with-subversion-on-github/subversion-properties-supported-by-github
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-shortTitle: Properties supported by GitHub
----
-## Executable files (`svn:executable`)
+MIT License
 
-We convert `svn:executable` properties by updating the file mode directly before adding it to the Git repository.
+Copyright (c) [year] [fullname]
 
-## MIME types (`svn:mime-type`)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-{% data variables.product.product_name %} internally tracks the mime-type properties of files and the commits that added them.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## Ignoring unversioned items (`svn:ignore`)
-
-If you've set files and directories to be ignored in Subversion, {% data variables.product.product_name %} will track them internally. Files ignored by subversion clients are completely distinct from entries in a *.gitignore* file.
-
-## Currently unsupported properties
-
-{% data variables.product.product_name %} doesn't currently support `svn:externals`, `svn:global-ignores`, or any properties not listed above, including custom properties.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
