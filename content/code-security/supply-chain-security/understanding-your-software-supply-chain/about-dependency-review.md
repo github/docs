@@ -54,6 +54,8 @@ The dependency review feature becomes available when you enable the dependency g
 {% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
 ## Dependency review enforcement
 
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+
 You can use the Dependency Review GitHub Action in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility of what's changing in a pull request, and helps prevent vulnerabilities being added to your repository. For more information, see [`dependency-review-action`](https://github.com/actions/dependency-review-action).
 
 ![Dependency review action example](/assets/images/help/graphs/dependency-review-action.png)
