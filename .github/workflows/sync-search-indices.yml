@@ -77,6 +77,10 @@ jobs:
         env:
           VERSION: ${{ github.event.inputs.version }}
           LANGUAGE: ${{ github.event.inputs.language }}
+          # We don't want or need the changelog entries in this context.
+          # Pages that display the content from these isn't included
+          # in search index bodies anyway.
+          CHANGELOG_DISABLED: true
           # If a reusable, or anything in the `data/*` directory is deleted
           # you might get a
           #
