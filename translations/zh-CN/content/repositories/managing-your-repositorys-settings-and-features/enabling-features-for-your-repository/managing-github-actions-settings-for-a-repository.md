@@ -44,7 +44,7 @@ shortTitle: 管理 GitHub Actions 设置
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
 1. 在 **Actions permissions（操作权限）**下，选择一个选项。
 
   ![设置此组织的操作策略](/assets/images/help/repository/actions-policy.png)
@@ -57,7 +57,7 @@ shortTitle: 管理 GitHub Actions 设置
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
 1. 在 **Actions permissions（操作权限）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。
 
    {%- ifversion ghes %}
@@ -77,7 +77,7 @@ shortTitle: 管理 GitHub Actions 设置
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
@@ -95,7 +95,7 @@ shortTitle: 管理 GitHub Actions 设置
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.private-repository-forks-configure %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
@@ -111,7 +111,7 @@ shortTitle: 管理 GitHub Actions 设置
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
 1. 在 **Workflow permissions（工作流程权限）**下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。
 
   ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository.png)
@@ -128,7 +128,7 @@ shortTitle: 管理 GitHub Actions 设置
 
 1. 在 {% data variables.product.prodname_dotcom %} 上，导航到内部仓库的主页面。
 1. 在仓库名称下，单击 {% octicon "gear" aria-label="The gear icon" %}**Settings（设置）**。
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
 1. 在 **Access（访问）**下，选择以下访问设置之一：
 
    {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png){% else %}![Set the access to Actions components](/assets/images/enterprise/3.4/actions-access-settings.png){% endif %}
@@ -151,5 +151,5 @@ shortTitle: 管理 GitHub Actions 设置
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-retention-period-for-artifacts-logs  %}
