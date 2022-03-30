@@ -37,11 +37,13 @@ shortTitle: Working with non-code files
 
 ## Rendering and diffing images
 
-{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.'
+{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
 
 {% note %}
 
-**Note:** If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
+**Note:** 
+- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files. 
+- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 {% endnote %}
 
