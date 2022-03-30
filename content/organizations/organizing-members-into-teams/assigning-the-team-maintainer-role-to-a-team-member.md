@@ -50,3 +50,4 @@ Before you can promote an organization member to team maintainer, the person mus
 ![Drop-down menu with option to change role](/assets/images/help/teams/bulk-edit-drop-down.png)
 6. Select a new role and click **Change role**.
 ![Radio buttons for Maintainer or Member roles](/assets/images/help/teams/team-role-modal.png)
+[Intel_SND_ComparisonChart_2022_02_07.csv](https://github.com/github/docs/files/8011273/Intel_SND_ComparisonChart_2022_02_07.csv)
