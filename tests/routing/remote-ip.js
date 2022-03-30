@@ -1,4 +1,4 @@
-import { get } from '../helpers/supertest.js'
+import { get } from '../helpers/e2etest.js'
 import { expect, jest } from '@jest/globals'
 
 describe('remote ip debugging', () => {

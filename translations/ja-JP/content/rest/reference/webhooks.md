@@ -1,6 +1,6 @@
 ---
 title: webhook
-intro: The webhooks API allows you to create and manage webhooks for your repositories.
+intro: webhooks APIを使うと、リポジトリのwebhookの作成と管理ができます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

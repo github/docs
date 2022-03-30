@@ -21,7 +21,7 @@ Você pode restringir o acesso a ativos privados da organização configurando u
 {% ifversion ghec %}
 {% note %}
 
-**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+**Observação:** Apenas organizações que usam {% data variables.product.prodname_ghe_cloud %} podem usar listas de permissão de IP. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}

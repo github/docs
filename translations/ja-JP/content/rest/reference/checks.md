@@ -1,6 +1,6 @@
 ---
 title: チェック
-intro: 'With the Checks API, you can build {% data variables.product.prodname_github_apps %} that run powerful checks against the code changes in a repository.'
+intro: 'Checks APIを使用すると、リポジトリでのコード変更に対して強力なチェックを行う{% data variables.product.prodname_github_apps %}を構築できます。'
 redirect_from:
   - /v3/checks
 versions:

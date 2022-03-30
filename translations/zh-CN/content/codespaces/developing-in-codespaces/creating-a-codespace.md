@@ -14,7 +14,7 @@ topics:
   - Codespaces
   - Fundamentals
   - Developer
-shortTitle: Create a codespace
+shortTitle: 创建代码空间
 ---
 
 ## 关于代码空间的创建
