@@ -19,9 +19,9 @@ shortTitle: 启动故障转移到设备
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
+1. 如果主设备可用，要在切换设备之前允许复制完成，请在主设备上将主设备置于维护模式。
 
-    - Put the appliance into maintenance mode.
+    - 将设备置于维护模式。
 
        - 要使用 Management Console，请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”。
 
@@ -44,7 +44,7 @@ shortTitle: 启动故障转移到设备
       $ ghe-repl-status -vv
       ```
 
-4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. 此操作还会自动将主节点（若可到达）置于维护模式。
+4. 在副本设备上，要停止复制并将副本设备提升为主状态，请使用 `ghe-repl-promote` 命令。 此操作还会自动将主节点（若可到达）置于维护模式。
   ```shell
   $ ghe-repl-promote
   ```

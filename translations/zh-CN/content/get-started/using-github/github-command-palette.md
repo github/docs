@@ -8,7 +8,7 @@ shortTitle: GitHub Command Palette
 
 {% data reusables.command-palette.beta-note %}
 
-## 关于 {% data variables.product.prodname_command_palette %}
+## About the {% data variables.product.prodname_command_palette %}
 
 You can navigate, search, and run commands on {% data variables.product.product_name %} with the {% data variables.product.prodname_command_palette %}. The command palette is an on-demand way to show suggestions based on your current context and resources you've used recently. You can open the command palette with a keyboard shortcut from anywhere on {% data variables.product.product_name %}, which saves you time and keeps your hands on the keyboard.
 
@@ -38,16 +38,16 @@ When you open the command palette, it shows your location at the top left and us
 
 {% note %}
 
-**注意：**
+**Notes:**
 - If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).
-- If you are working on a project (beta), a project-specific command palette is displayed instead. 更多信息请参阅“[自定义项目（测试版）视图](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)”。
+- If you are working on a project (beta), a project-specific command palette is displayed instead. For more information, see "[Customizing your project (beta) views](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)."
 
 {% endnote %}
 
 ### Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts
 
 
-The default keyboard shortcuts used to open the command palette may conflict with your default OS and browser keyboard shortcuts. You have the option to customize your keyboard shortcuts in the [Accessibility section](https://github.com/settings/accessibility) of your account settings. In the command palette settings, you can customize the keyboard shortcuts for opening the command palette in both search mode and command mode.
+The default keyboard shortcuts used to open the command palette may conflict with your default OS and browser keyboard shortcuts. You have the option to customize your keyboard shortcuts in the [Accessibility section](https://github.com/settings/accessibility) of your account settings. In the command palette settings, you can customize the keyboard shortcuts for opening the command palette in both search mode and command mode. 
 
 ![Command palette keyboard shortcut settings](/assets/images/help/command-palette/command-palette-keyboard-shortcut-settings.png)
 ## Navigating with the {% data variables.product.prodname_command_palette %}
@@ -122,7 +122,7 @@ When the command palette is active, you can use one of the following keyboard sh
 - Search and navigation mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>K</kbd> (Mac)
 - Command mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac)
 
-If you have customized the command palette keyboard shortcuts in the Accessibility settings, your customized keyboard shortcuts will be used for both opening and closing the command palette.
+If you have customized the command palette keyboard shortcuts in the Accessibility settings, your customized keyboard shortcuts will be used for both opening and closing the command palette.  
 
 ## {% data variables.product.prodname_command_palette %} reference
 
@@ -130,100 +130,100 @@ If you have customized the command palette keyboard shortcuts in the Accessibili
 
 These keystrokes are available when the command palette is in navigation and search modes, that is, they are not available in command mode.
 
-| Keystroke                                                               | Function                                                                                                                                                                                                                                       |
-|:----------------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>></kbd>                                                            | Enter command mode. For more information, see "[Running commands from the {% data variables.product.prodname_command_palette %}](#running-commands-from-the-github-command-palette)."                                                        |
-| <kbd>#</kbd>                                                            | Search for issues, pull requests, discussions, and projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."                             |
-| <kbd>@</kbd>                                                            | Search for users, organizations, and repositories. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."                                       |
-| <kbd>/</kbd>                                                            | Search for files within a repository scope or repositories within an organization scope. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)." |
-| <kbd>!</kbd>                                                            | Search just for projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."                                                                |
-| <kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>Command</kbd>+<kbd>C</kbd>         | Copy the search or navigation URL for the highlighted result to the clipboard.                                                                                                                                                                 |
-| <kbd>Enter</kbd>                                                        | Jump to the highlighted result or run the highlighted command.                                                                                                                                                                                 |
-| <kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Command</kbd>+<kbd>Enter</kbd> | Open the highlighted search or navigation result in a new brower tab.                                                                                                                                                                          |
-| <kbd>?</kbd>                                                            | Display help within the command palette.                                                                                                                                                                                                       |
+| Keystroke | Function |
+| :- | :- |
+|<kbd>></kbd>| Enter command mode. For more information, see "[Running commands from the {% data variables.product.prodname_command_palette %}](#running-commands-from-the-github-command-palette)." |
+|<kbd>#</kbd>| Search for issues, pull requests, discussions, and projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
+|<kbd>@</kbd>| Search for users, organizations, and repositories. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
+|<kbd>/</kbd>| Search for files within a repository scope or repositories within an organization scope. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)." |
+|<kbd>!</kbd>| Search just for projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
+|<kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>Command</kbd>+<kbd>C</kbd>| Copy the search or navigation URL for the highlighted result to the clipboard.|
+|<kbd>Enter</kbd>| Jump to the highlighted result or run the highlighted command.|
+|<kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Command</kbd>+<kbd>Enter</kbd>| Open the highlighted search or navigation result in a new brower tab.|
+|<kbd>?</kbd>| Display help within the command palette.|
 
 ### Global commands
 
 These commands are available from all scopes.
 
-| Command                              | Behavior                                                                                                                                                                                                                                                                                   |
-|:------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Import repository`                  | Create a new repository by importing a project from another version control system. For more information, see "[Importing a repository with GitHub importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)." |
-| `New gist`                           | Open a new gist. For more information, see "[Creating a gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."                                                                                                                                      |
-| `New organization`                   | Create a new organization. 更多信息请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。                                                                                                                                       |
-| `新项目`                                | Create a new project board. For more information, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."                                                                                                                                           |
-| `New repository`                     | Create a new repository from scratch. 更多信息请参阅“[创建新仓库](/repositories/creating-and-managing-repositories/creating-a-new-repository)”。                                                                                                                                                        |
-| `Switch theme to <theme name>` | Change directly to a different theme for the UI. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."                                            |
+| Command | Behavior|
+| :- | :- | :- |
+|`Import repository`|Create a new repository by importing a project from another version control system. For more information, see "[Importing a repository with GitHub importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)."  |
+|`New gist`|Open a new gist. For more information, see "[Creating a gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)." |
+|`New organization`|Create a new organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." |
+|`New project`|Create a new project board. For more information, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."  |
+|`New repository`|Create a new repository from scratch. For more information, see "[Creating a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository)." |
+|`Switch theme to <theme name>`|Change directly to a different theme for the UI. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)." |
 
 
 ### Organization commands
 
 These commands are available only within the scope of an organization.
 
-| Command    | Behavior                                                                                                                                                    |
-|:---------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `New team` | Create a new team in the current organization. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)." |
+| Command | Behavior|
+| :- | :- |
+| `New team`| Create a new team in the current organization. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
 
 ### Repository commands
 
 Most of these commands are available only on the home page of the repository. If a command is also available on other pages, this is noted in the behavior column.
 
-| Command                              | Behavior                                                                                                                                                                                                             |
-|:------------------------------------ |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Clone repository: <URL type>` | Copy the URL needed to clone the repository using {% data variables.product.prodname_cli %}, HTTPS, or SSH to the clipboard. 更多信息请参阅“[克隆仓库](/repositories/creating-and-managing-repositories/cloning-a-repository)”。 |
-| `New discussion`                     | Create a new discussion in the repository. For more information, see "[Creating a new discussion](/discussions/quickstart#creating-a-new-discussion)."                                                               |
-| `New file`                           | Create a new file from any page in the repository. 更多信息请参阅“[添加文件到仓库](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)”。                                                                |
-| `New issue`                          | Open a new issue from any page in the repository. 更多信息请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue)”。                                                                                         |
-| `Open in new codespace`              | Create and open a codespace for this repository. 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace)”。                                                                                       |
-| `Open in github.dev editor`          | Open the current repository in the github.dev editor. For more information, see "[Opening the web based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."                           |
+| Command | Behavior|
+| :- | :- |
+|`Clone repository: <URL type>`|Copy the URL needed to clone the repository using {% data variables.product.prodname_cli %}, HTTPS, or SSH to the clipboard. For more information, see "[Cloning a repository](/repositories/creating-and-managing-repositories/cloning-a-repository)."|
+|`New discussion`|Create a new discussion in the repository. For more information, see "[Creating a new discussion](/discussions/quickstart#creating-a-new-discussion)."|
+|`New file`|Create a new file from any page in the repository. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
+|`New issue`|Open a new issue from any page in the repository. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-an-issue)."|
+|`Open in new codespace`|Create and open a codespace for this repository. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."|
+|`Open in github.dev editor`|Open the current repository in the github.dev editor. For more information, see "[Opening the web based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
 
 ### File commands
 
 These commands are available only when you open the command palette from a file in a repository.
 
-| Command                     | Behavior                                                                                                                                                                                                                                                    |
-|:--------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Copy permalink`            | Create a link to the file that includes the current commit SHA and copy the link to the clipboard. 更多信息请参阅“[获取文件的永久链接](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit)”。 |
-| `Open in github.dev editor` | Open the currently displayed file in github.dev editor. For more information, see "[Opening the web based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."                                                                |
+| Command | Behavior|
+| :- | :- |
+|`Copy permalink`|Create a link to the file that includes the current commit SHA and copy the link to the clipboard. For more information, see "[Getting permanent links to files](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit)."
+|`Open in github.dev editor`|Open the currently displayed file in github.dev editor. For more information, see "[Opening the web based editor](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
 
 ### Discussion commands
 
 These commands are available only when you open the command palette from a discussion. They act on your current page and are not affected by the scope set in the command palette.
 
-| Command                   | Behavior                                                                                                                                                                                               |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Delete discussion...`    | Permanently delete the discussion. 更多信息请参阅“[管理仓库中的讨论](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)”。                            |
-| `Edit discussion body`    | Open the main body of the discussion ready for editing.                                                                                                                                                |
-| `Subscribe`/`unsubscribe` | Opt in or out of notifications for additions to the discussion. 更多信息请参阅“[关于通知](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)”。 |
-| `Transfer discussion...`  | Move the discussion to a different repository. 更多信息请参阅“[管理仓库中的讨论](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#transferring-a-discussion)”。            |
+| Command | Behavior|
+| :- | :- |
+|`Delete discussion...`|Permanently delete the discussion. For more information, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)."
+|`Edit discussion body`|Open the main body of the discussion ready for editing.
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for additions to the discussion. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+|`Transfer discussion...`|Move the discussion to a different repository. For more information, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#transferring-a-discussion)."
 
 ### Issue commands
 
 These commands are available only when you open the command palette from an issue. They act on your current page and are not affected by the scope set in the command palette.
 
-| Command                          | Behavior                                                                                                                                                                                         |
-|:-------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Close`/`reopen issue`           | Close or reopen the current issue. 更多信息请参阅“[关于议题](/issues/tracking-your-work-with-issues/about-issues)”。                                                                                         |
-| `Convert issue to discussion...` | Convert the current issue into a discussion. 更多信息请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)”。                   |
-| `Delete issue...`                | Delete the current issue. 更多信息请参阅“[删除议题](/issues/tracking-your-work-with-issues/deleting-an-issue)”。                                                                                             |
-| `Edit issue body`                | Open the main body of the issue ready for editing.                                                                                                                                               |
-| `Edit issue title`               | Open the title of the issue ready for editing.                                                                                                                                                   |
-| `Lock issue`                     | Limit new comments to users with write access to the repository. 更多信息请参阅“[锁定对话](/communities/moderating-comments-and-conversations/locking-conversations)”。                                      |
-| `Pin`/`unpin issue`              | Change whether or not the issue is shown in the pinned issues section for the repository. 更多信息请参阅“[将议题固定到仓库](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)”。       |
-| `Subscribe`/`unsubscribe`        | Opt in or out of notifications for changes to this issue. 更多信息请参阅“[关于通知](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)”。 |
-| `Transfer issue...`              | Transfer the issue to another repository. 更多信息请参阅“[将议题转让给其他仓库](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)”。                                             |
+| Command | Behavior|
+| :- | :- |
+|`Close`/`reopen issue`|Close or reopen the current issue. For more information, see "[About issues](/issues/tracking-your-work-with-issues/about-issues)."|
+|`Convert issue to discussion...`|Convert the current issue into a discussion. For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+|`Delete issue...`|Delete the current issue. For more information, see "[Deleting an issue](/issues/tracking-your-work-with-issues/deleting-an-issue)."|
+|`Edit issue body`|Open the main body of the issue ready for editing.
+|`Edit issue title`|Open the title of the issue ready for editing.
+|`Lock issue`|Limit new comments to users with write access to the repository. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
+|`Pin`/`unpin issue`|Change whether or not the issue is shown in the pinned issues section for the repository. For more information, see "[Pinning an issue to your repository](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)."|
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this issue. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+|`Transfer issue...`|Transfer the issue to another repository. For more information, see "[Transferring an issue to another repository](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)."|
 
 ### Pull request commands
 
 These commands are available only when you open the command palette from a pull request. They act on your current page and are not affected by the scope set in the command palette.
 
-| Command                                                    | Behavior                                                                                                                                                                                                                                                                                                                          |
-|:---------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Close`/`reopen pull request`                              | Close or reopen the current pull request. 更多信息请参阅“[关于拉取请求](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。                                                                                                                                                      |
-| `Convert to draft`/`Mark pull request as ready for review` | Change the state of the pull request to show it as ready, or not ready, for review. For more information, see "[Changing the state of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)."                                          |
-| `Copy current branch name`                                 | Add the name of the head branch for the pull request to the clipboard.                                                                                                                                                                                                                                                            |
-| `Edit pull request body`                                   | Open the main body of the pull request ready for editing.                                                                                                                                                                                                                                                                         |
-| `Edit pull request title`                                  | Open the title of the pull request ready for editing.                                                                                                                                                                                                                                                                             |
-| `Open in new codespace`                                    | Create and open a codespace for the head branch of the pull request. 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace)”。                                                                                                                                                                                |
-| `Subscribe`/`unsubscribe`                                  | Opt in or out of notifications for changes to this pull request. 更多信息请参阅“[关于通知](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)”。                                                                                                                           |
-| `Update current branch`                                    | Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see "[About branches](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)." |
+| Command | Behavior|
+| :- | :- |
+|`Close`/`reopen pull request`|Close or reopen the current pull request. For more information, see "[About pull requests](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."|
+|`Convert to draft`/`Mark pull request as ready for review`|Change the state of the pull request to show it as ready, or not ready, for review. For more information, see "[Changing the state of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)."|
+|`Copy current branch name`| Add the name of the head branch for the pull request to the clipboard.
+|`Edit pull request body`|Open the main body of the pull request ready for editing.
+|`Edit pull request title`|Open the title of the pull request ready for editing.
+|`Open in new codespace`|Create and open a codespace for the head branch of the pull request. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+|`Update current branch`|Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see "[About branches](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)."|

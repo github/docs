@@ -24,7 +24,7 @@ topics:
 shortTitle: 支払いについて
 ---
 
-For more information about the products available for your account, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)." 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data variables.product.product_name %} はカスタムの製品やプランは提供しません。
+アカウントで利用できる製品に関する詳しい情報については「[{% data variables.product.prodname_dotcom %}の製品](/articles/github-s-products)」を参照してください。 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data variables.product.product_name %} はカスタムの製品やプランは提供しません。
 
 支払いは月単位あるいは年単位を選択でき、プランのアップグレードやダウングレードはいつでもできます。 詳細は「[ {% data variables.product.prodname_dotcom %} の支払いを管理する](/articles/managing-billing-for-your-github-account)」を参照してください。
 
