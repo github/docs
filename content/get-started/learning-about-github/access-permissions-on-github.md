@@ -9,8 +9,8 @@ redirect_from:
   - /github/getting-started-with-github/learning-about-github/access-permissions-on-github
 intro: 'With roles, you can control who has access to your accounts and resources on {% data variables.product.product_name %} and the level of access each person has.'
 versions:
-  fpt: '*'
-  ghes: '*'
+  fpt: '22231'
+  ghes: '5110'
   ghae: '*'
   ghec: '*'
 topics:
