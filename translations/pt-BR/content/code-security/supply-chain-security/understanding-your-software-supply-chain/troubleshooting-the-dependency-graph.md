@@ -1,7 +1,7 @@
 ---
 title: Solução de problemas para o gráfico de dependências
-intro: 'If the dependency information reported by the dependency graph is not what you expected, there are a number of points to consider, and various things you can check.'
-shortTitle: Troubleshoot dependency graph
+intro: 'Se as informações de dependências relatadas pelo gráfico de dependências não é o que você esperava, há uma série de pontos a considerar e várias coisas que você pode verificar.'
+shortTitle: Solucionar problemas do gráfico de dependências
 versions:
   fpt: '*'
   ghes: '*'
@@ -26,7 +26,7 @@ O gráfico de dependências inclui informações sobre dependências explicitame
 
 O gráfico de dependências não inclui dependências de "soltas". Dependências "soltas" são arquivos individuais copiados de outra fonte e verificados no repositório diretamente ou dentro de um arquivo (como um arquivo ZIP ou JAR), em vez de ser referenciadas pelo manifesto ou arquivo de bloqueio do gerenciador de pacotes.
 
-**Check**: Is the missing dependency for a component that's not specified in the repository's manifest or lockfile?
+**Verificação**: A dependência ausente para um componente que não está especificado no manifesto ou arquivo de bloqueio do repositório?
 
 ## O gráfico de dependências detecta dependências especificadas usando variáveis?
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy Keys
-intro: 'The Deploy Keys API allows to create an SSH key that is stored on your server and grants access to a GitHub repository.'
+title: デプロイキー
+intro: Deploy Keys APIを使えば、サーバーに保存され、GitHubリポジトリへのアクセスを許可するSSHキーを作成できます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

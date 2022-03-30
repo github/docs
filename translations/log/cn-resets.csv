@@ -9,6 +9,7 @@ translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-gith
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories.md,broken liquid tags
 translations/zh-CN/content/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/about-organization-membership.md,broken liquid tags
 translations/zh-CN/content/actions/automating-builds-and-tests/about-continuous-integration.md,broken liquid tags
+translations/zh-CN/content/actions/deployment/about-deployments/deploying-with-github-actions.md,broken liquid tags
 translations/zh-CN/content/actions/hosting-your-own-runners/about-self-hosted-runners.md,broken liquid tags
 translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,Listed in localization-support#489
 translations/zh-CN/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,broken liquid tags
@@ -133,10 +134,12 @@ translations/zh-CN/content/code-security/secret-scanning/about-secret-scanning.m
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security.md,broken liquid tags
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph.md,Listed in localization-support#489
 translations/zh-CN/content/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph.md,broken liquid tags
+translations/zh-CN/content/codespaces/codespaces-reference/using-github-copilot-in-codespaces.md,broken liquid tags
 translations/zh-CN/content/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/developing-in-a-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace.md,broken liquid tags
 translations/zh-CN/content/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code.md,broken liquid tags
+translations/zh-CN/content/codespaces/developing-in-codespaces/using-codespaces-with-github-cli.md,broken liquid tags
 translations/zh-CN/content/codespaces/managing-codespaces-for-your-organization/enabling-codespaces-for-your-organization.md,broken liquid tags
 translations/zh-CN/content/codespaces/the-githubdev-web-based-editor.md,broken liquid tags
 translations/zh-CN/content/codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces.md,broken liquid tags
@@ -184,6 +187,7 @@ translations/zh-CN/content/get-started/signing-up-for-github/setting-up-a-trial-
 translations/zh-CN/content/get-started/signing-up-for-github/signing-up-for-a-new-github-account.md,broken liquid tags
 translations/zh-CN/content/get-started/signing-up-for-github/verifying-your-email-address.md,broken liquid tags
 translations/zh-CN/content/get-started/using-git/dealing-with-non-fast-forward-errors.md,broken liquid tags
+translations/zh-CN/content/get-started/using-github/github-command-palette.md,broken liquid tags
 translations/zh-CN/content/get-started/using-github/github-mobile.md,broken liquid tags
 translations/zh-CN/content/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists.md,broken liquid tags
 translations/zh-CN/content/issues/using-labels-and-milestones-to-track-work/managing-labels.md,broken liquid tags

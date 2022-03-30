@@ -1,6 +1,6 @@
 ---
-title: Deploy Keys
-intro: 'The Deploy Keys API allows to create an SSH key that is stored on your server and grants access to a GitHub repository.'
+title: Chave de implantação
+intro: A API das chaves de implantação permite criar uma chave de SSH que é armazenada no seu servidor e permite acesso a um repositório do GitHub.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

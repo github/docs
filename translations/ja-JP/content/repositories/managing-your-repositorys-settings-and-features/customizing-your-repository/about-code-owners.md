@@ -38,7 +38,7 @@ CODEOWNERS ファイルを使うためには、コードオーナーを追加し
 
 コードオーナーがレビューのリクエストを受け取るためには、CODEOWNERS ファイルがプルリクエストの base ブランチになければなりません。 たとえばリポジトリ中の`gh-pages`ブランチの、*.js*ファイルのコードオーナーとして`@octocat`を割り当てたなら、*.js*に変更を加えるプルリクエストがheadブランチと`gh-pages`の間でオープンされると、`@octocat`はレビューのリクエストを受けることになります。
 
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-9273 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4675 %}
 ## CODEOWNERS file size
 
 CODEOWNERS files must be under 3 MB in size. A CODEOWNERS file over this limit will not be loaded, which means that code owner information is not shown and the appropriate code owners will not be requested to review changes in a pull request.
