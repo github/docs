@@ -40,7 +40,7 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policy**.
+1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policies**.
 2. On the "Codespace policies" page, click **Create Policy**.
 3. Enter a name for your new policy.
 4. Click **Add constraint** and choose **Port visibility**.
