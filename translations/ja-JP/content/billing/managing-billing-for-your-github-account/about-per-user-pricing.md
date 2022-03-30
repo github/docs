@@ -1,6 +1,6 @@
 ---
 title: ユーザごとの価格付けについて
-intro: 'With per-user pricing, organizations {% ifversion ghec %}and enterprises {% endif %}pay based on team size to access advanced collaboration and management tools for teams, and optionally, security, compliance, and deployment controls.'
+intro: 'ユーザごとの価格付けでは、Organization{% ifversion ghec %}及びEnterprise{% endif %}は Teamのための高度なコラボレーションと管理のツールへのアクセス、そして場合によってはセキュリティ、コンプライアンス、デプロイメントの制御のために、Teamのサイズに基づいて支払いを行います。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
@@ -18,7 +18,7 @@ topics:
 
 ## ユーザごとの価格付けについて
 
-New organizations on {% data variables.product.prodname_dotcom_the_website %} can build public and open-source projects with {% data variables.product.prodname_free_team %}, or upgrade to a paid product with per-user pricing. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)" and "[Upgrading your {% data variables.product.prodname_dotcom %} subscription](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
+{% data variables.product.prodname_dotcom_the_website %}上の新しいOrganizationは、{% data variables.product.prodname_free_team %}でパブリック及びオープンソースのプロジェクトを構築するか、ユーザごとの価格付けの有料製品にアップグレードすることができます。 詳しい情報については「[{% data variables.product.company_short %}の製品](/get-started/learning-about-github/githubs-products)」及び「[{% data variables.product.prodname_dotcom %}プランのアップグレード](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)」を参照してください。
 
 {% ifversion ghec %}Per-user pricing applies to all organizations that belong to your enterprise on {% data variables.product.prodname_dotcom_the_website %}, and to organizations using  {% data variables.product.prodname_ghe_cloud %} that are not part of an enterprise. Each{% elsif fpt %}Per-user pricing means that each{% endif %} billing cycle, {% data variables.product.company_short %} charges for each member or outside collaborator within your organization{% ifversion ghec %} or enterprise{% endif %}. You also pay for each pending member or outside collaborator who has not yet accepted an invitation. {% data variables.product.company_short %} does not charge for members with the billing manager role{% ifversion ghec %}, or for enterprise owners who are not also a member of at least one organization in the enterprise{% endif %}. For more information, see {% ifversion ghec %}"[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)" or {% endif %}{% ifversion fpt or ghec %}"[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."{% endif %}
 

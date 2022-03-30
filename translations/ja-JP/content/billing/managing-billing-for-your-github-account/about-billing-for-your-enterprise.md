@@ -20,26 +20,26 @@ shortTitle: Billing for your enterprise
 
 {% ifversion ghae %}
 
-{% data reusables.github-ae.about-billing %} 1日に1度、{% data variables.product.prodname_dotcom %} は、Enterprise のライセンスを持つユーザ数をカウントします。 {% data variables.product.company_short %} は、ユーザがその日に {% data variables.product.prodname_ghe_managed %} にログインしたかどうかに関係なく、ライセンスされたユーザごとに請求します。
+{% data reusables.github-ae.about-billing %} Once per day, {% data variables.product.prodname_dotcom %} will count the number of users with a license for your enterprise. {% data variables.product.company_short %} bills you for each licensed user regardless of whether the user logged into {% data variables.product.prodname_ghe_managed %} that day.
 
-商業地域の場合、ユーザー1人あたりの1日あたりの価格は $ 1.2580645161 です。 31日間の場合、各ユーザの月額料金は 39 ドルです。 日数が少ない月の場合、月額料金は低くなります。 各支払い月は、カレンダー月の初日の固定の時刻に開始されます。
+For commercial regions, the price per user per day is $1.2580645161. For 31-day months, the monthly cost for each user is $39. For months with fewer days, the monthly cost is lower. Each billing month begins at a fixed time on the first day of the calendar month.
 
-月の半ばにライセンスユーザを追加した場合、そのユーザはライセンスを付与された日からカウントされます。 ライセンスユーザを削除した場合、そのユーザは削除された月の末までカウントされます。 したがって、月の途中でユーザを追加し、その後、同じ月にユーザを削除した場合、そのユーザは、ユーザが追加された日から月末までカウントされます。 同じ月に、ユーザを削除して再度追加した場合、追加料金は発生しません。
+If you add a licensed user mid-month, that user will only be included in the count for the days they have a license. When you remove a licensed user, that user will remain in the count until the end of that month. Therefore, if you add a user mid-month and later remove the user in the same month, the user will be included in the count from the day the user was added through the end of the month. There is no additional cost if you re-add a user during the same month the user was removed.
 
-たとえば、異なる日付でライセンスを付与した場合のユーザ料金は次のとおりです。
+For example, here are the costs for users with licenses on different dates.
 
-| ユーザ       | ライセンスされた日                       | カウント日数 | 料金     |
-| --------- | ------------------------------- | ------ | ------ |
-| @octocat  | 1月1日～1月31日                      | 31     | $39    |
-| @robocat  | 2月1日～2月28日                      | 28     | $35.23 |
-| @devtocat | 1月15日～1月31日                     | 17     | $21.39 |
-| @doctocat | 1月1日～1月15日                      | 31     | $39    |
-| @prodocat | 1月7日～1月15日                      | 25     | $31.45 |
-| @monalisa | 1月1日～1月7日、<br>1月15日～1月31日 | 31     | $39    |
+User | License dates | Counted days | Cost
+---- | ------------ | ------- | -----
+@octocat | January 1 - January 31 | 31 | $39
+@robocat | February 1 - February 28 | 28 | $35.23
+@devtocat  | January 15 - January 31 | 17 | $21.39
+@doctocat | January 1 - January 15 | 31 | $39
+@prodocat | January 7 - January 15 | 25 | $31.45
+@monalisa | January 1 - January 7,<br>January 15 - January 31 | 31 | $39
 
-{% data variables.product.prodname_ghe_managed %} のインスタンスごとの最小ユーザ数は 500 です。 {% data variables.product.company_short %} は、同日にライセンスを付与されたユーザが 500 未満の場合でも、インスタンスごとに最低 500 ユーザ分の料金を請求します。
+{% data variables.product.prodname_ghe_managed %} has a 500-user minimum per instance. {% data variables.product.company_short %} bills you for a minimum of 500 users per instance, even if there are fewer than 500 users with a license that day.
 
-[Azure アカウントポータル](https://portal.azure.com)で現在の使用状況を確認できます。
+You can see your current usage in your [Azure account portal](https://portal.azure.com).
 
 {% elsif ghec or ghes %}
 
@@ -56,7 +56,7 @@ Each user on {% data variables.product.product_location %} consumes a seat on yo
 {% data reusables.billing.about-invoices-for-enterprises %} For more information about {% ifversion ghes %}licensing, usage, and invoices{% elsif ghec %}usage and invoices{% endif %}, see the following{% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 {%- ifversion ghes %}
-- [ユーザごとの価格付けについて](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)
+- "[About per-user pricing](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)"
 {%- endif %}
 - "[Viewing the subscription and usage for your enterprise account]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)"
 - "[Managing invoices for your enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise)"
@@ -97,7 +97,7 @@ For more information about outside collaborators, see "[Adding outside collabora
 
 {% endif %}
 
-## 参考リンク
+## Further reading
 
 - "[About enterprise accounts](/admin/overview/about-enterprise-accounts)"{% ifversion ghec or ghes %}
 - "[About licenses for GitHub Enterprise](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise)"{% endif %}
