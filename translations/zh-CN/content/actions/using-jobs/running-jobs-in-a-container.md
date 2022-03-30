@@ -1,7 +1,7 @@
 ---
 title: 在容器中运行作业
 shortTitle: 在容器中运行作业
-intro: Use a container to run the steps in a job.
+intro: 使用容器运行作业中的步骤。
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,27 +17,27 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
-## Defining the container image
+## 定义容器映像
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-image %}
 
-## Defining credentials for a container registry
+## 定义容器注册表的凭据
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-credentials %}
 
-## Using environment variables with a container
+## 将环境变量与容器一起使用
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-env %}
 
-## Exposing network ports on a container
+## 公开容器上的网络端口
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-ports %}
 
-## Mounting volumes in a container
+## 在容器中装载卷
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-volumes %}
 
-## Setting container resource options
+## 设置容器资源选项
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-options %}
 
