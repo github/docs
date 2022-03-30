@@ -1,7 +1,7 @@
 ---
 title: GitHub Pagesのドキュメンテーション
 shortTitle: GitHub Pages
-intro: 'You can create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
+intro: '{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上のリポジトリから直接Webサイトを作成できます。'
 redirect_from:
   - /categories/20/articles
   - /categories/95/articles

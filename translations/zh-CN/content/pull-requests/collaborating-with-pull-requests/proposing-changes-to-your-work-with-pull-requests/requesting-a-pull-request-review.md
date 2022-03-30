@@ -17,9 +17,11 @@ topics:
 shortTitle: 请求 PR 审查
 ---
 
-用户帐户拥有的仓库的所有者和协作者可以分配拉取请求审查。 拥有仓库查验漏洞权限的组织成员可以分配拉取请求审查。
+Repositories belong to a personal account (a single individual owner) or an organization account (a shared account with numerous collaborators or maintainers). 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/get-started/learning-about-github/types-of-github-accounts)”。 Owners and collaborators on a repository owned by a personal account can assign pull request reviews. Organization members with triage permissions can also assign a reviewer for a pull request.
 
-所有者或协作者可以将拉取请求审核分配给被明确授予用户拥有仓库[读取权限](/articles/access-permissions-on-github)的任何人。 组织成员也可将拉取请求审查分配给拥有仓库读取权限的任何个人或团队。 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% ifversion fpt or ghae or ghes or ghec %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."{% endif %}
+To assign a reviewer to a pull request, you will need write access to the repository. For more information about repository access, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)." If you have write access, you can assign anyone who has read access to the repository as a reviewer.
+
+Organization members with write access can also assign a pull request review to any person or team with read access to a repository. 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% ifversion fpt or ghae or ghes or ghec %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."{% endif %}
 
 {% note %}
 

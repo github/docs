@@ -1,6 +1,6 @@
 ---
 title: 开始在 GitHub 上搜索
-intro: 'You can use a wide range of syntax to search {% data variables.product.product_name %}. You can adjust the scope of your search, build and troubleshoot queries, and sort search results with qualifiers.'
+intro: '您可以使用多种语法来搜索 {% data variables.product.product_name %}。 您可以调整搜索范围，构建查询和排除查询故障，并使用限定符对搜索结果进行排序。'
 redirect_from:
   - /articles/getting-started-with-searching-on-github
   - /github/searching-for-information-on-github/getting-started-with-searching-on-github

@@ -20,7 +20,7 @@ export function CodeBlock({ verb, headingLang, codeBlock, highlight }: Props) {
   })
 
   return (
-    <div className="code-extra">
+    <div className={headingLang && 'code-extra'}>
       {headingLang && (
         <header className="d-flex flex-justify-between flex-items-center p-2 text-small rounded-top-1 border">
           {headingLang === 'JavaScript' ? (
@@ -41,16 +41,10 @@ export function CodeBlock({ verb, headingLang, codeBlock, highlight }: Props) {
           </Tooltip>
         </header>
       )}
-      <pre
-        className={cx(
-          styles.methodCodeBlock,
-          'd-flex flex-justify-between flex-items-center rounded-1 border'
-        )}
-        data-highlight={highlight}
-      >
+      <pre className={cx(styles.codeBlock, 'rounded-1 border')} data-highlight={highlight}>
         <code>
           {verb && (
-            <span className="color-bg-accent-emphasis color-fg-on-emphasis rounded-1 text-uppercase">
+            <span className="color-bg-accent-emphasis color-fg-on-emphasis rounded-1 text-uppercase p-1">
               {verb}
             </span>
           )}{' '}

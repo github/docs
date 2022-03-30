@@ -39,7 +39,7 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 1. Em **Políticas**, selecione uma opção. ![Definir política de ações para esta organização](/assets/images/help/organizations/actions-policy.png)
 1. Clique em **Salvar**.
 
@@ -49,7 +49,7 @@ Você pode desabilitar todos os fluxos de trabalho para uma organização ou def
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 1. Em **Políticas**, selecione **Permitir ações específicas** e adicione as suas ações necessárias à lista.
    {%- ifversion ghes %}
    ![Adicionar ações para permitir lista](/assets/images/help/organizations/actions-policy-allow-list.png)
@@ -67,7 +67,7 @@ Você pode configurar esse comportamento para uma organização seguindo o proce
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
@@ -86,7 +86,7 @@ Você pode configurar esse comportamento para uma organização seguindo o proce
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.private-repository-forks-configure %}
 {% endif %}
 
@@ -104,7 +104,7 @@ Você pode definir as permissões padrão para o `GITHUB_TOKEN` nas configuraç�
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 1. Em **permissões do fluxo de trabalho**, escolha se você quer que o `GITHUB_TOKEN` tenha acesso de leitura e gravação para todos os escopos, ou apenas acesso de leitura para o escopo do </code>conteúdo.
 <img src="/assets/images/help/settings/actions-workflow-permissions-organization.png" alt="Definir permissões do GITHUB_TOKEN para esta organização" /></p></li>
 <li><p spaces-before="0">Clique em <strong x-id="1">Salvar</strong> para aplicar as configurações.

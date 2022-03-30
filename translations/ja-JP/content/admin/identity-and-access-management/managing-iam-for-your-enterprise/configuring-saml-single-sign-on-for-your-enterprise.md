@@ -33,8 +33,6 @@ redirect_from:
 
 {% data reusables.saml.about-saml-access-enterprise-account %}詳細は「[Enterprise アカウントへのユーザの SAML アクセスの表示および管理](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)」を参照してください。
 
-{% data reusables.saml.cannot-update-existing-saml-settings %}
-
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
 
 {% data reusables.scim.enterprise-account-scim %}

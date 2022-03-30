@@ -1,15 +1,15 @@
 
-When using the `push` and `pull_request` events, you can configure a workflow to run based on what file paths are changed. Path filters are not evaluated for pushes of tags.
+Ao usar os eventos `push` e `pull_request`, é possível configurar um fluxo de trabalho para ser executado com base em quais caminhos de arquivo são alterados. Os filtros de caminho não são avaliados em pushes de tags.
 
-Use the `paths` filter when you want to include file path patterns or when you want to both include and exclude file path patterns. Use the `paths-ignore` filter when you only want to exclude file path patterns. You cannot use both the `paths` and `paths-ignore` filters for the same event in a workflow.
+Use filtro `caminhos` quando você quiser incluir padrões de caminho dos arquivos ou quando quiser que ambos incluam e excluam padrões de caminhos dos arquivos. Use o filtro `paths-ignore` quando você deseja excluir apenas padrões de caminho do arquivo. Você não pode usar os dois filtros `caminhos` e `paths-ignore` para o mesmo evento em um fluxo de trabalho.
 
-If you define both `branches`/`branches-ignore` and `paths`, the workflow will only run when both filters are satisfied.
+Se você definir as `branches`/`branches-ignore` e `caminhos`, o fluxo de trabalho só será executado quando ambos os filtros forem satisfeitos.
 
-The `paths` and `paths-ignore` keywords accept glob patterns that use the `*` and `**` wildcard characters to match more than one path name. Para obter mais informações, consulte a "[Folha de consulta de filtro padrão](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
+As palavras-chave `paths` e `paths-ignore` aceitam padrões do glob que usam os caracteres curinga `*` e `**` para coincidir com mais de um nome de caminho. Para obter mais informações, consulte a "[Folha de consulta de filtro padrão](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
 
 #### Exemplo: Incluindo caminhos
 
-Se pelo menos um caminho corresponder a um padrão no filtro `paths`, o fluxo de trabalho será executado. For example, the following workflow would run anytime you push a JavaScript file (`.js`).
+Se pelo menos um caminho corresponder a um padrão no filtro `paths`, o fluxo de trabalho será executado. Por exemplo, o fluxo de trabalho a seguir seria executado sempre que você fizer push de um arquivo JavaScript (`.js`).
 
 ```yaml
 on:
@@ -18,9 +18,9 @@ on:
       - '**.js'
 ```
 
-#### Example: Excluding paths
+#### Exemplo: Excluindo caminhos
 
-Quando todos os caminhos de nome correspondem a padrões em `paths-ignore`, o fluxo de trabalho não será executado. If any path names do not match patterns in `paths-ignore`, even if some path names match the patterns, the workflow will run.
+Quando todos os caminhos de nome correspondem a padrões em `paths-ignore`, o fluxo de trabalho não será executado. Se qualquer nome de caminho não corresponder a padrões em `paths-ignore`, mesmo que alguns nomes de caminhos correspondam aos padrões, o fluxo de trabalho será executado.
 
 Um fluxo de trabalho com o seguinte filtro de caminho só será executado em eventos `push` que tiverem pelo menos um arquivo fora do diretório `docs` na raiz do repositório.
 
@@ -31,11 +31,11 @@ on:
       - 'docs/**'
 ```
 
-#### Example: Including and excluding paths
+#### Exemplo: Incluindo e excluindo caminhos
 
-You can not use `paths` and `paths-ignore` to filter the same event in a single workflow. If you want to both include and exclude path patterns for a single event, use the `paths` filter along with the `!` character to indicate which paths should be excluded.
+Você não pode usar `caminhos` e `paths-ignore` para filtrar o mesmo evento em um único fluxo de trabalho. Se você deseja incluir e excluir padrões de caminho para um único evento, use o filtro `caminhos` junto com o caractere `!` para indicar quais caminhos devem ser excluídos.
 
-If you define a path with the `!` character, you must also define at least one path without the `!` character. If you only want to exclude paths, use `paths-ignore` instead.
+Se você definir um caminho com o caractere `!`, você deverá definir pelo menos um caminho sem o caractere `!`. Se você deseja apenas excluir caminhos, use `paths-ignore`.
 
 A ordem de definição dos padrões é importante:
 

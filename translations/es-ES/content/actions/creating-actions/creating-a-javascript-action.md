@@ -141,7 +141,7 @@ En tu directorio `hello-world-javascript-action`, crea un archivo `README.md` qu
 - Variables de entorno que utiliza la acción.
 - Un ejemplo de cómo usar tu acción en un flujo de trabajo.
 
-```markdown
+```markdown{:copy}
 # Hello world docker action
 
 Esta acción imprime "Hello World" o "Hello" + el nombre de una persona a quien saludar en el registro.
@@ -193,7 +193,7 @@ Ingresar tu directorio de `node_modules` puede causar problemas. Como alternativ
 1. Si ya has comprobado tu directorio `node_modules`, eliminínalo. `rm -rf node_modules/*`
 
 1. Desde tu terminal, confirma las actualizaciones para tu `action.yml`, `dist/index.js` y `node_modules`.
-```shell
+```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
 git tag -a -m "My first action release" v1.1
@@ -263,6 +263,6 @@ jobs:
 ```
 {% endraw %}
 
-Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. Under **Jobs** or in the visualization graph, click **A job to say hello**. Deberías ver "Hello Mona the Octocat" o el nombre que usaste para la entrada `who-to-greet` y la marcación de hora impresa en el registro.
+Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. Debajo de **Jobs** o en la gráfica de visualización, haz clic en **A job to say hello**. Deberías ver "Hello Mona the Octocat" o el nombre que usaste para la entrada `who-to-greet` y la marcación de hora impresa en el registro.
 
 ![Captura de pantalla del uso de tu acción en un flujo de trabajo](/assets/images/help/repository/javascript-action-workflow-run-updated-2.png)

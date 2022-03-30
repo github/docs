@@ -39,7 +39,7 @@ deploy_to_the_cloud:
     - /actions/deployment/deploying-to-google-kubernetes-engine
 adopting_github_actions_for_your_enterprise_ghec:
   title: 'Adote o GitHub Actions para a sua empresa'
-  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  description: 'Aprenda a planejar e implementar uma implantação de {% data variables.product.prodname_actions %} na sua empresa.'
   versions:
     ghec: '*'
   guides:
@@ -52,7 +52,7 @@ adopting_github_actions_for_your_enterprise_ghec:
     - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
 adopting_github_actions_for_your_enterprise_ghes_and_ghae:
   title: 'Adote o GitHub Actions para a sua empresa'
-  description: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+  description: 'Aprenda a planejar e implementar uma implantação de {% data variables.product.prodname_actions %} na sua empresa.'
   versions:
     ghes: '*'
     ghae: '*'
