@@ -17,7 +17,7 @@ import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
-  const { relativePath, error } = useMainContext()
+  const { isDotComAuthenticated, relativePath, error } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header', 'homepage'])
   const [isMenuOpen, setIsMenuOpen] = useState(
@@ -26,7 +26,8 @@ export const Header = () => {
   const [scroll, setScroll] = useState(false)
 
   const signupCTAVisible =
-    currentVersion === 'free-pro-team@latest' || currentVersion === 'enterprise-cloud@latest'
+    !isDotComAuthenticated &&
+    (currentVersion === 'free-pro-team@latest' || currentVersion === 'enterprise-cloud@latest')
 
   useEffect(() => {
     function onScroll() {

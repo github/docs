@@ -113,7 +113,7 @@ products:
       notes: Notes
       parameters: Parameters
       response: Response
-      error_codes: Error Codes
+      status_codes: Status codes
       http_status_code: HTTP Status Code
       code_sample: Code sample
       code_samples: Code samples
