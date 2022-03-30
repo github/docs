@@ -23,7 +23,7 @@ No início da execução de cada fluxo de trabalho, {% data variables.product.pr
 
 Ao habilitar {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dotcom %} instala um {% data variables.product.prodname_github_app %} no seu repositório. O segredo `GITHUB_TOKEN` é um token de acesso de instalação {% data variables.product.prodname_github_app %}. Você pode usar o token de acesso de instalação para autenticar em nome do {% data variables.product.prodname_github_app %} instalado no seu repositório. As permissões do token são restritas ao repositório do fluxo de trabalho. Para obter mais informações, consulte "[Permissões para o `GITHUB_TOKEN`](#permissions-for-the-github_token)".
 
-Antes de iniciar cada trabalho, {% data variables.product.prodname_dotcom %} busca um token de acesso de instalação para o trabalho. O token expira quando o trabalho é concluído.
+Antes de iniciar cada trabalho, {% data variables.product.prodname_dotcom %} busca um token de acesso de instalação para o trabalho. {% data reusables.actions.github-token-expiration %}
 
 O token também está disponível no contexto `github.token`. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts#github-context)".
 
@@ -39,11 +39,11 @@ Você pode usar o `GITHUB_TOKEN` ao usar a sintaxe padrão para fazer referênci
 {% endnote %}
 {% endif %}
 
-{% data reusables.github-actions.actions-do-not-trigger-workflows %}
+{% data reusables.actions.actions-do-not-trigger-workflows %}
 
 ### Exemplo 1: Passar o `GITHUB_TOKEN` como uma entrada
 
-{% data reusables.github-actions.github_token-input-example %}
+{% data reusables.actions.github_token-input-example %}
 
 ### Exemplo 2: chamando a API REST
 
@@ -85,8 +85,9 @@ A tabela a seguir mostra as permissões concedidas ao `GITHUB_TOKEN` por padrão
 | ações        | leitura/gravação                    | nenhum                            | leitura                                            |
 | Verificações | leitura/gravação                    | nenhum                            | leitura                                            |
 | Conteúdo     | leitura/gravação                    | leitura                           | leitura                                            |
-| Implantações | leitura/gravação                    | nenhum                            | leitura                                            |
-| id-token     | leitura/gravação                    | nenhum                            | leitura                                            |
+| Implantações | leitura/gravação                    | nenhum                            | read |{% ifversion fpt or ghec %}
+| id-token     | nenhum                              | nenhum                            | read 
+{% endif %}
 | Problemas    | leitura/gravação                    | nenhum                            | leitura                                            |
 | metadados    | leitura                             | leitura                           | leitura                                            |
 | pacotes      | leitura/gravação                    | nenhum                            | leitura                                            |
@@ -120,7 +121,7 @@ Você pode ver as permissões que o `GITHUB_TOKEN` tem para uma tarefa específi
 
 Você pode usar a chave de `permissões` no seu arquivo de fluxo de trabalho para modificar as permissões para o `GITHUB_TOKEN` para um fluxo de trabalho inteiro ou para trabalhos individuais. Isso permite que você configure as permissões mínimas necessárias para um fluxo de trabalho ou trabalho. Quando a chave `permissions` for usada, todas as permissões não especificadas são configuradas como sem acesso, com exceção do escopo de `metadados`, que sempre recebe acesso de leitura.
 
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.forked-write-permission %}
 
 Os dois exemplos de fluxo de trabalho anteriores neste artigo mostram a chave de `permissões` usada no nível de fluxo de trabalho e no nível de trabalho. Em [Exemplo 1](#example-1-passing-the-github_token-as-an-input) as duas permissões são especificadas para todo o fluxo de trabalho. No [Exemplo 2](#example-2-calling-the-rest-api) de acesso de gravação é concedido para um único escopo para um único trabalho.
 

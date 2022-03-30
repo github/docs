@@ -25,11 +25,7 @@ When your GitHub App acts on behalf of a user, it performs user-to-server reques
 
 To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
-
-{% endif %}
 
 ## Web application flow
 
@@ -53,7 +49,7 @@ When your GitHub App specifies a `login` parameter, it prompts users with a spec
 Name | Type | Description
 -----|------|------------
 `client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app. **Note:** The app ID and client ID are not the same, and are not interchangeable.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
 `login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
 `allow_signup` | `string` | Whether or not unauthenticated users will be offered an option to sign up for {% data variables.product.prodname_dotcom %} during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
@@ -89,7 +85,7 @@ Name | Type | Description
 `client_id` | `string` | **Required.** The  client ID for your GitHub App.
 `client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
 `code` | `string`   | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes > 3.0 or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% ifversion fpt or ghes or ghec %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | The unguessable random string you provided in Step 1.
 
 #### Response
@@ -120,8 +116,6 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ## Device flow
 
 {% note %}
@@ -130,14 +124,11 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 {% endnote %}
 
-The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
+The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager. 
 
-For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)".
-
-{% endif %}
+{% if device-flow-is-opt-in %}Before you can use the device flow to identify and authorize users, you must first enable it in your app's settings. For more information on enabling device flow, see "[Modifying a GitHub App](/developers/apps/managing-github-apps/modifying-a-github-app)." {% endif %}For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)."
 
 ## Check which installation's resources a user can access
-
 
 Once you have an OAuth token for a user, you can check which installations that user can access.
 
@@ -271,7 +262,8 @@ While most of your API interaction should occur using your server-to-server inst
 
 #### Git Refs
 
-* [Create a reference](/rest/reference/git#create-a-reference)* [Get a reference](/rest/reference/git#get-a-reference)
+* [Create a reference](/rest/reference/git#create-a-reference)
+* [Get a reference](/rest/reference/git#get-a-reference)
 * [List matching references](/rest/reference/git#list-matching-references)
 * [Update a reference](/rest/reference/git#update-a-reference)
 * [Delete a reference](/rest/reference/git#delete-a-reference)

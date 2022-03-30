@@ -15,11 +15,15 @@ topics:
 shortTitle: Restringir criação de repositório
 ---
 
-Você pode escolher se os integrantes podem criar repositórios na sua organização. Se você permitir que os integrantes criem repositórios, você poderá escolher quais tipos de repositórios os integrantes poderão criar.{% ifversion fpt or ghec %} Para permitir que os integrantes criem apenas repositórios privados, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %}.{% endif %}{% ifversion fpt %} Para obter mais informações, consulte "[Sobre repositórios](/enterprise-cloud@latest/repositories/creating-and-managing-repositories/about-repositories)" na documentação de {% data variables.product.prodname_ghe_cloud %}{% endif %}.
+Você pode escolher se os integrantes podem criar repositórios na sua organização. {% ifversion ghec or ghes or ghae %}Se você permitir que os integrantes criem repositórios, você poderá escolher quais tipos de repositórios os integrantes poderão criar.{% elsif fpt %}Se você permitir que os integrantes criem repositórios, você poderá escolher se os integrantes poderão criar repositórios públicos e privados ou apenas repositórios públicos.{% endif %}Os proprietários da organização sempre podem criar qualquer tipo de repositório.
 
-Os proprietários da organização sempre podem criar qualquer tipo de repositório.
+{% ifversion fpt %}
+As organizações que usam {% data variables.product.prodname_ghe_cloud %} também podem restringir os integrantes à criação de repositórios privados. Para obter mais informações, consulte [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization).
+{% endif %}
+
 {% ifversion ghec or ghae or ghes %}
-{% ifversion ghec or ghae %}Proprietários corporativos{% elsif ghes %}administradores do site{% endif %} podem restringir as opções que você tem disponíveis para a política de criação de repositório da sua organização.{% ifversion ghec or ghes or ghae %} Para obter mais informações, consulte "[Restringindo a criação de repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% endif %}{% endif %}
+Os proprietários de empresas podem restringir as opções que você tem disponíveis para a política de criação de repositório da sua organização. Para obter mais informações, consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)".
+{% endif %}
 
 {% warning %}
 
@@ -36,5 +40,12 @@ Os proprietários da organização sempre podem criar qualquer tipo de repositó
    ![Opções de criação de repositório](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
    {%- elsif fpt %}
    ![Opções de criação de repositório](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+
+   {% note %}
+
+   **Observação:** Para restringir os integrantes de criar repositórios privados apenas, sua organização deverá usar {% data variables.product.prodname_ghe_cloud %}.
+
+   {% endnote %}
    {%- endif %}
+
 6. Clique em **Salvar**.

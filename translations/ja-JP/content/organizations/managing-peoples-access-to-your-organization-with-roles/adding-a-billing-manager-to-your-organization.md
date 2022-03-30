@@ -53,7 +53,7 @@ Organization のオーナーの Team のメンバーは、人に*支払いマネ
 {% ifversion ghec %}
 {% note %}
 
-**Note:** If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
+**ノート:** OrganizationがEnterpriseアカウントに所有されている場合、Organizationのレベルで支払いマネージャーを招待することはできません。 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
 
 {% endnote %}
 {% endif %}
@@ -63,3 +63,7 @@ Organization のオーナーの Team のメンバーは、人に*支払いマネ
 {% data reusables.organizations.billing-settings %}
 1. [Billing management] で、[Billing managers] の右の [**Add**] をクリックします。 ![支払いマネージャーの招待](/assets/images/help/billing/settings_billing_managers_list.png)
 6. 追加したい人のユーザ名あるいはメールアドレスを入力し、[**Send Invitation**] をクリックします。 ![支払いマネージャーの招待ページ](/assets/images/help/billing/billing_manager_invite.png)
+
+## 参考リンク
+
+- {% ifversion fpt %}{% data variables.product.prodname_ghe_cloud %}ドキュメンテーションの{% endif %}「[Enterpriseを管理するための人の招待](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)」

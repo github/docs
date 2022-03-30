@@ -29,7 +29,7 @@ topics:
 - タスクの複雑さを追跡する数値フィールド
 - タスクの優先度が低、中、高なのかを追跡するための単一選択フィールド
 - クイックノートを追跡するテキストフィールド
-- an iteration field to plan work week-by-week
+- 休憩のサポートを含め、作業を週単位で計画するための繰り返しフィールド
 
 ### 様々な観点からプロジェクトを見る
 
@@ -47,13 +47,13 @@ topics:
 
 詳しい情報については「[プロジェクトのビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)」を参照してください。
 
-### Working with the project command palette
+### プロジェクトコマンドパレットでの作業
 
-You can use the project command palette to quickly change views or add fields. コマンドパレットは、カスタムキーボードショートカットを覚えておかなくてもいいようにガイドしてくれます。 詳しい情報については「[プロジェクトのビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)」を参照してください。
+プロジェクトコマンドパレットを使って、素早くビューを切り替えたり、フィールドを追加したりできます。 コマンドパレットは、カスタムキーボードショートカットを覚えておかなくてもいいようにガイドしてくれます。 詳しい情報については「[プロジェクトのビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)」を参照してください。
 
 ### プロジェクト管理タスクの自動化
 
-Projects (beta) offers built-in workflows. For example, when an issue is closed, you can automatically set the status to "Done." You can also use the GraphQL API and {% data variables.product.prodname_actions %} to automate routine project management tasks. For more information, see "[Automating projects](/issues/trying-out-the-new-projects-experience/automating-projects)" and "[Using the API to manage projects](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)."
+プロジェクト（ベータ）は、組み込みのワークフローを提供します。 たとえば、Issueがクローズされると自動的にステータスを「Done」に設定できます。 GraphQL APIと{% data variables.product.prodname_actions %}を使って、ルーチンのプロジェクトタスクを自動化することもできます。 詳しい情報については「[プロジェクトの自動化](/issues/trying-out-the-new-projects-experience/automating-projects)」及び「[APIを使ったプロジェクトの管理](/issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects)」を参照してください。
 
 ## プロジェクト（ベータ）と非ベータのプロジェクトの比較
 

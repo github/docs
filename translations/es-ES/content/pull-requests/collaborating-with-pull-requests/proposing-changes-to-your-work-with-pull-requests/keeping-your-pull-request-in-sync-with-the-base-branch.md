@@ -22,7 +22,7 @@ You can update a pull request's head branch from the command line or the pull re
 * The pull request branch is not up to date with the base branch.
 * The base branch requires branches to be up to date before merging{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %} or the setting to always suggest updating branches is enabled{% endif %}.
 
-For more information, see "[Require status checks before merging](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}" and "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches){% endif %}."
+Para obtener más información, consulta las secciones "[Requerir verificaciones de estado antes de fusionar](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}" y "[Adminsitrar las sugerencias para actualizar las ramas de la solicitud de cambios](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches){% endif %}".
 
 If there are changes to the base branch that cause merge conflicts in your pull request branch, you will not be able to update the branch until all conflicts are resolved. For more information, see "[About merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)."
 
@@ -43,7 +43,7 @@ Updating your branch from the pull request page performs a traditional merge. Th
    - Click **Update branch** to perform a traditional merge. ![Button to update branch](/assets/images/help/pull_requests/pull-request-update-branch-with-dropdown.png)
    - Click the update branch drop down menu, click **Update with rebase**, and then click **Rebase branch** to update by rebasing on the base branch. ![Drop-down menu showing merge and rebase options](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
 {% else %}
-1. In the merge section near the bottom of the page, click **Update branch** to perform a traditional merge. ![Button to update branch](/assets/images/help/pull_requests/pull-request-update-branch.png)
+1. In the merge section near the bottom of the page, click **Update branch** to perform a traditional merge. ![Botón para actualizar una rama](/assets/images/help/pull_requests/pull-request-update-branch.png)
 {% endif %}
 
 ## Leer más

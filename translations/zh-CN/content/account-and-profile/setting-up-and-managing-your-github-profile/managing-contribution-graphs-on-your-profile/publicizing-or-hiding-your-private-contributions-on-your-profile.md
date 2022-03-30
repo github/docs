@@ -15,11 +15,11 @@ topics:
 shortTitle: 私有贡献
 ---
 
-如果公开您的私有贡献，对您处理的私有仓库没有访问权限的人员将无法查看您的私有贡献详情， 而只能看到您在指定日期的贡献数。 您的公共贡献会包含详细信息。 For more information, see "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)."
+如果公开您的私有贡献，对您处理的私有仓库没有访问权限的人员将无法查看您的私有贡献详情， 而只能看到您在指定日期的贡献数。 您的公共贡献会包含详细信息。 更多信息请参阅“[在个人资料页面中查看贡献](/articles/viewing-contributions-on-your-profile-page)”。
 
 {% note %}
 
-**Note:** {% ifversion fpt or ghes or ghec %}On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %}, public contributions on your profile are visible {% ifversion fpt or ghec %}to anyone in the world who can access {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}only to other users of {% data variables.product.product_location%}{% endif %}.{% elsif ghae %}On {% data variables.product.prodname_ghe_managed %}, only other members of your enterprise can see the contributions on your profile.{% endif %}
+**注意：** {% ifversion fpt or ghes or ghec %}在 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.product.product_name %}{% endif %} 上，您的个人资料上的公共贡献{% ifversion fpt or ghec %}对世界上能访问 {% data variables.product.prodname_dotcom_the_website %} 的任何人{% elsif ghes %}仅对其他 {% data variables.product.product_location%} 用户{% endif %}可见。{% elsif ghae %}在 {% data variables.product.prodname_ghe_managed %} 上，只有您企业的其他成员才可看到您的个人资料上的贡献。{% endif %}
 
 {% endnote %}
 

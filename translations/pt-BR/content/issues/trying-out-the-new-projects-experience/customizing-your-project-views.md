@@ -113,24 +113,19 @@ Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down
 
 ## Definir o campo da coluna no layout do quadro
 
-No layout do painel, você escolhe qualquer campo de seleção ou iteração para as suas colunas. Se você arrastar um item para uma nova coluna, o valor dessa coluna será aplicado ao item arrastado. For example, if you use the "Status" field for your board columns and then drag an item with a status of `In progress` to the `Done` column, the status of the item will switch to `Done`.
+No layout do painel, você escolhe qualquer campo de seleção ou iteração para as suas colunas. Se você arrastar um item para uma nova coluna, o valor dessa coluna será aplicado ao item arrastado. Por exemplo, se você usar o campo "Status" para as colunas do seu quadro e, em seguida, arrastar um item com o status de `Em andamento` para a coluna `Concluído`, o status do item mudará para `Concluído`.
 
 1. {% data reusables.projects.open-command-palette %}
-1. Start typing "Column field by" or the name of the field you want to use for your columns.
+1. Comece digitando "Campo Coluna por" ou o nome do campo que você deseja usar para suas colunas.
 1. Escolha o comando necessário. Por exemplo, **Column field by: Status**.
 
 Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado da exibição do quadro que você deseja modificar e clique no **campo coluna** {% octicon "columns" aria-label="the column icon" %}. Em seguida, selecione o campo que você deseja usar para as colunas do quadro.
 
-## Filtering items
+## Filtrando itens
 
-Click {% octicon "filter" aria-label="the filter icon" %} at the top of the table to show the "Filter by keyword or by field" bar. Comece a digitar o nome do campo e o valor que você deseja filtrar. À medida que você digita, serão exibidos os possíveis valores.
+Clique em {% octicon "filter" aria-label="the filter icon" %} na parte superior da tabela para mostrar a barra "Filtrar por palavra-chave ou por campo". Comece a digitar o nome do campo e o valor que você deseja filtrar. À medida que você digita, serão exibidos os possíveis valores.
 
-- Para filtrar vários valores, separe os valores por uma vírgula. Por exemplo, `label:"good first issue",bug` irá listar todos os problemas com uma etiqueta `good first issue` ou `erro`.
-- Para filtrar pela ausência de um valor específico, insira `-` antes do seu filtro. Por exemplo, `-label:"bug"` mostrará apenas os itens que não têm a etiqueta `erro`.
-- Para filtrar pela ausência de todos os valores, digite `no:` seguido pelo nome do campo. Por exemplo, `no:assignee` irá mostrar apenas os itens que não têm um responsável.
-- Para filtrar por status, digite `is:`. Por exemplo, `is: issue` ou `is:open`.
-- Separe vários filtros com um espaço. Por exemplo, `status:"In progress" -label:"bug" no:assignee` irá mostrar somente os itens que têm um status de `In progress`, não têm a etiqueta `erro` e não têm um responsável.
-- To filter for the current iteration of an iteration field, use `@current`. For example, `sprint:@current`.
+{% data reusables.projects.projects-filters %}
 
 Como alternativa, use a paleta de comando.
 
@@ -140,6 +135,8 @@ Como alternativa, use a paleta de comando.
 4. Digite o valor para o qual você deseja filtrar. Por exemplo: "Em andamento". Você também pode filtrar pela a ausência de valores específicos (por exemplo, escolha "Excluir status" e escolha um status) ou a ausência de todos os valores (por exemplo, "Sem status").
 
 No layout da tabela, você pode clicar nos dados de item para filtrar para itens com esse valor. Por exemplo, clique em um responsável para mostrar apenas itens para ele. Para remover o filtro, clique nos dados do item novamente.
+
+Para obter mais informações, consulte "[Filtrando projetos](/issues/trying-out-the-new-projects-experience/filtering-projects)".
 
 ## Criando uma visualização do projeto
 
@@ -158,7 +155,7 @@ Para adicionar uma nova visualização:
 
 Como alternativa, clique em {% octicon "plus" aria-label="the plus icon" %} **Nova Visualização** ao lado da visualização mais à direita.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Duplicate view**.
+Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado de um nome de exibição e clique em **Duplicar visualização**.
 
 A nova visualização é salva automaticamente.
 
@@ -175,7 +172,7 @@ Para salvar a configuração atual da exibição para todos os integrantes do pr
 1. Comece a digitar "Salvar visualização" ou "Salvar alterações na nova visualização".
 1. Escolha o comando necessário.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Save view** or **Save changes to new view**.
+Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado de um nome de exibição e clique em **Salvar visualização** ou **Salvar alterações para a próxima visualização**.
 
 ## Reordenando as visualizações salvas
 
@@ -199,7 +196,7 @@ Para excluir uma visualização:
 2. Comece a digitar "Excluir visualização".
 3. Escolha o comando necessário.
 
-Alternatively, click {% octicon "triangle-down" aria-label="the drop-down icon" %} next to a view name and click **Delete view**.
+Como alternativa, clique em {% octicon "triangle-down" aria-label="the drop-down icon" %} ao lado de um nome de exibição e clique em **Excluir visualização**.
 
 ## Leia mais
 

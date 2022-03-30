@@ -9,7 +9,6 @@ redirect_from:
   - /articles/removing-yourself-from-a-collaborators-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository
-product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -21,9 +20,9 @@ topics:
 shortTitle: Remover-se
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5658 %}
-2. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-label="The repo icon" %} Repositories**.
+{% data reusables.user-settings.access_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+2. Na seção "código, planejamento e automação" na barra lateral, clique em **Repositórios de {% octicon "repo" aria-label="The repo icon" %}**.
 {% else %}
 2. Na barra lateral esquerda, clique em **Repositories** (Repositórios). ![Guia Repositories (Repositórios)](/assets/images/help/settings/settings-sidebar-repositories.png)
 {% endif %}

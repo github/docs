@@ -1,6 +1,6 @@
 ---
 title: Configuring a repository cache
-intro: "You can configure a repository cache by creating a new appliance, connecting the repository cache to your primary appliance, and configuring replication of repository networks to the repository cache."
+intro: 'You can configure a repository cache by creating a new appliance, connecting the repository cache to your primary appliance, and configuring replication of repository networks to the repository cache.'
 versions:
   ghes: '>=3.3'
 type: how_to

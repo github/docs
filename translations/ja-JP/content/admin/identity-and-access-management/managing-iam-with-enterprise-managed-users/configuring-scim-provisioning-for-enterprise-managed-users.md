@@ -36,10 +36,10 @@ To configure provisioning for your {% data variables.product.prodname_emu_enterp
 {% endwarning %}
 
 1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-{% data reusables.user_settings.personal_access_tokens %}
-{% data reusables.user_settings.generate_new_token %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.personal_access_tokens %}
+{% data reusables.user-settings.generate_new_token %}
 1. Under **Note**, give your token a descriptive name. ![Screenshot showing the token's name](/assets/images/help/enterprises/emu-pat-name.png)
 1. Select the **Expiration** drop-down menu, then click **No expiration**. ![Screenshot showing token expiration set to no expiration](/assets/images/help/enterprises/emu-pat-no-expiration.png)
 1. Select the **admin:enterprise** scope. ![Screenshot showing the admin:enterprise scope](/assets/images/help/enterprises/enterprise-pat-scope.png)
@@ -50,6 +50,8 @@ To configure provisioning for your {% data variables.product.prodname_emu_enterp
 ## Configuring provisioning for {% data variables.product.prodname_emus %}
 
 After creating your personal access token and storing it securely, you can configure provisioning on your identity provider.
+
+{% data reusables.scim.emu-scim-rate-limit %}
 
 To configure Azure Active Directory to provision users for your {% data variables.product.prodname_emu_enterprise %}, see [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) in the Azure AD documentation.
 

@@ -13,6 +13,7 @@ versions:
   ghae: '*'
   ghec: '*'
 type: reference
+miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,7 +21,7 @@ type: reference
 
 ## {% data variables.product.prodname_actions %}のYAML構文について
 
-Docker及びJavaScriptアクションにはメタデータファイルが必要です。 このメタデータのファイル名は`action.yml`もしくは`action.yaml`でなければなりません。 メタデータファイル中のデータは、アクションの入力、出力、メインエントリポイントを定義します。
+All actions require a metadata file. このメタデータのファイル名は`action.yml`もしくは`action.yaml`でなければなりません。 The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
 
 アクションのメタデータファイルはYAML構文を使います。 YAMLについて詳しくない場合は、「[Learn YAML in five minutes (5分で学ぶYAML)](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)」をお読みください。
 
@@ -40,7 +41,7 @@ Docker及びJavaScriptアクションにはメタデータファイルが必要�
 
 **オプション** inputsパラメーターを使うと、アクションが実行時に使うデータを指定できます。 {% data variables.product.prodname_dotcom %}は、inputsパラメータを環境変数として保存します。 大文字が使われているInputsのidは、実行時に小文字に変換されます。 inputsのidには小文字を使うことをおすすめします。
 
-### サンプル
+### Example: Specifying inputs
 
 この例では、numOctocatsとoctocatEyeColorという 2つの入力を設定しています。 入力のnumOctocatsは必須ではなく、デフォルトの値は'1'になっています。 入力のoctocatEyeColorは必須であり、デフォルト値を持ちません。 このアクションを使うワークフローのファイルは、`with`キーワードを使ってoctocatEyeColorの入力値を設定しなければなりません。 `with`構文に関する詳しい情報については「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)」を参照してください。
 
@@ -83,13 +84,13 @@ To access the environment variable in a Docker container action, you must pass t
 
 **オプション** 入力パラメータが使用されている場合、この `string` は警告メッセージとしてログに記録されます。 この警告で入力が非推奨であることをユーザに通知し、その他の方法を知らせることができます。
 
-## `outputs`
+## `outputs` for Docker container and JavaScript actions
 
 **オプション** アクションが設定するデータを宣言できる出力パラメータ。 ワークフローで後に実行されるアクションは、先行して実行されたアクションが設定した出力データを利用できます。  たとえば、2つの入力を加算(x + y = z)するアクションがあれば、そのアクションは他のアクションが入力として利用できる合計値(z)を出力できます。
 
 メタデータファイル中でアクション内の出力を宣言しなくても、出力を設定してワークフロー中で利用することはできます。 アクション中での出力の設定に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions/#setting-an-output-parameter)」を参照してください。
 
-### サンプル
+### Example: Declaring outputs for Docker container and JavaScript actions
 
 ```yaml
 outputs:
@@ -107,9 +108,9 @@ outputs:
 
 ## `outputs` for composite actions
 
-**オプション** `outputs` `outputs.<output_id>` および `outputs.<output_id>.description`（「[{% data variables.product.prodname_actions %} の `outputs`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)」を参照）と同じパラメーターを使用しますが、`value` トークンも含まれます。
+**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
 
-### サンプル
+### Example: Declaring outputs for composite actions
 
 {% raw %}
 ```yaml
@@ -134,13 +135,13 @@ For more information on how to use context syntax, see "[Contexts](/actions/lear
 
 ## `runs`
 
-**Required** Specifies whether this is a JavaScript action, a composite action or a Docker action and how the action is executed.
+**Required** Specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
 
 ## JavaScriptアクションのための`runs`
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
+### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
 runs:
@@ -159,9 +160,9 @@ runs:
 
 **必須** アクションのコードを含むファイル。 The runtime specified in [`using`](#runsusing) executes this file.
 
-### `pre`
+### `runs.pre`
 
-**オプション** `main:`アクションが開始される前の、ジョブの開始時点でスクリプトを実行できるようにします。 たとえば、`pre:`を使って必要なセットアップスクリプトを実行できます。 The runtime specified with the [`using`](#runsusing) syntax will execute this file. `pre:`アクションはデフォルトで常に実行されますが、[`pre-if`](#pre-if)を使ってこれをオーバーライドすることができます。
+**オプション** `main:`アクションが開始される前の、ジョブの開始時点でスクリプトを実行できるようにします。 たとえば、`pre:`を使って必要なセットアップスクリプトを実行できます。 The runtime specified with the [`using`](#runsusing) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
 この例では、`pre:`アクションは`setup.js`というスクリプトを実行します。
 
@@ -173,7 +174,7 @@ runs:
   post: 'cleanup.js'
 ```
 
-### `pre-if`
+### `runs.pre-if`
 
 **オプション** `pre:`アクションの実行条件を定義できるようにしてくれます。 `pre:`アクションは、`pre-if`内の条件が満たされたときにのみ実行されます。 設定されなかった場合、`pre-if`のデフォルトは`always()`になります。 In `pre-if`, status check functions evaluate against the job's status, not the action's own status.
 
@@ -186,7 +187,7 @@ runs:
   pre-if: runner.os == 'linux'
 ```
 
-### `post`
+### `runs.post`
 
 **オプション** `main:`アクションの終了後、ジョブの終わりにスクリプトを実行できるようにします。 たとえば、`post:`を使って特定のプロセスを終了させたり、不要なファイルを削除したりできます。 The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
@@ -201,7 +202,7 @@ runs:
 
 `post:`アクションはデフォルトで常に実行されますが、`post-if`を使ってこれをオーバーライドすることができます。
 
-### `post-if`
+### `runs.post-if`
 
 **オプション** `post:`アクションの実行条件を定義できるようにしてくれます。 `post:`アクションは、`post-if`内の条件が満たされたときにのみ実行されます。 設定されなかった場合、`post-if`のデフォルトは`always()`になります。 In `post-if`, status check functions evaluate against the job's status, not the action's own status.
 
@@ -266,11 +267,12 @@ runs:
 **必須** コマンドを実行するシェル。 [こちら](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsshell)にリストされている任意のシェルを使用できます。 Required if `run` is set.
 {% endif %}
 
+{% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}
 #### `runs.steps[*].if`
 
 **Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
 **Example: Using contexts**
 
@@ -294,6 +296,7 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@1.0.0
 ```
+{% endif %}
 
 #### `runs.steps[*].name`
 
@@ -362,11 +365,11 @@ runs:
 ```
 {% endif %}
 
-## Dockerアクションのための`runs`
+## `runs` for Docker container actions
 
-**必須** Dockerアクションのために使われるイメージを設定します。
+**Required** Configures the image used for the Docker container action.
 
-### リポジトリでのDockerfileの利用例
+### Example: Using a Dockerfile in your repository
 
 ```yaml
 runs:
@@ -374,7 +377,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-### パブリックなDockerレジストリコンテナを利用する例
+### Example: Using public Docker registry container
 
 ```yaml
 runs:
@@ -386,9 +389,9 @@ runs:
 
 **必須** この値は`'docker'`に設定しなければなりません。
 
-### `pre-entrypoint`
+### `runs.pre-entrypoint`
 
-**オプション** `entrypoint`アクションが始まる前にスクリプトを実行できるようにしてくれます。 たとえば、`pre-entrypoint:`を使って必要なセットアップスクリプトを実行できます。 {% data variables.product.prodname_actions %}は`docker run`を使ってこのアクションを起動し、同じベースイメージを使う新しいコンテナ内でスクリプトを実行します。 これはすなわち、ランタイムの状態はメインの`entrypoint`コンテナとは異なるということで、必要な状態はワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスしなければなりません。 `pre-entrypoint:`アクションはデフォルトで常に実行されますが、[`pre-if`](#pre-if)を使ってこれをオーバーライドすることができます。
+**オプション** `entrypoint`アクションが始まる前にスクリプトを実行できるようにしてくれます。 たとえば、`pre-entrypoint:`を使って必要なセットアップスクリプトを実行できます。 {% data variables.product.prodname_actions %}は`docker run`を使ってこのアクションを起動し、同じベースイメージを使う新しいコンテナ内でスクリプトを実行します。 これはすなわち、ランタイムの状態はメインの`entrypoint`コンテナとは異なるということで、必要な状態はワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスしなければなりません。 The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
 The runtime specified with the [`using`](#runsusing) syntax will execute this file.
 
@@ -420,7 +423,7 @@ runs:
 
 ### `post-entrypoint`
 
-**オプション** `run.entrypoint`アクションが完了した後に、クリーンアップスクリプトを実行できるようにしてくれます。 {% data variables.product.prodname_actions %}はこのアクションを起動するのに`docker run`を使います。 {% data variables.product.prodname_actions %}はスクリプトを同じベースイメージを使って新しいコンテナ内で実行するので、ランタイムの状態はメインの`entrypoint`コンテナとは異なります。 必要な状態には、ワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスできます。 `post-entrypoint:`アクションはデフォルトで常に実行されますが、[`post-if`](#post-if)を使ってこれをオーバーライドすることができます。
+**オプション** `run.entrypoint`アクションが完了した後に、クリーンアップスクリプトを実行できるようにしてくれます。 {% data variables.product.prodname_actions %}はこのアクションを起動するのに`docker run`を使います。 {% data variables.product.prodname_actions %}はスクリプトを同じベースイメージを使って新しいコンテナ内で実行するので、ランタイムの状態はメインの`entrypoint`コンテナとは異なります。 必要な状態には、ワークスペースや`HOME`内、あるいは`STATE_`変数としてアクセスできます。 The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
 
 ```yaml
 runs:
@@ -438,13 +441,13 @@ runs:
 
 `args`は、`Dockerfile`中の`CMD`命令の場所で使われます。 `Dockerfile`中で`CMD`を使うなら、以下の優先順位順のガイドラインを利用してください。
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 環境変数をアクションに渡す必要がある場合は、変数置換を行えるようアクションがコマンドシェルで実行されていることを確認してください。 たとえば、`entrypoint`属性が`"sh -c"`に設定されているなら、`args`はコマンドシェル内で実行されます。 あるいは、`Dockerfile`が`ENTRYPOINT`を使って同じコマンド（`"sh -c"`）を実行しているなら、`args`はコマンドシェル内で実行されます。
 
 {% data variables.product.prodname_actions %}での`CMD`命令の利用に関する詳しい情報については、「[{% data variables.product.prodname_actions %}のDockerfileサポート](/actions/creating-actions/dockerfile-support-for-github-actions/#cmd)」を参照してください。
 
-#### サンプル
+#### Example: Defining arguments for the Docker container
 
 {% raw %}
 ```yaml
@@ -462,7 +465,7 @@ runs:
 
 アクションをパーソナライズして見分けられるようにするために、カラーと[Feather](https://feathericons.com/)アイコンを使ってバッジを作ることができます。 バッジは、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions)内のアクション名の隣に表示されます。
 
-### サンプル
+### Example: Configuring branding for an action
 
 ```yaml
 branding:
@@ -476,11 +479,46 @@ branding:
 
 ### `branding.icon`
 
-利用する[Feather](https://feathericons.com/)アイコンの名前。
+The name of the v4.28.0 [Feather](https://feathericons.com/) icon to use. Brand icons are omitted as well as the following:
 
 <table>
 <tr>
-<td>activity</td>
+<td>coffee</td>
+<td>カラム</td>
+<td>divide-circle</td>
+<td>divide-square</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>frown</td>
+<td>hexagon</td>
+<td>key</td>
+</tr>
+<tr>
+<td>meh</td>
+<td>mouse-pointer</td>
+<td>smile</td>
+<td>ツール</td>
+</tr>
+<tr>
+<td>x-octagon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+Here is an exhaustive list of all currently supported icons:
+
+
+<!-- 
+  This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
+  To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
+-->
+
+<table>
+<tr>
+<td>アクティビティ</td>
 <td>airplay</td>
 <td>alert-circle</td>
 <td>alert-octagon</td>
@@ -495,7 +533,7 @@ branding:
 <td>align-right</td>
 <td>anchor</td>
 <td>aperture</td>
-<td>archive</td>
+<td>アーカイブ</td>
 </tr>
 <tr>
 <td>arrow-down-circle</td>
@@ -574,10 +612,10 @@ branding:
 <td>cloud-rain</td>
 <td>cloud-snow</td>
 <td>cloud</td>
-<td>code</td>
+<td>コード</td>
 </tr>
 <tr>
-<td>command</td>
+<td>コマンド</td>
 <td>compass</td>
 <td>copy</td>
 <td>corner-down-left</td>
@@ -627,12 +665,12 @@ branding:
 <tr>
 <td>file-plus</td>
 <td>file-text</td>
-<td>file</td>
+<td>ファイル</td>
 <td>film</td>
 </tr>
 <tr>
 <td>filter</td>
-<td>flag</td>
+<td>フラグ</td>
 <td>folder-minus</td>
 <td>folder-plus</td>
 </tr>
@@ -650,7 +688,7 @@ branding:
 </tr>
 <tr>
 <td>hard-drive</td>
-<td>hash</td>
+<td>ハッシュ</td>
 <td>headphones</td>
 <td>heart</td>
 </tr>
@@ -752,13 +790,13 @@ branding:
 </tr>
 <tr>
 <td>repeat</td>
-<td>rewind</td>
+<td>巻き戻し</td>
 <td>rotate-ccw</td>
 <td>rotate-cw</td>
 </tr>
 <tr>
 <td>rss</td>
-<td>save</td>
+<td>保存</td>
 <td>scissors</td>
 <td>search</td>
 </tr>
@@ -777,7 +815,7 @@ branding:
 <tr>
 <td>shopping-cart</td>
 <td>shuffle</td>
-<td>sidebar</td>
+<td>サイドバー</td>
 <td>skip-back</td>
 </tr>
 <tr>
@@ -799,7 +837,7 @@ branding:
 <td>tablet</td>
 </tr>
 <tr>
-<td>tag</td>
+<td>タグ</td>
 <td>target</td>
 <td>terminal</td>
 <td>thermometer</td>
@@ -829,14 +867,14 @@ branding:
 <td>upload-cloud</td>
 </tr>
 <tr>
-<td>upload</td>
+<td>アップロード</td>
 <td>user-check</td>
 <td>user-minus</td>
 <td>user-plus</td>
 </tr>
 <tr>
 <td>user-x</td>
-<td>user</td>
+<td>ユーザ</td>
 <td>users</td>
 <td>video-off</td>
 </tr>

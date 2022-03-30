@@ -21,8 +21,8 @@ shortTitle: Endereço de e-mail principal
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 3. Se desejar adicionar um novo endereço de e-mail para definir como endereço de e-mail principal, em "Add email address" (Adicionar endereço de e-mail), digite um novo endereço de e-mail e clique em **Add** (Adicionar). ![Botão para adicionar outro endereço de e-mail](/assets/images/help/settings/add_another_email_address.png)
 4. Em "Primary email address" (Endereço de e-mail principal), use o menu suspenso para clicar no endereço de e-mail que deseja definir como endereço de e-mail principal e clique em **Save** (Salvar). ![Botão para definir como principal](/assets/images/help/settings/set_as_primary_email.png)
 5. Para remover o endereço de e-mail antigo da sua conta, ao lado do e-mail antigo, clique em {% octicon "trash" aria-label="The trash symbol" %}.

@@ -1,45 +1,45 @@
 ---
-title: Verifying your custom domain for GitHub Pages
-intro: You can increase the security of your custom domain and avoid takeover attacks by verifying your domain.
+title: GitHub Pagesのカスタムドメインの検証
+intro: ドメインを検証することで、カスタムドメインのセキュリティを高め、乗っ取り攻撃を回避できます。
 product: '{% data reusables.gated-features.pages %}'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Pages
-shortTitle: Verify a custom domain
+shortTitle: カスタムドメインの検証
 ---
 
-## About domain verification for GitHub Pages
+## GitHub Pagesのドメイン検証について
 
-When you verify your custom domain for your user account or organization, only repositories owned by your user account or organization may be used to publish a {% data variables.product.prodname_pages %} site to the verified custom domain or the domain's immediate subdomains.
+自分のユーザアカウントあるいはOrganizationのカスタムドメインを検証すると、その検証されたカスタムドメインもしくはその直接のサブドメインに{% data variables.product.prodname_pages %}サイトを公開できるのは、自分のユーザアカウントあるいはOrganizationが所有するリポジトリだけになります。
 
-Verifying your domain stops other GitHub users from taking over your custom domain and using it to publish their own {% data variables.product.prodname_pages %} site. Domain takeovers can happen when you delete your repository, when your billing plan is downgraded, or after any other change which unlinks the custom domain or disables {% data variables.product.prodname_pages %} while the domain remains configured for {% data variables.product.prodname_pages %} and is not verified.
+ドメインを検証すると、他のGitHubユーザがそのカスタムドメインを乗っ取り、そのユーザ自身の{% data variables.product.prodname_pages %}サイトの公開に使うことを止められます。 ドメインの乗っ取りは、{% data variables.product.prodname_pages %}用にドメインを残したままで検証せず、あなたが自分のリポジトリを削除したとき、支払いプランをダウングレードしたとき、あるいはカスタムドメインのリンクを解除するその他の変更や{% data variables.product.prodname_pages %}を無効化した後に生じます。
 
-When you verify a domain, any immediate subdomains are also included in the verification. For example, if the `github.com` custom domain is verified, `docs.github.com`, `support.github.com`, and any other immediate subdomains will also be protected from takeovers.
+ドメインを検証すると、直接のサブドメインもその検証に含まれます。 たとえば、`github.com`というカスタムドメインが検証されると、`docs.github.com`、`support.github.com`あるいはその他の直接のサブドメインも、乗っ取りから保護されることになります。
 
-It's also possible to verify a domain for your organization{% ifversion ghec %} or enterprise{% endif %}, which displays a "Verified" badge on the organization {% ifversion ghec %}or enterprise{% endif %} profile{% ifversion ghec %} and, on {% data variables.product.prodname_ghe_cloud %},  allows you to restrict notifications to email addresses using the verified domain{% endif %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}" and "[Verifying or approving a domain for your enterprise](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}."
+Organization{% ifversion ghec %}あるいはEnterprise{% endif %}のドメインを検証することもできます。そうすると、「検証済み」バッジがOrganization{% ifversion ghec %}もしくはEnterprise{% endif %}のプロフィールに表示され{% ifversion ghec %}、{% data variables.product.prodname_ghe_cloud %}では検証済みドメインを使ってメールアドレスへの通知を制限できるようになり{% endif %}ます。 詳しい情報については「[Organizationのドメインの検証あるいは承認](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)」{% ifversion ghec %}及び「[Enterpriseのドメインの検証あるいは承認](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」{% endif %}を参照してください。
 
-## Verifying a domain for your user site
+## ユーザサイトのドメインの検証
 
-{% data reusables.user_settings.access_settings %}
-1. 左のサイドバーで**Pages（ページ）**をクリックしてください。 ![Pages option in the settings menu](/assets/images/help/settings/user-settings-pages.png)
+{% data reusables.user-settings.access_settings %}
+1. サイドバーの"Code, planning, and automation（コード、計画、自動化）"のセクションで、**{% octicon "browser" aria-label="The pages icon" %} Pages**をクリックしてください。
 {% data reusables.pages.settings-verify-domain-setup %}
-1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `USERNAME` with your username and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
+1. DNS設定が変更されるまで待ちます。これはすぐに行われることも、最大で24時間かかることもあります。 DNS設定への変更は、コマンドラインで`dig`コマンドを実行して確認できます。 以下のコマンドで、`USERNAME`を自分のユーザ名に、`example.com`を検証しているドメインに置き換えてください。 DNS設定が更新されていれば、出力中に新しいTXTレコードが表示されます。
   ```
   dig _github-pages-challenge-USERNAME.example.com +nostats +nocomments +nocmd TXT
   ```
 {% data reusables.pages.settings-verify-domain-confirm %}
 
-## Verifying a domain for your organization site
+## Organizationのサイトのドメインの検証
 
-Organization owners can verify custom domains for their organization.
+Organizationのオーナーは、自分のOrganizatinのカスタムドメインを検証できます。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. 左のサイドバーで**Pages（ページ）**をクリックしてください。 ![Pages option in the settings menu](/assets/images/help/settings/org-settings-pages.png)
+1. サイドバーの"Code, planning, and automation（コード、計画、自動化）"のセクションで、**{% octicon "browser" aria-label="The browser icon" %} Pages**をクリックしてください。
 {% data reusables.pages.settings-verify-domain-setup %}
-1. Wait for your DNS configuration to change, this may be immediate or take up to 24 hours. You can confirm the change to your DNS configuration by running the `dig` command on the command line. In the command below, replace `ORGANIZATION` with the name of your organization and `example.com` with the domain you're verifying. If your DNS configuration has updated, you should see your new TXT record in the output.
+1. DNS設定が変更されるまで待ちます。これはすぐに行われることも、最大で24時間かかることもあります。 DNS設定への変更は、コマンドラインで`dig`コマンドを実行して確認できます。 以下のコマンドで、`ORGANIZATION`を自分のOrganization名に、`example.com`を検証しているドメインに置き換えてください。 DNS設定が更新されていれば、出力中に新しいTXTレコードが表示されます。
   ```
   dig _github-pages-challenge-ORGANIZATION.example.com +nostats +nocomments +nocmd TXT
   ```

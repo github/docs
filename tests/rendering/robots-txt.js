@@ -1,8 +1,6 @@
 import languages from '../../lib/languages.js'
 import robotsParser from 'robots-parser'
-import robotsMiddleware from '../../middleware/robots.js'
-import { get } from '../helpers/supertest.js'
-import MockExpressResponse from 'mock-express-response'
+import { get } from '../helpers/e2etest.js'
 import { jest } from '@jest/globals'
 
 describe('robots.txt', () => {
@@ -10,7 +8,11 @@ describe('robots.txt', () => {
 
   let res, robots
   beforeAll(async () => {
-    res = await get('/robots.txt')
+    res = await get('/robots.txt', {
+      headers: {
+        Host: 'docs.github.com',
+      },
+    })
     robots = robotsParser('https://docs.github.com/robots.txt', res.text)
   })
 
@@ -35,18 +37,13 @@ describe('robots.txt', () => {
       })
   })
 
-  it('disallows indexing of herokuapp.com domains', async () => {
-    const req = {
-      hostname: 'docs-internal-12345--my-branch.herokuapp.com',
-      path: '/robots.txt',
-    }
-    const res = new MockExpressResponse()
-    const next = () => {
-      /* no op */
-    }
-
-    await robotsMiddleware(req, res, next)
-    expect(res._getString()).toEqual('User-agent: *\nDisallow: /')
+  it('disallows indexing of azurecontainer.io domains', async () => {
+    const res = await get('/robots.txt', {
+      headers: {
+        host: 'docs-internal-preview-12345-asdfz.azurecontainer.io',
+      },
+    })
+    expect(res.text).toEqual('User-agent: *\nDisallow: /')
   })
 
   it('does not have duplicate lines', () => {

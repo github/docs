@@ -1,6 +1,4 @@
-# This Dockerfile can be used for docker-based deployments to platforms
-# like Now or Moda, but it is currently _not_ used by our Heroku deployments
-# It uses two multi-stage builds: `install` and the main build to keep the image size down.
+# This Dockerfile is used for docker-based deployments to Azure for both preview environments and production
 
 # --------------------------------------------------------------------------------
 # BASE IMAGE
@@ -23,7 +21,7 @@ FROM base as all_deps
 
 COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm ci --no-optional
+RUN npm ci --no-optional --registry https://registry.npmjs.org/
 
 # For Next.js v12+
 # This the appropriate necessary extra for node:16-alpine
@@ -48,7 +46,6 @@ COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
-
 # One part of the build relies on this content file to pull all-products
 COPY content/index.md ./content/index.md
 
@@ -92,6 +89,7 @@ COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 COPY --chown=node:node server.mjs ./server.mjs
+COPY --chown=node:node start-server.mjs ./start-server.mjs
 
 EXPOSE $PORT
 

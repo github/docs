@@ -34,11 +34,11 @@ En muchos casos, especialmente al inicio de un proyecto, el reenvío del agente 
 #### Configuración
 
 1. Habilita el reenvío de agente localmente. Consulta [nuestra guía sobre el redireccionamiento del agente SSH][ssh-agent-forwarding] para obtener más información.
-2. Configura tus scripts de despliegue para utilizar el reenvío de agente. For example, on a bash script, enabling agent forwarding would look something like this: `ssh -A serverA 'bash -s' < deploy.sh`
+2. Configura tus scripts de despliegue para utilizar el reenvío de agente. Por ejemplo, en un script de bash, el habilitar el reenvío de agentes se verá más o menos así: `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## Clonado de HTTPS con tokens de OAuth
 
-If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
+Si no quieres utilizar llaves SSH, puedes utilizar HTTPS con tokens de OAuth.
 
 #### Pros
 
@@ -57,7 +57,7 @@ If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
 #### Configuración
 
-See [our guide on creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+Consulta [nuestra guía para crear tokens de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## Llaves de implementación
 
@@ -78,7 +78,7 @@ See [our guide on creating a personal access token](/authentication/keeping-your
 
 #### Configuración
 
-1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair key pair.
+1. [Ejecuta el procedimiento `ssh-keygen`][generating-ssh-keys] en tu servidor y recuerda dónde guardaste l par de llaves pública y privada de RSA generado.
 2. En la esquina superior derecha de cualquier página de {% data variables.product.product_name %}, da clic en tu foto de perfil y luego da clic en **Tu perfil**. ![Navegación al perfil](/assets/images/profile-page.png)
 3. En tu página de perfil, da clic en **Repositorios** y luego en el nombre de tu repositorio. ![Enlace de los repositorios](/assets/images/repos.png)
 4. Desde tu repositorio, da clic en **Configuración**. ![Configuración del repositorio](/assets/images/repo-settings.png)

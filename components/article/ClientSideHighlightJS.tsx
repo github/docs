@@ -1,11 +1,16 @@
 import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 import hljs from 'highlight.js/lib/core'
 import json from 'highlight.js/lib/languages/json'
+import javascript from 'highlight.js/lib/languages/javascript'
+import hljsCurl from 'highlightjs-curl'
 
 // Add as needed. It's pretty cheap to add but please don't use
 // highlight.js import that loads all and everything.
 hljs.registerLanguage('json', json)
-const SUPPORTED_LANGUAGES = ['json']
+hljs.registerLanguage('javascript', javascript)
+hljs.registerLanguage('curl', hljsCurl)
+const SUPPORTED_LANGUAGES = ['json', 'javascript', 'curl']
 
 // This is the selector we use for the first document.querySelectorAll()
 // to find the containers for `<code>` tags. Because it's s dataset
@@ -24,6 +29,8 @@ const CODE_ELEMENTS_PARENT_SELECTOR = '[data-highlight]'
 const CODE_SELECTOR = 'pre code'
 
 export default function ClientSideHighlightJS() {
+  const { asPath } = useRouter()
+
   useEffect(() => {
     // Hi Internet Explorer!
     // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#browser_compatibility
@@ -59,7 +66,11 @@ export default function ClientSideHighlightJS() {
         intersectionObserver.observe(element)
       }
     }
-  }, [])
+
+    return () => {
+      intersectionObserver.disconnect()
+    }
+  }, [asPath])
 
   return null
 }

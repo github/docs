@@ -56,7 +56,7 @@ Você pode pesquisar as seguintes informações em todos os repositórios que vo
 
 ## Pesquisar usando uma interface visual
 
-You can search {% data variables.product.product_name %} using the {% data variables.search.search_page_url %} or {% data variables.search.advanced_url %}. {% if command-palette %}Alternatively, you can use the interactive search in the {% data variables.product.prodname_command_palette %} to search your current location in the UI, a specific user, repository or organization, and globally across all of {% data variables.product.product_name %}, without leaving the keyboard. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)."{% endif %}
+Você pode pesquisar {% data variables.product.product_name %} usando o {% data variables.search.search_page_url %} ou {% data variables.search.advanced_url %}. {% if command-palette %}Como alternativa, você pode usar a pesquisa interativa no {% data variables.product.prodname_command_palette %} para pesquisar sua localização atual na interface do usuário, um usuário, repositório ou organização específico e globalmente em todo o {% data variables.product.product_name %}, sem deixar o teclado. Para obter mais informações, consulte "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".{% endif %}
 
 A {% data variables.search.advanced_url %} fornece uma interface visual para construção de consultas de pesquisa. Você pode filtrar as pesquisas por diversos fatores, como o número de estrelas ou o número de bifurcações que um repositório tem. À medida que você preenche os campos de pesquisa avançada, sua consulta é automaticamente construída na barra de pesquisa superior.
 
@@ -66,12 +66,12 @@ A {% data variables.search.advanced_url %} fornece uma interface visual para con
 
 ## Pesquisando repositórios em {% data variables.product.prodname_dotcom_the_website %} a partir do seu ambiente corporativo privado
 
-If you use {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.product_name %}{% endif %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, an enterprise owner for your {% data variables.product.prodname_enterprise %} environment can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time{% ifversion ghes or ghae %} from {% data variables.product.product_name %}{% endif %}. Para obter mais informações, consulte o seguinte.
+Se você usar {% ifversion fpt or ghec %}{% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_ghe_managed %}{% else %}{% data variables.product.product_name %}{% endif %} e você for um membro de uma organização de {% data variables.product.prodname_dotcom_the_website %} que estiver usando {% data variables.product.prodname_ghe_cloud %}, o proprietário de uma empresa para o seu ambiente de {% data variables.product.prodname_enterprise %} poderá habilitar {% data variables.product.prodname_github_connect %} para que você possa pesquisar em ambos os ambientes ao mesmo tempo{% ifversion ghes or ghae %} a partir de {% data variables.product.product_name %}{% endif %}. Para obter mais informações, consulte o seguinte.
 
 {% ifversion fpt or ghes or ghec %}
 
-- "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}
-- "[Enabling {% data variables.product.prodname_unified_search %} for your enterprise](/github-ae@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" in the {% data variables.product.prodname_ghe_managed %} documentation
+- "[Habilitando {% data variables.product.prodname_unified_search %} para a sua empresa]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" na documentação de {% data variables.product.prodname_ghe_server %}{% endif %}
+- "[Habilitando {% data variables.product.prodname_unified_search %} para a sua empresa](/github-ae@latest/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)" na documentação de {% data variables.product.prodname_ghe_managed %}
 
 {% ifversion ghes or ghae %}
 

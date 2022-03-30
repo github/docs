@@ -1,13 +1,11 @@
 ---
 title: Setting permissions for adding outside collaborators
 intro: 'To protect your organization''s data and the number of paid licenses used in your organization, you can allow only owners to invite outside collaborators to organization repositories.'
-product: '{% data reusables.gated-features.restrict-add-collaborator %}'
 redirect_from:
   - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
   - /articles/setting-permissions-for-adding-outside-collaborators
   - /github/setting-up-and-managing-organizations-and-teams/setting-permissions-for-adding-outside-collaborators
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -17,7 +15,16 @@ topics:
 shortTitle: Set collaborator policy
 ---
 
-Organization owners, and members with admin privileges for a repository, can invite outside collaborators to work on the repository. You can also restrict outside collaborator invite permissions to only organization owners.
+By default, anyone with admin access to a repository can invite outside collaborators to work on the repository. You can choose to restrict the ability to invite outside collaborators to organization owners only.
+
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can restrict the ability to invite outside collaborators to organization owners. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 

@@ -24,7 +24,7 @@ shortTitle: Actualizar las credenciales de acceso
 1. Para solicitar una contraseña nueva, visita {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
 2. Ingresa la dirección de correo electrónico asociada con tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} y luego haz clic en **Enviar correo electrónico para restablecer contraseña.** El correo electrónico se enviará a la dirección de respaldo en caso de que la hayas configurado. ![Diálogo de solicitud de correo electrónico de restablecimiento de contraseña](/assets/images/help/settings/password-recovery-email-request.png)
 3. Te enviaremos por correo electrónico un enlace que te permitirá restablecer la contraseña. Debes hacer clic en este enlace dentro de las 3 horas posteriores a haber recibido el correo electrónico. Si no recibiste un correo electrónico de nuestra parte, asegúrate de revisar la carpeta de spam.
-4. Si habilitaste la autenticación bifactorial, se te pedirán tus credenciales de 2FA. Teclea tus credenciales bifactoriales o uno de tus códigos de recuperación de 2FA y haz clic en **Verificar**. ![Mensaje de autenticación bifactorial](/assets/images/help/2fa/2fa-password-reset.png)
+4. Si habilitaste la autenticación bifactorial, se te pedirán tus credenciales de 2FA. Teclea tu código de autenticación o uno de tus códigos de recuperación y haz clic en **Verificar**. Si agregaste una llave de seguridad a tu cuenta, puedes insertarla y hacer clic en **Utilizar llave de seguridad** en lugar de teclear un código de autenticación. ![Mensaje de autenticación bifactorial](/assets/images/help/2fa/2fa-password-reset.png)
 5. Teclea una contraseña nueva, confírmala y haz clic en **Cambiar contraseña**. Para recibir ayuda para crear una contraseña segura, consulta "[Crear una contraseña segura](/articles/creating-a-strong-password)."
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![Casilla de recuperación de contraseña](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
@@ -40,8 +40,8 @@ Para evitar perder tu contraseña en el futuro, te sugerimos utilizar un adminis
 {% data reusables.repositories.blocked-passwords %}
 
 1. {% data variables.product.signin_link %} to {% data variables.product.product_name %}.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 4. En "Change password" (Cambiar contraseña), escribe tu contraseña antigua, una contraseña segura nueva y confirma tu contraseña nueva. Para recibir ayuda para crear una contraseña segura, consulta "[Crear una contraseña segura](/articles/creating-a-strong-password)"
 5. Haz clic en **Update password** (Actualizar contraseña).
 
@@ -54,6 +54,12 @@ Para mayor seguridad, habilita la autenticación de dos factores además de camb
 ## Actualizar tus tokens de acceso
 
 Consulta "[Revisar tus integraciones autorizadas](/articles/reviewing-your-authorized-integrations)" para recibir indicaciones sobre revisar y eliminar tokens de acceso. Para generar tokens de acceso nuevos, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
+
+{% ifversion not ghae %}
+
+Si restableciste la contraseña de tu cuenta y también te gustaría activar un cierre de sesión desde la app de GitHub Mobile, entonces puedes revocar tu autorización de la App de OAuth de "GitHub iOS" o "GitHub Android". Para obtener información adicional, consulta la sección "[Revisar tus integraciones autorizadas](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)".
+
+{% endif %}
 
 ## Actualizar tus claves SSH
 

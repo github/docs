@@ -27,6 +27,8 @@ redirect_from:
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} Para obter mais informações, consulte "[Configurando o logon único SAML para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
+{% data reusables.enterprise-accounts.about-recovery-codes %} Para obter mais informações, consulte "[Gerenciar a códigos de recuperação para a sua empresa](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)".
+
 Depois de habilitar o SSO do SAML, dependendo do IdP que você usar, você poderá habilitar as funcionalidades adicionais de gerenciamento de identidade e acesso. {% data reusables.scim.enterprise-account-scim %}
 
 Se você usar o Azure AD como seu IDP, você poderá usar a sincronização de equipe para gerenciar a associação de equipe em cada organização. {% data reusables.identity-and-permissions.about-team-sync %} Para obter mais informações, consulte "[Gerenciar a sincronização de equipes para organizações na sua conta corporativa](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)".
@@ -47,7 +49,7 @@ Nós testamos e oferecemos compatibilidade oficial os seguintes IdPs. Para o SSO
 | -------------------------------------------- |:--------------------------------------------------------------:|:-------------------------------------------------------------:|
 | Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} |                                                               |
 | Azure Active Directory (Azure AD)            | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %}
-| Okta                                         | {% octicon "check-circle-fill" aria-label="The check icon" %}  | {% octicon "check-circle-fill" aria-label="The check icon" %}
+| Okta                                         | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | OneLogin                                     | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | PingOne                                      | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |
 | Shibboleth                                   | {% octicon "check-circle-fill" aria-label="The check icon" %}  |                                                               |

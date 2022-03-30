@@ -1,6 +1,6 @@
 ---
 title: 排查克隆错误
-intro: 'If you''re having trouble cloning a repository, check these common errors.'
+intro: 如果您在克隆存储库时遇到问题，请检查这些常见错误。
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403
   - /articles/error-the-requested-url-returned-error-401

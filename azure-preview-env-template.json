@@ -2,109 +2,106 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "appName": {
-          "type": "String"
-      },
-      "location": {
-          "type": "String"
-      },
-      "linuxFxVersion": {
-          "type": "String"
-      },
-      "dockerRegistryUrl": {
-          "type": "String"
-      },
-      "dockerRegistryUsername": {
-          "type": "String"
-      },
-      "dockerRegistryPassword": {
-          "type": "SecureString"
+    "appName": {
+      "defaultValue": null,
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 63,
+      "metadata": {
+        "description": "A unique name for the app"
       }
-  },
-  "variables": {
-    "appServicePlanName": "[concat('ASP-', parameters('appName'))]",
-    "dnsName": "[concat(parameters('appName'), '-', take(uniqueString(subscription().subscriptionId, resourceGroup().id, deployment().name), 6))]"
+    },
+    "containerImage": {
+      "type": "string",
+      "defaultValue": null,
+      "metadata": {
+        "description": "Container image to deploy"
+      }
+    },
+    "dockerRegistryUrl": {
+      "type": "String",
+      "metadata": {
+        "description": "Should be a valid host name without protocol"
+      }
+    },
+    "dockerRegistryUsername": {
+      "type": "String"
+    },
+    "dockerRegistryPassword": {
+      "type": "SecureString"
+    }
   },
   "resources": [
-      {
-
-          "type": "Microsoft.Web/serverfarms",
-          "apiVersion": "2021-02-01",
-          "name": "[variables('appServicePlanName')]",
-          "location": "[parameters('location')]",
-          "sku": {
-              "name": "B2"
-          },
-          "kind": "linux",
-          "properties": {
-              "reserved": true
+    {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "name": "[parameters('appName')]",
+      "apiVersion": "2021-07-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "containers": [
+          {
+            "name": "app",
+            "properties": {
+              "image": "[parameters('containerImage')]",
+              "ports": [
+                {
+                  "protocol": "TCP",
+                  "port": 4000
+                }
+              ],
+              "environmentVariables": [
+                {
+                  "name": "PORT",
+                  "value": "4000"
+                },
+                {
+                  "name": "NODE_ENV",
+                  "value": "production"
+                },
+                {
+                  "name": "WEB_CONCURRENCY",
+                  "value": "1"
+                },
+                {
+                  "name": "ENABLED_LANGUAGES",
+                  "value": "en"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "memoryInGB": 4,
+                  "cpu": 1
+                }
+              }
+            }
           }
-      },
-      {
-          "type": "Microsoft.Web/sites",
-          "apiVersion": "2018-11-01",
-          "name": "[variables('dnsName')]",
-          "location": "[parameters('location')]",
-          "dependsOn": [
-              "[resourceId('Microsoft.Web/serverfarms', variables('appServicePlanName'))]"
+        ],
+        "imageRegistryCredentials": [
+          {
+            "server": "[parameters('dockerRegistryUrl')]",
+            "username": "[parameters('dockerRegistryUsername')]",
+            "password": "[parameters('dockerRegistryPassword')]"
+          }
+        ],
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "ports": [
+            {
+              "protocol": "TCP",
+              "port": 4000
+            }
           ],
-          "tags": {
-              "DocsAppName": "[parameters('appName')]"
-          },
-          "properties": {
-              "name": "[variables('dnsName')]",
-              "siteConfig": {
-                  "appSettings": [
-                      {
-                          "name": "DOCKER_REGISTRY_SERVER_URL",
-                          "value": "[parameters('dockerRegistryUrl')]"
-                      },
-                      {
-                          "name": "DOCKER_REGISTRY_SERVER_USERNAME",
-                          "value": "[parameters('dockerRegistryUsername')]"
-                      },
-                      {
-                          "name": "DOCKER_REGISTRY_SERVER_PASSWORD",
-                          "value": "[parameters('dockerRegistryPassword')]"
-                      },
-                      {
-                          "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
-                          "value": "false"
-                      },
-                      {
-                          "name": "NODE_ENV",
-                          "value": "production"
-                      },
-                      {
-                          "name": "PORT",
-                          "value": "4000"
-                      },
-                      {
-                          "name": "DEPLOYMENT_ENV",
-                          "value": "azure"
-                      },
-                      {
-                          "name": "ENABLED_LANGUAGES",
-                          "value": "en"
-                      }
-                  ],
-                  "linuxFxVersion": "[parameters('linuxFxVersion')]",
-                  "appCommandLine": "",
-                  "alwaysOn": false,
-                  "numberOfWorkers": 1,
-                  "healthCheckPath": "/healthz",
-                  "httpLoggingEnabled": true,
-                  "logsDirectorySizeLimit": 35
-              },
-              "serverFarmId": "[concat('/subscriptions/', subscription().id, '/resourcegroups/', resourceGroup().name, '/providers/Microsoft.Web/serverfarms/', variables('appServicePlanName'))]",
-              "clientAffinityEnabled": false
-          }
+          "type": "Public",
+          "dnsNameLabel": "[parameters('appName')]"
+        },
+        "osType": "Linux"
       }
+    }
   ],
   "outputs": {
-      "defaultHostName": {
-          "type": "string",
-          "value": "[concat('https://', variables('dnsName'), '.azurewebsites.net')]"
-      }
+    "defaultHostName": {
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', parameters('appName'))).ipAddress.fqdn]",
+      "type": "string"
+    }
   }
 }

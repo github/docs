@@ -1,7 +1,7 @@
 ---
 title: Advanced workflow features
 shortTitle: Advanced workflow features
-intro: '本指南说明如何使用 {% data variables.product.prodname_actions %} 的高级功能，包括机密管理、相关作业、缓存、生成矩阵、{% ifversion fpt or ghes > 3.0 or ghae or ghec %}环境{% endif %}和标签。'
+intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices, environments, and labels.'
 redirect_from:
   - /actions/learn-github-actions/managing-complex-workflows
 versions:
@@ -169,12 +169,9 @@ To learn more about {% data variables.product.prodname_dotcom %}-hosted runner l
 {% data reusables.actions.reusable-workflows %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-
 ## 使用环境
 
 您可以使用保护规则和机密配置环境。 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 更多信息请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。
-{% endif %}
 
 ## Using starter workflows
 

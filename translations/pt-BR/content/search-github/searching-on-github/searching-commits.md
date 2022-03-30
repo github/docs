@@ -109,10 +109,10 @@ O qualificador `is` corresponde a commits dos repositórios com a visibilidade e
 | --------- | ------- |
 |           |         |
 {%- ifversion fpt or ghes or ghec %}
-| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) matches commits to public repositories.
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Commits) corresponde os commits aos repositórios públicos.
 {%- endif %}
 {%- ifversion ghes or ghec or ghae %}
-| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) matches commits to internal repositories.
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Commits) corresponde commits a repositórios internos.
 {%- endif %}
 | `is:private` | [**is:private**](https://github.com/search?q=is%3Aprivate&type=Commits) corresponde aos commits dos repositórios privados.
 

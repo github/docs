@@ -17,7 +17,7 @@ Los propietarios de organizaciones y empresas pueden restringir el acceso a los 
 Cuando una organización tiene una lista de direcciones permitidas, se negará el acceso a las aplicaciones de terceros que se conecten a través de una {% data variables.product.prodname_github_app %}, a menos de que ambas condiciones siguientes sean verdaderas:
 
 * El creador de {% data variables.product.prodname_github_app %} configuró una lista de direcciones permitidas para la aplicación, la cual especifica las direcciones IP en donde se ejecuta la aplicación. Consulta los detalles de cómo hacerlo a continuación.
-* El propietario de la organización eligió permitir que las direcciones en la lista de direcciones permitidas de la {% data variables.product.prodname_github_app %} se agreguen a su propia lista de direcciones permitidas. Para obtener más información, consulta "[Administrar las direcciones IP permitidas en tu organización](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#allowing-access-by-github-apps)".
+* El propietario de la organización eligió permitir que las direcciones en la lista de direcciones permitidas de la {% data variables.product.prodname_github_app %} se agreguen a su propia lista de direcciones permitidas. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% data reusables.apps.ip-allow-list-only-apps %}
 
