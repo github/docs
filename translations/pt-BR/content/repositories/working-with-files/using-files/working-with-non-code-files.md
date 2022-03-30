@@ -37,11 +37,13 @@ shortTitle: Trabalhar com arquivos que não envolvem código
 
 ## Renderizar e comparar imagens
 
-O {% data variables.product.product_name %} pode exibir diversos formatos comuns de imagem, incluindo PNG, JPG, GIF, PSD e SVG. Além de exibir as imagens, existem diversas formas de comparara as diferenças entre as versões desses formatos de imagem.'
+O {% data variables.product.product_name %} pode exibir diversos formatos comuns de imagem, incluindo PNG, JPG, GIF, PSD e SVG. Além de exibir as imagens, existem diversas formas de comparara as diferenças entre as versões desses formatos de imagem.
 
 {% note %}
 
-**Observação:** os arquivos SVGs no {% data variables.product.prodname_dotcom %} podem não renderizar no navegador Firefox.
+**Observação:**
+- {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
+- If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 {% endnote %}
 
@@ -306,7 +308,7 @@ Ainda pode ser possível renderizar os dados convertendo o arquivo `.geojson` em
 
 ### Leia mais
 
-* [Documentação geojson Leaflet.js](http://leafletjs.com/examples/geojson.html)
+* [Leaflet.js documentation](https://leafletjs.com/)
 * [Documentação MapBox marcadores de estilo](http://www.mapbox.com/developers/simplestyle/)
 * [Wiki TopoJSON](https://github.com/mbostock/topojson/wiki)
 
