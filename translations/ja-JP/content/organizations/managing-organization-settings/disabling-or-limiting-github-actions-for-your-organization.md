@@ -39,7 +39,7 @@ Organization のワークフローをすべて無効にすることも、Organiz
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 1. [**Policies**] でオプションを選択します。 ![この Organization に対するアクションポリシーを設定する](/assets/images/help/organizations/actions-policy.png)
 1. [**Save**] をクリックします。
 
@@ -49,7 +49,7 @@ Organization のワークフローをすべて無効にすることも、Organiz
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
    {%- ifversion ghes %}
    ![許可リストにアクションを追加する](/assets/images/help/organizations/actions-policy-allow-list.png)
@@ -67,7 +67,7 @@ Organizationのこの動作は、以下の手順で設定できます。 この�
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
@@ -86,7 +86,7 @@ Organizationのこの動作は、以下の手順で設定できます。 この�
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.private-repository-forks-configure %}
 {% endif %}
 
@@ -104,7 +104,7 @@ Organizationもしくはリポジトリの設定で、`GITHUB_TOKEN`のデフォ
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 1. [**Workflow permissions**]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。 ![このOrganizationのGITHUB_TOKENの権限を設定](/assets/images/help/settings/actions-workflow-permissions-organization.png)
 1. **Save（保存）**をクリックして、設定を適用してください。
 {% endif %}
