@@ -177,4 +177,4 @@ Puedes cargar directamente un paquete de soporte a nuestro servidor si:
 ## Leer más
 
 - "[Acerca del soporte de GitHub](/support/learning-about-github-support/about-github-support)"
-- "[Generating a Health Check for your enterprise](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"
+- "[Generar una alerta de salud para tu empresa](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

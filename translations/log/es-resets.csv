@@ -38,6 +38,7 @@ translations/es-ES/content/actions/using-github-hosted-runners/about-github-host
 translations/es-ES/content/actions/using-github-hosted-runners/customizing-github-hosted-runners.md,Listed in localization-support#489
 translations/es-ES/content/actions/using-workflows/workflow-syntax-for-github-actions.md,broken liquid tags
 translations/es-ES/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
+translations/es-ES/content/admin/configuration/configuring-github-connect/managing-github-connect.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags

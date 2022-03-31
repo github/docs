@@ -19,7 +19,7 @@ Organization については、Organization のオーナーと支払いマネー
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}
-{% data reusables.dotcom_billing.codespaces-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Enterprise アカウントの {% data variables.product.prodname_codespaces %} の使用状況を表示する
 
@@ -29,3 +29,5 @@ Enterprise アカウントについては、Enterprise オーナーと支払い�
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 1. 「{% data variables.product.prodname_codespaces %}」の下で、Enterpriseアカウント内の各Organizationの使用状況の詳細を見ます。
+{% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+

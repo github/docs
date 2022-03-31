@@ -449,7 +449,7 @@ If you exceed the rate limit, an error response returns:
 If your OAuth App needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
-$ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
+$ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000

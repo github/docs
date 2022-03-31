@@ -96,7 +96,7 @@ runs:
 ```
 {% endraw %}
 
-Esses metadados definem uma entrada `who-to-greet` e um parâmetro de saída `time`. Para introduzir as entradas no contêiner Docker, você deve declarar a entrada usando `inputs` (entradas) e introduzir a entrada na palavra-chave `args`.
+Esses metadados definem uma entrada `who-to-greet` e um parâmetro de saída `time`. To pass inputs to the Docker container, you should declare the input using `inputs` and pass the input in the `args` keyword. Everything you include in `args` is passed to the container, but for better discoverability for users of your action, we recommended using inputs.
 
 O {% data variables.product.prodname_dotcom %} criará uma imagem a partir do seu `Dockerfile` e executará os comandos em um novo contêiner usando essa imagem.
 

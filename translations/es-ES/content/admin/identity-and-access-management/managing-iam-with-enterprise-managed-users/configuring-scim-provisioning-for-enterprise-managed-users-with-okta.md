@@ -72,13 +72,13 @@ Para configurar el aprovisionamiento, el usuario de configuración con el nombre
 1. Selecciona **Habilitar** para **Crear usuarios**. **Actualizar atributos de usuarios** y **Desactivar usuarios**. ![Captura de pantalla que muestra las opciones de aprovisionamiento en Okta](/assets/images/help/enterprises/okta-emu-provisioning-to-app.png)
 1. Para finalizar la configuración del aprovisionamiento, haz clic en **Guardar**.
 
-## Assigning users and groups
+## Asignar usuarios y grupos
 
 Después de haber configurado el SSO de SAML y el aprovisionamiento, podrás aprovisionar usuarios nuevos en {% data variables.product.prodname_dotcom_the_website %} asignando a los usuarios a la aplicación de {% data variables.product.prodname_emu_idp_application %}.
 
 {% data reusables.scim.emu-scim-rate-limit %}
 
-You can also automatically manage organization membership by assigning groups to the application and adding them to the "Push Groups" tab in Okta. When the group is provisioned successfully, it will be available to connect to teams in the enterprise's organizations. Para obtener más información sobre cómo administrar los equipos, consulta la sección "[Administrar las membrecías de los quipos con grupos de proveedor de identidad](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
+También puedes administrar las membrecías organizacionales automáticamente si asignas grupos a la aplicación y los agregas a la pestaña de "Push Groups" en Okta. Cuando el grupo se aprovisione con éxito, este estará disponible para conectarse a los equipos en las organizaciones de la empresa. Para obtener más información sobre cómo administrar los equipos, consulta la sección "[Administrar las membrecías de los quipos con grupos de proveedor de identidad](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
 
 Cuando asignas usuarios, puedes utilizar el atributo de "Roles" en la aplicación de {% data variables.product.prodname_emu_idp_application %} para configurar el rol de un usuario en tu empresa en {% data variables.product.product_name %}. Para obtener más información sobre los roles, consulta la sección "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)".
 

@@ -20,9 +20,7 @@ redirect_from:
 
 在组织内，您可以在组织、团队和存储库级别分配角色。 有关不同级别角色的更多信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
-如果您的组织使用 {% data variables.product.prodname_ghe_cloud %}，则通过创建最多三个自定义存储库角色，可以更精细地控制在存储库级别授予的权限。 自定义存储库角色是一组可配置的权限，具有您选择的自定义名称。 创建自定义角色后，对存储库具有管理员访问权限的任何人都可以将该角色分配给个人或团队。 更多信息请参阅“[管理个人对组织存储库的访问](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)”和“[管理团队对组织存储库的访问](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)”
-
-{% data reusables.enterprise.link-to-ghec-trial %}
+You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. 自定义存储库角色是一组可配置的权限，具有您选择的自定义名称。 创建自定义角色后，对存储库具有管理员访问权限的任何人都可以将该角色分配给个人或团队。 更多信息请参阅“[管理个人对组织存储库的访问](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)”和“[管理团队对组织存储库的访问](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)”
 
 ## 关于继承的角色
 
@@ -111,6 +109,14 @@ redirect_from:
 ## 创建存储库角色
 
 要创建新的存储库角色，请向继承的角色添加权限并为自定义角色命名。
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can create custom repository roles. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

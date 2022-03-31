@@ -91,6 +91,7 @@
 | Stripe                    | Stripe 测试 API 密钥                    |
 | Stripe                    | Stripe Live API 限制密钥                |
 | Stripe                    | Stripe 测试 API 限制密钥                  |
+| Supabase                  | Supabase Service Key                |
 | Tencent Cloud             | 腾讯云密钥 ID                            |
 | Twilio                    | Twilio 帐户字符串标识符                     |
 | Twilio                    | Twilio API 密钥                       |

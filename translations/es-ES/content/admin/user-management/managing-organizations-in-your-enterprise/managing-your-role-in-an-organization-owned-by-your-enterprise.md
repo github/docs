@@ -41,7 +41,7 @@ If an organization enforces SAML single sign-on (SSO), you cannot use the enterp
 
 ## Joining an organization that enforces SAML SSO
 
-If an organization enforces SAML SSO, you cannot use the enterprise settings to join the organization. Instead, you must join the organization using that organization's identity provider (IdP).
+If an organization enforces SAML SSO, you cannot use the enterprise settings to join the organization. En vez de esto, debes unirte a la organización utilizando su proveedor de identidad (IdP).
 
 1. You must be assigned access in your IdP to the application for {% data variables.product.prodname_ghe_cloud %} that is used by the organization. If you're unable to configure your IdP yourself, contact your IdP administrator.
 1. Authenticate to the organization using SAML SSO.
