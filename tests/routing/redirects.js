@@ -1,13 +1,11 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { isPlainObject } from 'lodash-es'
-import supertest from 'supertest'
 import { jest } from '@jest/globals'
 
-import createApp from '../../lib/app.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import Page from '../../lib/page.js'
-import { get } from '../helpers/supertest.js'
+import { get, head } from '../helpers/e2etest.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
 import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
 
@@ -114,7 +112,7 @@ describe('redirects', () => {
     })
 
     test('are redirected for HEAD requests (not just GET requests)', async () => {
-      const res = await supertest(createApp()).head('/articles/closing-issues-via-commit-messages/')
+      const res = await head('/articles/closing-issues-via-commit-messages/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/articles/closing-issues-via-commit-messages')
     })
@@ -179,14 +177,14 @@ describe('redirects', () => {
       '/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop'
 
     test('redirect_from for renamed pages', async () => {
-      const { res } = await get(`/ja${redirectFrom}`)
+      const res = await get(`/ja${redirectFrom}`)
       expect(res.statusCode).toBe(301)
       const expected = `/ja${redirectTo}`
       expect(res.headers.location).toBe(expected)
     })
 
     test('redirect_from for renamed pages by Accept-Language header', async () => {
-      const { res } = await get(redirectFrom, {
+      const res = await get(redirectFrom, {
         headers: {
           'Accept-Language': 'ja',
         },
@@ -198,7 +196,7 @@ describe('redirects', () => {
     })
 
     test('redirect_from for renamed pages but ignore Accept-Language header if not recognized', async () => {
-      const { res } = await get(redirectFrom, {
+      const res = await get(redirectFrom, {
         headers: {
           // None of these are recognized
           'Accept-Language': 'sv,fr,gr',
@@ -211,7 +209,7 @@ describe('redirects', () => {
     })
 
     test('redirect_from for renamed pages but ignore unrecognized Accept-Language header values', async () => {
-      const { res } = await get(redirectFrom, {
+      const res = await get(redirectFrom, {
         headers: {
           // Only the last one is recognized
           'Accept-Language': 'sv,ja',
@@ -224,7 +222,7 @@ describe('redirects', () => {
     })
 
     test('will inject the preferred language from cookie', async () => {
-      const { res } = await get(redirectFrom, {
+      const res = await get(redirectFrom, {
         headers: {
           Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
           'Accept-Language': 'es', // note how this is going to be ignored

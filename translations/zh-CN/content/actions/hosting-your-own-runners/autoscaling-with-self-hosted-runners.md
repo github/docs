@@ -91,6 +91,7 @@ type: overview
 
 - 对于私有存储库，请使用具有 [`repo` 作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)的访问令牌。
 - 对于公共存储库，请使用具有 [`public_repo` 作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)的访问令牌。
+- For organizations, use an access token with the [`admin:org` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 
 要使用 {% data variables.product.prodname_dotcom %} 应用进行身份验证，必须为其分配以下权限：
 - 对于存储库，请分配`管理`权限。

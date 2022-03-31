@@ -12,6 +12,7 @@ topics:
   - Organizations
   - Teams
 shortTitle: 禁用或限制操作
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -23,13 +24,11 @@ shortTitle: 禁用或限制操作
 
 您可以对组织中的所有仓库启用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.enabled-actions-description %} 您可以对组织中的所有仓库禁用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.disabled-actions-description %}
 
-此外，您可以对组织中的所有仓库启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作。 {% data reusables.actions.enabled-local-github-actions %}
+Alternatively, you can enable {% data variables.product.prodname_actions %} for all repositories in your organization but limit the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
 
 ## 管理组织的 {% data variables.product.prodname_actions %} 权限
 
-您可以禁用组织的所有工作流程，或者设置策略来配置哪些操作可用于组织中。
-
-{% data reusables.actions.actions-use-policy-settings %}
+You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes or ghae %}enterprise{% else %}organization{% endif %}.
 
 {% note %}
 
@@ -39,22 +38,31 @@ shortTitle: 禁用或限制操作
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. 在 **Policies（策略）**下，选择一个选项。 ![设置此组织的操作策略](/assets/images/help/organizations/actions-policy.png)
-1. 单击 **Save（保存）**。
+{% data reusables.organizations.settings-sidebar-actions-general %}
+1. 在“Policies（策略）”下，选择一个选项。
 
-## 允许特定操作运行
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
+
+   {% if actions-workflow-policy %}
+   ![设置此组织的操作策略](/assets/images/help/organizations/actions-policy-with-workflows.png)
+   {%- else %}
+   ![设置此组织的操作策略](/assets/images/help/organizations/actions-policy.png)
+   {%- endif %}
+1. 单击 **Save（保存）**。
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
-1. 在 **Policies（策略）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。
-   {%- ifversion ghes %}
-   ![添加操作到允许列表](/assets/images/help/organizations/actions-policy-allow-list.png)
+{% data reusables.organizations.settings-sidebar-actions-general %}
+1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% if actions-workflow-policy %} and reusable workflows{% endif %} to the list.
+
+   {% if actions-workflow-policy %}
+   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
+   {%- elsif ghes %}
+   ![Add actions to the allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
-   ![添加操作到允许列表](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   ![Add actions to the allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
    {%- endif %}
 1. 单击 **Save（保存）**。
 
@@ -67,7 +75,7 @@ shortTitle: 禁用或限制操作
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
@@ -86,7 +94,7 @@ shortTitle: 禁用或限制操作
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 {% data reusables.actions.private-repository-forks-configure %}
 {% endif %}
 
@@ -104,7 +112,7 @@ shortTitle: 禁用或限制操作
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions %}
+{% data reusables.organizations.settings-sidebar-actions-general %}
 1. 在 **Workflow permissions（工作流程权限）**下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。 ![为此组织设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-organization.png)
 1. 单击 **Save（保存）**以应用设置。
 {% endif %}

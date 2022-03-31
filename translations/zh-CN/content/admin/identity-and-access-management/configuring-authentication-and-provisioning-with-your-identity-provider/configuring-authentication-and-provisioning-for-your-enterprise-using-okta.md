@@ -94,7 +94,7 @@ The "GitHub AE" app in Okta uses the {% data variables.product.product_name %} A
 
 1. For "API Token", type the {% data variables.product.prodname_ghe_managed %} personal access token you generated previously.
 
-1. Click **Test API Credentials**.
+1. 单击 **Test API Credentials（测试 API 凭据）**。
 
 {% note %}
 
@@ -150,7 +150,7 @@ Before your Okta users can use their credentials to sign in to {% data variables
 
 ### Provisioning access for Okta groups
 
-You can map your Okta group to a team in {% data variables.product.prodname_ghe_managed %}. Members of the Okta group will then automatically become members of the mapped {% data variables.product.prodname_ghe_managed %} team. For more information, see "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+You can map your Okta group to a team in {% data variables.product.prodname_ghe_managed %}. Members of the Okta group will then automatically become members of the mapped {% data variables.product.prodname_ghe_managed %} team. 更多信息请参阅“[将 Okta 组映射到团队](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
 
 ## 延伸阅读
 

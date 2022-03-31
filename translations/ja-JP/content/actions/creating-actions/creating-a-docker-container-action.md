@@ -96,7 +96,7 @@ runs:
 ```
 {% endraw %}
 
-このメタデータは、1 つの `who-to-greet` 入力と 1 つの `time` 出力パラメータを定義しています。 Docker コンテナに入力を渡すには、`inputs` を使用して入力を宣言したうえで `args` キーワードを使用します。
+このメタデータは、1 つの `who-to-greet` 入力と 1 つの `time` 出力パラメータを定義しています。 To pass inputs to the Docker container, you should declare the input using `inputs` and pass the input in the `args` keyword. Everything you include in `args` is passed to the container, but for better discoverability for users of your action, we recommended using inputs.
 
 {% data variables.product.prodname_dotcom %} は `Dockerfile` からイメージをビルドし、このイメージを使用して新しいコンテナでコマンドを実行します。
 

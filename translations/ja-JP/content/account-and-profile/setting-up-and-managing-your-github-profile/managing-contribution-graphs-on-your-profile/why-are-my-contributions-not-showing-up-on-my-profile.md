@@ -35,7 +35,7 @@ Issue、プルリクエスト、およびディスカッションは、フォー
   - リポジトリのデフォルトブランチ内
   - `gh-pages` ブランチ (プロジェクトサイトのリポジトリの場合) 内
 
-For more information on project sites, see "[About {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
+プロジェクトサイトに関する詳しい情報については「[{% data variables.product.prodname_pages %}について](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)」を参照してください。
 
 また、次のうち**少なくとも 1 つ**が該当する必要があります:
 - リポジトリのコラボレーターであるか、またはリポジトリを所有する Organization のメンバーであること。

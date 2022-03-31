@@ -1246,7 +1246,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 与已由 {% data variables.product.company_short %} 审查的安全通告相关的活动。 经过 {% data variables.product.company_short %} 审查的安全通告提供了有关 {% data variables.product.prodname_dotcom %}上软件中安全相关漏洞的信息。
 
-安全通告数据集还为 GitHub {% data variables.product.prodname_dependabot_alerts %} 提供支持。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。
+安全通告数据集还为 GitHub {% data variables.product.prodname_dependabot_alerts %} 提供支持。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。
 
 ### 可用性
 
