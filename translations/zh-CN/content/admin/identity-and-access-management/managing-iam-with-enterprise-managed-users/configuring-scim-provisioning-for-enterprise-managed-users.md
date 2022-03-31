@@ -23,7 +23,7 @@ Groups in your IdP can be used to manage team membership within your enterprise'
 
 ## 基本要求
 
-Before you can configure provisioning for {% data variables.product.prodname_emus %}, you must configure SAML single-sign on. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+Before you can configure provisioning for {% data variables.product.prodname_emus %}, you must configure SAML single-sign on. 更多信息请参阅“[为企业托管用户配置 SAML 单点登录](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)”。
 
 ## 创建个人访问令牌
 

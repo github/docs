@@ -1,6 +1,6 @@
 ---
-title: Deploying Docker to Azure App Service
-intro: You can deploy a Docker container to Azure App Service as part of your continuous deployment (CD) workflows.
+title: 将 Docker 部署到 Azure App Service
+intro: 作为持续部署 (CD) 工作流程的一部分，您可以将 Docker 容器部署到 Azure App Service。
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,13 +19,13 @@ topics:
 
 ## 简介
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Docker container to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+本指南说明如何使用 {% data variables.product.prodname_actions %} 构建并部署 Docker 容器到 [Azure App Service](https://azure.microsoft.com/services/app-service/)。
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**注意**：{% data reusables.actions.about-oidc-short-overview %} 和“[在 Azure 中配置 OpenID Connect](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)”。
 
 {% endnote %}
 
@@ -39,7 +39,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 1. 创建 Web 应用。
 
-   For example, you can use the Azure CLI to create an Azure App Service web app:
+   例如，可以使用 Azure CLI 创建 Azure App Service web app：
 
    ```bash{:copy}
    az webapp create \
@@ -53,11 +53,11 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-1. Set registry credentials for your web app.
+1. 设置 web app 的注册表凭据。
 
-   Create a personal access token with the `repo` and `read:packages` scopes. 更多信息请参阅“[创建个人访问令牌](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
+   创建具有 `repo` 和 `read:packages` 作用域的个人访问令牌。 更多信息请参阅“[创建个人访问令牌](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。
 
-   Set `DOCKER_REGISTRY_SERVER_URL` to `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` to the GitHub username or organization that owns the repository, and `DOCKER_REGISTRY_SERVER_PASSWORD` to your personal access token from above. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
+   将 `DOCKER_REGISTRY_SERVER_URL` 设置为 `https://ghcr.io`，将 `DOCKER_REGISTRY_SERVER_USERNAME` 设置为拥有该存储库的 GitHub 用户名或组织，将 `DOCKER_REGISTRY_SERVER_PASSWORD` 设置为上面的个人访问令牌。 这将提供 Web 应用凭据，以便在工作流程将新构建的映像推送到注册表后，它可以拉取容器映像。 可以使用以下 Azure CLI 命令执行此操作：
 
    ```shell
     az webapp config appsettings set \
@@ -72,7 +72,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 完成先决条件后，可以继续创建工作流程。
 
-The following example workflow demonstrates how to build and deploy a Docker container to Azure App Service when there is a push to the `main` branch.
+以下示例工作流演程示在推送到 `main` 分支时，如何构建 Docker 容器并将其部署到 Azure App Service。
 
 确保在工作流程 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为您创建的 web 应用程序名称。
 
@@ -150,4 +150,4 @@ jobs:
 
 * 有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`azure-container-webapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-container-webapp.yml)。
 * 用于部署 Web 应用的操作是正式的 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* 有关部署到 Azure 的 GitHub 操作工作流程的更多示例，请参阅 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 存储库。

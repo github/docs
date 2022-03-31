@@ -15,7 +15,7 @@ topics:
 
 ## {% data variables.product.prodname_codespaces %} 定价
 
-{% data variables.product.prodname_codespaces %} 的使用将针对团队和企业计划中的所有帐户计费，并且不包括任何权利。 个人帐户目前不为 {% data variables.product.prodname_codespaces %} 使用付费。
+{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
 
 {% data variables.product.prodname_codespaces %} 使用按下表中的计量单位计费：
 
@@ -58,7 +58,7 @@ topics:
 
 用户在创建代码空间时选择的计算机类型会影响该代码空间的每分钟费用，如上所示。
 
-组织所有者可以创建策略来限制用户可用的计算机类型。 For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+组织所有者可以创建策略来限制用户可用的计算机类型。 更多信息请参阅“[限制对机器类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”。
 
 ## 如何处理复刻的存储库的计费
 

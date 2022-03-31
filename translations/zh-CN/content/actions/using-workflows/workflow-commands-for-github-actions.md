@@ -65,7 +65,7 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-### Example: Setting a value
+### 示例：设置值
 
 您可以在工作流程中使用 `set-output` 命令来设置相同的值：
 
@@ -101,13 +101,13 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 | 工具包函数                 | 等效工作流程命令                                                              |
 | --------------------- | --------------------------------------------------------------------- |
-| `core.addPath`        | Accessible using environment file `GITHUB_PATH`                       |
+| `core.addPath`        | 可使用环境文件 `GITHUB_PATH` 访问                                              |
 | `core.debug`          | `debug` |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
 | `core.notice`         | `notice` 
 {% endif %}
 | `core.error`          | `error`                                                               |
 | `core.endGroup`       | `endgroup`                                                            |
-| `core.exportVariable` | Accessible using environment file `GITHUB_ENV`                        |
+| `core.exportVariable` | 可使用环境文件 `GITHUB_ENV` 访问                                               |
 | `core.getInput`       | 可使用环境变量 `INPUT_{NAME}` 访问                                             |
 | `core.getState`       | 可使用环境变量 `STATE_{NAME}` 访问                                             |
 | `core.isDebug`        | 可使用环境变量 `RUNNER_DEBUG` 访问                                             |
@@ -129,7 +129,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 （可选）您也可以在操作的元数据文件中声明输出参数。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)”。
 
-### Example: Setting an output parameter
+### 示例：设置输出参数
 
 {% bash %}
 
@@ -155,7 +155,7 @@ Write-Output "::set-output name=action_fruit::strawberry"
 ::debug::{message}
 ```
 
-### Example: Setting a debug message
+### 示例：设置调试消息
 
 {% bash %}
 
@@ -185,7 +185,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a notice message
+### 示例：设置通知消息
 
 {% bash %}
 
@@ -214,7 +214,7 @@ Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a warning message
+### 示例：设置警告消息
 
 {% bash %}
 
@@ -241,7 +241,7 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting an error message
+### 示例：设置错误消息
 
 {% bash %}
 
@@ -268,7 +268,7 @@ Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ::endgroup::
 ```
 
-### Example: Grouping log lines
+### 示例：对日志行进行分组
 
 {% bash %}
 
@@ -310,9 +310,9 @@ jobs:
 ::add-mask::{value}
 ```
 
-屏蔽值可阻止在日志中打印字符串或变量。 用空格分隔的每个屏蔽的词均替换为 `*` 字符。 您可以使用环境变量或字符串作为屏蔽的 `value`。
+屏蔽值可阻止在日志中打印字符串或变量。 用空格分隔的每个屏蔽的词均替换为 `*` 字符。 您可以使用环境变量或字符串作为屏蔽的 `value`。 When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
 
-### Example: Masking a string
+### 示例：屏蔽字符串
 
 当您在日志中打印 `"Mona The Octocat"` 时，您将看到 `"***"`。
 
@@ -332,7 +332,7 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
-### Example: Masking an environment variable
+### 示例：屏蔽环境变量
 
 当您在日志中打印变量 `MY_NAME` 或值 `"Mona The Octocat"` 时，您将看到 `"***"` 而不是 `"Mona The Octocat"`。
 
@@ -386,7 +386,7 @@ jobs:
 ::{endtoken}::
 ```
 
-### Example: Stopping and starting workflow commands
+### 示例：停止和启动工作流程命令
 
 {% bash %}
 
@@ -432,22 +432,22 @@ jobs:
 
 {% endpowershell %}
 
-## Echoing command outputs
+## 回显命令输出
 
-Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
+启用或禁用工作流程命令的回显。 例如，如果在工作流程中使用 `set-output` 命令，则会设置输出参数，但工作流程运行的日志不会显示命令本身。 如果启用命令回显，则日志将显示该命令，例如 `::set-output name={name}::{value}`。
 
 ```{:copy}
 ::echo::on
 ::echo::off
 ```
 
-Command echoing is disabled by default. However, a workflow command is echoed if there are any errors processing the command.
+默认情况下，命令回显处于禁用状态。 但是，如果处理工作流命令时出现任何错误，则会回显该命令。
 
-The `add-mask`, `debug`, `warning`, and `error` commands do not support echoing because their outputs are already echoed to the log.
+`add-mask`、`debug`、`warning` 和 `error` 命令不支持回显，因为它们的输出已经回显到日志。
 
-You can also enable command echoing globally by turning on step debug logging using the `ACTIONS_STEP_DEBUG` secret. For more information, see "[Enabling debug logging](/actions/managing-workflow-runs/enabling-debug-logging)". In contrast, the `echo` workflow command lets you enable command echoing at a more granular level, rather than enabling it for every workflow in a repository.
+还可以通过使用 `ACTIONS_STEP_DEBUG` 密钥打开步骤调试日志记录来启用命令全局回显。 更多信息请参阅“[启用调试日志记录](/actions/managing-workflow-runs/enabling-debug-logging)”。 相比之下，`echo` 工作流程命令允许您在更精细的级别启用命令回显，而不是为存储库中的每个工作流程启用它。
 
-### Example: Toggling command echoing
+### 示例：切换命令回显
 
 {% bash %}
 
@@ -485,14 +485,14 @@ jobs:
 
 {% endpowershell %}
 
-The example above prints the following lines to the log:
+上面的示例将以下行打印到日志中：
 
 ```{:copy}
 ::set-output name=action_echo::enabled
 ::echo::off
 ```
 
-Only the second `set-output` and `echo` workflow commands are included in the log because command echoing was only enabled when they were run. Even though it is not always echoed, the output parameter is set in all cases.
+日志中仅包含第二个 `set-output` 和 `echo` 工作流程命令，因为命令回显仅在运行时启用。 即使它并不总是回显，输出参数在所有情况下都会被设置。
 
 ## 将值发送到 pre 和 post 操作
 
@@ -514,7 +514,7 @@ console.log('::save-state name=processID::12345')
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## Environment files
+## 环境文件
 
 在工作流程执行期间，运行器生成可用于执行某些操作的临时文件。 这些文件的路径通过环境变量显示。 写入这些文件时，您需要使用 UTF-8 编码，以确保正确处理命令。 多个命令可以写入同一个文件，用换行符分隔。
 
@@ -522,7 +522,7 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 {% note %}
 
-**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. 例如：
+**注意：** PowerShell 版本 5.1 及更低版本 (`shell: powershell`) 默认情况下不使用 UTF-8，因此必须指定 UTF-8 编码。 例如：
 
 ```yaml{:copy}
 jobs:
@@ -534,7 +534,7 @@ jobs:
           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. 例如：
+PowerShell Core 版本 6 及更高版本 (`shell: pwsh`) 默认使用 UTF-8。 例如：
 
 ```yaml{:copy}
 jobs:
@@ -562,19 +562,19 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% powershell %}
 
-- Using PowerShell version 6 and higher:
+- 使用 PowerShell 版本 6 及更高版本：
 ```pwsh{:copy}
 "{environment_variable_name}={value}" >> $env:GITHUB_ENV
 ```
 
-- Using PowerShell version 5.1 and below:
+- 使用 PowerShell 版本 5.1 及更低版本：
 ```powershell{:copy}
 "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 ```
 
 {% endpowershell %}
 
-You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. 创建或更新环境变量的步骤无法访问新值，但在作业中的所有后续步骤均可访问。 The names of environment variables are case-sensitive, and you can include punctuation. 更多信息请参阅“[环境变量](/actions/learn-github-actions/environment-variables)”。
+通过定义或更新环境变量并将其写入 `GITHUB_ENV` 环境文件，可以使环境变量用于工作流程作业中的任何后续步骤。 创建或更新环境变量的步骤无法访问新值，但在作业中的所有后续步骤均可访问。 环境变量的名称区分大小写，您可以包含标点符号。 更多信息请参阅“[环境变量](/actions/learn-github-actions/environment-variables)”。
 
 ### 示例
 
@@ -626,7 +626,7 @@ steps:
 
 #### 示例
 
-This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+此示例使用 `EOF` 作为分隔符，并将 `JSON_RESPONSE` 环境变量设置为 `curl` 响应的值。
 
 {% bash %}
 
@@ -659,7 +659,7 @@ steps:
 
 ## 添加系统路径
 
-Prepends a directory to the system `PATH` variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. 要查看作业的当前定义路径，您可以在步骤或操作中使用 `echo "$PATH"`。
+为系统 `PATH` 变量预先设置一个目录，并自动使其可用于当前作业中的所有后续操作；当前运行的操作无法访问更新的路径变量。 要查看作业的当前定义路径，您可以在步骤或操作中使用 `echo "$PATH"`。
 
 {% bash %}
 
@@ -689,7 +689,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 {% endbash %}
 
 
-This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
+此示例演示如何将用户 `$env:HOMEPATH/.local/bin` 目录添加到 `PATH`：
 
 {% powershell %}
 

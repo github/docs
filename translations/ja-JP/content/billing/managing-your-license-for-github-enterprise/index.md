@@ -1,7 +1,7 @@
 ---
-title: Managing your license for GitHub Enterprise
-shortTitle: GitHub Enterprise license
-intro: '{% data variables.product.prodname_enterprise %} includes both cloud and self-hosted deployment options. If you host a {% data variables.product.prodname_ghe_server %} instance, you must unlock the instance with a license file. You can view, manage, and update the license file.'
+title: GitHub Enterpriseのライセンス管理
+shortTitle: GitHub Enterpriseのライセンス
+intro: '{% data variables.product.prodname_enterprise %}には、クラウドとセルフホストのデプロイという選択肢がどちらも含まれています。 {% data variables.product.prodname_ghe_server %}インスタンスを自分でホストするなら、ライセンスファイルでインスタンスをアンロックしなければなりません。 ライセンスファイルは表示、管理、更新できます。'
 redirect_from:
   - /free-pro-team@latest/billing/managing-your-license-for-github-enterprise
   - /enterprise/admin/installation/managing-your-github-enterprise-license

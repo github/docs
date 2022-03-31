@@ -1,12 +1,12 @@
 ---
-title: Adding a pull request to the merge queue
-intro: 'If merge queues are enabled for the repository, you can add your pull requests to the merge queue once all the required checks have passed. {% data variables.product.product_name %} will merge the pull requests for you.'
+title: 将拉取请求添加到合并队列
+intro: '如果为存储库启用了合并队列，则可以在通过所有必需的检查后将请求添加到合并队列。 {% data variables.product.product_name %} 将为您合并拉取请求。'
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Add PR to merge queue
+shortTitle: 将 PR 添加到合并队列
 redirect_from:
   - /github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue
 ---
@@ -18,43 +18,43 @@ redirect_from:
 {% data reusables.pull_requests.merge-queue-overview-short %}
 {% data reusables.pull_requests.merge-queue-references %}
 
-## Adding a pull request to the merge queue
+## 将拉取请求添加到合并队列
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-1. In the "Pull Requests" list, click the pull request you'd like to add to the merge queue.
-1. Click **Add to merge queue** to add your pull request to the merge queue. This enables the default **Queue and merge in a group** option. Alternatively, you can:
-   - Add your pull request to the front of the queue by selecting the **Add to merge queue** drop down menu, and clicking **Jump the queue** (only available to repository maintainers and administrators).
-   - Directly merge your pull request by selecting the **Add to merge queue** drop down menu, and clicking **Directly merge** (only available to repository administrators). ![Merge queue options](/assets/images/help/pull_requests/merge-queue-options.png)
+1. 在“Pull Requests（拉取请求）”列表中，单击要添加到合并队列的拉取请求。
+1. 单击 **Add to merge queue（添加到合并队列）**将拉取请求添加到合并队列。 这将启用默认的 **Queue and merge in a group（组中的队列和合并）**选项。 或者，你也可以：
+   - 通过选择 **Add to merge queue（添加到合并队列）** 下拉菜单并单击 **Jump the queue（跳转队列）**（仅适用于存储库维护员和管理员），将拉取请求添加到队列的前面。
+   - 通过选择 **Add to merge queue（添加到合并队列）** 下拉菜单并单击 **Directly merge（直接合并）**（仅适用于存储库管理员），直接合并拉取请求。 ![合并队列选项](/assets/images/help/pull_requests/merge-queue-options.png)
 
    {% tip %}
 
-   **Tip:** The **Add to merge queue** button is only enabled once the pull request meets all the review/approval and status check requirements.
+   **提示：**仅当拉取请求满足所有审阅/批准和状态检查要求时，才会启用 **Add to merge queue（添加到合并队列）**按钮。
 
    {% endtip %}
-2. Confirm you want to add the pull request to the merge queue by clicking **Confirm add to merge queue**.
-   {% data variables.product.product_name %} adds the pull request to the merge queue and will merge it for you.
+2. 通过单击 **Confirm add to merge queue（确认添加到合并队列）**，确认要将拉取请求添加到合并队列。
+   {% data variables.product.product_name %} 可将拉取请求添加到合并队列并为您合并它。
 
-## Viewing the merge queue
+## 查看合并队列
 
-You can view the merge queue in various places on {% data variables.product.product_name %}.
+您可以在 {% data variables.product.product_name %} 上的各个位置查看合并队列。
 
-   - On the **Branches** page for the repository. We recommend you use this route if you don't have or don't know about a pull request already in the queue, and if you want to see what's in the queue. For more information, see "[Viewing branches in your repository](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)."
+   - 在存储库的 **Branches（分支）**页面上。 如果您没有拉取请求或不知道队列中已有拉取请求，并且想要查看队列中的内容，我们建议您使用此路径。 更多信息请参阅“[查看仓库中的分支](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)”。
 
-  ![View merge queue in Branches page](/assets/images/help/pull_requests/merge-queue-branches-page.png)
+  ![在“分支”页面中查看合并队列](/assets/images/help/pull_requests/merge-queue-branches-page.png)
 
-- On the **Pull requests** page of your repository, click {% octicon "clock" aria-label="The clock symbol" %}.
+- 在存储库的 **Pull requests（拉取请求）**页面上，单击 {% octicon "clock" aria-label="The clock symbol" %}。
 
-  ![View merge queue on Pull requests page](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
+  ![在“拉取请求”页面中查看合并队列](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
 
-- On your pull request, scroll down to the section with the checks, and click **View merge queue**.
+- 在拉取请求中，向下滚动到包含检查的部分，然后单击 **View merge queue（查看合并队列）**。
 
-  ![View Merge queue button on pull request](/assets/images/help/pull_requests/view-merge-queue-button.png)
+  ![在拉取请求上查看合并队列按钮](/assets/images/help/pull_requests/view-merge-queue-button.png)
 
-The merge queue view shows the pull requests that are currently in the queue, with your pull requests clearly marked.
+合并队列视图显示当前在队列中的拉取请求，并清楚地标记了拉取请求。
 
-![Merge queue view](/assets/images/help/pull_requests/merge-queue-view.png)
+![合并队列视图](/assets/images/help/pull_requests/merge-queue-view.png)
 
-## Handling pull requests removed from the merge queue
+## 处理从合并队列中删除的拉取请求
 
 {% data reusables.pull_requests.merge-queue-reject %}
