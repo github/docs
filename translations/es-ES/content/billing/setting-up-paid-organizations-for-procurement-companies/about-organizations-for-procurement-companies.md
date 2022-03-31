@@ -1,6 +1,6 @@
 ---
-title: About organizations for procurement companies
-intro: 'Businesses use organizations to collaborate on shared projects with multiple owners and administrators. You can create an organization for your client, make a payment on their behalf, then pass ownership of the organization to your client.'
+title: Acerca de las organizaciones para empresas de contratación
+intro: 'Las empresas usan las organizaciones para colaborar en proyectos compartidos con varios propietarios y administradores. Puedes crear una organización para tu cliente, realizar un pago en su nombre, y entonces transferir la propiedad de la organización a tu cliente.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-organizations-for-procurement-companies
   - /articles/about-organizations-for-resellers
@@ -12,27 +12,28 @@ versions:
 type: overview
 topics:
   - Organizations
-shortTitle: About organizations
+shortTitle: Acerca de las organizaciones
 ---
-To access an organization, each member must sign into their own personal user account.
 
-Organization members can have different roles, such as *owner* or *billing manager*:
+Para acceder a una organización, cada miembro debe iniciar sesión en su cuenta de usuario personal.
 
-- **Owners** have complete administrative access to an organization and its contents.
-- **Billing managers** can manage billing settings, and cannot access organization contents. Billing managers are not shown in the list of organization members.
+Los miembros de la organización pueden tener diferentes roles, como *propietario* o *gerente de facturación*:
 
-## Payments and pricing for organizations
+- Los **Propietarios** tienen acceso administrativo completo a una organización y sus contenidos.
+- Los **Gerentes de facturación** pueden administrar los parámetros de facturación y no pueden acceder a los contenidos de la organización. Los gerentes de facturación no se muestran en la lista de miembros de la organización.
 
-We don't provide quotes for organization pricing. You can see our published pricing for [organizations](https://github.com/pricing) and [Git Large File Storage](/articles/about-storage-and-bandwidth-usage/). We do not provide discounts for procurement companies or for renewal orders.
+## Pagos y precios para las organizaciones
 
-We accept payment in US dollars, although end users may be located anywhere in the world.
+No proporcionamos cotizaciones para los precios de las organizaciones. Puedes ver nuestros precios publicados para [organizaciones](https://github.com/pricing) y [Large File Storage de Git](/articles/about-storage-and-bandwidth-usage/). No ofrecemos descuentos para empresas de contratación ni para pedidos de renovación.
 
-We accept payment by credit card and PayPal. We don't accept payment by purchase order or invoice.
+Aceptamos pagos en dólares estadounidenses, aunque los usuarios finales pueden estar en cualquier parte del mundo.
 
-For easier and more efficient purchasing, we recommend that procurement companies set up yearly billing for their clients' organizations.
+Aceptamos pagos mediante tarjeta de crédito y PayPal. No aceptamos pagos mediante factura ni orden de compra.
 
-## Further reading
+Para una compra más fácil y más eficaz, recomendamos que las empresas de contratación configuren una facturación anual para las organizaciones de sus clientes.
 
-- "[Creating and paying for an organization on behalf of a client](/articles/creating-and-paying-for-an-organization-on-behalf-of-a-client)"
-- "[Upgrading or downgrading your client's paid organization](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
-- "[Renewing your client's paid organization](/articles/renewing-your-client-s-paid-organization)"
+## Leer más
+
+- "[Crear una organización y pagar por ella en nombre de un cliente](/articles/creating-and-paying-for-an-organization-on-behalf-of-a-client)"
+- "[Actualizar o bajar de categoría la organización paga de tu cliente](/articles/upgrading-or-downgrading-your-client-s-paid-organization)"
+- "[Renovar la organización paga de tu cliente](/articles/renewing-your-client-s-paid-organization)"

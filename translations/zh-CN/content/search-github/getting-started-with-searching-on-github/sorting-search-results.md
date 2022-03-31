@@ -47,19 +47,19 @@ topics:
 
 `sort:author-date` 限定符按作者日期降序或升序排序。
 
-| 限定符                                          | 示例                                                                                                                                                                                                                                  |
-| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sort:author-date` 或 `sort:author-date-desc` | [**feature org:github sort:author-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date&type=Commits) 匹配 {% data variables.product.product_name %} 所拥有仓库中含有 "feature" 字样的提交，按作者日期降序排序。         |
-| `sort:author-date-asc`                       | [**feature org:github sort:author-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) 匹配 {% data variables.product.product_name %} 所拥有仓库中含有 "feature" 字样的提交，按作者日期升序排序。 |
+| 限定符                                          | 示例                                                                                                                                                                                                                                    |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sort:author-date` 或 `sort:author-date-desc` | [**feature org:github sort:author-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date&type=Commits) 匹配 {% data variables.product.product_name %} 所拥有仓库中含有 "feature" 字样的提交，按作者日期降序排序。           |
+| `sort:author-date-asc`                       | [**`feature org:github sort:author-date-asc`**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) 匹配 {% data variables.product.product_name %} 所拥有仓库中含有 "feature" 字样的提交，按作者日期升序排序。 |
 
 ## 按提交者日期排序
 
 `sort:committer-date` 限定符按提交者日期降序或升序排序。
 
-| 限定符                                                | 示例                                                                                                                                                                                                                                         |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `sort:committer-date` 或 `sort:committer-date-desc` | [**feature org:github sort:committer-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date&type=Commits) 匹配 {% data variables.product.product_name %} 所拥有仓库中含有 "feature" 字样的提交，按提交者日期降序排序。         |
-| `sort:committer-date-asc`                          | [**feature org:github sort:committer-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) 匹配 {% data variables.product.product_name %} 所拥有仓库中含有 "feature" 字样的提交，按提交者日期升序排序。 |
+| 限定符                                                | 示例                                                                                                                                                                                                                                           |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sort:committer-date` 或 `sort:committer-date-desc` | [**feature org:github sort:committer-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date&type=Commits) 匹配 {% data variables.product.product_name %} 所拥有仓库中含有 "feature" 字样的提交，按提交者日期降序排序。           |
+| `sort:committer-date-asc`                          | [**`feature org:github sort:committer-date-asc`**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) 匹配 {% data variables.product.product_name %} 所拥有仓库中含有 "feature" 字样的提交，按提交者日期升序排序。 |
 
 ## 按更新日期排序
 
@@ -72,5 +72,5 @@ topics:
 
 ## 延伸阅读
 
-- "[About searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+- “[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”
 - "[过滤和搜索议题和拉取请求](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"

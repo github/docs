@@ -33,14 +33,14 @@ shortTitle: 依存関係の調査
 {% data reusables.repositories.click-dependency-graph %}{% ifversion fpt or ghec %}
 4. オプションとして、[Dependency graph] で [**Dependents**] をクリックします。 ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
-{% ifversion ghes or ghae-issue-4864 %}
-Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} on your enterprise account](/admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account)."
+{% ifversion ghes %}
+Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
 {% endif %}
 
 ### 依存関係ビュー
 
 {% ifversion fpt or ghec %}
-依存関係はエコシステム別にグループ化されます。 依存関係を拡張すると、その依存関係を表示できます。 {% data variables.product.product_name %}でホストされているパブリックリポジトリの依存関係については、クリックしてそのリポジトリを見ることもできます。 プライベートリポジトリ、プライベートパッケージ、認識できないファイルの依存関係は、プレーンテキストで表示されます。
+依存関係はエコシステム別にグループ化されます。 依存関係を拡張すると、その依存関係を表示できます。  プライベートリポジトリ、プライベートパッケージ、認識できないファイルの依存関係は、プレーンテキストで表示されます。 If the package manager for the dependency is in a public repository, {% data variables.product.product_name %} will display a link to that repository.
 
 リポジトリで脆弱性が検出された場合は、{% data variables.product.prodname_dependabot_alerts %}にアクセスできるユーザに、ビューの上部で表示されます。
 
@@ -83,7 +83,10 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 
 ## "Used by"パッケージの変更
 
-依存関係グラフが有効になっている場合、サポートされているパッケージエコシステム上で公開されているパッケージをリポジトリが含んでいると、{% data variables.product.prodname_dotcom %}はリポジトリの**Code**タブのサイドバー内の"Used by"セクションに表示します。 サポートされているパッケージエコシステムに関する詳しい情報については「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)」を参照してください。
+You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
+  * The dependency graph is enabled for the repository (see the above section for more details).
+  * Your repository contains a package that is published on a [supported package ecosystem](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
+  * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
 
 "Used by"セクションは、見つかったパッケージに対する公開参照数を示し、依存物のプロジェクトのオーナーのアバターを表示します。
 
@@ -96,7 +99,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. "Configure security and analysis features（セキュリティと分析機能の設定）"の下で、"Used by counter"セクション内のドロップダウンメニューをクリックし、パッケージを選択してください。 !["Used by"パッケージの選択](/assets/images/help/repository/choose-used-by-package.png)
+4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package. !["Used by"パッケージの選択](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 
@@ -112,7 +115,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 ## 参考リンク
 
 - [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
-- [リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository){% ifversion fpt or ghec %}
+- "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
 - [Organization のインサイトを表示する](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)
-- [{% data variables.product.prodname_dotcom %}によるデータの利用と保護の方法の理解](/github/understanding-how-github-uses-and-protects-your-data)
+- [{% data variables.product.prodname_dotcom %}によるデータの利用と保護の方法の理解](/get-started/privacy-on-github)
 {% endif %}

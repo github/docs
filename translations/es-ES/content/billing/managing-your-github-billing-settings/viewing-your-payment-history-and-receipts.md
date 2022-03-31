@@ -1,6 +1,6 @@
 ---
-title: Viewing your payment history and receipts
-intro: You can view your account's payment history and download past receipts at any time.
+title: Ver tu historial de pagos y recibos
+intro: Puedes ver el historial de pagos de tu cuenta y descargar los últimos recibos en cualquier momento.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-payment-history-and-receipts
   - /articles/downloading-receipts
@@ -17,16 +17,17 @@ topics:
   - Organizations
   - Receipts
   - User account
-shortTitle: View history & receipts
+shortTitle: Visualizar el historial & los recibos
 ---
-## Viewing receipts for your personal account
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+## Ver los recibos de tu cuenta personal
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.view-payment-history %}
 {% data reusables.dotcom_billing.download_receipt %}
 
-## Viewing receipts for your organization
+## Ver los recibos de tu organización
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 

@@ -1,5 +1,5 @@
 ---
-title: Making a GitHub App public or private
+title: GitHub Appをパブリックまたはプライベートにする
 intro: '{% data reusables.shortdesc.making-a-github-app-public-or-private %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-installation-options-for-github-apps
@@ -15,29 +15,27 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Manage app visibility
+shortTitle: アプリケーションの可視性を管理
 ---
-For authentication information, see "[Authenticating with GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
-## Public installation flow
+認証の情報については「[GitHub Appでの認証](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
 
-Public installation flows have a landing page to enable other people besides the app owner to install the app in their repositories. This link is provided in the "Public link" field when setting up your GitHub App. For more information, see "[Installing GitHub Apps](/apps/installing-github-apps/)."
+## パブリックのインストールフロー
 
-## Private installation flow
+パブリックのインストールフローには、アプリケーションのオーナー以外の人がリポジトリにアプリケーションをインストールするためのランディングページがあります。 このリンクは、GitHub Appをセットアップする際に「Public link（パブリックリンク）」フィールドに提供されます。 詳しい情報については「[GitHub Appのインストール](/apps/installing-github-apps/)」を参照してください。
 
-Private installation flows allow only the owner of a GitHub App to install it. Limited information about the GitHub App will still exist on a public page, but the **Install** button will only be available to organization administrators or the user account if the GitHub App is owned by an individual account. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}Private {% else %}Private (also known as internal){% endif %} GitHub Apps can only be installed on the user or organization account of the owner.
+## プライベートのインストールフロー
 
-## Changing who can install your GitHub App
+プライベートインストールフローを利用すれば、GitHub Appのオーナーだけがそのアプリケーションをインストールできます。 そのGitHub Appに関する限定的な情報はパブリックなページに存在しますが、**インストール**ボタンはOrganizationの管理者もしくはGitHub Appが個人のアカウントによって所有されている場合はそのユーザアカウントからのみ利用できます。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}プライベート{% else %}プライベート (内部とも呼ぶ){% endif %}のGitHub Appは、ユーザ、もしくはオーナーのOrganizationアカウントにのみインストールできます。
 
-To change who can install the GitHub App:
+## GitHub Appをインストールできるユーザの変更
+
+GitHub Appをインストールできるユーザを変更するには以下のようにします。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
-3. Select the GitHub App whose installation option you want to change.
-![App selection](/assets/images/github-apps/github_apps_select-app.png)
+3. インストールオプションを変更したいGitHub Appを選択してください。 ![アプリケーションの選択](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
-5. Depending on the installation option of your GitHub App, click either **Make public** or **Make {% ifversion fpt or ghes > 3.1 or ghae or ghec %}private{% else %}internal{% endif %}**.
-![Button to change the installation option of your GitHub App](/assets/images/github-apps/github_apps_make_public.png)
-6. Depending on the installation option of your GitHub App, click either **Yes, make this GitHub App public** or **Yes, make this GitHub App {% ifversion fpt or ghes < 3.2 or ghec %}internal{% else %}private{% endif %}**.
-![Button to confirm the change of your installation option](/assets/images/github-apps/github_apps_confirm_installation_option.png)
+5. GitHub Appのインストールオプションに応じて、**Make public**もしくは**Make {% ifversion fpt or ghes > 3.1 or ghae or ghec %}private{% else %}internal{% endif %}**をクリックしてください。 ![GitHub Appのインストールオプションを変更するボタン](/assets/images/github-apps/github_apps_make_public.png)
+6. GitHub Appのインストールオプションに応じて、**Yes, make this GitHub App public**または**Yes, make this GitHub App {% ifversion fpt or ghes < 3.2 or ghec %}private{% else %}internal{% endif %}**をクリックしてください。 ![インストールオプションの変更の確認ボタン](/assets/images/github-apps/github_apps_confirm_installation_option.png)

@@ -1,6 +1,6 @@
 ---
-title: Drafting a listing for your app
-intro: 'When you create a {% data variables.product.prodname_marketplace %} listing, GitHub saves it in draft mode until you submit the app for approval. Your listing shows customers how they can use your app.'
+title: Hacer un borrador de un listado para tu app
+intro: 'Cuando creas un listado de {% data variables.product.prodname_marketplace %}, GitHub lo guarda en modo borrador hasta que emitas la app para su aprobación. Tu listado muestra a los clientes cómo pueden utilizar tu app.'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
   - /apps/marketplace/listing-apps-on-github-marketplace/listing-an-app-on-github-marketplace
@@ -18,51 +18,50 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: Draft an app listing
+shortTitle: Hacer un borrador de un listado de una app
 ---
-## Create a new draft {% data variables.product.prodname_marketplace %} listing
 
-You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:
+## Crear un borrador nuevo de un listado de {% data variables.product.prodname_marketplace %}
 
-* [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
-* [Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
-* [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
+Solo puedes crear borradores de listados para las apps que sean públicas. Antes de crear tu borrador de listado puedes leer los siguientes lineamientos para escribir y configurar los ajustes en tu listado de {% data variables.product.prodname_marketplace %}:
 
-To create a {% data variables.product.prodname_marketplace %} listing:
+* [Escribir descripciones de los listados de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/)
+* [Configurar un plan de precios para el listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)
+* [Configurar el Webhook de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/configuring-the-github-marketplace-webhook/)
+
+Para crear un listado de {% data variables.product.prodname_marketplace %}:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. In the left sidebar, click either **OAuth Apps** or **GitHub Apps** depending on the app you're adding to {% data variables.product.prodname_marketplace %}.
+3. En la barra lateral izquierda, da clic ya sea en **Apps de OAuth** o **GitHub Apps** dependiendo del tipo de app que estés agregando a {% data variables.product.prodname_marketplace %}.
 
   {% note %}
 
-  **Note**: You can also add a listing by navigating to https://github.com/marketplace/new, viewing your available apps, and clicking **Create draft listing**.
+  **Nota**: También puedes agregar un listado si navegas a https://github.com/marketplace/new, ves tus apps disponibles, y das clic en **Crear un borrador de un lsitado**.
 
   {% endnote %}
 
-  ![App type selection](/assets/images/settings/apps_choose_app.png)
+  ![Selección del tipo de app](/assets/images/settings/apps_choose_app.png)
 
-4. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}.
-![App selection for {% data variables.product.prodname_marketplace %} listing](/assets/images/github-apps/github_apps_select-app.png)
+4. Selecciona la app que quisieras agregar a {% data variables.product.prodname_marketplace %}. ![Selección de aplicaciones para el listado de {% data variables.product.prodname_marketplace %}](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.edit_marketplace_listing %}
-5. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete.
-![GitHub Marketplace listing](/assets/images/marketplace/marketplace_listing_overview.png)
+5. Una vez que hayas creado un borrador nuevo de un listado, verás un resumen de las secciones que necesitas visitar antes de que tu listado de {% data variables.product.prodname_marketplace %} esté completo. ![Listado de GitHub Marketplace](/assets/images/marketplace/marketplace_listing_overview.png)
 
 
 {% note %}
 
-**Note:** In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.
+**Nota:** En la sección de "información de contacto" de tu listado, te recomendamos utilizar direcciones de correo electrónico individuales en vez de direcciones grupales como support@domain.com. GitHub utilizará estas direcciones de correo electrónico para contactarte con respecto a las actualizaciones a {% data variables.product.prodname_marketplace %} que pudieran afectar tu listado, a los lanzamientos de nuevas características, a las oportunidades de marketing, a los pagos, y a la información sobre conferencias y patrocinios.
 
 {% endnote %}
 
-## Editing your listing
+## Editar tu listado
 
-Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[Setting a {% data variables.product.prodname_marketplace %} listing's pricing plan](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)."
+Ya que hayas creado un borrador de listado de {% data variables.product.prodname_marketplace %}, puedes regresar a modificar la información de éste en cualquier momento. Si tu app ya se aprobó y está en {% data variables.product.prodname_marketplace %}, puedes editar la información e imágenes en tu listado, pero no podrás cambiar los planes de precios que ya estén publicados. Consulta la sección "[Configurar el plan de pagos de un listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)".
 
-## Submitting your app
+## Emitir tu app
 
-Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[{% data variables.product.prodname_marketplace %} Developer Agreement](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
+Ya que hayas completado tu listado de {% data variables.product.prodname_marketplace %}, puedes emitirlo para su revisión a través de la página **Resumen**. Necesitas leer y aceptar el "[Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/free-pro-team@latest/github/site-policy/github-marketplace-developer-agreement/)", y luego puedes dar clic en **Emitir para revisión**. Después de emitir tu app para su revisión te contactará un experto en integraciones con cualquier tipo de información adicional que se requiera para el proceso de integración.
 
-## Removing a {% data variables.product.prodname_marketplace %} listing
+## Eliminar un listado de {% data variables.product.prodname_marketplace %}
 
-If you no longer want to list your app in {% data variables.product.prodname_marketplace %}, contact {% data variables.contact.contact_support %} to remove your listing.
+Si ya no quieres listar tu app en {% data variables.product.prodname_marketplace %}, contacta a {% data variables.contact.contact_support %} para eliminar tu lista.

@@ -1,6 +1,6 @@
 ---
-title: Searching the audit log
-intro: Site administrators can search an extensive list of audited actions on the enterprise.
+title: Pesquisar no log de auditoria
+intro: Os administradores do site podem pesquisar uma extensa lista de ações auditadas sobre a empresa.
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log
   - /enterprise/admin/installation/searching-the-audit-log
@@ -15,37 +15,37 @@ topics:
   - Enterprise
   - Logging
 ---
-## Search query syntax
 
-Compose a search query from one or more key:value pairs separated by AND/OR logical operators.
+## Sintaxe de consulta de pesquisa
 
-Key            | Value
---------------:| --------------------------------------------------------
-`actor_id`     | ID of the user account that initiated the action
-`actor`        | Name of the user account that initiated the action
-`oauth_app_id` | ID of the OAuth application associated with the action
-`action`       | Name of the audited action
-`user_id`      | ID of the user affected by the action
-`user`         | Name of the user affected by the action
-`repo_id`      | ID of the repository affected by the action (if applicable)
-`repo`         | Name of the repository affected by the action (if applicable)
-`actor_ip`     | IP address from which the action was initiated
-`created_at`   | Time at which the action occurred
-`from`         | View from which the action was initiated
-`note`         | Miscellaneous event-specific information (in either plain text or JSON format)
-`org`          | Name of the organization affected by the action (if applicable)
-`org_id`       | ID of the organization affected by the action (if applicable)
+Crie uma consulta de pesquisa com um ou mais pares chave-valor separados por operadores lógicos AND/OR.
 
-For example, to see all actions that have affected the repository `octocat/Spoon-Knife` since the beginning of 2017:
+|          Tecla | Valor                                                                                     |
+| --------------:| ----------------------------------------------------------------------------------------- |
+|     `actor_id` | ID da conta do usuário que iniciou a ação.                                                |
+|        `actor` | Nome da conta do usuário que iniciou a ação.                                              |
+| `oauth_app_id` | ID do aplicativo OAuth associado à ação.                                                  |
+|         `Ação` | Nome da ação auditada                                                                     |
+|      `user_id` | ID do usuário afetado pela ação.                                                          |
+|      `usuário` | Nome do usuário afetado pela ação.                                                        |
+|      `repo_id` | ID do repositório afetado pela ação (se aplicável).                                       |
+|         `repo` | Nome do repositório afetado pela ação (se aplicável).                                     |
+|     `actor_ip` | Endereço IP do qual a ação foi iniciada.                                                  |
+|   `created_at` | Hora em que a ação ocorreu.                                                               |
+|         `from` | Exibição da qual a ação foi iniciada.                                                     |
+|         `note` | Informações diversas sobre eventos específicos (em texto sem formatação ou formato JSON). |
+|          `org` | Nome da organização afetada pela ação (se aplicável).                                     |
+|       `org_id` | ID da organização afetada pela ação (se aplicável).                                       |
+
+Por exemplo, para ver todas as ações que afetaram o repositório `octocat/Spoon-Knife` desde o início de 2017:
 
   `repo:"octocat/Spoon-Knife" AND created_at:[2017-01-01 TO *]`
 
-For a full list of actions, see "[Audited actions](/admin/user-management/audited-actions)."
+Para obter uma lista completa de ações, consulte "[Ações auditadas](/admin/user-management/audited-actions)".
 
-## Searching the audit log
+## Pesquisar no log de auditoria
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
-4. Type a search query.
-![Search query](/assets/images/enterprise/site-admin-settings/search-query.png)
+4. Digite uma consulta de pesquisa.![Consulta de pesquisa](/assets/images/enterprise/site-admin-settings/search-query.png)

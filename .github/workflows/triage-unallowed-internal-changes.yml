@@ -1,7 +1,7 @@
 name: Check for unallowed internal changes
 
-# **What it does**: If someone changes app.json or search indexes, we fail the check.
-# **Why we have it**: app.json should rarely be edited, so we'll require an admin merge if the file really needs to be changed. The search indexes are synced every 4 hours, so changes should not need to be made.
+# **What it does**: If someone changes search indexes, we fail the check.
+# **Why we have it**: The search indexes are synced every 4 hours, so changes should not need to be made.
 # **Who does it impact**: Docs engineering and content writers.
 
 on:
@@ -12,6 +12,9 @@ on:
       - opened
       - reopened
       - synchronize
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   # This is needed by dorny/paths-filter
@@ -36,7 +39,7 @@ jobs:
         id: filter
         with:
           # Base branch used to get changed files
-          base: ${{ github.event.pull_request.base.ref }}
+          base: ${{ github.event.pull_request.base.ref || github.base_ref || github.ref }}
 
           # Enables setting an output in the format in `${FILTER_NAME}_files
           # with the names of the matching files formatted as JSON array
@@ -44,19 +47,8 @@ jobs:
 
           # Returns list of changed files matching each filter
           filters: |
-            notAllowed:
-              - 'app.json'
             notAllowedSearchSyncLabel:
               - 'lib/search/indexes/**'
-  notAllowed:
-    needs: check-internal-changes
-    if: ${{ needs.check-internal-changes.outputs.notAllowed == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fail if unallowed changes were made
-        run: |
-          echo "Please admin merge if you really need to update app.json!"
-          exit 1
   notAllowedSearchSyncLabel:
     needs: check-internal-changes
     if: ${{ needs.check-internal-changes.outputs.notAllowedSearchSyncLabel == 'true' }}
@@ -71,7 +63,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.13.x
+          node-version: 16.14.x
           cache: npm
 
       - name: Install dependencies

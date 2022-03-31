@@ -1,6 +1,6 @@
 ---
-title: About issues
-intro: 'Use {% data variables.product.prodname_github_issues %} to track ideas, feedback, tasks, or bugs for work on {% data variables.product.company_short %}.'
+title: Acerca de las propuestas
+intro: 'Utiliza {% data variables.product.prodname_github_issues %} para rastrear ideas, retroalimentación, tareas o errores para trabajar en {% data variables.product.company_short %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-issues
   - /articles/creating-issues
@@ -17,38 +17,39 @@ topics:
   - Issues
   - Project management
 ---
-## Integrated with GitHub
 
-Issues let you track your work on {% data variables.product.company_short %}, where development happens. When you mention an issue in another issue or pull request, the issue's timeline reflects the cross-reference so that you can keep track of related work. To indicate that work is in progress, you can link an issue to a pull request. When the pull request merges, the linked issue automatically closes.
+## Integrado con GitHub
 
-## Quickly create issues
+Las propuestas te permiten rastrear tu trabajo en {% data variables.product.company_short %}, donde sucede el desarrollo. Cuando mencionas una propuesta en otra propuesta o solicitud de cambios, la línea de tiempo de la propuesta refleja la referencia cruzada para que puedas rastrear el trabajo relacionado. Para indicar que el trabajo está en curso, puedes enlazar una propeusta a una solicitud de cambios. Cuando la solicitud de cambios se fusiona, la propuesta enlazada se cierra automáticamente.
 
-Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow. For example, you can create an issue from a repository,{% ifversion fpt or ghec %} an item in a task list,{% endif %} a note in a project, a comment in an issue or pull request, a specific line of code, or a URL query. You can also create an issue from your platform of choice: through the web UI, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_cli %}, GraphQL and REST APIs, or {% data variables.product.prodname_mobile %}. For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)."
+## Crea propuestas rápidamente
 
-## Track work
+Las propuestas pueden crearse de varias formas, así que puedes elegir el método más conveniente para tu flujo de trabajo. Por ejemplo, puedes crear una propuesta desde un repositorio,{% ifversion fpt or ghec %} un elemento en una lista de tareas,{% endif %} una nota en un proyecto, un comentario en una propuesta o solicitud de cambios, una línea específica de código o una consulta de URL. También puedes crear una propuesta desde tu plataforma de elección: a través de la UI web, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_cli %}, las API de GraphQL y de REST o desde {% data variables.product.prodname_mobile %}. Para obtener más información, consulta la sección "[Crear una propuesta](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)".
 
-You can organize and prioritize issues with projects. {% ifversion fpt or ghec %}To track issues as part of a larger issue, you can use task lists.{% endif %} To categorize related issues, you can use labels and milestones.
+## Rastrea el trabajo
 
-For more information about projects, see {% ifversion fpt or ghec %}"[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" and {% endif %}"[Organizing your work with project boards](/issues/organizing-your-work-with-project-boards)." {% ifversion fpt or ghec %}For more information about task lists, see "[About task lists](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)." {% endif %}For more information about labels and milestones, see "[Using labels and milestones to track work](/issues/using-labels-and-milestones-to-track-work)."
+Puedes organizar y priorizar las propuestas con los proyectos. {% ifversion fpt or ghec %}Para rastrear las propuestas como parte de una propuesta más grande, puedes utilizar las listas de tareas.{% endif %} Para categorizar las propuestas relacionadas, puedes utilizar etiquetas e hitos.
 
-## Stay up to date
+Para obtener más información sobre los proyectos, consulta las secciones {% ifversion fpt or ghec %}"[Acerca de los proyectos (beta)](/issues/trying-out-the-new-projects-experience/about-projects)" y {% endif %}"[Organizar tu trabajo con tableros de proyecto](/issues/organizing-your-work-with-project-boards)". {% ifversion fpt or ghec %}Para obtener más información sobre las listas de tareas, consulta la sección "[Acerca de las listas de tareas](/issues/tracking-your-work-with-issues/creating-issues/about-task-lists)". {% endif %}Para obtener más información sobre las etiquetas y los hitos, consulta la sección "[Utilizar etiquetas e hitos para rastrear el trabajo](/issues/using-labels-and-milestones-to-track-work)".
 
-To stay updated on the most recent comments in an issue, you can subscribe to an issue to receive notifications about the latest comments. To quickly find links to recently updated issues you're subscribed to, visit your dashboard. For more information, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}" and "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+## Mantente actualizado
 
-## Community management
+Para mantenerte actualizado sobre la mayoría de los comentarios recientes de una propuesta, puedes suscribirte a ella para recibir notificaciones sobre las confirmaciones más recientes. Para encontrar rápidamente los enlaces a los informes de problemas recientemente actualizados a los cuales te has suscrito, visita tu tablero. Para obtener más información, consulta la sección {% ifversion fpt or ghes or ghae or ghec %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciónes](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}" y "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
 
-To help contributors open meaningful issues that provide the information that you need, you can use {% ifversion fpt or ghec %}issue forms and {% endif %}issue templates. For more information, see "[Using templates to encourage useful issues and pull requests](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+## Administración de comunidad
 
-{% ifversion fpt or ghec %}To maintain a healthy community, you can report comments that violate {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines). For more information, see "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)."{% endif %}
+Para ayudar a que los colaboradores abran propuestas significativas que proporcionen la información que necesiten, puedes utilizar {% ifversion fpt or ghec %}formatos de propuestas y {% endif %}plantillas de propuestas. Para obtener más información, consulta la sección "[Utilizar plantillas para fomentar las propuestas y solicitudes de cambio útiles](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)".
 
-## Efficient communication
+{% ifversion fpt or ghec %}Para mantener una comunidad saludable, puedes reportar comentrios que violen los [Lineamientos comunitarios](/free-pro-team@latest/github/site-policy/github-community-guidelines) de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Informar abuso o spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)".{% endif %}
 
-You can @mention collaborators who have access to your repository in an issue to draw their attention to a comment. To link related issues in the same repository, you can type `#` followed by part of the issue title and then clicking the issue that you want to link. To communicate responsibility, you can assign issues. If you find yourself frequently typing the same comment, you can use saved replies.
-{% ifversion fpt or ghec %} For more information, see "[Basic writing and formatting syntax](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" and "[Assigning issues and pull requests to other GitHub users](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)."
+## Comunicación eficiente
 
-## Comparing issues and discussions
+Puedes @mencionar colaboradores que tengan acceso a tu repositorio en una propuesta para dirigir su atención a un cometnario. Para enlazar las propuestas relacionadas en el mismo repositorio, puedes teclear `#` seguido de parte del título de la propuesta y luego hacer clic en la propueta que quieras enlazar. Para comunicar la responsabilidad, puedes asignar propuestas. Si frecuentemente te encuentras tecleando el mismo comentario, puedes utilizar las respuestas guardadas.
+{% ifversion fpt or ghec %} Para obtener más información, consulta las secciones "[Sintaxis básica para escritura y formato](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" y "[Asignar propuestas y solicitudes de cambio a otros usuarios de GitHub](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)".
 
-Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} For guidance on when to use an issue or a discussion, see "[Communicating on GitHub](/github/getting-started-with-github/quickstart/communicating-on-github)."
+## Comparar propuestas y debates
 
-When a conversation in an issue is better suited for a discussion, you can convert the issue to a discussion.
+Algunas conversaciones son más adecuadas para los {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} Para orientarte sobre cuándo utilizar una propuesta o debate, consulta la sección "[Comuinicarte en GitHub](/github/getting-started-with-github/quickstart/communicating-on-github)".
+
+Cuando una conversación en una propuesta se adecua mejor para un debate, puedes intentar convertir la propuesta en debate.
 {% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Auditing SSH keys
-intro: Site administrators can initiate an instance-wide audit of SSH keys.
+title: Auditar claves SSH
+intro: Los administradores del sitio pueden iniciar una auditoría en todas las instancias de las claves SSH.
 redirect_from:
   - /enterprise/admin/articles/auditing-ssh-keys
   - /enterprise/admin/user-management/auditing-ssh-keys
@@ -15,51 +15,52 @@ topics:
   - Security
   - SSH
 ---
-Once initiated, the audit disables all existing SSH keys and forces users to approve or reject them before they're able to clone, pull, or push to any repositories. An audit is useful in situations where an employee or contractor leaves the company and you need to ensure that all keys are verified.
 
-## Initiating an audit
+Una vez iniciada, la auditoría desactiva todas las claves SSH existentes y obliga a los usuarios a aprobarlas o rechazarlas antes de que sea posible clonarlas, extraerlas o subirlas a cualquier repositorio. Una auditoría es útil cuando un empleado o contratista se va de la empresa y necesitas asegurarte de que todas las claves estén verificadas.
 
-You can initiate an SSH key audit from the "All users" tab of the site admin dashboard:
+## Iniciar una auditoría
 
-![Starting a public key audit](/assets/images/enterprise/security/Enterprise-Start-Key-Audit.png)
+Puedes iniciar una auditoría de claves SSH desde la pestaña "Todos los usuarios" del tablero de administrador del sitio:
 
-After you click the "Start public key audit" button, you'll be taken to a confirmation screen explaining what will happen next:
+![Iniciar una auditoría de clave pública](/assets/images/enterprise/security/Enterprise-Start-Key-Audit.png)
 
-![Confirming the audit](/assets/images/enterprise/security/Enterprise-Begin-Audit.png)
+Una vez que haces clic en el botón "Iniciar auditoría de clave pública", serás redirigido a la pantalla de confirmación que explica lo que sucederá a continuación:
 
-After you click the "Begin audit" button, all SSH keys are invalidated and will require approval. You'll see a notification indicating the audit has begun.
+![Confirmación de la auditoría](/assets/images/enterprise/security/Enterprise-Begin-Audit.png)
 
-## What users see
+Una vez que haces clic en el botón "Comenzar auditoría", todas las claves SSH son invalidadas y se necesitará aprobación. Verás una notificación que indica que la auditoría ha comenzado.
 
-If a user attempts to perform any git operation over SSH, it will fail and provide them with the following message:
+## Lo que los usuarios ven
+
+Si un usuario intenta realizar cualquier operación Git a través de SSH, fallará y se indicará el siguiente mensaje:
 
 ```shell
-ERROR: Hi <em>username</em>. We're doing an SSH key audit.
-Please visit http(s)://<em>hostname</em>/settings/ssh/audit/2
-to approve this key so we know it's safe.
-Fingerprint: ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
-fatal: The remote end hung up unexpectedly
+ERROR: Hola <em>nombre de usuario</em>. Estamos realizando una auditoría de clave SSH.
+Visita http(s)://<em>hostname</em>/settings/ssh/audit/2
+para aprobar esta clave y saber que es segura.
+Huella digital: ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
+fatal: El final remoto ha colgado inesperadamente.
 ```
 
-When they follow the link, they're asked to approve the keys on their account:
+Cuando el usuario sigue el enlace, se le solicita aprobar las claves en su cuenta:
 
-![Auditing keys](/assets/images/enterprise/security/Enterprise-Audit-SSH-Keys.jpg)
+![Auditoría de claves](/assets/images/enterprise/security/Enterprise-Audit-SSH-Keys.jpg)
 
-After they approve or reject their keys, they'll be able interact with repositories as usual.
+Una vez que se aprueban o se rechazan sus claves, podrá interactuar con los repositorios como siempre.
 
-## Adding an SSH key
+## Agregar una clave SSH
 
-New users will be prompted for their password when adding an SSH key:
+Cuando los usuarios nuevos agreguen una clave SSH, se les solicitará su contraseña:
 
-![Password confirmation](/assets/images/help/settings/sudo_mode_popup.png)
+![Confirmación de contraseña](/assets/images/help/settings/sudo_mode_popup.png)
 
-When a user adds a key, they'll receive a notification email that will look something like this:
+Cuando un usuario agrega una clave, recibirá un correo electrónico de notificación que se verá como esto:
 
-    The following SSH key was added to your account:
-
+    Se agregó la siguiente clave SSH a tu cuenta:
+    
     [title]
     ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
-
-    If you believe this key was added in error, you can remove the key and disable access at the following location:
-
+    
+    Si crees que esta clave se agregó por error, puedes eliminar la clave y desactivar el acceso a la siguiente ubicación:
+    
     http(s)://HOSTNAME/settings/ssh

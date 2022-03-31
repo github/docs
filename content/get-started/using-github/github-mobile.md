@@ -12,7 +12,6 @@ redirect_from:
   - /github/getting-started-with-github/github-for-mobile
   - /github/getting-started-with-github/using-github/github-for-mobile
 ---
-{% data reusables.mobile.ghes-release-phase %}
 
 ## About {% data variables.product.prodname_mobile %}
 
@@ -21,10 +20,12 @@ redirect_from:
 {% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.product_name %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your {% data variables.product.product_name %} data through a trusted, first-party client application.
 
 With {% data variables.product.prodname_mobile %} you can:
+
 - Manage, triage, and clear notifications
 - Read, review, and collaborate on issues and pull requests
 - Search for, browse, and interact with users, repositories, and organizations
 - Receive a push notification when someone mentions your username
+{% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication{% endif %}
 
 For more information about notifications for {% data variables.product.prodname_mobile %}, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."
 

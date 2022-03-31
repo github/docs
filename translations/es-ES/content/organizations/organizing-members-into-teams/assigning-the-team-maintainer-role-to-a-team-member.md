@@ -1,6 +1,6 @@
 ---
-title: Assigning the team maintainer role to a team member
-intro: 'You can give a team member the ability to manage team membership and settings by assigning the team maintainer role.'
+title: Asignar el rol de mantenedor de equipo a un miembro del equipo
+intro: Puedes otorgar a los miembros del equipo la capacidad de administrar las membrecías y ajustes del mismo si les asignas el rol de mantenedor de equipo.
 redirect_from:
   - /articles/giving-team-maintainer-permissions-to-an-organization-member-early-access-program
   - /articles/giving-team-maintainer-permissions-to-an-organization-member
@@ -14,39 +14,36 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Team maintainers
+shortTitle: Mantenedores de equipo
 permissions: Organization owners can promote team members to team maintainers.
 ---
 
-## About team maintainers
+## Acerca de los mantenedores de equipo
 
-People with the team maintainer role can manage team membership and settings.
+Las personas con el rol de mantenedor de equipo pueden administrar la membrecía y ajustes de este.
 
-- [Change the team's name and description](/articles/renaming-a-team)
-- [Change the team's visibility](/articles/changing-team-visibility)
-- [Request to add a child team](/articles/requesting-to-add-a-child-team)
-- [Request to add or change a parent team](/articles/requesting-to-add-or-change-a-parent-team)
-- [Set the team profile picture](/articles/setting-your-team-s-profile-picture)
-- [Edit team discussions](/articles/managing-disruptive-comments/#editing-a-comment)
-- [Delete team discussions](/articles/managing-disruptive-comments/#deleting-a-comment)
-- [Add organization members to the team](/articles/adding-organization-members-to-a-team)
-- [Remove organization members from the team](/articles/removing-organization-members-from-a-team)
-- Remove the team's access to repositories{% ifversion fpt or ghes or ghae or ghec %}
-- [Manage code review assignment for the team](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt or ghec %}
-- [Manage scheduled reminders for pull requests](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}
+- [Cambiar el nombre y la descripción del equipo](/articles/renaming-a-team)
+- [Cambiar la visibilidad del equipo](/articles/changing-team-visibility)
+- [Solicitar agregar un equipo hijo](/articles/requesting-to-add-a-child-team)
+- [Solicitar agregar o cambiar un equipo padre](/articles/requesting-to-add-or-change-a-parent-team)
+- [Configurar la imagen de perfil del equipo](/articles/setting-your-team-s-profile-picture)
+- [Editar debates de equipo](/articles/managing-disruptive-comments/#editing-a-comment)
+- [Eliminar debates de equipo](/articles/managing-disruptive-comments/#deleting-a-comment)
+- [Agregar a miembros de la organización al equipo](/articles/adding-organization-members-to-a-team)
+- [Eliminar a miembros de la organización del equipo](/articles/removing-organization-members-from-a-team)
+- Eliminar el acceso del equipo a los repositorios {% ifversion fpt or ghes or ghae or ghec %}
+- [Administrar una tarea de revisión de código para el equipo](/organizations/organizing-members-into-teams/managing-code-review-assignment-for-your-team){% endif %}{% ifversion fpt or ghec %}
+- [Administrar los recordatorios programados para las solicitudes de extracción](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team){% endif %}
 
 
-## Promoting an organization member to team maintainer
+## Promover un miembro de la organización a mantenedor del equipo
 
-Before you can promote an organization member to team maintainer, the person must already be a member of the team.
+Antes de que puedas promover a un miembro de la organización a mantenedor de equipo, esta persona debe ser primero un miembro de dicho equipo.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
-4. Select the person or people you'd like to promote to team maintainer.
-![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)
-5. Above the list of team members, use the drop-down menu and click **Change role...**.
-![Drop-down menu with option to change role](/assets/images/help/teams/bulk-edit-drop-down.png)
-6. Select a new role and click **Change role**.
-![Radio buttons for Maintainer or Member roles](/assets/images/help/teams/team-role-modal.png)
+4. Selecciona la persona o las personas que desees promover a mantenedor del equipo. ![Casilla junto al miembro de la organización](/assets/images/help/teams/team-member-check-box.png)
+5. Por encima de la lista de miembros del equipo, utiliza el menú desplegable y haz clic en **Change role...** (Cambiar rol). ![Menú desplegable con opción para cambiar el rol](/assets/images/help/teams/bulk-edit-drop-down.png)
+6. Selecciona un rol nuevo y haz clic en **Change role** (Cambiar rol). ![Botones Radio para los roles de Mantenedor o Miembro](/assets/images/help/teams/team-role-modal.png)

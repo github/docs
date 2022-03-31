@@ -19,7 +19,7 @@ Quando anúncio do seu aplicativo atender aos requisitos de {% data variables.pr
 
   ![Opção de visão geral para o anúncio de rascunho do Marketplace](/assets/images/marketplace/edit-marketplace-listing-overview.png)
 
-2. Para enviar o anúncio completo do aplicativo, clique **Solicitar a publicação**.
+2. Para enviar sua listagem de aplicativo concluída, clique em **Solicitar publicação**.
 
   ![Lista de verificação para "Publicar o seu aplicativo no Marketplace" com o botão de envio na parte inferior](/assets/images/marketplace/publish-your-app-checklist-and-submission.png)
 

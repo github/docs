@@ -1,6 +1,6 @@
 ---
-title: Adding a new GPG key to your GitHub account
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to use your new (or existing) GPG key, you''ll also need the key to your account.'
+title: Agregar una llave GPG nueva a tu cuenta de GitHub
+intro: 'Para configurar tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. para que utilice tu llave GPG nueva (o existente), también necesitarás la llave a tu cuenta.'
 redirect_from:
   - /articles/adding-a-new-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -13,32 +13,30 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Add a new GPG key
+shortTitle: Agrega una llave GPG
 ---
-Before adding a new GPG key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you should have:
-- [Checked for existing GPG keys](/articles/checking-for-existing-gpg-keys)
-- [Generated and copied a new GPG key](/articles/generating-a-new-gpg-key)
+
+Antes de agregar una llave GPG nueva a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}., debes tener:
+- [Comprobado tus llaves GPG existentes](/articles/checking-for-existing-gpg-keys)
+- [Generado y copiado una nueva llave GPG](/articles/generating-a-new-gpg-key)
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-When verifying a signature, we extract the signature and attempt to parse its key-id. We match the key-id with keys uploaded to {% data variables.product.product_name %}. Until you upload your GPG key to {% data variables.product.product_name %}, we cannot verify your signatures.
+Al verificar una firma, extraemos la firma e intentamos analizar sus id de llave. Complementamos los id de llave con las llaves cargadas a {% data variables.product.product_name %}. Hasta que cargues tu llave de GPG a {% data variables.product.product_name %}, no podemos verificar tus firmas.
 
-## Adding a GPG key
+## Agregar una llave GPG
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
-3. Click **New GPG key**.
-   ![GPG Key button](/assets/images/help/settings/gpg-add-gpg-key.png)
-4. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/articles/generating-a-new-gpg-key).
-   ![The key field](/assets/images/help/settings/gpg-key-paste.png)
-5. Click **Add GPG key**.
-   ![The Add key button](/assets/images/help/settings/gpg-add-key.png)
-6. To confirm the action, enter your {% data variables.product.product_name %} password.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
+3. Haz clic en **New GPG key** (Nueva llave GPG). ![Botón de llave GPG](/assets/images/help/settings/gpg-add-gpg-key.png)
+4. En el campo "Clave", pega la llave GPG que copiaste cuando [generó tu llave GPG](/articles/generating-a-new-gpg-key). ![Campo de llave](/assets/images/help/settings/gpg-key-paste.png)
+5. Haz clic en **Add GPG key** (Agregar llave GPG). ![Botón Add key (Agregar llave)](/assets/images/help/settings/gpg-add-key.png)
+6. Para confirmar la acción, escribe tu contraseña de {% data variables.product.product_name %}.
 
-## Further reading
+## Leer más
 
-* "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-* "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-* "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-* "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-* "[Signing commits and tags using GPG keys](/articles/signing-commits-and-tags-using-gpg)"
+* "[Comprobar llaves GPG existentes](/articles/checking-for-existing-gpg-keys)"
+* "[Generar una llave GPG nueva](/articles/generating-a-new-gpg-key)"
+* "[Informar a Git sobre tu llave de firma](/articles/telling-git-about-your-signing-key)"
+* "[Asociar un correo electrónico con tu llave GPG](/articles/associating-an-email-with-your-gpg-key)"
+* "[Firmar confirmaciones y etiquetas mediante llaves GPG](/articles/signing-commits-and-tags-using-gpg)"

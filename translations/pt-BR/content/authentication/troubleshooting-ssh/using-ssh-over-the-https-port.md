@@ -33,7 +33,7 @@ Se deu certo, ótimo! Caso contrário, [siga nosso guia para solução de proble
 
 Se você conseguir fazer SSH para `git@ssh.{% data variables.command_line.backticks %}` por meio da porta 443, você poderá substituir as configurações SSH para forçar qualquer conexão ao {% data variables.product.product_location %} a ser executada nesse servidor e nessa porta.
 
-Para definir isso na configuração SSH, edite o arquivo em `~/.ssh/config` e adicione esta seção:
+To set this in your SSH configuration file, edit the file at `~/.ssh/config`, and add this section:
 
 ```
 Host {% data variables.command_line.codeblock %}

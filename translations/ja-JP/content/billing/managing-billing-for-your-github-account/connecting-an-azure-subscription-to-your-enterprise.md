@@ -1,14 +1,13 @@
 ---
 title: Azure サブスクリプションを Enterprise に接続する
 intro: 'Microsoft Enterprise Agreement を使用して、Enterprise に含まれている金額を超える {% data variables.product.prodname_actions %} および {% data variables.product.prodname_registry %} の使用を有効化して支払うことができます。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise
 versions:
   ghec: '*'
-shortTitle: Connect an Azure subscription
+shortTitle: Azureサブスクリプションの接続
 ---
 
 ## Azure サブスクリプションと {% data variables.product.product_name %}
@@ -29,6 +28,12 @@ Azure サブスクリプションに接続するには、サブスクリプシ�
 1. 画面の指示に従って Microsoft アカウントにサインインします。
 1. [Permissions requested] という画面表示を確認します。 規約に同意する場合は、[**Accept**] をクリックします。
 1. [Select a subscription] で、Enterprise に接続する Azure サブスクリプション ID を選択します。
+
+   {% note %}
+
+   **ノート:** {% data variables.product.company_short %}のサブスクリプション権限検証は、利用可能なサブスクリプションのリストを表示するために読み取りのみのアクセスを要求します。 Azureサブスクリプションを選択するには、サブスクリプションに対するオーナー権限を持っていなければなりません。 デフォルトのテナントが適切な権限を持っていない場合は、異なるテナントIDを指定しなければならないことがあります。 詳しい情報についてはMicrosoftのドキュメンテーションの[Microsoft ID プラットフォームと OAuth 2.0 認証コード フロー](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code)を参照してください。
+
+   {% endnote %}
 1. [**Connect**] をクリックします。
 
 ## Enterprise アカウントから Azure サブスクリプションを切断する

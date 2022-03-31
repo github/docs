@@ -37,6 +37,8 @@ Ao patrocinar uma conta usando um cartão de crédito, a alteração entrará em
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
+Você pode escolher se deseja mostrar seu patrocínio publicamente. Patrocínios únicos permanecem visíveis por um mês.
+
 Se a conta patrocinada for retirada, a sua camada permanecerá em vigor para você até que você escolha uma camada diferente ou cancele a sua assinatura. Para obter mais informações, consulte "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)" e "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)".
 
 Se a conta que você deseja patrocinar não tiver um perfil em {% data variables.product.prodname_sponsors %}, você pode incentivar que participe. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_sponsors %} para a sua conta de usuário](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)" e "[Configurando {% data variables.product.prodname_sponsors %} para sua organização](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."

@@ -1,6 +1,6 @@
 ---
-title: Building GitHub Apps
-intro: You can build GitHub Apps for yourself or others to use. Learn how to register and set up permissions and authentication options for GitHub Apps.
+title: Crear GitHub Apps
+intro: Puedes crar GitHub Apps para ti mismo o para que los utilicen los demás. Aprende como registrar y configurar permisos y opciones de autenticación para GitHub Apps.
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps
   - /apps/building-github-apps

@@ -19,5 +19,6 @@ children:
   - /configuring-secret-scanning-for-your-repositories
   - /defining-custom-patterns-for-secret-scanning
   - /managing-alerts-from-secret-scanning
+  - /secret-scanning-patterns
 ---
 

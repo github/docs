@@ -1,5 +1,5 @@
 ---
-title: Transferring ownership of a GitHub App
+title: Transferir la propiedad de una GitHub App
 intro: '{% data reusables.shortdesc.transferring_ownership_of_github_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-github-apps/transferring-ownership-of-a-github-app
@@ -12,19 +12,15 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Transfer ownership
+shortTitle: Transferir la propiedad
 ---
+
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
-4. Select the GitHub App whose ownership you want to transfer.
-![App selection](/assets/images/github-apps/github_apps_select-app.png)
+4. Selecciona la GitHub App cuya propiedad quieras transferir. ![Seleccion de apps](/assets/images/github-apps/github_apps_select-app.png)
 {% data reusables.user-settings.github_apps_advanced %}
-6. Click **Transfer ownership**.
-![Button to transfer ownership](/assets/images/github-apps/github_apps_transfer_ownership.png)
-7. Type the name of the GitHub App you want to transfer.
-![Field to enter the name of the app to transfer](/assets/images/github-apps/github_apps_transfer_app_name.png)
-8. Type the name of the user or organization you want to transfer the GitHub App to.
-![Field to enter the user or org to transfer to](/assets/images/github-apps/github_apps_transfer_new_owner.png)
-9. Click **Transfer this GitHub App**.
-![Button to confirm the transfer of a GitHub App](/assets/images/github-apps/github_apps_transfer_integration.png)
+6. Da clic en **Transferir propiedad**. ![Botón para transferir la propiedad](/assets/images/github-apps/github_apps_transfer_ownership.png)
+7. Teclea el nombre de la GitHub App que quieres transferir. ![Campo para ingresar el nombre de la app a transferir](/assets/images/github-apps/github_apps_transfer_app_name.png)
+8. Teclea el nombre del usuario u organización al cual quieres transferir la GitHub App. ![Campo para ingresar el usuario u organización al cual se transferirá la app](/assets/images/github-apps/github_apps_transfer_new_owner.png)
+9. Da clic en **Transferir esta GitHub App**. ![Botón para confirmar la transferencia de una GitHub App](/assets/images/github-apps/github_apps_transfer_integration.png)

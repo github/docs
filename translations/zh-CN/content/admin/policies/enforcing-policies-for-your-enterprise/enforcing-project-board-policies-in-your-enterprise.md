@@ -1,8 +1,7 @@
 ---
-title: Enforcing project board policies in your enterprise
-intro: 'You can enforce policies for projects within your enterprise''s organizations, or allow policies to be set in each organization.'
+title: 在企业中实施项目板策略
+intro: 您可以在企业组织内执行项目策略，或允许在每个组织中设置策略。
 permissions: Enterprise owners can enforce policies for project boards in an enterprise.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account
   - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account
@@ -19,31 +18,29 @@ topics:
   - Enterprise
   - Policies
   - Projects
-shortTitle: Project board policies
+shortTitle: 项目板策略
 ---
 
-## About policies for project boards in your enterprise
+## 关于企业中项目板的策略
 
-You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage project boards. You can also allow organization owners to manage policies for project boards. For more information, see "[About project boards](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
+您可以执行策略来控制企业在 {% data variables.product.product_name %} 上的企业成员如何管理项目板。 您也可以允许组织所有者管理项目板策略。 更多信息请参阅“[关于项目板](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)”。
 
-## Enforcing a policy for organization-wide project boards
+## 实施组织范围项目板的策略
 
-Across all organizations owned by your enterprise, you can enable or disable organization-wide project boards, or allow owners to administer the setting on the organization level.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}
-{% data reusables.enterprise-accounts.projects-tab %}
-4. Under "Organization projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Organization projects", use the drop-down menu and choose a policy.
-  ![Drop-down menu with organization project board policy options](/assets/images/help/business-accounts/organization-projects-policy-drop-down.png)
-
-## Enforcing a policy for repository project boards
-
-Across all organizations owned by your enterprise, you can enable or disable repository-level project boards, or allow owners to administer the setting on the organization level.
+在企业拥有的所有组织中，可以启用或禁用组织范围的项目板，或允许所有者在组织级别管理设置。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.projects-tab %}
-4. Under "Repository projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Repository projects", use the drop-down menu and choose a policy.
-  ![Drop-down menu with repository project board policy options](/assets/images/help/business-accounts/repository-projects-policy-drop-down.png)
+4. 在“Organization projects”（组织项目）下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. 在“Organization projects”（组织项目）下，使用下拉菜单并选择策略。 ![带有组织项目板策略选项的下拉菜单](/assets/images/help/business-accounts/organization-projects-policy-drop-down.png)
+
+## 实施仓库项目板的策略
+
+在企业拥有的所有组织中，可以启用或禁用仓库级项目板，或允许所有者在组织级别管理设置。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.projects-tab %}
+4. 在“Repository projects”（仓库项目）下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. 在“Repository projects”（仓库项目）下，使用下拉菜单并选择策略。 ![带有仓库项目板策略选项的下拉菜单](/assets/images/help/business-accounts/repository-projects-policy-drop-down.png)

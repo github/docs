@@ -78,9 +78,9 @@ This workflow performs the following steps:
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
-{% data reusables.github-actions.example-github-runner %}
+{% data reusables.actions.example-github-runner %}
 
-{% data reusables.github-actions.java-jvm-architecture %}
+{% data reusables.actions.java-jvm-architecture %}
 
 ## Building and testing your code
 
@@ -88,7 +88,7 @@ You can use the same commands that you use locally to build and test your code.
 
 The starter workflow will run the default target specified in your _build.xml_ file.  Your default target will commonly be set to build classes, run tests and package classes into their distributable format, for example, a JAR file.
 
-If you use different commands to build your project, or you want to run a different target, you can specify those. For example, you may want to run the `jar` target that's configured in your _build-ci.xml_ file.
+If you use different commands to build your project, or you want to run a different target, you can specify those. For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
 
 {% raw %}
 ```yaml{:copy}
@@ -119,7 +119,7 @@ steps:
       distribution: 'adopt'
   
   - run: ant -noinput -buildfile build.xml
-  - uses: actions/upload-artifact@v2
+  - uses: actions/upload-artifact@v3
     with:
       name: Package
       path: build/jar

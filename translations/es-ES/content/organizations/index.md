@@ -1,11 +1,30 @@
 ---
-title: Organizations and teams
-shortTitle: Organizations
-intro: Collaborate across many projects while managing access to projects and data and customizing settings for your organization.
+title: Organizaciones y equipos
+shortTitle: Organizaciones
+intro: 'Puedes utilizar las organizaciones para colaborar con una cantidad ilimitada de personas en muchos proyectos al mismo tiempo, mientras administras el acceso a tus datos y ajustes de personalización.'
 redirect_from:
   - /articles/about-improved-organization-permissions
   - /categories/setting-up-and-managing-organizations-and-teams
   - /github/setting-up-and-managing-organizations-and-teams
+introLinks:
+  overview: /organizations/collaborating-with-groups-in-organizations/about-organizations
+featuredLinks:
+  guides:
+    - /get-started/learning-about-github/types-of-github-accounts
+    - /organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization
+    - /organizations/organizing-members-into-teams/about-teams
+  popular:
+    - /organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch
+    - /organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization
+    - /organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization
+    - /organizations/restricting-access-to-your-organizations-data/about-oauth-app-access-restrictions
+    - '{% ifversion ghae %}/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization{% endif %}'
+  guideCards:
+    - /organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization
+    - /organizations/managing-membership-in-your-organization/adding-people-to-your-organization
+    - /organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository
+    - /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization
+layout: product-landing
 versions:
   fpt: '*'
   ghes: '*'

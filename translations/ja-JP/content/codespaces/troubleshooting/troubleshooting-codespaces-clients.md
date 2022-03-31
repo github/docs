@@ -11,9 +11,9 @@ topics:
 shortTitle: Codespaces clients
 ---
 
-## {% data variables.product.prodname_vscode %} troubleshooting
+## {% data variables.product.prodname_vscode %} のトラブルシューティング
 
-When you connect a desktop version of {% data variables.product.prodname_vscode %} to a codespace, you will notice few differences compared with working in a normal workspace but the experience will be fairly similar. 
+When you connect a desktop version of {% data variables.product.prodname_vscode %} to a codespace, you will notice few differences compared with working in a normal workspace but the experience will be fairly similar.
 
 When you open a codespace in your browser using {% data variables.product.prodname_vscode %} in the web, you will notice more differences. For example, some key bindings will be different or missing, and some extensions may behave differently. For a summary, see: "[Known limitations and adaptions](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" in the {% data variables.product.prodname_vscode %} docs.
 
@@ -31,7 +31,7 @@ On the web version of {% data variables.product.prodname_vscode %}, you can clic
 
 If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stable, please follow the above troubleshooting instructions.
 
-## Browser troubleshooting
+## ブラウザのトラブルシューティング
 
 If you encounter issues using codespaces in a browser that is not Chromium-based, try switching to a Chromium-based browser, or check for known issues with your browser in the `microsoft/vscode` repository by searching for issues labeled with the name of your browser, such as [`firefox`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+label%3Afirefox) or [`safari`](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Asafari).
 

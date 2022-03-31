@@ -1,7 +1,7 @@
 ---
-title: Setting up paid organizations for procurement companies
-shortTitle: Paid organizations for procurement companies
-intro: 'If you pay for {% data variables.product.product_name %} on behalf of a client, you can configure their organization and payment settings to optimize convenience and security.'
+title: Configurar organizaciones remuneradas para empresas de contratación
+shortTitle: Organizaciones pagadas para compañías de contratación
+intro: 'Si pagas por {% data variables.product.product_name %} en nombre de un cliente, puedes configurar sus parámetros de organización y pago para optimizar la conveniencia y la seguridad.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-up-paid-organizations-for-procurement-companies
   - /articles/setting-up-and-paying-for-organizations-for-resellers

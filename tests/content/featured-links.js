@@ -7,7 +7,7 @@ import nock from 'nock'
 import japaneseCharacters from 'japanese-characters'
 
 import '../../lib/feature-flags.js'
-import { getDOM, getJSON } from '../helpers/supertest.js'
+import { getDOM, getJSON } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -38,13 +38,13 @@ describe('featuredLinks', () => {
       const $featuredLinks = $('[data-testid=article-list] a')
       expect($featuredLinks).toHaveLength(9)
       expect($featuredLinks.eq(0).attr('href')).toBe('/en/get-started/quickstart/set-up-git')
-      expect($featuredLinks.eq(0).children('h4').text().startsWith('Set up Git')).toBe(true)
+      expect($featuredLinks.eq(0).children('h3').text().startsWith('Set up Git')).toBe(true)
       expect($featuredLinks.eq(0).children('p').text().startsWith('At the heart of GitHub')).toBe(
         true
       )
 
       expect($featuredLinks.eq(8).attr('href')).toBe('/en/pages')
-      expect($featuredLinks.eq(8).children('h4').text().startsWith('GitHub Pages')).toBe(true)
+      expect($featuredLinks.eq(8).children('h3').text().startsWith('GitHub Pages')).toBe(true)
       expect($featuredLinks.eq(8).children('p').text().startsWith('You can create a website')).toBe(
         true
       )
@@ -74,7 +74,7 @@ describe('featuredLinks', () => {
       expect($featuredLinks.eq(0).attr('href')).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
       )
-      expect($featuredLinks.eq(0).children('h4').text().startsWith("GitHub's products")).toBe(true)
+      expect($featuredLinks.eq(0).children('h3').text().startsWith("GitHub's products")).toBe(true)
       expect(
         $featuredLinks
           .eq(0)

@@ -1,6 +1,6 @@
 ---
-title: Rebuilding contributions data
-intro: You may need to rebuild contributions data to link existing commits to a user account.
+title: Reconstruir datos de contribuciones
+intro: Es posible que necesites reconstruir los datos de contribuciones para vincular las confirmaciones de cambios a una cuenta de usuario.
 redirect_from:
   - /enterprise/admin/articles/rebuilding-contributions-data
   - /enterprise/admin/user-management/rebuilding-contributions-data
@@ -12,16 +12,15 @@ topics:
   - Enterprise
   - Repositories
   - User account
-shortTitle: Rebuild contributions
+shortTitle: Reconstruir las colaboraciones
 ---
-Whenever a commit is pushed to {% data variables.product.prodname_enterprise %}, it is linked to a user account if they are both associated with the same email address. However, existing commits are *not* retroactively linked when a user registers a new email address or creates a new account.
 
-1. Visit the user's profile page.
+Siempre que se sube una confirmación de cambios a {% data variables.product.prodname_enterprise %}, se vincula a una cuenta de usuario, si ambas están asociadas con la misma dirección de correo electrónico. Sin embargo, las confirmaciones de cambio existentes *no* se vinculan de forma retroactiva cuando un usuario registra una dirección de correo electrónico nueva o crea una cuenta nueva.
+
+1. Visita la página de perfil de usuario.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. On the left side of the page, click **Admin**.
-  ![Admin tab](/assets/images/enterprise/site-admin-settings/admin-tab.png)
-4. Under **Contributions data**, click **Rebuild**.
-![Rebuild button](/assets/images/enterprise/site-admin-settings/rebuild-button.png)
+3. En el lado izquierdo de la página, haz clic en **Administrar**. ![Pestaña Administrar](/assets/images/enterprise/site-admin-settings/admin-tab.png)
+4. En **Datos de contribuciones**, haz clic en **Reconstruir**. ![Botón Reconstruir](/assets/images/enterprise/site-admin-settings/rebuild-button.png)
 
-{% data variables.product.prodname_enterprise %} will now start background jobs to re-link commits with that user's account.
-  ![Queued rebuild jobs](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)
+{% data variables.product.prodname_enterprise %} ahora comenzará jobs en segundo plano para volver a enlazar las confirmaciones con esa cuenta de usuario.
+  ![Trabajos de reconstrucción en cola](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)

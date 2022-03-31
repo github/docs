@@ -1,6 +1,6 @@
 ---
-title: Managing access to projects (beta)
-intro: 'You can control who can view, edit, or manage your projects.'
+title: プロジェクト（ベータ）へのアクセス管理
+intro: プロジェクトを表示、編集、管理できるユーザを制御できます。
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:
@@ -13,78 +13,78 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## About project access
+## プロジェクトへのアクセスについて
 
-Admins of organization-level projects can manage access for the entire organization, for teams, and for individual organization members.
+Organizationレベルのプロジェクトの管理者は、Organization全体、Team、個々のOrganizationのメンバー、外部のコラボレータのアクセスを管理できます。
 
-Admins of user-level projects can invite individual collaborators and manage their access.
+ユーザレベルのプロジェクトの管理者は、個々のコラボレータを招待し、そのアクセスを管理できます。
 
-Project admins can also control the visibility of their project for everyone on the internet. For more information, see "[Managing the visibility of your projects](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)."
+プロジェクトの管理者は、インターネット上のすべての人々に対するプロジェクトの可視性も制御できます。 詳しい情報については「[プロジェクトの可視性の管理](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)」を参照してください。
 
-## Managing access for organization-level projects
+## Organizationレベルのプロジェクトのアクセス管理
 
-### Managing access for everyone in your organization
+### Organization内の全員に対するアクセス管理
 
-The default base role is `write`, meaning that everyone in the organization can see and edit your project. To change project access for everyone in the organization, you can change the base role. Changes to the base role only affect organization members who are not organization owners and who are not granted individual access.
-
-{% data reusables.projects.project-settings %}
-1. Click **Manage access**.
-2. Under **Base role**, select the default role.
-   - **No access**: Only organization owners and users granted individual access can see the project. Organization owners are also admins for the project.
-   - **Read**: Everyone in the organization can see the project. Organization owners are also admins for the project.
-   - **Write**: Everyone in the organization can see and edit the project. Organization owners are also admins for the project.
-   - **Admin**: Everyone in the organization is an admin for the project.
-
-### Managing access for teams and individual members of your organization
-
-You can also add teams, and individual organization members, as collaborators. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
-
-You can only invite an individual user to collaborate on your organization-level project if they are a member of the organization.
+デフォルトの基本ロールは`write`であり、これはOrganization内の誰もがプロジェクトを見て編集できるということです。 この基本ロールを変更すれば、Organizationの全員に対するプロジェクトのアクセスを変更できます。 基本ロールへの変更は、Organizationのオーナーではなく、個別にアクセス権を付与されていないOrganizaitonのメンバーにだけ影響します。
 
 {% data reusables.projects.project-settings %}
-1. Click **Manage access**.
-1. Under **Invite collaborators**, search for the team or organization member that you want to invite.
-1. Select the role for the collaborator.
-   - **Read**: The team or individual can view the project.
-   - **Write**: The team or individual can view and edit the project.
-   - **Admin**: The team or individual can view, edit, and add new collaborators to the project.
-1. Click **Invite**.
+1. **Manage access（アクセス管理）**をクリックしてください。
+2. **Base role（基本ロール）**の下で、デフォルトロールを選択してください。
+   - **No access（アクセス無し）**: Organizationのオーナーと、個別にアクセス権を付与されたユーザだけがプロジェクトを見ることができます。 Organizationのオーナーは、プロジェクトの管理者でもあります。
+   - **Read（読み取り）**: Organizationの全員がプロジェクトを見ることができます。 Organizationのオーナーは、プロジェクトの管理者でもあります。
+   - **Write（書き込み）**: Organizationの全員がプロジェクトを見て編集できます。 Organizationのオーナーは、プロジェクトの管理者でもあります。
+   - **Admin（管理）**: Organizationの全員がプロジェクトの管理者です。
 
-### Managing access of an existing collaborator on your project
+### Team及びOrganizationの個々のメンバーのアクセス管理
+
+Organizationレベルのプロジェクトには、Team、外部のコラボレータ、個々のOrganizationのメンバーをコラボレータとして追加することもできます。 詳細は「[Team について](/organizations/organizing-members-into-teams/about-teams)」を参照してください。
+
+個人ユーザが既にOrganizationのメンバーになっているか、Organizationの少なくとも1つのリポジトリで外部のコラボレータになっている場合にのみ、Organizationレベルのプロジェクトに共同作業をするように招待できます。
 
 {% data reusables.projects.project-settings %}
-1. Click **Manage access**.
-1. Under **Manage access**, find the collaborator(s) whose permissions you want to modify.
+1. **Manage access（アクセス管理）**をクリックしてください。
+2. **Invite collaborators（コラボレータの招待）**の下で、招待したいTeamもしくは個人ユーザを検索してください。
+3. コラボレータのロールを選択してください。
+   - **Read（読み取り）**: Teamあるいは個人はプロジェクトを見ることができます。
+   - **Write（書き込み）**: Teamあるいは個人はプロジェクトを編集できます。
+   - **Admin（管理）**: Teamあるいは個人はプロジェクトを見て編集でき、新しいコラボレータを追加できます。
+4. **Invite（招待）**をクリックしてください。
 
-   You can use the **Type** and **Role** drop-down menus to filter the access list.
+### プロジェクトの既存のコラボレータのアクセス管理
 
-1. Edit the role for the collaborator(s) or click {% octicon "trash" aria-label="the trash icon" %} to remove the collaborator(s).
+{% data reusables.projects.project-settings %}
+1. **Manage access（アクセス管理）**をクリックしてください。
+1. **Manage access（アクセス管理）**の下で、権限を変更したいコラボレータを見つけてください。
 
-## Managing access for user-level projects
+   **Type（タイプ）**及び**Role（ロール）**ドロップダウンメニューを使って、アクセスリストをフィルタリングできます。
 
-### Granting a collaborator access to your project
+1. コラボレータのロールを編集するか、{% octicon "trash" aria-label="the trash icon" %}をクリックしてコラボレータを削除してください。
+
+## ユーザレベルプロジェクトのアクセス管理
+
+### プロジェクトへのコラボレータのアクセスの付与
 
 {% note %}
 
-This only affects collaborators for your project, not for repositories in your project. To view an item on the project, someone must have the required permissions for the repository that the item belongs to. If your project includes items from a private repository, people who are not collaborators in the repository will not be able to view items from that repository. For more information, see "[Setting repository visibility](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)" and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+これはプロジェクトのコラボレータにのみ影響し、プロジェクトのリポジトリには影響しません。 プロジェクト上のアイテムを見るためには、ユーザはアイテムが属するリポジトリに対する必要な権限を持っていなければなりません。 プロジェクトにプライベートリポジトリのアイテムが含まれているなら、そのリポジトリのコラボレータではないユーザは、そのリポジトリのアイテムを見ることはできません。 詳しい情報については「[リポジトリの可視性の設定](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)」及び「[リポジトリにアクセスするTeams及びユーザの管理](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)」を参照してください。
 
 {% endnote %}
 
 {% data reusables.projects.project-settings %}
-1. Click **Manage access**.
-2. Under **Invite collaborators**, search for the user that you want to invite.
-3. Select the role for the collaborator.
-   - **Read**: The individual can view the project.
-   - **Write**: The individual can view and edit the project.
-   - **Admin**: The individual can view, edit, and add new collaborators to the project.
-4. Click **Invite**.
+1. **Manage access（アクセス管理）**をクリックしてください。
+2. **Invite collaborators（コラボレータの招待）**の下で、招待したいユーザを検索してください。
+3. コラボレータのロールを選択してください。
+   - **Read（読み取り）**: ユーザはプロジェクトを見ることができます。
+   - **Write（書き込み）**: ユーザはプロジェクトを見て編集できます。
+   - **Admin（管理）**: ユーザはプロジェクトを見て編集でき、新しいコラボレータを追加できます。
+4. **Invite（招待）**をクリックしてください。
 
-### Managing access of an existing collaborator on your project
+### プロジェクトの既存のコラボレータのアクセス管理
 
 {% data reusables.projects.project-settings %}
-1. Click **Manage access**.
-1. Under **Manage access**, find the collaborator(s) whose permissions you want to modify.
+1. **Manage access（アクセス管理）**をクリックしてください。
+1. **Manage access（アクセス管理）**の下で、権限を変更したいコラボレータを見つけてください。
 
-   You can use the **Role** drop-down menu to filter the access list.
+   **Role（ロール）**ドロップダウンメニューを使ってアクセスリストをフィルタリングできます。
 
-1. Edit the role for the collaborator(s) or click {% octicon "trash" aria-label="the trash icon" %} to remove the collaborator(s).
+1. コラボレータのロールを編集するか、{% octicon "trash" aria-label="the trash icon" %}をクリックしてコラボレータを削除してください。

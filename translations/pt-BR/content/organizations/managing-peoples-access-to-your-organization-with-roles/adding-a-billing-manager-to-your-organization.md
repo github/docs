@@ -1,6 +1,6 @@
 ---
-title: Adding a billing manager to your organization
-intro: 'A *billing manager* is a user who manages the billing settings for your organization, such as updating payment information. This is a great option if regular members of your organization don''t typically have access to billing resources.'
+title: Adicionar um gerente de cobrança à sua organização
+intro: 'Um *gerente de cobrança* é um usuário que gerencia as configurações de cobrança para sua organização, como atualizar informações de pagamento. Essa será uma excelente opção se integrantes regulares da sua organização normalmente não tiverem acesso aos recursos de cobrança.'
 redirect_from:
   - /articles/adding-a-billing-manager-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-a-billing-manager-to-your-organization
@@ -11,57 +11,59 @@ topics:
   - Organizations
   - Teams
   - Billing
-shortTitle: Add a billing manager
+shortTitle: Adicionar um gerente de cobrança
 ---
 
-Members of your organization's Owners team can give *billing manager* permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
+Os integrantes da equipe Proprietários da organização podem conceder permissões de *gerente de cobrança* para as pessoas. Depois que uma pessoa aceita o convite deles para se tornar um gerente de cobrança da sua organização, ela poderá convidar mais pessoas para serem gerentes de cobrança.
 
 {% note %}
 
-**Note:** Billing managers do not use paid licenses in your organization's subscription.
+**Observação:** Os gerentes de cobrança não usam licenças pagas na assinatura da sua organização.
 
 {% endnote %}
 
-## Permissions for billing managers
+## Permissões para gerentes de cobrança
 
-Billing managers can:
+Os gerentes de cobrança podem:
 
-- Upgrade or downgrade the account
-- Add, update, or remove payment methods
-- View payment history
-- Download receipts
-- View, invite, and remove billing managers
-- Start, modify, or cancel sponsorships
+- Atualizar ou fazer downgrade da conta
+- Adicionar, atualizar ou remover formas de pagamento
+- Exibir o histórico de pagamentos
+- Baixar recibos
+- Exibir, convidar e remover gerentes de cobrança
+- Iniciar, modificar ou cancelar patrocínios
 
-In addition, all billing managers will receive billing receipts by email on the organization's billing date.
+Além disso, todos os gerentes de cobrança receberão recibos de cobrança por e-mail na data de cobrança da organização.
 
-Billing managers **are not** able to:
+Os gerentes de cobrança **não** podem:
 
-- Create or access repositories in your organizations
-- See private members of your organization
-- Be seen in the list of organization members
-- Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
+- Criar ou acessar repositórios nas suas organizações
+- Ver integrantes privados da sua organização
+- Ser vistos na lista de integrantes da organização
+- Comprar, editar ou cancelar assinaturas para aplicativos do {% data variables.product.prodname_marketplace %}
 
 {% tip %}
 
-**Tip:**  If your organization [requires members, billing managers, and outside collaborators to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), the user must enable two-factor authentication before they can accept your invitation to become a billing manager for the organization.
+**Dica:** se sua organização [exigir que integrantes, gerentes de cobrança e colaboradores externos usem a autenticação de dois fatores](/articles/requiring-two-factor-authentication-in-your-organization), o usuário deverá habilitar a autenticação de dois fatores antes de aceitar o convite para se tornar um gerente de cobrança da organização.
 
 {% endtip %}
 
-## Inviting a billing manager
+## Convidar um gerente de cobrança
 
 {% ifversion ghec %}
 {% note %}
 
-**Note:** If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+**Observação:** Se a sua organização pertencer a uma conta corporativa, você não pode convidar gerentes de cobrança no nível da organização. Para obter mais informações, consulte "[Sobre contas corporativas](/admin/overview/about-enterprise-accounts)".
 
 {% endnote %}
 {% endif %}
 
-The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
+A pessoa convidada receberá um e-mail de convite solicitando que ela se torne um gerente de cobrança da sua organização. Assim que a pessoa convidada clicar no link de aceitação no e-mail de convite, ela será adicionada automaticamente à organização como um gerente de cobrança. Se ela ainda não tiver uma conta do GitHub, ela será direcionada para se inscrever em uma, e será adicionada automaticamente à organização como um gerente de cobrança depois que ela criar uma conta.
 
 {% data reusables.organizations.billing-settings %}
-1. Under "Billing management", next to "Billing managers", click **Add**.
-  ![Invite billing manager](/assets/images/help/billing/settings_billing_managers_list.png)
-6. Type the username or email address of the person you want to add and click **Send invitation**.
-  ![Invite billing manager page](/assets/images/help/billing/billing_manager_invite.png)
+1. Em "Gerenciamento de cobrança", ao lado de "Gerentes de cobrança", clique em **Adicionar**. ![Convidar gerente de cobrança](/assets/images/help/billing/settings_billing_managers_list.png)
+6. Digite o nome de usuário ou endereço de e-mail da pessoa que deseja adicionar e clique em **Send invitation** (Enviar convite). ![Página para convidar gerente de cobrança](/assets/images/help/billing/billing_manager_invite.png)
+
+## Leia mais
+
+- "[Convidando pessoas para gerenciar a sua empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} na documentação de {% data variables.product.prodname_ghe_cloud %}{% endif %}

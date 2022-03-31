@@ -1,6 +1,6 @@
 ---
-title: Exploring early access releases with feature preview
-intro: You can use feature preview to see products or features that are available in beta and to enable or disable each feature for your user account.
+title: Explorar versiones de acceso anticipado con vista previa de la característica
+intro: Puedes usar la vista previa de las características para ver los productos o las características que están disponibles en beta y para activar o desactivar cada característica de tu cuenta de usuario.
 redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
   - /github/getting-started-with-github/exploring-early-access-releases-with-feature-preview
@@ -10,22 +10,22 @@ versions:
   ghec: '*'
 topics:
   - Early access
-shortTitle: Feature preview
+shortTitle: Vista previa de las características
 ---
-## {% data variables.product.prodname_dotcom %}'s release cycle
 
-{% data variables.product.prodname_dotcom %}'s products and features can go through multiple release phases.
+## ciclo de lanzamiento de {% data variables.product.prodname_dotcom %}
 
-| Phase | Description |
-|-------|-------------|
-| Alpha | The product or feature is under heavy development and often has changing requirements and scope. The feature is available for demonstration and test purposes but may not be documented. Alpha releases are not necessarily feature complete, no service level agreements (SLAs) are provided, and there are no technical support obligations. <br><br> **Note**: A product or feature released as a "Technology Preview" is considered to be in the alpha release stage. Technology Preview releases share the same characteristics of alpha releases as described above.|
-| Beta | The product or feature is ready for broader distribution. Beta releases can be public or private, are documented, but do not have any SLAs or technical support obligations. |
-| General availability (GA) | The product or feature is fully tested and open publicly to all users. GA releases are ready for production use, and associated SLA and technical support obligations apply. |
+Los productos y características de {% data variables.product.prodname_dotcom %}pueden pasar por varias fases de lanzamiento.
 
-## Exploring beta releases with feature preview
+| Fase                        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Alfa                        | El producto o la característica está bajo un gran desarrollo y a menudo tiene requisitos y alcance cambiantes. Esta característica se encuentra disponible para propósitos de demostración y pruebas, pero puede no documentarse. Las versiones Alpha no necesariamente tienen una función completa, no se proporcionan Acuerdo de nivel de servicio (SLA) y no hay obligaciones de apoyo técnico. <br><br> **Nota**: Un producto o característica que se lanza como "Vista Previa de Tecnología" se considera como en estado de lanzamiento alfa. Los lanzamientos de vistas previas de tecnología comparten las mismas características de los lanzamientos alfa que se describen anteriormente. |
+| Beta                        | El producto o característica está listo para una distribución más amplia. Las versiones beta pueden ser públicas o privadas, están documentadas, pero no tienen ningún SLA u obligación de soporte técnico.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Disponibilidad general (GA) | El producto o característica está completamente probado y abierto públicamente a todos los usuarios. Las versiones de GA están listas para su uso en producción, y se aplican el Acuerdo de nivel de servicio y las obligaciones de asistencia técnica asociados.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-You can see a list of features that are available in beta and a brief description for each feature. Each feature includes a link to give feedback.
+## Explorar versiones beta con vista previa de la característica
+
+Puedes ver una lista de características disponibles en beta y una breve descripción de cada característica. Cada característica incluye un enlace para proporcionar retroalimentación.
 
 {% data reusables.feature-preview.feature-preview-setting  %}
-2. Optionally, to the right of a feature, click **Enable** or **Disable**.
-  ![Enable button in feature preview](/assets/images/help/settings/enable-feature-button.png)
+2. Opcionalmente, a la derecha de una función, haz clic en **Enable** (Habilitar) o **Disable** (Inhabilitar). ![Activar el botón en la vista previa de la característica](/assets/images/help/settings/enable-feature-button.png)

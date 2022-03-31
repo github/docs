@@ -1,6 +1,6 @@
 ---
-title: REST endpoints for the GitHub Marketplace API
-intro: 'To help manage your app on {% data variables.product.prodname_marketplace %}, use these {% data variables.product.prodname_marketplace %} API endpoints.'
+title: Terminales de REST para la API de GitHub Marketplace
+intro: 'Para ayudarte a adminsitrar tu app en {% data variables.product.prodname_marketplace %}, utiliza estas terminales de la API de {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/marketplace/github-marketplace-api-endpoints
   - /apps/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-rest-api-endpoints
@@ -11,22 +11,23 @@ versions:
   ghec: '*'
 topics:
   - Marketplace
-shortTitle: REST API
+shortTitle: API de REST
 ---
-Here are some useful endpoints available for Marketplace listings:
 
-* [List plans](/rest/reference/apps#list-plans)
-* [List accounts for a plan](/rest/reference/apps#list-accounts-for-a-plan)
-* [Get a subscription plan for an account](/rest/reference/apps#get-a-subscription-plan-for-an-account)
-* [List subscriptions for the authenticated user](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
+Aquí te mostramos algunas terminales útiles que están disponibles para los listados de Marketplace:
 
-See these pages for details on how to authenticate when using the {% data variables.product.prodname_marketplace %} API:
+* [Listar planes](/rest/reference/apps#list-plans)
+* [Listar cuentas para un plan](/rest/reference/apps#list-accounts-for-a-plan)
+* [Obtener un plan de suscripción para una cuenta](/rest/reference/apps#get-a-subscription-plan-for-an-account)
+* [Listar las suscripciones del usuario autenticado](/rest/reference/apps#list-subscriptions-for-the-authenticated-user)
 
-* [Authorization options for OAuth Apps](/apps/building-oauth-apps/authorizing-oauth-apps/)
-* [Authentication options for GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/)
+Consulta estas páginas para encontrar más detalles sobre cómo autenticarte cuando utilices la API de {% data variables.product.prodname_marketplace %}:
+
+* [Opciones de autorización para las Apps de OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/)
+* [Opciones de autenticación para las GitHub Apps](/apps/building-github-apps/authenticating-with-github-apps/)
 
 {% note %}
 
-**Note:** [Rate limits for the REST API](/rest#rate-limiting) apply to all {% data variables.product.prodname_marketplace %} API endpoints.
+**Nota:** [Los límites de tasa para la API de REST](/rest/overview/resources-in-the-rest-api#rate-limiting) aplican para todas las terminales de la API de {% data variables.product.prodname_marketplace %}.
 
 {% endnote %}

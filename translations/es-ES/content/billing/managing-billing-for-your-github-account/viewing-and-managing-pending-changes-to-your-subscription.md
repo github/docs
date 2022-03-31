@@ -1,6 +1,6 @@
 ---
-title: Viewing and managing pending changes to your subscription
-intro: You can view and cancel pending changes to your subscriptions before they take effect on your next billing date.
+title: Ver y administrar cambios pendientes en tu suscripción
+intro: Puedes ver y cancelar cambios pendientes en tus suscripciones antes de que se hagan efectivas en la próxima fecha de facturación.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-and-managing-pending-changes-to-your-subscription
   - /articles/viewing-and-managing-pending-changes-to-your-personal-account-s-billing-plan
@@ -15,27 +15,28 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: Pending subscription changes
+shortTitle: Cambios de suscripción pendientes
 ---
-You can cancel pending changes to your account's subscription as well as pending changes to your subscriptions to other paid features and products.
 
-When you cancel a pending change, your subscription will not change on your next billing date (unless you make a subsequent change to your subscription before your next billing date).
+Puedes cancelar cambios pendientes en la suscripción de tu cuenta y cambios pendientes en tus suscripciones a otras funciones y productos pagos.
 
-## Viewing and managing pending changes to your personal account's subscription
+Cuando cancelas un cambio pendiente, tu suscripción no cambiará en tu próxima fecha de facturación (a menos que hagas un cambio posterior en tu suscripción antes de la próxima fecha de facturación).
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+## Ver y administrar cambios pendientes en tu suscripción de cuenta personal
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-## Viewing and managing pending changes to your organization's subscription
+## Ver y administrar cambios pendientes en tu suscripción de organización
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.review-pending-changes %}
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-## Further reading
+## Leer más
 
-- "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)"
+- "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)"

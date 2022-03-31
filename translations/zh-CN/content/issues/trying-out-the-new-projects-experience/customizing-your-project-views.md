@@ -1,6 +1,6 @@
 ---
-title: Customizing your project (beta) views
-intro: 'Display the information you need by changing the layout, grouping, sorting, and filters in your project.'
+title: 自定义项目（测试版）视图
+intro: 通过更改项目中的布局、分组、排序和筛选器来显示您需要的信息。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,174 +12,193 @@ topics:
 
 {% data reusables.projects.projects-beta %}
 
-## Project command palette
+## 项目命令面板
 
-Use the project command palette to quickly change settings and run commands in your project.
-
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing any part of a command or navigate through the command palette window to find a command. See the next sections for more examples of commands.
-
-## Changing the project layout
-
-You can view your project as a table or as a board.
+使用项目命令面板快速更改项目中的设置并运行命令。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Switch layout".
-3. Choose the required command. For example, **Switch layout: Table**.
-3. Alternatively, click the drop-down menu next to a view name and click **Table** or **Board**.
+2. 开始键入命令的任何部分或浏览命令面板窗口以查找命令。 更多命令示例请参阅下面的章节。
 
-## Showing and hiding fields
+## 更改项目布局
 
-You can show or hide a specific field.
-
-In table layout:
+您可以将项目视为表或板。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing the action you want to take ("show" or "hide") or the name of the field.
-3. Choose the required command. For example, **Show: Milestone**.
-4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} to the right of the table. In the drop-down menu that appears, indicate which fields to show or hide. A {% octicon "check" aria-label="check icon" %} indicates which fields are displayed.
-5. Alternatively, click the drop-down menu next to the field name and click **Hide field**.
+2. 开始键入 "Switch layout"。
+3. 选择所需的命令。 例如 **Switch layout: Table**。
 
-In board layout:
+或者，单击视图名称旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %} ，然后单击 **Table（表）**或 **Board（板）**。
 
-1. Click the drop-down menu next to the view name.
-2. Under **configuration**, click {% octicon "list-unordered" aria-label="the unordered list icon" %}.
-3. In the menu that's displayed, select fields to add them and deselect fields to remove them from the view.
+## 显示和隐藏字段
 
-## Reordering fields
+您可以显示或隐藏特定字段。
 
-You can change the order of fields.
-
-1. Click the field header.
-2. While clicking, drag the field to the required location.
-
-## Reordering rows
-
-In table layout, you can change the order of rows.
-
-1. Click the number at the start of the row.
-2. While clicking, drag the row to the required location.
-
-## Sorting by field values
-
-In table layout, you can sort items by a field value.
+### 在表格布局中显示和隐藏字段
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Sort by" or the name of the field you want to sort by.
-3. Choose the required command. For example, **Sort by: Assignees, asc**.
-4. Alternatively, click the drop-down menu next to the field name that you want to sort by and click **Sort ascending** or **Sort descending**.
+2. 开始键入要执行的操作（"show" 或 "hide"）或字段名称。
+3. 选择所需的命令。 例如 **Show: Milestone**。
+
+或者，单击表格右侧的 {% octicon "plus" aria-label="the plus icon" %}。 在显示的下拉菜单中，指示要显示或隐藏哪些字段。 {% octicon "check" aria-label="check icon" %} 指示显示哪些字段。
+
+或者，单击字段名称旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %} ，然后单击 **Hide field（隐藏字段）**。
+
+### 在板布局中显示和隐藏字段
+
+1. 单击视图名称旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %}。
+2. 在 **configuration（配置）**下，单击 {% octicon "list-unordered" aria-label="the unordered list icon" %}。
+3. 在显示的菜单中，选择字段可添加它们，取消选择字段则将其从视图中移除。
+
+## 对字段重新排序
+
+您可以更改字段的顺序。
+
+1. 单击字段标题。
+2. 点击时，将字段拖到所需位置。
+
+## 对行重新排序
+
+在表布局中，您可以更改行的顺序。
+
+1. 点击行开头的数字。
+2. 点击时，将行拖到所需位置。
+
+## 按字段值排序
+
+在表布局中，您可以按字段值排序项。
+
+1. {% data reusables.projects.open-command-palette %}
+2. 开始键入 "Sort by" 或您想要排序的字段的名称。
+3. 选择所需的命令。 例如 **Sort by: Assignees, asc**。
+
+或者，单击您要排序的字段名称旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %}，然后单击 **Sort ascending（升序排序）**或 **Sort descending（降序排序）**。
 
 {% note %}
 
-**Note:** When a table is sorted, you cannot manually reorder rows.
+**注意：**对表格排序时，您不能手动重新排序行。
 
 {% endnote %}
 
-Follow similar steps to remove a sort.
+按照类似步骤删除排序。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Remove sort-by".
-3. Choose **Remove sort-by**.
-4. Alternatively, click the drop-down menu next to the view name and click the menu item that indicates the current sort.
+2. 开始键入 "Remove sort-by"。
+3. 选择 **Remove sort-by（删除排序依据）**。
 
-## Grouping by field values
+或者，单击视图名称旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %} ，然后单击指示当前排序的菜单项。
 
-In the table layout, you can group items by a custom field value. When items are grouped, if you drag an item to a new group, the value of that group is applied. For example, if you group by "Status" and then drag an item with a status of `In progress` to the `Done` group, the status of the item will switch to `Done`.
+## 在表布局中按字段值分组
+
+在表布局中，您可以按自定义字段值排序组项。 对项分组时，如果将项拖动到新组，则应用该组的值。 例如， 如果您是按“状态”分组，然后将一个状态为 `In progress` 的项拖动到 `Done` 组，则该项的状态将切换到 `Done`。 同样，当您向组添加新项时，新项将使用组的值填充。
 
 {% note %}
 
-**Note:** Currently, you cannot group by title, assignees, repository or labels.
+**注意：**目前，您无法按标题、标签、审阅者或链接的拉取请求进行分组。
 
 {% endnote %}
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Group by" or the name of the field you want to group by.
-3. Choose the required command. For example, **Group by: Status**.
-4. Alternatively, click the drop-down menu next to the field name that you want to group by and click **Group by values**.
+2. 开始键入 "Group by" 或您想要分组的字段的名称。
+3. 选择所需的命令。 例如 **Group by: Status**。
 
-Follow similar steps to remove a grouping.
+或者，单击要作为分组依据的字段名称旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %} ，然后单击 **Group by values（按值分组）**。
 
-1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Remove group-by".
-3. Choose **Remove group-by**.
-4. Alternatively, click the drop-down menu next to the view name and click the menu item that indicates the current grouping.
-
-## Filtering rows
-
-Click {% octicon "search" aria-label="the search icon" %} at the top of the table to show the "Filter by keyword or field" bar. Start typing the field name and value that you want to filter by. As you type, possible values will appear.
-
-- To filter for multiple values, separate the values with a comma. For example `label:"good first issue",bug` will list all issues with a label `good first issue` or `bug`.
-- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
-- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
-- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
-- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
-
-Alternatively, use the command palette.
+按照类似步骤删除分组。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Filter by" or the name of the field you want to filter by.
-3. Choose the required command. For example, **Filter by Status**.
-4. Enter the value that you want to filter for. For example: "In progress". You can also filter for the absence of specific values (for example, choose "Exclude status" then choose a status) or the absence of all values (for example, "No status").
+2. 开始键入 "Remove group-by"。
+3. 选择 **Remove group-by（删除分组依据）**。
 
-In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
+或者，选择视图名称旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %}，然后单击显示当前分组的菜单项。
 
-## Creating a project view
+## 在板布局中设置列字段
 
-Project views allow you to quickly view specific aspects of your project. Each view is displayed on a separate tab in your project. 
-
-For example, you can have:
-- A view that shows all items not yet started (filter on "Status").
-- A view that shows the workload for each team (group by a custom "Team" field).
-- A view that shows the items with the earliest target ship date (sort by a date field).
-
-To add a new view:
+在板布局中，您可以为列选择任何单选或迭代字段。 如果将某个项拖到新列，则该列的值将应用于拖动的项。 例如，如果对板列使用“Status（状态）”字段，然后将状态为 `In progress` 的项拖到 `Done` 列，则该项的状态将切换到 `Done`。
 
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "New view" (to create a new view) or "Duplicate view" (to duplicate the current view).
-3. Choose the required command.
-4. Alternatively, click {% octicon "plus" aria-label="the plus icon" %} **New view** next to the rightmost view.
-5. Alternatively, click the drop-down menu next to a view name and click **Duplicate view**.
+1. 开始键入 "Column field by" 或您想要用于列的字段名称。
+1. 选择所需的命令。 例如 **Column field by: Status**。
 
-The new view is automatically saved.
+或者，单击要修改的板视图旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %} ，然后单击 {% octicon "columns" aria-label="the column icon" %} **Column field（列字段）**。 然后选择要用于板列的字段。
 
-## Saving changes to a view
+## 过滤项
 
-When you make changes to a view - for example, sorting, reordering, filtering, or grouping the data in a view - a dot is displayed next to the view name to indicate that there are unsaved changes. 
+点击表格顶部的 {% octicon "filter" aria-label="the filter icon" %} 以显示“Filter by keyword or by field（按关键字或字段过滤）”列。 开始键入要过滤的字段名称和值。 当您输入时，可能的值将会出现。
 
-![Unsaved changes indicator](/assets/images/help/projects/unsaved-changes.png)
+{% data reusables.projects.projects-filters %}
 
-If you don't want to save the changes, you can ignore this indicator. No one else will see your changes.
+或者，使用命令面板。
 
-To save the current configuration of the view for all project members:
 1. {% data reusables.projects.open-command-palette %}
-1. Start typing "Save view" or "Save changes to new view".
-1. Choose the required command.
-1. Alternatively, click the drop-down menu next to a view name and click **Save view** or **Save changes to new view**.
+2. 开始键入 "Filter by" 或您想要筛选的字段的名称。
+3. 选择所需的命令。 例如 **Filter by Status**。
+4. 输入您想要过滤的值。 例如："In progress"。 您还可以过滤缺少特定值的字段（例如，选择“Exclude status（排除状态）”，然后选择一个状态）或缺少所有值的字段（例如，“No status（无状态）”）。
 
-## Reordering saved views
+在板布局中，您可以单击项目数据以过滤具有该值的项。 例如，单击某个受理人以仅显示该受理人的项。 要移除过滤器，请再次单击项数据。
 
-To change the order of the tabs that contain your saved views, click and drag a tab to a new location.
+更多信息请参阅“[筛选项目](/issues/trying-out-the-new-projects-experience/filtering-projects)”。
 
-The new tab order is automatically saved.
+## 创建项目视图
 
-## Renaming a saved view
+项目视图允许您快速查看项目的特定方面。 每个视图都显示在项目中单独的选项卡上。
 
-To rename a view:
-1. Double click the name in the project tab.
-1. Change the name.
-1. Press Enter, or click outside of the tab.
+例如，您可以有：
+- 显示所有尚未开始的项的视图（按“状态”过滤）。
+- 显示每个团队的工作负荷的视图（按自定义“团队”字段分组）。
+- 显示具有最早目标运送日期的项的视图（按日期字段排序）。
 
-The name change is automatically saved.
+要添加新视图：
 
-## Deleting a saved view
-
-To delete a view:
 1. {% data reusables.projects.open-command-palette %}
-2. Start typing "Delete view".
-3. Choose the required command.
-4. Alternatively, click the drop-down menu next to a view name and click **Delete view**.
+2. 开始键入 "New view"（创建新视图）或 "Duplicate view"（复制当前视图）。
+3. 选择所需的命令。
 
-## Further reading
+或者，点击右侧视图旁边的 {% octicon "plus" aria-label="the plus icon" %} **New view（新视图）**。
 
-- "[About projects (beta)](/issues/trying-out-the-new-projects-experience/about-projects)"
-- "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project)"
+或者，单击视图名称旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %} ，然后单击 **Duplicate view（复制视图）**。
+
+新视图将自动保存。
+
+## 保存对视图的更改
+
+对视图进行更改（例如，对视图中的数据进行排序、重新排序、过滤或分组）时，视图名称旁边会显示一个点，以指示存在未保存的更改。
+
+![未保存的更改指示符](/assets/images/help/projects/unsaved-changes.png)
+
+如果您不想保存更改，可以忽略此指示。 没有其他人会看到您的更改。
+
+保存所有项目成员的视图的当前配置：
+1. {% data reusables.projects.open-command-palette %}
+1. 开始键入 "Save view" 或 "Save changes to new view"。
+1. 选择所需的命令。
+
+或者，单击视图名称旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %}，然后点击 **Save view（保存视图）** 或 **Save changes to new view（保存更改到新视图）**。
+
+## 对保存的视图重新排序
+
+要更改包含已保存视图的选项卡的顺序，请单击选项卡并将其拖到新位置。
+
+新选项卡顺序自动保存。
+
+## 重命名保存的视图
+
+要重命名视图：
+1. 双击项目选项卡中的名称。
+1. 更改名称。
+1. 按 Enter 键，或在选项卡外部单击。
+
+名称更改将自动保存。
+
+## 删除已保存的视图
+
+要删除视图：
+1. {% data reusables.projects.open-command-palette %}
+2. 开始键入 "Delete view"。
+3. 选择所需的命令。
+
+或者，单击视图名称旁边的 {% octicon "triangle-down" aria-label="the drop-down icon" %} ，然后单击 **Delete view（删除视图）**。
+
+## 延伸阅读
+
+- "[关于项目（测试版）](/issues/trying-out-the-new-projects-experience/about-projects)"
+- "[创建项目（测试版）](/issues/trying-out-the-new-projects-experience/creating-a-project)"

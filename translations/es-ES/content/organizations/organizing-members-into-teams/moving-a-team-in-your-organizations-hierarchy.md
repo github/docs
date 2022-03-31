@@ -1,6 +1,6 @@
 ---
-title: Moving a team in your organization’s hierarchy
-intro: 'Team maintainers and organization owners can nest a team under a parent team, or change or remove a nested team''s parent.'
+title: Mover un equipo en la jerarquía de tu organización
+intro: 'Los mantenedores del equipo y los propietarios de la organización pueden anidar un equipo bajo un equipo padre, o cambiar o eliminar un equipo padre de un equipo anidado.'
 redirect_from:
   - /articles/changing-a-team-s-parent
   - /articles/moving-a-team-in-your-organization-s-hierarchy
@@ -14,34 +14,31 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Move a team
+shortTitle: Mover un equipo
 ---
 
-Organization owners can change the parent of any team. Team maintainers can change a team's parent if they are maintainers in both the child team and the parent team. Team maintainers without maintainer permissions in the child team can request to add a parent or child team. For more information, see "[Requesting to add or change a parent team](/articles/requesting-to-add-or-change-a-parent-team)" and "[Requesting to add a child team](/articles/requesting-to-add-a-child-team)."
+Los propietarios de la organización pueden cambiar el padre de cualquier equipo. Los mantenedores del equipo pueden cambiar el equipo padre de un equipo si son mantenedores tanto en el equipo hijo como en el equipo padre. Los mantenedores del equipo sin permisos de mantenedor en el equipo hijo puede solicitar agregar un equipo padre o hijo. Para obtener más información, consulta "[Solicitar agregar o cambiar un equipo padre](/articles/requesting-to-add-or-change-a-parent-team)" y "[Solicitar agregar un equipo hijo](/articles/requesting-to-add-a-child-team)."
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
 {% tip %}
 
 **Tips:**
-- You cannot change a team's parent to a secret team. For more information, see "[About teams](/articles/about-teams)."
-- You cannot nest a parent team beneath one of its child teams.
+- No puedes cambiar el equipo padre de un equipo a un equipo secreto. Para obtener más información, consulta "[Acerca de los equipos](/articles/about-teams)".
+- No puedes anidar un equipo padre debajo de uno de sus equipos hijos.
 
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
-4. In the list of teams, click the name of the team whose parent you'd like to change.
-  ![List of the organization's teams](/assets/images/help/teams/click-team-name.png)
+4. En la lista de equipos, haz clic en el nombre del equipo cuyo padre deseas cambiar. ![Lista de los equipos de la organización](/assets/images/help/teams/click-team-name.png)
 {% data reusables.organizations.team_settings %}
-6. Use the drop-down menu to choose a parent team, or to remove an existing parent, select **Clear selected value**.
-  ![Drop-down menu listing the organization's teams](/assets/images/help/teams/choose-parent-team.png)
-7. Click **Update**.
+6. Utiliza el menú desplegable para elegir un equipo padre, o para eliminar un equipo padre existente, selecciona **Clear selected value (Borrar el valor seleccionado)**. ![Menú desplegable que enumera los equipos de la organización](/assets/images/help/teams/choose-parent-team.png)
+7. Da clic en **Actualizar**.
 {% data reusables.repositories.changed-repository-access-permissions %}
-9. Click **Confirm new parent team**.
-  ![Modal box with information about the changes in repository access permissions](/assets/images/help/teams/confirm-new-parent-team.png)
+9. Haz clic en **Confirm new parent team (Confirmar nuevo equipo padre)**. ![Casilla modal para información acerca de los cambios en los permisos de acceso del repositorio](/assets/images/help/teams/confirm-new-parent-team.png)
 
-## Further reading
+## Leer más
 
-- "[About teams](/articles/about-teams)"
+- [Acerca de los equipos](/articles/about-teams)"

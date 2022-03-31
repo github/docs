@@ -1,6 +1,6 @@
 ---
-title: Enabling and scheduling maintenance mode
-intro: 'Some standard maintenance procedures, such as upgrading {% data variables.product.product_location %} or restoring backups, require the instance to be taken offline for normal use.'
+title: 启用和排定维护模式
+intro: '一些标准维护程序（例如升级 {% data variables.product.product_location %} 或还原备份）要求实例进入脱机状态才能正常使用。'
 redirect_from:
   - /enterprise/admin/maintenance-mode
   - /enterprise/admin/categories/maintenance-mode
@@ -19,47 +19,44 @@ topics:
   - Fundamentals
   - Maintenance
   - Upgrades
-shortTitle: Configure maintenance mode
+shortTitle: 配置维护模式
 ---
-## About maintenance mode
 
-Some types of operations require that you take {% data variables.product.product_location %} offline and put it into maintenance mode:
-- Upgrading to a new version of {% data variables.product.prodname_ghe_server %}
-- Increasing CPU, memory, or storage resources allocated to the virtual machine
-- Migrating data from one virtual machine to another
-- Restoring data from a {% data variables.product.prodname_enterprise_backup_utilities %} snapshot
-- Troubleshooting certain types of critical application issues
+## 关于维护模式
 
-We recommend that you schedule a maintenance window for at least 30 minutes in the future to give users time to prepare. When a maintenance window is scheduled, all users will see a banner when accessing the site.
+某些操作类型要求您让 {% data variables.product.product_location %} 进入脱机状态并将其置于维护模式：
+- 升级到新版本的 {% data variables.product.prodname_ghe_server %}
+- 增加分配给虚拟机的 CPU、内存或存储资源
+- 将数据从一台虚拟机迁移到另一台虚拟机
+- 通过 {% data variables.product.prodname_enterprise_backup_utilities %} 快照还原数据
+- 排查某些类型的关键应用程序问题
 
-![End user banner about scheduled maintenance](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
+我们建议您至少将维护窗口排定在 30 分钟后，以便用户提前作好准备。 排定维护窗口后，所有用户在访问站点时都会看到横幅。
 
-When the instance is in maintenance mode, all normal HTTP and Git access is refused. Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable. GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
+![关于已排定维护的最终用户横幅](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
 
-![The maintenance mode splash screen](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
+在实例进入维护模式后，所有正常 HTTP 和 Git 访问都会遭到拒绝。 Git 提取、克隆和推送操作也会被拒绝，并显示一条错误消息，指示站点暂时不可用。 GitHub Actions 作业不会执行。 在浏览器中访问该站点会显示维护页面。
 
-## Enabling maintenance mode immediately or scheduling a maintenance window for a later time
+![维护模式启动屏幕](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
+
+## 立即启用维护模式或排定在未来的某个时间进行维护
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the {% data variables.enterprise.management_console %}, click **Maintenance**.
-  ![Maintenance tab](/assets/images/enterprise/management-console/maintenance-tab.png)
-3. Under "Enable and schedule", decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
-    - To enable maintenance mode immediately, use the drop-down menu and click **now**.
-    ![Drop-down menu with the option to enable maintenance mode now selected](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
-    - To schedule a maintenance window for a future time, use the drop-down menu and click a start time.
-    ![Drop-down menu with the option to schedule a maintenance window in two hours selected](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
-4. Select **Enable maintenance mode**.
-  ![Checkbox for enabling or scheduling maintenance mode](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
+2. 在 {% data variables.enterprise.management_console %} 顶部，单击 **Maintenance**。 ![Maintenance 选项卡](/assets/images/enterprise/management-console/maintenance-tab.png)
+3. 在“Enable and schedule”下，决定立即启用维护模式还是排定在未来的某个时间进行维护。
+    - 要立即启用维护模式，请使用下拉菜单，然后单击 **now**。 ![包含已选择立即启用维护模式的选项的下拉菜单](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
+    - 要排定在未来的某个时间进行维护，请使用下拉菜单，然后单击开始时间。 ![包含已选择排定在两小时后进行维护的选项的下拉菜单](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
+4. 选择 **Enable maintenance mode**。 ![启用或排定维护模式的复选框](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
-## Scheduling maintenance mode with {% data variables.product.prodname_enterprise_api %}
+## 通过 {% data variables.product.prodname_enterprise_api %} 排定维护模式
 
-You can schedule maintenance for different times or dates with {% data variables.product.prodname_enterprise_api %}. For more information, see "[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
+您可以通过 {% data variables.product.prodname_enterprise_api %} 排定在其他时间或日期进行维护。 更多信息请参阅“[管理控制台](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)”。
 
-## Enabling or disabling maintenance mode for all nodes in a cluster
+## 为集群中的所有节点启用或禁用维护模式
 
-With the `ghe-cluster-maintenance` utility, you can set or unset maintenance mode for every node in a cluster.
+您可以通过 `ghe-cluster-maintenance` 实用程序为集群中的每个节点设置或取消设置维护模式。
 
 ```shell
 $ ghe-cluster-maintenance -h

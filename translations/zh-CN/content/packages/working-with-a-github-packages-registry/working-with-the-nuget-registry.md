@@ -111,7 +111,6 @@ If you don't already have a PAT to use for your account on {% ifversion ghae %}{
 
 {% data reusables.package_registry.viewing-packages %}
 
-
 ### Publishing a package using a *nuget.config* file
 
 When publishing, you need to use the same value for `OWNER` in your *csproj* file that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
@@ -231,6 +230,10 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
 
 Your NuGet package may fail to push if the `RepositoryUrl` in *.csproj* is not set to the expected repository .
 
+If you're using a nuspec file, ensure that it has a `repository` element with the required `type` and `url` attributes.
+
+{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 ## Further reading
 
-- "{% ifversion fpt or ghes > 3.0 or ghec %}[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package){% elsif ghes < 3.1 or ghae %}[Deleting a package](/packages/learn-github-packages/deleting-a-package){% endif %}"
+- "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+{% endif %}

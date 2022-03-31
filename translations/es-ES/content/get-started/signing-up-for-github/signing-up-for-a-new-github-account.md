@@ -1,7 +1,7 @@
 ---
-title: Signing up for a new GitHub account
-shortTitle: Sign up for a new GitHub account
-intro: '{% data variables.product.company_short %} offers user accounts for individuals and organizations for teams of people working together.'
+title: Registrar una nueva cuenta GitHub
+shortTitle: Registrarse para una cuenta nueva de GitHub
+intro: '{% data variables.product.company_short %} ofrece cuentas de usuario para personas y organizaciones para equipos de personas que trabajan juntas.'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
   - /github/getting-started-with-github/signing-up-for-a-new-github-account
@@ -13,19 +13,20 @@ topics:
   - Accounts
 ---
 
-## About new accounts on {% data variables.product.prodname_dotcom_the_website %}
+## Acerca de las cuentas nuevas de {% data variables.product.prodname_dotcom_the_website %}
 
-You can create a personal account, which serves as your identity on {% data variables.product.prodname_dotcom_the_website %}, or an organization, which allows multiple personal accounts to collaborate across multiple projects. For more information about account types, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+Puedes crear una cuenta personal, lo cual funciona como tu identidad en {% data variables.product.prodname_dotcom_the_website %} o una organización, la cual permite cuentas personales múltiples para colaborar en varios proyectos. Para obtener más información sobre los tipos de cuenta, consulta la sección "[Tipos de cuentas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
-When you create a personal account or organization, you must select a billing plan for the account. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
+Cuando creas una cuenta personal o de organización, debes seleccionar un plan de facturación para ella. Para obtener más información, consulta "Productos de [{% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)".
 
-## Signing up for a new account
+## Registrarse para una cuenta nueva
 
+1. Si quieres crear una cuenta personal nueva, asegúrate de haber cerrado sesión en GitHub.
 {% data reusables.accounts.create-account %}
-1. Follow the prompts to create your personal account or organization.
+1. Sigue las indicaciones para crear tu cuenta personal o de organización.
 
-## Next steps
+## Pasos siguientes
 
-- "[Verify your email address](/articles/verifying-your-email-address)"
-- "[Creating an enterprise account](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
-- [ {% data variables.product.prodname_roadmap %} ]( {% data variables.product.prodname_roadmap_link %} ) in the  `github/roadmap` repository
+- [Verifica tus dirección de correo electrónico](/articles/verifying-your-email-address)"
+- "[Crear una cuenta empresarial](/enterprise-cloud@latest/admin/overview/creating-an-enterprise-account)"{% ifversion fpt %} en la documentación de {% data variables.product.prodname_ghe_cloud %}{% endif %}
+- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) en el repositorio `github/roadmap`

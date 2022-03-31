@@ -1,6 +1,6 @@
 ---
-title: Activity dashboard
-intro: The Activity dashboard gives you an overview of all the activity in your enterprise.
+title: Tablero de actividades
+intro: El tablero de actividades te proporciona un resumen de toda la actividad en tu empresa.
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard
   - /enterprise/admin/installation/activity-dashboard
@@ -12,22 +12,21 @@ versions:
 topics:
   - Enterprise
 ---
-The Activity dashboard provides weekly, monthly, and yearly graphs of the number of:
-- New pull requests
-- Merged pull requests
-- New issues
-- Closed issues
-- New issue comments
-- New repositories
-- New user accounts
-- New organizations
-- New teams
 
-![Activity dashboard](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
+El Tablero de actividades te proporciona gráficos semanales, mensuales y anuales de la cantidad de:
+- Solicitudes de extracción nuevas
+- Solicitudes de extracción fusionadas
+- Problemas nuevos
+- Problemas resueltos
+- Comentarios de problemas nuevos
+- Repositorios nuevos
+- Cuentas de usuario nuevas
+- Organizaciones nuevas
+- Equipos nuevos
 
-## Accessing the Activity dashboard
+![Tablero de actividades](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-1. At the top of any page, click **Explore**.
-![Explore tab](/assets/images/enterprise/settings/ent-new-explore.png)
-2. In the upper-right corner, click **Activity**.
-![Activity button](/assets/images/enterprise/activity/activity-button.png)
+## Acceder al Tablero de actividades
+
+1. En la parte superior de cualquier página, haz clic en **Explore** (Explorar). ![Explorar la etiqueta](/assets/images/enterprise/settings/ent-new-explore.png)
+2. En el margen izquierdo superior, haz clic en **Activity** (Actividad). ![Botón de actividades](/assets/images/enterprise/activity/activity-button.png)

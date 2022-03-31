@@ -1,6 +1,6 @@
 ---
-title: Types of GitHub accounts
-intro: 'Accounts on {% data variables.product.product_name %} allow you to organize and control access to code.'
+title: Tipos de cuentas de GitHub
+intro: 'Las cuentas de {% data variables.product.product_name %} te permiten organizar y controlar el acceso al código.'
 redirect_from:
   - /manage-multiple-clients
   - /managing-clients
@@ -22,66 +22,68 @@ topics:
   - Security
 ---
 
-## About accounts on {% data variables.product.product_name %}
+## Acerca de las cuentas de {% data variables.product.product_name %}
 
-With {% data variables.product.product_name %}, you can store and collaborate on code. Accounts allow you to organize and control access to that code. There are three types of accounts on {% data variables.product.product_name %}.
-- Personal accounts
-- Organization accounts
-- Enterprise accounts
+Con {% data variables.product.product_name %}, puedes almacenar y colaborar con el código. Las cuentas te permiten organizar y controlar el acceso a dicho código. Existen tres tipos de cuentas en {% data variables.product.product_name %}.
+- Cuentas personales
+- Cuentas de organización
+- Cuentas de empresa
 
-Every person who uses {% data variables.product.product_name %} signs into a personal account. An organization account enhances collaboration between multiple personal accounts, and {% ifversion fpt or ghec %}an enterprise account{% else %}the enterprise account for {% data variables.product.product_location %}{% endif %} allows central management of multiple organizations.
+Toda persona que utilice {% data variables.product.product_name %} inicia sesión en una cuenta personal. Una cuenta de organización amplía la colaboración entre cuentas personales múltiples y {% ifversion fpt or ghec %}una cuenta empresarial{% else %}la cuenta empresarial de {% data variables.product.product_location %}{% endif %} permite una administración centralizada de varias organizaciones.
 
-## Personal accounts
+## Cuentas personales
 
-Every person who uses {% data variables.product.product_location %} signs into a personal account. Your personal account is your identity on {% data variables.product.product_location %} and has a username and profile. For example, see [@octocat's profile](https://github.com/octocat).
+Cada persona que utilice {% data variables.product.product_location %} deberá iniciar sesión en una cuenta personal. Tu cuenta personal es tu identidad en {% data variables.product.product_location %} y tiene un nombre de usuario y perfil. Por ejemplo, puedes ver el [perfil de @octocat](https://github.com/octocat).
 
-Your personal account can own resources such as repositories, packages, and projects. Any time you take any action on {% data variables.product.product_location %}, such as creating an issue or reviewing a pull request, the action is attributed to your personal account.
+Tu cuenta personal puede ser propietaria de recursos tales como repositorios, paquetes y proyectos. En cualquier momento que realices una acción en {% data variables.product.product_location %}, tal como crear una propuesta o revisar una solicitud de cambios, dicha acción se atribuirá a tu cuenta personal.
 
-{% ifversion fpt or ghec %}Each personal account uses either {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}. All personal accounts can own an unlimited number of public and private repositories, with an unlimited number of collaborators on those repositories. If you use {% data variables.product.prodname_free_user %}, private repositories owned by your personal account have a limited feature set. You can upgrade to {% data variables.product.prodname_pro %} to get a full feature set for private repositories. For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)." {% else %}You can create an unlimited number of repositories owned by your personal account, with an unlimited number of collaborators on those repositories.{% endif %}
+{% ifversion fpt or ghec %}Cada cuenta personal utiliza ya sea {% data variables.product.prodname_free_user %} o {% data variables.product.prodname_pro %}. Todas las cuentas personales pueden ser propietarias de una cantidad ilimitada de repositorios públicos o privados, con una cantidad ilimitada de colaboradores en dichos repositorios. Si utilizas {% data variables.product.prodname_free_user %}, los repositorios privados que le pertenezcan a tu cuenta personal tendrán un conjunto de características limitado. Puedes mejorar a {% data variables.product.prodname_pro %} para obtener el conjunto total de características para los repositorios privados. Para obtener más información, consulta "Productos de [{% data variables.product.prodname_dotcom %}](/articles/githubs-products)". {% else %}Puedes crear una cantidad ilimitada de repositorios que le pertenezcan a tu cuenta personal, con una cantidad ilimitada de colaboradores en dichos repositorios.{% endif %}
 
 {% tip %}
 
-**Tip**: Personal accounts are intended for humans, but you can create accounts to automate activity on {% data variables.product.product_name %}. This type of account is called a machine user. For example, you can create a machine user account to automate continuous integration (CI) workflows.
+**Tip**: Se pretende que las cuentas personales sean para humanos, pero puedes crear cuentas para automatizar la actividad en {% data variables.product.product_name %}. Este tipo de cuenta se llama "usuario máquina". Por ejemplo, puedes crear una cuenta de usuario máquina para automatizar los flujos de trabajo de integración continua (IC).
 
 {% endtip %}
 
 {% ifversion fpt or ghec %}
-Most people will use one personal account for all their work on {% data variables.product.prodname_dotcom_the_website %}, including both open source projects and paid employment. If you're currently using more than one personal account that you created for yourself, we suggest combining the accounts. For more information, see "[Merging multiple user accounts](/articles/merging-multiple-user-accounts)."
+La mayoría de las personas utilizarán una cuenta personal para todo su trabajo en {% data variables.product.prodname_dotcom_the_website %}, incluyendo tanto los proyectos de código abierto como el empleo pagado. Si actualmente utilizas más de una cuenta personal que hayas creado para ti mismo, te sugerimos combinar las cuentas. Para obtener más información, consulta "[Fusionar múltiples cuentas de usuario](/articles/merging-multiple-user-accounts)".
 {% endif %}
 
-## Organization accounts
+## Cuentas de organización
 
-Organizations are shared accounts where an unlimited number of people can collaborate across many projects at once. 
+Las organizaciones son cuentas compartidas en donde una cantidad ilimitada de personas pueden colaborar en muchos proyectos al mismo tiempo.
 
-Like personal accounts, organizations can own resources such as repositories, packages, and projects. However, you cannot sign into an organization. Instead, each person signs into their own personal account, and any actions the person takes on organization resources are attributed to their personal account. Each personal account can be a member of multiple organizations.
+Tal como las cuentas personales, las organizaciones pueden ser propietarias de recursos tales como repositorios, paquetes y proyectos. Sin embargo, no puedes iniciar sesión en una organización. En vez de esto, cada persona firmará su propia cuenta personal y cualquier acción que tome la persona sobre los recursos organizacionales se le atribuirá a su cuenta personal. Cada cuenta personal puede ser un miembro de varias organizaciones.
 
-The personal accounts within an organization can be given different roles in the organization, which grant different levels of access to the organization and its data. All members can collaborate with each other in repositories and projects, but only organization owners and security managers can manage the settings for the organization and control access to the organization's data with sophisticated security and administrative features. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" and "[Keeping your organization secure](/organizations/keeping-your-organization-secure)."
+Se puede otorgar roles diferentes a las cuentas personales de una organización dentro de esta, lo cual otorga niveles diferentes de acceso a la organización y a sus datos. Todos los miembros pueden colaborar entre ellos en los repositorios y proyectos, pero solo los propietarios de organizaciones y administradores de seguridad pueden administrar la configuración de la organización y controlar el acceso a los datos de la organización con seguridad sofisticada y características administrativas. Para obtener más información, consulta las secciones "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" y "[Mantener tu organización segura](/organizations/keeping-your-organization-secure)".
 
-![Diagram showing that users must sign in to their personal user account to access an organization's resources](/assets/images/help/overview/sign-in-pattern.png)
+![Diagrama que muestra que los usuarios deben iniciar sesión en su cuenta de usuario personal para acceder a los recursos de una organización](/assets/images/help/overview/sign-in-pattern.png)
 
-{% ifversion fpt or ghec %} 
-Even if you're a member of an organization that uses SAML single sign-on, you will still sign into your own personal account on {% data variables.product.prodname_dotcom_the_website %}, and that personal account will be linked to your identity in your organization's identity provider (IdP). For more information, see "[About authentication with SAML single sign-on](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation{% else %}."{% endif %}
+{% ifversion fpt or ghec %}
+Incluso si eres un miembro de una organización que utiliza el inicio de sesión único de SAML, aún podrás iniciar sesión en tu cuenta personal de {% data variables.product.prodname_dotcom_the_website %} y, dicha cuenta personal, se enlazará con tu identidad en el proveedor de identidad (IdP) de tu organización. Para obtener más información, consulta la sección "[Acerca de la autenticación con el inicio de sesión único de SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}{% else %}".{% endif %}
 
-However, if you're a member of an enterprise that uses {% data variables.product.prodname_emus %}, instead of using a personal account that you created, a new account will be provisioned for you by the enterprise's IdP. To access any organizations owned by that enterprise, you must authenticate using their IdP instead of a {% data variables.product.prodname_dotcom_the_website %} username and password. For more information, see "[About {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Sin embargo, si eres miembro de una empresa que utilice {% data variables.product.prodname_emus %} en vez de utilizar una cuenta personal que hayas creado, se aprovisionará una cuenta nueva para ti con el IdP de la empresa. Para acceder a cualquier organización que pertenezca a dicha empresa, debes autenticarte utilizando el IdP en vez de un nombre de usuario y contraseña de {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 {% endif %}
 
-You can also create nested sub-groups of organization members called teams, to reflect your group's structure and simplify access management. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+También puedes crear subgrupos anidados de miembros de la organización llamados equipos para reflejar la estructura de tu grupo y simplificar la administración del acceso. Para obtener más información, consulta la sección "[Acerca de los equipos](/organizations/organizing-members-into-teams/about-teams)".
 
 {% data reusables.organizations.organization-plans %}
 
-For more information about all the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations)."
+Para obtener más información sobre todas las características de las organizaciones, consulta la sección "[Acerca de las organizaciones](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
-## Enterprise accounts
+## Cuentas de empresa
 
 {% ifversion fpt %}
-{% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} include enterprise accounts, which allow administrators to centrally manage policy and billing for multiple organizations and enable innersourcing between the organizations. For more information, see "[About enterprise accounts](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% data variables.product.prodname_ghe_cloud %} y {% data variables.product.prodname_ghe_server %} incluyen cuentas empresariales, las cuales permiten a los administradores administrar las políticas y facturas centralmente para organizaciones múltiples y habilitar el innersourcing entre ellas. Para obtener más información, consulta la sección "[Acerca de las cuentas empresariales](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)" en la documentación de {% data variables.product.prodname_ghe_cloud %}.
 {% elsif ghec %}
-Enterprise accounts allow central policy management and billing for multiple organizations. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+Las cuentas empresariales permiten la administración central de políticas y facturación para organizaciones múltiples. Puedes utilizar tu cuenta empresarial para administrar las políticas y facturación centralmente. A diferencia de las organizaciones, las cuentas empresariales no pueden ser propietarios directos de recursos tales como repositorios, paquetes o proyectos. En su lugar, estos recursos le pertenecen a las organizaciones dentro de la cuenta empresarial. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)".
 {% elsif ghes or ghae %}
-Your enterprise account is a collection of all the organizations {% ifversion ghae %}owned by{% elsif ghes %}on{% endif %} {% data variables.product.product_location %}. You can use your enterprise account to centrally manage policy and billing. Unlike organizations, enterprise accounts cannot directly own resources like repositories, packages, or projects. These resources are owned by organizations within the enterprise account instead. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+Tu cuenta empresarial es una recolección de todas las organizaciones {% ifversion ghae %}que le pertenecen a{% elsif ghes %}en{% endif %}{% data variables.product.product_location %}. Puedes utilizar tu cuenta empresarial para administrar las políticas y facturación centralmente. A diferencia de las organizaciones, las cuentas empresariales no pueden ser propietarios directos de recursos tales como repositorios, paquetes o proyectos. En su lugar, estos recursos le pertenecen a las organizaciones dentro de la cuenta empresarial. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)".
 {% endif %}
 
-## Further reading
+## Leer más
 
-{% ifversion fpt or ghec %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"{% endif %}
-- "[Creating a new organization account](/articles/creating-a-new-organization-account)"
+{% ifversion fpt or ghec %}
+- "[Registrarse para obtener una cuenta nueva de {% data variables.product.prodname_dotcom %} ](/articles/signing-up-for-a-new-github-account)"{% endif %}
+- "[Crear una cuenta de organización nueva](/articles/creating-a-new-organization-account)"
+- Video de [Organizar a las personas para tener una colaboración exitosa](https://vimeo.com/333786093) en los Recursos de {% data variables.product.company_short %}

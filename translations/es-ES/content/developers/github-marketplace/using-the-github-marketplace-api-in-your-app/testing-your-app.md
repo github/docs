@@ -1,6 +1,6 @@
 ---
-title: Testing your app
-intro: 'GitHub recommends testing your app with APIs and webhooks before submitting your listing to {% data variables.product.prodname_marketplace %} so you can provide an ideal experience for customers. Before an onboarding expert approves your app, it must adequately handle the billing flows.'
+title: Probar tu app
+intro: 'GitHub te recomienda probar tu app con las API y los webhooks antes de emitir tu listado a {% data variables.product.prodname_marketplace %} para que puedas proporcionar una experiencia ideal para los clientes. Antes de que un experto de incorporación apruebe tu app, ésta deberá administrar los flujos de facturación adecuadamente.'
 redirect_from:
   - /apps/marketplace/testing-apps-apis-and-webhooks
   - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps
@@ -12,34 +12,35 @@ versions:
 topics:
   - Marketplace
 ---
-## Testing apps
 
-You can use a draft {% data variables.product.prodname_marketplace %} listing to simulate each of the billing flows. A listing in the draft state means that it has not been submitted for approval. Any purchases you make using a draft {% data variables.product.prodname_marketplace %} listing will _not_ create real transactions, and GitHub will not charge your credit card. Note that you can only simulate purchases for plans published in the draft listing and not for draft plans. For more information, see "[Drafting a listing for your app](/developers/github-marketplace/drafting-a-listing-for-your-app)" and "[Using the {% data variables.product.prodname_marketplace %} API in your app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+## Probar las apps
 
-### Using a development app with a draft listing to test changes
+Puedes utilizar un borrador de listado de {% data variables.product.prodname_marketplace %} para simular cada uno de los flujos de facturación. Un listado en estado de borrador significa que no se ha emitido para aprobación. Cualquier compra que hagas utilizando un borrador de listado de {% data variables.product.prodname_marketplace %} _no_ creará transacciones reales, y GitHub no hará cargos a tu tarjeta de crédito. Nota que solo puedes simular compras para los planes que están publicados en el borrador de la lista y no para el borrador de los planes. Para obtener más información, consulta las secciones "[Hacer un borrador de listado para tu app](/developers/github-marketplace/drafting-a-listing-for-your-app)" y "[Utilizar la API de {% data variables.product.prodname_marketplace %} en tu app](/developers/github-marketplace/using-the-github-marketplace-api-in-your-app)".
 
-A {% data variables.product.prodname_marketplace %} listing can only be associated with a single app registration, and each app can only access its own {% data variables.product.prodname_marketplace %} listing. For these reasons, we recommend configuring a separate development app, with the same configuration as your production app, and creating a _draft_ {% data variables.product.prodname_marketplace %} listing that you can use for testing. The draft {% data variables.product.prodname_marketplace %} listing allows you to test changes without affecting the active users of your production app. You will never have to submit your development {% data variables.product.prodname_marketplace %} listing, since you will only use it for testing.
+### Utilizar una app de desarrollo con un borrador de listado para probar los cambios
 
-Because you can only create draft {% data variables.product.prodname_marketplace %} listings for public apps, you must make your development app public. Public apps are not discoverable outside of published {% data variables.product.prodname_marketplace %} listings as long as you don't share the app's URL. A Marketplace listing in the draft state is only visible to the app's owner.
+Un listado de {% data variables.product.prodname_marketplace %} únicamente puede asociarse con un solo registro de app, y cada app puede acceder únicamente a su propio listado de {% data variables.product.prodname_marketplace %}. Es por esto que te recomendamos configurar una app de desarrollo por separado con la misma configuración que la productiva, y que crees un _borrador_ de listado de {% data variables.product.prodname_marketplace %} que puedas utilizar para las pruebas. El borrador del listado de {% data variables.product.prodname_marketplace %} te permite probar los cambios sin afectar a los usuarios activos de tu app productiva. Nunca tendrás que emitir tu listado de desarrollo de {% data variables.product.prodname_marketplace %}, ya que solo lo utilizarás para las pruebas.
 
-Once you have a development app with a draft listing, you can use it to test changes you make to your app while integrating with the {% data variables.product.prodname_marketplace %} API and webhooks.
+Ya que solo puedes crear un borrador de listado de {% data variables.product.prodname_marketplace %} para las apps públicas, debes poner tu app de desarrollo como pública. Las apps públicas no pueden descubrirse fuera de los listados publicados de {% data variables.product.prodname_marketplace %} mientras no compartas la URL de éstas. Solo el dueño de la aplicación podrá ver el lsitado de Marketplace en su estado de borrador.
+
+Una vez que cuentes con una app de desarrollo con un listado en estado de borrador, puedes utilizarla para probar los cambios que hagas a dicha app mientras que lo integras con la API y los webhooks de {% data variables.product.prodname_marketplace %}.
 
 {% warning %}
 
-Do not make test purchases with an app that is live in {% data variables.product.prodname_marketplace %}.
+No hagas compras de prueba con las apps que están activas en {% data variables.product.prodname_marketplace %}.
 
 {% endwarning %}
 
-### Simulating Marketplace purchase events
+### Simular eventos de compra en Marketplace
 
-Your testing scenarios may require setting up listing plans that offer free trials and switching between free and paid subscriptions. Because downgrades and cancellations don't take effect until the next billing cycle, GitHub provides a developer-only feature to "Apply Pending Change" to force `changed` and `cancelled` plan actions to take effect immediately. You can access **Apply Pending Change** for apps with _draft_ Marketplace listings in https://github.com/settings/billing#pending-cycle:
+Tus escenarios de prueba podrían requerir que configures los planes de los listados que ofrecen periodos de prueba gratuitos y que cambies entre las suscripciones de pago y gratuitas. Ya que los decrementos y las cancelaciones no toman efecto sino hasta el siguiente ciclo de facturación, GitHub proporciona una característica exclusiva para desarrolladores para "Aplicar el Cambio Pendiente", la cual fuerza las acciones de `changed` y `cancelled` para que tomen efecto inmediatamente. Puedes acceder a la opción de **Aplicar Cambios Pendientes** para las apps con listados de Marketplace en estado de _borrador_ en https://github.com/settings/billing#pending-cycle:
 
-![Apply pending change](/assets/images/github-apps/github-apps-apply-pending-changes.png)
+![Aplicar el cambio pendiente](/assets/images/github-apps/github-apps-apply-pending-changes.png)
 
-## Testing APIs
+## Probar las API
 
-For most {% data variables.product.prodname_marketplace %} API endpoints, we also provide stubbed API endpoints that return hard-coded, fake data you can use for testing. To receive stubbed data, you must specify stubbed URLs, which include `/stubbed` in the route (for example, `/user/marketplace_purchases/stubbed`). For a list of endpoints that support this stubbed-data approach, see [{% data variables.product.prodname_marketplace %} endpoints](/rest/reference/apps#github-marketplace).
+También proporcionamos terminales de prueba para muchas de las terminales de las API de {% data variables.product.prodname_marketplace %}, las cuales devuelven datos falsos de código predefinido que puedes utilizar para hacer pruebas. Para recibir datos de prueba, debes especificar las URL de prueba que incluyan `/stubbed` en la ruta (por ejemplo, `/user/marketplace_purchases/stubbed`). Para obtener una lista de terminales que son compatibles con este acercamiento de datos de prueba, consulta la sección de [terminales de {% data variables.product.prodname_marketplace %}](/rest/reference/apps#github-marketplace).
 
-## Testing webhooks
+## Probar los webhooks
 
-GitHub provides tools for testing your deployed payloads. For more information, see "[Testing webhooks](/webhooks/testing/)."
+GitHub proporciona herramientas para probar tus cárgas útiles desplegadas. Para obtener más información, consulta la sección "[Probar los webhooks](/webhooks/testing/)".

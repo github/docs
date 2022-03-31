@@ -1,6 +1,6 @@
 ---
-title: About billing for GitHub accounts
-intro: '{% data variables.product.company_short %} offers free and paid products for every developer or team.'
+title: Acerca de la facturación para las cuentas de GitHub
+intro: '{% data variables.product.company_short %} ofrece productos gratuitos y pagos para cada programador o equipo.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts
   - /articles/what-is-the-total-cost-of-using-an-organization-account
@@ -21,22 +21,22 @@ topics:
   - Discounts
   - Fundamentals
   - Upgrades
-shortTitle: About billing
+shortTitle: Acerca de la facturación
 ---
 
-For more information about the products available for your account, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)." You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>. {% data variables.product.product_name %} does not offer custom products or subscriptions.  
+Para obtener más información sobre los productos que están disponibles para tu cuenta, consulta la sección "[productos de {% data variables.product.prodname_dotcom %}](/articles/github-s-products)". Puedes ver los precios y una lista completa de las funciones de cada producto en <{% data variables.product.pricing_url %}>. {% data variables.product.product_name %} no ofrece productos personalizados ni suscripciones.
 
-You can choose monthly or yearly billing, and you can upgrade or downgrade your subscription at any time. For more information, see "[Managing billing for your {% data variables.product.prodname_dotcom %} account](/articles/managing-billing-for-your-github-account)."
+Puedes elegir una facturación mensual o anual y puedes actualizar o bajar de categoría tu suscripción en cualquier momento. Para obtener más información, consulta "[Administrar la facturación para tu cuenta de {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)".
 
-You can purchase other features and products with your existing {% data variables.product.product_name %} payment information. For more information, see "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
+Puedes comprar otras características o productos con tu información de pago de {% data variables.product.product_name %} existente. Para obtener más información, consulta "[Acerca de la facturación en {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)".
 
 {% data reusables.accounts.accounts-billed-separately %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 {% tip %}
 
-**Tip:** {% data variables.product.prodname_dotcom %} has programs for verified students and academic faculty, which include academic discounts. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).
+**Sugerencia:** {% data variables.product.prodname_dotcom %} tiene programas para estudiantes validados y académicos, que incluyen descuentos académicos. Para obtener más información, visita [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 {% endtip %}
 

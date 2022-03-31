@@ -1,6 +1,6 @@
 ---
-title: Configuring your enterprise
-intro: 'After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization''s needs.'
+title: Enterprise を設定する
+intro: '{% data variables.product.product_name %} が稼働したら、Organization のニーズに合わせて Enterprise を設定できます。'
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration
   - /enterprise/admin/guides/installation/administrative-tools
@@ -16,6 +16,7 @@ topics:
   - Enterprise
 children:
   - /about-enterprise-configuration
+  - /deploying-github-ae
   - /initializing-github-ae
   - /accessing-the-management-console
   - /accessing-the-administrative-shell-ssh

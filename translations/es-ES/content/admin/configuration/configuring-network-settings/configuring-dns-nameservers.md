@@ -1,6 +1,6 @@
 ---
-title: Configuring DNS nameservers
-intro: '{% data variables.product.prodname_ghe_server %} uses the dynamic host configuration protocol (DHCP) for DNS settings when DHCP leases provide nameservers. If nameservers are not provided by a dynamic host configuration protocol (DHCP) lease, or if you need to use specific DNS settings, you can specify the nameservers manually.'
+title: Configurar servidores de nombres DNS
+intro: '{% data variables.product.prodname_ghe_server %} utiliza el protocolo de configuración dinámica de host (DHCP) para los ajustes DNS cuando las concesiones de DHCP ofrecen servidores de nombres. Si una concesión del protocolo de configuración dinámica de host (DHCP) no proporciona los servidores de nombres o si debes utilizar ajustes DNS particulares, puedes especificar los servidores de nombres de manera manual.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-dns-nameservers
   - /enterprise/admin/installation/configuring-dns-nameservers
@@ -14,29 +14,36 @@ topics:
   - Fundamentals
   - Infrastructure
   - Networking
-shortTitle: Configure DNS servers
+shortTitle: Configurar los servidores DNS
 ---
-The nameservers you specify must resolve {% data variables.product.product_location %}'s hostname.
+
+Los servidores de nombres que especifiques deben resolver el nombre del host de {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-## Configuring nameservers using the virtual machine console
+## Configurar servidores de nombres utilizando la consola de la máquina virtual
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
-2. Configure nameservers for your instance.
+2. Configurar servidores de nombres para tu instancia.
 {% data reusables.enterprise_installation.vm-console-done %}
 
-## Configuring nameservers using the administrative shell
+## Configurar servidores de nombres utilizando el shell administrativo
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. To edit your nameservers, enter:
+
+2. Para editar tus servidores de nombres, ingresa lo siguiente:
+
   ```shell
-  $ sudo vim /etc/resolvconf/resolv.conf.d/head
+  sudo vim /etc/resolvconf/resolv.conf.d/head
   ```
-3. Append any `nameserver` entries, then save the file.
-4. After verifying your changes, save the file.
-5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
+
+{% data reusables.enterprise_installation.preventing-nameservers-change %}
+
+3. Agrega cualquier entrada de `nameserver` (servidor de nombres) y luego guarda el archivo.
+4. Después de verificar tus cambios, guarda el archivo.
+5. Para agregar tus entradas nuevas de servidores de nombres en {% data variables.product.product_location %}, ejecuta lo siguiente:
+
   ```shell
-  $ sudo service resolvconf restart
-  $ sudo service dnsmasq restart
+  sudo service resolvconf restart
+  sudo service dnsmasq restart
   ```

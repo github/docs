@@ -1,6 +1,6 @@
 ---
-title: Creating and editing milestones for issues and pull requests
-intro: You can create a milestone to track progress on groups of issues or pull requests in a repository.
+title: Crear y editar hitos para propuestas y solicitudes de extracción
+intro: Puedes crear un hito para hacer un seguimiento del progreso en grupos de propuestas o solicitudes de extracción en un repositorio.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones/creating-and-editing-milestones-for-issues-and-pull-requests
   - /articles/creating-milestones-for-issues-and-pull-requests
@@ -15,32 +15,30 @@ topics:
   - Pull requests
   - Issues
   - Project management
-shortTitle: Create & edit milestones
+shortTitle: Crear & editar hitos
 type: how_to
 ---
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-issue-pr %}
-{% data reusables.project-management.milestones %}
-4. Choose one of these options:
-    - To create a new milestone, click **New Milestone**.
-  ![New milestone button](/assets/images/help/repository/new-milestone.png)
-    - To edit a milestone, next to the milestone you want to edit, click **Edit**.
-  ![Edit milestone option](/assets/images/help/repository/edit-milestone.png)
-5. Type the milestone's title, description, or other changes, and click **Create milestone** or **Save changes**. Milestones will render Markdown syntax. For more information about Markdown syntax, see "[Basic writing and formatting syntax](/github/writing-on-github/basic-writing-and-formatting-syntax)."
-
-## Deleting milestones
-
-When you delete milestones, issues and pull requests are not affected.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.milestones %}
-4. Next to the milestone you want to delete, click **Delete**.
-![Delete milestone option](/assets/images/help/repository/delete-milestone.png)
+4. Elige una de las siguientes opciones:
+    - Para crear un nuevo hito, haz clic en **Nuevo hito**. ![Botón Nuevo hito](/assets/images/help/repository/new-milestone.png)
+    - Para editar un hito, haz clic en **Editar** junto al hito que deseas editar. ![Opción Editar hito](/assets/images/help/repository/edit-milestone.png)
+5. Escribe el título, la descripción y los demás cambios del hito, y luego haz clic en **Create milestone** (Crear hito) o **Save changes** (Guardar cambios). Los hitos interpretarán la sintaxis del lenguaje de marcado. Para obtener más información sobre la sintaxis de marcado, consulta la sección "[Sintaxis de marcado y formateado básica](/github/writing-on-github/basic-writing-and-formatting-syntax)".
 
-## Further reading
+## Eliminar hitos
 
-- "[About milestones](/articles/about-milestones)"
-- "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests)"
-- "[Viewing your milestone's progress](/articles/viewing-your-milestone-s-progress)"
-- "[Filtering issues and pull requests by milestone](/articles/filtering-issues-and-pull-requests-by-milestone)"
+Cuando eliminas hitos, las propuestas y las solicitudes de extracción no se ven afectadas.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
+4. Junto al hito que deseas eliminar, haz clic en **Eliminar**. ![Opción Eliminar hito](/assets/images/help/repository/delete-milestone.png)
+
+## Leer más
+
+- "[Acerca de los hitos](/articles/about-milestones)"
+- "[Asociar hitos con propuestas y solicitudes de extracción](/articles/associating-milestones-with-issues-and-pull-requests)"
+- "[Ver el progreso de tus hitos](/articles/viewing-your-milestone-s-progress)"
+- "[Filtrar propuestas y solicitudes de extracción por hitos](/articles/filtering-issues-and-pull-requests-by-milestone)"

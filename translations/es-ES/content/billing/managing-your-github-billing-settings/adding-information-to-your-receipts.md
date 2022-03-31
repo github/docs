@@ -1,6 +1,6 @@
 ---
-title: Adding information to your receipts
-intro: 'You can add extra information to your {% data variables.product.product_name %} receipts, such as tax or accounting information required by your company or country.'
+title: Agregar información a tus recibos
+intro: 'Puedes agregar información adicional a tus recibos de {% data variables.product.product_name %}, como información fiscal o contable solicitada por tu empresa o país.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/adding-information-to-your-receipts
   - /articles/can-i-add-my-credit-card-number-to-my-receipts
@@ -21,32 +21,33 @@ topics:
   - Organizations
   - Receipts
   - User account
-shortTitle: Add to your receipts
+shortTitle: Agregar a tus recibos
 ---
-Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for [other paid features and products](/articles/about-billing-on-github).
+
+Tus recibos incluyen tu suscripción de {% data variables.product.prodname_dotcom %} así como otras suscripciones para [otras funciones y productos remunerados](/articles/about-billing-on-github).
 
 {% warning %}
 
-**Warning**: For security reasons, we strongly recommend against including any confidential or financial information (such as credit card numbers) on your receipts.
+**Advertencia**: Por motivos de seguridad, recomendamos enfáticamente no incluir información confidencial o financiera (como número de tarjeta de crédito) en tus recibos.
 
 {% endwarning %}
 
-## Adding information to your personal account's receipts
+## Agregar información a tus recibos de cuenta personal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
-{% data reusables.user_settings.payment-info-link %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
-## Adding information to your organization's receipts
+## Agregar información a los recibos de tu organización
 
 {% note %}
 
-**Note**: {% data reusables.dotcom_billing.org-billing-perms %}
+**Nota**: {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% endnote %}
 
 
 {% data reusables.organizations.billing-settings %}
-{% data reusables.user_settings.payment-info-link %}
+{% data reusables.user-settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}

@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Codespaces clients
-intro: 'You can use {% data variables.product.prodname_codespaces %} in your browser or through {% data variables.product.prodname_vscode %}. This article provides troubleshooting steps for common client issues.'
+title: Solucionar problemas de los clientes de Codespaces
+intro: 'Puedes utilizar {% data variables.product.prodname_codespaces %} en tu buscador o a través de {% data variables.product.prodname_vscode %}. Este artículo proporciona pasos de solución de problemas para los problemas comunes de los clientes.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -8,31 +8,31 @@ versions:
 type: reference
 topics:
   - Codespaces
-shortTitle: Codespaces clients
+shortTitle: Clientes de codespaces
 ---
 
-## {% data variables.product.prodname_vscode %} troubleshooting
+## Solución de problemas de {% data variables.product.prodname_vscode %}
 
-When you connect a desktop version of {% data variables.product.prodname_vscode %} to a codespace, you will notice few differences compared with working in a normal workspace but the experience will be fairly similar. 
+Cuando conectas a una versión de escritorio de {% data variables.product.prodname_vscode %} a un codespace, notarás algunas cuantas diferencias en comparación con trabajar en un espacio de trabajo normal, pero la experiencia será bastante similar.
 
-When you open a codespace in your browser using {% data variables.product.prodname_vscode %} in the web, you will notice more differences. For example, some key bindings will be different or missing, and some extensions may behave differently. For a summary, see: "[Known limitations and adaptions](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" in the {% data variables.product.prodname_vscode %} docs.
+Cuando abres un codespace en tu buscador utilizando {% data variables.product.prodname_vscode %} en la web, notarás más diferencias. Por ejemplo, algunas uniones de teclas serán diferentes o no estarán y algunas extensiones podrían comportarse de forma diferente. Para obtener un resumen, consulta la sección "[Adaptaciones y limitaciones conocidas](https://code.visualstudio.com/docs/remote/codespaces#_known-limitations-and-adaptations)" en los documentos de {% data variables.product.prodname_vscode %}.
 
-You can check for known issues and log new issues with the {% data variables.product.prodname_vscode %} experience in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
+Puedes revisar si hay problemas conocidos y registrar problemas nuevos con la experiencia de {% data variables.product.prodname_vscode %} en el repositorio [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces).
 
 ### {% data variables.product.prodname_vscode %} Insiders
 
-{% data variables.product.prodname_vscode %} Insiders is the most frequent release of {% data variables.product.prodname_vscode %}. It has all the latest features and bug fixes, but may also occasionally contain new issues that result in a broken build.
+{% data variables.product.prodname_vscode %} Insiders es el lanzamiento más frecuente de {% data variables.product.prodname_vscode %}. Tiene todas las características y correcciones de errores más recientes, pero también podría contener, ocasionalmente, problemas nuevos que podrían dar como resultado una compilación rota.
 
-If you are using an Insiders build and notice broken behavior, we recommend switching to {% data variables.product.prodname_vscode %} Stable and trying again.
+Si estás utilizando una compilación de Insiders y notas un comportamiento anormal, te recomendamos cambiar a la versión estable de {% data variables.product.prodname_vscode %} e intentarlo de nuevo.
 
-On the desktop version of {% data variables.product.prodname_vscode %}, you can switch to Stable by closing the {% data variables.product.prodname_vscode %} Insiders application, opening the {% data variables.product.prodname_vscode %} Stable application, and re-opening your codespace.
+En la versión de escritorio de {% data variables.product.prodname_vscode %} puedes cambiar a la versión estable si cierras la aplicación de {% data variables.product.prodname_vscode %} Insiders y abres la aplicación estable de {% data variables.product.prodname_vscode %} para luego volver a abrir tu codespace.
 
-On the web version of {% data variables.product.prodname_vscode %}, you can click {% octicon "gear" aria-label="The manage icon" %} in the bottom left of the editor and select **Switch to Stable Version...**. If the web version doesn't load or the {% octicon "gear" aria-label="The manage icon" %} icon isn't available, you can force switching to {% data variables.product.prodname_vscode %} Stable by appending `?vscodeChannel=stable` to your codespace URL and loading the codespace at that URL.
+En la versión web de {% data variables.product.prodname_vscode %}, puedes hacer clic en {% octicon "gear" aria-label="The manage icon" %} en la parte inferior izquierda del editor y seleccionar **Cambiar a la versión estable...**. Si la versión web no carga o si el icono de {% octicon "gear" aria-label="The manage icon" %} no está disponible, puedes forzar el cambio a la versión estable de {% data variables.product.prodname_vscode %} si agregas `?vscodeChannel=stable` a la URL de tu codespace y lo cargas en ella.
 
-If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stable, please follow the above troubleshooting instructions.
+Si el problema aún no se soluciona en la versión estable de {% data variables.product.prodname_vscode %}, por favor, sigue las instrucciones de solución de problemas descritas anteriormente.
 
-## Browser troubleshooting
+## Solución de problemas del buscador
 
-If you encounter issues using codespaces in a browser that is not Chromium-based, try switching to a Chromium-based browser, or check for known issues with your browser in the `microsoft/vscode` repository by searching for issues labeled with the name of your browser, such as [`firefox`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+label%3Afirefox) or [`safari`](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Asafari).
+Si encuentras problemas para utilizar los codespaces en un buscador que no esté basado en Chromium, intenta cambiar a uno que sí lo esté o revisa si hay problemas conocidos con tu buscador en el repositorio de `microsoft/vscode` buscando aquellos etiquetados con el nombre de dicho buscador, tal como [`firefox`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+label%3Afirefox) o [`safari`](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Asafari).
 
-If you encounter issues using codespaces in a Chromium-based browser, you can check if you're experiencing another known issue with {% data variables.product.prodname_vscode %} in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues) repository.
+Si encuentras problemas al utilizar codespaces en un buscador basado en Chromium, puedes verificar si estás experimentando algún otro problema conocido de {% data variables.product.prodname_vscode %} en el repositorio [`microsoft/vscode`](https://github.com/microsoft/vscode/issues).

@@ -1,6 +1,6 @@
 ---
-title: Creating a project board
-intro: 'Project boards can be used to create customized workflows to suit your needs, like tracking and prioritizing specific feature work, comprehensive roadmaps, or even release checklists.'
+title: Crear un tablero de proyecto
+intro: 'Los tableros de proyecto se pueden usar para crear flujos de trabajo personalizados de acuerdo con tus necesidades, como hacer un seguimiento y priorizar trabajos con características específicas, hojas de ruta completas y hasta listas de verificación de lanzamientos.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/creating-a-project-board
   - /articles/creating-a-project
@@ -18,25 +18,25 @@ topics:
   - Project management
 type: how_to
 ---
+
 {% data reusables.projects.project_boards_old %}
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.copy-project-boards %}
 
-{% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
+{% data reusables.project-management.link-repos-to-project-board %} Para obtener más información, consulta "[Enlazar un repositorio a un tablero de proyecto](/articles/linking-a-repository-to-a-project-board)".
 
-Once you've created your project board, you can add issues, pull requests, and notes to it. For more information, see "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)" and "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
+Una vez que has creado tu tablero de proyecto, puedes agregarle propuestas, solicitudes de extracción y notas. Para obtener más información, consulta "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)" y "[Agregar notas a un tablero de proyecto](/articles/adding-notes-to-a-project-board)".
 
-You can also configure workflow automations to keep your project board in sync with the status of issues and pull requests. For more information, see "[About automation for project boards](/articles/about-automation-for-project-boards)."
+También puedes configurar automatizaciones de flujo de trabajo para mantener tu tablero de proyecto sincronizado con el estado de las propuestas y solicitudes de extracción. Para obtener más información, consulta "[Acerca de la automatización para tableros de proyecto](/articles/about-automation-for-project-boards)".
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## Creating a user-owned project board
+## Crear un tablero de proyecto propiedad de un usuario
 
 {% data reusables.profile.access_profile %}
-2. On the top of your profile page, in the main navigation, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
-![Project tab](/assets/images/help/projects/user-projects-tab.png)
+2. En la parte superior de tu página de perfil, en la navegación principal, haz clic en {% octicon "project" aria-label="The project board icon" %} **Proyectos**. ![Pestaña Project (Proyecto)](/assets/images/help/projects/user-projects-tab.png)
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -52,10 +52,10 @@ You can also configure workflow automations to keep your project board in sync w
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Creating an organization-wide project board
+## Crear un tablero de proyecto para toda la organización
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
@@ -72,11 +72,10 @@ You can also configure workflow automations to keep your project board in sync w
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Creating a repository project board
+## Crear un tablero de proyecto para un repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Under your repository name, click {% octicon "project" aria-label="The project board icon" %} **Projects**.
-![Project tab](/assets/images/help/projects/repo-tabs-projects.png)
+2. En el nombre de tu repositorio, haz clic en {% octicon "project" aria-label="The project board icon" %} **Proyectos**. ![Pestaña Project (Proyecto)](/assets/images/help/projects/repo-tabs-projects.png)
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -90,10 +89,10 @@ You can also configure workflow automations to keep your project board in sync w
 
 {% data reusables.project-management.edit-project-columns %}
 
-## Further reading
+## Leer más
 
-- "[About projects boards](/articles/about-project-boards)"
-- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
+- "[Acerca de los tableros de proyectos](/articles/about-project-boards)"
+- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
-- "[Closing a project board](/articles/closing-a-project-board)"
-- "[About automation for project boards](/articles/about-automation-for-project-boards)"
+- "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)"
+- "[Acerca de la automatización de los tableros de proyecto](/articles/about-automation-for-project-boards)"

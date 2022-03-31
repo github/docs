@@ -2,23 +2,47 @@
 
 ## Table of contents <!-- omit in toc -->
 - [Writing in Markdown](#writing-in-markdown)
-- [Callout tags](#callout-tags)
+- [Lists](#lists)
   - [Usage](#usage)
-- [Code sample syntax highlighting](#code-sample-syntax-highlighting)
+- [Callout tags](#callout-tags)
   - [Usage](#usage-1)
-- [Octicons](#octicons)
+- [Code sample syntax highlighting](#code-sample-syntax-highlighting)
   - [Usage](#usage-2)
-- [Operating system tags](#operating-system-tags)
+- [Octicons](#octicons)
   - [Usage](#usage-3)
-- [Tool tags](#tool-tags)
+- [Operating system tags](#operating-system-tags)
   - [Usage](#usage-4)
+- [Tool tags](#tool-tags)
+  - [Usage](#usage-5)
 - [Reusable and variable strings of text](#reusable-and-variable-strings-of-text)
 
 ## Writing in Markdown
 
-[Markdown](http://daringfireball.net/projects/markdown/) is a human-friendly syntax for formatting plain text. Our documentation is written with [GitHub Flavored Markdown](https://docs.github.com/en/github/writing-on-github/about-writing-and-formatting-on-github), a custom version of Markdown used across GitHub.
+[Markdown](http://daringfireball.net/projects/markdown/) is a human-friendly syntax for formatting plain text. Our documentation is written with [GitHub Flavored Markdown](https://docs.github.com/en/github/writing-on-github/about-writing-and-formatting-on-github), a custom version of Markdown based on the [CommonMark specification](https://github.github.com/gfm/), and it is used across GitHub.
 
 This site's Markdown rendering is powered by [`/lib/render-content`](/lib/render-content), which is in turn built on the [`remark`](https://remark.js.org/) Markdown processor.
+
+## Lists
+
+In a list item, the general rules for additional content after the first paragraph are:
+
+* Images and subsequent paragraphs should each **be on their own line and separated by a blank line**.
+* All subsequent lines in a list item **must match up with the first text after the list marker**.
+
+### Usage
+
+For example, this is the correct way to write list items with multiple paragraphs or objects:
+
+```markdown
+1. Under your repository name, click **Actions**.
+
+   ![Actions tab in the main repository navigation](/assets/images/help/repository/actions-tab.png)
+
+   This is another paragraph in the list.
+1. This is the next item.
+```
+
+![Image demonstrating how to write CommnMark-compliant Markdown lists](/assets/images/commonmark-lists.png)
 
 ## Callout tags
 
@@ -104,7 +128,7 @@ You can define a default platform in the frontmatter. For more information, see 
 
 ## Tool tags
 
-We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
+We occasionally need to write documentation for different tools (GitHub UI, GitHub CLI, GitHub Desktop, cURL, Codespaces, VS Code, GitHub Enterprise Importer CLI, GraphQL API). Each tool may require a different set of instructions. We use tool tags to demarcate information for each tool.
 
 ### Usage
 
@@ -156,7 +180,37 @@ These instructions are pertinent to VS Code users.
 {% endvscode %}
 ```
 
-Unlike [operating system tags](#operating-system-tags), which will automatically add tabs to select the operating system at the top of the article, you must add `{% include tool-switcher %}` wherever you want to display tabs to select the tool. This allows you to display the tabs at the top of the article or immediately before a relevant section.
+```
+{% importer_cli %}
+
+These instructions are pertinent to GitHub Enterprise Importer CLI users.
+
+{% endimporter_cli %}
+```
+
+```
+{% graphql %}
+
+These instructions are pertinent to GraphQL API users.
+
+{% endgraphql %}
+```
+
+```
+{% powershell %}
+
+These instructions are pertinent to `pwsh` and `powershell` commands.
+
+{% endpowershell %}
+```
+
+```
+{% bash %}
+
+These instructions are pertinent to Bash shell commands.
+
+{% endbash %}
+```
 
 You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).
 

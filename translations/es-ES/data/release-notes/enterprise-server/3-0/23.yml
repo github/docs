@@ -1,0 +1,19 @@
+date: '2022-01-18'
+sections:
+  security_fixes:
+    - 'Se actualizaron los paquetes a las versiones de seguridad más recientes. En estas actualizaciones, Log4j se actualizó a la versión 2.17.1. Nota: Las mitigaciones que se lanzaron previamente en las versiones 3.3.1, 3.2.6, 3.1.14 y 3.0.22 son suficientes para tratar el impacto de las CVE-2021-44228, CVE-2021-45046, CVE-2021-45105 y CVE-2021-44832 en estas versiones de GitHub Enterprise Server.'
+    - 'Sanitiza más secretos en los paquetes de soporte generados'
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'El ejecutar `ghe-config-apply` pudo fallar en ocasiones debido a problemas con los permisos en /data/user/tmp/pages`.'
+    - 'No se pudo acceder al botón de guardar en la consola de administración si se desplazaba en buscadores de menor resolución.'
+    - 'Las gráficas de monitoreo de tráfico de almacenamiento e IOPS no se actualizaron después de la mejora de versión de collectd.'
+    - 'Algunos jobs relacionados con webhooks pudieron haber generdo una gran cantidad de bitácoras.'
+  known_issues:
+    - 'En una instalación nueva de {% data variables.product.prodname_ghe_server %} que no tenga ningún usuario, cualquier atacante podría crear el primer usuario administrativo.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'Cuando se habilita "Los usuarios pueden buscar en GitHub.com" con GitHub Connect, las propuestas en los repositorios privados e internos no se incluirán en los resultados de búsqueda de GitHub.com.'
+    - 'Cuando un nodo de réplica está fuera de línea en una configuración de disponibilidad alta, {% data variables.product.product_name %} aún podría enrutar las solicitudes a {% data variables.product.prodname_pages %} para el nodo fuera de línea, reduciendo la disponibilidad de {% data variables.product.prodname_pages %} para los usuarios.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'

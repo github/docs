@@ -322,6 +322,7 @@ Take care to distinguish between product names and product elements. For more in
 | Product | Element |
 | --- | --- |
 | GitHub Actions | an action |
+| GitHub Codespaces | a codespace |
 | GitHub Packages | a package |
 | GitHub Pages | a GitHub Pages site |
 
@@ -364,7 +365,7 @@ steps:
 Examples:
 - See the code block in "[Publishing to package registries](https://docs.github.com/en/actions/guides/building-and-testing-python#publishing-to-package-registries)"
 
-### Pinning version numbers to SHA
+#### Pinning version numbers to SHA
 
 Code examples that use third-party actions must always pin to a full length commit SHA, instead of the version number or branch:
 
@@ -381,6 +382,14 @@ steps:
 ```
 
 For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn-github-actions/finding-and-customizing-actions#using-shas)"
+
+### GitHub Codespaces 
+
+Always use "GitHub Codespaces" (`{% data variables.product.prodname_github_codespaces %}`) as the product name, not just "Codespaces". This helps to avoid confusion with "codespaces" (lowercase c), which refers to instances of remote coding workspaces created with GitHub Codespaces.
+
+Always use "dev container" (or, where clarification is needed, its longer form "development container") and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the Visual Studio Code documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
+
+Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
 ## Punctuation
 
@@ -594,7 +603,7 @@ Avoid ending a sentence with a preposition unless the rewritten sentence would s
 
 ### Product names
 
-See the “Product names” section of this guide.
+See the “[Product names](#product-names)” section of this guide.
 
 ### Terms to use or avoid
 

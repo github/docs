@@ -1,6 +1,7 @@
-import '../../lib/feature-flags.js'
-import { getDOM } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+
+import '../../lib/feature-flags.js'
+import { getDOM } from '../helpers/e2etest.js'
 
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -38,7 +39,7 @@ describe('sidebar', () => {
   })
 
   test('adds `data-is-current-page` and `data-is-active-category` properties to the sidebar link for the current page', async () => {
-    const url = '/en/github/importing-your-projects-to-github/importing-source-code-to-github'
+    const url = '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github'
     const $ = await getDOM(url)
     expect($('[data-testid=sidebar] [data-is-active-category=true]').length).toBe(1)
     expect($('[data-testid=sidebar] [data-is-current-page=true]').length).toBe(1)

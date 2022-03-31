@@ -1,6 +1,6 @@
 ---
 title: 新增 SSH 密钥到 GitHub 帐户
-intro: 'To configure your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} to use your new (or existing) SSH key, you''ll also need to add the key to your account.'
+intro: '要在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上配置帐户以使用新的（或现有的）SSH 密钥，还需要将密钥添加到帐户。'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
@@ -15,17 +15,16 @@ topics:
 shortTitle: 添加新的 SSH 密钥
 ---
 
-Before adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you should have:
+在将新的 SSH 密钥添加到 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户之前，您应该具有：
 * [检查现有 SSH 密钥](/articles/checking-for-existing-ssh-keys)
 * [生成新 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-After adding a new SSH key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can reconfigure any local repositories to use SSH. 更多信息请参阅“[将远程 URL 从 HTTPS 转换为 SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)”。
+在向您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户添加新 SSH 密钥后，您可以重新配置任何本地存储库以使用 SSH。 更多信息请参阅“[将远程 URL 从 HTTPS 转换为 SSH](/github/getting-started-with-github/managing-remote-repositories/#switching-remote-urls-from-https-to-ssh)”。
 
 {% data reusables.ssh.key-type-support %}
 
 {% mac %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. 将 SSH 公钥复制到剪贴板。
@@ -43,21 +42,19 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
   {% endtip %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 4. 单击 **New SSH key（新 SSH 密钥）**或 **Add SSH key（添加 SSH 密钥）**。 ![SSH 密钥按钮](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. 在 "Title"（标题）字段中，为新密钥添加描述性标签。 例如，如果您使用的是个人 Mac，此密钥名称可能是 "Personal MacBook Air"。
 6. 将密钥粘贴到 "Key"（密钥）字段。 ![密钥字段](/assets/images/help/settings/ssh-key-paste.png)
 7. 单击 **Add SSH key（添加 SSH 密钥）**。 ![添加密钥按钮](/assets/images/help/settings/ssh-add-key.png)
-{% data reusables.user_settings.sudo-mode-popup %}
+{% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
 
 {% endmac %}
 
 {% windows %}
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -76,8 +73,8 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
   {% endtip %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 4. 单击 **New SSH key（新 SSH 密钥）**或 **Add SSH key（添加 SSH 密钥）**。 ![SSH 密钥按钮](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. 在 "Title"（标题）字段中，为新密钥添加描述性标签。 例如，如果您使用的是个人 Mac，此密钥名称可能是 "Personal MacBook Air"。
 6. 将密钥粘贴到 "Key"（密钥）字段。 ![密钥字段](/assets/images/help/settings/ssh-key-paste.png)
@@ -90,7 +87,6 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% linux %}
 
-{% include tool-switcher %}
 {% webui %}
 
 1. 将 SSH 公钥复制到剪贴板。
@@ -109,8 +105,8 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
   {% endtip %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 4. 单击 **New SSH key（新 SSH 密钥）**或 **Add SSH key（添加 SSH 密钥）**。 ![SSH 密钥按钮](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. 在 "Title"（标题）字段中，为新密钥添加描述性标签。 例如，如果您使用的是个人 Mac，此密钥名称可能是 "Personal MacBook Air"。
 6. 将密钥粘贴到 "Key"（密钥）字段。 ![密钥字段](/assets/images/help/settings/ssh-key-paste.png)
@@ -125,7 +121,7 @@ After adding a new SSH key to your account on {% ifversion ghae %}{% data variab
 
 {% data reusables.cli.cli-learn-more %}
 
-Before you can use the {% data variables.product.prodname_cli %} to add an SSH key to your account, you must authenticate to the {% data variables.product.prodname_cli %}. For more information, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login) in the {% data variables.product.prodname_cli %} documentation.
+在使用 {% data variables.product.prodname_cli %} 将 SSH 密钥添加到帐户之前，必须向 {% data variables.product.prodname_cli %} 进行身份验证。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的 [`gh auth login`](https://cli.github.com/manual/gh_auth_login)。
 
 要将 SSH 密钥添加到您的 GitHub 帐户，请使用 `ssh-key add` 子命令，指定您公钥。
 
@@ -139,7 +135,7 @@ gh ssh-key add <em>key-file</em>
 gh ssh-key add <em>key-file</em> --title "personal laptop"
 ```
 
-If you generated your SSH key by following the instructions in "[Generating a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", you can add the key to your account with this command.
+如果按照“[生成新的 SSH 密钥](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”中的说明生成了 SSH 密钥，则可以使用此命令将密钥添加到您的帐户。
 
 ```shell
 gh ssh-key add ~/.ssh/id_ed25519.pub

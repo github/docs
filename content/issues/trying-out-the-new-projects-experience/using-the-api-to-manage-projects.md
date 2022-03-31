@@ -243,6 +243,12 @@ Each field has an ID. Additionally, single select fields and iteration fields ha
 
 You can query the API to find information about items in your project.
 
+{% note %}
+
+**Note**: The API will not return information about draft issues.
+
+{% endnote %}
+
 The following example will return the title and ID for the first 20 items in a project. For each item, it will also return the value and name for the first 8 fields in the project. If the item is an issue or pull request, it will return the login of the first 10 assignees. Replace `PROJECT_ID` with the node ID of your project.
 
 {% curl %}
@@ -358,6 +364,43 @@ The response will contain the node ID of the newly created item.
 ```
 
 If you try to add an item that already exists, the existing item ID is returned instead.
+
+### Updating a project's settings
+
+The following example will update your project's settings. Replace `PROJECT_ID` with the node ID of your project. Set `public` to `true` to make your project public on {% data variables.product.product_name %}. Modify `description` to make changes to your project's README.
+
+{% curl %}
+```shell
+curl --request POST \
+--url https://api.github.com/graphql \
+--header 'Authorization: token <em>TOKEN</em>' \
+--data '{"query":"mutation { updateProjectNext(input: { projectId: \"<em>PROJECT_ID</em>\", title: \"Project title\", public: false, description: \"# Project README\n\nA long description\", shortDescription: \"A short description\"}) { projectNext { id, title, description, shortDescription }}}"}'
+```
+{% endcurl %}
+
+{% cli %}
+```shell
+gh api graphql -f query='
+  mutation {
+    updateProjectNext(
+      input: {
+        projectId: "<em>PROJECT_ID</em>", 
+        title: "Project title",
+        public: false,
+        description: "# Project README\n\nA long description",
+        shortDescription: "A short description"
+      }
+    ) {
+      projectNext {
+        id
+        title
+        description
+        shortDescription
+      }
+    }
+  }'
+```
+{% endcli %}
 
 ### Updating a custom text, number, or date field
 

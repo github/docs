@@ -1,6 +1,6 @@
 ---
-title: Setting guidelines for repository contributors
-intro: You can create guidelines to communicate how people should contribute to your project.
+title: Configurar diretrizes para os contribuidores do repositório
+intro: Você pode criar diretrizes para informar como as pessoas devem contribuir com o projeto.
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,57 +12,57 @@ redirect_from:
   - /github/building-a-strong-community/setting-guidelines-for-repository-contributors
 topics:
   - Community
-shortTitle: Contributor guidelines
+shortTitle: Diretrizes de contribuidor
 ---
-## About contributing guidelines
-To help your project contributors do good work, you can add a file with contribution guidelines to your project repository's root, `docs`, or `.github` folder. When someone opens a pull request or creates an issue, they will see a link to that file. The link to the contributing guidelines also appears on your repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute). 
 
-![contributing-guidelines](/assets/images/help/pull_requests/contributing-guidelines.png)
+## Sobre diretrizes de contribuição
+Para ajudar os contribuidores do projeto a fazer um bom trabalho, você pode adicionar um arquivo com diretrizes de contribuição às pastas raiz, `docs` ou `.github` do repositório do projeto. Quando alguém abrir uma pull request ou criar um problema, verá um link para esse arquivo. O link para as diretrizes de contribuição também aparece na página `contribuir` do seu repositório. Para obter um exemplo da página de `contribuir`, consulte [github/docs/contribua](https://github.com/github/docs/contribute).
 
-For the repository owner, contribution guidelines are a way to communicate how people should contribute.
+![diretrizes de contribuição](/assets/images/help/pull_requests/contributing-guidelines.png)
 
-For contributors, the guidelines help them verify that they're submitting well-formed pull requests and opening useful issues.
+Para o proprietário do repositório, as diretrizes de contribuição são uma forma de informar como as pessoas devem contribuir.
 
-For both owners and contributors, contribution guidelines save time and hassle caused by improperly created pull requests or issues that have to be rejected and re-submitted.
+Para contribuidores, as diretrizes ajudam a verificar se eles estão enviando pull requests corretas e abrindo problemas úteis.
+
+Para proprietários e contribuidores, as diretrizes de contribuição economizam tempo e evitam aborrecimentos causados por pull requests ou problemas incorretos que precisam ser rejeitados e enviados novamente.
 
 {% ifversion fpt or ghes or ghec %}
 
-You can create default contribution guidelines for your organization{% ifversion fpt or ghes or ghec %} or user account{% endif %}. For more information, see "[Creating a default community health file](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar diretrizes de contribuição padrão para sua organização{% ifversion fpt or ghes or ghec %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
 {% tip %}
 
-**Tip:** Repository maintainers can set specific guidelines for issues by creating an issue or pull request template for the repository. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
+**Dica:** os mantenedores de repositório podem configurar diretrizes específicas para problemas criando um modelo de problema ou pull request para o repositório. Para obter mais informações, consulte "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)".
 
 {% endtip %}
 
-## Adding a *CONTRIBUTING* file
+## Adicionar um arquivo *CONTRIBUTING*
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. Decide whether to store your contributing guidelines in your repository's root, `docs`, or `.github` directory. Then, in the filename field, type the name and extension for the file. Contributing guidelines filenames are not case sensitive. Files are rendered in rich text format if the file extension is in a supported format. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)."
-  ![New file name](/assets/images/help/repository/new-file-name.png)
-    - To make your contributing guidelines visible in the repository's root directory, type *CONTRIBUTING*.
-    - To make your contributing guidelines visible in the repository's `docs` directory, type *docs/* to create the new directory, then *CONTRIBUTING*.
-    - If a repository contains more than one *CONTRIBUTING* file, then the file shown in links is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
-4. In the new file, add contribution guidelines. These could include:
-    - Steps for creating good issues or pull requests.
-    - Links to external documentation, mailing lists, or a code of conduct.
-    - Community and behavioral expectations.
+3. Decida se deseja armazenar as diretrizes de contribuição no diretório root, `docs` ou `.github` do repositório. Em seguida, no campo de nome do arquivo, digite o nome e a extensão do arquivo. Os nomes de arquivos com diretrizes de contribuição não são sensíveis a maiúsculas de minúsculas. Os arquivos são renderizados no formato de texto rich se a extensão do arquivo estiver em um formato compatível. Para obter mais informações, consulte "[Trabalhando com arquivos sem código](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)". ![Nome do novo arquivo](/assets/images/help/repository/new-file-name.png)
+    - Para tornar as diretrizes de contribuição visíveis no diretório raiz do repositório, digite *CONTRIBUTING*.
+    - Para tornar as diretrizes de contribuição visíveis no diretório `docs` do repositório, digite *docs/* para criar o diretório e, em seguida, digite *CONTRIBUTING*.
+    - Se um repositório contiver mais de um arquivo *CONTRIBUTING*, o arquivo mostrado em links será escolhido entre locais na seguinte ordem: diretório do `.github`, em seguida, o diretório raiz do repositório e, finalmente, o diretório de `docs`.
+4. Adicione as diretrizes de contribuição ao novo arquivo. Elas podem conter:
+    - Etapas para criar bons problemas ou pull requests.
+    - Links para documentações externas, listas de distribuição ou um código de conduta.
+    - Expectativas de comportamento e da comunidade.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_new_file %}
 
-## Examples of contribution guidelines
+## Exemplos de diretrizes de contribuição
 
-If you're stumped, here are some good examples of contribution guidelines:
+Caso tenha dúvidas, estes são alguns bons exemplos de diretrizes de contribuição:
 
-- The Atom editor [contribution guidelines](https://github.com/atom/atom/blob/master/CONTRIBUTING.md).
-- The Ruby on Rails [contribution guidelines](https://github.com/rails/rails/blob/master/CONTRIBUTING.md).
-- The Open Government [contribution guidelines](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md).
+- [Diretrizes de contribuição](https://github.com/atom/atom/blob/master/CONTRIBUTING.md) do editor Atom.
+- [Diretrizes de contribuição](https://github.com/rails/rails/blob/master/CONTRIBUTING.md) do Ruby on Rails.
+- [Diretrizes de contribuição](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md) do Open Government.
 
-## Further reading
-- The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% ifversion fpt or ghec %}
+## Leia mais
+- Seção "[Iniciar um projeto de código aberto](https://opensource.guide/starting-a-project/)" de Guias de código aberto{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}{% ifversion fpt or ghes or ghec %}
-- "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"{% endif %}
+- "[Adicionar uma licença a um repositório](/articles/adding-a-license-to-a-repository)"{% endif %}

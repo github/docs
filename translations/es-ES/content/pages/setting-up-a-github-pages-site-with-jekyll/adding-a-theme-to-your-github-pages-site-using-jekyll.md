@@ -1,6 +1,6 @@
 ---
-title: Adding a theme to your GitHub Pages site using Jekyll
-intro: You can personalize your Jekyll site by adding and customizing a theme.
+title: Agregar un tema a tu sitio de Páginas de GitHub con Jekyll
+intro: Puedes personalizar tu sitio Jekyll agregando y personalizando un tema.
 redirect_from:
   - /articles/customizing-css-and-html-in-your-jekyll-theme
   - /articles/adding-a-jekyll-theme-to-your-github-pages-site
@@ -14,30 +14,28 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Add theme to Pages site
+shortTitle: Agregar un tema al sitio de páginas
 ---
 
-People with write permissions for a repository can add a theme to a {% data variables.product.prodname_pages %} site using Jekyll.
+Las personas con permisos de escritura para un repositorio pueden agregar un tema a un sitio de {% data variables.product.prodname_pages %} con Jekyll.
 
 {% data reusables.pages.test-locally %}
 
-## Adding a theme
+## Agregar un tema
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-2. Navigate to *_config.yml*.
+2. Navega hasta *_config.yml*.
 {% data reusables.repositories.edit-file %}
-4. Add a new line to the file for the theme name.
-   - To use a supported theme, type `theme: THEME-NAME`, replacing _THEME-NAME_ with the name of the theme as shown in the README of the theme's repository. For a list of supported themes, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site.
-   ![Supported theme in config file](/assets/images/help/pages/add-theme-to-config-file.png)
-   - To use any other Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, type `remote_theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the README of the theme's repository.
-   ![Unsupported theme in config file](/assets/images/help/pages/add-remote-theme-to-config-file.png)
+4. Agrega una nueva línea al archivo para el nombre del tema.
+   - Para utilizar un tema compatible, teclea `theme: THEME-NAME`, reemplazando _THEME-NAME_ con el nombre del tema como se muestra en el archivo README del repositorio del tema. Para conocer la lista de temas compatibles, consulta "[Temas compatibles](https://pages.github.com/themes/)" en el sitio de {% data variables.product.prodname_pages %}. ![Tema compatible en el archivo de configuración](/assets/images/help/pages/add-theme-to-config-file.png)
+   - Para usar cualquier otro tema de Jekyll alojado en {% data variables.product.prodname_dotcom %}, escribe `remote_theme: THEME-NAME`, reemplazando THEME-NAME por el nombre del tema, tal como se muestra en el README del repositorio del tema. ![Tema no compatible en el archivo de configuración](/assets/images/help/pages/add-remote-theme-to-config-file.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-## Customizing your theme's CSS
+## Personalizar el CSS de tu tema
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -45,31 +43,31 @@ People with write permissions for a repository can add a theme to a {% data vari
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-1. Create a new file called _/assets/css/style.scss_.
-2. Add the following content to the top of the file:
+1. Crea un archivo nuevo denominado _/assets/css/style.scss_.
+2. Agrega el siguiente contenido en la parte superior del archivo:
   ```scss
   ---
   ---
 
   @import "{{ site.theme }}";
   ```
-3. Add any custom CSS or Sass (including imports) you'd like immediately after the `@import` line.
+3. Agrega cualquier CSS o Sass personalizado que quieras (incluidas importaciones) inmediatamente después de la línea `@import`.
 
-## Customizing your theme's HTML layout
+## Personalizar el diseño HTML de tu tema
 
 {% data reusables.pages.best-with-supported-themes %}
 
 {% data reusables.pages.theme-customization-help %}
 
-1. On {% data variables.product.prodname_dotcom %}, navigate to your theme's source repository. For example, the source repository for Minima is https://github.com/jekyll/minima.
-2. In the *_layouts* folder, navigate to your theme's _default.html_ file.
-3. Copy the contents of the file.
+1. En {% data variables.product.prodname_dotcom %}, desplázate hasta el repositorio fuente de tu tema. Por ejemplo, el repositorio fuente para Minima es https://github.com/jekyll/minima.
+2. En la carpeta *_layouts*, desplázate hasta el archivo _default.html_ de tu tema.
+3. Copia los contenidos del archivo.
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-6. Create a file called *_layouts/default.html*.
-7. Paste the default layout content you copied earlier.
-8. Customize the layout as you'd like.
+6. Crea un archivo denominado *_layouts/default.html*.
+7. Pega el contenido del diseño personalizado que copiaste anteriormente.
+8. Personaliza el diseño como desees.
 
-## Further reading
+## Leer más
 
-- "[Creating new files](/articles/creating-new-files)"
+- "[Crear archivos nuevos](/articles/creating-new-files)"

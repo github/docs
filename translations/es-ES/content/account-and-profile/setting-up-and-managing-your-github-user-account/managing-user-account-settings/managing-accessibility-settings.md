@@ -1,22 +1,19 @@
 ---
-title: Managing accessibility settings
-intro: 'You can disable character key shortcuts on {% data variables.product.prodname_dotcom %} in your accessibility settings.'
+title: Administrar los ajustes de accesibilidad
+intro: 'Puedes inhabilitar las teclas de atajo de {% data variables.product.prodname_dotcom %} en tus ajustes de accesibilidad.'
 versions:
-  fpt: '*'
-  ghes: '>=3.4'
   feature: keyboard-shortcut-accessibility-setting
 ---
 
-## About accessibility settings
+## Acerca de los ajustes de accesibilidad
 
-{% data variables.product.product_name %} includes a variety of keyboard shortcuts so that you can perform actions across the site without using your mouse to navigate. While shortcuts are useful to save time, they can sometimes make {% data variables.product.prodname_dotcom %} harder to use and less accessible.
+{% data variables.product.product_name %} incluye varios atajaos de teclado para que puedas realizar acciones en todo el sitio sin utilizar tu mouse para navegar. Si bien los atajos son útiles para ahorrar tiempo, algunas veces estos pueden hacer que {% data variables.product.prodname_dotcom %} sea más difícil de utilizar y menos accesible.
 
-All keyboard shortcuts are enabled by default on {% data variables.product.product_name %}, but you can choose to disable character key shortcuts in your accessibility settings. This setting does not affect keyboard shortcuts provided by your web browser or {% data variables.product.prodname_dotcom %} shortcuts that use a modifier key such as `control` or `command`.
+Todos los atajos de teclado se habilitan predeterminadamente en {% data variables.product.product_name %}, pero puedes elegir inhabilitar los atajos con teclas de caracteres en tus ajustes de accesibilidad. Este ajuste no afecta los atajos de teclado que proporciona tu buscador web o los atajos de {% data variables.product.prodname_dotcom %} que utilizan una tecla modificadora, tal como <kbd>Control</kbd> o <kbd>Command</kbd>.
 
-## Managing character key shortcuts
+## Administrar los atajos de tecla de carácter
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.accessibility_settings %}
-1. Select or deselect the **Enable character key shortcuts** checkbox. 
-   ![Screenshot of the 'Enable character key shortcuts' checkbox](/assets/images/help/settings/disable-character-key-shortcuts.png)
-2. Click **Save**.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.accessibility_settings %}
+1. Selecciona o deselecciona la casilla de verificación **Habilitar las teclas de atajo**. ![Captura de pantalla de la casilla de verificación de 'Habilitar los atajos de tecla de carácter'](/assets/images/help/settings/disable-character-key-shortcuts.png)
+2. Haz clic en **Save ** (guardar).

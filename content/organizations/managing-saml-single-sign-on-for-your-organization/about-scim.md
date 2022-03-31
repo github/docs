@@ -22,11 +22,16 @@ These identity providers are compatible with the {% data variables.product.produ
 - Okta
 - OneLogin
 
+{% note %}
+
+**Note:** {% data reusables.scim.nameid-and-username-must-match %}
+
+{% endnote %} 
+
+{% data reusables.scim.changes-should-come-from-idp %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 ## Further reading
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Connecting your identity provider to your organization](/articles/connecting-your-identity-provider-to-your-organization)"
-- "[Enabling and testing SAML single sign-on for your organization](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)"
 - "[Viewing and managing a member's SAML access to your organization](/github/setting-up-and-managing-organizations-and-teams//viewing-and-managing-a-members-saml-access-to-your-organization)"

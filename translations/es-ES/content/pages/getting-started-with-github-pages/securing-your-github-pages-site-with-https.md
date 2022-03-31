@@ -1,6 +1,6 @@
 ---
-title: Securing your GitHub Pages site with HTTPS
-intro: 'HTTPS adds a layer of encryption that prevents others from snooping on or tampering with traffic to your site. You can enforce HTTPS for your {% data variables.product.prodname_pages %} site to transparently redirect all HTTP requests to HTTPS.'
+title: Asegurar tu sitio de Páginas de GitHub con HTTPS
+intro: 'HTTPS agrega una capa de encriptación que evita que otros se entrometan o manipulen el tráfico en tu sitio. Puedes aplicar HTTPS en tu sitio {% data variables.product.prodname_pages %} para redirigir de forma transparente todas las solicitudes de HTTP a HTTPS.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/securing-your-github-pages-site-with-https
@@ -10,14 +10,14 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Secure site with HTTPS
+shortTitle: Asegurar el sitio con HTTPS
 ---
 
-People with admin permissions for a repository can enforce HTTPS for a {% data variables.product.prodname_pages %} site.
+Las personas con permisos de administración para un repositorio pueden aplicar HTTPS para un sitio de {% data variables.product.prodname_pages %}.
 
-## About HTTPS and {% data variables.product.prodname_pages %}
+## Acerca de HTTPS y de las {% data variables.product.prodname_pages %}
 
-All {% data variables.product.prodname_pages %} sites, including sites that are correctly configured with a custom domain, support HTTPS and HTTPS enforcement. For more information about custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)" and "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)."
+Todos los sitios {% data variables.product.prodname_pages %}, incluidos los sitios que están correctamente configurados con un dominio personalizado, admiten HTTPS y la aplicación de HTTPS. Para obtener más información acerca de los dominios personalizados, consulta "[Acerca de los dominios personalizados y de las {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)" y "[Solución de problemas de los dominios personalizados y de las {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)".
 
 {% data reusables.pages.no_sensitive_data_pages %}
 
@@ -25,46 +25,45 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 
 {% note %}
 
-**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+**Nota:** El RFC3280 indica que la longitud máxima del nombre común debe ser de 64 caracteres. Por lo tanto, todo el nombre de dominio de tu sitio de {% data variables.product.prodname_pages %} debe ser menor a 64 caracteres de longitud para que se cree un certificado exitosamente.
 
 {% endnote %}
 
-## Enforcing HTTPS for your {% data variables.product.prodname_pages %} site
+## Aplicar HTTPS en tu sitio {% data variables.product.prodname_pages %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-3. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
-  ![Enforce HTTPS checkbox](/assets/images/help/pages/enforce-https-checkbox.png)
+3. Debajo de "{% data variables.product.prodname_pages %}", selecciona **Enforce HTTPS** (Aplicar HTTPS). ![Aplicar casilla de verificación de HTTPS](/assets/images/help/pages/enforce-https-checkbox.png)
 
-## Troubleshooting certificate provisioning ("Certificate not yet created" error")
+## Solución de problemas para el aprovisionamiento de certificados (error de tipo "Certificate not yet created")
 
-When you set or change your custom domain in the Pages settings, an automatic DNS check begins. This check determines if your DNS settings are configured to allow {% data variables.product.prodname_dotcom %} to obtain a certificate automatically. If the check is successful, {% data variables.product.prodname_dotcom %} queues a job to request a TLS certificate from [Let's Encrypt](https://letsencrypt.org/). On receiving a valid certificate, {% data variables.product.prodname_dotcom %} automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.
+Cuando configuras o cambios tu dominio personalizado en los ajustes de las Páginas, comenzará una verificación automática de DNS. Esta verificación determina si tus ajustes de DNS se configuran para permitir que {% data variables.product.prodname_dotcom %} obtenga un certificado automáticamente. Si la verificación tiene éxito, {% data variables.product.prodname_dotcom %} pondrá en cola un job para solicitar un certificado TLS desde [Let's Encrypt](https://letsencrypt.org/). Cuando recibas un certificado válido, {% data variables.product.prodname_dotcom %} lo carga automáticamente a los servidores que manejan la terminación de TLS para las Páginas. Cuando este proceso se complete con éxito, se mostrará una marca de verificación al costado de tu nombre de dominio personalizado.
 
-The process may take some time. If the process has not completed several minutes after you clicked **Save**, try clicking **Remove** next to your custom domain name. Retype the domain name and click **Save** again. This will cancel and restart the provisioning process.
+El proceso podría tomar algo de tiempo. Si el proceso no se completa varios minutos después de que hiciste clic en **Guardar**, inténtalo haciendo clic en **Eliminar** junto a tu nombre de dominio personalizado. Vuelve a teclear el nombre de dominio y haz clic nuevamente en **Guardar**. Esto cancelará y volverá a iniciar el proceso de aprovisionamiento.
 
-## Resolving problems with mixed content
+## Resolver problemas con contenido mixto
 
-If you enable HTTPS for your {% data variables.product.prodname_pages %} site but your site's HTML still references images, CSS, or JavaScript over HTTP, then your site is serving *mixed content*. Serving mixed content may make your site less secure and cause trouble loading assets.
+Si habilitas HTTPS para tu sitio de {% data variables.product.prodname_pages %}, pero el HTML de tu sitio sigue referenciando imágenes, CSS o JavaScript a través de HTTP, significa que tu sitio está ofreciendo *contenido mixto*. Ofrecer contenido mixto puede hacer que tu sitio sea menos seguro y generar problemas al cargar activos.
 
-To remove your site's mixed content, make sure all your assets are served over HTTPS by changing `http://` to `https://` in your site's HTML.
+Para eliminar el contenido mixto de tu sitio, asegúrate de que todos tus activos se ofrezcan mediante HTTPS cambiando `http://` por `https://` en el HTML de tu sitio.
 
-Assets are commonly found in the following locations:
-- If your site uses Jekyll, your HTML files will probably be found in the *_layouts* folder.
-- CSS is usually found in the `<head>` section of your HTML file.
-- JavaScript is usually found in the `<head>` section or just before the closing `</body>` tag.
-- Images are often found in the `<body>` section.
+Normalmente, los activos se encuentran en las siguientes ubicaciones:
+- Si tu sitio usa Jekyll, es probable que tus archivos HTML se encuentren en la carpeta de *_layouts*.
+- Habitualmente, CSS se encuentra en la sección `<head>` de tu archivo HTML.
+- Habitualmente, JavaScript se encuentra en la sección `<head>` o simplemente antes de la etiqueta de cierre `</body>`.
+- Las imágenes se suelen encontrar en la sección `<body>`.
 
 {% tip %}
 
-**Tip:** If you can't find your assets in your site's source files, try searching your site's source files for `http` in your text editor or on {% data variables.product.product_name %}.
+**Sugerencia:** Si no puedes encontrar tus activos en los archivos fuente de tu sitio, prueba buscando los archivos fuente de tu sitio para `http` en el editor de texto o en {% data variables.product.product_name %}.
 
 {% endtip %}
 
-### Examples of assets referenced in an HTML file
+### Ejemplos de activos referenciados en un archivo HTML
 
-| Asset type | HTTP                                      | HTTPS                             |
-|:----------:|:-----------------------------------------:|:---------------------------------:|
-| CSS        | `<link rel="stylesheet" href="http://example.com/css/main.css">` | `<link rel="stylesheet" href="https://example.com/css/main.css">`
-| JavaScript   |  `<script type="text/javascript" src="http://example.com/js/main.js"></script>`  |   `<script type="text/javascript" src="https://example.com/js/main.js"></script>`
-| Image        |  `<A HREF="http://www.somesite.com"><IMG SRC="http://www.example.com/logo.jpg" alt="Logo"></a>`  | `<A HREF="https://www.somesite.com"><IMG SRC="https://www.example.com/logo.jpg" alt="Logo"></a>`  
+| Tipo de activo |                                                       HTTP                                                       |                                                       HTTPS                                                        |
+|:--------------:|:----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|
+|      CSS       |                      `<link rel="stylesheet" href="http://example.com/css/main.css">`                      |                      `<link rel="stylesheet" href="https://example.com/css/main.css">`                       |
+|   JavaScript   |            `<script type="text/javascript" src="http://example.com/js/main.js"></script>`            |            `<script type="text/javascript" src="https://example.com/js/main.js"></script>`             |
+|     Image      | `<A HREF="http://www.somesite.com"><IMG SRC="http://www.example.com/logo.jpg" alt="Logo"></a>` | `<A HREF="https://www.somesite.com"><IMG SRC="https://www.example.com/logo.jpg" alt="Logo"></a>` |  

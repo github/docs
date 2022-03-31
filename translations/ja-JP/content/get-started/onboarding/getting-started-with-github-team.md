@@ -10,16 +10,16 @@ This guide will walk you through setting up, configuring and managing your {% da
 ## Part 1: Configuring your account on {% data variables.product.product_location %}
 As the first steps in starting with {% data variables.product.prodname_team %}, you will need to create a user account or log into your existing account on {% data variables.product.prodname_dotcom %}, create an organization, and set up billing.
 
-### 1. About organizations
-Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features. For more information on the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)."
+### 1. Organizationについて
+Organizationは、企業やオープンソースプロジェクトが多くのプロジェクトにわたって一度にコラボレーションできる共有アカウントです。 オーナーと管理者は、Organizationのデータとプロジェクトへのメンバーのアクセスを、洗練されたセキュリティ及び管理機能で管理できます。 For more information on the features of organizations, see "[About organizations](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)."
 
 ### 2. Creating an organization and signing up for {% data variables.product.prodname_team %}
-Before creating an organization, you will need to create a user account or log in to your existing account on {% data variables.product.product_location %}. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
+Before creating an organization, you will need to create a user account or log in to your existing account on {% data variables.product.product_location %}. 詳しい情報については、「[新しい {% data variables.product.prodname_dotcom %} アカウントにサインアップする](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)」を参照してください。
 
-Once your user account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+Once your user account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. 詳しい情報については、「[新しい Organization をゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。
 
 ### 3. Managing billing for an organization
-You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. For more information, see "[Switching between settings for your different accounts](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)."
+You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. 詳しい情報については「[様々なアカウントの設定の切り替え](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)」を参照してください。
 
 Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see "[Managing your {% data variables.product.prodname_dotcom %} billing settings](/billing/managing-your-github-billing-settings)."
 
@@ -64,7 +64,7 @@ You can help to make your organization more secure by recommending or requiring 
 ## Part 5: Customizing and automating your work on {% data variables.product.product_name %}
 
 {% data reusables.getting-started.customizing-and-automating %}
-### 1. Using {% data variables.product.prodname_marketplace %}
+### 1. {% data variables.product.prodname_marketplace %}を使用する
 {% data reusables.getting-started.marketplace %}
 ### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
 {% data reusables.getting-started.api %}
@@ -72,7 +72,7 @@ You can help to make your organization more secure by recommending or requiring 
 ### 3. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-### 4. Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. Publishing and managing {% data variables.product.prodname_registry %}
 {% data reusables.getting-started.packages %}
 
 ## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
@@ -92,8 +92,8 @@ You can read documentation that reflects the features available with {% data var
 ### 5. Supporting the open source community
 {% data reusables.getting-started.sponsors %}
 
-### 6. Contacting {% data variables.contact.github_support %}
+### 6. {% data variables.contact.github_support %} への連絡
 {% data reusables.getting-started.contact-support %}
-## Further reading
+## 参考リンク
 
 - "[Getting started with your GitHub account](/get-started/onboarding/getting-started-with-your-github-account)"

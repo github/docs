@@ -1,6 +1,6 @@
 ---
-title: Adding issues and pull requests to a project board
-intro: You can add issues and pull requests to a project board in the form of cards and triage them into columns.
+title: Agregar propuestas y solicitudes de extracción a un tablero de proyecto
+intro: Puedes agregar propuestas y solicitudes de extracción a un tablero de proyecto en la forma de tarjetas y jerarquizarlas en columnas.
 redirect_from:
   - /github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board
   - /articles/adding-issues-and-pull-requests-to-a-project
@@ -13,67 +13,61 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Add issues & PRs to board
+shortTitle: Agrega propuestas & solicitudes de cambio a un tablero
 ---
+
 {% data reusables.projects.project_boards_old %}
 
-You can add issue or pull request cards to your project board by:
-- Dragging cards from the **Triage** section in the sidebar.
-- Typing the issue or pull request URL in a card.
-- Searching for issues or pull requests in the project board search sidebar.
+Puedes agregar propuestas o tarjetas de solicitudes de extracción a un tablero de proyecto al:
+- Arrastrar tarjetas desde la sección **Triage** (Jerarquizar) en la barra lateral.
+- Escribir la propuesta o URL de solicitud de extracción en una tarjeta.
+- Buscar las propuestas o solicitudes de extracción en la barra lateral de búsqueda del tablero de proyecto.
 
-You can put a maximum of 2,500 cards into each project column. If a column has reached the maximum number of cards, no cards can be moved into that column.
+Puedes poner un máximo de 2500 tarjetas en cada columna del proyecto. Si una columna ha alcanzado un número máximo de tarjetas, ninguna tarjeta puede moverse a esa columna.
 
-![Cursor moves issue card from triaging sidebar to project board column](/assets/images/help/projects/add-card-from-sidebar.gif)
+![El cursor mueve la tarjeta de propuestas desde la barra lateral de clasificación hasta la columna del tablero](/assets/images/help/projects/add-card-from-sidebar.gif)
 
 {% note %}
 
-**Note:** You can also add notes to your project board to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_name %}, or to add related information to your project board. For more information, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
+**Nota:** También puedes agregar notas a tu tablero de proyecto para servir como recordatorios de tarea, referencias a propuestas y solicitudes de extracción desde un repositorio en {% data variables.product.product_name %}, o agregar información relacionada con tu tablero de proyecto. Para obtener más información, consulta "[Agregar notas a un tablero de proyecto](/articles/adding-notes-to-a-project-board)".
 
 {% endnote %}
 
 {% data reusables.project-management.edit-in-project %}
 
-{% data reusables.project-management.link-repos-to-project-board %} When you search for issues and pull requests to add to your project board, the search automatically scopes to your linked repositories. You can remove these qualifiers to search within all organization repositories. For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
+{% data reusables.project-management.link-repos-to-project-board %} Cuando buscas propuestas y solicitudes de extracción para agregar a tu tablero de proyecto, la búsqueda automáticamente llega a tus repositorios relacionados. Puedes eliminar estos calificadores para buscar dentro de todos los repositorios de la organización. Para obtener más información, consulta "[Vincular un repositorio con un tablero de proyecto](/articles/linking-a-repository-to-a-project-board)".
 
-## Adding issues and pull requests to a project board
+## Agregar propuestas y solicitudes de extracción a un tablero de proyecto
 
-1. Navigate to the project board where you want to add issues and pull requests.
-2. In your project board, click {% octicon "plus" aria-label="The plus icon" %} **Add cards**.
-![Add cards button](/assets/images/help/projects/add-cards-button.png)
-3. Search for issues and pull requests to add to your project board using search qualifiers. For more information on search qualifiers you can use, see "[Searching issues](/articles/searching-issues)."
-  ![Search issues and pull requests](/assets/images/help/issues/issues_search_bar.png)
+1. Navegue hasta el tablero de proyecto donde deseas agregar propuestas y solicitudes de extracción.
+2. En tu tablero de proyecto, haz clic en {% octicon "plus" aria-label="The plus icon" %} **Add cards** (Agregar tarjetas). ![Agregar botón de tarjetas](/assets/images/help/projects/add-cards-button.png)
+3. Buscar propuestas y solicitudes de extracción para agregar a tu tablero de proyecto mediante calificadores de búsqueda. Para más información sobre la búsqueda de calificadores que puedes usar, consulta "[Buscar propuestas](/articles/searching-issues)". ![Buscar propuestas y solicitudes de extracción](/assets/images/help/issues/issues_search_bar.png)
 
   {% tip %}
 
   **Tips:**
-    - You can also add an issue or pull request by typing the URL in a card.
-    - If you're working on a specific feature, you can apply a label to each related issue or pull request for that feature, and then easily add cards to your project board by searching for the label name. For more information, see "[Apply labels to issues and pull requests](/articles/applying-labels-to-issues-and-pull-requests)."
+    - También puedes agregar una propuesta o solicitud de extracción al escribir la URL en una tarjeta.
+    - Si estás trabajando en una característica específica, puedes aplicar una etiqueta a cada propuesta relacionada o solicitud de extracción para esa característica, y luego agregar tarjetas fácilmente a tu tablero de proyecto al buscar por el nombre de la etiqueta. Para obtener más información, consulta "[Aplicar etiquetas a propuestas y solicitudes de extracción](/articles/applying-labels-to-issues-and-pull-requests)".
 
   {% endtip %}
-4. From the filtered list of issues and pull requests, drag the card you'd like to add to your project board and drop it in the correct column. Alternatively, you can move cards using keyboard shortcuts. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
+4. En la lista filtrada de propuestas y solicitudes de extracción, arrastra la tarjeta que te gustaría agregar a tu tablero de proyecto y colócala en la columna correcta. Como alternativa, puedes mover las tarjetas usando los atajos del teclado. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% tip %}
 
-    **Tip:** You can drag and drop or use keyboard shortcuts to reorder cards and move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
+    **Sugerencia:** Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas y moverlas entre las columnas. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% endtip %}
 
-## Adding issues and pull requests to a project board from the sidebar
+## Agregar propuestas y solicitudes de extracción a un tablero de proyecto de la barra lateral
 
-1. On the right side of an issue or pull request, click **Projects {% octicon "gear" aria-label="The Gear icon" %}**.
-  ![Project board button in sidebar](/assets/images/help/projects/sidebar-project.png)
-2. Click the **Recent**, **Repository**,**User**, or **Organization** tab for the project board you would like to add to.
-  ![Recent, Repository and Organization tabs](/assets/images/help/projects/sidebar-project-tabs.png)
-3. Type the name of the project in **Filter projects** field.
-  ![Project board search box](/assets/images/help/projects/sidebar-search-project.png)
-4. Select one or more project boards where you want to add the issue or pull request.
-  ![Selected project board](/assets/images/help/projects/sidebar-select-project.png)
-5. Click {% octicon "triangle-down" aria-label="The down triangle icon" %}, then click the column where you want your issue or pull request. The card will move to the bottom of the project board column you select.
-  ![Move card to column menu](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
+1. En el lateral derecho de una propuesta o solicitud de extracción, haz clic en **Projects{% octicon "gear" aria-label="The Gear icon" %} (Proyectos**. ![Botón del tablero de proyecto en la barra lateral](/assets/images/help/projects/sidebar-project.png)
+2. Da clic en la pestaña **Reciente**,**Repositorio**,**Usuario**, u **Organización** del tablero de proyecto que te gustaría agregar. ![Pestañas Recent (Reciente), Repository (Repositorio) y Organization (Organización)](/assets/images/help/projects/sidebar-project-tabs.png)
+3. Escribe el nombre del proyecto en el campo **Filter projects** (Filtrar proyectos). ![Cuadro de búsqueda del tablero de proyecto](/assets/images/help/projects/sidebar-search-project.png)
+4. Selecciona uno o más tableros de proyecto en donde quieras agregar la propuesta o solicitud de cambios. ![Tablero de proyecto seleccionado](/assets/images/help/projects/sidebar-select-project.png)
+5. Haz clic en {% octicon "triangle-down" aria-label="The down triangle icon" %}, luego haz clic en la columna en la que quieras colocar tu propuesta o solicitud de extracción. La tarjeta se moverá al final de la columna del tablero de proyecto que selecciones. ![Menú Move card to column (Mover tarjeta a la columna)](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
-## Further reading
+## Leer más
 
-- "[About project boards](/articles/about-project-boards)"
-- "[Editing a project board](/articles/editing-a-project-board)"
-- "[Filtering cards on a project board](/articles/filtering-cards-on-a-project-board)"
+- "[Acerca de los tablero de proyecto](/articles/about-project-boards)"
+- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"
+- "[Filtrar tarjetas en un tablero de proyecto](/articles/filtering-cards-on-a-project-board)"

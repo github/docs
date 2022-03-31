@@ -1,6 +1,6 @@
 ---
-title: Managing disruptive comments
-intro: 'You can {% ifversion fpt or ghec %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
+title: 混乱を生むコメントを管理する
+intro: 'Issue、プルリクエスト、 およびコミットに対するコメントを{% ifversion fpt or ghec %}非表示、編集{% else %}編集{% endif %}、削除できます。'
 redirect_from:
   - /articles/editing-a-comment
   - /articles/deleting-a-comment
@@ -13,79 +13,72 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Manage comments
+shortTitle: コメントの管理
 ---
 
-## Hiding a comment
+## コメントを非表示にする
 
-Anyone with write access to a repository can hide comments on issues, pull requests, and commits.
+リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを非表示にすることができます。
 
-If a comment is off-topic, outdated, or resolved, you may want to hide a comment to keep a discussion focused or make a pull request easier to navigate and review. Hidden comments are minimized but people with read access to the repository can expand them.
+1 つのディスカッションに集中し、プルリクエストのナビゲーションとレビューがしやすいように、トピックから外れている、古い、または解決済みのコメントは非表示にすることができます。 非表示のコメントは最小化されますが、リポジトリに対する読み取りアクセスがあるユーザは展開することができます。
 
-![Minimized comment](/assets/images/help/repository/hidden-comment.png)
+![最小化されたコメント](/assets/images/help/repository/hidden-comment.png)
 
-1. Navigate to the comment you'd like to hide.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Hide**.
-  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete options](/assets/images/help/repository/comment-menu.png)
-3. Using the "Choose a reason" drop-down menu, click a reason to hide the comment. Then click, **Hide comment**.
+1. 非表示にするコメントに移動します。
+2. コメントの右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックしてから、[**Hide**] をクリックします。 ![編集、非表示、削除のオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
+3. [Choose a reason] ドロップダウン メニューで、コメントを非表示にする理由をクリックします。 次に、[**Hide comment**] をクリックします。
   {% ifversion fpt or ghec %}
-  ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
+  ![[Choose reason for hiding comment] ドロップダウンメニュー](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
   {% else %}
-  ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
+  ![[Choose reason for hiding comment] ドロップダウンメニュー](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
   {% endif %}
 
-## Unhiding a comment
+## コメントを再表示する
 
-Anyone with write access to a repository can unhide comments on issues, pull requests, and commits.
+リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを再表示することができます。
 
-1. Navigate to the comment you'd like to unhide.
-2. In the upper-right corner of the comment, click **{% octicon "fold" aria-label="The fold icon" %} Show comment**.
-   ![Show comment text](/assets/images/help/repository/hidden-comment-show.png)
-3. On the right side of the expanded comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Unhide**.
-   ![The horizontal kebab icon and comment moderation menu showing the edit, unhide, delete options](/assets/images/help/repository/comment-menu-hidden.png)
+1. 再表示するコメントに移動します。
+2. コメントの右上隅にある [**{% octicon "fold" aria-label="The fold icon" %}Show comment**] をクリックします。 ![コメント テキストの表示](/assets/images/help/repository/hidden-comment-show.png)
+3. 展開したコメントの右側にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}をクリックしてから、[**Unhide**] をクリックします。 ![編集、再表示、削除のオプションが表示されている水平の kebab アイコンとコメント モデレーションメニュー](/assets/images/help/repository/comment-menu-hidden.png)
 
-## Editing a comment
+## コメントを編集する
 
-Anyone with write access to a repository can edit comments on issues, pull requests, and commits.
+リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、およびコミットに対するコメントを編集することができます。
 
-It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
+会話に関係がない、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反している場合は、コメントを編集して内容を削除するのが妥当です。
 
-When you edit a comment, note the location that the content was removed from and optionally, the reason for removing it.
+コメントを編集する際には、削除した内容があった元の場所がわかるように記録し、オプションで削除の理由を示します。
 
-Anyone with read access to a repository can view a comment's edit history. The **edited** dropdown at the top of the comment contains a history of edits showing the user and timestamp for each edit.
+リポジトリの読み取りアクセスがあれば、誰でもコミットの編集履歴を見ることができます。 コメントの上部にある [**edited**] ドロップダウンには編集履歴があり、編集したユーザとタイムスタンプが表示されます。
 
-![Comment with added note that content was redacted](/assets/images/help/repository/content-redacted-comment.png)
+![内容を削除編集したというメモを追加したコメント](/assets/images/help/repository/content-redacted-comment.png)
 
-Comment authors and anyone with write access to a repository can also delete sensitive information from a comment's edit history. For more information, see "[Tracking changes in a comment](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)."
+コメントの作者とリポジトリの書き込みアクセスがあるユーザは、コメントの編集履歴から機密情報を削除できます。 詳しい情報については、「[コメントの変更を追跡する](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)」を参照してください。
 
-1. Navigate to the comment you'd like to edit.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**.
-  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete, and report options](/assets/images/help/repository/comment-menu.png)
-3. In the comment window, delete the content you'd like to remove, then type `[REDACTED]` to replace it.
-  ![Comment window with redacted content](/assets/images/help/issues/redacted-content-comment.png)
-4. At the bottom of the comment, type a note indicating that you have edited the comment, and optionally, why you edited the comment.
-  ![Comment window with added note that content was redacted](/assets/images/help/issues/note-content-redacted-comment.png)
-5. Click **Update comment**.
+1. 編集したいコメントに移動します。
+2. コメントの右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、次に [**Edit**] をクリックします。 ![編集、非表示、削除、レポートのオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
+3. コメント ウィンドウで、問題のある部分を削除し、その場所に `[REDACTED]` と入力します。 ![内容を削除したコメント ウィンドウ](/assets/images/help/issues/redacted-content-comment.png)
+4. コメントの下部に、コメントを編集したことを示すメモを入力し、オプションで編集した理由も入力します。 ![内容を削除したというメモを追加したコメント ウィンドウ](/assets/images/help/issues/note-content-redacted-comment.png)
+5. [**Update comment**] をクリックします。
 
-## Deleting a comment
+## コメントを削除する
 
-Anyone with write access to a repository can delete comments on issues, pull requests, and commits. Organization owners, team maintainers, and the comment author can also delete a comment on a team page.
+リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを削除することができます。 Organization オーナー、チームメンテナ、コメント作成者は、チームのページのコメントを削除することもできます。
 
-Deleting a comment is your last resort as a moderator. It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% ifversion fpt or ghec %} or GitHub's [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}.
+コメントの削除は、モデレーターとしての最終手段です。 コメント全体が会話にとって建設的な内容ではない場合や、コミュニティの行動規範{% ifversion fpt or ghec %}または GitHub の[コミュニティ ガイドライン](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}に違反している場合は、コメントを削除するのが妥当です。
 
-Deleting a comment creates a timeline event that is visible to anyone with read access to the repository. However, the username of the person who deleted the comment is only visible to people with write access to the repository. For anyone without write access, the timeline event is anonymized.
+コメントを削除すると、リポジトリに対する読み取りアクセスを持つユーザなら誰でも見ることのできるタイムラインイベントが作成されます。 ただし、コメントを削除したユーザの名前は、リポジトリへの書き込みアクセスを持つユーザにしか見えません。 書き込みアクセスを持たないユーザから見ると、タイムラインイベントは匿名化されています。
 
-![Anonymized timeline event for a deleted comment](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
+![削除したコメントについて匿名化されたタイムラインイベント](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
 
-If a comment contains some constructive content that adds to the conversation in the issue or pull request, you can edit the comment instead.
+Issue やプルリクエストで、会話に役立つ建設的な内容が部分的に含まれているコメントは、削除せず編集してください。
 
 {% note %}
 
-**Note:** The initial comment (or body) of an issue or pull request can't be deleted. Instead, you can edit issue and pull request bodies to remove unwanted content.
+**メモ:** Issue またはプルリクエストの最初のコメント (本文) は削除できません。 かわりに、Issue やプルリクエストの本文を編集して、不要な内容を削除してください。
 
 {% endnote %}
 
-1. Navigate to the comment you'd like to delete.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete, and report options](/assets/images/help/repository/comment-menu.png)
-3. Optionally, write a comment noting that you deleted a comment and why.
+1. 削除したいコメントに移動します。
+2. コメントの右上隅にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックしてから、[**Delete**] をクリックします。 ![編集、非表示、削除、レポートのオプションが表示されている水平の kebab アイコンとコメント モデレーション メニュー](/assets/images/help/repository/comment-menu.png)
+3. オプションで、コメントを削除したことを示すコメントとその理由を入力します。

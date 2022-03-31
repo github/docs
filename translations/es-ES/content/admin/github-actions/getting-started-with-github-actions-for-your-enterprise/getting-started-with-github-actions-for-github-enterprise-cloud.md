@@ -1,7 +1,7 @@
 ---
-title: Getting started with GitHub Actions for GitHub Enterprise Cloud
-shortTitle: Get started
-intro: 'Learn how to configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}.'
+title: Iniciar con las GitHub Actions para GitHub Enterprise Cloud
+shortTitle: Empezar
+intro: 'Aprende cómo configurar las {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_cloud %}.'
 permissions: 'Enterprise owners can configure {% data variables.product.prodname_actions %}.'
 versions:
   ghec: '*'
@@ -11,24 +11,24 @@ topics:
   - Enterprise
 ---
 
-## About {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}
+## Acerca del {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_cloud %}
 
-{% data variables.product.prodname_actions %} is enabled for your enterprise by default. To get started using {% data variables.product.prodname_actions %} within your enterprise, you can manage the policies that control how enterprise members use {% data variables.product.prodname_actions %} and optionally add self-hosted runners to run workflows.
+Las {% data variables.product.prodname_actions %} se habilitan predeterminadamente para tu empresa. Para comenzar a utilizar las {% data variables.product.prodname_actions %} dentro de tu empresa, puedes administrar las políticas que controlan cómo los miembros empresariales utilizan estas {% data variables.product.prodname_actions %} y, opcionalmente, agregar ejecutores auto-hospedados a los flujos de trabajo.
 
 {% data reusables.actions.introducing-enterprise %}
 
 {% data reusables.actions.migrating-enterprise %}
 
-## Managing policies for {% data variables.product.prodname_actions %}
+## Administrar las políticas para las {% data variables.product.prodname_actions %}
 
-You can use policies to control how enterprise members use {% data variables.product.prodname_actions %}. For example, you can restrict which actions are allowed and configure artifact and log retention. For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+Puedes utilizar políticas para controlar cómo los miembros empresariales utilizan las {% data variables.product.prodname_actions %}. Por ejemplo, puedes restringir qué acciones se permiten y configurar la retención de bitácoras y artefactos. Para obtener más información, consulta la sección "[Requerir las políticas de GitHub Actions para tu empresa](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)".
 
-## Adding runners
+## Agregar ejecutores
 
-To run {% data variables.product.prodname_actions %} workflows, you need to use runners. {% data reusables.actions.about-runners %} If you use {% data variables.product.company_short %}-hosted runners, you will be be billed based on consumption after exhausting the minutes included in {% data variables.product.product_name %}, while self-hosted runners are free. For more information, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+Para ejecutar flujos de trabajo de {% data variables.product.prodname_actions %}, necesitas utilizar ejecutores. {% data reusables.actions.about-runners %} Si utilizas ejecutores hospedados en {% data variables.product.company_short %}, se te facturará con base en el consumo después de agotar los minutos que se incluyen en {% data variables.product.product_name %}, mientras que los ejecutores auto-hospedados son gratuitos. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 
-For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+Para obtener más información, consulta "[Acerca de los ejecutores autoalojados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 
-If you choose self-hosted runners, you can add runners at the enterprise, organization, or repository levels. For more information, see "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)"
+Si eliges utilizar ejecutores auto-hospedados, puedes agregarlos a nivel de empresa, organización o repositorio. Para obtener más información, consulta "[Agregar ejecutores autoalojados](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
 {% data reusables.actions.general-security-hardening %}

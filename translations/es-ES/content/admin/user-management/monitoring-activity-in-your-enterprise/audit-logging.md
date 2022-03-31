@@ -1,6 +1,6 @@
 ---
-title: Audit logging
-intro: '{% data variables.product.product_name %} keeps logs of audited{% ifversion ghes %} system,{% endif %} user, organization, and repository events. Logs are useful for debugging and internal and external compliance.'
+title: Registro de auditoría
+intro: '{% data variables.product.product_name %} mantiene las bitácoras de los eventos auditados de{% ifversion ghes %} sistemas,{% endif %} usuarios, organizaciones, y repositorios. Los registros son útiles para la depuración y el cumplimiento interno y externo.'
 redirect_from:
   - /enterprise/admin/articles/audit-logging
   - /enterprise/admin/installation/audit-logging
@@ -16,30 +16,31 @@ topics:
   - Logging
   - Security
 ---
-For a full list, see "[Audited actions](/admin/user-management/audited-actions)." For more information on finding a particular action, see "[Searching the audit log](/admin/user-management/searching-the-audit-log)."
 
-## Push logs
+Para encontrar una lista completa, consulta "[Acciones auditadas](/admin/user-management/audited-actions)". Para obtener más información sobre cómo encontrar una acción en particular, consulta la sección "[Buscar la bitácora de auditoría](/admin/user-management/searching-the-audit-log)".
 
-Every Git push operation is logged. For more information, see "[Viewing push logs](/admin/user-management/viewing-push-logs)."
+## Subir registros
+
+Se registra cada operación de inserción de Git. Para obtener más información, consulta la sección "[Ver las bitácoras de subida](/admin/user-management/viewing-push-logs)".
 
 {% ifversion ghes %}
-## System events
+## Eventos del sistema
 
-All audited system events, including all pushes and pulls, are logged to `/var/log/github/audit.log`. Logs are automatically rotated every 24 hours and are retained for seven days.
+Todos los eventos de sistema auditados se registran en `/var/log/github/audit.log`. Los registros se rotan automáticamente cada 24 horas y se mantienen durante siete días.
 
-The support bundle includes system logs. For more information, see "[Providing data to {% data variables.product.prodname_dotcom %} Support](/admin/enterprise-support/providing-data-to-github-support)."
+El paquete de soporte incluye registros del sistema. Para obtener más información, consulta la sección "[Proporcionar datos al soporte de {% data variables.product.prodname_dotcom %}](/admin/enterprise-support/providing-data-to-github-support)".
 
-## Support bundles
+## Paquete de soporte
 
-All audit information is logged to the `audit.log` file in the `github-logs` directory of any support bundle. If log forwarding is enabled, you can stream this data to an external syslog stream consumer such as [Splunk](http://www.splunk.com/) or [Logstash](http://logstash.net/). All entries from this log use and can be filtered with the `github_audit` keyword. For more information see "[Log forwarding](/admin/user-management/log-forwarding)."
+Toda la información de auditoría se registra en el archivo `audit.log` del directorio de `github-logs` de cualquier paquete de soporte. Si está habilitado el redireccionamiento de registro, puedes transmitirle estos datos a un consumidor de flujo syslog externo como [Splunk](http://www.splunk.com/) o [Logstash](http://logstash.net/). Todas las entradas de este registro utilizan la palabra clave `github_audit` y se pueden filtrar con ella. Para obtener más información, consulta la sección "[Reenvío de bitácoras](/admin/user-management/log-forwarding)".
 
-For example, this entry shows that a new repository was created.
+Por ejemplo, esta entrada muestra que se creó un repositorio nuevo.
 
 ```
 Oct 26 01:42:08 github-ent github_audit: {:created_at=>1351215728326, :actor_ip=>"10.0.0.51", :data=>{}, :user=>"some-user", :repo=>"some-user/some-repository", :actor=>"some-user", :actor_id=>2, :user_id=>2, :action=>"repo.create", :repo_id=>1, :from=>"repositories#create"}
 ```
 
-This example shows that commits were pushed to a repository.
+Este ejemplo muestra que las confirmaciones se subieron a un repositorio.
 
 ```
 Oct 26 02:19:31 github-ent github_audit: { "pid":22860, "ppid":22859, "program":"receive-pack", "git_dir":"/data/repositories/some-user/some-repository.git", "hostname":"github-ent", "pusher":"some-user", "real_ip":"10.0.0.51", "user_agent":"git/1.7.10.4", "repo_id":1, "repo_name":"some-user/some-repository", "transaction_id":"b031b7dc7043c87323a75f7a92092ef1456e5fbaef995c68", "frontend_ppid":1, "repo_public":true, "user_name":"some-user", "user_login":"some-user", "frontend_pid":18238, "frontend":"github-ent", "user_email":"some-user@github.example.com", "user_id":2, "pgroup":"github-ent_22860", "status":"post_receive_hook", "features":" report-status side-band-64k", "received_objects":3, "receive_pack_size":243, "non_fast_forward":false, "current_ref":"refs/heads/main" }

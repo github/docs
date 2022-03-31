@@ -1,6 +1,6 @@
 ---
-title: Viewing and triaging notifications
-intro: 'To optimize your notifications workflow, you can customize how you view and triage notifications.'
+title: Ver y clasificar las notificaciones
+intro: 'Para optimizar el flujo de trabajo de tus notificaciones, puedes personalizar como las visualizas y clasificas.'
 redirect_from:
   - /articles/managing-notifications
   - /articles/managing-your-notifications
@@ -16,6 +16,6 @@ children:
   - /managing-notifications-from-your-inbox
   - /triaging-a-single-notification
   - /customizing-a-workflow-for-triaging-your-notifications
-shortTitle: Customize a workflow
+shortTitle: Personalizar un flujo de trabajo
 ---
 

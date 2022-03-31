@@ -1,6 +1,6 @@
 ---
-title: Managing your theme settings
-intro: 'You can manage how {% data variables.product.product_name %} looks to you by setting a theme preference that either follows your system settings or always uses a light or dark mode.'
+title: 管理主题设置
+intro: '通过设置主题首选项以遵循系统设置或始终使用浅色模式或深色模式，您可以管理 {% data variables.product.product_name %} 的外观，'
 versions:
   fpt: '*'
   ghae: '*'
@@ -11,51 +11,51 @@ topics:
 redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-your-theme-settings
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings
-shortTitle: Manage theme settings
+shortTitle: 管理主题设置
 ---
 
-For choice and flexibility in how and when you use {% data variables.product.product_name %}, you can configure theme settings to change how {% data variables.product.product_name %} looks to you. You can choose from themes that are light or dark, or you can configure {% data variables.product.product_name %} to follow your system settings.
+为了选择和灵活地使用 {% data variables.product.product_name %}，您可以配置主题设置来更改 {% data variables.product.product_name %} 的外观。 您可以在浅色和深色两个主题中进行选择，也可以配置 {% data variables.product.product_name %} 遵循系统设置。
 
-You may want to use a dark theme to reduce power consumption on certain devices, to reduce eye strain in low-light conditions, or because you prefer how the theme looks.
+您可能需要使用深色主题来减少某些设备的功耗，以在低光条件下减小眼睛的压力，或者因为您更喜欢主题的外观。
 
-{% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
+{% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}如果您视力不佳，则可以从前景和背景元素之间对比度更高的高对比度主题中受益。{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} 如果您有色盲，可能会从我们的浅色盲和深色盲主题中受益。
 
+{% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** The colorblind themes and light high contrast theme are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
+**注意：**色盲主题目前处于公开测试阶段。 有关在公开测试版中启用功能的更多信息，请参阅“[使用功能预览版探索抢先体验版本](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。
 
 {% endnote %}
+{% endif %}
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-1. In the user settings sidebar, click **Appearance**.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.appearance-settings %}
 
-   !["Appearance" tab in user settings sidebar](/assets/images/help/settings/appearance-tab.png)
+1. 在“Theme mode（主题模式）”下，选择下拉菜单，然后单击主题首选项。
 
-1. Under "Theme mode", select the drop-down menu, then click a theme preference.
-
-   ![Drop-down menu under "Theme mode" for selection of theme preference](/assets/images/help/settings/theme-mode-drop-down-menu.png)
-1. Click the theme you'd like to use.
-    - If you chose a single theme, click a theme.
+   !["主题模式"下的下拉菜单用于选择主题首选项](/assets/images/help/settings/theme-mode-drop-down-menu.png)
+1. 单击想要使用的主题。
+    - 如果您选择单个主题，请单击一个主题。
 
       {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme-highcontrast.png){% else %}![Radio buttons for the choice of a single theme](/assets/images/help/settings/theme-choose-a-single-theme.png){% endif %}
-    - If you chose to follow your system settings, click a day theme and a night theme.
+    - 如果您选择遵循系统设置，请单击白天主题和夜间主题。
 
       {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
-    {% ifversion fpt or ghae-issue-4619 or ghec %}
-    - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
+    {% ifversion fpt or ghec %}
+    - 如果您想选择当前处于公开测试阶段的主题，则首先需要通过功能预览启用它。 更多信息请参阅“[通过功能预览了解早期访问版本](/get-started/using-github/exploring-early-access-releases-with-feature-preview)”。{% endif %}
 
 {% if command-palette %}
 
 {% note %}
 
-**Note:** You can also change your theme settings with the command palette. For more information, see "[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)".
+**注意：**您还可以使用命令面板更改主题设置。 更多信息请参阅“[{% data variables.product.prodname_command_palette %}](/get-started/using-github/github-command-palette)”。
 
 {% endnote %}
 
 {% endif %}
 
-## Further reading
+## 延伸阅读
 
-- "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"
+- "[设置 {% data variables.product.prodname_desktop %} 的主题](/desktop/installing-and-configuring-github-desktop/setting-a-theme-for-github-desktop)"

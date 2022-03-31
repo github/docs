@@ -16,8 +16,7 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
-## Introduction
+## はじめに
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
@@ -31,13 +30,13 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% endif %}
 
-## Prerequisites
+## 必要な環境
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+{% data variables.product.prodname_actions %}ワークフローを作成する前に、まず以下のセットアップのステップを完了しておかなければなりません。
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Create a web app.
+1. Webアプリケーションの作成
 
    For example, you can use the Azure CLI to create an Azure App Service web app with a Python runtime:
 
@@ -49,23 +48,21 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --runtime "python|3.8"
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   上のコマンドで、パラメータは自分の値で置き換えてください。`MY_WEBAPP_NAME`はWebアプリケーションの新しい名前です。
 
 {% data reusables.actions.create-azure-publish-profile %}
 
 1. Add an app setting called `SCM_DO_BUILD_DURING_DEPLOYMENT` and set the value to `1`.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
-## Creating the workflow
+## ワークフローの作成
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+必要な環境を整えたら、ワークフローの作成に進むことができます。
 
 The following example workflow demonstrates how to build and deploy a Python project to Azure App Service when there is a push to the `main` branch.
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If you use a version of Python other than `3.8`, change `PYTHON_VERSION` to the version that you use.
+ワークフローの`env`キー中の`AZURE_WEBAPP_NAME`を、作成したWebアプリケーションの名前に設定してください。 If you use a version of Python other than `3.8`, change `PYTHON_VERSION` to the version that you use.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -99,7 +96,7 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-      
+
       - name: Set up dependency caching for faster installs
         uses: actions/cache@v2
         with:
@@ -114,7 +111,7 @@ jobs:
       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: python-app
           path: |
@@ -129,7 +126,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: python-app
           path: .
@@ -142,10 +139,10 @@ jobs:
           publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
 ```
 
-## Additional resources
+## 追加リソース
 
-The following resources may also be useful:
+以下のリソースも役に立つでしょう。
 
 * For the original starter workflow, see [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
+* Webアプリケーションのデプロイに使われたアクションは、公式のAzure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy)アクションです。
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

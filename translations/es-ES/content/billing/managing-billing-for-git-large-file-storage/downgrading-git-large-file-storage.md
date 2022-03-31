@@ -1,6 +1,6 @@
 ---
-title: Downgrading Git Large File Storage
-intro: 'You can downgrade storage and bandwidth for {% data variables.large_files.product_name_short %} by increments of 50 GB per month.'
+title: Bajar de categoría Large File Storage de Git
+intro: 'Puedes bajar de categoría y modificar el ancho de banda para {% data variables.large_files.product_name_short %} aplicando incrementos de 50 GB por mes.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-git-large-file-storage
   - /articles/downgrading-storage-and-bandwidth-for-a-personal-account
@@ -16,21 +16,42 @@ topics:
   - LFS
   - Organizations
   - User account
-shortTitle: Downgrade Git LFS storage
+shortTitle: Bajar de categoría el almacenamiento de LFS de Git
 ---
-When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)."
 
-## Downgrading storage and bandwidth for a personal account
+Si bajas de categoría tu cantidad de paquetes de datos, tu cambio entrará en vigencia en tu próxima fecha de facturación. Para obtener más información, consulta "
+[Acerca de la facturación para {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)".</p> 
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+
+
+## Bajar de categoría y reducir el ancho de banda para una cuenta personal
+
+{% data reusables.user-settings.access_settings %}
+
+
+
+{% data reusables.user-settings.billing_plans %}
+
+
+
 {% data reusables.dotcom_billing.lfs-remove-data %}
+
+
+
 {% data reusables.large_files.downgrade_data_packs %}
 
-## Downgrading storage and bandwidth for an organization
+
+
+## Bajar de categoría y reducir el ancho de banda para una organización
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% data reusables.organizations.billing-settings %}
+
+
+
 {% data reusables.dotcom_billing.lfs-remove-data %}
+
+
+
 {% data reusables.large_files.downgrade_data_packs %}

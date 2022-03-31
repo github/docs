@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting SSL errors
-intro: 'If you run into SSL issues with your appliance, you can take actions to resolve them.'
+title: Errores de solución de problemas de SSL
+intro: 'Si te encuentras con problemas de SSL en tu aparato, puedes tomar medidas para resolverlos.'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration
@@ -17,65 +17,70 @@ topics:
   - Networking
   - Security
   - Troubleshooting
-shortTitle: Troubleshoot SSL errors
+shortTitle: Solucionar los errores de SSL
 ---
-## Removing the passphrase from your key file
 
-If you have a Linux machine with OpenSSL installed, you can remove your passphrase.
+## Eliminar la contraseña de un archivo clave
 
-1. Rename your original key file.
+Si tienes una máquina linux con OpenSSL instalado, puedes eliminar tu contraseña.
+
+1. Renombrar tu archivo clave original.
   ```shell
   $ mv yourdomain.key yourdomain.key.orig
   ```
-2. Generate a new key without a passphrase.
+2. Generar una nueva clave sin una contraseña.
   ```shell
   $ openssl rsa -in yourdomain.key.orig -out yourdomain.key
   ```
 
-You'll be prompted for the key's passphrase when you run this command.
+Se te pedirá la contraseña de la clave cuando ejecutes este comando.
 
-For more information about OpenSSL, see [OpenSSL's documentation](https://www.openssl.org/docs/).
+Para más información sobre OpenSSL, consulta la documentación de OpenSSL [](https://www.openssl.org/docs/).
 
-## Converting your SSL certificate or key into PEM format
+## Convertir tu certificado SSL o tu clave a un formato PEM
 
-If you have OpenSSL installed, you can convert your key into PEM format by using the `openssl` command. For example, you can convert a key from DER format into PEM format.
+Si tienes instalado OpenSSL, puedes convertir tu clave en formato PEM usando el comando `openssl`. Por ejemplo, puedes convertir una clave de formato DER a formato PEM.
 
 ```shell
 $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 ```
 
-Otherwise, you can use the SSL Converter tool to convert your certificate into the PEM format. For more information, see the [SSL Converter tool's documentation](https://www.sslshopper.com/ssl-converter.html).
+De lo contrario, puedes utilizar la herramienta SSL Converter para convertir tu certificado a formato PEM. Para obtener más información, consulta la [Documentación de la herramienta SSL Converter](https://www.sslshopper.com/ssl-converter.html).
 
-## Unresponsive installation after uploading a key
+## Instalación sin respuesta después de cargar una clave
 
-If {% data variables.product.product_location %} is unresponsive after uploading an SSL key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your SSL certificate.
+Si {% data variables.product.product_location %} no tiene respuesta después de cargar una clave SSL, contacta [al {% data variables.product.prodname_enterprise %} Soporte](https://enterprise.github.com/support) con detalles específicos, incluida una copia de tu certificado SSL.
 
-## Certificate validity errors
+## Errores de validez de certificado
 
-Clients such as web browsers and command-line Git will display an error message if they cannot verify the validity of an SSL certificate. This often occurs with self-signed certificates as well as "chained root" certificates issued from an intermediate root certificate that is not recognized by the client.
+Los clientes como navegadores web y líneas de comando Git mostrarán un mensaje de error si no pueden verificar la validez de un certificado SSL. Esto sucede con frecuencia con los certificados autofirmados y los certificados de "raíz encadenada" emitidos por un certificado raíz intermedio que no es reconocido por el cliente.
 
-If you are using a certificate signed by a certificate authority (CA), the certificate file that you upload to {% data variables.product.prodname_ghe_server %} must include a certificate chain with that CA's root certificate. To create such a file, concatenate your entire certificate chain (or "certificate bundle") onto the end of your certificate, ensuring that the principal certificate with your hostname comes first. On most systems you can do this with a command similar to:
+Si estás usando un certificado firmado por una autoridad de certificación (CA), el archivo del certificado que cargaste a {% data variables.product.prodname_ghe_server %} debe incluir una cadena de certificado con ese certificado raíz de CA. Para crear dicho archivo, concatena tu cadena de certificado entera (o "paquete de certificado") al final de tu certificado, garantizando que el certificado principal con tu nombre del host aparezca primero. En la mayoría de los sistemas puedes hacer esto con un comando similar a:
 
 ```shell
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 ```
 
-You should be able to download a certificate bundle (for example, `bundle-certificates.crt`) from your certificate authority or SSL vendor.
+Deberías poder descargar un paquete de certificado (por ejemplo, `bundle-certificates.crt`) desde tu proveedor de SSL o de la autoridad de certificación.
 
-## Installing self-signed or untrusted certificate authority (CA) root certificates
+## Instalar certificados raíz de autoridad de certificación (CA) autofirmados o que no son de confianza
 
-If your {% data variables.product.prodname_ghe_server %} appliance interacts with other machines on your network that use a self-signed or untrusted certificate, you will need to import the signing CA's root certificate into the system-wide certificate store in order to access those systems over HTTPS.
+Si tu aparato {% data variables.product.prodname_ghe_server %} interactúa con otras máquinas en tu red que utilizan un certificado autofirmado o que no es de confianza, deberás importar el certificado raíz de la CA firmante en el almacenamiento de certificado de todo el sistema para poder acceder a estos sistemas por HTTPS.
 
-1. Obtain the CA's root certificate from your local certificate authority and ensure it is in PEM format.
-2. Copy the file to your {% data variables.product.prodname_ghe_server %} appliance over SSH as the "admin" user on port 122.
+1. Obtén el certificado raíz de la CA de tu autoridad de certificación local y asegúrate que esté en formato PEM.
+2. Copia el archivo a tu aparato {% data variables.product.prodname_ghe_server %} por SSH como el usuario "administrador" en el puerto 122.
   ```shell
   $ scp -P 122 rootCA.crt admin@HOSTNAME:/home/admin
   ```
-3. Connect to the {% data variables.product.prodname_ghe_server %} administrative shell over SSH as the "admin" user on port 122.
+3. Conecta a la shell administrativa {% data variables.product.prodname_ghe_server %} por SSH como el usuario "administrador" en el puerto 122.
   ```shell
   $ ssh -p 122 admin@HOSTNAME
   ```
-4. Import the certificate into the system-wide certificate store.
+4. Importa el certificado al almacenamiento de certificado de todo el sistema.
   ```shell
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
+
+## Actualizar un certificado SSL
+
+Puedes generar un certificado auto-firmado nuevo o actualizar un certificado SSL para {% data variables.product.product_location %} con la utilidad de línea de comandos `ghe-ssl-certificate-setup`. Para obtener más información, consulta la sección "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)".

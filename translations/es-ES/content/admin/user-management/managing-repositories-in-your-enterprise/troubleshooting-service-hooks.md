@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting service hooks
-intro: 'If payloads aren''t being delivered, check for these common problems.'
+title: Solución de problemas con ganchos de servicio
+intro: 'Si las cargar no se están entregando, comprueba estos problemas comunes.'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-service-hooks
   - /enterprise/admin/developer-workflow/troubleshooting-service-hooks
@@ -11,38 +11,33 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
-shortTitle: Troubleshoot service hooks
+shortTitle: Solución de problemas en los ganchos de servicio
 ---
-## Getting information on deliveries
 
-You can find information for the last response of all service hooks deliveries on any repository.
+## Obtener información sobre las entregas
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-2. Browse to the repository you're investigating.
-3. Click on the **Hooks** link in the navigation sidebar.
-  ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
-4. Click on the **Latest Delivery** link under the service hook having problems.
-  ![Hook Details](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
-5. Under **Remote Calls**, you'll see the headers that were used when POSTing to the remote server along with the response that the remote server sent back to your installation.
-
-## Viewing the payload
+Puedes buscar información para la última respuesta de todas las entregas de ganchos de servicio en cualquier repositorio.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. Browse to the repository you're investigating.
-3. Click on the **Hooks** link in the navigation sidebar.
-  ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
-4. Click on the **Latest Delivery** link under the service hook having problems.
-5. Click **Delivery**.
-  ![Viewing the payload](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
+2. Explorar en el repositorio que estás investigando.
+3. Haz clic en el enlace **Hooks** (Ganchos) en la barra lateral de navegación. ![Barra lateral de ganchos](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
+4. Haz clic en el enlace **Latest Delivery** (Última entrega) bajo el gancho de servicio que tiene problemas. ![Detalles de ganchos](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
+5. En **Remote Calls** (Llamadas remotas), verás los encabezados que se usaron al publicar en el servidor remoto junto con la respuesta que el servidor remoto volvió a enviar a tu instalación.
 
-## Viewing past deliveries
-
-Deliveries are stored for 15 days.
+## Ver la carga
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. Browse to the repository you're investigating.
-3. Click on the **Hooks** link in the navigation sidebar.
-  ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
-4. Click on the **Latest Delivery** link under the service hook having problems.
-5. To view other deliveries to that specific hook, click **More for this Hook ID**:
-  ![Viewing more deliveries](/assets/images/enterprise/settings/Enterprise-Hooks-More-Deliveries.png)
+2. Explorar en el repositorio que estás investigando.
+3. Haz clic en el enlace **Hooks** (Ganchos) en la barra lateral de navegación. ![Barra lateral de ganchos](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
+4. Haz clic en el enlace **Latest Delivery** (Última entrega) bajo el gancho de servicio que tiene problemas.
+5. Da clic en **Entrega**. ![Ver la carga](/assets/images/enterprise/settings/Enterprise-Hooks-Payload.png)
+
+## Ver entregas anteriores
+
+Las entregas se almacenan durante 15 días.
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+2. Explorar en el repositorio que estás investigando.
+3. Haz clic en el enlace **Hooks** (Ganchos) en la barra lateral de navegación. ![Barra lateral de ganchos](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
+4. Haz clic en el enlace **Latest Delivery** (Última entrega) bajo el gancho de servicio que tiene problemas.
+5. Para ver otras entregas para ese gancho específico, haz clic en **More for this Hook ID** (Más para este ID de gancho): ![Ver más entregas](/assets/images/enterprise/settings/Enterprise-Hooks-More-Deliveries.png)

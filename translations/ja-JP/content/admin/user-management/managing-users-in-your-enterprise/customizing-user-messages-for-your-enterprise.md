@@ -1,12 +1,12 @@
 ---
-title: Customizing user messages for your enterprise
+title: Enterprise のユーザメッセージをカスタマイズする
 shortTitle: Customizing user messages
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise
-intro: 'You can create custom messages that users will see on {% data variables.product.product_location %}.'
+intro: '{% data variables.product.product_location %} でユーザに表示されるカスタムメッセージを作成できます。'
 versions:
   ghes: '*'
   ghae: '*'
@@ -15,69 +15,64 @@ topics:
   - Enterprise
   - Maintenance
 ---
-## About user messages
 
-There are several types of user messages.
-- Messages that appear on the {% ifversion ghes %}sign in or {% endif %}sign out page{% ifversion ghes or ghae %}
+## ユーザメッセージについて
+
+ユーザメッセージにはいくつかの種類があります。
+- {% ifversion ghes %}サインインまたは{% endif %}サインアウトページ{% ifversion ghes or ghae %}に表示されるメッセージ
 - Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% ifversion ghes or ghae %}
-- Announcement banners, which appear at the top of every page{% endif %}
+- すべてのページの上部に表示されるアナウンスバナー{% endif %}
 
 {% ifversion ghes %}
 {% note %}
 
-**Note:** If you are using SAML for authentication, the sign in page is presented by your identity provider and is not customizable via {% data variables.product.prodname_ghe_server %}.
+**メモ:** 認証に SAML を使っている場合は、サインインページはアイデンティティプロバイダによって提示されるため、{% data variables.product.prodname_ghe_server %} でカスタマイズすることはできません。
 
 {% endnote %}
 
-You can use Markdown to format your message. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github/)."
+メッセージの書式設定には Markdown を使用できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %}での執筆とフォーマットについて](/articles/about-writing-and-formatting-on-github/)」を参照してください。
 
-## Creating a custom sign in message
+## カスタムサインインメッセージの作成
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-5. {% ifversion ghes %}To the right of{% else %}Under{% endif %} "Sign in page", click **Add message** or **Edit message**.
-![{% ifversion ghes %}Add{% else %}Edit{% endif %} message button](/assets/images/enterprise/site-admin-settings/edit-message.png)
-6. Under **Sign in message**, type the message you'd like users to see.
-![Sign in message](/assets/images/enterprise/site-admin-settings/sign-in-message.png){% ifversion ghes %}
+5. {% ifversion ghes %}[Sign in page] の右側{% else %}下{% endif %}にある [**Add message**] または [**Edit message**] をクリックします。 ![{% ifversion ghes %}[Add]{% else %}[Edit]{% endif %} メッセージボタン](/assets/images/enterprise/site-admin-settings/edit-message.png)
+6. [**Sign in message**] の下に、ユーザに見せたいメッセージを入力します。 ![Sign in message](/assets/images/enterprise/site-admin-settings/sign-in-message.png){% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
 {% data reusables.enterprise_site_admin_settings.click-preview %}
-  ![Preview button](/assets/images/enterprise/site-admin-settings/sign-in-message-preview-button.png)
-8. Review the rendered message.
-![Sign in message rendered](/assets/images/enterprise/site-admin-settings/sign-in-message-rendered.png)
+  ![プレビューボタン](/assets/images/enterprise/site-admin-settings/sign-in-message-preview-button.png)
+8. 表示されたメッセージを確認します。 ![サインインメッセージの表示](/assets/images/enterprise/site-admin-settings/sign-in-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
 {% endif %}
 
-## Creating a custom sign out message
+## カスタムサインアウトメッセージを作成する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-5. {% ifversion ghes or ghae %}To the right of{% else %}Under{% endif %} "Sign out page", click **Add message** or **Edit message**.
-![Add message button](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
-6. Under **Sign out message**, type the message you'd like users to see.
-![Sign two_factor_auth_header message](/assets/images/enterprise/site-admin-settings/sign-out-message.png){% ifversion ghes or ghae %}
+5. {% ifversion ghes or ghae %}[Sign in page] の右側{% else %}下{% endif %}にある [**Add message**] または [**Edit message**] をクリックします。 ![[Add message] ボタン](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
+6. [**Sign out message**] の下に、ユーザに見せたいメッセージを入力します。 ![Sign two_factor_auth_header message](/assets/images/enterprise/site-admin-settings/sign-out-message.png){% ifversion ghes or ghae %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
 {% data reusables.enterprise_site_admin_settings.click-preview %}
-  ![Preview button](/assets/images/enterprise/site-admin-settings/sign-out-message-preview-button.png)
-8. Review the rendered message.
-![Sign out message rendered](/assets/images/enterprise/site-admin-settings/sign-out-message-rendered.png)
+  ![プレビューボタン](/assets/images/enterprise/site-admin-settings/sign-out-message-preview-button.png)
+8. 表示されたメッセージを確認します。 ![サインアウトメッセージの表示](/assets/images/enterprise/site-admin-settings/sign-out-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
 
 {% ifversion ghes or ghae %}
-## Creating a mandatory message
+## 必須メッセージを作成する
 
-You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.product.product_location %}.
+メッセージを保存した後に初めてサインインしたときに、すべてのユーザに表示される必須メッセージを {% data variables.product.product_name %} で作成できます。 メッセージはポップアップウィンドウ内に表示され、ユーザは {% data variables.product.product_location %} を使用する前に閉じる必要があります。
 
-Mandatory messages have a variety of uses.
+必須メッセージにはさまざまな用途があります。
 
-- Providing onboarding information for new employees
-- Telling users how to get help with {% data variables.product.product_location %}
-- Ensuring that all users read your terms of service for using {% data variables.product.product_location %}
+- 新入社員にオンボーディング情報を提供する
+- {% data variables.product.product_location %} のヘルプの取得方法をユーザに伝える
+- すべてのユーザが {% data variables.product.product_location %} を使用時の利用規約を確実に読むようにする
 
-If you include Markdown checkboxes in the message, all checkboxes must be selected before the user can dismiss the message. For example, if you include your terms of service in the mandatory message, you can require that each user selects a checkbox to confirm the user has read the terms.
+メッセージに Markdown チェックボックスを含める場合、ユーザがメッセージを閉じる前に、すべてのチェックボックスを選択する必要があります。 たとえば、必須メッセージに利用規約を含める場合、各ユーザにチェックボックスを選択して、ユーザが利用規約を読んだことを確認するように要求できます。
 
-Each time a user sees a mandatory message, an audit log event is created. The event includes the version of the message that the user saw. For more information see "[Audited actions](/admin/user-management/audited-actions)."
+ユーザに必須メッセージが表示されるたびに、監査ログイベントが作成されます。 イベントには、ユーザが表示したメッセージのバージョンが含まれます。 詳しい情報については、「[監査されたアクション](/admin/user-management/audited-actions)」を参照してください。
 
 {% note %}
 
@@ -88,35 +83,30 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. To the right of "Mandatory message", click **Add message**.
-  ![Add mandatory message button](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
-1. Under "Mandatory message", in the text box, type your message.
-  ![Mandatory message text box](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
+1. [Mandatory message] の右側にある [**Add message**] をクリックします。 ![Add mandatory message button](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
+1. [Mandatory message] の下のテキストボックスに、メッセージを入力します。 ![Mandatory message text box](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}
 
 {% ifversion ghes or ghae %}
-## Creating a global announcement banner
+## グローバルアナウンスバナーを作成する
 
-You can set a global announcement banner to be displayed to all users at the top of every page.
+各ページの上部にグローバルアナウンスバナーを設定し、すべてのユーザに対して表示できます。
 
 {% ifversion ghae or ghes %}
-You can also set an announcement banner{% ifversion ghes %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% ifversion ghes %}"[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" and {% endif %}"[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+You can also set an announcement banner{% ifversion ghes %} in the administrative shell using a command line utility or{% endif %} using the API. 詳しい情報については、{% ifversion ghes %}「[コマンドラインユーティリティ](/enterprise/admin/configuration/command-line-utilities#ghe-announce)」および{% endif %}「[{% data variables.product.prodname_enterprise %} 管理](/rest/reference/enterprise-admin#announcements)」を参照してください。
 {% else %}
 
-You can also set an announcement banner in the administrative shell using a command line utility. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)."
+コマンドラインユーティリティを使用して、管理シェルでアナウンスバナーを設定することもできます。 詳しい情報については、「[コマンドラインユーティリティ](/enterprise/admin/configuration/command-line-utilities#ghe-announce)」を参照してください。
 
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. {% ifversion ghes or ghae %}To the right of{% else %}Under{% endif %} "Announcement", click **Add announcement**.
-  ![Add announcement button](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
-1. Under "Announcement", in the text field, type the announcement you want displayed in a banner.
-  ![Text field to enter announcement](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
-1. Optionally, under "Expires on", select the calendar drop-down menu and click an expiration date.
-  ![Calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
+1. {% ifversion ghes or ghae %}[Announcement] の右側{% else %}下{% endif %}にある [**Add announcement**] をクリックします。 ![[Add message] ボタン](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
+1. [Announcement] のテキストフィールドに、バナーに表示するお知らせを入力します。 ![アナウンスを入力するテキストフィールド](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
+1. 必要に応じて、[Expires on] でカレンダーのドロップダウンメニューを選択し、有効期限をクリックします。 ![有効期限を選択するためのカレンダードロップダウンメニュー](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 {% endif %}

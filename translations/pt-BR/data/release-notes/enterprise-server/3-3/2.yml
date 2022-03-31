@@ -1,0 +1,31 @@
+---
+date: '2022-01-18'
+sections:
+  security_fixes:
+    - 'Os pacotes foram atualizados para as últimas versões de segurança. Nestas atualizações, o Log4j foi atualizado para a versão 2.17.1. Observação: as mitigações anteriores lançadas em 3.3.1, 3.2.6, 3.1.14 e 3.0.22 são suficientes para resolver o impacto do CVE-2021-44228, do CVE-2021-45046, do CVE-2021-45105 e do CVE-2021-44832 nestas versões do GitHub Enterprise Server.'
+    - Higienize mais segredos nos pacotes de suporte gerados
+    - Os usuários de equipes com o função de gerente de segurança agora serão notificados dos alertas de segurança em repositórios que estão inspecionando.
+    - O componente gerente de segurança mostrará um aviso menos agressivo quando o número máximo de equipes for alcançado.
+    - A página de gerenciamento do repositório deve retornar 403 ao tentar remover uma equipe do gerente de segurança do repositório.
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - Os executores auto-hospedados das ações falhariam ao realizar a própria atualização ou executar novos trabalhos após a atualização a partir de uma instalação antiga do GHES.
+    - Não foi possível validar as configurações de armazenamento quando configurar o MinIO como armazenamento blob para pacotes do GitHub.
+    - Não foi possível validar e salvar as configurações de armazenamento do GitHub Actions no Console de Gerenciamento quando o "Estilo de Caminho de Forma" foi selecionado.
+    - As ações seriam deixadas em um estado parado após uma atualização com o modo de manutenção definido.
+    - Às vezes pode ocorrer uma falha ao executar `ghe-config-apply` devido a problemas de permissão em `/data/user/tmp/pages`.
+    - O botão salvar no console de gerenciamento não era acessível usando a barra de rolagem nos navegadores de baixa resolução.
+    - Gráficos de monitoramento de tráfego de armazenamento e IOPS e não foram atualizados após a atualização de versão do collectd.
+    - Alguns trabalhos relacionados ao webhook poderiam gerar uma grande quantidade de registros.
+    - Um item de navegação de cobrança estava visível nas páginas de administrador do site.
+    - Vários links de documentação geraram um erro 404 Not Found error.
+  known_issues:
+    - Após a atualização para {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} pode não ser iniciado automaticamente. Para resolver esse problema, conecte-se ao dispositivo via SSH e execute o comando `ghe-actions-start`.
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - Quando "Usuários podem pesquisar pelo GitHub.com" está habilitado com o GitHub Connect, os problemas em repositórios privados e internos não estão incluídos nos resultados de pesquisa do GitHub.com.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - 'As configurações de armazenamento de {% data variables.product.prodname_actions %} não podem ser validadas e salvas no {% data variables.enterprise.management_console %} quando "Forçar estilo de caminho" for selecionado e deverão ser definidas com a ferramenta de linha de comando `ghe-actions-precheck`.'

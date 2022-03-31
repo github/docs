@@ -35,6 +35,10 @@ First, create an organization project or a user project.
 
 {% data reusables.projects.create-user-project %}
 
+## Setting your project description and README
+
+{% data reusables.projects.project-description %}
+
 ## Adding issues to your project
 
 Next, add a few issues to your project.
@@ -48,6 +52,14 @@ When your new project initializes, it prompts you to add items to your project. 
 Repeat the above steps a few times to add multiple issues to your project.
 
 For more information about other ways to add issues to your project, or about other items you can add to your project, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)."
+
+## Adding draft issues to your project
+
+Next, add a draft issue to your project.
+
+1. Place your cursor in the bottom row of the project, next to the {% octicon "plus" aria-label="plus icon" %}.
+1. Type your idea, then press **Enter**.
+1. Click on the title of the draft issue. In the markdown input box that appears, enter the some more information about your idea, then click **Save**.
 
 ## Creating a field to track priority
 

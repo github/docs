@@ -126,6 +126,34 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.branch_protection_rule.edited }}
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+## cache_sync
+
+A Git ref has been successfully synced to a cache replica. For more information, see "[About repository caching](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+
+### Webhook payload object
+
+Key | Type | Description
+----|------|-------------
+`cache_location` |`string` | The location of the cache server that has been updated.
+`ref` | `string` | The ref that has been updated.
+`before` | `string` | The OID of the ref on the cache replica before it was updated.
+`after` | `string` | The OID of the ref on the cache replica after the update.
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.cache_sync.synced }}
+{% endif %}
+
 ## check_run
 
 {% data reusables.webhooks.check_run_short_desc %}
@@ -190,7 +218,7 @@ Key | Type | Description
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
+`sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is {% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}empty{% endif %} for all other actions.
 
 ### Webhook payload example
 
@@ -240,7 +268,7 @@ Webhook events are triggered based on the specificity of the domain you register
 
 {% note %}
 
-**Note:** You will not receive a webhook for this event when you push more than three tags at once.
+**Note:** You will not receive a webhook for this event when you create more than three tags at once.
 
 {% endnote %}
 
@@ -382,7 +410,7 @@ Activity related to a discussion. For more information, see the "[Using the Grap
 
 Key | Type | Description
 ----|------|-------------
-`action` |`string` | The action performed. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, or `unanswered`.
+`action` |`string` | The action performed. Can be `created`, `edited`, `deleted`, `pinned`, `unpinned`, `locked`, `unlocked`, `transferred`, `category_changed`, `answered`, `unanswered`, `labeled`, or `unlabeled`.
 {% data reusables.webhooks.discussion_desc %}
 {% data reusables.webhooks.repo_desc_graphql %}
 {% data reusables.webhooks.org_desc_graphql %}
@@ -856,6 +884,38 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.ping }}
 
+## project
+
+{% data reusables.webhooks.project_short_desc %}
+
+### Availability
+
+- Repository webhooks
+- Organization webhooks
+- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
+
+### Webhook payload object
+
+{% data reusables.webhooks.project_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Webhook payload example
+
+{{ webhookPayloadsForCurrentVersion.project.created }}
+
+{% ifversion fpt or ghes or ghec %}
+
 ## project_card
 
 {% data reusables.webhooks.project_card_short_desc %}
@@ -865,6 +925,14 @@ Key | Type | Description
 - Repository webhooks
 - Organization webhooks
 - {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
+
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note**: This event does not occur for Projects (beta).
+
+{% endnote %}
+{% endif %}
 
 ### Webhook payload object
 
@@ -900,29 +968,6 @@ Key | Type | Description
 
 {{ webhookPayloadsForCurrentVersion.project_column.created }}
 
-## project
-
-{% data reusables.webhooks.project_short_desc %}
-
-### Availability
-
-- Repository webhooks
-- Organization webhooks
-- {% data variables.product.prodname_github_apps %} with the `repository_projects` or `organization_projects` permission
-
-### Webhook payload object
-
-{% data reusables.webhooks.project_properties %}
-{% data reusables.webhooks.repo_desc %}
-{% data reusables.webhooks.org_desc %}
-{% data reusables.webhooks.app_desc %}
-{% data reusables.webhooks.sender_desc %}
-
-### Webhook payload example
-
-{{ webhookPayloadsForCurrentVersion.project.created }}
-
-{% ifversion fpt or ghes or ghec %}
 ## public
 
 {% data reusables.webhooks.public_short_desc %}
@@ -1043,7 +1088,7 @@ Key | Type | Description
 `forced`|`boolean` | Whether this push was a force push of the `ref`.
 `head_commit`|`object` | For pushes where `after` is or points to a commit object, an expanded representation of that commit. For pushes where `after` refers to an annotated tag object,  an expanded representation of the commit pointed to by the annotated tag.
 `compare`|`string` | URL that shows the changes in this `ref` update, from the `before` commit to the `after` commit. For a newly created `ref` that is directly based on the default branch, this is the comparison between the head of the default branch and the `after` commit. Otherwise, this shows all commits until the `after` commit.
-`commits`|`array` | An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.) The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.
+`commits`|`array` | An array of commit objects describing the pushed commits. (Pushed commits are all commits that are included in the `compare` between the `before` commit and the `after` commit.)
 `commits[][id]`|`string` | The SHA of the commit.
 `commits[][timestamp]`|`string` | The ISO 8601 timestamp of the commit.
 `commits[][message]`|`string` | The commit message.
@@ -1169,7 +1214,7 @@ Key | Type | Description
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 
 ## secret_scanning_alert
 
@@ -1199,7 +1244,7 @@ Key | Type | Description
 
 Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}. 
 
-The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
+The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)."
 
 ### Availability
 
@@ -1401,7 +1446,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae-issue-4462 %}
 
 ## workflow_job
 

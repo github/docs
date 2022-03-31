@@ -1,6 +1,6 @@
 ---
-title: Deploying Python to Azure App Service
-intro: You can deploy your Python project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: 将 Python 部署到 Azure App Service
+intro: 作为持续部署 (CD) 工作流程的一部分，您可以将 Python 项目部署到 Azure App Service。
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,30 +16,29 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+## 简介
 
-## Introduction
-
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+本指南说明如何使用 {% data variables.product.prodname_actions %} 构建并部署 Python 项目到 [Azure App Service](https://azure.microsoft.com/services/app-service/)。
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**注意**：{% data reusables.actions.about-oidc-short-overview %} 和“[在 Azure 中配置 OpenID Connect](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)”。
 
 {% endnote %}
 
 {% endif %}
 
-## Prerequisites
+## 基本要求
 
-Before creating your {% data variables.product.prodname_actions %} workflow, you will first need to complete the following setup steps:
+在创建 {% data variables.product.prodname_actions %} 工作流程之前，首先需要完成以下设置步骤：
 
 {% data reusables.actions.create-azure-app-plan %}
 
-1. Create a web app.
+1. 创建 Web 应用。
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Python runtime:
+   例如，可以使用 Azure CLI 创建具有 Python 运行时的 Azure App Service Web 应用：
 
    ```bash{:copy}
    az webapp create \
@@ -49,23 +48,21 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
        --runtime "python|3.8"
    ```
 
-   In the command above, replace the parameters with your own values, where `MY_WEBAPP_NAME` is a new name for the web app.
+   在上面的命令中，将参数替换为您自己的值，其中 `MY_WEBAPP_NAME` 是 Web 应用的新名称。
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-1. Add an app setting called `SCM_DO_BUILD_DURING_DEPLOYMENT` and set the value to `1`.
+1. 添加名为 `SCM_DO_BUILD_DURING_DEPLOYMENT` 的应用设置，并将该值设置为 `1`。
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
-## Creating the workflow
+## 创建工作流程
 
-Once you've completed the prerequisites, you can proceed with creating the workflow.
+完成先决条件后，可以继续创建工作流程。
 
-The following example workflow demonstrates how to build and deploy a Python project to Azure App Service when there is a push to the `main` branch.
+以下示例工作流演程示在推送到 `main` 分支时，如何构建 Python 项目并将其部署到 Azure App Service。
 
-Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of the web app you created. If you use a version of Python other than `3.8`, change `PYTHON_VERSION` to the version that you use.
+确保在工作流程 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为您创建的 web 应用程序名称。 如果使用的 Python 版本不是 `3.8x`，请将 `NODE_VERSION` 更改为您使用的版本。
 
 {% data reusables.actions.delete-env-key %}
 
@@ -99,7 +96,7 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-      
+
       - name: Set up dependency caching for faster installs
         uses: actions/cache@v2
         with:
@@ -114,7 +111,7 @@ jobs:
       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: python-app
           path: |
@@ -129,7 +126,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: python-app
           path: .
@@ -142,10 +139,10 @@ jobs:
           publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
 ```
 
-## Additional resources
+## 其他资源
 
-The following resources may also be useful:
+以下资源也可能有用：
 
-* For the original starter workflow, see [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* 有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`azure-webapps-python.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-python.yml)。
+* 用于部署 Web 应用的操作是正式的 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
+* 有关部署到 Azure 的 GitHub 操作工作流程的更多示例，请参阅 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 存储库。

@@ -1,6 +1,6 @@
 ---
-title: Configuring clustering
-intro: Learn about clustering and differences with high availability.
+title: Configurar el agrupamiento
+intro: Aprende sobre agrupaciones y diferencias con alta disponibilidad.
 redirect_from:
   - /enterprise/admin/clustering/setting-up-the-cluster-instances
   - /enterprise/admin/clustering/managing-a-github-enterprise-server-cluster

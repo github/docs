@@ -157,7 +157,7 @@ end
 
 Este código llama a la terminal "[Crear una ejecución de verificación](/rest/reference/checks#create-a-check-run)" utilizando el [método create_check-run](https://rdoc.info/gems/octokit/Octokit%2FClient%2FChecks:create_check_run).
 
-Solo se requieren dos parámetros de entrada para crear una ejecución de flujo de trabajo: `name` y `head_sha`. Utilizaremos a [Rubocop](https://rubocop.readthedocs.io/en/latest/) para implementar la prueba de IC más adelante en esta guía de inicio rápido, y esto es por lo que se utiliza el nombre "Octo Rubocop" aquí, pero puedes elegir cualquier nombre que quieras para la ejecución de verificación.
+Solo se requieren dos parámetros de entrada para crear una ejecución de flujo de trabajo: `name` y `head_sha`. Utilizaremos [RuboCop](https://rubocop.readthedocs.io/en/latest/) para implementar la prueba de IC posteriormente en esta guía rápida, por lo cual utilizaremos el nombre "Octo RuboCop" en el ejemplo, pero puedes elegir cualquier nombre que quieras para la ejecución de verificación.
 
 Ahora mismo, solo estás proporcionando los parámetros requeridos para echar a andar la funcionalidad básica, pero actualizarás la ejecución de verificación más adelante mientras recolectes más información acerca de la ejecución de verificación. Predeterminadamente, GitHub configura el `Estado` como `queued`.
 

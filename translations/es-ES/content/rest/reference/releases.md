@@ -1,6 +1,6 @@
 ---
-title: Releases
-intro: 'The releases API allows you to create, modify, and delete releases and release assets.'
+title: Lanzamientos
+intro: 'La API de lanzamientos te permite crear, modificar y borrar los lanzamientos y los activos de estos.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,12 +12,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% note %}
-
-**Note:** The Releases API replaces the Downloads API. You can retrieve the download count and browser download URL from the endpoints in this API that return releases and release assets.
-
-{% endnote %}
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'releases' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated below. Markdown for subcategories is located in data/reusables/rest-reference/releases
+-->

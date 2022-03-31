@@ -1,6 +1,6 @@
 ---
-title: GitHub event types
-intro: 'For the {% data variables.product.prodname_dotcom %} Events API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
+title: Tipos de eventos do GitHub
+intro: 'Para a API de eventos de {% data variables.product.prodname_dotcom %}, saiba sobre cada tipo de evento, a ação de acionamento em {% data variables.product.prodname_dotcom %} e as propriedades exclusivas de cada evento.'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types
@@ -12,36 +12,37 @@ versions:
 topics:
   - Events
 ---
-The Events API can return different types of events triggered by activity on GitHub. Each event response contains shared properties, but has a unique `payload` object determined by its event type. The [Event object common properties](#event-object-common-properties) describes the properties shared by all events, and each event type describes the `payload` properties that are unique to the specific event.
+
+A API de eventos pode retornar diferentes tipos de eventos acionados por atividades no GitHub. Cada resposta ao evento contém propriedades compartilhadas, mas tem um objeto de `carga` único, determinado pelo seu tipo de evento. As [propriedades comuns do objeto de evento](#event-object-common-properties) descrevem as propriedades compartilhadas por todos os eventos, e cada tipo de evento descreve as propriedades da `carga` que são únicas para o evento específico.
 
 {% ifversion fpt or ghec %}
 
 {% endif %}
 
-## Event object common properties
+## Propriedades comuns do objeto de evento
 
-The event objects returned from the Events API endpoints have the same structure.
+Os objetos de evento retornados dos pontos de extremidade da API de eventos têm a mesma estrutura.
 
-| Event API attribute name | Description |
-|--------------------------|-------------|
-| `id` | Unique identifier for the event. |
-| `type` | The type of event. Events uses PascalCase for the name. |
-| `actor` | The user that triggered the event. |
-| `actor.id` | The unique identifier for the actor. |
-| `actor.login` | The username of the actor. |
-| `actor.display_login` | The specific display format of the username. |
-| `actor.gravatar_id` | The unique identifier of the Gravatar profile for the actor. |
-| `actor.url` | The REST API URL used to retrieve the user object, which includes additional user information. |
-| `actor.avatar_url` | The URL of the actor's profile image. |
-| `repo` | The repository object where the event occurred.  |
-| `repo.id` | The unique identifier of the repository. |
-| `repo.name` | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
-| `repo.url` | The REST API URL used to retrieve the repository object, which includes additional repository information. |
-| `payload` | The event payload object is unique to the event type. See the event type below for the event API `payload` object. |
+| Nome do atributo da API do evento | Descrição                                                                                                                                                                                     |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                              | Identificador exclusivo do evento.                                                                                                                                                            |
+| `tipo`                            | O tipo de evento. Os eventos usam PascalCase para o nome.                                                                                                                                     |
+| `actor`                           | O usuário que acionou o evento.                                                                                                                                                               |
+| `actor.id`                        | O identificador único para o ator.                                                                                                                                                            |
+| `actor.login`                     | O nome de usuário do ator.                                                                                                                                                                    |
+| `actor.display_login`             | O formato de exibição específico do nome de usuário.                                                                                                                                          |
+| `actor.gravatar_id`               | O identificador único do perfil Gravatar para o ator.                                                                                                                                         |
+| `actor.url`                       | A URL da API REST usada para recuperar o objeto do usuário, que inclui informações adicionais sobre o usuário.                                                                                |
+| `actor.avatar_url`                | A URL da imagem do perfil do ator.                                                                                                                                                            |
+| `repo`                            | O objeto de repositório onde ocorreu o evento.                                                                                                                                                |
+| `repo.id`                         | O identificador único do repositório.                                                                                                                                                         |
+| `repo.name`                       | O nome do repositório, que inclui o proprietário e o nome do repositório. Por exemplo, `octocat/hello-world` é o nome do repositório `hello-world` que pertence à conta de usuário `octocat`. |
+| `repo.url`                        | A URL da API REST usada para recuperar o objeto do repositório, que inclui informações adicionais do repositório.                                                                             |
+| `carga`                           | O objeto da carga de eventos é único para o tipo de evento. Veja o tipo de evento abaixo para o objeto da `carga ` da API de eventos.                                                         |
 
-### Example WatchEvent event object
+### Exemplo de objeto de evento WatchEvent
 
-This example shows the format of the [WatchEvent](#watchevent) response when using the [Events API](/rest/reference/activity#events).
+Este exemplo mostra o formato da resposta do [WatchEvent](#watchevent) ao usar a [API de eventos](/rest/reference/activity#events).
 
 ```
 HTTP/2 200
@@ -86,7 +87,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.commit_comment_properties %}
 
@@ -96,7 +97,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.create_properties %}
 
@@ -106,7 +107,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.delete_properties %}
 
@@ -116,7 +117,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.fork_properties %}
 
@@ -126,7 +127,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.gollum_properties %}
 
@@ -136,7 +137,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.issue_comment_webhook_properties %}
 {% data reusables.webhooks.issue_comment_properties %}
@@ -147,7 +148,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.issue_event_api_properties %}
 {% data reusables.webhooks.issue_properties %}
@@ -158,7 +159,7 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.member_event_api_properties %}
 {% data reusables.webhooks.member_properties %}
@@ -167,9 +168,9 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
-### Event `payload` object
+### Objeto da `carga` do evento
 
-This event returns an empty `payload` object.
+Este evento retorna um objeto de `carga` vazio.
 {% endif %}
 ## PullRequestEvent
 
@@ -177,7 +178,7 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.pull_request_event_api_properties %}
 {% data reusables.webhooks.pull_request_properties %}
@@ -188,13 +189,13 @@ This event returns an empty `payload` object.
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
-Key | Type | Description
-----|------|-------------
-`action` | `string` | The action that was performed. Can be `created`.
-`pull_request` | `object` | The pull request the review pertains to.
-`review` | `object` |	The review that was affected.
+| Tecla          | Tipo     | Descrição                                    |
+| -------------- | -------- | -------------------------------------------- |
+| `Ação`         | `string` | A ação que foi executada. Pode ser `criado`. |
+| `pull_request` | `objeto` | O pull request ao qual a revisão pertence.   |
+| `revisar`      | `objeto` | A revisão que foi afetada.                   |
 
 ## PullRequestReviewCommentEvent
 
@@ -202,7 +203,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
@@ -213,24 +214,24 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
-Key | Type | Description
-----|------|-------------
-`push_id` | `integer` | Unique identifier for the push.
-`size`|`integer` | The number of commits in the push.
-`distinct_size`|`integer` | The number of distinct commits in the push.
-`ref`|`string` | The full [`git ref`](/rest/reference/git#refs) that was pushed. Example: `refs/heads/main`.
-`head`|`string` | The SHA of the most recent commit on `ref` after the push.
-`before`|`string` | The SHA of the most recent commit on `ref` before the push.
-`commits`|`array` | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/rest/reference/repos#commits) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)
-`commits[][sha]`|`string` | The SHA of the commit.
-`commits[][message]`|`string` | The commit message.
-`commits[][author]`|`object` | The git author of the commit.
-`commits[][author][name]`|`string` | The git author's name.
-`commits[][author][email]`|`string` | The git author's email address.
-`commits[][url]`|`url` | URL that points to the commit API resource.
-`commits[][distinct]`|`boolean` | Whether this commit is distinct from any that have been pushed before.
+| Tecla                      | Tipo      | Descrição                                                                                                                                                                                                                                                                                                                        |
+| -------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `push_id`                  | `inteiro` | Identificador único para o push.                                                                                                                                                                                                                                                                                                 |
+| `size`                     | `inteiro` | O número de commits no push.                                                                                                                                                                                                                                                                                                     |
+| `distinct_size`            | `inteiro` | O número de commits distintos no push.                                                                                                                                                                                                                                                                                           |
+| `ref`                      | `string`  | O [`git ref completo`](/rest/reference/git#refs) que foi empurrado. Exemplo: `refs/heads/master`.                                                                                                                                                                                                                                |
+| `head`                     | `string`  | O SHA do último commit no `ref` após o push.                                                                                                                                                                                                                                                                                     |
+| `antes`                    | `string`  | O SHA do último commit em `ref` antes do push.                                                                                                                                                                                                                                                                                   |
+| `commits`                  | `array`   | Um array de objetos de commit, que descreve os commits carregados. (O array inclui um máximo de 20 commits. Se necessário, você pode usar a [API de Commits](/rest/reference/repos#commits) para obter commits adicionais. Este limite é aplicado apenas aos eventos da linha do tempo e não é aplicado às entregas do webhook.) |
+| `commits[][sha]`           | `string`  | O SHA do commit.                                                                                                                                                                                                                                                                                                                 |
+| `commits[][message]`       | `string`  | A mensagem do commit.                                                                                                                                                                                                                                                                                                            |
+| `commits[][author]`        | `objeto`  | O autor do git do commit.                                                                                                                                                                                                                                                                                                        |
+| `commits[][author][name]`  | `string`  | O nome do autor do git.                                                                                                                                                                                                                                                                                                          |
+| `commits[][author][email]` | `string`  | O endereço de e-mail do autor do git.                                                                                                                                                                                                                                                                                            |
+| `commits[][url]`           | `url`     | URL que aponta para o recurso de commit de API.                                                                                                                                                                                                                                                                                  |
+| `commits[][distinct]`      | `boolean` | Se este compromisso é diferente de qualquer outro que tenha sido carregado anteriormente.                                                                                                                                                                                                                                        |
 
 ## ReleaseEvent
 
@@ -238,7 +239,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.release_event_api_properties %}
 {% data reusables.webhooks.release_properties %}
@@ -248,7 +249,7 @@ Key | Type | Description
 
 {% data reusables.webhooks.sponsorship_short_desc %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.sponsorship_event_api_properties %}
 {% data reusables.webhooks.sponsorship_properties %}
@@ -260,6 +261,6 @@ Key | Type | Description
 
 {% data reusables.webhooks.events_api_payload %}
 
-### Event `payload` object
+### Objeto da `carga` do evento
 
 {% data reusables.webhooks.watch_properties %}

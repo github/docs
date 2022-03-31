@@ -1,6 +1,6 @@
 ---
-title: Securing your GitHub Pages site with HTTPS
-intro: 'HTTPS adds a layer of encryption that prevents others from snooping on or tampering with traffic to your site. You can enforce HTTPS for your {% data variables.product.prodname_pages %} site to transparently redirect all HTTP requests to HTTPS.'
+title: HTTPS で GitHub Pages サイトを保護する
+intro: 'HTTPS は、他者によるあなたのサイトへのトラフィックの詮索や改ざんを防ぐ暗号化のレイヤーを追加します。 透過的に HTTP リクエストを HTTPS にリダイレクトするために、あなたの {% data variables.product.prodname_pages %} サイトに HTTPS を強制できます。'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/securing-your-github-pages-site-with-https
@@ -10,14 +10,14 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Secure site with HTTPS
+shortTitle: HTTPSでのサイトの保護
 ---
 
-People with admin permissions for a repository can enforce HTTPS for a {% data variables.product.prodname_pages %} site.
+リポジトリの管理者権限があるユーザは、{% data variables.product.prodname_pages %} サイトに強制的に HTTPS を指定できます。
 
-## About HTTPS and {% data variables.product.prodname_pages %}
+## HTTPS と {% data variables.product.prodname_pages %} について
 
-All {% data variables.product.prodname_pages %} sites, including sites that are correctly configured with a custom domain, support HTTPS and HTTPS enforcement. For more information about custom domains, see "[About custom domains and {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)" and "[Troubleshooting custom domains and {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)."
+カスタムドメインが正しく設定されたサイトを含めたすべての {% data variables.product.prodname_pages %} サイトは、HTTPS や HTTPS 強制をサポートします。 カスタムドメインの詳細は、「[カスタムドメインと {% data variables.product.prodname_pages %} について](/articles/about-custom-domains-and-github-pages)」と「[カスタムドメインと {% data variables.product.prodname_pages %} のトラブルシューティング](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)」を参照してください。
 
 {% data reusables.pages.no_sensitive_data_pages %}
 
@@ -25,46 +25,45 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 
 {% note %}
 
-**Note:** RFC3280 states that the maximum length of the common name should be 64 characters. Therefore, the entire domain name of your {% data variables.product.prodname_pages %} site must be less than 64 characters long for a certificate to be successfully created.
+**ノート:** RFC3280は、コモンネームの最大長は64文字でなければならないとしています。 したがって、証明書が正常に作成されるようにするには、{% data variables.product.prodname_pages %}サイトのドメイン名全体の長さは64文字未満でなければなりません。
 
 {% endnote %}
 
-## Enforcing HTTPS for your {% data variables.product.prodname_pages %} site
+## あなたの {% data variables.product.prodname_pages %} サイトに HTTPS を強制する
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-3. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
-  ![Enforce HTTPS checkbox](/assets/images/help/pages/enforce-https-checkbox.png)
+3. [{% data variables.product.prodname_pages %}] で、[**Enforce HTTPS**] を選択します。 ![[Enforce HTTPS] チェックボックス](/assets/images/help/pages/enforce-https-checkbox.png)
 
-## Troubleshooting certificate provisioning ("Certificate not yet created" error")
+## 証明書プロビジョニングのトラブルシューティング（"Certificate not yet created" error"）
 
-When you set or change your custom domain in the Pages settings, an automatic DNS check begins. This check determines if your DNS settings are configured to allow {% data variables.product.prodname_dotcom %} to obtain a certificate automatically. If the check is successful, {% data variables.product.prodname_dotcom %} queues a job to request a TLS certificate from [Let's Encrypt](https://letsencrypt.org/). On receiving a valid certificate, {% data variables.product.prodname_dotcom %} automatically uploads it to the servers that handle TLS termination for Pages. When this process completes successfully, a check mark is displayed beside your custom domain name.
+Pagesの設定でカスタムドメインを設定もしくは変更した場合、自動DNSチェックが開始されます。 このチェックは、DNS設定が{% data variables.product.prodname_dotcom %}による自動的な証明書の取得を許可するように設定されているかを判断します。 このチェックに成功すると、{% data variables.product.prodname_dotcom %}は[Let's Encrypt](https://letsencrypt.org/)にTLS証明書をリクエストするジョブをキューイングします。 有効な証明書を受信すると、{% data variables.product.prodname_dotcom %}は自動的にそれをPagesのTLSターミネーションを処理するサーバーにアップロードします。 このプロセスが正常に終了すると、カスタムドメイン名の横にチェックマークが表示されます。
 
-The process may take some time. If the process has not completed several minutes after you clicked **Save**, try clicking **Remove** next to your custom domain name. Retype the domain name and click **Save** again. This will cancel and restart the provisioning process.
+このプロセスには多少の時間がかかることがあります。 **Save（保存）**をクリックしてから数分経ってもこのプロセスが終了しないなら、カスタムドメイン名の隣にある**Remove（削除）**をクリックしてみてください。 ドメイン名を再入力し、**Save（保存）**をもう一度クリックしてください。 これでプロビジョニングのプロセスがキャンセルされ、再起動されます。
 
-## Resolving problems with mixed content
+## 混在したコンテンツの問題を解決する
 
-If you enable HTTPS for your {% data variables.product.prodname_pages %} site but your site's HTML still references images, CSS, or JavaScript over HTTP, then your site is serving *mixed content*. Serving mixed content may make your site less secure and cause trouble loading assets.
+{% data variables.product.prodname_pages %} サイトの HTTPS を有効化したが、サイトの HTML がまだ HTTP 経由で画像、CSS、JavaScript を参照している場合、サイトは*混在したコンテンツ*を提供する場合があります。 混在したコンテンツを提供することで、サイトのセキュリティが下がり、アセットの読み込みに問題が生じる場合があります。
 
-To remove your site's mixed content, make sure all your assets are served over HTTPS by changing `http://` to `https://` in your site's HTML.
+サイトでコンテンツの混在を解消するには、サイトの HTML で `http://` を `https://` に変更して、すべてのアセットが HTTPS 経由で提供されるようにしてください。
 
-Assets are commonly found in the following locations:
-- If your site uses Jekyll, your HTML files will probably be found in the *_layouts* folder.
-- CSS is usually found in the `<head>` section of your HTML file.
-- JavaScript is usually found in the `<head>` section or just before the closing `</body>` tag.
-- Images are often found in the `<body>` section.
+アセットは通常、以下の場所にあります。
+- サイトで Jekyll を使用している場合、HTML ファイルは *_layouts* フォルダにあります。
+- CSS は普通、HTML ファイルの `<head>` セクションにあります。
+- JavaScript は通常、`<head>` セクションまたは閉じタグ `</body>` の直前にあります。
+- 画像はたいてい、`<body>` セクションにあります。
 
 {% tip %}
 
-**Tip:** If you can't find your assets in your site's source files, try searching your site's source files for `http` in your text editor or on {% data variables.product.product_name %}.
+**ヒント:** サイトのソースファイルでアセットが見つからない場合は、テキストエディタまたは {% data variables.product.product_name %} 上で、サイトのソースファイルから `http`を検索してみましょう。
 
 {% endtip %}
 
-### Examples of assets referenced in an HTML file
+### HTML ファイルで参照されているアセットの例
 
-| Asset type | HTTP                                      | HTTPS                             |
-|:----------:|:-----------------------------------------:|:---------------------------------:|
-| CSS        | `<link rel="stylesheet" href="http://example.com/css/main.css">` | `<link rel="stylesheet" href="https://example.com/css/main.css">`
-| JavaScript   |  `<script type="text/javascript" src="http://example.com/js/main.js"></script>`  |   `<script type="text/javascript" src="https://example.com/js/main.js"></script>`
-| Image        |  `<A HREF="http://www.somesite.com"><IMG SRC="http://www.example.com/logo.jpg" alt="Logo"></a>`  | `<A HREF="https://www.somesite.com"><IMG SRC="https://www.example.com/logo.jpg" alt="Logo"></a>`  
+|  アセットのタイプ  |                                                       HTTP                                                       |                                                       HTTPS                                                        |
+|:----------:|:----------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------:|
+|    CSS     |                      `<link rel="stylesheet" href="http://example.com/css/main.css">`                      |                      `<link rel="stylesheet" href="https://example.com/css/main.css">`                       |
+| JavaScript |            `<script type="text/javascript" src="http://example.com/js/main.js"></script>`            |            `<script type="text/javascript" src="https://example.com/js/main.js"></script>`             |
+|     画像     | `<A HREF="http://www.somesite.com"><IMG SRC="http://www.example.com/logo.jpg" alt="Logo"></a>` | `<A HREF="https://www.somesite.com"><IMG SRC="https://www.example.com/logo.jpg" alt="Logo"></a>` |  

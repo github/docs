@@ -1,6 +1,6 @@
 ---
-title: About project boards
-intro: 'Project boards on {% data variables.product.product_name %} help you organize and prioritize your work. You can create project boards for specific feature work, comprehensive roadmaps, or even release checklists. With project boards, you have the flexibility to create customized workflows that suit your needs.'
+title: Acerca de los tableros de proyecto
+intro: 'Los tableros de proyecto en {% data variables.product.product_name %} te ayudan a organizar y priorizar tu trabajo. Puedes crear tableros de proyecto para un trabajo con características específicas, hojas de ruta completas y hasta listas de verificación de lanzamientos. Con los tableros de proyecto, tienes la flexibilidad de crear flujos de trabajo personalizados que se adapten a tus necesidades.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/about-project-boards
   - /articles/about-projects
@@ -17,58 +17,58 @@ topics:
 
 {% data reusables.projects.project_boards_old %}
 
-Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can drag and drop or use keyboard shortcuts to reorder cards within a column, move cards from column to column, and change the order of columns.
+Los tableros de proyecto están compuestos por propuestas, solicitudes de extracción y notas que se categorizan como tarjetas en columnas a tu elección. Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas dentro de una columna, mover tarjetas de columna a columna y cambiar el orden de las columnas.
 
-Project board cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {% data reusables.project-management.edit-in-project %}
+Las tarjetas del tablero de proyecto contienen metadatos relevantes para las propuestas y las solicitudes de extracción, como etiquetas, asignatarios, el estado y quién la abrió. {% data reusables.project-management.edit-in-project %}
 
-You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_location %}, or to add information related to the project board. You can create a reference card for another project board by adding a link to a note. If the note isn't sufficient for your needs, you can convert it to an issue. For more information on converting project board notes to issues, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
+También puedes crear notas dentro de las columnas para servir como recordatorios de tarea, referencias a propuestas y solicitudes de extracción desde cualquier repositorio en {% data variables.product.product_location %}, o agregar información relacionada con tu tablero de proyecto. Puedes crear una tarjeta de referencia para otro tablero de proyecto agregando un enlace a una nota. Si la nota no es suficiente para tus necesidades, puedes convertirla en una propuesta. Para obtener más información sobre cómo convertir las notas del tablero de proyecto en propuestas, consulta "[Agregar notas a un tablero de proyecto](/articles/adding-notes-to-a-project-board)".
 
-Types of project boards:
+Tipos de tableros de proyecto:
 
-- **User-owned project boards** can contain issues and pull requests from any personal repository.
-- **Organization-wide project boards** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
-- **Repository project boards** are scoped to issues and pull requests within a single repository. They can also include notes that reference issues and pull requests in other repositories.
+- Los **tableros de proyecto propiedad del usuario** pueden contener propuestas y solicitudes de extracción de cualquier repositorio personal.
+- Los **tableros de proyecto para toda la organización** pueden contener propuestas y solicitudes de extracción de cualquier repositorio que pertenezca a una organización.  {% data reusables.project-management.link-repos-to-project-board %} Para obtener más información, consulta "[Enlazar un repositorio a un tablero de proyecto](/articles/linking-a-repository-to-a-project-board)".
+- Los **tableros de proyecto para un repositorio** están limitados a las propuestas y las solicitudes de extracción dentro de un único repositorio. También pueden incluir notas que hacen referencia a las propuestas y las solicitudes de extracción en otros repositorios.
 
-## Creating and viewing project boards
+## Crear y ver tableros de proyecto
 
-To create a project board for your organization, you must be an organization member. Organization owners and people with project board admin permissions can customize access to the project board.
+Para crear un tablero de proyecto para tu organización, debes ser un miembro de la organización. Los propietarios de la organización y las personas con permisos de administrador para el tablero de proyecto pueden personalizar el acceso al tablero de proyecto.
 
-If an organization-owned project board includes issues or pull requests from a repository that you don't have permission to view, the card will be redacted.  For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+Si un tablero de proyecto propiedad de la organización incluye propuestas o solicitudes de extracción de un repositorio del que no tienes permiso para ver, la tarjeta será censurada.  Para obtener más información, consulta "[Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)".
 
-The activity view shows the project board's recent history, such as cards someone created or moved between columns. To access the activity view, click **Menu** and scroll down.
+La vista actividad muestra el historial reciente del tablero de proyecto, como las tarjetas que alguien creó o movió entre las columnas. Para acceder a la vista actividad, haz clic en **Menú** y desplázate hacia abajo.
 
-To find specific cards on a project board or view a subset of the cards, you can filter project board cards. For more information, see "[Filtering cards on a project board](/articles/filtering-cards-on-a-project-board)."
+Para encontrar tarjetas específicas en un tablero de proyecto o para ver un subconjunto de tarjetas, puedes filtrar las tarjetas del tablero de proyecto. Para obtener más información, consulta "[Filtrar tarjetas en un tablero de proyecto](/articles/filtering-cards-on-a-project-board)".
 
-To simplify your workflow and keep completed tasks off your project board, you can archive cards. For more information, see "[Archiving cards on a project board](/articles/archiving-cards-on-a-project-board)."
+Para simplificar tu flujo de trabajo y para mantener las tareas completadas al margen de tu tablero de proyecto, puedes archivar tarjetas. Para obtener más información, consulta "[Archivar tarjetas en un tablero de proyecto](/articles/archiving-cards-on-a-project-board)".
 
-If you've completed all of your project board tasks or no longer need to use your project board, you can close the project board. For more information, see "[Closing a project board](/articles/closing-a-project-board)."
+Si has completado todas las tareas de tu tablero de proyecto o ya no necesitas usar tu tablero de proyecto, puedes cerrar el tablero de proyecto. Para obtener más información, consulta "[Cerrar un tablero de proyecto](/articles/closing-a-project-board)".
 
-You can also [disable project boards in a repository](/articles/disabling-project-boards-in-a-repository) or [disable project boards in your organization](/articles/disabling-project-boards-in-your-organization), if you prefer to track your work in a different way.
+También puedes [desactivar tableros de proyecto en un repositorio](/articles/disabling-project-boards-in-a-repository) o [desactivar tableros de proyecto en tu organización](/articles/disabling-project-boards-in-your-organization), si prefieres hacer un seguimiento de tu trabajo de manera diferente.
 
 {% data reusables.project-management.project-board-import-with-api %}
 
-## Templates for project boards
+## Plantillas para tableros de proyecto
 
-You can use templates to quickly set up a new project board. When you use a template to create a project board, your new board will include columns as well as cards with tips for using project boards. You can also choose a template with automation already configured.
+Puedes usar plantillas para configurar de forma rápida un nuevo tablero de proyecto. Cuando usas una plantilla para crear un tablero de proyecto, tu nuevo tablero incluirá columnas, así como tarjetas con sugerencias para usar los tableros de proyecto. También puedes elegir una plantilla con la automatización ya configurada.
 
-| Template | Description |
-| --- | --- |
-| Basic kanban | Track your tasks with To do, In progress, and Done columns |
-| Automated kanban | Cards automatically move between To do, In progress, and Done columns | 
-| Automated kanban with review | Cards automatically move between To do, In progress, and Done columns, with additional triggers for pull request review status |
-| Bug triage | Triage and prioritize bugs with To do, High priority, Low priority, and Closed columns |
+| Plantilla                       | Descripción                                                                                                                                                                         |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Kanban básico                   | Hace un seguimiento de tus tareas con las columnas Tareas pendientes, En progreso y Hecho                                                                                           |
+| Kanban automatizado             | Las tarjetas se mueven automáticamente entre las columnas Tareas pendientes, En progreso y Hecho                                                                                    |
+| Kanba automatizado con revisión | Las tarjetas se mueven automáticamente entre las columnas Tareas pendientes, En progreso y Hecho, con disparos adicionales para el estado de la revisión de solicitud de extracción |
+| Evaluación de error             | Evalúa y prioriza errores con las columnas Tareas pendientes, Prioridad alta, Prioridad baja y Cerrado                                                                              |
 
-For more information on automation for project boards, see "[About automation for project boards](/articles/about-automation-for-project-boards)."
+Para obtener más información, consulta "[Acerca de la automatización para tableros de proyecto](/articles/about-automation-for-project-boards)".
 
-![Project board with basic kanban template](/assets/images/help/projects/project-board-basic-kanban-template.png)
+![Tablero de proyecto con plantilla de kanban básico](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
 {% data reusables.project-management.copy-project-boards %}
 
-## Further reading
+## Leer más
 
-- "[Creating a project board](/articles/creating-a-project-board)"
-- "[Editing a project board](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
+- "[Crear un tablero de proyecto](/articles/creating-a-project-board)"
+- "[Editar un tablero de proyecto](/articles/editing-a-project-board)"{% ifversion fpt or ghec %}
 - "[Copying a project board](/articles/copying-a-project-board)"{% endif %}
-- "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)"
-- "[Keyboard shortcuts](/articles/keyboard-shortcuts/#project-boards)"
+- "[Agregar propuestas y solicitudes de extracción a un tablero de proyecto](/articles/adding-issues-and-pull-requests-to-a-project-board)"
+- [Permisos de tablero de proyecto para una organización](/articles/project-board-permissions-for-an-organization)"
+- "[Atajos del teclado](/articles/keyboard-shortcuts/#project-boards)"

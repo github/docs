@@ -19,7 +19,7 @@ topics:
 
 O OpenID Connect (OIDC) permite aos seus fluxos de trabalho de {% data variables.product.prodname_actions %} efetuar a autenticação com um HashiCorp Vault para recuperar segredos.
 
-Este guia fornece uma visão geral de como configurar o HashiCorp Vault para confiar no OIDC de {% data variables.product.prodname_dotcom %} como uma identidade federada, e demonstra como usar essa configuração em [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) para recuperar os segredos do HashiCorp Vault.
+Este guia fornece uma visão geral sobre como configurar o cofre HashiCorp para confiar no OIDC de {% data variables.product.prodname_dotcom %} como uma identidade federada e mostra como usar essa configuração na ação [hashicorp/vault-action](https://github.com/hashicorp/vault-action) para recuperar segredos do cofre HashiCorp.
 
 ## Pré-requisitos
 
@@ -45,8 +45,8 @@ Para atualizar seus fluxos de trabalho para o OIDC, você deverá fazer duas alt
 
 Para adicionar a integração do OIDC a seus fluxos de trabalho que lhes permitem acessar os segredos no Vault, você deverá adicionar as seguintes alterações de código:
 
-- Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
-  - O fluxo de trabalho precisa de configurações de `permissions:` com o valor `id-token` definido como `write`. This lets you fetch the OIDC token from every job in the workflow.
+- Conceder permissão para obter o token do provedor do OIDC de {% data variables.product.prodname_dotcom %}:
+  - O fluxo de trabalho precisa de configurações de `permissions:` com o valor `id-token` definido como `write`. Isso permite obter o token do OIDC de cada trabalho do fluxo de trabalho.
 - Solicite o JWT do provedor do OIDC {% data variables.product.prodname_dotcom %} e apresente-o ao HashiCorp Vault para receber um token de acesso:
   - Você pode usar o kit de ferramentas [Actions](https://github.com/actions/toolkit/) para buscar os tokens para o seu trabalho, ou você pode usar a ação [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) para buscar o JWT e receber o token de acesso do Vault.
 
@@ -54,14 +54,7 @@ Este exemplo demonstra como usar o OIDC com a ação oficial para solicitar um s
 
 ### Adicionando configurações de permissões
 
-O fluxo de trabalho exigirá uma configuração `permissões` com um valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por exemplo:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-Você pode precisar especificar permissões adicionais aqui, dependendo das necessidades do seu fluxo de trabalho.
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Solicitando o token de acesso
 

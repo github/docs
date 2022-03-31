@@ -16,10 +16,10 @@ topics:
 shortTitle: Revisa las apps de OAuth
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.access_applications %}
-{% data reusables.user_settings.access_authorized_oauth_apps %}
-{% data reusables.user_settings.review-oauth-apps %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.access_applications %}
+{% data reusables.user-settings.access_authorized_oauth_apps %}
+{% data reusables.user-settings.review-oauth-apps %}
 
 ## Leer más
 {% ifversion fpt or ghec %}

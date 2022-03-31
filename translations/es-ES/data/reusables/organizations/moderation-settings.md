@@ -1,1 +1,1 @@
-1. En la barra lateral izquierda, da clic en **Configuración de moderación**. ![Moderation settings in organization's settings](/assets/images/help/organizations/org-settings-moderation-settings.png)
+1. En la sección de "Acceso" de la barra lateral, selecciona **Moderación {% octicon "report" aria-label="The report icon" %}**

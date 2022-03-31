@@ -1,7 +1,7 @@
 ---
-title: Restricting access to machine types
-shortTitle: Machine type access
-intro: 'You can set constraints on the types of machines users can choose when they create codespaces in your organization.'
+title: Restringindo o acesso aos tipos de máquina
+shortTitle: Tipo de máquina acesso
+intro: Você pode definir restrições sobre os tipos de máquinas que os usuários podem escolher ao criarem os codespaces na sua organização.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access to machine types for the repositories in an organization, you must be an organization owner.'
 versions:
@@ -12,83 +12,79 @@ topics:
   - Codespaces
 ---
 
-## Overview
+## Visão Geral
 
-Typically, when you create a codespace you are offered a choice of specifications for the machine that will run your codespace. You can choose the machine type that best suits your needs. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)." If you pay for using {% data variables.product.prodname_github_codespaces %} then your choice of machine type will affect how much your are billed. For more information about pricing, see "[About billing for Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)."
+Normalmente, ao criar um codespace, você tem uma escolha de especificações para a máquina que executará seu codespace. Você pode escolher o tipo de máquina que melhor se adapte às suas necessidades. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)". Se você pagar por usar o {% data variables.product.prodname_github_codespaces %}, a escolha do tipo de máquina vai afetar a sua cobrança. Para obter mais informações sobre os preços, consulte "[Sobre cobrança para codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)".
 
-As an organization owner, you may want to configure constraints on the types of machine that are available. For example, if the work in your organization doesn't require significant compute power or storage space, you can remove the highly resourced machines from the list of options that people can choose from. You do this by defining one or more policies in the {% data variables.product.prodname_codespaces %} settings for your organization.
+Como proprietário da organização, você deverá configurar restrições sobre os tipos de máquina disponíveis. Por exemplo, se o trabalho na sua organização não exigir energia de computação ou espaço de armazenamento significativo, você poderá remover as máquinas com muitos recursos da lista de opções que as pessoas podem escolher. Faça isso definindo uma ou mais políticas nas configurações de {% data variables.product.prodname_codespaces %} para a sua organização.
 
-### Behavior when you set a machine type constraint
+### Comportamento quando você define uma restrição de tipo de máquina
 
-If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they time out. When the user attempts to resume the codespace they are shown a message telling them that the currenly selected machine type is no longer allowed for this organization and prompting them to choose an alternative machine type.
+Se houver codespaces que já não estiverem em conformidade com uma política que você definiu, estes codespaces continuarão a funcionar até serem desativados. Quando o usuário tenta restabelecer o codespace, é exibida uma mensagem que diz que o tipo de máquina selecionada não é mais permitido para esta organização e o incentiva a escolher um tipo de máquina alternativo.
 
-If you remove higher specification machine types that are required by the {% data variables.product.prodname_codespaces %} configuration for an individual repository in your organization, then it won't be possible to create a codespace for that repository. When someone attempts to create a codespace they will see a message telling them that there are no valid machine types available that meet the requirements of the repository's {% data variables.product.prodname_codespaces %} configuration.
+Se você remover mais tipos de máquina de especificação exigidos pela configuração de {% data variables.product.prodname_codespaces %} para um repositório individual na organização, não será possível criar um codespace para esse repositório. Quando alguém tentar criar um codespace, verá uma mensagem dizendo que não há tipos de máquina válidos disponíveis que atendam aos requisitos da configuração de {% data variables.product.prodname_codespaces %} do repositório.
 
 {% note %}
 
-**Note**: Anyone who can edit the `devcontainer.json` configuration file in a repository can set a minimum specification for machines that can be used for codespaces for that repository. For more information, see "[Setting a minimum specification for codespace machines](/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines)."
+**Observação**: Qualquer pessoa que possa editar o arquivo de configuração `devcontainer.json` em um repositório poderá definir uma especificação mínima para máquinas que podem ser usadas em codespaces para esse repositório. Para obter mais informações, consulte "[Definindo a especificação mínima para máquinas de codespaces](/codespaces/setting-up-your-project-for-codespaces/setting-a-minimum-specification-for-codespace-machines)".
 
 {% endnote %}
 
-If setting a policy for machine types prevents people from using {% data variables.product.prodname_codespaces %} for a particular repository there are two options:
+Se a configuração de uma política para tipos de máquina impedir que as pessoas usem {% data variables.product.prodname_codespaces %} para um repositório em particular, há duas opções:
 
-* You can adjust your policies to specifically remove the restrictions from the affected repository.
-* Anyone who has a codespace that they can no longer access, because of the new policy, can export their codespace to a branch. This branch will contain all of their changes from the codespace. They can then open a new codespace on this branch with a compliant machine type or work on this branch locally. For more information, see "[Exporting changes to a branch](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
+* É possível ajustar suas políticas para remover especificamente as restrições do repositório afetado.
+* Qualquer pessoa que tenha um codespace ao qual nao tem mais acesso devido à nova política, pode exportar o seu codespace para um branch. Esta branch conterá todas as alterações feitas no codespace. Será possível abrir um novo codespace nesse branch com um tipo de máquina compatível ou trabalhar localmente neste branch. Para obter mais informações, consulte "[ Exportando alterações para um branch](/codespaces/troubleshooting/exporting-changes-to-a-branch)."
 
-### Setting organization-wide and repository-specific policies
+### Definindo políticas específicas da organização e do repositório
 
-When you create a policy you choose whether it applies to all repositories in your organization, or only to specified repositories. If you set an organization-wide policy then any policies you set for individual repositories must fall within the restriction set at the organization level. Adding policies makes the choice of machine more, not less, restrictive.
+Ao criar uma política, você define se ela se aplica a todos os repositórios da organização ou apenas a repositórios específicos. Se você definir uma política para toda a organização, todas as políticas que você definir para repositórios individuais devem estar dentro da restrição definida no nível da organização. A adição de políticas torna a escolha de máquinas mais restritiva.
 
-For example, you could create an organization-wide policy that restricts the machine types to either 2 or 4 cores. You can then set a policy for Repository A that restricts it to just 2-core machines. Setting a policy for Repository A that restricted it to machines with 2, 4, or 8 cores would result in a choice of 2-core and 4-core machines only, because the organization-wide policy prevents access to 8-core machines.
+Por exemplo, você poderia criar uma política para toda a organização que restringisse os tipos de máquina a 2 ou 4 núcleos. Em seguida, você pode definir uma política para o Repositório A que o restrinja a apenas máquinas com 2 núcleos. Definir uma política para o Repositório A que o restringiu a máquinas com 2, 4, ou 8 núcleos resultariam em uma escolha de máquinas com apenas 2 ou 4 núcleos, porque a política de toda a organização impede o acesso a máquinas com 8 núcleos.
 
-If you add an organization-wide policy, you should set it to the largest choice of machine types that will be available for any repository in your organization. You can then add repository-specific policies to further restrict the choice.
+Se você adicionar uma política para toda a organização, você deverá configurá-la para a maior escolha de tipos de máquina que estarão disponíveis para qualquer repositório na sua organização. Em seguida, você pode adicionar políticas específicas ao repositório para restringir ainda mais a escolha.
 
-## Adding a policy to limit the available machine types
+## Adicionar uma política para limitar os tipos de máquina disponíveis
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.click-codespaces %}
-1. Under "Codespaces", click **Policy**.
+1. Na seção "Código, planejamento e automação" da barra lateral, selecione **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** e, em seguida, clique em **Política**.
+2. Na página "Políticas do codespace", clique em **Criar política**.
+3. Insira um nome para sua nova política.
+4. Clique **Adicionar restrição** e escolha **Tipos de máquina**.
 
-   !["Policy" tab in left sidebar](/assets/images/help/organizations/codespaces-policy-sidebar.png)
+   ![Adicionar uma restrição para os tipos de máquina](/assets/images/help/codespaces/add-constraint-dropdown.png)
 
-1. On the "Codespace policies" page, click **Create Policy**.
-1. Enter a name for your new policy.
-1. Click **Add constraint** and choose **Machine types**.
+5. Clique em {% octicon "pencil" aria-label="The edit icon" %} para editar a restrição e, em seguida, limpe a seleção de todos os tipos de máquina que você não deseja que estejam disponíveis.
 
-   ![Add a constraint for machine types](/assets/images/help/codespaces/add-constraint-dropdown.png)
+   ![Editar a restrição de tipo de máquina](/assets/images/help/codespaces/edit-machine-constraint.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint, then clear the selection of any machine types that you don't want to be available.
+6. Na área "Alterar destino da política", clique no botão suspenso.
+7. Selecione **Todos os repositórios** ou **Repositórios selecionados** para determinar em quais repositórios esta política será aplicada.
+8. Se você escolheu **repositórios selecionados**:
+   1. Clique em {% octicon "gear" aria-label="The settings icon" %}.
 
-   ![Edit the machine type constraint](/assets/images/help/codespaces/edit-machine-constraint.png)
+      ![Editar as configurações da política](/assets/images/help/codespaces/policy-edit.png)
 
-1. In the "Change policy target" area, click the dropdown button.
-1. Choose either **All repositories** or **Selected repositories** to determine which repositories this policy will apply to.
-1. If you chose **Selected repositories**:
-   1. Click {% octicon "gear" aria-label="The settings icon" %}.
+   2. Selecione os repositórios aos quais você quer que esta política seja aplicada.
+   3. Na parte inferior da lista de repositórios, clique em **Selecionar repositórios**.
 
-      ![Edit the settings for the policy](/assets/images/help/codespaces/policy-edit.png)
+      ![Selecionar repositórios para esta política](/assets/images/help/codespaces/policy-select-repos.png)
 
-   1. Select the repositories you want this policy to apply to.
-   1. At the bottom of the repository list, click **Select repositories**.
+9. Clique em **Salvar**.
 
-      ![Select repositories for this policy](/assets/images/help/codespaces/policy-select-repos.png)
+## Editando uma política
 
-1. Click **Save**.
+1. Exibir a página "Políticas de codespaces". Para obter mais informações, consulte "[Adicionar uma política para limitar os tipos de máquina disponíveis](#adding-a-policy-to-limit-the-available-machine-types)".
+1. Clique no nome da política que você deseja editar.
+1. Faça as alterações necessárias e, em seguida, clique em **Salvar**.
 
-## Editing a policy
+## Excluindo uma política
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the available machine types](#adding-a-policy-to-limit-the-available-machine-types)."
-1. Click the name of the policy you want to edit.
-1. Make the required changes then click **Save**.
+1. Exibir a página "Políticas de codespaces". Para obter mais informações, consulte "[Adicionar uma política para limitar os tipos de máquina disponíveis](#adding-a-policy-to-limit-the-available-machine-types)".
+1. Clique no botão excluir à direita da política que você deseja excluir.
 
-## Deleting a policy 
+   ![O botão de excluir uma política](/assets/images/help/codespaces/policy-delete.png)
 
-1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the available machine types](#adding-a-policy-to-limit-the-available-machine-types)."
-1. Click the delete button to the right of the policy you want to delete.
+## Leia mais
 
-   ![The delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
-
-## Further reading
-
-- "[Managing spending limits for Codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)"
+- "[Gerenciando os limites de gastos para os codespaces](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)"

@@ -19,21 +19,25 @@ topics:
 
 ## 基本要求
 
-You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. 有关创建组织的更多信息，请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
+您可以创建组织项目或用户项目。 要创建组织项目，您需要一个 {% data variables.product.prodname_dotcom %} 组织。 有关创建组织的更多信息，请参阅“[从头开始创建新组织](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)”。
 
-In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. 有关创建议题的更多信息，请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue)”。
+在本指南中，您将把组织拥有的存储库（对于组织项目）或您拥有的存储库（对于用户项目）的现有议题添加到新项目中。 有关创建议题的更多信息，请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-an-issue)”。
 
 ## 创建项目
 
-First, create an organization project or a user project.
+首先，创建组织项目或用户项目。
 
-### Creating an organization project
+### 创建组织项目
 
 {% data reusables.projects.create-project %}
 
-### Creating a user project
+### 创建用户项目
 
 {% data reusables.projects.create-user-project %}
+
+## 设置项目描述和 README
+
+{% data reusables.projects.project-description %}
 
 ## 为您的项目添加议题
 
@@ -48,6 +52,14 @@ First, create an organization project or a user project.
 重复上述步骤几次，以向项目添加多个议题。
 
 有关向项目添加议题的其他方法，或有关您可以向项目添加其他项的信息，请参阅“[创建项目](/issues/trying-out-the-new-projects-experience/creating-a-project#adding-items-to-your-project)”。
+
+## 向项目添加草稿议题
+
+接下来，将草稿议题添加到项目中。
+
+1. 将光标放在项目底部一行，{% octicon "plus" aria-label="plus icon" %} 的旁边。
+1. 输入您的想法，然后按 **Enter**。
+1. 单击草稿议题的标题。 在出现的 Markdown 输入框中，输入有关您想法的更多信息，然后单击 **Save（保存）**。
 
 ## 创建字段来跟踪优先级
 
@@ -96,11 +108,11 @@ First, create an organization project or a user project.
 
 保存视图后，打开项目的任何人都将看到保存的视图。 在这里按优先级分组，但您还可以添加其他修饰符，如排序、筛选或布局。 接下来，您将创建一个修改了布局的新视图。
 
-## Adding a board layout
+## 添加板布局
 
 要查看项目议题的进度，您可以切换到板布局。
 
-The board layout is based on the status field, so specify a status for each issue in your project.
+板布局基于状态字段，因此会指定项目中每个议题的状态。
 
 ![示例状态](/assets/images/help/projects/status_example.png)
 
@@ -126,15 +138,15 @@ The board layout is based on the status field, so specify a status for each issu
 
 ![示例优先级](/assets/images/help/projects/project-view-switch.gif)
 
-## Configure built-in automation
+## 配置内置自动化
 
-Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
+最后，添加内置工作流程，以便在将项添加到项目时状态设置为**待办事项** 。
 
 1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
-2. Under **Default workflows**, click **Item added to project**.
-3. Next to **When**, ensure that both `issues` and `pull requests` are selected.
-4. Next to **Set**, select **Status:Todo**.
-5. Click the **Disabled** toggle to enable the workflow.
+2. 在 **Default workflows（默认工作流程）**下，单击 **Item added to project（已添加到项目的项）**。
+3. 在 **When（何时）**旁边，确保同时选择 `issues（议题）`和 `pull requests（拉取请求）`。
+4. 在 **Set（设置）**旁边，选择 **Status:Todo（状态：待办事项）**。
+5. 单击 **Disabled（已禁用）**切换开关以启用工作流程。
 
 ## 后续步骤
 

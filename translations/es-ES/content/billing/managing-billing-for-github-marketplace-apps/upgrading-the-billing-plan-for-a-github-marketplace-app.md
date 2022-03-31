@@ -1,6 +1,6 @@
 ---
-title: Upgrading the billing plan for a GitHub Marketplace app
-intro: 'You can upgrade your {% data variables.product.prodname_marketplace %} app to a different plan at any time.'
+title: Subir de categoría el plan de facturación de una app del Mercado GitHub
+intro: 'Puedes subir de categoría tu {% data variables.product.prodname_marketplace %} app a un plan diferente en cualquier momento.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-the-billing-plan-for-a-github-marketplace-app
   - /articles/upgrading-an-app-for-your-personal-account
@@ -16,20 +16,21 @@ topics:
   - Organizations
   - Upgrades
   - User account
-shortTitle: Upgrade billing plan
+shortTitle: Mejorar un plan de facturación
 ---
-When you upgrade an app, your payment method is charged a prorated amount based on the time remaining until your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
 
-## Upgrading an app for your personal account
+Cuando subes de categoría una app, a tu método de pago se le cobra un monto prorrateado en función del tiempo restante hasta tu próxima fecha de facturación. Para obtener más información, consulta "[Acerca de la facturación para {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)".
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+## Subir de categoría una app para tu cuenta personal
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.marketplace.upgrade-app-billing-settings %}
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
-## Upgrading an app for your organization
+## Subir de categoría una app para tu organización
 
 {% data reusables.marketplace.marketplace-org-perms %}
 

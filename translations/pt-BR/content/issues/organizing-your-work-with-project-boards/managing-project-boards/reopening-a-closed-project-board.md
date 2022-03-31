@@ -1,6 +1,6 @@
 ---
-title: Reopening a closed project board
-intro: You can reopen a closed project board and restart any workflow automation that was configured for the project board.
+title: Reabrir um quadro de projeto fechado
+intro: Você pode reabrir um painel de projeto fechado e reiniciar qualquer automação de fluxo de trabalho que tenha sido configurada para o quadro de projetos.
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/reopening-a-closed-project-board
   - /articles/reopening-a-closed-project-board
@@ -12,22 +12,21 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Reopen project board
+shortTitle: Reabrir quadro de projeto
 ---
+
 {% data reusables.projects.project_boards_old %}
 
-When you close a project board, any workflow automation that was configured for the project board will pause by default. For more information, see "[Closing a project board](/articles/closing-a-project-board)."
+Quando você fecha um quadro de projeto, todas as automações de fluxo de trabalho configuradas para o quadro de projeto são pausadas por padrão. Para obter mais informações, consulte "[Fechar um quadro de projeto](/articles/closing-a-project-board)".
 
-When you reopen a project board, you have the option to *sync* automation, which updates the position of the cards on the board according to the automation settings configured for the board.
+Quando você reabre um quadro de projeto, tem a opção de *sincronizar* a automação, o que atualiza a posição dos cartões no quadro de acordo com as configurações de automação definidas para o quadro.
 
-1. Navigate to the project board you want to reopen.
+1. Navegue até o quadro de projeto que deseja reabrir.
 {% data reusables.project-management.click-menu %}
-3. Choose whether to sync automation for your project board or reopen your project board without syncing.
-    - To reopen your project board and sync automation, click **Reopen and sync project**.
-  ![Select "Reopen and resync project" button](/assets/images/help/projects/reopen-and-sync-project.png)
-    - To reopen your project board without syncing automation, using the reopen drop-down menu, click **Reopen only**. Then, click **Reopen only**.
-  ![Reopen closed project board drop-down menu](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
+3. Escolha se deseja sincronizar a automação do quadro de projeto ao reabri-lo.
+    - Para reabrir o quadro de projeto e sincronizar a automação, clique em **Reopen and sync project** (Reabrir e sincronizar projeto). ![Selecione o botão "Reopen and resync project" (Reabrir e sincronizar projeto)](/assets/images/help/projects/reopen-and-sync-project.png)
+    - Para reabrir o quadro de projeto sem sincronizar a automação, use o menu suspenso reopen (reabrir) e clique em **Reopen only** (Somente reabrir). Em seguida, clique em **Reopen only** (Somente reabrir). ![Menu suspenso de reabertura de quadro de projeto fechado](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
-## Further reading
+## Leia mais
 
-- "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"
+- "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"

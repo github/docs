@@ -15,9 +15,6 @@ versions:
 topics:
   - Notifications
 ---
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
 
 ## Notifications and subscriptions
 
@@ -28,9 +25,8 @@ You can choose to receive ongoing updates about specific activity on {% data var
 You can choose to subscribe to notifications for:
 - A conversation in a specific issue, pull request, or gist.
 - All activity in a repository or team discussion.
-- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
-- Releases in a repository.{% endif %}
+- CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}. 
+- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).
 
 You can also choose to automatically watch all repositories that you have push access to, except forks. You can watch any other repository you have access to manually by clicking **Watch**.
 
@@ -100,4 +96,4 @@ Notifications that are not marked as **Saved** are kept for 5 months. Notificati
 
 ## Feedback and support
 
-If you have feedback or feature requests for notifications, use the [feedback form for notifications](https://support.github.com/contact/feedback?contact%5Bcategory%5D=notifications&contact%5Bsubject%5D=Product+feedback).
+If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).

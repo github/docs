@@ -1,6 +1,6 @@
 ---
-title: Viewing people in your enterprise
-intro: 'To audit access to enterprise-owned resources or user license usage, enterprise owners can view every administrator and member of the enterprise.'
+title: Visualizar pessoas na sua empresa
+intro: 'Para auditar o acesso à utilização de licença de usuário ou de recursos pertencentes à empresa, os proprietários corporativos podem exibir todos os administradores e integrantes da empresa.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
   - /articles/viewing-people-in-your-enterprise-account
@@ -12,35 +12,47 @@ versions:
   ghae: '*'
 topics:
   - Enterprise
-shortTitle: View people in your enterprise
+shortTitle: Visualizar as pessoas na sua empresa
 ---
-## Viewing enterprise owners{% ifversion ghec %} and billing managers{% endif %}
 
-You can view enterprise owners {% ifversion ghec %} and billing managers, {% endif %}as well as a list of pending invitations to become owners{% ifversion ghec %} and billing managers. You can filter the list of enterprise administrators by role{% endif %}. You can find a specific person by searching for their username or full name.
+## Visualizar proprietários corporativos{% ifversion ghec %} e gerentes de cobrança{% endif %}
+
+Você pode ver os proprietários corporativos {% ifversion ghec %} e gerentes de cobrança, {% endif %}bem como uma lista de convites pendentes para se tornarem proprietários{% ifversion ghec %} e gerentes de cobrança. Você pode filtrar a lista de administradores corporativos por função{% endif %}. ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome completo dela.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-{% ifversion ghec %}1. Optionally, to view a list of pending invitations, click **_NUMBER_ pending**.
-  !["NUMBER pending" button to the right of search and filter options](/assets/images/help/enterprises/administrators-pending.png){% endif %}
+{% ifversion ghec %}1. Opcionalmente, para ver uma lista de convites pendentes, clique em **_NÚMERO_ pendente**.
+  ![Botão "NÚMERO pendente" à direita das opções de pesquisa e filtro](/assets/images/help/enterprises/administrators-pending.png){% endif %}
 
-## Viewing members and outside collaborators
+## Exibir integrantes e colaboradores externos
 
-You can view the number of pending members and outside collaborators. You can filter the list of members by {% ifversion ghec %}deployment ({% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}),{% endif %} role{% ifversion ghec %}, and{% else %} or {% endif %} organization. You can filter the list of outside collaborators by the visibility of the repositories the collaborator has access to. You can find a specific person by searching for their username or display name.
+Você pode ver o número de integrantes ou colaboradores externos pendentes. Você pode filtrar a lista de integrantes por {% ifversion ghec %}implantação ({% data variables.product.prodname_ghe_cloud %} ou {% data variables.product.prodname_ghe_server %}),{% endif %} função{% ifversion ghec %} e{% else %} ou {% endif %} organização. Também é possível filtrar a lista de colaboradores externos pela visibilidade dos repositórios aos quais o colaborador tem acesso. Ou localizar uma determinada pessoa procurando pelo nome de usuário ou o nome de exibição dela.
 
-You can view {% ifversion ghec %}all the {% data variables.product.prodname_ghe_cloud %} organizations and {% data variables.product.prodname_ghe_server %} instances that a member belongs to, and {% endif %}which repositories an outside collaborator has access to{% ifversion ghec %}, {% endif %} by clicking on the person's name.
+Você pode visualizar {% ifversion ghec %}todas as organizações de {% data variables.product.prodname_ghe_cloud %} e as instâncias de {% data variables.product.prodname_ghe_server %} às quais um membro pertence e {% endif %}quais repositórios um colaborador externo tem acesso a{% ifversion ghec %}, {% endif %} clicando no nome da pessoa.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Optionally, to view a list of outside collaborators rather than the list of members, click **Outside collaborators**.
-  ![Outside collaborators tab on the Organization members page](/assets/images/help/business-accounts/outside-collaborators-tab.png)
-{% ifversion ghec %}1. Optionally, to view a list of pending invitations, click **_NUMBER_ pending**.
-  !["NUMBER pending" button to the right of search and filter options](/assets/images/help/enterprises/members-pending.png){% endif %}
+1. Como alternativa, clique em **Outside collaborators** (Colaboradores externos) para exibir uma lista deles em vez de uma lista de integrantes. ![Guia Outside collaborators (Colaboradores externos) na página Organization members (Integrantes da organização)](/assets/images/help/business-accounts/outside-collaborators-tab.png)
+{% ifversion ghec %}1. Opcionalmente, para ver uma lista de convites pendentes, clique em **_NÚMERO_ pendente**.
+  ![Botão "NÚMERO pendente" à direita das opções de pesquisa e filtro](/assets/images/help/enterprises/members-pending.png){% endif %}
 
-## Viewing dormant users
+{% ifversion ghec %}
 
-You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
+## Visualizando integrantes suspensos em um {% data variables.product.prodname_emu_enterprise %}
 
-## Further reading
+Se sua empresa usa {% data variables.product.prodname_emus %}, você também pode visualizar usuários suspensos. Os usuários suspensos são integrantes que foram desprovisionados depois que o aplicativo de {% data variables.product.prodname_emu_idp_application %} cancelou ou excluiu sua atribuição do provedor de identidade. Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)".
 
-- "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. Para ver uma lista de integrantes suspensos, acima da lista de integrantes ativos, clique em **Suspensos**. ![Captura de tela que mostra a opção "Suspenso"](/assets/images/help/enterprises/view-suspended-members.png)
+
+{% endif %}
+
+## Exibir usuários inativos
+
+Você pode ver uma lista de todos os usuários desativados {% ifversion ghes or ghae %} que não foram suspensos e {% endif %}que não são administradores do site. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} Para obter mais informações, consulte "[Gerenciar usuários inativos](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)".
+
+## Leia mais
+
+- "[Funções em uma empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"

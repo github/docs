@@ -59,12 +59,12 @@ topics:
 
 对于每个表单元素，您可以设置以下键。
 
-| 键      | 描述                                                                                                                                                            | 必选 | 类型  | 默认值                                             | 有效值                                             |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -- | --- | ----------------------------------------------- | ----------------------------------------------- |
-| `type` | 您想要定义的元素类型。                                                                                                                                                   | 必选 | 字符串 | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul>                       |
-| `id`   | The identifier for the element, except when `type` is set to `markdown`. {% data reusables.form-schema.id-must-be-unique %} 如果提供， `id` 是 URL 查询参数预填中字段的标准标识符。 | 可选 | 字符串 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
-| `属性`   | 定义元素属性的一组键值对。                                                                                                                                                 | 必选 | 哈希  | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
-| `验证`   | 设置元素约束的一组键值对。                                                                                                                                                 | 可选 | 哈希  | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| 键      | 描述                                                                                                                  | 必选 | 类型  | 默认值                                             | 有效值                                             |
+| ------ | ------------------------------------------------------------------------------------------------------------------- | -- | --- | ----------------------------------------------- | ----------------------------------------------- |
+| `type` | 您想要定义的元素类型。                                                                                                         | 必选 | 字符串 | {% octicon "dash" aria-label="The dash icon" %} | <ul><li>`checkboxes`</li><li>`dropdown`</li><li>`input`</li><li>`markdown`</li><li>`textarea`</li></ul>                       |
+| `id`   | 元素的标识符，`类型`设置为 `Markdown` 时除外。 {% data reusables.form-schema.id-must-be-unique %} 如果提供， `id` 是 URL 查询参数预填中字段的标准标识符。 | 可选 | 字符串 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| `属性`   | 定义元素属性的一组键值对。                                                                                                       | 必选 | 哈希  | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| `验证`   | 设置元素约束的一组键值对。                                                                                                       | 可选 | 哈希  | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 
 您可以从以下类型的表单元素中选择。 每个类型都有唯一的属性和验证。
 
@@ -241,7 +241,7 @@ body:
 
 | 键         | 描述                               | 必选 | 类型  | 默认值                                             | 有效值                                             |
 | --------- | -------------------------------- | -- | --- | ----------------------------------------------- | ----------------------------------------------- |
-| `标签`      | 预期用户输入的简短描述，以表单形式显示。             | 可选 | 字符串 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| `标签`      | 预期用户输入的简短描述，以表单形式显示。             | 必选 | 字符串 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 | `说明`      | 复选框集的描述，以表单形式显示。 支持 Markdown 格式。 | 可选 | 字符串 | 空字符串                                            | {% octicon "dash" aria-label="The dash icon" %}
 | `options` | 用户可以选择的复选框阵列。 有关语法，请参阅下文。        | 必选 | 数组  | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 

@@ -25,7 +25,7 @@ Every Git push operation is logged. For more information, see "[Viewing push log
 {% ifversion ghes %}
 ## System events
 
-All audited system events, including all pushes and pulls, are logged to `/var/log/github/audit.log`. Logs are automatically rotated every 24 hours and are retained for seven days.
+All audited system events are logged to `/var/log/github/audit.log`. Logs are automatically rotated every 24 hours and are retained for seven days.
 
 The support bundle includes system logs. For more information, see "[Providing data to {% data variables.product.prodname_dotcom %} Support](/admin/enterprise-support/providing-data-to-github-support)."
 

@@ -48,7 +48,7 @@ export async function createChangelogEntry(
   const newSchema = await loadSchema(newSchemaString, {})
 
   // Generate changes between the two schemas
-  const changes = diff(oldSchema, newSchema)
+  const changes = await diff(oldSchema, newSchema)
   const changesToReport = []
   changes.forEach(function (change) {
     if (CHANGES_TO_REPORT.includes(change.type)) {

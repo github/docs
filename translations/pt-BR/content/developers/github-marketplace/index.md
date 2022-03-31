@@ -1,6 +1,6 @@
 ---
 title: GitHub Marketplace
-intro: 'List your tools in {% data variables.product.prodname_dotcom %} Marketplace for developers to use or purchase.'
+intro: 'Liste suas ferramentas no Markeplace do {% data variables.product.prodname_dotcom %} para os desenvolvedores usarem ou comprarem.'
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/about-github-marketplace
   - /apps/marketplace

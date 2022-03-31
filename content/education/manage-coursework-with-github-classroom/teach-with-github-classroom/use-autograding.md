@@ -4,7 +4,7 @@ intro: You can automatically provide feedback on code submissions from your stud
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can set up and use autograding on assignments in a classroom. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/adding-tests-for-auto-grading
   - /education/manage-coursework-with-github-classroom/reviewing-auto-graded-work-teachers
@@ -59,7 +59,7 @@ A run command test runs a setup command, then runs a test command. {% data varia
 
 You can add autograding tests during the creation of a new assignment. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 
-You can add, edit, or delete autograding tests for an existing assignment. If you change the autograding tests for an existing assignment, existing assignment repositories will not be affected. A student or team must accept the assignment and create a new assignment repository to use the new tests.
+You can add, edit, or delete autograding tests for an existing assignment. All changes made via the Classroom UI will be pushed to the existing student repositories, so use caution when editing your tests.
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}

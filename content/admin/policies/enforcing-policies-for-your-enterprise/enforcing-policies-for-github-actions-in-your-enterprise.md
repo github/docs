@@ -33,34 +33,44 @@ shortTitle: GitHub Actions policies
 
 {% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.product.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
 
-## Enforcing a policy to restrict the use of actions in your enterprise
+## Enforcing a policy to restrict the use of {% data variables.product.prodname_actions %} in your enterprise
 
-You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions, so that people can only use local actions that exist in your enterprise.
+You can choose to disable {% data variables.product.prodname_actions %} for all organizations in your enterprise, or only allow specific organizations. You can also limit the use of public actions {% if actions-workflow-policy %}and reusable workflows{% endif %}, so that people can only use local actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that exist in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.actions.enterprise-actions-permissions %}
+1. Under "Policies", select your options.
+
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
+
+   {%- ifversion ghes or ghae %}
+   {% note %}
+
+   **Note:** To enable access to public actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.product.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
+
+   {% endnote %}
+   {%- endif %}
+   {% if actions-workflow-policy %}
+   ![Enable, disable, or limits actions for this enterprise account](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
+   {%- else %}
+   ![Enable, disable, or limits actions for this enterprise account](/assets/images/help/organizations/enterprise-actions-policy.png)
+   {%- endif %}
 1. Click **Save**.
-
-{% ifversion ghec or ghes or ghae %}
-
-### Allowing select actions to run
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
-   {%- ifversion ghes > 3.0 or ghae-issue-5094 %}
-   ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% if actions-workflow-policy %} and reusable workflows{% endif %} to the list.
+   {% if actions-workflow-policy %}
+   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
+   {%- elsif ghes or ghae-issue-5094 %}
+   ![Add actions to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
-   ![Add actions to allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
+   ![Add actions to the allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
    {%- endif %}
-{% endif %}
-
-{% ifversion ghec or ghes or ghae %}
 
 ## Enforcing a policy for artifact and log retention in your enterprise
 
@@ -71,9 +81,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
-
-{% endif %}
+{% data reusables.actions.change-retention-period-for-artifacts-logs  %}
 
 ## Enforcing a policy for fork pull requests in your enterprise
 
@@ -88,34 +96,34 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.workflows-from-public-fork-setting %}
+{% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
-
 ### Enforcing a policy for fork pull requests in private repositories
 
-{% data reusables.github-actions.private-repository-forks-overview %}
+{% data reusables.actions.private-repository-forks-overview %}
+
+If a policy is enabled for an enterprise, the policy can be selectively disabled in individual organizations or repositories. If a policy is disabled for an enterprise, individual organizations or repositories cannot enable it.
+
+{% data reusables.actions.private-repository-forks-options %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.github-actions.private-repository-forks-configure %}
-
-{% endif %}
+{% data reusables.actions.private-repository-forks-configure %}
 
 {% ifversion ghec or ghes > 3.1 or ghae %}
 
 ## Enforcing a policy for workflow permissions in your enterprise
 
-{% data reusables.github-actions.workflow-permissions-intro %}
+{% data reusables.actions.workflow-permissions-intro %}
 
 You can set the default permissions for the `GITHUB_TOKEN` in the settings for your enterprise, organizations, or repositories. If you choose the restricted option as the default in your enterprise settings, this prevents the more permissive setting being chosen in the organization or repository settings.
 
-{% data reusables.github-actions.workflow-permissions-modifying %}
+{% data reusables.actions.workflow-permissions-modifying %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

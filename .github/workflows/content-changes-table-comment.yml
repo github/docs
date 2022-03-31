@@ -45,24 +45,32 @@ jobs:
     needs: PR-Preview-Links
     if: ${{ needs.PR-Preview-Links.outputs.filterContentDir == 'true' }}
     runs-on: ubuntu-latest
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
       - name: check out repo content
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
 
+      - name: Get preview app info
+        env:
+          APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
+        run: .github/actions-scripts/get-preview-app-info.sh
+
       - name: Setup Node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.13.x
+          node-version: 16.14.x
           cache: npm
 
       - name: Install temporary dependencies
         run: |
-          npm install --no-save github-slugger
+          npm install --no-save github-slugger --registry https://registry.npmjs.org/
 
       - name: Get changes table
         id: changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          APP_URL: ${{ env.APP_URL }}
         run: .github/actions-scripts/content-changes-table-comment.js
 
       - name: Find content directory changes comment

@@ -1,6 +1,6 @@
 ---
-title: Enabling OAuth App access restrictions for your organization
-intro: 'Organization owners can enable {% data variables.product.prodname_oauth_app %} access restrictions to prevent untrusted apps from accessing the organization''s resources while allowing organization members to use {% data variables.product.prodname_oauth_apps %} for their personal accounts.'
+title: Habilitar las restricciones de acceso de las App OAuth para tu organización
+intro: 'Los propietarios de la organización pueden habilitar las restricciones de acceso a {% data variables.product.prodname_oauth_app %} para prevenir que las aplicaciones no confiables accedan a los recursos organizacionales mientras permiten que los miembros de dicha organización utilicen las {% data variables.product.prodname_oauth_apps %} para sus cuentas personales.'
 redirect_from:
   - /articles/enabling-third-party-application-restrictions-for-your-organization
   - /articles/enabling-oauth-app-access-restrictions-for-your-organization
@@ -11,24 +11,22 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Enable OAuth App
+shortTitle: Habilitar las Apps de OAuth
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
 {% warning %}
 
-**Warnings**:
-- Enabling {% data variables.product.prodname_oauth_app %} access restrictions will revoke organization access for all previously authorized {% data variables.product.prodname_oauth_apps %} and SSH keys. For more information, see "[About {% data variables.product.prodname_oauth_app %} access restrictions](/articles/about-oauth-app-access-restrictions)."
-- Once you've set up {% data variables.product.prodname_oauth_app %} access restrictions, make sure to re-authorize any {% data variables.product.prodname_oauth_app %} that require access to the organization's private data on an ongoing basis. All organization members will need to create new SSH keys, and the organization will need to create new deploy keys as needed.
-- When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, applications can use an OAuth token to access information about {% data variables.product.prodname_marketplace %} transactions.
+**Advertencias**:
+- Habilitar las restricciones de acceso de las {% data variables.product.prodname_oauth_app %} revocará los accesos de la organización a todas las {% data variables.product.prodname_oauth_apps %} y claves SSH que hayan sido previamente autorizadas. Para obtener más información, consulta "[Acerca de las restricciones de acceso a {% data variables.product.prodname_oauth_app %}](/articles/about-oauth-app-access-restrictions)".
+- Una vez que hayas configurado las restricciones de acceso de {% data variables.product.prodname_oauth_app %}, asegúrate de autorizar nuevamente toda {% data variables.product.prodname_oauth_app %} que requiera acceso a los datos privados de la organización de manera continua. Todos los miembros de la organización deberán crear nuevas claves SSH y la organización deberá crear nuevas llaves de implementación, según sea necesario.
+- Cuando se habilitan las restricciones de acceso de {% data variables.product.prodname_oauth_app %}, las aplicaciones pueden usar un token de OAuth para acceder a información acerca de transacciones en {% data variables.product.prodname_marketplace %}.
 
 {% endwarning %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.oauth_app_access %}
-5. Under "Third-party application access policy," click **Setup application access restrictions**.
-  ![Set up restrictions button](/assets/images/help/settings/settings-third-party-set-up-restrictions.png)
-6. After you review the information about third-party access restrictions, click **Restrict third-party application access**.
-  ![Restriction confirmation button](/assets/images/help/settings/settings-third-party-restrict-confirm.png)
+5. En "Política de acceso de aplicaciones de terceros", haz clic en **Configurar restricciones de acceso de aplicaciones**. ![Botón Configurar restricciones](/assets/images/help/settings/settings-third-party-set-up-restrictions.png)
+6. Luego de revisar la información acerca de las restricciones de acceso de las aplicaciones de terceros, haz clic en **Restringir el acceso de aplicaciones de terceros**. ![Botón Confirmar restricciones](/assets/images/help/settings/settings-third-party-restrict-confirm.png)

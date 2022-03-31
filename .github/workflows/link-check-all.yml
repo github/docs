@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - main
+      - gh-readonly-queue/main/**
   pull_request:
 
 permissions:
@@ -22,7 +23,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  check-links:
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     steps:
       - name: Checkout
@@ -31,32 +32,21 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.13.x
+          node-version: 16.14.x
           cache: npm
 
       - name: Install
         run: npm ci
 
+      # Creates file "${{ env.HOME }}/files.json", among others
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        id: get_diff_files
-
-      # Necessary because trilom/file-changes-action can't escape each file
-      # name for using in bash. So, we do it ourselves.
-      # trilom/file-changes-action will, by default produce outputs
-      # in JSON format. We consume that and set a new output where each
-      # filename is wrapped in quotation marks.
-      # Perhaps some day we can rely on this directly based on;
-      # https://github.com/trilom/file-changes-action/issues/130
-      - name: Escape each diff file name
-        id: get_diff_files_escaped
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
-          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
-          script: |
-            const input = JSON.parse('${{ steps.get_diff_files.outputs.files }}')
-            const files = input.map(filename => `"${filename}"`)
-            core.setOutput('files', files.join(' '))
+          fileOutput: 'json'
+
+      # For verification
+      - name: Show files changed
+        run: cat $HOME/files.json
 
       - name: Link check (warnings, changed files)
         run: |
@@ -66,7 +56,7 @@ jobs:
             --check-anchors \
             --check-images \
             --verbose \
-            ${{ steps.get_diff_files_escaped.outputs.files }}
+            --list $HOME/files.json
 
       - name: Link check (critical, all files)
         run: |

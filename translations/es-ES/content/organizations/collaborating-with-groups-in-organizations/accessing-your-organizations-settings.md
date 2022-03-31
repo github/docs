@@ -1,5 +1,5 @@
 ---
-title: Accessing your organization's settings
+title: Acceder a los parámetros de tu organización
 redirect_from:
   - /articles/who-can-access-organization-billing-information-and-account-settings
   - /articles/managing-the-organization-s-settings
@@ -9,7 +9,7 @@ redirect_from:
   - /articles/accessing-your-organization-s-settings
   - /articles/accessing-your-organizations-settings
   - /github/setting-up-and-managing-organizations-and-teams/accessing-your-organizations-settings
-intro: 'The organization account settings page provides several ways to manage the account, such as billing, team membership, and repository settings.'
+intro: 'La página de los parámetros de la cuenta de la organización brinda varias maneras de administrar la cuenta, como parámetros de facturación, miembros del equipo y repositorio.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,13 +18,14 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Access organization settings
+shortTitle: Acceder a la configuración de organización
 ---
+
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** Only organization owners and billing managers can see and change the billing information and account settings for an organization. {% data reusables.organizations.new-org-permissions-more-info %}
+**Sugerencia:** Solo los propietarios de la organización y los gerentes de facturación pueden ver y cambiar la información de facturación y la configuración de la cuenta para una organización. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 

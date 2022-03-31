@@ -6,6 +6,7 @@ redirect_from:
   - /admin/user-management/creating-teams
 versions:
   ghes: '*'
+  ghae: '*'
 type: how_to
 topics:
   - Access management
@@ -24,13 +25,15 @@ Organizations can create multiple levels of nested teams to reflect a company or
 A prudent combination of teams is a powerful way to control repository access. For example, if your organization allows only your release engineering team to push code to the default branch of any repository, you could give only the release engineering team **admin** permissions to your organization's repositories and give all other teams **read** permissions.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
+
+{% ifversion ghes %}
 
 ## Creating teams with LDAP Sync enabled
 
@@ -51,7 +54,7 @@ You must be a site admin and an organization owner to create a team with LDAP sy
 
 1. Ensure that [LDAP Sync is enabled](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync).
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 6. Search for an LDAP group's DN to map the team to. If you don't know the DN, type the LDAP group's name. {% data variables.product.prodname_ghe_server %} will search for and autocomplete any matches.
@@ -60,3 +63,5 @@ You must be a site admin and an organization owner to create a team with LDAP sy
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}
 {% data reusables.organizations.create_team %}
+
+{% endif %}

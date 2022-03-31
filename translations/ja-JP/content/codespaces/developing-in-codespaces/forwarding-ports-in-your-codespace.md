@@ -29,8 +29,6 @@ You can also forward a port manually, label forwarded ports, share forwarded por
 
 You can manually forward a port that wasn't forwarded automatically.
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
@@ -73,7 +71,7 @@ By default, {% data variables.product.prodname_codespaces %} forwards ports usin
 To forward a port use the `gh codespace ports forward` subcommand. Replace `codespace-port:local-port` with the remote and local ports that you want to connect. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
-gh codespace ports forward <em>codespace-port</em>:<em>local-port</em> 
+gh codespace ports forward <em>codespace-port</em>:<em>local-port</em>
 ```
 
 For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_ports_forward).
@@ -91,8 +89,6 @@ To see details of forwarded ports enter `gh codespace ports` and then choose a c
 {% endnote %}
 
 If you want to share a forwarded port with others, you can either make the port private to your organization or make the port public. After you make a port private to your organization, anyone in the organization with the port's URL can view the running application. After you make a port public, anyone who knows the URL and port number can view the running application without needing to authenticate.
-
-{% include tool-switcher %}
 
 {% webui %}
 
@@ -119,7 +115,7 @@ To change the visibility of a forwarded port, use the `gh codespace ports visibi
 Replace `codespace-port` with the forwarded port number. Replace `setting` with `private`, `org`, or `public`. After entering the command choose from the list of codespaces that's displayed.
 
 ```shell
-gh codespace ports visibility <em>codespace-port</em>:<em>setting</em> 
+gh codespace ports visibility <em>codespace-port</em>:<em>setting</em>
 ```
 
 You can set the visibility for multiple ports with one command. 例:

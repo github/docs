@@ -1,6 +1,6 @@
 ---
-title: Deleting an issue
-intro: People with admin permissions in a repository can permanently delete an issue from a repository.
+title: Excluir um problema
+intro: Pessoas com permissões de administrador em um repositório podem excluir permanentemente um problema de um repositório.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/deleting-an-issue
   - /articles/deleting-an-issue
@@ -14,17 +14,17 @@ versions:
 topics:
   - Pull requests
 ---
-You can only delete issues in a repository owned by your user account. You cannot delete issues in a repository owned by another user account, even if you are a collaborator there.
 
-To delete an issue in a repository owned by an organization, an organization owner must enable deleting an issue for the organization's repositories, and you must have admin or owner permissions in the repository. For more information, see "[Allowing people to delete issues in your organization](/articles/allowing-people-to-delete-issues-in-your-organization)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Você só pode excluir problemas em um repositório que pertença à sua conta de usuário. Não é possível excluir problemas em um repositório pertencente a outra conta de usuário, mesmo que você seja um colaborador nela.
 
-Collaborators do not receive a notification when you delete an issue. When visiting the URL of a deleted issue, collaborators will see a message stating that the issue is deleted. People with admin or owner permissions in the repository will additionally see the username of the person who deleted the issue and when it was deleted.
+Para excluir um problema em um repositório que pertença a uma organização, o proprietário da organização deve permitir a exclusão de um problema dos repositórios da organização e você deve ter permissões de administrador ou de proprietário no repositório. Para obter mais informações, consulte "[Permitindo que pessoas excluam problemas na sua organização](/articles/allowing-people-to-delete-issues-in-your-organization)" e "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
-1. Navigate to the issue you want to delete.
-2. On the right side bar, under "Notifications", click **Delete issue**.
-!["Delete issue" text highlighted on bottom of the issue page's right side bar](/assets/images/help/issues/delete-issue.png)
-4. To confirm deletion, click **Delete this issue**.
+Os colaboradores não recebem uma notificação quando você exclui um problema. Ao acessarem a URL de um problema excluído, os colaboradores verão uma mensagem informando que o problema foi eliminado. As pessoas com permissões de administrador ou proprietário no repositório também verão o nome de usuário da pessoa que excluiu o problema e quando isso ocorreu.
 
-## Further reading
+1. Navegue até o problema que deseja excluir.
+2. Na barra lateral direita, em "Notifications" (Notificações), clique em **Delete this issue** (Excluir este problema). !["Excluir problema" texto destacado na barra lateral direita ao final da página de problema](/assets/images/help/issues/delete-issue.png)
+4. Para confirmar a exclusão, clique em **Delete this issue** (Excluir problema).
 
-- "[Linking a pull request to an issue](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)"
+## Leia mais
+
+- "[Vinculando uma pull request a um problema](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)"

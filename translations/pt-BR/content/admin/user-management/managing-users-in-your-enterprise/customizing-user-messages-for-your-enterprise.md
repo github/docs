@@ -1,12 +1,12 @@
 ---
-title: Customizing user messages for your enterprise
-shortTitle: Customizing user messages
+title: Personalizar mensagens de usuário para sua empresa
+shortTitle: Personalizar mensagens de usuário
 redirect_from:
   - /enterprise/admin/user-management/creating-a-custom-sign-in-message
   - /enterprise/admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-on-your-instance
   - /admin/user-management/customizing-user-messages-for-your-enterprise
-intro: 'You can create custom messages that users will see on {% data variables.product.product_location %}.'
+intro: 'Você pode criar mensagens personalizadas que os usuários verão em {% data variables.product.product_location %}.'
 versions:
   ghes: '*'
   ghae: '*'
@@ -15,108 +15,98 @@ topics:
   - Enterprise
   - Maintenance
 ---
-## About user messages
 
-There are several types of user messages.
-- Messages that appear on the {% ifversion ghes %}sign in or {% endif %}sign out page{% ifversion ghes or ghae %}
-- Mandatory messages, which appear once in a pop-up window that must be dismissed{% endif %}{% ifversion ghes or ghae %}
-- Announcement banners, which appear at the top of every page{% endif %}
+## Sobre mensagens de usuário
+
+Existem vários tipos de mensagens de usuário.
+- Mensagens que aparecem na página {% ifversion ghes %}página de ingresso ou {% endif %}saída{% ifversion ghes or ghae %}
+- Mensagens obrigatórias, que aparecem uma vez em uma janela pop-up que deve ser ignorada{% endif %}{% ifversion ghes or ghae %}
+- Banners de anúncios, que aparecem na parte superior de cada página{% endif %}
 
 {% ifversion ghes %}
 {% note %}
 
-**Note:** If you are using SAML for authentication, the sign in page is presented by your identity provider and is not customizable via {% data variables.product.prodname_ghe_server %}.
+**Observação:** se você estiver usando SAML para fazer autenticação, a página de login será apresentada pelo seu provedor de identidade e não será possível personalizá-la pelo {% data variables.product.prodname_ghe_server %}.
 
 {% endnote %}
 
-You can use Markdown to format your message. For more information, see "[About writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github/)."
+Você pode usar markdown para formatar sua mensagem. Para obter mais informações, consulte "[Sobre gravação e formatação no {% data variables.product.prodname_dotcom %}](/articles/about-writing-and-formatting-on-github/)".
 
-## Creating a custom sign in message
+## Criar mensagem personalizada de login
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-5. {% ifversion ghes %}To the right of{% else %}Under{% endif %} "Sign in page", click **Add message** or **Edit message**.
-![{% ifversion ghes %}Add{% else %}Edit{% endif %} message button](/assets/images/enterprise/site-admin-settings/edit-message.png)
-6. Under **Sign in message**, type the message you'd like users to see.
-![Sign in message](/assets/images/enterprise/site-admin-settings/sign-in-message.png){% ifversion ghes %}
+5. {% ifversion ghes %}À direita de{% else %}em{% endif %} "Página de login", clique **Adicionar mensagem** ou **Editar mensagem**. ![{% ifversion ghes %}Botão de mensagem de Adicionar{% else %}Editar{% endif %}](/assets/images/enterprise/site-admin-settings/edit-message.png)
+6. Em **Sign in message** (Mensagem de login), digite a mensagem que você pretende exibir para os usuários. ![Sign in message](/assets/images/enterprise/site-admin-settings/sign-in-message.png){% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
 {% data reusables.enterprise_site_admin_settings.click-preview %}
-  ![Preview button](/assets/images/enterprise/site-admin-settings/sign-in-message-preview-button.png)
-8. Review the rendered message.
-![Sign in message rendered](/assets/images/enterprise/site-admin-settings/sign-in-message-rendered.png)
+  ![Botão Preview (Visualizar)](/assets/images/enterprise/site-admin-settings/sign-in-message-preview-button.png)
+8. Revise a mensagem renderizada. ![Mensagem de login renderizada](/assets/images/enterprise/site-admin-settings/sign-in-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
 {% endif %}
 
-## Creating a custom sign out message
+## Criar mensagem personalizada de logout
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-5. {% ifversion ghes or ghae %}To the right of{% else %}Under{% endif %} "Sign out page", click **Add message** or **Edit message**.
-![Add message button](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
-6. Under **Sign out message**, type the message you'd like users to see.
-![Sign two_factor_auth_header message](/assets/images/enterprise/site-admin-settings/sign-out-message.png){% ifversion ghes or ghae %}
+5. {% ifversion ghes or ghae %}À direita de{% else %}em{% endif %} "página de logout", clique em **Adicionar mensagem** ou **Editar mensagem**. ![Botão Add message (Adicionar mensagem)](/assets/images/enterprise/site-admin-settings/sign-out-add-message-button.png)
+6. Em **Sign out message** (Mensagem de logout), digite a mensagem que você pretende exibir para os usuários. ![Sign two_factor_auth_header message](/assets/images/enterprise/site-admin-settings/sign-out-message.png){% ifversion ghes or ghae %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}{% else %}
 {% data reusables.enterprise_site_admin_settings.click-preview %}
-  ![Preview button](/assets/images/enterprise/site-admin-settings/sign-out-message-preview-button.png)
-8. Review the rendered message.
-![Sign out message rendered](/assets/images/enterprise/site-admin-settings/sign-out-message-rendered.png)
+  ![Botão Preview (Visualizar)](/assets/images/enterprise/site-admin-settings/sign-out-message-preview-button.png)
+8. Revise a mensagem renderizada. ![Mensagem de logout renderizada](/assets/images/enterprise/site-admin-settings/sign-out-message-rendered.png)
 {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}
 
 {% ifversion ghes or ghae %}
-## Creating a mandatory message
+## Criar uma mensagem obrigatória
 
-You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before the user can use {% data variables.product.product_location %}.
+Você pode criar uma mensagem obrigatória que {% data variables.product.product_name %} mostrará a todos os usuários na primeira vez que efetuarem o login depois de salvar a mensagem. A mensagem aparece em uma janela pop-up que o usuário deve ignorar antes que o usuário possa usar o {% data variables.product.product_location %}.
 
-Mandatory messages have a variety of uses.
+As mensagens obrigatórias têm uma série de usos.
 
-- Providing onboarding information for new employees
-- Telling users how to get help with {% data variables.product.product_location %}
-- Ensuring that all users read your terms of service for using {% data variables.product.product_location %}
+- Fornecer informações de integração para novos funcionários
+- Contar para os usuários como obter ajuda com {% data variables.product.product_location %}
+- Garantir que todos os usuários leiam seus termos de serviço para usar {% data variables.product.product_location %}
 
-If you include Markdown checkboxes in the message, all checkboxes must be selected before the user can dismiss the message. For example, if you include your terms of service in the mandatory message, you can require that each user selects a checkbox to confirm the user has read the terms.
+Se você incluir caixas de seleção de Markdown na mensagem, todas as caixas de seleção deverão ser selecionadas antes de o usuário poder ignorar a mensagem. Por exemplo, se você incluir seus termos de serviço na mensagem obrigatória, você poderá exigir que cada usuário marque uma caixa de seleção para confirmar que o usuário leu os termos.
 
-Each time a user sees a mandatory message, an audit log event is created. The event includes the version of the message that the user saw. For more information see "[Audited actions](/admin/user-management/audited-actions)."
+Cada vez que um usuário vê uma mensagem obrigatória, um evento de log de auditoria é criado. O evento inclui a versão da mensagem que o usuário visualizou. Para obter mais informações, consulte "[Ações auditadas](/admin/user-management/audited-actions)".
 
 {% note %}
 
-**Note:** If you change the mandatory message for {% data variables.product.product_location %}, users who have already acknowledged the message will not see the new message.
+**Observação:** Se você alterar a mensagem obrigatória para {% data variables.product.product_location %}, os usuários que já reconheceram a mensagem não visualizarão a nova mensagem.
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. To the right of "Mandatory message", click **Add message**.
-  ![Add mandatory message button](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
-1. Under "Mandatory message", in the text box, type your message.
-  ![Mandatory message text box](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
+1. À direita da "Mensagem obrigatória", clique em **Adicionar mensagem**. ![Botão de adicionar mensagem obrigatória](/assets/images/enterprise/site-admin-settings/add-mandatory-message-button.png)
+1. Em "Mensagem obrigatória", na caixa de texto, digite sua mensagem. ![Caixa de texto obrigatória](/assets/images/enterprise/site-admin-settings/mandatory-message-text-box.png)
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 
 {% endif %}
 
 {% ifversion ghes or ghae %}
-## Creating a global announcement banner
+## Criar um banner de anúncio global
 
-You can set a global announcement banner to be displayed to all users at the top of every page.
+Você pode definir um banner de anúncio global para ser exibido para todos os usuários na parte superior de cada página.
 
 {% ifversion ghae or ghes %}
-You can also set an announcement banner{% ifversion ghes %} in the administrative shell using a command line utility or{% endif %} using the API. For more information, see {% ifversion ghes %}"[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" and {% endif %}"[{% data variables.product.prodname_enterprise %} administration](/rest/reference/enterprise-admin#announcements)."
+Você também pode definir um banner de anúncio{% ifversion ghes %} no shell administrativo usando um utilitário de linha de comando ou{% endif %} usando a API. Para obter mais informações, consulte {% ifversion ghes %}"[Utilitários de linha de comando](/enterprise/admin/configuration/command-line-utilities#ghe-announce)" e {% endif %}"[Administração de {% data variables.product.prodname_enterprise %}](/rest/reference/enterprise-admin#announcements)".
 {% else %}
 
-You can also set an announcement banner in the administrative shell using a command line utility. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-announce)."
+Você também pode definir um banner de anúncio no shell administrativo usando um utilitário de linha de comando. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/admin/configuration/command-line-utilities#ghe-announce)".
 
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.messages-tab %}
-1. {% ifversion ghes or ghae %}To the right of{% else %}Under{% endif %} "Announcement", click **Add announcement**.
-  ![Add announcement button](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
-1. Under "Announcement", in the text field, type the announcement you want displayed in a banner.
-  ![Text field to enter announcement](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
-1. Optionally, under "Expires on", select the calendar drop-down menu and click an expiration date.
-  ![Calendar drop-down menu to choose expiration date](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
+1. {% ifversion ghes or ghae %}À direita de{% else %}em{% endif %} "Anúncio", clique em **Adicionar anúncio**. ![Botão Add message (Adicionar mensagem)](/assets/images/enterprise/site-admin-settings/add-announcement-button.png)
+1. Em "Anúncio", no campo de texto, digite o anúncio que deseja exibir em um banner. ![Campo de texto para digitar o anúncio](/assets/images/enterprise/site-admin-settings/announcement-text-field.png)
+1. Opcionalmente, em "Expira em", selecione o menu suspenso do calendário e clique em uma data de validade. ![Menu suspenso do calendário para escolher data de vencimento](/assets/images/enterprise/site-admin-settings/expiration-drop-down.png)
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}
 {% endif %}

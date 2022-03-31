@@ -58,7 +58,7 @@ Action                            | Description
 ## Enterprise configuration settings
 
 Action                                          | Description
------------------------------------------------ | -------------------------------------------{% ifversion ghes > 3.0 or ghae %}
+----------------------------------------------- | -------------------------------------------{% ifversion ghes or ghae %}
 `business.advanced_security_policy_update` | A site admin creates, updates, or removes a policy for {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[Enforcing policies for {% data variables.product.prodname_advanced_security %} in your enterprise](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)."{% endif %}
 `business.clear_members_can_create_repos` | A site admin clears a restriction on repository creation in organizations in the enterprise. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)."{% ifversion ghes > 3.1 %}
 `business.referrer_override_enable` | A site admin enables the referrer policy override. For more information, see "[Configuring the referrer policy for your enterprise](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)."
@@ -159,7 +159,7 @@ Action                | Description
 Action                        | Description
 ----------------------------- | -----------------------------------------------
 `staff.disable_repo`          | A site admin disabled access to a repository and all of its forks.
-`staff.enable_repo`           | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghes > 3.2 %}
+`staff.enable_repo`           | A site admin re-enabled access to a repository and all of its forks.{% ifversion ghae or ghes > 3.2 %}
 `staff.exit_fake_login`       | A site admin ended an impersonation session on {% data variables.product.product_name %}.
 `staff.fake_login`            | A site admin signed into {% data variables.product.product_name %} as another user.{% endif %}
 `staff.repo_unlock`           | A site admin unlocked (temporarily gained full access to) one of a user's private repositories.

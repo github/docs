@@ -49,7 +49,7 @@ You can link to an image in a repository on {% data variables.product.product_na
 ## Supported MediaWiki formats
 
 No matter which markup language your wiki page is written in, certain MediaWiki syntax will always be available to you.
-- Links ([except Asciidoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Links ([except AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
 - Horizontal rules via `---`
 - Shorthand symbol entities (such as `&delta;` or `&euro;`)
 

@@ -1,7 +1,6 @@
 ---
 title: Administrar los derechos de soporte para tu empresa
 intro: Puedes otorgar a los miembros empresariales las capacidades para administrar los tickets de soporte para tu cuenta empresarial.
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 versions:
@@ -16,7 +15,7 @@ shortTitle: Administrar los derechos de soporte
 
 Las pesonas con derechos de soporte para tu cuenta empresarial pueden utilizar el portal de soporte para abrir, ver y comentar en los tickets de soporte asociados con la cuenta empresarial.
 
-Los propietarios de las empresas y gerentes de facturación tienen derechos de soporte auomáticamente. Los propietarios de empresas pueden agregar derechos de soporte a miembros de las organizaciones que pertenezcan a su cuenta empresarial.
+Los propietarios de las empresas y gerentes de facturación tienen derechos de soporte auomáticamente. Los propietarios de empresas pueden agregar derechos de soporte para hasta 20 miembros adicionales de las organizaciones que pertenecen a su cuenta empresarial.
 
 ## Agregar derechos de soporte para un miembro de la empresa
 

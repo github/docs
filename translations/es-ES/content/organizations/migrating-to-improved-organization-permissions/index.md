@@ -1,6 +1,6 @@
 ---
-title: Migrating to improved organization permissions
-intro: 'If your organization was created after September 2015, your organization includes improved organization permissions by default. Organizations created before September 2015 may need to migrate older Owners and Admin teams to the improved organization permissions model.'
+title: Migrar a permisos de organización mejorados
+intro: 'Si tu organización fue creada después de septiembre de 2015, tu organización incluye los permisos de la organización mejorados por defecto. Es posible que las organizaciones creadas antes de septiembre de 2015 necesiten migrar a los antiguos equipos de administradores para el modelo mejorado de permisos de la organización.'
 redirect_from:
   - /articles/improved-organization-permissions
   - /articles/github-direct-organization-membership-pre-release-guide
@@ -18,6 +18,6 @@ children:
   - /converting-an-owners-team-to-improved-organization-permissions
   - /converting-an-admin-team-to-improved-organization-permissions
   - /migrating-admin-teams-to-improved-organization-permissions
-shortTitle: Migrate to improved permissions
+shortTitle: Migrarse a los permisos mejorados
 ---
 

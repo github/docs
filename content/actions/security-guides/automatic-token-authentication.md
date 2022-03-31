@@ -23,7 +23,7 @@ At the start of each workflow run, {% data variables.product.prodname_dotcom %} 
 
 When you enable {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dotcom %} installs a {% data variables.product.prodname_github_app %} on your repository. The `GITHUB_TOKEN` secret is a {% data variables.product.prodname_github_app %} installation access token. You can use the installation access token to authenticate on behalf of the {% data variables.product.prodname_github_app %} installed on your repository. The token's permissions are limited to the repository that contains your workflow. For more information, see "[Permissions for the `GITHUB_TOKEN`](#permissions-for-the-github_token)."
 
-Before each job begins, {% data variables.product.prodname_dotcom %} fetches an installation access token for the job. The token expires when the job is finished.
+Before each job begins, {% data variables.product.prodname_dotcom %} fetches an installation access token for the job. {% data reusables.actions.github-token-expiration %}
 
 The token is also available in the `github.token` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts#github-context)."
 
@@ -39,30 +39,11 @@ You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secr
 {% endnote %}
 {% endif %}
 
-{% data reusables.github-actions.actions-do-not-trigger-workflows %}
+{% data reusables.actions.actions-do-not-trigger-workflows %}
 
 ### Example 1: passing the `GITHUB_TOKEN` as an input
 
-This example workflow uses the [labeler action](https://github.com/actions/labeler), which requires the `GITHUB_TOKEN` as the value for the `repo-token` input parameter:
-
-```yaml
-name: Pull request labeler
-
-on: [ pull_request_target ]
-
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}permissions:
-  contents: read
-  pull-requests: write
-
-{% endif %}
-jobs:
-  triage:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/labeler@v2
-        with:
-          repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```
+{% data reusables.actions.github_token-input-example %}
 
 ### Example 2: calling the REST API
 
@@ -104,14 +85,17 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | actions       | read/write  | none | read |
 | checks        | read/write  | none | read |
 | contents      | read/write  | read | read |
-| deployments   | read/write  | none | read |
-| id-token      | read/write  | none | read |
+| deployments   | read/write  | none | read |{% ifversion fpt or ghec %}
+| id-token      | none        | none | read |{% endif %}
 | issues        | read/write  | none | read |
 | metadata      | read        | read | read |
 | packages      | read/write  | none | read |
-| pull requests | read/write  | none | read |
-| repository projects | read/write | none | read |
-| security events     | read/write | none | read |
+{%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6187 %}
+| pages         | read/write  | none | read |
+{%- endif %}
+| pull-requests | read/write  | none | read |
+| repository-projects | read/write | none | read |
+| security-events     | read/write | none | read |
 | statuses      | read/write  | none | read |
 {% else %}
 | Scope    | Access type | Access by forked repos |
@@ -123,8 +107,8 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | issues   | read/write  | read |
 | metadata | read        | read |
 | packages | read/write  | read |
-| pull requests | read/write | read |
-| repository projects | read/write | read |
+| pull-requests | read/write | read |
+| repository-projects | read/write | read |
 | statuses | read/write  | read |
 {% endif %}
 
@@ -139,7 +123,7 @@ You can see the permissions that `GITHUB_TOKEN` had for a specific job in the "S
 
 You can use the `permissions` key in your workflow file to modify permissions for the `GITHUB_TOKEN` for an entire workflow or for individual jobs. This allows you to configure the minimum required permissions for a workflow or job. When the `permissions` key is used, all unspecified permissions are set to no access, with the exception of the `metadata` scope, which always gets read access.
 
-{% data reusables.github-actions.forked-write-permission %}
+{% data reusables.actions.forked-write-permission %}
 
 The two workflow examples earlier in this article show the `permissions` key being used at the workflow level, and at the job level. In [Example 1](#example-1-passing-the-github_token-as-an-input) the two permissions are specified for the entire workflow. In [Example 2](#example-2-calling-the-rest-api) write access is granted for one scope for a single job.
 
@@ -156,3 +140,7 @@ If you need a token that requires permissions that aren't available in the `GITH
 
 1. Use or create a token with the appropriate permissions for that repository. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 1. Add the token as a secret in your workflow's repository, and refer to it using the {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+
+### Further reading
+
+- "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)"

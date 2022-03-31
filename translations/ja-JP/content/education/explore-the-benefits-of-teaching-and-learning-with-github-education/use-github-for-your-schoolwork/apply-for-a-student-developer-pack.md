@@ -45,7 +45,11 @@ shortTitle: Apply for a student pack
 
 ## 期限切れと更新
 
-{% data variables.product.prodname_student_pack %}アクセスが期限切れになった場合、まだあなたが適格であれば再応募できる場合があります。ただし、弊社のパートナーからの提供されているものの中には更新できないものがあります。 弊社のパートナーから期限付きで提供されているもののほとんどは、セットアップ後に開始されます。 詳しい情報については[{% data variables.product.prodname_student_pack %}](https://education.github.com/pack)ページを参照してください。
+{% data variables.product.prodname_student_pack %}アクセスが期限切れになった場合、まだあなたが適格であれば再応募できる場合があります。ただし、弊社のパートナーからの提供されているものの中には更新できないものがあります。 弊社のパートナーから期限付きで提供されているもののほとんどは、セットアップ後に開始されます。 To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
+
+![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
+
+詳しい情報については[{% data variables.product.prodname_student_pack %}](https://education.github.com/pack)ページを参照してください。
 
 無料の {% data variables.product.prodname_student_pack %} プランへのアクセス期限が切れる時期を知るには、アカウントの[支払い設定](https://github.com/settings/billing)にアクセスしてください。
 

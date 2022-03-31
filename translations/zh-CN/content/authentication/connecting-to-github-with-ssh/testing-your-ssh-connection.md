@@ -1,6 +1,6 @@
 ---
 title: 测试 SSH 连接
-intro: 'After you''ve set up your SSH key and added it to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can test your connection.'
+intro: '设置 SSH 密钥并将其添加到您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上的帐户后，您可以测试连接。'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -37,7 +37,7 @@ shortTitle: 测试 SSH 连接
   > Are you sure you want to continue connecting (yes/no)?
   ```
 
-3. 验证所看到消息中的指纹是否匹配 {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} 的 RSA 公钥指纹](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}您企业的公钥指纹{% endif %}。 如果是，则输入 `yes`：
+3. 验证所看到消息中的指纹是否匹配 {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %} 的公钥指纹](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}您企业的公钥指纹{% endif %}。 如果是，则输入 `yes`：
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

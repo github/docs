@@ -1,6 +1,6 @@
 ---
-title: Apps
-intro: You can automate and streamline your workflow by building your own apps.
+title: Aplicaciones
+intro: Puedes automatizar y transmitir tu flujo de trabajo si creas tus propias apps.
 redirect_from:
   - /early-access/integrations
   - /early-access/integrations/authentication

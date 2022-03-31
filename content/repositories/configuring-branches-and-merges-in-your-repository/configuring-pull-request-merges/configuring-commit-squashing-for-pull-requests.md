@@ -20,9 +20,9 @@ shortTitle: Configure commit squashing
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Merge button", optionally select **Allow merge commits**. This allows contributors to merge a pull request with a full history of commits.
+3. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, optionally select **Allow merge commits**. This allows contributors to merge a pull request with a full history of commits.
 ![allow_standard_merge_commits](/assets/images/help/repository/pr-merge-full-commits.png)
-4. Under "Merge button", select **Allow squash merging**. This allows contributors to merge a pull request by squashing all commits into a single commit. If you select another merge method besides **Allow squash merging**, collaborators will be able to choose the type of merge commit when merging a pull request. {% data reusables.repositories.squash-and-rebase-linear-commit-hisitory %}
+4. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select **Allow squash merging**. This allows contributors to merge a pull request by squashing all commits into a single commit. If you select another merge method besides **Allow squash merging**, collaborators will be able to choose the type of merge commit when merging a pull request. {% data reusables.repositories.squash-and-rebase-linear-commit-hisitory %}
 ![Pull request squashed commits](/assets/images/help/repository/pr-merge-squash.png)
 
 ## Further reading

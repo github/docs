@@ -54,9 +54,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set up Ruby
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
-          ruby-version: 2.6
+          ruby-version: '3.1'
       - name: Install dependencies
         run: bundle install
       - name: Run tests
@@ -65,7 +65,7 @@ jobs:
 
 ## Specifying the Ruby version
 
-The easiest way to specify a Ruby version is by using the `ruby/setup-ruby` action provided by the Ruby organization on GitHub. The action adds any supported Ruby version to `PATH` for each job run in a workflow. For more information see, the [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
+The easiest way to specify a Ruby version is by using the `ruby/setup-ruby` action provided by the Ruby organization on GitHub. The action adds any supported Ruby version to `PATH` for each job run in a workflow. For more information and available Ruby versions, see [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby).
 
 Using Ruby's `ruby/setup-ruby` action is the recommended way of using Ruby with GitHub Actions because it ensures consistent behavior across different runners and different versions of Ruby.
 
@@ -75,9 +75,9 @@ The `setup-ruby` action takes a Ruby version as an input and configures that ver
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
-    ruby-version: 2.6 # Not needed with a .ruby-version file
+    ruby-version: '3.1' # Not needed with a .ruby-version file
 - run: bundle install
 - run: bundle exec rake
 ```
@@ -87,13 +87,13 @@ Alternatively, you can check a `.ruby-version` file  into the root of your repos
 
 ## Testing with multiple versions of Ruby
 
-You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 2.7, 2.6, and 2.5. The 'x' is a wildcard character that matches the latest patch release available for a version.
+You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 3.1, 3.0, and 2.7.
 
 {% raw %}
 ```yaml
 strategy:
   matrix:
-    ruby-version: [2.7.x, 2.6.x, 2.5.x]
+    ruby-version: ['3.1', '3.0', '2.7']
 ```
 {% endraw %}
 
@@ -119,12 +119,12 @@ jobs:
 
     strategy:
       matrix:
-        ruby-version: [2.7.x, 2.6.x, 2.5.x]
+        ruby-version: ['3.1', '3.0', '2.7']
 
     steps:
       - uses: actions/checkout@v2
       - name: {% raw %}Set up Ruby ${{ matrix.ruby-version }}{% endraw %}
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
           ruby-version: {% raw %}${{ matrix.ruby-version }}{% endraw %}
       - name: Install dependencies
@@ -141,9 +141,9 @@ The `setup-ruby` action will automatically install bundler for you. The version 
 ```yaml
 steps:
 - uses: actions/checkout@v2
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
-    ruby-version: 2.6
+    ruby-version: '3.1'
 - run: bundle install
 ```
 {% endraw %}
@@ -157,7 +157,7 @@ To enable caching, set the following.
 {% raw %}
 ```yaml
 steps:
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
     with:
       bundler-cache: true
 ```
@@ -238,7 +238,7 @@ jobs:
 
 ## Linting your code
 
-The following example installs `rubocop` and uses it to lint all files. For more information, see [Rubocop](https://github.com/rubocop-hq/rubocop). You can [configure Rubocop](https://docs.rubocop.org/rubocop/configuration.html) to decide on the specific linting rules.
+The following example installs `rubocop` and uses it to lint all files. For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). You can [configure Rubocop](https://docs.rubocop.org/rubocop/configuration.html) to decide on the specific linting rules.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}

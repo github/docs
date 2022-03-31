@@ -1,6 +1,6 @@
 ---
-title: About pull request merges
-intro: 'You can [merge pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) by retaining all the commits in a feature branch, squashing all commits into a single commit, or by rebasing individual commits from the `head` branch onto the `base` branch.'
+title: Sobre merges de pull request
+intro: 'Você pode [fazer merge de pull requests](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) mantendo todos os commits em um branch de recurso, fazendo a cmbinação por squash de todos os commits em um único commit, ou rebaseando os commits individuais a partir do branch `head` no branch `base`.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges
   - /articles/about-pull-request-merge-squashing
@@ -15,46 +15,47 @@ versions:
 topics:
   - Pull requests
 ---
+
 {% data reusables.pull_requests.default_merge_option %}
 
-## Squash and merge your pull request commits
+## Combinar por squash e fazer merge de commits da pull request
 
 {% data reusables.pull_requests.squash_and_merge_summary %}
 
-### Merge message for a squash merge
+### Mesclar mensagem para uma mesclagem por squash
 
-When you squash and merge, {% data variables.product.prodname_dotcom %} generates a commit message which you can change if you want to. The message default depends on whether the pull request contains multiple commits or just one. We do not include merge commits when we count the total number of commits.
+Quando você faz combinação por squash e merge, o {% data variables.product.prodname_dotcom %} gera uma mensagem de commit que você pode mudar se quiser. O padrão da mensagem depende se a  pull request contém vários commits ou apenas um. Nós não incluímos commits de merge quando contamos o número total de commits.
 
-Number of commits | Summary | Description |
------------------ | ------- | ----------- |
-One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
-More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
+| Número de commits | Sumário                                                                           | Descrição                                                                                        |
+| ----------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Um commit         | O título da mensagem de commit do único commit, seguido do número de pull request | O texto da mensagem de commit para o único commit                                                |
+| Mais de um commit | Título da pull request, seguido do número da pull request                         | Uma lista das mensagens de commit para todos os commits combinados por squash, por ordem de data |
 
-### Squashing and merging a long-running branch
+### Fazendo combinação por squash e merge com um branch de longa duração
 
-If you plan to continue work on the [head branch](/github/getting-started-with-github/github-glossary#head-branch) of a pull request after the pull request is merged, we recommend you don't squash and merge the pull request.
+Se você planeja continuar trabalhando no [branch head](/github/getting-started-with-github/github-glossary#head-branch) de uma pull request depois que a pull request for mesclada, recomendamos que você não combine por squash nem faça o merge da pull request.
 
-When you create a pull request, {% data variables.product.prodname_dotcom %} identifies the most recent commit that is on both the head branch and the [base branch](/github/getting-started-with-github/github-glossary#base-branch): the common ancestor commit. When you squash and merge the pull request, {% data variables.product.prodname_dotcom %} creates a commit on the base branch that contains all of the changes you made on the head branch since the common ancestor commit.
+Quando você cria uma pull request, o {% data variables.product.prodname_dotcom %} identifica o commit mais recente que existe tanto no branch head quanto no [branch base](/github/getting-started-with-github/github-glossary#base-branch): o commit de ancestral comum. Quando você combinar por squash e mesclar a pull request, o {% data variables.product.prodname_dotcom %} cria um commit no branch base que contém todas as alterações feitas no branch head desde o commit de ancestral comum.
 
-Because this commit is only on the base branch and not the head branch, the common ancestor of the two branches remains unchanged. If you continue to work on the head branch, then create a new pull request between the two branches, the pull request will include all of the commits since the common ancestor, including commits that you squashed and merged in the previous pull request. If there are no conflicts, you can safely merge these commits. However, this workflow makes merge conflicts more likely. If you continue to squash and merge pull requests for a long-running head branch, you will have to resolve the same conflicts repeatedly.
+Uma vez que esse commit está apenas no branch base e não no branch head, o ancestral comum dos dois branches permanece inalterado. Se você continuar a trabalhar no branch head e, em seguida, criar uma nova pull request entre os dois branches, a pull request incluirá todos os commits desde o ancestral comum, incluindo commits que você combinou por squash e fez merge na pull request anterior. Se não houver conflitos, você pode mesclar esses commits com segurança. No entanto, este fluxo de trabalho torna os conflitos de mesclagem mais prováveis. Se você continuar a combinar por squash e mesclar pull requests para um branch head de longo prazo, você terá que resolver os mesmos conflitos repetidamente.
 
-## Rebase and merge your pull request commits
+## Fazer rebase e merge dos commits da sua pull request
 
 {% data reusables.pull_requests.rebase_and_merge_summary %}
 
-You aren't able to automatically rebase and merge on {% data variables.product.product_location %} when:
-- The pull request has merge conflicts.
-- Rebasing the commits from the base branch into the head branch runs into conflicts.
-- Rebasing the commits is considered "unsafe," such as when a rebase is possible without merge conflicts but would produce a different result than a merge would.
+Você não pode fazer rebase e merge automaticamente no {% data variables.product.product_location %} quando:
+- A pull request tem conflitos de merge.
+- O rebase dos commits do branch base no branch head se depara com conflitos.
+- O rebase dos commits é considerado "não seguro"; por exemplo, quando é possível fazer rebase sem conflitos de merge, mas que geraria um resultado diferente daquele que um merge geraria.
 
-If you still want to rebase the commits but can't rebase and merge automatically on {% data variables.product.product_location %} you must:
-- Rebase the topic branch (or head branch) onto the base branch locally on the command line
-- [Resolve any merge conflicts on the command line](/articles/resolving-a-merge-conflict-using-the-command-line/).
-- Force-push the rebased commits to the pull request's topic branch (or remote head branch).
+Se ainda quiser fazer rebase dos commits, mas não puder fazer rebase e merge automaticamente no {% data variables.product.product_location %}, você deverá:
+- Fazer rebase do branch de tópico (ou branch head) no branch base localmente na linha de comando
+- [Resolver qualquer conflito de merge na linha de comando](/articles/resolving-a-merge-conflict-using-the-command-line/).
+- Forçar push dos commits com rebase no branch de tópico da pull request (ou branch head remoto).
 
-Anyone with write permissions in the repository, can then [merge the changes](/articles/merging-a-pull-request/) using the rebase and merge button on {% data variables.product.product_location %}.
+Qualquer pessoa com permissões de gravação no repositório pode [fazer merge das alterações](/articles/merging-a-pull-request/) usando o botão de rebase e merge no {% data variables.product.product_location %}.
 
-## Further reading
+## Leia mais
 
-- "[About pull requests](/articles/about-pull-requests/)"
-- "[Addressing merge conflicts](/github/collaborating-with-pull-requests/addressing-merge-conflicts)"
+- "[Sobre pull requests](/articles/about-pull-requests)"
+- "[Solucionar conflitos de merge](/github/collaborating-with-pull-requests/addressing-merge-conflicts)"

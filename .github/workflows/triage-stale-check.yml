@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/stale@cdf15f641adb27a71842045a94023bef6945e3aa
+      - uses: actions/stale@3cc123766321e9f15a6676375c154ccffb12a358
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-issue-message: 'A stale label has been added to this issue becuase it has been open for 60 days with no activity. To keep this issue open, add a comment within 3 days.'
@@ -34,7 +34,7 @@ jobs:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@cdf15f641adb27a71842045a94023bef6945e3aa
+      - uses: actions/stale@3cc123766321e9f15a6676375c154ccffb12a358
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: 'This is a gentle bump for the docs team that this PR is waiting for review.'

@@ -1,7 +1,7 @@
 ---
-title: Viewing people's roles in an organization
-intro: 'You can view a list of the people in your organization and filter by their role. For more information on organization roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."'
-permissions: "Organization members can see people's roles in the organization."
+title: Ver los roles de las personas en una organización
+intro: 'Puedes ver una lista de personas en tu organización y filtrar por su rol. Para obtener más información sobre los roles de organización, consulta "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".'
+permissions: Organization members can see people's roles in the organization.
 redirect_from:
   - /articles/viewing-people-s-roles-in-an-organization
   - /articles/viewing-peoples-roles-in-an-organization
@@ -14,53 +14,51 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: View people in an organization
+shortTitle: Visualizar a las personas en una organización
 ---
 
-## View organization roles
+## Ver los roles de la organización
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
-4. You will see a list of the people in your organization. To filter the list by role, click **Role** and select the role you're searching for.
-  ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)
+4. Verás una lista de personas en tu organización. Para filtrar esta lista por rol, haz clic en **Role (Rol)** y seleccionar el rol que estás buscando. ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)
 
 {% ifversion fpt %}
 
-If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can also view the enterprise owners who manage billing settings and policies for all your enterprise's organizations. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization#view-enterprise-owners-and-their-roles-in-an-organization).
+Si tu organización utiliza {% data variables.product.prodname_ghe_cloud %}, también puedes ver a los propietarios de la empresa que administran los ajustes de facturación y las políticas para todas las organizaciones de esta. Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization#view-enterprise-owners-and-their-roles-in-an-organization).
 
 {% endif %}
 
 {% if enterprise-owners-visible-for-org-members %}
-## View enterprise owners and their roles in an organization
+## Ver a los propietarios de la empresa y sus roles en la organización
 
-If your organization is managed by an enterprise account, then you can view the enterprise owners who manage billing settings and policies for all of your enterprise's organizations. For more information about enterprise accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+Si una cuenta empresarial administra tu organización, entonces puedes ver a los propietarios de la empresa que administran los ajustes de facturación y las políticas de todas las organizaciones de esta. Para obtener más información sobre las cuentas empresariales, consulta la sección "[Tipos de cuenta de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
-You can also view whether an enterprise owner has a specific role in the organization. Enterprise owners can also be an organization member, any other organization role, or be unaffililated with the organization.
+También puedes ver si un propietario de empresa tiene un rol específico en la organización. Los propietarios de las empresas también pueden ser miembros de una organización, tener cualquier otro rol en ella o estar desafiliados de la misma.
 
 {% note %}
 
-**Note:** If you're an organization owner, you can also invite an enterprise owner to have a role in the organization. If an enterprise owner accepts the invitation, a seat or license in the organization is used from the available licenses for your enterprise. For more information about how licensing works, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
+**Nota:** Si eres el propietario de una organización, también puedes invitar a un propietario de la empresa para que tome un rol en dicha organización. Si un propietario de empresa acepta la invitación, se utilizará una plaza o licencia en la organización de entre aquellas disponibles en tu empresa. Para obtener más información sobre cómo funcionan las licencias, consulta la sección "[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
 
 {% endnote %}
 
-| **Enterprise role** | **Organization role** | **Organization access or impact** |
-|----|----|----|----|
-| Enterprise owner | Unaffililated or no official organization role | Cannot access organization content or repositories but manages enterprise settings and policies that impact your organization. |
-| Enterprise owner | Organization owner | Able to configure organization settings and manage access to the organization's resources through teams, etc. | 
-| Enterprise owner | Organization member | Able to access organization resources and content, such as repositories, without access to the organization's settings. |
+| **Roles en la empresa** | **Roles en la organización**                      | **Acceso o impacto a la organización**                                                                                                                        |
+| ----------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Propietario de empresa  | Desafiliados o sin rol oficial en la organización | No puede acceder al contenido de la organización ni a sus repositorios, pero administra los ajustes y políticas de la empresa que impactan a tu organización. |
+| Propietario de empresa  | Propietario de la organización                    | Puede configurar los ajustes de la organización y administrar el acceso a los recursos de la misma mediante equipos, etc.                                     |
+| Propietario de empresa  | Miembro de la organización                        | Puede acceder a los recursos y contenido de la organización, tales como repositorios, sin acceder a los ajustes de la misma.                                  |
 
-To review all roles in an organization, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)." {% ifversion ghec %} An organization member can also have a custom role for a specific repository. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."{% endif %}
+Para revisar todos los roles en una organización, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)". {% ifversion ghec %} Los miembros de la organización también pueden tener roles personalizados para un repositorio específico. Para obtener más información, consulta la sección "[Administrar los roles personalizados de repositorio en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".{% endif %}
 
-For more information about the enterprise owner role, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)." 
+Para obtener más información sobre el rol de propietario de empresa, consulta la sección "[Roles en una empresa](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)".
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
-4. In the left sidebar, under "Enterprise permissions", click **Enterprise owners**.
-  ![Screenshot of "Enterprise owners" option in sidebar menu](/assets/images/help/organizations/enterprise-owners-sidebar.png)
-5. View the list of the enterprise owners for your enterprise. If the enterprise owner is also a member of your organization, you can see their role in the organization.
+4. En la barra lateral izquierda, debajo de "Permisos empresariales", haz clic en **Propietarios de la empresa**. ![Captura de pantalla de la opción de "Propietarios de empresa" en el menú de la barra lateral](/assets/images/help/organizations/enterprise-owners-sidebar.png)
+5. Ve la lista de propietarios de tu empresa. Si el propietario de la empresa también es un miembro de tu organización, podrás ver su rol en esta.
 
-  ![Screenshot of list of Enterprise owners and their role in the organization](/assets/images/help/organizations/enterprise-owners-list-on-org-page.png)
+  ![Captura de pantalla de la lista de propietarios de empresa y de sus roles en la organización](/assets/images/help/organizations/enterprise-owners-list-on-org-page.png)
 
 {% endif %}

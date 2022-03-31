@@ -1,6 +1,6 @@
 ---
-title: Managing pre-receive hooks on the GitHub Enterprise Server appliance
-intro: 'Configure how people will use pre-receive hooks within their {% data variables.product.prodname_ghe_server %} appliance.'
+title: Administrar ganchos de pre-recepción en el aparato del Servidor de GitHub Enterprise
+intro: 'Configurar cómo las personas usarán sus ganchos de pre-recepción dentro de su aparato de {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance
@@ -13,64 +13,51 @@ topics:
   - Enterprise
   - Policies
   - Pre-receive hooks
-shortTitle: Manage pre-receive hooks
+shortTitle: Administrar los ganchos de pre-recepción
 ---
-## Creating pre-receive hooks
+
+## Crear ganchos de pre-recepción
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-4. Click **Add pre-receive hook**.
-![Add pre-receive hook](/assets/images/enterprise/site-admin-settings/add-pre-receive-hook.png)
-5. In the **Hook name** field, enter the name of the hook that you want to create.
-![Name pre-receive hook](/assets/images/enterprise/site-admin-settings/hook-name.png)
-6. From the **Environment** drop-down menu, select the environment on which you want the hook to run.
-![Hook environment](/assets/images/enterprise/site-admin-settings/environment.png)
-7. Under **Script**, from the **Select hook repository** drop-down menu, select the repository that contains your pre-receive hook script. From the **Select file** drop-down menu, select the filename of the pre-receive hook script.
-![Hook script](/assets/images/enterprise/site-admin-settings/hook-script.png)
-8. Select **Use the exit-status to accept or reject pushes** to enforce your script. Unselecting this option allows you to test the script while the exit-status value is ignored. In this mode, the output of the script will be visible to the user in the command-line but not on the web interface.
-![Use exit-status](/assets/images/enterprise/site-admin-settings/use-exit-status.png)
-9. Select **Enable this pre-receive hook on all repositories by default** if you want the pre-receive hook to run on all repositories.
-![Enable hook all repositories](/assets/images/enterprise/site-admin-settings/enable-hook-all-repos.png)
-10. Select **Administrators can enable and disable this hook** to allow organization members with admin or owner permissions to select whether they wish to enable or disable this pre-receive hook.
-![Admins enable or disable hook](/assets/images/enterprise/site-admin-settings/admins-enable-hook.png)
+4. Haz clic en **Add pre-receive hook** (Agregar gancho de pre-recepción). ![Agregar un gancho de pre-recepción](/assets/images/enterprise/site-admin-settings/add-pre-receive-hook.png)
+5. En el campo **Hook name** (Nombre de gancho), escribe el nombre del gancho que deseas crear. ![Nombrar los ganchos de pre-recepción](/assets/images/enterprise/site-admin-settings/hook-name.png)
+6. En el menú desplegable **Environment** (Entorno), selecciona el entorno en el que deseas ejecutar el gancho. ![Entornos para ganchos](/assets/images/enterprise/site-admin-settings/environment.png)
+7. Debajo de **Script**, desde el menú desplegable **Select hook repository** (Seleccionar repositorio de gancho), selecciona el repositorio que contiene tu script de gancho de pre-recepción. Desde el menú desplegable **Select file** (Seleccionar archivo), selecciona el nombre de archivo o el script del gancho de pre-recepción. ![Script para ganchos](/assets/images/enterprise/site-admin-settings/hook-script.png)
+8. Selecciona **Use the exit-status to accept or reject pushes** (Usar el estado de salida para aceptar o rechazar subidas) para imponer tu script. Al quitar la marca de selección de esta opción podrás probar el script mientras se ignora el valor del estado de salida. En este modo, el resultado del script estará visible para el usuario en la línea de comandos pero no en la interfaz web. ![Usar el estado de salida](/assets/images/enterprise/site-admin-settings/use-exit-status.png)
+9. Selecciona **Enable this pre-receive hook on all repositories by default ** (Habilitar este gancho de pre-recepción en todos los repositorios por defecto) si quieres que el gancho de pre-recepción se ejecute en todos los repositorios. ![Habilitar gachos para todos los repositorios](/assets/images/enterprise/site-admin-settings/enable-hook-all-repos.png)
+10. Selecciona **Administrators can enable and disable this hook** (Los administradores pueden habilitar e inhabilitar este gancho) para permitir que los miembros de la organización con permisos de administración o propietario seleccionen si desean habilitar o inhabilitar este gancho de pre-recepción. ![Los administradores habilitan o inhabilitan los ganchos](/assets/images/enterprise/site-admin-settings/admins-enable-hook.png)
 
-## Editing pre-receive hooks
+## Editar ganchos de pre-recepción
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-1. Next to the pre-receive hook that you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
-![Edit pre-receive](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
+1. Junto al gancho de pre-recepción que deseas editar, haz clic en {% octicon "pencil" aria-label="The edit icon" %}. ![Editar pre-recepción](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
-## Deleting pre-receive hooks
+## Eliminar ganchos de pre-recepción
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-2. Next to the pre-receive hook that you want to delete, click {% octicon "x" aria-label="X symbol" %}.
-![Edit pre-receive](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
+2. Junto al gancho de pre-recepción que deseas eliminar, haz clic en {% octicon "x" aria-label="X symbol" %}. ![Editar pre-recepción](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
 
-## Configure pre-receive hooks for an organization
+## Configurar ganchos de pre-recepción para una organización
 
-An organization administrator can only configure hook permissions for an organization if the site administrator selected the **Administrators can enable or disable this hook** option when they created the pre-receive hook. To configure pre-receive hooks for a repository, you must be an organization administrator or owner.
+Un administrador de la organización solo puede configurar permisos de gancho para una organización si el administrador del sitio seleccionó la opción **Administrators can enable o disable this hook** (Los administradores pueden habilitar o inhabilitar este gancho) al crear el gancho de pre-recepción. Para configurar los ganchos de pre-recepción para un repositorio, debes ser el administrador o el propietario de una organización.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. In the left sidebar, click **Hooks**.
-![Hooks sidebar](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
-5. Next to the pre-receive hook that you want to configure, click the **Hook permissions** drop-down menu. Select whether to enable or disable the pre-receive hook, or allow it to be configured by the repository administrators.
-![Hook permissions](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
+4. En la barra lateral izquierda, haz clic en **Hooks** (Ganchos). ![Barra lateral de ganchos](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
+5. Junto al gancho de pre-recepción que deseas configurar, haz clic en el menú desplegable **Hook permissions** (Permisos del gancho). Selecciona si deseas habilitar o inhabilitar el gancho de pre-recepción o permite que lo configuren los administradores del repositorio. ![Permisos para ganchos](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
 
-## Configure pre-receive hooks for a repository
+## Configurar ganchos de pre-recepción para un repositorio
 
-A repository owner can only configure a hook if the site administrator selected the **Administrators can enable or disable this hook** option when they created the pre-receive hook. In an organization, the organization owner must also have selected the **Configurable** hook permission. To configure pre-receive hooks for a repository, you must be a repository owner.
+Un propietario de repositorio solo puede configurar un gancho si el administrador del sitio seleccionó la opción **Administrators can enable or disable this hook** (Los administradores pueden habilitar o inhabilitar este gancho) al crear el gancho de pre-recepción. En una organización, el propietario de la organización también debe haber seleccionado el permiso de gancho **Configurable**. Para configurar los ganchos de pre-recepción para un repositorio, debes ser un propietario de repositorio.
 
 {% data reusables.profile.enterprise_access_profile %}
-2. Click **Repositories** and select which repository you want to configure pre-receive hooks for.
-![Repositories](/assets/images/enterprise/repos/repositories.png)
+2. Haz clic en **Repositories** (Repositorios) y selecciona el repositorio para el que deseas configurar los ganchos de pre-recepción. ![Repositorios](/assets/images/enterprise/repos/repositories.png)
 {% data reusables.repositories.sidebar-settings %}
-4. In the left sidebar, click **Hooks & Services**.
-![Hooks and services](/assets/images/enterprise/repos/hooks-services.png)
-5. Next to the pre-receive hook that you want to configure, click the **Hook permissions** drop-down menu. Select whether to enable or disable the pre-receive hook.
-![Repository hook permissions](/assets/images/enterprise/repos/repo-hook-permissions.png)
+4. En la barra lateral izquierda, haz clic en **Hooks & Services** (Ganchos y Servicios). ![Ganchos y servicios](/assets/images/enterprise/repos/hooks-services.png)
+5. Junto al gancho de pre-recepción que deseas configurar, haz clic en el menú desplegable **Hook permissions** (Permisos del gancho). Selecciona si deseas habilitar o inhabilitar el gancho de pre-recepción. ![Permisos de gancho del repositorio](/assets/images/enterprise/repos/repo-hook-permissions.png)
