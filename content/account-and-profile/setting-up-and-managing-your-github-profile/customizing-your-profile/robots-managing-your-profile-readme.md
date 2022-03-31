@@ -1,4 +1,4 @@
----
+robots---
 title: Managing your profile README
 intro: 'You can add a README to your {% data variables.product.prodname_dotcom %} profile to tell other people about yourself.'
 versions:
