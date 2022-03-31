@@ -74,7 +74,7 @@ The following IdPs are officially supported for integration with {% data variabl
 
 ## Mapping {% data variables.product.prodname_ghe_managed %} teams to Okta groups
 
-If you use Okta as your IdP, you can map your Okta groups to teams on {% data variables.product.prodname_ghe_managed %}. For more information, see "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+If you use Okta as your IdP, you can map your Okta groups to teams on {% data variables.product.prodname_ghe_managed %}. 更多信息请参阅“[将 Okta 组映射到团队](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
 
 {% endif %}
 

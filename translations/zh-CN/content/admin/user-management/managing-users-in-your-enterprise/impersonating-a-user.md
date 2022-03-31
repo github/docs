@@ -1,6 +1,6 @@
 ---
-title: Impersonating a user
-intro: 'You can impersonate users and perform actions on their behalf, for troubleshooting, unblocking, and other legitimate reasons.'
+title: 模拟用户
+intro: 您可以出于故障排除、取消阻止和其他合法原因而模拟用户并代表用户执行操作。
 permissions: Enterprise owners can impersonate users within their enterprise.
 versions:
   ghes: '>3.2'
@@ -10,31 +10,31 @@ topics:
   - Administrator
   - Enterprise
   - User account
-shortTitle: Impersonate a user
+shortTitle: 模拟用户
 ---
 
-## About user impersonation
+## 关于用户模拟
 
-If you need to temporarily take over a user account, for example when troubleshooting a user problem, or when the user is unavailable and urgent action is required, you can start an impersonation session to act on their behalf.
+如果需要临时接管用户帐户（例如，在解决用户问题时），或者在用户不可用且需要采取紧急操作时，可以启动模拟会话以代表他们执行操作。
 
-For each impersonation session, you need to provide a reason for the impersonation. A session is limited to one hour, and you will have the same access as the user being impersonated.
+对于每个模拟会话，您需要提供模拟的原因。 会话限制为一小时，您将拥有与被模拟用户相同的访问权限。
 
-Actions you perform during an impersonation session are recorded as events in the enterprise audit log, as well as the impersonated user's security log. The person being impersonated is sent an email notification when the impersonation session starts. For more information, see "[Audited actions](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions)" and "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+在模拟会话期间执行的操作将记录为企业审核日志以及模拟用户的安全日志中的事件。 当模拟会话开始时，被模拟的人员将收到电子邮件通知。 更多信息请参阅“[已审核的操作](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions)”和“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)”。
 
-## Impersonating a user
+## 模拟用户
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
-4. In the top left of the page, click **User info**.
+4. 在页面的左上角，单击 **User info（用户信息）**。
 
-   ![User info](/assets/images/enterprise/stafftools/user-info.png)
-5. Under "Danger Zone", click **Sign in to GitHub as @username**
+   ![用户信息](/assets/images/enterprise/stafftools/user-info.png)
+5. 在“Danger Zone（危险区域）”下，单击 **登录到 GitHub as @username**
 
-   ![Impersonate user](/assets/images/enterprise/stafftools/impersonate.png)
-6. Select a reason from the dropdown list. If you select **Other** you will need to provide additional context in the **Notes** section. Click **Begin impersonation** to begin the session.
+   ![模拟用户](/assets/images/enterprise/stafftools/impersonate.png)
+6. 从下拉列表中选择一个原因。 如果选择 **Other（其他）**，则需要在 **Notes（注释）**部分提供其他上下文。 单击 **Begin impersonation（开始模拟）**以开始会话。
 
-   ![Impersonation reason](/assets/images/enterprise/stafftools/impersonation-reason.png)
-7. When you are ready to end the impersonation session, click the **Return to your mundane life as username** banner at the top of the page.
+   ![模拟的原因](/assets/images/enterprise/stafftools/impersonation-reason.png)
+7. 当您准备好结束模拟会话时，请单击页面顶部的 **Return to your mundane life as username（以用户名返回平凡生活）**横幅。
 
-   ![End impersonation](/assets/images/enterprise/stafftools/end-impersonation.png)
+   ![结束模拟](/assets/images/enterprise/stafftools/end-impersonation.png)

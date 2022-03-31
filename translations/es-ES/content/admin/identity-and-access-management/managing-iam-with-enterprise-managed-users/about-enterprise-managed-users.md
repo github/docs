@@ -23,7 +23,7 @@ Con {% data variables.product.prodname_emus %}, puedes controlar las cuentas de 
 
 En tu IdP, puedes dar a cada {% data variables.product.prodname_managed_user %} el rol de usuario, propietario de la empresa o gerente de facturación. {% data variables.product.prodname_managed_users_caps %} puede ser propietario de organizaciones dentro de tu empresa y puede agregar a otros {% data variables.product.prodname_managed_users %} a las organizaciones y equipos dentro de ella. Para obtener más información, consulta las secciones "[Roles en una empresa](/github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise)" y "[Acerca de las organizaciones](/organizations/collaborating-with-groups-in-organizations/about-organizations)".
 
-Organization membership can be managed manually or updated automatically as {% data variables.product.prodname_managed_users %} are added to IdP groups that are connected to teams within the organization. Cuando se agrega un {% data variables.product.prodname_managed_user %} manualmente a una organización, el desasignarlo de la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu IdP suspenderá al usuario pero no lo eliminará de la organización. Para obtener más información sobre cómo administrar las membrecías de equipo y de organización automáticamente, consulta la sección "[Administrar las membrecías de equipo con los grupos de proveedor de identidad](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
+La membrecía de organización puede administrarse manualmente o actualizarse automáticamente conforme se agreguen usuarios de {% data variables.product.prodname_managed_users %} a los grupos de IdP que están conectados a los equipos dentro de la organización. Cuando se agrega un {% data variables.product.prodname_managed_user %} manualmente a una organización, el desasignarlo de la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu IdP suspenderá al usuario pero no lo eliminará de la organización. Para obtener más información sobre cómo administrar las membrecías de equipo y de organización automáticamente, consulta la sección "[Administrar las membrecías de equipo con los grupos de proveedor de identidad](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/managing-team-memberships-with-identity-provider-groups)".
 
 Puedes otorgar acceso a los {% data variables.product.prodname_managed_users %}, así como la habilidad de contribuir con los repositorios dentro de tu empresa, pero los {% data variables.product.prodname_managed_users %} no pueden crear contenido público ni colaborar con otros usuarios, organizaciones y empresas en el resto de {% data variables.product.prodname_dotcom %}. No se puede invitar a los {% data variables.product.prodname_managed_users %} que se aprovisionaron para tu empresa para que se unan a organizaciones o repositorios fuera de esta, ni se puede invitar a los {% data variables.product.prodname_managed_users %} a otras empresas. Los colaboradores externos no son compatibles con los {% data variables.product.prodname_emus %}.
 
@@ -44,10 +44,10 @@ Para utilizar los {% data variables.product.prodname_emus %}, necesitas un tipo 
 
 ## Habilidades y restricciones de los {% data variables.product.prodname_managed_users %}
 
-Los {% data variables.product.prodname_managed_users_caps %} solo pueden colaborar en los repositorios privados e internos dentro de su empresa y con los repositorios que pertenecen a su cuenta de usuario. Los {% data variables.product.prodname_managed_users_caps %} tienen acceso de solo lectura al resto de la comunidad de {% data variables.product.prodname_dotcom %}. These visibility and access restrictions for users and content apply to all requests, including API requests.
+Los {% data variables.product.prodname_managed_users_caps %} solo pueden colaborar en los repositorios privados e internos dentro de su empresa y con los repositorios que pertenecen a su cuenta de usuario. Los {% data variables.product.prodname_managed_users_caps %} tienen acceso de solo lectura al resto de la comunidad de {% data variables.product.prodname_dotcom %}. Estas restricciones de visibilidad y acceso para los usuarios, así como el contenido, aplican a todas las solicitudes, incluyendo a las de la API.
 
 * Los {% data variables.product.prodname_managed_users_caps %} no pueden crear propuestas ni solicitudes de cambios, comentar o agregar reacciones, ni marcar como favoritos u observar o bifurcar repositorios fuera de la empresa.
-* {% data variables.product.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot push code to repositories outside of the enterprise.
+* {% data variables.product.prodname_managed_users_caps %} puede ver todos los repositorios públicos en {% data variables.product.prodname_dotcom_the_website %} pero no puede subir código a los repositorios fuera de la empresa.
 * Solo otros miembros de la empresa pueden ver a los {% data variables.product.prodname_managed_users_caps %} y al contenido que estos crean.
 * Los {% data variables.product.prodname_managed_users_caps %} no pueden seguir a usuarios que estén fuera de la empresa.
 * Los {% data variables.product.prodname_managed_users_caps %} no pueden crear gists o comentar en ellos.
@@ -62,7 +62,7 @@ Para utilizar los {% data variables.product.prodname_emus %}, necesitas un tipo 
 
 Tu contacto en el equipo de ventas de GitHub trabajará contigo para crear tu {% data variables.product.prodname_emu_enterprise %} nueva. Necesitarás proporcionar la dirección de correo electrónico del usuario que configurará tu empresa y un código corto que se utilizará como el sufijo de los nombres de usuario de los miembros. {% data reusables.enterprise-accounts.emu-shortcode %} Para obtener más información, consulta la sección "[Nombres de usuario e información de perfil](#usernames-and-profile-information)".
 
-Después de crear tu empresa, recibirás un mensaje de correo electrónico de {% data variables.product.prodname_dotcom %}, el cual te invitará a elegir una contraseña para tu usuario de configuración de la empresa, quien será el primer propietario de esta. Use an incognito or private browsing window when setting the password. El usuario de configuración solo se utiliza para configurar el inicio de sesión único de SAML y la integración de aprovisionamiento de SCIM para la empresa. Ya no tendrá acceso para administrar la cuenta empresarial una vez que se habilite SAML con éxito.
+Después de crear tu empresa, recibirás un mensaje de correo electrónico de {% data variables.product.prodname_dotcom %}, el cual te invitará a elegir una contraseña para tu usuario de configuración de la empresa, quien será el primer propietario de esta. Utiliza una ventana de búsqueda privada o en modo incógnito al configurar la contraseña. El usuario de configuración solo se utiliza para configurar el inicio de sesión único de SAML y la integración de aprovisionamiento de SCIM para la empresa. Ya no tendrá acceso para administrar la cuenta empresarial una vez que se habilite SAML con éxito.
 
 El nombre de usuario del usuario de configuración es el código corto de tu empresa con el sufijo `_admin`. Después de que inicies sesión en tu usuario de configuración, puedes comenzar a configurar el SSO de SAML para tu empresa. Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML para los Usuarios Administrados Empresariales](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)".
 
@@ -74,15 +74,15 @@ El nombre de usuario del usuario de configuración es el código corto de tu emp
 
 ## Autenticarse como una {% data variables.product.prodname_managed_user %}
 
-Los {% data variables.product.prodname_managed_users_caps %} se deben autenticar mediante su proveedor de identidad. To authenticate, a {% data variables.product.prodname_managed_user %} can visit their IdP application portal or use the login page on {% data variables.product.prodname_dotcom_the_website %}.
+Los {% data variables.product.prodname_managed_users_caps %} se deben autenticar mediante su proveedor de identidad. Para autenticarse, un {% data variables.product.prodname_managed_user %} puede visitar su portal de aplicación IdP o utilizar una página de inicio de sesión en {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} Para obtener más información, consulta la sección "[Administrar los códigos de recuperación de tu empresa](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)".
 
-### Authenticating as a {% data variables.product.prodname_managed_user %} via {% data variables.product.prodname_dotcom_the_website %}
+### Autenticarse como un {% data variables.product.prodname_managed_user %} a través de {% data variables.product.prodname_dotcom_the_website %}
 
-1. Navigate to [https://github.com/login](https://github.com/login).
-1. In the "Username or email address" text box, enter your username including the underscore and short code. ![Screenshot showing login form](/assets/images/help/enterprises/emu-login-username.png) When the form recognizes your username, the form will update. You do not need to enter your password on this form.
-1. To continue to your identity provider, click **Sign in with your identity provider**. ![Screenshot showing "Sign in with your identity provider" button](/assets/images/help/enterprises/emu-login-submit.png)
+1. Navega a [https://github.com/login](https://github.com/login).
+1. En la caja de texto de "Nombre de usuario o dirección de correo electrónico", ingresa tu nombre de usuario incluyendo el guion bajo y código corto. ![Screenshot showing login form](/assets/images/help/enterprises/emu-login-username.png) Cuando el formato reconozca tu nombre de usuario, este se actualizará. No necesitas ingresar tu contraseña en este formato.
+1. Para continuar hacia tu proveedor de identidad, haz clic en **Iniciar sesión con tu proveedor de identidad**. ![Captura de pantalla que muestra el botón "Iniciar sesión con tu proveedor de identidad"](/assets/images/help/enterprises/emu-login-submit.png)
 
 ## Nombres de usuario e información de perfil
 
@@ -90,12 +90,12 @@ Cuando se cree tu {% data variables.product.prodname_emu_enterprise %}, elegirá
 
 Cuando aprovisionas un usuario nuevo desde tu proveedor de identidad, el {% data variables.product.prodname_managed_user %} nuevo tendrá un nombre de usuario de {% data variables.product.prodname_dotcom %} en el formato de **@<em>IDP-USERNAME</em>_<em>SHORT-CODE</em>**.
 
-| Identity provider                 | {% data variables.product.prodname_dotcom %} username |
-| --------------------------------- | ----------------------------------------------------- |
-| Azure Active Directory (Azure AD) | <ul><li>_IDP-USERNAME_ is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name).</li><li>Guest accounts will have `#EXT` removed from the UPN.</li></ul>                             |
-| Okta                              | <ul><li>_IDP-USERNAME_ is the normalized username attribute provided by the IdP.</li></ul>                             |
+| Proveedor de identidad            | Nombre de usuario de {% data variables.product.prodname_dotcom %}
+| --------------------------------- | ----------------------------------------------------------------- |
+| Azure Active Directory (Azure AD) | <ul><li>El _IDP-USERNAME_ se conforma con la normalización de caracteres que preceden a `@` en el UPN (Nombre Principal del Usuario).</li><li>A las cuentas de invitado se les quita `#EXT` del UPN.</li></ul>                                         |
+| Okta                              | <ul><li>El _IDP-USERNAME_ es el atributo de nombre de usuario normalizado que proporciona el IdP.</li></ul>                                         |
 
-It's possible for a conflict to occur when provisioning users if the unique parts of the username provided by your IdP are removed when it is normalized. If you are unable to provision a user due to a username conflict, you should modify the username provided by your IdP.
+Es posible que ocurra algún conflicto al aprovisionar los usuarios si las partes únicas del nombre de usuario que proporciona tu IdP se eliminan cuando esto se normaliza. Si no puedes aprovisionar a un usuario debido a un conflicto de nombres de usuario, deberías modificar el nombre de usuario que proporcionó tu IdP.
 
 El nombre de usuario de la cuenta nueva que se aprovisionó en {% data variables.product.prodname_dotcom %}, incluyendo el guion bajo y código corto, no debe exceder los 39 caracteres.
 

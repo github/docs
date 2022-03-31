@@ -134,6 +134,10 @@ sections:
 
           Para obter mais informações, consulte "[Digitalização de código](/rest/reference/scanning)" na documentação da API REST.
         - 'Os clientes de {% data variables.product.prodname_GH_advanced_security %} agora podem usar a API REST para recuperar resultados privados da digitalização de código do repositório no nível corporativo. O novo ponto de extremidade complementa o nível de repositório existente e os pontos de extremidade no nível de organização. Para obter mais informações, consulte "[Digitalização de segredo](/rest/reference/secret-scanning)" na documentação da API REST.'
+    - 
+      heading: Mobile changes
+      notes:
+        - Support for {% data variables.product.prodname_mobile %} is now enabled by default for new {% data variables.product.prodname_ghe_server %} instances. If you have not explicitly disabled or enabled {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_mobile %} will be enabled when you upgrade to {% data variables.product.prodname_ghe_server %} 3.4.0 or later. If you previously disabled or enabled {% data variables.product.prodname_mobile %} for your instance, your preference will be preserved upon upgrade. For more information, see "[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise)."
   #No security/bug fixes for the GA release
   #security_fixes:
   #- PLACEHOLDER

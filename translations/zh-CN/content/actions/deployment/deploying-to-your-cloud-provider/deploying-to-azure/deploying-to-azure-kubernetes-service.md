@@ -1,6 +1,6 @@
 ---
-title: Deploying to Azure Kubernetes Service
-intro: You can deploy your project to Azure Kubernetes Service (AKS) as part of your continuous deployment (CD) workflows.
+title: 部署到 Azure Kubernetes Service
+intro: 作为持续部署 (CD) 工作流程的一部分，您可以将项目部署到 Azure Kubernetes Service (AKS)。
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,13 +18,13 @@ topics:
 
 ## 简介
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
+本指南说明如何使用 {% data variables.product.prodname_actions %} 构建并部署 Php 项目到 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)。
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**注意**：{% data reusables.actions.about-oidc-short-overview %} 和“[在 Azure 中配置 OpenID Connect](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)”。
 
 {% endnote %}
 
@@ -34,23 +34,23 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 在创建 {% data variables.product.prodname_actions %} 工作流程之前，首先需要完成以下设置步骤：
 
-1. Create a target AKS cluster and an Azure Container Registry (ACR). For more information, see "[Quickstart: Deploy an AKS cluster by using the Azure portal - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)" and "[Quickstart - Create registry in portal - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)" in the Azure documentation.
+1. 创建目标 AKS 群集和 Azure 容器注册表 (ACR)。 更多信息请参阅 Azure 文档中的“[快速入门：使用 Azure 门户部署 AKS 群集 - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)”和“[快速入门 - 在门户中创建注册表 - Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)”。
 
-1. Create a secret called `AZURE_CREDENTIALS` to store your Azure credentials. For more information about how to find this information and structure the secret, see [the `Azure/login` action documentation](https://github.com/Azure/login#configure-a-service-principal-with-a-secret).
+1. 创建名为 `AZURE_CREDENTIALS` 的机密来存储 Azure 凭据。 有关如何查找此信息和构建密钥的详细信息，请参阅[ `Azure/login` 操作文档](https://github.com/Azure/login#configure-a-service-principal-with-a-secret)。
 
 ## 创建工作流程
 
 完成先决条件后，可以继续创建工作流程。
 
-The following example workflow demonstrates how to build and deploy a project to Azure Kubernetes Service when code is pushed to your repository.
+以下示例工作流程演示在将代码推送到存储库时，如何构建项目并将其部署到 Azure Kubernetes Service。
 
-Under the workflow `env` key, change the following values:
-- `AZURE_CONTAINER_REGISTRY` to the name of your container registry
-- `PROJECT_NAME` to the name of your project
-- `RESOURCE_GROUP` to the resource group containing your AKS cluster
-- `CLUSTER_NAME` to the name of your AKS cluster
+在工作流程 `env` 键下，更改以下值：
+- 将 `AZURE_CONTAINER_REGISTRY` 更改为您的容器注册表的名称
+- 将 `PROJECT_NAME` 更改为您的项目名称
+- 将 `Resources URCE_GROUP` 更改为包含您的 AKS 集群的资源组
+- 将 `CLUSTER_NAME` 更改为您的 AKS 集群名称
 
-This workflow uses the `helm` render engine for the [`azure/k8s-bake` action](https://github.com/Azure/k8s-bake). If you will use the `helm` render engine, change the value of `CHART_PATH` to the path to your helm file. Change `CHART_OVERRIDE_PATH` to an array of override file paths. If you use a different render engine, update the input parameters sent to the `azure/k8s-bake` action.
+此工作流程对 [`azure/k8s-bake` 操作](https://github.com/Azure/k8s-bake)使用 `helm` 渲染引擎。 如果要使用 `helm` 渲染引擎，请将 `CHART_PATH` 的值更改为 helm 文件的路径。 将 `CHART_OVERRIDE_PATH` 更改为覆盖文件路径数组。 如果使用其他渲染引擎，请更新发送到 `azure/k8s-bake` 操作的输入参数。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -121,6 +121,6 @@ jobs:
 
 以下资源也可能有用：
 
-* For the original starter workflow, see [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The actions used to in this workflow are the official Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake), and [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy)actions.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* 有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml)。
+* 用于此工作流程的操作是正式的 Azure [`Azure/login`](https://github.com/Azure/login)、[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context)、[`Azure/CLI`](https://github.com/Azure/CLI)、[`Azure/k8s-bake`](https://github.com/Azure/k8s-bake) 和 [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy) 操作。
+* 有关部署到 Azure 的 GitHub 操作工作流程的更多示例，请参阅 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 存储库。

@@ -1,6 +1,6 @@
 ---
-title: Deploying Java to Azure App Service
-intro: You can deploy your Java project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Desplegar Java a Azure App Service
+intro: Puedes desplegar tu proyecto de Java a Azure App Service como parte de tus flujos de trabajo de despliegue continuo (DC).
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +18,7 @@ topics:
 
 ## Introducción
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Java project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Esta guía te explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar y desplegar un proyecto de Java a [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -38,7 +38,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 1. Crea una app web.
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Java runtime:
+   Por ejemplo, puedes utilizar el CLI de Azure para crear una app web de Azure App Service con un tiempo de ejecución de Java:
 
    ```bash{:copy}
    az webapp create \
@@ -58,9 +58,9 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 Una vez que hayas completado los prerequisitos, puedes proceder con la creación del flujo de trabajo.
 
-The following example workflow demonstrates how to build and deploy a Java project to Azure App Service when there is a push to the `main` branch.
+El siguiente flujo de trabajo de ejemplo demuestra cómo compilar y desplegar un proyecto de jaba a Azure App Service cuando hay una subida a la rama `main`.
 
-Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. If you want to use a Java version other than `11`, change `JAVA_VERSION`.
+Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. Si quieres utilizar una versión de Java diferente a la `11`, cambia la `JAVA_VERSION`.
 
 {% data reusables.actions.delete-env-key %}
 

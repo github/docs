@@ -1,5 +1,5 @@
 ---
-title: Introduction to dev containers
+title: Introducción a los contenedores dev
 intro: 'Puedes utilizar un archivo de `devcontainer.json` para definir un ambiente de {% data variables.product.prodname_codespaces %} para tu repositorio.'
 allowTitleToDifferFromFilename: true
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
@@ -168,4 +168,4 @@ For more information about the available settings for `devcontainer.json`, see [
 
 ## Leer más
 
-- "[Prebuilding your codespaces](/codespaces/prebuilding-your-codespaces)"
+- "[Precompilar tus codespaces](/codespaces/prebuilding-your-codespaces)"

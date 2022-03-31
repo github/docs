@@ -1,7 +1,7 @@
 ---
 title: Características avanzadas de los flujos de trabajo
 shortTitle: Características avanzadas de los flujos de trabajo
-intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices, environments, and labels.'
+intro: 'Esta guía te muestra cómo utilizar las características avanzadas de las {% data variables.product.prodname_actions %}, con administración de secretos, jobs dependientes, almacenamiento en caché, matrices de compilación, ambientes y etiquetas.'
 redirect_from:
   - /actions/learn-github-actions/managing-complex-workflows
 versions:
@@ -68,7 +68,7 @@ jobs:
       - run: ./test_server.sh
 ```
 
-For more information, see "[Defining prerequisite jobs](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
+Para obtener más información, consulta la sección "[Definir los jobs de prerrequisito](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)".
 
 ## Utilizar una matriz de compilaciones
 
@@ -89,7 +89,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Using a build matrix for your jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)."
+Para obtener más información, consulte la sección "[Utilizar una matriz de compilación para tus jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)".
 
 {% ifversion fpt or ghec %}
 ## Almacenar dependencias en caché

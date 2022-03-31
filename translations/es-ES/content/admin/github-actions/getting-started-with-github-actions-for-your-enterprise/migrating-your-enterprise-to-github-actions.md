@@ -42,23 +42,23 @@ Cuando cambias las herramientas que utilizas dentro de tu empresa, influencias l
 
 Identifica cualquier proceso, integraciones y herramientas de terceros que se afectará con tu migración y haz un plan de cualquier actualización que necesites hacer.
 
-Considera cómo la migración podría afectar tus inquietudes de cumplimiento. For example, will your existing credential scanning and security analysis tools work with {% data variables.product.prodname_actions %}, or will you need to use new tools?
+Considera cómo la migración podría afectar tus inquietudes de cumplimiento. Por ejemplo, ¿acaso tus herramientas de análisis de seguridad y escaneo de credenciales existentes funcionarán con {% data variables.product.prodname_actions %} o necesitarás utilizar herramientas nuevas?
 
-Identify the gates and checks in your existing system and verify that you can implement them with {% data variables.product.prodname_actions %}.
+Identifica las puertas y verificaciones en tu sistema existente y verifica que puedas implementarlas con {% data variables.product.prodname_actions %}.
 
-### Identifying and validating migration tools
+### Identificar y validar las herramientas de migración
 
-Automated migration tools can translate your enterprise's workflows from the existing system's syntax to the syntax required by {% data variables.product.prodname_actions %}. Identify third-party tooling or contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %} to ask about tools that {% data variables.product.company_short %} can provide.
+Las herramientas de migración automatizadas pueden traducir los flujos de trabajo de tu empresa desde la sintaxis de sistema existente a aquella que requiere {% data variables.product.prodname_actions %}. Identifica las herramientas de terceros o contacta a tu representante dedicado o {% data variables.contact.contact_enterprise_sales %} para preguntar sobre las herramientas que puede proporcionar {% data variables.product.company_short %}.
 
-After you've identified a tool to automate your migrations, validate the tool by running the tool on some test workflows and verifying that the results are as expected.
+Después de que hayas identificado una herramienta para automatizar tus migraciones, valídala ejecutándola en algunos flujos de trabajo de prueba y verifica que los resultados sean los esperados.
 
-Automated tooling should be able to migrate the majority of your workflows, but you'll likely need to manually rewrite at least a small percentage. Estimate the amount of manual work you'll need to complete.
+Las herramientas automatizadas deberían poder migrar la mayoría de tus flujos de trabajo, pero es posible que necesites reescribir manualmente por lo menos un porcentaje pequeño de estos. Estima la cantidad de trabajo manual que necesitarás llevar a cabo.
 
-### Deciding on a migration approach
+### Decidir llevar a cabo un enfoque de migración
 
-Determine the migration approach that will work best for your enterprise. Smaller teams may be able to migrate all their workflows at once, with a "rip-and-replace" approach. For larger enterprises, an iterative approach may be more realistic. You can choose to have a central body manage the entire migration or you can ask individual teams to self serve by migrating their own workflows.
+Determina el enfoque de migración que funcionará mejor para tu empresa. Los equipos más pequeños podrían ser capaces de migrar todos sus flujos de trabajo de una sola vez con un enfoque de tipo "quitar y reemplazar". Para las empresas más grandes, un enfoque iterativo podría ser más realista. Puedes elegir que un cuerpo central administre toda la migración o puedes pedirles a los equipos individuales que lo hagan ellos mismos y migren sus propios flujos de trabajo.
 
-We recommend an iterative approach that combines active management with self service. Start with a small group of early adopters that can act as your internal champions. Identifica un puñado de flujos de trabajo que sean suficientemente completos como para representar la amplitud de tu negocio. Trabaja con quienes primero adoptan esto para migrar esos flujos de trabajo a {% data variables.product.prodname_actions %}, iterando conforme sea necesario. Esto les dará a los otros equipos la confianza de que sus flujos de trabajo también pueden migrarse.
+Te recomendamos tener un enfoque iterativo que combine la administración activa con un autoservicio. Comience con un grupo pequeño de primeros participantes que actúen como campeones internos. Identifica un puñado de flujos de trabajo que sean suficientemente completos como para representar la amplitud de tu negocio. Trabaja con quienes primero adoptan esto para migrar esos flujos de trabajo a {% data variables.product.prodname_actions %}, iterando conforme sea necesario. Esto les dará a los otros equipos la confianza de que sus flujos de trabajo también pueden migrarse.
 
 Posteriormente, haz que {% data variables.product.prodname_actions %} esté disponible para tu organización extendida. Proporciona recursos para ayudar a que estos equipos migren sus propios flujos de trabajo a {% data variables.product.prodname_actions %} e informa a los equipos cuando los sistemas existentes vayan a retirarse.
 
@@ -82,6 +82,6 @@ También podrías querer mantener artefactos de compilaciones anteriores de tu s
 
 Después de que se complete tu migración, puedes pensar en retirar tu sistema existente.
 
-You may want to run both systems side-by-side for some period of time, while you verify that your {% data variables.product.prodname_actions %} configuration is stable, with no degradation of experience for developers.
+Tendrás que ejecutar ambos sistemas de lado a lado durante un tiempo mientras verificas que tu configuración de {% data variables.product.prodname_actions %} sea estable, sin delegación de experiencia para los desarrolladores.
 
-Eventually, decommission and shut off the old systems, and ensure that no one within your enterprise can turn the old systems back on.
+Con el tiempo, el retira y apaga los sistemas antiguos y asegúrate de que nadie en tu empresa los vuelva a activar.
