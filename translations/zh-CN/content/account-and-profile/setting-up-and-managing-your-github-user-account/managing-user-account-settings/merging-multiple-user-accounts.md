@@ -31,7 +31,9 @@ shortTitle: 合并多个用户帐户
 
 {% warning %}
 
-**警告：** 组织和存储库访问权限不可在帐户之间转移。 如果要删除的帐户具有现有访问权限，则组织所有者或存储库管理员将需要邀请您要保留的帐户。
+**警告：**
+- Organization and repository access permissions aren't transferable between accounts. 如果要删除的帐户具有现有访问权限，则组织所有者或存储库管理员将需要邀请您要保留的帐户。
+- Any commits authored with a GitHub-provided `noreply` email address cannot be transferred from one account to another. If the account you want to delete used the **Keep my email address private** option, it won't be possible to transfer the commits authored by the account you are deleting to the account you want to keep.
 
 {% endwarning %}
 

@@ -1,6 +1,6 @@
 ---
 title: ライセンス
-intro: The Licenses API lets you to retrieve popular open source licenses and information about a particular project's license file.
+intro: Licenses API は、広く利用されているオープンソースライセンスと、特定のプロジェクトのライセンスファイルに関する情報を返します。
 redirect_from:
   - /v3/licenses
 versions:

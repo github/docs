@@ -1,7 +1,7 @@
 ---
-title: Using concurrency
-shortTitle: Using concurrency
-intro: Run a single job at a time.
+title: 使用并发
+shortTitle: 使用并发
+intro: 一次运行一个作业。
 versions:
   fpt: '*'
   ghes: '> 3.1'

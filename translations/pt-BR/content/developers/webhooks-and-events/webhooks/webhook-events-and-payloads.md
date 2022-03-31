@@ -1246,7 +1246,7 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 
 Atividade relacionada a uma consultoria de segurança que foi revisada por {% data variables.product.company_short %}. Uma consultoria de segurança revisada por {% data variables.product.company_short %} fornece informações sobre vulnerabilidades relacionadas à segurança no software em {% data variables.product.prodname_dotcom %}.
 
-O conjunto de dados consultivos de segurança também alimentam o GitHub {% data variables.product.prodname_dependabot_alerts %}. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)"
+O conjunto de dados consultivos de segurança também alimentam o GitHub {% data variables.product.prodname_dependabot_alerts %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
 
 ### Disponibilidade
 

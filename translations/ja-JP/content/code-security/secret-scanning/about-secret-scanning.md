@@ -31,9 +31,9 @@ If your project communicates with an external service, you might use a token or 
 {% ifversion fpt or ghec %}
 {% data variables.product.prodname_secret_scanning_caps %} is available on {% data variables.product.prodname_dotcom_the_website %} in two forms:
 
-1. **{% data variables.product.prodname_secret_scanning_partner_caps %}.** Runs automatically on all public repositories. Any strings that match patterns that were provided by secret scanning partners are reported directly to the relvant partner.
+1. **{% data variables.product.prodname_secret_scanning_partner_caps %}.** Runs automatically on all public repositories. Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner.
 
-2. **{% data variables.product.prodname_secret_scanning_GHAS_caps %}.** You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. Any strings that match patterns provided by secret scannng partners, by other service providers, or defined by your organization are reported as alerts in the "Security" tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. 
+2. **{% data variables.product.prodname_secret_scanning_GHAS_caps %}.** You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}. Any strings that match patterns provided by secret scanning partners, by other service providers, or defined by your organization, are reported as alerts in the "Security" tab of repositories. If a string in a public repository matches a partner pattern, it is also reported to the partner. 
 {% endif %}
 
 Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. {% data reusables.secret-scanning.partner-program-link %}
@@ -48,10 +48,11 @@ You cannot change the configuration of {% data variables.product.prodname_secret
 {% ifversion fpt %}
 {% note %}
 
-**Note:** Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %} can also enable {% data variables.product.prodname_secret_scanning_GHAS %} on any repository they own, including private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/secret-security/about-secret-scanning#about-secret-scanning-for-advanced-security).
+{% data reusables.secret-scanning.fpt-GHAS-scans %}
 
 {% endnote %}
 {% endif %}
+
 
 {% endif %}
 

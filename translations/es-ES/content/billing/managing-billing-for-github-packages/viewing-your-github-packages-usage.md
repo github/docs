@@ -34,7 +34,7 @@ Los propietarios de la organización y gerentes de facturación pueden ver el us
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Visualizar el uso de {% data variables.product.prodname_registry %} para tu cuenta empresarial
 

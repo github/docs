@@ -21,7 +21,7 @@
 # Security policies
 - title: Microsoft security policy template
   description: Example security policy
-  href: https://github.com/microsoft/repo-templates/blob/main/shared/SECURITY.md
+  href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
   tags:
     - Security policy
 - title: Electron security policy

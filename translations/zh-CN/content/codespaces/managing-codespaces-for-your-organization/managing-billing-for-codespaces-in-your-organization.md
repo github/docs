@@ -37,7 +37,7 @@ topics:
 
 您还可以限制可以使用 {% data variables.product.prodname_codespaces %} 的单个用户。 更多信息请参阅“[管理组织的用户权限](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)”。
 
-您可以限制可用于组织拥有的存储库的计算机类型选择。 这使您可以防止人们使用资源过多的计算机作为其代码空间。 For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+您可以限制可用于组织拥有的存储库的计算机类型选择。 这使您可以防止人们使用资源过多的计算机作为其代码空间。 更多信息请参阅“[限制对机器类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”。
 
 ## 删除未使用的代码空间
 

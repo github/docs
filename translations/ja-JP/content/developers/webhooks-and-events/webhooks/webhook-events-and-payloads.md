@@ -1246,7 +1246,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 Activity related to a security advisory that has been reviewed by {% data variables.product.company_short %}. A {% data variables.product.company_short %}-reviewed security advisory provides information about security-related vulnerabilities in software on {% data variables.product.prodname_dotcom %}.
 
-The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照してください。
+The security advisory dataset also powers the GitHub {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については、「[{% data variables.product.prodname_dependabot_alerts %} について](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)」を参照してください。
 
 ### 利用の可否
 

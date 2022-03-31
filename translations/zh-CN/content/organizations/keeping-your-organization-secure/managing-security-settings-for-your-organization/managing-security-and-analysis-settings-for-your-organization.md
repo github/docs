@@ -122,7 +122,7 @@ shortTitle: 管理安全和分析
 
 默认情况下，{% data variables.product.prodname_dependabot %} 无法更新位于私有仓库或私有仓库注册表中的依赖项。 但是，如果依赖项位于与使用该依赖项之项目相同的组织内的私有 {% data variables.product.prodname_dotcom %} 仓库中，则可以通过授予对主机仓库的访问权限来允许 {% data variables.product.prodname_dependabot %} 成功更新版本。
 
-如果您的代码依赖于私有注册表中的软件包，您可以在仓库级别进行配置，允许 {% data variables.product.prodname_dependabot %} 更新这些依赖项的版本。 可通过将身份验证详细信息添加到仓库的 _dependabot.yml_ 文件来做到这一点。 更多信息请参阅“[依赖项更新的配置选项](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)。”
+如果您的代码依赖于私有注册表中的软件包，您可以在仓库级别进行配置，允许 {% data variables.product.prodname_dependabot %} 更新这些依赖项的版本。 可通过将身份验证详细信息添加到仓库的 _dependabot.yml_ 文件来做到这一点。 For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#configuration-options-for-private-registries)."
 
 要允许 {% data variables.product.prodname_dependabot %} 访问私有 {% data variables.product.prodname_dotcom %} 仓库：
 
@@ -157,6 +157,5 @@ shortTitle: 管理安全和分析
 
 - "[保护您的仓库](/code-security/getting-started/securing-your-repository)"{% ifversion not fpt %}
 - "[About secret scanning](/github/administering-a-repository/about-secret-scanning)"{% endif %}{% ifversion not ghae %}
-- “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
-- "[Managing vulnerabilities in your project's dependencies](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
-- "[自动更新依赖项](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)"{% endif %}
+- "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% endif %}{% ifversion fpt or ghec or ghes or ghae-issue-4864 %}
+- "[About supply chain security](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)"{% endif %}

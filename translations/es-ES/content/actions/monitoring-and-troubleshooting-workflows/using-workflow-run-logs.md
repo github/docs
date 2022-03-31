@@ -62,6 +62,16 @@ Puedes descargar los archivos de bitácora desde tu ejecución de flujo de traba
   ![Menú desplegable para descargar registros](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
 
 
+  {% if re-run-jobs %}
+
+  {% note %}
+
+  **Nota**: Cuando descargas el archivo de bitácora para un flujo de trabajo que se volvió a ejecutar parcialmente, este archivo solo incluirá los jobs que se volvieron a ejecutar. Para obtener un conjunto completo de bitácoras para los jobs que se ejecutaron desde un flujo de trabajo, debes descargar los archivos de bitácora de los intentos de ejecución previos que ejecutaron los otros jobs.
+
+  {% endnote %}
+
+  {% endif %}
+
 ## Borrar bitácoras
 
 Puedes borrar los archivos de bitácora de tu ejecución de flujo de trabajo. {% data reusables.repositories.permissions-statement-write %}
