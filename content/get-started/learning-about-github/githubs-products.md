@@ -1,4 +1,61 @@
----
+Home
+Tier 1
+Tier 2
+Tier 3
+coverimage
+Have you ever wanted to build something but you had no idea what to do? Just as authors sometimes have "writers block" it's also true for developers. This list is intended to solve this issue once and for all! 👍
+
+These applications are:
+
+great for improving your coding skills 💪;
+great for experimenting with new technologies 🆕;
+great for adding to your portfolio to impress your next employer/client 📁;
+great for using as examples in tutorials (articles or videos) 📃;
+easy to complete and also easily extendable with new features 👌;
+This is not just a simple list of projects, but a collection that describes each project in enough detail so that you can develop it from the ground up!
+
+Each project has the following features:
+
+A clear and descriptive objective;
+A list of User Stories which should be implemented (these stories act more as a guideline than a forced list of To-Do's. Feel free to add your own stories if you want);
+A list of bonus features that not only improve the base project, but also your skills at the same time (these are optional and should be attempted only after you have completed the required user stories)
+A list of bonus features that not only All the resources and links to help you find what you need to complete the project
+Here you can watch a video about this repository.
+
+Projects
+Projects are divided into three tiers based on the knowledge and experience required to complete them.
+
+TIER
+DEVELOPER PROFILE
+1
+Developers in the early stages of their learning journey. Those who are typically focused on creating user-facing applications.
+2
+Developers at an intermediate stage of learning and experience. They are comfortable in UI/UX, using development tools, and building apps that use API services.
+3
+Developers who have all of the above, and are learning more advanced techniques like implementing backend applications and database services.
+Plans for the future
+We are planning to add more and more projects to this repository. For this, we need your help! Find out how to contribute below. 👇
+
+We are also planning to create a website where you can easily browse through all of the projects.
+
+Contribution
+Any contributions are highly appreciated. 🙏 You can contribute in two ways:
+
+create an issue and tell us your idea 💡. Make sure that you use the new idea label in this case;
+fork the project and submit a PR with your new idea. Before doing that, please make sure that you read and follow the Contribution Guide;
+Examples
+You can also add your own examples to the projects after you have completed them. I highly encourage you to do this as it will show others what amazing things were built! 👍
+
+Spread the word!
+If the information from this repo was useful to you in any way, make sure you give it a star 🌟, this way others can find it and benefit too! Together we can grow and make our community better! 😃
+
+Do you have any suggestions on how we could improve this project overall? Let us know! We'd love to hear your feedback!
+
+Main Contributors 🙂🙂
+Florin Pop: Twitter - YouTube Channel - website.
+Jim Medlock: Twitter - articles
+100Days100Projects 🚀
+As a bonus, I created the #100Days100Projects challenge. You can find in there 100 more ideas of smaller projects. Enjoy! 😄---
 title: GitHub's products
 intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
 redirect_from:
@@ -116,3 +173,61 @@ In addition to the features available with {% data variables.product.prodname_te
 You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. For more information, see "<a href="/articles/setting-up-a-trial-of-github-enterprise-cloud" class="dotcom-only">Setting up a trial of {% data variables.product.prodname_ghe_cloud %}</a>."
 
 For more information about hosting your own instance of [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com), contact {% data variables.contact.contact_enterprise_sales %}. {% data reusables.enterprise_installation.request-a-trial %}
+Home
+Tier 1
+Tier 2
+Tier 3
+coverimage
+Have you ever wanted to build something but you had no idea what to do? Just as authors sometimes have "writers block" it's also true for developers. This list is intended to solve this issue once and for all! 👍
+
+These applications are:
+
+great for improving your coding skills 💪;
+great for experimenting with new technologies 🆕;
+great for adding to your portfolio to impress your next employer/client 📁;
+great for using as examples in tutorials (articles or videos) 📃;
+easy to complete and also easily extendable with new features 👌;
+This is not just a simple list of projects, but a collection that describes each project in enough detail so that you can develop it from the ground up!
+
+Each project has the following features:
+
+A clear and descriptive objective;
+A list of User Stories which should be implemented (these stories act more as a guideline than a forced list of To-Do's. Feel free to add your own stories if you want);
+A list of bonus features that not only improve the base project, but also your skills at the same time (these are optional and should be attempted only after you have completed the required user stories)
+A list of bonus features that not only All the resources and links to help you find what you need to complete the project
+Here you can watch a video about this repository.
+
+Projects
+Projects are divided into three tiers based on the knowledge and experience required to complete them.
+
+TIER
+DEVELOPER PROFILE
+1
+Developers in the early stages of their learning journey. Those who are typically focused on creating user-facing applications.
+2
+Developers at an intermediate stage of learning and experience. They are comfortable in UI/UX, using development tools, and building apps that use API services.
+3
+Developers who have all of the above, and are learning more advanced techniques like implementing backend applications and database services.
+Plans for the future
+We are planning to add more and more projects to this repository. For this, we need your help! Find out how to contribute below. 👇
+
+We are also planning to create a website where you can easily browse through all of the projects.
+
+Contribution
+Any contributions are highly appreciated. 🙏 You can contribute in two ways:
+
+create an issue and tell us your idea 💡. Make sure that you use the new idea label in this case;
+fork the project and submit a PR with your new idea. Before doing that, please make sure that you read and follow the Contribution Guide;
+Examples
+You can also add your own examples to the projects after you have completed them. I highly encourage you to do this as it will show others what amazing things were built! 👍
+
+Spread the word!
+If the information from this repo was useful to you in any way, make sure you give it a star 🌟, this way others can find it and benefit too! Together we can grow and make our community better! 😃
+
+Do you have any suggestions on how we could improve this project overall? Let us know! We'd love to hear your feedback!
+
+Main Contributors 🙂🙂
+Florin Pop: Twitter - YouTube Channel - website.
+Jim Medlock: Twitter - articles
+100Days100Projects 🚀
+As a bonus, I created the #100Days100Projects challenge. You can find in there 100 more ideas of smaller projects. Enjoy! 😄
