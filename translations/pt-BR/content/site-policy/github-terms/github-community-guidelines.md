@@ -71,13 +71,7 @@ Nos casos em que decidimos que se justifica uma ação de moderação, estas sã
 
 ## Apelação e reinstauração
 
-Em alguns casos, pode haver justificativa para reverter uma ação de moderação tomada pela equipe do GitHub.
-
-* **Restabelecimento**: Quando um usuário deseja corrigir a violação e está disposto a aceitar o cumprimento de nossas Políticas de Uso Aceitáveis dali em diante, podemos optar por restabelecar a sua conta ou conteúdo dependendo da gravidade da violação inicial.
-
-* **Recurso**: Se um usuário deseja contestar o fundamento de uma ação de execução e puder fornecer informações adicionais sobre a alegada violação, reanalisaremos essas informações e poderemos interpor recurso sempre que tivermos determinado que não ocorreu uma violação.
-
-Se você procurar restabelecer ou recorrer de uma ação de execução, entre em contato com [suporte](https://support.github.com/contact?tags=docs-policy).
+If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
 
 ## Avisos Legais
 
