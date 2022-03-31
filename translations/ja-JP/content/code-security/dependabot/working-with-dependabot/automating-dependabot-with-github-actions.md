@@ -464,7 +464,7 @@ jobs:
 
 ### Pull Requestの自動マージを有効化する
 
-Pull Requestを自動マージしたいなら、{% data variables.product.prodname_dotcom %}の自動マージ機能を利用できます。 これは、すべての必須テストと承認が正常に満たされた場合に、Pull Requestがマージされるようにしてくれます。 For more information on auto-merge, see "[Automatically merging a pull request"](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+Pull Requestを自動マージしたいなら、{% data variables.product.prodname_dotcom %}の自動マージ機能を利用できます。 これは、すべての必須テストと承認が正常に満たされた場合に、Pull Requestがマージされるようにしてくれます。 For more information on auto-merge, see "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
 
 以下は、`my-dependency`に対するすべてのパッチアップデートの自動マージを有効化する例です。
 
