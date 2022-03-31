@@ -41,19 +41,23 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policies**.
-2. On the "Codespace policies" page, click **Create Policy**.
-3. Enter a name for your new policy.
-4. Click **Add constraint** and choose **Port visibility**.
+1. On the "Codespace policies" page, click **Create Policy**.
+1. Enter a name for your new policy.
+1. Click **Add constraint** and choose **Port visibility**.
 
    ![Add a constraint for port visibility](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
 
-5. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint, then clear the selection of any port visibility options that you don't want to be available.
+1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint
 
    ![Edit the port visibility constraint](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
 
-6. In the "Change policy target" area, click the dropdown button.
-7. Choose either **All repositories** or **Selected repositories** to determine which repositories this policy will apply to.
-8. If you chose **Selected repositories**:
+1. Clear the selection of the port visibility options (**Org** or **Public**) that you don't want to be available.
+
+   ![Choose the port visibility options](/assets/images/help/codespaces/choose-port-visibility-options.png)
+
+1. In the "Change policy target" area, click the dropdown button.
+1. Choose either **All repositories** or **Selected repositories** to determine which repositories this policy will apply to.
+1. If you chose **Selected repositories**:
    1. Click {% octicon "gear" aria-label="The settings icon" %}.
 
       ![Edit the settings for the policy](/assets/images/help/codespaces/policy-edit.png)
@@ -63,7 +67,7 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 
       ![Select repositories for this policy](/assets/images/help/codespaces/policy-select-repos.png)
 
-9. Click **Save**.
+1. Click **Save**.
 
 ## Editing a policy
 
