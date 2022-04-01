@@ -459,5 +459,5 @@
 # This feature is coming out of private beta in issue 6311 but some UI links on GitHub still link to pre-release docs.
 # I've raised a PR to update the pre-release links to public links, but the redirect in the public article frontmatter is causing a test to fail.
 
-/code-security/secret-scanning/protecting-pushes-with-secret-scanning
+/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning
 - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
