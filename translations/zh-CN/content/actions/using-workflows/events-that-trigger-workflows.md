@@ -1337,7 +1337,7 @@ jobs:
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} The `requested` activity type does not occur when a workflow is re-run. 有关每种活动类型的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**注意**：{% data reusables.developer-site.multiple_activity_types %} 重新运行工作流程时，不会发生 `requested` 活动类型。 有关每种活动类型的详细信息，请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)”。 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 

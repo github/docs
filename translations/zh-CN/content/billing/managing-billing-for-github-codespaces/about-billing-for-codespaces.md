@@ -15,7 +15,7 @@ topics:
 
 ## {% data variables.product.prodname_codespaces %} 定价
 
-{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
+对于 {% data variables.product.prodname_codespaces %} 使用的计费将针对 {% data variables.product.prodname_team %} 和 {% data variables.product.prodname_enterprise %} 上的所有组织和企业帐户，不包括任何免费的分钟数或存储空间。 个人帐户目前不对 {% data variables.product.prodname_codespaces %} 使用付费。
 
 {% data variables.product.prodname_codespaces %} 使用按下表中的计量单位计费：
 

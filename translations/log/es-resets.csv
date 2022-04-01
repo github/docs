@@ -225,7 +225,6 @@ translations/es-ES/content/pull-requests/collaborating-with-pull-requests/collab
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/getting-started/index.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges.md,Listed in localization-support#489
-translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/index.md,Listed in localization-support#489
@@ -279,7 +278,6 @@ translations/es-ES/content/pull-requests/index.md,Listed in localization-support
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests.md,Listed in localization-support#489
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository.md,Listed in localization-support#489
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches.md,Listed in localization-support#489
-translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue.md,Listed in localization-support#489
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches.md,Listed in localization-support#489
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule.md,Listed in localization-support#489
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch.md,Listed in localization-support#489

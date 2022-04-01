@@ -102,11 +102,11 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
 
 ```yaml
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: {% data reusables.actions.action-setup-python %}
         with:
-          python-version: ${{ matrix.python }}
+          python-version: {% raw %}${{ matrix.python }}{% endraw %}
 ```
 
 ### Scheduled workflows
@@ -332,6 +332,27 @@ This section describes additional conventions that are specific to GitHub produc
 
 ### GitHub Actions
 
+#### Reusables for first-party actions
+
+Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g from `v1` to `v2`) easier to manage for products like GitHub Enterprise Server, which might not have the same action version available until a future Enterprise Server release.
+
+Action reusables are located in `/data/reusables/actions/` and have a filename like `action-<action_name>.md`
+
+For example, to use the `actions/checkout` action in an example, use its reusable:
+
+```yaml
+steps:
+  - name: Checkout
+    uses: {% data reusables.actions.action-checkout %}
+```
+
+For GitHub Docs purposes, a first-party action is any action that has the `actions/`, `github/` or `octo-org/` prefix. For example, this is a first-party action:
+
+```
+steps:
+  - uses: actions/checkout@main
+```
+
 #### Disclaimers for third-party actions
 
 Code examples that use third-party actions must include the following disclaimer as part of the code block:
@@ -352,7 +373,7 @@ For GitHub Docs purposes, a third-party action is any action that doesn't have t
 
 ```
 steps:
-  - uses: actions/javascript-action@main
+  - uses: actions/checkout@main
 ```
 
 This is an example of a third-party action:

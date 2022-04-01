@@ -193,13 +193,11 @@ For recommended specifications (RAM, CPU cores, and disk) for running {% data va
 
 In general, you do not need to worry about where the {% data variables.product.prodname_codeql_workflow %} places {% data variables.product.prodname_codeql %} databases since later steps will automatically find databases created by previous steps. However, if you are writing a custom workflow step that requires the {% data variables.product.prodname_codeql %} database to be in a specific disk location, for example to upload the database as a workflow artifact, you can specify that location using the `db-location` parameter under the `init` action.
 
-{% raw %}
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    db-location: '${{ github.workspace }}/codeql_dbs'
+    db-location: {% raw %}'${{ github.workspace }}/codeql_dbs'{% endraw %}
 ```
-{% endraw %}
 
 The {% data variables.product.prodname_codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
@@ -232,7 +230,7 @@ jobs:
 If your workflow does not contain a matrix called `language`, then {% data variables.product.prodname_codeql %} is configured to run analysis sequentially. If you don't specify languages in the workflow, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the `languages` parameter under the `init` action.
 
 ```yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     languages: cpp, csharp, python
 ```
@@ -257,9 +255,9 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: '3.x'
       - name: Install dependencies
@@ -272,7 +270,7 @@ jobs:
           # that includes the dependencies
           echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
+        uses: {% data reusables.actions.action-codeql-action-init %}
         with:
           languages: python
           # Override the default behavior so that the action doesn't attempt
@@ -288,17 +286,15 @@ Use `category` to distinguish between multiple analyses for the same tool and co
 
 This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
 
-{% raw %}
 ``` yaml
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze
+      uses: {% data reusables.actions.action-codeql-action-analyze %}
       with:
         # Optional. Specify a category to distinguish between multiple analyses
         # for the same tool and ref. If you don't use `category` in your workflow, 
         # GitHub will generate a default category name for you
         category: "my_category"
 ```
-{% endraw %}
 
 If you don't specify a `category` parameter in your workflow, {% data variables.product.product_name %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
 - The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
@@ -319,7 +315,7 @@ Your specified category will not overwrite the details of the `runAutomationDeta
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 
-To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+To add one or more {% data variables.product.prodname_codeql %} query packs (beta), add a `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see "[Authentication in a workflow](/actions/reference/authentication-in-a-workflow)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
 
 {% note %}
 
@@ -329,28 +325,24 @@ To add one or more {% data variables.product.prodname_codeql %} query packs (bet
 
 In the example below, `scope` is the organization or personal account that published the package. When the workflow runs, the three {% data variables.product.prodname_codeql %} query packs are downloaded from {% data variables.product.product_name %} and the default queries or query suite for each pack run. The latest version of `pack1` is downloaded as no version is specified. Version 1.2.3 of `pack2` is downloaded, as well as the latest version of `pack3` that is compatible with version 1.2.3.
 
-{% raw %}
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     # Comma-separated list of packs to download
     packs: scope/pack1,scope/pack2@1.2.3,scope/pack3@~1.2.3
 ```
-{% endraw %}
 
 ### Using queries in QL packs
 {% endif %}
-To add one or more queries, add a `with: queries:` entry within the `uses: github/codeql-action/init@v1` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
+To add one or more queries, add a `with: queries:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
 
-{% raw %}
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     queries: COMMA-SEPARATED LIST OF PATHS
     # Optional. Provide a token to access queries stored in private repositories.
-    external-repository-token: ${{ secrets.ACCESS_TOKEN }}
+    external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
 
@@ -365,13 +357,13 @@ If you also use a configuration file for custom settings, any additional {% if c
 In the following example, the `+` symbol ensures that the specified additional {% if codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
 
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     config-file: ./.github/codeql/codeql-config.yml
     queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
     {%- if codeql-packs %}
     packs: +scope/pack1,scope/pack2@v1.2.3
-    {% endif %}
+    {%- endif %}
 ```
 
 ## Using a custom configuration file
@@ -381,7 +373,7 @@ A custom configuration file is an alternative way to specify additional {% if co
 In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
 
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     config-file: ./.github/codeql/codeql-config.yml
 ```
@@ -390,13 +382,11 @@ In the workflow file, use the `config-file` parameter of the `init` action to sp
 
 If the configuration file is located in an external private repository, use the `external-repository-token` parameter of the `init` action to specify a token that has access to the private repository.
 
-{% raw %}
 ```yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    external-repository-token: ${{ secrets.ACCESS_TOKEN }}
+    external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 The settings in the configuration file are written in YAML format.
 
