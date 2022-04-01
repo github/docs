@@ -32,9 +32,7 @@ Docker images previously stored in the Docker registry are being automatically m
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
-## About Docker support
 
-When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
 
 ## Authenticating to {% data variables.product.prodname_registry %}
 
