@@ -25,7 +25,6 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
   ![The Sign In button for GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
 {% data reusables.desktop.sign-in-browser %}
 
-  {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.authenticate-in-browser %}
 {% data reusables.desktop.2fa-in-browser %}
@@ -33,7 +32,6 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 ## Authenticating an account on {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
