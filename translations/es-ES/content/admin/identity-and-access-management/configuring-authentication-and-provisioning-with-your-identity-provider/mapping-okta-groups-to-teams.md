@@ -82,15 +82,15 @@ Enterprise owners can use the site admin dashboard to check how Okta groups are 
 
 1. To view more details about a group, in the list of external groups, click on a group.
 
-  ![List of external groups](/assets/images/help/saml/okta-ae-site-admin-list-groups.png)
+  ![Lista de grupos externos](/assets/images/help/saml/okta-ae-site-admin-list-groups.png)
 
-1. The group's details includes the name of the Okta group, a list of the Okta users that are members of the group, and the corresponding mapped team on {% data variables.product.prodname_ghe_managed %}.
+1. Los detalles del grupo incluyen el nombre del grupo de Okta, una lista de usuarios de Okta que son miembros del grupo y el equipo mapeado correspondiente en {% data variables.product.prodname_ghe_managed %}.
 
   ![Lista de grupos externos](/assets/images/help/saml/okta-ae-site-admin-group-details.png)
 
-## Viewing audit log events for mapped groups
+## Ver los eventos de log de auditoría para los grupos mapeados
 
- To monitor SSO activity for mapped groups, you can review the following events in the {% data variables.product.prodname_ghe_managed %} audit log.
+ Para monitorear la actividad de SSO para los grupos mapeados, puedes revisar los siguientes eventos en la bitácora de auditoría de {% data variables.product.prodname_ghe_managed %}.
 
 {% data reusables.saml.external-group-audit-events %}
 

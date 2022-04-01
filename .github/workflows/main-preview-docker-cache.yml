@@ -20,6 +20,7 @@ concurrency:
 
 jobs:
   build-and-push-nonprod-cache:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:

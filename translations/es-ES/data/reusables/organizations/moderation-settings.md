@@ -1,1 +1,1 @@
-1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation**
+1. En la sección de "Acceso" de la barra lateral, selecciona **Moderación {% octicon "report" aria-label="The report icon" %}**

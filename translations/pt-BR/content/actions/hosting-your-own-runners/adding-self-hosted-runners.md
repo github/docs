@@ -49,14 +49,13 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.settings-sidebar-actions %}
-{% data reusables.actions.settings-sidebar-actions-runners-updated %}
+{% data reusables.repositories.settings-sidebar-actions-runners %}
 1. Click **New self-hosted runner**.
 {% data reusables.actions.self-hosted-runner-configure %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.settings-sidebar-actions-runners %}
+{% data reusables.repositories.settings-sidebar-actions-runners %}
 1. Under {% ifversion ghes > 3.1 or ghae or ghec %}"Runners"{% else %}"Self-hosted runners"{% endif %}, click **Add runner**.
 {% data reusables.actions.self-hosted-runner-configure %}
 {% endif %}
@@ -71,14 +70,13 @@ You can add self-hosted runners at the organization level, where they can be use
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.settings-sidebar-actions %}
-{% data reusables.actions.settings-sidebar-actions-runners-updated %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
 1. Click **New runner**.
 {% data reusables.actions.self-hosted-runner-configure %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.settings-sidebar-actions-runners %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
 1. Under {% ifversion ghes > 3.1 or ghae %}"Runners", click **Add new**, then click **New runner**.{% elsif ghes < 3.2 %}"Self-hosted runners", click **Add runner**."{% endif %}
 {% data reusables.actions.self-hosted-runner-configure %}
 {% endif %}

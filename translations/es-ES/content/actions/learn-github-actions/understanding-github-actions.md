@@ -32,13 +32,13 @@ topics:
 
 {% elsif ghes or ghae %}
 
-You must host your own Linux, Windows, or macOS virtual machines to run workflows for {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+Debes hospedar tus propias máquinas virtuales Linux, Windows o macOS para ejecutar flujos de trabajo para {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
 
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 
-For more information about introducing {% data variables.product.prodname_actions %} to your enterprise, see "[Introducing {% data variables.product.prodname_actions %} to your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)."
+Para obtener más información sobre cómo introducir las {% data variables.product.prodname_actions %} en tu empresa, consulta la sección "[Introducir las {% data variables.product.prodname_actions %} a tu empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)".
 
 {% endif %}
 
@@ -239,7 +239,7 @@ En este diagrama, puedes ver el archivo de flujo de trabajo que acabas de crear,
 
 ## Ver la actividad del flujo de trabajo
 
-Once your workflow has started running, you can see a visualization graph of the run's progress and view each step's activity on {% data variables.product.prodname_dotcom %}.
+Una vez que tu flujo de trabajo haya comenzado a ejecutarse, puedes ver la gráfica de visualización del progreso de dicha ejecución, así como la actividad de cada paso en {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Debajo del nombre de tu repositorio, da clic en **Acciones**. ![Navegar al repositorio](/assets/images/help/images/learn-github-actions-repository.png)

@@ -1,7 +1,7 @@
 ---
-title: Migrating your enterprise to GitHub Actions
-shortTitle: Migrate to Actions
-intro: 'Learn how to plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider.'
+title: Migrar tu empresa a GitHub Actions
+shortTitle: Migrar a las acciones
+intro: 'Aprende cómo planear una migración a {% data variables.product.prodname_actions %} para tu empresa desde otro proveedor.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -12,53 +12,53 @@ topics:
   - Enterprise
 ---
 
-## About enterprise migrations to {% data variables.product.prodname_actions %}
+## Acerca de las migraciones empresariales a {% data variables.product.prodname_actions %}
 
-To migrate your enterprise to {% data variables.product.prodname_actions %} from an existing system, you can plan the migration, complete the migration, and retire existing systems.
+Para migrar tu empresa a {% data variables.product.prodname_actions %} desde un sistema existente, puedes planear la migración, completarla y retirar los sistemas existentes.
 
-This guide addresses specific considerations for migrations. Para obtener información adicional sobre cómo incluir las {% data variables.product.prodname_actions %} en tu empresa, consulta la sección "[Incluir las {% data variables.product.prodname_actions %} en tu empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)".
+Esta guía dirige consideraciones específicas para las migraciones. Para obtener información adicional sobre cómo incluir las {% data variables.product.prodname_actions %} en tu empresa, consulta la sección "[Incluir las {% data variables.product.prodname_actions %} en tu empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)".
 
-## Planning your migration
+## Planear tu migración
 
 Antes de que comiences a migrar tu empresa a {% data variables.product.prodname_actions %}, debes identificar qué flujos de trabajo se migrarán y cómo afectarán dichas migraciones a tus equipos, posteriormente, deberás planear cómo y cuándo completarás las migraciones.
 
-### Leveraging migration specialists
+### Aprovechar los especialistas en migración
 
-{% data variables.product.company_short %} can help with your migration, and you may also benefit from purchasing {% data variables.product.prodname_professional_services %}. For more information, contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %}.
+{% data variables.product.company_short %} puede ayudarte con la migración y también puedes sacar provecho de comprar los {% data variables.product.prodname_professional_services %}. Para obtener más información, contacta a tu representante dedicado o a {% data variables.contact.contact_enterprise_sales %}.
 
-### Identifying and inventorying migration targets
+### Identificar e inventariar los destinos de migración
 
-Before you can migrate to {% data variables.product.prodname_actions %}, you need to have a complete understanding of the workflows being used by your enterprise in your existing system.
+Antes de que puedas migrarte a las {% data variables.product.prodname_actions %}, necesitarás tener un entendimiento total de los flujos de trabajo que utiliza tu empresa en tu sistema existente.
 
-First, create an inventory of the existing build and release workflows within your enterprise, gathering information about which workflows are being actively used and need to migrated and which can be left behind.
+Primero, crea un inventario de los flujos de trabajo de lanzamientos y de compilación existentes en tu empresa, juntando la información sobre qué flujos de trabajo se utilizan activamente y necesitan migrarse y cuáles pueden quedarse atrás.
 
-Next, learn the differences between your current provider and {% data variables.product.prodname_actions %}. This will help you assess any difficulties in migrating each workflow, and where your enterprise might experience differences in features. Para obtener más información, consulta la sección "[Migrarse a las {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)".
+Después, conoce las diferencias entre tu proveedor actual y las {% data variables.product.prodname_actions %}. Esto te ayudará a evaluar cualquier dificultad para migrar cada flujo de trabajo y en dónde tu empresa podría experimentar diferencias en características. Para obtener más información, consulta la sección "[Migrarse a las {% data variables.product.prodname_actions %}](/actions/migrating-to-github-actions)".
 
-With this information, you'll be able to determine which workflows you can and want to migrate to {% data variables.product.prodname_actions %}.
+Con esta información, podrás determinar qué flujos de trabajo puedes y quieres migrar a {% data variables.product.prodname_actions %}.
 
-### Determine team impacts from migrations
+### Determinar los impactos de equipo a raíz de las migraciones
 
-When you change the tools being used within your enterprise, you influence how your team works. You'll need to consider how moving a workflow from your existing systems to {% data variables.product.prodname_actions %} will affect your developers' day-to-day work.
+Cuando cambias las herramientas que utilizas dentro de tu empresa, influencias la forma en la que funciona tu equipo. Necesitarás considerar cómo es que la migración de un flujo de trabajo desde tu sistema existente a {% data variables.product.prodname_actions %} afectará el trabajo diario de tus desarrolladores.
 
-Identify any processes, integrations, and third-party tools that will be affected by your migration, and make a plan for any updates you'll need to make.
+Identifica cualquier proceso, integraciones y herramientas de terceros que se afectará con tu migración y haz un plan de cualquier actualización que necesites hacer.
 
-Consider how the migration may affect your compliance concerns. For example, will your existing credential scanning and security analysis tools work with {% data variables.product.prodname_actions %}, or will you need to use new tools?
+Considera cómo la migración podría afectar tus inquietudes de cumplimiento. Por ejemplo, ¿acaso tus herramientas de análisis de seguridad y escaneo de credenciales existentes funcionarán con {% data variables.product.prodname_actions %} o necesitarás utilizar herramientas nuevas?
 
-Identify the gates and checks in your existing system and verify that you can implement them with {% data variables.product.prodname_actions %}.
+Identifica las puertas y verificaciones en tu sistema existente y verifica que puedas implementarlas con {% data variables.product.prodname_actions %}.
 
-### Identifying and validating migration tools
+### Identificar y validar las herramientas de migración
 
-Automated migration tools can translate your enterprise's workflows from the existing system's syntax to the syntax required by {% data variables.product.prodname_actions %}. Identify third-party tooling or contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %} to ask about tools that {% data variables.product.company_short %} can provide.
+Las herramientas de migración automatizadas pueden traducir los flujos de trabajo de tu empresa desde la sintaxis de sistema existente a aquella que requiere {% data variables.product.prodname_actions %}. Identifica las herramientas de terceros o contacta a tu representante dedicado o {% data variables.contact.contact_enterprise_sales %} para preguntar sobre las herramientas que puede proporcionar {% data variables.product.company_short %}.
 
-After you've identified a tool to automate your migrations, validate the tool by running the tool on some test workflows and verifying that the results are as expected.
+Después de que hayas identificado una herramienta para automatizar tus migraciones, valídala ejecutándola en algunos flujos de trabajo de prueba y verifica que los resultados sean los esperados.
 
-Automated tooling should be able to migrate the majority of your workflows, but you'll likely need to manually rewrite at least a small percentage. Estimate the amount of manual work you'll need to complete.
+Las herramientas automatizadas deberían poder migrar la mayoría de tus flujos de trabajo, pero es posible que necesites reescribir manualmente por lo menos un porcentaje pequeño de estos. Estima la cantidad de trabajo manual que necesitarás llevar a cabo.
 
-### Deciding on a migration approach
+### Decidir llevar a cabo un enfoque de migración
 
-Determine the migration approach that will work best for your enterprise. Smaller teams may be able to migrate all their workflows at once, with a "rip-and-replace" approach. For larger enterprises, an iterative approach may be more realistic. You can choose to have a central body manage the entire migration or you can ask individual teams to self serve by migrating their own workflows.
+Determina el enfoque de migración que funcionará mejor para tu empresa. Los equipos más pequeños podrían ser capaces de migrar todos sus flujos de trabajo de una sola vez con un enfoque de tipo "quitar y reemplazar". Para las empresas más grandes, un enfoque iterativo podría ser más realista. Puedes elegir que un cuerpo central administre toda la migración o puedes pedirles a los equipos individuales que lo hagan ellos mismos y migren sus propios flujos de trabajo.
 
-We recommend an iterative approach that combines active management with self service. Start with a small group of early adopters that can act as your internal champions. Identifica un puñado de flujos de trabajo que sean suficientemente completos como para representar la amplitud de tu negocio. Trabaja con quienes primero adoptan esto para migrar esos flujos de trabajo a {% data variables.product.prodname_actions %}, iterando conforme sea necesario. Esto les dará a los otros equipos la confianza de que sus flujos de trabajo también pueden migrarse.
+Te recomendamos tener un enfoque iterativo que combine la administración activa con un autoservicio. Comience con un grupo pequeño de primeros participantes que actúen como campeones internos. Identifica un puñado de flujos de trabajo que sean suficientemente completos como para representar la amplitud de tu negocio. Trabaja con quienes primero adoptan esto para migrar esos flujos de trabajo a {% data variables.product.prodname_actions %}, iterando conforme sea necesario. Esto les dará a los otros equipos la confianza de que sus flujos de trabajo también pueden migrarse.
 
 Posteriormente, haz que {% data variables.product.prodname_actions %} esté disponible para tu organización extendida. Proporciona recursos para ayudar a que estos equipos migren sus propios flujos de trabajo a {% data variables.product.prodname_actions %} e informa a los equipos cuando los sistemas existentes vayan a retirarse.
 
@@ -82,6 +82,6 @@ También podrías querer mantener artefactos de compilaciones anteriores de tu s
 
 Después de que se complete tu migración, puedes pensar en retirar tu sistema existente.
 
-You may want to run both systems side-by-side for some period of time, while you verify that your {% data variables.product.prodname_actions %} configuration is stable, with no degradation of experience for developers.
+Tendrás que ejecutar ambos sistemas de lado a lado durante un tiempo mientras verificas que tu configuración de {% data variables.product.prodname_actions %} sea estable, sin delegación de experiencia para los desarrolladores.
 
-Eventually, decommission and shut off the old systems, and ensure that no one within your enterprise can turn the old systems back on.
+Con el tiempo, el retira y apaga los sistemas antiguos y asegúrate de que nadie en tu empresa los vuelva a activar.

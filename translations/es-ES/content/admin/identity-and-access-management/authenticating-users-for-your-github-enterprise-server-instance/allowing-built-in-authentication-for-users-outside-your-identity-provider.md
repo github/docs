@@ -54,6 +54,6 @@ Cuando un usuario acepta la invitación, puede utilizar su nombre de usuario y c
 
 ## Leer más
 
-- "[Using LDAP](/enterprise/admin/authentication/using-ldap)"
+- "[Utilizar LDAP](/enterprise/admin/authentication/using-ldap)"
 - "[Usar SAML](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)"
 - "[Usar CAS](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-cas)"

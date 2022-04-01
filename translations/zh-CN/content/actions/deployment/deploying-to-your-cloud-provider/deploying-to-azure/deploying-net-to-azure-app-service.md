@@ -1,6 +1,6 @@
 ---
-title: Deploying .NET to Azure App Service
-intro: You can deploy your .NET project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: 将 .NET 部署到 Azure App Service
+intro: 作为持续部署 (CD) 工作流程的一部分，您可以将 .NET 项目部署到 Azure App Service。
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,13 +17,13 @@ topics:
 
 ## 简介
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a .NET project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+本指南说明如何使用 {% data variables.product.prodname_actions %} 构建并部署 .NET 项目到 [Azure App Service](https://azure.microsoft.com/services/app-service/)。
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**注意**：{% data reusables.actions.about-oidc-short-overview %} 和“[在 Azure 中配置 OpenID Connect](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)”。
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 2. 创建 Web 应用。
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a .NET runtime:
+   例如，可以使用 Azure CLI 创建具有 .NET 运行时的 Azure App Service Web 应用：
 
    ```bash{:copy}
    az webapp create \
@@ -57,9 +57,9 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 完成先决条件后，可以继续创建工作流程。
 
-The following example workflow demonstrates how to build and deploy a .NET project to Azure App Service when there is a push to the `main` branch.
+以下示例工作流演程示在推送到 `main` 分支时，如何构建 .NET 项目并将其部署到 Azure App Service。
 
-确保在工作流程 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为您创建的 web 应用程序名称。 If the path to your project is not the repository root, change `AZURE_WEBAPP_PACKAGE_PATH`.  If you use a version of .NET other than `5`, change `DOTNET_VERSION`.
+确保在工作流程 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为您创建的 web 应用程序名称。 如果项目的路径不是存储库根目录，请更改 `AZURE_WEBAPP_PACKAGE_PATH`。  如果使用的是 `5` 以外的 .NET 版本，请更改 `DOTNET_VERSION`。
 
 {% data reusables.actions.delete-env-key %}
 
@@ -138,4 +138,4 @@ jobs:
 
 * 有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`azure-webapps-dotnet-core.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-dotnet-core.yml)。
 * 用于部署 Web 应用的操作是正式的 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* 有关部署到 Azure 的 GitHub 操作工作流程的更多示例，请参阅 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 存储库。
