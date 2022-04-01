@@ -1,7 +1,7 @@
 ---
-title: Setting default values for jobs
+title: Configurar los valores predeterminados para los jobs
 shortTitle: Configurar los valores predeterminados para los jobs
-intro: 'Define the default settings that will apply to all jobs in the workflow, or all steps in a job.'
+intro: Define los ajustes predeterminados que aplicarán a todos los jobs en el flujo de trabajo o en todos los pasos de un job.
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,14 +17,14 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults %}
 
-## Setting default shell and working directory
+## Configurar el shell y directorio de trabajo predeterminados
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run %}
 
-## Setting default values for a specific job
+## Configurar los valores predeterminados de un job específico
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job %}
 
-## Setting default shell and working directory for a job
+## Configurar el shell y directorio de trabajo predeterminados para un job
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run %}

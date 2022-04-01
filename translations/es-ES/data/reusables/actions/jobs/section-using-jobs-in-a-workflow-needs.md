@@ -1,6 +1,6 @@
-Use `jobs.<job_id>.needs` to identify any jobs that must complete successfully before this job will run. Puede ser una cadena o matriz de cadenas. Si un job falla, se saltarán todos los jobs que lo necesiten a menos de que éstos utilicen una expresión condicional que ocasione que el job continúe.
+Utiliza `jobs.<job_id>.needs` para identificar cualquier job que deba completarse con éxito antes de que este se ejecute. Puede ser una cadena o matriz de cadenas. Si un job falla, se saltarán todos los jobs que lo necesiten a menos de que éstos utilicen una expresión condicional que ocasione que el job continúe.
 
-#### Example: Requiring successful dependent jobs
+#### Ejemplo: Requerir jobs dependientes exitosos
 
 ```yaml
 jobs:
@@ -19,7 +19,7 @@ En este ejemplo, los trabajos se ejecutan de manera secuencial:
 2. `job2`
 3. `job3`
 
-#### Example: Not requiring successful dependent jobs
+#### Ejemplo: No requerir jobs dependientes exitosos
 
 ```yaml
 jobs:

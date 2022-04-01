@@ -25,20 +25,20 @@ versions:
 
 变基允许您更改一系列提交，并且可以修改时间表中的提交顺序。 更多信息请参阅“[关于 Git 变基](/github/getting-started-with-github/about-git-rebase)”。
 
-## About commit branches and tag labels
+## 关于提交分支和标记标签
 
-You can see which branch a commit is on by looking at the labels beneath the commit on the commit page.
+您可以通过查看提交页面上提交下方的标签来查看提交所在的分支。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-commit-page %}
-1. 通过单击提交消息链接导航到提交。 ![Screenshot of commit with commit message link emphasized](/assets/images/help/commits/commit-message-link.png)
-2. To see what branch the commit is on, check the label below the commit message. ![Screenshot of commit with commit branch indicator emphasized](/assets/images/help/commits/commit-branch-indicator.png)
+1. 通过单击提交消息链接导航到提交。 ![强调提交消息链接的提交屏幕截图](/assets/images/help/commits/commit-message-link.png)
+2. 要查看提交位于哪个分支上，请检查提交消息下方的标签。 ![强调提交分支指示的提交屏幕截图](/assets/images/help/commits/commit-branch-indicator.png)
 
-If your commit is not on the default branch (`main`), the label will show the branches which contain the commit. If the commit is part of an unmerged pull request, you can click the link to go to the pull request.
+如果您的提交不在默认分支 (`main`) 上，标签将显示包含提交的分支。 如果提交是未合并的拉取请求的一部分，则可以单击该链接转到拉取请求。
 
-如果提交在默认分支上，将显示包含提交的任何标记，并且默认分支将是列出的唯一分支。 For more information on tags, see "[Git Basics - Tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)" in the Git documentation.
+如果提交在默认分支上，将显示包含提交的任何标记，并且默认分支将是列出的唯一分支。 有关标记的更多信息，请参阅 Git 文档中的“[Git 基础知识 - 标记](https://git-scm.com/book/en/v2/Git-Basics-Tagging)”。
 
-![Screenshot of commit with commit tag emphasized](/assets/images/help/commits/commit-tag-label.png)
+![强调提交标记的提交屏幕截图](/assets/images/help/commits/commit-tag-label.png)
 
 ## 延伸阅读
 - {% data variables.product.prodname_desktop %} 上的“[提交和审查对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#about-commits)”

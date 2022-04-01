@@ -12,10 +12,6 @@ topics:
 
 要构建与 GitHub 集成的应用程序？ 请注册我们的开发者计划！ 无尽可能，享受点赞。 [立即注册](https://github.com/developer/register)
 
-## 信息灵通
-
-第一时间了解 API 变更，在[开发者博客](https://developer.github.com/changes/)中发布新功能之前抢先体验。
-
 ## 大显身手
 
 构建自己的工具，与每天推送代码的平台无缝集成。
@@ -23,7 +19,6 @@ topics:
 ## 纳入企业
 
 向 <a href="mailto:partnerships@github.com">partnerships@github.com</a> 发送电子邮件，请求开发者许可，以便根据 {% data variables.product.prodname_ghe_server %} 构建和测试应用程序。
-
 
 ## 有适用于 GitHub 的集成？
 

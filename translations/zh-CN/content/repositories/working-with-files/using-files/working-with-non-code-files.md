@@ -41,7 +41,9 @@ shortTitle: 使用非代码文件
 
 {% note %}
 
-**注：**如果您使用 Firefox 浏览器，则 {% data variables.product.prodname_dotcom %} 上的 SVG 可能无法呈现。
+**注:**
+- {% data variables.product.prodname_dotcom %} 不支持比较 PSD 文件之间的差异。
+- 如果您使用 Firefox 浏览器，则 {% data variables.product.prodname_dotcom %} 上的 SVG 可能无法呈现。
 
 {% endnote %}
 
@@ -306,7 +308,7 @@ GitHub 支持呈现 PDF 文档。
 
 ### 延伸阅读
 
-* [Leaflet.js geojson 文档](http://leafletjs.com/examples/geojson.html)
+* [Leaflet.js 文档](https://leafletjs.com/)
 * [MapBox marker-styling 文档](http://www.mapbox.com/developers/simplestyle/)
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
