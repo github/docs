@@ -6,7 +6,7 @@ miniTocMaxHeadingLevel: 3
 versions:
   feature: 'secret-scanning-push-protection'
 redirect_from:
-  - /enterprise-cloud@latest/early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
+  - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
 type: how_to
 topics:
   - Secret scanning
