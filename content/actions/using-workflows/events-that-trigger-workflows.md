@@ -899,7 +899,7 @@ on:
 
 jobs:
   if_merged:
-    if: github.event.pull_request_target.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - run: |
