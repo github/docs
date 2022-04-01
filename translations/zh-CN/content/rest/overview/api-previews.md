@@ -4,10 +4,8 @@ intro: 您可以使用 API 预览来试用新功能并在这些功能正式发�
 redirect_from:
   - /v3/previews
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
 topics:
   - API
 ---
@@ -118,16 +116,6 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-
-{% ifversion ghes %}
-
-## 对仓库的匿名 Git 访问
-
-当 {% data variables.product.prodname_ghe_server %} 实例处于私有模式时，站点和仓库管理员可以为公共仓库启用匿名 Git 访问。
-
-**自定义媒体类型：** `x-ray-preview` **公布日期：** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
-
-{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## 项目卡详细信息
@@ -135,15 +123,6 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 REST API 对[议题事件](/rest/reference/issues#events)和[议题时间表事件](/rest/reference/issues#timeline)的响应现在可返回项目相关事件的 `project_card` 字段。
 
 **自定义媒体类型：** `starfox-preview` **公布日期：** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
-
-{% endif %}
-{% ifversion fpt or ghec %}
-
-## GitHub 应用程序清单
-
-GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 更多信息请参阅“[从清单创建 GitHub 应用程序](/apps/building-github-apps/creating-github-apps-from-a-manifest/)”。
-
-**自定义媒体类型：** `fury-preview`
 
 {% endif %}
 

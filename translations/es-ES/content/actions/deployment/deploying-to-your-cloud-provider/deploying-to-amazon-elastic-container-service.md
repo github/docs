@@ -45,7 +45,8 @@ Antes de que crees tu flujo de trabajo de {% data variables.product.prodname_act
    Por ejemplo, utiliza [el CLI de AWS](https://aws.amazon.com/cli/):
 
    {% raw %}```bash{:copy}
-   aws ecr create-repository \ --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
+   aws ecr create-repository \
+    --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
    ```{% endraw %}
 
    Asegúrate de que utilizas el mismo nombre de repositorio para amazon ECR (que se representa aquí como `MY_ECR_REPOSITORY`) para la variable `ECR_REPOSITORY` en el flujo de trabajo a continuación.

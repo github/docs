@@ -1,2 +1,3 @@
-Una vez que se verifique la IC, {% data variables.product.product_name %} fusiona la solicitud de cambios reenviando la rama predeterminada. La cola de fusión utilizará confirmaciones de fusión si se apagó el ajuste de protección de rama "Requerir un historial linear" y utilizará el método de "Rebase y fusión" de otra forma. 
- 
+{% data variables.product.product_name %} merges the pull request according to the merge strategy configured in the branch protection once all required CI checks pass.
+
+![Merge queue merging method](/assets/images/help/pull_requests/merge-queue-merging-method.png)

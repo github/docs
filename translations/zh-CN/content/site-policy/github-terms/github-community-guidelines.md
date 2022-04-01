@@ -71,13 +71,7 @@ Where we have decided that moderation action is warranted, these are some of the
 
 ## 申诉和恢复
 
-In some cases there may be a basis to reverse a moderation action taken by GitHub Staff.
-
-* **Reinstatement**: Where a user wishes to address the violation and is willing to agree to abide by our Acceptable Use Policies moving forward, we may choose to reinstate their account or content depending on the severity of the initial violation.
-
-* **Appeal**: If a user wishes to dispute the basis of an enforcement action and can provide additional information regarding the alleged violation, we will review that information and may grant the appeal where we determined that a violation did not occur.
-
-If you seek reinstatement or wish to appeal an enforcement action, please contact [support](https://support.github.com/contact?tags=docs-policy).
+If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
 
 ## 法律声明
 
