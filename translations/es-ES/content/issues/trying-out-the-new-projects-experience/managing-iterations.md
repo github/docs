@@ -47,7 +47,7 @@ You can create an iteration field using the command palette or the project's int
 You can edit iterations in your project settings. You can also access the settings for an iteration field by clicking {% octicon "triangle-down" aria-label="The triangle icon" %} in the table header for the field and clicking **Edit values**.
 
 {% data reusables.projects.project-settings %}
-1. Click the name of the iteration field you want to adjust.
+1. Haz clic en el nombre del campo de iteración que quieras ajustar.
 1. To change the name of an iteration, click on the name and start typing.
 1. To change the date or duration of an iteration, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
 1. Optionally, to delete an iteration, click {% octicon "trash" aria-label="The trash icon" %}.
@@ -58,7 +58,7 @@ You can edit iterations in your project settings. You can also access the settin
 You can insert breaks into your iterations to communicate when you are taking time away from scheduled work. The duration of a new break defaults to the length of the most recently created iteration.
 
 {% data reusables.projects.project-settings %}
-1. Click the name of the iteration field you want to adjust.
+1. Haz clic en el nombre del campo de iteración que quieras ajustar.
 2. On the dividing line above an iteration and to the right, click **Insert break**. ![Screenshot showing location of "Insert break" button](/assets/images/help/issues/iteration-insert-break.png)
-3. Optionally, to change the duration of the break, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
+3. Optionally, to change the duration of the break, click on the date to open the calendar. Haz clic en el día de inicio y luego en el de fin y luego en **Aplicar**.
 4. Haz clic en **Guardar cambios**.

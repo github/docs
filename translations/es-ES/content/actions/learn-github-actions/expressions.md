@@ -366,4 +366,40 @@ Por ejemplo, considera una matriz de objetos llamada `fruits`.
 ]
 ```
 
-El filtro `fruits.*.name` devuelve la matriz `[ "apple", "orange", "pear" ]`
+El filtro `fruits.*.name` devuelve la matriz `[ "apple", "orange", "pear" ]`.
+
+You may also use the `*` syntax on an object. For example, suppose you have an object named `vegetables`.
+
+```json
+
+{
+  "scallions":
+  {
+    "colors": ["green", "white", "red"],
+    "ediblePortions": ["roots", "stalks"],
+  },
+  "beets":
+  {
+    "colors": ["purple", "red", "gold", "white", "pink"],
+    "ediblePortions": ["roots", "stems", "leaves"],
+  },
+  "artichokes":
+  {
+    "colors": ["green", "purple", "red", "black"],
+    "ediblePortions": ["hearts", "stems", "leaves"],
+  },
+}
+```
+
+The filter `vegetables.*.ediblePortions` could evaluate to:
+
+```json
+
+[
+  ["roots", "stalks"],
+  ["hearts", "stems", "leaves"],
+  ["roots", "stems", "leaves"],
+]
+```
+
+Since objects don't preserve order, the order of the output can not be guaranteed.

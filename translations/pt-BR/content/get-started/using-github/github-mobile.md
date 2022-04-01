@@ -13,8 +13,6 @@ redirect_from:
   - /github/getting-started-with-github/using-github/github-for-mobile
 ---
 
-{% data reusables.mobile.ghes-release-phase %}
-
 ## Sobre o {% data variables.product.prodname_mobile %}
 
 {% data reusables.mobile.about-mobile %}

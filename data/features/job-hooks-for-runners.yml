@@ -1,0 +1,5 @@
+# Reference: #6530
+# Running scripts before or after a job
+versions:
+  fpt: '*'
+  ghec: '*'

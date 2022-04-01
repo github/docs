@@ -1,6 +1,6 @@
 ---
 title: Cambiar el tipo de máquina de tu codespace
-shortTitle: Change the machine type
+shortTitle: Cambiar el tipo de máquina
 intro: Puedes cambiar el tipo de máquina que está ejecutando tu codespace para que estés utilizando recursos adecuados para el trabajo que estás haciendo.
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
@@ -39,9 +39,9 @@ Para obtener más información sobre cómo elegir un tio de máquina cuando crea
 
    ![Opción de menú 'Cambiar tipo de máquina'](/assets/images/help/codespaces/change-machine-type-menu-option.png)
 
-1. If multiple machine types are available for your codespace, choose the type of machine you want to use.
+1. Si hay varios tipos de máquina disponibles para tu codespace, elige aquella que quieras utilizar.
 
-   ![Dialog box showing available machine types to choose](/assets/images/help/codespaces/change-machine-type-choice.png)
+   ![La caja de diálogo que muestra los tipos de máquina disponibles para elegir](/assets/images/help/codespaces/change-machine-type-choice.png)
 
    {% data reusables.codespaces.codespaces-machine-type-availability %}
 
