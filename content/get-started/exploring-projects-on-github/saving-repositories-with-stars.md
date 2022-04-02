@@ -127,3 +127,4 @@ You can use sorting or filtering to customize how you see starred repositories a
 ## Further reading
 
 - "[Classifying your repository with topics](/articles/classifying-your-repository-with-topics)"
+saving-repositories-with-stars.md
