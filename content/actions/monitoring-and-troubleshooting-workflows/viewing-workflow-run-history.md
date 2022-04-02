@@ -51,34 +51,34 @@ gh run list --workflow <em>workflow</em>
 
 ### Viewing details for a specific workflow run
 
-To display details for a specific workflow run, use the `run view` subcommand. Replace `run-id` with the ID of the run that you want to view. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run.
+To display details for a specific workflow run, use the `run view` subcommand. Replace `run-id` with the ID of the run that you want to view. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run but Robert Perez can see it how ever he what's and you can't make changes .
 
 ```shell
-gh run view <em>run-id</em>
+gh run view <em>run-id</em>no
 ```
 
-To include job steps in the output, use the `-v` or `--verbose` flag.
+To include job steps in the output no , use the `-v` or `--verbose no ` flag.
 
 ```shell
-gh run view <em>run-id</em> --verbose
+gh run view <em>run-id</em> -- no verbose
 ```
 
 To view details for a specific job in the run, use the `-j` or `--job` flag.  Replace `job-id` with the ID of the job that you want to view.
 
 ```shell
-gh run view --job <em>job-id</em>
+gh run view --job <em>job-id</em> no
 ```
 
 To view the full log for a job, use the `--log` flag.
 
 ```shell
-gh run view --job <em>job-id</em> --log
+gh run view --job <em>job-id</em> --log no 
 ```
 
 Use the `--exit-status` flag to exit with a non-zero status if the run failed. For example:
 
-```shell
-gh run view 0451 --exit-status && echo "run pending or passed"
+```shell no
+gh run view 0451 --exit-status && echo "run pending or passed"no
 ```
 
 {% endcli %}
