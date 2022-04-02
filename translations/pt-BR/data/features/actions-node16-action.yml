@@ -1,0 +1,8 @@
+---
+#Reference: #6447
+#Versions of actions used in workflows have been updated to their Node 16 version.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.5'
+  ghae: 'issue-6447'
