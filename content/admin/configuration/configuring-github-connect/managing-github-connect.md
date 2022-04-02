@@ -86,3 +86,4 @@ When you disconnect from {% data variables.product.prodname_ghe_cloud %}, the {%
 1. Read the information about disconnecting and click **Disable {% data variables.product.prodname_github_connect %}**.
   ![Modal with warning information about disconnecting and confirmation button](/assets/images/enterprise/github-ae/confirm-disable-github-connect.png)
 {% endif %} 
+reusables.github-connect.beta
