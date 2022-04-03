@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 type: overview
 topics:
-  - Codespaces
+  - Cofdespaces
 ---
 
 ## What is a codespace?
