@@ -1,4 +1,5 @@
 ---
+http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Finformatica%2Finformatica-adf-hdinsight-powerbi%2Fazuredeploy.json
 title: Configuring two-factor authentication recovery methods
 intro: You can set up a variety of recovery methods to access your account if you lose your two-factor authentication credentials.
 redirect_from:
