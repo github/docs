@@ -45,7 +45,8 @@ shortTitle: 部署到 Amazon ECS
    例如，使用 [AWS CLI](https://aws.amazon.com/cli/)：
 
    {% raw %}```bash{:copy}
-   aws ecr create-repository \ --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
+   aws ecr create-repository \
+    --repository-name MY_ECR_REPOSITORY \ --region MY_AWS_REGION
    ```{% endraw %}
 
    Ensure that you use the same Amazon ECR repository name (represented here by `MY_ECR_REPOSITORY`) for the `ECR_REPOSITORY` variable in the workflow below.

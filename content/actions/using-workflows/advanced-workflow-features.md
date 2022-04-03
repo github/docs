@@ -74,7 +74,6 @@ For more information, see "[Defining prerequisite jobs](/actions/using-jobs/usin
 
 You can use a build matrix if you want your workflow to run tests across multiple combinations of operating systems, platforms, and languages. The build matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this build matrix will run the job multiple times, using different versions of Node.js:
 
-{% raw %}
 ```yaml
 jobs:
   build:
@@ -83,11 +82,10 @@ jobs:
       matrix:
         node: [6, 8, 10]
     steps:
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node }}
+          node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 For more information, see "[Using a build matrix for your jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)."
 
@@ -98,22 +96,20 @@ For more information, see "[Using a build matrix for your jobs](/actions/using-j
 
 This example demonstrates how to cache the ` ~/.npm` directory:
 
-{% raw %}
 ```yaml
 jobs:
   example-job:
     steps:
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         env:
           cache-name: cache-node-modules
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}{% endraw %}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
+            {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
 ```
-{% endraw %}
 
 For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
 {% endif %}
@@ -132,7 +128,7 @@ jobs:
         image: postgres
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install dependencies
         run: npm ci
       - name: Connect to PostgreSQL
