@@ -31,10 +31,10 @@ redirect_from:
 
 要查找特定用户或组织拥有的包，请使用 `user` 或 `org` 限定符。
 
-| 限定符                       | 示例                                                                                                                                                                         |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**`user:codertocat`**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) matches packages owned by @codertocat                                         |
-| <code>org:<em>ORGNAME</em></code> | [**`org:github`**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) matches packages owned by the {% data variables.product.prodname_dotcom %} organization |
+| 限定符                       | 示例                                                                                                                                        |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>user:<em>USERNAME</em></code> | [**`user:codertocat`**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) 匹配 @codertocat 拥有的包                          |
+| <code>org:<em>ORGNAME</em></code> | [**`org:github`**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) 匹配 {% data variables.product.prodname_dotcom %} 组织拥有的包 |
 
 ## 按包可见性过滤
 

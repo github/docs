@@ -1,15 +1,11 @@
-import supertest from 'supertest'
 import { describe, jest, test } from '@jest/globals'
 
-import createApp from '../../lib/app.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import { get, getDOM } from '../helpers/supertest.js'
+import { get, getDOM } from '../helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../middleware/set-fastly-surrogate-key.js'
 import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
 
 jest.useFakeTimers('legacy')
-
-const app = createApp()
 
 describe('enterprise deprecation', () => {
   jest.setTimeout(60 * 1000)
@@ -60,9 +56,9 @@ describe('enterprise deprecation', () => {
   test('sets the expected headers for deprecated Enterprise pages', async () => {
     const res = await get('/en/enterprise/2.13/user/articles/about-branches')
     expect(res.statusCode).toBe(200)
-    expect(res.get('x-robots-tag')).toBe('noindex')
-    expect(res.get('surrogate-key')).toBe(SURROGATE_ENUMS.MANUAL)
-    expect(res.get('set-cookie')).toBeUndefined()
+    expect(res.headers['x-robots-tag']).toBe('noindex')
+    expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
+    expect(res.headers['set-cookie']).toBeUndefined()
   })
 
   test('handles requests for deprecated Enterprise pages ( <2.13 )', async () => {
@@ -209,91 +205,103 @@ describe('does not render survey prompt or contribution button', () => {
 
 describe('JS and CSS assets', () => {
   it('returns the expected CSS file > 2.18', async () => {
-    const result = await supertest(app)
-      .get('/enterprise/2.18/dist/index.css')
-      .set('Referrer', '/en/enterprise/2.18')
-
+    const result = await get('/enterprise/2.18/dist/index.css', {
+      headers: {
+        Referrer: '/en/enterprise/2.18',
+      },
+    })
     expect(result.statusCode).toBe(200)
-    expect(result.get('x-is-archived')).toBe('true')
-    expect(result.get('Content-Type')).toBe('text/css; charset=utf-8')
+    expect(result.headers['x-is-archived']).toBe('true')
+    expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
   })
 
   it('returns the expected CSS file', async () => {
-    const result = await supertest(app)
-      .get('/stylesheets/index.css')
-      .set('Referrer', '/en/enterprise/2.13')
-
+    const result = await get('/stylesheets/index.css', {
+      headers: {
+        Referrer: '/en/enterprise/2.13',
+      },
+    })
     expect(result.statusCode).toBe(200)
-    expect(result.get('x-is-archived')).toBe('true')
-    expect(result.get('Content-Type')).toBe('text/css; charset=utf-8')
+    expect(result.headers['x-is-archived']).toBe('true')
+    expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
   })
 
   it('returns the expected JS file > 2.18', async () => {
-    const result = await supertest(app)
-      .get('/enterprise/2.18/dist/index.js')
-      .set('Referrer', '/en/enterprise/2.18')
-
+    const result = await get('/enterprise/2.18/dist/index.js', {
+      headers: {
+        Referrer: '/en/enterprise/2.18',
+      },
+    })
     expect(result.statusCode).toBe(200)
-    expect(result.get('x-is-archived')).toBe('true')
-    expect(result.get('Content-Type')).toBe('application/javascript; charset=utf-8')
+    expect(result.headers['x-is-archived']).toBe('true')
+    expect(result.headers['content-type']).toBe('application/javascript; charset=utf-8')
   })
 
   it('returns the expected JS file', async () => {
-    const result = await supertest(app)
-      .get('/javascripts/index.js')
-      .set('Referrer', '/en/enterprise/2.13')
-
+    const result = await get('/javascripts/index.js', {
+      headers: {
+        Referrer: '/en/enterprise/2.13',
+      },
+    })
     expect(result.statusCode).toBe(200)
-    expect(result.get('x-is-archived')).toBe('true')
-    expect(result.get('Content-Type')).toBe('application/javascript; charset=utf-8')
+    expect(result.headers['x-is-archived']).toBe('true')
+    expect(result.headers['content-type']).toBe('application/javascript; charset=utf-8')
   })
 
   it('returns the expected image', async () => {
-    const result = await supertest(app)
-      .get('/assets/images/octicons/hamburger.svg')
-      .set('Referrer', '/en/enterprise/2.17')
-
+    const result = await get('/assets/images/octicons/hamburger.svg', {
+      headers: {
+        Referrer: '/en/enterprise/2.17',
+      },
+    })
     expect(result.statusCode).toBe(200)
-    expect(result.get('x-is-archived')).toBe('true')
-    expect(result.get('Content-Type')).toBe('image/svg+xml; charset=utf-8')
+    expect(result.headers['x-is-archived']).toBe('true')
+    expect(result.headers['content-type']).toBe('image/svg+xml; charset=utf-8')
   })
 
   it('returns the expected node_modules', async () => {
-    const result = await supertest(app)
-      .get('/node_modules/instantsearch.js/dist/instantsearch.production.min.js')
-      .set('Referrer', '/en/enterprise/2.17')
-
+    const result = await get(
+      '/node_modules/instantsearch.js/dist/instantsearch.production.min.js',
+      {
+        headers: {
+          Referrer: '/en/enterprise/2.17',
+        },
+      }
+    )
     expect(result.statusCode).toBe(200)
-    expect(result.get('x-is-archived')).toBe('true')
-    expect(result.get('Content-Type')).toBe('application/javascript; charset=utf-8')
+    expect(result.headers['x-is-archived']).toBe('true')
+    expect(result.headers['content-type']).toBe('application/javascript; charset=utf-8')
   })
 
   it('returns the expected favicon', async () => {
-    const result = await supertest(app)
-      .get('/assets/images/site/favicon.svg')
-      .set('Referrer', '/en/enterprise/2.18')
-
+    const result = await get('/assets/images/site/favicon.svg', {
+      headers: {
+        Referrer: '/en/enterprise/2.18',
+      },
+    })
     expect(result.statusCode).toBe(200)
-    expect(result.get('x-is-archived')).toBe('true')
-    expect(result.get('Content-Type')).toBe('image/svg+xml; charset=utf-8')
+    expect(result.headers['x-is-archived']).toBe('true')
+    expect(result.headers['content-type']).toBe('image/svg+xml; charset=utf-8')
   })
 
   it('returns the expected CSS file ( <2.13 )', async () => {
-    const result = await supertest(app)
-      .get('/assets/stylesheets/application.css')
-      .set('Referrer', '/en/enterprise/2.12')
-
+    const result = await get('/assets/stylesheets/application.css', {
+      headers: {
+        Referrer: '/en/enterprise/2.12',
+      },
+    })
     expect(result.statusCode).toBe(200)
-    expect(result.get('x-is-archived')).toBe('true')
-    expect(result.get('Content-Type')).toBe('text/css; charset=utf-8')
+    expect(result.headers['x-is-archived']).toBe('true')
+    expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
   })
 
   it('ignores invalid paths', async () => {
-    const result = await supertest(app)
-      .get('/pizza/index.css')
-      .set('Referrer', '/en/enterprise/2.13')
-
+    const result = await get('/pizza/index.css', {
+      headers: {
+        Referrer: '/en/enterprise/2.13',
+      },
+    })
     expect(result.statusCode).toBe(404)
-    expect(result.get('x-is-archived')).toBeUndefined()
+    expect(result.headers['x-is-archived']).toBeUndefined()
   })
 })

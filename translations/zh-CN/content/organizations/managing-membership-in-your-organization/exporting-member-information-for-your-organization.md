@@ -1,6 +1,6 @@
 ---
-title: Exporting member information for your organization
-intro: 'You can export information about members in your organization, directly from the user interface.'
+title: 导出组织的成员信息
+intro: 您可以直接从用户界面导出有关组织中成员的信息。
 permissions: Organization owners can export member information for their organization.
 versions:
   fpt: '*'
@@ -10,22 +10,22 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Export member information
+shortTitle: 导出成员信息
 ---
 
-You can export information about members in your organization. This is useful if you want to perform an audit of users within the organization.
+您可以导出有关组织中成员的信息。 如果要对组织内的用户执行审核，这将非常有用。
 
-The exported information includes:
-- Username and display name details
-- Whether the user has two-factor authentication enabled
-- Whether the membership is public or private
-- Whether the user is an organization owner or member
-- Datetime of the user's last activity (for a full list of relevant activity, see "[Managing dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
-- The user's SAML NameID, if available
+导出的信息包括：
+- 用户名和显示名称详细信息
+- 用户是否启用了双重身份验证
+- 成员资格是公共的还是私有的
+- 用户是组织所有者还是成员
+- 用户上次活动的日期时间（有关相关活动的完整列表，请参阅“[管理休眠用户](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”）
+- 用户的 SAML 名称 ID（如果可用）
 
-You can get member information directly from the {% data variables.product.product_name %} user interface, or using APIs. This article explains how to obtain member information from within {% data variables.product.product_name %}.
+您可以直接从 {% data variables.product.product_name %} 用户界面或使用 API 获取成员信息。 本文介绍如何从 {% data variables.product.product_name %} 中获取成员信息。
 
-For more information about the APIs, see our [GraphQL API](/graphql/reference/objects#user) and [REST API](/rest/reference/users) documentation about users.
+有关 API 的更多信息，请参阅我们有关用户的 [GraphQL API](/graphql/reference/objects#user) 和 [REST API](/rest/reference/users) 文档。
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

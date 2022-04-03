@@ -22,7 +22,7 @@ topics:
   $ git tag -s <em>mytag</em>
   # Creates a signed tag
   ```
-2. Verify your signed tag it by running `git tag -v [tag-name]`.
+2. Verify your signed tag by running `git tag -v [tag-name]`.
   ```shell
   $ git tag -v <em>mytag</em>
   # Verifies the signed tag

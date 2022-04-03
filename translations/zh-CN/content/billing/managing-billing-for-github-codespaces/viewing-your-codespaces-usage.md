@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}
-{% data reusables.dotcom_billing.codespaces-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## 查看企业帐户的 {% data variables.product.prodname_codespaces %} 使用情况
 
@@ -29,3 +29,5 @@ topics:
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 1. 在“{% data variables.product.prodname_codespaces %}”下，查看企业帐户中每个组织的使用详细信息。
+{% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+

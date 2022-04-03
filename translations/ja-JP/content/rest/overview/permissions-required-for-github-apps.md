@@ -17,7 +17,7 @@ shortTitle: GitHub Appの権限
 
 ### {% data variables.product.prodname_github_app %}の権限について
 
-{% data variables.product.prodname_github_apps %} are created with a set of permissions. {% data variables.product.prodname_github_app %}がAPIを介してアクセスできるリソースが、権限によって決まります。 詳細は、「[GitHub Appの権限の設定](/apps/building-github-apps/setting-permissions-for-github-apps/)」を参照してください。
+{% data variables.product.prodname_github_apps %}は、一連の権限を付けて作成されます。 {% data variables.product.prodname_github_app %}がAPIを介してアクセスできるリソースが、権限によって決まります。 詳細は、「[GitHub Appの権限の設定](/apps/building-github-apps/setting-permissions-for-github-apps/)」を参照してください。
 
 ### メタデータ権限
 
@@ -121,6 +121,9 @@ _検索_
 - [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#get-an-artifact) (:read)
 - [`DELETE /repos/:owner/:repo/actions/artifacts/:artifact_id`](/rest/reference/actions#delete-an-artifact) (:write)
 - [`GET /repos/:owner/:repo/actions/artifacts/:artifact_id/zip`](/rest/reference/actions#download-an-artifact) (:read)
+{% if actions-cache-management -%}
+- [`GET /repos/:owner/:repo/actions/cache/usage`](/rest/reference/actions#get-github-actions-cache-usage-for-a-repository) (:read)
+{% endif -%}
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id`](/rest/reference/actions#get-a-job-for-a-workflow-run) (:read)
 - [`GET /repos/:owner/:repo/actions/jobs/:job_id/logs`](/rest/reference/actions#download-job-logs-for-a-workflow-run) (:read)
 - [`GET /repos/:owner/:repo/actions/runs`](/rest/reference/actions#list-workflow-runs-for-a-repository) (:read)
@@ -644,6 +647,10 @@ _Team_
 ### "organization administration"に対する権限
 
 - [`PATCH /orgs/:org`](/rest/reference/orgs#update-an-organization) (:write)
+{% if actions-cache-management -%}
+- [`GET /orgs/:org/actions/cache/usage`](/rest/reference/actions#get-github-actions-cache-usage-for-an-organization) (:read)
+- [`GET /orgs/:org/actions/cache/usage-by-repository`](/rest/reference/actions#list-repositories-with-github-actions-cache-usage-for-an-organization) (:read)
+{% endif -%}
 {% ifversion fpt -%}
 - [`GET /orgs/:org/interaction-limits`](/rest/reference/interactions#get-interaction-restrictions-for-an-organization) (:read)
 {% endif -%}
@@ -880,7 +887,7 @@ _Team_
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.3%}
-### Permission on "dependabot_secrets"
+### "dependabot_secrets"に対する権限
 - [`GET /repos/:owner/:repo/dependabot/secrets/public-key`](/rest/reference/dependabot#get-a-repository-public-key) (:read)
 - [`GET /repos/:owner/:repo/dependabot/secrets`](/rest/reference/dependabot#list-repository-secrets) (:read)
 - [`GET /repos/:owner/:repo/dependabot/secrets/:secret_name`](/rest/reference/dependabot#get-a-repository-secret) (:read)

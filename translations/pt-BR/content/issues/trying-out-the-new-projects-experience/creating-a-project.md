@@ -131,7 +131,7 @@ Os campos personalizados podem ser texto, número, data, seleção única ou ite
 - Número: O valor deve ser um número.
 - Data: O valor deve ser uma data.
 - Seleção única: O valor deve ser selecionado a partir de um conjunto de valores especificados.
-- Iteração: O valor deve ser selecionado a partir de um conjunto de intervalos de datas (iterações). As iterações anteriores são automaticamente marcadas como "concluídas", e a iteração que cobre o intervalo de datas atual é marcada como "atual". For more information, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
+- Iteração: O valor deve ser selecionado a partir de um conjunto de intervalos de datas (iterações). As iterações anteriores são automaticamente marcadas como "concluídas", e a iteração que cobre o intervalo de datas atual é marcada como "atual". Para obter mais informações, consulte "[Gerenciando iterações nos projetos](/issues/trying-out-the-new-projects-experience/managing-iterations). "
 
 1. {% data reusables.projects.open-command-palette %} Comece a digitar qualquer parte de "Criar novo campo". Quando "Criar novo campo" for exibido na paleta de comandos, selecione-o.
 2. Como alternativa, clique em {% octicon "plus" aria-label="the plus icon" %} no cabeçalho do campo mais à direita. Será exibido um menu suspenso com os campos do projeto. Clique em **Novo campo**.
@@ -148,7 +148,7 @@ Posteriormente, você poderá editar as opções de seleção única e iteraçã
 1. Para campos de seleção única, você pode adicionar, excluir ou reordenar as opções.
 1. Para campos de iteração, você pode adicionar ou excluir as iterações, alterar nomes da iteração e alterar a data e a duração de início da iteração.
 
-   For more information on modifying iteration fields, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
+   Para obter mais informações sobre como modificar campos de iteração, consulte "[Gerenciando iterações nos projetos](/issues/trying-out-the-new-projects-experience/managing-iterations).
 
 ## Personalizando as suas visualizações
 

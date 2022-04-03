@@ -1,6 +1,6 @@
 import languages from '../../lib/languages.js'
 import robotsParser from 'robots-parser'
-import { get } from '../helpers/supertest.js'
+import { get } from '../helpers/e2etest.js'
 import { jest } from '@jest/globals'
 
 describe('robots.txt', () => {
@@ -8,7 +8,11 @@ describe('robots.txt', () => {
 
   let res, robots
   beforeAll(async () => {
-    res = await get('/robots.txt')
+    res = await get('/robots.txt', {
+      headers: {
+        Host: 'docs.github.com',
+      },
+    })
     robots = robotsParser('https://docs.github.com/robots.txt', res.text)
   })
 

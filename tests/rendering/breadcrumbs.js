@@ -1,5 +1,6 @@
-import { getDOM, getJSON } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+
+import { getDOM, getJSON } from '../helpers/e2etest.js'
 
 // TODO: Use `describeViaActionsOnly` instead. See tests/rendering/server.js
 const describeInternalOnly =
@@ -103,10 +104,8 @@ describe('breadcrumbs', () => {
       const $breadcrumbTitles = $('[data-testid=breadcrumbs] [data-testid=breadcrumb-title]')
       const $breadcrumbLinks = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbTitles).toHaveLength(4)
+      expect($breadcrumbTitles).toHaveLength(0)
       expect($breadcrumbLinks).toHaveLength(4)
-      expect($breadcrumbTitles[0].children[0].data).toBe('Early Access documentation')
-      expect($breadcrumbTitles[1].children[0].data).toBe('GitHub')
       expect($breadcrumbLinks[0].attribs.title).toBe(
         'Enforcing best practices with GitHub Policies'
       )
@@ -196,19 +195,19 @@ describe('breadcrumbs', () => {
 
     test('works on articles that DO NOT have maptopics ', async () => {
       const breadcrumbs = await getJSON(
-        '/github/site-policy/github-privacy-statement?json=breadcrumbs'
+        '/site-policy/privacy-policies/github-privacy-statement?json=breadcrumbs'
       )
       const expected = [
         {
-          href: '/en/github',
-          title: 'GitHub',
-        },
-        {
-          href: '/en/github/site-policy',
+          href: '/en/site-policy',
           title: 'Site policy',
         },
         {
-          href: '/en/github/site-policy/github-privacy-statement',
+          href: '/en/site-policy/privacy-policies',
+          title: 'Privacy Policies',
+        },
+        {
+          href: '/en/site-policy/privacy-policies/github-privacy-statement',
           title: 'GitHub Privacy Statement',
         },
       ]

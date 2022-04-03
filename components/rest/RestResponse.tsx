@@ -5,10 +5,16 @@ type Props = {
   responses: Array<CodeResponse>
 }
 
-export function RestResponse({ responses }: Props) {
+export function RestResponse(props: Props) {
+  const { responses } = props
+
+  if (!responses || responses.length === 0) {
+    return null
+  }
+
   return (
     <>
-      {responses.map((response: CodeResponse, index: number) => {
+      {responses.map((response, index) => {
         return (
           <div key={`${response.httpStatusMessage}-${index}}`}>
             <h4 dangerouslySetInnerHTML={{ __html: response.description }} />

@@ -38,7 +38,7 @@ Cada arquivo CODEOWNERS atribui os proprietários do código para um único bran
 
 Para que os proprietários do código recebam solicitações de revisão, o arquivo CODEOWNERS deve estar no branch base da pull request. Por exemplo, se você atribuir `@octocat` como o proprietário do código para arquivos *.js* no branch `gh-pages` do seu repositório, `@octocat` receberá solicitações de revisão quando uma pull request com alterações nos arquivos *.js* for aberta entre o branch head e `gh-pages`.
 
-{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-9273 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4675 %}
 ## Tamanho do arquivo CODEOWNERS
 
 Os arquivos CODEOWNERS devem ter menos de 3 MB. Um arquivo CODEOWNERS acima deste limite não será carregado, o que significa que as informações do proprietário do código não serão mostradas e não será solicitado que os proprietários do código apropriado revise as alterações em um pull request.

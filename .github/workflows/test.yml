@@ -7,6 +7,9 @@ name: Node.js Tests
 on:
   workflow_dispatch:
   pull_request:
+  push:
+    branches:
+      - gh-readonly-queue/main/**
 
 permissions:
   contents: read
@@ -45,7 +48,10 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
         with:
-          lfs: true
+          # Not all test suites need the LFS files. So instead, we opt to
+          # NOT clone them initially and instead, include them manually
+          # only for the test groups that we know need the files.
+          lfs: ${{ matrix.test-group == 'content' }}
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
 
@@ -96,6 +102,8 @@ jobs:
           mv docs-early-access/data data/early-access
           rm -r docs-early-access
 
+      # This is necessary when LFS files where cloned but does nothing
+      # if actions/checkout was run with `lfs:false`.
       - name: Checkout LFS objects
         run: git lfs checkout
 
@@ -131,11 +139,6 @@ jobs:
 
       - name: Run build script
         run: npm run build
-
-      - name: Warm possible disk caching
-        env:
-          NODE_ENV: test
-        run: ./script/warm-before-tests.mjs
 
       - name: Run tests
         env:

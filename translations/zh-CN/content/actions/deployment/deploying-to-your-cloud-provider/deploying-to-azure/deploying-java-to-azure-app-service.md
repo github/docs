@@ -1,6 +1,6 @@
 ---
-title: Deploying Java to Azure App Service
-intro: You can deploy your Java project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: 将 Java 部署到 Azure App Service
+intro: 作为持续部署 (CD) 工作流程的一部分，您可以将 Java 项目部署到 Azure App Service。
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,13 +18,13 @@ topics:
 
 ## 简介
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Java project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+本指南说明如何使用 {% data variables.product.prodname_actions %} 构建并部署 Java 项目到 [Azure App Service](https://azure.microsoft.com/services/app-service/)。
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**注意**：{% data reusables.actions.about-oidc-short-overview %} 和“[在 Azure 中配置 OpenID Connect](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)”。
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 1. 创建 Web 应用。
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Java runtime:
+   例如，可以使用 Azure CLI 创建具有 Java 运行时的 Azure App Service Web 应用：
 
    ```bash{:copy}
    az webapp create \
@@ -58,9 +58,9 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 完成先决条件后，可以继续创建工作流程。
 
-The following example workflow demonstrates how to build and deploy a Java project to Azure App Service when there is a push to the `main` branch.
+以下示例工作流演程示在推送到 `main` 分支时，如何构建 Java 项目并将其部署到 Azure App Service。
 
-确保在工作流程 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为您创建的 web 应用程序名称。 If you want to use a Java version other than `11`, change `JAVA_VERSION`.
+确保在工作流程 `env` 中将 `AZURE_WEBAPP_NAME` 密钥设置为您创建的 web 应用程序名称。 如果要使用 `11` 以外的 Java 版本，请更改 `JAVA_VERSION`。
 
 {% data reusables.actions.delete-env-key %}
 
@@ -128,4 +128,4 @@ jobs:
 
 * 有关原始入门工作流程，请参阅 {% data variables.product.prodname_actions %} `starter-workflows` 仓库中的 [`azure-webapps-java-jar.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-java-jar.yml)。
 * 用于部署 Web 应用的操作是正式的 Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) 操作。
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* 有关部署到 Azure 的 GitHub 操作工作流程的更多示例，请参阅 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) 存储库。

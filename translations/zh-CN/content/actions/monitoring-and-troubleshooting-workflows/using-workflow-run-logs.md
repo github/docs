@@ -62,6 +62,16 @@ versions:
   ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
 
 
+  {% if re-run-jobs %}
+
+  {% note %}
+
+  **注意**：下载部分重新运行的工作流程的日志存档时，存档仅包括已重新运行的作业。 若要获取从工作流程运行的作业的完整日志集，必须下载运行其他作业的上一次运行尝试的日志存档。
+
+  {% endnote %}
+
+  {% endif %}
+
 ## 删除日志
 
 您可以从工作流程运行中删除日志文件。 {% data reusables.repositories.permissions-statement-write %}

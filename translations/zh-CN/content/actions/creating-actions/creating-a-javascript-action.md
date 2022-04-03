@@ -141,7 +141,7 @@ try {
 - 操作使用的环境变量。
 - 如何在工作流程中使用操作的示例。
 
-```markdown
+```markdown{:copy}
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
@@ -193,7 +193,7 @@ git push --follow-tags
 1. 如果已检入您的 `node_modules` 目录，请删除它。 `rm -rf node_modules/*`
 
 1. 从您的终端，将更新提交到 `action.yml`、`dist/index.js` 和 `node_modules` 文件。
-```shell
+```shell{:copy}
 git add action.yml dist/index.js node_modules/*
 git commit -m "Use vercel/ncc"
 git tag -a -m "My first action release" v1.1

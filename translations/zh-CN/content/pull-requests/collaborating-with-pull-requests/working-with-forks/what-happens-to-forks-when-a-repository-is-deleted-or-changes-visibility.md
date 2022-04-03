@@ -81,4 +81,4 @@ shortTitle: 删除或更改可见性
 - "[关于复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
 - "[管理仓库的复刻策略](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
 - "[管理组织的复刻策略](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
-- "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"
+- “[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)”

@@ -196,6 +196,22 @@ These instructions are pertinent to GraphQL API users.
 {% endgraphql %}
 ```
 
+```
+{% powershell %}
+
+These instructions are pertinent to `pwsh` and `powershell` commands.
+
+{% endpowershell %}
+```
+
+```
+{% bash %}
+
+These instructions are pertinent to Bash shell commands.
+
+{% endbash %}
+```
+
 You can define a default tool in the frontmatter. For more information, see the [content README](../content/README.md#defaulttool).
 
 ## Reusable and variable strings of text

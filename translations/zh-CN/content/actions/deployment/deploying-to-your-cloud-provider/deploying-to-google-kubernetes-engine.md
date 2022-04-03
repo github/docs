@@ -14,7 +14,7 @@ topics:
   - CD
   - Containers
   - Google Kubernetes Engine
-shortTitle: Deploy to Google Kubernetes Engine
+shortTitle: 部署到 Google Kubernetes Engine
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -22,7 +22,7 @@ shortTitle: Deploy to Google Kubernetes Engine
 
 ## 简介
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build a containerized application, push it to Google Container Registry (GCR), and deploy it to Google Kubernetes Engine (GKE) when there is a push to the `main` branch.
+本指南介绍如何使用 {% data variables.product.prodname_actions %} 构建容器化应用程序，将其推送到 Google Container Registry (GCR)，以及要推送到 `main` 分支时将其部署到 Google Kubernetes Engine (GKE)。
 
 GKE 是 Google Cloud 的托管 Kubernetes 群集服务，可以在云中或您自己的数据中心中托管您的容器化工作负载。 更多信息请参阅 [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)。
 
@@ -71,7 +71,7 @@ $ gcloud services enable \
 
 ### 配置服务帐户并存储其凭据
 
-此程序显示如何为您的 GKE 集成创建服务帐户。 It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded encrypted repository secret named `GKE_SA_KEY`.
+此程序显示如何为您的 GKE 集成创建服务帐户。 它说明了如何创建帐户、向其添加角色、检索其密钥，以及将它们存储为名为 `GKE_SA_KEY` 的加密仓库机密。
 
 1. 创建新服务帐户：
   {% raw %}
@@ -111,16 +111,16 @@ $ gcloud services enable \
   $ export GKE_SA_KEY=$(cat key.json | base64)
   ```
   {% endraw %}
-  For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+  有关如何存储机密的更多信息，请参阅“[加密密码](/actions/security-guides/encrypted-secrets)”。
 
-### Storing your project name
+### 存储项目名称
 
-Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+将项目名称存储为名为 `GKE_PROJECT` 的机密。 有关如何存储机密的更多信息，请参阅“[加密密码](/actions/security-guides/encrypted-secrets)”。
 
 ### （可选）配置 kustomize
-Kustomize 是用于管理 YAML 规范的可选工具。 After creating a `kustomization` file, the workflow below can be used to dynamically set fields of the image and pipe in the result to `kubectl`. 更多信息请参阅 [kustomize 的用法](https://github.com/kubernetes-sigs/kustomize#usage)。
+Kustomize 是用于管理 YAML 规范的可选工具。 在创建 `kustomization` 文件之后， 下面的工作流可用于将结果中的图像和管道字段动态设置为 `kubectl`。 更多信息请参阅 [kustomize 的用法](https://github.com/kubernetes-sigs/kustomize#usage)。
 
-### (Optional) Configure a deployment environment
+### （可选）配置部署环境
 
 {% data reusables.actions.about-environments %}
 
@@ -130,7 +130,7 @@ Kustomize 是用于管理 YAML 规范的可选工具。 After creating a `kustom
 
 下面的示例工作流程演示如何生成容器映像并推送到 GCR。 然后，它使用 Kubernetes 工具（如 `kubectl` 和 `kustomize`）将映像拉入群集部署。
 
-Under the `env` key, change the value of `GKE_CLUSTER` to the name of your cluster, `GKE_ZONE` to your cluster zone, `DEPLOYMENT_NAME` to the name of your deployment, and `IMAGE` to the name of your image.
+在 `env` 键下，将 `GKE_CLUSTER` 的值更改为群集的名称，将 `GKE_ZONE` 更改为群集区域，将 `DEPLOYMENT_NAME` 更改为部署的名称，以及将 `IMAGE` 更改为映像的名称。
 
 {% data reusables.actions.delete-env-key %}
 
