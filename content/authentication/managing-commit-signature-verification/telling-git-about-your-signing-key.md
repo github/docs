@@ -97,7 +97,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
 1. To add your GPG key to your `.bashrc` startup file, run the following command:
-  ```console
+  ```bash
   $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
 
