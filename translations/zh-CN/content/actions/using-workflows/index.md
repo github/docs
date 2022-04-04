@@ -1,7 +1,7 @@
 ---
-title: Using workflows
-shortTitle: Using workflows
-intro: 'Creating and managing {% data variables.product.prodname_actions %} workflows.'
+title: 使用工作流程
+shortTitle: 使用工作流程
+intro: '创建和管理 {% data variables.product.prodname_actions %} 工作流程。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
   - /articles/creating-a-workflow-with-github-actions

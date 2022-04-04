@@ -34,8 +34,6 @@ Recomendamos que você tenha um entendimento básico do .NET Core SDK. Para obte
 
 Para iniciar rapidamente, adicione o fluxo de trabalho inicial para o diretório `.github/workflows` do seu repositório.
 
-{% raw %}
-
 ```yaml
 name: dotnet package
 
@@ -50,11 +48,11 @@ jobs:
         dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v1.7.2
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Setup .NET Core SDK {% raw %}${{ matrix.dotnet-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-dotnet %}
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
       - name: Install dependencies
         run: dotnet restore
       - name: Build
@@ -62,8 +60,6 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 ```
-
-{% endraw %}
 
 ## Especificando uma versão do .NET
 
@@ -73,7 +69,6 @@ A ação `setup-dotnet` é a forma recomendada de usar .NET com {% data variable
 
 ### Usar múltiplas versões do .NET
 
-{% raw %}
 ```yaml
 name: dotnet package
 
@@ -88,47 +83,42 @@ jobs:
         dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup dotnet ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v1
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Setup dotnet {% raw %}${{ matrix.dotnet-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-dotnet %}
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
       # You can test your matrix by printing the current dotnet version
       - name: Display dotnet version
         run: dotnet --version
 ```
-{% endraw %}
 
 ### Usar uma versão específica do .NET
 
 Você pode configurar o seu trabalho para usar uma versão específica do .NET, como `3.1.3`. Como alternativa, você pode usar a sintaxe da versão semântica para obter a última versão secundária. Este exemplo usa a versão mais recente do .NET 3.
 
-{% raw %}
 ```yaml
     - name: Setup .NET 3.x
-      uses: actions/setup-dotnet@v1
+      uses: {% data reusables.actions.action-setup-dotnet %}
       with:
         # Semantic version range syntax or exact version of a dotnet version
         dotnet-version: '3.x'
 ```
-{% endraw %}
 
 ## Instalar dependências
 
 Os executores hospedados em {% data variables.product.prodname_dotcom %} têm o gerenciador do pacote NuGet instalado. Você pode usar o dotnet CLI para instalar dependências do registro do pacote NuGet antes de criar e testar seu código. Por exemplo, o YAML abaixo instala o pacote `Newtonsoft`.
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1
+  uses: {% data reusables.actions.action-setup-dotnet %}
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
-{% endraw %}
 
 {% ifversion fpt or ghec %}
 
@@ -138,25 +128,23 @@ Você pode armazenar em cache dependências do NuGet usando uma chave única, o 
 
 Para obter mais informações, consulte "[Memorizar dependências para acelerar fluxos de trabalho](/actions/guides/caching-dependencies-to-speed-up-workflows)".
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1
+  uses: {% data reusables.actions.action-setup-dotnet %}
   with:
     dotnet-version: '3.1.x'
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.nuget/packages
     # Look to see if there is a cache hit for the corresponding requirements file
-    key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
     restore-keys: |
-      ${{ runner.os }}-nuget
+      ${{ runner.os }}-nuget{% endraw %}
 - name: Install dependencies
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
-{% endraw %}
 
 {% note %}
 
@@ -170,12 +158,11 @@ steps:
 
 Você pode usar os mesmos comandos usados localmente para criar e testar seu código. Este exemplo demonstra como usar a `dotnet build` e o `dotnet test` em um trabalho:
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1
+  uses: {% data reusables.actions.action-setup-dotnet %}
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -185,7 +172,6 @@ steps:
 - name: Test with the dotnet CLI
   run: dotnet test
 ```
-{% endraw %}
 
 ## Empacotar dados do fluxo de trabalho como artefatos
 
@@ -193,7 +179,7 @@ Após a conclusão de um fluxo de trabalho, você poderá fazer o upload dos art
 
 Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
 
-{% raw %}
+
 ```yaml
 name: dotnet package
 
@@ -208,24 +194,23 @@ jobs:
         dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
       steps:
-        - uses: actions/checkout@v2
+        - uses: {% data reusables.actions.action-checkout %}
         - name: Setup dotnet
-          uses: actions/setup-dotnet@v1
+          uses: {% data reusables.actions.action-setup-dotnet %}
           with:
-            dotnet-version: ${{ matrix.dotnet-version }}
+            dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
         - name: Install dependencies
           run: dotnet restore
         - name: Test with dotnet
-          run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
+          run: dotnet test --logger trx --results-directory {% raw %}"TestResults-${{ matrix.dotnet-version }}"{% endraw %}
         - name: Upload dotnet test results
-          uses: actions/upload-artifact@v3
+          uses: {% data reusables.actions.action-upload-artifact %}
           with:
-            name: dotnet-results-${{ matrix.dotnet-version }}
-            path: TestResults-${{ matrix.dotnet-version }}
+            name: {% raw %}dotnet-results-${{ matrix.dotnet-version }}{% endraw %}
+            path: {% raw %}TestResults-${{ matrix.dotnet-version }}{% endraw %}
           # Use always() to always run this step to publish test results when there are test failures
-          if: ${{ always() }}
+          if: {% raw %}${{ always() }}{% endraw %}
 ```
-{% endraw %}
 
 ## Publicar nos registros do pacote
 
@@ -245,8 +230,8 @@ jobs:
       packages: write
       contents: read{% endif %}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-dotnet %}
         with:
           dotnet-version: '3.1.x' # SDK Version to use.
           source-url: https://nuget.pkg.github.com/<owner>/index.json

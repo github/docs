@@ -1,6 +1,6 @@
 ---
-title: Filtering alerts in the security overview
-intro: Use filters to view specific categories of alerts
+title: 筛选安全性概述中的警报
+intro: 使用筛选器查看特定类别的警报
 permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:
@@ -15,12 +15,12 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: Filtering alerts
+shortTitle: 筛选警报
 ---
 
 {% data reusables.security-center.beta %}
 
-## About filtering the security overview
+## 关于筛选安全性概述
 
 You can use filters in the security overview to narrow your focus based on a range of factors, like alert risk level, alert type and feature enablement. Different filters are available depending on the specific view and whether you analysing at the organization, team or repository level.
 

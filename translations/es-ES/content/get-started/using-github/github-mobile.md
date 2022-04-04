@@ -1,5 +1,5 @@
 ---
-title: GitHub Mobile
+title: GitHub Móvil
 intro: 'Clasifica, colabora y administra tu trabajo en {% data variables.product.product_name %} desde tu dispositivo móvil.'
 versions:
   fpt: '*'
@@ -13,8 +13,6 @@ redirect_from:
   - /github/getting-started-with-github/using-github/github-for-mobile
 ---
 
-{% data reusables.mobile.ghes-release-phase %}
-
 ## Acerca de {% data variables.product.prodname_mobile %}
 
 {% data reusables.mobile.about-mobile %}
@@ -27,7 +25,7 @@ Con {% data variables.product.prodname_mobile %} puedes:
 - Leer, revisar y colaborar en informes de problemas y solicitudes de extracción
 - Buscar, navegar e interactuar con usuarios, repositorios y organizaciones
 - Recibir notificaciones para subir información cuando alguien menciona tu nombre de usuario
-{% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication{% endif %}
+{% ifversion fpt or ghec %}- Asegura tu cuenta de GitHub.com con la autenticación bifactorial{% endif %}
 
 Para obtener más información sobre las notificaciones de {% data variables.product.prodname_mobile %}, consulta "[Configurando notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."
 
@@ -37,7 +35,7 @@ Para instalar {% data variables.product.prodname_mobile %} para Android o iOS, c
 
 ## Administrar cuentas
 
-Puedes ingresar simultáneamente a la versión móvil con una cuenta de usuario en {% data variables.product.prodname_dotcom_the_website %} y otra en {% data variables.product.prodname_ghe_server %}. For more information about our different products, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
+Puedes ingresar simultáneamente a la versión móvil con una cuenta de usuario en {% data variables.product.prodname_dotcom_the_website %} y otra en {% data variables.product.prodname_ghe_server %}. Para obtener más información sobre nuestros diversos productos, consulta la sección "[Productos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)".
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
@@ -55,7 +53,7 @@ Durante el beta para {% data variables.product.prodname_mobile %} con {% data va
 
 Puedes ingresar en la versión móvil con una cuenta de usuario en {% data variables.product.prodname_ghe_server %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre {% octicon "plus" aria-label="The plus icon" %} **Agregar Cuenta Empresarial**. Sige las indicaciones para iniciar sesión.
 
-After you sign into mobile with a user account on {% data variables.product.prodname_ghe_server %}, you can switch between the account and your account on {% data variables.product.prodname_dotcom_the_website %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre la cuenta a la que quieras cambiar.
+Después de que ingreses en la versión móvil con una cuenta de usuario de {% data variables.product.prodname_ghe_server %}, puedes cambiar entre esa cuenta y la de {% data variables.product.prodname_dotcom_the_website %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre la cuenta a la que quieras cambiar.
 
 Si ya no necesitas acceso a los datos de tu cuenta de usuario en {% data variables.product.prodname_ghe_server %} desde {% data variables.product.prodname_mobile %}, puedes salir de la sesión de la cuenta. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, desliza hacia la izquierda en la cuenta para salir de ella y luego pulsa en **Salir de sesión**.
 

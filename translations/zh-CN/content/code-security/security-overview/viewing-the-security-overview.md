@@ -1,6 +1,6 @@
 ---
-title: Viewing the security overview
-intro: Navigate to the different views available in the security overview
+title: 查看安全性概述
+intro: 导航到安全概述中可用的不同视图
 permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:
@@ -15,7 +15,7 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: View the security overview
+shortTitle: 查看安全性概述
 ---
 
 {% data reusables.security-center.beta %}
@@ -27,28 +27,28 @@ shortTitle: View the security overview
 1. 要查看有关警报类型的汇总信息，请单击 **Show more（显示更多）**。 ![显示更多按钮](/assets/images/help/organizations/security-overview-show-more-button.png)
 {% data reusables.organizations.filter-security-overview %}
 {% if security-overview-views %}
-1. Alternatively and optionally, use the sidebar on the left to filter information per security feature. On each page, you can use filters that are specific to each feature to fine-tune your search. ![Screenshot of the code scanning-specific page](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
+1. 或者，也可以使用左侧边栏按安全功能筛选信息。 在每个页面上，您可以使用特定于每个功能的筛选器来微调搜索。 ![代码扫描特定页面的截图](/assets/images/help/organizations/security-overview-code-scanning-alerts.png)
 
-## Viewing alerts across your organization
+## 查看整个组织中的警报
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the security sidebar, select the subset of alerts you want to view. ![View alert subset](/assets/images/help/organizations/view-alert-subset.png)
-2. （可选）过滤警报列表。 Each view has its own selection of available filters. 您可以单击下拉过滤菜单中的多个过滤器以缩小搜索范围。 You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)." ![The drop-down filter menus and Search repositories field in the secret scanning view](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
+1. 在安全性边栏中，选择要查看的警报子集。 ![查看警报子集](/assets/images/help/organizations/view-alert-subset.png)
+2. （可选）过滤警报列表。 每个视图都有自己选择的可用筛选器。 您可以单击下拉过滤菜单中的多个过滤器以缩小搜索范围。 您还可以在搜索字段中键入搜索限定符。 有关可用限定符的更多信息，请参阅“[筛选安全性概述中的警报](/code-security/security-overview/filtering-alerts-in-the-security-overview)”。 ![机密扫描视图中的下拉筛选器菜单和搜索存储库字段](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
 
 {% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
-## Viewing the security overview for an enterprise
+## 查看企业的安全性概述
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Security**.
+1. 在左侧边栏中，单击 {% octicon "shield" aria-label="The shield icon" %}** 安全性**。
 {% endif %}
 
-## Viewing alerts for a repository
+## 查看仓库的警报
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **Security**. ![Repository security tab](/assets/images/help/repository/security-tab.png)
-2. In the security sidebar, select the view you want to open. ![Repository view alert subset](/assets/images/help/repository/repo-security-side-panel.png)
-3. （可选）过滤警报列表。 Each view has its own selection of available filters. 您可以单击下拉过滤菜单中的多个过滤器以缩小搜索范围。 You can also type search qualifiers in the search field. For more information about the available qualifiers, see "[Filtering alerts in the security overview](/code-security/security-overview/filtering-alerts-in-the-security-overview)." ![Drop down filter menus in the repository secret scanning alerts view](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
+1. 在仓库名称下，单击 **Security（安全性）**。 ![存储库安全性选项卡](/assets/images/help/repository/security-tab.png)
+2. 在安全性边栏中，选择要打开的视图。 ![存储库视图警报子集](/assets/images/help/repository/repo-security-side-panel.png)
+3. （可选）过滤警报列表。 每个视图都有自己选择的可用筛选器。 您可以单击下拉过滤菜单中的多个过滤器以缩小搜索范围。 您还可以在搜索字段中键入搜索限定符。 有关可用限定符的更多信息，请参阅“[筛选安全性概述中的警报](/code-security/security-overview/filtering-alerts-in-the-security-overview)”。 ![存储库机密扫描警报视图中的下拉筛选器菜单](/assets/images/help/repository/repo-code-scanning-filter-and-search.png)
 
 {% endif %}
 

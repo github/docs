@@ -366,4 +366,40 @@ steps:
 ]
 ```
 
-过滤条件 `fruits.*.name` 返回数组 `[ "apple", "orange", "pear" ]`
+过滤条件 `fruits.*.name` 返回数组 `[ "apple", "orange", "pear" ]`.
+
+您也可以在对象上使用 `*` 语法。 例如，假设您有一个名为 `vegetables` 的对象。
+
+```json
+
+{
+  "scallions":
+  {
+    "colors": ["green", "white", "red"],
+    "ediblePortions": ["roots", "stalks"],
+  },
+  "beets":
+  {
+    "colors": ["purple", "red", "gold", "white", "pink"],
+    "ediblePortions": ["roots", "stems", "leaves"],
+  },
+  "artichokes":
+  {
+    "colors": ["green", "purple", "red", "black"],
+    "ediblePortions": ["hearts", "stems", "leaves"],
+  },
+}
+```
+
+筛选器 `vegetables.*.ediblePortions` 可求值为：
+
+```json
+
+[
+  ["roots", "stalks"],
+  ["hearts", "stems", "leaves"],
+  ["roots", "stems", "leaves"],
+]
+```
+
+由于对象不保持顺序，因此无法保证输出的顺序。

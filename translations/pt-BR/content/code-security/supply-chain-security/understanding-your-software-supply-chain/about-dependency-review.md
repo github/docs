@@ -45,8 +45,8 @@ Ao verificar as revisões de dependências em um pull request e alterar todas as
 
 A revisão de dependências é compatível com as mesmas linguagens e os mesmos ecossistemas de gestão de pacotes do gráfico de dependência. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)".
 
-{% ifversion ghec or ghes or ghae %}
+{% ifversion ghec or ghes %}
 ## Habilitar revisão de dependências
 
-O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. {% ifversion ghec %}Para obter mais informações, consulte "[Habilitando o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).{% endif %}{% ifversion ghes or ghae %}Para obter mais informações, consulte "[Habilitando o gráfico de dependências para a sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)".{% endif %}
+O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. For more information, see "{% ifversion ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
 {% endif %}
