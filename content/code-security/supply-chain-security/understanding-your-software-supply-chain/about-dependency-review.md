@@ -6,7 +6,7 @@ shortTitle: Dependency review
 versions:
   fpt: '*'
   ghes: '>= 3.2'
-  ghae: '*'
+  ghae: issue-4864
   ghec: '*'
 type: overview
 topics:
