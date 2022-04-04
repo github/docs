@@ -46,7 +46,6 @@ When the dependency graph is first enabled, any manifest and lock files for supp
 
 ## Further reading
 
-- "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia{% ifversion fpt or ghec %}
-- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
+{% ifversion fpt or ghec %}- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
 - "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[Troubleshooting the detection of vulnerable dependencies](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"

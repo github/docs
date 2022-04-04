@@ -41,7 +41,7 @@ With organization activity insights you can view weekly, monthly, and yearly dat
 
 {% note %}
 
-**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph). 
+**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph). 
 
 {% endnote %}
 
