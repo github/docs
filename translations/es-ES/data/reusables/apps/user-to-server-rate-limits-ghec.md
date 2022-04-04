@@ -1,4 +1,4 @@
-User-to-server requests are subject to a higher limit of 15,000 requests per hour and per authenticated user in the following scenarios.
+Las solicitudes de usuario a servidor están sujetas a un límite alto de 15,000 solicitudes por hora y por usuario autenticado en los siguientes escenarios.
 
-- The request is from a {% data variables.product.prodname_github_app %} that's owned by a {% data variables.product.prodname_ghe_cloud %} organization.
-- The request is from an {% data variables.product.prodname_oauth_app %} that's owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization.
+- La solicitud es desde una {% data variables.product.prodname_github_app %} que pertenece a una organización de {% data variables.product.prodname_ghe_cloud %}.
+- La solicitud es desde una {% data variables.product.prodname_oauth_app %} que pertenece a o está aprobada por una organización de {% data variables.product.prodname_ghe_cloud %}.

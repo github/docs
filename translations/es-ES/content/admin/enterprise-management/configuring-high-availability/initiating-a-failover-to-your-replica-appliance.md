@@ -19,9 +19,9 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
+1. Si el aplicativo principal está disponible, para permitir que la replicación finalice antes de que cambies tus aplicativos, pon el aplicativo primario en modo de mantenimiento.
 
-    - Put the appliance into maintenance mode.
+    - Pon el aplicativo en modo de mantenimiento.
 
        - Para usar el administrador de consola, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)"
 
@@ -44,7 +44,7 @@ El tiempo requerido para la tolerancia de fallos depende de cuánto le tome para
       $ ghe-repl-status -vv
       ```
 
-4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. Esto también pondrá de forma automática al nodo primario en nodo mantenimiento si es accesible.
+4. En el aplicativo de réplica, para detener la replicación y promover dicho aplicativo a estado primario, utiliza el comando `ghe-repl-promote`. Esto también pondrá de forma automática al nodo primario en nodo mantenimiento si es accesible.
   ```shell
   $ ghe-repl-promote
   ```

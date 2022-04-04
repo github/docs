@@ -24,7 +24,7 @@ shortTitle: 自动合并 PR
 
 对拉取请求启用自动合并后，如果没有仓库写入权限的人员将新更改推送到头部分支或切换拉取请求的基础分支，则自动合并将被禁用。 例如，如果维护者允许从复刻自动合并拉取请求，则在贡献者推送对拉取请求的新更改后，自动合并将被禁用。{% endif %}
 
-You can provide feedback about auto-merge through a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/pull-requests-feedback).
+您可以通过 [{% data variables.product.product_name %} 反馈讨论](https://github.com/github/feedback/discussions/categories/pull-requests-feedback)提供有关自动合并的反馈。
 
 ## 启用自动合并
 
@@ -41,12 +41,12 @@ You can provide feedback about auto-merge through a [{% data variables.product.p
 1. 如果选择合并或压缩并合并方法，请输入提交消息和说明，然后选择要创作合并提交的电子邮件地址。 ![输入提交消息和说明并选择提交作者电子邮件的字段](/assets/images/help/pull_requests/pull-request-information-fields.png)
   {% note %}
 
-  **Note:** The email dropdown menu is not available if you have email privacy enabled or if you only have one verified and visible email associated with your {% data variables.product.company_short %} account.
+  **注意：** 如果您启用了电子邮件隐私，或者只有一封经过验证的可见电子邮件与您的 {% data variables.product.company_short %} 帐户相关联，则电子邮件下拉菜单不可用。
 
   {% endnote %}
   {% endif %}
   {% ifversion ghes or ghae or ghec %}
-1. If you chose the merge or squash and merge methods, type a commit message and description. ![Fields to enter commit message and description](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
+1. 如果选择了合并或压缩并合并方法，请键入提交消息和说明。 ![用于输入提交消息和描述的字段](/assets/images/help/pull_requests/pull-request-information-fields-enterprise.png)
   {% endif %}
 1. 单击 **Confirm auto-merge（确认自动合并）**。
 

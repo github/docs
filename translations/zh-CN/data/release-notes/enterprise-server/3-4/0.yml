@@ -134,6 +134,10 @@ sections:
 
           For more information, see "[Code scanning](/rest/reference/code-scanning)" in the REST API documentation.
         - '{% data variables.product.prodname_GH_advanced_security %} customers can now use the REST API to retrieve private repository secret scanning results at the enterprise level. The new endpoint supplements the existing repository-level and organization-level endpoints. For more information, see "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.'
+    - 
+      heading: Mobile changes
+      notes:
+        - Support for {% data variables.product.prodname_mobile %} is now enabled by default for new {% data variables.product.prodname_ghe_server %} instances. If you have not explicitly disabled or enabled {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_mobile %} will be enabled when you upgrade to {% data variables.product.prodname_ghe_server %} 3.4.0 or later. If you previously disabled or enabled {% data variables.product.prodname_mobile %} for your instance, your preference will be preserved upon upgrade. For more information, see "[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise)."
   #No security/bug fixes for the GA release
   #security_fixes:
   #- PLACEHOLDER

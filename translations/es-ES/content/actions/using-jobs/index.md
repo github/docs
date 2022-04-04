@@ -1,7 +1,7 @@
 ---
 title: Utilizar jobs
 shortTitle: Utilizar jobs
-intro: 'Creating and managing {% data variables.product.prodname_actions %} jobs.'
+intro: 'Crear y administrar jobs de {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /actions/jobs
 versions:

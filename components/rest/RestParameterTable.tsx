@@ -8,19 +8,12 @@ import { BodyParameterRows } from './BodyParametersRows'
 
 type Props = {
   slug: string
-  hasRequiredPreviews: boolean
   xGitHub: xGitHub
   parameters: Array<Parameter>
   bodyParameters: Array<BodyParameter>
 }
 
-export function RestParameterTable({
-  slug,
-  hasRequiredPreviews,
-  xGitHub,
-  parameters,
-  bodyParameters,
-}: Props) {
+export function RestParameterTable({ slug, xGitHub, parameters, bodyParameters }: Props) {
   const { t } = useTranslation('products')
 
   return (
@@ -38,7 +31,7 @@ export function RestParameterTable({
           </tr>
         </thead>
         <tbody>
-          <PreviewsRow slug={slug} hasRequiredPreviews={hasRequiredPreviews} xGitHub={xGitHub} />
+          <PreviewsRow slug={slug} xGitHub={xGitHub} />
           <ParameterRows parameters={parameters} />
           <BodyParameterRows slug={slug} bodyParameters={bodyParameters} />
         </tbody>

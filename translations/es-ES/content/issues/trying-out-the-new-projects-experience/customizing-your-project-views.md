@@ -136,7 +136,7 @@ Como alternativa, utiliza la paleta de comandos.
 
 En el diseño del tablero, puedes hacer clic en los datos del elemento o filtrar los elementos con este valor. Por ejemplo, haz clic en un asignado para mostrar únicamente los elementos de este. Para eliminar el filtro, haz clic en los datos de el elemento nuevamente.
 
-For more information, see "[Filtering projects](/issues/trying-out-the-new-projects-experience/filtering-projects)."
+Para obtener más información, consulta la sección "[Filtrar proyectos](/issues/trying-out-the-new-projects-experience/filtering-projects)".
 
 ## Crear una vista de proyecto
 

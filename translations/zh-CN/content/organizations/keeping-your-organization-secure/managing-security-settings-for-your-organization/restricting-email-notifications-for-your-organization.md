@@ -30,7 +30,7 @@ shortTitle: 限制电子邮件通知
 
 {% data reusables.notifications.email-restrictions-verification %}
 
-外部协作者不受限于已验证或批准域的电子邮件通知。 For more information about outside collaborators, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)."
+外部协作者不受限于已验证或批准域的电子邮件通知。 有关外部协作者的更多信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)”。
 
 如果您的组织由企业帐户拥有，则组织成员除了能够接收来自组织的任何已验证或批准域的通知之外，还能够接收来自企业帐户的任何已验证或批准域的通知。 更多信息请参阅“[验证或批准企业的域](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)”。
 

@@ -1,5 +1,5 @@
 ---
-title: Identity and access management
+title: 身份和访问管理
 intro: 您可以配置用户如何访问您的企业。
 redirect_from:
   - /enterprise/admin/authentication
