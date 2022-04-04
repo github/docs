@@ -48,7 +48,6 @@ Para iniciar rapidamente, você pode escolher o fluxo de trabalho inicial pré-c
 
 Você também pode adicionar este fluxo de trabalho manualmente, criando um novo arquivo no diretório `.github/workflows` do seu repositório.
 
-{% raw %}
 ```yaml{:copy}
 name: Java CI
 
@@ -59,16 +58,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Ant
         run: ant -noinput -buildfile build.xml
 ```
-{% endraw %}
 
 Este fluxo de trabalho executa os seguintes passos:
 
@@ -90,18 +88,16 @@ O fluxo de trabalho inicial executará o alvo-padrão especificado no arquivo _b
 
 Se você usa comandos diferentes para criar seu projeto ou se você quer executar um alvo diferente, você poderá especificá-los. Por exemplo, você deverá executar o `jar` configurado no seu arquivo `_build-ci.xml_`.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - name: Run the Ant jar target
     run: ant -noinput -buildfile build-ci.xml jar
 ```
-{% endraw %}
 
 ## Empacotar dados do fluxo de trabalho como artefatos
 
@@ -109,19 +105,17 @@ Após a sua criação ter sido criada com sucesso e os seus testes aprovados, é
 
 De modo geral, o Ant cria arquivos de saída como JARs, EARs ou WARs no diretório `build/jar`. Você pode fazer upload do conteúdo desse diretório usando a ação `upload-artefact`.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
 
   - run: ant -noinput -buildfile build.xml
-  - uses: actions/upload-artifact@v3
+  - uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: Package
       path: build/jar
 ```
-{% endraw %}

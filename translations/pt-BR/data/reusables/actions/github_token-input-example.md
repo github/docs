@@ -13,7 +13,7 @@ jobs:
   triage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/labeler@v2
+      - uses: {% data reusables.actions.action-labeler %}
         with:
           repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
