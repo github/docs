@@ -107,3 +107,4 @@ Excluir uma etiqueta removerá a etiqueta dos problemas e pull requests.
 - "[Filtrando e pesquisando problemas e pull requests](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
 - "[Gerenciar etiquetas padrão para repositórios na organização](/articles/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
 - "[Incentivar contribuições úteis para o seu projeto com etiquetas](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
+- "[Sintaxe básica de gravação e formatação](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)"

@@ -107,3 +107,4 @@ Organization のオーナーは、Organization 内のリポジトリのための
 - 「[IssueやPull Requestのフィルタリングと検索](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)」{% ifversion fpt or ghes or ghec %}
 - 「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」{% endif %}{% ifversion fpt or ghec %}
 - 「[ラベルを使用してプロジェクトに役立つコントリビューションを促す](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)」{% endif %}
+- [基本的な書き方とフォーマットの構文](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)
