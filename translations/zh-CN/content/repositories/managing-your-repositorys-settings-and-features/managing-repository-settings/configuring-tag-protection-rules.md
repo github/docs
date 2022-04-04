@@ -16,7 +16,7 @@ versions:
 
 {% endnote %}
 
-When you add a tag protection rule, all tags that match the pattern provided will be protected. Only users with admin or maintain permissions in the repository will be able to create protected tags, and only users with admin permissions in the repository will be able to delete protected tags. 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#permissions-for-each-role)”。
+When you add a tag protection rule, all tags that match the pattern provided will be protected. Only users with admin or maintain permissions in the repository will be able to create protected tags, and only users with admin permissions in the repository will be able to delete protected tags. 更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#permissions-for-each-role)”。 {% data variables.product.prodname_github_apps %} require the `Repository administration: write` permission to modify a protected tag.
 
 Additionally, you can create custom repository roles to allow other groups of users to create or delete tags that match tag protection rules. 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
 

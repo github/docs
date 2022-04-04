@@ -17,11 +17,11 @@ topics:
 shortTitle: 请求 PR 审查
 ---
 
-Repositories belong to a personal account (a single individual owner) or an organization account (a shared account with numerous collaborators or maintainers). 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/get-started/learning-about-github/types-of-github-accounts)”。 Owners and collaborators on a repository owned by a personal account can assign pull request reviews. Organization members with triage permissions can also assign a reviewer for a pull request.
+存储库属于个人帐户（单一个人所有者）或组织帐户（与众多协作者或维护者的共享帐户）。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 帐户的类型](/get-started/learning-about-github/types-of-github-accounts)”。 个人帐户拥有的仓库的所有者和协作者可以分配拉取请求审查。 具有分类权限的组织成员还可以为拉取请求分配审阅者。
 
-To assign a reviewer to a pull request, you will need write access to the repository. For more information about repository access, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)." If you have write access, you can assign anyone who has read access to the repository as a reviewer.
+要将审阅者分配给拉取请求，您需要对存储库具有写入权限。 有关仓库访问权限的更多信息，请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。 如果您具有写入权限，则可以将具有读取访问权限的任何人分配到存储库作为审阅者。
 
-Organization members with write access can also assign a pull request review to any person or team with read access to a repository. 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% ifversion fpt or ghae or ghes or ghec %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."{% endif %}
+具有写入权限的组织成员还可以将拉取请求审阅分配给对存储库具有读取访问权限的任何人员或团队。 被请求的审查者或团队将收到您请求他们审查拉取请求的通知。 {% ifversion fpt or ghae or ghes or ghec %}如果您请求团队审查，并且启用了代码审查分配，则会向特定成员发出申请，并且取消团队作为审查者。 更多信息请参阅“[管理团队的代码审查设置](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)”。{% endif %}
 
 {% note %}
 

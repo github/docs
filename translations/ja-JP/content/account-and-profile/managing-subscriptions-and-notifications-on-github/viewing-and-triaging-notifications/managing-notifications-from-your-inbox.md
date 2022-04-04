@@ -16,10 +16,6 @@ topics:
 shortTitle: Manage from your inbox
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## インボックスについて
 
 {% ifversion fpt or ghes or ghec %}

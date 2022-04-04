@@ -1,34 +1,34 @@
 ---
-title: Migrating GraphQL global node IDs
-intro: Learn about the two global node ID formats and how to migrate from the legacy format to the new format.
+title: 迁移 GraphQL 全局节点 ID
+intro: 了解两种全局节点 ID 格式以及如何从旧格式迁移到新格式。
 versions:
   fpt: '*'
   ghec: '*'
 topics:
   - API
-shortTitle: Migrating global node IDs
+shortTitle: 迁移全局节点 ID
 ---
 
-## Background
+## 背景
 
-The {% data variables.product.product_name %} GraphQL API currently supports two types of global node ID formats. The legacy format will be deprecated and replaced with a new format.  This guide shows you how to migrate to the new format, if necessary.
+{% data variables.product.product_name %} GraphQL API 目前支持两种类型的全局节点 ID 格式。 旧格式将被弃用，并替换为新格式。  本指南介绍如何在必要时迁移到新格式。
 
-By migrating to the new format, you ensure that the response times of your requests remain consistent and small. You also ensure that your application continues to work once the legacy IDs are fully deprecated.
+通过迁移到新格式，可以确保请求的响应时间保持一致且较短。 您还可以确保在完全弃用旧 ID 后，应用程序继续工作。
 
-To learn more about why the legacy global node ID format will be deprecated, see "[New global ID format coming to GraphQL](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)."
+要详细了解有关旧版全局节点 ID 格式将被弃用的原因，请参阅“[即将引入 GraphQL 的新全局 ID 格式](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)”。
 
-## Determining if you need to take action
+## 确定是否需要采取措施
 
-You only need to follow the migration steps if you store references to GraphQL global node IDs.  These IDs correspond to the `id` field for any object in the schema.  If you don't store any global node IDs, then you can continue to interact with the API with no change.
+仅在存储对 GraphQL 全局节点 ID 的引用时，才需要遵循迁移步骤。  这些 ID 对应于架构中任何对象的 `id` 字段。  如果不存储任何全局节点 ID，则可以继续与 API 交互，而不会发生任何更改。
 
-Additionally, if you currently decode the legacy IDs to extract type information (for example, if you use the first two characters of `PR_kwDOAHz1OX4uYAah` to determine if the object is a pull request), your service will break since the format of the IDs has changed.  You should migrate your service to treat these IDs as opaque strings.  These IDs will be unique, therefore you can rely on them directly as references.
+此外，如果当前对旧 ID 进行解码以提取类型信息（例如，如果使用 `PR_kwDOAHz1OX4uYAah` 的前两个字符来确定对象是否为拉取请求），则由于 ID 的格式已更改，您的服务将中断。  应迁移服务以将这些 ID 视为不透明字符串进行处理。  这些 ID 将是唯一的，因此您可以直接依赖它们作为引用。
 
 
-## Migrating to the new global IDs
+## 迁移到新的全局 ID
 
-To facilitate migration to the new ID format, you can use the `X-Github-Next-Global-ID` header in your GraphQL API requests. The value of the `X-Github-Next-Global-ID` header can be `1` or `0`.  Setting the value to `1` will force the response payload to always use the new ID format for any object that you requested the `id` field for.  Setting the value to `0` will revert to default behavior, which is to show the legacy ID or new ID depending on the object creation date.
+为了便于迁移到新的 ID 格式，您可以在 GraphQL API 请求中使用 `X-Github-Next-Global-ID` 标头。 `X-Github-Next-Global-ID` 标头的值可以是 `1` 或 `0`。  将该值设置为 `1` 将强制响应负载始终对请求 `id` 字段的任何对象使用新的 ID 格式。  将值设置为 `0` 将恢复为默认行为，即根据对象创建日期显示旧 ID 或新 ID。
 
-Here is an example request using cURL:
+下面是一个使用 cURL 的示例请求：
 
 ```
 $ curl \
@@ -38,13 +38,13 @@ $ curl \
   -d '{ "query": "{ node(id: \"MDQ6VXNlcjM0MDczMDM=\") { id } }" }'
 ```
 
-Even though the legacy ID `MDQ6VXNlcjM0MDczMDM=` was used in the query, the response will contain the new ID format:
+即使查询中使用了旧 ID `MDQ6VXNlcjM0MDczMDM=`，响应也将包含新的 ID 格式：
 ```
 {"data":{"node":{"id":"U_kgDOADP9xw"}}}
 ```
-With the `X-Github-Next-Global-ID` header, you can find the new ID format for legacy IDs that you reference in your application. You can then update those references with the ID received in the response. You should update all references to legacy IDs and use the new ID format for any subsequent requests to the API. To perform bulk operations, you can use aliases to submit multiple node queries in one API call. For more information, see "[the GraphQL docs](https://graphql.org/learn/queries/#aliases)."
+使用 `X-Github-Next-Global-ID` 标头，您可以找到在应用程序中引用的旧 ID 的新 ID 格式。 然后，您可以使用响应中收到的 ID 更新这些引用。 您应更新对旧版 ID 的所有引用，并对 API 的任何后续请求使用新的 ID 格式。 要执行批量操作，您可以使用别名在一次 API 调用中提交多个节点查询。 更多信息请参阅“[GraphQL 文档](https://graphql.org/learn/queries/#aliases)”。
 
-You can also get the new ID for a collection of items. For example, if you wanted to get the new ID for the last 10 repositories in your organization, you could use a query like this:
+您还可以为项目集合获取新 ID。 例如，如果要获取组织中最后 10 个存储库的新 ID，则可以使用如下所示的查询：
 ```
 {
   organization(login: "github") {
@@ -61,8 +61,8 @@ You can also get the new ID for a collection of items. For example, if you wante
 }
 ```
 
-Note that setting `X-Github-Next-Global-ID` to `1` will affect the return value of every `id` field in your query.  This means that even when you submit a non-`node` query, you will get back the new format ID if you requested the `id` field.
+请注意，将 `X-Github-Next-Global-ID` 设置为 `1` 将影响查询中每个 `id` 字段的返回值。  这意味着，即使您提交了非 `node` 查询，只要您请求了 `id` 字段，您也会取回新的格式 ID。
 
 ## 分享反馈
 
-If you have any concerns about the rollout of this change impacting your app, please [contact {% data variables.product.product_name %}](https://support.github.com/contact) and include information such as your app name so that we can better assist you.
+如果您对这个影响到您的应用的更改有任何顾虑， 请[联系 {% data variables.product.product_name %}](https://support.github.com/contact) 并包含诸如您的应用程序名称等信息，以便我们更好地帮助您。

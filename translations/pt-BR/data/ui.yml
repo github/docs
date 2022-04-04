@@ -103,7 +103,7 @@ products:
       notes: Observações
       parameters: Parâmetros
       response: Resposta
-      error_codes: Error Codes
+      status_codes: Status codes
       http_status_code: HTTP Status Code
       code_sample: Amostra de código
       code_samples: Amostras de código

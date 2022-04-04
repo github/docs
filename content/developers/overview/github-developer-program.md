@@ -12,10 +12,6 @@ topics:
 
 Building an application that integrates with GitHub? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. [Register now](https://github.com/developer/register)
 
-## Stay in the know
-
-Be the first to know about API changes and try out new features before they launch in the [Developer blog](https://developer.github.com/changes/).
-
 ## Scratch an itch
 
 Build your own tools that seamlessly integrate with the place you push code every day.
@@ -23,7 +19,6 @@ Build your own tools that seamlessly integrate with the place you push code ever
 ## Take on the enterprise
 
 Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
-
 
 ## Have an integration that works with GitHub?
 

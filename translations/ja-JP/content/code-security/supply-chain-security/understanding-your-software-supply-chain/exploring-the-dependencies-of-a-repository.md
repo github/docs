@@ -33,7 +33,7 @@ shortTitle: 依存関係の調査
 {% data reusables.repositories.click-dependency-graph %}{% ifversion fpt or ghec %}
 4. オプションとして、[Dependency graph] で [**Dependents**] をクリックします。 ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
-{% ifversion ghes or ghae-issue-4864 %}
+{% ifversion ghes %}
 Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
 {% endif %}
 

@@ -1,1 +1,1 @@
-如果具有相同名称的机密存在于多个级别，则较低级别的机密优先。 例如，如果组织级别密码的名称与仓库级别的密码相同，则仓库级别的密码优先。
+If a secret with the same name exists at multiple levels, the secret at the lowest level takes precedence. 例如，如果组织级别密码的名称与仓库级别的密码相同，则仓库级别的密码优先。
