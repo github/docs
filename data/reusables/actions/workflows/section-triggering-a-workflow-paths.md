@@ -20,7 +20,7 @@ on:
 
 {% note %}
 
-**Note:** There is an interaction between filter actions and required checks.  If an action is skipped due to path filtering and set as a required check, the check will remain pending. To work around this, you need a corresponding action of the same name that always passes and runs whenever the former does not, refer to [Handling skipped but required checks](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks) for details.
+**Note:** If a workflow is skipped due to path filtering, but the workflow is set as a required check, then the check will remain as "Pending". To work around this, you can create a corresponding workflow with the same name that always passes whenever the original workflow is skipped because of path filtering. For more information, see "[Handling skipped but required checks](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)."
 
 {% endnote %}
 
