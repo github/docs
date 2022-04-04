@@ -455,3 +455,9 @@
 - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
 - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 - /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization
+
+/enterprise-cloud@latest/code-security/security-overview/viewing-the-security-overview
+- /code-security/security-overview/viewing-the-security-overview
+
+/enterprise-cloud@latest/code-security/security-overview/filtering-alerts-in-the-security-overview
+- /code-security/security-overview/filtering-alerts-in-the-security-overview
