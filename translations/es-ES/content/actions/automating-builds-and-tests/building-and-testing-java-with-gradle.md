@@ -60,16 +60,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
+        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
           arguments: build
 ```
@@ -95,22 +95,20 @@ El flujo de trabajo de inicio ejecutará la tarea `build` por defecto. En la con
 
 Si usas diferentes comandos para construir tu proyecto, o si quieres usar una tarea diferente, puedes especificarlo. Por ejemplo, es posible que desees ejecutar la tarea `package` que está configurada en tu archivo _ci.gradle_.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Run the Gradle package task
-    uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
+    uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
     with:
       arguments: -b ci.gradle package
 ```
-{% endraw %}
 
 ## Almacenar dependencias en caché
 
@@ -124,23 +122,21 @@ Una vez que tu compilación haya tenido éxito y tus pruebas hayan pasado, es po
 
 Por lo general, Gradle creará archivos de salida como JAR, EAR o WAR en el directorio `build/libs`. Puedes cargar los contenidos de ese directorio utilizando la acción `upload-Artifact`.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - name: Validate Gradle wrapper
     uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
   - name: Build with Gradle
-    uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
+    uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
     with:
       arguments: build
-  - uses: actions/upload-artifact@v3
+  - uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: Package
       path: build/libs
 ```
-{% endraw %}
