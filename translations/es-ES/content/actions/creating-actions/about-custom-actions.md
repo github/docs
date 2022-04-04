@@ -73,7 +73,6 @@ Con el almacenamiento de una acción en su propio repositorio es más fácil par
 
 {% ifversion fpt or ghec %}Si estás creando una acción que no piensas poner disponible para otros, puedes {% else %} Puedes {% endif %} almacenar los archivos de dicha acción en cualquier ubicación de tu repositorio. Si tienes la intención de combinar la acción, el flujo de trabajo y el código de aplicación en un único repositorio, es recomendable que almacenes las acciones en el directorio `.github`. Por ejemplo, `.github/actions/action-a` y `.github/actions/action-b`.
 
-
 ## Compatibilidad con {% data variables.product.prodname_ghe_server %}
 
 Para garantizar de que tu acción es compatible con {% data variables.product.prodname_ghe_server %}, debes asegurarte de que no utilices ninguna referencia escrita a mano para las URL de la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}. En vez de esto, deberías utilizar variables de ambiente para referirte a la API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %}:
@@ -130,7 +129,7 @@ steps:
 
 ### Utilizar el SHA de las confirmaciones para la administración de lanzamientos
 
-Cada confirmación de Git recibe un valor calculado de SHA, el cual es único e inmutable. Los usuarios de tus acciones podrían preferir obtener un valor de SHA para la confirmación, ya que este acercamiento puede ser más confiable que especificar una etiqueta, la cual podría borrarse o moverse. Sin embargo, esto significa que los usuarios no recibirán ls actualizaciones posteriores que se hagan a la acción. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Debes utilizar el valor completo del SHA de la confirmación y no el abreviado.{% else %}El utilizar el valor completo del SHA de la confirmación en vez del abreviado ayuda a prevenir que las personas utilicen una confirmación mal intencionada que utiice la misma abreviación.{% endif %}
+Cada confirmación de Git recibe un valor calculado de SHA, el cual es único e inmutable. Los usuarios de tus acciones podrían preferir obtener un valor de SHA para la confirmación, ya que este acercamiento puede ser más confiable que especificar una etiqueta, la cual podría borrarse o moverse. Sin embargo, esto significa que los usuarios no recibirán ls actualizaciones posteriores que se hagan a la acción. Debes utilizar un valor SHA completo de la confirmación y no un valor abreviado.
 
 ```yaml
 steps:

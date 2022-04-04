@@ -5,17 +5,23 @@ type Props = {
   responses: Array<CodeResponse>
 }
 
-export function RestResponse({ responses }: Props) {
+export function RestResponse(props: Props) {
+  const { responses } = props
+
+  if (!responses || responses.length === 0) {
+    return null
+  }
+
   return (
     <>
-      {responses.map((response: CodeResponse, index: number) => {
+      {responses.map((response, index) => {
         return (
           <div key={`${response.httpStatusMessage}-${index}}`}>
             <h4 dangerouslySetInnerHTML={{ __html: response.description }} />
             <CodeBlock
               codeBlock={`Status: ${response.httpStatusCode} ${response.httpStatusMessage}`}
             />
-            <CodeBlock codeBlock={response.payload} setHTML={true} />
+            {response.payload ? <CodeBlock codeBlock={response.payload} highlight="json" /> : null}
           </div>
         )
       })}

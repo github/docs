@@ -24,11 +24,14 @@ After you purchase or upgrade a license for {% data variables.product.prodname_e
 
 {% endwarning %}
 
-1. サイト管理者として {% data variables.product.product_location_enterprise %} にサインインします。
+1. Sign into {% data variables.product.product_location_enterprise %} as a site administrator.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. [Quick links] で [**Update license**] をクリックする。 ![ライセンス更新のリンク](/assets/images/enterprise/business-accounts/update-license-link.png)
-1. ライセンスを選択するには、[**License file**] をクリックするか、ライセンスファイルを [**License file**] にドラッグします。 ![ライセンスファイルのアップロード](/assets/images/enterprise/management-console/upload-license.png)
-1. [**Upload**] をクリックします。 ![アップロード開始](/assets/images/enterprise/management-console/begin-upload.png)
+1. Under "Quick links", click **Update license**.
+  ![Update license link](/assets/images/enterprise/business-accounts/update-license-link.png)
+1. To select your license, click **License file**, or drag your license file onto **License file**.
+  ![Upload license file](/assets/images/enterprise/management-console/upload-license.png)
+1. Click **Upload**.
+  ![Begin upload](/assets/images/enterprise/management-console/begin-upload.png)
 

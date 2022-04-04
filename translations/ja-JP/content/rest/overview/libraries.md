@@ -1,6 +1,6 @@
 ---
 title: ライブラリ
-intro: 'You can use the official Octokit library and other third-party libraries to extend and simplify how you use the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.'
+intro: '公式のOctokitライブラリや、その他のサードパーティライブラリを使い、{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIの使い方を拡張し、シンプルにすることができます。'
 redirect_from:
   - /libraries
   - /v3/libraries

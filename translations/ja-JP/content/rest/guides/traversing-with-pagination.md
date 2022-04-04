@@ -14,7 +14,7 @@ topics:
 shortTitle: ページネーション付きのトラバース
 ---
 
-The {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API provides a vast wealth of information for developers to consume. ほとんどの場合は、要求している情報が_多すぎる_ということに気付くかもしれません。サーバーに負担をかけすぎないため、API は自動的に[リクエストされたアイテムをページネーション](/rest/overview/resources-in-the-rest-api#pagination)します。
+{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIは、開発者が利用できる情報を豊富に提供します。 ほとんどの場合は、要求している情報が_多すぎる_ということに気付くかもしれません。サーバーに負担をかけすぎないため、API は自動的に[リクエストされたアイテムをページネーション](/rest/overview/resources-in-the-rest-api#pagination)します。
 
 このガイドでは、 Search APIを呼び出し、ページネーションを使って結果を反復処理します。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
 

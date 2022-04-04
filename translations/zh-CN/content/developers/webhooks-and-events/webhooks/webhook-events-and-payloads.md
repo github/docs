@@ -219,7 +219,7 @@ Git 引用已成功同步到缓存副本。 更多信息请参阅“[关于仓�
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-`sender` | `object` | 如果 `action` 是 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 `sender` 对象对所有其他操作是 {% ifversion fpt or ghec %}`github` {% elsif ghes > 3.0 or ghae %}`github-enterprise` {% else %}空 {% endif %}。
+`sender` | `object` | 如果 `action` 是 `reopened_by_user` 或 `closed_by_user`，则 `sender` 对象将是触发事件的用户。 `sender` 对象对所有其他操作是 {% ifversion fpt or ghec %}`github` {% elsif ghes or ghae %}`github-enterprise` {% else %}空 {% endif %}。
 
 ### Web 挂钩有效负载示例
 
@@ -1216,7 +1216,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 
 ## secret_scanning_alert
 
@@ -1246,7 +1246,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 与已由 {% data variables.product.company_short %} 审查的安全通告相关的活动。 经过 {% data variables.product.company_short %} 审查的安全通告提供了有关 {% data variables.product.prodname_dotcom %}上软件中安全相关漏洞的信息。
 
-安全通告数据集还为 GitHub {% data variables.product.prodname_dependabot_alerts %} 提供支持。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。
+安全通告数据集还为 GitHub {% data variables.product.prodname_dependabot_alerts %} 提供支持。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。
 
 ### 可用性
 
@@ -1448,7 +1448,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae-issue-4462 %}
 
 ## workflow_job
 

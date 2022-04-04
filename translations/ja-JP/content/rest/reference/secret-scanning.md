@@ -1,9 +1,9 @@
 ---
 title: Secret scanning
-intro: プライベートリポジトリからのシークレットアラートを取得して更新するには、Secret Scanning APIが利用できます。
+intro: Secret scanning APIを使うと、リポジトリのシークレットアラートの取得と更新ができます。
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghec: '*'
   ghae: '*'
 miniTocMaxHeadingLevel: 3

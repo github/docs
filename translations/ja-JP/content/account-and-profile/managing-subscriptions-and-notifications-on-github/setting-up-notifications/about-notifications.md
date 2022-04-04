@@ -16,10 +16,6 @@ topics:
   - Notifications
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## 通知とサブスクリプション
 
 サブスクリプションを通じて、{% data variables.product.product_location %} の特定のアクティビティに関する継続的な更新を受信するかを選択できます。 通知では、サブスクライブしている特定のアクティビティについての更新を受信します。
@@ -29,9 +25,8 @@ topics:
 サブスクライブできる通知は次のとおりです。
 - 特定の Issue、プルリクエスト、または Gist の会話。
 - リポジトリまたは Team ディスカッション内のすべてのアクティビティ。
-- {% data variables.product.prodname_actions %} で設定されたリポジトリ内のワークフローのステータスなどの CI アクティビティ。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).{% else %}
-- Releases in a repository.{% endif %}
+- {% data variables.product.prodname_actions %} で設定されたリポジトリ内のワークフローのステータスなどの CI アクティビティ。
+- Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled).
 
 フォークを除き、あなたがプッシュアクセスを持つすべてのリポジトリを自動的にWatchすることもできます。 [**Watch**] をクリックすると、手動でアクセスできる他のリポジトリを Watch できます。
 

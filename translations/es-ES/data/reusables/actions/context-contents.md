@@ -1,1 +1,1 @@
-Contexts, objects, and properties will vary significantly under different workflow run conditions.
+Los contextos, objetos y propiedades variarán significativamente bajo las diferentes condiciones de ejecución de flujo de trabajo.

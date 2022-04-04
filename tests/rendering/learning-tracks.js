@@ -1,5 +1,6 @@
-import { getDOM } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+
+import { getDOM } from '../helpers/e2etest.js'
 
 jest.setTimeout(3 * 60 * 1000)
 

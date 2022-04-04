@@ -41,7 +41,6 @@ Algunos eventos tienen tipos de actividad múltiple. Para ellos, puedes especifi
 
 Ejecuta tu flujo de trabajo cuando se cambian las reglas de protección de rama en el repositorio del flujo de trabajo. Para obtener más información sobre las reglas de protección de rama, consulta la sección "[Acerca de las ramas protegidasrama protegida](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)". Para obtener más información acerca de las API de regla de protección de rama, consulta la sección "[BranchProtectionRule](/graphql/reference/objects#branchprotectionrule)" en la documentación de la API de GraphQL o "[Ramas](/rest/reference/branches)" en la documentación de la API de REST.
 
-
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando una regla de protección de rama se muestre como `created` o `deleted`:
 
 ```yaml
@@ -558,9 +557,9 @@ on:
 
 ### `solicitud_extracción`
 
-| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `GITHUB_SHA`                                          | `GITHUB_REF`                                     |
-| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------ |
-| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de fusión de PR `refs/pull/:prNumber/merge` |
+| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                         | `GITHUB_SHA`                                          | `GITHUB_REF`                                     |
+| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------ |
+| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de fusión de PR `refs/pull/:prNumber/merge` |
 
 {% note %}
 
@@ -625,7 +624,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Nota:** {% data reusables.actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajos solo se ejecutará cuando se abra una solicitud de cambios que incluya un cambio en un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
 
 ```yaml
 on:
@@ -670,7 +669,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Nota:** {% data reusables.actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajos solo se ejecutará cuando se abra una solicitud de cambios que incluya un cambio en un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
 
 ```yaml
 on:
@@ -777,9 +776,9 @@ on:
 
 ### `pull_request_target`
 
-| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `GITHUB_SHA`                                                      | `GITHUB_REF`                            |
-| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------- |
-| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed`{% ifversion fpt or ghes > 3.0 or ghae or ghec %} <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled`{% endif %} | Última confirmación en la rama base de la solicitud de extracción | Rama base de la solicitud de extracción |
+| Carga del evento Webhook                                                                                     | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                                                                                                         | `GITHUB_SHA`                                                      | `GITHUB_REF`                            |
+| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------- |
+| [`solicitud_extracción`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `converted_to_draft`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` <br/>- `auto_merge_enabled` <br/>- `auto_merge_disabled` | Última confirmación en la rama base de la solicitud de extracción | Rama base de la solicitud de extracción |
 
 {% note %}
 
@@ -828,7 +827,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Nota:** {% data reusables.actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajos solo se ejecutará cuando se abra una solicitud de cambios que incluya un cambio en un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
 
 ```yaml
 on:
@@ -873,7 +872,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a pull request that includes a change to a JavaScript (`.js`) file is opened on a branch whose name starts with `releases/`:
+**Nota:** {% data reusables.actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajos solo se ejecutará cuando se abra una solicitud de cambios que incluya un cambio en un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
 
 ```yaml
 on:
@@ -890,7 +889,7 @@ on:
 
 #### Ejecutar tu flujo de trabajo cuando se fusiona una solicitud de cambios
 
-Cuando se fusiona una solicitud de cambios, esta se cierra automáticamente. To run a workflow when a pull request merges, use the `pull_request_target` `closed` event type along with a conditional that checks the `merged` value of the event. Por ejemplo, el siguiente flujo de trabajo se ejecutará cada que se cierre una solicitud de cambios. El job `if_merged` solo se ejecutará si la solicitud de cambios también se fusionó.
+Cuando se fusiona una solicitud de cambios, esta se cierra automáticamente. Para ejecutar un flujo de trabajo cuando se fusiona una solicitud de cambios, utiliza el tipo de evento `pull_request_target` `closed` junto con una condicional que verifique el valor `merged` del mismo. Por ejemplo, el siguiente flujo de trabajo se ejecutará cada que se cierre una solicitud de cambios. El job `if_merged` solo se ejecutará si la solicitud de cambios también se fusionó.
 
 ```yaml
 on:
@@ -950,7 +949,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+**Nota:** {% data reusables.actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando se haga una subida que incluya un cambio a un archivo de JavaScript (`.js`) a una rama cuyo nombre inicie con `releases/`:
 
 ```yaml
 on:
@@ -991,7 +990,7 @@ on:
 
 {% note %}
 
-**Note:** {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+**Nota:** {% data reusables.actions.branch-paths-filter %} Por ejemplo, el siguiente flujo de trabajo solo se ejecutará cuando se suba información que incluya un cambio a un archivo de JavaScript (`.js`) en una rama cuyo nombre inicie con `releases/`:
 
 ```yaml
 on:
@@ -1030,9 +1029,9 @@ on:
 
 ### `lanzamiento`
 
-| Carga del evento Webhook                                                                       | Tipos de actividad                                                                                                                                              | `GITHUB_SHA`                                     | `GITHUB_REF`                                    |
-| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------- |
-| [`lanzamiento`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Última confirmación en el lanzamiento etiquetado | Tag ref of release `refs/tags/<tag_name>` |
+| Carga del evento Webhook                                                                       | Tipos de actividad                                                                                                                                              | `GITHUB_SHA`                                     | `GITHUB_REF`                                                |
+| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------------------------------------------- |
+| [`lanzamiento`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Última confirmación en el lanzamiento etiquetado | Ref de etiqueta de lanzamiento `refs/tags/<tag_name>` |
 
 {% note %}
 
@@ -1221,7 +1220,7 @@ on:
 | ------------------------------------------ | ------------------ | ------------------------------------------ | ------------------------------------------ |
 | El mismo que el flujo de trabajo que llama | n/a                | El mismo que el flujo de trabajo que llama | El mismo que el flujo de trabajo que llama |
 
-`workflow_call` se utiliza para indicar que un flujo de trabajo puede llamar a otro. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
+`workflow_call` se utiliza para indicar que un flujo de trabajo puede llamar a otro. Cuando se activa un flujo de trabajo con el evento `workflow_call`, la carga útil del evento en el flujo de trabajo llamado es la misma del flujo de trabajo llamante. Para obtener más información, consulta la sección "[Reutilizar los flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".
 
 El siguiente ejemplo solo ejecuta el flujo de trabajo cuando se le llama desde otro flujo de trabajo:
 
@@ -1248,7 +1247,7 @@ on: workflow_dispatch
 Puedes configurar propiedades de entrada definidas personalmente, valores de entrada predeterminados y entradas requeridas para el evento directamente en tu flujo de trabajo. Cuando activas el evento, puedes proporcionar el `ref` y cualquier `inputs`. Cuando se ejecuta el flujod e trabajo, puedes acceder a los valores de entrada en el contexto de `github.event.inputs`. Para obtener más información, consulta "[Contextos](/actions/learn-github-actions/contexts)".
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5511 %}
-This example defines inputs called `logLevel`, `tags`, and `environment`. You pass values for these inputs to the workflow when you run it. This workflow then prints the values to the log, using the `github.event.inputs.logLevel`, `github.event.inputs.tags`, and  `github.event.inputs.environment` context properties.
+Este ejemplo define las entradas llamadas `logLevel`, `tags` y `environment`. Pasarás los valores para estas entradas al flujo de trabajo cuando lo ejecutes. Entonces, este flujo de trabajo imprime los valores en la bitácora, utilizando las propiedades de contexto `github.event.inputs.logLevel`, `github.event.inputs.tags` y `github.event.inputs.environment`.
 
 {% raw %}
 ```yaml
@@ -1288,18 +1287,17 @@ jobs:
 ```
 {% endraw %}
 
-If you run this workflow from a browser you must enter values for the required inputs manually before the workflow will run.
+Si ejecutas este flujo de trabajo desde un buscador, debes ingresar los valores para las entradas requeridas manualmente antes de que dicho flujo se ejecute.
 
-![Entering inputs for a workflow](/assets/images/help/images/workflow-dispatch-inputs.png)
+![Ingresar entradas para un flujo de trabajo](/assets/images/help/images/workflow-dispatch-inputs.png)
 
-You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. Por ejemplo:
+También puedes pasar las entradas cuando ejecutas un flujo de trabajo desde un script o utilizando el {% data variables.product.prodname_cli %}. Por ejemplo:
 
 ```
 gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
 ```
 
-For more information, see the {% data variables.product.prodname_cli %} information in "[Manually running a workflow](/actions/managing-workflow-runs/manually-running-a-workflow)."
-
+Para obtener más información, consulta la información del {% data variables.product.prodname_cli %} en la sección "[Ejecutar un flujo de trabajo manualmente](/actions/managing-workflow-runs/manually-running-a-workflow)".
 
 {% else %}
 Este ejemplo define las entradas `name` y `home` y las imprime utilizando los contextos `github.event.inputs.name` y `github.event.inputs.home`. Si no se proporciona un `home`, se imprime el valor predeterminado 'The Octoverse'.
@@ -1339,7 +1337,7 @@ jobs:
 
 {% note %}
 
-**Nota**: {% data reusables.developer-site.multiple_activity_types %} El tipo de actividad `requested` no ocurre cuando se vuelve a ejecutar un flujo de trabajo. Para obtener más información sobre cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)". {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Note**: {% data reusables.developer-site.multiple_activity_types %} The `requested` activity type does not occur when a workflow is re-run. Para obtener más información sobre cada tipo de actividad, consulta la sección "[Cargas útiles y eventos de webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_run)". {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -1398,7 +1396,7 @@ jobs:
 
 #### Ltimitar tu flujo de trabajo para que se ejecute con base a las ramas
 
-Puedes utilizar el filtro `branches` o `branches-ignore` para especificar en qué ramas se debe ejecutar el flujo de trabajo activador para poder activar tu flujo de trabajo. For more information, see "[Workflow syntax for GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)." Por ejemplo, un flujo de trabajo con el siguiente activador solo se ejecutará cuando el flujo de trabajo que se llama `Build` se ejecute en una rama llamada `canary`.
+Puedes utilizar el filtro `branches` o `branches-ignore` para especificar en qué ramas se debe ejecutar el flujo de trabajo activador para poder activar tu flujo de trabajo. Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para las GitHub Actions](/actions/learn-github-actions/workflow-syntax-for-github-actions#onworkflow_runbranchesbranches-ignore)". Por ejemplo, un flujo de trabajo con el siguiente activador solo se ejecutará cuando el flujo de trabajo que se llama `Build` se ejecute en una rama llamada `canary`.
 
 ```yaml
 on:
@@ -1431,7 +1429,7 @@ jobs:
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           name: pr_number
           path: pr/

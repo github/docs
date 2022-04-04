@@ -1,6 +1,8 @@
 ---
 date: '2022-03-01'
 sections:
+  security_fixes:
+    - "ALTA: Se identificó una vulnerabilidad de desbordamiento de integrales en el analizador de lenguaje de marcado de GitHub, la cual pudo haber ocasionado fugas de información potenciales y RCE. Esta vulnerabilidad la reportó Felix Wilhelm, del proyecto Zero de Google, mediante el programa de Recompensas por Errores de GitHub y se le asignó el CVE-2022-24724."
   bugs:
     - Upgrades could sometimes fail if a high-availability replica's clock was out of sync with the primary.
     - 'OAuth Applications created after September 1st, 2020 were not able to use the [Check an Authorization](https://docs.github.com/en/enterprise-server@3.3/rest/reference/apps#check-an-authorization) API endpoint.'

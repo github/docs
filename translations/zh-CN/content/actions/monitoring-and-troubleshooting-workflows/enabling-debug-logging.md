@@ -16,9 +16,7 @@ versions:
 这些额外的日志将通过在包含工作流程的仓库中设置密码来启用，因此将应用相同的权限要求：
 
 - {% data reusables.actions.permissions-statement-secrets-repository %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 - {% data reusables.actions.permissions-statement-secrets-environment %}
-{% endif %}
 - {% data reusables.actions.permissions-statement-secrets-organization %}
 - {% data reusables.actions.permissions-statement-secrets-api %}
 

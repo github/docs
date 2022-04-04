@@ -31,11 +31,11 @@ Para jobs que se ejecutan en ejecutores hospedados en {% data variables.product.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-{% data reusables.repositories.view-failed-job-results-superlinter %}
-{% data reusables.repositories.view-specific-line-superlinter %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+{% data reusables.repositories.view-failed-job-results %}
+{% data reusables.repositories.view-specific-line %}
 
 ## Buscar registros
 
@@ -43,15 +43,10 @@ Puedes buscar en los registros de construcción un paso en particular. Cuando bu
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-1. En el cuadro de búsqueda **Buscar registros** en la esquina superior derecha de la salida del registro, escribe una consulta de búsqueda.
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-  ![Cuadro de búsqueda para buscar registros](/assets/images/help/repository/search-log-box-updated-2.png)
-{% else %}
-  ![Cuadro de búsqueda para buscar registros](/assets/images/help/repository/search-log-box-updated.png)
-{% endif %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+1. En el cuadro de búsqueda **Buscar registros** en la esquina superior derecha de la salida del registro, escribe una consulta de búsqueda. ![Cuadro de búsqueda para buscar registros](/assets/images/help/repository/search-log-box-updated-2.png)
 
 ## Descargar bitácoras
 
@@ -59,14 +54,22 @@ Puedes descargar los archivos de bitácora desde tu ejecución de flujo de traba
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-{% data reusables.repositories.navigate-to-job-superlinter %}
-1. En la esquina superior derecha, haz clic en {% ifversion fpt or ghes > 3.0 or ghae or ghec %}{% octicon "gear" aria-label="The gear icon" %}{% else %}{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}{% endif %} y selecciona **Descargar archivo de bitácora**.
-  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
+{% data reusables.repositories.navigate-to-job %}
+1. En la esquina superior derecha, da clic en {% octicon "gear" aria-label="The gear icon" %} y selecciona **Descargar archivo de bitácora**.
+
   ![Menú desplegable para descargar registros](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
-  {% else %}
-  ![Menú desplegable para descargar registros](/assets/images/help/repository/download-logs-drop-down-updated.png)
+
+
+  {% if re-run-jobs %}
+
+  {% note %}
+
+  **Nota**: Cuando descargas el archivo de bitácora para un flujo de trabajo que se volvió a ejecutar parcialmente, este archivo solo incluirá los jobs que se volvieron a ejecutar. Para obtener un conjunto completo de bitácoras para los jobs que se ejecutaron desde un flujo de trabajo, debes descargar los archivos de bitácora de los intentos de ejecución previos que ejecutaron los otros jobs.
+
+  {% endnote %}
+
   {% endif %}
 
 ## Borrar bitácoras
@@ -75,20 +78,16 @@ Puedes borrar los archivos de bitácora de tu ejecución de flujo de trabajo. {%
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
 1. En la esquina superior derecha, haz clic en el {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
     ![Icono de Kebab horizontal](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated-2.png)
-    {% else %}
-    ![Icono de Kebab horizontal](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
-    {% endif %}
+
 2. Para borrar los archivos de bitácora, da clic en el botón **Borrar todas las bitácoras** y revisa el aviso de confirmación.
-  {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
   ![Borrar todas las bitácoras](/assets/images/help/repository/delete-all-logs-updated-2.png)
-  {% else %}
-  ![Borrar todas las bitácoras](/assets/images/help/repository/delete-all-logs-updated.png)
-  {% endif %}
+
 Después de borrar las bitácoras, el botón de **Borrar todas las bitácoras** se elimina para indicar que ya no quedan archivos en la ejecución de flujo de trabajo.
 
 ## Visualizar las bitácoras con {% data variables.product.prodname_cli %}

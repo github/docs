@@ -96,7 +96,7 @@ runs:
 ```
 {% endraw %}
 
-此元数据定义一个 `who-to-greet`  输入和一个 `time` 输出参数。 要将输入传递给 Docker 容器，您必须使用 `inputs` 声明输入并以 `args` 关键词传递输入。
+此元数据定义一个 `who-to-greet`  输入和一个 `time` 输出参数。 要将输入传递给 Docker 容器，应使用 `inputs` 声明输入并以 `args` 关键词传递输入。 `args` 中包含的所有内容都将传递到容器，但为了更便于操作用户发现，我们建议使用输入。
 
 {% data variables.product.prodname_dotcom %} 将从 `Dockerfile` 构建映像，然后使用此映像在新容器中运行命令。
 
@@ -237,10 +237,7 @@ jobs:
 ```
 {% endraw %}
 
-从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}在 **Jobs（作业）**下或可视化图表中，单击 **A job to say hello（表示问候的作业）**。 {% endif %}您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
+从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 在 **Jobs（作业）**下或可视化图形中，单击 **A job to say hello（打招呼的作业）**。 您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![在工作流中使用操作的屏幕截图](/assets/images/help/repository/docker-action-workflow-run-updated.png)
-{% else %}
-![在工作流中使用操作的屏幕截图](/assets/images/help/repository/docker-action-workflow-run.png)
-{% endif %}
+

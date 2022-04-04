@@ -6,7 +6,6 @@ export interface Operation {
   notes: Array<string>
   requestPath: string
   responses: Array<CodeResponse>
-  hasRequiredPreviews: boolean
   parameters: Array<Parameter>
   bodyParameters: Array<BodyParameter>
   'x-github': xGitHub
@@ -39,7 +38,7 @@ export interface CodeResponse {
 
 export interface xCodeSample {
   lang: string
-  sourceHTML: string
+  source: string
 }
 
 export interface Preview {
@@ -68,4 +67,8 @@ export interface ChildParameter {
   name: string
   description: string
   type: string
+}
+
+export interface RestCategoryOperationsT {
+  [subcategory: string]: Operation[]
 }

@@ -148,6 +148,6 @@ For more information, see "[About using actions in your enterprise](/admin/githu
 
 {% endif %}
 
-## Reserved Names
+## Reserved names
 
 When you enable {% data variables.product.prodname_actions %} for your enterprise, two organizations are created: `github` and `actions`. If your enterprise already uses the `github` organization name, `github-org` (or `github-github-org` if `github-org` is also in use) will be used instead. If your enterprise already uses the `actions` organization name, `github-actions` (or `github-actions-org` if `github-actions` is also in use) will be used instead. Once actions is enabled, you won't be able to use these names anymore.

@@ -1,6 +1,6 @@
 ---
 title: About GitHub Support
-intro: 'You can contact GitHub Support for help troubleshooting issues you encounter while using GitHub.' 
+intro: You can contact GitHub Support for help troubleshooting issues you encounter while using GitHub.
 shortTitle: About GitHub Support
 versions:
   fpt: '*'
