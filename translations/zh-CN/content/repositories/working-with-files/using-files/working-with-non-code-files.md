@@ -41,7 +41,9 @@ shortTitle: 使用非代码文件
 
 {% note %}
 
-**注：**如果您使用 Firefox 浏览器，则 {% data variables.product.prodname_dotcom %} 上的 SVG 可能无法呈现。
+**注:**
+- {% data variables.product.prodname_dotcom %} 不支持比较 PSD 文件之间的差异。
+- 如果您使用 Firefox 浏览器，则 {% data variables.product.prodname_dotcom %} 上的 SVG 可能无法呈现。
 
 {% endnote %}
 
@@ -129,6 +131,12 @@ SVG 目前不支持内联脚本或动画。
 **注**：`ref` 可以是分支或个别提交的哈希（如 `2391ae`）。
 
 {% endtip %}
+
+{% if mermaid %}
+### 在 Markdown 中渲染
+
+您可以直接在 Markdown 中嵌入 ASCII STL 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)”。
+{% endif %}
 
 ## 呈现 CSV 和 TSV 数据
 
@@ -274,6 +282,12 @@ GitHub 支持呈现 PDF 文档。
 
 {% endtip %}
 
+{% if mermaid %}
+### 在 Markdown 嵌入地图
+
+您可以直接在 Markdown 中嵌入 geoJSON 和 topoJSON。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)”。
+{% endif %}
+
 ### 集群
 
 如果地图包含大量标记（大约超过 750 个），GitHub 将自动以较高的缩放比例集群附近的标记。 只需单击群集或放大便可查看个别标记。
@@ -292,9 +306,9 @@ GitHub 支持呈现 PDF 文档。
 
 如果将 `.geojson` 文件转换为 [TopoJSON](https://github.com/mbostock/topojson)，可能还是能够渲染数据，TopoJSON 是一种压缩格式，有时能将文件减小 80%。 当然，您始终可以将文件分解为更小的数据块（例如按州或年分解），并将数据在仓库中存储为多个文件。
 
-### 其他资源
+### 延伸阅读
 
-* [Leaflet.js geojson 文档](http://leafletjs.com/examples/geojson.html)
+* [Leaflet.js 文档](https://leafletjs.com/)
 * [MapBox marker-styling 文档](http://www.mapbox.com/developers/simplestyle/)
 * [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
@@ -320,3 +334,44 @@ $ jupyter nbconvert --to html <em>NOTEBOOK-NAME.ipynb</em>
 
 - [Jupyter Notebook 的 GitHub 仓库](https://github.com/jupyter/jupyter_notebook)
 - [Jupyter Notebook 的图片库](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+
+{% if mermaid %}
+## 在 {% data variables.product.prodname_dotcom %} 上显示 Mermaid 文件
+
+{% data variables.product.product_name %} 支持在存储库中呈现 Mermaid 文件。 像往常一样使用 `.mermaid` 或 `.mmd` 扩展名提交文件。 然后，导航到 {% data variables.product.prodname_dotcom %}上的 Mermaid 文件的路径。
+
+例如，如果将包含以下内容的 `.mmd` 文件添加到存储库中：
+
+```
+graph TD
+    A[Friend's Birthday] -->|Get money| B(Go shopping)
+    B --> C{Let me think}
+    C -->|One| D["Cool <br> Laptop"]
+    C -->|Two| E[iPhone]
+    C -->|Three| F[fa:fa-car Car]
+```
+
+当您在存储库中查看文件时，它将呈现为流程图。 ![渲染的 mermaid 文件图](/assets/images/help/repository/mermaid-file-diagram.png)
+
+### 疑难解答
+
+如果您的图表根本没有呈现，请使用 [Mermaid 实时编辑器](https://mermaid.live/edit)检查您的图表，以验证它是否包含有效的 Mermaid Markdown 语法。
+
+如果图表显示，但未按预期显示，则可以创建新的[反馈讨论](https://github.com/github/feedback/discussions/categories/general-feedback)，并添加 `mermaid` 标记。
+
+#### 已知问题
+
+* 序列图图表经常在图表下方使用额外的填充进行呈现，随着图表大小的增加，还会添加更多的填充。 这是 Mermaid 库的已知问题。
+* 具有弹出菜单的执行组件节点在序列图图表中无法按预期工作。 这是由于当 Mermaid 库的 API 用于呈现图表时，JavaScript 事件添加到图表的方式存在差异。
+* 并非所有图表都符合 a11y 标准。 这可能会影响依赖屏幕阅读器的用户。
+
+### Mermaid in Markdown
+
+您可以直接在 Markdown 中嵌入 Mermaid 语法。 更多信息请参阅“[创建示意图](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)”。
+
+### 延伸阅读
+
+* [Mermaid.js 文档](https://mermaid-js.github.io/mermaid/#/)
+* [Mermaid.js 实时编辑器](https://mermaid.live/edit)
+{% endif %}
+

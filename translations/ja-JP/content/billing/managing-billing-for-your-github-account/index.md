@@ -1,7 +1,7 @@
 ---
 title: GitHub アカウントの支払いを管理する
 shortTitle: GitHubアカウント
-intro: '{% ifversion fpt %}{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade, downgrade, and view pending changes to your account''s subscription at any time.{% elsif ghec or ghes or ghae %}You can manage billing for {% data variables.product.product_name %}{% ifversion ghae %}.{% elsif ghec or ghes %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% endif %}'
+intro: '{% ifversion fpt %}{% data variables.product.product_name %}は、すべてのアカウントに対して無料及び有料の製品を提供します。 アカウントのプランに関するアップグレード、ダウングレード、保留中の変更の表示はいつでも行えます。{% elsif ghec or ghes or ghae %}{% data variables.product.product_name %}に対する支払いの管理を{% ifversion ghae %}{% elsif ghec or ghes %}{% data variables.product.prodname_dotcom_the_website %}上のEnterpriseアカウントから{% endif %}行えます。{% endif %}'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account
   - /categories/97/articles

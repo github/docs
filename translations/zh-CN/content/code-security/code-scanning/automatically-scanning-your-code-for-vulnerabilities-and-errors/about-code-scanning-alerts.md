@@ -27,7 +27,15 @@ topics:
 
 每个警报都会高亮显示代码的问题以及识别该问题的工具名称。 You can see the line of code that triggered the alert, as well as properties of the alert, such as the alert severity{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, security severity,{% endif %} and the nature of the problem. 警报还会告知该问题第一次被引入的时间。 对于由 {% data variables.product.prodname_codeql %} 分析确定的警报，您还会看到如何解决问题的信息。
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.alert-default-branch %}
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 ![来自 {% data variables.product.prodname_code_scanning %} 的警报示例](/assets/images/help/repository/code-scanning-alert.png)
+{% else %}
+![来自 {% data variables.product.prodname_code_scanning %} 的警报示例](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
+{% endif %}
 
 If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. 数据流分析将查找代码中的潜在安全问题，例如：不安全地使用数据、将危险参数传递给函数以及泄漏敏感信息。
 

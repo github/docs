@@ -24,9 +24,9 @@ concurrency:
 ```
 {% endraw %}
 
-### Example: Using a fallback value
+### Exemplo: Usando um valor para segunda opção
 
-If you build the group name with a property that is only defined for specific events, you can use a fallback value. For example, `github.head_ref` is only defined on `pull_request` events. If your workflow responds to other events in addition to `pull_request` events, you will need to provide a fallback to avoid a syntax error. The following concurrency group cancels in-progress jobs or runs on `pull_request` events only; if `github.head_ref` is undefined, the concurrency group will fallback to the run ID, which is guaranteed to be both unique and defined for the run.
+Se você construir o nome do grupo com uma propriedade que só é definida para eventos específicos, você pode usar um valor de segunda opção. Por exemplo, `github.head_ref` está definido apenas em eventos `pull_request`. Se o seu fluxo de trabalho responder a outros eventos além dos eventos `pull_request`, você deverá fornecer uma segunda opção para evitar um erro de sintaxe. O grupo de concorrência a seguir cancela trabalhos em andamento ou executa somente em eventos `pull_request`; se `github.head_ref` não estiver definido, o grupo de concorrência voltará ao ID de execução e será garantido que ambos serão únicos e definidos para a execução.
 
 {% raw %}
 ```yaml
@@ -37,11 +37,11 @@ concurrency:
 {% endraw %}
 
 
-### Example: Only cancel in-progress jobs or runs for the current workflow
+### Exemplo: Cancele somente trabalhos em andamento ou execuções no fluxo de trabalho atual
 
- If you have multiple workflows in the same repository, concurrency group names must be unique across workflows to avoid canceling in-progress jobs or runs from other workflows. Otherwise, any previously in-progress or pending job will be canceled, regardless of the workflow.
+ Se você tiver vários fluxos de trabalho no mesmo repositório, os nomes dos grupos de concorrência devem ser únicos em todos os fluxos de trabalho para evitar o cancelamento de trabalhos em andamento ou de executores a partir de outros fluxos de trabalho. Caso contrário, qualquer trabalho em andamento ou pendente será cancelado, independentemente do fluxo de trabalho.
 
-To only cancel in-progress runs of the same workflow, you can use the `github.workflow` property to build the concurrency group:
+Para cancelar apenas execuções no mesmo fluxo de trabalho, você pode usar a propriedade `github.workflow` para criar o grupo de concorrência:
 
 {% raw %}
 ```yaml

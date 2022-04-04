@@ -1,6 +1,6 @@
 ---
 title: Implantações
-intro: 'A API de implantação permite que você crie e exclua chaves de implantação, implantações e ambientes de implantação.'
+intro: A API de implantações permite que você crie e exclua implantações e ambientes de implantação.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

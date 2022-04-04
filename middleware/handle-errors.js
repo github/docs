@@ -37,27 +37,31 @@ export default async function handleError(error, req, res, next) {
   // Note, not using console.error() because it's arguably handled.
   // Some tests might actually expect a 500 error.
 
+  const responseDone = res.headersSent || req.aborted
+
   if (req.path.startsWith('/assets') || req.path.startsWith('/_next/static')) {
-    // By default, Fastly will cache 404 responses unless otherwise
-    // told not to.
-    // See https://docs.fastly.com/en/guides/how-caching-and-cdns-work#http-status-codes-cached-by-default
-    // Let's cache our 404'ing assets conservatively.
-    // The Cache-Control is short, and let's use the default surrogate
-    // key just in case it was a mistake.
-    cacheControl(res)
-    // Undo the cookie setting that CSRF sets.
-    res.removeHeader('set-cookie')
-    // Makes sure the surrogate key is NOT the manual one if it failed.
-    // This basically unsets what was assumed in the beginning of
-    // loading all the middlewares.
-    setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+    if (!responseDone) {
+      // By default, Fastly will cache 404 responses unless otherwise
+      // told not to.
+      // See https://docs.fastly.com/en/guides/how-caching-and-cdns-work#http-status-codes-cached-by-default
+      // Let's cache our 404'ing assets conservatively.
+      // The Cache-Control is short, and let's use the default surrogate
+      // key just in case it was a mistake.
+      cacheControl(res)
+      // Undo the cookie setting that CSRF sets.
+      res.removeHeader('set-cookie')
+      // Makes sure the surrogate key is NOT the manual one if it failed.
+      // This basically unsets what was assumed in the beginning of
+      // loading all the middlewares.
+      setFastlySurrogateKey(res, SURROGATE_ENUMS.DEFAULT)
+    }
   } else if (process.env.NODE_ENV === 'test') {
     console.warn('An error occurrred in some middleware handler', error)
   }
 
   try {
     // If the headers have already been sent or the request was aborted...
-    if (res.headersSent || req.aborted) {
+    if (responseDone) {
       // Report to Failbot
       await logException(error, req)
 

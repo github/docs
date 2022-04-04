@@ -103,7 +103,7 @@ Além disso, seu uso de {% data variables.product.prodname_pages %} está sujeit
 ### Limites de uso
 Os sites do {% data variables.product.prodname_pages %} estão sujeitos ao seguintes limites de uso:
 
-  - Os repositórios de origem do {% data variables.product.prodname_pages %} têm um limite recomendado de 1 GB.{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Qual é a minha cota de disco?"](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations){% endif %}
+  - Os repositórios de origem do {% data variables.product.prodname_pages %} têm um limite recomendado de 1 GB.{% ifversion fpt or ghec %} Para obter mais informações, consulte "[Qual é a minha cota de disco?](/articles/what-is-my-disk-quota/#file-and-repository-size-limitations)"{% endif %}
   - Os sites do {% data variables.product.prodname_pages %} publicados não podem ter mais de 1 GB.
 {% ifversion fpt or ghec %}
   - Sites de {% data variables.product.prodname_pages %} têm um limite de banda larga *flexível* de 100 GB por mês.

@@ -53,7 +53,7 @@ versions:
 
 要比较不同仓库上的分支，请在分支名称前加上用户名。 例如，通过为 `base` 指定 `octocat:master`，为 `compare` 指定 `octo-org:master`，您可以比较分别由 `octocat` 和 `octo-org` 拥有的仓库上的 `master` 分支。
 
-此处是[在两个仓库之间进行比较](https://github.com/octocat/linguist/compare/master...octo-org:master)的示例。
+此处是[在两个仓库之间进行比较](https://github.com/github/linguist/compare/master...octocat:master)的示例。
 
 ## 跨提交比较
 

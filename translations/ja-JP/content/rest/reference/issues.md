@@ -1,6 +1,6 @@
 ---
 title: Issue
-intro: 'The Issues API enables you to view and manage issues, including issue assignees, comments, labels, and milestones.'
+intro: Issues APIを使うと、Issueにアサインされた人、コメント、ラベル、マイルストーンを含め、Issueの表示と管理ができます。
 redirect_from:
   - /v3/issues
 versions:

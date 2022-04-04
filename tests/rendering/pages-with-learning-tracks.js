@@ -1,6 +1,6 @@
 import { jest, expect } from '@jest/globals'
 
-import { getDOM } from '../helpers/supertest.js'
+import { getDOM } from '../helpers/e2etest.js'
 import { loadPages } from '../../lib/page-data.js'
 
 describe('process learning tracks', () => {
