@@ -228,9 +228,9 @@ const article: PlaygroundArticleT = {
               python-version: ["3.6", "3.7", "3.8", "3.9"]
 
           steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Set up Python \${{ matrix.python-version }}
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v3
               with:
                 python-version: \${{ matrix.python-version }}
             - name: Install dependencies
@@ -268,9 +268,9 @@ const article: PlaygroundArticleT = {
               python-version: ["2.7", "3.6", "3.7", "3.8", "3.9"]
 
           steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Set up Python \${{ matrix.python-version }}
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v3
               with:
                 python-version: \${{ matrix.python-version }}
             # You can test your matrix by printing the current Python version
@@ -292,9 +292,9 @@ const article: PlaygroundArticleT = {
           runs-on: ubuntu-latest
 
           steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Set up Python 3.x
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v3
               with:
                 # Semantic version range syntax or exact version of a Python version
                 python-version: '3.x'
@@ -341,9 +341,9 @@ const article: PlaygroundArticleT = {
 
             runs-on: ubuntu-latest
             steps:
-              - uses: actions/checkout@v2
+              - uses: actions/checkout@v3
               - name: Set up Python
-                uses: actions/setup-python@v2
+                uses: actions/setup-python@v3
                 with:
                   python-version: '3.x'
               - name: Install dependencies
@@ -363,9 +363,9 @@ const article: PlaygroundArticleT = {
 
             runs-on: ubuntu-latest
             steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Set up Python
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v3
               with:
                 python-version: '3.x'
             - name: Install dependencies
@@ -387,9 +387,9 @@ const article: PlaygroundArticleT = {
 
             runs-on: ubuntu-latest
             steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Setup Python
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v3
               with:
                 python-version: '3.x'
                 cache: 'pip'
@@ -410,9 +410,9 @@ const article: PlaygroundArticleT = {
 
             runs-on: ubuntu-latest
             steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Set up Python
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v3
               with:
                 python-version: '3.x'
             - name: Install dependencies
@@ -439,9 +439,9 @@ const article: PlaygroundArticleT = {
 
             runs-on: ubuntu-latest
             steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Set up Python
-              uses: actions/setup-python@v2
+              uses: actions/setup-python@v3
               with:
                 python-version: '3.x'
             - name: Install dependencies
@@ -471,9 +471,9 @@ const article: PlaygroundArticleT = {
                 python: ["3.7", "3.8", "3.9"]
 
             steps:
-              - uses: actions/checkout@v2
+              - uses: actions/checkout@v3
               - name: Setup Python
-                uses: actions/setup-python@v2
+                uses: actions/setup-python@v3
                 with:
                   python-version: \${{ matrix.python }}
               - name: Install Tox and any other packages
@@ -500,9 +500,9 @@ const article: PlaygroundArticleT = {
                 python-version: ["3.6", "3.7", "3.8", "3.9"]
 
             steps:
-              - uses: actions/checkout@v2
+              - uses: actions/checkout@v3
               - name: Setup Python # Set Python version
-                uses: actions/setup-python@v2
+                uses: actions/setup-python@v3
                 with:
                   python-version: \${{ matrix.python-version }}
               # Install pip and pytest
@@ -540,9 +540,9 @@ const article: PlaygroundArticleT = {
           deploy:
             runs-on: ubuntu-latest
             steps:
-              - uses: actions/checkout@v2
+              - uses: actions/checkout@v3
               - name: Set up Python
-                uses: actions/setup-python@v2
+                uses: actions/setup-python@v3
                 with:
                   python-version: '3.x'
               - name: Install dependencies

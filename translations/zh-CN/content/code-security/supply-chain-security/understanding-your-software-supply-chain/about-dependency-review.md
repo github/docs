@@ -48,5 +48,5 @@ redirect_from:
 {% ifversion ghec or ghes %}
 ## 启用依赖项审查
 
-启用依赖关系图时，依赖项审查功能可用。 For more information, see "{% ifversion ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
+启用依赖关系图时，依赖项审查功能可用。 更多信息请参阅“{% ifversion ghec %}[启用依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[为企业启用依赖关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}”。
 {% endif %}
