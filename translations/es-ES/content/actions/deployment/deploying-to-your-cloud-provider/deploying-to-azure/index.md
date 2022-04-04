@@ -1,7 +1,7 @@
 ---
-title: Deploying to Azure
-shortTitle: Deploy to Azure
-intro: 'Learn how to deploy to Azure App Service, Azure Kubernetes, and Azure Static Web App as part of your continuous deployment (CD) workflows.'
+title: Desplegar a Azure
+shortTitle: Desplegar a Azure
+intro: 'Aprende cómo desplegar a Azure App Service, Azure Kubernetes y a Azure Static Web App como parte de tus flujos de trabajo de despliegue continuo (DC).'
 versions:
   fpt: '*'
   ghes: '*'

@@ -34,7 +34,7 @@ Organization については、Organization のオーナーと支払いマネー
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Enterprise アカウントの {% data variables.product.prodname_registry %} の使用状況を表示する
 

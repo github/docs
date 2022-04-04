@@ -16,10 +16,6 @@ topics:
   - Notifications
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## 通知とサブスクリプション
 
 サブスクリプションを通じて、{% data variables.product.product_location %} の特定のアクティビティに関する継続的な更新を受信するかを選択できます。 通知では、サブスクライブしている特定のアクティビティについての更新を受信します。

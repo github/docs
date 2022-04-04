@@ -1,6 +1,6 @@
 ---
-title: Deploying Node.js to Azure App Service
-intro: You can deploy your Node.js project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Desplegar Node.js a Azure App Service
+intro: Puedes desplegar tu proyecto de Node.js a Azure App Service como parte de tus flujos de trabajo de despliegue continuo (DC).
 redirect_from:
   - /actions/guides/deploying-to-azure-app-service
   - /actions/deployment/deploying-to-azure-app-service
@@ -23,7 +23,7 @@ topics:
 
 ## Introducción
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy a Node.js project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Esta guía explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar, probar y desplegar un proyecto de Node.js a [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -43,7 +43,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 2. Crea una app web.
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Node.js runtime:
+   Por ejemplo, puedes utilizar el CLI de Azure para crear una app web de Azure App Service con un tiempo de ejecución de Node.js:
 
    ```bash{:copy}
    az webapp create \
@@ -65,7 +65,7 @@ Una vez que hayas completado los prerequisitos, puedes proceder con la creación
 
 El siguiente flujo de trabajo de ejemplo demuestra cómo crear, probar y desplegar el proyecto de Node.js a Azure App Service cuando haya una subida a la rama `main`.
 
-Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. If the path to your project is not the repository root, change `AZURE_WEBAPP_PACKAGE_PATH`  to your project path. If you use a version of Node.js other than `10.x`, change `NODE_VERSION` to the version that you use.
+Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. Si la ruta a tu proyecto no está en la raíz del repositorio, cambia la `AZURE_WEBAPP_PACKAGE_PATH` a tu ruta de proyecto. Si utilizas una versión de Node.js diferente a la `10.x`, cambia la `NODE_VERSION` a la versión que utilices.
 
 {% data reusables.actions.delete-env-key %}
 
