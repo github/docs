@@ -34,5 +34,5 @@ jobs:
     if: {% raw %} ${{ github.event.inputs.print_tags == 'true' }} {% endraw %}
     steps:
       - name: Print the input tag to STDOUT
-        run: echo {% raw %} The tag is ${{ github.event.inputs.tag }} {% endraw %}
+        run: echo {% raw %} The tags are ${{ github.event.inputs.tags }} {% endraw %}
 ```

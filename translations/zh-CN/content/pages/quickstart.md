@@ -23,16 +23,16 @@ product: '{% data reusables.gated-features.pages %}'
 ## 创建网站
 
 {% data reusables.repositories.create_new %}
-1. 输入 `username.github.io` 作为存储库名称。 Replace `username` with your {% data variables.product.prodname_dotcom %} username. For example, if your username is `octocat`, the repository name should be `octocat.github.io`. ![存储库名称字段](/assets/images/help/pages/create-repository-name-pages.png)
+1. 输入 `username.github.io` 作为存储库名称。 将 `username` 替换为您的 {% data variables.product.prodname_dotcom %} 用户名。 例如，如果您的用户名是 `octocat`，则存储库名称应为 `octocat.github.io`。 ![存储库名称字段](/assets/images/help/pages/create-repository-name-pages.png)
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-1. Click **Choose a theme**. ![选择主题按钮](/assets/images/help/pages/choose-theme.png)
-2. The Theme Chooser will open. Browse the available themes, then click **Select theme** to select a theme. It's easy to change your theme later, so if you're not sure, just choose one for now. ![主题选项和选择主题按钮](/assets/images/help/pages/select-theme.png)
-3. After you select a theme, your repository's `README.md` file will open in the file editor. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
+1. 单击 **Choose a theme（选择主题）**。 ![选择主题按钮](/assets/images/help/pages/choose-theme.png)
+2. 主题选择器将打开。 浏览可用的主题，然后单击 **Select theme（选择主题）**以选择主题。 以后更改主题很容易，因此，如果您不确定，请暂时选择一个。 ![主题选项和选择主题按钮](/assets/images/help/pages/select-theme.png)
+3. 选择主题后，存储库的 `README.md` 文件将在文件编辑器中打开。 `README.md` 文件是您将为网站编写内容的位置。 您可以编辑文件或暂时保留默认内容。
 4. 编辑完文件后，单击 **Commit changes（提交更改）**。
-5. Visit `username.github.io` to view your new website. **注：**对站点的更改在推送到 {% data variables.product.product_name %} 后，最长可能需要 20 分钟才会发布。
+5. 访问 `username.github.io` 以查看您的新网站。 **注：**对站点的更改在推送到 {% data variables.product.product_name %} 后，最长可能需要 20 分钟才会发布。
 
-## Changing the title and description
+## 更改标题和说明
 
 默认情况下，网站的标题为 `username.github.io`。 您可以通过编辑存储库中的 `_config.yml` 文件来更改标题。 您还可以为您的网站添加说明。
 

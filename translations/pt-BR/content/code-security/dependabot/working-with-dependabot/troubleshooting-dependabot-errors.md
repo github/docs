@@ -77,7 +77,7 @@ Pull requests para atualizações de segurança atuam para atualizar uma depend�
 
 Cada aplicativo com dependências tem um gráfico de dependências, ou seja, um gráfico direcionado acíclico de cada versão de pacote da qual o aplicativo depende direta ou indiretamente. Toda vez que uma dependência é atualizada, este gráfico deve ser resolvido. Caso contrário, o aplicativo não será criado. Quando um ecossistema tem um gráfico de dependência profundo e complexo, por exemplo, npm e RubyGems, geralmente é impossível atualizar uma única dependência sem atualizar todo o ecossistema.
 
-A melhor maneira de evitar esse problema é manter-se atualizado com as versões mais recentes, habilitando, por exemplo, as atualizações de versões. Isso aumenta a probabilidade de que uma vulnerabilidade em uma dependência possa ser resolvida por meio de uma atualização simples que não afete o gráfico de dependência. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+A melhor maneira de evitar esse problema é manter-se atualizado com as versões mais recentes, habilitando, por exemplo, as atualizações de versões. Isso aumenta a probabilidade de que uma vulnerabilidade em uma dependência possa ser resolvida por meio de uma atualização simples que não afete o gráfico de dependência. Para obter mais informações, consulte "[Configurando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
 
 ### {% data variables.product.prodname_dependabot %} não consegue atualizar para a versão necessária, pois já existe um pull request aberto para a última versão
 
@@ -91,13 +91,13 @@ Existem duas opções: você pode revisar o pull request aberto e fazer o merge 
 
 Este erro é difícil de ser corrigido. Se a atualização de uma versão expirar, você poderá especificar as dependências mais importantes para atualizar usando o parâmetro `permitir` ou, como alternativa, você pode usar o parâmetro `ignorar` para excluir algumas dependências de atualizações. Atualizar sua configuração pode permitir que {% data variables.product.prodname_dependabot %} revise a atualização da versão e gere o pull request no tempo disponível.
 
-Se uma atualização de segurança expirar, você pode reduzir as chances de isso acontecer mantendo as dependências atualizadas, por exemplo, habilitando atualizações de versão. For more information, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)."
+Se uma atualização de segurança expirar, você pode reduzir as chances de isso acontecer mantendo as dependências atualizadas, por exemplo, habilitando atualizações de versão. Para obter mais informações, consulte "[Configurando as atualizações da versão de {% data variables.product.prodname_dependabot %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates)".
 
 ### {% data variables.product.prodname_dependabot %} não consegue abrir mais nenhum pull request
 
 Há um limite no número de pull requests abertos que {% data variables.product.prodname_dependabot %} irá gerar. Quando este limite é atingido, nenhum pull request novo será aberto e este erro será relatado. A melhor maneira de resolver este erro é revisar e fazer merge alguns dos pull requests abertos.
 
-Existem limites separados para solicitações de atualização de versões e segurança, para que os pull requests de atualização de versão aberta não possam bloquear a criação de uma solicitação de atualização de segurança. O limite para pull requests de atualização de segurança é 10. Por padrão, o limite para atualizações de versão é 5, mas você pode alterá-lo usando o parâmetro `open-pull-requests-limit` no arquivo de configuração. For more information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit)."
+Existem limites separados para solicitações de atualização de versões e segurança, para que os pull requests de atualização de versão aberta não possam bloquear a criação de uma solicitação de atualização de segurança. O limite para pull requests de atualização de segurança é 10. Por padrão, o limite para atualizações de versão é 5, mas você pode alterá-lo usando o parâmetro `open-pull-requests-limit` no arquivo de configuração. Para obter mais informações, consulte "[Opções de configuração para o arquivo dependabot.yml](/github/administering-a-repository/configuration-options-for-dependency-updates#open-pull-requests-limit)".
 
 A melhor maneira de resolver este erro é fazer o merge ou fechar alguns dos pull requests existentes e acionar um novo pull request manualmente. Para obter mais informações, consulte "[Acionar um pull request de {% data variables.product.prodname_dependabot %} manualmente](#triggering-a-dependabot-pull-request-manually)".
 
@@ -125,5 +125,5 @@ Se você desbloquear {% data variables.product.prodname_dependabot %}, você pod
 
 ## Leia mais
 
-- "[Troubleshooting the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)"
+- "[Solucionando problemas do gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)"
 - "[Solução de problemas na detecção de dependências vulneráveis](/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)"

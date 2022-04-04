@@ -48,7 +48,6 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
 
    O exemplo a seguir demonstra um fluxo de trabalho que faz o upload do cache da ferramenta para um ambiente do Ubuntu 18.04, usando a ação `setup-node` com as versões 10 e 12 do Node.js.
 
-   {% raw %}
    ```yaml
    name: Upload Node.js 10 and 12 tool cache
    on: push
@@ -58,26 +57,25 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
        steps:
          - name: Clear any existing tool cache
            run: |
-             mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
-             mkdir -p "${{ runner.tool_cache }}"
+             mv "{% raw %}${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"{% endraw %}
+             mkdir -p "{% raw %}${{ runner.tool_cache }}{% endraw %}"
          - name: Setup Node 10
-           uses: actions/setup-node@v2
+           uses: {% data reusables.actions.action-setup-node %}
            with:
              node-version: 10.x
          - name: Setup Node 12
-           uses: actions/setup-node@v2
+           uses: {% data reusables.actions.action-setup-node %}
            with:
              node-version: 12.x
          - name: Archive tool cache
            run: |
-             cd "${{ runner.tool_cache }}"
+             cd "{% raw %}${{ runner.tool_cache }}{% endraw %}"
              tar -czf tool_cache.tar.gz *
          - name: Upload tool cache artifact
-           uses: actions/upload-artifact@v3
+           uses: {% data reusables.actions.action-upload-artifact %}
            with:
-             path: ${{runner.tool_cache}}/tool_cache.tar.gz
+             path: {% raw %}${{runner.tool_cache}}/tool_cache.tar.gz{% endraw %}
    ```
-   {% endraw %}
 1. Faça o download do artefato do cache da ferramenta da execução do fluxo de trabalho. Para obter instruções sobre o download de artefatos, consulte "[Fazer download de artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
 1. Transfira o artefato de cache das ferramentas para o seu executor hospedado e extraia-o para o diretório de cache das ferramentas locais. O diretório de cache da ferramenta padrão é `RUNNER_DIR/_work/_tool`. Se o executor ainda não processou nenhum trabalho, você pode precisar criar os diretórios `_work/_tool`.
 

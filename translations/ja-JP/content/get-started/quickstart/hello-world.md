@@ -87,7 +87,7 @@ When you created a new branch in the previous step, {% data variables.product.pr
 You can make and save changes to the files in your repository. On {% data variables.product.product_name %}, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
 
 1. Under the `readme-edits` branch you created, click the _README.md_ file.
-2. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the file.
+2. {% octicon "pencil" aria-label="The edit icon" %}をクリックしてファイルを編集してください。
 3. In the editor, write a bit about yourself. Try using different Markdown elements.
 4. In the **Commit changes** box, write a commit message that describes your changes.
 5. **[Commit changes]** をクリックしてください。

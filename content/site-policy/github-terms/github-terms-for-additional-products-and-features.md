@@ -3,6 +3,10 @@ title: GitHub Terms for Additional Products and Features
 redirect_from:
   - /github/site-policy/github-additional-product-terms
   - /github/site-policy/github-terms-for-additional-products-and-features
+  - /github/site-policy-deprecated/github-connect-addendum-to-the-github-enterprise-license-agreement
+  - /articles/github-com-connection-addendum-to-the-github-enterprise-license-agreement
+  - /articles/github-connect-addendum-to-the-github-enterprise-license-agreement
+  - /github/site-policy/github-connect-addendum-to-the-github-enterprise-license-agreement
 versions:
   fpt: '*'
 topics:
@@ -33,8 +37,23 @@ Actions and any elements of the Actions product or service may not be used in vi
 - any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
 - if using GitHub-hosted runners, any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
 
-In order to prevent violations of these limitations and abuse of GitHub Actions, GitHub may monitor your use of GitHub Actions. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, or the disabling of repositories created to run Actions in a way that violates these Terms.
+In order to prevent violations of these limitations and abuse of GitHub Actions, GitHub may monitor your use of GitHub Actions. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.
 
+*Use for Development and Testing*
+
+You may only access and use GitHub Actions to develop and test your application(s). Only one licensed user may access a virtual machine provided by Actions at any time.
+
+*Authorized Developer*
+
+You appoint GitHub as your authorized developer with respect to Apple software included in Actions. GitHub is responsible for complying with the terms for any such software included in Actions and will keep confidential any confidential information of Apple accessed as part of Actions.
+
+*Third Party Repository Service Access*
+
+If you grant GitHub access to your third-party repository service account(s), you authorize GitHub to scan the account(s), including the contents of your Public and Private Repositories, for purposes of providing GitHub Actions.
+
+*Self-Hosted Runners on GitHub Actions*
+
+If you use self-hosted runners, you have the ability to turn off automatic updates but GitHub reserves the right to override your choice for critical security updates.
 
 ## Advanced Security
 GitHub makes extra security features available to customers under an Advanced Security license. These features include code scanning, secret scanning, and dependency review. The [Advanced Security documentation](/github/getting-started-with-github/about-github-advanced-security) provides more details.

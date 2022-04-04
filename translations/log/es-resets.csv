@@ -38,6 +38,7 @@ translations/es-ES/content/actions/using-github-hosted-runners/about-github-host
 translations/es-ES/content/actions/using-github-hosted-runners/customizing-github-hosted-runners.md,Listed in localization-support#489
 translations/es-ES/content/actions/using-workflows/workflow-syntax-for-github-actions.md,broken liquid tags
 translations/es-ES/content/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance.md,broken liquid tags
+translations/es-ES/content/admin/configuration/configuring-github-connect/managing-github-connect.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/es-ES/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
@@ -140,7 +141,7 @@ translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/set
 translations/es-ES/content/codespaces/setting-up-your-project-for-codespaces/setting-up-your-python-project-for-codespaces.md,Listed in localization-support#489
 translations/es-ES/content/codespaces/troubleshooting/exporting-changes-to-a-branch.md,Listed in localization-support#489
 translations/es-ES/content/communities/documenting-your-project-with-wikis/about-wikis.md,Listed in localization-support#489
-translations/es-ES/content/communities/documenting-your-project-with-wikis/about-wikis.md,parsing error
+translations/es-ES/content/communities/documenting-your-project-with-wikis/about-wikis.md,rendering error
 translations/es-ES/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository.md,Listed in localization-support#489
 translations/es-ES/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms.md,Listed in localization-support#489
 translations/es-ES/content/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop.md,Listed in localization-support#489
@@ -224,7 +225,6 @@ translations/es-ES/content/pull-requests/collaborating-with-pull-requests/collab
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/getting-started/index.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges.md,Listed in localization-support#489
-translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/adding-a-pull-request-to-the-merge-queue.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request.md,Listed in localization-support#489
 translations/es-ES/content/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/index.md,Listed in localization-support#489
@@ -278,7 +278,6 @@ translations/es-ES/content/pull-requests/index.md,Listed in localization-support
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests.md,Listed in localization-support#489
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository.md,Listed in localization-support#489
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-the-automatic-deletion-of-branches.md,Listed in localization-support#489
-translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/using-a-merge-queue.md,Listed in localization-support#489
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches.md,Listed in localization-support#489
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule.md,Listed in localization-support#489
 translations/es-ES/content/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch.md,Listed in localization-support#489

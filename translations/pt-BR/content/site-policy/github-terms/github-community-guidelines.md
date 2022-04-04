@@ -45,7 +45,7 @@ Embora alguns desacordos possam ser resolvidos com comunicação direta e respei
 
 * **Bloquear Usuários** - Se você encontrar um usuário específico com quem você prefere não se relacionar, você pode [bloquear o usuário na sua conta pessoal](/articles/blocking-a-user-from-your-personal-account/) ou [na sua organização](/articles/blocking-a-user-from-your-organization/).
 
-* **Limit Interactions** - If your public project is getting unwanted attention, being trolled, spammed, or otherwise, you have the option of setting [temporary interaction limits](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository) to keep certain users from interacting with your repository. Você pode até mesmo definir [limites de revisão de código](https://github.blog/2021-11-01-github-keeps-getting-better-for-open-source-maintainers/#preventing-drive-by-pull-request-approvals-and-requested-changes) para garantir contribuições de qualidade nos seus projetos.
+* **Limite de interações** - Se seu projeto público estiver recebendo atenção indesejada, sendo ridicularizado, recebendo spam ou se você não tiver a opção de configurar [limites temporários de interação](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository) para impedir que certos usuários interajam com seu repositório. Você pode até mesmo definir [limites de revisão de código](https://github.blog/2021-11-01-github-keeps-getting-better-for-open-source-maintainers/#preventing-drive-by-pull-request-approvals-and-requested-changes) para garantir contribuições de qualidade nos seus projetos.
 
 
 Embora sejamos apaixonados por capacitar os mantenedores a moderar os seus próprios projetos, entre em contato conosco por {% data variables.contact.report_abuse %} se precisar de apoio adicional para lidar com uma situação.
@@ -71,13 +71,7 @@ Nos casos em que decidimos que se justifica uma ação de moderação, estas sã
 
 ## Apelação e reinstauração
 
-Em alguns casos, pode haver justificativa para reverter uma ação de moderação tomada pela equipe do GitHub.
-
-* **Restabelecimento**: Quando um usuário deseja corrigir a violação e está disposto a aceitar o cumprimento de nossas Políticas de Uso Aceitáveis dali em diante, podemos optar por restabelecar a sua conta ou conteúdo dependendo da gravidade da violação inicial.
-
-* **Recurso**: Se um usuário deseja contestar o fundamento de uma ação de execução e puder fornecer informações adicionais sobre a alegada violação, reanalisaremos essas informações e poderemos interpor recurso sempre que tivermos determinado que não ocorreu uma violação.
-
-Se você procurar restabelecer ou recorrer de uma ação de execução, entre em contato com [suporte](https://support.github.com/contact?tags=docs-policy).
+If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
 
 ## Avisos Legais
 

@@ -1,7 +1,7 @@
 ---
 title: Utilizar la concurrencia
 shortTitle: Utilizar la concurrencia
-intro: Run a single job at a time.
+intro: Ejecutar un solo job a la vez.
 versions:
   fpt: '*'
   ghes: '> 3.1'

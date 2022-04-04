@@ -1,7 +1,7 @@
 ---
-title: Creating starter workflows for your organization
-shortTitle: Creating starter workflows
-intro: Learn how you can create starter workflows to help people in your team add new workflows more easily.
+title: 为组织创建入门工作流程
+shortTitle: 创建入门工作流程
+intro: 了解如何创建入门工作流程，以帮助团队中的人员更轻松地添加新工作流程。
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
   - /actions/learn-github-actions/creating-workflow-templates
@@ -26,29 +26,29 @@ topics:
 
 {% data reusables.actions.starter-workflow-categories %}
 
-## Creating a starter workflow
+## 创建入门工作流程
 
-Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
+入门工作流程可由对组织的 `.github` 存储库具有写入访问权限的用户创建。 然后，有权限创建工作流程的组织成员便可使用它们。
 
 {% ifversion fpt %}
-Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization)。
+用户创建的入门工作流程只能用于在公共存储库中创建工作流程。 使用 {% data variables.product.prodname_ghe_cloud %} 的组织还可以使用入门工作流程在私有仓库中创建工作流程。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization)。
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 {% note %}
 
-**Note:** To avoid duplication among starter workflows you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+**注意：**为避免入门工作流程之间的重复，您可以从工作流程中调用可重用工作流程。 这有助于使您的工作流程更易于维护。 For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 
 {% endnote %}
 {% endif %}
 
-This procedure demonstrates how to create a starter workflow and metadata file. The metadata file describes how the starter workflows will be presented to users when they are creating a new workflow.
+此过程演示如何创建入门工作流程和元数据文件。 元数据文件描述了在用户创建新工作流程时如何向用户显示入门工作流程。
 
 1. 如果组织中没有名为 `.github` 的公共仓库，请新建一个。
 2. 创建一个名为 `workflow-templates` 的目录。
 3. 在 `workflow-templates` 目录中创建新的工作流程文件。
 
-   如果需要引用仓库的默认分支，可以使用 `$default-branch` 占位符。 When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
+   如果需要引用仓库的默认分支，可以使用 `$default-branch` 占位符。 创建工作流程时，占位符将自动替换为仓库默认分支的名称。
 
    例如，下面这个名为 `octo-organization-ci.yml` 的文件展示了一个基本的工作流程。
 
@@ -87,16 +87,16 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        ]
    }
    ```
-   * `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
-   * `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
-   * `iconName` - **Optional.** Specifies an icon for the workflow that's displayed in the list of workflows. The `iconName` must be the name of an SVG file, without the file name extension, stored in the `workflow-templates` directory. For example, an SVG file named `example-icon.svg` is referenced as `example-icon`.
-   * `categories` - **可选。**定义工作流程的语言类别。 When a user views the available starter workflows for a repository, the workflows that match the identified language for the project are featured more prominently. 有关可用语言类别的信息，请参阅https://github.com/github/linguist/blob/master/lib/linguist/languages.yml。
-   * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
+   * `name` - **必要。**工作流程的名称。 这会显示在可用工作流程列表中。
+   * `description` - **必要。**工作流程的描述。 这会显示在可用工作流程列表中。
+   * `iconName` - **可选。** 指定显示在工作流程列表中的工作流程的图标。 `iconName` 必须是 SVG 文件的名称，没有文件名扩展名，存储在 `workflow-templates` 目录中。 例如，名为 `example-icon.svg` 的 SVG 文件被引用为 `example-icon`。
+   * `categories` - **可选。**定义工作流程的语言类别。 当用户查看存储库的可用入门工作流程时，与项目已识别语言匹配的工作流程将更加突出。 有关可用语言类别的信息，请参阅https://github.com/github/linguist/blob/master/lib/linguist/languages.yml。
+   * `filePatterns` - **可选。**如果用户仓库在其根目录中有符合定义的正则表达式的文件，则允许使用工作流程。
 
-To add another starter workflow, add your files to the same `workflow-templates` directory. 例如：
+要添加另一个入门工作流程，请将您的文件添加到同一 `workflow-templates` 目录中。 例如：
 
-![Workflow files](/assets/images/help/images/workflow-template-files.png)
+![工作流程文件](/assets/images/help/images/workflow-template-files.png)
 
 ## 后续步骤
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)."
+要继续了解 {% data variables.product.prodname_actions %}，请参阅“[使用入门工作流程](/actions/using-workflows/using-starter-workflows)”。

@@ -33,14 +33,14 @@ O gráfico de dependências mostra as dependências{% ifversion fpt or ghec %} e
 {% data reusables.repositories.click-dependency-graph %}{% ifversion fpt or ghec %}
 4. Opcionalmente, em "Gráfico de dependência", clique em **Dependentes**. ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
-{% ifversion ghes or ghae-issue-4864 %}
+{% ifversion ghes %}
 Os proprietários das empresas podem configurar o gráfico de dependências a nível da empresa. Para obter mais informações, consulte "[Habilitando o gráfico de dependências para sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)".
 {% endif %}
 
 ### Vista de dependências
 
 {% ifversion fpt or ghec %}
-As dependências são agrupadas por ecossistema. Você pode expandir sua dependência para visualizar suas dependências.  Dependências de repositórios privados, pacotes privados ou arquivos não reconhecidos são exibidos em texto sem formatação. If the package manager for the dependency is in a public repository, {% data variables.product.product_name %} will display a link to that repository.
+As dependências são agrupadas por ecossistema. Você pode expandir sua dependência para visualizar suas dependências.  Dependências de repositórios privados, pacotes privados ou arquivos não reconhecidos são exibidos em texto sem formatação. Se o gerenciador de pacotes para a dependência estiver em um repositório público, {% data variables.product.product_name %} irá exibir um link para o repositório.
 
 Se foram detectadas vulnerabilidades no repositório, estas são exibidas na parte superior da visualização para usuários com acesso ao {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -83,10 +83,10 @@ Você pode desabilitar o gráfico de dependências a qualquer momento clicando e
 
 ## Alterar o pacote "Usado por"
 
-You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
-  * The dependency graph is enabled for the repository (see the above section for more details).
-  * Your repository contains a package that is published on a [supported package ecosystem](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
-  * Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
+Você pode notar que alguns repositórios têm uma seção "Usado por" na barra lateral da aba**Código**. Seu repositório terá uma seção "Usado por", se:
+  * O gráfico de dependências está habilitado para o repositório (consulte a seção acima para mais detalhes).
+  * Seu repositório contém um pacote que é publicado em um [ecossistema de pacote compatível](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems).
+  * Dentro do ecossistema, seu pacote tem um link para um repositório _público_ onde a fonte é armazenada.
 
 A seção "Usado por" mostra o número de referências públicas ao pacote que foi encontrado, e exibe os avatares de alguns dos proprietários dos projetos dependentes.
 
@@ -115,7 +115,7 @@ Se um arquivo de manifesto ou de bloqueio não for processado, suas dependência
 ## Leia mais
 
 - "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
+- "[Visualizando {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
 - "[Visualizar informações da sua organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
 - "[Entender como o {% data variables.product.prodname_dotcom %} usa e protege seus dados](/get-started/privacy-on-github)"
 {% endif %}
