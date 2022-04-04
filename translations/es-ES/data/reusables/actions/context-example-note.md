@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** This context is an example only. The contents of a context depends on the workflow that you are running. {% data reusables.actions.context-contents %}
+**Nota:** Este contexto es solo un ejemplo. El contenido de un contexto depende del flujo de trabajo que estés ejecutando. {% data reusables.actions.context-contents %}
 
 {% endnote %}

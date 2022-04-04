@@ -16,7 +16,7 @@ topics:
   - Accounts
 ---
 
-## About this guide
+## Acerca de esta guía
 
 This guide describes the highest impact changes you can make to increase account security. Each section outlines a change you can make to your processes to improve the security. The highest impact changes are listed first.
 
@@ -43,12 +43,12 @@ If you're the site administrator for {% data variables.product.product_location 
 
 Some authentication methods also support communicating additional information to {% data variables.product.product_name %}, for example, what groups the user is a member of, or synchronizing cryptographic keys for the user. This is a great way to simplify your administration as your organization grows.
 
-For more information on these authentication methods, see "[Using CAS](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-cas)," "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml)," and "[Using LDAP](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap)."
+Para obtener más información sobre estos métodos de autenticación, consulta las secciones "[Utilizar CAS](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-cas)", "[Utilizar SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml)" y "[Utilizar LDAP](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap)".
 {% endif %}
 
 ## Configure two-factor authentication
 
-The best way to improve the security of {% ifversion fpt %}your personal account{% elsif ghes %}your personal account or {% data variables.product.product_location %}{% elsif ghec %}your accounts{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %} is to configure two-factor authentication (2FA){% ifversion ghae %} on your SAML identity provider (IdP){% endif %}. Passwords by themselves can be compromised by being guessable, by being reused on another site that's been compromised, or by social engineering, like phishing. 2FA makes it much more difficult for your accounts to be compromised, even if an attacker has your password.
+La mejor forma de mejorar la seguridad de {% ifversion fpt %}tu cuenta personal{% elsif ghes %}tu cuenta personal o {% data variables.product.product_location %}{% elsif ghec %}tus cuentas{% elsif ghae %}tu empresa en {% data variables.product.product_name %}{% endif %} es configurar la autenticación bifactorial (2FA){% ifversion ghae %} en tu proveedor de identidad (IdP) de SAML{% endif %}. Passwords by themselves can be compromised by being guessable, by being reused on another site that's been compromised, or by social engineering, like phishing. 2FA makes it much more difficult for your accounts to be compromised, even if an attacker has your password.
 
 {% ifversion not ghae %}
 
@@ -130,8 +130,8 @@ Hardware-backed SSH keys are quite secure, but the hardware requirement might no
 
 ## Pasos siguientes
 
-- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+- "[Asegurar tu cadena de suministros de extremo a extremo](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
 
-- "[Best practices for securing code in your supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+- "[Mejores prácticas para asegurar el código en tu cadena de suministros](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
 
-- "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- "[Mejores prácticas para asegurar tu sistema de compilación](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"

@@ -32,14 +32,13 @@ shortTitle: 删除自托管的运行器
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.settings-sidebar-actions %}
-{% data reusables.actions.settings-sidebar-actions-runners-updated %}
+{% data reusables.repositories.settings-sidebar-actions-runners %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.self-hosted-runner-removing-a-runner-updated %}
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.actions.settings-sidebar-actions-runners %}
+{% data reusables.repositories.settings-sidebar-actions-runners %}
 {% data reusables.actions.self-hosted-runner-removing-a-runner %}
 {% endif %}
 
@@ -59,14 +58,13 @@ shortTitle: 删除自托管的运行器
 {% ifversion fpt or ghes > 3.3 or ghec %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.settings-sidebar-actions %}
-{% data reusables.actions.settings-sidebar-actions-runners-updated %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.self-hosted-runner-removing-a-runner-updated %}
 {% elsif ghes < 3.4 or ghae %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.settings-sidebar-actions-runners %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
 {% data reusables.actions.self-hosted-runner-removing-a-runner %}
 {% endif %}
 

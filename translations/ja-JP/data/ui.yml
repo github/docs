@@ -103,7 +103,7 @@ products:
       notes: 注釈
       parameters: パラメータ
       response: レスポンス
-      error_codes: Error Codes
+      status_codes: Status codes
       http_status_code: HTTP Status Code
       code_sample: コードサンプル
       code_samples: コードサンプル

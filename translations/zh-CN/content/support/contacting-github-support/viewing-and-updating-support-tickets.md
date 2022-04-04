@@ -43,4 +43,4 @@ In addition to viewing tickets, you can also add comments to support tickets if 
 
 ## 延伸阅读
 
-- "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- “[关于 GitHub 支持](/support/learning-about-github-support/about-github-support)”

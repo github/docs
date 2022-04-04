@@ -91,6 +91,7 @@
 | Stripe                    | Chave secreta da API de Teste de Stripe                   |
 | Stripe                    | Chave restrita da API de Stripe Live                      |
 | Stripe                    | Chave restrita da API de testes de Stripe                 |
+| Supabase                  | Supabase Service Key                                      |
 | Tencent Cloud             | ID de segredot de Tencent Cloud                           |
 | Twilio                    | Identificador de string de conta de Twilio                |
 | Twilio                    | Chave da API de Twilio                                    |

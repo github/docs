@@ -464,7 +464,7 @@ jobs:
 
 ### Habilita la fusión automática en una solicitud de cambios
 
-Si quieres fusionar tus solicitudes de cambios automáticamente, puedes utilizar la funcionalidad de fusión automática de {% data variables.product.prodname_dotcom %}. Esto habilita a la solicitud de cambios para que se fusione cuando se cumpla con todas las pruebas y aprobaciones requeridas. Para obtener más información sobre la fusión automática, consulta la sección "[Fusionar una solicitud de cambios automáticamente](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
+Si quieres fusionar tus solicitudes de cambios automáticamente, puedes utilizar la funcionalidad de fusión automática de {% data variables.product.prodname_dotcom %}. Esto habilita a la solicitud de cambios para que se fusione cuando se cumpla con todas las pruebas y aprobaciones requeridas. For more information on auto-merge, see "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
 
 Aquí tienes un ejemplo de cómo habilitar la fusión automática para todas las actualizaciones de parche en `my-dependency`:
 

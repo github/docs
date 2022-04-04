@@ -61,8 +61,8 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
       build:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
+          - uses: {% data reusables.actions.action-checkout %}
+          - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
           - run: npm ci
@@ -75,8 +75,8 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
           packages: write
           contents: read{% endif %}
         steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
+          - uses: {% data reusables.actions.action-checkout %}
+          - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
               registry-url: {% ifversion ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
