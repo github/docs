@@ -1,6 +1,6 @@
 ---
-title: Authorizing OAuth Apps
-intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing an {% data variables.product.prodname_oauth_app %}, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
+title: 授权第三方登录应用
+intro: '通过使用 OAuth，你可以连接 {% data variables.product.product_name %} 身份到第三方应用。当授权 {% data variables.product.prodname_oauth_app %}, 你必须确信你信任这个第三方应用、检查是谁开发的以及应用可以获取你的哪方面的信息。'
 redirect_from:
   - /articles/authorizing-oauth-apps
   - /github/authenticating-to-github/authorizing-oauth-apps
@@ -14,13 +14,13 @@ topics:
   - Identity
   - Access management
 ---
-When an {% data variables.product.prodname_oauth_app %} wants to identify you by your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you'll see a page with the app's developer contact information and a list of the specific data that's being requested.
+当一个{% data variables.product.prodname_oauth_app %}想要你授权你在{% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}的账号时，你将会看到一个有开发者的联系信息和请求流量的的页面。
 
 {% ifversion fpt or ghec %}
 
 {% tip %}
 
-**Tip:** You must [verify your email address](/articles/verifying-your-email-address) before you can authorize an {% data variables.product.prodname_oauth_app %}.
+**小提示：** 你必须[验证你的邮箱地址](/articles/verifying-your-email-address)当你准备授权一个{% data variables.product.prodname_oauth_app %}时。
 
 {% endtip %}
 
@@ -28,10 +28,10 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 ## {% data variables.product.prodname_oauth_app %} access
 
-{% data variables.product.prodname_oauth_apps %} can have *read* or *write* access to your {% data variables.product.product_name %} data.
+{% data variables.product.prodname_oauth_apps %}可以拥有你的{% data variables.product.product_name %}账号数据的*读取*或*写入*权限。
 
-- **Read access** only allows an app to *look at* your data.
-- **Write access** allows an app to *change* your data.
+- **读取权限**只允许一个应用*查看*你的数据。
+- **写入权限**允许一个应用*更改*你的数据。
 
 {% tip %}
 
