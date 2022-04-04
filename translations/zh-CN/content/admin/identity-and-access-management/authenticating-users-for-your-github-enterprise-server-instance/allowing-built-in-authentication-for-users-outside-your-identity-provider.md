@@ -54,6 +54,6 @@ shortTitle: IdP 以外的身份验证
 
 ## 延伸阅读
 
-- "[Using LDAP](/enterprise/admin/authentication/using-ldap)"
+- "[使用 LDAP](/enterprise/admin/authentication/using-ldap)"
 - "[使用 SAML](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-saml)"
 - "[使用 CAS](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-cas)"

@@ -1,6 +1,6 @@
 ---
-title: One-time payments for customers in India
-intro: Customers in India who have been impacted by the Reserve Bank of India's recurring payment regulation can now make one-time payments for their GitHub subscriptions and services.
+title: 印度客户的一次性付款
+intro: 受印度储备银行经常性支付法规影响的印度客户现在可以为其 GitHub 订阅和服务进行一次性付款。
 redirect_from:
   - /early-access/billing/india-rbi-regulation
 versions:
@@ -10,15 +10,15 @@ topics:
   - Billing
   - Sponsors
   - Policy
-shortTitle: India one-time payments
+shortTitle: 印度一次性付款
 ---
 
 
-## About the Reserve Bank of India's recurring payments regulation
+## 关于印度储备银行的经常性支付法规
 
-A new payments regulation from the Reserve Bank of India (RBI) recently came into effect. This regulation places additional requirements on recurring online transactions and has prevented some {% data variables.product.company_short %} customers in India from making recurring payments. Customers using payment methods issued in India for any recurring transactions on {% data variables.product.product_name %} may find that their payments are declined by their banks or card issuers. For more information, see [the RBI's press release](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
+印度储备银行 (RBI) 的一项新支付法规最近生效。 该法规对经常性在线交易提出了额外的要求，并阻止印度一些 {% data variables.product.company_short %} 客户进行定期付款。 对 {% data variables.product.product_name %} 上的任何定期交易使用印度颁布的付款方式的客户，可能会发现他们的付款被银行或发卡机构拒绝。 更多信息请参阅 [RBI 的新闻稿](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353)。
 
-The regulation applies to all recurring transactions, including:
+该法规适用于所有经常性交易，包括：
 - {% data variables.product.prodname_dotcom %} plan subscriptions (Pro, Team, Enterprise)
 - {% data variables.product.prodname_marketplace %} purchases
 - {% data variables.product.prodname_sponsors %} transactions
@@ -63,3 +63,4 @@ Existing sponsorships will remain in place during this period and maintainers wi
 4. Review your billing and payment information. If you need to make an edit, click **Edit** next to the relevant section. Otherwise, click **Submit payment**. ![One-time payment summary](/assets/images/help/billing/payment-summary.png)
 5. Optionally, if you clicked **Edit**, make any necessary changes, and then click **Submit payment**. ![One-time payment edit summary](/assets/images/help/billing/payment-summary-edit.png)
 6. Once payment for the current billing cycle has been successfully made, the **Pay now** button on your "Billing & plans" page will be disabled until your next payment is due. ![One-time payment pay now button disabled](/assets/images/help/billing/pay-now-button-disabled.png)
+  

@@ -1,7 +1,7 @@
 ---
-title: Learning about GitHub Support
+title: 了解 GitHub 支持
 shortTitle: 关于 GitHub 支持
-intro: 'You can learn more about getting in touch with {% data variables.contact.github_support %}.'
+intro: '您可以了解有关与 {% data variables.contact.github_support %} 联系的更多信息。'
 versions:
   fpt: '*'
   ghec: '*'
