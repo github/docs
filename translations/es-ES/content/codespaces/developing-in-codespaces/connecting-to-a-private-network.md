@@ -1,6 +1,6 @@
 ---
-title: Connecting to a private network
-intro: 'You can connect {% data variables.product.prodname_codespaces %} to resources on a private network, including package registries, license servers, and on-premises databases.'
+title: Conectarse a una red privada
+intro: 'Puedes conectar los {% data variables.product.prodname_codespaces %} a los recursos de una red privada, incluyendo los registros de paquetes, servidores de licencias y bases de datos en las instalaciones.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -12,34 +12,34 @@ topics:
   - Developer
 ---
 
-## About codespace networking
+## Acerca de la creación de redes en los codespaces
 
-By default, your codespaces have access to all resources on the public internet, including package managers, license servers, databases, and cloud platform APIs, but they have no access to resources on private networks.
+Predeterminadamente, tus codespaces tienen acceso a todos los recursos en el internet público, incluyendo los administradores de paquetes, servidores de licencias, bases de datos y API de plataforma en la nube, pero no tienen acceso a aquellos de las redes privadas.
 
-## Connecting to resources on a private network
+## Conectar los recursos a una red privada
 
-The currently supported method of accessing resources on a private network is to use a VPN. It is currently not recommended to allowlist codespaces IPs as this would allow all codespaces (both yours and those of other customers) access to the network protected resources.
+El método actualmente compatible para acceder a los recursos de una red privada es utilizar una VPN. No se recomienda actualmente colocar las IP de los codespaces en una lista de IP permitidas, ya que esto permitiría que todos los codespaces (tanto los tuyos como los de otros clientes) accedieran a los recursos protegidos de la red.
 
-### Using a VPN to access resources behind a private network
+### Utilizar una VPN para acceder a los recursos detrás de una red privada
 
-The easiest way to access resources behind a private network is to VPN into that network from within your codespace.
+La forma más fácil de acceder a los recursos detrás de una red privada es llegar a ella con una VPN desde dentro de tu codespace.
 
-We recommend VPN tools like [OpenVPN](https://openvpn.net/) to access resources on a private network. For more information, see "[Using the OpenVPN client from GitHub Codespaces](https://github.com/codespaces-contrib/codespaces-openvpn)."
+Te recomendamos herramientas de VPN como [Open VPN](https://openvpn.net/) para acceder a los recursos de una red privada. Para obtener más información, consulta la sección "[Utilizar el cliente de OpenVPN desde GitHub Codespaces](https://github.com/codespaces-contrib/codespaces-openvpn)".
 
-There are also a number of third party solutions that, while not explicitly endorsed by {% data variables.product.prodname_dotcom %}, have provided examples of how to integrate with {% data variables.product.prodname_codespaces %}.
+También hay muchas soluciones de terceros que, si bien lo respalda {% data variables.product.prodname_dotcom %} directamente, han proporcionado ejemplos de cómo integrarse con los {% data variables.product.prodname_codespaces %}.
 
-These third party solutions include:
+Estas soluciones de terceros incluyen:
 
 - [Tailscale](https://tailscale.com/kb/1160/github-codespaces/)
 
-### Allowlisting private resources for codespaces
+### Poner los recursos privados en listas de IP permitidas para los codespaces
 
-While {% data variables.product.prodname_dotcom %} publishes IP ranges for several products on its Meta API, codespaces IPs are dynamically assigned, meaning your codespace is not guaranteed to have the same IP address day to day. We highly discourage users from allowlisting an entire IP range, as this would give overly broad access to all codespaces (including users not affiliated with your codespaces).
+Si bien {% data variables.product.prodname_dotcom %} publica rangos de IP para diversos productos en su API Meta, las IP de los codespaces se asignan dinámicamente, lo cual significa que no hay garantía de que tu Codespace tenga la misma dirección IP todos los días. Desalentamos enormemente que los usuarios pongan todo un rango de IP en una lista de IP permitidas, ya que esto otorgaría un acceso demasiado amplio a todos ellos (incluyendo a los usuarios que no están afiliados con tus codespaces).
 
-For more information about the Meta API, see "[Meta](/rest/reference/meta)."
+Para obtener más información sobre la API Meta, consulta la sección "[Meta](/rest/reference/meta)".
 
-## Restricting access to the public internet
+## Restringir el acceso al internet público
 
-At present, there is no way to restrict codespaces from accessing the public internet, or to restrict appropriately authenticated users from accessing a forwarded port.
+En la actualidad, no hay forma de restringir los codespaces para que no accedan al internet público ni de restringir a los usuarios autenticados adecuadamente para que no accedan a un puerto reenviado.
 
-For more information on how to secure your codespaces, see "[Security in Codespaces](/codespaces/codespaces-reference/security-in-codespaces)."
+Para obtener más información sobre cómo asegurar tus codespaces, consulta la sección "[Seguridad en los Codespaces](/codespaces/codespaces-reference/security-in-codespaces)".

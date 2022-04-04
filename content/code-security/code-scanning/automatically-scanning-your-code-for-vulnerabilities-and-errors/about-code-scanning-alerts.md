@@ -108,7 +108,7 @@ The default {% data variables.product.prodname_codeql %} query suites do not inc
 When you update your workflow to run an additional query suite this will increase the analysis time.
 
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     # Run extended queries including queries using machine learning
     queries: security-extended
