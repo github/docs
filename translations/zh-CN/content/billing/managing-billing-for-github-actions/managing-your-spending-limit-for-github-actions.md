@@ -19,9 +19,9 @@ shortTitle: Actions 支出限制
 
 ## 关于 {% data variables.product.prodname_actions %} 的支出限额
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %}
+{% data reusables.actions.actions-spending-limit-brief %}
 
 {% data reusables.actions.actions-packages-set-spending-limit %} 有关 {% data variables.product.prodname_actions %} 使用价格的更多信息，请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)”。
 

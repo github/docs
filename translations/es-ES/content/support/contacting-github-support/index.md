@@ -1,7 +1,7 @@
 ---
-title: Contacting GitHub Support
+title: Contactar al Soporte de GitHub
 shortTitle: Contactar con soporte técnico
-intro: 'You can use the {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} to contact GitHub Support for help troubleshooting issues you encounter while using GitHub.'
+intro: 'Puedes utilizar el {% ifversion ghae %}{% data variables.contact.ae_azure_portal %}{% else %}{% data variables.contact.support_portal %}{% endif %} para contactar al Soporte de GitHub para que te ayude a solucionar los problemas que tengas al utilizar GitHub.'
 versions:
   fpt: '*'
   ghec: '*'

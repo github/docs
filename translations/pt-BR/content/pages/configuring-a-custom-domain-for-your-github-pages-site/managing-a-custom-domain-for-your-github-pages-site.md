@@ -113,7 +113,7 @@ Para configurar um domínio apex, como `example.com`, você deve configurar um a
 
 Ao usar um domínio apex, recomendamos que você configure o seu site de {% data variables.product.prodname_pages %} para hospedar o conteúdo tanto no domínio apex quanto na variante de subdomínio `www`.
 
-Para configurar um subdomínio de `www` junto com o domínio apex, você deve primeiro configurar um domínio apex, que irá criar um `ALIAS`, `ANAME` ou registro `A` junto ao seu provedor DNS. Para obter mais informações, consulte "[Configurar um domínio apex](#configuring-an-apex-domain)".
+Para configurar um subdomínio `www` junto com o domínio apex, você deve primeiro configurar um domínio apex criando um `ALIAS`, `ANOME` ou um registro `A` com o seu provedor DNS. Para obter mais informações, consulte "[Configurar um domínio apex](#configuring-an-apex-domain)".
 
 Depois de configurar o domínio apex, você deverá configurar um registro CNAME com seu provedor DNS.
 

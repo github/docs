@@ -29,7 +29,7 @@ module.exports = {
   },
   reporters,
   modulePathIgnorePatterns: ['assets/'],
-  setupFilesAfterEnv: ['@alex_neo/jest-expect-message'],
+  setupFilesAfterEnv: ['./jest.setup.js', '@alex_neo/jest-expect-message'],
   ...(isBrowser ? {} : { testEnvironment: 'node' }),
   testPathIgnorePatterns: [
     'node_modules/',
@@ -41,4 +41,6 @@ module.exports = {
   ],
   testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions,
+  globalSetup: './script/start-server-for-jest.mjs',
+  globalTeardown: './script/kill-server-for-jest.mjs',
 }

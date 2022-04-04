@@ -1,6 +1,6 @@
-date: '2022-03-15'
+date: '2022-02-15'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   {% note %}
 
@@ -46,7 +46,7 @@ sections:
         # https://github.com/github/releases/issues/1657
         - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
 
-        # https://github.com/github/docs-content/issues/5801
+        # https://github.com/github/releases/issues/2062
         - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
 
     - heading: Performance Changes

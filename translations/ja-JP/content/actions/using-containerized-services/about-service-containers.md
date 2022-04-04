@@ -23,9 +23,9 @@ topics:
 
 サービスコンテナは、ワークフロー中でアプリケーションをテストもしくは運用するのに必要になるかもしれないサービスをホストするための、シンプルでポータブルな方法を提供するDockerコンテナです。 たとえば、ワークフローでデータベースやメモリキャッシュへのアクセスを必要とする結合テストを実行する必要があるかもしれません。
 
-サービスコンテナは、ワークフロー中のそれぞれのジョブに対して設定できます。 {% data variables.product.prodname_dotcom %}は新しいDockerコンテナをワークフロー中で設定された各サービスに対して作成し、ジョブが完了したときにそのサービスコンテナを破棄します。 ジョブ中のステップは、同じジョブの一部であるすべてのサービスコンテナと通信できます。
+サービスコンテナは、ワークフロー中のそれぞれのジョブに対して設定できます。 {% data variables.product.prodname_dotcom %}は新しいDockerコンテナをワークフロー中で設定された各サービスに対して作成し、ジョブが完了したときにそのサービスコンテナを破棄します。 ジョブ中のステップは、同じジョブの一部であるすべてのサービスコンテナと通信できます。 However, you cannot create and use service containers inside a composite action.
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## サービスコンテナとの通信
 

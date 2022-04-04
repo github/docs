@@ -18,7 +18,7 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
 
 ## Publicar o seu pacote
 
-1. Crie um novo repositório em {% data variables.product.prodname_dotcom %}, adicionando o `.gitignore` ao Node. {% ifversion ghes < 3.1 %} Crie um repositório privado se você desejar excluir este pacote mais tarde. O pacotes públicos não podem ser excluídos.{% endif %} For more information, see "[Criar um novo repositório](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
+1. Crie um novo repositório em {% data variables.product.prodname_dotcom %}, adicionando o `.gitignore` ao Node. Para obter mais informações, consulte "[Criando um novo repositório](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
 2. Clone o repositório para a sua máquina local.
     ```shell
     $ git clone https://{% ifversion ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
@@ -61,8 +61,8 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
       build:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
+          - uses: {% data reusables.actions.action-checkout %}
+          - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
           - run: npm ci
@@ -75,8 +75,8 @@ Neste guia, você criará um fluxo de trabalho de {% data variables.product.prod
           packages: write
           contents: read{% endif %}
         steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
+          - uses: {% data reusables.actions.action-checkout %}
+          - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
               registry-url: {% ifversion ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
@@ -119,7 +119,6 @@ Você pode ver todos os pacotes que você publicou.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.package_registry.packages-from-code-tab %}
 {% data reusables.package_registry.navigate-to-packages %}
-
 
 ## Instalar um pacote publicado
 

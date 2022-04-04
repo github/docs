@@ -13,26 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## 卡
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'cards' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## 协作者
-
-此 API 允许您与组织的项目进行交互。
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'collaborators' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-## 列
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'columns' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/projects
+-->

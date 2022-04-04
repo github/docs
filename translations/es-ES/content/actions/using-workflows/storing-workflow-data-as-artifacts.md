@@ -26,7 +26,7 @@ topics:
 
 Los artefactos te permiten hacer datos persistentes después de que se complete un job y comparten estos datos con otro job en el mismo flujo de trabajo. Un artefacto es un archivo o recopilación de archivos producidos durante una ejecución de flujo de trabajo. Por ejemplo, puedes utilizar artefactos para guardar tu compilación y probar el resultado después de que haya terminado una ejecución de flujo de trabajo. {% data reusables.actions.reusable-workflow-artifacts %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %} El periodo de retención para una solicitud de cambios se reinicia cada vez que alguien sube una confirmación nueva en dicha solicitud.
+{% data reusables.actions.artifact-log-retention-statement %} El periodo de retención para una solicitud de cambios se reinicia cada vez que alguien sube una confirmación nueva en dicha solicitud.
 
 Estos son algunos de los artefactos comunes que puedes subir:
 
@@ -37,7 +37,7 @@ Estos son algunos de los artefactos comunes que puedes subir:
 
 {% ifversion fpt or ghec %}
 
-Almacenar artefactos consume espacio de almacenamiento en {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Administrar la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
+Almacenar artefactos consume espacio de almacenamiento en {% data variables.product.product_name %}. {% data reusables.actions.actions-billing %} Para obtener más información, consulta "[Administrar la facturación para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% else %}
 
@@ -101,14 +101,14 @@ jobs:
           npm run build --if-present
           npm test
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: dist-without-markdown
           path: |
             dist
             !dist/**/*.md
       - name: Archive code coverage results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: code-coverage-report
           path: output/test/code-coverage.html
@@ -120,7 +120,7 @@ Puedes definir un periodo de retención personalizado para los artefactos indivu
 
 ```yaml{:copy}
   - name: 'Upload Artifact'
-    uses: actions/upload-artifact@v2
+    uses: actions/upload-artifact@v3
     with:
       name: my-artifact
       path: my_file.txt
@@ -133,7 +133,7 @@ El valor `retention-days` no puede exceder el límite de retención que configur
 
 Durante una ejecución de flujo de trabajo, puedes utilizar la acción [`download-artifact`](https://github.com/actions/download-artifact) para descargar artefactos que se hayan cargado previamente en la misma ejecución de flujo de trabajo.
 
-Después de que se haya completado una ejecución de flujo de trabajo, puedes descargar o borrar los artefactos en {% data variables.product.prodname_dotcom %} o utilizando la API de REST. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/rest/reference/actions#artifacts)."
+Después de que se haya completado una ejecución de flujo de trabajo, puedes descargar o borrar los artefactos en {% data variables.product.prodname_dotcom %} o utilizando la API de REST. Para obtener más información, consulta las secciones "[Descargar los artefactos de un flujo de trabajo](/actions/managing-workflow-runs/downloading-workflow-artifacts)", "[eliminar los artefactos de un flujo de trabajo](/actions/managing-workflow-runs/removing-workflow-artifacts)", y la "[API de REST de Artefactos](/rest/reference/actions#artifacts)".
 
 ### Descargar artefactos durante una ejecución de flujo de trabajo
 
@@ -149,7 +149,7 @@ Especificar el nombre de un artefacto para descargar un artefacto individual. Si
 
 ```yaml
 - name: Download a single artifact
-  uses: actions/download-artifact@v2
+  uses: actions/download-artifact@v3
   with:
     name: my-artifact
 ```
@@ -158,12 +158,12 @@ También puedes descargar todos los artefactos en una ejecución de flujo de tra
 
 ```yaml
 - name: Download all workflow run artifacts
-  uses: actions/download-artifact@v2
+  uses: actions/download-artifact@v3
 ```
 
 Si descargas todos los artefactos de una ejecución de flujo de trabajo, se creará un directorio para cada uno de ellos utilizando su nombre.
 
-For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.product_location %}{% endif %}.
+Para obtener más información sobre la sintaxis, consulta la acción {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact){% else %} `actions/download-artifact` en {% data variables.product.product_location %}{% endif %}.
 
 ## Pasar datos entre puestos en un flujo de trabajo
 
@@ -200,7 +200,7 @@ jobs:
         run: |
           expr 3 + 7 > math-homework.txt
       - name: Upload math result for job 1
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: homework
           path: math-homework.txt
@@ -211,7 +211,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Download math result for job 1
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: homework
       - shell: bash
@@ -219,7 +219,7 @@ jobs:
           value=`cat math-homework.txt`
           expr $value \* 9 > math-homework.txt
       - name: Upload math result for job 2
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: homework
           path: math-homework.txt
@@ -230,7 +230,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Download math result for job 2
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: homework
       - name: Print the final result
@@ -240,17 +240,12 @@ jobs:
           echo The result is $value
 ```
 
-La ejecución de flujo de trabajo archivará cualquier artefacto que haya generado. Para obtener más información sobre cómo descargar los artefactos archivados, consulta la sección "[Descargar artefactos de flujo de trabajo](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-![Flujo de trabajo que pasa datos entre trabajos para realizar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
-{% else %}
-![Flujo de trabajo que pasa datos entre trabajos para realizar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow.png)
-{% endif %}
+La ejecución de flujo de trabajo archivará cualquier artefacto que haya generado. Para obtener más información sobre cómo descargar los artefactos archivados, consulta la sección "[Descargar artefactos de flujo de trabajo](/actions/managing-workflow-runs/downloading-workflow-artifacts)". ![Flujo de trabajo que pasa datos entre trabajos para realizar cálculos matemáticos](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
 
 {% ifversion fpt or ghec %}
 
 ## Leer más
 
-- "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
+- "[Administrar la facturación para las {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)".
 
 {% endif %}

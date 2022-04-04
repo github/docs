@@ -1,7 +1,7 @@
 
-Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configurations. Uma matriz permite que você crie vários trabalhos que realizam a substituição de variável em uma definição de trabalho único. Por exemplo, você pode usar uma matriz para criar trabalhos para mais de uma versão compatível de uma linguagem de programação, sistema operacional ou ferramenta. Uma matriz reutiliza a configuração do trabalho e cria trabalho para cada matriz que você configurar.
+Use `jobs.<job_id>.strategy.matrix` para definir uma matriz de diferentes configurações de trabalho. Uma matriz permite que você crie vários trabalhos que realizam a substituição de variável em uma definição de trabalho único. Por exemplo, você pode usar uma matriz para criar trabalhos para mais de uma versão compatível de uma linguagem de programação, sistema operacional ou ferramenta. Uma matriz reutiliza a configuração do trabalho e cria trabalho para cada matriz que você configurar.
 
-{% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.actions.usage-matrix-limits %}
 
 Cada opção que você define na `matriz` tem uma chave e um valor. As chaves que você define tornam-se propriedades no contexto da `matriz` e você pode fazer referência à propriedade em outras áreas do seu arquivo de fluxo de trabalho. Por exemplo, se você definir a chave `os` que contém um array de sistemas operacionais, você poderá usar a propriedade `matrix.os` como o valor da palavra-chave `runs-on` para criar um trabalho para cada sistema operacional. Para obter mais informações, consulte "[Contextos](/actions/learn-github-actions/contexts)".
 
@@ -13,19 +13,17 @@ Você pode especificar uma matriz ao fornecer um array para as opções de confi
 
 Este exemplo cria uma matriz de três trabalhos, definindo a chave `nó` para um array de três versões do Node.js. Para usar a matriz, o exemplo define a propriedade do contexto `matrix.node` como o valor do parâmetro `setup-node` de entrada da ação `node-version`. Como resultado, três trabalhos serão executados, cada uma usando uma versão diferente do Node.js.
 
-{% raw %}
 ```yaml
 strategy:
   matrix:
     node: [10, 12, 14]
 steps:
   # Configures the node version used on GitHub-hosted runners
-  - uses: actions/setup-node@v2
+  - uses: {% data reusables.actions.action-setup-node %}
     with:
       # The Node.js version to configure
-      node-version: ${{ matrix.node }}
+      node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 A ação setup-node `` é a forma recomendada de configurar uma versão do Node.js ao usar executores hospedados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a ação [`setup-node`](https://github.com/actions/setup-node).
 
@@ -38,26 +36,24 @@ Você pode criar uma matriz para executar fluxos de trabalho em mais de um siste
 
 {% data reusables.repositories.actions-matrix-builds-os %}
 
-{% raw %}
 ```yaml
-runs-on: ${{ matrix.os }}
+runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 strategy:
   matrix:
     os: [ubuntu-18.04, ubuntu-20.04]
     node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v2
+  - uses: {% data reusables.actions.action-setup-node %}
     with:
-      node-version: ${{ matrix.node }}
+      node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 {% ifversion ghae %}
 Para obter mais informações sobre a configuração de executores auto-hospedados, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 {% else %}Para encontrar opções de configuração compatíveis com executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 {% endif %}
 
-#### Example: Including additional values in combinations
+#### Exemplo: Incluindo valores adicionais em combinações
 
 Você pode adicionar opções de configurações para um trabalho de matriz de compilação existente. Por exemplo, se você quer usar uma versão específica do `npm` quando o trabalho que usa o `windows-latest` e a versão 8 do `nó` é executado, você pode usar `incluir` para especificar a opção adicional.
 
@@ -123,4 +119,4 @@ strategy:
 
 Você pode adicionar variáveis de ambiente personalizadas para cada combinação de testes usando a chave `include`. Em seguida, você pode se referir às variáveis de ambiente personalizadas em um passo posterior.
 
-{% data reusables.github-actions.matrix-variable-example %}
+{% data reusables.actions.matrix-variable-example %}

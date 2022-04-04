@@ -1,6 +1,6 @@
 ---
 title: Organization の OAuth App アクセス制限の無効化
-intro: 'Organization owners can disable restrictions on the {% data variables.product.prodname_oauth_apps %} that have access to the organization''s resources.'
+intro: 'Organizationのオーナーは、Organizationのリソースへのアクセスを持つ{% data variables.product.prodname_oauth_apps %}に対する制限を無効化できます。'
 redirect_from:
   - /articles/disabling-third-party-application-restrictions-for-your-organization
   - /articles/disabling-oauth-app-access-restrictions-for-your-organization

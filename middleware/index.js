@@ -9,6 +9,7 @@ import timeout from './timeout.js'
 import morgan from 'morgan'
 import datadog from './connect-datadog.js'
 import rateLimit from './rate-limit.js'
+import slowDown from './slow-down.js'
 import cors from './cors.js'
 import helmet from 'helmet'
 import csp from './csp.js'
@@ -46,13 +47,11 @@ import triggerError from './trigger-error.js'
 import releaseNotes from './contextualizers/release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
 import graphQL from './contextualizers/graphql.js'
-import rest from './contextualizers/rest.js'
 import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
 import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
-import earlyAccessBreadcrumbs from './contextualizers/early-access-breadcrumbs.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
 import featuredLinks from './featured-links.js'
@@ -213,6 +212,7 @@ export default function (app) {
   }
 
   // *** Early exits ***
+  app.use(slowDown)
   app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
@@ -290,18 +290,12 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
   app.use(instrument(graphQL, './contextualizers/graphql'))
-  app.use(asyncMiddleware(instrument(rest, './contextualizers/rest')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
   app.use(instrument(currentProductTree, './contextualizers/current-product-tree'))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
-  app.use(
-    asyncMiddleware(
-      instrument(earlyAccessBreadcrumbs, './contextualizers/early-access-breadcrumbs')
-    )
-  )
   app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
 

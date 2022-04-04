@@ -43,4 +43,4 @@ Si crees que se te debería dar crédito por alguna asesoría de seguridad, por 
 
 ## Leer más
 
-- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- "[Retirar una asesoría de seguridad de repositorio](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"

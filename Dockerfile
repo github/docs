@@ -46,7 +46,6 @@ COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
-
 # One part of the build relies on this content file to pull all-products
 COPY content/index.md ./content/index.md
 
@@ -90,6 +89,7 @@ COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 COPY --chown=node:node server.mjs ./server.mjs
+COPY --chown=node:node start-server.mjs ./start-server.mjs
 
 EXPOSE $PORT
 

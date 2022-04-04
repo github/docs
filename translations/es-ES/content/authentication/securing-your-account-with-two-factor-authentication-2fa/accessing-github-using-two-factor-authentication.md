@@ -46,14 +46,14 @@ Si instalaste e iniciaste sesión en {% data variables.product.prodname_mobile %
 3. {% data variables.product.product_name %} te enviará una notificación push para verificar tu intento de inicio de sesión. Abrir la notificación push o abrir la app de {% data variables.product.prodname_mobile %} mostrará un mensaje que te pide aprobar o rechazar este intento de inicio de sesión.
   {% note %}
 
-  **Note**: This prompt may require you to enter a two-digit number displayed within the browser you are signing in to.
+  **Nota:**: Este mensaje podría requerir que ingreses un número de dos dígitos que se muestra dentro del buscador en el que iniciaste sesión.
 
   {% endnote %}
 
-  ![Two-factor authentication challenge with {% data variables.product.prodname_mobile %} requiring a two-digit input](/assets/images/help/2fa/2fa-mobile-number-challenge.png)
+  ![El reto de autenticación bifactorial con {% data variables.product.prodname_mobile %} que requiere una entrada de dos dígitos](/assets/images/help/2fa/2fa-mobile-number-challenge.png)
 
-    - Upon approving the login attempt using {% data variables.product.prodname_mobile %}, your browser will complete the sign in attempt automatically.
-    - Rejecting the sign in attempt will prevent the authentication from finishing. For more information, see "[Keeping your account and data secure](/authentication/keeping-your-account-and-data-secure)."
+    - Cuando apruebes el intento de inicio de sesión utilizando {% data variables.product.prodname_mobile %}, tu buscador completará el inicio de sesión automáticamente.
+    - Si rechazas el intento de inicio de sesión, se prevendrá la finalización de la autenticación. Para obtener más información, consulta la sección "[Mantener tus datos y tu cuenta seguros](/authentication/keeping-your-account-and-data-secure)".
 
 {% endif %}
 

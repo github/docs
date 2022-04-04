@@ -15,9 +15,9 @@ redirect_from:
   - /codespaces/codespaces-reference/using-copilot-in-codespaces
 ---
 
-## 使用 {% data variables.product.prodname_copilot %}
+## Using {% data variables.product.prodname_copilot %}
 
 [{% data variables.product.prodname_copilot %}](https://copilot.github.com/), an AI pair programmer, can be used in any codespace. To start using {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_codespaces %}, install the [{% data variables.product.prodname_copilot_short %} extension from the {% data variables.product.prodname_vscode %} marketplace](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 
-To include {% data variables.product.prodname_copilot_short %}, or other extensions, in all of your codespaces, enable Settings Sync. 更多信息请参阅“[为帐户个性化 {% data variables.product.prodname_codespaces %}](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync)”。 Additionally, to include {% data variables.product.prodname_copilot_short %} in a given project for all users, you can specify `GitHub.copilot` as an extension in your `devcontainer.json` file. For information about configuring a `devcontainer.json` file, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#creating-a-custom-codespace-configuration)."
+To include {% data variables.product.prodname_copilot_short %}, or other extensions, in all of your codespaces, enable Settings Sync. For more information, see "[Personalizing {% data variables.product.prodname_codespaces %} for your account](/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account#settings-sync)." Additionally, to include {% data variables.product.prodname_copilot_short %} in a given project for all users, you can specify `GitHub.copilot` as an extension in your `devcontainer.json` file. For information about configuring a `devcontainer.json` file, see "[Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project#creating-a-custom-codespace-configuration)."
 

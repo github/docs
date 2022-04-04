@@ -1,6 +1,6 @@
 ---
 title: 版本发布
-intro: 'The releases API allows you to create, modify, and delete releases and release assets.'
+intro: 发行版 API 允许您创建、修改和删除版本以及发布资产。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,18 +12,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% note %}
-
-**注：**发布 API 取代了下载 API。 您可以从返回发行版和发行版资产的 API 端点检索下载次数和浏览器下载 URL。
-
-{% endnote %}
-
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## Release assets
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'assets' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated below. Markdown for subcategories is located in data/reusables/rest-reference/releases
+-->

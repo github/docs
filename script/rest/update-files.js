@@ -18,6 +18,7 @@ import yaml from 'js-yaml'
 const tempDocsDir = path.join(process.cwd(), 'openapiTmp')
 const githubRepoDir = path.join(process.cwd(), '../github')
 const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
+const appsStaticPath = path.join(process.cwd(), 'lib/rest/static/apps')
 const decoratedPath = path.join(process.cwd(), 'lib/rest/static/decorated')
 const openApiReleasesDir = `${githubRepoDir}/app/api/description/config/releases`
 
@@ -139,10 +140,15 @@ async function updateRedirectOverrides() {
 
   const redirects = {}
   console.log('\n➡️  Updating REST API redirect exception list.\n')
-  for (const value of Object.values(overrides)) {
+  for (const [key, value] of Object.entries(overrides)) {
     const oldUrl = value.originalUrl
     const anchor = oldUrl.replace('/rest/reference', '').split('#')[1]
-    redirects[oldUrl] = `/rest/reference/${value.category}#${anchor}`
+    if (key.includes('#')) {
+      // We are updating a subcategory into a category
+      redirects[oldUrl] = `/rest/reference/${value.category}`
+    } else {
+      redirects[oldUrl] = `/rest/reference/${value.category}#${anchor}`
+    }
   }
   await writeFile(
     'lib/redirects/static/client-side-rest-api-redirects.json',
@@ -160,19 +166,105 @@ async function decorate() {
     dereferencedSchemas[key] = schema
   }
 
+  const operationsEnabledForGitHubApps = {}
   for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
     try {
       // munge OpenAPI definitions object in an array of operations objects
       const operations = await getOperations(schema)
-
       // process each operation, asynchronously rendering markdown and stuff
       await Promise.all(operations.map((operation) => operation.process()))
 
+      // Remove any keys not needed in the decorated files
+      const decoratedOperations = operations.map(
+        ({
+          tags,
+          description,
+          serverUrl,
+          operationId,
+          categoryLabel,
+          subcategoryLabel,
+          contentType,
+          externalDocs,
+          ...props
+        }) => props
+      )
+
+      const categories = [
+        ...new Set(decoratedOperations.map((operation) => operation.category)),
+      ].sort()
+
+      // Orders the operations by their category and subcategories.
+      // All operations must have a category, but operations don't need
+      // a subcategory. When no subcategory is present, the subcategory
+      // property is an empty string ('').
+      /* 
+        Example:
+        {
+          [category]: {
+            '': {
+              "description": "",
+              "operations": []
+            },
+            [subcategory sorted alphabetically]: {
+              "description": "",
+              "operations": []
+            }
+          }
+        }
+      */
+      const operationsByCategory = {}
+      categories.forEach((category) => {
+        operationsByCategory[category] = {}
+        const categoryOperations = decoratedOperations.filter(
+          (operation) => operation.category === category
+        )
+        categoryOperations
+          .filter((operation) => !operation.subcategory)
+          .map((operation) => (operation.subcategory = operation.category))
+
+        const subcategories = [
+          ...new Set(categoryOperations.map((operation) => operation.subcategory)),
+        ].sort()
+        // the first item should be the item that has no subcategory
+        // e.g., when the subcategory = category
+        const firstItemIndex = subcategories.indexOf(category)
+        if (firstItemIndex > -1) {
+          const firstItem = subcategories.splice(firstItemIndex, 1)[0]
+          subcategories.unshift(firstItem)
+        }
+
+        subcategories.forEach((subcategory) => {
+          operationsByCategory[category][subcategory] = {}
+
+          const subcategoryOperations = categoryOperations.filter(
+            (operation) => operation.subcategory === subcategory
+          )
+
+          operationsByCategory[category][subcategory] = subcategoryOperations
+        })
+      })
+
       const filename = path.join(decoratedPath, `${schemaName}.json`).replace('.deref', '')
       // write processed operations to disk
-      await writeFile(filename, JSON.stringify(operations, null, 2))
-
+      await writeFile(filename, JSON.stringify(operationsByCategory, null, 2))
       console.log('Wrote', path.relative(process.cwd(), filename))
+
+      // Create the enabled-for-apps.json file used for
+      // https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps
+      operationsEnabledForGitHubApps[schemaName] = {}
+      for (const category of categories) {
+        const categoryOperations = operations.filter((operation) => operation.category === category)
+
+        // This is a collection of operations that have `enabledForGitHubApps = true`
+        // It's grouped by resource title to make rendering easier
+        operationsEnabledForGitHubApps[schemaName][category] = categoryOperations
+          .filter((operation) => operation['x-github'].enabledForGitHubApps)
+          .map((operation) => ({
+            slug: operation.slug,
+            verb: operation.verb,
+            requestPath: operation.requestPath,
+          }))
+      }
     } catch (error) {
       console.error(error)
       console.log(
@@ -181,6 +273,11 @@ async function decorate() {
       process.exit(1)
     }
   }
+  await writeFile(
+    path.join(appsStaticPath, 'enabled-for-apps.json'),
+    JSON.stringify(operationsEnabledForGitHubApps, null, 2)
+  )
+  console.log('Wrote', path.relative(process.cwd(), `${appsStaticPath}/enabled-for-apps.json`))
 }
 
 async function validateInputParameters(schemas) {

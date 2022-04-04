@@ -13,7 +13,7 @@ sections:
   changes:
     - A camada externa adicional de compressão `gzip` ao criar um pacote de suporte de cluster com `ghe-cluster-suport-bundle` agora está desativada por padrão. Essa compressão externa pode ser aplicada opcionalmente com a opção de linha de comando `ghe-cluster-suport-bundle -c`.
     - Nós adicionamos texto adicional ao console de administração para lembrar os usuários da coleta de dados dos aplicativos móveis para fins de melhoria de experiência.
-    - The {% data variables.product.prodname_github_connect %} data connection record now includes a list of enabled {% data variables.product.prodname_github_connect %} features. [Updated 2021-12-09]
+    - O registro de conexão de dados {% data variables.product.prodname_github_connect %} agora inclui uma lista de funcionalidades de {% data variables.product.prodname_github_connect %} habilitadas. [Atualizado em 2021-12-09]
   known_issues:
     - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
     - Em uma nova configuração de {% data variables.product.prodname_ghe_server %} sem qualquer usuário, um invasor pode criar o primeiro usuário administrador.

@@ -24,8 +24,9 @@ export const DefaultLayout = (props: Props) => {
     fullUrl,
     status,
   } = useMainContext()
-  const { t } = useTranslation(['errors', 'scroll_button'])
+  const { t } = useTranslation(['errors', 'meta', 'scroll_button'])
   const router = useRouter()
+  const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
   return (
     <div className="d-lg-flex">
       <Head>
@@ -37,7 +38,7 @@ export const DefaultLayout = (props: Props) => {
         ) : null}
 
         {/* For Google and Bots */}
-        {page.introPlainText && <meta name="description" content={page.introPlainText} />}
+        <meta name="description" content={metaDescription} />
         {page.hidden && <meta name="robots" content="noindex" />}
         {page.languageVariants.map((languageVariant) => {
           return (
@@ -92,7 +93,7 @@ export const DefaultLayout = (props: Props) => {
         style={{ height: '100vh' }}
       >
         <Header />
-        <main id="main-content">
+        <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
           <DeprecationBanner />
           <RestBanner />
 

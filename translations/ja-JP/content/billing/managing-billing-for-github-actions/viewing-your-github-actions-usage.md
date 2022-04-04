@@ -35,7 +35,7 @@ Organization については、Organization のオーナーと支払いマネー
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Enterprise アカウントの {% data variables.product.prodname_actions %} の使用状況を表示する
 
@@ -43,7 +43,7 @@ Enterprise アカウントについては、Enterprise オーナーと支払い�
 
 {% note %}
 
-**注釈:** Enterprise アカウントの支払い詳細には、オペレーティングシステムごとの利用時間 (分) の概要は示されません。 {% data reusables.github-actions.enterprise-billing-details %}
+**注釈:** Enterprise アカウントの支払い詳細には、オペレーティングシステムごとの利用時間 (分) の概要は示されません。 {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
+  ghae: issue-4462
 type: overview
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -91,6 +91,7 @@ type: overview
 
 - 对于私有存储库，请使用具有 [`repo` 作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)的访问令牌。
 - 对于公共存储库，请使用具有 [`public_repo` 作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)的访问令牌。
+- 对于组织，请使用具有 [`admin:org` 作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)的访问令牌。
 
 要使用 {% data variables.product.prodname_dotcom %} 应用进行身份验证，必须为其分配以下权限：
 - 对于存储库，请分配`管理`权限。

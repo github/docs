@@ -1,6 +1,6 @@
 ---
-title: Creating a composite action
-intro: 'In this guide, you''ll learn how to build a composite action.'
+title: 创建组合操作
+intro: 在本指南中，您将学习如何构建组合操作。
 redirect_from:
   - /actions/creating-actions/creating-a-composite-run-steps-action
 versions:
@@ -11,7 +11,7 @@ versions:
 type: tutorial
 topics:
   - Action development
-shortTitle: Composite action
+shortTitle: 组合操作
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -19,17 +19,17 @@ shortTitle: Composite action
 
 ## 简介
 
-In this guide, you'll learn about the basic components needed to create and use a packaged composite action. 本指南的重点是打包操作所需的组件，因此很少讲操作代码的功能。 该操作将依次打印 "Hello World" 和 "Goodbye"，如果您提供自定义名称，则将依次打印 "Hello [who-to-greet]" 和 "Goodbye"。 该操作还将随机数映射到 `random-number` 输出变量，并运行名为 `goodbye.sh` 的脚本。
+在本指南中，您将了解创建和使用打包的组合操作所需的基本组件。 本指南的重点是打包操作所需的组件，因此很少讲操作代码的功能。 该操作将依次打印 "Hello World" 和 "Goodbye"，如果您提供自定义名称，则将依次打印 "Hello [who-to-greet]" 和 "Goodbye"。 该操作还将随机数映射到 `random-number` 输出变量，并运行名为 `goodbye.sh` 的脚本。
 
-Once you complete this project, you should understand how to build your own composite action and test it in a workflow.
+完成此项目后，您应了解如何构建自己的组合操作和在工作流程测试该操作。
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## 基本要求
 
-Before you begin, you'll create a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+在开始之前，您将在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} 上创建一个存储库。
 
-1. 在 {% data variables.product.product_location %} 上创建公共仓库 You can choose any repository name, or use the following `hello-world-composite-action` example. 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
+1. 在 {% data variables.product.product_location %} 上创建公共仓库 您可以选择任何仓库名称，或者使用下面的 `hello-world-composite-action` 示例。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
 
 1. 将仓库克隆到计算机。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 
@@ -39,7 +39,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
   cd hello-world-composite-action
   ```
 
-2. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
+2. 在 `hello-world-composite-action` 仓库中，创建一个名为 `goodbye.sh` 的新文件，并添加以下示例代码：
 
   ```bash
   echo "Goodbye"
@@ -60,7 +60,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 ## 创建操作元数据文件
 
-1. In the `hello-world-composite-action` repository, create a new file called `action.yml` and add the following example code. For more information about this syntax, see "[`runs` for a composite actions](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)".
+1. 在 `hello-world-composite-action` 仓库中，创建一个名为 `action.yml` 的新文件，并添加以下示例代码： 有关此语法的更多信息，请参阅“组合运行步骤的[`运行`](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-actions)”。
 
     {% raw %}
     **action.yml**
@@ -90,9 +90,9 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
           shell: bash
     ```
     {% endraw %}
-  此文件定义 `who-greet` 输入，将随机生成的数字映射到 `random-number` 输出变量，并运行 `goodbye.sh` 脚本。 It also tells the runner how to execute the composite action.
+  此文件定义 `who-greet` 输入，将随机生成的数字映射到 `random-number` 输出变量，并运行 `goodbye.sh` 脚本。 它还告诉运行器如何执行组合操作。
 
-  For more information about managing outputs, see "[`outputs` for a composite action](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)".
+  有关管理输出的更多信息，请参阅“组合运行步骤的[`输出`](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-actions)”。
 
   有关如何使用 `github.action_path` 的更多信息，请参阅“[`github context`](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)”。
 
@@ -115,7 +115,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 以下工作流程代码使用您在“[创建操作元数据文件](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file)”中设置的已完成 hello world 操作。
 
-Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. 您还可以将 `who-to-greet` 输入替换为您的名称。
+将工作流程代码复制到另一个仓库中的 `.github/workflows/main.yml` 文件，但用您创建的仓库和标记替换 `actions/hello-world-composite-action@v1`。 您还可以将 `who-to-greet` 输入替换为您的名称。
 
 {% raw %}
 **.github/workflows/main.yml**

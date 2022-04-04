@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
+  ghae: 'issue-4462'
 type: overview
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -91,6 +91,7 @@ Your access token will require the following scope:
 
 - For private repositories, use an access token with the [`repo` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 - For public repositories, use an access token with the [`public_repo` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
+- For organizations, use an access token with the [`admin:org` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 
 To  authenticate using a {% data variables.product.prodname_dotcom %} App, it must be assigned the following permissions:
 - For repositories, assign the `administration` permission.

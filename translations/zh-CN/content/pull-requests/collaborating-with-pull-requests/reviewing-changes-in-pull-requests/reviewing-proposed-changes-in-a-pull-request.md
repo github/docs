@@ -31,12 +31,13 @@ shortTitle: 审核建议的更改
 {% data reusables.repositories.changed-files %}
 {% ifversion fpt or ghec or ghes > 3.3 or ghae %}
 
-   You can change the format of the diff view in this tab by clicking {% octicon "gear" aria-label="The Settings gear" %} and choosing the unified or split view. The choice you make will apply when you view the diff for other pull requests.
+   您可以在此选项卡中更改差异视图的格式，方法是单击 {% octicon "gear" aria-label="The Settings gear" %} 并选择统一视图或拆分视图。 当您查看其他拉取请求的差异时，您所做的选择将适用。
 
-   ![Diff view settings](/assets/images/help/pull_requests/diff-view-settings.png)
+   ![差异视图设置](/assets/images/help/pull_requests/diff-view-settings.png)
 
-   You can also choose to hide whitespace differences. The choice you make only applies to this pull request and will be remembered the next time you visit this page.
+   您也可以选择隐藏空白差异。 您所做的选择仅适用于此拉取请求，并在您下次访问此页面时被记住。
 {% endif %}
+1. （可选）筛选文件以仅显示要查看的文件{% if pr-tree-view %} 或使用文件树导航到特定文件{% endif %}。 更多信息请参阅“[过滤拉取请求中的文件](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)”。
 {% data reusables.repositories.start-line-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
@@ -53,7 +54,7 @@ shortTitle: 审核建议的更改
 
 {% codespaces %}
 
-You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+您可以使用 [{% data variables.product.prodname_codespaces %}](/codespaces/overview) 来测试、运行和查看拉取请求。
 
 {% data reusables.codespaces.review-pr %}
 
@@ -67,7 +68,7 @@ You can use [{% data variables.product.prodname_codespaces %}](/codespaces/overv
 
 {% data reusables.dependency-review.beta %}
 
-如果拉取请求包含对依赖项的更改，您可以使用清单或锁定文件的依赖项审阅来查看更改的内容，并检查更改是否引入安全漏洞。 更多信息请参阅“[审查拉取请求中的依赖项更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)”。
+如果拉取请求包含对依赖项的更改，您可以使用清单或锁定文件的依赖项审阅来查看更改的内容，并检查更改是否引入安全漏洞。 更多信息请参阅“[审查拉取请求中的依赖项更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
 
 {% data reusables.repositories.changed-files %}
 

@@ -16,7 +16,7 @@ shortTitle: Criar um modelo de PR
 
 Para obter mais informações, consulte "[Sobre modelos de problema e pull request](/articles/about-issue-and-pull-request-templates)".
 
-Você pode criar um subdiretório *PULL_REQUEST_TEMPLATE/* em qualquer uma das pastas compatíveis para conter vários modelos de pull request, bem como usar o parâmetro de consulta `template` para especificar o modelo que preencherá o texto da pull request. Para obter mais informações, consulte "[Sobre automação de problemas e pull requests com parâmetros de consulta](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)".
+Você pode criar um subdiretório *PULL_REQUEST_TEMPLATE/* em qualquer uma das pastas compatíveis para conter vários modelos de pull request, bem como usar o parâmetro de consulta `template` para especificar o modelo que preencherá o texto da pull request. Para obter mais informações, consulte "[Usando parâmetros de consulta para criar um pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)".
 
 {% ifversion fpt or ghes or ghec %}
 

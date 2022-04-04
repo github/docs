@@ -23,9 +23,9 @@ topics:
 
 Los contenedores de servicios son contenedores de Docker que ofrecen una manera sencilla y portátil de alojar servicios que probablemente necesites para probar o usar tu aplicación en un flujo de trabajo. Por ejemplo, es posible que tu flujo de trabajo tenga que ejecutar pruebas de integración que requieran acceso a una base de datos y a una memoria caché.
 
-Puedes configurar contenedores de servicios para cada trabajo en un flujo de trabajo. {% data variables.product.prodname_dotcom %} crea un contenedor de Docker nuevo para cada servicio configurado en el flujo de trabajo y destruye el contenedor de servicios cuando se termina el trabajo. Los pasos de un trabajo pueden comunicarse con todos los contenedores de servicios que son parte del mismo trabajo.
+Puedes configurar contenedores de servicios para cada trabajo en un flujo de trabajo. {% data variables.product.prodname_dotcom %} crea un contenedor de Docker nuevo para cada servicio configurado en el flujo de trabajo y destruye el contenedor de servicios cuando se termina el trabajo. Los pasos de un trabajo pueden comunicarse con todos los contenedores de servicios que son parte del mismo trabajo. However, you cannot create and use service containers inside a composite action.
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## Comunicarse con contenedores de servicios
 
