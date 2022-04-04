@@ -38,7 +38,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 
 ## Identity provider support
 
-{% data variables.product.prodname_emus %} supports the following IdPs:
+{% data variables.product.prodname_emus %} 支持以下 IdP：
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
@@ -64,7 +64,7 @@ Your contact on the GitHub Sales team will work with you to create your new {% d
 
 After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password. The setup user is only used to configure SAML single sign-on and SCIM provisioning integration for the enterprise. It will no longer have access to administer the enterprise account once SAML is successfully enabled.
 
-The setup user's username is your enterprise's shortcode suffixed with `_admin`. After you log in to your setup user, you can get started by configuring SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+The setup user's username is your enterprise's shortcode suffixed with `_admin`. After you log in to your setup user, you can get started by configuring SAML SSO for your enterprise. 更多信息请参阅“[为企业托管用户配置 SAML 单点登录](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)”。
 
 {% note %}
 
@@ -75,6 +75,8 @@ The setup user's username is your enterprise's shortcode suffixed with `_admin`.
 ## 验证为 {% data variables.product.prodname_managed_user %}
 
 {% data variables.product.prodname_managed_users_caps %} must authenticate through their identity provider. To authenticate, a {% data variables.product.prodname_managed_user %} can visit their IdP application portal or use the login page on {% data variables.product.prodname_dotcom_the_website %}.
+
+{% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
 
 ### Authenticating as a {% data variables.product.prodname_managed_user %} via {% data variables.product.prodname_dotcom_the_website %}
 

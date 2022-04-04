@@ -27,9 +27,9 @@ shortTitle: Docker container action
 
 このプロジェクトを完了すると、あなたの Docker コンテナのアクションをビルドして、ワークフローでテストする方法が理解できます。
 
-{% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+{% data reusables.actions.self-hosted-runner-reqs-docker %}
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
 ## 必要な環境
 
@@ -96,7 +96,7 @@ runs:
 ```
 {% endraw %}
 
-このメタデータは、1 つの `who-to-greet` 入力と 1 つの `time` 出力パラメータを定義しています。 Docker コンテナに入力を渡すには、`inputs` を使用して入力を宣言したうえで `args` キーワードを使用します。
+このメタデータは、1 つの `who-to-greet` 入力と 1 つの `time` 出力パラメータを定義しています。 To pass inputs to the Docker container, you should declare the input using `inputs` and pass the input in the `args` keyword. Everything you include in `args` is passed to the container, but for better discoverability for users of your action, we recommended using inputs.
 
 {% data variables.product.prodname_dotcom %} は `Dockerfile` からイメージをビルドし、このイメージを使用して新しいコンテナでコマンドを実行します。
 
@@ -237,10 +237,7 @@ jobs:
 ```
 {% endraw %}
 
-リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Under **Jobs** or in the visualization graph, click **A job to say hello**. {% endif %}"Hello Mona the Octocat"、または `who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
+リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 Under **Jobs** or in the visualization graph, click **A job to say hello**. "Hello Mona the Octocat"、または`who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/docker-action-workflow-run-updated.png)
-{% else %}
-![ワークフローでアクションを使用しているスクリーンショット](/assets/images/help/repository/docker-action-workflow-run.png)
-{% endif %}
+

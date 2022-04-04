@@ -26,11 +26,15 @@ Antes de apresentar {% data variables.product.prodname_actions %} a uma grande e
 
 Você deve criar um plano para reger o uso de {% data variables.product.prodname_actions %} da empresa e cumprir suas obrigações de conformidade.
 
-Determine quais ações seus desenvolvedores terão permissão para usar. {% ifversion ghes %}Primeiro, decida se você irá permitir o acesso a ações de fora de sua instância. {% data reusables.actions.access-actions-on-dotcom %} Para obter mais informações, consulte "[Sobre o uso de ações na sua empresa](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)".
+Determine which actions {% if actions-workflow-policy %}and reusable workflows{% endif %} your developers will be allowed to use. {% ifversion ghes %}First, decide whether you'll enable access to actions {% if actions-workflow-policy %}and reusable workflows{% endif %} from outside your instance. {% data reusables.actions.access-actions-on-dotcom %} Para obter mais informações, consulte "[Sobre o uso de ações na sua empresa](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)".
 
-Em seguida,{% else %}Primeiro,{% endif %} decida se você permitirá ações de terceiros que não foram criadas por {% data variables.product.company_short %}. Você pode configurar as ações que podem ser executadas nos níveis do repositório, organização e empresa e você pode optar por permitir apenas ações que são criadas por {% data variables.product.company_short %}. Se você permitir ações de terceiros, você poderá limitar as ações permitidas para aquelas criadas por criadores verificados ou uma lista de ações específicas. Para obter mais informações, consulte "[Gerenciando configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)", "[Desabilitando ou limitando {% data variables.product.prodname_actions %} para a sua organização](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)", e "[Aplicando políticas para {% data variables.product.prodname_actions %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-actions-in-your-enterprise)."
+Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that were not created by {% data variables.product.company_short %}. You can configure the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that are allowed to run at the repository, organization, and enterprise levels and can choose to only allow actions that are created by {% data variables.product.company_short %}. If you do allow third-party actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, you can limit allowed actions to those created by verified creators or a list of specific actions{% if actions-workflow-policy %} and reusable workflows{% endif %}. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)", "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)", and "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-github-actions-in-your-enterprise)."
 
+{% if actions-workflow-policy %}
+![Captura de tela das políticas de {% data variables.product.prodname_actions %}](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
+{%- else %}
 ![Captura de tela das políticas de {% data variables.product.prodname_actions %}](/assets/images/help/organizations/enterprise-actions-policy.png)
+{%- endif %}
 
 {% ifversion ghec or ghae-issue-4757 %}
 Considere combinar o OpenID Connect (OIDC) com fluxos de trabalho reutilizáveis para aplicar implantações consistentes no seu repositório, organização ou empresa. Você pode fazer isso definindo condições de confiança nas funções da nuvem com base em fluxos de trabalho reutilizáveis. Para obter mais informações, consulte "["Usando o OpenID Connect com fluxos de trabalho reutilizáveis"](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows).
@@ -56,9 +60,7 @@ Você deveria planejar onde você armazenará seus segredos. Recomendamos armaze
 
 Em {% data variables.product.prodname_dotcom %}, você pode armazenar segredos no nível do repositório ou da organização. Os segredos no nível do repositório podem estar limitados a fluxos de trabalho em certos ambientes, como produção ou teste. Para obter mais informações, consulte "[Segredos criptografados](/actions/security-guides/encrypted-secrets)".
 
-![Captura de tela de uma lista de segredos](/assets/images/help/settings/actions-org-secrets-list.png)
-{% ifversion fpt or ghes > 3.0 or ghec or ghae %}
-Você deve considerar adicionar proteção manual de aprovação para ambientes sensíveis, para que os fluxos de trabalho devam ser aprovados antes de ter acesso aos segredos do ambiente. Para obter mais informações, consulte "[Usando ambientes para implantações](/actions/deployment/targeting-different-environments/using-environments-for-deployment)".{% endif %}
+![Captura de tela de uma lista de segredos](/assets/images/help/settings/actions-org-secrets-list.png) Você deve considerar adicionar proteção manual de aprovação para ambientes sensíveis, para que os fluxos de trabalho devam ser aprovados antes de ter acesso aos segredos do ambiente. Para obter mais informações, consulte "[Usando ambientes para implantações](/actions/deployment/targeting-different-environments/using-environments-for-deployment)".
 
 ### Considerações de segurança para ações de terceiros
 
@@ -71,6 +73,7 @@ Pense em como sua empresa pode usar funcionalidades de {% data variables.product
 {% data reusables.actions.internal-actions-summary %}
 
 {% ifversion ghec or ghes > 3.3 or ghae-issue-4757 %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
 Com fluxos de trabalho reutilizáveis, a sua equipe pode chamar um fluxo de trabalho a partir de outro fluxo de trabalho, evitando duplicação exata. Os fluxos de trabalho reutilizáveis promovem práticas recomendadas, ajudando a sua equipe a usar os fluxos de trabalho bem desenhados e que já foram testados. Para obter mais informações, consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)".
 {% endif %}
 
@@ -83,6 +86,12 @@ Sempre que seus desenvolvedores de fluxo de trabalho quiserem usar uma ação qu
 ## Gerenciando recursos
 
 Você deve planejar como você gerenciará os recursos necessários para usar o {% data variables.product.prodname_actions %}.
+
+{% ifversion ghes %}
+### Requisitos de hardware
+
+É possível que você tenha de atualizar os recursos de CPU e memória para o {% data variables.product.product_location %} administrar a carga de {% data variables.product.prodname_actions %} sem causar perda de desempenho. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)".
+{% endif %}
 
 ### Executores
 
@@ -110,7 +119,7 @@ Você deve configurar o armazenamento externo de blob para estes artefatos. Esco
 
 {% ifversion ghec or ghes %}
 
-{% data reusables.github-actions.artifact-log-retention-statement %}
+{% data reusables.actions.artifact-log-retention-statement %}
 
 {% endif %}
 

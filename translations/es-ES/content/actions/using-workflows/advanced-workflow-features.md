@@ -1,7 +1,7 @@
 ---
-title: Advanced workflow features
-shortTitle: Advanced workflow features
-intro: 'Esta guía te muestra cómo utilizar las características avanzadas de {% data variables.product.prodname_actions %} con administración de secretos, jobs dependientes, almacenamiento en caché, matrices de compilación,{% ifversion fpt or ghes > 3.0 or ghae or ghec %} ambientes,{% endif %}y etiquetas.'
+title: Características avanzadas de los flujos de trabajo
+shortTitle: Características avanzadas de los flujos de trabajo
+intro: 'Esta guía te muestra cómo utilizar las características avanzadas de las {% data variables.product.prodname_actions %}, con administración de secretos, jobs dependientes, almacenamiento en caché, matrices de compilación, ambientes y etiquetas.'
 redirect_from:
   - /actions/learn-github-actions/managing-complex-workflows
 versions:
@@ -68,7 +68,7 @@ jobs:
       - run: ./test_server.sh
 ```
 
-For more information, see "[Defining prerequisite jobs](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
+Para obtener más información, consulta la sección "[Definir los jobs de prerrequisito](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)".
 
 ## Utilizar una matriz de compilaciones
 
@@ -89,7 +89,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Using a build matrix for your jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)."
+Para obtener más información, consulte la sección "[Utilizar una matriz de compilación para tus jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)".
 
 {% ifversion fpt or ghec %}
 ## Almacenar dependencias en caché
@@ -169,12 +169,9 @@ Para aprender más sobre las etiquetas de los ejecutores hospedados en {% data v
 {% data reusables.actions.reusable-workflows %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-
 ## Utilizar ambientes
 
 Puedes configurr ambientes con reglas de protección y secretos. Cad job en un flujo de trabajo puede referenciar un solo ambiente. Cualquier regla de protección que se configure para el ambiente debe pasar antes de que un job que referencia al ambiente se envíe a un ejecutor. Para obtener más información, consulta la sección "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
-{% endif %}
 
 ## Utilizar flujos de trabajo iniciales
 

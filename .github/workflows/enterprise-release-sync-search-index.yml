@@ -40,7 +40,7 @@ jobs:
     name: Update English index for new GHES release
     # Skip this check if the event originated from Docubot, to prevent
     # infinite runs when Docubot checks in the search indexes in this workflow
-    if: github.repository == 'github/docs-internal' && github.event.sender.login != 'Docubot'
+    if: github.repository == 'github/docs-internal' && github.event.sender.login != 'Docubot' && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
       - name: checkout

@@ -185,3 +185,43 @@ There are three ways to resolve this problem:
 1. Return to {% data variables.product.prodname_ghe_server %}.
 
 {% endif %}
+
+{% ifversion ghes > 3.3 %}
+
+<a name="bundled-actions"></a>
+
+## Troubleshooting bundled actions in {% data variables.product.prodname_actions %}
+
+If you receive the following error when installing {% data variables.product.prodname_actions %} in {% data variables.product.prodname_ghe_server %}, you can resolve the problem by installing the official bundled actions and starter workflows.
+
+```shell
+A part of the Actions setup had problems and needs an administrator to resolve.
+```
+
+To install the official bundled actions and starter workflows within a designated organization in {% data variables.product.prodname_ghe_server %}, follow this procedure.
+
+1. Identify an organization that will store the official bundled actions and starter worflows. You can create a new organization or reuse an existing one. 
+    - To create a new organization, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." 
+    - For assistance with choosing a name for this organization, see "[Reserved Names](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#reserved-names)." 
+
+1. Log in to the administrative shell using SSH. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)."
+1. To designate your organization as the location to store the bundled actions, use the `ghe-config` command, replacing `ORGANIZATION` with the name of your organization.
+    ```shell
+    $ ghe-config app.actions.actions-org ORGANIZATION
+    ```
+    and:
+    ```shell
+    $ ghe-config app.actions.github-org ORGANIZATION
+    ```
+1.  To add the bundled actions to your organization, unset the SHA.
+    ```shell
+    $ ghe-config --unset 'app.actions.actions-repos-sha1sum'
+    ```
+1. Apply the configuration.
+    ```shell
+    $ ghe-config-apply
+    ```
+
+After you've completed these steps, you can resume configuring {% data variables.product.prodname_actions %} at "[Managing access permissions for GitHub Actions in your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise)."
+
+{% endif %}

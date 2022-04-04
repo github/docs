@@ -1,6 +1,6 @@
 ---
-title: Filtering alerts in the security overview
-intro: Use filters to view specific categories of alerts
+title: Filtrar alertas en el resumen de seguridad
+intro: Utiliza filtros para ver categorías específicas de las alertas
 permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:
@@ -15,26 +15,26 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: Filtering alerts
+shortTitle: Filtrar alertas
 ---
 
 {% data reusables.security-center.beta %}
 
-## About filtering the security overview
+## Acerca de filtrar el resumen de seguridad
 
-You can use filters in the security overview to narrow your focus based on a range of factors, like alert risk level, alert type and feature enablement. Different filters are available depending on the specific view and whether you analysing at the organization, team or repository level.
+Puedes utilizar filtros en el resumen de seguridad para reducir tu enfoque con base en una serie de factores, como el nivel de riesgo de la alerta, el tipo de esta y la habilitación de características. Los diversos filtros se encuentran disponibles dependiendo de la vista específica y de si estás analizando a nivel de organización, de equipo o de repositorio.
 
 ## Filtrar por repositorio
 
-Available in all organization-level and team-level views.
+Disponible en todas las vistas a nivel de organización y de equipo.
 
-| Qualifier              | Descripción                                   |
-| ---------------------- | --------------------------------------------- |
-| `repo:REPOSITORY-NAME` | Displays alerts for the specified repository. |
+| Qualifier              | Descripción                                       |
+| ---------------------- | ------------------------------------------------- |
+| `repo:REPOSITORY-NAME` | Muestra alertas para el repositorio especificado. |
 
 ## Filtrar por el criterio de tener habilitadas las características de seguridad
 
-Available in the organization-level and team-level overview.
+Disponible en el resumen a nivel de organización y de equipo.
 
 | Qualifier                     | Descripción                                                                                                       |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -44,11 +44,11 @@ Available in the organization-level and team-level overview.
 | `secret-scanning:not-enabled` | Muestra los repositorios que tienen habilitado el {% data variables.product.prodname_secret_scanning %}.        |
 | `dependabot:enabled`          | Muestra los repositorios que tienen habilitadas las {% data variables.product.prodname_dependabot_alerts %}.    |
 | `dependabot:not-enabled`      | Muestra los repositorios que no tienen habilitadas las {% data variables.product.prodname_dependabot_alerts %}. |
-| `not-enabled:any`             | Display repositories with at least one security feature that is not enabled.                                      |
+| `not-enabled:any`             | Muestra los repositorios con por lo menos una característica de seguridad que no está habilitada.                 |
 
 ## Filtrar por tipo de repositorio
 
-Available in the organization-level and team-level overview.
+Disponible en el resumen a nivel de organización y de equipo.
 
 | Qualifier | Descripción |
 | --------- | ----------- |
@@ -102,36 +102,36 @@ Disponible en el resumen a nivel organizacional.
 
 {% if security-overview-views %}
 
-## Filter by severity
+## Filtrar por gravedad
 
-Available in the code scanning alert views. All code scanning alerts have one of the categories shown below. You can click any result to see full details of the relevant rule, and the line of code that triggered the alert.
+Disponible en las vistas de alertas del escaneo de código. Todas las alertas del escaneo de código tienen una de las categorías que se muestran debajo. Puedes hacer clic en cualquier resultado para ver todos los detalles de la regla relevante y la línea de código que activó la alerta.
 
-| Qualifier           | Descripción                                                                                    |
-| ------------------- | ---------------------------------------------------------------------------------------------- |
-| `severity:critical` | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as critical. |
-| `severity:high`     | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as high.     |
-| `severity:medium`   | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as medium.   |
-| `severity:low`      | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as low.      |
-| `severity:error`    | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as errors.   |
-| `severity:warning`  | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings. |
-| `severity:note`     | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.    |
+| Qualifier           | Descripción                                                                                                |
+| ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `severity:critical` | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como críticas.     |
+| `severity:high`     | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como altas.        |
+| `severity:medium`   | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como medias.       |
+| `severity:low`      | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como bajas.        |
+| `severity:error`    | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como errores.      |
+| `severity:warning`  | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como advertencias. |
+| `severity:note`     | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como notas.        |
 
 {% endif %}
 
-## Filter by secret types
+## Filtrar por tipos de secreto
 
 Disponible en las vistas de alerta del escaneo de secretos.
 
-| Qualifier                                                                                                                                                                                  | Descripción                                                                                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `secret-type:SERVICE_PROVIDER`                                                                                                                                                             | Displays alerts for the specified secret and provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)." |
-| `secret-type:CUSTOM-PATTERN`                                                                                                                                                               | Displays alerts for secrets matching the specified custom pattern.                                                                                                                                                   |
-| {% ifversion not fpt %}For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %} |                                                                                                                                                                                                                      |
+| Qualifier                                                                                                                                                                                                                         | Descripción                                                                                                                                                                                                                                         |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret-type:SERVICE_PROVIDER`                                                                                                                                                                                                    | Muestra alertas para el secreto y proveedor especificados. Para obtener más información, consulta la sección "[patrones de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)". |
+| `secret-type:CUSTOM-PATTERN`                                                                                                                                                                                                      | Muestra alertas para los secretos que coinciden con el patrón personalizado específico.                                                                                                                                                             |
+| {% ifversion not fpt %}Para obtener más información, consulta la sección "[Definir patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)".{% endif %} |                                                                                                                                                                                                                                                     |
 
-## Filter by provider
+## Filtrar por proveedor
 
 Disponible en las vistas de alerta del escaneo de secretos.
 
-| Qualifier                | Descripción                                                                                                                                                                                                                     |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} partners](/code-security/secret-scanning/secret-scanning-partners)." |
+| Qualifier                | Descripción                                                                                                                                                                                                                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `provider:PROVIDER_NAME` | Muestra las alertas para todos los secretos en propuestas por proveedor especificado. Para obtener más información, consulta la sección "[patrones de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)". |

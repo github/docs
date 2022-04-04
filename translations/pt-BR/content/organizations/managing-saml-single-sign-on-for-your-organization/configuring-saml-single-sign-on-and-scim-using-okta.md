@@ -27,7 +27,7 @@ Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponív
 | Fazer push das atualização de perfil  | Ao atualizar o perfil de um usuário no Okta, ele irá atualizar os metadados para a associação do usuário na sua organização em {% data variables.product.product_location %}. |
 | Reativar usuários                     | Ao reativar um usuário no Okta, ele enviará um convite por e-mail para o usuário voltar a participar da sua organização em {% data variables.product.product_location %}.     |
 
-Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for enterprise accounts is only available with Enterprise Managed Users. For more information, see "[Configuring SAML single sign-on for your enterprise using Okta](/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)" and "[Configuring SCIM provisioning for Enterprise Managed Users with Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)."
+Como alternativa, você pode configurar o SAML SSO para uma empresa usando o Okta. O SCIM para contas corporativas só está disponível com Usuários Corporativos Gerenciados. Para obter mais informações, consulte "[Configurando o logon único SAML para a sua empresa usand oo Okta](/admin/identity-and-access-management/managing-iam-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)" e "[Configuring o provisionamento do SCIM para Usuários Corporativos Gerenciados com o Okta](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users-with-okta)."
 
 ## Adicionar o aplicativo {% data variables.product.prodname_ghe_cloud %} no Okta
 
@@ -41,7 +41,7 @@ Alternatively, you can configure SAML SSO for an enterprise using Okta. SCIM for
 {% data reusables.saml.okta-provisioning-tab %}
 {% data reusables.saml.okta-configure-api-integration %}
 {% data reusables.saml.okta-enable-api-integration %}
-1. Clique em **Efetuar a autenticação com Github Enterprise Cloud - Organização**.
+1. Click **Authenticate with {% data variables.product.prodname_ghe_cloud %} - Organization**.
 1. À direita do nome da sua organização, clique em **Conceder**.
 
   ![Botão "Conceder" para autorizar a integração do SCIM do Okta para acessar a organização](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)

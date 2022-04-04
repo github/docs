@@ -1,5 +1,5 @@
-1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
-1. Under **Default workflows**, click on the workflow that you want to edit.
-1. If the workflow can apply to both issues and pull requests, next to **When**, check the item type(s) that you want to act on.
-1. Next to **Set**, choose the value that you want to set the status to.
-1. If the workflow is disabled, click the toggle next to **Disabled** to enable the workflow.
+1. En tu proyecto, haz clic en {% octicon "workflow" aria-label="the workflow icon" %}.
+1. Debajo de **Flujos de trabajo predeterminados**, haz clic en el flujo de trabajo que quieres editar.
+1. Si el flujo de trabajo puede aplicarse a ambos resultados y solicitudes de cambio, junto a **Dónde**, verifica el(los) tipo(s) de elemento(s) sobre el(los) cuál(es) quieres actuar.
+1. Junto a **Configurar**, elige el valor en el cual quieres configurar al estado.
+1. Si el flujo de trabajo se inhabilita, haz clic en el alternador junto a **Inhabilitado** para habilitarlo.

@@ -40,8 +40,8 @@ Para evitar perder a sua senha no futuro, sugerimos o uso de um gerenciador de s
 {% data reusables.repositories.blocked-passwords %}
 
 1. {% data variables.product.signin_link %} para o {% data variables.product.product_name %}.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 4. Em "Change password" (Alterar senha), insira a senha antiga, digite uma nova senha forte e confirme a nova senha. Consulte "[Criar uma senha forte](/articles/creating-a-strong-password)" para obter ajuda sobre esse assunto.
 5. Clique em **Update password** (Atualizar senha).
 
@@ -54,6 +54,12 @@ Para maior segurança, além de alterar a senha, habilite também a autenticaç�
 ## Atualizar tokens de acesso
 
 Consulte "[Revisar integrações autorizadas](/articles/reviewing-your-authorized-integrations)" para ver instruções sobre como revisar e excluir tokens de acesso. Para gerar novos tokens de acesso, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
+
+{% ifversion not ghae %}
+
+Se você redefiniu sua senha de conta e também gostaria de acionar um logout do aplicativo GitHub Mobile, você pode revogar a sua autorização do aplicativo OAuth "GitHub iOS" ou "GitHub Android". Para obter mais informações, consulte "[Revisar integrações autorizadas](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)".
+
+{% endif %}
 
 ## Atualizar chaves SSH
 

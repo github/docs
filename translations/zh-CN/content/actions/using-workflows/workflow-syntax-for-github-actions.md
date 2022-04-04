@@ -56,19 +56,21 @@ miniTocMaxHeadingLevel: 4
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `on.workflow_call`
 
-Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
+使用 `on.workflow_call` 定义可重用工作流程的输入和输出。 您还可以映射可用于被调用工作流程的机密。 有关可重用工作流程的详细信息，请参阅“[重用工作流程](/actions/using-workflows/reusing-workflows)”。
 
 ### `on.workflow_call.inputs`
 
-When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+使用 `workflow_call` 关键字时，可以选择指定从调用方工作流程传递到被调用工作流程的输入。 有关 `workflow_call` 关键字的更多信息，请参阅“[触发工作流程的事件](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)”。
 
-In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
+除了可用的标准输入参数外，`on.workflow_call.inputs` 还需要 `type` 参数。 更多信息请参阅 [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype)。
 
-If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
+如果未设置 `default` 参数，则输入的默认值对于布尔值为 `false` ，对于数字为 `0`，对于字符串为 `""`。
 
-Within the called workflow, you can use the `inputs` context to refer to an input.
+在被调用的工作流程中，可以使用 `inputs` 上下文来引用输入。
 
-If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
+如果调用方工作流程传递的输入未在被调用工作流程中指定，则会导致错误。
 
 #### 示例
 
@@ -97,13 +99,13 @@ For more information, see "[Reusing workflows](/actions/learn-github-actions/reu
 
 #### `on.workflow_call.inputs.<input_id>.type`
 
-Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, or `string`.
+在为 `on.workflow_call` 关键字定义了输入时必需。 此参数的值是指定输入的数据类型的字符串。 这必须是以下之一：`boolean`、`number` 或 `string`。
 
 ### `on.workflow_call.outputs`
 
-A map of outputs for a called workflow. Called workflow outputs are available to all downstream jobs in the caller workflow. Each output has an identifier, an optional `description,` and a `value.` The `value` must be set to the value of an output from a job within the called workflow.
+被调用工作流程的输出映射。 调用的工作流程输出可用于调用方工作流程中的所有下游作业。 每个输出都有标识符、可选的 `description` 和 `value`。必须将 `value` 设置为被调用工作流程中作业的输出值。
 
-In the example below, two outputs are defined for this reusable workflow: `workflow_output1` and `workflow_output2`. These are mapped to outputs called `job_output1` and `job_output2`, both from a job called `my_job`.
+在下面的示例中，为此可重用工作流定义了两个输出：`workflow_output1` 和 `workflow_output2`。 它们映射到名为 `job_output1` 和 `job_output2` 的输出，两者都来自名为 `my_job` 的作业。
 
 #### 示例
 
@@ -122,15 +124,15 @@ on:
 ```
 {% endraw %}
 
-For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+有关如何引用作业输出的信息，请参阅 [`jobs.<job_id>.outputs`](#jobsjob_idoutputs)。 For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
 
 ### `on.workflow_call.secrets`
 
-A map of the secrets that can be used in the called workflow.
+可在被调用工作流程中使用的机密的映射。
 
-Within the called workflow, you can use the `secrets` context to refer to a secret.
+在被调用的工作流程中，可以使用 `secrets` 上下文来引用机密。
 
-If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
+如果调用方工作流程传递的机密未在被调用的工作流程中指定，则会导致错误。
 
 #### 示例
 
@@ -157,13 +159,12 @@ jobs:
 
 #### `on.workflow_call.secrets.<secret_id>`
 
-A string identifier to associate with the secret.
+要与机密关联的字符串标识符。
 
 #### `on.workflow_call.secrets.<secret_id>.required`
 
-A boolean specifying whether the secret must be supplied.
+指定是否必须提供机密的布尔值。
 {% endif %}
-
 
 ## `on.workflow_run.<branches|branches-ignore>`
 
@@ -171,7 +172,7 @@ A boolean specifying whether the secret must be supplied.
 
 ## `on.workflow_dispatch.inputs`
 
-{% data reusables.github-actions.workflow-dispatch-inputs %}
+{% data reusables.actions.workflow-dispatch-inputs %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ## `权限`
@@ -183,6 +184,8 @@ A boolean specifying whether the secret must be supplied.
 ## `env`
 
 环境变量的 `map` 可用于工作流程中所有作业的步骤。 您还可以设置仅适用于单个作业的步骤或单个步骤的环境变量。 更多信息请参阅 [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv)。
+
+`env` 映射中的变量不能根据映射中的其他变量进行定义。
 
 {% data reusables.repositories.actions-env-var-note %}
 
@@ -238,12 +241,9 @@ env:
 
 {% data reusables.actions.jobs.section-choosing-the-runner-for-a-job %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ## `jobs.<job_id>.environment`
 
 {% data reusables.actions.jobs.section-using-environments-for-jobs %}
-
-{% endif %}
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 ## `jobs.<job_id>.concurrency`
@@ -316,7 +316,7 @@ jobs:
 
 您可以使用 `if` 条件阻止步骤在条件得到满足之前运行。 您可以使用任何支持上下文和表达式来创建条件。
 
-{% data reusables.github-actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions)”。
 
 #### 示例：使用上下文
 
@@ -341,6 +341,31 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@1.0.0
 ```
+
+#### 示例：使用机密
+
+无法直接在 `if:` 条件中引用机密。 而应考虑将机密设置为作业级环境变量，然后引用环境变量以有条件地运行作业中的步骤。
+
+如果尚未设置机密，则引用该机密的表达式（例如示例中的 {% raw %}`${{ secrets.SuperSecret }}`{% endraw %}）的返回值将为空字符串。
+
+{% raw %}
+```yaml
+name: Run a step if a secret has been set
+on: push
+jobs:
+  my-jobname:
+    runs-on: ubuntu-latest
+    env:
+      super_secret: ${{ secrets.SuperSecret }}
+    steps:
+      - if: ${{ env.super_secret != '' }}
+        run: echo 'This step will only run if the secret has a value set.'
+      - if: ${{ env.super_secret == '' }}
+        run: echo 'This step will only run if the secret does not have a value set.'
+```
+{% endraw %}
+
+更多信息请参阅“[上下文可用性](/actions/learn-github-actions/contexts#context-availability)”和“[加密密码](/actions/security-guides/encrypted-secrets)”。
 
 ### `jobs.<job_id>.steps[*].name`
 
@@ -491,7 +516,7 @@ jobs:
 
 使用操作系统 shell 运行命令行程序。 如果不提供 `name`，步骤名称将默认为 `run` 命令中指定的文本。
 
-命令默认使用非登录 shell 运行。 您可以选择不同的 shell，也可以自定义用于运行命令的 shell。 For more information, see [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
+命令默认使用非登录 shell 运行。 您可以选择不同的 shell，也可以自定义用于运行命令的 shell。 更多信息请参阅 [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell)。
 
 每个 `run` 关键词代表运行器环境中一个新的进程和 shell。 当您提供多行命令时，每行都在同一个 shell 中运行。 例如：
 
@@ -521,7 +546,7 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].shell`
 
-您可以使用 `shell` 关键词覆盖运行器操作系统中默认的 shell 设置。 您可以使用内置的 `shell` 关键词，也可以自定义 shell 选项集。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
+您可以使用 `shell` 关键词覆盖运行器操作系统中默认的 shell 设置。 您可以使用内置的 `shell` 关键词，也可以自定义 shell 选项集。 内部运行的 shell 命令执行一个临时文件，其中包含 `run` 关键词中指定的命令。
 
 | 支持的平台         | `shell` 参数   | 描述                                                                                                                                                                                  | 内部运行命令                                          |
 | ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
@@ -685,7 +710,7 @@ steps:
 
 {% data reusables.repositories.actions-env-var-note %}
 
-公共操作可在自述文件中指定预期的环境变量。 如果要在环境变量中设置密码，必须使用 `secrets` 上下文进行设置。 For more information, see "[Using environment variables](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" and "[Contexts](/actions/learn-github-actions/contexts)."
+公共操作可在自述文件中指定预期的环境变量。 如果要在环境变量中设置密码，必须使用 `secrets` 上下文进行设置。 更多信息请参阅“[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)”和“[上下文](/actions/learn-github-actions/contexts)”。
 
 #### 示例
 
@@ -712,7 +737,13 @@ steps:
 
 在 {% data variables.product.prodname_dotcom %} 自动取消运行之前可让作业运行的最大分钟数。 默认值：360
 
-如果超时超过运行器的作业执行时限，作业将在达到执行时限时取消。 For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+如果超时超过运行器的作业执行时限，作业将在达到执行时限时取消。 有关作业执行时间限制的更多信息，请参阅 {% ifversion fpt or ghec or ghes %}“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration#usage-limits)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和 {% endif %}“[关于自托管的运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}”（对于自托管运行器使用限制）。{% elsif ghae %}。”{% endif %}
+
+{% note %}
+
+**注意：** {% data reusables.actions.github-token-expiration %} 对于自托管运行器，如果作业超时大于 24 小时，则令牌可能是限制因素。 有关 `GITHUB_TOKEN` 的更多信息，请参阅“[关于 `GITHUB_TOKEN` 机密](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)”。
+
+{% endnote %}
 
 ## `jobs.<job_id>.strategy`
 
@@ -736,7 +767,7 @@ steps:
 
 ### 示例：防止特定失败的矩阵作业无法运行工作流程
 
-您可以允许作业矩阵中的特定任务失败，但工作流程运行不失败。 For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
+您可以允许作业矩阵中的特定任务失败，但工作流程运行不失败。 例如， 只允许 `node` 设置为 `15` 的实验性作业失败，而不允许工作流程运行失败。
 
 {% raw %}
 ```yaml
@@ -756,6 +787,8 @@ strategy:
 {% endraw %}
 
 ## `jobs.<job_id>.container`
+
+{% data reusables.actions.docker-container-os-support %}
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
@@ -785,7 +818,7 @@ strategy:
 
 ## `jobs.<job_id>.services`
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 用于为工作流程中的作业托管服务容器。 服务容器可用于创建数据库或缓存服务（如 Redis）。 运行器自动创建 Docker 网络并管理服务容器的生命周期。
 
@@ -815,7 +848,7 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.image`
 
-要用作运行操作的服务容器的 Docker 图像。 The value can be the Docker Hub image name or a  registry name.
+要用作运行操作的服务容器的 Docker 图像。 值可以是 Docker Hub 映像名称或注册表名称。
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -879,7 +912,9 @@ volumes:
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
 ## `jobs.<job_id>.uses`
 
-The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use one of the following syntaxes:{% endif %}
+{% data reusables.actions.reusable-workflows-ghes-beta %}
+
+要作为作业运行的可重用工作流程文件的位置和版本。 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}使用下列语法之一：{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
@@ -891,11 +926,11 @@ For more information, see "[Reusing workflows](/actions/learn-github-actions/reu
 
 ### `jobs.<job_id>.with`
 
-When a job is used to call a reusable workflow, you can use `with` to provide a map of inputs that are passed to the called workflow.
+当作业用于调用可重用工作流程时，可以使用 `with` 来提供传递到被调用工作流程的输入的映射。
 
-Any inputs that you pass must match the input specifications defined in the called workflow.
+传递的任何输入都必须与被调用工作流程中定义的输入规范匹配。
 
-Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
+与 [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith)不同，通过 `jobs.<job_id>.with` 传递的输入不能作为被调用工作流程中的环境变量使用。 但您可以通过使用 `inputs` 上下文来引用输入。
 
 #### 示例
 
@@ -909,15 +944,15 @@ jobs:
 
 ### `jobs.<job_id>.with.<input_id>`
 
-A pair consisting of a string identifier for the input and the value of the input. The identifier must match the name of an input defined by [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) in the called workflow. The data type of the value must match the type defined by [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) in the called workflow.
+由输入的字符串标识符和输入的值组成的对。 标识符必须与被调用工作流程中的 [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) 定义的输入名称匹配。 该值的数据类型必须与被调用工作流程中的 [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) 定义的类型匹配。
 
-Allowed expression contexts: `github`, and `needs`.
+允许的表达式上下文： `github` 和 `needs`。
 
 ### `jobs.<job_id>.secrets`
 
-When a job is used to call a reusable workflow, you can use `secrets` to provide a map of secrets that are passed to the called workflow.
+当作业用于调用可重用工作流程时，可以使用 `secrets` 来提供传递给被调用工作流程的机密映射。
 
-Any secrets that you pass must match the names defined in the called workflow.
+传递的任何机密都必须与被调用工作流程中定义的名称匹配。
 
 #### 示例
 
@@ -933,9 +968,9 @@ jobs:
 
 ### `jobs.<job_id>.secrets.<secret_id>`
 
-A pair consisting of a string identifier for the secret and the value of the secret. The identifier must match the name of a secret defined by [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) in the called workflow.
+由机密的字符串标识符和机密的值组成的对。 标识符必须与被调用工作流程中的 [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) 定义的机密名称匹配。
 
-Allowed expression contexts: `github`, `needs`, and `secrets`.
+允许的表达式上下文：`github`、`needs` 和 `secrets`。
 {% endif %}
 
 ## 过滤器模式备忘清单
@@ -960,7 +995,7 @@ Allowed expression contexts: `github`, `needs`, and `secrets`.
 - **/README.md
 ```
 
-For more information about branch, tag, and path filter syntax, see "[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)", "[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)", and "[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)."
+有关分支、标记和路径筛选器语法的更多信息，请参阅“[`on.<push>.<branches|tags>`](#onpushbranchestagsbranches-ignoretags-ignore)”、“[`on.<pull_request>.<branches|tags>`](#onpull_requestpull_request_targetbranchesbranches-ignore)”和“[`on.<push|pull_request>.paths`](#onpushpull_requestpull_request_targetpathspaths-ignore)”。
 
 ### 匹配分支和标记的模式
 

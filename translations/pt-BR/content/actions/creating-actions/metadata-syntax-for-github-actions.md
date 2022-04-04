@@ -108,9 +108,9 @@ saídas:
 
 ## `outputs` para ações compostas
 
-**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
+As **saídas** `opcionais` usam os mesmos parâmetros que `outputs.<output_id>` e `outputs.<output_id>escription` (consulte "[`saída` para o contêiner do Docker e ações do JavaScript](#outputs-for-docker-container-and-javascript-actions)"), mas também inclui o token do `valor`.
 
-### Example: Declaring outputs for composite actions
+### Exemplo: Declarando saídas para ações compostas
 
 {% raw %}
 ```yaml
@@ -135,13 +135,13 @@ Para obter mais informações sobre como usar a sintaxe de contexto, consulte "[
 
 ## `runs`
 
-**Required** Specifies whether this is a JavaScript action, a composite action, or a Docker container action and how the action is executed.
+**Obrigatório** Especifica se esta é uma ação do JavaScript, uma ação composta, ou uma ação de contêiner do Docker e como a ação é executada.
 
 ## `runs` para ações de JavaScript
 
 **Obrigatório** Configura o caminho para o código da ação e o tempo de execução usado para executar o código.
 
-### Example: Using Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
+### Exemplo: Usando o Node.js {% ifversion fpt or ghes > 3.3 or ghae-issue-5504 or ghec %}v16{% else %}v12{% endif %}
 
 ```yaml
 runs:
@@ -162,7 +162,7 @@ runs:
 
 ### `runs.pre`
 
-**Opcional** Permite que você execute um script no início de um trabalho antes de a ação `main:` começar. Por exemplo, você pode usar `pre:` para executar um pré-requisito da configuração do script. O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Opcional** Permite que você execute um script no início de um trabalho antes de a ação `main:` começar. Por exemplo, você pode usar `pre:` para executar um pré-requisito da configuração do script. O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo. A ação `pre:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.pre-if`](#runspre-if).
 
 Neste exemplo, a ação `pre:` executa um script denominado `setup.js.`:
 
@@ -272,7 +272,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 **Opcional** Você pode usar o `if` condicional para evitar que uma etapa seja executada, a menos que uma condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
+{% data reusables.actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 **Exemplo: Usando contextos**
 
@@ -333,9 +333,9 @@ runs:
     # Reference a specific commit
     - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     # Reference the major version of a release
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
     # Reference a specific version
-    - uses: actions/checkout@v2.2.0
+    - uses: {% data reusables.actions.action-checkout %}.2.0
     # Reference a branch
     - uses: actions/checkout@main
     # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA
@@ -365,11 +365,11 @@ runs:
 ```
 {% endif %}
 
-## `runs` for Docker container actions
+## `runs` par ações do contêiner do Docker
 
-**Required** Configures the image used for the Docker container action.
+**Obrigatório** Configura a imagem usada para a ação do contêiner do Docker.
 
-### Example: Using a Dockerfile in your repository
+### Exemplo: Usando um arquivo do Dockerfile no seu repositório
 
 ```yaml
 runs:
@@ -377,7 +377,7 @@ runs:
   image: 'Dockerfile'
 ```
 
-### Example: Using public Docker registry container
+### Exemplo: Usando o contêiner de registro público do Docker
 
 ```yaml
 runs:
@@ -391,7 +391,7 @@ runs:
 
 ### `runs.pre-entrypoint`
 
-**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e qualquer status de que você precisar devem ser acessado na área de trabalho, em `HOME`, ou como uma variável `STATE_`. The `pre-entrypoint:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
+**Opcional** Permite que você execute um script antes de a ação do `entrypoint` começar. Por exemplo, você pode usar o `pre-entrypoint:` para executar um pré-requisito do script da configuração. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação e executa o script dentro de um novo contêiner que usa a mesma imagem-base. Isso significa que o momento de execução é diferente do contêiner principal do `entrypoint` e qualquer status de que você precisar devem ser acessado na área de trabalho, em `HOME`, ou como uma variável `STATE_`. A ação `pre-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.pre-if`](#runspre-if).
 
 O tempo de execução especificado com a sintaxe [`em uso`](#runsusing) irá executar este arquivo.
 
@@ -423,7 +423,7 @@ Para obter mais informações sobre como o `entrypoint` é executado, consulte "
 
 ### `post-entrypoint`
 
-**Opcional**Permite que você execute um script de cleanup, uma vez finalizada a ação`runs.entrypoint`. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação. Porque {% data variables.product.prodname_actions %} executa o script dentro de um novo contêiner usando a mesma imagem-base, o estado do momento da execução é diferente do contêiner principal do `entrypoint`. Você pode acessar qualquer estado que precisar na área de trabalho, em `HOME` ou como variável `STATE_`. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
+**Opcional**Permite que você execute um script de cleanup, uma vez finalizada a ação`runs.entrypoint`. {% data variables.product.prodname_actions %} usa a `execução do docker` para lançar esta ação. Porque {% data variables.product.prodname_actions %} executa o script dentro de um novo contêiner usando a mesma imagem-base, o estado do momento da execução é diferente do contêiner principal do `entrypoint`. Você pode acessar qualquer estado que precisar na área de trabalho, em `HOME` ou como variável `STATE_`. A ação `post-entrypoint:` sempre é executada por padrão, mas você pode substitui-la usando [`runs.post-if`](#runspost-if).
 
 ```yaml
 runs:
@@ -441,7 +441,7 @@ runs:
 
 `args` são usados em substituição à instrução `CMD` em um `Dockerfile`. Se você usar `CMD` no `Dockerfile`, use as diretrizes ordenadas por preferência:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 Se você precisar passar variáveis de ambiente para uma ação, certifique-se de que sua ação executa um shell de comando para realizar a substituição de variáveis. Por exemplo, se seu atributo `entrypoint` é definido como `"sh -c"`, os `args` serão executados em um terminal de comando. Como alternativa, se o seu `arquivo Docker` usar um `Entrypoint` para executar o mesmo comando (`"sh-c"`), os `Args` serão executado em um shell de comando.
 
@@ -479,10 +479,40 @@ Cor de fundo do selo. Pode ser: `branco`, `amarelo`, `azul`, `verde`, `laranja`,
 
 ### `branding.icon`
 
-Nome do ícone [Feather](https://feathericons.com/) (pena) para usar. <!-- 
+O nome do ícone de [Pena](https://feathericons.com/) da v4.28.0 a ser utilizado. Os ícones da marca são omitidos, assim como os itens seguintes:
+
+<table>
+<tr>
+<td>coffee</td>
+<td>colunas</td>
+<td>divide-circle</td>
+<td>divide-square</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>frown</td>
+<td>hexagon</td>
+<td>Chave</td>
+</tr>
+<tr>
+<td>meh</td>
+<td>mouse-pointer</td>
+<td>smile</td>
+<td>ferramenta</td>
+</tr>
+<tr>
+<td>x-octagon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+Aqui está uma lista taxativa de todos os ícones atualmente compatíveis:
+
+
+<!-- 
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
-  This table does not match the latest version the feather library. 
-  (Brand icons are omitted, and our supported list is not necessarily up-to-date with the latest version of the feather icon library.)
   To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
 -->
 

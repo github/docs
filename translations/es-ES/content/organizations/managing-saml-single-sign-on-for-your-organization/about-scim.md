@@ -28,11 +28,10 @@ Estos proveedores de identidad son compatibles con la API de SCIM de {% data var
 
 {% endnote %}
 
+{% data reusables.scim.changes-should-come-from-idp %}
+
 {% data reusables.scim.enterprise-account-scim %}
 
 ## Leer más
 
-- "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
-- "[Conectar tu proveedor de identidad a tu organización](/articles/connecting-your-identity-provider-to-your-organization)"
-- "[Activar y probar el inicio de sesión único de SAML para tu organización](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)"
 - "[Visualizar y administrar un acceso de SAML de un miembro a tu organización](/github/setting-up-and-managing-organizations-and-teams//viewing-and-managing-a-members-saml-access-to-your-organization)"

@@ -320,6 +320,16 @@ O branch `HEAD` do pull request foi restaurado para o último commit conhecido.
 |:-------------------------- |:--------------------------:|:--------------------------------:|
 | <ul><li>Pull requests</li></ul> |           **X**            |              **X**               |
 
+## head_ref_force_pushed
+
+O branch HEAD do pull request foi criado por push forçado.
+
+### Disponibilidade
+
+| Tipo de problema           | API de eventos de problema | API de eventos da linha de tempo |
+|:-------------------------- |:--------------------------:|:--------------------------------:|
+| <ul><li>Pull requests</li></ul> |           **X**            |              **X**               |
+
 ### Propriedades do objeto do evento
 
 {% data reusables.issue-events.issue-event-common-properties %}

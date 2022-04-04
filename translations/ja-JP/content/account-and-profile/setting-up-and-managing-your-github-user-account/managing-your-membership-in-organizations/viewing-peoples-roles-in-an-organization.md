@@ -20,13 +20,13 @@ shortTitle: View people in an organization
 ## View organization roles
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Organization 内の人のリストが表示されます。 ロールでリストをフィルタリングするには、[**Role**] をクリックします。 ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)
 
 {% ifversion fpt %}
 
-If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can also view the enterprise owners who manage billing settings and policies for all your enterprise's organizations. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization#view-enterprise-owners-and-their-roles-in-an-organization).
+If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can also view the enterprise owners who manage billing settings and policies for all your enterprise's organizations. 詳しい情報については[{% data variables.product.prodname_ghe_cloud %}のドキュメンテーション](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-github-user-account/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization#view-enterprise-owners-and-their-roles-in-an-organization)を参照してください。
 
 {% endif %}
 
@@ -45,16 +45,16 @@ You can also view whether an enterprise owner has a specific role in the organiz
 
 | **Enterprise role** | **Organization role**                           | **Organization access or impact**                                                                                              |
 | ------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Enterprise オーナー     | Un-affililated or no official organization role | Cannot access organization content or repositories but manages enterprise settings and policies that impact your organization. |
-| Enterprise オーナー     | Organization owner                              | Able to configure organization settings and manage access to the organization's resources through teams, etc.                  |
-| Enterprise オーナー     | Organization member                             | Able to access organization resources and content, such as repositories, without access to the organization's settings.        |
+| Enterprise owner    | Un-affililated or no official organization role | Cannot access organization content or repositories but manages enterprise settings and policies that impact your organization. |
+| Enterprise owner    | Organization owner                              | Able to configure organization settings and manage access to the organization's resources through teams, etc.                  |
+| Enterprise owner    | Organization member                             | Able to access organization resources and content, such as repositories, without access to the organization's settings.        |
 
 To review all roles in an organization, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)." {% ifversion ghec %} An organization member can also have a custom role for a specific repository. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."{% endif %}
 
 For more information about the enterprise owner role, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)."
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. In the left sidebar, under "Enterprise permissions", click **Enterprise owners**. ![Screenshot of "Enterprise owners" option in sidebar menu](/assets/images/help/organizations/enterprise-owners-sidebar.png)
 5. View the list of the enterprise owners for your enterprise. If the enterprise owner is also a member of your organization, you can see their role in the organization.

@@ -112,7 +112,7 @@ kramdown:
 
 为了使网站更容易读取，代码片段在 {% data variables.product.prodname_pages %} 上突显，就像在 {% data variables.product.product_name %} 上突显一样。 有关在 {% data variables.product.product_name %} 上突显语法的更多信息，请参阅“[创建和突显代码块](/articles/creating-and-highlighting-code-blocks)”。
 
-默认情况下，网站上的代码块将被 Jekyll 突出显示。 Jekyll 使用 [Rouge](https://github.com/jneen/rouge) 突显工具，它兼容于 [Pygments](http://pygments.org/)。 Pygments has been deprecated and not supported in Jekyll 4. If you specify Pygments in your *_config.yml* file, Rouge will be used as the fallback instead. Jekyll 不能使用任何其他语法突显工具，如果您在 *_config.yml* 文件中指定其他语法突显工具，将会收到页面构建警告。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误](/articles/about-jekyll-build-errors-for-github-pages-sites)”。
+默认情况下，网站上的代码块将被 Jekyll 突出显示。 Jekyll 使用 [Rouge](https://github.com/jneen/rouge) 突显工具，它兼容于 [Pygments](http://pygments.org/)。 Pygments 已被弃用，在 Jekyll 4 中不受支持。 如果在 *_config.yml* 文件中指定 Pygments，将改用 Rouge。 Jekyll 不能使用任何其他语法突显工具，如果您在 *_config.yml* 文件中指定其他语法突显工具，将会收到页面构建警告。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %} 站点的 Jekyll 构建错误](/articles/about-jekyll-build-errors-for-github-pages-sites)”。
 
 如果想使用其他突显工具，如 `highlight.js`，则必须更新项目的 *_config.yml* 文件来禁用 Jekyll 的语法突显。
 

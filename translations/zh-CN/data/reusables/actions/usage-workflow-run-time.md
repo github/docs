@@ -1,0 +1,1 @@
+- **Workflow run time** - {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6469 %}Each workflow run is limited to 35 days. 如果工作流程运行时间达到此限制，其运行将被取消。 This period includes execution duration, and time spent on waiting and approval.{% else %}Each workflow run is limited to 72 hours. If a workflow run reaches this limit, the workflow run is cancelled.{% endif %}

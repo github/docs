@@ -1,7 +1,7 @@
 ---
 title: Codespaces の支払いについて
 shortTitle: 支払いについて
-intro: 'View pricing and see how to manage {% data variables.product.prodname_codespaces %} billing for your organization.'
+intro: '価格を見て、Organizationでの{% data variables.product.prodname_codespaces %}の支払いの管理方法を確認してください。'
 permissions: 'To manage billing for Codespaces for an organization, you must be an organization owner or a billing manager.'
 versions:
   fpt: '*'
@@ -13,20 +13,20 @@ topics:
   - Billing
 ---
 
-## {% data variables.product.prodname_codespaces %} pricing
+## {% data variables.product.prodname_codespaces %}の価格
 
-{% data variables.product.prodname_codespaces %} usage is billed for all accounts on the Team and Enterprise plans, and does not include any entitlements. Individual accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
+{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
 
-{% data variables.product.prodname_codespaces %} usage is billed according to the units of measure in the following table:
+{% data variables.product.prodname_codespaces %}の利用については、以下の表に示す計測単位に従って課金されます。
 
-| 製品                 | SKU   | Unit of measure | Price |
-| ------------------ | ----- | --------------- | ----- |
-| Codespaces Compute | 2コア   | 1 hour          | $0.18 |
-|                    | 4コア   | 1 hour          | $0.36 |
-|                    | 8コア   | 1 hour          | $0.72 |
-|                    | 16コア  | 1 hour          | $1.44 |
-|                    | 32コア  | 1 hour          | $2.88 |
-| Codespaces Storage | ストレージ | 1 GB-month      | $0.07 |
+| 製品                 | SKU   | 計測単位  | 価格    |
+| ------------------ | ----- | ----- | ----- |
+| Codespaces Compute | 2コア   | 1時間   | $0.18 |
+|                    | 4コア   | 1時間   | $0.36 |
+|                    | 8コア   | 1時間   | $0.72 |
+|                    | 16コア  | 1時間   | $1.44 |
+|                    | 32コア  | 1時間   | $2.88 |
+| Codespaces Storage | ストレージ | 1GB-月 | $0.07 |
 
 ## {% data variables.product.prodname_codespaces %}の支払いについて
 
@@ -35,12 +35,18 @@ topics:
 {% data variables.product.prodname_codespaces %} の利用については、アカウントの既存の請求日、支払い方法、領収書が共有されます。 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
 {% ifversion ghec %}
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_codespaces %} usage. 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
+Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_enterprise %} を購入した場合、Azure サブスクリプションID をEnterpriseアカウントに接続して、 {% data variables.product.prodname_codespaces %} の使用を有効にして支払うことができます。 詳しい情報については、「[Azure サブスクリプションを Enterprise に接続する](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)」を参照してください。
 {% endif %}
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_codespaces %}
 
-## Setting a spending limit
+### {% data variables.product.prodname_codespaces %}プレビルドに対する支払い
+
+{% data reusables.codespaces.prebuilds-beta-note %}
+
+{% data reusables.codespaces.billing-for-prebuilds %}
+
+## 利用限度の設定
 
 {% data reusables.codespaces.codespaces-spending-limit-requirement %}
 
@@ -48,22 +54,22 @@ If you purchased {% data variables.product.prodname_enterprise %} through a Micr
 
 {% data reusables.codespaces.exporting-changes %}
 
-## Limiting the choice of machine types
+## マシンタイプの選択の制限
 
-The type of machine a user chooses when they create a codespace affects the per-minute charge for that codespace, as shown above.
+ユーザがcodespaceを作成する際に選択するマシンタイプは、上にあるように、そのcodespaceに対する分ごとの課金に影響します。
 
-Organization owners can create a policy to restrict the machine types that are available to users. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+Organizationオーナーは、ユーザが利用できるマシンタイプを制限するポリシーを作成できます。 詳しい情報については「[マシンタイプへのアクセス制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」を参照してください。
 
-## How billing is handled for forked repositories
+## フォークされたリポジトリでの支払いの扱い
 
-{% data variables.product.prodname_codespaces %} can only be used in organizations where a billable owner has been defined. To incur charges to the organization, the user must be a member or collaborator, otherwise they cannot create a codespace.
+{% data variables.product.prodname_codespaces %}は、支払いできるオーナーが定義されたOrganizationでのみ利用できます。 Organizationに課金をするには、ユーザはメンバーもしくはコラボレータでなければなりません。そうでなければユーザはcodespaceを作成できません。
 
-For example, a user in a private organization can fork a repository within that organization, and can subsequently use a codespace billed to the organization; this is because the organization is the owner of the parent repository, which can remove the user's access, the forked repository, and the codespace.
+たとえば、プライベートなOrganizationのユーザは、そのOrganization内のリポジトリをフォークし、その後Organizationに課金されるcodespaceを使うことができます。これはそのOrganizationが、ユーザのアクセス、フォークされたリポジトリ、codespaceを削除できる親リポジトリのオーナーだからです。
 
-## How billing is handled when a repository is transferred
+## リポジトリが移譲されたときの支払いの扱い
 
-Usage is billed and reported on every hour. As such, you pay for any usage when a repository is within your organization. When a repository is transferred out of your organization, any codespaces in that repository are removed as part of the transfer process.
+使用量は1時間ごとに課金され、報告されます。 そのため、リポジトリがOrganization内にあれば、あらゆる使用に対して支払いをすることになります。 リポジトリがOrganization外に移譲されると、そのリポジトリ内のすべてのcodespaceは移譲のプロセスの一部として削除されます。
 
-## What happens when users are removed
+## ユーザが削除されたときに生じること
 
-If a user is removed from an organization or repository, their codespaces are automatically deleted. 
+Organizationもしくはリポジトリからユーザが削除されると、そのユーザのcodespaceは自動的に削除されます。 

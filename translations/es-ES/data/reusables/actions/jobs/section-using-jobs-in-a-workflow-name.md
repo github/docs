@@ -1,1 +1,1 @@
-Use `jobs.<job_id>.name` to a name for the job, which is displayed on {% data variables.product.prodname_dotcom %}.
+Utiliza `jobs.<job_id>.name` para un nombre del job, el cual se muestra en {% data variables.product.prodname_dotcom %}.

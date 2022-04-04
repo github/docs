@@ -23,7 +23,7 @@ Para mais informações sobre como abrir um problema e fazer referências cruzad
 Você pode criar e participar de discussões, problemas e pull requests, dependendo do tipo de conversa que você gostaria de ter.
 
 Você pode usar {% data variables.product.prodname_discussions %} para discutir o panorama geral, levantamento de hipóteses e desenvolver detalhes específicos de um projeto antes de vinculá-lo a um problema, que poderá ter o escopo definido. {% data variables.product.prodname_discussions %} é útil para equipes se:
-- Você está na fase de descoberta de um projeto e ainda está aprendendo qual diretor sua equipe quer acessar
+- Você está na fase de descoberta de um projeto e ainda está aprendendo qual direção a sua equipe quer acessar
 - Você deseja coletar comentários de uma comunidade mais ampla sobre um projeto
 - Você deseja manter correções de erros, solicitações de recursos e conversas gerais separadas
 

@@ -16,20 +16,33 @@ shortTitle: Gerenciar o uso de dados para repositório privado
 
 ## Sobre o uso de dados para seu repositório privado
 
-Ao habilitar o uso de dados para seu repositório privado, poderá acessar o gráfico de dependências, em que você pode acompanhar as dependências do repositório e receber {% data variables.product.prodname_dependabot_alerts %} quando o {% data variables.product.product_name %} detectar dependências vulneráveis. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)"
 
-## Habilitar ou desabilitar os recursos de uso de dados
+You can control data use for your private repository with the security and analysis features.
+
+- Enable the dependency graph to allow read-only data analysis on your repository.
+- Disable the dependency graph to block read-only data analysis of your repository.
+
+Ao habilitar o uso de dados para seu repositório privado, poderá acessar o gráfico de dependências, em que você pode acompanhar as dependências do repositório e receber {% data variables.product.prodname_dependabot_alerts %} quando o {% data variables.product.product_name %} detectar dependências vulneráveis. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)".
+
+
+{% note %}
+
+**Note:** If you disable the dependency graph, {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_dependabot_security_updates %} are also disabled. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+
+{% endnote %}
+
+## Enabling or disabling data use through security and analysis features
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Em "Configurar funcionalidades de segurança e análise", à direita do recurso, clique em **Desabilitar** ou **Habilitar**.{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
+4. Em "Segurança e análise de código", à direita do recurso, clique em **Desabilitar** ou **Habilitar**.{% ifversion fpt %} !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% endif %}
 
 ## Leia mais
 
 - "[Sobre o uso de seus dados pelo {% data variables.product.prodname_dotcom %}](/articles/about-github-s-use-of-your-data)"
-- "[Visualizar e atualizar dependências vulneráveis no seu repositório](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
+- "[Visualizando {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[Gerenciar as configurações de segurança e análise para o seu repositório](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"

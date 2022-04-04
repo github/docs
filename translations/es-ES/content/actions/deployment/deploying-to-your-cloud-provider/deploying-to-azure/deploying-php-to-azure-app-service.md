@@ -1,6 +1,6 @@
 ---
-title: Deploying PHP to Azure App Service
-intro: You can deploy your PHP project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Desplegar PHP a Azure App Service
+intro: Puedes desplegar tu proyecto de PHP a Azure App Service como parte de tus flujos de trabajo de despliegue continuo (DC).
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,10 +15,9 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introducción
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a PHP project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Esta guía te explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar y desplegar un proyecto de PHP hacia [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -38,7 +37,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 2. Crea una app web.
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a PHP runtime:
+   Por ejemplo, puedes utilizar el CLI de Azure para crear una app web de Azure App Service con un tiempo de ejecución de PHP:
 
    ```bash{:copy}
    az webapp create \
@@ -52,17 +51,15 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Crear un flujo de trabajo
 
 Una vez que hayas completado los prerequisitos, puedes proceder con la creación del flujo de trabajo.
 
-The following example workflow demonstrates how to build and deploy a PHP project to Azure App Service when there is a push to the `main` branch.
+El sigueinte flujo de trabajo de ejemplo demuestra cómo compilar y desplegar un proyecto de PHP al Azure App Service cuando exista una subida a la rama `main`.
 
-Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. If the path to your project is not the repository root, change `AZURE_WEBAPP_PACKAGE_PATH` to the path to your project. If you use a version of PHP other than `8.x`, change`PHP_VERSION` to the version that you use.
+Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. Si la ruta a tu proyecto no es la raíz del repositorio, cambia la `AZURE_WEBAPP_PACKAGE_PATH` a la ruta de tu proyecto. Si utilizas una versión de PHO diferente a la `8.x`, cambia la `PHP_VERSION` a la versión que utilices.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -119,7 +116,7 @@ jobs:
         run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: php-app
           path: .
@@ -133,7 +130,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: php-app
 

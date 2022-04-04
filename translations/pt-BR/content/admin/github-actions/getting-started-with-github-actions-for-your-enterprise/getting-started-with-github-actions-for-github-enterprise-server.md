@@ -26,27 +26,18 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-Por padrão, {% data variables.product.prodname_actions %} não está habilitado para {% data variables.product.prodname_ghe_server %}. Você precisará determinar se a sua instância tem recursos adequados de CPU e memória para administrar a carga do {% data variables.product.prodname_actions %} sem causar perda de desempenho, e possivelmente aumentar esses recursos. Você também deverá decidir qual provedor de armazenamento você usará para o armazenamento do blob necessário para armazenar os artefatos gerados pela execução do fluxo de trabalho. Em seguida, você irá habilitar {% data variables.product.prodname_actions %} para a sua empresa, gerenciar permissões de acesso e adicionar executores auto-hospedados para executar fluxos de trabalho.
+{% data reusables.actions.ghes-actions-not-enabled-by-default %} Você deberá determinar se a sua instância possui recursos adequados de CPU e memória para lidar com a carga do {% data variables.product.prodname_actions %} sem causar perda de desempenho e possivelmente aumentar esses recursos. Você também deverá decidir qual provedor de armazenamento você usará para o armazenamento do blob necessário para armazenar os artefatos gerados pela execução do fluxo de trabalho. Em seguida, você irá habilitar {% data variables.product.prodname_actions %} para a sua empresa, gerenciar permissões de acesso e adicionar executores auto-hospedados para executar fluxos de trabalho.
 
 {% data reusables.actions.introducing-enterprise %}
 
 {% data reusables.actions.migrating-enterprise %}
 
-## Revise as considerações de hardware
+## Revisar os requisitos de hardware
 
-{% ifversion ghes = 3.0 %}
-
-{% note %}
-
-**Observação**: Se você estiver atualizando uma instância de {% data variables.product.prodname_ghe_server %} existente para 3.0 ou posterior e deseja configurar {% data variables.product.prodname_actions %}, observe que os requisitos mínimos de hardware aumentaram. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server#about-minimum-requirements-for-github-enterprise-server-30-and-later)".
-
-{% endnote %}
-
-{% endif %}
 
 {%- ifversion ghes < 3.2 %}
 
-Os recursos da CPU e memória disponíveis para {% data variables.product.product_location %} determinam o rendimento máximo do trabalho para {% data variables.product.prodname_actions %}.
+Os recursos da CPU e memória disponíveis para {% data variables.product.product_location %} determinam o rendimento máximo do trabalho para {% data variables.product.prodname_actions %}. {% data reusables.actions.minimum-hardware %}
 
 O teste interno em {% data variables.product.company_short %} demonstrou o rendimento máximo a seguir para instâncias de {% data variables.product.prodname_ghe_server %} com um intervalo de configurações da CPU e memória. Você pode ver diferentes tipos de transferência, dependendo dos níveis gerais de atividade na sua instância.
 
@@ -54,7 +45,7 @@ O teste interno em {% data variables.product.company_short %} demonstrou o rendi
 
 {%- ifversion ghes > 3.1 %}
 
-Os recursos de CPU e memória disponíveis para {% data variables.product.product_location %} determinam o número de trabalhos que podem ser executados simultaneamente sem perda de desempenho.
+Os recursos de CPU e memória disponíveis para {% data variables.product.product_location %} determinam o número de trabalhos que podem ser executados simultaneamente sem perda de desempenho. {% data reusables.actions.minimum-hardware %}
 
 O pico de trabalhos simultâneos rodando sem perda de desempenho depende de fatores como duração do trabalho, uso de artefatos, número de repositórios em execução de ações, e quanto outro trabalho sua instância está fazendo não relacionado a ações. Os testes internos no GitHub demonstraram os objetivos de desempenho a seguir para o GitHub Enterprise Server em uma série de configurações de CPU e memória:
 
@@ -74,9 +65,17 @@ A simultaneidade máxima foi medida usando vários repositórios, a duração do
 
 {%- endif %}
 
-{%- ifversion ghes > 3.2 %}
+{%- ifversion ghes = 3.3 %}
 
-{% data reusables.actions.hardware-requirements-after %}
+{% data reusables.actions.hardware-requirements-3.3 %}
+
+A simultaneidade máxima foi medida usando vários repositórios, a duração do trabalho de aproximadamente 10 minutos e o upload de artefato de 10 MB. Você pode ter um desempenho diferente dependendo dos níveis gerais de atividade na sua instância.
+
+{%- endif %}
+
+{%- ifversion ghes = 3.4 %}
+
+{% data reusables.actions.hardware-requirements-3.4 %}
 
 A simultaneidade máxima foi medida usando vários repositórios, a duração do trabalho de aproximadamente 10 minutos e o upload de artefato de 10 MB. Você pode ter um desempenho diferente dependendo dos níveis gerais de atividade na sua instância.
 

@@ -1,11 +1,11 @@
 ---
 title: Configuring OpenID Connect in cloud providers
 shortTitle: Configuring OpenID Connect in cloud providers
-intro: 'Use OpenID Connect within your workflows to authenticate with cloud providers.'
+intro: Use OpenID Connect within your workflows to authenticate with cloud providers.
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
 type: tutorial
 topics:
@@ -68,7 +68,7 @@ jobs:
     - name: Install OIDC Client from Core Package
       run: npm install @actions/core@1.6.0 @actions/http-client
     - name: Get Id Token
-      uses: actions/github-script@v4
+      uses: {% data reusables.actions.action-github-script %}
       id: idtoken
       with:
         script: |
@@ -90,7 +90,7 @@ jobs:
   job:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/github-script@v4
+    - uses: {% data reusables.actions.action-github-script %}
       id: script
       timeout-minutes: 10
       with:

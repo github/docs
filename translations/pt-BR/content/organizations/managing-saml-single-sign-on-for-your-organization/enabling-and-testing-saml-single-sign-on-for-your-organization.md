@@ -20,6 +20,8 @@ Se você habilitar em vez de aplicar o SAML SSO, os integrantes da organização
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
+{% data reusables.saml.saml-disabled-linked-identities-removed %}
+
 ## Habilitar e testar logon único de SAML para sua organização
 
 Antes de aplicar o SAML SSO na sua organização, certifique-se de preparar a organização. Para obter mais informações, consulte "[Preparar para aplicar logon único de SAML na organização](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".

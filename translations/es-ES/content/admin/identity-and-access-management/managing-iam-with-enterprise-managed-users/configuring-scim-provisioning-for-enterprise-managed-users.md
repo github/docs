@@ -15,7 +15,7 @@ topics:
 
 ## Acerca del aprovisionamiento para los {% data variables.product.prodname_emus %}
 
-You must configure provisioning for {% data variables.product.prodname_emus %} to create, manage, and deactivate user accounts for your enterprise members. Cuando configuras el aprovisionamiento para {% data variables.product.prodname_emus %}, los usuarios que se asignaron a la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu proveedor de identidad se aprovisionan como cuentas de usuario nuevas en {% data variables.product.prodname_dotcom %} a través de SCIM y los usuarios se agregan a tu empresa.
+Debes configurar el aprovisionamiento de {% data variables.product.prodname_emus %} para crear, administrar y desactivar las cuentas de usuario para los miembros de las empresas. Cuando configuras el aprovisionamiento para {% data variables.product.prodname_emus %}, los usuarios que se asignaron a la aplicación de {% data variables.product.prodname_emu_idp_application %} en tu proveedor de identidad se aprovisionan como cuentas de usuario nuevas en {% data variables.product.prodname_dotcom %} a través de SCIM y los usuarios se agregan a tu empresa.
 
 Cuando actualzias la información asociada con la identidad de un usuario en tu IdP, este actualizará la cuenta de usuario en GitHub.com. Cuando desasignas al usuario desde la aplicación de {% data variables.product.prodname_emu_idp_application %} o cuando desactivas una cuenta de usuario en tu IdP, dicho IdP se comunicará con {% data variables.product.prodname_dotcom %} para invalidar las sesiones de SAML e inhabilitar la cuenta del miembro. La información de la cuenta inhabilitada se mantiene y su nombre de usuario se cambia por un hash del nombre de usuario original con el código corto anexo. Si reasignas a un usuario a la aplicación de {% data variables.product.prodname_emu_idp_application %} o reactivas su cuenta en tu IdP, la cuenta de {% data variables.product.prodname_managed_user %} en {% data variables.product.prodname_dotcom %} se reactivará y el nombre de usuario se restablecerá.
 
@@ -36,10 +36,10 @@ Para configurar el aprovisionamiento de tu {% data variables.product.prodname_em
 {% endwarning %}
 
 1. Inicia sesión en {% data variables.product.prodname_dotcom_the_website %} como el usuario configurador para tu empresa nueva con el nombre de usuario **@<em>SHORT-CODE</em>_admin**.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-{% data reusables.user_settings.personal_access_tokens %}
-{% data reusables.user_settings.generate_new_token %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.personal_access_tokens %}
+{% data reusables.user-settings.generate_new_token %}
 1. Debajo de **Nota**, proporciona un nombre descriptivo a tu token. ![Captura de pantalla que muestra el nombre del token](/assets/images/help/enterprises/emu-pat-name.png)
 1. Selecciona el menú desplegable de **Vencimiento** y luego haz clic en **Sin vencimiento**. ![Captura de pantalla que muestra el vencimiento de un token configurado como "sin vencimiento"](/assets/images/help/enterprises/emu-pat-no-expiration.png)
 1. Selecciona el alcance **admin:enterprise**. ![Captura de pantalla que muestra el alcance admin:enterprise](/assets/images/help/enterprises/enterprise-pat-scope.png)
@@ -50,6 +50,8 @@ Para configurar el aprovisionamiento de tu {% data variables.product.prodname_em
 ## Configurar el aprovisionamiento para {% data variables.product.prodname_emus %}
 
 Después de crear tu token de acceso personal y almacenarlo de forma segura, puedes configurar el aprovisionamiento en tu proveedor de identidad.
+
+{% data reusables.scim.emu-scim-rate-limit %}
 
 Para configurar a Azure Active Directory para que aprovisione usuarios para tu {% data variables.product.prodname_emu_enterprise %}, consulta el [Tutorial: Configurar a los Usuarios Administrados Empresariales de Github para un aprovisionamiento de usuarios automático](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-provisioning-tutorial) en la documentación de Azure AD.
 

@@ -31,6 +31,14 @@ topics:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.not-available %}
 
+{% ifversion ghes or ghae %}
+{% note %}
+
+**Observação:** Este artigo descreve as funcionalidades disponíveis com a versão da ação CodeQL e o pacote da CLI do CodeQL associado incluído na versão inicial desta versão de {% data variables.product.product_name %}. Se a sua empresa usar uma versão mais recente da ação do CodeQL, consulte o [artigo de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) para obter informações sobre as funcionalidades mais recentes. {% ifversion not ghae %} Para obter informações sobre como usar a versão mais recente, consulte "[Configurando a digitalização de código para o seu dispositivo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
+
+{% endnote %}
+{% endif %}
+
 ## Produzir registros detalhados para depuração
 
 Para produzir a saída de log mais detalhada, você pode habilitar o log de depuração da etapa. Para obter mais informações, consulte "[Habilitar o registro de depuração](/actions/managing-workflow-runs/enabling-debug-logging#enabling-step-debug-logging)".
@@ -43,10 +51,11 @@ Você pode obter artefatos para ajudar você a depurar {% data variables.product
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v1
+  uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     debug: true
 ```
+
 Os artefatos de depuração serão carregados para a execução do fluxo de trabalho como um artefato denominado `debug-artifacts`. Os dados contém os registros de {% data variables.product.prodname_codeql %}, banco(s) de dados de {% data variables.product.prodname_codeql %}, e todo(s) o(s) outro(s) arquivo(s) SARIF produzido(s) pelo fluxo de trabalho.
 
 Estes artefatos ajudarão você a depurar problemas com digitalização de código de {% data variables.product.prodname_codeql %}. Se você entrar em contato com o suporte do GitHub, eles poderão pedir estes dados.
@@ -78,7 +87,7 @@ Se ocorrer uma falha na uma criação automática de código para uma linguagem 
       steps:
       ...
         - name: Initialize {% data variables.product.prodname_codeql %}
-          uses: github/codeql-action/init@v1
+          uses: {% data reusables.actions.action-codeql-action-init %}
           with:
             languages: {% raw %}${{ matrix.language }}{% endraw %}
   ```
@@ -140,7 +149,7 @@ Talvez você seja possa entender por que alguns arquivos de origem não foram an
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v1
+  uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     debug: true
 ```
@@ -216,7 +225,7 @@ Se a execução de um fluxo de trabalho para {% data variables.product.prodname_
 
 ## Erro: "Fora do disco" ou "Sem memória"
 
-Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar ficar sem disco ou sem memória no executor.
+Em projetos muito grandes, {% data variables.product.prodname_codeql %} pode ficar sem disco ou memória no executor.
 {% ifversion fpt or ghec %}Se encontrar esse problema em um executor de {% data variables.product.prodname_actions %} hospedado, entre em contato com {% data variables.contact.contact_support %} para que possamos investigar o problema.
 {% else %}Se você encontrar esse problema, tente aumentar a memória no executor.{% endif %}
 
@@ -282,11 +291,11 @@ A seção revisada de `etapas` do fluxo de trabalho será parecida com esta:
 ```yaml
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
       - name: Initialize {% data variables.product.prodname_codeql %}
-        uses: github/codeql-action/init@v1
+        uses: {% data reusables.actions.action-codeql-action-init %}
 
       ...
 ```

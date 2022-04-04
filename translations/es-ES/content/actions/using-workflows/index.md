@@ -1,7 +1,7 @@
 ---
-title: Using workflows
-shortTitle: Using workflows
-intro: 'Creating and managing {% data variables.product.prodname_actions %} workflows.'
+title: Utilizar flujos de trabajo
+shortTitle: Utilizar flujos de trabajo
+intro: 'Crear y administrar flujos de trabajo de las {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
   - /articles/creating-a-workflow-with-github-actions
@@ -14,6 +14,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/configuring-workflows
   - /actions/configuring-and-managing-workflows
   - /actions/workflows
+  - /actions/advanced-guides
 versions:
   fpt: '*'
   ghes: '*'
@@ -29,5 +30,8 @@ children:
   - /creating-starter-workflows-for-your-organization
   - /using-starter-workflows
   - /sharing-workflows-secrets-and-runners-with-your-organization
+  - /caching-dependencies-to-speed-up-workflows
+  - /storing-workflow-data-as-artifacts
+  - /using-github-cli-in-workflows
 ---
 

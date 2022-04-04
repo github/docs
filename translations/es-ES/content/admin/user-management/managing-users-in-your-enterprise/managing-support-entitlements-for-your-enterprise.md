@@ -15,7 +15,7 @@ shortTitle: Administrar los derechos de soporte
 
 Las pesonas con derechos de soporte para tu cuenta empresarial pueden utilizar el portal de soporte para abrir, ver y comentar en los tickets de soporte asociados con la cuenta empresarial.
 
-Los propietarios de las empresas y gerentes de facturación tienen derechos de soporte auomáticamente. Enterprise owners can add support entitlements to up to 20 additional members of organizations owned by their enterprise account.
+Los propietarios de las empresas y gerentes de facturación tienen derechos de soporte auomáticamente. Los propietarios de empresas pueden agregar derechos de soporte para hasta 20 miembros adicionales de las organizaciones que pertenecen a su cuenta empresarial.
 
 ## Agregar derechos de soporte para un miembro de la empresa
 

@@ -23,7 +23,7 @@ shortTitle: 带有 Gradle 的 Java 包
 
 ## 简介
 
-{% data reusables.github-actions.publishing-java-packages-intro %}
+{% data reusables.actions.publishing-java-packages-intro %}
 
 ## 基本要求
 
@@ -104,8 +104,8 @@ jobs:
           MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to the `OSSRH` Maven repository. `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。
+{% data reusables.actions.gradle-workflow-steps %}
+1. 运行具有 `publish` 参数的 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作，以发布到 `OSSRH` Maven 存储库。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
@@ -115,7 +115,7 @@ jobs:
 
 您可以在 _build.gradle_ 文件的发布块中定义指向 {% data variables.product.prodname_registry %} 的新 Maven 仓库。  在仓库配置中，您也可以利用在 CI 工作流程运行中设置的环境变量。  您可以使用 `GITHUB_ACTOR` 环境变量作为用户名，并且可以使用 `GITHUB_TOKENN` 密码设置 `GITHUB_TOKEN` 环境变量。
 
-{% data reusables.github-actions.github-token-permissions %}
+{% data reusables.actions.github-token-permissions %}
 
 例如，如果组织名为“octocat”且仓库名为“hello-world”，则 _build.gradle_ 中的 {% data variables.product.prodname_registry %} 配置看起来类似于以下示例。
 
@@ -174,8 +174,8 @@ jobs:
           GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to {% data variables.product.prodname_registry %}. `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+{% data reusables.actions.gradle-workflow-steps %}
+1. 运行具有 `publish` 参数的 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作，以发布到 {% data variables.product.prodname_registry %}。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %} `permissions` 键指定 `GITHUB_TOKEN` 密钥允许的访问权限。{% endif %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
@@ -255,7 +255,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-{% data reusables.github-actions.gradle-workflow-steps %}
-1. Runs the [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) action with the `publish` argument to publish to the `OSSRH` Maven repository and {% data variables.product.prodname_registry %}. `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}The `permissions` key specifies the access that the `GITHUB_TOKEN` secret will allow.{% endif %}
+{% data reusables.actions.gradle-workflow-steps %}
+1. 运行具有 `publish` 参数的 [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action) 操作，以发布到 `OSSRH` Maven 存储库和 {% data variables.product.prodname_registry %}。 `MAVEN_USERNAME` 环境变量将使用 `OSSRH_USERNAME` 密码的内容设置，而 `MAVEN_PASSWORD` 环境变量将使用 `OSSRH_TOKEN` 密码的内容设置。 `GITHUB_TOKEN` 环境变量将使用 `GITHUB_TOKEN` 密码的内容设置。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %} `permissions` 键指定 `GITHUB_TOKEN` 密钥允许的访问权限。{% endif %}
 
    有关在工作流程中使用密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。

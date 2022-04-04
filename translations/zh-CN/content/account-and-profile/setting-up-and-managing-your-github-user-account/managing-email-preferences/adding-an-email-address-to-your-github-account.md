@@ -20,17 +20,17 @@ shortTitle: 添加电子邮件地址
 {% note %}
 
 **注意**：
-  - {% data reusables.user_settings.no-verification-disposable-emails %}
-  -  If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you cannot make changes to your email address on {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+  - {% data reusables.user-settings.no-verification-disposable-emails %}
+  -  如果您是 {% data variables.product.prodname_emu_enterprise %} 的成员，则无法在 {% data variables.product.prodname_dotcom_the_website %} 上更改您的电子邮件地址。 {% data reusables.enterprise-accounts.emu-more-info-account %}
 
 {% endnote %}
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
-{% data reusables.user_settings.add_and_verify_email %}
-{% data reusables.user_settings.select_primary_email %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
+{% data reusables.user-settings.add_and_verify_email %}
+{% data reusables.user-settings.select_primary_email %}
 
 ## 延伸阅读
 

@@ -1,6 +1,7 @@
 ---
 title: Requesting a pull request review
 intro: 'After you create a pull request, you can ask a specific person to review the changes you''ve proposed. If you''re an organization member, you can also request a specific team to review your changes.'
+product: '{% data reusables.gated-features.multiple-pr-reviewers %}'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review
   - /articles/requesting-a-pull-request-review
@@ -15,9 +16,11 @@ topics:
   - Pull requests
 shortTitle: Request a PR review
 ---
-Owners and collaborators on a repository owned by a user account can assign pull request reviews. Organization members with triage permissions to a repository can assign a pull request review.
+Repositories belong to a personal account (a single individual owner) or an organization account (a shared account with numerous collaborators or maintainers). For more information, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)." Owners and collaborators on a repository owned by a personal account can assign pull request reviews. Organization members with triage permissions can also assign a reviewer for a pull request. 
 
-Owners or collaborators can assign a pull request review to any person that has been explicitly granted [read access](/articles/access-permissions-on-github) to a user-owned repository. Organization members can assign a pull request review to any person or team with read access to a repository. The requested reviewer or team will receive a notification that you asked them to review the pull request. {% ifversion fpt or ghae or ghes or ghec %}If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."{% endif %}
+To assign a reviewer to a pull request, you will need write access to the repository. For more information about repository access, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)." If you have write access, you can assign anyone who has read access to the repository as a reviewer.
+
+Organization members with write access can also assign a pull request review to any person or team with read access to a repository. The requested reviewer or team will receive a notification that you asked them to review the pull request. {% ifversion fpt or ghae or ghes or ghec %}If you request a review from a team and code review assignment is enabled, specific members will be requested and the team will be removed as a reviewer. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."{% endif %}
 
 {% note %}
 
@@ -28,9 +31,9 @@ Owners or collaborators can assign a pull request review to any person that has 
 You can request a review from either a suggested or specific person. Suggested reviewers are based on [git blame data](/articles/tracking-changes-in-a-file/). If you request a review, other people with read access to the repository can still review your pull request. Once someone has reviewed your pull request and you've made the necessary changes, you can re-request review from the same reviewer. If the requested reviewer does not submit a review, and the pull request meets the repository's [mergeability requirements](/articles/defining-the-mergeability-of-pull-requests), you can still merge the pull request.
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request that you'd like to ask a specific person or a team to review.
-3. Navigate to **Reviewers** in the right sidebar.  
-4. To request a review from a suggested person under **Reviewers**, next to their username, click **Request**.
+1. In the list of pull requests, click the pull request that you'd like to ask a specific person or a team to review.
+2. Navigate to **Reviewers** in the right sidebar.  
+3. To request a review from a suggested person under **Reviewers**, next to their username, click **Request**.
  ![Reviewers request icon in the right sidebar](/assets/images/help/pull_requests/request-suggested-review.png)
 5. Optionally, to request a review from someone other than a suggested person, click **Reviewers**, then click on a name in the dropdown menu.
   ![Reviewers gear icon in the right sidebar](/assets/images/help/pull_requests/request-a-review-not-suggested.png)

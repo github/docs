@@ -15,14 +15,14 @@ topics:
 shortTitle: リポジトリの作成の制限
 ---
 
-メンバーが Organization でリポジトリを作成できるかどうかを選択できます。 {% ifversion ghec or ghes or ghae %}If you allow members to create repositories, you can choose which types of repositories members can create.{% elsif fpt %}If you allow members to create repositories, you can choose whether members can create both public and private repositories or public repositories only.{% endif %} Organization owners can always create any type of repository.
+メンバーが Organization でリポジトリを作成できるかどうかを選択できます。 {% ifversion ghec or ghes or ghae %}メンバーにリポジトリの作成を許可した場合、メンバーが作成できるリポジトリの種類を選択できます。{% elsif fpt %}メンバーにリポジトリの作成を許可した場合、メンバーがパブリックとプライベートのリポジトリをどちらも作成できるのか、あるいはパブリックリポジトリだけを作成できるのかが選択できます。{% endif %}Organizationのオーナーは、常にすべての種類のリポジトリを作成できます。
 
 {% ifversion fpt %}
-Organizations using {% data variables.product.prodname_ghe_cloud %} can also restrict members to creating private repositories only. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization).
+{% data variables.product.prodname_ghe_cloud %}を使用するOrganizationは、プライベートリポジトリだけを作成できるメンバーを制限できます。 詳しい情報については[{% data variables.product.prodname_ghe_cloud %}のドキュメンテーション](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)を参照してください。
 {% endif %}
 
 {% ifversion ghec or ghae or ghes %}
-Enterprise owners can restrict the options you have available for your organization's repository creation policy. 詳しい情報については、「[Enterprise でのリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)」を参照してください。
+Enterpriseのオーナーは、Organizatoinのリポジトリ作成ポリシーで利用できる選択肢を制限できます。 詳しい情報については、「[Enterprise でのリポジトリ管理ポリシーを適用する](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)」を参照してください。
 {% endif %}
 
 {% warning %}
@@ -43,7 +43,7 @@ Enterprise owners can restrict the options you have available for your organizat
 
    {% note %}
 
-   **Note:** To restrict members to creating private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.
+   **ノート:** プライベートリポジトリだけを作成できるメンバーを制限するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。
 
    {% endnote %}
    {%- endif %}

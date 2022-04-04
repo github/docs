@@ -27,6 +27,8 @@ redirect_from:
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} 更多信息请参阅“[为企业配置 SAML 单点登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
 
+{% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
+
 启用 SAML SSO 后，根据使用的 IDP，您可能能够启用额外的身份和访问管理功能。 {% data reusables.scim.enterprise-account-scim %}
 
 如果使用 Azure AD 作为 IDP，您可以使用团队同步来管理每个组织中的团队成员身份。 {% data reusables.identity-and-permissions.about-team-sync %} 更多信息请参阅“[管理企业帐户中组织的团队同步](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
@@ -72,7 +74,7 @@ The following IdPs are officially supported for integration with {% data variabl
 
 ## Mapping {% data variables.product.prodname_ghe_managed %} teams to Okta groups
 
-If you use Okta as your IdP, you can map your Okta groups to teams on {% data variables.product.prodname_ghe_managed %}. For more information, see "[Mapping Okta groups to teams](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
+If you use Okta as your IdP, you can map your Okta groups to teams on {% data variables.product.prodname_ghe_managed %}. 更多信息请参阅“[将 Okta 组映射到团队](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
 
 {% endif %}
 

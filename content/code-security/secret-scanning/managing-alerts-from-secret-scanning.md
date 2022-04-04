@@ -22,6 +22,14 @@ shortTitle: Manage secret alerts
 
 ## Managing {% data variables.product.prodname_secret_scanning %} alerts
 
+{% ifversion ghec %}
+{% note %}
+
+**Note:** Alerts are created only for repositories with {% data variables.product.prodname_secret_scanning_GHAS %} enabled. Secrets found in public repositories using the free {% data variables.product.prodname_secret_scanning_partner%} service are reported directly to the partner, without creating an alert.
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. In the left sidebar, click **Secret scanning alerts**.
@@ -55,6 +63,14 @@ Once a secret has been committed to a repository, you should consider the secret
 
 - For a compromised {% data variables.product.prodname_dotcom %} personal access token, delete the compromised token, create a new token, and update any services that use the old token. For more information, see "[Creating a personal access token for the command line](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)."
 - For all other secrets, first verify that the secret committed to {% data variables.product.product_name %} is valid. If so, create a new secret, update any services that use the old secret, and then delete the old secret.
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** If a secret is detected in a public repository on {% data variables.product.prodname_dotcom_the_website %} and the secret also matches a partner pattern, an alert is generated and the potential secret is reported to the service provider. For details of partner patterns, see "[Supported secrets for partner patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets-for-partner-patterns)."
+
+{% endnote %}
+{% endif %}
 
 {% ifversion fpt or ghes > 3.1 or ghae-issue-4910 or ghec %}
 ## Configuring notifications for {% data variables.product.prodname_secret_scanning %} alerts

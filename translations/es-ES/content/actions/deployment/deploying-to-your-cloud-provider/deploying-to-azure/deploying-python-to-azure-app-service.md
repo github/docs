@@ -1,6 +1,6 @@
 ---
-title: Deploying Python to Azure App Service
-intro: You can deploy your Python project to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Desplegar Python a Azure App Service
+intro: Puedes desplegar tu proyecto de Python a Azure App Service como parte de tus flujos de trabajo de despliegue continuo (DC).
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,10 +16,9 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introducción
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Esta guía te explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar y desplegar un proyecto de Python hacia [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -39,7 +38,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 1. Crea una app web.
 
-   For example, you can use the Azure CLI to create an Azure App Service web app with a Python runtime:
+   Por ejemplo, puedes utilizar el CLI de Azure para crear una app web de Azure App Service con el tiempo de ejecución de Python:
 
    ```bash{:copy}
    az webapp create \
@@ -53,19 +52,17 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-1. Add an app setting called `SCM_DO_BUILD_DURING_DEPLOYMENT` and set the value to `1`.
+1. Agrega un ajuste de la app llamado `SCM_DO_BUILD_DURING_DEPLOYMENT` y configura su valor en `1`.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Crear un flujo de trabajo
 
 Una vez que hayas completado los prerequisitos, puedes proceder con la creación del flujo de trabajo.
 
-The following example workflow demonstrates how to build and deploy a Python project to Azure App Service when there is a push to the `main` branch.
+El siguiente flujo de trabajo de ejemplo demuestra cómo compilar y desplegar un proyecto de Python a Azure App Service cuando existe una subida a la rama `main`.
 
-Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. If you use a version of Python other than `3.8`, change `PYTHON_VERSION` to the version that you use.
+Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste. Si utilizas una versión de Python diferente a la `3.8`, cambia la `PYTHON_VERSION` a la versión que utilices.
 
 {% data reusables.actions.delete-env-key %}
 
@@ -114,7 +111,7 @@ jobs:
       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: python-app
           path: |
@@ -129,7 +126,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: python-app
           path: .

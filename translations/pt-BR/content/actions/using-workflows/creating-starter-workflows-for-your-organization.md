@@ -24,6 +24,8 @@ topics:
 
 {% data reusables.actions.workflow-organization-templates %}
 
+{% data reusables.actions.starter-workflow-categories %}
+
 ## Criando um fluxo de trabalho inicial
 
 Os fluxos de trabalho iniciantes podem ser criados pelos usuários com acesso de gravação ao repositório `.github` da organização. Eles poderão ser usados pelos integrantes da organização com permissão para criar fluxos de trabalho.
@@ -64,7 +66,7 @@ Este procedimento demonstra como criar um arquivo de metadados e fluxo de trabal
        runs-on: ubuntu-latest
 
        steps:
-         - uses: actions/checkout@v2
+         - uses: {% data reusables.actions.action-checkout %}
 
          - name: Run a one-line script
            run: echo Hello from Octo Organization

@@ -78,16 +78,18 @@ Você pode usar o repositório de Dotfiles selecionado para personalizar seu amb
 
 {% endwarning %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
 1. Em "Dotfiles", selecione **Instalar dotfiles automaticamente** para que {% data variables.product.prodname_codespaces %} instale automaticamente seus dotfiles em cada novo codespace que você criar. ![Instalando dotfiles](/assets/images/help/codespaces/install-custom-dotfiles.png)
 2. Escolha o repositório no qual você deseja instalar dotfiles. ![Selecionando um repositório de dotfiles](/assets/images/help/codespaces/select-dotfiles-repo.png)
 
 Você pode adicionar mais script, preferências e arquivos de configuração ao repositório de dotfiles ou editar arquivos existentes sempre que quiser. As alterações nas configurações só serão selecionadas por novos codespaces.
 
+If your codespace fails to pick up configuration settings from dotfiles, see "[Troubleshooting dotfiles for {% data variables.product.prodname_codespaces %}](/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces)."
+
 ## Outras configurações disponíveis
 
-Você também pode personalizar {% data variables.product.prodname_codespaces %} usando outras [Configurações de codespace](https://github.com/settings/codespaces):
+You can also personalize {% data variables.product.prodname_codespaces %} using additional [{% data variables.product.prodname_codespaces %} settings](https://github.com/settings/codespaces):
 
 - Para definir sua região padrão, consulte "[Definindo sua região padrão para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)."
 - Para definir seu editor, consulte "[Definindo seu editor padrão para {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)"
