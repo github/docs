@@ -17,7 +17,7 @@ GitHub Actions | `github-actions` | N/A (no version) | **✓** | **✓** | |
 Go modules     | `gomod`          | v1               | **✓** | **✓** | **✓** |
 Gradle         | `gradle`         | N/A (no version)<sup>[1]</sup>   | **✓** | **✓** | |
 Maven          | `maven`          | N/A (no version)<sup>[2]</sup>   | **✓** | **✓** | |
-npm            | `npm`            | v6, v7           | **✓** | **✓** | |
+npm            | `npm`            | v6, v7, v8       | **✓** | **✓** | |
 NuGet          | `nuget`          | <= 4.8<sup>[3]</sup> | **✓** | **✓** | |
 pip            | `pip`            | v21.1.2          | | **✓** | |
 pipenv         | `pip`            | <= 2021-05-29    | | **✓** | |

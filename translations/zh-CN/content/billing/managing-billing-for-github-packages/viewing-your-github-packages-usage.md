@@ -34,7 +34,7 @@ shortTitle: 查看使用情况
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## 查看企业帐户的 {% data variables.product.prodname_registry %} 使用情况
 

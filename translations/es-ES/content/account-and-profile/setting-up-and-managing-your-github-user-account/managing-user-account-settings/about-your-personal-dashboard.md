@@ -41,9 +41,23 @@ También puedes encontrar un listado de los repositorios, los equipos y los tabl
 
 ## Estar actualizado con la actividad desde tu organización
 
-En la sección "All activity" (Todas las actividades) de tus noticias, puedes ver las actualizaciones de los repositorios a los que estás suscrito y de las personas que sigues. La sección "All activity" (Todas las actividades) muestra las actualizaciones de los repositorios que observas o has marcado con una estrella, y de los usuarios a quienes sigues.
+{% if for-you-feed %}
+La sección principal de tu tablero tiene dos fuentes de actividad:
+
+- Siguiendo: Actividad de las personas que sigues y de los repositorios que observas.
+- Para ti: Recomendaciones de actividad con base en tu red de {% data variables.product.product_name %}.
+
+### Fuente de "Siguiendo"
+
+Esta fuente muestra la actividad de los repositorios y usuarios en los cuales has mostrado un interés directo cuando los sigues u observas un repositorio. Por ejemplo, verás actualizaciones cuando un usuario al que sigues:
+
+{% else %}
+En la sección de "Toda la actividad" de tu fuente de noticias, puedes ver actualizaciones de los repositorios que observas y de los usuarios que sigues.
 
 Verás actualizaciones en tus noticias cuando un usuario que sigues:
+{% endif %}
+
+
 - Destaca un repositorio.
 - Sigue otro usuario.{% ifversion fpt or ghes or ghec %}
 - Crea un repositorio público.{% endif %}
@@ -52,7 +66,26 @@ Verás actualizaciones en tus noticias cuando un usuario que sigues:
 - Bifurque un repositorio público.{% endif %}
 - Publica un lanzamiento nuevo.
 
-Para obtener más información acerca de cómo destacar repositorios y seguir personas, consulta "[Guardar repositorios con estrellas](/articles/saving-repositories-with-stars/)" y "[Seguir a personas](/articles/following-people)".
+Para obtener más información sobre cómo seguir personas y observar repositorios, consulta las secciones "[Seguir personas](/get-started/exploring-projects-on-github/following-people)" y "[Sé social](/get-started/quickstart/be-social)".
+
+{% if for-you-feed %}
+### Para tu fuente
+
+{% note %}
+
+**Nota:** Esta pestaña nueva se encuentra actualmente en beta público y está sujeta a cambios.
+
+{% endnote %}
+
+Esta fuente muestra la actividad y recomendaciones con base en tu red en {% data variables.product.product_name %}. Se diseñó para proporcionar actualizaciones que te inspiran, te mantienen actualizado y te ayudan a encontrar comunidades nuevas en las que quieras participar. Tu red incluye:
+
+- Los repositorios que has marcado con estrella
+- Los repositorios en los que has contribuido
+- Los usuarios que sigues o patrocinas
+- Los usuarios con los que has colaborado
+- Las organizaciones que sigues
+
+{% endif %}
 
 ## Explorar los repositorios recomendados
 

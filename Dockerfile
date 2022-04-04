@@ -89,6 +89,7 @@ COPY --chown=node:node feature-flags.json ./
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
 COPY --chown=node:node server.mjs ./server.mjs
+COPY --chown=node:node start-server.mjs ./start-server.mjs
 
 EXPOSE $PORT
 

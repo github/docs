@@ -24,7 +24,7 @@
   #Security policies
   title: Microsoft security policy template
   description: セキュリティポリシーの例
-  href: https://github.com/microsoft/repo-templates/blob/main/shared/SECURITY.md
+  href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
   tags:
     - セキュリティポリシー
 - 

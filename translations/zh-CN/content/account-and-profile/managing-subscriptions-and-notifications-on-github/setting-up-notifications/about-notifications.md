@@ -16,10 +16,6 @@ topics:
   - Notifications
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## 通知和订阅
 
 您可以选择通过订阅接收有关 {% data variables.product.product_location %} 上特定活动的持续更新。 通知是您收到的已订阅特定活动的更新。

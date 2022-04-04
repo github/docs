@@ -58,6 +58,7 @@ MessageBird | MessageBird API Key
 Meta | Facebook Access Token
 npm | npm Access Token
 NuGet | NuGet API Key
+Octopus Deploy | Octopus Deploy API Key
 OpenAI | OpenAI API Key
 Palantir | Palantir JSON Web Token
 PlanetScale | PlanetScale Database Password
@@ -90,6 +91,7 @@ Stripe | Stripe Live API Secret Key
 Stripe | Stripe Test API Secret Key
 Stripe | Stripe Live API Restricted Key
 Stripe | Stripe Test API Restricted Key
+Supabase | Supabase Service Key
 Tencent Cloud | Tencent Cloud Secret ID
 Twilio | Twilio Account String Identifier
 Twilio | Twilio API Key
