@@ -96,7 +96,7 @@ runs:
 ```
 {% endraw %}
 
-此元数据定义一个 `who-to-greet`  输入和一个 `time` 输出参数。 To pass inputs to the Docker container, you should declare the input using `inputs` and pass the input in the `args` keyword. Everything you include in `args` is passed to the container, but for better discoverability for users of your action, we recommended using inputs.
+此元数据定义一个 `who-to-greet`  输入和一个 `time` 输出参数。 要将输入传递给 Docker 容器，应使用 `inputs` 声明输入并以 `args` 关键词传递输入。 `args` 中包含的所有内容都将传递到容器，但为了更便于操作用户发现，我们建议使用输入。
 
 {% data variables.product.prodname_dotcom %} 将从 `Dockerfile` 构建映像，然后使用此映像在新容器中运行命令。
 

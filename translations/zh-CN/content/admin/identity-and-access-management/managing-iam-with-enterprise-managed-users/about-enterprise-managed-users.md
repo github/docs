@@ -38,7 +38,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 
 ## Identity provider support
 
-{% data variables.product.prodname_emus %} supports the following IdPs:
+{% data variables.product.prodname_emus %} 支持以下 IdP：
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
