@@ -52,7 +52,6 @@ import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
 import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
-import earlyAccessBreadcrumbs from './contextualizers/early-access-breadcrumbs.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
 import featuredLinks from './featured-links.js'
@@ -297,11 +296,6 @@ export default function (app) {
   app.use(instrument(currentProductTree, './contextualizers/current-product-tree'))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
-  app.use(
-    asyncMiddleware(
-      instrument(earlyAccessBreadcrumbs, './contextualizers/early-access-breadcrumbs')
-    )
-  )
   app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
 

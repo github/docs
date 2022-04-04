@@ -14,5 +14,5 @@ miniTocMaxHeadingLevel: 3
 ---
 
 <!--
-  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/projects
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/pulls/
 -->

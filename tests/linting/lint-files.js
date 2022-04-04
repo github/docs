@@ -178,6 +178,28 @@ const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
 //
 const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
 
+// GitHub-owned actions (e.g. actions/checkout@v2) should use a reusable in examples.
+// list:
+// - actions/checkout@v2
+// - actions/delete-package-versions@v2
+// - actions/download-artifact@v2
+// - actions/upload-artifact@v2
+// - actions/github-script@v2
+// - actions/setup-dotnet@v2
+// - actions/setup-go@v2
+// - actions/setup-java@v2
+// - actions/setup-node@v2
+// - actions/setup-python@v2
+// - actions/stale@v2
+// - actions/cache@v2
+// - github/codeql-action/init@v2
+// - github/codeql-action/analyze@v2
+// - github/codeql-action/autobuild@v2
+// - github/codeql-action/upload-sarif@v2
+//
+const literalActionInsteadOfReusableRegex =
+  /(actions\/(checkout|delete-package-versions|download-artifact|upload-artifact|github-script|setup-dotnet|setup-go|setup-java|setup-node|setup-python|stale|cache)|github\/codeql-action[/a-zA-Z-]*)@v\d+/g
+
 // Strings in Liquid will always evaluate true _because_ they are strings; instead use unquoted variables, like {% if foo %}.
 // - {% if "foo" %}
 // - {% unless "bar" %}
@@ -199,6 +221,8 @@ const oldExtendedMarkdownErrorText =
   'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
 const stringInLiquidErrorText =
   'Found Liquid conditionals that evaluate a string instead of a variable. Remove the quotes around the variable!'
+const literalActionInsteadOfReusableErrorText =
+  'Found a literal mention of a GitHub-owned action. Instead, use the reusables for the action. e.g {% data reusables.actions.action-checkout %}'
 
 const mdWalkOptions = {
   globs: ['**/*.md'],
@@ -671,6 +695,14 @@ ${ifsForVersioning.join('\n')}`
         for (const key of fmKeysWithLiquid) {
           expect(() => renderContent.liquid.parse(frontmatterData[key])).not.toThrow()
         }
+      })
+    }
+
+    if (!markdownRelPath.includes('data/reusables/actions/action-')) {
+      test('must not contain literal GitHub-owned actions', async () => {
+        const matches = content.match(literalActionInsteadOfReusableRegex) || []
+        const errorMessage = formatLinkError(literalActionInsteadOfReusableErrorText, matches)
+        expect(matches.length, errorMessage).toBe(0)
       })
     }
   })

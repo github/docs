@@ -43,13 +43,6 @@ upcoming_changes:
     criticality: 破壊的
     owner: BrentWheeldon
   - 
-    location: EnterpriseOwnerInfo.pendingCollaborators
-    description: '`pendingCollaborators`は削除されます。代わりに`pendingCollaboratorInvitations`フィールドを使用してください。'
-    reason: リポジトリの招待は、招待者だけではなくメールにも関連づけられるようになりました。
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: jdennes
-  - 
     location: Issue.timeline
     description: '`timeline`は削除されます。代わりにIssue.timelineItemsを使ってください。'
     reason: '`timeline`は削除されます。'
@@ -64,13 +57,6 @@ upcoming_changes:
     criticality: 破壊的
     owner: mikesea
   - 
-    location: RepositoryInvitationOrderField.INVITEE_LOGIN
-    description: '`INVITEE_LOGIN`は削除されます。'
-    reason: '`INVITEE_LOGIN` は有効なフィールド値ではなくなりました。リポジトリの招待は、招待者だけではなく、メールにも関連付けられるようになりました。'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: jdennes
-  - 
     location: EnterpriseMemberEdge.isUnlicensed
     description: '`isUnlicensed`は削除されます。'
     reason: すべてのメンバーはライセンスを消費します
@@ -81,13 +67,6 @@ upcoming_changes:
     location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
     description: '`isUnlicensed`は削除されます。'
     reason: すべての外部コラボレータはライセンスを消費します
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BrentWheeldon
-  - 
-    location: EnterprisePendingCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed`は削除されます。'
-    reason: すべての保留中のコラボレータはライセンスを消費します
     date: '2021-01-01T00:00:00+00:00'
     criticality: 破壊的
     owner: BrentWheeldon
@@ -126,3 +105,17 @@ upcoming_changes:
     date: '2022-04-01'
     criticality: 破壊的
     owner: colinshum
+  - 
+    location: AddPullRequestToMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason: PRs are added to the merge queue for the base branch, the `branch` argument is now a no-op
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jhunschejones
+  - 
+    location: Enterprise.userAccounts
+    description: '`userAccounts` will be removed. Use the `Enterprise.members` field instead.'
+    reason: The `Enterprise.userAccounts` field is being removed.
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: jdennes

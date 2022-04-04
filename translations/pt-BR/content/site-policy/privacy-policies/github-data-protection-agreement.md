@@ -378,7 +378,8 @@ Os detalhes das transferências e, em particular, as categorias de dados pessoai
 
 O exportador de dados garante que empregou esforços razoáveis para determinar se o importador de dados poderá, por meio da implementação de medidas técnicas e organizacionais adequadas, cumprir as suas obrigações ao abrigo destas Cláusulas.
 
-**8.1 Instruções** <ol style="list-style-type:lower-alpha" class="no-styling">
+**8.1 Instruções**
+  <ol style="list-style-type:lower-alpha" class="no-styling">
       <li>O importador de dados processará os dados pessoais somente com base em instruções documentadas do exportador de dados. O exportador de dados pode fornecer essas instruções durante o período do contrato.</li>
       <li>O importador de dados informará imediatamente o exportador de dados se este não puder seguir essas instruções.</li>
   </ol>

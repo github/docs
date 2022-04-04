@@ -7,7 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise
 versions:
   ghec: '*'
-shortTitle: Connect an Azure subscription
+shortTitle: Azureサブスクリプションの接続
 ---
 
 ## Azure サブスクリプションと {% data variables.product.product_name %}
@@ -31,7 +31,7 @@ Azure サブスクリプションに接続するには、サブスクリプシ�
 
    {% note %}
 
-   **Note:** {% data variables.product.company_short %}'s Subscription Permission Validation requests read-only access to display the list of available subscriptions. To select an Azure subscription, you must have owner permissions to the subscription. If the default tenant does not have the right permissions, you may need to specify a different tenant ID. For more information, see [Microsoft identity platform and OAuth 2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) in Microsoft Docs.
+   **ノート:** {% data variables.product.company_short %}のサブスクリプション権限検証は、利用可能なサブスクリプションのリストを表示するために読み取りのみのアクセスを要求します。 Azureサブスクリプションを選択するには、サブスクリプションに対するオーナー権限を持っていなければなりません。 デフォルトのテナントが適切な権限を持っていない場合は、異なるテナントIDを指定しなければならないことがあります。 詳しい情報についてはMicrosoftのドキュメンテーションの[Microsoft ID プラットフォームと OAuth 2.0 認証コード フロー](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code)を参照してください。
 
    {% endnote %}
 1. [**Connect**] をクリックします。

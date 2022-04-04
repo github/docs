@@ -226,9 +226,9 @@ steps:
 ```
 {% endraw %}
 
-Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job. Para obtener más información, consulta la sección "[Disponibilidad de contexto](/actions/learn-github-actions/contexts#context-availability)" y "[`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif).
+Los secretos no se pueden referenciar directamente en las condicionales `if:`. En vez de esto, considera configurar secretos como variables de ambiente a nivel de jobs y luego referencia dichas variables para ejecutar pasos de forma condicional en el job. Para obtener más información, consulta la sección "[Disponibilidad de contexto](/actions/learn-github-actions/contexts#context-availability)" y "[`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif).
 
-If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
+Si aún no se configura un secreto, el valor de retorno de una expresión que lo referencia (tal como {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} en el ejemplo) será una secuencia vacía.
 
 Evita pasar secretos entre procesos desde la línea de comando, siempre que sea posible. Los procesos de línea de comandos podrían estar visibles para otros usuarios (utilizando el comando `ps`) o ser capturados por [los eventos de auditoría de seguridad](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). Para ayudar a proteger los secretos, considera usar variables de entorno, `STDIN` u otros mecanismos admitidos por el proceso de destino.
 

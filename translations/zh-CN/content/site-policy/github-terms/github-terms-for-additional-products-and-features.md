@@ -37,8 +37,23 @@ GitHub Actions 使您能够直接在您的 GitHub 仓库中创建自定义软件
 - 任何给我们的服务器带来负担的活动，如果这种负担与提供给用户的收益不成比例（例如，不要将 Action 用作内容交付网络或作为无服务器应用程序的一部分，但收益低负担也低的 Action 可能没问题）；或
 - 如果使用 GitHub 托管的运行器，与使用 GitHub Actions 的仓库相关的软件项目创建、测试、部署或发布无关的任何其他活动。
 
-为防止违反这些限制和滥用 GitHub Actions，GitHub 可能会监视您对 GitHub Actions 的使用。 滥用 GitHub Actions 可能导致作业终止、使用 GitHub Actions 的权限受到限制，或者禁用以违反这些条款的方式运行 Actions 的仓库。
+为防止违反这些限制和滥用 GitHub Actions，GitHub 可能会监视您对 GitHub Actions 的使用。 Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.
 
+*Use for Development and Testing*
+
+You may only access and use GitHub Actions to develop and test your application(s). Only one licensed user may access a virtual machine provided by Actions at any time.
+
+*Authorized Developer*
+
+You appoint GitHub as your authorized developer with respect to Apple software included in Actions. GitHub is responsible for complying with the terms for any such software included in Actions and will keep confidential any confidential information of Apple accessed as part of Actions.
+
+*Third Party Repository Service Access*
+
+If you grant GitHub access to your third-party repository service account(s), you authorize GitHub to scan the account(s), including the contents of your Public and Private Repositories, for purposes of providing GitHub Actions.
+
+*Self-Hosted Runners on GitHub Actions*
+
+If you use self-hosted runners, you have the ability to turn off automatic updates but GitHub reserves the right to override your choice for critical security updates.
 
 ## Advanced Security
 GitHub 根据高级安全许可证向客户提供额外的安全功能。 这些功能包括代码扫描、秘密扫描和依赖项审查。 [Advanced Security 文档](/github/getting-started-with-github/about-github-advanced-security)提供更多详细信息。

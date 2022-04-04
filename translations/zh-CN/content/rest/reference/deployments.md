@@ -1,6 +1,6 @@
 ---
 title: 部署
-intro: The deployments API allows you to create and delete deployments and deployment environments.
+intro: 部署 API 允许您创建和删除部署和部署环境。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

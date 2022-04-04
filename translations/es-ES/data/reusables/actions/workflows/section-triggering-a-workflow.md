@@ -1,6 +1,6 @@
 
-To automatically trigger a workflow, use `on` to define which events can cause the workflow to run. Para obtener una lista de eventos disponibles, consulta "[Eventos que desencadenan flujos de trabajo](/articles/events-that-trigger-workflows)".
+Para activar un flujo de trabajo automáticamente, utiliza `on` para definir los eventos que pueden causar que se ejecute el flujo de trabajo. Para obtener una lista de eventos disponibles, consulta "[Eventos que desencadenan flujos de trabajo](/articles/events-that-trigger-workflows)".
 
-You can define single or multiple events that can a trigger workflow, or set a time schedule. You can also restrict the execution of a workflow to only occur for specific files, tags, or branch changes. Estas opciones se describen en las siguietnes secciones.
+Puedes definir eventos sencillos o múltiples que puedan activar un flujo de trabajo o configurar un itinerario de tiempos. También puedes restringir la ejecución de un flujo de trabajo para que solo ocurra para archivos, etiquetas o cambios de rama específicos. Estas opciones se describen en las siguietnes secciones.
 
 {% data reusables.actions.actions-on-examples %}
