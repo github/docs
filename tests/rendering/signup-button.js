@@ -1,7 +1,10 @@
+import { jest, describe, expect } from '@jest/globals'
+
 import { getDOM } from '../helpers/e2etest.js'
-import { describe, expect } from '@jest/globals'
 
 describe('GHEC sign up button', () => {
+  jest.setTimeout(60 * 1000)
+
   test('present by default', async () => {
     const $ = await getDOM('/en')
     expect($('a[href^="https://github.com/signup"]').length).toBeGreaterThan(0)

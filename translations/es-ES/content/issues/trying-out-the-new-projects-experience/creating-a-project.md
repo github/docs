@@ -131,7 +131,7 @@ Los campos personalizados pueden ser de texto, número, fecha, selección simple
 - Número: El valor debe ser un número.
 - Fecha: El valor puede ser una fecha.
 - Selección simple: El valor debe seleccionarse desde un conjunto de valores especificados.
-- Iteración: el valor debe seleccionarse desde un conjunto de rangos de fechas (iteraciones). Las iteraciones pasadas se marcan automáticamente como "completadas" y la iteración que cubre el rango de fecha actual se marca como "actual". For more information, see "[Managing iterations in projects](/issues/trying-out-the-new-projects-experience/managing-iterations)."
+- Iteración: el valor debe seleccionarse desde un conjunto de rangos de fechas (iteraciones). Las iteraciones pasadas se marcan automáticamente como "completadas" y la iteración que cubre el rango de fecha actual se marca como "actual". Para obtener más información, consulta la sección "[Administrar las iteraciones en los proyectos](/issues/trying-out-the-new-projects-experience/managing-iterations)".
 
 1. {% data reusables.projects.open-command-palette %} Comienza a teclear cualquier parte de "Create new field". Cuando se muestre "Create new field" en la paleta de comandos, selecciónalo.
 2. Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} en el encabezado de campo que está lo más hacia la derecha. Aparecerá un menú desplegable con los campos de proyecto. Haz clic en **Campo nuevo**.

@@ -1,8 +1,8 @@
 ---
-title: Adding a dev container to your repository
-shortTitle: Add a dev container to your repository
+title: 将开发容器添加到存储库
+shortTitle: 将开发容器添加到存储库
 allowTitleToDifferFromFilename: true
-intro: 'Get started with your Node.js, Python, .NET, or Java project in {% data variables.product.prodname_codespaces %} by creating a custom dev container.'
+intro: '通过创建自定义开发容器，开始在 {% data variables.product.prodname_codespaces %} 中使用 Node.js、Python、.NET 或 Java 项目。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

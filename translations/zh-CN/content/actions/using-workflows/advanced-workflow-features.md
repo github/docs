@@ -1,7 +1,7 @@
 ---
-title: Advanced workflow features
-shortTitle: Advanced workflow features
-intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices, environments, and labels.'
+title: 高级工作流程功能
+shortTitle: 高级工作流程功能
+intro: '本指南演示如何使用 {% data variables.product.prodname_actions %} 的高级功能，包括机密管理、从属作业、缓存、构建矩阵、环境和标签。'
 redirect_from:
   - /actions/learn-github-actions/managing-complex-workflows
 versions:
@@ -68,7 +68,7 @@ jobs:
       - run: ./test_server.sh
 ```
 
-For more information, see "[Defining prerequisite jobs](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
+更多信息请参阅“[定义先决条件作业](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)”。
 
 ## 使用构建矩阵
 
@@ -89,7 +89,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Using a build matrix for your jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)."
+更多信息请参阅“[对作业使用构建矩阵](/actions/using-jobs/using-a-build-matrix-for-your-jobs)”。
 
 {% ifversion fpt or ghec %}
 ## 缓存依赖项
@@ -161,11 +161,11 @@ jobs:
 要了解自托管运行器标签的更多信息，请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)”。
 
 {% ifversion fpt or ghes %}
-To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see ["Supported runners and hardware resources"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
+要详细了解 {% data variables.product.prodname_dotcom %} 托管的运行器标签，请参阅[“支持的运行器和硬件资源”](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)。
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
-## Reusing workflows
+## 重新使用工作流程
 {% data reusables.actions.reusable-workflows %}
 {% endif %}
 
@@ -173,14 +173,14 @@ To learn more about {% data variables.product.prodname_dotcom %}-hosted runner l
 
 您可以使用保护规则和机密配置环境。 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 更多信息请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。
 
-## Using starter workflows
+## 使用入门工作流程
 
 {% data reusables.actions.workflow-template-overview %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. 如果您的仓库已经有工作流程：在左上角单击 **New workflow（新工作流程）**。 ![创建新工作流程](/assets/images/help/repository/actions-new-workflow.png)
-1. Under the name of the starter workflow you'd like to use, click **Set up this workflow**. ![设置此工作流程](/assets/images/help/settings/actions-create-starter-workflow.png)
+1. 在您想要使用的入门工作流程名称下，单击 **Set up this workflow（设置此工作流程）**。 ![设置此工作流程](/assets/images/help/settings/actions-create-starter-workflow.png)
 
 ## 后续步骤
 

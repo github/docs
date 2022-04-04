@@ -1,7 +1,7 @@
 ---
-title: Using conditions to control job execution
-shortTitle: Using conditions to control job execution
-intro: Prevent a job from running unless your conditions are met.
+title: 使用条件控制作业执行
+shortTitle: 使用条件控制作业执行
+intro: 除非满足条件，否则阻止作业运行。
 versions:
   fpt: '*'
   ghes: '*'
