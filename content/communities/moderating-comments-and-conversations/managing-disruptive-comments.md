@@ -18,7 +18,7 @@ shortTitle: Manage comments
 
 ## Hiding a comment
 
-Anyone with write access to a repository can hide comments on issues, pull requests, and commits.
+{% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can hide comments on issues, pull requests, and commits.
 
 If a comment is off-topic, outdated, or resolved, you may want to hide a comment to keep a discussion focused or make a pull request easier to navigate and review. Hidden comments are minimized but people with read access to the repository can expand them.
 
@@ -36,7 +36,7 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 
 ## Unhiding a comment
 
-Anyone with write access to a repository can unhide comments on issues, pull requests, and commits.
+{% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can unhide comments on issues, pull requests, and commits.
 
 1. Navigate to the comment you'd like to unhide.
 2. In the upper-right corner of the comment, click **{% octicon "fold" aria-label="The fold icon" %} Show comment**.
@@ -89,3 +89,8 @@ If a comment contains some constructive content that adds to the conversation in
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
   ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete, and report options](/assets/images/help/repository/comment-menu.png)
 3. Optionally, write a comment noting that you deleted a comment and why.
+
+{% ifversion fpt or ghec %}
+## Further reading
+- "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
+{% endif %} 
