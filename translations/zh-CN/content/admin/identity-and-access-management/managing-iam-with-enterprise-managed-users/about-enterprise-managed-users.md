@@ -17,7 +17,7 @@ topics:
   - SSO
 ---
 
-## 关于 {% data variables.product.prodname_emus %}
+## About {% data variables.product.prodname_emus %}
 
 With {% data variables.product.prodname_emus %}, you can control the user accounts of your enterprise members through your identity provider (IdP). You can simplify authentication with SAML single sign-on (SSO) and provision, update, and deprovision user accounts for your enterprise members. Users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your IdP are provisioned as new user accounts on {% data variables.product.prodname_dotcom %} and added to your enterprise. You control usernames, profile data, team membership, and repository access from your IdP.
 
@@ -38,7 +38,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 
 ## Identity provider support
 
-{% data variables.product.prodname_emus %} 支持以下 IdP：
+{% data variables.product.prodname_emus %} supports the following IdPs:
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
@@ -48,13 +48,13 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 
 * {% data variables.product.prodname_managed_users_caps %} cannot create issues or pull requests in, comment or add reactions to, nor star, watch, or fork repositories outside of the enterprise.
 * {% data variables.product.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot push code to repositories outside of the enterprise.
-* {% data variables.product.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise.
+* {% data variables.product.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise. 
 * {% data variables.product.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 * {% data variables.product.prodname_managed_users_caps %} cannot create gists or comment on gists.
 * {% data variables.product.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
 * Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.product.prodname_managed_user %} to collaborate.
 * {% data variables.product.prodname_managed_users_caps %} can only own private repositories and {% data variables.product.prodname_managed_users %} can only invite other enterprise members to collaborate on their owned repositories.
-* Only private and internal repositories can be created in organizations owned by an {% data variables.product.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings.
+* Only private and internal repositories can be created in organizations owned by an {% data variables.product.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings. 
 
 ## About enterprises with managed users
 
@@ -64,7 +64,7 @@ Your contact on the GitHub Sales team will work with you to create your new {% d
 
 After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password. The setup user is only used to configure SAML single sign-on and SCIM provisioning integration for the enterprise. It will no longer have access to administer the enterprise account once SAML is successfully enabled.
 
-The setup user's username is your enterprise's shortcode suffixed with `_admin`. After you log in to your setup user, you can get started by configuring SAML SSO for your enterprise. 更多信息请参阅“[为企业托管用户配置 SAML 单点登录](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)”。
+The setup user's username is your enterprise's shortcode suffixed with `_admin`. After you log in to your setup user, you can get started by configuring SAML SSO for your enterprise. For more information, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
 {% note %}
 
@@ -72,7 +72,7 @@ The setup user's username is your enterprise's shortcode suffixed with `_admin`.
 
 {% endnote %}
 
-## 验证为 {% data variables.product.prodname_managed_user %}
+## Authenticating as a {% data variables.product.prodname_managed_user %}
 
 {% data variables.product.prodname_managed_users_caps %} must authenticate through their identity provider. To authenticate, a {% data variables.product.prodname_managed_user %} can visit their IdP application portal or use the login page on {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -81,8 +81,11 @@ The setup user's username is your enterprise's shortcode suffixed with `_admin`.
 ### Authenticating as a {% data variables.product.prodname_managed_user %} via {% data variables.product.prodname_dotcom_the_website %}
 
 1. Navigate to [https://github.com/login](https://github.com/login).
-1. In the "Username or email address" text box, enter your username including the underscore and short code. ![Screenshot showing login form](/assets/images/help/enterprises/emu-login-username.png) When the form recognizes your username, the form will update. You do not need to enter your password on this form.
-1. To continue to your identity provider, click **Sign in with your identity provider**. ![Screenshot showing "Sign in with your identity provider" button](/assets/images/help/enterprises/emu-login-submit.png)
+1. In the "Username or email address" text box, enter your username including the underscore and short code.
+  ![Screenshot showing login form](/assets/images/help/enterprises/emu-login-username.png)
+  When the form recognizes your username, the form will update. You do not need to enter your password on this form.
+1. To continue to your identity provider, click **Sign in with your identity provider**.
+  ![Screenshot showing "Sign in with your identity provider" button](/assets/images/help/enterprises/emu-login-submit.png)
 
 ## Usernames and profile information
 
@@ -90,10 +93,10 @@ When your {% data variables.product.prodname_emu_enterprise %} is created, you w
 
 When you provision a new user from your identity provider, the new {% data variables.product.prodname_managed_user %} will have a {% data variables.product.prodname_dotcom %} username in the format of **@<em>IDP-USERNAME</em>_<em>SHORT-CODE</em>**.
 
-| Identity provider                 | {% data variables.product.prodname_dotcom %} username |
-| --------------------------------- | ----------------------------------------------------- |
-| Azure Active Directory (Azure AD) | <ul><li>_IDP-USERNAME_ is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name).</li><li>Guest accounts will have `#EXT` removed from the UPN.</li></ul>                             |
-| Okta                              | <ul><li>_IDP-USERNAME_ is the normalized username attribute provided by the IdP.</li></ul>                             |
+| Identity provider                 | {% data variables.product.prodname_dotcom %} username  |
+|-----------------------------------|----------------------|
+| Azure Active Directory (Azure AD) | <ul><li>_IDP-USERNAME_ is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name).</li><li>Guest accounts will have `#EXT` removed from the UPN.</li></ul> |
+| Okta                              | <ul><li>_IDP-USERNAME_ is the normalized username attribute provided by the IdP.</li></ul>                |
 
 It's possible for a conflict to occur when provisioning users if the unique parts of the username provided by your IdP are removed when it is normalized. If you are unable to provision a user due to a username conflict, you should modify the username provided by your IdP.
 

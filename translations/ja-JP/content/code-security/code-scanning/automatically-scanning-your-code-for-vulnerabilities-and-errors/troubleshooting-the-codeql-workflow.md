@@ -34,7 +34,7 @@ topics:
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+**ノート:** この記事は、{% data variables.product.product_name %}のこのバージョンにおける初期リリースに含まれる、このバージョンのCodeQLアクション及び関連するCodeQL CLIバンドルで利用できる機能について説明しています。 If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) for information on the latest features. {% ifversion not ghae %} 最新バージョンの利用に関する詳しい情報については「[アプライアンスのコードスキャンニングの設定](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)」を参照してください。{% endif %}
 
 {% endnote %}
 {% endif %}
@@ -51,10 +51,11 @@ You can obtain artifacts to help you debug {% data variables.product.prodname_co
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v1
+  uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     debug: true
 ```
+
 The debug artifacts will be uploaded to the workflow run as an artifact named `debug-artifacts`. The data contains the {% data variables.product.prodname_codeql %} logs, {% data variables.product.prodname_codeql %} database(s), and any SARIF file(s) produced by the workflow.
 
 These artifacts will help you debug problems with {% data variables.product.prodname_codeql %} code scanning. If you contact GitHub support, they might ask for this data.
@@ -86,7 +87,7 @@ These artifacts will help you debug problems with {% data variables.product.prod
       steps:
       ...
         - name: Initialize {% data variables.product.prodname_codeql %}
-          uses: github/codeql-action/init@v1
+          uses: {% data reusables.actions.action-codeql-action-init %}
           with:
             languages: {% raw %}${{ matrix.language }}{% endraw %}
   ```
@@ -150,7 +151,7 @@ You may be able to understand why some source files haven't been analyzed by ins
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v1
+  uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     debug: true
 ```
@@ -292,11 +293,11 @@ commit for best results.
 ```yaml
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
-      # {% data variables.product.prodname_codeql %}ツールをスキャンニングのために初期化。
+      # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
       - name: Initialize {% data variables.product.prodname_codeql %}
-        uses: github/codeql-action/init@v1
+        uses: {% data reusables.actions.action-codeql-action-init %}
 
       ...
 ```

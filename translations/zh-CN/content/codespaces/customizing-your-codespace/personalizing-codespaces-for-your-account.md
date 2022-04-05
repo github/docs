@@ -87,9 +87,11 @@ You can use your selected dotfiles repository to personalize your {% data variab
 
 You can add further script, preferences, configuration files to your dotfiles repository or edit existing files whenever you want. Changes to settings will only be picked up by new codespaces.
 
+If your codespace fails to pick up configuration settings from dotfiles, see "[Troubleshooting dotfiles for {% data variables.product.prodname_codespaces %}](/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces)."
+
 ## Other available settings
 
-You can also personalize {% data variables.product.prodname_codespaces %} using additional [Codespaces settings](https://github.com/settings/codespaces):
+You can also personalize {% data variables.product.prodname_codespaces %} using additional [{% data variables.product.prodname_codespaces %} settings](https://github.com/settings/codespaces):
 
 - To set your default region, see "[Setting your default region for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-region-for-codespaces)."
 - To set your editor, see "[Setting your default editor for {% data variables.product.prodname_codespaces %}](/codespaces/managing-your-codespaces/setting-your-default-editor-for-codespaces)."

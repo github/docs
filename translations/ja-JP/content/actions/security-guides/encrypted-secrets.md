@@ -1,6 +1,6 @@
 ---
 title: 暗号化されたシークレット
-intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
+intro: '暗号化されたシークレットを使うと、機密情報をOrganization{% ifversion fpt or ghes or ghec %}、リポジトリ、あるいはリポジトリの環境{% else %}あるいはリポジトリ{% endif %}に保存できます。'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -55,7 +55,7 @@ Secrets are encrypted environment variables that you create in an organization, 
 
 Organization及びリポジトリのシークレットはワークフローの実行がキューイングされた時点で読まれ、環境のシークレットは環境を参照しているジョブが開始された時点で読まれます。
 
-REST API を使用してシークレットを管理することもできます。 For more information, see "[Secrets](/rest/reference/actions#secrets)."
+REST API を使用してシークレットを管理することもできます。 詳しい情報については、「[シークレット](/rest/reference/actions#secrets)」を参照してください。
 
 ### 認証情報のアクセス許可を制限する
 
@@ -209,7 +209,7 @@ Organization内のシークレットに適用されているアクセス ポリ�
 
 {% note %}
 
-**Note:** {% data reusables.actions.forked-secrets %}
+**注釈:** {% data reusables.actions.forked-secrets %}
 
 {% endnote %}
 
@@ -230,7 +230,7 @@ Secrets cannot be directly referenced in `if:` conditionals. Instead, consider s
 
 If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
 
-可能であれば、コマンドラインからプロセス間でシークレットを渡すのは避けてください。 Command-line processes may be visible to other users (using the `ps` command) or captured by [security audit events](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). シークレットの保護のために、環境変数、`STDIN`、あるいはターゲットのプロセスがサポートしている他の仕組みの利用を考慮してください。
+可能であれば、コマンドラインからプロセス間でシークレットを渡すのは避けてください。 コマンドラインプロセスは他のユーザから見えるかもしれず（`ps`コマンドを使って）、あるいは[セキュリティ監査イベント](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing)でキャプチャされるかもしれません。 シークレットの保護のために、環境変数、`STDIN`、あるいはターゲットのプロセスがサポートしている他の仕組みの利用を考慮してください。
 
 コマンドラインからシークレットを渡さなければならない場合は、それらを適切なルールでクオート内に収めてください。 シークレットは、意図せずシェルに影響するかもしれない特殊なキャラクターをしばしば含みます。 それらの特殊なキャラクターをエスケープするには、環境変数をクオートで囲ってください。 例:
 
@@ -327,29 +327,27 @@ A workflow created in a repository can access the following number of secrets:
 
 1. ワークフローから、`step`を使用してシェルスクリプトを呼び出し、シークレットを復号化します。 ワークフローを実行している環境にリポジトリのコピーを作成するには、[`actions/checkout`](https://github.com/actions/checkout)アクションを使用する必要があります。 リポジトリのルートを基準として`run`コマンドを使用し、シェルスクリプトを参照します。
 
-{% raw %}
-  ```yaml
-  name: Workflows with large secrets
+   ```yaml
+   name: Workflows with large secrets
 
-  on: push
+   on: push
 
-  jobs:
-    my-job:
-      name: My Job
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: Decrypt large secret
-          run: ./.github/scripts/decrypt_secret.sh
-          env:
-            LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
-        # このコマンドは、あなたの秘密が印刷されていることを示す例
-        # シークレットを出力する文は必ず削除してください。 GitHub does
-        # not hide secrets that use this workaround.
-        - name: Test printing your secret (Remove this step in production)
-          run: cat $HOME/secrets/my_secret.json
-  ```
-{% endraw %}
+   jobs:
+     my-job:
+       name: My Job
+       runs-on: ubuntu-latest
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+         - name: Decrypt large secret
+           run: ./.github/scripts/decrypt_secret.sh
+           env:
+             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets. LARGE_SECRET_PASSPHRASE }}{% endraw %}
+         # This command is just an example to show your secret being printed
+         # Ensure you remove any print statements of your secrets. GitHub does
+         # not hide secrets that use this workaround.
+         - name: Test printing your secret (Remove this step in production)
+           run: cat $HOME/secrets/my_secret.json
+   ```
 
 ## Storing Base64 binary blobs as secrets
 
@@ -385,7 +383,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
      decode-secret:
        runs-on: ubuntu-latest
        steps:
-         - uses: actions/checkout@v2
+         - uses: {% data reusables.actions.action-checkout %}
          - name: Retrieve the secret and decode it to a file
            env:
              {% raw %}CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}{% endraw %}
@@ -395,4 +393,3 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
            run: |
              openssl x509 -in cert.der -inform DER -text -noout
    ```
-

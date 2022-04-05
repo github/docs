@@ -63,3 +63,4 @@ shortTitle: インドの1回払い
 4. 請求と支払い情報を確認してください。 編集する必要がある場合は、関連するセクションの隣にある**Edit（編集）**をクリックしてください。 必要ない場合は、**Submit payment（支払いの送信）**をクリックしてください。 ![1回払いの概要](/assets/images/help/billing/payment-summary.png)
 5. あるいは、**Edit（編集）**をクリックした場合には、必要な変更を行ってから**Submit payment（支払いの送信）**をクリックしてください。 ![1回払いの編集の概要](/assets/images/help/billing/payment-summary-edit.png)
 6. 現在の支払いサイクルに対する支払いが正常に完了すると、"Billing & plans（支払いとプラン）"ページの**Pay now（すぐに支払う）**ボタンは、次の支払期日になるまで無効化されます。 ![無効化されたすぐに1回払いのボタン](/assets/images/help/billing/pay-now-button-disabled.png)
+  

@@ -94,20 +94,21 @@ Puedes crear un flujo de trabajo de ejemplo en tu repositorio que active automá
 
 1. En tu repositorio, crea el directorio `.github/workflows/` para almacenar tus archivos de flujo de trabajo.
 1. En el directorio `.github/workflows/`, crea un archivo nuevo que se llame `learn-github-actions.yml` y agrega el siguiente código.
-    ```yaml
-    name: learn-github-actions
-    on: [push]
-    jobs:
-      check-bats-version:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
-            with:
-              node-version: '14'
-          - run: npm install -g bats
-          - run: bats -v
-    ```
+
+   ```yaml
+   name: learn-github-actions
+   on: [push]
+   jobs:
+     check-bats-version:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+         - uses: {% data reusables.actions.action-setup-node %}
+           with:
+             node-version: '14'
+         - run: npm install -g bats
+         - run: bats -v
+   ```
 1. Confirma estos cambios y cárgalos a tu repositorio de {% data variables.product.prodname_dotcom %}.
 
 Tu archivo de flujo de trabajo de {% data variables.product.prodname_actions %} nuevo estará ahora instalado en tu repositorio y se ejecutará automáticamente cada que alguien suba un cambio a éste. Para encontrar los detalles sobre el historial de ejecución un job, consulta la sección "[Visualizar la actividad del flujo de trabajo](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)".
@@ -187,7 +188,7 @@ Define un job que se llame <code>check-bats-version</code>. Las llaves hijas def
 <td>
 
   ```yaml
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
   ```
 </td>
 <td>
@@ -198,13 +199,13 @@ La palabra clave <code>uses</code> especifica que este paso ejecutará la <code>
 <td>
 
   ```yaml
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '14'
   ```
 </td>
 <td>
-  Este paso utiliza la acción <code>actions/setup-node@v2</code> para instalar la versión especificada del Node.js (este ejemplo utiliza la v14). Esto pone a los comandos <code>node</code> y <code>npm</code> en tu <code>PATH</code>.
+  This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). Esto pone a los comandos <code>node</code> y <code>npm</code> en tu <code>PATH</code>.
 </td>
 </tr>
 <tr>
