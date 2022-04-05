@@ -3,22 +3,5 @@
     "**/translations": true
   },
   "workbench.editor.enablePreview": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.colorCustomizations": {
-    "editor.selectionBackground": "#83269b",
-    "editor.selectionHighlightBackground": "#817878",
-    "editor.findMatchBackground": "#00cc44a8",
-    "editor.findMatchHighlightBackground": "#ff7b00a1",
-    "editorCursor.foreground": "#ffff00",
-    "terminalCursor.foreground": "#ffff00",
-    "tab.activeBackground": "#83269b",
-    "tab.activeForeground": "#ffffff",
-    "tab.inactiveForeground": "#ff0000",
-    "tab.unfocusedActiveForeground": "#1aff25",
-    "tab.unfocusedInactiveForeground": "#ffa601",
-    "tab.hoverForeground": "#ffffff",
-    "tab.hoverBackground": "#00cc44a8",
-    "tab.unfocusedHoverForeground": "#ff24a4",
-    "breadcrumb.background": "#23114d"
-  }
+  "workbench.editor.enablePreviewFromQuickOpen": false
 }
