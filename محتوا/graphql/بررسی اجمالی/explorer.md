@@ -1,4 +1,4 @@
----
+Explore ETH
 title: Explorer
 redirect_from:
   - /v4/explorer
