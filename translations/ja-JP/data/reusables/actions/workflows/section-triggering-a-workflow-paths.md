@@ -18,6 +18,12 @@ on:
       - '**.js'
 ```
 
+{% note %}
+
+**Note:** If a workflow is skipped due to path filtering, but the workflow is set as a required check, then the check will remain as "Pending". To work around this, you can create a corresponding workflow with the same name that always passes whenever the original workflow is skipped because of path filtering. For more information, see "[Handling skipped but required checks](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)."
+
+{% endnote %}
+
 #### Example: Excluding paths
 
 すべてのパス名が `paths-ignore` のパターンと一致する場合、ワークフローは実行されません。 If any path names do not match patterns in `paths-ignore`, even if some path names match the patterns, the workflow will run.
@@ -42,7 +48,7 @@ If you define a path with the `!` character, you must also define at least one p
 - 肯定のマッチの後に否定のマッチングパターン（`!`がプレフィックスされている）を置くと、パスが除外されます。
 - 否定のマッチングパターンの後に肯定のマッチングパターンを定義すると、パスを再び含めます。
 
-この例は、`push`イベントに`sub-project`ディレクトリあるいはそのサブディレクトリ内のファイルが含まれ、そのファイルが`sub-project/docs`ディレクトリ内にあるのでない場合に実行されます。 たとえば`sub-project/index.js`もしくは`sub-project/src/index.js`を変更するプッシュはワークフローを実行させますが、`sub-project/docs/readme.md`だけを変更するプッシュは実行させません。
+この例は、`push`イベントに`sub-project`ディレクトリあるいはそのサブディレクトリ内のファイルが含まれ、そのファイルが`sub-project/docs`ディレクトリ内にはない場合に実行されます。 たとえば`sub-project/index.js`もしくは`sub-project/src/index.js`を変更するプッシュはワークフローを実行させますが、`sub-project/docs/readme.md`だけを変更するプッシュは実行させません。
 
 ```yaml
 on:
@@ -69,4 +75,4 @@ on:
 
 Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
 
-詳しい情報については「[プルリクエスト中のブランチの比較について](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)」を参照してください。
+詳しい情報については「[Pull Request中のブランチの比較について](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests)」を参照してください。

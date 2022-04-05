@@ -4,7 +4,6 @@ intro: 使用筛选器查看特定类别的警报
 permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  fpt: '*'
   ghae: issue-4554
   ghes: '>3.1'
   ghec: '*'
@@ -22,48 +21,48 @@ shortTitle: 筛选警报
 
 ## 关于筛选安全性概述
 
-You can use filters in the security overview to narrow your focus based on a range of factors, like alert risk level, alert type and feature enablement. Different filters are available depending on the specific view and whether you analysing at the organization, team or repository level.
+可以使用安全概述中的筛选器，根据一系列因素（如警报风险级别、警报类型和功能启用）缩小关注范围。 根据特定视图以及是在组织、团队还是存储库级别进行分析，可以使用不同的筛选器。
 
 ## 按仓库过滤
 
-Available in all organization-level and team-level views.
+在所有组织级别和团队级别视图中可用。
 
-| 限定符                    | 描述                                            |
-| ---------------------- | --------------------------------------------- |
-| `repo:REPOSITORY-NAME` | Displays alerts for the specified repository. |
+| 限定符                    | 描述          |
+| ---------------------- | ----------- |
+| `repo:REPOSITORY-NAME` | 显示指定存储库的警报。 |
 
-## Filter by whether security features are enabled
+## 按是否启用安全功能进行筛选
 
-Available in the organization-level and team-level overview.
+在组织级别和团队级别概述中可用。
 
-| 限定符                           | 描述                                                                           |
-| ----------------------------- | ---------------------------------------------------------------------------- |
-| `code-scanning:enabled`       | 显示启用了 {% data variables.product.prodname_code_scanning %} 警报的仓库。           |
-| `code-scanning:not-enabled`   | 显示未启用 {% data variables.product.prodname_code_scanning %} 警报的仓库。           |
-| `secret-scanning:enabled`     | 显示启用了 {% data variables.product.prodname_secret_scanning %} 警报的仓库。         |
-| `secret-scanning:not-enabled` | 显示启用了 {% data variables.product.prodname_secret_scanning %} 警报的仓库。         |
-| `dependabot:enabled`          | 显示启用了 {% data variables.product.prodname_dependabot_alerts %} 警报的仓库。       |
-| `dependabot:not-enabled`      | 显示未启用 {% data variables.product.prodname_dependabot_alerts %} 警报的仓库。       |
-| `not-enabled:any`             | Display repositories with at least one security feature that is not enabled. |
+| 限定符                           | 描述                                                                     |
+| ----------------------------- | ---------------------------------------------------------------------- |
+| `code-scanning:enabled`       | 显示启用了 {% data variables.product.prodname_code_scanning %} 警报的仓库。     |
+| `code-scanning:not-enabled`   | 显示未启用 {% data variables.product.prodname_code_scanning %} 警报的仓库。     |
+| `secret-scanning:enabled`     | 显示启用了 {% data variables.product.prodname_secret_scanning %} 警报的仓库。   |
+| `secret-scanning:not-enabled` | 显示启用了 {% data variables.product.prodname_secret_scanning %} 警报的仓库。   |
+| `dependabot:enabled`          | 显示启用了 {% data variables.product.prodname_dependabot_alerts %} 警报的仓库。 |
+| `dependabot:not-enabled`      | 显示未启用 {% data variables.product.prodname_dependabot_alerts %} 警报的仓库。 |
+| `not-enabled:any`             | 显示至少具有一个未启用的安全功能的存储库。                                                  |
 
 ## 按仓库类型筛选
 
-Available in the organization-level and team-level overview.
+在组织级别和团队级别概述中可用。
 
 | 限定符 | 描述 |
 | --- | -- |
 |     |    |
-{%- ifversion fpt or ghes or ghec %}
-| `is:public` | Display public repositories. |
+{%- ifversion ghes or ghec %}
+| `is:public` | 显示公共存储库。 |
 {%- endif %}
 {%- ifversion ghes or ghec or ghae %}
-| `is:internal` | Display internal repositories. |
+| `is:internal` | 显示内部存储库。 |
 {%- endif %}
-| `is:private` | Display private repositories. | | `archived:true` | Display archived repositories. | | `archived:true` | Display archived repositories. |
+| | `is:private` | 显示私有仓库。 | | `archived:true` | 显示存档的存储库。 | | `archived:true` | 显示存档的存储库。 |
 
 ## 按仓库的风险级别筛选
 
-The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk. Available in the organization-level overview.
+存储库的风险级别取决于来自安全功能的警报的数量和严重性。 如果未为存储库启用一个或多个安全功能，则该存储库将具有未知的风险级别。 如果存储库没有安全功能检测到的风险，则该存储库将具有明确的风险级别。 在组织级别概述中可用。
 
 | 限定符            | 描述               |
 | -------------- | ---------------- |
@@ -75,18 +74,18 @@ The level of risk for a repository is determined by the number and severity of a
 
 ## 按警报数量筛选
 
-Available in the organization-level overview.
+在组织级别概述中可用。
 
-| 限定符                       | 描述                                                                                                                                            |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>code-scanning:<em>n</em></code> | 显示具有 *n* {% data variables.product.prodname_code_scanning %} 警报的仓库。 This qualifier can use `=`, `>` and `<` comparison operators.     |
-| <code>secret-scanning:<em>n</em></code> | 显示具有 *n* {% data variables.product.prodname_secret_scanning %} 警报的仓库。 This qualifier can use `=`, `>` and `<` comparison operators.   |
-| <code>dependabot:<em>n</em></code> | 显示具有 *n* {% data variables.product.prodname_dependabot_alerts %} 警报的仓库。 This qualifier can use `=`, `>` and `<` comparison operators. |
+| 限定符                       | 描述                                                                                                            |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| <code>code-scanning:<em>n</em></code> | 显示具有 *n* {% data variables.product.prodname_code_scanning %} 警报的仓库。 此限定符可以使用 `=`、`>` 和 `<` 比较运算符。     |
+| <code>secret-scanning:<em>n</em></code> | 显示具有 *n* {% data variables.product.prodname_secret_scanning %} 警报的仓库。 此限定符可以使用 `=`、`>` 和 `<` 比较运算符。   |
+| <code>dependabot:<em>n</em></code> | 显示具有 *n* {% data variables.product.prodname_dependabot_alerts %} 警报的仓库。 此限定符可以使用 `=`、`>` 和 `<` 比较运算符。 |
 
 
 ## 按团队筛选
 
-Available in the organization-level overview.
+在组织级别概述中可用。
 
 | 限定符                       | 描述                         |
 | ------------------------- | -------------------------- |
@@ -94,7 +93,7 @@ Available in the organization-level overview.
 
 ## 按主题筛选
 
-Available in the organization-level overview.
+在组织级别概述中可用。
 
 | 限定符                       | 描述                      |
 | ------------------------- | ----------------------- |
@@ -102,36 +101,35 @@ Available in the organization-level overview.
 
 {% if security-overview-views %}
 
-## Filter by severity
+## 按严重程度筛选
 
-Available in the code scanning alert views. All code scanning alerts have one of the categories shown below. You can click any result to see full details of the relevant rule, and the line of code that triggered the alert.
+在代码扫描警报视图中可用。 所有代码扫描警报都有如下所示的类别之一。 可以单击任何结果以查看相关规则的完整详细信息，以及触发警报的代码行。
 
-| 限定符                 | 描述                                                                                             |
-| ------------------- | ---------------------------------------------------------------------------------------------- |
-| `severity:critical` | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as critical. |
-| `severity:high`     | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as high.     |
-| `severity:medium`   | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as medium.   |
-| `severity:low`      | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as low.      |
-| `severity:error`    | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as errors.   |
-| `severity:warning`  | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings. |
-| `severity:note`     | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.    |
+| 限定符                 | 描述                                                                 |
+| ------------------- | ------------------------------------------------------------------ |
+| `severity:critical` | 显示分类为严重的 {% data variables.product.prodname_code_scanning %} 警报。 |
+| `severity:high`     | 显示分类为高的 {% data variables.product.prodname_code_scanning %} 警报。  |
+| `severity:medium`   | 显示分类为中的 {% data variables.product.prodname_code_scanning %} 警报。  |
+| `severity:low`      | 显示分类为低的 {% data variables.product.prodname_code_scanning %} 警报。  |
+| `severity:error`    | 显示分类为错误的 {% data variables.product.prodname_code_scanning %} 警报。 |
+| `severity:warning`  | 显示分类为警告的 {% data variables.product.prodname_code_scanning %} 警报。 |
+| `severity:note`     | 显示分类为注释的 {% data variables.product.prodname_code_scanning %} 警报。 |
 
 {% endif %}
 
-## Filter by secret types
+## 按机密类型筛选
 
-Available in the secret scanning alert views.
+在机密扫描警报视图中可用。
 
-| 限定符                                                                                                                                                                                        | 描述                                                                                                                                                                                                                   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `secret-type:SERVICE_PROVIDER`                                                                                                                                                             | Displays alerts for the specified secret and provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)." |
-| `secret-type:CUSTOM-PATTERN`                                                                                                                                                               | Displays alerts for secrets matching the specified custom pattern.                                                                                                                                                   |
-| {% ifversion not fpt %}For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %} |                                                                                                                                                                                                                      |
+| 限定符                            | 描述                                                                                                                                                                           |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret-type:SERVICE_PROVIDER` | 显示指定机密和提供程序的警报。 更多信息请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。                         |
+| `secret-type:CUSTOM-PATTERN`   | 显示与指定自定义模式匹配的机密的警报。 For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." |
 
-## Filter by provider
+## 按提供商筛选
 
-Available in the secret scanning alert views.
+在机密扫描警报视图中可用。
 
-| 限定符                      | 描述                                                                                                                                                                                                                              |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider. For more information, see "[{% data variables.product.prodname_secret_scanning_caps %} patterns](/code-security/secret-scanning/secret-scanning-patterns)." |
+| 限定符                      | 描述                                                                                                                                                       |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `provider:PROVIDER_NAME` | 按指定的提供商显示所有机密问题的警报。 更多信息请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。 |

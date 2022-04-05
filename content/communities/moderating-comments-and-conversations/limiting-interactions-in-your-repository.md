@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
+permissions: People with admin permissions to a repository, and organization moderators, can temporarily limit interactions in that repository.
 topics:
   - Community
 shortTitle: Limit interactions in repo
@@ -28,7 +28,7 @@ You can also enable activity limitations on all repositories owned by your user 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Access" section of the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Interaction limits**.
+1. In the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![Temporary interaction limit options](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
@@ -37,3 +37,4 @@ You can also enable activity limitations on all repositories owned by your user 
 - "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)"
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"

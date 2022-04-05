@@ -31,7 +31,7 @@ Como alternativa, también puedes configurar el SSO de SAML utilizando Okta para
 ## Agregar la aplicación {% data variables.product.prodname_ghe_cloud %} en Okta
 
 {% data reusables.saml.okta-sign-into-your-account %}
-1. Navega a la aplicación [GitHub Enterprise Cloud - Cuentas Empresariales](https://www.okta.com/integrations/github-enterprise-cloud-enterprise-accounts) en la red de integración de Okta y haz clic en **Agregar integración**.
+1. Navigate to the [{% data variables.product.prodname_ghe_cloud %} - Enterprise Accounts](https://www.okta.com/integrations/github-enterprise-cloud-enterprise-accounts) application in the Okta Integration Network and click **Add Integration**.
 {% data reusables.saml.okta-dashboard-click-applications %}
 1. Opcionalmente, a la derecha de la "Etiqueta de aplicación", teclea un nombre descriptivo para la aplicación.
 1. A la derecha de "Empresas de {% data variables.product.prodname_dotcom %}", teclea el nombre de tu cuenta empresarial. Por ejemplo, si la URL de tu cuenta empresarial es `https://github.com/enterprises/octo-corp`, teclea `octo-corp`.
