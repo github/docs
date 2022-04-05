@@ -1,13 +1,5 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
-// -
 {
 	"name": "docs.github.com",
-	"build": {
-		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 12, 14, 16
-		"args": { "VARIANT": "16" }
-	},
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
@@ -26,8 +18,7 @@
 		"sissel.shopify-liquid",
 		"davidanson.vscode-markdownlint",
 		"bierner.markdown-preview-github-styles",
-		"streetsidesoftware.code-spell-checker",
-		"alistairchristie.open-reusables"
+		"streetsidesoftware.code-spell-checker"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
