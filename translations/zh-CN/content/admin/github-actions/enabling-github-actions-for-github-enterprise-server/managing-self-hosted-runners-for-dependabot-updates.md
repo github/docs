@@ -23,14 +23,14 @@ You can help users of {% data variables.product.product_location %} to create an
 
 To use {% data variables.product.prodname_dependabot_updates %} on {% data variables.product.product_location %}, you must configure self-hosted runners to create the pull requests that will update dependencies.
 
-## 基本要求
+## Prerequisites
 
 {% if dependabot-updates-github-connect %}
 Configuring self-hosted runners is only one step in the middle of the process for enabling {% data variables.product.prodname_dependabot_updates %}. There are several steps you must follow before these steps, including configuring {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% else %}
 Before you configure self-hosted runners for {% data variables.product.prodname_dependabot_updates %}, you must:
 
-- Configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. 更多信息请参阅“[开始使用 GitHub Enterprise Server 的 {% data variables.product.prodname_actions %}](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)”。
+- Configure {% data variables.product.product_location %} to use {% data variables.product.prodname_actions %} with self-hosted runners. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
 - Enable {% data variables.product.prodname_dependabot_alerts %} for your enterprise. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 {% endif %}
 
@@ -66,7 +66,7 @@ If you specify more than 14 concurrent runners on a VM, you must also update the
 
 ### Adding self-hosted runners for {% data variables.product.prodname_dependabot %} updates
 
-1. Provision self-hosted runners, at the repository, organization, or enterprise account level. 更多信息请参阅“[关于自托管的运行器](/actions/hosting-your-own-runners/about-self-hosted-runners)”和“[添加自托管的运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners)”。
+1. Provision self-hosted runners, at the repository, organization, or enterprise account level. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
 
 2. Set up the self-hosted runners with the requirements described above. For example, on a VM running Ubuntu 20.04 you would:
 

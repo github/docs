@@ -16,9 +16,9 @@ shortTitle: GitHub 对您的数据的使用
 
 ## 关于 {% data variables.product.product_name %} 使用您的数据
 
-{% data variables.product.product_name %} 汇总元数据并剖析内容模式，以在产品中提交一般化的见解。 It uses data from public repositories, and also uses metadata and aggregate data from private repositories when a repository's owner has chosen to share the data with {% data variables.product.product_name %} by enabling the dependency graph. If you enable the dependency graph for a private repository, then {% data variables.product.product_name %} will perform read-only analysis of that specific private repository.
+{% data variables.product.product_name %} 汇总元数据并剖析内容模式，以在产品中提交一般化的见解。 它使用公共存储库中的数据，当存储库的所有者选择通过启用依赖关系图与 {% data variables.product.product_name %} 共享数据时，它还使用来自私有存储库的元数据和汇总数据。 如果为私有存储库启用依赖关系图，则 {% data variables.product.product_name %} 将对该特定私有存储库执行只读分析。
 
-If you enable data use for a private repository, we will continue to treat your private data, source code, or trade secrets as confidential and private consistent with our [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service). 我们了解的信息只来自汇总的数据。 更多信息请参阅“[管理私有仓库的数据使用设置](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)”。
+如果为私人存储库启用数据使用，我们将继续按照[服务条款](/free-pro-team@latest/github/site-policy/github-terms-of-service)，将您的私人数据、源代码或商业秘密视为机密和私密。 我们了解的信息只来自汇总的数据。 更多信息请参阅“[管理私有仓库的数据使用设置](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)”。
 
 {% data reusables.repositories.about-github-archive-program %} 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上存档内容](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)”。
 

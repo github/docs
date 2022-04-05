@@ -1,7 +1,7 @@
 ---
-title: Auditing activity in your enterprise
-shortTitle: Auditing activity
-intro: 'You can audit the activity of the {% data variables.product.prodname_managed_users %} in your enterprise, viewing information about what actions were performed, by which user, and when they took place.'
+title: 审核企业中的活动
+shortTitle: 审核活动
+intro: '您可以审核企业中 {% data variables.product.prodname_managed_users %} 的活动，查看执行的操作、执行的用户以及执行时间等相关信息。'
 permissions: Enterprise owners can access the audit log.
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
@@ -14,9 +14,9 @@ topics:
   - Enterprise
 ---
 
-## About the audit log
+## 关于审核日志
 
-The audit log allows enterprise owners to quickly review or export the actions performed by both owners and members of your enterprise. Each audit log entry shows information about the event.
+审核日志允许企业所有者快速查看或导出企业所有者和成员执行的操作。 每个审核日志条目都显示有关事件的信息。
 
 - 可在其中执行操作的组织
 - 执行操作的用户
@@ -27,9 +27,9 @@ The audit log allows enterprise owners to quickly review or export the actions p
 
 ## 访问审核日志
 
-You can also access the audit log for your enterprise from the REST API. For more information, see "[GitHub Enterprise administration](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)" in the API documentation.
+您还可以从 REST API 访问企业的审核日志。 更多信息请参阅 API 文档中的“[GitHub Enterprise 管理](/rest/reference/enterprise-admin#get-the-audit-log-for-an-enterprise)”。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
-1. Optionally, above the list of events, select the **Export Git Events** or **Export** drop-down menu and choose options for exporting events from the audit log. !["Export Git Events" and "Export" drop-down menus for the enterprise audit log](/assets/images/help/enterprises/audit-log-export-drop-down-menus.png)
+1. （可选）在事件列表上方，选择 **Export Git Events（导出 Git 事件）**或 **Export（导出）**下拉菜单，然后选择用于从审核日志中导出事件的选项。 ![企业审核日志的"导出 Git 事件"和"导出"下拉菜单](/assets/images/help/enterprises/audit-log-export-drop-down-menus.png)

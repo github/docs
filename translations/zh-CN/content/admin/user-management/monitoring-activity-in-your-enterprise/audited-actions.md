@@ -131,6 +131,16 @@ topics:
 | `repo.config.lock_anonymous_git_access`    | 已锁定仓库的匿名 Git 读取权限设置，阻止仓库管理员更改（启用或禁用）此设置。 更多信息请参阅“[阻止用户更改匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。            |
 | `repo.config.unlock_anonymous_git_access`  | 已解锁仓库的匿名 Git 读取权限设置，允许仓库管理员更改（启用或禁用）此设置。 更多信息请参阅“[阻止用户更改匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。{% endif %}
 
+{% if secret-scanning-audit-log-custom-patterns %}
+## 秘密扫描
+
+| 操作 | 描述                                                                                                                                                                                                                                                                                                                                                  |
+| -- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    | `business_secret_scanning_custom_pattern.create` | Triggered when an enterprise-level custom pattern is published for secret scanning. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)." |
+|    | `business_secret_scanning_custom_pattern.update` | Triggered when changes to an enterprise-level custom pattern are saved for secret scanning.                                                                                                                                                                                                      |
+|    | `business_secret_scanning_custom_pattern.delete` | Triggered when an enterprise-level custom pattern is removed from secret scanning.                                                                                                                                                                                                               |
+{% endif %}
+
 ## 站点管理员工具
 
 | 操作                      | 描述                                                                    |

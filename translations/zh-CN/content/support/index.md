@@ -2,7 +2,7 @@
 title: 使用 GitHub 支持
 shortTitle: GitHub 支持
 layout: product-landing
-intro: 'GitHub offers different levels of support with each product, including community forum support and limited email support for everyone, full email support for all paid products, and 24/7 email and callback support with a service level agreement (SLA) if your account includes {% data variables.contact.premium_support %}.'
+intro: 'GitHub 为每个产品提供不同级别的支持，包括社区论坛支持和针对每个人的有限电子邮件支持，针对所有付费产品的完整电子邮件支持，以及 24/7 全天候电子邮件和回叫支持（如果您的帐户包含 {% data variables.contact.premium_support %}）。'
 versions:
   fpt: '*'
   ghec: '*'

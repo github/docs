@@ -4,17 +4,15 @@ O fluxo de trabalho inicial configura o `PATH` para conter OpenJDK 8 para a plat
 
 Por exemplo, para usar a versão 11 do JDK fornecido pelo Adoptium para a plataforma x64, você pode usar a ação `setup-java` e configurar os parâmetros `java-version`, `distribution` e `arquitetura` para `'11'`, `'adopt'` e `x64`.
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - name: Set up JDK 11 for x64
-    uses: actions/setup-java@v2
+    uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
       architecture: x64
 ```
-{% endraw %}
 
 Para obter mais informações, consulte a ação [`setup-java`](https://github.com/actions/setup-java).

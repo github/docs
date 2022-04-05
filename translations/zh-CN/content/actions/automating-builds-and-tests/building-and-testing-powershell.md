@@ -47,7 +47,6 @@ shortTitle: 构建和测试 PowerShell
 
 此示例工作流程文件必须添加到您仓库的 `.github/workflows/` 目录：
 
-{% raw %}
 ```yaml
 name: Test PowerShell on Ubuntu
 on: push
@@ -58,7 +57,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Perform a Pester test from the command-line
         shell: pwsh
         run: Test-Path resultsfile.log | Should -Be $true
@@ -67,7 +66,6 @@ jobs:
         run: |
           Invoke-Pester Unit.Tests.ps1 -Passthru
 ```
-{% endraw %}
 
 * `shell: pwsh` - 配置作业在运行 `run` 命令时使用 PowerShell。
 * `run: Test-Path resultsfile.log` - 检查仓库的根目录中是否存在名为 `resultsfile.log` 的文件。
@@ -110,21 +108,19 @@ jobs:
 
 例如，以下作业将安装 `SqlServer` 和 `PSScriptAnalyzer` 模块：
 
-{% raw %}
 ```yaml
 jobs:
   install-dependencies:
     name: Install dependencies
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Install from PSGallery
         shell: pwsh
         run: |
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module SqlServer, PSScriptAnalyzer
 ```
-{% endraw %}
 
 {% note %}
 
@@ -138,16 +134,15 @@ jobs:
 
 PowerShell 根据运行器的操作系统将其依赖项缓存在不同的位置。 例如，以下 Ubuntu 示例中使用的 `path` 位置在 Windows 操作系统中是不同的。
 
-{% raw %}
 ```yaml
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - name: Setup PowerShell module cache
     id: cacher
-    uses: actions/cache@v2
+    uses: {% data reusables.actions.action-cache %}
     with:
       path: "~/.local/share/powershell/Modules"
-      key: ${{ runner.os }}-SqlServer-PSScriptAnalyzer
+      key: {% raw %}${{ runner.os }}-SqlServer-PSScriptAnalyzer{% endraw %}
   - name: Install required PowerShell modules
     if: steps.cacher.outputs.cache-hit != 'true'
     shell: pwsh
@@ -155,7 +150,6 @@ steps:
       Set-PSRepository PSGallery -InstallationPolicy Trusted
       Install-Module SqlServer, PSScriptAnalyzer -ErrorAction Stop
 ```
-{% endraw %}
 
 ## 测试代码
 
@@ -165,13 +159,12 @@ steps:
 
 下面的示例安装 `PSScriptAnalyzer` 并用它来将所有 `ps1` 文件链接在仓库中。 更多信息请参阅 [GitHub 上的 PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer)。
 
-{% raw %}
 ```yaml
   lint-with-PSScriptAnalyzer:
     name: Install and run PSScriptAnalyzer
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Install PSScriptAnalyzer module
         shell: pwsh
         run: |
@@ -189,7 +182,6 @@ steps:
               Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
           }
 ```
-{% endraw %}
 
 ## 将工作流数据打包为构件
 
@@ -197,7 +189,6 @@ steps:
 
 下面的示例演示如何使用 `upload-artifact` 操作来存档从 `Invoke-Pester` 获得的测试结果。 更多信息请参阅 [`upload-artifact` 操作](https://github.com/actions/upload-artifact)。
 
-{% raw %}
 ```yaml
 name: Upload artifact from Ubuntu
 
@@ -208,18 +199,17 @@ jobs:
     name: Run Pester and upload results
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Test with Pester
         shell: pwsh
         run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
       - name: Upload test results
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: ubuntu-Unit-Tests
           path: Unit.Tests.xml
-    if: ${{ always() }}
+    if: {% raw %}${{ always() }}{% endraw %}
 ```
-{% endraw %}
 
 `always()` 函数配置作业在测试失败时也继续处理。 更多信息请参阅“[always](/actions/reference/context-and-expression-syntax-for-github-actions#always)”。
 
@@ -229,7 +219,6 @@ jobs:
 
 下面的示例创建软件包并使用 `Publish-Module` 将其发布到PowerShell Gallery：
 
-{% raw %}
 ```yaml
 name: Publish PowerShell Module
 
@@ -241,13 +230,12 @@ jobs:
   publish-to-gallery:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build and publish
         env:
-          NUGET_KEY: ${{ secrets.NUGET_KEY }}
+          NUGET_KEY: {% raw %}${{ secrets.NUGET_KEY }}{% endraw %}
         shell: pwsh
         run: |
           ./build.ps1 -Path /tmp/samplemodule
           Publish-Module -Path /tmp/samplemodule -NuGetApiKey $env:NUGET_KEY -Verbose
 ```
-{% endraw %}

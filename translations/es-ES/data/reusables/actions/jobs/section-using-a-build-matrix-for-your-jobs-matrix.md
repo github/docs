@@ -13,19 +13,17 @@ Puedes especificar una matriz proporcionando una variedad de opciones de configu
 
 Este ejemplo crea una matriz de tres trabajos estableciendo la clave `node` para una matriz de tres versiones de Node.js. Para usar la matriz, el ejemplo establece la propiedad de contexto `matrix.node` como el valor del parámetro `node-version` de la entrada de la acción `setup-node`. Como resultado, se ejecutarán tres trabajos, cada uno usando una versión diferente de Node.js.
 
-{% raw %}
 ```yaml
 strategy:
   matrix:
     node: [10, 12, 14]
 steps:
   # Configures the node version used on GitHub-hosted runners
-  - uses: actions/setup-node@v2
+  - uses: {% data reusables.actions.action-setup-node %}
     with:
       # The Node.js version to configure
-      node-version: ${{ matrix.node }}
+      node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 La acción `setup-node` es la forma recomendada de configurar una versión de Node.js cuando se usan ejecutores alojados {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la acción [`setup-node`](https://github.com/actions/setup-node).
 
@@ -38,19 +36,17 @@ Puedes crear una matriz para ejecutar flujos de trabajo en más de un sistema op
 
 {% data reusables.repositories.actions-matrix-builds-os %}
 
-{% raw %}
 ```yaml
-runs-on: ${{ matrix.os }}
+runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 strategy:
   matrix:
     os: [ubuntu-18.04, ubuntu-20.04]
     node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v2
+  - uses: {% data reusables.actions.action-setup-node %}
     with:
-      node-version: ${{ matrix.node }}
+      node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 {% ifversion ghae %}
 Para obtener más información acerca de la configuración de los ejecutores auto-hospedados, consulta la sección "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)".

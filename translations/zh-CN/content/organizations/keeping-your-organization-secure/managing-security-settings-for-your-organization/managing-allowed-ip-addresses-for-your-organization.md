@@ -1,6 +1,6 @@
 ---
 title: 管理组织允许的 IP 地址
-intro: You can restrict access to your organization's private assets by configuring a list of IP addresses that are allowed to connect.
+intro: 您可以通过配置允许连接的 IP 地址列表来限制对组织私有资产的访问。
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
   - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
@@ -16,12 +16,12 @@ permissions: Organization owners can manage allowed IP addresses for an organiza
 
 ## 关于允许的 IP 地址
 
-You can restrict access to private organization assets by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+您可以通过为特定 IP 地址配置允许列表来限制对组织私有资产的访问。 {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
 {% ifversion ghec %}
 {% note %}
 
-**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+**注意：** 只有使用 {% data variables.product.prodname_ghe_cloud %} 的组织才能使用 IP 允许列表。 {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}

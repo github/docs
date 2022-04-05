@@ -17,29 +17,29 @@ topics:
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-## 关于 {% data variables.product.prodname_code_scanning %} 中的警报
+## About alerts from {% data variables.product.prodname_code_scanning %}
 
-您可以设置 {% data variables.product.prodname_code_scanning %}，以使用默认 {% data variables.product.prodname_codeql %} 分析、第三方分析或多种类型的分析来检查仓库中的代码。 分析完成后，生成的警报将并排显示在仓库的安全视图中。 第三方工具或自定义查询的结果可能不包括您在 {% data variables.product.company_short %} 的默认 {% data variables.product.prodname_codeql %} 分析所检测的警报中看到的所有属性。 更多信息请参阅“[为仓库设置 {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)”。
+You can set up {% data variables.product.prodname_code_scanning %} to check the code in a repository using the default {% data variables.product.prodname_codeql %} analysis, a third-party analysis, or multiple types of analysis. When the analysis is complete, the resulting alerts are displayed alongside each other in the security view of the repository. Results from third-party tools or from custom queries may not include all of the properties that you see for alerts detected by {% data variables.product.company_short %}'s default {% data variables.product.prodname_codeql %} analysis. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)."
 
-默认情况下， {% data variables.product.prodname_code_scanning %} 定期在默认分支和拉取请求中分析您的代码。 有关管理拉取请求中的警报的更多信息，请参阅“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)”。
+By default, {% data variables.product.prodname_code_scanning %} analyzes your code periodically on the default branch and during pull requests. For information about managing alerts on a pull request, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/secure-coding/triaging-code-scanning-alerts-in-pull-requests)."
 
 ## About alert details
 
-每个警报都会高亮显示代码的问题以及识别该问题的工具名称。 You can see the line of code that triggered the alert, as well as properties of the alert, such as the alert severity{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, security severity,{% endif %} and the nature of the problem. 警报还会告知该问题第一次被引入的时间。 对于由 {% data variables.product.prodname_codeql %} 分析确定的警报，您还会看到如何解决问题的信息。
+Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the alert severity{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, security severity,{% endif %} and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 {% data reusables.code-scanning.alert-default-branch %}
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
-![来自 {% data variables.product.prodname_code_scanning %} 的警报示例](/assets/images/help/repository/code-scanning-alert.png)
+![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
 {% else %}
-![来自 {% data variables.product.prodname_code_scanning %} 的警报示例](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
+![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
 {% endif %}
 
-If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. 数据流分析将查找代码中的潜在安全问题，例如：不安全地使用数据、将危险参数传递给函数以及泄漏敏感信息。
+If you set up {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
 
-当 {% data variables.product.prodname_code_scanning %} 报告数据流警报时，{% data variables.product.prodname_dotcom %} 将显示数据在代码中如何移动。 {% data variables.product.prodname_code_scanning_capc %} 可用于识别泄露敏感信息的代码区域，以及可能成为恶意用户攻击切入点的代码区域。
+When {% data variables.product.prodname_code_scanning %} reports data-flow alerts, {% data variables.product.prodname_dotcom %} shows you how data moves through the code. {% data variables.product.prodname_code_scanning_capc %} allows you to identify the areas of your code that leak sensitive information, and that could be the entry point for attacks by malicious users.
 
 ### About severity levels
 
@@ -56,6 +56,22 @@ To calculate the security severity of an alert, we use Common Vulnerability Scor
 
 By default, any {% data variables.product.prodname_code_scanning %} results with a security severity of `Critical` or `High` will cause a check failure. You can specify which security severity level for {% data variables.product.prodname_code_scanning %} results should cause a check failure. For more information, see "[Defining the severities causing pull request check failure](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#defining-the-severities-causing-pull-request-check-failure)."{% endif %}
 
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+### About analysis origins
+
+You can set up multiple configurations of code analysis on a repository, using different tools and targeting different languages or areas of the code. Each configuration of code scanning is the analysis origin for all the alerts it generates. For example, an alert generated using the default CodeQL analysis with GitHub Actions will have a different analysis origin from an alert generated externally and uploaded via the code scanning API.
+
+If you use multiple configurations to analyze a file, any problems detected by the same query are reported as alerts with multiple analysis origins. If an alert has more than one analysis origin, a {% octicon "workflow" aria-label="The workflow icon" %} icon will appear next to any relevant branch in the **Affected branches** section on the right-hand side of the alert page. You can hover over the {% octicon "workflow" aria-label="The workflow icon" %} icon to see the names of each analysis origin and the status of the alert for that analysis origin. You can also view the history of when alerts appeared in each analysis origin in the timeline on the alert page. If an alert only has one analysis origin, no information about analysis origins is displayed on the alert page.
+
+![Code scanning alert with multiple analysis origins](/assets/images/help/repository/code-scanning-analysis-origins.png)
+
+{% note %}
+
+**Note:** Sometimes a code scanning alert displays as fixed for one analysis origin but is still open for a second analysis origin. You can resolve this by re-running the second code scanning configuration to update the alert status for that analysis origin.
+
+{% endnote %}
+
+{% endif %}
 ### About labels for alerts that are not found in application code
 
 {% data variables.product.product_name %} assigns a category label to alerts that are not found in application code. The label relates to the location of the alert.
@@ -108,13 +124,13 @@ The default {% data variables.product.prodname_codeql %} query suites do not inc
 When you update your workflow to run an additional query suite this will increase the analysis time.
 
 ``` yaml
-- uses: github/codeql-action/init@v1
+- uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     # Run extended queries including queries using machine learning
     queries: security-extended
 ```
 
-更多信息请参阅“[配置代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)”。
+For more information, see "[Configuring code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)."
 
 ## Disabling experimental alerts
 
