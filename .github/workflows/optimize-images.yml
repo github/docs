@@ -16,7 +16,8 @@ permissions:
 
 jobs:
   optimize-images-on-pr:
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    # We can't make commits on forks
+    if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo on head ref
