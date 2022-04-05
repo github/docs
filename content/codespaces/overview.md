@@ -18,7 +18,7 @@ topics:
   - Codespaces
 ---
 
-## What is a codespace?
+## What is a Codespace?
 
 A codespace is a development environment that's hosted in the cloud. You can customize your project for {% data variables.product.prodname_codespaces %} by committing [configuration files](/codespaces/customizing-your-codespace/configuring-codespaces-for-your-project) to your repository (often known as Configuration-as-Code), which creates a repeatable codespace configuration for all users of your project.
 
