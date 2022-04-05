@@ -61,7 +61,6 @@ By default, npm uses the `name` field of the *package.json* file to determine th
 
 以下の例は、`NPM_TOKEN`シークレットを環境変数の`NODE_AUTH_TOKEN`に保存します。 `setup-node`アクションが*.npmrc*ファイルを作成する際には、環境変数の`NODE_AUTH_TOKEN`からトークンを参照します。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Package to npmjs
 on:
@@ -71,18 +70,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 上の例では、`setup-node`アクションは以下の内容でランナー上に*.npmrc*ファイルを作成します。
 
@@ -135,9 +133,9 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
@@ -161,7 +159,6 @@ always-auth=true
 
 パッケージマネージャーのYarnを使う場合、Yarnを使ってパッケージのインストールと公開が行えます。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Package to npmjs
 on:
@@ -171,9 +168,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
@@ -182,6 +179,5 @@ jobs:
       - run: yarn
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
-{% endraw %}

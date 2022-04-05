@@ -1,1 +1,1 @@
-Quando `jobs.<job_id>.strategy.fail-fast` está definido como `verdadeiro`, {% data variables.product.prodname_dotcom %} cancela todos os trabalhos em andamento, se qualquer trabalho da `matriz` falhar. Padrão: `true`
+When `jobs.<job_id>.strategy.fail-fast` is set to `true`, {% data variables.product.prodname_dotcom %} cancels all in-progress jobs in the matrix if any `matrix` job fails. Padrão: `true`

@@ -127,7 +127,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 ::set-output name={name}::{value}
 ```
 
-あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
+あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)」を参照してください。
 
 ### Example: Setting an output parameter
 
