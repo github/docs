@@ -39,6 +39,7 @@ We support PNG images with transparency. Many communication platforms support a 
 When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
 
 {% tip %}
+
 **Tip:** If you aren't sure, we recommend using an image with a solid background.
 {% endtip %}
 
