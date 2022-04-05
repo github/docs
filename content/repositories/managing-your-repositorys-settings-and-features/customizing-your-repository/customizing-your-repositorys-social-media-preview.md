@@ -16,6 +16,8 @@ shortTitle: Social media preview
 ---
 Until you add an image, repository links expand to show basic information about the repository and the owner's avatar. Adding an image to your repository can help identify your project across various social platforms.
 
+## Adding an image to customize the social media preview of your repository
+
 {% ifversion not ghae %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
 
 {% tip %}
