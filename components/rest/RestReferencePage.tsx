@@ -131,7 +131,7 @@ export const RestReferencePage = ({
           listStyle: 'none',
           padding: '2px',
           ':hover': {
-            bg: 'canvas.inset',
+            bg: 'var(--color-canvas-inset)',
           },
         }}
       >
