@@ -17,7 +17,7 @@ topics:
 
 ## About followers on {% data variables.product.product_name %}
 
-When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt or ghec %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %}
+When you follow people, you'll see their public activity on your personal dashboard.{% ifversion fpt or ghec %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you.{% endif %} For more information, see "[About your personal dashboard](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
 
 You can unfollow someone if you do not wish to see their public activity on {% data variables.product.product_name %}.
 

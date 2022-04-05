@@ -121,7 +121,7 @@ Você pode pesquisar na lista de alertas. Isso é útil se houver um grande núm
 
 **Dicas:**
 - A busca múltipla de palavras é equivalente a uma busca OU.
-- The AND search will return results where the search terms are found _anywhere_, in any order in the alert name or details.
+- A pesquisa E retornará resultados em que os termos da pesquisa são encontrados _em qualquer lugar_, em qualquer ordem no nome ou informações do alerta.
 
 {% endtip %}
 
@@ -150,7 +150,7 @@ Se você tem permissão de escrita em um repositório, você pode visualizar ale
 
 Você pode usar{% ifversion fpt or ghes > 3.1 or ghae or ghec %} a pesquisa de texto livre ou{% endif %} os filtros para exibir um subconjunto de alertas e, em seguida, marcar, por sua vez, todos os alertas correspondentes como fechados.
 
-Alertas podem ser corrigidos em um branch, mas não em outro. You can use the "Branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
+Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o filtro "Branch", no resumo dos alertas, para verificar se um alerta é corrigido em um branch específico.
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ![Filtrar alertas por branch](/assets/images/help/repository/code-scanning-branch-filter.png)
@@ -160,6 +160,14 @@ Alertas podem ser corrigidos em um branch, mas não em outro. You can use the "B
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 {% data reusables.code-scanning.filter-non-default-branches %}
+{% endif %}
+
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% note %}
+
+**Note:** If you run code scanning using multiple configurations, then sometimes an alert will have multiple analysis origins. Unless you run all configurations regularly, you may see alerts that are fixed in one analysis origin but not in another. For more information, see "[About analysis origins](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
+
+{% endnote %}
 {% endif %}
 ## Ignorar ou excluir alertas
 

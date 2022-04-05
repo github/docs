@@ -34,7 +34,7 @@ Os proprietários da organização e gerentes de cobrança podem ver o uso do {%
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Visualizando o uso de {% data variables.product.prodname_registry %} para sua conta corporativa
 

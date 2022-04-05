@@ -53,7 +53,7 @@ You can compare your base repository and any forked repository. This is the view
 
 To compare branches on different repositories, preface the branch names with user names. For example, by specifying `octocat:main` for `base` and `octo-org:main` for `compare`, you can compare the `main` branch of the repositories respectively owned by `octocat` and `octo-org`.
 
-Here's an example of a [comparison between two repositories](https://github.com/octocat/linguist/compare/master...octo-org:master).
+Here's an example of a [comparison between two repositories](https://github.com/github/linguist/compare/master...octocat:master).
 
 ## Comparisons across commits
 

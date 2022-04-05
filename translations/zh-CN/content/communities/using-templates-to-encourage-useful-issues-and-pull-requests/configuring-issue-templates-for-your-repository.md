@@ -79,7 +79,7 @@ shortTitle: 配置
 
 以下是 *config.yml* 文件的一个例子：
 
-```shell
+```shell{:copy}
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}

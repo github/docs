@@ -29,6 +29,11 @@ sections:
       notes:
         - |
           {% data variables.product.prodname_dependabot %} agora está disponível em {% data variables.product.prodname_ghe_server %} 3.4 como beta público, oferecendo atualizações de versão e segurança para vários ecossistemas populares. {% data variables.product.prodname_dependabot %} em {% data variables.product.prodname_ghe_server %} exige {% data variables.product.prodname_actions %} e um grupo de executores auto-hospedados configurado para uso de {% data variables.product.prodname_dependabot %}. {% data variables.product.prodname_dependabot %} em {% data variables.product.prodname_ghe_server %} também exige {% data variables.product.prodname_github_connect %} e {% data variables.product.prodname_dependabot %} para ser habilitado por um administrador. Feedback de beta e sugestões podem ser compartilhados na [discussão de feedback do GitHub{% data variables.product.prodname_dependabot %}](https://github.com/github/feedback/discussions/categories/dependabot-feedback). Para obter mais informações e testar a versão beta, consulte "[Configurar {% data variables.product.prodname_dependabot %} de segurança e versão de atualizações](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+    - 
+      heading: SAML authentication supports encrypted assertions
+      notes:
+        - |
+          If you use SAML authentication for {% data variables.product.prodname_ghe_server %}, you can now configure encrypted assertions from your IdP to improve security. Encrypted assertions add an additional layer of encryption when your IdP transmits information to {% data variables.product.product_location %}. For more information, see "[Using SAML](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-saml#enabling-encrypted-assertions)."
   changes:
     - 
       heading: Alterações na administração
@@ -129,6 +134,10 @@ sections:
 
           Para obter mais informações, consulte "[Digitalização de código](/rest/reference/scanning)" na documentação da API REST.
         - 'Os clientes de {% data variables.product.prodname_GH_advanced_security %} agora podem usar a API REST para recuperar resultados privados da digitalização de código do repositório no nível corporativo. O novo ponto de extremidade complementa o nível de repositório existente e os pontos de extremidade no nível de organização. Para obter mais informações, consulte "[Digitalização de segredo](/rest/reference/secret-scanning)" na documentação da API REST.'
+    - 
+      heading: Mobile changes
+      notes:
+        - Support for {% data variables.product.prodname_mobile %} is now enabled by default for new {% data variables.product.prodname_ghe_server %} instances. If you have not explicitly disabled or enabled {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_mobile %} will be enabled when you upgrade to {% data variables.product.prodname_ghe_server %} 3.4.0 or later. If you previously disabled or enabled {% data variables.product.prodname_mobile %} for your instance, your preference will be preserved upon upgrade. For more information, see "[Managing {% data variables.product.prodname_mobile %} for your enterprise](/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise)."
   #No security/bug fixes for the GA release
   #security_fixes:
   #- PLACEHOLDER

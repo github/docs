@@ -1,7 +1,7 @@
 ---
-title: Security hardening your deployments
-shortTitle: Security hardening your deployments
-intro: Use OpenID Connect within your workflows to authenticate with your cloud provider.
+title: 安全强化您的部署
+shortTitle: 安全强化您的部署
+intro: 在工作流程中使用 OpenID Connect 向云提供商进行身份验证。
 versions:
   fpt: '*'
   ghae: issue-4856

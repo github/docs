@@ -48,7 +48,6 @@ Puedes poblar el caché de la herramienta del ejecutor si ejecutas un flujo de t
 
    El siguiente ejemplo muestra un flujo de trabajo que carga el caché de la herramienta para un ambiente de Ubuntu 18.04 utilizando la acción `setup-node` con las versiones 10 y 12 de Node.js.
 
-   {% raw %}
    ```yaml
    name: Upload Node.js 10 and 12 tool cache
    on: push
@@ -58,26 +57,25 @@ Puedes poblar el caché de la herramienta del ejecutor si ejecutas un flujo de t
        steps:
          - name: Clear any existing tool cache
            run: |
-             mv "${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"
-             mkdir -p "${{ runner.tool_cache }}"
+             mv "{% raw %}${{ runner.tool_cache }}" "${{ runner.tool_cache }}.old"{% endraw %}
+             mkdir -p "{% raw %}${{ runner.tool_cache }}{% endraw %}"
          - name: Setup Node 10
-           uses: actions/setup-node@v2
+           uses: {% data reusables.actions.action-setup-node %}
            with:
              node-version: 10.x
          - name: Setup Node 12
-           uses: actions/setup-node@v2
+           uses: {% data reusables.actions.action-setup-node %}
            with:
              node-version: 12.x
          - name: Archive tool cache
            run: |
-             cd "${{ runner.tool_cache }}"
+             cd "{% raw %}${{ runner.tool_cache }}{% endraw %}"
              tar -czf tool_cache.tar.gz *
          - name: Upload tool cache artifact
-           uses: actions/upload-artifact@v3
+           uses: {% data reusables.actions.action-upload-artifact %}
            with:
-             path: ${{runner.tool_cache}}/tool_cache.tar.gz
+             path: {% raw %}${{runner.tool_cache}}/tool_cache.tar.gz{% endraw %}
    ```
-   {% endraw %}
 1. Descarga el artefacto del caché de la herramienta desde la ejecución del flujo de trabajo. Para obtener instrucciones sobre còmo descargar artefactos, consulta la secciòn "[Descargar artefactos de los flujos de trabajo](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
 1. Transfiere el artefacto del caché de la herramienta a tu ejecutor auto-hospedado y extráelo al directorio local del caché de la herramienta. El directorio predeterminado del caché de la herramienta es `RUNNER_DIR/_work/_tool`. Si el ejecutor no ha procesado ningún job aún, podrías necesitar crear los directorios `_work/_tool`.
 

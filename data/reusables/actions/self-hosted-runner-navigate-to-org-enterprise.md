@@ -1,17 +1,20 @@
 {% ifversion fpt %}
-1. Navigate to the main page of the organization where your self-hosted runner group is registered.
+1. Navigate to the main page of the organization where your self-hosted runner is registered.
 2. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-3. In the left sidebar, click **Actions**.
-4. Click **Runners**.
+{% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
 1. Navigate to where your self-hosted runner is registered:
    * **In an organization**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-   * {% ifversion ghec %}**If using an enterprise account**: navigate to your enterprise account by clicking your profile photo in the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, then clicking **Your enterprises**, then clicking the enterprise.{% elsif ghes or ghae %}**If using an enterprise-level runner**:
+   * **If using an enterprise-level runner**:
 
-     1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
-     1. In the left sidebar, click **Enterprise overview**.
-     1. In the enterprise sidebar, {% octicon "law" aria-label="The law icon" %} **Policies**.{% endif %}
+{% indented_data_reference reusables.enterprise-accounts.access-enterprise spaces=5 %}
 1. Navigate to the {% data variables.product.prodname_actions %} settings:
-   * **In an organization**: Click **Actions** in the left sidebar{% ifversion fpt or ghec or ghes > 3.1 or ghae %}, then click **Runners**{% endif %}.
-   * {% ifversion ghec %}**If using an enterprise account**:{% elsif ghes or ghae %}**If using an enterprise-level runner**:{% endif %} Click **Actions** under "{% octicon "law" aria-label="The law icon" %} Policies"{% ifversion fpt or ghec or ghes > 3.1 or ghae %}, then click the **Runners** tab{% endif %}.
+   * **In an organization**: 
+
+{% indented_data_reference reusables.actions.settings-ui.settings-actions-runners spaces=5 %}
+   * **If using an enterprise-level runner**: 
+
+{% indented_data_reference reusables.enterprise-accounts.policies-tab spaces=5 %}
+{% indented_data_reference reusables.enterprise-accounts.actions-tab spaces=5 %}
+{% indented_data_reference reusables.enterprise-accounts.actions-runners-tab spaces=5 %}
 {% endif %}

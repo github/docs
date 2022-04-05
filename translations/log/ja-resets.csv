@@ -28,7 +28,6 @@ translations/ja-JP/content/admin/configuration/configuring-your-enterprise/confi
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/initializing-github-ae.md,broken liquid tags
-translations/ja-JP/content/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
 translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,Listed in localization-support#489
 translations/ja-JP/content/admin/enterprise-management/configuring-clustering/monitoring-cluster-nodes.md,rendering error
@@ -77,13 +76,25 @@ translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/a
 translations/ja-JP/content/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials.md,broken liquid tags
 translations/ja-JP/content/authentication/managing-commit-signature-verification/about-commit-signature-verification.md,broken liquid tags
 translations/ja-JP/content/authentication/troubleshooting-ssh/error-permission-denied-publickey.md,Listed in localization-support#489
+translations/ja-JP/content/billing/index.md,broken liquid tags
+translations/ja-JP/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,Listed in localization-support#489
 translations/ja-JP/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,rendering error
 translations/ja-JP/content/billing/managing-billing-for-github-packages/about-billing-for-github-packages.md,broken liquid tags
+translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise.md,broken liquid tags
+translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-per-user-pricing.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process.md,broken liquid tags
+translations/ja-JP/content/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account.md,broken liquid tags
 translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
+translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
+translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise.md,broken liquid tags
+translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise.md,broken liquid tags
+translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud.md,broken liquid tags
+translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server.md,broken liquid tags
+translations/ja-JP/content/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql.md,broken liquid tags
+translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/index.md,broken liquid tags
@@ -154,6 +165,7 @@ translations/ja-JP/content/organizations/collaborating-with-groups-in-organizati
 translations/ja-JP/content/organizations/collaborating-with-your-team/about-team-discussions.md,Listed in localization-support#489
 translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,broken liquid tags
+translations/ja-JP/content/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization.md,broken liquid tags
 translations/ja-JP/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
@@ -171,8 +183,10 @@ translations/ja-JP/content/packages/working-with-a-github-packages-registry/work
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry.md,broken liquid tags
 translations/ja-JP/content/pages/getting-started-with-github-pages/about-github-pages.md,broken liquid tags
 translations/ja-JP/content/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site.md,broken liquid tags
+translations/ja-JP/content/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site.md,broken liquid tags
 translations/ja-JP/content/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll.md,broken liquid tags
 translations/ja-JP/content/pages/setting-up-a-github-pages-site-with-jekyll/about-jekyll-build-errors-for-github-pages-sites.md,broken liquid tags
+translations/ja-JP/content/pages/setting-up-a-github-pages-site-with-jekyll/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll.md,broken liquid tags
 translations/ja-JP/content/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites.md,broken liquid tags
 translations/ja-JP/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md,broken liquid tags
 translations/ja-JP/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository.md,broken liquid tags
@@ -235,12 +249,11 @@ translations/ja-JP/data/reusables/dotcom_billing/actions-packages-storage-enterp
 translations/ja-JP/data/reusables/dotcom_billing/downgrade-org-to-free.md,broken liquid tags
 translations/ja-JP/data/reusables/dotcom_billing/lfs-remove-data.md,broken liquid tags
 translations/ja-JP/data/reusables/education/apply-for-team.md,broken liquid tags
-translations/ja-JP/data/reusables/enterprise-accounts/actions-packages-report-download-enterprise-accounts.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/download-appliance.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
