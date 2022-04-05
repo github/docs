@@ -1,5 +1,5 @@
 ---
-title: Managing team synchronization for organizations in your enterprise
+title: 管理企业中组织的团队同步
 intro: '您可以启用身份提供程序 (IdP) 与 {% data variables.product.product_name %} 之间的团队同步，以允许企业帐户拥有的组织通过 IdP 组管理团队成员身份。'
 permissions: Enterprise owners can manage team synchronization for an enterprise account.
 versions:
@@ -37,7 +37,7 @@ shortTitle: 管理团队同步
 
 您或您的 Azure AD 管理员必须是 Azure AD 中的全局管理员或特权角色管理员。
 
-You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. 更多信息请参阅“[配置企业的 SAML 单点登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
+您必须使用受支持的 IdP 对企业帐户中的组织强制实施 SAML 单点登录。 更多信息请参阅“[配置企业的 SAML 单点登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
 
 您必须使用 SAML SSO 和支持的 IdP 向企业帐户进行身份验证。 更多信息请参阅“[使用 SAML 单点登录进行身份验证](/articles/authenticating-with-saml-single-sign-on)”。
 
