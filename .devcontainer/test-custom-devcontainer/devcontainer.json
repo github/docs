@@ -26,8 +26,7 @@
 		"sissel.shopify-liquid",
 		"davidanson.vscode-markdownlint",
 		"bierner.markdown-preview-github-styles",
-		"streetsidesoftware.code-spell-checker",
-		"alistairchristie.open-reusables"
+		"streetsidesoftware.code-spell-checker"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
