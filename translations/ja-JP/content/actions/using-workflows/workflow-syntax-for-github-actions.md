@@ -391,9 +391,9 @@ steps:
   # Reference a specific commit
   - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
   # Reference the major version of a release
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   # Reference a specific version
-  - uses: actions/checkout@v2.2.0
+  - uses: {% data reusables.actions.action-checkout %}.2.0
   # Reference a branch
   - uses: actions/checkout@main
 ```
@@ -441,7 +441,7 @@ jobs:
   my_first_job:
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Use local my-action
         uses: ./.github/actions/my-action
 ```
@@ -495,22 +495,20 @@ jobs:
 
 例にある `PERSONAL_ACCESS_TOKEN` をシークレットの名前に置き換えます。
 
-{% raw %}
 ```yaml
 jobs:
   my_first_job:
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
         with:
           repository: octocat/my-private-repo
           ref: v1.0
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          token: {% raw %}${{ secrets.PERSONAL_ACCESS_TOKEN }}{% endraw %}
           path: ./.github/actions/my-private-repo
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action
 ```
-{% endraw %}
 
 ### `jobs.<job_id>.steps[*].run`
 
@@ -546,7 +544,7 @@ jobs:
 
 ### `jobs.<job_id>.steps[*].shell`
 
-`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルの設定を上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
+`shell`キーワードを使用して、ランナーのオペレーティングシステムのデフォルトシェルを上書きできます。 組み込みの`shell`キーワードを使用するか、カスタムセットのシェルオプションを定義することができます。 The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
 | サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                                                                                                        | 内部で実行されるコマンド                                    |
 | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |

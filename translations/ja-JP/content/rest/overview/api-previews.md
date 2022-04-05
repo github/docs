@@ -4,10 +4,8 @@ intro: API プレビューを使用して新機能を試し、これらの機能
 redirect_from:
   - /v3/previews
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
 topics:
   - API
 ---
@@ -118,16 +116,6 @@ API を使用して、プルリクエストに対して[複数の承認レビュ
 
 {% endif %}
 
-
-{% ifversion ghes %}
-
-## リポジトリへの匿名 Git アクセス
-
-{% data variables.product.prodname_ghe_server %} インスタンスがプライベートモードの場合、サイトおよびリポジトリの管理者は、パブリックリポジトリに対して匿名の Git アクセスを有効にすることができます。
-
-**カスタムメディアタイプ:** `x-ray-preview` **発表日:** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
-
-{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## プロジェクトカードの詳細
@@ -135,15 +123,6 @@ API を使用して、プルリクエストに対して[複数の承認レビュ
 [Issue イベント](/rest/reference/issues#events)および [Issue タイムラインイベント](/rest/reference/issues#timeline)の REST API 応答は、プロジェクト関連イベントの `project_card` フィールドを返すようになりました。
 
 **カスタムメディアタイプ:** `starfox-preview` **発表日:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
-
-{% endif %}
-{% ifversion fpt or ghec %}
-
-## GitHub App マニフェスト
-
-GitHub App マニフェストを使用すると、事前設された GitHub App を作成できます。 詳細については、「[GitHub App のマニフェスト](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。
-
-**カスタムメディアタイプ:** `fury-preview`
 
 {% endif %}
 

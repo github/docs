@@ -117,7 +117,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 如果您的服务器需要访问一个或多个组织的仓库，您可以使用 GitHub 应用程序来定义您需要的访问权限，然后从该 GitHub 应用程序生成 _tightly-scoped_、_server-to-server_ 令牌。 服务器到服务器令牌可以扩展到单个或多个仓库，并且可以拥有细致的权限。 例如，您可以生成对仓库内容具有只读权限的令牌。
 
-由于 GitHub 应用程序是 {% data variables.product.product_name %} 上的一类角色，因此服务器到服务器令牌不限于任何 GitHub 用户，这使它们堪比“服务令牌”。 此外，服务器到服务器令牌有专门的速率限制，与它们所依据的组织规模相当。 更多信息请参阅“[GitHub 应用程序的速率限制](/developers/apps/rate-limits-for-github-apps)”。
+由于 GitHub 应用程序是 {% data variables.product.product_name %} 上的一类角色，因此服务器到服务器令牌不限于任何 GitHub 用户，这使它们堪比“服务令牌”。 此外，服务器到服务器令牌有专门的速率限制，与它们所依据的组织规模相当。 更多信息请参阅“[{% data variables.product.prodname_github_apps %} 的速率限制](/developers/apps/rate-limits-for-github-apps)”。
 
 #### 优点
 

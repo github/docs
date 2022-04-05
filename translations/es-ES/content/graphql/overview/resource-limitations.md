@@ -24,7 +24,9 @@ Para pasar la validación del [modelo](/graphql/guides/introduction-to-graphql#s
 
 Estos dos ejemplos te muestran cómo calcular los nodos totales en una llamada.
 
-1. Consulta simple: <pre>query {
+1. Consulta simple:
+
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -46,13 +48,17 @@ Estos dos ejemplos te muestran cómo calcular los nodos totales en una llamada.
     }
   }</pre>
 
-  Cálculo: <pre><span class="redbox">50</span>         = 50 repositories
+  Cálculo:
+
+  <pre><span class="redbox">50</span>         = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 repository issues
 
               = 550 total nodes</pre>
 
-2. Consulta compleja: <pre>query {
+2. Consulta compleja:
+
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -106,7 +112,9 @@ Estos dos ejemplos te muestran cómo calcular los nodos totales en una llamada.
     }
   }</code></pre>
 
-  Cálculo: <pre><span class="redbox">50</span>              = 50 repositories
+  Cálculo:
+
+  <pre><span class="redbox">50</span>              = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 pullRequests
    +

@@ -6,4 +6,3 @@
 - To filter for the previous, current, or next iteration of an iteration field, use `@previous`, `@current`, or `@next`. Por exemplo, `sprint:@current`.
 - To filter for items assigned to the viewer, use `@me`. For example, `assignee:@me`. Anyone using this view will see items assigned to themselves.
 - To filter date and number fields, use `>`, `>=`, `<`, `<=`, and `..` range queries. For example: `target:2022-03-01..2022-03-15`. Para obter mais informações, consulte "[Entender a sintaxe de pesquisa](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
-- 

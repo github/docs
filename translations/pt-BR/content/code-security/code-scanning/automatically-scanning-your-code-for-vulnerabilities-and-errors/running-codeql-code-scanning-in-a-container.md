@@ -82,9 +82,9 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Initialize {% data variables.product.prodname_codeql %}
-        uses: github/codeql-action/init@v1
+        uses: {% data reusables.actions.action-codeql-action-init %}
         with:
           languages: {% raw %}${{ matrix.language }}{% endraw %}
       - name: Build
@@ -92,5 +92,5 @@ jobs:
           ./configure
           make
       - name: Perform {% data variables.product.prodname_codeql %} Analysis
-        uses: github/codeql-action/analyze@v1
+        uses: {% data reusables.actions.action-codeql-action-analyze %}
 ```

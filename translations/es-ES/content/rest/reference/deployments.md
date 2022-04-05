@@ -1,6 +1,6 @@
 ---
 title: Implementaciones
-intro: The deployments API allows you to create and delete deployments and deployment environments.
+intro: La API de despliegues te permite crear y borrar despliegues y ambientes de despliegue.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

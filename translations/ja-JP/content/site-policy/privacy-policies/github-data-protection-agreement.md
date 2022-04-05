@@ -378,7 +378,8 @@ The details of the transfer(s), and in particular the categories of personal dat
 
 The data exporter warrants that it has used reasonable efforts to determine that the data importer is able, through the implementation of appropriate technical and organisational measures, to satisfy its obligations under these Clauses.
 
-**8.1 Instructions** <ol style="list-style-type:lower-alpha" class="no-styling">
+**8.1 Instructions**
+  <ol style="list-style-type:lower-alpha" class="no-styling">
       <li>The data importer shall process the personal data only on documented instructions from the data exporter. The data exporter may give such instructions throughout the duration of the contract.</li>
       <li>The data importer shall immediately inform the data exporter if it is unable to follow those instructions.</li>
   </ol>

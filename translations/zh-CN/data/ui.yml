@@ -103,7 +103,7 @@ products:
       notes: 注：
       parameters: 参数
       response: 响应
-      error_codes: Error Codes
+      status_codes: Status codes
       http_status_code: HTTP Status Code
       code_sample: 代码示例
       code_samples: 代码示例
