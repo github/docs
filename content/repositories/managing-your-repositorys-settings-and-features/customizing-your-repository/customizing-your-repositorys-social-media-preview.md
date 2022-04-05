@@ -21,7 +21,9 @@ Until you add an image, repository links expand to show basic information about 
 {% ifversion not ghae %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
 
 {% tip %}
-Tip: Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at 640 by 320 pixels.
+
+**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at 640 by 320 pixels.
+
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
