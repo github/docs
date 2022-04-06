@@ -25,7 +25,7 @@ topics:
   - Downgrades
   - Organizations
   - Repositories
-  - Personal account
+  - User account
 shortTitle: Downgrade subscription
 ---
 ## Downgrading your {% data variables.product.product_name %} subscription

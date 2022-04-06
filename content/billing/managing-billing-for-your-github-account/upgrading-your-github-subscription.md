@@ -28,7 +28,7 @@ topics:
   - Organizations
   - Troubleshooting
   - Upgrades
-  - Personal account
+  - User account
 shortTitle: Upgrade your subscription
 ---
 

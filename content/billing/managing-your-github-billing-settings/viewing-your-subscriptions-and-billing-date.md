@@ -16,7 +16,7 @@ type: how_to
 topics:
   - Accounts
   - Organizations
-  - Personal account
+  - User account
 shortTitle: Subscriptions & billing date
 ---
 ## Finding your personal account's next billing date

@@ -17,7 +17,7 @@ topics:
   - Education
   - Discounts
   - Nonprofits
-  - Personal account
+  - User account
 shortTitle: Discounted subscriptions
 ---
 {% tip %}

@@ -10,7 +10,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Personal account
+  - User account
   - Sponsors profile
 shortTitle: Set up for personal account
 ---

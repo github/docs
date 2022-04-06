@@ -13,7 +13,7 @@ topics:
   - Enterprise
   - Packages
   - Organizations
-  - Personal account
+  - User account
 shortTitle: View your usage
 ---
 ## Viewing {% data variables.product.prodname_registry %} usage for your personal account

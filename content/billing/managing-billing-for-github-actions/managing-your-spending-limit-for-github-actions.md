@@ -13,7 +13,7 @@ topics:
   - Enterprise
   - Organizations
   - Spending limits
-  - Personal account
+  - User account
 shortTitle: Spending limits for Actions
 ---
 ## About spending limits for {% data variables.product.prodname_actions %}

@@ -16,7 +16,7 @@ topics:
   - Marketplace
   - Organizations
   - Trials
-  - Personal account
+  - User account
 shortTitle: Cancel a Marketplace app
 ---
 When you cancel an app, your subscription remains active until the end of your current billing cycle. The cancellation takes effect on your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."

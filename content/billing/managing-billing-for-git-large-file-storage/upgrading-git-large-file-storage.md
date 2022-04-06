@@ -15,7 +15,7 @@ topics:
   - LFS
   - Organizations
   - Upgrades
-  - Personal account
+  - User account
 shortTitle: Upgrade Git LFS storage
 ---
 ## Purchasing additional storage and bandwidth for a personal account
