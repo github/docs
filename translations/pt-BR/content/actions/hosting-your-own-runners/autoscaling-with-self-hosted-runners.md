@@ -91,6 +91,7 @@ Seu token de acesso exigirá o seguinte escopo:
 
 - Para repositórios privados, use um token de acesso com o escopo [`repo`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 - Para repositórios públicos, use um token de acesso com o escopo [`public_repo`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
+- Para as organizações, use um token de acesso com o escopo [`admin:org`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 
 Para efetuar a autenticação usando um aplicativo de {% data variables.product.prodname_dotcom %}, este deverá ter as seguintes permissões:
 - Para repositórios, atribua a permissão de `administração`.

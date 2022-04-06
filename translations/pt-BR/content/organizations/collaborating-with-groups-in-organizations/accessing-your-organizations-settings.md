@@ -25,7 +25,7 @@ shortTitle: Acessar configurações da organização
 
 {% tip %}
 
-**Dica:** somente proprietários da organização e gerentes de cobrança podem ver e alterar as informações de cobrança e configurações da conta para uma organização. {% data reusables.organizations.new-org-permissions-more-info %}
+**Tip:** Only organization owners and billing managers can see and change the billing information and the full set of account settings for an organization. Organization moderators only see moderation settings. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 

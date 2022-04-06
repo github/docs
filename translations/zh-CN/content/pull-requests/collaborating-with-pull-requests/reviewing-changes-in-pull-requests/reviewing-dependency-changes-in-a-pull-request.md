@@ -31,7 +31,7 @@ shortTitle: 查看依赖项更改
 
 {% ifversion ghec %}在私有存储库中使用依赖项审查之前，必须启用依赖项关系图。 更多信息请参阅“[探索仓库的依赖项](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)”。{% endif %}
 
-{% ifversion ghes > 3.1 %} Before you can use dependency review, you must enable the dependency graph and connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. 更多信息请参阅“[为 {% data variables.product.prodname_ghe_server %} 上的有漏洞依赖项启用安全警报](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)”。{% endif %}
+{% ifversion ghes > 3.1 %} 在使用依赖项评审之前，必须启用依赖项关系图并将 {% data variables.product.product_location %} 连接到 {% data variables.product.prodname_dotcom_the_website %}。 更多信息请参阅“[为 {% data variables.product.prodname_ghe_server %} 上的有漏洞依赖项启用安全警报](/admin/configuration/managing-connections-between-github-enterprise-server-and-github-enterprise-cloud/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)”。{% endif %}
 
 依赖关系审核允许您“左移”。 您可以使用所提供的预测信息在易受攻击的依赖项进入生产之前捕获它们。 更多信息请参阅“[关于依赖项审查](/code-security/supply-chain-security/about-dependency-review)”。
 
@@ -43,11 +43,11 @@ shortTitle: 查看依赖项更改
 
 1. 如果拉取请求包含许多文件，请使用 **File filter（文件过滤器）**下拉菜单折叠所有不记录依赖项的文件。 这将有助于您将审查的重点放在依赖项更改上。
 
-   ![文件过滤器菜单](/assets/images/help/pull_requests/file-filter-menu-json.png) The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
+   ![文件过滤器菜单](/assets/images/help/pull_requests/file-filter-menu-json.png) 依赖项审查提供关于大型锁定文件中已更改内容的更清晰视图，源差异在默认情况下不会呈现。
 
   {% note %}
 
-   **Note:** Dependency review rich diffs are not available for committed static JavaScript files like `jquery.js`.
+   **注意：** 依赖项审查多差异不适用于提交的静态 JavaScript 文件，如 `jquery.js`。
 
    {% endnote %}
 

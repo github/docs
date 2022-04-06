@@ -47,12 +47,12 @@
         "requestPath": "/orgs/{org}/actions/permissions/repositories/{repository_id}"
       },
       {
-        "slug": "get-allowed-actions-and-workflows-for-an-organization",
+        "slug": "get-allowed-actions-and-reusable-workflows-for-an-organization",
         "verb": "get",
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-and-workflows-for-an-organization",
+        "slug": "set-allowed-actions-and-reusable-workflows-for-an-organization",
         "verb": "put",
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
@@ -292,12 +292,12 @@
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/access"
       },
       {
-        "slug": "get-allowed-actions-and-workflows-for-a-repository",
+        "slug": "get-allowed-actions-and-reusable-workflows-for-a-repository",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-and-workflows-for-a-repository",
+        "slug": "set-allowed-actions-and-reusable-workflows-for-a-repository",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
       },
@@ -1133,6 +1133,7 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
       }
     ],
+    "dependency-graph": [],
     "deploy_keys": [
       {
         "slug": "list-deploy-keys",

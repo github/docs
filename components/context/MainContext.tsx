@@ -124,6 +124,7 @@ export type MainContextT = {
 
   status: number
   fullUrl: string
+  isDotComAuthenticated: boolean
 }
 
 export const getMainContext = (req: any, res: any): MainContextT => {
@@ -189,6 +190,7 @@ export const getMainContext = (req: any, res: any): MainContextT => {
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     status: res.statusCode,
     fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
+    isDotComAuthenticated: Boolean(req.cookies.dotcom_user),
   }
 }
 

@@ -1,1 +1,1 @@
-- **ワークフローの実行時間** - 各ワークフローの実行は72時間までに制限されます。 ワークフローの実行がこの制限に達すると、そのワークフローの実行はキャンセルされます。
+- **Workflow run time** - {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6469 %}Each workflow run is limited to 35 days. ワークフローの実行がこの制限に達すると、そのワークフローの実行はキャンセルされます。 This period includes execution duration, and time spent on waiting and approval.{% else %}Each workflow run is limited to 72 hours. If a workflow run reaches this limit, the workflow run is cancelled.{% endif %}

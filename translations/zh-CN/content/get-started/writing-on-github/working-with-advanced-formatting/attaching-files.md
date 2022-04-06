@@ -18,7 +18,7 @@ topics:
 
 {% warning %}
 
-**Warning:** If you add an image{% ifversion fpt or ghes > 3.1 or ghae or ghec %} or video{% endif %} to a pull request or issue comment, anyone can view the anonymized URL without authentication, even if the pull request is in a private repository{% ifversion ghes %}, or if private mode is enabled{% endif %}. 要对敏感媒体文件保密，请从需要身份验证的私有网络或服务器提供它们。 {% ifversion fpt or ghec %}有关匿名 URL 的更多信息，请参阅“[关于匿名 URL](/github/authenticating-to-github/about-anonymized-urls)”。{% endif %}
+**警告：**如果您将图像{% ifversion fpt or ghes > 3.1 or ghae or ghec %} 或视频{% endif %} 添加到拉取请求或议题评论中，则任何人都可以在未经身份验证的情况下查看匿名 URL，即使该拉取请求在私有仓库中{% ifversion ghes %} 或启用了私有模式{% endif %}。 要对敏感媒体文件保密，请从需要身份验证的私有网络或服务器提供它们。 {% ifversion fpt or ghec %}有关匿名 URL 的更多信息，请参阅“[关于匿名 URL](/github/authenticating-to-github/about-anonymized-urls)”。{% endif %}
 
 {% endwarning %}
 
@@ -33,10 +33,10 @@ topics:
 {% endtip %}
 
 最大文件大小为：
-- 10MB for images and gifs{% ifversion fpt or ghec %}
+- 10MB，对于图像和 gif{% ifversion fpt or ghec %}
 - 10MB，对于上传到使用免费 GitHub 计划的用户或组织所拥有仓库的视频
 - 100MB，对于上传到使用付费 GitHub 计划的用户或组织所拥有仓库的视频{% elsif fpt or ghes > 3.1 or ghae %}
-- 100MB for videos{% endif %}
+- 100MB，对于视频{% endif %}
 - 25MB，对于所有其他文件
 
 我们支持这些文件：

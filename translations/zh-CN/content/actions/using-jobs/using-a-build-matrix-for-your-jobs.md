@@ -1,7 +1,7 @@
 ---
-title: Using a build matrix for your jobs
-shortTitle: Using a build matrix for your jobs
-intro: Create a build matrix and define variations for each job.
+title: 对作业使用构建矩阵
+shortTitle: 对作业使用构建矩阵
+intro: 创建构建矩阵并定义每个作业的变体。
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,14 +17,14 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-strategy %}
 
-## Creating a matrix of different job configurations
+## 创建不同作业配置的矩阵
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-matrix %}
 
-## Canceling remaining jobs if a `matrix` job fails
+## 在 `matrix` 作业失败时取消剩余作业
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-failfast %}
 
-## Defining the maximum number of concurrent jobs in a `matrix`
+## 定义 `matrix` 中的最大并发作业数
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-max-parallel %}

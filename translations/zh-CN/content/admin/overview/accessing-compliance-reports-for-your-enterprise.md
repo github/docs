@@ -1,6 +1,6 @@
 ---
-title: Accessing compliance reports for your enterprise
-intro: 'You can access {% data variables.product.company_short %}''s compliance reports, such as our SOC reports and Cloud Security Alliance CAIQ self-assessment (CSA CAIQ), for your enterprise.'
+title: 访问企业的合规性报告
+intro: '您可以访问企业的 {% data variables.product.company_short %}合规性报告，例如我们的 SOC 报告和 Cloud Security Alliance CAIQ 自我评估 (CSA CAIQ)。'
 versions:
   ghec: '*'
 type: how_to
@@ -9,23 +9,23 @@ topics:
   - Enterprise
   - Fundamentals
 permissions: Enterprise owners can access compliance reports for the enterprise.
-shortTitle: Access compliance reports
+shortTitle: 访问合规性报告
 ---
 
-## About {% data variables.product.company_short %}'s compliance reports
+## 关于 {% data variables.product.company_short %} 合规报告
 
-You can access {% data variables.product.company_short %}'s compliance reports in your enterprise settings.
+您可以在企业设置中访问 {% data variables.product.company_short %} 合规性报告。
 
 {% data reusables.security.compliance-report-list %}
 
-## Accessing compliance reports for your enterprise
+## 访问企业的合规性报告
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. Under "Resources", to the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
+1. 在“Resources（资源）”下要访问的报告右侧，单击 {% octicon "download" aria-label="The Download icon" %} **Download（下载）**或 {% octicon "link-external" aria-label="The external link icon" %} **View（查看）**。
 
    {% data reusables.security.compliance-report-screenshot %}
 
 ## 延伸阅读
 
-- "[Accessing compliance reports for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"
+- "[访问组织的合规性报告](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"

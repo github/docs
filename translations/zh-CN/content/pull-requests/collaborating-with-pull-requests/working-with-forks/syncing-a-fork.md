@@ -26,22 +26,22 @@ permissions: People with write access for a forked repository can sync the fork 
 
 如果上游仓库的更改导致冲突，{% data variables.product.company_short %} 将提示您创建拉取请求以解决冲突。
 
-## Syncing a fork with the {% data variables.product.prodname_cli %}
+## 使用 {% data variables.product.prodname_cli %} 同步复刻
 
 {% data reusables.cli.about-cli %} 要了解 {% data variables.product.prodname_cli %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)”。
 
-To update the remote fork from its parent, use the `gh repo sync` subcommand and supply your fork name as argument.
+若要从其父级更新远程复刻，请使用 `gh repo sync` 子命令，并提供复刻名称作为参数。
 
 ```shell
 $ gh repo sync owner/cli-fork
 ```
 
-If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
+如果来自上游存储库的更改导致冲突，则 {% data variables.product.prodname_cli %} 无法同步。 您可以设置 `-force` 标志以覆盖目标分支。
 
 ## 从命令行同步复刻
 
 {% endif %}
-Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork) in Git.
+必须在 Git 中[配置指向上游仓库的远程仓库](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork)，然后才能将您的复刻与上游仓库同步。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. 将当前工作目录更改为您的本地仓库。
@@ -86,6 +86,6 @@ Before you can sync your fork with an upstream repository, you must [configure a
 
 {% tip %}
 
-**Tip**: Syncing your fork only updates your local copy of the repository. 要在 {% data variables.product.product_location %} 上更新复刻，您必须[推送更改](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)。
+**提示**：同步复刻仅更新仓库的本地副本。 要在 {% data variables.product.product_location %} 上更新复刻，您必须[推送更改](/github/getting-started-with-github/pushing-commits-to-a-remote-repository/)。
 
 {% endtip %}

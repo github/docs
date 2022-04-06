@@ -49,7 +49,7 @@ shortTitle: 管理对运行器的访问
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups %}
+{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 1. 在“Runner groups（运行器组）”部分，单击 **New runner group（新运行器组）**。
 1. 为运行器组输入名称。
  {% data reusables.actions.runner-group-assign-policy-repo %}
@@ -66,7 +66,7 @@ shortTitle: 管理对运行器的访问
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.settings-sidebar-actions-runners %}
+{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 1. 在 {% ifversion ghes > 3.1 or ghae %}“Runners（运行器）”{% elsif ghes < 3.2 %}“Self-hosted runners（自托管运行器）”{% endif %} 下，单击 **Add new（新增）**，然后单击 **New group（新建组）**。
 
     ![添加运行器组](/assets/images/help/settings/actions-org-add-runner-group.png)
