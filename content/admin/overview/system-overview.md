@@ -142,7 +142,7 @@ Access and audit logs include information like the following.
 #### Audit logs
 
 - User logins, password resets, 2FA requests, email setting changes, and changes to authorized applications and APIs
-- Site administrator actions, such as unlocking accounts and repositories
+- Site administrator actions, such as unlocking user accounts and repositories
 - Repository push events, access grants, transfers, and renames
 - Organization membership changes, including team creation and destruction
 

@@ -15,7 +15,7 @@ topics:
   - Access management
   - Enterprise
   - Teams
-  - Personal account
+  - User account
 ---
 Each team has its own individually defined [access permissions for repositories owned by your organization](/articles/permission-levels-for-an-organization).
 

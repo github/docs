@@ -11,7 +11,7 @@ type: how_to
 topics:
   - Enterprise
   - Organizations
-  - Personal account
+  - User account
 shortTitle: Set membership visibility
 ---
 {% ifversion ghes %}

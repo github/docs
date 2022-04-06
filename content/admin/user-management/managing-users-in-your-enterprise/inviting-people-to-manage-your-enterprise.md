@@ -15,7 +15,7 @@ type: how_to
 topics:
   - Administrator
   - Enterprise
-  - Personal account
+  - User account
 shortTitle: Invite people to manage
 ---
 

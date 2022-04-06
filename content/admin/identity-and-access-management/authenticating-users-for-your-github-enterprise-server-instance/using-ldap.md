@@ -117,7 +117,7 @@ To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Syn
 
 ![Synchronization check box](/assets/images/enterprise/management-console/ldap-synchronize.png)
 
-After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each personal account:
+After you enable LDAP sync, a synchronization job will run at the specified time interval to perform the following operations on each user account:
 
 - If you've allowed built-in authentication for users outside your identity provider, and the user is using built-in authentication, move on to the next user.
 - If no LDAP mapping exists for the user, try to map the user to an LDAP entry in the directory. If the user cannot be mapped to an LDAP entry, suspend the user and move on to the next user.
@@ -156,7 +156,7 @@ When LDAP Sync is enabled, site admins and organization owners can search the LD
 This has the potential to disclose sensitive organizational information to contractors or other unprivileged users, including:
 
 - The existence of specific LDAP Groups visible to the *Domain search user*.
-- Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} personal accounts, which is disclosed when creating a team synced with that LDAP group.
+- Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
 
 If disclosing such information is not desired, your company or organization should restrict the permissions of the configured *Domain search user* in the admin console. If such restriction isn't possible, contact {% data variables.contact.contact_ent_support %}.
 
@@ -179,7 +179,7 @@ You can view the full list of LDAP users who have access to your instance and pr
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 3. In the left sidebar, click **LDAP users**.
 ![LDAP users tab](/assets/images/enterprise/site-admin-settings/ldap-users-tab.png)
-4. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new personal account.
+4. To search for a user, type a full or partial username and click **Search**. Existing users will be displayed in search results. If a user doesn’t exist, click **Create** to provision the new user account.
 ![LDAP search](/assets/images/enterprise/site-admin-settings/ldap-users-search.jpg)
 
 ## Updating LDAP accounts

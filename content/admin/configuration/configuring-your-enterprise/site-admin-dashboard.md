@@ -82,7 +82,7 @@ To access the other reports programmatically, replace `all_users` with `active_u
 
 Key               | Description
 -----------------:| ------------------------------------------------------------
-`created_at`      | When the personal account was created (as an ISO 8601 timestamp)
+`created_at`      | When the user account was created (as an ISO 8601 timestamp)
 `id`              | Account ID for the user or organization
 `login`           | Account's login name
 `email`           | Account's primary email address
@@ -212,10 +212,10 @@ Here you can see all of the administrators on {% data variables.product.product_
 
 ## Dormant users
 {% ifversion ghes %}
-Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A personal account is considered to be inactive ("dormant") when it:
+Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}
 {% ifversion ghae %}
-Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. A personal account is considered to be inactive ("dormant") when it:
+Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}
 
 - Has existed for longer than the dormancy threshold that's set for {% data variables.product.product_location %}.
