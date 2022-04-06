@@ -22,10 +22,10 @@ After {% data variables.product.company_short %} creates the owner account for {
 You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your enterprise account. For more information, see "[Restricting network traffic to your enterprise](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise)."
 
 ### 4. Managing identity and access for {% data variables.product.product_location %}
-You can centrally manage access to {% data variables.product.product_location %} on {% data variables.product.product_name %} from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure provisioning, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. For more information, see "[About identity and access management for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
+You can centrally manage access to {% data variables.product.product_location %} on {% data variables.product.product_name %} from an identity provider (IdP) using SAML single sign-on (SSO) for user authentication and System for Cross-domain Identity Management (SCIM) for user provisioning. Once you configure provisioning, you can assign or unassign users to the application from the IdP, creating or disabling user accounts in the enterprise. For more information, see "[About identity and access management for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-identity-and-access-management-for-your-enterprise)."
 
 ### 5. Managing billing for {% data variables.product.product_location %}
-Owners of the subscription for {% data variables.product.product_location %} on {% data variables.product.product_name %} can view billing details for {% data variables.product.product_name %} in the Azure portal. For more information, see "[Managing billing for your enterprise](/admin/overview/managing-billing-for-your-enterprise)."
+Owners of the subscription for {% data variables.product.product_location %} on {% data variables.product.product_name %} can view billing details for {% data variables.product.product_name %} in the Azure portal. For more information, see "[Managing billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
 
 ## Part 2: Organizing and managing enterprise members
 As an enterprise owner for {% data variables.product.product_name %}, you can manage settings on user, repository, team, and organization levels. You can manage members of {% data variables.product.product_location %}, create and manage organizations, set policies for repository management, and create and manage teams.
@@ -52,7 +52,7 @@ As an enterprise owner for {% data variables.product.product_name %}, you can ma
 To increase the security of {% data variables.product.product_location %}, you can monitor {% data variables.product.product_location %} and configure security and analysis features for your organizations.
 
 ### 1. Monitoring {% data variables.product.product_location %}
-You can monitor {% data variables.product.product_location %} with your activity dashboard and audit logging. For more information, see "[Monitoring activity in your enterprise](/admin/user-management/monitoring-activity-in-your-enterprise)."
+You can monitor {% data variables.product.product_location %} with your activity dashboard and audit logging. For more information, see "[Monitoring activity in your enterprise](/admin/monitoring-activity-in-your-enterprise)."
 
 ### 2. Configuring security features for your organizations
 {% data reusables.getting-started.configuring-security-features %}
@@ -66,7 +66,7 @@ You can customize and automate work in organizations in {% data variables.produc
 ### 2. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-For more information on enabling and configuring {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/using-github-actions-in-github-ae/getting-started-with-github-actions-for-github-ae)."
+For more information on enabling and configuring {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)."
 
 ### 3. Using {% data variables.product.prodname_pages %}
 {% data reusables.getting-started.github-pages-enterprise %}
