@@ -50,7 +50,7 @@ To help prevent accidental disclosure, {% data variables.product.product_name %}
 
 {% warning %}
 
-**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you need to ensure that the credentials being used within workflows have the least privileges required.
+**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
 
 {% endwarning %}
 
