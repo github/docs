@@ -39,7 +39,8 @@ Organization owners have complete administrative access to your organization. Th
 ### Organization members
 The default, non-administrative role for people in an organization is the organization member. By default, organization members have a number of permissions, including the ability to create repositories and project boards.
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec %}hi went zip cretin
+Uiodnjr and mm cold and kkr 6n
 ### Organization moderators
 Moderators are organization members who, in addition to their permissions as members, are allowed to block and unblock non-member contributors, set interaction limits, and hide comments in public repositories owned by the organization. For more information, see "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)."
 
