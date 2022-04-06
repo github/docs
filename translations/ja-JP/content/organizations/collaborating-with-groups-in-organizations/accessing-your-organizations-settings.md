@@ -25,7 +25,7 @@ shortTitle: Organization設定へのアクセス
 
 {% tip %}
 
-**ヒント:** Organization の支払い情報とアカウント設定を見て変更できるのは、Organization のオーナーと支払いマネージャーのみです。 {% data reusables.organizations.new-org-permissions-more-info %}
+**Tip:** Only organization owners and billing managers can see and change the billing information and the full set of account settings for an organization. Organization moderators only see moderation settings. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 

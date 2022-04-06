@@ -596,46 +596,33 @@ describe('server', () => {
   })
 
   describeViaActionsOnly('Early Access articles', () => {
-    let hiddenPageHrefs, hiddenPages
-
-    beforeAll(async () => {
-      const $ = await getDOM('/early-access')
-      hiddenPageHrefs = $('#article-contents ul > li > a')
-        .map((i, el) => $(el).attr('href'))
-        .get()
-
-      const allPages = await loadPages()
-      hiddenPages = allPages.filter((page) => page.languageCode === 'en' && page.hidden)
-    })
-
-    test('exist in the set of English pages', async () => {
-      expect(hiddenPages.length).toBeGreaterThan(0)
-    })
-
-    test('are listed at /early-access', async () => {
-      expect(hiddenPageHrefs.length).toBeGreaterThan(0)
-    })
-
     // Test skipped because this test file is no longer able to
     // change the `NODE_ENV` between tests because it depends on
     // HTTP and not raw supertest.
     // Idea: Move this one test somewhere into tests/unit/
     test.skip('are not listed at /early-access in production', async () => {
-      const oldNodeEnv = process.env.NODE_ENV
-      process.env.NODE_ENV = 'production'
       const res = await get('/early-access', { followRedirects: true })
-      process.env.NODE_ENV = oldNodeEnv
       expect(res.statusCode).toBe(404)
     })
 
     test('have noindex meta tags', async () => {
-      const $ = await getDOM(hiddenPageHrefs[0])
-      expect($('meta[content="noindex"]').length).toBe(1)
-    })
-
-    test('public articles do not have noindex meta tags', async () => {
-      const $ = await getDOM('/en/articles/set-up-git')
-      expect($('meta[content="noindex"]').length).toBe(0)
+      const allPages = await loadPages()
+      // This is what the earlyAccessContext middleware does to get a
+      // list of early-access pages for that TOC it displays when
+      // viewing /en/early-access in development.
+      // Here we're using it to get a least 1 page we can end-to-end
+      // test to look at it's meta tags.
+      const hiddenPages = allPages.filter(
+        (page) =>
+          page.languageCode === 'en' &&
+          page.hidden &&
+          page.relativePath.startsWith('early-access') &&
+          !page.relativePath.endsWith('index.md')
+      )
+      for (const { href } of hiddenPages[0].permalinks) {
+        const $ = await getDOM(href)
+        expect($('meta[content="noindex"]').length).toBe(1)
+      }
     })
   })
 

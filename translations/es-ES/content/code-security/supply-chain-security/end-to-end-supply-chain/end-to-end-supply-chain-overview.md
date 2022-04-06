@@ -25,9 +25,9 @@ This series of guides explains how to think about securing your end-to-end suppl
 
 Everyone's needs are different, so each guide starts with the highest impact change, and continues from there with additional improvements you should consider. You should feel free to skip around and focus on improvements you think will have the biggest benefit. The goal isn't to do everything at once but to continuously improve security in your systems over time.
 
-- "[Best practices for securing accounts](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+- "[Mejores prácticas para asegurar cuentas](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
 
-- "[Best practices for securing code in your supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+- "[Mejores prácticas para asegurar el código en tu cadena de suministros](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
 
 - "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
 

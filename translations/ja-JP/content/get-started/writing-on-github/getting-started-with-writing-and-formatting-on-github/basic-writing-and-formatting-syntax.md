@@ -190,6 +190,12 @@ We distinguish between light and dark color modes, so there are two options avai
      - 2 番目の入れ子になったリストアイテム
 ```
 
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
+
 ![並びがハイライトされた入れ子になったリスト](/assets/images/help/writing/nested-list-alignment.png)
 
 ![2 レベルの入れ子になったアイテムを持つリスト](/assets/images/help/writing/nested-list-example-1.png)

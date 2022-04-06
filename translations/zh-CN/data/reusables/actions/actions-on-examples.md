@@ -1,8 +1,8 @@
-### Using a single event
+### 使用单个事件
 
 {% data reusables.actions.on-single-example %}
 
-### Using multiple events
+### 使用多个事件
 
 {% data reusables.actions.on-multiple-example %}
 
@@ -10,10 +10,10 @@
 
 {% data reusables.actions.actions-activity-types %}
 
-### Using filters
+### 使用筛选器
 
 {% data reusables.actions.actions-filters %}
 
-### Using activity types and filters with multiple events
+### 将活动类型和筛选器用于多个事件
 
 {% data reusables.actions.actions-multiple-types %}

@@ -1,6 +1,6 @@
 ---
-title: Deploying Docker to Azure App Service
-intro: You can deploy a Docker container to Azure App Service as part of your continuous deployment (CD) workflows.
+title: Desplegar Docker a Azure App Service
+intro: Puedes desplegar un contenedor de Docker a Azure App Service como parte de tus flujos de trabajo de despliegue continuo (DC).
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,7 +19,7 @@ topics:
 
 ## Introducción
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Docker container to [Azure App Service](https://azure.microsoft.com/services/app-service/).
+Esta guía te explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar y desplegar un contenedor de Docker a [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -39,7 +39,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 1. Crea una app web.
 
-   For example, you can use the Azure CLI to create an Azure App Service web app:
+   Por ejemplo, puedes utilizar el CLI de Azure para crear una app web de Azure App Service:
 
    ```bash{:copy}
    az webapp create \
@@ -53,11 +53,11 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-1. Set registry credentials for your web app.
+1. Configura las credenciales de registro para tu app web.
 
-   Create a personal access token with the `repo` and `read:packages` scopes. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
+   Crea un token de acceso personal con los alcances de `repo` y `read:packages`. Para obtener más información, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)".
 
-   Configura `DOCKER_REGISTRY_SERVER_URL` para `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` para el nombre de usuario u organización de GitHub al que pertenezca el repositorio y `DOCKER_REGISTRY_SERVER_PASSWORD` para tu token de acceso personal desde arriba. This will give your web app credentials so it can pull the container image after your workflow pushes a newly built image to the registry. You can do this with the following Azure CLI command:
+   Configura `DOCKER_REGISTRY_SERVER_URL` para `https://ghcr.io`, `DOCKER_REGISTRY_SERVER_USERNAME` para el nombre de usuario u organización de GitHub al que pertenezca el repositorio y `DOCKER_REGISTRY_SERVER_PASSWORD` para tu token de acceso personal desde arriba. Esto le dará credenciales a tu app web para que pueda extraer la imagen del contenedor después de que tu flujo de trabajo suba una imagen recién compilada al registro. Puedes hacerlo con el siguiente comando del CLI de Azure:
 
    ```shell
     az webapp config appsettings set \
@@ -72,7 +72,7 @@ Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions
 
 Una vez que hayas completado los prerequisitos, puedes proceder con la creación del flujo de trabajo.
 
-The following example workflow demonstrates how to build and deploy a Docker container to Azure App Service when there is a push to the `main` branch.
+El siguiente flujo de trabajo de ejemplo demuestra cómo compilar y desplegar un contenedor de Docker a Azure App Service cuando existe una subida a la rama `main`.
 
 Asegúrate de configurar a `AZURE_WEBAPP_NAME` en la clave `env` del flujo de trabajo con el nombre de la app web que creaste.
 
@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1

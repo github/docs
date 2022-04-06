@@ -1,7 +1,7 @@
 ---
 title: Gerenciando o GitHub Mobile para a sua empresa
-intro: 'Você pode decidir se usuários autenticados podem se conectar-se a {% data variables.product.product_location %} com {% data variables.product.prodname_mobile %}.'
-permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for an enterprise on {% data variables.product.product_name %}.'
+intro: 'You can decide whether people can use {% data variables.product.prodname_mobile %} to connect to {% data variables.product.product_location %}.'
+permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '*'
 type: how_to
@@ -14,15 +14,19 @@ redirect_from:
 shortTitle: Gerenciar o GitHub Mobile
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## Sobre o {% data variables.product.prodname_mobile %}
 
-{% data reusables.mobile.about-mobile %} Para obter mais informações, consulte "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)".
+{% data variables.product.prodname_mobile %} allows people to triage, collaborate, and manage work on {% data variables.product.product_location %} from a mobile device after successful authentication. {% data reusables.mobile.about-mobile %} Para obter mais informações, consulte "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)".
 
-Os membros da sua empresa podem usar {% data variables.product.prodname_mobile %} para triar, colaborar e gerenciar o trabalho em {% data variables.product.product_location %} em um dispositivo móvel. Por padrão, {% data variables.product.prodname_mobile %} está habilitado para {% data variables.product.product_location %}. Você pode permitir ou impedir que os membros corporativos usem {% data variables.product.prodname_mobile %} para efetuar a autenticação em {% data variables.product.product_location %} e acessar os dados da sua empresa.
+You can allow or disallow people from using {% data variables.product.prodname_mobile %} to authenticate to {% data variables.product.product_location %} and access your instance's data. By default, {% data variables.product.prodname_mobile %} is{% ifversion ghes > 3.3 %} enabled for people who use {% data variables.product.product_location %}.{% else %} not enabled for people who use {% data variables.product.product_location %}. To allow connection to your instance with {% data variables.product.prodname_mobile %}, you must enable the feature for your instance.{% endif %}
+
+{% ifversion ghes < 3.6 and ghes > 3.1 %}
+{% note %}
+
+**Note:** If you upgrade to {% data variables.product.prodname_ghe_server %} 3.4.0 or later and have not previously disabled or enabled {% data variables.product.prodname_mobile %}, {% data variables.product.prodname_mobile %} will be enabled by default. If you previously disabled or enabled {% data variables.product.prodname_mobile %} for your instance, your preference will be preserved upon upgrade. For more information about upgrading your instance, see "[Upgrading {% data variables.product.product_name %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+
+{% endnote %}
+{% endif %}
 
 ## Habilitar ou desabilitar {% data variables.product.prodname_mobile %}
 

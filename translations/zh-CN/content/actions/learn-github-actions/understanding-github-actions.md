@@ -94,20 +94,21 @@ _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应�
 
 1. 在您的仓库中，创建 `.github/workflows/` 目录来存储工作流程文件。
 1. 在 `.github/workflows/` 目录中，创建一个名为 `learn-github-actions.yml` 的新文件并添加以下代码。
-    ```yaml
-    name: learn-github-actions
-    on: [push]
-    jobs:
-      check-bats-version:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
-            with:
-              node-version: '14'
-          - run: npm install -g bats
-          - run: bats -v
-    ```
+
+   ```yaml
+   name: learn-github-actions
+   on: [push]
+   jobs:
+     check-bats-version:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+         - uses: {% data reusables.actions.action-setup-node %}
+           with:
+             node-version: '14'
+         - run: npm install -g bats
+         - run: bats -v
+   ```
 1. 提交这些更改并将其推送到您的 {% data variables.product.prodname_dotcom %} 仓库。
 
 您的新 {% data variables.product.prodname_actions %} 工作流程文件现在安装在您的仓库中，每次有人推送更改到仓库时都会自动运行。 有关作业的执行历史记录的详细信息，请参阅“[查看工作流程的活动](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)”。
@@ -187,7 +188,7 @@ _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应�
 <td>
 
   ```yaml
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
   ```
 </td>
 <td>
@@ -198,13 +199,13 @@ _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应�
 <td>
 
   ```yaml
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '14'
   ```
 </td>
 <td>
-  此步骤使用 <code>actions/setup-node@v2</code> 操作来安装指定版本的 Node.js（此示例使用 v14）。 这会将 <code>node</code> 和 <code>npm</code> 命令放在 <code>PATH</code>中。
+  此步骤使用 <code>{% data reusables.actions.action-setup-node %}</code> 操作来安装指定版本的 Node.js（此示例使用 v14）。 这会将 <code>node</code> 和 <code>npm</code> 命令放在 <code>PATH</code>中。
 </td>
 </tr>
 <tr>
