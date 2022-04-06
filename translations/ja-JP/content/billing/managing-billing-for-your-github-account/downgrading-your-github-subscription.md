@@ -1,6 +1,6 @@
 ---
 title: GitHub プランをダウングレードする
-intro: 'You can downgrade the subscription for any type of account on {% data variables.product.product_location %} at any time.'
+intro: '{% data variables.product.product_location %}のいずれの種類のアカウントでも、いつでもプランをダウングレードできます。'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription
   - /articles/downgrading-your-personal-account-s-billing-plan
@@ -55,7 +55,7 @@ Organizationを{% data variables.product.prodname_ghe_cloud %}から{% data vari
 
 {% note %}
 
-**Note:** If you're currently trialing {% data variables.product.prodname_ghe_cloud %}, and you don't purchase {% data variables.product.prodname_enterprise %} before the trial ends, your organization will be automatically downgraded to {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %}. 詳しい情報については、「[{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)」を参照してください。
+**ノート:** {% data variables.product.prodname_ghe_cloud %}のトライアル中で、トライアル終了前に{% data variables.product.prodname_enterprise %}を購入しないなら、Organizationは自動的に{% data variables.product.prodname_free_team %}もしくは{% data variables.product.prodname_team %}にダウングレードされます。 詳しい情報については、「[{% data variables.product.prodname_ghe_cloud %} のトライアルを設定する](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)」を参照してください。
 
 {% endnote %}
 

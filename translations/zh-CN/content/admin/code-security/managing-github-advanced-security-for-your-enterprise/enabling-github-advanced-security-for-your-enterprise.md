@@ -48,7 +48,7 @@ topics:
 
     - {% data variables.product.prodname_code_scanning_capc %}，请参阅“[为设备配置 {% data variables.product.prodname_code_scanning %}](/admin/advanced-security/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)”。
     - {% data variables.product.prodname_secret_scanning_caps %}，请参阅“[为设备配置 {% data variables.product.prodname_secret_scanning %}](/admin/advanced-security/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)”。{% endif %}
-    - {% data variables.product.prodname_dependabot %}, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+    - {% data variables.product.prodname_dependabot %}，请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 
 ## 启用和禁用 {% data variables.product.prodname_GH_advanced_security %} 功能
 
@@ -82,7 +82,7 @@ topics:
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
-    - To enable the dependency graph, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    - 要启用依赖关系图，请输入以下 {% ifversion ghes > 3.1 %}命令{% else %}命令{% endif %}。
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled true
     ```
@@ -101,7 +101,7 @@ topics:
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
-    - To disable the dependency graph, enter the following {% ifversion ghes > 3.1 %}command{% else %}commands{% endif %}.
+    - 要禁用依赖关系图，请输入以下 {% ifversion ghes > 3.1 %}命令{% else %}命令{% endif %}。
     {% ifversion ghes > 3.1 %}```shell
     ghe-config app.dependency-graph.enabled false
     ```

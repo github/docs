@@ -17,6 +17,7 @@ topics:
   - Permissions
   - Pull requests
 shortTitle: Manage GitHub Actions settings
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -28,13 +29,11 @@ shortTitle: Manage GitHub Actions settings
 
 リポジトリで {% data variables.product.prodname_actions %} を有効化できます。 {% data reusables.actions.enabled-actions-description %} リポジトリの {% data variables.product.prodname_actions %} を完全に無効化することができます。 {% data reusables.actions.disabled-actions-description %}
 
-または、リポジトリで {% data variables.product.prodname_actions %} を有効化して、ワークフローで実行できるアクションを制限することもできます。 {% data reusables.actions.enabled-local-github-actions %}
+Alternatively, you can enable {% data variables.product.prodname_actions %} in your repository but limit the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
 
 ## リポジトリの {% data variables.product.prodname_actions %} 権限を管理する
 
-リポジトリに対するワークフローをすべて無効にすることも、リポジトリでどのアクションを使用できるかを設定するポリシーを設定することもできます。
-
-{% data reusables.actions.actions-use-policy-settings %}
+You can disable {% data variables.product.prodname_actions %} for a repository, or set a policy that configures which actions{% if actions-workflow-policy %} and reusable workflows{% endif %} can be used in the repository.
 
 {% note %}
 
@@ -45,27 +44,31 @@ shortTitle: Manage GitHub Actions settings
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. [**Actions permissions**] で、オプションを選択します。
+1. [Actions permissions] で、オプションを選択します。
 
-  ![この Organization に対するアクションポリシーを設定する](/assets/images/help/repository/actions-policy.png)
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
+   {% if actions-workflow-policy %}
+   ![Set actions policy for this repository](/assets/images/help/repository/actions-policy-with-workflows.png)
+   {%- else %}
+   ![Set actions policy for this repository](/assets/images/help/repository/actions-policy.png)
+   {%- endif %}
 1. [**Save**] をクリックします。
-
-## 特定のアクションの実行を許可する
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. [**Actions permissions**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
+1. Under "Actions permissions", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions to the list.
 
-   {%- ifversion ghes %}
-   ![許可リストにアクションを追加する](/assets/images/help/repository/actions-policy-allow-list.png)
+   {% if actions-workflow-policy%}
+   ![Add actions and reusable workflows to the allow list](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
+   {%- elsif ghes %}
+   ![Add actions to the allow list](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
-   ![許可リストにアクションを追加する](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   ![Add actions to the allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
-
 1. [**Save**] をクリックします。
 
 {% ifversion fpt or ghec %}

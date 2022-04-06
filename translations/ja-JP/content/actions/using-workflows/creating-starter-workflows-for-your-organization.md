@@ -31,7 +31,7 @@ topics:
 Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
 
 {% ifversion fpt %}
-Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization).
+Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. 詳しい情報については[{% data variables.product.prodname_ghe_cloud %}のドキュメンテーション](/enterprise-cloud@latest/actions/learn-github-actions/creating-starter-workflows-for-your-organization)を参照してください。
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
@@ -66,7 +66,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        runs-on: ubuntu-latest
 
        steps:
-         - uses: actions/checkout@v2
+         - uses: {% data reusables.actions.action-checkout %}
 
          - name: Run a one-line script
            run: echo Hello from Octo Organization

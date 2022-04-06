@@ -16,10 +16,6 @@ topics:
 shortTitle: Gerenciar a partir de sua caixa de entrada
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## Sobre sua caixa de entrada
 
 {% ifversion fpt or ghes or ghec %}

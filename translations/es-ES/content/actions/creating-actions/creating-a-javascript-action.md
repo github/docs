@@ -238,7 +238,6 @@ Cuando se activa este flujo de trabajo, el ejecutor descargará la acción `hell
 
 Copia el siguiente ejemplo de código de flujo de trabajo en un archivo `.github/workflows/main.yml` en tu repositorio de acción. También puedes reemplazar la entrada `who-to-greet` con tu nombre.
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml{:copy}
 on: [push]
@@ -251,7 +250,7 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
@@ -259,9 +258,8 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
 ```
-{% endraw %}
 
 Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. Debajo de **Jobs** o en la gráfica de visualización, haz clic en **A job to say hello**. Deberías ver "Hello Mona the Octocat" o el nombre que usaste para la entrada `who-to-greet` y la marcación de hora impresa en el registro.
 

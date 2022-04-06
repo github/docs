@@ -17,6 +17,7 @@ topics:
   - Permissions
   - Pull requests
 shortTitle: 管理 GitHub Actions 设置
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -28,13 +29,11 @@ shortTitle: 管理 GitHub Actions 设置
 
 您可以对您的仓库启用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.enabled-actions-description %} 您可以对您的仓库完全禁用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.disabled-actions-description %}
 
-此外，您可以在您的仓库中启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作。 {% data reusables.actions.enabled-local-github-actions %}
+或者，您也可以在存储库中启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作{% if actions-workflow-policy %}和可重用工作流程{% endif %}。
 
 ## 管理仓库的 {% data variables.product.prodname_actions %} 权限
 
-您可以禁用仓库的所有工作流程，或者设置策略来配置哪些动作可用于仓库中。
-
-{% data reusables.actions.actions-use-policy-settings %}
+您可以禁用存储库的 {% data variables.product.prodname_actions %} ，或设置策略来配置可在存储库中使用的 {% if actions-workflow-policy %} 和可重用工作流{% endif %} 。
 
 {% note %}
 
@@ -45,27 +44,31 @@ shortTitle: 管理 GitHub Actions 设置
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. 在 **Actions permissions（操作权限）**下，选择一个选项。
+1. 在“Actions permissions（操作权限）”下，选择一个选项。
 
-  ![设置此组织的操作策略](/assets/images/help/repository/actions-policy.png)
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
+   {% if actions-workflow-policy %}
+   ![为此存储库设置操作策略](/assets/images/help/repository/actions-policy-with-workflows.png)
+   {%- else %}
+   ![为此存储库设置操作策略](/assets/images/help/repository/actions-policy.png)
+   {%- endif %}
 1. 单击 **Save（保存）**。
-
-## 允许特定操作运行
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. 在 **Actions permissions（操作权限）**下，选择 **Allow select actions（允许选择操作）**并将所需操作添加到列表中。
+1. 在 Actions permissions（操作权限）下，选择 {% data reusables.actions.policy-label-for-select-actions-workflows %} 并将所需操作添加到列表中。
 
-   {%- ifversion ghes %}
-   ![添加操作到允许列表](/assets/images/help/repository/actions-policy-allow-list.png)
+   {% if actions-workflow-policy%}
+   ![将操作和可重用工作流程添加到允许列表](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
+   {%- elsif ghes %}
+   ![向允许列表添加操作](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
-   ![添加操作到允许列表](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   ![向允许列表添加操作](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
-
 1. 单击 **Save（保存）**。
 
 {% ifversion fpt or ghec %}

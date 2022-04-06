@@ -66,42 +66,42 @@ shortTitle: 支払いメール
 1. 確認ダイアログを確かめてから、[**Remove**] をクリックします。
 
 {% ifversion ghec %}
-## Setting your enterprise's billing email
+## Enterpriseの支払い請求先メールアドレスを設定する
 
-Your enterprise's billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication. The email address does not need to be unique to the enterprise account.
+Enterpriseの支払い請求先メールアドレスには、{% data variables.product.product_name %}から領収書及びその他の支払い関係の連絡が送信されます。 このメールアドレスは、Enterpriseアカウント専用である必要はありません。
 
-Only enterprise members with the owner or billing manager role can access or change billing settings for your enterprise. For more information, see "[Managing users in your enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+オーナーもしくは支払いマネージャーのロールを持つEnterpriseメンバーだけが、Enterpriseの支払い設定へのアクセスや変更を行えます。 詳しい情報については「[Entepriseのユーザ管理](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)」を参照してください。
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Billing emails**.
-2. Under "Email recipients", to the right of the billing email address, click **Edit**. ![Screenshot of the current billing email with the edit button emphasized](/assets/images/help/billing/billing-change-email.png)
-2. 有効なメールアドレスを入力し、[**Update**]をクリックします。 ![Screenshot of the edit billing email address modal window with a sample email address entered](/assets/images/help/billing/billing-change-email-modal.png)
+1. **Billing emails（支払い請求先メール）**をクリックしてください。
+2. "Email recipients（メール受信者）"の下、支払い請求先メールアドレスの右で、**Edit（編集）**をクリックしてください。 ![編集ボタンが強調された現在の支払い請求先メールのスクリーンショット](/assets/images/help/billing/billing-change-email.png)
+2. 有効なメールアドレスを入力し、[**Update**]をクリックします。 ![サンプルのメールアドレスが入力された支払い請求先メールアドレスの編集モーダルウィンドウのスクリーンショット](/assets/images/help/billing/billing-change-email-modal.png)
 
-## Managing additional recipients for your enterprise's billing email
+## Enterpriseの支払い請求先メールアドレスに受信者を追加して管理する
 
 支払い請求レポートを受信する必要のあるユーザが複数いる場合は、支払い請求先メールの受信者としてそのユーザのメールアドレスを追加できます。
 
-Only enterprise members with the owner or billing manager role can access or change billing settings for your enterprise. For more information, see "[Managing users in your enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+オーナーもしくは支払いマネージャーのロールを持つEnterpriseメンバーだけが、Enterpriseの支払い設定へのアクセスや変更を行えます。 詳しい情報については「[Entepriseのユーザ管理](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)」を参照してください。
 
 ### 支払い通知の受信者を追加する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Billing emails**.
-2. Under "Email recipients", to the right of the billing email address, click **Add**. ![Screenshot of the current billing email with the add button emphasized](/assets/images/help/billing/billing-add-email-recipient.png)
-3. 受信者のメールアドレスを入力し、[**Add**] をクリックします。 ![Screenshot of the add billing email address modal window without a sample email address entered](/assets/images/help/billing/billing-add-email-recipient-modal.png)
+1. **Billing emails（支払い請求先メール）**をクリックしてください。
+2. "Email recipients（メール受信者）"の下、支払い請求先メールアドレスの右で、**Add（追加）**をクリックしてください。 ![追加ボタンが強調された現在の支払い請求先メールのスクリーンショット](/assets/images/help/billing/billing-add-email-recipient.png)
+3. 受信者のメールアドレスを入力し、[**Add**] をクリックします。 ![サンプルのメールアドレスが入力されていない支払い請求先メールアドレスの追加モーダルウィンドウのスクリーンショット](/assets/images/help/billing/billing-add-email-recipient-modal.png)
 
 ### 支払い通知の受信者を削除する
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Billing emails**.
+1. **Billing emails（支払い請求先メール）**をクリックしてください。
 2. [Email recipients] で、削除したいメールアドレスを探します。
-3. そのユーザのエントリで [**Edit**] をクリックします。 ![Screenshot of the recipient's email with the edit button emphasized](/assets/images/help/billing/billing-edit-email-recipient.png)
-4. メールアドレスの右の[Edit]ドロップダウンメニューを使い、[**Remove**]をクリックします。 ![Screenshot of the recipient's email with the remove button emphasized](/assets/images/help/billing/billing-remove-email-recipient.png)
+3. そのユーザのエントリで [**Edit**] をクリックします。 ![編集ボタンが強調された受信者のメールのスクリーンショット](/assets/images/help/billing/billing-edit-email-recipient.png)
+4. メールアドレスの右の[Edit]ドロップダウンメニューを使い、[**Remove**]をクリックします。 ![削除ボタンが強調された受信者のメールのスクリーンショット](/assets/images/help/billing/billing-remove-email-recipient.png)
 5. 確認ダイアログを確かめてから、[**Remove**] をクリックします。
 {% endif %}
