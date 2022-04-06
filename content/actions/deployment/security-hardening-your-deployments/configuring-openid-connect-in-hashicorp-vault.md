@@ -29,7 +29,7 @@ This guide gives an overview of how to configure HashiCorp Vault to trust {% dat
 
 ## Adding the identity provider to HashiCorp Vault
 
-To use OIDC with HashiCorp Vault, you will need to add a trust configuration for the {% data variables.product.prodname_dotcom %} OIDC provider.
+To use OIDC with HashiCorp Vault, you will need to add a trust configuration for the {% data variables.product.prodname_dotcom %} OIDC provider. For more information, see the HashiCorp Vault [documentation](https://www.vaultproject.io/docs/auth/jwt).
 
 To configure your Vault server to accept JSON Web Tokens (JWT) for authentication:
 
@@ -98,6 +98,14 @@ This example demonstrates how to use OIDC with the official action to request a 
 ### Adding permissions settings
 
  {% data reusables.actions.oidc-permissions-token %}
+
+{% note %}
+
+**Note**:
+
+When the `permissions` key is used, all unspecified permissions are set to no access, with the exception of the metadata scope, which always gets read access. Therefore, you may need to add other permissions, such as `content: read`. See [Automatic token authentication](/actions/security-guides/automatic-token-authentication) for more information.
+
+{% endnote %}
 
 ### Requesting the access token
 
