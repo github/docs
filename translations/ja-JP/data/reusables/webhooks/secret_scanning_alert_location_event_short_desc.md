@@ -1,0 +1,1 @@
+Activity related to secret scanning alert locations in a repository. アクティビティのタイプは、ペイロードオブジェクトのactionプロパティで指定されます。 For more information, see the "[secret scanning](/rest/reference/secret-scanning)" REST API.

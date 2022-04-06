@@ -92,9 +92,10 @@ If you are caching the package managers listed below, consider using the respect
 - `path`：**必要** 运行器上缓存或还原的文件路径。 The path can be an absolute path or relative to the workspace directory.
   - 路径可以是目录或单个文件，并且支持 glob 模式。
   - 使用 `cache` 操作的 `v2`，可以指定单个路径，也可以在单独的行上添加多个路径。 例如：
+
     ```
     - name: Cache Gradle packages
-      uses: actions/cache@v2
+      uses: {% data reusables.actions.action-cache %}
       with:
         path: |
           ~/.gradle/caches
@@ -111,7 +112,6 @@ If you are caching the package managers listed below, consider using the respect
 
 此示例在 `package-lock.json` 文件中的包更改时，或运行器的操作系统更改时，创建一个新的缓存。 缓存键使用上下文和表达式生成一个键值，其中包括运行器的操作系统和 `package-lock.json` 文件的 SHA-256 哈希。
 
-{% raw %}
 ```yaml{:copy}
 name: Caching with npm
 
@@ -122,20 +122,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         env:
           cache-name: cache-node-modules
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}{% endraw %}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
+            {% raw %}${{ runner.os }}-build-{% endraw %}
+            {% raw %}${{ runner.os }}-{% endraw %}
 
       - name: Install Dependencies
         run: npm install
@@ -146,7 +146,6 @@ jobs:
       - name: Test
         run: npm test
 ```
-{% endraw %}
 
 当 `key` 匹配现有缓存时，被称为缓存命中，并且操作会将缓存的文件还原到 `path` 目录。
 

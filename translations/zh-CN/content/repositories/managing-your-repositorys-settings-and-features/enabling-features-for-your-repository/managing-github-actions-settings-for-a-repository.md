@@ -29,11 +29,11 @@ miniTocMaxHeadingLevel: 3
 
 您可以对您的仓库启用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.enabled-actions-description %} 您可以对您的仓库完全禁用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.disabled-actions-description %}
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} in your repository but limit the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
+或者，您也可以在存储库中启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作{% if actions-workflow-policy %}和可重用工作流程{% endif %}。
 
 ## 管理仓库的 {% data variables.product.prodname_actions %} 权限
 
-You can disable {% data variables.product.prodname_actions %} for a repository, or set a policy that configures which actions{% if actions-workflow-policy %} and reusable workflows{% endif %} can be used in the repository.
+您可以禁用存储库的 {% data variables.product.prodname_actions %} ，或设置策略来配置可在存储库中使用的 {% if actions-workflow-policy %} 和可重用工作流{% endif %} 。
 
 {% note %}
 
@@ -49,9 +49,9 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
    {% if actions-workflow-policy %}
-   ![Set actions policy for this repository](/assets/images/help/repository/actions-policy-with-workflows.png)
+   ![为此存储库设置操作策略](/assets/images/help/repository/actions-policy-with-workflows.png)
    {%- else %}
-   ![Set actions policy for this repository](/assets/images/help/repository/actions-policy.png)
+   ![为此存储库设置操作策略](/assets/images/help/repository/actions-policy.png)
    {%- endif %}
 1. 单击 **Save（保存）**。
 
@@ -60,14 +60,14 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Under "Actions permissions", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions to the list.
+1. 在 Actions permissions（操作权限）下，选择 {% data reusables.actions.policy-label-for-select-actions-workflows %} 并将所需操作添加到列表中。
 
    {% if actions-workflow-policy%}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
+   ![将操作和可重用工作流程添加到允许列表](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
    {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/repository/actions-policy-allow-list.png)
+   ![向允许列表添加操作](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   ![向允许列表添加操作](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
 1. 单击 **Save（保存）**。
 

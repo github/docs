@@ -4,10 +4,8 @@ intro: You can use API previews to try out new features and provide feedback bef
 redirect_from:
   - /v3/previews
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
 topics:
   - API
 ---
@@ -130,17 +128,6 @@ You can now [require multiple approving reviews](/rest/reference/repos#branches)
 
 {% endif %}
 
-
-{% ifversion ghes %}
-
-## Anonymous Git access to repositories
-
-When a {% data variables.product.prodname_ghe_server %} instance is in private mode, site and repository administrators can enable anonymous Git access for a public repository.
-
-**Custom media type:** `x-ray-preview`
-**Announced:** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
-
-{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Project card details
@@ -149,15 +136,6 @@ The REST API responses for [issue events](/rest/reference/issues#events) and [is
 
 **Custom media type:** `starfox-preview`
 **Announced:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
-
-{% endif %}
-{% ifversion fpt or ghec %}
-
-## GitHub App Manifests
-
-GitHub App Manifests allow people to create preconfigured GitHub Apps. See "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" for more details.
-
-**Custom media type:** `fury-preview`
 
 {% endif %}
 

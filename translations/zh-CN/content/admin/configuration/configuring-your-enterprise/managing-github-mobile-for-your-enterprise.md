@@ -1,5 +1,5 @@
 ---
-title: 管理企业的 GitHub Mobile
+title: Managing GitHub Mobile for your enterprise
 intro: 'You can decide whether people can use {% data variables.product.prodname_mobile %} to connect to {% data variables.product.product_location %}.'
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_mobile %} for a {% data variables.product.product_name %} instance.'
 versions:
@@ -11,12 +11,12 @@ topics:
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/managing-github-for-mobile-for-your-enterprise
   - /admin/configuration/managing-github-for-mobile-for-your-enterprise
-shortTitle: 管理 GitHub Mobile
+shortTitle: Manage GitHub Mobile
 ---
 
-## 关于 {% data variables.product.prodname_mobile %}
+## About {% data variables.product.prodname_mobile %}
 
-{% data variables.product.prodname_mobile %} allows people to triage, collaborate, and manage work on {% data variables.product.product_location %} from a mobile device after successful authentication. {% data reusables.mobile.about-mobile %} 更多信息请参阅“[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)”。
+{% data variables.product.prodname_mobile %} allows people to triage, collaborate, and manage work on {% data variables.product.product_location %} from a mobile device after successful authentication. {% data reusables.mobile.about-mobile %} For more information, see "[{% data variables.product.prodname_mobile %}](/get-started/using-github/github-mobile)."
 
 You can allow or disallow people from using {% data variables.product.prodname_mobile %} to authenticate to {% data variables.product.product_location %} and access your instance's data. By default, {% data variables.product.prodname_mobile %} is{% ifversion ghes > 3.3 %} enabled for people who use {% data variables.product.product_location %}.{% else %} not enabled for people who use {% data variables.product.product_location %}. To allow connection to your instance with {% data variables.product.prodname_mobile %}, you must enable the feature for your instance.{% endif %}
 
@@ -28,11 +28,13 @@ You can allow or disallow people from using {% data variables.product.prodname_m
 {% endnote %}
 {% endif %}
 
-## 启用或禁用 {% data variables.product.prodname_mobile %}
+## Enabling or disabling {% data variables.product.prodname_mobile %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
-1. 在左侧边栏中，单击 **Mobile（移动）**。 ![{% data variables.product.prodname_ghe_server %} 管理控制台左侧边栏中的"Mobile（移动）"](/assets/images/enterprise/management-console/click-mobile.png)
-1. 在“GitHub Mobile”下，选择或取消选择 **Enable GitHub Mobile Apps（启用 GitHub Mobile App）**。 ![{% data variables.product.prodname_ghe_server %} 管理控制台中的"Enable GitHub Mobile Apps（启用 GitHub 手机 App）"复选框](/assets/images/enterprise/management-console/select-enable-github-mobile-apps.png)
+1. In the left sidebar, click **Mobile**.
+  !["Mobile" in the left sidebar for the {% data variables.product.prodname_ghe_server %} management console](/assets/images/enterprise/management-console/click-mobile.png)
+1. Under "GitHub Mobile", select or deselect **Enable GitHub Mobile Apps**.
+  ![Checkbox for "Enable GitHub Mobile Apps" in the {% data variables.product.prodname_ghe_server %} management console](/assets/images/enterprise/management-console/select-enable-github-mobile-apps.png)
 {% data reusables.enterprise_management_console.save-settings %}

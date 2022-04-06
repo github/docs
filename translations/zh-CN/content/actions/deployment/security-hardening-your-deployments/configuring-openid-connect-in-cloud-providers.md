@@ -68,7 +68,7 @@ jobs:
     - name: Install OIDC Client from Core Package
       run: npm install @actions/core@1.6.0 @actions/http-client
     - name: Get Id Token
-      uses: actions/github-script@v4
+      uses: {% data reusables.actions.action-github-script %}
       id: idtoken
       with:
         script: |
@@ -90,7 +90,7 @@ jobs:
   job:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/github-script@v4
+    - uses: {% data reusables.actions.action-github-script %}
       id: script
       timeout-minutes: 10
       with:

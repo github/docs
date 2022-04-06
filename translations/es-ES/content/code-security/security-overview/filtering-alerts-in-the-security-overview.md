@@ -4,7 +4,6 @@ intro: Utiliza filtros para ver categorías específicas de las alertas
 permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  fpt: '*'
   ghae: issue-4554
   ghes: '>3.1'
   ghec: '*'
@@ -53,7 +52,7 @@ Disponible en el resumen a nivel de organización y de equipo.
 | Qualifier | Descripción |
 | --------- | ----------- |
 |           |             |
-{%- ifversion fpt or ghes or ghec %}
+{%- ifversion ghes or ghec %}
 | `is:public` | Muestra los repositorios públicos. |
 {%- endif %}
 {%- ifversion ghes or ghec or ghae %}
@@ -122,11 +121,10 @@ Disponible en las vistas de alertas del escaneo de código. Todas las alertas de
 
 Disponible en las vistas de alerta del escaneo de secretos.
 
-| Qualifier                                                                                                                                                                                                                         | Descripción                                                                                                                                                                                                                                         |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `secret-type:SERVICE_PROVIDER`                                                                                                                                                                                                    | Muestra alertas para el secreto y proveedor especificados. Para obtener más información, consulta la sección "[patrones de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)". |
-| `secret-type:CUSTOM-PATTERN`                                                                                                                                                                                                      | Muestra alertas para los secretos que coinciden con el patrón personalizado específico.                                                                                                                                                             |
-| {% ifversion not fpt %}Para obtener más información, consulta la sección "[Definir patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)".{% endif %} |                                                                                                                                                                                                                                                     |
+| Qualifier                      | Descripción                                                                                                                                                                                                                                         |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret-type:SERVICE_PROVIDER` | Muestra alertas para el secreto y proveedor especificados. Para obtener más información, consulta la sección "[patrones de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)". |
+| `secret-type:CUSTOM-PATTERN`   | Muestra alertas para los secretos que coinciden con el patrón personalizado específico. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."    |
 
 ## Filtrar por proveedor
 

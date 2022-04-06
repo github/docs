@@ -22,7 +22,6 @@ Este guia demonstra como criar um trabalho que instale software adicional em um 
 
 O exemplo a seguir demonstra como instalar um pacote `apt` como parte de um trabalho.
 
-{% raw %}
 ```yaml
 name: Build on Ubuntu
 on: push
@@ -32,13 +31,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install jq tool
         run: |
           sudo apt-get update
           sudo apt-get install jq
 ```
-{% endraw %}
 
 {% note %}
 
@@ -50,7 +48,6 @@ jobs:
 
 O exemplo a seguir demonstra como instalar pacotes de Brew e cascas como parte de um trabalho.
 
-{% raw %}
 ```yaml
 name: Build on macOS
 on: push
@@ -60,7 +57,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install GitHub CLI
         run: |
           brew update
@@ -70,7 +67,6 @@ jobs:
           brew update
           brew install --cask microsoft-edge
 ```
-{% endraw %}
 
 ## Instalando software em executores do Windows
 
