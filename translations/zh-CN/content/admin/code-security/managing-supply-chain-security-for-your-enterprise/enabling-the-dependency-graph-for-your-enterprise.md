@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.dependabot.about-the-dependency-graph %} For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
 
-After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect vulnerable dependencies in your repository{% ifversion ghes > 3.2 %} and automatically fix the vulnerabilities{% endif %}. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect vulnerable dependencies in your repository{% ifversion ghes > 3.2 %} and automatically fix the vulnerabilities{% endif %}. 更多信息请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 
 {% ifversion ghes > 3.1 %}
 您可以通过 {% data variables.enterprise.management_console %} 或管理 shell 启用依赖关系图。 We recommend using the {% data variables.enterprise.management_console %} unless {% data variables.product.product_location %} uses clustering.

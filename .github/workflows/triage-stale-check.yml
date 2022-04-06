@@ -24,7 +24,7 @@ jobs:
           stale-issue-message: 'A stale label has been added to this issue becuase it has been open for 60 days with no activity. To keep this issue open, add a comment within 3 days.'
           days-before-issue-stale: 60
           days-before-issue-close: 3
-          exempt-issue-labels: 'help wanted,waiting for review'
+          exempt-issue-labels: 'help wanted,never-stale,waiting for review'
           stale-pr-message: 'A stale label has been added to this pull request because it has been open 7 days with no activity. To keep this PR open, add a comment or push a commit within 3 days.'
           days-before-pr-stale: 7
           days-before-pr-close: 3

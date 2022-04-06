@@ -1133,6 +1133,7 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
       }
     ],
+    "dependency-graph": [],
     "deploy_keys": [
       {
         "slug": "list-deploy-keys",

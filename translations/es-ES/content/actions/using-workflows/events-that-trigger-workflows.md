@@ -1079,6 +1079,12 @@ on:
     types: [on-demand-test]
 ```
 
+{% note %}
+
+**Note:** The `event_type` value is limited to 100 characters.
+
+{% endnote %}
+
 Cualquier dato que envíes a través del parámetro `client_payload` estará disponible en el contexto `github.event` en tu flujo de trabajo. Por ejemplo, si envías este cuerpo de solicitud cuando creas un evento de despacho de repositorio:
 
 ```json
@@ -1149,7 +1155,7 @@ Puedes usar estos operadores en cualquiera de los cinco campos:
 
 {% endnote %}
 
-Puedes usar [contrab guru](https://crontab.guru/) para ayudar a generar tu sintaxis de cron y confirmar a qué hora se ejecutará. Para que puedas comenzar, hay también una lista de [ejemplos de crontab guru](https://crontab.guru/examples.html).
+Puedes usar [contrab guru](https://crontab.guru/) para generar tu sintaxis de cron y confirmar a qué hora se ejecutará. Para que puedas comenzar, hay también una lista de [ejemplos de crontab guru](https://crontab.guru/examples.html).
 
 Las notificaciones para los flujos de trabajo programados se envían al usuario que modificó por última vez la sintaxis de cron en el archivo de flujo de trabajo. Para obtener más información, consulta la sección "[Notificaciones para las ejecuciones de flujo de trabajo](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)".
 
@@ -1163,7 +1169,7 @@ Las notificaciones para los flujos de trabajo programados se envían al usuario 
 
 Ejecuta tu flujo de trabajo cuando cambia el estado de una confirmación de Git. Por ejemplo, las confirmaciones pueden marcarse como `error`, `failure`, `pending` o `success`. Si quieres proporcionar más detalles sobre el cambio de estado, puede que quieras utilizar el evento [`check_run`](#check_run). Para obtener más información sobre las API de estado de confirmación, consulta la sección "[Estado](/graphql/reference/objects#statue)" en la documentación de la API de GraphQL o "[Estados](/rest/reference/commits#commit-statuses)" en la documentación de la API de REST.
 
-Por ejemplo, puedes ejecutar un flujo de trabajo cuando se produzca el evento de `estado`.
+Por ejemplo, puedes ejecutar un flujo de trabajo cuando se produzca el evento `status`.
 
 ```yaml
 on:
@@ -1429,7 +1435,7 @@ jobs:
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
-      - uses: actions/upload-artifact@v3
+      - uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: pr_number
           path: pr/
@@ -1451,7 +1457,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Download artifact'
-        uses: actions/github-script@v5
+        uses: {% data reusables.actions.action-github-script %}
         with:
           script: |
             let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
@@ -1475,7 +1481,7 @@ jobs:
         run: unzip pr_number.zip
 
       - name: 'Comment on PR'
-        uses: actions/github-script@v5
+        uses: {% data reusables.actions.action-github-script %}
         with:
           github-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           script: |

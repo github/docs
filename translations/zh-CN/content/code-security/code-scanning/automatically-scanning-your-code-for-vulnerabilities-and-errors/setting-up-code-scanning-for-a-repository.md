@@ -33,6 +33,10 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 
 {% data reusables.code-scanning.enabling-options %}
 
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% data reusables.code-scanning.about-analysis-origins-link %}
+{% endif %}
+
 {% ifversion ghes or ghae %}
 {% note %}
 

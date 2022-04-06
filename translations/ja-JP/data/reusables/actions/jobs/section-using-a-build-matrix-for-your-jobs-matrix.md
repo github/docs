@@ -13,19 +13,17 @@ Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configur
 
 この例では、`node`キーにNode.jsの3つのバージョンの配列を設定することによって、3つのジョブのマトリクスを作成します。 このマトリックスを使用するために、この例では`matrix.node`コンテキスト属性を`setup-node`アクションの入力パラメータである`node-version`に設定しています。 その結果、3 つのジョブが実行され、それぞれが異なるバージョンのNode.js を使用します。
 
-{% raw %}
 ```yaml
 strategy:
   matrix:
     node: [10, 12, 14]
 steps:
-  # GitHub でホストされているランナーで使用されるノードバージョンを設定する
-  - uses: actions/setup-node@v2
+  # Configures the node version used on GitHub-hosted runners
+  - uses: {% data reusables.actions.action-setup-node %}
     with:
       # The Node.js version to configure
-      node-version: ${{ matrix.node }}
+      node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 {% data variables.product.prodname_dotcom %}ホストランナーを使う場合にNode.jsのバージョンを設定する方法としては、`setup-node`アクションをおすすめします。 詳しい情報については[`setup-node`](https://github.com/actions/setup-node)アクションを参照してください。
 
@@ -38,19 +36,17 @@ steps:
 
 {% data reusables.repositories.actions-matrix-builds-os %}
 
-{% raw %}
 ```yaml
-runs-on: ${{ matrix.os }}
+runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 strategy:
   matrix:
     os: [ubuntu-18.04, ubuntu-20.04]
     node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v2
+  - uses: {% data reusables.actions.action-setup-node %}
     with:
-      node-version: ${{ matrix.node }}
+      node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 {% ifversion ghae %}
 For more information about the configuration of self-hosted runners, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."

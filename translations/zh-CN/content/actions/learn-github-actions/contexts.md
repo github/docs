@@ -257,7 +257,7 @@ jobs:
   normal_ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run normal CI
         run: ./run-tests
 
@@ -265,7 +265,7 @@ jobs:
     runs-on: ubuntu-latest
     if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run PR CI
         run: ./run-additional-pr-ci
 ```
@@ -367,7 +367,6 @@ jobs:
 
 此示例工作流程配置 PostgreSQL 服务容器，并自动将服务容器中的端口 5432 映射到主机上随机选择的可用端口。 `job` 上下文用于访问在主机上分配的端口号。
 
-{% raw %}
 ```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
@@ -385,11 +384,10 @@ jobs:
           - 5432
 
     steps:
-      - uses: actions/checkout@v2
-      - run: pg_isready -h localhost -p ${{ job.services.postgres.ports[5432] }}
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: ./run-tests
 ```
-{% endraw %}
 
 ## `steps` 上下文
 
@@ -428,7 +426,6 @@ jobs:
 
 此示例工作流程在一个步骤中生成一个随机数作为输出，后面的步骤使用 `steps` 上下文来读取该输出的值。
 
-{% raw %}
 ```yaml{:copy}
 name: Generate random failure
 on: push
@@ -437,15 +434,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Generate 0 or 1
         id: generate_number
         run:  echo "::set-output name=random_number::$(($RANDOM % 2))"
       - name: Pass or fail
         run: |
-          if [[ ${{ steps.generate_number.outputs.random_number }} == 0 ]]; then exit 0; else exit 1; fi
+          if [[ {% raw %}${{ steps.generate_number.outputs.random_number }}{% endraw %} == 0 ]]; then exit 0; else exit 1; fi
 ```
-{% endraw %}
 
 ## `runner` 上下文
 
@@ -486,7 +482,6 @@ jobs:
 
 此示例工作流程使用 `runner` 上下文来设置临时目录的路径以写入日志，如果工作流程失败，它将这些日志上传为构件。
 
-{% raw %}
 ```yaml{:copy}
 name: Build
 on: push
@@ -495,19 +490,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build with logs
         run: |
-          mkdir ${{ runner.temp }}/build_logs
-          ./build.sh --log-path ${{ runner.temp }}/build_logs
+          mkdir {% raw %}${{ runner.temp }}{% endraw %}/build_logs
+          ./build.sh --log-path {% raw %}${{ runner.temp }}{% endraw %}/build_logs
       - name: Upload logs on fail
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v3
+        if: {% raw %}${{ failure() }}{% endraw %}
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: Build failure logs
-          path: ${{ runner.temp }}/build_logs
+          path: {% raw %}${{ runner.temp }}{% endraw %}/build_logs
 ```
-{% endraw %}
 
 ## `secrets` 上下文
 
@@ -568,7 +562,6 @@ jobs:
 
 此示例工作流程使用 `strategy.job-index` 属性为生成矩阵中每个作业的日志文件设置唯一名称。
 
-{% raw %}
 ```yaml{:copy}
 name: Test matrix
 on: push
@@ -581,15 +574,14 @@ jobs:
         test-group: [1, 2]
         node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - run: npm test > test-job-${{ strategy.job-index }}.txt
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: npm test > test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
       - name: Upload logs
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
-          name: Build log for job ${{ strategy.job-index }}
-          path: test-job-${{ strategy.job-index }}.txt
+          name: Build log for job {% raw %}${{ strategy.job-index }}{% endraw %}
+          path: test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
 ```
-{% endraw %}
 
 ## `matrix` 上下文
 
@@ -617,29 +609,27 @@ jobs:
 
 此示例工作流程创建一个包含 `os` 和 `node` 键的生成矩阵。 它使用 `matrix.os` 属性为每个作业设置运行器类型，并使用 `matrix.node` 属性为每个作业设置 Node.js 版本。
 
-{% raw %}
 ```yaml{:copy}
 name: Test matrix
 on: push
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node }}
+          node-version: {% raw %}${{ matrix.node }}{% endraw %}
       - name: Install dependencies
         run: npm ci
       - name: Run tests
         run: npm test
 ```
-{% endraw %}
 
 ## `needs` 上下文
 
@@ -676,7 +666,6 @@ jobs:
 
 此示例工作流程有三个作业：执行生成的 `build` 作业，执行生成；需要 `build` 作业的 `deploy` 作业，以及需要 `build` 和 `deploy` 作业并且仅工作流程中出现失败时运行的 `debug` 作业。 `deploy` 作业还使用 `needs` 上下文来访问 `build` 作业的输出。
 
-{% raw %}
 ```yaml{:copy}
 name: Build and deploy
 on: push
@@ -685,9 +674,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      build_id: ${{ steps.build_step.outputs.build_id }}
+      build_id: {% raw %}${{ steps.build_step.outputs.build_id }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         id: build_step
         run: |
@@ -697,17 +686,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: ./deploy --build ${{ needs.build.outputs.build_id }}
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: ./deploy --build {% raw %}${{ needs.build.outputs.build_id }}{% endraw %}
   debug:
     needs: [build, deploy]
     runs-on: ubuntu-latest
-    if: ${{ failure() }}
+    if: {% raw %}${{ failure() }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - run: ./debug
 ```
-{% endraw %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## `inputs` 上下文
