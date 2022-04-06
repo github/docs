@@ -102,7 +102,7 @@ jobs:
 
       # Set up npm and run npm ci to run husky to get githooks for LFS
       - name: Setup node
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
+        uses: actions/setup-node@5b52f097d36d4b0b2f94ed6de710023fbb8b2236
         with:
           node-version: 16.14.x
           cache: npm
