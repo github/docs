@@ -546,6 +546,12 @@ To avoid ambiguity and confusion, do not use product names as adjectives to desc
 - **Avoid:** Your GitHub Enterprise Server organization
 - **Use:** You can highlight your work on GitHub Enterprise Server by sending the contribution counts to your GitHub.com profile.
 
+When referring to an individual owner of a GitHub account and the documentation is not for a site admin or enterprise owner, "personal account" should be used.
+- **Use:** Setting up and managing your GitHub personal account.
+- **Use:** Delete your personal account
+- **Use:** Managing scheduled reminders for your personal account
+- **Avoid:** User account settings.
+
 ### Acronyms
 
 Spell out acronyms the first time they’re used in an article, except in titles or headers.
