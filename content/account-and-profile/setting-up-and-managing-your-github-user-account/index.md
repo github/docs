@@ -1,5 +1,5 @@
 ---
-title: Setting up and managing your GitHub personal account
+title: Setting up and managing your GitHub user account
 intro: 'You can manage settings in your GitHub personal account including email preferences, collaborator access for personal repositories, and organization memberships.'
 shortTitle: Personal accounts
 redirect_from:

@@ -68,7 +68,8 @@ export const RestReferencePage = ({
     if (
       hash &&
       (pathname.endsWith('/rest/reference/repos') ||
-        pathname.endsWith('/rest/reference/enterprise-admin'))
+        pathname.endsWith('/rest/reference/enterprise-admin') ||
+        pathname.endsWith('/rest/reference/deployments'))
     ) {
       setLoadClientsideRedirectExceptions(true)
     }
@@ -126,7 +127,13 @@ export const RestReferencePage = ({
         as="li"
         key={item.contents}
         className={item.platform}
-        sx={{ listStyle: 'none', padding: '2px' }}
+        sx={{
+          listStyle: 'none',
+          padding: '2px',
+          ':hover': {
+            bg: 'var(--color-canvas-inset)',
+          },
+        }}
       >
         <div className={cx('lh-condensed d-block width-full')}>
           <div className="d-inline-flex" dangerouslySetInnerHTML={{ __html: item.contents }} />
@@ -160,9 +167,6 @@ export const RestReferencePage = ({
             {page.introPlainText}
           </Lead>
         )}
-        <div key={`restCategory-introContent`}>
-          <div dangerouslySetInnerHTML={{ __html: introContent }} />
-        </div>
         <div className="my-3 d-flex">
           <div className="pr-3 mt-1">
             <Circle className="color-fg-on-emphasis color-bg-emphasis">
@@ -184,6 +188,9 @@ export const RestReferencePage = ({
               />
             )}
           </div>
+        </div>
+        <div key={`restCategory-introContent`}>
+          <div dangerouslySetInnerHTML={{ __html: introContent }} />
         </div>
         <MarkdownContent>
           {subcategories.map((subcategory, index) => (

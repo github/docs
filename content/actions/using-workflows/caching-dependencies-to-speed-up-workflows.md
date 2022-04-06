@@ -92,9 +92,10 @@ For more information, see [`actions/cache`](https://github.com/actions/cache).
 - `path`: **Required** The file path on the runner to cache or restore. The path can be an absolute path or relative to the workspace directory.
   - Paths can be either directories or single files, and glob patterns are supported.
   - With `v2` of the `cache` action, you can specify a single path, or you can add multiple paths on separate lines. For example:
+
     ```
     - name: Cache Gradle packages
-      uses: actions/cache@v2
+      uses: {% data reusables.actions.action-cache %}
       with:
         path: |
           ~/.gradle/caches
@@ -111,7 +112,6 @@ For more information, see [`actions/cache`](https://github.com/actions/cache).
 
 This example creates a new cache when the packages in `package-lock.json` file change, or when the runner's operating system changes. The cache key uses contexts and expressions to generate a key that includes the runner's operating system and a SHA-256 hash of the `package-lock.json` file.
 
-{% raw %}
 ```yaml{:copy}
 name: Caching with npm
 
@@ -122,20 +122,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         env:
           cache-name: cache-node-modules
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}{% endraw %}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
+            {% raw %}${{ runner.os }}-build-{% endraw %}
+            {% raw %}${{ runner.os }}-{% endraw %}
 
       - name: Install Dependencies
         run: npm install
@@ -146,7 +146,6 @@ jobs:
       - name: Test
         run: npm test
 ```
-{% endraw %}
 
 When `key` matches an existing cache, it's called a cache hit, and the action restores the cached files to the `path` directory.
 

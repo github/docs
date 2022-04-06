@@ -2,7 +2,7 @@
 title: Keeping secrets secure with secret scanning
 shortTitle: Secret scanning
 intro: 'トークン、秘密鍵やその他のコードのシークレットが、リポジトリで公開されないことを保証する重労働を、{% data variables.product.company_short %}にやらせてください。'
-product: '{% data reusables.gated-features.secret-scanning %}'
+product: '{% data reusables.gated-features.secret-scanning-partner %}'
 redirect_from:
   - /code-security/secret-security
 versions:
@@ -20,5 +20,6 @@ children:
   - /defining-custom-patterns-for-secret-scanning
   - /managing-alerts-from-secret-scanning
   - /secret-scanning-patterns
+  - /protecting-pushes-with-secret-scanning
 ---
 

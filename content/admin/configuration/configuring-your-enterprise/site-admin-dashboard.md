@@ -45,9 +45,9 @@ Data for GitHub's [trending page][] is calculated into daily, weekly, and monthl
 
 {% data variables.product.product_name %} keeps a running log of audited actions that you can query.
 
-By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[Searching the audit log](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)."
+By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[Searching the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)."
 
-For more information on audit logging in general, see "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)." For a full list of audited actions, see "[Audited actions](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)."
+For more information on audit logging in general, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)." For a full list of audited actions, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
 ## Reports
 
@@ -82,7 +82,7 @@ To access the other reports programmatically, replace `all_users` with `active_u
 
 Key               | Description
 -----------------:| ------------------------------------------------------------
-`created_at`      | When the personal account was created (as an ISO 8601 timestamp)
+`created_at`      | When the user account was created (as an ISO 8601 timestamp)
 `id`              | Account ID for the user or organization
 `login`           | Account's login name
 `email`           | Account's primary email address
@@ -212,10 +212,10 @@ Here you can see all of the administrators on {% data variables.product.product_
 
 ## Dormant users
 {% ifversion ghes %}
-Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A personal account is considered to be inactive ("dormant") when it:
+Here you can see and [suspend](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}
 {% ifversion ghae %}
-Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. A personal account is considered to be inactive ("dormant") when it:
+Here you can see and suspend all of the inactive users on {% data variables.product.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}
 
 - Has existed for longer than the dormancy threshold that's set for {% data variables.product.product_location %}.

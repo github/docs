@@ -46,9 +46,9 @@ Organization owners can also verify additional domains for their organizations. 
 
 After you approve domains for your enterprise account, you can restrict email notifications for activity within your enterprise account to users with verified email addresses within verified or approved domains. For more information, see "[Restricting email notifications for your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
 
-{% ifversion ghec %}To receive email notifications, the owner of the personal account must verify the email address on {% data variables.product.product_name %}. For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."{% endif %}
+{% ifversion ghec %}To receive email notifications, the owner of the user account must verify the email address on {% data variables.product.product_name %}. For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."{% endif %}
 
-Organization owners cannot see the email address or which personal account is associated with an email address from an approved domain.
+Organization owners cannot see the email address or which user account is associated with an email address from an approved domain.
 
 Organization owners can also approve additional domains for their organizations. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 

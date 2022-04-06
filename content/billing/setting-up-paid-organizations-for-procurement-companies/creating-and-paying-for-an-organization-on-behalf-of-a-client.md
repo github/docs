@@ -10,7 +10,7 @@ versions:
   ghec: '*'
 type: quick_start
 topics:
-  - Personal account
+  - User account
   - Organizations
   - Upgrades
 shortTitle: On behalf of a client

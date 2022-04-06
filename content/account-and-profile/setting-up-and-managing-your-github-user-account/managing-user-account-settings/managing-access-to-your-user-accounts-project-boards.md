@@ -1,5 +1,5 @@
 ---
-title: Managing access to your personal account's project boards
+title: Managing access to your user account's project boards
 intro: 'As a project board owner, you can add or remove a collaborator and customize their permissions to a project board.'
 redirect_from:
   - /articles/managing-project-boards-in-your-repository-or-organization

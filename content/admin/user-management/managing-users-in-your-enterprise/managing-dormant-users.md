@@ -30,14 +30,14 @@ topics:
 4. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
 ![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png){% endif %}
 
-## Determining whether a personal account is dormant
+## Determining whether a user account is dormant
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
-5. In the **User info** section, a red dot with the word "Dormant" indicates the personal account is dormant, and a green dot with the word "Active" indicates the personal account is active.
-![Dormant personal account](/assets/images/enterprise/stafftools/dormant-user.png)
-![Active personal account](/assets/images/enterprise/stafftools/active-user.png)
+5. In the **User info** section, a red dot with the word "Dormant" indicates the user account is dormant, and a green dot with the word "Active" indicates the user account is active.
+![Dormant user account](/assets/images/enterprise/stafftools/dormant-user.png)
+![Active user account](/assets/images/enterprise/stafftools/active-user.png)
 
 ## Configuring the dormancy threshold
 

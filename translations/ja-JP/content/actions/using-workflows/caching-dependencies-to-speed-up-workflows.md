@@ -92,9 +92,10 @@ Multiple workflows within a repository share cache entries. A cache created for 
 - `path`: **必須** ランナーがキャッシュあるいはリストアをするファイルパス。 The path can be an absolute path or relative to the workspace directory.
   - パスはディレクトリまたは単一ファイルのいずれかで、glob パターンがサポートされています。
   - `cache` アクションの `v2` では、単一のパスを指定することも、別々の行に複数のパスを追加することもできます。 例:
+
     ```
     - name: Cache Gradle packages
-      uses: actions/cache@v2
+      uses: {% data reusables.actions.action-cache %}
       with:
         path: |
           ~/.gradle/caches
@@ -111,7 +112,6 @@ Multiple workflows within a repository share cache entries. A cache created for 
 
 以下の例では、`package-lock.json`ファイル内のパッケージが変更された場合、あるいはランナーのオペレーティングシステムが変更された場合に新しいキャッシュが作成されます。 キャッシュキーはコンテキストと式を使い、ランナーのオペレーティングシステムと`package-lock.json`ファイルのSHA-256ハッシュを含むキーを生成します。
 
-{% raw %}
 ```yaml{:copy}
 name: Caching with npm
 
@@ -122,20 +122,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         env:
           cache-name: cache-node-modules
         with:
-          # npm キャッシュファイルは Linux/macOS の `~/.npm` に保存される
+          # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}{% endraw %}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
+            {% raw %}${{ runner.os }}-build-{% endraw %}
+            {% raw %}${{ runner.os }}-{% endraw %}
 
       - name: Install Dependencies
         run: npm install
@@ -146,7 +146,6 @@ jobs:
       - name: Test
         run: npm test
 ```
-{% endraw %}
 
 `key`が既存のキャッシュにマッチした場合はキャッシュヒットと呼ばれ、このアクションはキャッシュされたファイルを`path`ディレクトリにリストアします。
 
@@ -234,3 +233,11 @@ restore-keys: |
 ## 利用制限と退去のポリシー
 
 {% data variables.product.prodname_dotcom %}は、7日間以上アクセスされていないキャッシュエントリを削除します。 There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 10 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 10 GB.
+
+{% if actions-cache-management %}
+
+## Managing caches
+
+You can use the {% data variables.product.product_name %} REST API to manage your caches. At present, you can use the API to see your cache usage, with more functionality expected in future updates. For more information, see the "[Actions](/rest/reference/actions#cache)" REST API documentation.
+
+{% endif %}

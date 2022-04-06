@@ -242,7 +242,7 @@ You can use these options with the utility:
 - The `-a` flag gives owner privileges in all organizations to all site admins.
 - The `-y` flag bypasses the manual confirmation.
 
-This utility cannot promote a non-site admin to be an owner of all organizations. You can promote an ordinary personal account to a site admin with [ghe-user-promote](#ghe-user-promote).
+This utility cannot promote a non-site admin to be an owner of all organizations. You can promote an ordinary user account to a site admin with [ghe-user-promote](#ghe-user-promote).
 
 Give organization owner privileges in a specific organization to a specific site admin
 
@@ -890,7 +890,7 @@ ghe-user-demote <em>some-user-name</em>
 
 ### ghe-user-promote
 
-This utility promotes the specified personal account to a site administrator.
+This utility promotes the specified user account to a site administrator.
 
 ```shell
 ghe-user-promote <em>some-user-name</em>

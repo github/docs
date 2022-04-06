@@ -14,7 +14,7 @@ versions:
 type: how_to
 topics:
   - Organizations
-  - Personal account
+  - User account
 shortTitle: Pending subscription changes
 ---
 You can cancel pending changes to your account's subscription as well as pending changes to your subscriptions to other paid features and products.

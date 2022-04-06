@@ -30,17 +30,6 @@ Windows Server 2019
 </tr>
 <tr>
 <td>
-Windows Server 2016<sup>[deprecated]</sup>
-</td>
-<td>
-<code>windows-2016</code>
-</td>
-<td>
-Migrarse a Windows 2019 o Windows 2022. Para obtener más información, consulta <A href="https://github.blog/changelog/2021-10-19-github-actions-the-windows-2016-runner-image-will-be-removed-from-github-hosted-runners-on-march-15-2022/">la publicación del blog</A>.
-</td>
-</tr>
-<tr>
-<td>
 Ubuntu 20.04
 </td>
 <td>

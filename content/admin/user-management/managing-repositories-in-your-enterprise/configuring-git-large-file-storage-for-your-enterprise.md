@@ -58,7 +58,7 @@ For more information, see "[About {% data variables.large_files.product_name_lon
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
-## Configuring {% data variables.large_files.product_name_long %} for every repository owned by a personal account or organization
+## Configuring {% data variables.large_files.product_name_long %} for every repository owned by a user account or organization
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}

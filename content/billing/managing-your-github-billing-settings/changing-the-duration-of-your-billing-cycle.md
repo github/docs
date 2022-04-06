@@ -15,7 +15,7 @@ type: how_to
 topics:
   - Organizations
   - Repositories
-  - Personal account
+  - User account
 shortTitle: Billing cycle
 ---
 When you change your billing cycle's duration, your {% data variables.product.prodname_dotcom %} subscription, along with any other paid features and products, will be moved to your new billing cycle on your next billing date.

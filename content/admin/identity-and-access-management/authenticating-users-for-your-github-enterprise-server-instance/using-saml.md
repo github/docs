@@ -54,11 +54,7 @@ A mapping is created between the `NameID` and the {% data variables.product.prod
 
 {% note %}
 
-<<<<<<< HEAD
-**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign in to your {% data variables.product.prodname_ghe_server %} instance. {% ifversion ghes %}To restore the user's access, you'll need to update the personal account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."{% else %} For more information, see "[Error: 'Another user already owns the account'](#error-another-user-already-owns-the-account)."{% endif %}
-=======
 **Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign into {% data variables.product.product_location %}. To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."
->>>>>>> main
 
 {% endnote %}
 
@@ -82,7 +78,7 @@ These attributes are available. You can change the attribute names in the [manag
 | Default attribute name  | Type     | Description |
 |-----------------|----------|-------------|
 | `NameID` | Required | A persistent user identifier. Any persistent name identifier format may be used. The `NameID` element will be used for a {% data variables.product.prodname_ghe_server %} username unless one of the alternative assertions is provided. |
-| `administrator` | Optional | When the value is 'true', the user will automatically be promoted as an administrator. Any other value or a non-existent value will demote the user to a normal personal account. |
+| `administrator` | Optional | When the value is 'true', the user will automatically be promoted as an administrator. Any other value or a non-existent value will demote the user to a normal user account. |
 | `username` | Optional | The {% data variables.product.prodname_ghe_server %} username. |
 | `full_name`     | Optional | The name of the user displayed on their profile page. Users may change their names after provisioning. |
 | `emails`        | Optional | The email addresses for the user. More than one can be specified. |
@@ -197,7 +193,7 @@ If you enabled SAML debugging to test authentication with encrypted assertions, 
 2. In the left sidebar, click **All users**.
   !["All users" sidebar item in site administrator settings](/assets/images/enterprise/site-admin-settings/all-users.png)
 3. In the list of users, click the username you'd like to update the `NameID` mapping for.
-  ![Username in list of instance personal accounts](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
+  ![Username in list of instance user accounts](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 5. To the right of "Update SAML NameID", click **Edit** .
   !["Edit" button under "SAML authentication" and to the right of "Update SAML NameID"](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
@@ -244,13 +240,13 @@ The response message must fulfill the following requirements:
 
 ### Error: "Another user already owns the account"
 
-When a user signs in to {% data variables.product.prodname_ghe_server %} for the first time with SAML authentication, {% data variables.product.prodname_ghe_server %} creates a personal account on the instance and maps the SAML `NameID` to the account.
+When a user signs in to {% data variables.product.prodname_ghe_server %} for the first time with SAML authentication, {% data variables.product.prodname_ghe_server %} creates a user account on the instance and maps the SAML `NameID` to the account.
 
 When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` mapping to the IdP's response. If the `NameID` in the IdP's response no longer matches the `NameID` that {% data variables.product.prodname_ghe_server %} expects for the user, the sign-in will fail. The user will see the following message.
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` mapping for the personal account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."
+The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."
 
 ### Error: Recipient in SAML response was blank or not valid
 

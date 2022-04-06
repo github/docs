@@ -9,17 +9,17 @@ type: how_to
 topics:
   - Administrator
   - Enterprise
-  - Personal account
+  - User account
 shortTitle: Impersonate a user
 ---
 
 ## About user impersonation
 
-If you need to temporarily take over a personal account, for example when troubleshooting a user problem, or when the user is unavailable and urgent action is required, you can start an impersonation session to act on their behalf.
+If you need to temporarily take over a user account, for example when troubleshooting a user problem, or when the user is unavailable and urgent action is required, you can start an impersonation session to act on their behalf.
 
 For each impersonation session, you need to provide a reason for the impersonation. A session is limited to one hour, and you will have the same access as the user being impersonated.
 
-Actions you perform during an impersonation session are recorded as events in the enterprise audit log, as well as the impersonated user's security log. The person being impersonated is sent an email notification when the impersonation session starts. For more information, see "[Audited actions](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions)" and "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+Actions you perform during an impersonation session are recorded as events in the enterprise audit log, as well as the impersonated user's security log. The person being impersonated is sent an email notification when the impersonation session starts. For more information, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" and "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
 
 ## Impersonating a user
 

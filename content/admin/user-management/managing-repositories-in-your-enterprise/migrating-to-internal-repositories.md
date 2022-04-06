@@ -26,7 +26,7 @@ To prepare for these changes, if you have private mode enabled, you can run a mi
 
 When you run the migration, all public repositories owned by organizations on your instance will become internal repositories. If any of those repositories have forks, the forks will become private. Private repositories will remain private.
 
-All public repositories owned by personal accounts on your instance will become private repositories. If any of those repositories have forks, the forks will also become private. The owner of each fork will be given read permissions to the fork's parent.
+All public repositories owned by user accounts on your instance will become private repositories. If any of those repositories have forks, the forks will also become private. The owner of each fork will be given read permissions to the fork's parent.
 
 Anonymous Git read access will be disabled for each public repository that becomes internal or private.
 

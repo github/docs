@@ -214,7 +214,7 @@ Requiring users to resolve merge conflicts locally on their computer can prevent
 
 ## Configuring force pushes
 
-Each repository inherits a default force push setting from the settings of the personal account or organization that owns the repository. Each organization and personal account inherits a default force push setting from the force push setting for the enterprise. If you change the force push setting for the enterprise, the policy applies to all repositories owned by any user or organization.
+Each repository inherits a default force push setting from the settings of the user account or organization that owns the repository. Each organization and user account inherits a default force push setting from the force push setting for the enterprise. If you change the force push setting for the enterprise, the policy applies to all repositories owned by any user or organization.
 
 ### Blocking force pushes to all repositories
 
@@ -238,11 +238,11 @@ Each repository inherits a default force push setting from the settings of the p
 4. Select **Block** or **Block to the default branch** under **Push and Pull**.
    ![Block force pushes](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
 
-### Blocking force pushes to repositories owned by a personal account or organization
+### Blocking force pushes to repositories owned by a user account or organization
 
-Repositories inherit force push settings from the personal account or organization to which they belong. Personal accounts and organizations in turn inherit their force push settings from the force push settings for the enterprise.
+Repositories inherit force push settings from the user account or organization to which they belong. User accounts and organizations in turn inherit their force push settings from the force push settings for the enterprise.
 
-You can override the default inherited settings by configuring the settings for a personal account or organization.
+You can override the default inherited settings by configuring the settings for a user account or organization.
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}

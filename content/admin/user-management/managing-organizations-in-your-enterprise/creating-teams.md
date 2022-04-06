@@ -12,7 +12,7 @@ topics:
   - Access management
   - Enterprise
   - Teams
-  - Personal account
+  - User account
 ---
 Teams are central to many of {% data variables.product.prodname_dotcom %}'s collaborative features, such as team @mentions to notify appropriate parties that you'd like to request their input or attention. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 

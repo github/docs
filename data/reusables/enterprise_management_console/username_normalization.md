@@ -2,4 +2,4 @@
 
 Usernames created from email addresses are created from the normalized characters that precede the `@` character.
 
-If multiple accounts are normalized into the same {% data variables.product.prodname_ghe_server %} username, only the first personal account is created. Subsequent users with the same username won't be able to sign in.
+If multiple accounts are normalized into the same {% data variables.product.prodname_ghe_server %} username, only the first user account is created. Subsequent users with the same username won't be able to sign in.

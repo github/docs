@@ -24,7 +24,9 @@ topics:
 
 以下の2つの例は、呼び出し中の合計ノード数を計算する方法を示しています。
 
-1. 単純なクエリ： <pre>query {
+1. 単純なクエリ：
+
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -46,13 +48,17 @@ topics:
     }
   }</pre>
 
-  計算： <pre><span class="redbox">50</span>         = 50 リポジトリ
+  計算：
+
+  <pre><span class="redbox">50</span>         = 50 リポジトリ
    +
   <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 リポジトリのIssue
 
               = 550 総ノード</pre>
 
-2. 複雑なクエリ： <pre>query {
+2. 複雑なクエリ：
+
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -106,7 +112,9 @@ topics:
     }
   }</code></pre>
 
-  計算： <pre><span class="redbox">50</span>              = 50 リポジトリ
+  計算：
+
+  <pre><span class="redbox">50</span>              = 50 リポジトリ
    +
   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 プルリクエスト
    +

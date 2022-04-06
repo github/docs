@@ -47,12 +47,12 @@
         "requestPath": "/orgs/{org}/actions/permissions/repositories/{repository_id}"
       },
       {
-        "slug": "get-allowed-actions-and-workflows-for-an-organization",
+        "slug": "get-allowed-actions-and-reusable-workflows-for-an-organization",
         "verb": "get",
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-and-workflows-for-an-organization",
+        "slug": "set-allowed-actions-and-reusable-workflows-for-an-organization",
         "verb": "put",
         "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
       },
@@ -292,12 +292,12 @@
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/access"
       },
       {
-        "slug": "get-allowed-actions-and-workflows-for-a-repository",
+        "slug": "get-allowed-actions-and-reusable-workflows-for-a-repository",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
       },
       {
-        "slug": "set-allowed-actions-and-workflows-for-a-repository",
+        "slug": "set-allowed-actions-and-reusable-workflows-for-a-repository",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
       },
@@ -1133,6 +1133,28 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -1188,26 +1210,6 @@
         "slug": "delete-an-environment",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -2669,11 +2671,6 @@
     ],
     "teams": [
       {
-        "slug": "list-a-connection-between-an-external-group-and-a-team",
-        "verb": "get",
-        "requestPath": "/organizations/{org}/team/{team_slug}/external-groups"
-      },
-      {
         "slug": "get-an-external-group",
         "verb": "get",
         "requestPath": "/orgs/{org}/external-group/{group_id}"
@@ -2762,6 +2759,11 @@
         "slug": "delete-a-discussion-comment",
         "verb": "delete",
         "requestPath": "/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}"
+      },
+      {
+        "slug": "list-a-connection-between-an-external-group-and-a-team",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups"
       },
       {
         "slug": "list-pending-team-invitations",
@@ -3968,6 +3970,28 @@
         "requestPath": "/repos/{owner}/{repo}/statuses/{sha}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -4003,26 +4027,6 @@
         "slug": "get-a-deployment-status",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -6471,6 +6475,28 @@
         "requestPath": "/repos/{owner}/{repo}/statuses/{sha}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -6526,26 +6552,6 @@
         "slug": "delete-an-environment",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -9049,6 +9055,28 @@
         "requestPath": "/repos/{owner}/{repo}/statuses/{sha}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -9104,26 +9132,6 @@
         "slug": "delete-an-environment",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -11791,6 +11799,28 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -11846,26 +11876,6 @@
         "slug": "delete-an-environment",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
-      },
-      {
-        "slug": "list-deploy-keys",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
-      },
-      {
-        "slug": "delete-a-deploy-key",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
       }
     ],
     "emojis": [
@@ -14320,6 +14330,28 @@
         "requestPath": "/repos/{owner}/{repo}/statuses/{sha}"
       }
     ],
+    "deploy_keys": [
+      {
+        "slug": "list-deploy-keys",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "create-a-deploy-key",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/keys"
+      },
+      {
+        "slug": "get-a-deploy-key",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      },
+      {
+        "slug": "delete-a-deploy-key",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+      }
+    ],
     "deployments": [
       {
         "slug": "list-deployments",
@@ -14357,24 +14389,24 @@
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}/statuses/{status_id}"
       },
       {
-        "slug": "list-deploy-keys",
+        "slug": "get-all-environments",
         "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys"
+        "requestPath": "/repos/{owner}/{repo}/environments"
       },
       {
-        "slug": "create-a-deploy-key",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/keys"
-      },
-      {
-        "slug": "get-a-deploy-key",
+        "slug": "get-an-environment",
         "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
       },
       {
-        "slug": "delete-a-deploy-key",
+        "slug": "create-or-update-an-environment",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
+      },
+      {
+        "slug": "delete-an-environment",
         "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/keys/{key_id}"
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}"
       }
     ],
     "emojis": [

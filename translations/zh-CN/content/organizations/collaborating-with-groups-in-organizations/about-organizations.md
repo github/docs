@@ -28,7 +28,7 @@ topics:
 {% ifversion ghec %}对于属于企业帐户的组织，计费在企业帐户级别进行管理，而计费设置在组织级别不可用。{% endif %} 企业所有者可以为企业帐户中的所有组织设置策略，或允许组织所有者在组织级别设置策略。 组织所有者无法更改在企业帐户级对组织执行的设置。 如果对组织的策略或设置有疑问，请联系企业帐户的所有者。
 
 {% ifversion ghec %}
-{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[Creating an enterprise account](/admin/overview/creating-an-enterprise-account)."
+{% data reusables.enterprise.create-an-enterprise-account %} 更多信息请参阅“[创建企业帐户](/admin/overview/creating-an-enterprise-account)”。
 
 {% data reusables.enterprise-accounts.invite-organization %}
 {% endif %}
