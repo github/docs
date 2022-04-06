@@ -38,7 +38,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. To add an account on {% data variables.product.product_location_enterprise %}, type the URL for your instance under "Enterprise server address," then click **Continue**.
+4. To add an account on {% data variables.product.product_location_enterprise %}, type the URL for your instance under "Enterprise address," then click **Continue**.
   ![The Sign In button for GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
 {% data reusables.desktop.sign-in-browser %}
 1. To authenticate to {% data variables.product.product_location_enterprise %} account, type your account credentials and click **Sign in**.
