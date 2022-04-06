@@ -50,6 +50,9 @@ topics:
 {% ifversion fpt or ghec %}
 - [Require merge queue](#require-merge-queue)
 {% endif %}
+{%- if required-deployments %}
+- [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
+{%- endif %}
 - [管理者を含める](#include-administrators)
 - [一致するブランチにプッシュできるユーザを制限](#restrict-who-can-push-to-matching-branches)
 - [フォースプッシュを許可](#allow-force-pushes)
@@ -144,6 +147,11 @@ Requires all comments on the pull request to be resolved before it can be merged
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
+
+### Require deployments to succeed before merging
+
+You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+
 ### 管理者を含める
 
 デフォルトでは、保護されたブランチのルールは、リポジトリの管理者権限を持つユーザには適用されません。 この設定を有効化すると、保護されたブランチのルールを管理者にも適用できます。

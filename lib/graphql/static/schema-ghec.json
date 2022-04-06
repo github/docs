@@ -8666,6 +8666,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "blocksCreations",
+          "description": "<p>Is branch creation a protected operation.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "branchProtectionRuleConflicts",
           "description": "<p>A list of conflicts matching branches protection rule and other branch protection rules.</p>",
           "type": "BranchProtectionRuleConflictConnection!",
@@ -45301,6 +45309,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "blocksCreations",
+          "description": "<p>Can matching branches be created.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "pattern",
           "description": "<p>Identifies the protection rule pattern.</p>",
           "type": "String!",
@@ -75956,6 +75972,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "blocksCreations",
+          "description": "<p>Is branch creation a protected operation.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "bypassForcePushActorIds",
           "description": "<p>A list of User or Team IDs allowed to bypass force push targeting matching branches.</p>",
           "type": "[ID!]",
@@ -81628,6 +81652,14 @@
         {
           "name": "allowsForcePushes",
           "description": "<p>Are force pushes allowed on this branch.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "blocksCreations",
+          "description": "<p>Is branch creation a protected operation.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
