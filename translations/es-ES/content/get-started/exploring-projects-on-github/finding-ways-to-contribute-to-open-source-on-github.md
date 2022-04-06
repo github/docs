@@ -25,7 +25,7 @@ Si hay un tema en particular que te interese, visita `github.com/topics/<topic>`
 
 Si has tenido actividad en {% data variables.product.product_location %} recientemente, puedes encontrar recomendaciones personalizadas para proyectos e informes de problemas iniciales que se basen en tus contribuciones, estrellas y otras actividades previas en [Explore](https://github.com/explore). También puedes registrarte para el boletín Explore para recibir correos electrónicos sobre las oportunidades disponibles para colaborar con {% data variables.product.product_name %} de acuerdo a tus intereses. Para registrarte, consulta [Boletín Explore por correo](https://github.com/explore/subscribe).
 
-Keep up with recent activity from repositories you watch and people{% if for-you-feed %}, and organizations{% endif %} you follow with your personal dashboard. Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
+Mantente al tanto con la actividad reciente de los repositorios que observas y las personas{% if for-you-feed %} y organizaciones{% endif %} que sigues con tu tablero personal. Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
 
 {% data reusables.support.ask-and-answer-forum %}
 

@@ -131,6 +131,16 @@ topics:
 | `repo.config.lock_anonymous_git_access`    | O acesso de leitura anônimo de um repositório do Git está bloqueado, impedindo que os administradores de repositório alterem (habilitem ou desabilitem) essa configuração. Para obter mais informações, consulte "[Impedir os usuários de alterar o acesso de leitura anônimo do Git](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."                |
 | `repo.config.unlock_anonymous_git_access`  | O acesso de leitura anônimo de um repositório do Git está desbloqueado, permitindo que os administradores de repositório alterem (habilitem ou desabilitem) essa configuração. Para obter mais informações, consulte "[Impedir os usuários de alterar o acesso de leitura anônimo do Git](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."{% endif %}
 
+{% if secret-scanning-audit-log-custom-patterns %}
+## Varredura secreta
+
+| Ação | Descrição                                                                                                                                                                                                                                                                                                                                                                          |
+| ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|      | `business_secret_scanning_custom_pattern.create` | Triggered when an enterprise-level custom pattern is published for secret scanning. Para obter mais informações, consulte "[Definindo padrões personalizados para digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account). " |
+|      | `business_secret_scanning_custom_pattern.update` | Triggered when changes to an enterprise-level custom pattern are saved for secret scanning.                                                                                                                                                                                                                                     |
+|      | `business_secret_scanning_custom_pattern.delete` | Triggered when an enterprise-level custom pattern is removed from secret scanning.                                                                                                                                                                                                                                              |
+{% endif %}
+
 ## Ferramentas de administração do site
 
 | Ação                    | Descrição                                                                                                                      |

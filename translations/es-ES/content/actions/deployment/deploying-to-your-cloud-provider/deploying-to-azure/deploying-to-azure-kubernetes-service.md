@@ -1,6 +1,6 @@
 ---
-title: Deploying to Azure Kubernetes Service
-intro: You can deploy your project to Azure Kubernetes Service (AKS) as part of your continuous deployment (CD) workflows.
+title: Desplegar a Azure Kubernetes Service
+intro: Puedes desplegar tu proyecto a Azure Kubernetes Service (AKS) como parte de tus flujos de trabajo de despliegue continuo (DC).
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +18,7 @@ topics:
 
 ## Introducción
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
+Esta guía te explica cómo utilizar las {% data variables.product.prodname_actions %} para crear y desplegar un proyecto a [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -34,23 +34,23 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions %}, primero necesitarás completar los siguientes pasos de configuración:
 
-1. Create a target AKS cluster and an Azure Container Registry (ACR). Para obtener más información, consulta las secciones "[Inicio rápido: Desplegar un clúster de AKS utilizando el portal de Azure - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)" y "[Inicio ráido - Crear un registro en el portal - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)" en la documentación de Azure.
+1. Crea un clúster de AKS destino y un Registro de Contenedor de Azure (ACR). Para obtener más información, consulta las secciones "[Inicio rápido: Desplegar un clúster de AKS utilizando el portal de Azure - Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal)" y "[Inicio ráido - Crear un registro en el portal - Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)" en la documentación de Azure.
 
-1. Create a secret called `AZURE_CREDENTIALS` to store your Azure credentials. For more information about how to find this information and structure the secret, see [the `Azure/login` action documentation](https://github.com/Azure/login#configure-a-service-principal-with-a-secret).
+1. Crea un secreto llamado `AZURE_CREDENTIALS` para almacenar tus credenciales de Azure. Para obtener más información sobre cómo encontrar estos datos y estructurar el secreto, consulta [la documentación de la acción `Azure/login`](https://github.com/Azure/login#configure-a-service-principal-with-a-secret).
 
 ## Crear un flujo de trabajo
 
 Una vez que hayas completado los prerequisitos, puedes proceder con la creación del flujo de trabajo.
 
-The following example workflow demonstrates how to build and deploy a project to Azure Kubernetes Service when code is pushed to your repository.
+El siguiente flujo de trabajo de ejemplo demuestra cómo compilar y desplegar un proyecto a Azure Kibernetes Service cuando el código se sube a tu repositorio.
 
 Debajo de la llave de flujo de trabajo `env`, cambia los siguientes valores:
-- `AZURE_CONTAINER_REGISTRY` to the name of your container registry
-- `PROJECT_NAME` to the name of your project
-- `RESOURCE_GROUP` to the resource group containing your AKS cluster
-- `CLUSTER_NAME` to the name of your AKS cluster
+- `AZURE_CONTAINER_REGISTRY` al nombre del registro de tu contenedor
+- `PROJECT_NAME` al nombre de tu proyecto
+- `RESOURCE_GROUP` al grupo de recursos que contiene tu clúster de AKS
+- `CLUSTER_NAME` al nombre de tu clúster de AKS
 
-This workflow uses the `helm` render engine for the [`azure/k8s-bake` action](https://github.com/Azure/k8s-bake). If you will use the `helm` render engine, change the value of `CHART_PATH` to the path to your helm file. Change `CHART_OVERRIDE_PATH` to an array of override file paths. If you use a different render engine, update the input parameters sent to the `azure/k8s-bake` action.
+Este flujo de trabajo utiliza el motor de procesamiento `helm` para la [acción `azure/k8s-bake`](https://github.com/Azure/k8s-bake). Si vas a utilizar el motor de procesamiento `helm`, cambia el valor de `CHART_PATH` a la ruta de tu archivo de helm. Cambia `CHART_OVERRIDE_PATH` a un arreglo de rutas de archivo de invalidación. Si utilizas un motor de procesamiento diferente, actualiza los parámetros de entrada que se envían a la acción `azure/k8s-bake`.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -73,7 +73,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: {% data reusables.actions.action-checkout %}
 
     - name: Azure Login
       uses: azure/login@89d153571fe9a34ed70fcf9f1d95ab8debea7a73

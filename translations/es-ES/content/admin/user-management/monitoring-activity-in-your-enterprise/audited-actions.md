@@ -154,6 +154,16 @@ Action                | Description
 `repo.config.lock_anonymous_git_access` | A repository's anonymous Git read access setting is locked, preventing repository administrators from changing (enabling or disabling) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."
 `repo.config.unlock_anonymous_git_access` | A repository's anonymous Git read access setting is unlocked, allowing repository administrators to change (enable or disable) this setting. For more information, see "[Preventing users from changing anonymous Git read access](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)."{% endif %}
 
+{% if secret-scanning-audit-log-custom-patterns %}
+## Secret scanning
+
+Action                        | Description
+----------------------------- | -----------------------------------------------
+| `business_secret_scanning_custom_pattern.create` | Triggered when an enterprise-level custom pattern is published for secret scanning. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)."
+| `business_secret_scanning_custom_pattern.update` | Triggered when changes to an enterprise-level custom pattern are saved for secret scanning.
+| `business_secret_scanning_custom_pattern.delete` | Triggered when an enterprise-level custom pattern is removed from secret scanning.
+{% endif %}
+
 ## Site admin tools
 
 Action                        | Description

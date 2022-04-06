@@ -1,6 +1,6 @@
 ---
-title: Keeping your pull request in sync with the base branch
-intro: 'After you open a pull request, you can update the head branch, which contains your changes, with any changes that have been made in the base branch.'
+title: 使拉取请求与基本分支保持同步
+intro: 打开拉取请求后，可以使用在基本分支中所做的任何更改来更新包含更改的头部分支。
 permissions: People with write permissions to the repository to which the head branch of the pull request belongs can update the head branch with changes that have been made in the base branch.
 versions:
   fpt: '*'
@@ -9,45 +9,45 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
-shortTitle: Update the head branch
+shortTitle: 更新头部分支
 ---
 
-## About keeping your pull request in sync
+## 关于保持拉取请求同步
 
-Before merging your pull requests, other changes may get merged into the base branch causing your pull request's head branch to be out of sync. Updating your pull request with the latest changes from the base branch can help catch problems prior to merging.
+在合并拉取请求之前，其他更改可能会合并到基本分支中，从而导致拉取请求的头部分支不同步。 使用来自基本分支的最新更改更新拉取请求有助于在合并之前捕获问题。
 
-You can update a pull request's head branch from the command line or the pull request page. The **Update branch** button is displayed when all of these are true:
+您可以从命令行或拉取请求页面更新拉取请求的头部分支。 当所有以下条件成立时，将显示 **Update branch（更新分支）**按钮：
 
-* There are no merge conflicts between the pull request branch and the base branch.
-* The pull request branch is not up to date with the base branch.
-* The base branch requires branches to be up to date before merging{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %} or the setting to always suggest updating branches is enabled{% endif %}.
+* 拉取请求分支和基本分支之间没有合并冲突。
+* 拉取请求分支与基本分支不符。
+* 基本分支要求分支在合并之前保持最新状态{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %} 或者启用始终建议更新分支的设置{% endif %}。
 
-For more information, see "[Require status checks before merging](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}" and "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches){% endif %}."
+更多信息请参阅“[在合并之前要求状态检查](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches){% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}”和“[管理更新拉取请求分支的建议](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches){% endif %}”。
 
-If there are changes to the base branch that cause merge conflicts in your pull request branch, you will not be able to update the branch until all conflicts are resolved. For more information, see "[About merge conflicts](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)."
+如果对基本分支所做的更改导致拉取请求分支中的合并冲突，则在解决所有冲突之前，您将无法更新分支。 更多信息请参阅“[关于合并冲突](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/about-merge-conflicts)”。
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}
-From the pull request page you can update your pull request's branch using a traditional merge or by rebasing. A traditional merge results in a merge commit that merges the base branch into the head branch of the pull request. Rebasing applies the changes from _your_ branch onto the latest version of the base branch. The result is a branch with a linear history, since no merge commit is created.
+在拉取请求页面中，您可以使用传统合并或通过变基更新拉取请求的分支。 传统合并会导致合并提交，该提交将基本分支合并到拉取请求的头部分支中。 变基会将__分支中的更改应用到最新版本的基本分支上。 结果是具有线性历史记录的分支，因为没有创建合并提交。
 {% else %}
-Updating your branch from the pull request page performs a traditional merge. The resulting merge commit merges the base branch into the head branch of the pull request.
+从拉取请求页面更新分支将执行传统合并。 生成的合并提交将基本分支合并到拉取请求的头部分支中。
 {% endif %}
 
-## Updating your pull request branch
+## 更新拉取请求分支
 
 {% data reusables.repositories.sidebar-pr %}
 
-1. In the "Pull requests" list, click the pull request you'd like to update.
+1. 在“Pull Requests（拉取请求）”列表中，单击要更新的拉取请求。
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6069 %}
-1. In the merge section near the bottom of the page, you can:
-   - Click **Update branch** to perform a traditional merge. ![Button to update branch](/assets/images/help/pull_requests/pull-request-update-branch-with-dropdown.png)
-   - Click the update branch drop down menu, click **Update with rebase**, and then click **Rebase branch** to update by rebasing on the base branch. ![Drop-down menu showing merge and rebase options](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
+1. 在靠近页面底部的合并部分中，您可以：
+   - 单击 **Update branch（更新分支）**以执行传统合并。 ![用于更新分支的按钮](/assets/images/help/pull_requests/pull-request-update-branch-with-dropdown.png)
+   - 单击更新分支下拉菜单，单击 **Update with rebase（通过变基更新）**，然后单击 **Rebase branch（变基分支）**以通过在基本分支上变基来更新。 ![显示合并和变基选项的下拉菜单](/assets/images/help/pull_requests/pull-request-update-branch-rebase-option.png)
 {% else %}
-1. In the merge section near the bottom of the page, click **Update branch** to perform a traditional merge. ![Button to update branch](/assets/images/help/pull_requests/pull-request-update-branch.png)
+1. 在靠近页面底部的合并部分中，单击 **Update branch（更新分支）**以执行传统合并。 ![用于更新分支的按钮](/assets/images/help/pull_requests/pull-request-update-branch.png)
 {% endif %}
 
 ## 延伸阅读
 
 - "[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-- "[Changing the stage of a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)"
+- "[更改拉取请求的阶段](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)"
 - "[提交更改至创建自复刻的拉取请求分支](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/committing-changes-to-a-pull-request-branch-created-from-a-fork)"

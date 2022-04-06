@@ -42,7 +42,6 @@ Node.js、YAML、ワークフローの設定オプションと、ワークフロ
 
 To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. 以下に示すワークフローは、リポジトリのデフォルトブランチが `main` であることを前提としています。
 
-{% raw %}
 ```yaml{:copy}
 name: Node.js CI
 
@@ -62,16 +61,15 @@ jobs:
         node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
 ```
-{% endraw %}
 
 {% data reusables.actions.example-github-runner %}
 
@@ -85,20 +83,18 @@ The starter workflow includes a matrix strategy that builds and tests your code 
 
 それぞれのジョブは、配列`node-version` のマトリクスで定義された値に、`matrix`コンテキストを使ってアクセスできます。 `setup-node`アクションは、このコンテキストを`node-version`のインプットとして使います。 `setup-node`アクションは、コードのビルドとテストに先立って、様々なNode.jsのバージョンで各ジョブを設定します。 For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
-{% raw %}
 ```yaml{:copy}
 strategy:
   matrix:
     node-version: [10.x, 12.x, 14.x, 15.x]
 
 steps:
-- uses: actions/checkout@v2
-- name: Use Node.js ${{ matrix.node-version }}
-  uses: actions/setup-node@v2
+- uses: {% data reusables.actions.action-checkout %}
+- name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+  uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: ${{ matrix.node-version }}
+    node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
 ```
-{% endraw %}
 
 あるいは、厳密にNode.jsバージョンを指定してビルドとテストを行うこともできます。
 
@@ -110,7 +106,6 @@ strategy:
 
 または、Node.jsの1つのバージョンを使ってビルドとテストを行うこともできます。
 
-{% raw %}
 ```yaml{:copy}
 name: Node.js CI
 
@@ -122,16 +117,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '12.x'
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
 ```
-{% endraw %}
 
 Node.jsのバージョンを指定しなかった場合、{% data variables.product.prodname_dotcom %}は環境のデフォルトのNode.jsのバージョンを使います。
 {% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %}
@@ -146,13 +140,13 @@ Node.jsのバージョンを指定しなかった場合、{% data variables.prod
 
 ### npmの利用例
 
-以下の例では、*package.json*ファイルで定義された依存関係がインストールされます。 詳しい情報については[`npm install`](https://docs.npmjs.com/cli/install)を参照してください。
+以下の例は、*package.json*ファイルに定義された依存関係をインストールします。 詳しい情報については[`npm install`](https://docs.npmjs.com/cli/install)を参照してください。
 
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '12.x'
 - name: Install dependencies
@@ -161,41 +155,39 @@ steps:
 
 `npm ci`を使うと、 *package-lock.json*あるいは*npm-shrinkwrap.json*ファイル中のバージョンがインストールされ、ロックファイルの更新を回避できます。 概して`npm ci`は、`npm install`を実行するよりも高速です。 詳しい情報については[`npm ci`](https://docs.npmjs.com/cli/ci.html)及び「[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)」を参照してください。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '12.x'
 - name: Install dependencies
   run: npm ci
 ```
-{% endraw %}
 
 ### Yarnの利用例
 
-以下の例では、*package.json*ファイルで定義された依存関係がインストールされます。 詳しい情報については[`yarn install`](https://yarnpkg.com/en/docs/cli/install)を参照してください。
+以下の例は、*package.json*ファイルに定義された依存関係をインストールします。 詳しい情報については[`yarn install`](https://yarnpkg.com/en/docs/cli/install)を参照してください。
 
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '12.x'
 - name: Install dependencies
   run: yarn
 ```
 
-あるいは`--frozen-lockfile`を渡して`yarn.lock`ファイル中のバージョンをインストールし、`yarn.lock`ファイルの更新を回避できます。
+Alternatively, you can pass `--frozen-lockfile` to install the versions in the `yarn.lock` file and prevent updates to the `yarn.lock` file.
 
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '12.x'
 - name: Install dependencies
@@ -212,12 +204,11 @@ steps:
 
 依存関係をインストールする前に、`setup-node`アクションを使って*.npmrc*ファイルを作成してください。 このアクションには2つの入力パラメーターがあります。 `node-version`パラメーターはNode.jsのバージョンを設定し、`registry-url`パラメーターはデフォルトのレジストリを設定します。 パッケージレジストリがスコープを使うなら、`scope`パラメーターを使わなければなりません。 詳しい情報については[`npm-scope`](https://docs.npmjs.com/misc/scope)を参照してください。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     always-auth: true
     node-version: '12.x'
@@ -226,9 +217,8 @@ steps:
 - name: Install dependencies
   run: npm ci
   env:
-    NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+    NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 上の例では、以下の内容で*.npmrc*ファイルを作成しています。
 
@@ -243,10 +233,11 @@ always-auth=true
 When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-node` action](https://github.com/actions/setup-node).
 
 The following example caches dependencies for npm.
+
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v2
+- uses: {% data reusables.actions.action-checkout %}
+- uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '14'
     cache: 'npm'
@@ -258,8 +249,8 @@ The following example caches dependencies for Yarn.
 
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v2
+- uses: {% data reusables.actions.action-checkout %}
+- uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '14'
     cache: 'yarn'
@@ -275,11 +266,11 @@ The following example caches dependencies for pnpm (v6.10+).
 # NOTE: pnpm caching support requires pnpm version >= 6.10.0
 
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - uses: pnpm/action-setup@646cdf48217256a3d0b80361c5a50727664284f2
   with:
     version: 6.10.0
-- uses: actions/setup-node@v2
+- uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '14'
     cache: 'pnpm'
@@ -295,9 +286,9 @@ If you have a custom requirement or need finer controls for caching, you can use
 
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '12.x'
 - run: npm install

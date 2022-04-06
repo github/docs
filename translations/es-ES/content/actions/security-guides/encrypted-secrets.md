@@ -226,9 +226,9 @@ steps:
 ```
 {% endraw %}
 
-Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job. Para obtener más información, consulta la sección "[Disponibilidad de contexto](/actions/learn-github-actions/contexts#context-availability)" y "[`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif).
+Los secretos no se pueden referenciar directamente en las condicionales `if:`. En vez de esto, considera configurar secretos como variables de ambiente a nivel de jobs y luego referencia dichas variables para ejecutar pasos de forma condicional en el job. Para obtener más información, consulta la sección "[Disponibilidad de contexto](/actions/learn-github-actions/contexts#context-availability)" y "[`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif).
 
-If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
+Si aún no se configura un secreto, el valor de retorno de una expresión que lo referencia (tal como {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} en el ejemplo) será una secuencia vacía.
 
 Evita pasar secretos entre procesos desde la línea de comando, siempre que sea posible. Los procesos de línea de comandos podrían estar visibles para otros usuarios (utilizando el comando `ps`) o ser capturados por [los eventos de auditoría de seguridad](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/component-updates/command-line-process-auditing). Para ayudar a proteger los secretos, considera usar variables de entorno, `STDIN` u otros mecanismos admitidos por el proceso de destino.
 
@@ -327,29 +327,27 @@ Los secretos tienen un tamaño máximo de 64 KB. Para usar secretos de un tamañ
 
 1. En tu flujo de trabajo, usa un `step` para llamar al shell script y descifrar el secreto. Para tener una copia de tu repositorio en el entorno en el que se ejecuta tu flujo de trabajo, deberás usar la acción [`code>actions/checkout`](https://github.com/actions/checkout). Haz referencia a tu shell script usando el comando `run` relacionado con la raíz de tu repositorio.
 
-{% raw %}
-  ```yaml
-  name: Workflows with large secrets
+   ```yaml
+   name: Workflows with large secrets
 
-  on: push
+   on: push
 
-  jobs:
-    my-job:
-      name: My Job
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: Decrypt large secret
-          run: ./.github/scripts/decrypt_secret.sh
-          env:
-            LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
-        # Este comando es solo un ejemplo para mostrar cómo se imprime tu secreto.
-        # Asegúrate de eliminar las declaraciones impresas de tus secretos. GitHub 
-        # no oculta los secretos que usan esta solución.
-        - name: Test printing your secret (Elimina este paso en la producción)
-          run: cat $HOME/secrets/my_secret.json
-  ```
-{% endraw %}
+   jobs:
+     my-job:
+       name: My Job
+       runs-on: ubuntu-latest
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+         - name: Decrypt large secret
+           run: ./.github/scripts/decrypt_secret.sh
+           env:
+             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets. LARGE_SECRET_PASSPHRASE }}{% endraw %}
+         # This command is just an example to show your secret being printed
+         # Ensure you remove any print statements of your secrets. GitHub does
+         # not hide secrets that use this workaround.
+         - name: Test printing your secret (Remove this step in production)
+           run: cat $HOME/secrets/my_secret.json
+   ```
 
 ## Almacenar blobs binarios en Base64 como secretos
 
@@ -385,7 +383,7 @@ Puedes utilizar el cifrado en Base64 para almacenar blobs binarios pequeños com
      decode-secret:
        runs-on: ubuntu-latest
        steps:
-         - uses: actions/checkout@v2
+         - uses: {% data reusables.actions.action-checkout %}
          - name: Retrieve the secret and decode it to a file
            env:
              {% raw %}CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}{% endraw %}
@@ -395,4 +393,3 @@ Puedes utilizar el cifrado en Base64 para almacenar blobs binarios pequeños com
            run: |
              openssl x509 -in cert.der -inform DER -text -noout
    ```
-

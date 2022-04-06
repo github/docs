@@ -5,7 +5,7 @@ Si especificas el permiso dentro de una definición de job, puedes configurar un
 {% data reusables.actions.github-token-available-permissions %}
 {% data reusables.actions.forked-write-permission %}
 
-#### Example: Setting permissions for a specific job
+#### Ejemplo: Configurar los permisos para un job específico
 
 Este ejemplo muestra los permisos que se están configurando para el `GITHUB_TOKEN`, los cuales solo aplicarán al job que se llama `stale`. Se otorga permiso de escritura a los alcances `issues` y `pull-requests`. El resto de los alcances no tendrán acceso.
 
@@ -19,5 +19,5 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/stale@v3
+      - uses: {% data reusables.actions.action-stale %}
 ```

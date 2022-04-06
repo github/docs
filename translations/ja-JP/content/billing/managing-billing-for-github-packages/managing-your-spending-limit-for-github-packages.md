@@ -64,5 +64,5 @@ Enterprise アカウントの {% data variables.product.prodname_registry %} に
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
-## Managing usage and spending limit email notifications
+## 使用状況の管理と利用上限のメール通知
 {% data reusables.billing.email-notifications %}

@@ -97,16 +97,10 @@ If you're using a GPG key that matches your committer identity and your verified
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. GPG キーを bash プロファイルに追加するには、次のコマンドを実行します。
-  ```shell
-  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
-    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+1. To add your GPG key to your `.bashrc` startup file, run the following command:
+  ```bash
+  $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
-  {% note %}
-
-  **メモ:** `.bash_profile` を持っていない場合、このコマンドで `.profile` に GPG キーを追加します。
-
-  {% endnote %}
 
 {% endlinux %}
 

@@ -24,7 +24,7 @@ If the enterprise member you're removing is the last owner of an organization ow
 
 If your enterprise or any of the organizations owned by your enterprise uses an identity provider (IdP) to manage organization membership, the member may be added back to the organization by the IdP. Make sure to also make any necessary changes in your IdP.
 
-## Removing a member from your enterprise
+## Eliminar a un miembro de tu empresa
 
 {% note %}
 

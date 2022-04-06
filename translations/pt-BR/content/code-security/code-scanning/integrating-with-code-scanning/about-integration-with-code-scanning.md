@@ -28,6 +28,10 @@ Como alternativa para executar o {% data variables.product.prodname_code_scannin
 
 Se você usar uma ferramenta de análise estática de terceiros que pode produzir dados de resultados como Formato de Intercâmbio de Resultados de Análise Estática (SARIF) 2.1.0, você pode fazer o upload desses dados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Fazer o upload de um arquivo SARIF para o GitHub](/code-security/secure-coding/uploading-a-sarif-file-to-github)".
 
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% data reusables.code-scanning.about-analysis-origins-link %}
+{% endif %}
+
 ## Integrações com webhooks
 
 Você pode usar {% data variables.product.prodname_code_scanning %} webhooks para criar ou configurar integrações, tais como [{% data variables.product.prodname_github_apps %}s](/apps/building-github-apps/) ou [{% data variables.product.prodname_oauth_apps %}s](/apps/building-oauth-apps/), que assinam os eventos {% data variables.product.prodname_code_scanning %} no seu repositório. Por exemplo, você poderia criar uma integração que criasse um problema no {% data variables.product.product_name %} ou que envia uma notificação do Slack quando um novo alerta de {% data variables.product.prodname_code_scanning %} for adicionado ao seu repositório. Para obter mais informações, consulte "[Criar webhooks](/developers/webhooks-and-events/creating-webhooks)" e "[Eventos de Webhook e cargas](/developers/webhooks-and-events/webhook-events-and-payloads#code_scanning_alert)".

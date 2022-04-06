@@ -104,10 +104,8 @@ describe('breadcrumbs', () => {
       const $breadcrumbTitles = $('[data-testid=breadcrumbs] [data-testid=breadcrumb-title]')
       const $breadcrumbLinks = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbTitles).toHaveLength(4)
+      expect($breadcrumbTitles).toHaveLength(0)
       expect($breadcrumbLinks).toHaveLength(4)
-      expect($breadcrumbTitles[0].children[0].data).toBe('Early Access documentation')
-      expect($breadcrumbTitles[1].children[0].data).toBe('GitHub')
       expect($breadcrumbLinks[0].attribs.title).toBe(
         'Enforcing best practices with GitHub Policies'
       )

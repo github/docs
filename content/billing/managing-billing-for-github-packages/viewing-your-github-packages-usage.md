@@ -33,7 +33,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Viewing {% data variables.product.prodname_registry %} usage for your enterprise account
 
