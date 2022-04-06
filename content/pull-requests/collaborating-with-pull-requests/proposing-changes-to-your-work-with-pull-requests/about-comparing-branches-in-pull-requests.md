@@ -54,15 +54,15 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 
 ## Three-dot and two-dot Git diff comparisons
 
-There are two comparison methods for the `git diff` command; two -dot (`git diff A..B`) and three-dot (`git diff A...B`). By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff, or a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
+There are two comparison methods for the `git diff` command; two-dot (`git diff A..B`) and three-dot (`git diff A...B`). By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff: a comparison between the most recent version of the feature branch and the commit where the topic branch was last synced with the base branch.
 
 ### Three-dot Git diff comparison 
 
-The three-dot comparison shows the difference between the latest common commit of both branches (merge base) and the most recent version of the topic branch.
+The three-dot comparison shows the difference between the latest common commit of both branches (merge base) and the most recent version of the feature branch.
 
 ### Two-dot Git diff comparison
 
-The two-dot comparison shows the difference between the most recent version of the topic branch and the latest state of the `main` branch.
+The two-dot comparison shows the difference between the most recent version of the feature branch and the latest state of the `main` branch.
 
 To see two committish references in a two-dot diff comparison on {% data variables.product.prodname_dotcom %}, you can edit the URL of your repository's "Comparing changes" page. For more information, see the  [Git Glossary for "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) from the _Pro Git_ book site.
 
@@ -70,21 +70,21 @@ To see two committish references in a two-dot diff comparison on {% data variabl
 
 A two-dot diff compares two Git committish references, such as SHAs or OIDs (Object IDs), directly with each other. On {% data variables.product.prodname_dotcom %}, the Git committish references in a two-dot diff comparison must be pushed to the same repository or its forks.
 
-If you want to simulate a two-dot diff in a pull request and see a comparison between the most recent versions of each branch, you can merge the base branch into your topic branch, which updates the last common ancestor between your branches.
+If you want to simulate a two-dot diff in a pull request and see a comparison between the most recent versions of each branch, you can merge the base branch into your feature branch, which updates the last common ancestor between your branches.
 
 For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
-## About three-dot comparison on GitHub
+## About three-dot comparison on {% data variables.product.prodname_dotcom %}
 
 Since the three-dot comparison compares with the merge base, it is focusing on "what a pull request introduces". 
 
-By comparing the branches using the two-dot comparison, the diff changes without updating the topic branch when `main` is updated. Additionally, it shows changes made to `main` backwards, which means what you add is displayed as deletions and vice versa. Then what the topic branch introduces becomes ambiguous.
+By comparing the branches using the two-dot comparison, the diff changes without updating the feature branch when `main` is updated. Additionally, it shows changes made to `main` backwards, which means what you add is displayed as deletions and vice versa. Then what the feature branch introduces becomes ambiguous.
 
-On the other hand, by comparing the branches using the three-dot comparison, changes in the topic branch are always in the diff if `main` is updated because the diff shows changes since the branches diverged.
+On the other hand, by comparing the branches using the three-dot comparison, changes in the feature branch are always in the diff if `main` is updated because the diff shows changes since the branches diverged.
 
-## Merge often
+### Merging often
 
-To avoid getting confused, merge the `main` into the topic branch frequently. By merging `main`, the diffs shown by two-dot and three-dot are the same. We recommend merging a pull request as soon as possible. This encourages users to make pull requests smaller, which is recommended in general.
+To avoid getting confused, merge the `main` into the feature branch frequently. By merging `main`, the diffs shown by two-dot and three-dot are the same. We recommend merging a pull request as soon as possible. This encourages users to make pull requests smaller, which is recommended in general.
 
 ## Further reading
 
