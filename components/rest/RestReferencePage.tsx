@@ -127,7 +127,13 @@ export const RestReferencePage = ({
         as="li"
         key={item.contents}
         className={item.platform}
-        sx={{ listStyle: 'none', padding: '2px' }}
+        sx={{
+          listStyle: 'none',
+          padding: '2px',
+          ':hover': {
+            bg: 'var(--color-canvas-inset)',
+          },
+        }}
       >
         <div className={cx('lh-condensed d-block width-full')}>
           <div className="d-inline-flex" dangerouslySetInnerHTML={{ __html: item.contents }} />

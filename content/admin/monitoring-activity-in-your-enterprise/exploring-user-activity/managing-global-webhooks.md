@@ -13,6 +13,7 @@ redirect_from:
   - /articles/configuring-webhooks-for-organization-events-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise/configuring-webhooks-for-organization-events-in-your-enterprise-account
+  - /admin/user-management/monitoring-activity-in-your-enterprise/managing-global-webhooks
 versions:
   ghec: '*'
   ghes: '*'
