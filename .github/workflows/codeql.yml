@@ -31,8 +31,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
-      - uses: github/codeql-action/init@1a927e9307bc11970b2c679922ebc4d03a5bd980
+      - uses: github/codeql-action/init@0182a2c78c8a55b763909348834ed54d735ab3e2
         with:
           languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp} (not YET ruby, sorry!)
-      - uses: github/codeql-action/analyze@1a927e9307bc11970b2c679922ebc4d03a5bd980
+      - uses: github/codeql-action/analyze@0182a2c78c8a55b763909348834ed54d735ab3e2
         continue-on-error: true
