@@ -50,3 +50,17 @@ A revisão de dependências é compatível com as mesmas linguagens e os mesmos 
 
 O recurso de revisão de dependências é disponibilizado quando você habilitar o gráfico de dependências. For more information, see "{% ifversion ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
 {% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+## Dependency review enforcement
+
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+
+You can use the Dependency Review GitHub Action in your repository to enforce dependency reviews on your pull requests. The action scans for vulnerable versions of dependencies introduced by package version changes in pull requests, and warns you about the associated security vulnerabilities. This gives you better visibility of what's changing in a pull request, and helps prevent vulnerabilities being added to your repository. For more information, see [`dependency-review-action`](https://github.com/actions/dependency-review-action).
+
+![Dependency review action example](/assets/images/help/graphs/dependency-review-action.png)
+
+The Dependency Review GitHub Action check will fail if it discovers any vulnerable package, but will only block a pull request from being merged if the repository owner has required the check to pass before merging. Para obter mais informações, consulte "[Sobre branches protegidos](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)."
+
+The action uses the Dependency Review REST API to get the diff of dependency changes between the base commit and head commit. You can use the Dependency Review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see "[Dependency review](/rest/reference/dependency-graph#dependency-review)."
+{% endif %}
