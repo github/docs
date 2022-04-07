@@ -550,12 +550,13 @@ When referring to a user account that a person creates and manages on GitHub.com
 
 In administrative content for GitHub Enterprise Cloud with Enterprise Managed Users, GitHub Enterprise Server, or GitHub AE, use "user account." For GitHub Enterprise Cloud and GitHub AE, you can also use "enterprise member" when describing an individual user account that is an enterprise administrator or that contributes to an organization owned by an enterprise.
 
-Examples of administrative content:
-1. The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product should generally not mention "personal accounts" unless we're describing GitHub Enterprise Cloud without Enterprise Managed Users
-2. Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
-3. Other content with an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Signing up for GitHub](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github)" in the "Get started" product
-4. Organization-level GitHub Enterprise Cloud features, like the "[Managing SAML single sign-on for your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" and "[Granting access to your organization with SAML single sign-on](https://docs.github.com/en/enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on)" categories
-5. Enterprise-specific API documentation, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
+Most administrative content is in the following locations. This list is not exhaustive.
+
+- The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product
+- Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
+- Content within other products that's intended for an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Signing up for GitHub](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github)" in the "Get started" product
+- Organization-level GitHub Enterprise Cloud features, like the "[Managing SAML single sign-on for your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" and "[Granting access to your organization with SAML single sign-on](https://docs.github.com/en/enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on)" categories
+- Enterprise-specific API content, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
 
 Examples for each product:
 
