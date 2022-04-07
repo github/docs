@@ -45,7 +45,7 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
   $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
     else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
   ```
-1. Optionally, to prompt you to enter a PIN or passphrase when required, install `pinentry-mac`. For example, using [Homebrew](https://brew.sh/):
+1. Opcionalmente, para que se te pida ingresar un PIN o frase de ingreso cuando estos se requieran, instala `pinentry-mac`. Pior ejemplo, utilizando [Homebrew](https://brew.sh/):
   ```shell
   $ brew install pinentry-mac
   $ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
@@ -97,16 +97,10 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. Para agregar tu llave GPG a tu perfil bash, ejecuta el siguiente comando:
-  ```shell
-  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
-    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+1. To add your GPG key to your `.bashrc` startup file, run the following command:
+  ```bash
+  $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
-  {% note %}
-
-  **Nota:** Si no tienes `.bash_profile`, este comando agrega tu llave GPG al `.profile`.
-
-  {% endnote %}
 
 {% endlinux %}
 

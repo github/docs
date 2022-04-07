@@ -53,7 +53,7 @@ Você pode comparar seu repositório base e qualquer repositório bifurcado. Ess
 
 Para comparar branches em repositórios diferentes, anteceda os nomes do branch com nomes de usuários. Por exemplo, ao especificar o `octocat:main` para `base` e `octo-org:main` para `compare`você pode comparar o branch `principal` dos repositórios respectivamente que pertencem a `octocat` e `octo-org`.
 
-Veja a seguir o exemplo de uma [comparação entre dois repositórios](https://github.com/octocat/linguist/compare/master...octo-org:master).
+Veja a seguir o exemplo de uma [comparação entre dois repositórios](https://github.com/github/linguist/compare/master...octocat:master).
 
 ## Comparações entre commits
 

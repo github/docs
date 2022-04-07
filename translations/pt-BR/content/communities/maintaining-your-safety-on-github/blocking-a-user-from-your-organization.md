@@ -1,6 +1,6 @@
 ---
 title: Bloquear usuários da organização
-intro: Os proprietários da organização podem bloquear um usuário a fim impedi-lo de colaborar nos repositórios da organização.
+intro: Organization owners and moderators can block anyone who is not a member of the organization from collaborating on the organization's repositories.
 redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
@@ -12,7 +12,7 @@ topics:
 shortTitle: Bloquear a partir do seu org
 ---
 
-Você pode bloquear um usuário nas configurações da organização ou em um comentário específico feito pelo usuário. Ao bloquear um usuário em um comentário, você pode optar por enviar ao usuário uma notificação explicando que ele foi bloqueado e por quê. Caso contrário, o usuário não será diretamente notificado que você o bloqueou. Os usuários bloqueados ainda podem excluir o conteúdo existente.
+You can block non-members from within your organization's settings or from a specific comment made by a user. Ao bloquear um usuário em um comentário, você pode optar por enviar ao usuário uma notificação explicando que ele foi bloqueado e por quê. Caso contrário, o usuário não será diretamente notificado que você o bloqueou. Os usuários bloqueados ainda podem excluir o conteúdo existente.
 
 Ao bloquear um usuário, você pode optar por bloqueá-lo indefinidamente ou por um período específico. Se você bloquear alguém por um período específico, ele será automaticamente desbloqueado após o término desse período. Se você bloquear alguém indefinidamente, será possível desbloqueá-lo manualmente a qualquer momento. Para obter mais informações, consulte "[Desbloquear um usuário da organização](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)".
 

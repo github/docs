@@ -1,22 +1,22 @@
 ---
-title: Creating diagrams
-intro: Create diagrams to convey information through charts and graphs
+title: 创建图表
+intro: 创建图表以通过图表和图形传达信息
 versions:
   feature: mermaid
-shortTitle: Create diagrams
+shortTitle: 创建图表
 ---
 
-## About creating diagrams
+## 关于创建图表
 
-You can create diagrams in Markdown using three different syntaxes: mermaid, geoJSON and topoJSON, and ASCII STL.
+您可以使用三种不同的语法在 Markdown 中创建图表：geoJSON、topoJSON 和 ASCII STL。
 
-## Creating Mermaid diagrams
+## 创建 Mermaid 图表
 
-Mermaid is a Markdown-inspired tool that renders text into diagrams. For example, Mermaid can render flow charts, sequence diagrams, pie charts and more. For more information, see the [Mermaid documentation](https://mermaid-js.github.io/mermaid/#/).
+Mermaid 是一个受 Markdown 启发的工具，可以将文本渲染成图表。 例如，Mermaid 可以渲染流程图、序列图、饼图等。 更多信息请参阅 [Mermaid 文档](https://mermaid-js.github.io/mermaid/#/)。
 
-To create a Mermaid diagram, add Mermaid syntax inside a fenced code block with the `mermaid` language identifier. For more information about creating code blocks, see "[Creating and highlighting code blocks](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."
+要创建 Mermaid 图，请在带有 `Mermaid` 语言标识符的围栏代码块中添加 Mermaid 语法。 有关创建代码块的更多信息，请参阅“[创建和突显代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
 
-For example, you can create a flow chart:
+例如，您可以创建流程图：
 
 <pre>
 Here is a simple flow chart:
@@ -30,21 +30,21 @@ graph TD;
 ```
 </pre>
 
-![Rendered Mermaid flow chart](/assets/images/help/writing/mermaid-flow-chart.png)
+![渲染的 Mermaid 流程图](/assets/images/help/writing/mermaid-flow-chart.png)
 
 {% note %}
 
-**Note:** You may observe errors if you run a third-party Mermaid plugin when using Mermaid syntax on {% data variables.product.company_short %}.
+**注意：** 如果您在 {% data variables.product.company_short %}上使用 Mermaid 语法时运行第三方 Mermaid 插件，可能会发现错误。
 
 {% endnote %}
 
-## Creating geoJSON and topoJSON maps
+## 创建 geoJSON 和 topoJSON 地图
 
-You can use geo/topoJSON syntax to create interactive maps. To create a map, add geoJSON or topoJSON inside a fenced code block with the `geojson` or `topojson` syntax identifier. 更多信息请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
+您可以使用 geo/topoJSON 语法来创建交互式地图。 要创建地图，请在具有 `geojson` 或 `topojson` 语法标识符的受防护代码块中添加 geoJSON 或 topoJSON。 更多信息请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
 
-### Using geoJSON
+### 使用 geoJSON
 
-For example, you can create a simple map:
+例如，您可以创建一个简单的地图：
 
 <pre>
 ```geojson
@@ -63,11 +63,11 @@ For example, you can create a simple map:
 ```
 </pre>
 
-![Rendered map](/assets/images/help/writing/fenced-geojson-rendered-map.png)
+![渲染的地图](/assets/images/help/writing/fenced-geojson-rendered-map.png)
 
-### Using topoJSON
+### 使用 topoJSON
 
-For example, you can create a simple topoJSON map:
+例如，您可以创建一个简单的 topoJSON 地图：
 
 <pre>
 ```topojson
@@ -106,16 +106,16 @@ For example, you can create a simple topoJSON map:
 ```
 </pre>
 
-![Rendered topojson map](/assets/images/help/writing/fenced-topojson-rendered-map.png)
+![渲染的 topojson 地图](/assets/images/help/writing/fenced-topojson-rendered-map.png)
 
-For more information on working with `.geojson` and `.topojson` files, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
+有关使用 `.geojson` 和 `.topojson` 文件的详细信息，请参阅“[使用非代码文件](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)”。
 
 
-## Creating STL 3D models
+## 创建 STL 3D 模型
 
-You can use ASCII STL syntax directly in markdown to create interactive 3D models. To display a model, add ASCII STL syntax inside a fenced code block with the `stl` syntax identifier. 更多信息请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
+您可以直接在 Markdown 中使用 ASCII STL 语法来创建交互式 3D 模型。 要显示模型，请在具有 `stl` 语法标识符的围栏代码块中添加 ASCII STL 语法。 更多信息请参阅“[创建和突出显示代码块](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)”。
 
-For example, you can create a simple 3D model:
+例如，您可以创建一个简单的 3D 模型：
 
 <pre>
 ```stl
@@ -152,7 +152,7 @@ endsolid
 ```
 </pre>
 
-![Rendered 3D model](/assets/images/help/writing/fenced-stl-rendered-object.png)
+![渲染的 3D 模型](/assets/images/help/writing/fenced-stl-rendered-object.png)
 
-For more information on working with `.stl` files, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)."
+有关使用 `.stl` 文件的详细信息，请参阅“[使用非代码文件](/repositories/working-with-files/using-files/working-with-non-code-files#3d-file-viewer)”。
 

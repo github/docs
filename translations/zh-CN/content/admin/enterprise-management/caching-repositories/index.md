@@ -1,6 +1,6 @@
 ---
-title: Caching repositories
-intro: 'You can improve performance for your geographically-distributed team with repository caching, which provides read-only mirrors close to your users and CI clients.'
+title: 缓存存储库
+intro: 您可以使用存储库缓存来提高地理位置分散团队的性能，存储库缓存可提供靠近用户和 CI 客户端的只读镜像。
 versions:
   ghes: '>=3.3'
 topics:

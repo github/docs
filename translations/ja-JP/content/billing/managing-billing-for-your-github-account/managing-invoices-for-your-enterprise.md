@@ -1,7 +1,7 @@
 ---
-title: Managing invoices for your enterprise
-shortTitle: Manage invoices
-intro: 'You can view, pay, or download a current invoice for your enterprise, and you can view your payment history.'
+title: Enterpriseの請求書管理
+shortTitle: 請求書の管理
+intro: Enterpriseに対する現在の請求書の表示、支払い、ダウンロードが可能で、支払い履歴を表示することもできます。
 versions:
   ghec: '*'
 type: how_to
@@ -10,11 +10,11 @@ topics:
   - Licensing
 ---
 
-## About invoices for your enterprise
+## Entepriseの請求書について
 
-{% data reusables.billing.about-invoices-for-enterprises %} For more information, see "[About billing for your enterprise](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+{% data reusables.billing.about-invoices-for-enterprises %} 詳しい情報については「[Enterpriseの支払いについて](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)」を参照してください。
 
-For more information about viewing the subscription and usage for your enterprise account, see "[Viewing the subscription and usage for your enterprise account](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+Enterpriseアカウントのプランと利用状況の表示に関する詳しい情報については「[Enterpriseアカウントのプランと利用状況の表示](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)」を参照してください。
 
 {% data reusables.billing.ghes-with-no-enterprise-account %}
 
@@ -23,14 +23,14 @@ For more information about viewing the subscription and usage for your enterpris
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-4. Under "Current Invoice", click **View invoice**. ![[View invoice] リンク](/assets/images/help/business-accounts/view-invoice-link.png)
+4. "Current Invoice（現在の請求書）"の下で、**View invoice（請求書の表示）**をクリックしてください。 ![[View invoice] リンク](/assets/images/help/business-accounts/view-invoice-link.png)
 
 ## 現在の請求書の支払い
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-4. Under "Payment Due", click **Pay invoice**. ![[Pay invoice] リンク](/assets/images/help/business-accounts/pay-invoice-link.png)
+4. "Payment Due（支払期限）"の下で、**Pay invoice（請求書の支払い）**をクリックしてください。 ![[Pay invoice] リンク](/assets/images/help/business-accounts/pay-invoice-link.png)
 5. [Pay invoice] の下で、安全なフォームにクレジットカード情報を入力し、[**Pay Invoice**] をクリックします。 ![確認して請求書で支払う](/assets/images/help/business-accounts/pay-invoice.png)
 
 ## 現在の請求書をダウンロードする
@@ -45,4 +45,4 @@ For more information about viewing the subscription and usage for your enterpris
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-4. To see a summary of your past billing activity, under "Billing", click the **Past Invoices** tab. ![[View payment history] タブ](/assets/images/help/business-accounts/view-payment-history.png)
+4. 過去の支払いアクティビティの概要を表示するには、"Billing（支払い）"の下で**Past Invoices（過去の請求書）**タブをクリックしてください。 ![[View payment history] タブ](/assets/images/help/business-accounts/view-payment-history.png)

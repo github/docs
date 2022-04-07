@@ -23,9 +23,6 @@ versions:
 topics:
   - Notifications
 ---
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
 
 ## Notification delivery options
 

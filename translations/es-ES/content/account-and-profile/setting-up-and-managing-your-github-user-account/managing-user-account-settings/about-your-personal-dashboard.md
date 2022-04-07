@@ -42,17 +42,17 @@ También puedes encontrar un listado de los repositorios, los equipos y los tabl
 ## Estar actualizado con la actividad desde tu organización
 
 {% if for-you-feed %}
-The main section of your dashboard has two activity feeds:
+La sección principal de tu tablero tiene dos fuentes de actividad:
 
-- Following: Activity by people you follow and from repositories you watch.
-- For you: Activity and recommendations based on your {% data variables.product.product_name %} network.
+- Siguiendo: Actividad de las personas que sigues y de los repositorios que observas.
+- Para ti: Recomendaciones de actividad con base en tu red de {% data variables.product.product_name %}.
 
-### Following feed
+### Fuente de "Siguiendo"
 
-This feed shows activity from repositories and users you have shown a direct interest in, by following a user or watching a repository. For example, you'll see updates when a user you follow:
+Esta fuente muestra la actividad de los repositorios y usuarios en los cuales has mostrado un interés directo cuando los sigues u observas un repositorio. Por ejemplo, verás actualizaciones cuando un usuario al que sigues:
 
 {% else %}
-In the "All activity" section of your news feed, you can view updates from repositories you watch and users you follow.
+En la sección de "Toda la actividad" de tu fuente de noticias, puedes ver actualizaciones de los repositorios que observas y de los usuarios que sigues.
 
 Verás actualizaciones en tus noticias cuando un usuario que sigues:
 {% endif %}
@@ -66,24 +66,24 @@ Verás actualizaciones en tus noticias cuando un usuario que sigues:
 - Bifurque un repositorio público.{% endif %}
 - Publica un lanzamiento nuevo.
 
-For more information about following people and watching repositories, see "[Following people](/get-started/exploring-projects-on-github/following-people)" and "[Be social](/get-started/quickstart/be-social)."
+Para obtener más información sobre cómo seguir personas y observar repositorios, consulta las secciones "[Seguir personas](/get-started/exploring-projects-on-github/following-people)" y "[Sé social](/get-started/quickstart/be-social)".
 
 {% if for-you-feed %}
-### For you feed
+### Para tu fuente
 
 {% note %}
 
-**Note:** This new tab is currently in public beta and subject to change.
+**Nota:** Esta pestaña nueva se encuentra actualmente en beta público y está sujeta a cambios.
 
 {% endnote %}
 
-This feed shows activity and recommendations based on your network on {% data variables.product.product_name %}. It's designed to provide updates that inspire you, keep you up-to-date, and help you find new communities you want to participate in. Your network includes:
+Esta fuente muestra la actividad y recomendaciones con base en tu red en {% data variables.product.product_name %}. Se diseñó para proporcionar actualizaciones que te inspiran, te mantienen actualizado y te ayudan a encontrar comunidades nuevas en las que quieras participar. Tu red incluye:
 
-- Repositories you have starred
-- Repositories you've contributed to
-- Users you follow or sponsor
-- Users you've collaborated with
-- Organizations you follow
+- Los repositorios que has marcado con estrella
+- Los repositorios en los que has contribuido
+- Los usuarios que sigues o patrocinas
+- Los usuarios con los que has colaborado
+- Las organizaciones que sigues
 
 {% endif %}
 

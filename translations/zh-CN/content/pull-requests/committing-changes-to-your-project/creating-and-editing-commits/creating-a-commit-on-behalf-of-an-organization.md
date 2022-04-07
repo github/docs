@@ -26,7 +26,7 @@ shortTitle: 代表组织
   - `org` 是组织的登录名
   - `name@organization.com` 位于组织的域中
 
-Organizations can use the `name@organization.com` email as a public point of contact for open source efforts.
+组织可使用 `name@organization.com` 电子邮件地址作为开源工作的公共联络点。
 
 ## 在命令行上使用 `on-behalf-of` 徽章创建提交
 

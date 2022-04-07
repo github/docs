@@ -24,6 +24,6 @@ children:
   - /addressing-merge-conflicts
   - /reviewing-changes-in-pull-requests
   - /incorporating-changes-from-a-pull-request
-shortTitle: Collaborate with pull requests
+shortTitle: 协作处理拉取请求
 ---
 
