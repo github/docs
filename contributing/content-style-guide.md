@@ -540,17 +540,39 @@ Do not use symbols or octicons that aren’t used in GitHub’s user interface.
 
 ### Accounts
 
-To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products.
+To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products. For more information about types of GitHub accounts, see "[Types of GitHub accounts](https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts)."
 - **Use:** Your organization account
 - **Use:** Your user account on GitHub Enterprise Cloud
 - **Avoid:** Your GitHub Enterprise Server organization
 - **Use:** You can highlight your work on GitHub Enterprise Server by sending the contribution counts to your GitHub.com profile.
 
-When referring to an individual owner of a GitHub account and the documentation is not for a site admin or enterprise owner, "personal account" should be used.
-- **Use:** Setting up and managing your GitHub personal account.
-- **Use:** Delete your personal account
-- **Use:** Managing scheduled reminders for your personal account
-- **Avoid:** User account settings.
+When referring to a user account that a person creates and manages on GitHub.com, use "personal account" unless you're writing administrative content.
+
+In administrative content for GitHub Enterprise Cloud with Enterprise Managed Users, GitHub Enterprise Server, or GitHub AE, use "user account." For GitHub Enterprise Cloud and GitHub AE, you can also use "enterprise member" when describing an individual user account that is an enterprise administrator or that contributes to an organization owned by an enterprise.
+
+Examples of administrative content:
+1. The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product should generally not mention "personal accounts" unless we're describing GitHub Enterprise Cloud without Enterprise Managed Users
+2. Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
+3. Other content with an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Signing up for GitHub](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github)" in the "Get started" product
+4. Organization-level GitHub Enterprise Cloud features, like the "[Managing SAML single sign-on for your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" and "[Granting access to your organization with SAML single sign-on](https://docs.github.com/en/enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on)" categories
+5. Enterprise-specific API documentation, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
+
+
+- GitHub.com (Free or Pro plans, basically)
+  - **Use:** Managing scheduled reminders for your personal account
+  - **Avoid:** Managing scheduled reminders for your user account
+- GitHub Enterprise Cloud (with SAML authentication, but not Enterprise Managed Users)
+  - **Use:** Enterprise owners can remove an enterprise member from the enterprise.
+  - **Avoid:** Enterprise owners can remove a personal account from the enterprise.
+- GitHub Enterprise Cloud with Enterprise Managed Users
+  - **Use:** With Enterprise Managed Users, you can control the user accounts of your enterprise members
+  - **Avoid:** With Enterprise Managed Users, you can control the personal accounts of your enterprise members
+- GitHub Enterprise Server
+  - **Use:** If you need to temporarily take over a user account...
+  - **Avoid:** If you need to temporarily take over a personal account...
+- GitHub AE
+  - **Use:** Make GitHub AE work best for you by adjusting the settings for your personal account...
+  - **Avoid:** 
 
 ### Acronyms
 
