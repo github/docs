@@ -19,12 +19,6 @@ shortTitle: Dependency graph
 <!--For this article in earlier GHES versions, see /content/github/visualizing-repository-data-with-graphs-->
 <!--Marketing-LINK: From /features/security and /features/security/software-supply-chain pages "How GitHub's dependency graph is generated".-->
 
-## Dependency graph availability
-
-{% ifversion fpt or ghec %}The dependency graph is available for every public repository that defines dependencies in a supported package ecosystem using a supported file format. Repository administrators can also set up the dependency graph for private repositories. For more information, see "[Configuring the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)"{% endif %}
-
-{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
-
 ## About the dependency graph
 
 {% data reusables.dependabot.about-the-dependency-graph %}
@@ -34,6 +28,12 @@ When you push a commit to {% data variables.product.product_name %} that changes
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see "[About dependency review](/code-security/supply-chain-security/about-dependency-review)."
 {% endif %}
+
+## Dependency graph availability
+
+{% ifversion fpt or ghec %}The dependency graph is available for every public repository that defines dependencies in a supported package ecosystem using a supported file format. Repository administrators can also set up the dependency graph for private repositories. For more information, see "[Configuring the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)"{% endif %}
+
+{% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
 ## Dependencies included
 
