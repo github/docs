@@ -1,6 +1,6 @@
 ---
 title: 'Gerenciar usuários, organizações e repositórios'
-shortTitle: 'Gerenciar usuários, organizações e repositórios'
+shortTitle: 'Manage users, organizations, and repositories'
 intro: 'Este guia descreve os métodos de autenticação para usuários que fazem login na sua empresa, além de mostrar como criar organizações e equipes para acesso e colaboração nos repositórios, bem como sugerir práticas recomendadas para a segurança do usuário.'
 redirect_from:
   - /enterprise/admin/categories/user-management
@@ -18,7 +18,6 @@ children:
   - /managing-users-in-your-enterprise
   - /managing-organizations-in-your-enterprise
   - /managing-repositories-in-your-enterprise
-  - /monitoring-activity-in-your-enterprise
   - /migrating-data-to-and-from-your-enterprise
 ---
 

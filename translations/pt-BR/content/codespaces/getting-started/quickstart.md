@@ -41,7 +41,7 @@ Uma vez criado o seu codespace, seu repositório será automaticamente clonado. 
 
     Se você estiver acompanhando com um tipo diferente de aplicativo, digite o comando inicial correspondente para esse projeto.
 
-2. Quando o aplicativo iniciar, o código reconhece a porta na qual o aplicativo está sendo executado e irá exibir uma instrução para encaminhar a porta para que você possa conectar-se a ele.
+2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded.
 
   ![Notificação de encaminhamento de porta](/assets/images/help/codespaces/quickstart-port-toast.png)
 

@@ -23,7 +23,7 @@ topics:
 
 Os contêineres de serviço são contêineres Docker que fornecem uma forma simples e portátil para os seus serviços de hospedagem que você pode precisar testar ou operar a sua aplicação em um fluxo de trabalho. Por exemplo, o seu fluxo de trabalho pode precisar executar testes de integração que necessitem de acesso a um banco de dados e a uma memória cache.
 
-Você pode configurar os contêineres de serviço para cada trabalho em um fluxo de trabalho. {% data variables.product.prodname_dotcom %} cria um novo contêiner Docker para cada serviço configurado no fluxo de trabalho e destrói o contêiner de serviço quando o trabalho é concluído. As etapas em um trabalho podem comunicar-se com todos os contêineres de serviço que fazem parte do mesmo trabalho. However, you cannot create and use service containers inside a composite action.
+Você pode configurar os contêineres de serviço para cada trabalho em um fluxo de trabalho. {% data variables.product.prodname_dotcom %} cria um novo contêiner Docker para cada serviço configurado no fluxo de trabalho e destrói o contêiner de serviço quando o trabalho é concluído. As etapas em um trabalho podem comunicar-se com todos os contêineres de serviço que fazem parte do mesmo trabalho. No entanto, você não pode criar e usar contêineres de serviço dentro de uma ação composta.
 
 {% data reusables.actions.docker-container-os-support %}
 
