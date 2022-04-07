@@ -7,7 +7,7 @@ versions:
   ghes: '>= 3.2'
   ghae: issue-4864
   ghec: '*'
-type: overview
+type: how_to
 topics:
   - Advanced Security
   - Dependency review
