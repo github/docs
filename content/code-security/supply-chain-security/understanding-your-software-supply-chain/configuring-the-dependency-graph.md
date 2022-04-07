@@ -29,9 +29,7 @@ If the dependency graph is not available in your system, your enterprise owner c
 
 ### Enabling and disabling the dependency graph for a private repository
 
-Repository administrators can enable or disable the dependency graph for private repositories.
-
-You can also enable or disable the dependency graph for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+{% data reusables.dependabot.enabling-disabling-dependency-graph %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
