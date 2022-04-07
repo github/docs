@@ -542,7 +542,7 @@ Do not use symbols or octicons that aren’t used in GitHub’s user interface.
 
 To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products. For more information about types of GitHub accounts, see "[Types of GitHub accounts](https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts)."
 - **Use:** Your organization account
-- **Use:** Your user account on GitHub Enterprise Cloud
+- **Avoid:** Your GitHub Enterprise Cloud account
 - **Avoid:** Your GitHub Enterprise Server organization
 - **Use:** You can highlight your work on GitHub Enterprise Server by sending the contribution counts to your GitHub.com profile.
 
