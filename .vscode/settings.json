@@ -3,6 +3,5 @@
     "**/translations": true
   },
   "workbench.editor.enablePreview": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false,
-  "isInternal": true
+  "workbench.editor.enablePreviewFromQuickOpen": false
 }
