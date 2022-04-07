@@ -1,6 +1,6 @@
 ---
 title: Monitorar atividades na sua empresa
-intro: 'You can view user and system activity by leveraging audit logs{% ifversion ghes or ghae %}, push logs, dashboards, webhooks, and log forwarding{% else %}and webhooks{% endif %}.'
+intro: 'Você pode ver as atividades de usuário e sistema aproveitando os logs de auditoria{% ifversion ghes or ghae %}, puslgos de push, painéis, webhooks e o encaminhamento de registros{% else %}e webhooks{% endif %}.'
 redirect_from:
   - /enterprise/admin/installation/monitoring-activity-on-your-github-enterprise-server-instance
 versions:
@@ -12,6 +12,6 @@ topics:
 children:
   - /reviewing-audit-logs-for-your-enterprise
   - /exploring-user-activity
-shortTitle: Monitor activity
+shortTitle: Monitorar atividade
 ---
 

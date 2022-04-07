@@ -1,7 +1,7 @@
 ---
-title: Searching the audit log for your enterprise
-intro: You can search an extensive list of audited actions in your enterprise.
-shortTitle: Search audit logs
+title: Pesquisando o log de auditoria para a sua empresa
+intro: Você pode pesquisar uma extensa lista de ações auditadas em sua empresa.
+shortTitle: Pesquisar logs de auditoria
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log
@@ -21,15 +21,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About search for the enterprise audit log
+## Sobre a pesquisa do log de auditoria da empresa
 
-You can search your enterprise audit log directly from the user interface by using the **Filters** dropdown, or by typing a search query.
+Você pode pesquisar o log de auditoria da empresa diretamente a partir da interface do usuário, usando o menu suspenso **Filtros** ou digitando uma consulta de pesquisa.
 
   ![Consulta de pesquisa](/assets/images/enterprise/site-admin-settings/search-query.png)
 
-For more information about viewing your enterprise audit log, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
+Para obter mais informações sobre como visualizar o seu log de auditoria corporativa, consulte[Acessando o log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)".
 
-You can also use the API to retrieve audit log events. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
+Você também pode usar a API para recuperar os eventos de log de auditoria. Para obter mais informações, consulte[Usando a API do log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)".
 
 Observe que não é possível pesquisar as entradas usando texto. No entanto, é possível criar consultas de pesquisa usando diversos filtros. Muitos operadores usados ao consultar o log de auditoria, como `-`, `>`, ou `<`, correspondem ao mesmo formato de pesquisa no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
@@ -39,18 +39,18 @@ Observe que não é possível pesquisar as entradas usando texto. No entanto, é
 
 {% endnote %}
 
-## Search query filters
+## Filtros de consulta de pesquisa
 
-|                         Filtrar | Descrição                                                                                                                                                                                                                             |
-| -------------------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|          `Yesterday's activity` | All actions created in the past day.                                                                                                                                                                                                  |
-| `Enterprise account management` | All actions in the `business` category.                                                                                                                                                                                               |
-|      `Associação à organização` | All actions for when a new user was invited to join an organization.                                                                                                                                                                  |
-|               `Team management` | All actions related to team management.<br/>- When a user account or repository was added or removed from a team<br/>- When a team maintainer was promoted or demoted<br/>-  When a team was deleted                |
-|         `Repository management` | All actions for repository management.<br/>- When a repository was created or deleted<br/>- When the repository visibility was changed<br/>- When a team was added or removed from a repository{% ifversion ghec %}
-|               `Billing updates` | All actions concerning how your enterprise pays for {% data variables.product.prodname_dotcom %} and for when your billing email address was changed.{% endif %}
-|                 `Hook activity` | All actions for webhooks and pre-receive hooks.                                                                                                                                                                                       |
-|           `Security management` | All actions concerning SSH keys, deploy keys, security keys, 2FA, and SAML single sign-on credential authorization, and vulnerability alerts for repositories.                                                                        |
+|                        Filtrar | Descrição                                                                                                                                                                                                                                                                 |
+| ------------------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|          `Actividade de ontem` | Todas as ações criadas no dia anterior.                                                                                                                                                                                                                                   |
+|  `Gestão de conta corporativa` | Todas as ações na categoria `negócios`.                                                                                                                                                                                                                                   |
+|     `Associação à organização` | Todas as ações para quando um novo usuário foi convidado a participar de uma organização.                                                                                                                                                                                 |
+|             `Gestão de equipe` | Todas as ações relacionadas ao gerenciamento de equipe.<br/>- Quando a conta de um usuário ou repositório foi adicionads ou removids de uma equipe<br/>- Quando um mantenedor de equipe foi promovido ou rebaixado<br/>- Quando uma equipe foi excluída |
+| `Gerenciamento do repositório` | Todas as ações para o gerenciamento de repositório.<br/>- Quando um repositório foi criado ou excluído<br/>- Quando a visibilidade do repositório foi alterada<br/>- Quando uma equipe foi adicionada ou removida de um repositório{% ifversion ghec %}
+|     `Atualizações de cobrança` | Todas as ações sobre como sua empresa paga por {% data variables.product.prodname_dotcom %} e quando seu endereço de e-mail de cobrança foi alterado.{% endif %}
+|            `Atividade do hook` | Todas as ações para webhooks e hooks pre-receive.                                                                                                                                                                                                                         |
+|   `Gerenciamento de segurança` | Todas as ações referentes a chaves SSH, chaves de implantação, chaves de segurança, 2FA e logon único SAML e alertas de vulnerabilidade para repositórios.                                                                                                                |
 
 ## Sintaxe de consulta de pesquisa
 

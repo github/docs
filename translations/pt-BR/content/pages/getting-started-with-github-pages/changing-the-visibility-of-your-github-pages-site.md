@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.private-pages %}'
 versions:
   fpt: '*'
   ghec: '*'
-permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
+permissions: 'People with admin access to a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
 shortTitle: Alterar a visibilidade do site
@@ -14,6 +14,12 @@ shortTitle: Alterar a visibilidade do site
 ## Sobre controle de acesso para sites de {% data variables.product.prodname_pages %}
 
 Com controle de acesso para {% data variables.product.prodname_pages %}, você pode restringir o acesso ao seu site {% data variables.product.prodname_pages %} publicando o site de forma privada. Um site publicado de forma privada só pode ser acessado por pessoas com acesso de leitura ao repositório a partir do qual o site é publicado. Você pode usar sites publicados de forma privada para compartilhar sua documentação interna ou base de conhecimento com integrantes da sua empresa.
+
+{% note %}
+
+**Note:** To publish a {% data variables.product.prodname_pages %} site privately, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
 
 Se sua empresa usar {% data variables.product.prodname_emus %}, todos os sites de {% data variables.product.prodname_pages %} serão publicados privadamente. Para obter mais informações sobre {% data variables.product.prodname_emus %}, consulte "[Sobre {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)".
 

@@ -1,7 +1,7 @@
 ---
-title: Reviewing audit logs for your enterprise
-intro: You can view user and system activity in the audit logs for your enterprise.
-shortTitle: Review audit logs
+title: Revisando logs de auditoria para sua empresa
+intro: Você pode visualizar as atividades de usuário e sistema nos logs de auditoria da sua empresa.
+shortTitle: Revisar logs de auditoria
 versions:
   ghec: '*'
   ghes: '*'
