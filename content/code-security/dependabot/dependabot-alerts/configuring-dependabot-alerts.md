@@ -68,6 +68,7 @@ By default, we notify people with admin permissions in the affected repositories
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your organization
 {% ifversion fpt or ghec %}You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your organization.
 {% ifversion fpt or ghec %}Your changes affect all repositories.{% endif %}
+
 ### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for all existing repositories
 
 {% data reusables.profile.access_org %}
