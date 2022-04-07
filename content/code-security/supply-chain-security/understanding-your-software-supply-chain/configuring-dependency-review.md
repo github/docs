@@ -1,6 +1,6 @@
 ---
 title: Configuring dependency review
-intro: 'You can use dependency review to avoid vulnerabilities being added to your project.'
+intro: 'You can use dependency review to catch vulnerabilities before they are added to your project.'
 shortTitle: Configure dependency review
 versions:
   fpt: '*'
