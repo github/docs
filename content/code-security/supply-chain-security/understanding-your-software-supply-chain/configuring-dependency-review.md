@@ -46,6 +46,7 @@ You can disable the dependency graph at any time by clicking **Disable** next to
 
 {% elsif ghes or ghae %}
 Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."
+
 ### Enabling the dependency graph for {% data variables.product.product_location %}
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
