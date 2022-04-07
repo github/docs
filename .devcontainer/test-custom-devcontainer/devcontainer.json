@@ -2,7 +2,7 @@
 	"name": "test",
 
 	"settings": {
-		"terminal.integrated.shell.linux": "/bin/csh",
+		"terminal.integrated.shell.linux": "/bin/zsh",
 	},
 
 	// Visual Studio Code extensions which help authoring for docs.github.com.

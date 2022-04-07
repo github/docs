@@ -1,5 +1,5 @@
 ---
-title: Transmitir os logs de auditoria para organizações da sua conta corporativa
+title: Streaming the audit log for your enterprise
 intro: 'Você pode transmitir dados de auditoria e eventos do Git de {% data variables.product.prodname_dotcom %} para um sistema externo de gerenciamento de dados.'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,26 +10,12 @@ topics:
   - Enterprise
   - Logging
   - Organizations
-shortTitle: Transmitir os logs de auditoria da organização
+shortTitle: Stream audit logs
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
+  - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 permissions: Enterprise owners can configure audit log streaming.
 ---
-
-## Sobre a exportação dos dados de auditoria
-
-Você pode extrair dados de eventos de auditoria de {% data variables.product.prodname_dotcom %} e Git de várias maneiras:
-
-* Acesse a página de log de auditoria em {% data variables.product.prodname_dotcom %} e clique em **Exportar**. Para obter mais informações, consulte "[Visualizando os logs de auditoria para organizações na conta corporativa](/github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account)" e "[Exportando o log de auditoria](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)".
-* Use a API para fazer uma pesquisa para novos eventos de log de auditoria. Para obter mais informações, consulte "[Usando a API do log de auditoria](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api)."
-* Configure {% data variables.product.product_name %} para transmitir dados de auditoria enquanto eventos são registrados.
-
-Atualmente, a transmissão do log de auditoria é compatível com vários provedores de armazenamento.
-- Amazon S3
-- Armazenamento do Azure Blob
-- Centros de evento do Azure
-- Armazenamento do Google Cloud
-- Splunk
 
 ## Sobre a transmissão do log de auditoria
 
@@ -40,7 +26,7 @@ Os benefícios do streaming de dados de auditoria incluem:
 
 * **Exploração de dados**. Você pode examinar eventos transmitidos usando sua ferramenta preferida para consultar grandes quantidades de dados. A transmissão contém eventos de auditoria e Git em toda a conta corporativa.
 * **Continuidade dos dados**. Você pode pausar a transmissão por até sete dias sem perder nenhum dado da auditoria.
-* **Retenção de dados**. Você pode manter seus registros de auditoria exportados e dados do Git pelo tempo que precisar.
+* **Retenção de dados**. You can keep your exported audit logs and Git events data as long as you need to.
 
 Os proprietários das empresas podem configurar, pausar ou excluir uma transmissão a qualquer momento. A transmissão exporta os dados de auditoria para todas as organizações da sua empresa.
 
