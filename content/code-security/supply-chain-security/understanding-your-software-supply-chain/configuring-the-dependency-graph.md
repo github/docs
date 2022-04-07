@@ -8,7 +8,7 @@ versions:
   ghes: '*'
   ghae: issue-4864
   ghec: '*'
-type: overview
+type: how_to
 topics:
   - Dependency graph
   - Dependencies
