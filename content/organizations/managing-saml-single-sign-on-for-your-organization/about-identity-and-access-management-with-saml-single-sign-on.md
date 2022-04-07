@@ -18,6 +18,8 @@ shortTitle: IAM with SAML SSO
 
 {% data reusables.saml.dotcom-saml-explanation %}
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.saml-accounts %}
 
 Organization owners can enforce SAML SSO for an individual organization, or enterprise owners can enforce SAML SSO for all organizations in an enterprise account. For more information, see "[Configuring SAML single sign-on for your enterprise](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
