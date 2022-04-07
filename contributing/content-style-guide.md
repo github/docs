@@ -557,22 +557,23 @@ Examples of administrative content:
 4. Organization-level GitHub Enterprise Cloud features, like the "[Managing SAML single sign-on for your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" and "[Granting access to your organization with SAML single sign-on](https://docs.github.com/en/enterprise-cloud@latest/organizations/granting-access-to-your-organization-with-saml-single-sign-on)" categories
 5. Enterprise-specific API documentation, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
 
+Examples for each product:
 
-- GitHub.com (Free or Pro plans, basically)
+- GitHub.com (Free or Pro plans)
   - **Use:** Managing scheduled reminders for your personal account
   - **Avoid:** Managing scheduled reminders for your user account
 - GitHub Enterprise Cloud (with SAML authentication, but not Enterprise Managed Users)
-  - **Use:** Enterprise owners can remove an enterprise member from the enterprise.
+  - **Use:** Enterprise owners can remove a member from the enterprise.
   - **Avoid:** Enterprise owners can remove a personal account from the enterprise.
 - GitHub Enterprise Cloud with Enterprise Managed Users
-  - **Use:** With Enterprise Managed Users, you can control the user accounts of your enterprise members
-  - **Avoid:** With Enterprise Managed Users, you can control the personal accounts of your enterprise members
+  - **Use:** With Enterprise Managed Users, you can create and manage user accounts for your enterprise members.
+  - **Avoid:** With Enterprise Managed Users, you can create and manage the personal accounts for your enterprise members.
 - GitHub Enterprise Server
   - **Use:** If you need to temporarily take over a user account...
   - **Avoid:** If you need to temporarily take over a personal account...
 - GitHub AE
-  - **Use:** Make GitHub AE work best for you by adjusting the settings for your personal account...
-  - **Avoid:** 
+  - **Use:** Authorized users can access your enterprise from any IP address.
+  - **Avoid:** Authorized personal accounts can access your enterprise from any IP address.
 
 ### Acronyms
 
