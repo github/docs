@@ -218,7 +218,11 @@ export function Search({
       <div className="position-relative z-2">
         <form role="search" className="width-full d-flex" noValidate onSubmit={onFormSubmit}>
           <label className="text-normal width-full">
-            <span className="visually-hidden">{t`placeholder`}</span>
+            <span
+              className="visually-hidden"
+              aria-label={t`label`}
+              aria-describedby={t`description`}
+            >{t`placeholder`}</span>
             <input
               data-testid="site-search-input"
               ref={inputRef}
@@ -244,6 +248,8 @@ export function Search({
               maxLength={512}
               onChange={onSearch}
               value={localQuery}
+              aria-label={t`label`}
+              aria-describedby={t`description`}
             />
           </label>
           <button className="d-none" type="submit" title="Submit the search query." hidden />
