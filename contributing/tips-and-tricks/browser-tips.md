@@ -23,8 +23,6 @@ When you're looking at an article in our documentation on docs.github.com or on 
 javascript:(()%20=>%20{%20window.location.href%20=%20window.location.href.replace(/https:\/\/docs\.github\.com/,%20'http://localhost:4000').replace(/https:\/\/.*\..*\.(com|net|dev|io|org|ms)/,%20'http://localhost:4000')%20})()
 ```
 
-Hat tip to **[@sarahs](https://github.com/sarahs)**!
-
 ### "View in production" toggle
 
 When you're looking at an article in our documentation on a staging server at herokuapp.com or on your local server running at localhost:4000, a bookmark with the following JavaScript will load the same path you're viewing, but on the production documentation site at docs.github.com:
