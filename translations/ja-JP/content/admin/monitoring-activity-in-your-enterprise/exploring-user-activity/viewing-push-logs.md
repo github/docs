@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/installation/viewing-push-logs
   - /enterprise/admin/user-management/viewing-push-logs
   - /admin/user-management/viewing-push-logs
+  - /admin/user-management/monitoring-activity-in-your-enterprise/viewing-push-logs
 versions:
   ghes: '*'
   ghae: '*'
@@ -41,6 +42,6 @@ topics:
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. 適切な Git リポジトリで Audit log ファイルを開いてください。
   ```shell
-  ghe-repo <em>コードオーナー</em>/<em>リポジトリ</em> -c "less audit_log"
+  ghe-repo <em>owner</em>/<em>repository</em> -c "cat audit_log"
   ```
 {% endif %}

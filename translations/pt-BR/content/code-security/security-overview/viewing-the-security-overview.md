@@ -39,7 +39,7 @@ shortTitle: Ver visão geral de segurança
 ## Visualizando a visão geral de segurança de uma empresa
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. Na barra lateral esquerda, clique em {% octicon "shield" aria-label="The shield icon" %} **Segurança**.
+1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
 {% endif %}
 
 ## Visualizando alertas de um repositório

@@ -1,5 +1,5 @@
 ---
-title: Streaming the audit log for your enterprise
+title: Transmissão do log de auditoria para a sua empresa
 intro: 'Você pode transmitir dados de auditoria e eventos do Git de {% data variables.product.prodname_dotcom %} para um sistema externo de gerenciamento de dados.'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,7 +10,7 @@ topics:
   - Enterprise
   - Logging
   - Organizations
-shortTitle: Stream audit logs
+shortTitle: Transmitir logs de auditoria
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
@@ -26,7 +26,7 @@ Os benefícios do streaming de dados de auditoria incluem:
 
 * **Exploração de dados**. Você pode examinar eventos transmitidos usando sua ferramenta preferida para consultar grandes quantidades de dados. A transmissão contém eventos de auditoria e Git em toda a conta corporativa.
 * **Continuidade dos dados**. Você pode pausar a transmissão por até sete dias sem perder nenhum dado da auditoria.
-* **Retenção de dados**. You can keep your exported audit logs and Git events data as long as you need to.
+* **Retenção de dados**. Você pode manter seus registros de auditoria exportados e dados de eventos do Git se precisar.
 
 Os proprietários das empresas podem configurar, pausar ou excluir uma transmissão a qualquer momento. A transmissão exporta os dados de auditoria para todas as organizações da sua empresa.
 

@@ -1,5 +1,5 @@
 ---
-title: Streaming the audit logs for organizations in your enterprise account
+title: Streaming the audit log for your enterprise
 intro: 'You can stream audit and Git events data from {% data variables.product.prodname_dotcom %} to an external data management system.'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,26 +10,12 @@ topics:
   - Enterprise
   - Logging
   - Organizations
-shortTitle: Stream organization audit logs
+shortTitle: Stream audit logs
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
+  - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 permissions: Enterprise owners can configure audit log streaming.
 ---
-
-## About exporting audit data
-
-You can extract audit log and Git events data from {% data variables.product.prodname_dotcom %} in multiple ways:
-
-* Go to the Audit log page in {% data variables.product.prodname_dotcom %} and click **Export**. For more information, see "[Viewing the audit logs for organizations in your enterprise account](/github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account)" and "[Exporting the audit log](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)."
-* Use the API to poll for new audit log events. For more information, see "[Using the audit log API](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api)."
-* Set up {% data variables.product.product_name %} to stream audit data as events are logged.
-
-Currently, audit log streaming is supported for multiple storage providers.
-- Amazon S3
-- Azure Blob Storage
-- Azure Event Hubs
-- Google Cloud Storage
-- Splunk
 
 ## About audit log streaming
 
@@ -40,7 +26,7 @@ The benefits of streaming audit data include:
 
 * **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.
 * **Data continuity**. You can pause the stream for up to seven days without losing any audit data.
-* **Data retention**. You can keep your exported audit logs and Git data as long as you need to.
+* **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
 
 Enterprise owners can set up, pause, or delete a stream at any time. The stream exports the audit data for all of the organizations in your enterprise.
 
