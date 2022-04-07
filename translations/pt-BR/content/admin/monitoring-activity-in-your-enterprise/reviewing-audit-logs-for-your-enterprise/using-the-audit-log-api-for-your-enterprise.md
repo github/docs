@@ -1,7 +1,7 @@
 ---
-title: Using the audit log API for your enterprise
-intro: 'You can programmatically retrieve enterprise events with the{% ifversion ghec or ghes > 3.2 %} REST or{% endif %} GraphQL API.'
-shortTitle: Audit log API
+title: Usando a API do log de auditoria para a sua empresa
+intro: 'Você pode recuperar programaticamente eventos corporativos com a API REST{% ifversion ghec or ghes > 3.2 %} ou{% endif %} API do GraphQL.'
+shortTitle: API do log de auditoria
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can use the audit log API.'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -23,20 +23,20 @@ Você pode interagir com o log de auditoria usando a API GraphQL{% ifversion ghe
 Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
 
 {% ifversion ghec or ghes > 3.0 or ghae %}
-## Querying the audit log GraphQL API
+## Consultando o log auditoria da API do GraphQL
 
-To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
+Para garantir que a sua propriedade intelectual esteja protegida e que você mantenha a conformidade para a sua empresa, você pode usar a API do GraphQL do log de auditoria para guardar cópias dos seus dados de log de auditoria e para monitorar:
 {% data reusables.audit_log.audit-log-api-info %}
 
-Note that you can't retrieve Git events using the {% ifversion not ghec %}audit log API.{% else %}GraphQL API. Para recuperar eventos do Git, use a API REST. For more information, see `git` category actions in "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)", and also the "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization) audit log endpoints in the REST API documentation."{% endif %}
+Observe que você não pode recuperar eventos do Git usando a API de registro de auditoria {% ifversion not ghec %}.{% else %}API GraphQL. Para recuperar eventos do Git, use a API REST. Para obter mais informações, consulte as ações da categoria do `git` em[Ações do log de auditoria para a sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)" e também a "[Administração da empresa](/rest/reference/enterprise-admin#audit-log)" e os pontos de extremidade das "[Organizações](/rest/reference/orgs#get-the-audit-log-for-an-organization) do log de auditoria na documentação da API REST.{% endif %}
 
 A resposta do GraphQL pode incluir dados por até 90 a 120 dias.
 
-### Example 1: Members added to or removed from organizations in an enterprise
+### Exemplo 1: Integrantes adicionados ou removidos das organizações de uma empresa
 
-The query below fetches the audit logs for the `avocado-corp` enterprise and returns the first 10 organizations in the enterprise, where the only actions performed were adding or removing a member from an organization. The first 20 audit log entries for each organization are returned.
+A consulta abaixo busca os logs de auditoria da empresa `avocado-corp` e retorna as primeiras 10 organizações da empresa, em que as únicas ações realizadas estavam adicionando ou removendo um integrante de uma organização. As primeiras 20 entradas de logs de auditoria para cada organização são devolvidas.
 
-This query uses the [auditlog](/graphql/reference/objects) field from the Organization object, and the [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) and [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry) objects. The  {% data variables.product.prodname_dotcom %} account querying the enterprise audit log must be an organization owner for each organization within the enterprise.
+Esta consulta usa o campo [auditlog](/graphql/reference/objects) do objeto Organização, e os objetos [OrgAddMemberAuditEntry](/graphql/reference/objects#orgaddmemberauditentry) e [OrgRemoveMemberAuditEntry](/graphql/reference/objects#orgremovememberauditentry). A conta de {% data variables.product.prodname_dotcom %} que consultou o log de auditoria corporativa deve ser o proprietário de uma organização para cada organização dentro da empresa.
 
 ```shell
 {
@@ -70,14 +70,14 @@ This query uses the [auditlog](/graphql/reference/objects) field from the Organi
 }
 ```
 
-The GraphQL API will return at most 100 nodes per query. To retrieve additional results, you'll need to implement pagination. For more information, see "[Resource limitations](/graphql/overview/resource-limitations#node-limit)" in the GraphQL API documentation and [Pagination](https://graphql.org/learn/pagination/) in the official GraphQL documentation.
-### Example 2: Events in an organization, for a specific date and actor
+A API do GraphQL retornará, no máximo, 100 nós por consulta. Para recuperar resultados adicionais, você deve implementar a paginação. Para obter mais informações, consulte "[limitações de recursos](/graphql/overview/resource-limitations#node-limit)" na documentação da API do GraphQL e [Paginação](https://graphql.org/learn/pagination/) na documentação oficial do GraphQL.
+### Exemplo 2: Eventos de uma organização, para uma data e ator específicos
 
-You can specify multiple search phrases, such as `created` and `actor`, by separating them in your query string with a space.
+Você pode especificar várias frases de pesquisa, como `criado` e `ator`, separando-as na sua string de consulta com um espaço.
 
-The query below fetches all the audit logs for the `avocado-corp` enterprise that relate to the `octo-org` organization, where the actions were performed by the `octocat` user on or after the 1 Jan, 2022. The first 20 audit log entries are returned, with the newest log entry appearing first.
+A consulta abaixo busca todos os logs de auditoria para o projeto `avocado-corp` que estão relacionados à organização `octo-org`, em que as ações foram realizadas pelo usuário do `octocat` em ou após 1 de janeiro de 2022. As primeiras 20 entradas do log de auditoria são retornadas, com a entrada de log mais recente aparecendo primeiro.
 
-This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) interface. The {% data variables.product.prodname_dotcom %} account querying the enterprise audit log must be an owner of the `octo-org` organization.
+Essa consulta usa a interface [AuditEntry](/graphql/reference/interfaces#auditentry). A conta de {% data variables.product.prodname_dotcom %} que consulta o log de auditoria corporativa deve ser um proprietário da organização `octo-org`.
 
 ```shell
 {
@@ -105,22 +105,22 @@ This query uses the [AuditEntry](/graphql/reference/interfaces#auditentry) inter
 }
 ```
 
-For more query examples, see the [platform-samples repository](https://github.com/github/platform-samples/blob/master/graphql/queries).
+Para obter mais exemplos de consulta, veja [o repositporio das amostras da plataforma](https://github.com/github/platform-samples/blob/master/graphql/queries).
 
 {% endif %}
 {% ifversion ghec or ghes > 3.2 or ghae-issue-6648 %}
-## Querying the audit log REST API
+## Consultando o log de auditoria da API REST
 
-To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log REST API to keep copies of your audit log data and monitor:
+Para garantir que a sua propriedade intelectual esteja protegida e que você mantenha a conformidade para a sua empresa, você pode usar a API REST do log de auditoria para guardar cópias dos seus dados de log de auditoria e para monitorar:
 {% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.retention-periods %}
 
-For more information about the audit log REST API, see "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
+Para obter mais informações sobre a REST API do log de auditoria, consulte "[Administração empresarial](/rest/reference/enterprise-admin#audit-log)" e "[Organizações](/rest/reference/orgs#get-the-audit-log-for-an-organization)".
 
-### Example 1: All events in an enterprise, for a specific date, with pagination
+### Exemplo 1: Todos os eventos de uma empresa, para uma data específica, com paginação
 
-The query below searches for audit log events created on Jan 1st, 2022 in the `avocado-corp` enterprise, and return the first page with a maximum of 100 items per page using [REST API pagination](/rest/overview/resources-in-the-rest-api#pagination):
+A consulta abaixo procura eventos de log de auditoria criados em 1 de janeiro de 2022 na empresa `avocado-corp` e retorna a primeira página com um máximo de 100 itens por página usando a [Paginação da API REST](/rest/overview/resources-in-the-rest-api#pagination):
 
 ```shell
 curl -H "Authorization: token <em>TOKEN</em>" \
@@ -128,11 +128,11 @@ curl -H "Authorization: token <em>TOKEN</em>" \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=created:2022-01-01&page=1&per_page=100"
 ```
 
-### Example 2: Events for pull requests in an enterprise, for a specific date and actor
+### Exemplo 2: Eventos para pull requests em uma empresa, para uma data ou ator específico
 
-You can specify multiple search phrases, such as `created` and `actor`, by separating them in your formed URL with the `+` symbol or ASCII character code `%20`.
+Você pode especificar várias frases de pesquisa, como `criado` e `ator`, separando-os no seu URL formado com o símbolo `+` ou código de carctere ASCII `%20`.
 
-The query below searches for audit log events for pull requests, where the event occurred on or after Jan 1st, 2022 in the `avocado-corp` enterprise, and the action was performed by the `octocat` user:
+A consulta abaixo pesquisa eventos de log de auditoria para pull requests, em que o evento ocorreu em ou depois de 1 de janeiro de 2022 na empresa `avocado-corp` e a ação foi realizada pelo usuário do `octocat`:
 
 ```shell
 curl -H "Authorization: token <em>TOKEN</em>" \

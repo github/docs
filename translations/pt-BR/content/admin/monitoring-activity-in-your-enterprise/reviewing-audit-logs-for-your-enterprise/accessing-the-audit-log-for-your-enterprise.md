@@ -1,7 +1,7 @@
 ---
-title: Accessing the audit log for your enterprise
-intro: You can view aggregated actions from all of the organizations owned by an enterprise account in the enterprise's audit log.
-shortTitle: Access audit logs
+title: Acessando o log de auditoria para a sua empresa
+intro: Você pode ver as ações agregadas de todas as organizações pertencentes a uma conta corporativa no log de auditoria da empresa.
+shortTitle: Acessar logs de auditoria
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can access the audit log.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
