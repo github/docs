@@ -89,7 +89,7 @@ Depois do envio da sua solicitação de suporte, podemos pedir que você compart
 - `collectd/logs/collectd.log`: logs coletados;
 - `mail-logs/mail.log`: logs de entrega de e-mail por SMTP;
 
-Para obter mais informações, consulte "[Gerar logs de auditoria](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)".
+For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
 Os pacotes de suporte incluem logs dos últimos dois dias. Para obter logs dos últimos sete dias, você pode baixar um pacote de suporte estendido. Para obter mais informações, consulte "[Criar e compartilhar pacotes de suporte estendidos](#creating-and-sharing-extended-support-bundles)".
 
