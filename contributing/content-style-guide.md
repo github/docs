@@ -554,9 +554,8 @@ The name of the account that an individual person signs into varies depending on
 
 Unless the content is about administering an enterprise product, describe an individual person's account on GitHub as a "personal account."
 
-- GitHub.com (Free or Pro plans)
-  - **Use:** Managing scheduled reminders for your personal account
-  - **Avoid:** Managing scheduled reminders for your user account
+- **Use:** Managing scheduled reminders for your personal account
+- **Avoid:** Managing scheduled reminders for your user account
 
 If the reader is an enterprise administrator for GitHub Enterprise Cloud with Enterprise Managed Users, GitHub Enterprise Server, or GitHub AE, and you're describing the user accounts that they manage, use "user account." For GitHub Enterprise Cloud and GitHub AE, you can also use "enterprise member" when describing an individual user account that is an enterprise administrator or that contributes to an organization owned by an enterprise.
 
