@@ -552,7 +552,7 @@ To avoid ambiguity and confusion, do not use product names as adjectives to desc
 
 The name of the account that an individual person signs into varies depending on the context.
 
-Unless the content is about administering an enterprise product, describe an individual person's account on GitHub as a "personal account".
+Unless the content is about administering an enterprise product, describe an individual person's account on GitHub as a "personal account."
 
 - GitHub.com (Free or Pro plans)
   - **Use:** Managing scheduled reminders for your personal account
