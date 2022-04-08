@@ -44,7 +44,7 @@ export const CodeExampleCard = ({ example }: Props) => {
               )
             } else if (tag === 'Code scanning') {
               return (
-                <Label key={tag} variant="small" sx={{ bg: 'attention.emphasis', mb: 1, mr: 2 }}>
+                <Label key={tag} variant="small" sx={{ bg: '#00a6d2', mb: 1, mr: 2 }}>
                   {tag}
                 </Label>
               )
@@ -86,23 +86,13 @@ export const CodeExampleCard = ({ example }: Props) => {
               )
             } else if (tag === 'Organization') {
               return (
-                <Label
-                  key={tag}
-                  variant="small"
-                  sx={{ mb: 1, mr: 2 }}
-                  style={{ backgroundColor: '#5b616b' }}
-                >
+                <Label key={tag} variant="small" sx={{ bg: '#5b616b', mb: 1, mr: 2 }}>
                   {tag}
                 </Label>
               )
             } else if (tag === 'Scripts') {
               return (
-                <Label
-                  key={tag}
-                  variant="small"
-                  sx={{ mb: 1, mr: 2 }}
-                  style={{ backgroundColor: '#046b99' }}
-                >
+                <Label key={tag} variant="small" sx={{ bg: '#046b99', mb: 1, mr: 2 }}>
                   {tag}
                 </Label>
               )
