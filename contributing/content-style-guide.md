@@ -540,21 +540,26 @@ Do not use symbols or octicons that aren’t used in GitHub’s user interface.
 
 ### Accounts
 
+#### Product names and accounts
+
 To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products. For more information about types of GitHub accounts, see "[Types of GitHub accounts](https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts)."
-- **Use:** Your organization account
+- **Use:** Your organization on GitHub Enterprise Cloud
 - **Avoid:** Your GitHub Enterprise Cloud account
 - **Avoid:** Your GitHub Enterprise Server organization
 - **Use:** You can highlight your work on GitHub Enterprise Server by sending the contribution counts to your GitHub.com profile.
 
-When referring to a user account that a person creates and manages on GitHub.com, use "personal account" unless you're writing administrative content.
+#### Personal account versus user account
 
-In administrative content for GitHub Enterprise Cloud with Enterprise Managed Users, GitHub Enterprise Server, or GitHub AE, use "user account." For GitHub Enterprise Cloud and GitHub AE, you can also use "enterprise member" when describing an individual user account that is an enterprise administrator or that contributes to an organization owned by an enterprise.
+The name of the account that an individual person signs into varies depending on the context.
 
-Examples for each product:
+Unless the content is about administering an enterprise product, describe an individual person's account on GitHub as a "personal account".
 
 - GitHub.com (Free or Pro plans)
   - **Use:** Managing scheduled reminders for your personal account
   - **Avoid:** Managing scheduled reminders for your user account
+
+If the reader is an enterprise administrator for GitHub Enterprise Cloud with Enterprise Managed Users, GitHub Enterprise Server, or GitHub AE, and you're describing the user accounts that they manage, use "user account." For GitHub Enterprise Cloud and GitHub AE, you can also use "enterprise member" when describing an individual user account that is an enterprise administrator or that contributes to an organization owned by an enterprise.
+
 - GitHub Enterprise Cloud (with SAML authentication, but not Enterprise Managed Users)
   - **Use:** Enterprise owners can remove a member from the enterprise.
   - **Avoid:** Enterprise owners can remove a personal account from the enterprise.
@@ -568,7 +573,7 @@ Examples for each product:
   - **Use:** Authorized users can access your enterprise from any IP address.
   - **Avoid:** Authorized personal accounts can access your enterprise from any IP address.
 
-Most administrative content is in the following locations. This list is not exhaustive.
+Anything in the following locations should say "user account". This list is not exhaustive.
 
 - The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product
 - Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
