@@ -16,4 +16,4 @@ shortTitle: CI using Jenkins
 ---
 ## Requirements
 
-- Follow our white paper "[Practical guide to CI with Jenkins and GitHub](https://resources.github.com/whitepapers/practical-guide-to-CI-with-Jenkins-and-GitHub/)" to get step by step instructions on how you can automatically trigger build jobs on a Jenkins server when pushes are made to a repository in {% data variables.product.product_location %}.
+- Follow our white paper "[Practical guide to CI with Jenkins and GitHub](https://resources.github.com/devops/tools/ci-cd/)" to get step by step instructions on how you can automatically trigger build jobs on a Jenkins server when pushes are made to a repository in {% data variables.product.product_location %}.
