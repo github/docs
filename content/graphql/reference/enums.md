@@ -1,4 +1,4 @@
----
+Mehrdadtaherkhanie@gmail.com
 title: Enums
 redirect_from:
   - /v4/enum
@@ -11,7 +11,7 @@ versions:
 topics:
   - API
 ---
-
+Mehrdadtaherkhanie@gmail.com #
 ## About enums
 
 [Enums](https://graphql.github.io/graphql-spec/June2018/#sec-Enums) represent possible sets of values for a field.
@@ -23,3 +23,7 @@ For more information, see "[Introduction to GraphQL](/graphql/guides/introductio
 {% for item in graphql.schemaForCurrentVersion.enums %}
   {% include graphql-enum %}
 {% endfor %}
+Mehrdadtaherkhanie@gmail.com #$
+
+#
+$
