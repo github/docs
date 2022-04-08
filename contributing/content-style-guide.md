@@ -573,7 +573,7 @@ If the reader is an enterprise administrator for GitHub Enterprise Cloud with En
   - **Use:** Authorized users can access your enterprise from any IP address.
   - **Avoid:** Authorized personal accounts can access your enterprise from any IP address.
 
-Anything in the following locations should say "user account". This list is not exhaustive.
+The following locations contain administrative content and should describe an individual's account as a "user account." Other locations should use "personal account." This list is not exhaustive.
 
 - The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product
 - Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
