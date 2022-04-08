@@ -1,0 +1,1 @@
+If the dependency graph is not available in your system, your enterprise owner can enable the dependency graph. For more information, see "[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."

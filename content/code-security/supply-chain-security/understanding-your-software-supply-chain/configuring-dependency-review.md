@@ -46,16 +46,10 @@ You can disable the dependency graph at any time by clicking **Disable** next to
 Dependency review is available when dependency graph is enabled for {% data variables.product.product_location %} and {% data variables.product.prodname_advanced_security %} is enabled for the organization or repository. For more information, see "[Enabling {% data variables.product.prodname_GH_advanced_security %} for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise)."
 
 ### Enabling the dependency graph for {% data variables.product.product_location %}
-{% data reusables.enterprise_management_console.enable-disable-security-features %}
+You can check if the dependency graph is enabled. {% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-{% data reusables.enterprise_management_console.advanced-security-tab %}{% ifversion ghes %}
-1. Under "{% ifversion ghes < 3.2 %}{% data variables.product.prodname_advanced_security %}{% else %}Security{% endif %}," enable the dependency graph.
-{% ifversion ghes > 3.1 %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/3.2/management-console/enable-security-checkboxes.png){% else %}![Checkbox to enable or disable {% data variables.product.prodname_advanced_security %} features](/assets/images/enterprise/management-console/enable-advanced-security-checkboxes.png){% endif %}{% else %}
-1. Under "{% data variables.product.prodname_advanced_security %}," click **{% data variables.product.prodname_code_scanning_capc %}**.
-![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png){% endif %}
-{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security-and-analysis %}
 
-When {% data variables.product.product_name %} has finished restarting, you're ready to set up any additional resources required for newly enabled features.
 {% endif %}
