@@ -580,6 +580,9 @@ The following locations contain administrative content and should describe an in
 - Content within other products that's intended for an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Signing up for GitHub](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github)" in the "Get started" product
 - Enterprise-specific API content, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
 
+#### People's accounts for other services
+
+When you describe a person's account for a service other than GitHub, such as an integration or authentication provider, use "user account."
 ### Acronyms
 
 Spell out acronyms the first time they’re used in an article, except in titles or headers.
