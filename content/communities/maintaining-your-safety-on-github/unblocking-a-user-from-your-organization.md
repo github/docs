@@ -1,6 +1,6 @@
 ---
 title: Unblocking a user from your organization
-intro: 'Organization owners can unblock a user who was previously blocked, restoring their access to the organization''s repositories.'
+intro: 'Organization owners and moderators can unblock a user who was previously blocked, restoring their access to the organization''s repositories.'
 redirect_from:
   - /articles/unblocking-a-user-from-your-organization
   - /github/building-a-strong-community/unblocking-a-user-from-your-organization
@@ -27,15 +27,15 @@ If you selected a specific amount of time to block the user, they will be automa
 1. Navigate to the comment whose author you would like to unblock.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Unblock user**.
 ![The horizontal kebab icon and comment moderation menu showing the unblock user option](/assets/images/help/repository/comment-menu-unblock-user.png)
-3. To confirm you would like to unblock the user, click **Okay**.
+3. To confirm you would like to unblock the user, click **OK**.
 
 ## Unblocking a user in the organization settings
 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}, then click **Blocked users**.
-5. Under "Blocked users", next to the user you'd like to unblock, click **Unblock**.
+{% data reusables.organizations.block_users %}
+1. Under "Blocked users", next to the user you'd like to unblock, click **Unblock**.
 ![Unblock user button](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## Further reading

@@ -4,7 +4,7 @@
 
 {% endnote %}
 
-You can use `jobs.<job_id>.concurrency` to ensure that only a single job or workflow using the same concurrency group will run at a time. Un grupo de concurrencia puede ser cualquier secuencia o expresión. La expresión puede utilizar cualquier contexto, con excepción del contexto `secrets`. Para obtener más información sobre las expresiones, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
+Puedes utilizar `jobs.<job_id>.concurrency` para asegurarte de que un solo job o flujo de trabajo que utilice el mismo grupo de concurrencia sea el que se ejecute a la vez. Un grupo de concurrencia puede ser cualquier secuencia o expresión. La expresión puede utilizar cualquier contexto, con excepción del contexto `secrets`. Para obtener más información sobre las expresiones, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions)".
 
 También puedes especificar la `concurrency` a nivel del flujo de trabajo. Para obtener más información, consulta la [`concurrency`](/actions/using-workflows/workflow-syntax-for-github-actions#concurrency).
 

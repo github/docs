@@ -12,10 +12,6 @@ topics:
 
 GitHubと統合されるアプリケーションを構築しますか？ 弊社の開発者プログラムに登録してください！ 可能性は無限であり、栄誉を楽しんでください。 [今すぐ登録を](https://github.com/developer/register)
 
-## 把握し続けてください
-
-[開発者ブログ](https://developer.github.com/changes/)でAPIの変更について最初に知り、公開されるより先に新機能を試してください。
-
 ## かゆいところに手を届ける
 
 毎日コードをプッシュするところとシームレスに統合される独自のツールを構築してください。
@@ -23,7 +19,6 @@ GitHubと統合されるアプリケーションを構築しますか？ 弊社�
 ## エンタープライズへの挑戦
 
 Email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request developer licenses to build and test your application against {% data variables.product.prodname_ghe_server %}.
-
 
 ## GitHubと連携するインテグレーションがありますか？
 

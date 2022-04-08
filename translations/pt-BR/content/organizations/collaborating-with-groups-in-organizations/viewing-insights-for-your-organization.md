@@ -12,11 +12,16 @@ topics:
   - Organizations
   - Teams
 shortTitle: Visualizar ideias da organização
+permissions: Organization members can view organization insights.
 ---
 
-Todos os integrantes de uma organização podem exibir informações da organização. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
-
 Você pode usar informações de atividade da organização para entender melhor como os integrantes da sua organização estão usando o {% data variables.product.product_name %} para colaborar e trabalhar no código. As informações de dependência podem ajudar você a monitorar, reportar e agir de acordo com o uso de código aberto da organização.
+
+{% note %}
+
+**Note:** To view organization insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
 
 ## Exibir informações de atividade da organização
 

@@ -1241,12 +1241,35 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
+{% ifversion fpt or ghes > 3.4 or ghec or ghae-issue-6581 %}
+## secret_scanning_alert_location
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_short_desc %}
+
+### 可用性
+
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `secret_scanning_alerts:read` 权限的 {% data variables.product.prodname_github_apps %}
+
+### Web 挂钩有效负载对象
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+
+### Web 挂钩有效负载示例
+
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert_location.created }}
+{% endif %}
+
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
 与已由 {% data variables.product.company_short %} 审查的安全通告相关的活动。 经过 {% data variables.product.company_short %} 审查的安全通告提供了有关 {% data variables.product.prodname_dotcom %}上软件中安全相关漏洞的信息。
 
-安全通告数据集还为 GitHub {% data variables.product.prodname_dependabot_alerts %} 提供支持。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。
+安全通告数据集还为 GitHub {% data variables.product.prodname_dependabot_alerts %} 提供支持。 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %} 警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)”。
 
 ### 可用性
 

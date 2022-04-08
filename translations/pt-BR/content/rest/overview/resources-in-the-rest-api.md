@@ -410,7 +410,7 @@ Se você exceder o limite de taxa, uma resposta do erro retorna:
 Se o seu aplicativo OAuth precisar fazer chamadas não autenticadas com um limite de taxa mais alto, você poderá passar o ID e o segredo do cliente do seu aplicativo antes do encaminhamento de pontos de extremidade.
 
 ```shell
-$ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
+$ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000

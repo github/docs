@@ -1,0 +1,20 @@
+{
+	"name": "test",
+
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/zsh",
+	},
+
+	// Visual Studio Code extensions which help authoring for docs.github.com.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"sissel.shopify-liquid"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [5000],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "echo test > aaa-TEST.txt"
+
+}

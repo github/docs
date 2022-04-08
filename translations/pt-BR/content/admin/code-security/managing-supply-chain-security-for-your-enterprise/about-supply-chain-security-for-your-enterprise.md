@@ -13,7 +13,7 @@ topics:
   - Dependency graph
 ---
 
-Você pode permitir que os usuários identifiquem as dependências dos seus projetos habilitando o gráfico de dependências para {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitando o gráfico de dependências para sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)".
+Você pode permitir que os usuários identifiquem as dependências dos seus projetos permitindo {% ifversion ghes %}que{% elsif ghae %}usando{% endif %} o gráfico de dependências para {% data variables.product.product_location %}. Para obter mais informações, consulte "{% ifversion ghes %}[Hbilitando o gráfico de dependências para a sua empresa](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% elsif ghae %}[Sobre o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph){% endif %}".
 
 Você também pode permitir que os usuários de {% data variables.product.product_location %} encontrem e corrijam vulnerabilidades nas dependências do seu código, habilitando {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes > 3.2 %} e {% data variables.product.prodname_dependabot_updates %}{% endif %}. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_dependabot %} para a sua empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 

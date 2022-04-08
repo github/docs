@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
+permissions: 'People with admin permissions to a repository, and organization moderators, can temporarily limit interactions in that repository.'
 topics:
   - Community
 shortTitle: Limitar interações no repositório
@@ -28,7 +28,7 @@ Você também pode habilitar limitações de atividade em todos os repositórios
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Na seção "Acesso" da barra lateral, selecione **Opções de moderação de {% octicon "comment-discussion" aria-label="The comment-discussion icon" %}** e, em seguida, clique em **Limites de interação**.
+1. In the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
   ![Opções Temporary interaction limit (Restrições de interação temporárias)](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
@@ -37,3 +37,4 @@ Você também pode habilitar limitações de atividade em todos os repositórios
 - "[Gerenciar o acesso de um indivíduo a um repositório da organização](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[Níveis de permissão do repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository)"
 - "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"

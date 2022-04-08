@@ -114,8 +114,7 @@ You can enable or disable features for all repositories.
    ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
 
-{% ifversion ghec or ghes > 3.2 %}
-<!--TODO confirm that this functionality is intentionally not available for FPT -->
+{% ifversion fpt or ghec or ghes > 3.2 %}
 
 ## Allowing {% data variables.product.prodname_dependabot %} to access private dependencies
 

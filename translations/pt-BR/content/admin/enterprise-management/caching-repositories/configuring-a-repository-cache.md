@@ -69,6 +69,14 @@ Em seguida, quando for dito para buscar `https://github.example.com/myorg/myrepo
 
 Você pode controlar a localidade de dados configurando as políticas de localização de dados para seus repositórios com o comando `spokesctl cache-policy` As políticas de localização de dados determinam quais redes de repositório são replicadas em quais caches de repositório. Por padrão, nenhuma rede de repositório será replicada em todos os caches de repositórios até que uma política de localização de dados seja configurada.
 
+As políticas de localização de dados afetam apenas o conteúdo do Git. O conteúdo no banco de dados, como problemas e comentários de pull request, serão replicados em todos os nós independentemente da política.
+
+{% note %}
+
+**Observação:** As políticas de localização de dados não são as mesmas que o controle de acesso. Você deve usar as funções do repositório para controlar quais usuários podem acessar um repositório. Para obter mais informações sobre as funções do repositório, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+
+{% endnote %}
+
 Você pode configurar uma política para replicar todas as redes com o sinalizador `--default`. Por exemplo, este comando irá criar uma política de replicação de uma única cópia de cada rede de repositório no conjunto de caches de repositórios cujo `cache_location` é "kansas".
 
  ```
