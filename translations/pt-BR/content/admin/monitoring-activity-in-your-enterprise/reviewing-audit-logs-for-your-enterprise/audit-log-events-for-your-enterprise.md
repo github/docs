@@ -1,7 +1,7 @@
 ---
-title: Audit log events for your enterprise
-intro: Learn about audit log events recorded for your enterprise.
-shortTitle: Audit log events
+title: Log de eventos de auditoria para sua empresa
+intro: Saiba mais sobre os eventos de log de auditoria registrados para sua empresa.
+shortTitle: Eventos de log de auditoria
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can interact with the audit log.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
@@ -25,56 +25,56 @@ topics:
 {%- ifversion fpt or ghec %}
 ### ações de categoria da `conta`
 
-| Ação                                  | Descrição                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `account.billing_plan_change`         | An organization's billing cycle changed. Para obter mais informações, consulte "[Alterando a duração do seu ciclo de cobrança](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)".                                                                                    |
-| `account.plan_change`                 | An organization's subscription changed. For more information, see "[About billing for GitHub accounts](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)."                                                                                                                   |
-| `account.pending_plan_change`         | An organization owner or billing manager canceled or downgraded a paid subscription. Para obter mais informações, consulte "[Como a atualização ou o downgrade afeta o processo de cobrança?](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)." |
-| `account.pending_subscription_change` | A {% data variables.product.prodname_marketplace %} free trial started or expired. For more information, see "[About billing for GitHub Marketplace](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)."                                                              |
+| Ação                                  | Descrição                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `account.billing_plan_change`         | O ciclo de cobrança de uma organização foi alterado. Para obter mais informações, consulte "[Alterando a duração do seu ciclo de cobrança](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)".                                                                                   |
+| `account.plan_change`                 | A assinatura de uma organização foi alterada. Para obter mais informações, consulte[Sobre a cobrança para contas do GitHub](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)".                                                                                                         |
+| `account.pending_plan_change`         | Um proprietário ou gerente de cobrança da organização cancelou ou rebaixou uma assinatura paga. Para obter mais informações, consulte "[Como a atualização ou o downgrade afeta o processo de cobrança?](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)." |
+| `account.pending_subscription_change` | Um teste gratuito de {% data variables.product.prodname_marketplace %} foi iniciado ou venceu. Para obter mais informações, consulte[Sobre a cobrança para o GitHub Marketplace](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)".                                             |
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
 ### ações de categoria de `advisory_credit`
 
-| Ação                      | Descrição                                                                                                                                                                                           |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `advisory_credit.accept`  | Someone accepted credit for a security advisory. Para obter mais informações, consulte "[Editar um consultor de segurança](/github/managing-security-vulnerabilities/editing-a-security-advisory)". |
-| `advisory_credit.create`  | The administrator of a security advisory added someone to the credit section.                                                                                                                       |
-| `advisory_credit.decline` | Someone declined credit for a security advisory.                                                                                                                                                    |
-| `advisory_credit.destroy` | The administrator of a security advisory removed someone from the credit section.                                                                                                                   |
+| Ação                      | Descrição                                                                                                                                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `advisory_credit.accept`  | Alguém aceitou o crédito por uma consultoria de segurança. Para obter mais informações, consulte "[Editar um consultor de segurança](/github/managing-security-vulnerabilities/editing-a-security-advisory)". |
+| `advisory_credit.create`  | O administrador de uma consultoria de segurança adicionou alguém à seção de crédito.                                                                                                                          |
+| `advisory_credit.decline` | Alguém recusou o crédito para uma consultoria de segurança.                                                                                                                                                   |
+| `advisory_credit.destroy` | O administrador de uma consultoria de segurança removeu alguém da seção de crédito.                                                                                                                           |
 {%- endif %}
 
-### `artifact` category actions
+### Ações de categoria `artefato`
 
-| Ação               | Descrição                                     |
-| ------------------ | --------------------------------------------- |
-| `artifact.destroy` | A workflow run artifact was manually deleted. |
+| Ação               | Descrição                                                              |
+| ------------------ | ---------------------------------------------------------------------- |
+| `artifact.destroy` | Um artefato da execução de fluxo de trabalho foi excluído manualmente. |
 
 {%- ifversion ghec %}
-### `audit_log_streaming` category actions
+### Ações da categoria `audit_log_streaming`
 
-| Ação                          | Descrição                                                                                                           |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `audit_log_streaming.check`   | A manual check was performed of the endpoint configured for audit log streaming.                                    |
-| `audit_log_streaming.create`  | An endpoint was added for audit log streaming.                                                                      |
-| `audit_log_streaming.update`  | An endpoint configuration was updated for audit log streaming, such as the stream was paused, enabled, or disabled. |
-| `audit_log_streaming.destroy` | An audit log streaming endpoint was deleted.                                                                        |
+| Ação                          | Descrição                                                                                                                                                   |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `audit_log_streaming.check`   | Foi realizada uma verificação manual do ponto de extremidae configurado para transmissão de logs de auditoria.                                              |
+| `audit_log_streaming.create`  | Um ponto de extremidade foi adicionado ao streaming do log de auditoria.                                                                                    |
+| `audit_log_streaming.update`  | Uma configuração de ponto de extremidade foi atualizada para a transmissão do log de auditoria, como a transmissão foi pausada, habilitada ou desabilitada. |
+| `audit_log_streaming.destroy` | Um ponto de extremidade da transmissão do log auditoria foi excluído.                                                                                       |
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
 ### ações de categoria de `cobrança`
 
-| Ação                          | Descrição                                                                                                                                                                                                                                                  |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `billing.change_billing_type` | An organization changed how it paid for {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Adicionar ou editar forma de pagamento](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)". |
-| `billing.change_email`        | An organization's billing email address changed. Para obter mais informações, consulte "[Configurar o e-mail de cobrança](/billing/managing-your-github-billing-settings/setting-your-billing-email)".                                                     |
+| Ação                          | Descrição                                                                                                                                                                                                                                                         |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `billing.change_billing_type` | Uma organização alterou a forma como pagou por {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Adicionar ou editar forma de pagamento](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)". |
+| `billing.change_email`        | O endereço de e-mail de cobrança de uma organização foi alterado. Para obter mais informações, consulte "[Configurar o e-mail de cobrança](/billing/managing-your-github-billing-settings/setting-your-billing-email)".                                           |
 {%- endif %}
 
 ### ações da categoria `business`
 
-| Ação                 | Descrição                                                                                            |
-| -------------------- | ---------------------------------------------------------------------------------------------------- |
-| `business.add_admin` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} was added to an enterprise. |
+| Ação                 | Descrição                                                                                                        |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `business.add_admin` | Um proprietário da empresa{% ifversion ghes %} ou administrador do site{% endif %} foi adicionado a uma empresa. |
 {%- ifversion ghec %}
 | `business.add_billing_manager` | A billing manager was added to an enterprise.
 {%- endif %}
