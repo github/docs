@@ -94,6 +94,12 @@ For more information about minimum hardware requirements for {% data variables.p
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
+{% ifversion ghes > 3.4 %}
+
+You can optionally configure a global rate limit for GitHub Actions to prevent excessive resource consumption. See "[Enabling rate limits for {% data variables.product.prodname_enterprise_api %}](/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md#enabling-actions-rate-limits)".
+
+{% endif %}
+
 ## External storage requirements
 
 To enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, you must have access to external blob storage.
