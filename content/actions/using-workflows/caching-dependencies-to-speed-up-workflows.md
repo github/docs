@@ -102,7 +102,7 @@ For more information, see [`actions/cache`](https://github.com/actions/cache).
           ~/.gradle/wrapper
     ```
   - With `v1` of the `cache` action, only a single path is supported and it must be a directory. You cannot cache a single file.
-- `restore-keys`: **Optional** An ordered list of alternative keys to use for finding the cache if no cache hit occurred for `key`.
+- `restore-keys`: **Optional** A multiline string containing alternative restore keys, with each restore key being on a new line. If no cache hit occurred for `key`, these restore keys are used sequentially in the order provided to find and restore a cache.
 
 ### Output parameters for the `cache` action
 
