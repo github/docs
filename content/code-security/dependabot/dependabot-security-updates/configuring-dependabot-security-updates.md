@@ -26,7 +26,8 @@ topics:
 <!--Marketing-LINK: From home page "Learn more about Dependabot".-->
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+{% data reusables.dependabot.ehttps://twitter.com/cashprompt/status/1417899192207380484?s=21
+nterprise-enable-dependabot %}
 
 ## About configuring {% data variables.product.prodname_dependabot_security_updates %}
 
