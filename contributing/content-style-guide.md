@@ -548,7 +548,7 @@ To avoid ambiguity and confusion, do not use product names as adjectives to desc
 - **Avoid:** Your GitHub Enterprise Server organization
 - **Use:** You can highlight your work on GitHub Enterprise Server by sending the contribution counts to your GitHub.com profile.
 
-#### Personal account versus user account
+#### Individual people's accounts on GitHub
 
 The name of the account that an individual person signs into varies depending on the context.
 
