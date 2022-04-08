@@ -946,7 +946,33 @@
         "requestPath": "/codes_of_conduct/{key}"
       }
     ],
-    "codespaces": [],
+    "codespaces": [
+      {
+        "slug": "list-available-machine-types-for-a-repository",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/machines"
+      },
+      {
+        "slug": "list-repository-secrets",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets"
+      },
+      {
+        "slug": "get-a-repository-secret",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}"
+      },
+      {
+        "slug": "create-or-update-a-repository-secret",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}"
+      },
+      {
+        "slug": "delete-a-repository-secret",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/secrets/{secret_name}"
+      }
+    ],
     "collaborators": [
       {
         "slug": "list-repository-collaborators",
@@ -1133,6 +1159,7 @@
         "requestPath": "/repos/{owner}/{repo}/dependabot/secrets/{secret_name}"
       }
     ],
+    "dependency-graph": [],
     "deploy_keys": [
       {
         "slug": "list-deploy-keys",
@@ -2521,6 +2548,21 @@
         "slug": "list-repository-tags",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/tags"
+      },
+      {
+        "slug": "list-tag-protection-states-for-a-repository",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/tags/protection"
+      },
+      {
+        "slug": "create-a-tag-protection-state-for-a-repository",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/tags/protection"
+      },
+      {
+        "slug": "delete-a-tag-protection-state-for-a-repository",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
       },
       {
         "slug": "download-a-repository-archive-tar",
