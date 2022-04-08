@@ -19,7 +19,14 @@ topics:
 
 ## About {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies
 
-{% data reusables.repositories.a-vulnerability-is %} For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+{% data reusables.repositories.a-vulnerability-is %} 
+
+Dependabot performs a scan to detect vulnerable dependencies and sends Dependabot alerts when a new vulnerability is added to the GitHub Advisory Database or the dependency graph for a repository changes. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+
+You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for:
+* Your personal account
+* Your repository
+* Your organization
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your personal account
 You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your personal account.
@@ -35,9 +42,13 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 5. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories you own.
   {% ifversion ghes > 3.2 %}![Button to disable or enable feature](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![Screenshot of "Enable Dependabot alerts" with "Enable  Dependabot alerts" button emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-dependabot-alerts.png){% endif %}
 
-{% data reusables.security.displayed-information %}
+When you enable {% data variables.product.prodname_dependabot_alerts %} for existing repositories, you will see any results displayed on GitHub within minutes:
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %}s for new repositories
+- All the existing repositories will have the selected configuration.
+- New repositories will follow the selected configuration if you've enabled the checkbox for new repositories.
+- We use the permissions to scan for manifest files to apply the relevant services.
+
+### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for new repositories
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}

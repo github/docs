@@ -14,8 +14,6 @@ topics:
   - Vulnerabilities
   - Dependencies
   - Pull requests
-redirect_from:
-  - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#enabling-dependency-review
 ---
 
 {% data reusables.dependency-review.beta %}
