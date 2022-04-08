@@ -21,11 +21,92 @@ export const CodeExampleCard = ({ example }: Props) => {
         />
         <div className="d-flex flex-wrap">
           {example.tags.map((tag) => {
-            return (
-              <Label key={tag} variant="small" sx={{ bg: 'accent.emphasis', mb: 1, mr: 2 }}>
-                {tag}
-              </Label>
-            )
+            // start if statement here. if label equals one of the tags, bg: 'somecolor.emphasis"
+            // make a new label return per tag
+
+            // console.log(tag)
+
+            // Bugs ____________
+            // (Fixed) Bug - CodeQL is showing multiple times in the same card, once with the correct color assigned, once with the previous default color.
+            // Possible solutions?
+            // - Restart the local server?
+            //  ^^ Fixed it!
+            // Need more color options for the Organization and Scripts color codes. Only 7 colors available and 9 labels in this one
+            // added more colors from an accessibility site - http://web-accessibility.carnegiemuseums.org/design/color/
+
+            // **!! Current Bug - none
+
+            if (tag === 'CodeQL') {
+              return (
+                <Label key={tag} variant="small" sx={{ bg: 'success.emphasis', mb: 1, mr: 2 }}>
+                  {tag}
+                </Label>
+              )
+            } else if (tag === 'Code scanning') {
+              return (
+                <Label key={tag} variant="small" sx={{ bg: 'attention.emphasis', mb: 1, mr: 2 }}>
+                  {tag}
+                </Label>
+              )
+            } else if (tag === 'GitHub Actions') {
+              return (
+                <Label key={tag} variant="small" sx={{ bg: 'sponsors.emphasis', mb: 1, mr: 2 }}>
+                  {tag}
+                </Label>
+              )
+            } else if (tag === 'Security policy') {
+              return (
+                <Label key={tag} variant="small" sx={{ bg: 'accent.emphasis', mb: 1, mr: 2 }}>
+                  {tag}
+                </Label>
+              )
+            } else if (tag === 'Security advisory') {
+              return (
+                <Label key={tag} variant="small" sx={{ bg: 'danger.emphasis', mb: 1, mr: 2 }}>
+                  {tag}
+                </Label>
+              )
+            } else if (tag === 'Dependabot') {
+              return (
+                <Label key={tag} variant="small" sx={{ bg: 'attention.emphasis', mb: 1, mr: 2 }}>
+                  {tag}
+                </Label>
+              )
+            } else if (tag === 'Alerts') {
+              return (
+                <Label key={tag} variant="small" sx={{ bg: 'severe.emphasis', mb: 1, mr: 2 }}>
+                  {tag}
+                </Label>
+              )
+            } else if (tag === 'Security updates') {
+              return (
+                <Label key={tag} variant="small" sx={{ bg: 'done.emphasis', mb: 1, mr: 2 }}>
+                  {tag}
+                </Label>
+              )
+            } else if (tag === 'Organization') {
+              return (
+                <Label
+                  key={tag}
+                  variant="small"
+                  sx={{ mb: 1, mr: 2 }}
+                  style={{ backgroundColor: '#5b616b' }}
+                >
+                  {tag}
+                </Label>
+              )
+            } else if (tag === 'Scripts') {
+              return (
+                <Label
+                  key={tag}
+                  variant="small"
+                  sx={{ mb: 1, mr: 2 }}
+                  style={{ backgroundColor: '#046b99' }}
+                >
+                  {tag}
+                </Label>
+              )
+            } else return null
           })}
         </div>
       </div>
