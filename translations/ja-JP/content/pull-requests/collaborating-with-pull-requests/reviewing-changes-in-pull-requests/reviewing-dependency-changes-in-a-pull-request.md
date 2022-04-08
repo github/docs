@@ -35,6 +35,10 @@ shortTitle: Review dependency changes
 
 依存関係のレビューでは、「左にシフト」することができます。 提供された予測情報を使用して、本番環境に至る前に脆弱性のある依存関係をキャッチできます。 詳しい情報については「[依存関係のレビュー](/code-security/supply-chain-security/about-dependency-review)」を参照してください。
 
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+You can use the Dependency Review GitHub Action to help enforce dependency reviews on pull requests in your repository. For more information, see "[Dependency review enforcement](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."
+{% endif %}
+
 ## プルリクエスト内の依存関係を確認する
 
 {% data reusables.repositories.sidebar-pr %}

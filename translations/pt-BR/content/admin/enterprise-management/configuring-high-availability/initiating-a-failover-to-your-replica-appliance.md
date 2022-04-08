@@ -19,9 +19,9 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
 
 {% data reusables.enterprise_installation.promoting-a-replica %}
 
-1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
+1. Se o dispositivo primário estiver disponível, para permitir que a replicação termine antes de trocar os dispositivos, no dispositivo primário, coloque o dispositivo primário em modo de manutenção.
 
-    - Put the appliance into maintenance mode.
+    - Coloque o dispositivo em modo de manutenção.
 
        - Para usar o console de gerenciamento, consulte "[Habilitar e programar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)";
 
@@ -44,7 +44,7 @@ O tempo do failover dependerá do tempo necessário para promover manualmente a 
       $ ghe-repl-status -vv
       ```
 
-4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. A ação também colocará automaticamente o nó primário no nó de manutenção, se ele for acessível.
+4. No dispositivo da réplica, para parar a replicação e promover o dispositivo da réplica ao estado primário, use o comando `ghe-repl-promote`. A ação também colocará automaticamente o nó primário no nó de manutenção, se ele for acessível.
   ```shell
   $ ghe-repl-promote
   ```

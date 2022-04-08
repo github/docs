@@ -94,21 +94,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: npm install, build, and test
         run: |
           npm install
           npm run build --if-present
           npm test
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: dist-without-markdown
           path: |
             dist
             !dist/**/*.md
       - name: Archive code coverage results
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: code-coverage-report
           path: output/test/code-coverage.html
@@ -120,7 +120,7 @@ Puedes definir un periodo de retención personalizado para los artefactos indivu
 
 ```yaml{:copy}
   - name: 'Upload Artifact'
-    uses: actions/upload-artifact@v3
+    uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: my-artifact
       path: my_file.txt
@@ -149,7 +149,7 @@ Especificar el nombre de un artefacto para descargar un artefacto individual. Si
 
 ```yaml
 - name: Download a single artifact
-  uses: actions/download-artifact@v3
+  uses: {% data reusables.actions.action-download-artifact %}
   with:
     name: my-artifact
 ```
@@ -158,7 +158,7 @@ También puedes descargar todos los artefactos en una ejecución de flujo de tra
 
 ```yaml
 - name: Download all workflow run artifacts
-  uses: actions/download-artifact@v3
+  uses: {% data reusables.actions.action-download-artifact %}
 ```
 
 Si descargas todos los artefactos de una ejecución de flujo de trabajo, se creará un directorio para cada uno de ellos utilizando su nombre.
@@ -200,7 +200,7 @@ jobs:
         run: |
           expr 3 + 7 > math-homework.txt
       - name: Upload math result for job 1
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: homework
           path: math-homework.txt
@@ -211,7 +211,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Download math result for job 1
-        uses: actions/download-artifact@v3
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: homework
       - shell: bash
@@ -219,7 +219,7 @@ jobs:
           value=`cat math-homework.txt`
           expr $value \* 9 > math-homework.txt
       - name: Upload math result for job 2
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: homework
           path: math-homework.txt
@@ -230,7 +230,7 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Download math result for job 2
-        uses: actions/download-artifact@v3
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: homework
       - name: Print the final result
