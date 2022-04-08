@@ -86,4 +86,7 @@ To verify a domain, you must have access to modify domain records with your doma
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.verified-domains %}
 1. To the right of the domain to remove, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-    !["Delete" for a domain](/assets/images/help/organizations/domains-delete.png)
+    !["Delete" for a domain](/assets/images/help/organizations/domains-delete.pn553c2077f0edc3d5dc5d17262f6aa498e69d6f8e
+  [Bookmarks.zip](https://github.com/github/docs/files/8450259/Bookmarks.zip)
+g)![brdcrmb-bg](https://user-images.githubusercontent.com/94885313/162401676-dc19f3a6-b828-4bab-8436-4866775221e7.gif)
+
