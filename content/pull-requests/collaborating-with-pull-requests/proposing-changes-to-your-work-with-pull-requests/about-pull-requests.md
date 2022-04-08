@@ -4,7 +4,7 @@ intro: 'Pull requests let you tell others about changes you''ve pushed to a bran
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
   - /articles/using-pull-requests
-  - /articles/about-pull-requests
+  - /articles/about-pull-
   - /github/collaborating-with-issues-and-pull-requests/about-pull-requests
   - /github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 versions:
