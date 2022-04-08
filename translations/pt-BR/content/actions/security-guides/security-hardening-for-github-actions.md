@@ -50,7 +50,7 @@ Para ajudar a prevenir a divulgação acidental, o {% data variables.product.pro
 
 {% warning %}
 
-**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+**Aviso**: Qualquer usuário com acesso de gravação ao repositório tem acesso a todos os segredos configurados no seu repositório. Portanto, você deve garantir que as credenciais usadas nos fluxos de trabalho tenham o mínimo de privilégios necessários.
 
 {% endwarning %}
 
