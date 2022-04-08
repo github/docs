@@ -25,6 +25,9 @@
 | `codespaces` | Contains activities related to an organization's codespaces.
 {%- endif %}
 | `commit_comment` | Contains activities related to updating or deleting commit comments.
+{%- ifversion ghes %}
+| `config_entry` |  Contains activities related to configuration settings. These events are only visible in the site admin audit log.
+{%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %} |
 | `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 | `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.
@@ -59,6 +62,7 @@
 | `external_group` | Contains activities related to Okta groups.
 | `external_identity` | Contains activities related to a user in an Okta group.
 {%- endif %}
+| `gist` | Contains activities related to Gists.
 | `git` | Contains activities related to Git events.
 | `hook` | Contains activities related to webhooks.
 | `integration` | Contains activities related to integrations in an account.
@@ -138,7 +142,8 @@
 | `repository_content_analysis`   | Contains activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).
 | `repository_dependency_graph`   | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 {%- endif %}
-| `repository_image` | Contains activities related images for a repository.
+| `repository_image` | Contains activities related to images for a repository.
+| `repository_invitation` | Contains activities related to invitations to join a repository.
 | `repository_projects_change` | Contains activities related to enabling projects for a repository or for all repositories in an organization.
 {%- ifversion ghec or ghes or ghae %}
 | `repository_secret_scanning`  | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."

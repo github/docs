@@ -58,4 +58,4 @@ After your request for an educator or researcher discount has been approved, you
 - "[Why wasn't my application for an educator or researcher discount approved?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)
 - [{% data variables.product.prodname_classroom %} Videos](https://classroom.github.com/videos)
-- [{% data variables.product.prodname_education_community %}](https://education.github.community/)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
