@@ -19,3 +19,5 @@ Se o encaminhamento de porta estiver configurado, verifique o seguinte:
 
 - Use o alerta de notificação ou clique no URL no Terminal para abrir a porta encaminhada. Digitar `localhost:8000` (como exemplo) na sua máquina local não funcionará se você estiver conectado ao codespace por meio do navegador.
 - Certifique-se de verificar se seu aplicativo ainda está sendo executado dentro do seu codespace. Se seu codespace parou após um período de inatividade, você deverá certificar-se de reiniciar o seu aplicativo depois que o codespace for reiniciado.
+
+Typically, you can make a forwarded port accessible publicly, or within the organization that owns a repository. Para obter mais informações, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)". If either, or both, of the options for public or organization visibility are not available, this indicates that an organization-level policy has been configured. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."

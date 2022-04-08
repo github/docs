@@ -102,12 +102,12 @@ jobs:
   run-npm-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: npm install and build webpack
         run: |
           npm install
           npm run build
-      - uses: actions/upload-artifact@main
+      - uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: webpack artifacts
           path: public/
@@ -119,13 +119,13 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node-version: [12.x, 14.x]
-    steps: {% raw %}
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node-version }}{% endraw %}
-      - uses: actions/download-artifact@main
+          node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
+      - uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: webpack artifacts
           path: public
@@ -144,7 +144,7 @@ jobs:
       packages: write {% endif %}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
@@ -214,22 +214,22 @@ jobs:
 
 <tr>
 <td>
-{% raw %}
+
 ```yaml
 run-npm-build:
   runs-on: ubuntu-latest
   steps:
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
     - name: npm install and build webpack
       run: |
         npm install
         npm run build
-    - uses: actions/upload-artifact@main
+    - uses: {% data reusables.actions.action-upload-artifact %}
       with:
         name: webpack artifacts
         path: public/
 ```
-{% endraw %}
+
 </td>
 <td>
   This job installs NPM and uses it to build the app.
@@ -238,7 +238,7 @@ run-npm-build:
 
 <tr>
 <td>
-{% raw %}
+
 ```yaml
 run-npm-test:
   runs-on: ubuntu-latest
@@ -248,12 +248,12 @@ run-npm-test:
       os: [ubuntu-latest]
       node-version: [12.x, 14.x]
   steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - uses: {% data reusables.actions.action-checkout %}
+    - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+      uses: {% data reusables.actions.action-setup-node %}
       with:
-        node-version: ${{ matrix.node-version }}
-    - uses: actions/download-artifact@main
+        node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
+    - uses: {% data reusables.actions.action-download-artifact %}
       with:
         name: webpack artifacts
         path: public
@@ -264,7 +264,7 @@ run-npm-test:
       env:
         CI: true
 ```
-{% endraw %}
+
 </td>
 <td>
   This job uses <code>npm test</code> to test the code. The <code>needs: run-npm-build</code> command makes this job dependent on the <code>run-npm-build</code> job.
@@ -537,32 +537,32 @@ jobs:
       packages: write
       contents: read{% endif %}
 
-    {% raw %}steps:
-      - uses: actions/checkout@v2
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
       - name: Log in to registry
         # This is where you will update the PAT to GITHUB_TOKEN
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+        run: echo "{% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push image
         run: |
-          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+          IMAGE_ID=ghcr.io/{% raw %}${{ github.repository_owner }}{% endraw %}/$IMAGE_NAME
 
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          VERSION=$(echo "{% raw %}${{ github.ref }}{% endraw %}" | sed -e 's,.*/\(.*\),\1,')
           # Strip "v" prefix from tag name
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          [[ "{% raw %}${{ github.ref }}{% endraw %}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           # Use Docker `latest` tag convention
           [ "$VERSION" == "master" ] && VERSION=latest
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION{% endraw %}
+          docker push $IMAGE_ID:$VERSION
 ```
 
 {% endif %}

@@ -148,7 +148,7 @@ prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot 警报'
 prodname_dependabot_security_updates: 'Dependabot 安全更新'
 prodname_dependabot_version_updates: 'Dependabot 版本更新'
-prodname_dependabot_updates: 'Dependabot updates'
+prodname_dependabot_updates: 'Dependabot 更新'
 #GitHub Archive Program
 prodname_archive: 'GitHub 存档计划'
 prodname_arctic_vault: 'Arctic 代码库'
