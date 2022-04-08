@@ -28,7 +28,7 @@ To update the bundled actions, you can use the `actions-sync` tool to update the
 
 You can use {% data variables.product.prodname_github_connect %} to allow {% data variables.product.product_name %} to use actions from {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
 
-Once {% data variables.product.prodname_github_connect %} is configured, you can use the latest version of an action by deleting its local repository in the `actions` organization on your instance. For example, if your enterprise instance is using the `actions/checkout@v1` action, and you need to use `actions/checkout@v2` which isn't available on your enterprise instance, perform the following steps to be able to use the latest `checkout` action from {% data variables.product.prodname_dotcom_the_website %}:
+Once {% data variables.product.prodname_github_connect %} is configured, you can use the latest version of an action by deleting its local repository in the `actions` organization on your instance. For example, if your enterprise instance is using `v1` of the `actions/checkout` action, and you need to use `{% data reusables.actions.action-checkout %}` which isn't available on your enterprise instance, perform the following steps to be able to use the latest `checkout` action from {% data variables.product.prodname_dotcom_the_website %}:
 
 1. From an enterprise owner account on {% data variables.product.product_name %}, navigate to the repository you want to delete from the *actions* organization (in this example `checkout`).
 1. By default, site administrators are not owners of the bundled *actions* organization. To get the access required to delete the `checkout` repository, you must use the site admin tools. Click {% octicon "rocket" aria-label="The rocket ship" %} in the upper-right corner of any page in that repository.
@@ -44,8 +44,8 @@ Once {% data variables.product.prodname_github_connect %} is configured, you can
 1. Under "Repository info", click **View code** to leave the site admin pages and display the `checkout` repository.
 1. Delete the `checkout` repository within the `actions` organization. For information on how to delete a repository, see "[Deleting a repository](/github/administering-a-repository/deleting-a-repository)."
   ![View code link](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
-1. Configure your workflow's YAML to use `actions/checkout@v2`.
-1. Each time your workflow runs, the runner will use the `v2` version of `actions/checkout` from {% data variables.product.prodname_dotcom_the_website %}.
+1. Configure your workflow's YAML to use `{% data reusables.actions.action-checkout %}`.
+1. Each time your workflow runs, the runner will use the specified version of `actions/checkout` from {% data variables.product.prodname_dotcom_the_website %}.
 
    {% ifversion ghes > 3.2 or ghae-issue-4815 %}
    {% note %}

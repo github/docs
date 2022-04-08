@@ -68,35 +68,15 @@ GitHub 社区的主要目的是协作处理软件项目。 我们致力于维持
 
 ### *不允许*
 
-- **暴力威胁。**不得暴力威胁他人，也不得利用网站组织、宣传或煽动现实世界中的暴力或恐怖主义行为。 仔细考虑您使用的文字、发布的图像、编写的软件以及其他人会如何解读它们。 即使您只是开个玩笑，但别人不见得这样理解。 如果您认为别人可能会将您发布的内容解读为威胁或者煽动暴力或恐怖主义， 不要在 GitHub 上发布。 在非常情况下， 如果我们认为可能存在真正的人身伤害风险或公共安全威胁，我们可能会向执法机构报告暴力威胁。
-
-- **仇恨言论和歧视** - 虽然不禁止谈论年龄、身材、能力、种族、性别认同和表达、经验水平、国籍、外貌、民族、宗教或性认同和性取向等话题，但我们不允许基于身份特征攻击任何个人或群体。 只要认识到以一种侵略性或侮辱性的方式处理这些（及其他）敏感的专题，就可能使其他人感到不受欢迎甚至不安全。 虽然总是存在误解的可能性，但我们期望社区成员在讨论敏感问题时保持尊重和平静。
-
-- **欺凌和骚扰。**我们不容忍欺凌或骚扰。 这意味着我们不允许针对任何特定个人或群体的典型骚扰或恐吓行为。 一般来说，如果您屡次三番采取多余的行动，就很可能走进了欺凌或骚扰的歧途。
-
- **破坏其他用户的体验。**成为社区的一部分包括认识到您的行为如何影响他人，并与他人及其依赖的平台进行有意义和富有成效的互动。 不允许重复发布与主题无关的评论、开启空洞或无意义的主题，或者以不断破坏其他用户体验的方式使用任何其他平台功能等行为。
-
-- **冒充。**不得冒充他人，包括复制他人的头像、使用他人的电子邮件地址发布内容、使用相似用户名或其他冒充方式。 冒充是骚扰的一种形式。
-
-- **人肉和侵犯隐私。**不得发布他人的个人信息，例如私人电子邮件地址、电话号码、实际地址、信用卡号码、社会保障/国民身份号码或密码。 根据具体情况，例如在恐吓或骚扰的情况下，我们可能会认为发布他人信息（例如未经当事人同意而拍摄或散发的照片或视频）是侵犯隐私的行为，特别是当此类材料会给当事人带来安全风险时。
-
-- **性淫秽内容。**不得发布色情内容。 但这并不意味着禁止一切裸体或与性有关的所有代码和内容。 我们认识到，性行为是生活的一部分，非色情的性内容可能是您项目的一部分，或者出于教育或艺术目的而呈现。 我们不允许淫秽性内容或可能涉及利用或性化未成年人的内容。 如果您对要发布的内容有任何疑问或疑虑，[请随时联系我们，事先询问可保无虞](https://support.github.com/contact?tags=docs-policy)。
-
-- **垃圾信息。**请尊重 GitHub 社区论坛。 不要发布广告、垃圾邮件网站链接、以不当方式 ping 或提及长的用户名列表，或者破坏社区。 本社区是供 GitHub 用户讨论项目、学习和互相交流意见的平台，而不是发广告或其他垃圾内容的场所。 被我们视为垃圾信息的内容将被删除。 请参阅我们的 [GitHub 可接受使用政策](/github/site-policy/github-acceptable-use-policies#4-spam-and-inauthentic-activity-on-github)，了解有关垃圾邮件和不真实活动的更多详细信息。
-
-- **侵权或非法内容。**只发布属于自己的内容。 您对自己发布的内容负责。 如果您发布的内容不是自己创建的，则必须拥有发布权限。 不得发布非法内容（包括违反版权和商标法律的内容）、非法内容的链接或规避法律的方法。
-
-- **过激的暴力内容。**不得在没有合理的上下文或警告的情况下发布暴力图像、文本或其他内容。 在视频游戏、新闻报道以及对历史事件的描述中通常可以包含暴力内容，但我们不允许不加选择地发布暴力内容，或者以其他用户很难避开的方式发布（例如头像、个人资料说明、主题或回复）。 在其他情况下发布明确警告或免责声明有助于用户就他们是否想要参与这类内容作出明智的决定。
-
-- **主动恶意软件或漏洞利用程序。**本社区不允许恶意利用社区的其他成员。 我们不允许任何人利用我们的平台直接支持造成技术损害的非法攻击， 例如利用 GitHub 作为提供恶意可执行文件的方式或作为攻击基础架构， 例如，组织拒绝服务攻击或管理命令和控制服务器。 技术损害是指资源过度消耗、物理损坏、停机、拒绝服务或数据丢失，在滥用之前没有隐含或明确的双重用途。 请注意，GitHub 允许双重用途内容，并支持发布用于研究漏洞、恶意软件或漏洞的内容，因为此类内容的发布和分发具有教育价值，并为安全社区提供净收益。 我们具有积极的意图，并利用这些项目来促进和推动整个生态系统的改善。 请参阅我们的[社区指导方针](/github/site-policy/github-community-guidelines#active-malware-or-exploits)，了解此部分的完整详细信息。
-
-- **错误信息和虚假信息。**不得发布歪曲现实的内容，包括不准确或虚假的信息（错误信息），或者故意欺骗的信息（假信息），这种内容可能伤害公众，或者干扰所有人公平和平等参与公共生活的机会。 例如，我们不允许可能危及群体福祉或限制他们参与自由和开放社会的内容。 鼓励积极参与表达想法、观点和经验，不得质疑个人帐户或言论。 我们通常允许模仿和讽刺，但要符合我们的“可接受使用政策”，而且我们认为上下文对于如何接收和理解信息很重要；因此，通过免责声明或其他方式澄清您的意图以及您的信息的来源，可能是适当的做法。
+GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), which are part of GitHub's [Terms of Service](/github/site-policy/github-terms-of-service/), set a baseline for what is not allowed on GitHub. In addition, these terms restrictions apply to the GitHub Community Forum in the following way:
 
 - **13 岁以下的任何人。**13 岁以下的孩子不得在 GitHub 社区论坛（或 GitHub）上拥有帐户。 GitHub 不会有意收集 13 岁以下孩子的信息，也没有专门为他们定制任何内容。 如果我们得知或有理由怀疑您是 13 岁以下的用户，很遗憾，我们不得不关闭您的 GitHub 社区论坛和 GitHub.com 帐户。 我们并不想阻止您学习代码，但这是规则。 有关帐户终止的信息，请参阅我们的[服务条款](/github/site-policy/github-terms-of-service/)。
 
+- **Creating new account after account restriction.** GitHub's [Terms of Service](/github/site-policy/github-terms-of-service/) state that "One person or legal entity may maintain no more than one free Account." Additional free accounts created to inquire about flagged or suspended accounts in the GitHub Community Forum will be removed.
+
 - **在专业环境中被合理认为不适当的其他行为。**GitHub 社区论坛是一个专业环境，应按专业环境来对待它。
 
-- **违反服务条款。** 如果您的 Github.com 帐户被识别为违反[服务条款](/github/site-policy/github-terms-of-service/)，我们将不得不关闭您的 GitHub 社区论坛帐户。  [服务条款](/github/site-policy/github-terms-of-service/)还表示，“一个人或法律实体可以维持不超过一个免费帐户”，因此为在社区论坛中查询悬挂或暂停帐户创建的额外免费帐户也将被删除。
+- **Violation of Terms of Service.** If your GitHub.com account is identified in violation of [Terms of Service](/github/site-policy/github-terms-of-service/) we will have to close your GitHub Community Forum account as well.
 
 ## 执行
 

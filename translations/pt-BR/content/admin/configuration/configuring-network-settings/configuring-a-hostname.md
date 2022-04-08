@@ -17,11 +17,11 @@ topics:
 
 Se configurar um nome de host em vez de um endereço IP codificado, você poderá alterar o hardware físico em que a {% data variables.product.product_location %} é executada sem afetar os usuários ou o software cliente.
 
-A configuração do nome de host no {% data variables.enterprise.management_console %} deve ser definida como um nome de domínio totalmente qualificado (FQDN) que seja resolvido na internet ou dentro da sua rede interna. For example, your hostname setting could be `github.companyname.com.` Web and API requests will automatically redirect to the hostname configured in the {% data variables.enterprise.management_console %}.
+A configuração do nome de host no {% data variables.enterprise.management_console %} deve ser definida como um nome de domínio totalmente qualificado (FQDN) que seja resolvido na internet ou dentro da sua rede interna. Por exemplo, a configuração do nome de host pode ser `github.companyname.com.`As solicitações da web e da API serão automaticamente redirecionadas para o nome de host configurado no {% data variables.enterprise.management_console %}.
 
-After you configure a hostname, you can enable subdomain isolation to further increase the security of {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)".
+Depois de configurar um nome de host, você poderá habilitar o isolamento de subdomínio para aumentar ainda mais a segurança de {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)".
 
-For more information on the supported hostname types, see [Section 2.1 of the HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
+Para obter mais informações sobre os tipos de nome de host compatíveis, consulte a [seção 2.1 do HTTP RFC](https://tools.ietf.org/html/rfc1123#section-2).
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
@@ -33,4 +33,4 @@ For more information on the supported hostname types, see [Section 2.1 of the HT
 {% data reusables.enterprise_management_console.test-domain-settings-failure %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-To help mitigate various cross-site scripting vulnerabilities, we recommend that you enable subdomain isolation for {% data variables.product.product_location %} after you configure a hostname. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)".
+Para ajudar a mitigar várias vulnerabilidades de script entre sites, recomendamos que você habilite o isolamento de subdomínio para {% data variables.product.product_location %} depois de configurar um nome de host. Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation/)".

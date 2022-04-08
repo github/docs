@@ -48,6 +48,12 @@ Para ajudar a prevenir a divulgação acidental, o {% data variables.product.pro
 - **Considere a necessidade de revisão para acesso a segredos**
     - Você pode usar revisores necessários para proteger os segredos do ambiente. Um trabalho de fluxo de trabalho não pode acessar segredos de ambiente até que a aprovação seja concedida por um revisor. Para mais informações sobre armazenar segredos em ambientes ou exigir revisões para ambientes, consulte "[segredos criptografados](/actions/reference/encrypted-secrets)" e "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)".
 
+{% warning %}
+
+**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+
+{% endwarning %}
+
 ## Usar `CODEOWNERS` para monitorar alterações
 
 Você pode usar o recurso `CODEOWNERS` para controlar como são feitas alterações nos seus arquivos de fluxo de trabalho. Por exemplo, se todos os arquivos de fluxo de trabalho forem armazenados em `.github/workflows`, você pode adicionar este diretório à lista de proprietários do código para que quaisquer alterações propostas nestes arquivos exijam primeiro a aprovação de um revisor designado.
@@ -265,7 +271,7 @@ Os executores ** hospedados em {% data variables.product.prodname_dotcom %}** ex
 
 {% ifversion fpt or ghec %}Como resultado, os executores auto-hospedados quase [nunca devem ser usados para repositórios públicos](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) em {% data variables.product.product_name %}, porque qualquer usuário pode abrir pull requests contra o repositório e comprometer o ambiente. Da mesma forma,{% elsif ghes or ghae %}Tenha{% endif %} cuidado ao usar executores auto-hospedados em repositórios privados ou internos, como qualquer pessoa que puder bifurcar o repositório e abrir um pull request (geralmente aqueles com acesso de leitura ao repositório) são capazes de comprometer o ambiente de runner auto-hospedado. incluindo obter acesso a segredos e o `GITHUB_TOKEN` que{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, dependendo de suas configurações, pode conceder ao {% else %} concede ao repositório {% endif %}acesso de gravação. Embora os fluxos de trabalho possam controlar o acesso a segredos de ambiente usando os ambientes e revisões necessários, estes fluxos de trabalho não são executados em um ambiente isolado e continuam sendo susceptíveis aos mesmos riscos quando são executados por um executor auto-hospedado.
 
-Quando um executor auto-hospedado é definido no nível da organização ou empresa, {% data variables.product.product_name %} pode programar fluxos de trabalho de vários repositórios para o mesmo executor. Consequentemente, um compromisso de segurança destes ambientes pode ter um grande impacto. Para ajudar a reduzir o escopo de um compromisso, você pode criar limites organizando seus executores auto-hospedados em grupos separados. You can restrict what {% if restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories can access runner groups. Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
+Quando um executor auto-hospedado é definido no nível da organização ou empresa, {% data variables.product.product_name %} pode programar fluxos de trabalho de vários repositórios para o mesmo executor. Consequentemente, um compromisso de segurança destes ambientes pode ter um grande impacto. Para ajudar a reduzir o escopo de um compromisso, você pode criar limites organizando seus executores auto-hospedados em grupos separados. Você pode restringir quais fluxos de trabalho {% if restrict-groups-to-workflows %}, organizações {% endif %}e repositórios podem acessar grupos de executores. Para obter mais informações, consulte "[Gerenciando acesso a runners auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
 Você também deve considerar o ambiente das máquinas de executores auto-hospedadas:
 - Que informação sensível reside na máquina configurada como um executor auto-hospedado? Por exemplo, chaves SSH privadas, tokens de acesso à API, entre outros.
@@ -298,7 +304,7 @@ Você pode usar o log de auditoria para monitorar tarefas administrativas em uma
 
 Por exemplo, você pode usar o log de auditoria para acompanhar o evento `org.update_actions_secret`, que controla as alterações nos segredos da organização: ![Entradas do log de auditoria](/assets/images/help/repository/audit-log-entries.png)
 
-As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_actions %} que você pode encontrar no log de auditoria. Para obter mais informações sobre como usar o log de auditoria, consulte [Revisar o log de auditoria para a sua organização](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)".
+As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_actions %} que você pode encontrar no log de auditoria. Para obter mais informações sobre o uso do log de auditoria, consulte "[Revisando o log de auditoria para sua organização](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" e "[Revisando logs de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
 
 {% ifversion fpt or ghec %}
 ### Eventos para ambientes
@@ -313,9 +319,10 @@ As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_a
 
 {% ifversion fpt or ghes or ghec %}
 ### Eventos para alterações nas configurações
-| Ação                   | Descrição                                                                                                                                                                                                                                                                                                               |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repo.actions_enabled` | Acionada quando {% data variables.product.prodname_actions %} está habilitado para um repositório. Pode ser visto usando a interface do usuário. Este evento não fica visível quando você acessar o log de auditoria usando a API REST. Para obter mais informações, consulte "[Usar a API REST](#using-the-rest-api)". |
+| Ação                                  | Descrição                                                                                                                                                                                                                                                                                                               |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repo.actions_enabled`                | Acionada quando {% data variables.product.prodname_actions %} está habilitado para um repositório. Pode ser visto usando a interface do usuário. Este evento não fica visível quando você acessar o log de auditoria usando a API REST. Para obter mais informações, consulte "[Usar a API REST](#using-the-rest-api)". |
+| `repo.update_actions_access_settings` | Acionada quando a configuração de controle de como o repositório é usado pelos fluxos de trabalho {% data variables.product.prodname_actions %} em outros repositórios é alterada.                                                                                                                                      |
 {% endif %}
 
 ### Eventos para gerenciamento de segredo

@@ -1079,6 +1079,12 @@ on:
     types: [on-demand-test]
 ```
 
+{% note %}
+
+**Note:** The `event_type` value is limited to 100 characters.
+
+{% endnote %}
+
 通过 `client_payload` 参数发送的任何数据都将在工作流程中的 `github.event` 上下文中提供。 例如，如果在创建存储库调度事件时发送此请求正文：
 
 ```json
@@ -1429,7 +1435,7 @@ jobs:
         run: |
           mkdir -p ./pr
           echo $PR_NUMBER > ./pr/pr_number
-      - uses: actions/upload-artifact@v3
+      - uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: pr_number
           path: pr/
@@ -1451,7 +1457,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Download artifact'
-        uses: actions/github-script@v5
+        uses: {% data reusables.actions.action-github-script %}
         with:
           script: |
             let allArtifacts = await github.rest.actions.listWorkflowRunArtifacts({
@@ -1475,7 +1481,7 @@ jobs:
         run: unzip pr_number.zip
 
       - name: 'Comment on PR'
-        uses: actions/github-script@v5
+        uses: {% data reusables.actions.action-github-script %}
         with:
           github-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
           script: |
