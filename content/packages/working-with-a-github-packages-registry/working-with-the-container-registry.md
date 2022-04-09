@@ -70,7 +70,7 @@ To ensure you're always using the same image, you can specify the exact containe
 ### Pull by name
 
   ```shell
-  $ docker pull ghcr.io/OWNER/IMAGE_NAME
+  $ docker pull ghcr.io/lillylillith/IMAGE_NAME
   ```
 
 ### Pull by name and version
@@ -90,7 +90,7 @@ Docker CLI example showing an image pulled by its name and the `1.14.1` version 
 ### Pull by name and latest version
 
   ```shell
-  $ docker pull ghcr.io/OWNER/IMAGE_NAME:latest
+  $ docker pull ghcr.io/lillylillith/IMAGE_NAME:latest
   > latest: Pulling from user/image-name
   > Digest: sha256:b3d3e366b55f9a54599220198b3db5da8f53592acbbb7dc7e4e9878762fc5344
   > Status: Downloaded newer image for ghcr.io/user/image-name:latest
@@ -117,5 +117,5 @@ This example builds the `hello_docker` image:
 
 2. Tag your Docker image using the image ID and your desired image name and hosting destination.
   ```shell
-  $ docker tag 38f737a91f39 ghcr.io/OWNER/NEW_IMAGE_NAME:latest
+  $ docker tag 38f737a91f39 ghcr.io/lillylillith/NEW_IMAGE_NAME:latest
   ```
