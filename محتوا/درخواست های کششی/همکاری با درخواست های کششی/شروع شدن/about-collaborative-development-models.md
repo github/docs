@@ -7,7 +7,61 @@ redirect_from:
   - /articles/about-collaborative-development-models
   - /github/collaborating-with-issues-and-pull-requests/about-collaborative-development-models
   - /github/collaborating-with-pull-requests/getting-started/about-collaborative-development-models
-versions:
+versions:{
+  "stream": "allTickers",
+  "data": [
+    {
+      "e": "24hrTicker",  // Event type
+      "E": 123456789,     // Event time
+      "s": "ABC_0DX-BNB",      // Symbol
+      "p": "0.0015",      // Price change
+      "P": "250.00",      // Price change percent
+      "w": "0.0018",      // Weighted average price
+      "x": "0.0009",      // Previous day's close price
+      "c": "0.0025",      // Current day's close price
+      "Q": "10",          // Close trade's quantity
+      "b": "0.0024",      // Best bid price
+      "B": "10",          // Best bid quantity
+      "a": "0.0026",      // Best ask price
+      "A": "100",         // Best ask quantity
+      "o": "0.0010",      // Open price
+      "h": "0.0025",      // High price
+      "l": "0.0010",      // Low price
+      "v": "10000",       // Total traded base asset volume
+      "q": "18",          // Total traded quote asset volume
+      "O": 0,             // Statistics open time
+      "C": 86400000,      // Statistics close time
+      "F": "0",           // First trade ID
+      "L": "18150",       // Last trade Id
+      "n": 18151          // Total number of trades
+    },
+    {
+      ...
+    }]
+}0xDCbD4807f57b753762C149687D130daC05638394bnb1mnnj4ddvy9cgunzj2zzjqt9mwk954l39yekhl20x7098fb85a5b079089c3FC2AD8643e2DE58df237FGANH2SHDR3OAZPS6HQZJKGZYM466CKJKPWG47SAOGJW67EWAYCFC74WI{
+  "stream": "kline_1m",
+  "data": {
+    "e": "kline",         // Event type
+    "E": 123456789,       // Event time
+    "s": "BNBBTC",        // Symbol
+    "k": {
+      "t": 123400000,     // Kline start time
+      "T": 123460000,     // Kline close time
+      "s": "ABC_0DX-BNB",      // Symbol
+      "i": "1m",          // Interval
+      "f": "100",         // First trade ID
+      "L": "200",         // Last trade ID
+      "o": "0.0010",      // Open price
+      "c": "0.0020",      // Close price
+      "h": "0.0025",      // High price
+      "l": "0.0015",      // Low price
+      "v": "1000",        // Base asset volume
+      "n": 100,           // Number of trades
+      "x": false,         // Is this kline closed?
+      "q": "1.0000",      // Quote asset volume
+    }
+  }
+} https://github.com/ shirineshterabeh-gmail-com .0xDCbD4807f57b753762C149687D130daC05638394 
   fpt: '*'
   ghes: '*'
   ghae: '*'
