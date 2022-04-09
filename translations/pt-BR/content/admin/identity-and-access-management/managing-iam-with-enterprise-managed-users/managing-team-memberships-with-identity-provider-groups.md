@@ -37,7 +37,7 @@ Para gerenciar o acesso ao repositório para qualquer equipe do seu negócio, in
 Qualquer integrante de uma organização pode criar uma nova equipe e conectar a equipe a um grupo de IdP.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}

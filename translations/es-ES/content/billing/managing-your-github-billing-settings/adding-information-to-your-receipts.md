@@ -34,9 +34,9 @@ Tus recibos incluyen tu suscripción de {% data variables.product.prodname_dotco
 
 ## Agregar información a tus recibos de cuenta personal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
-{% data reusables.user_settings.payment-info-link %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}
 
 ## Agregar información a los recibos de tu organización
@@ -49,5 +49,5 @@ Tus recibos incluyen tu suscripción de {% data variables.product.prodname_dotco
 
 
 {% data reusables.organizations.billing-settings %}
-{% data reusables.user_settings.payment-info-link %}
+{% data reusables.user-settings.payment-info-link %}
 {% data reusables.dotcom_billing.extra_info_receipt %}

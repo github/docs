@@ -23,7 +23,7 @@ shortTitle: Java packages with Maven
 
 ## はじめに
 
-{% data reusables.github-actions.publishing-java-packages-intro %}
+{% data reusables.actions.publishing-java-packages-intro %}
 
 ## 必要な環境
 
@@ -74,7 +74,6 @@ _pom.xml_ファイルには、Mavenがパッケージをデプロイする配布
 デプロイのステップでは、リポジトリに認証してもらうユーザ名と、認証のためのパスワードあるいはトークンで設定したシークレットを環境変数に設定する必要があります。  詳しい情報については、「[暗号化されたシークレットの作成と利用](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
 
-{% raw %}
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
@@ -84,9 +83,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Maven Central Repository
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -96,16 +95,15 @@ jobs:
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
+          MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 このワークフローは以下のステップを実行します。
 
 1. プロジェクトのリポジトリのコピーをチェックアウトします。
 1. Java JDKをセットアップし、環境変数の`MAVEN_USERNAME`と`MAVEN_PASSWORD`を使って`ossrh`リポジトリに対する認証を追加するためにMavenの_settings.xml_ファイルも設定します。
-1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
+1. {% data reusables.actions.publish-to-maven-workflow-step %}
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
@@ -115,7 +113,7 @@ jobs:
 
 このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールし、{% data variables.product.prodname_registry %}にパッケージを公開するためにMavenの_settings.xml_もセットアップします。 生成された_settings.xml_は、環境変数の`GITHUB_ACTOR`をユーザ名、`GITHUB_TOKEN`をパスワードとして使い、`github`の`id`でサーバーの認証を定義します。 `GITHUB_TOKEN` 環境変数には、特別な `GITHUB_TOKEN` シークレットの値が割り当てられます。
 
-{% data reusables.github-actions.github-token-permissions %}
+{% data reusables.actions.github-token-permissions %}
 
 Mavenベースのプロジェクトでは、{% data variables.product.prodname_registry %}のエンドポイントを指す`github`の`id`で_pom.xml_ファイル中に配布リポジトリを作成することによって、これらの設定を利用できます。
 
@@ -150,8 +148,8 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -165,7 +163,7 @@ jobs:
 
 1. プロジェクトのリポジトリのコピーをチェックアウトします。
 1. Java JDKをセットアップし、自動的にMavenの_settings.xml_ファイルを設定して環境変数の`GITHUB_TOKEN`を使うように`github` Mavenリポジトリの認証を追加します。
-1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
+1. {% data reusables.actions.publish-to-packages-workflow-step %}
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
@@ -187,9 +185,9 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java for publishing to Maven Central Repository
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -198,18 +196,18 @@ jobs:
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
         run: mvn --batch-mode deploy
-        env:{% raw %}
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+        env:
+          MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
+          MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
       - name: Set up Java for publishing to GitHub Packages
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
 このワークフローは、`setup-java`アクションを2回呼びます。  実行される度に、`setup-java`アクションはMavenの_settings.xml_をパッケージの公開のために上書きします。  リポジトリの認証については、_settings.xml_ファイルは配布管理リポジトリの`id`、及びユーザ名とパスワードを参照します。
@@ -218,8 +216,8 @@ jobs:
 
 1. プロジェクトのリポジトリのコピーをチェックアウトします。
 1. 1回目の`setup-java`の呼び出しを行います。 これはMavenの_settings.xml_ファイルを`ossrh`に対して設定し、認証のオプションを次のステップで定義される環境変数に設定します。
-1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
+1. {% data reusables.actions.publish-to-maven-workflow-step %}
 1. 2回目の`setup-java`の呼び出しを行います。 Mavenの_settings.xml_ファイルを{% data variables.product.prodname_registry %}に対して自動的に設定します。
-1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
+1. {% data reusables.actions.publish-to-packages-workflow-step %}
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。

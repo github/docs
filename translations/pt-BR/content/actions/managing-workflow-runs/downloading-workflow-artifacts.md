@@ -23,11 +23,9 @@ Por padrão, {% data variables.product.product_name %} armazena registros e arte
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
 1. Em **Artefatos**, clique no artefato que deseja baixar.
-    {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+
     ![Menu suspenso do para fazer download do artefato](/assets/images/help/repository/artifact-drop-down-updated.png)
-    {% else %}
-    ![Menu suspenso do para fazer download do artefato](/assets/images/help/repository/artifact-drop-down.png)
-    {% endif %}
+
 
 {% endwebui %}
 

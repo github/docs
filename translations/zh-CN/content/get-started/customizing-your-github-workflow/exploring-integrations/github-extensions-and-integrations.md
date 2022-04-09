@@ -46,10 +46,12 @@ shortTitle: 扩展和集成
 
 ### Slack 与 {% data variables.product.product_name %} 集成
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. 您还可以执行关闭或打开议题等活动，并在不离开 Slack 的情况下提供丰富的议题和拉取请求参考。
+Slack + {% data variables.product.prodname_dotcom %} 应用可让您订阅存储库或组织，并获取有关议题、拉取请求、提交、讨论、发布、部署审查和部署状态的实时更新。 您还可以执行打开和关闭议题等活动，并且可以在不离开 Slack 的情况下查看对议题和拉取请求的详细引用。 如果您在频道或个人聊天中收到的任何 {% data variables.product.prodname_dotcom %} 通知中被提及，该应用程序还将在 Slack 中向您私发 ping。
 
-The {% data variables.product.prodname_dotcom %} app is also compatible with [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid). 更多信息请访问 Marketplace 中的 [Slack 集成应用程序](https://github.com/marketplace/slack-github)。
+Slack + {% data variables.product.prodname_dotcom %} 应用程序还与 [Slack Enterprise Grid](https://slack.com/intl/en-in/help/articles/360000281563-Manage-apps-on-Enterprise-Grid)兼容。 有关详细信息，请访问市场中的 [Slack + {% data variables.product.prodname_dotcom %} 应用](https://github.com/marketplace/slack-github)。
 
 ### Microsoft Teams 与 {% data variables.product.product_name %} 集成
 
-You can subscribe to your repositories or organizations and get realtime updates about issues, pull requests, commits, discussions, releases, deployment reviews and deployment statuses. 您也可以执行一些活动，如关闭或打开议题、评论您的议题和拉取请求，以及提供丰富的议题和拉取请求引用而不离开 Microsoft Teams。 更多信息请访问 Microsoft AppSource 中的 [Microsoft Teams 集成应用程序](https://appsource.microsoft.com/en-us/product/office/WA200002077)。
+通过适用于团队 {% data variables.product.prodname_dotcom %} 应用，您可以订阅存储库或组织，并获取有关议题、拉取请求、提交、讨论、发布、部署评审和部署状态的实时更新。 你还可以执行打开和关闭议题、评论议题和拉取请求等活动，并且可以在不离开 Microsoft Teams 的情况下查看对议题和拉取请求的详细引用。 如果您在频道或个人聊天中收到的任何 {% data variables.product.prodname_dotcom %} 通知中被提及，该应用程序还将在 Microsoft Teams 中向您私发 ping。
+
+有关详细信息，请访问 Microsoft AppSource 中的 [Teams 应用的 {% data variables.product.prodname_dotcom %}](https://appsource.microsoft.com/en-us/product/office/WA200002077)。

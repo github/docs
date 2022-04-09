@@ -15,14 +15,14 @@ topics:
 shortTitle: 限制仓库创建
 ---
 
-您可以选择成员是否可以在组织中创建仓库。 {% ifversion ghec or ghes or ghae %}If you allow members to create repositories, you can choose which types of repositories members can create.{% elsif fpt %}If you allow members to create repositories, you can choose whether members can create both public and private repositories or public repositories only.{% endif %} Organization owners can always create any type of repository.
+您可以选择成员是否可以在组织中创建仓库。 {% ifversion ghec or ghes or ghae %}如果允许成员创建仓库，您可以选择成员可以创建的仓库类型。{% elsif fpt %}如果允许成员创建仓库，您可以选择成员是可以同时创建公共和私有仓库，还是只能创建公共仓库。{% endif %} 组织所有者始终可以创建任何类型的仓库。
 
 {% ifversion fpt %}
-Organizations using {% data variables.product.prodname_ghe_cloud %} can also restrict members to creating private repositories only. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization).
+使用 {% data variables.product.prodname_ghe_cloud %} 的组织还可以将成员限制于只能创建私有仓库。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)。
 {% endif %}
 
 {% ifversion ghec or ghae or ghes %}
-Enterprise owners can restrict the options you have available for your organization's repository creation policy. 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)”。
+企业所有者可以限制您可用于组织的仓库创建策略的选项。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)”。
 {% endif %}
 
 {% warning %}
@@ -43,7 +43,7 @@ Enterprise owners can restrict the options you have available for your organizat
 
    {% note %}
 
-   **Note:** To restrict members to creating private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.
+   **注意：** 要将成员限制为只能创建私有仓库，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。
 
    {% endnote %}
    {%- endif %}

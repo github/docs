@@ -33,14 +33,14 @@ shortTitle: 探索依赖项
 {% data reusables.repositories.click-dependency-graph %}{% ifversion fpt or ghec %}
 4. （可选）在 "Dependency graph"（依赖关系图）下，单击 **Dependents（依赖项）**。 ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
-{% ifversion ghes or ghae-issue-4864 %}
-Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[Enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise)."
+{% ifversion ghes %}
+企业所有者可以在企业级别配置依赖关系图。 更多信息请参阅“[为企业启用依赖关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)”。
 {% endif %}
 
 ### 依赖项视图
 
 {% ifversion fpt or ghec %}
-依赖项按生态系统分组。 您可以展开依赖项以查看其依赖项。 对于托管在 {% data variables.product.product_name %} 上公共仓库中的依赖项，您也可以单击依赖项来查看仓库。 私有仓库、私有包或无法识别文件上的依赖项以纯文本显示。
+依赖项按生态系统分组。 您可以展开依赖项以查看其依赖项。  私有仓库、私有包或无法识别文件上的依赖项以纯文本显示。 如果依赖项的包管理器位于公共存储库中，{% data variables.product.product_name %} 将显示指向该存储库的链接。
 
 如果在仓库中检测到漏洞，这些漏洞将显示在视图顶部，供有权访问 {% data variables.product.prodname_dependabot_alerts %} 的用户查看。
 
@@ -83,7 +83,10 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 
 ## 更改“Used by（使用者）”包
 
-如果启用了依赖项图，并且您的仓库包含已发布在受支持包生态系统上的包，则 {% data variables.product.prodname_dotcom %} 将在仓库的 **Code（代码）**选项卡的边栏中显示“Used by（使用者）”部分。 有关受支持包生态系统的更多信息，请参阅“[关于依赖项图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)”。
+您可能会注意到，某些存储库在 **Code（代码）**选项卡的边栏中有一个“Used by（使用者）”部分。 在以下情况下，您的存储库将具有“Used by（使用者）”部分：
+  * 为存储库启用了依赖关系图（有关更多详细信息，请参阅上一节）。
+  * 您的存储库包含一个包，该包发布在[受支持的包生态系统](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)上。
+  * 在生态系统中，您的包具有指向存储源代码的_公共_存储库的链接。
 
 “Used by（使用者）”部分显示已发现对包的公开引用数量，并显示某些依赖项所有者的头像。
 
@@ -96,7 +99,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-security-and-analysis %}
-4. 在“Configure security and analysis features（配置安全和分析功能）”下，单击“Used by counter（使用者计数）”部分中的下拉菜单并选择一个包。 ![选择"使用者"包](/assets/images/help/repository/choose-used-by-package.png)
+4. 在“Code security and analysis（代码安全和分析）”下，单击“Used by counter（使用者计数）”部分中的下拉菜单并选择一个包。 ![选择"使用者"包](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 
@@ -112,7 +115,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 ## 延伸阅读
 
 - “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
-- "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
+- "[查看漏洞依赖项的 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
 - "[查看用于组织的洞见](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
 - "[了解 {% data variables.product.prodname_dotcom %} 如何使用和保护数据](/get-started/privacy-on-github)"
 {% endif %}

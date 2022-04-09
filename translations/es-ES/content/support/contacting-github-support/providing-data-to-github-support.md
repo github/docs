@@ -1,7 +1,7 @@
 ---
 title: Proporcionar datos al soporte de GitHub
-intro: 'Since {% data variables.contact.github_support %} doesn''t have access to your environment, we sometimes require some additional information from you.'
-shortTitle: Providing data
+intro: 'Ya que {% data variables.contact.github_support %} no cuenta con acceso a tu ambiente, algunas veces requerimos algo de información adicional de tu parte.'
+shortTitle: Proporcionar datos
 versions:
   ghes: '*'
 redirect_from:
@@ -15,15 +15,33 @@ topics:
   - Support
 ---
 
-## About diagnostic files and support bundles
+## Acerca de los archivos de diagnóstico y paquetes de soporte
 
-{% data variables.contact.github_support %} may ask you to provide additional data in the form of sanitized log files. There are three types of log file you may be asked to provide.
+{% data variables.contact.github_support %} podría pedirte que proporciones datos adicionales en forma de archivos de bitácora sanitizados. Existen tres tipos de archivo de bitácora que se te podrían pedir.
 
 Los archivos de diagnóstico contienen información sobre los ajustes y de una instancia de {% data variables.product.prodname_ghe_server %} y los paquetes de soporte de ambiente contienen información de diagnóstico y bitácoras de los dos días anteriores y los paquetes de soporte extendido también contienen información de diagnóstico y bitácoras, pero de los siete días anteriores.
 
+## Acerca de la sanitización de los archivos de bitácora
+
+Los secretos, llaves y tokens de autenticación se eliminan de los archivos de bitácora en los siguientes directorios de bitácora que se contienen dentro de un paquete de soporte o archivo de diagnóstico:
+
+* `alambic-logs`
+* `babeld-logs`
+* `codeload-logs`
+* `enterprise-manage-logs`
+* `github-logs`
+* `hookshot-logs`
+* `lfs-server-logs`
+* `semiotic-logs`
+* `task-dispatcher-logs`
+* `pages-logs`
+* `registry-logs`
+* `render-logs`
+* `svn-bridge-logs`
+
 ## Crear y compartir archivos de diagnóstico
 
-Diagnostic files are an overview of a {% data variables.product.prodname_ghe_server %} instance's settings and environment that contains:
+Los archivos de diagnóstico son un resumen de los ajustes y ambiente de una instancia de {% data variables.product.prodname_ghe_server %}, el cual contiene:
 
 - Información de licencia de cliente, incluido el nombre de la empresa, fecha de validez y cantidad de licencias de usuario
 - Números de versión y SHAs
@@ -111,10 +129,10 @@ Puedes utilizar estos pasos para crear y compartir un paquete de soporte si tien
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. En la barra lateral izquierda, da clic en **Licenciamiento empresarial**. ![Screenshot showing "Enterprise licensing" link in the enterprise account settings sidebar.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. Debajo de "Ayuda de {% data variables.product.prodname_enterprise %}", da clic en **Cargar un paquete de soporte**. ![Screenshot showing "Upload a support bundle link".](/assets/images/enterprise/support/upload-support-bundle.png)
-5. Debajo de "Selecciona una cuenta empresarial", selecciona la cuenta asociada al paquete de soporte del menú desplegable. ![Screenshot showing the dropdown menu to select the support bundle's enterprise account.](/assets/images/enterprise/support/support-bundle-account.png)
-6. Debajo de "Cargar un paquete de soporte para {% data variables.contact.enterprise_support %}", para seleccionar tu paquete de soporte, da clic en **Elegir archivo**, o arrastra tu archivo de paquete de soporte hacia **Escoger archivo**. ![Screenshot showing the "Choose file" button to upload a support bundle file.](/assets/images/enterprise/support/choose-support-bundle-file.png)
+3. En la barra lateral izquierda, da clic en **Licenciamiento empresarial**. ![Captura de pantalla que muestra el enlace de "Licencia empresarial" en la barra lateral de ajustes de cuenta empresarial.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+4. Debajo de "Ayuda de {% data variables.product.prodname_enterprise %}", da clic en **Cargar un paquete de soporte**. ![Captura de pantalla que muestra "Cargar un enlace de paquete de soporte".](/assets/images/enterprise/support/upload-support-bundle.png)
+5. Debajo de "Selecciona una cuenta empresarial", selecciona la cuenta asociada al paquete de soporte del menú desplegable. ![Captura de pantalla que muestra el menú desplegable para seleccionar la cuenta empresarial del paquete de soporte.](/assets/images/enterprise/support/support-bundle-account.png)
+6. Debajo de "Cargar un paquete de soporte para {% data variables.contact.enterprise_support %}", para seleccionar tu paquete de soporte, da clic en **Elegir archivo**, o arrastra tu archivo de paquete de soporte hacia **Escoger archivo**. ![Captura de pantalla que muestra el botón "Elegir archivo" para cargar un archivo de paquete de soporte.](/assets/images/enterprise/support/choose-support-bundle-file.png)
 7. Da clic en **Cargar**.
 
 ### Cargar paquete de soporte mediante SSH
@@ -158,4 +176,5 @@ Puedes cargar directamente un paquete de soporte a nuestro servidor si:
 
 ## Leer más
 
-- "[Acerca del Soporte de GitHub](/support/learning-about-github-support/about-github-support)"
+- "[Acerca del soporte de GitHub](/support/learning-about-github-support/about-github-support)"
+- "[Generar una alerta de salud para tu empresa](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

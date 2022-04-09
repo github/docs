@@ -55,7 +55,7 @@ También puedes configurar automatizaciones de flujo de trabajo para mantener tu
 ## Crear un tablero de proyecto para toda la organización
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.organization-wide-project %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}

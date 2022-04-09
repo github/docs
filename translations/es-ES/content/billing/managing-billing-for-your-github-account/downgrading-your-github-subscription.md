@@ -37,8 +37,8 @@ Cuando bajas de nivel tu suscricpión de cuenta de usuario o de organización, l
 
 Si bajas tu cuenta de usuario de nivel desde {% data variables.product.prodname_pro %} a {% data variables.product.prodname_free_user %}, esta perderá acceso a las herramientas avanzadas de revisión de código en los repositorios privados. {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. Debajo de "Plan actual", utiliza el menú desplegable **Editar** y haz clic en **Bajar de categoría a gratuito**. ![Botón Downgrade to free (Bajar de categoría a gratis)](/assets/images/help/billing/downgrade-to-free.png)
 5. Lee la información sobre de las características a las cuales perderá acceso tu cuenta de usuario en tu siguiente fecha de facturación, y luego da clic en **Entiendo. Bajar de nivel**. ![Botón de proceder con la baja de categoría](/assets/images/help/billing/continue-with-downgrade.png)
 
@@ -51,6 +51,13 @@ Si publicaste un sitio de {% data variables.product.prodname_pages %} en un repo
 Si bajas tu organización de nivel desde {% data variables.product.prodname_team %} a {% data variables.product.prodname_free_team %} para organizaciones, la cuenta perderá acceso a las herramientas de administración y colaboración para equipos.
 
 Si bajas a tu organización de nivel desde {% data variables.product.prodname_ghe_cloud %} a {% data variables.product.prodname_team %} o {% data variables.product.prodname_free_team %}, la cuenta perderá acceso a los controles avanzados de seguridad, cumplimiento y despliegue. {% data reusables.gated-features.more-info %}
+
+
+{% note %}
+
+**Nota:** si actualmente estás probando {% data variables.product.prodname_ghe_cloud %} y no compras {% data variables.product.prodname_enterprise %} antes de que termine el periodo de prueba, tu organización bajará de nivel automáticamente a {% data variables.product.prodname_free_team %} o a {% data variables.product.prodname_team %}. Para obtener más información, consulta "[Configurar una prueba de {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)".
+
+{% endnote %}
 
 {% data reusables.organizations.billing-settings %}
 1. Debajo de "Plan actual", utiliza el menú desplegable **Editar** y haz clic en la opción a la que quieras bajar. ![Botón Bajar de categoría](/assets/images/help/billing/downgrade-option-button.png)

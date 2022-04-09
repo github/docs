@@ -39,7 +39,7 @@ topics:
 
 只包含热补丁和漏洞补丁的补丁版本会更频繁地发布。 首次发布时通常提供补丁版本，没有候选版本。 升级到补丁版本通常需要不到五分钟的停机时间。
 
-要将您的企业升级到新版本，请参阅“[发行说明](/enterprise-server/admin/release-notes)”和“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)”。 Because you can only upgrade from a feature release that's at most two releases behind, use the [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) to find the upgrade path from your current release version.
+要将您的企业升级到新版本，请参阅“[发行说明](/enterprise-server/admin/release-notes)”和“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/upgrading-github-enterprise-server)”。 由于只能从最多落后两个版本的功能版本进行升级，因此请使用 [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) 查找当前版本中的升级路径。
 
 {% endif %}
 

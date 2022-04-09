@@ -15,7 +15,7 @@ topics:
 
 ## Preços de {% data variables.product.prodname_codespaces %}
 
-O uso de {% data variables.product.prodname_codespaces %} é cobrado para todas as contas nos planos de equipe e corporativos e não inclui nenhum direito. Atualmente, as contas individuais não são cobradas para o uso de {% data variables.product.prodname_codespaces %}.
+{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
 
 O uso de {% data variables.product.prodname_codespaces %} é cobrado de acordo com as unidades de medida na tabela a seguir:
 
@@ -38,7 +38,13 @@ Se uso de {% data variables.product.prodname_codespaces %} compartilha a data de
 Se você comprou {% data variables.product.prodname_enterprise %} por meio de um Contrato da Microsoft Enterprise, você pode conectar o seu ID de assinatura do Azure à sua conta corporativa para habilitar e pagar o uso de {% data variables.product.prodname_codespaces %}. Para obter mais informações, consulte "[Conectar uma assinatura do Azure à sua empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
 {% endif %}
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_codespaces %}
+
+### Cobrnça para pré-compilações de {% data variables.product.prodname_codespaces %}
+
+{% data reusables.codespaces.prebuilds-beta-note %}
+
+{% data reusables.codespaces.billing-for-prebuilds %}
 
 ## Definindo um limite de gastos
 

@@ -7,7 +7,7 @@ redirect_from:
   - /github/code-security/security-advisories/adding-a-security-policy-to-your-repository
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -21,7 +21,7 @@ shortTitle: Adicionar uma política de segurança
 
 ## Sobre políticas de segurança
 
-Para dar às pessoas instruções para relatar vulnerabilidades de segurança no seu projeto{% ifversion fpt or ghes > 3.0 or ghec %} você pode adicionar um arquivo _SECURITY.md_ à raiz do seu repositório, `docs` ou à pasta `.github`.{% else %} você pode adicionar um arquivo _SECURITY.md_ à raiz do seu repositório ou à pasta `docs`.{% endif %} Quando alguém criar um problema no seu repositório, a pessoa verá um link para a política de segurança do seu projeto.
+Para dar às pessoas instruções para relatar vulnerabilidades de segurança no seu projeto{% ifversion fpt or ghes or ghec %} você pode adicionar um arquivo _SECURITY.md_ à raiz do seu repositório, `docs` ou à pasta `.github`.{% else %} você pode adicionar um arquivo _SECURITY.md_ à raiz do seu repositório ou à pasta `docs`.{% endif %} Quando alguém criar um problema no seu repositório, a pessoa verá um link para a política de segurança do seu projeto.
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
@@ -39,7 +39,7 @@ Depois que alguém informar uma vulnerabilidade de segurança no seu projeto, vo
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
-{% ifversion ghes > 3.0 or ghae %}
+{% ifversion ghes or ghae %}
 <!-- alternative to the content about GitHub Security Advisories in the dotcom article -->
 Ao disponibilizar claramente instruções de relatório de segurança, você torna mais fácil para os usuários relatar quaisquer vulnerabilidades de segurança que encontrem no repositório usando seu canal de comunicação preferido.
 {% endif %}

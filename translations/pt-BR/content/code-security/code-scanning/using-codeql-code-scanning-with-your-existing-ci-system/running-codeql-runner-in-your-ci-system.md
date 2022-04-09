@@ -28,6 +28,8 @@ topics:
 
 <!--UI-LINK: When GitHub Enterprise Server <=3.0 doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
 
+{% if codeql-runner-supported %}
+
 {% data reusables.code-scanning.deprecation-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -36,9 +38,7 @@ topics:
 
 O {% data variables.product.prodname_codeql_runner %} é uma ferramenta que você pode usar para executar {% data variables.product.prodname_code_scanning %} no código que você está processando em um sistema de integração contínua de terceiros (CI). {% data reusables.code-scanning.about-code-scanning %} Para obter informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %} com {% data variables.product.prodname_codeql %}](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 Em muitos casos, é mais fácil configurar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} usando {% data variables.product.prodname_codeql_cli %} diretamente no seu sistema de CI.
-{% endif %}
 
 Como alternativa, você pode usar {% data variables.product.prodname_actions %} para executar {% data variables.product.prodname_code_scanning %} em {% data variables.product.product_name %}. Para obter informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)".
 
@@ -52,7 +52,7 @@ O {% data variables.product.prodname_codeql_runner %} é uma ferramenta de linha
 {% else %}
 * O {% data variables.product.prodname_codeql_runner %} está disponível para os clientes com uma licença de {% data variables.product.prodname_advanced_security %}.
 {% endif %}
-{% ifversion ghes < 3.1 or ghae %}
+{% ifversion ghae %}
 * O {% data variables.product.prodname_codeql_runner %} não deve ser confundido com o CLI de {% data variables.product.prodname_codeql %}. A CLI de {% data variables.product.prodname_codeql %} é uma interface de linha de comando que permite que você crie bancos de dados de {% data variables.product.prodname_codeql %} para pesquisa de segurança e executar consultas de {% data variables.product.prodname_codeql %}. Para obter mais informações, consulte "[{% data variables.product.prodname_codeql_cli %}](https://codeql.github.com/docs/codeql-cli/)".
 {% endif %}
 {% endnote %}
@@ -120,12 +120,6 @@ Neste exemplo, o servidor tem acesso para fazer o download do pacote {% data var
 1. Mova para o diretório para o local onde o repositório está reservado.
 1. Inicialize {% data variables.product.prodname_codeql_runner %} e crie banco de dados do {% data variables.product.prodname_codeql %} para as linguagens detectadas.
 
-{% ifversion ghes < 3.1 %}
-   ```shell
-    $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo
-        --github-url {% data variables.command_line.git_url_example %} --github-auth TOKEN
-   ```
-{% else %}
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo
         --github-url {% data variables.command_line.git_url_example %} --github-auth-stdin
@@ -133,7 +127,6 @@ Neste exemplo, o servidor tem acesso para fazer o download do pacote {% data var
     > ...
     > Banco de dados do CodeQL criado em /srv/checkout/example-repo/codeql-runner/codeql_databases/javascript.
     ```
-{% endif %}
 
 {% data reusables.code-scanning.codeql-runner-analyze-example %}
 
@@ -144,12 +137,6 @@ Este exemplo é semelhante ao exemplo anterior. No entanto, desta vez, o reposit
 1. Confira o repositório a ser analisado.
 1. Mova para o diretório para o local onde o repositório está reservado.
 1. Inicialize {% data variables.product.prodname_codeql_runner %} e crie banco de dados do {% data variables.product.prodname_codeql %} para as linguagens detectadas.
-{% ifversion ghes < 3.1 %}
- ```shell
-    $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
-        --github-url {% data variables.command_line.git_url_example %} --github-auth TOKEN
- ```
-{% else %}
     ```shell
     $ echo "$TOKEN" | /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
         --github-url {% data variables.command_line.git_url_example %} --github-auth-stdin
@@ -160,7 +147,6 @@ Este exemplo é semelhante ao exemplo anterior. No entanto, desta vez, o reposit
       Exporte essas variáveis para processos futuros para que o CodeQL possa monitorar a criação, por exemplo, executando 
 ". /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
     ```
-{% endif %}
 1. Extraia o script gerado pela ação `iniciar` para configurar o ambiente a fim de monitorar a criação. Observe o ponto e espaço principal no seguinte trecho do código.
 
     ```shell
@@ -181,3 +167,17 @@ Este exemplo é semelhante ao exemplo anterior. No entanto, desta vez, o reposit
 
 - "[Configurar {% data variables.product.prodname_codeql_runner %} no seu sistema de CI](/code-security/secure-coding/configuring-codeql-runner-in-your-ci-system)"
 - "[Solução de problemas de {% data variables.product.prodname_codeql_runner %} no seu sistema de CI](/code-security/secure-coding/troubleshooting-codeql-runner-in-your-ci-system)"
+
+{% else %}
+
+## Sobre o {% data variables.product.prodname_codeql_runner %}
+
+O {% data variables.product.prodname_codeql_runner %} foi descontinuado. [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-cli-binaries/releases) a versão 2.7.6 tem a paridade de recursos completa.
+
+Para obter informações sobre a migração para {% data variables.product.prodname_codeql_cli %}, consulte "[Migrando do executador do CodeQL para a CLI do CodeQL](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli)".
+
+## Leia mais
+
+- [Descontinuação do executor do CodeQL](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/) no blogue do GitHub
+
+{% endif %}

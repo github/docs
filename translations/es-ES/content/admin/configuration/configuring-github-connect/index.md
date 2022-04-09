@@ -1,6 +1,6 @@
 ---
-title: Configuring GitHub Connect
-intro: 'With {% data variables.product.prodname_github_connect %}, you can access additional features and workflows by connecting {% data variables.product.product_location %} to {% data variables.product.prodname_ghe_cloud %}.'
+title: Configurar a GitHub Connect
+intro: 'Con {% data variables.product.prodname_github_connect %}, puedes acceder a las características y flujos de trabajo adicionales si conectas {% data variables.product.product_location %} a {% data variables.product.prodname_ghe_cloud %}.'
 redirect_from:
   - /enterprise/admin/developer-workflow/connecting-github-enterprise-to-github-com
   - /enterprise/admin/guides/developer-workflow/connecting-github-enterprise-and-github-com
@@ -20,7 +20,7 @@ children:
   - /about-github-connect
   - /managing-github-connect
   - /enabling-automatic-user-license-sync-for-your-enterprise
-  - /enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise
+  - /enabling-dependabot-for-your-enterprise
   - /enabling-unified-search-for-your-enterprise
   - /enabling-unified-contributions-for-your-enterprise
 shortTitle: GitHub Connect

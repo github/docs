@@ -49,40 +49,40 @@ shortTitle: Gerenciar camadas de pagamento
 {% data reusables.sponsors.tier-update %}
 {% data reusables.sponsors.retire-tier %}
 
-## Adding a repository to a sponsorship tier
+## Adicionando um repositório a uma camada de patrocínio
 
 {% data reusables.sponsors.sponsors-only-repos %}
 
-### About adding repositories to a sponsorship tier
+### Sobre adicionar repositórios a uma camada de patrocínio
 
-To add a repository to a tier, the repository must be private and owned by an organization, and you must have admin access to the repository.
+Para adicionar um repositório a uma camada, o repositório deve ser privado e pertencente a uma organização, e você deverá ter acesso de administrador ao repositório.
 
-When you add a repository to a tier, {% data variables.product.company_short %} will automatically send repository invitations to new sponsors and remove access when a sponsorship is cancelled.
+Ao adicionar um repositório a uma camada, {% data variables.product.company_short %} irá enviar automaticamente convites de repositórios a novos patrocinadores e remover o acesso quando um patrocínio for cancelado.
 
-Only personal accounts, not organizations, can be invited to private repositories associated with a sponsorship tier.
+Apenas contas pessoais, não organizações, podem ser convidadas para repositórios privados associados a uma camada de patrocínio.
 
-You can also manually add or remove collaborators to the repository, and {% data variables.product.company_short %} will not override these in the sync.
+Também é possível adicionar ou remover manualmente os colaboradores no repositório e o {% data variables.product.company_short %} não irá substituí-los na sincronização.
 
-### About transfers for repositories that are added to sponsorship tiers
+### Sobre transferências para repositórios adicionados às camadas de patrocínio
 
-If you transfer a repository that has been added to a sponsorship tier, sponsors who have access to the repository through the tier may be affected.
+Se você transferir um repositório adicionado a um nível de patrocínio, os patrocinadores que têm acesso ao repositório através da camada poderão ser afetados.
 
-- If the sponsored profile is for an organization and the repository is transferred to a different organization, current sponsors will be transferred, but new sponsors will not be added. The new owner of the repository can remove existing sponsors.
-- If the sponsored profile is for a personal account, the repository is transferred to an organization, and the personal account has admin access to the new repository, existing sponsors will be transferred, and new sponsors will continue to be added to the repository.
-- If the repository is transferred to a personal account, all sponsors will be removed and new sponsors will not be added to the repository.
+- Se o perfil patrocinado for para uma organização e o repositório for transferido para uma organização diferente, os patrocinadores atuais serão transferidos, mas os novos patrocinadores não serão adicionados. O novo proprietário do repositório pode remover patrocinadores existentes.
+- Se o perfil patrocinado for para uma conta pessoal, o repositório será transferido para uma organização, e a conta pessoal terá acesso de administrador ao novo repositório, os patrocinadores existentes serão transferidos e os novos patrocinadores continuarão sendo adicionados ao repositório.
+- Se o repositório for transferido para uma conta pessoal, todos os patrocinadores serão removidos e novos patrocinadores não serão adicionados ao repositório.
 
-### Adding a repository a sponsorship tier
+### Adicionando um repositório a uma camada de patrocínio
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-sponsor-tiers-tab %}
 {% data reusables.sponsors.edit-tier %}
-1. Select **Grant sponsors access to a private repository**.
+1. Selecione **Conceder aos patrocinadores acesso ao repositório privado**.
 
-   ![Screenshot of checkbox to grant sponsors access to a private repository](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)
+   ![Captura de tela da caixa de seleção para conceder acesso de patrocinadores a um repositório privado](/assets/images/help/sponsors/grant-sponsors-access-to-repo-checkbox.png)
 
-1. Select the dropdown menu and click the repository you want to add.
+1. Selecione o menu suspenso e clique no repositório que você deseja adicionar.
 
-   ![Screenshot of dropdown menu to choose the repository to grant sponsors access to](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
+   ![Captura de tela do menu suspenso para escolher o repositório para conceder acesso ao](/assets/images/help/sponsors/grant-sponsors-access-to-repo-dropdown.png)
 
 {% data reusables.sponsors.tier-update %}
 

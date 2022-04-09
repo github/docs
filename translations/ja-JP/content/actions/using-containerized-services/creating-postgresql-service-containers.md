@@ -24,11 +24,11 @@ topics:
 
 このガイドでは、Docker Hubの`postgres`イメージを使ってサービスコンテナを設定するワークフローの例を紹介します。 ワークフローの実行スクリプトは、PostgreSQL サービスに接続し、テーブルを作成してから、データを入力します。 ワークフローが PostgreSQL テーブルを作成してデータを入力することをテストするために、スクリプトはテーブルからコンソールにデータを出力します。
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## 必要な環境
 
-{% data reusables.github-actions.service-container-prereqs %}
+{% data reusables.actions.service-container-prereqs %}
 
 YAML、{% data variables.product.prodname_actions %}の構文、PosgreSQLの基本な理解があれば役立つかも知れません。 詳しい情報については、以下を参照してください。
 
@@ -37,33 +37,32 @@ YAML、{% data variables.product.prodname_actions %}の構文、PosgreSQLの基�
 
 ## コンテナ内でのジョブの実行
 
-{% data reusables.github-actions.container-jobs-intro %}
+{% data reusables.actions.container-jobs-intro %}
 
-{% data reusables.github-actions.copy-workflow-file %}
+{% data reusables.actions.copy-workflow-file %}
 
-{% raw %}
 ```yaml{:copy}
 name: PostgreSQL service example
 on: push
 
 jobs:
-  # コンテナジョブのラベル
+  # Label of the container job
   container-job:
-    # コンテナは Linux ベースのオペレーティングシステムで実行しなければならない
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # `container-job` が実行される Docker Hub イメージ
+    # Docker Hub image that `container-job` executes in
     container: node:10.18-jessie
 
-    # `container-job` で実行するサービスコンテナ
+    # Service containers to run with `container-job`
     services:
-      # サービスコンテナへのアクセスに使用されるラベル
+      # Label used to access the service container
       postgres:
-        # Docker Hub のイメージ
+        # Docker Hub image
         image: postgres
-        # postgres のパスワードを入力する
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # postgres が起動するまで待機するようにヘルスチェックを設定する
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -71,18 +70,18 @@ jobs:
           --health-retries 5
 
     steps:
-      # CI テストを実行する前に、リポジトリにコードのコピーをダウンロードする
+      # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
-      # `package.json` ファイル内のすべての依存関係のクリーンインストールを実行する
-      # 詳しい情報については https://docs.npmjs.com/cli/ci.html を参照
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # PostgreSQLテーブルを作成し、テーブルにデータを入力してから
-        # データを取得するスクリプトを実行する。
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data.
         run: node client.js
         # `client.js` スクリプトが新しいPostgreSQLクライアントの作成に使う環境変数。
         env:
@@ -91,13 +90,12 @@ jobs:
           # デフォルトのPostgreSQLポート
           POSTGRES_PORT: 5432
 ```
-{% endraw %}
 
 ### ランナージョブの設定
 
-{% data reusables.github-actions.service-container-host %}
+{% data reusables.actions.service-container-host %}
 
-{% data reusables.github-actions.postgres-label-description %}
+{% data reusables.actions.postgres-label-description %}
 
 ```yaml{:copy}
 jobs:
@@ -127,22 +125,22 @@ jobs:
 
 ### ステップの設定
 
-{% data reusables.github-actions.service-template-steps %}
+{% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
 steps:
-  # CI テストを実行する前に、リポジトリにコードのコピーをダウンロードする
+  # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
-    uses: actions/checkout@v2
+    uses: {% data reusables.actions.action-checkout %}
 
-  # `package.json` ファイル内のすべての依存関係のクリーンインストールを実行する
-  # 詳しい情報については https://docs.npmjs.com/cli/ci.html を参照する
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
   - name: Install dependencies
     run: npm ci
 
   - name: Connect to PostgreSQL
-    # PostgreSQL テーブルを作成し、テーブルにデータを入力してから
-    # データを取得するスクリプトを実行する。
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data.
     run: node client.js
     # 新しい PostgreSQL クライアントを作成するために
     # `client.js` スクリプトによって使用される環境変数。
@@ -153,7 +151,7 @@ steps:
       POSTGRES_PORT: 5432
 ```
 
-{% data reusables.github-actions.postgres-environment-variables %}
+{% data reusables.actions.postgres-environment-variables %}
 
 PostgreSQLサービスのホスト名は、ワークフロー中で設定されたラベルで、ここでは`postgres`です。 同じユーザー定義ブリッジネットワーク上のDockerコンテナは、デフォルトですべてのポートをオープンするので、サービスコンテナにはデフォルトのPostgreSQLのポートである5432でアクセスできます。
 
@@ -161,67 +159,65 @@ PostgreSQLサービスのホスト名は、ワークフロー中で設定され�
 
 ランナーマシン上で直接ジョブを実行する場合、サービスコンテナ上のポートをDockerホスト上のポートにマップしなければなりません。 Dockerホストからサービスコンテナへは、`localhost`とDockerホストのポート番号を使ってアクセスできます。
 
-{% data reusables.github-actions.copy-workflow-file %}
+{% data reusables.actions.copy-workflow-file %}
 
-{% raw %}
 ```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
 
 jobs:
-  # ランナージョブのラベル
+  # Label of the runner job
   runner-job:
-    # サービスコンテナまたはコンテナジョブを使用する場合は Linux 環境を使用する必要がある
+    # You must use a Linux environment when using service containers or container jobs
     runs-on: ubuntu-latest
 
-    # `runner-job` で実行されるサービスコンテナ
+    # Service containers to run with `runner-job`
     services:
-      # サービスコンテナへのアクセスに使用されるラベル
+      # Label used to access the service container
       postgres:
-        # Docker Hub イメージ
+        # Docker Hub image
         image: postgres
-        # postgres のパスワードを入力する
+        # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
-        # postgres が起動するまで待機するようにヘルスチェックを設定する
+        # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
         ports:
-          # サービスコンテナの tcp ポート 5432 をホストにマップする
+          # Maps tcp port 5432 on service container to the host
           - 5432:5432
 
     steps:
-      # CI テストを実行する前に、リポジトリにコードのコピーをダウンロードする
+      # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
-      # `package.json` ファイル内のすべての依存関係のクリーンインストールを実行する
-      # 詳しい情報については https://docs.npmjs.com/cli/ci.html を参照する
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to PostgreSQL
-        # PostgreSQLテーブルを作成し、テーブルにデータを入力してから
-        # データを取得するスクリプトを実行する
+        # Runs a script that creates a PostgreSQL table, populates
+        # the table with data, and then retrieves the data
         run: node client.js
-        # `client.js` スクリプトが新しいPostgreSQLクライアントの
-        # 作成に使う環境変数
+        # Environment variables used by the `client.js` script to create
+        # a new PostgreSQL table.
         env:
           # PostgreSQLサービスコンテナとの通信に使われるホスト名
           POSTGRES_HOST: localhost
           # デフォルトのPostgreSQLポート
           POSTGRES_PORT: 5432
 ```
-{% endraw %}
 
 ### ランナージョブの設定
 
-{% data reusables.github-actions.service-container-host-runner %}
+{% data reusables.actions.service-container-host-runner %}
 
-{% data reusables.github-actions.postgres-label-description %}
+{% data reusables.actions.postgres-label-description %}
 
 このワークフローはPostgreSQLサービスコンテナ上のポート5432をDockerホストにマップします。 `ports`キーワードに関する詳しい情報については「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)」を参照してください。
 
@@ -254,25 +250,25 @@ jobs:
 
 ### ステップの設定
 
-{% data reusables.github-actions.service-template-steps %}
+{% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
 steps:
-  # CI テストを実行する前に、リポジトリにコードのコピーをダウンロードする
+  # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
-    uses: actions/checkout@v2
+    uses: {% data reusables.actions.action-checkout %}
 
-  # `package.json` ファイル内のすべての依存関係のクリーンインストールを実行する
-  # 詳しい情報については https://docs.npmjs.com/cli/ci.html を参照する
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
   - name: Install dependencies
     run: npm ci
 
   - name: Connect to PostgreSQL
-    # PostgreSQL テーブルを作成し、テーブルにデータを入力してから
-    # データを取得するスクリプトを実行する
+    # Runs a script that creates a PostgreSQL table, populates
+    # the table with data, and then retrieves the data
     run: node client.js
-    # `client.js` スクリプトが新しいPostgreSQLクライアントの
-    # 作成に使う環境変数
+    # Environment variables used by the `client.js` script to create
+    # a new PostgreSQL table.
     env:
       # PostgreSQLサービスコンテナとの通信に使われるホスト名
       POSTGRES_HOST: localhost
@@ -280,9 +276,9 @@ steps:
       POSTGRES_PORT: 5432
 ```
 
-{% data reusables.github-actions.postgres-environment-variables %}
+{% data reusables.actions.postgres-environment-variables %}
 
-{% data reusables.github-actions.service-container-localhost %}
+{% data reusables.actions.service-container-localhost %}
 
 ## PostgreSQLサービスコンテナのテスト
 
@@ -290,7 +286,7 @@ steps:
 
 *client.js*を修正して、ワークフローで必要なPostgreSQLの操作を含めることができます。 この例では、スクリプトは PostgreSQL サービスに接続し、`postgres` データベースにテーブルを追加し、プレースホルダーデータを挿入してから、データを取得します。
 
-{% data reusables.github-actions.service-container-add-script %}
+{% data reusables.actions.service-container-add-script %}
 
 ```javascript{:copy}
 const { Client } = require('pg');

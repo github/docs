@@ -72,7 +72,7 @@ Para assinar commits usando GPG e para que esses commits sejam verificados no {%
 
 Você pode usar S/MIME para assinar commits com uma chave X.509 emitida pela organização.
 
-O {% data variables.product.product_name %} usa [o pacote Debian ca-certificates](https://packages.debian.org/hu/jessie/ca-certificates), a mesma loja confiável usada pelos navegadores Mozilla, para confirmar se seus commits e tags localmente assinados são criptograficamente verificáveis em uma chave pública em um certificado raiz confiável.
+O {% data variables.product.product_name %} usa [o pacote Debian ca-certificates](https://packages.debian.org/bullseye/ca-certificates), a mesma loja confiável usada pelos navegadores Mozilla, para confirmar se seus commits e tags localmente assinados são criptograficamente verificáveis em uma chave pública em um certificado raiz confiável.
 
 {% data reusables.gpg.smime-git-version %}
 

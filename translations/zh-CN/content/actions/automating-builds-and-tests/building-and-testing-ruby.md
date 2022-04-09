@@ -29,11 +29,11 @@ shortTitle: 构建和测试Ruby
 - [了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)
 - [Ruby 20 分钟](https://www.ruby-lang.org/en/documentation/quickstart/)
 
-## Using the Ruby starter workflow
+## 使用 Ruby 入门工作流程
 
-{% data variables.product.prodname_dotcom %} provides a Ruby starter workflow that will work for most Ruby projects. For more information, see the [Ruby starter workflow](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml).
+{% data variables.product.prodname_dotcom %} 提供有 Ruby 入门工作流程，该工作流程将适用于大多数 Ruby 项目。 更多信息请参阅 [Ruby 入门工作流程](https://github.com/actions/starter-workflows/blob/master/ci/ruby.yml)。
 
-To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. 下面显示的工作流假定仓库的默认分支是 `main`。
+要快速开始，请将入门工作流程添加到仓库的 `.github/workflows` 目录中。 下面显示的工作流假定仓库的默认分支是 `main`。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -52,11 +52,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
-          ruby-version: 2.6
+          ruby-version: '3.1'
       - name: Install dependencies
         run: bundle install
       - name: Run tests
@@ -65,39 +65,37 @@ jobs:
 
 ## 指定 Ruby 版本
 
-指定 Ruby 版本的最简单方法是使用 Ruby 组织在 GitHub 上提供的 `ruby/setup-ruby` 操作。 该操作将任何受支持的 Ruby 版本添加到工作流程中运行的每个作业的 `PATH`。 更多信息请参阅 [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)。
+指定 Ruby 版本的最简单方法是使用 Ruby 组织在 GitHub 上提供的 `ruby/setup-ruby` 操作。 该操作将任何受支持的 Ruby 版本添加到工作流程中运行的每个作业的 `PATH`。 有关详细信息和可用的 Ruby 版本，请参阅 [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)。
 
 使用 Ruby 的 `ruby/setup-ruby` 操作是 Python 与 GitHub Actions 结合使用时的推荐方式，因为它能确保不同运行器和不同版本的 Ruby 行为一致。
 
 `setup-ruby` 操作采用 Ruby 版本作为输入，并在运行器上配置该版本。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: {% data reusables.actions.action-checkout %}
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
-    ruby-version: 2.6 # Not needed with a .ruby-version file
+    ruby-version: '3.1' # Not needed with a .ruby-version file
 - run: bundle install
 - run: bundle exec rake
 ```
-{% endraw %}
 
 或者，您也可以将 `.ruby-version` 文件检入仓库的根目录，而 `setup-ruby` 将使用该文件中定义的版本。
 
 ## 使用多个版本的 Ruby 进行测试
 
-您可以添加矩阵策略，以在多个版本的 Ruby 上运行工作流程。 例如，您可以根据版本 2.7、2.6 和 2.5 的最新修补程序版本测试代码。 "x" 是一个通配符，与版本的最新修补程序版本匹配。
+您可以添加矩阵策略，以在多个版本的 Ruby 上运行工作流程。 例如，您可以根据版本 3.1、3.0 和 2.7 的最新修补程序版本测试代码。
 
 {% raw %}
 ```yaml
 strategy:
   matrix:
-    ruby-version: [2.7.x, 2.6.x, 2.5.x]
+    ruby-version: ['3.1', '3.0', '2.7']
 ```
 {% endraw %}
 
-`ruby-version` 阵列中指定的每个 Ruby 版本都会创建一个运行相同步骤的作业。 {% raw %}`${{ matrix.ruby-version }}`{% endraw %} 上下文用于访问当前作业的版本。 For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions)" and "[Contexts](/actions/learn-github-actions/contexts)."
+`ruby-version` 阵列中指定的每个 Ruby 版本都会创建一个运行相同步骤的作业。 {% raw %}`${{ matrix.ruby-version }}`{% endraw %} 上下文用于访问当前作业的版本。 有关矩阵策略和上下文的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/actions/learn-github-actions/workflow-syntax-for-github-actions)”和“[上下文](/actions/learn-github-actions/contexts)”。
 
 包含矩阵策略的完整更新工作流程可能看起如下：
 
@@ -119,12 +117,12 @@ jobs:
 
     strategy:
       matrix:
-        ruby-version: [2.7.x, 2.6.x, 2.5.x]
+        ruby-version: ['3.1', '3.0', '2.7']
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: {% raw %}Set up Ruby ${{ matrix.ruby-version }}{% endraw %}
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
           ruby-version: {% raw %}${{ matrix.ruby-version }}{% endraw %}
       - name: Install dependencies
@@ -137,16 +135,14 @@ jobs:
 
 `setup-ruby` 操作将自动为您安装 Bundler。 版本由您的 `gemfile.lock` 文件决定。 如果您的锁定文件中没有版本，则会安装最新的兼容版本。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: {% data reusables.actions.action-checkout %}
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
-    ruby-version: 2.6
+    ruby-version: '3.1'
 - run: bundle install
 ```
-{% endraw %}
 
 ### 缓存依赖项
 
@@ -157,7 +153,7 @@ steps:
 {% raw %}
 ```yaml
 steps:
-- uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
     with:
       bundler-cache: true
 ```
@@ -169,39 +165,35 @@ steps:
 
 为了加强缓存控制，如果您使用的是 {% data variables.product.prodname_dotcom %} 托管的运行器，可以直接使用 `actions/cache` 操作。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: vendor/bundle
-    key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+    key: {% raw %}${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}{% endraw %}
     restore-keys: |
-      ${{ runner.os }}-gems-
+      {% raw %}${{ runner.os }}-gems-{% endraw %}
 - name: Bundle install
   run: |
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-{% endraw %}
 
 如果您使用的是矩阵构建，您将会想要在缓存密钥中包含矩阵变量。 例如，如果您e 不同 ruby 版本 (`matrix.ruby-version`) 和不同系统 (`matrix.os`) 的矩阵策略，您的工作流程步骤可能看起来如下：
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: vendor/bundle
-    key: bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
+    key: {% raw %}bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}{% endraw %}
     restore-keys: |
-      bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-
+      {% raw %}bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-{% endraw %}
 - name: Bundle install
   run: |
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-{% endraw %}
 
 ## 测试代码的矩阵
 
@@ -228,7 +220,7 @@ jobs:
         ruby: [2.5, 2.6, 2.7, head, debug, jruby, jruby-head, truffleruby, truffleruby-head]
     continue-on-error: {% raw %}${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
@@ -238,7 +230,7 @@ jobs:
 
 ## 嵌入代码
 
-下面的示例安装 `rubocop` 并用它来嵌入所有文件。 For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). 您可以[配置 Rubocop](https://docs.rubocop.org/rubocop/configuration.html) 来决定特定的嵌入规则。
+下面的示例安装 `rubocop` 并用它来嵌入所有文件。 更多信息请参阅 [RuboCop](https://github.com/rubocop-hq/rubocop)。 您可以[配置 Rubocop](https://docs.rubocop.org/rubocop/configuration.html) 来决定特定的嵌入规则。
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -251,7 +243,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.6
@@ -288,8 +280,8 @@ jobs:
       packages: write
       contents: read{% endif %}
 
-    steps:{% raw %}
-      - uses: actions/checkout@v2
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby 2.6
         uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
@@ -297,7 +289,7 @@ jobs:
       - run: bundle install
 
       - name: Publish to GPR
-        run: |
+        run: |{% raw %}
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials

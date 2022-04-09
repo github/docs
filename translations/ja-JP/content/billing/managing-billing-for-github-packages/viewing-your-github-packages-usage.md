@@ -21,8 +21,8 @@ shortTitle: 使用状況の表示
 
 自身のユーザアカウントの {% data variables.product.prodname_registry %} の使用状況は、誰でも表示できます。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
@@ -34,7 +34,7 @@ Organization については、Organization のオーナーと支払いマネー
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Enterprise アカウントの {% data variables.product.prodname_registry %} の使用状況を表示する
 
@@ -42,7 +42,7 @@ Enterprise アカウントについては、Enterprise オーナーと支払い�
 
 {% note %}
 
-**注釈:** Enterprise アカウントの支払い詳細には、Organizationごとのストレージデータ使用状況の概要しか示されません。 {% data reusables.github-actions.enterprise-billing-details %}
+**注釈:** Enterprise アカウントの支払い詳細には、Organizationごとのストレージデータ使用状況の概要しか示されません。 {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

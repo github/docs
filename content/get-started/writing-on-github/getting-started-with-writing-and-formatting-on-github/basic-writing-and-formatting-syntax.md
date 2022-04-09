@@ -84,7 +84,7 @@ git commit
 
 For more information, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## Links
 
@@ -188,6 +188,12 @@ To create a nested list using the web editor on {% data variables.product.produc
    - First nested list item
      - Second nested list item
 ```
+
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
 
 ![Nested list with alignment highlighted](/assets/images/help/writing/nested-list-alignment.png)
 

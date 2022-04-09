@@ -46,7 +46,7 @@ Look! Puedes ver mis comillas inversas.
 
 ![Código cercado interpretado con un bloque de comillas inversas](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## Resaltado de la sintaxis
 
@@ -67,6 +67,12 @@ Por ejemplo, para resaltar la sintaxis del código Ruby:
 
 Usamos [Lingüista](https://github.com/github/linguist) para realizar la detección del idioma y seleccionar [gramáticas independientes](https://github.com/github/linguist/blob/master/vendor/README.md) para el resaltado de la sintaxis. Puedes conocer las palabra clave válidas en [el archivo YAML de idiomas](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
+{% if mermaid %}
+## Crear diagramas
+
+You can also use code blocks to create diagrams in Markdown. GitHub supports Mermaid, geoJSON, topoJSON, and ASCII STL syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
+
+{% endif %}
 ## Leer más
 
 - [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)

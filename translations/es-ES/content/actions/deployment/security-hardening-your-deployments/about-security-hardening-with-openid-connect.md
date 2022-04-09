@@ -1,11 +1,11 @@
 ---
 title: About security hardening with OpenID Connect
 shortTitle: About security hardening with OpenID Connect
-intro: 'OpenID Connect allows your workflows to exchange short-lived tokens directly from your cloud provider.'
+intro: OpenID Connect allows your workflows to exchange short-lived tokens directly from your cloud provider.
 miniTocMaxHeadingLevel: 4
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
 type: tutorial
 topics:
@@ -47,7 +47,7 @@ The following diagram gives an overview of how {% data variables.product.prodnam
 When you configure your cloud to trust {% data variables.product.prodname_dotcom %}'s OIDC provider, you **must** add conditions that filter incoming requests, so that untrusted repositories or workflows can’t request access tokens for your cloud resources:
 
 - Before granting an access token, your cloud provider checks that the [`subject`](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) and other claims used to set conditions in its trust settings match those in the request's JSON Web Token (JWT). As a result, you must take care to correctly define the _subject_ and other conditions in your cloud provider.
-- The OIDC trust configuration steps and the syntax to set conditions for cloud roles (using _Subject_ and other claims) will vary depending on which cloud provider you're using. For some examples, see "[Examples](#examples)."
+- The OIDC trust configuration steps and the syntax to set conditions for cloud roles (using _Subject_ and other claims) will vary depending on which cloud provider you're using. For some examples, see "[Example subject claims](#example-subject-claims)."
  
 ### Understanding the OIDC token
 
@@ -135,7 +135,8 @@ With OIDC, a {% data variables.product.prodname_actions %} workflow requires a t
 
 Audience and Subject claims are typically used in combination while setting conditions on the cloud role/resources to scope its access to the GitHub workflows.
 - **Audience**: By default, this value uses the URL of the organization or repository owner. This can be used to set a condition that only the workflows in the specific organization can access the cloud role.
-- **Subject**: Has a predefined format and is a concatenation of some of the key metadata about the workflow, such as the {% data variables.product.prodname_dotcom %} organization, repository, branch or associated [`job`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idenvironment) environment.
+- **Subject**: Has a predefined format and is a concatenation of some of the key metadata about the workflow, such as the {% data variables.product.prodname_dotcom %} organization, repository, branch, or associated [`job`](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idenvironment) environment. See "[Example subject claims](#example-subject-claims)" to see how the subject claim is assembled from concatenated metadata.
+
 There are also many additional claims supported in the OIDC token that can also be used for setting these conditions.
 
 In addition, your cloud provider could allow you to assign a role to the access tokens, letting you specify even more granular permissions.
@@ -146,45 +147,52 @@ In addition, your cloud provider could allow you to assign a role to the access 
 
 {% endnote %}
 
-### Examples
+### Example subject claims
 
-The following examples demonstrate how to use "Subject" as a condition. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the [`job` context](/actions/learn-github-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. The following sections describe some common subjects you can use.
+The following examples demonstrate how to use "Subject" as a condition, and explain how the "Subject" is assembled from concatenated metadata. The [subject](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) uses information from the [`job` context](/actions/learn-github-actions/contexts#job-context), and instructs your cloud provider that access token requests may only be granted for requests from workflows running in specific branches, environments. The following sections describe some common subjects you can use.
 
 #### Filtering for a specific environment
+
+The subject claim includes the environment name when the job references an environment.
 
 You can configure a subject that filters for a specific [environment](/actions/deployment/using-environments-for-deployment) name. In this example, the workflow run must have originated from a job that has an environment named `Production`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 |        |             |
 | ------ | ----------- |
-| Syntax: | `repo:orgName/repoName:environment:environmentName`      | 
+| Syntax: | `repo:<orgName/repoName>:environment:<environmentName>`      | 
 | Example:| `repo:octo-org/octo-repo:environment:Production`       |
 
 #### Filtering for `pull_request` events
 
-You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
+The subject claim includes the `pull_request` string when the workflow is triggered by a pull request event, but only if the job doesn't reference an environment.
 
+You can configure a subject that filters for the [`pull_request`](/actions/learn-github-actions/events-that-trigger-workflows#pull_request) event. In this example, the workflow run must have been triggered by a `pull_request` event in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 |        |             |
 | ------ | ----------- |
-| Syntax: | `repo:orgName/repoName:pull_request`      | 
+| Syntax: | `repo:<orgName/repoName>:pull_request`      | 
 | Example:| `repo:octo-org/octo-repo:pull_request`      |
 
 #### Filtering for a specific branch
+
+The subject claim includes the branch name of the workflow, but only if the job doesn't reference an environment, and if the workflow is not triggered by a pull request event.
 
 You can configure a subject that filters for a specific branch name. In this example, the workflow run must have originated from a branch named `demo-branch`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 |        |             |
 | ------ | ----------- |
-| Syntax: | `repo:orgName/repoName:ref:refs/heads/branchName`      | 
+| Syntax: | `repo:<orgName/repoName>:ref:refs/heads/branchName`      | 
 | Example:| `repo:octo-org/octo-repo:ref:refs/heads/demo-branch`      |
 
 #### Filtering for a specific tag
+
+The subject claim includes the tag name of the workflow, but only if the job doesn't reference an environment, and if the workflow is not triggered by a pull request event.
 
 You can create a subject that filters for specific tag. In this example, the workflow run must have originated with a tag named `demo-tag`, in a repository named `octo-repo` that is owned by the `octo-org` organization:
 
 |        |             |
 | ------ | ----------- |
-| Syntax: | `repo:orgName/repoName:ref:refs/tags/tagName`      | 
+| Syntax: | `repo:<orgName/repoName>:ref:refs/tags/<tagName>`      | 
 | Example:| `repo:octo-org/octo-repo:ref:refs/tags/demo-tag`      |
 
 ### Configuring the subject in your cloud provider

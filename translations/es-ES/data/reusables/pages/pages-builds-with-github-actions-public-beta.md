@@ -1,5 +1,5 @@
 {% ifversion fpt %}
 
-**Note:** {% data variables.product.prodname_actions %} workflow runs for your {% data variables.product.prodname_pages %} sites are in public beta for public repositories and subject to change. {% data variables.product.prodname_actions %} workflow runs are free for public repositories.
+**Nota:** El flujo de {% data variables.product.prodname_actions %} que se ejecuta para tus sitios de {% data variables.product.prodname_pages %} se encuentra en beta público para los repositorios públicos y está sujeto a cambios. Los flujos de trabajo de {% data variables.product.prodname_actions %} son gratuitos para los repositorios públicos.
 
 {% endif %}

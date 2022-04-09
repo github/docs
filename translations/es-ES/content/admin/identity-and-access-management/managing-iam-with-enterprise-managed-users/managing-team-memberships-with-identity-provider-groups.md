@@ -37,7 +37,7 @@ Para administrar el acceso a los repositorios de cualquier equipo en tu empresa,
 Cualquier miembro de una organización puede crear un equipo nuevo y conectarlo a un grupo de IdP.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
@@ -64,11 +64,11 @@ Los propietarios organizacionales y mantenedores de equipos pueden administrar l
 1. Para conectar un grupo de IdP, debajo de "Grupo de Proveedor de Identidad"; selecciona el menú desplegable y haz clic en un grupo de proveedor de identidad de la lista. ![Menú desplegable para elegir un grupo de proveedor de identidad](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
 1. Haz clic en **Guardar cambios**.
 
-## Viewing IdP groups, group membership, and connected teams
+## Ver los grupos de IdP, la membrecía de grupos y los equipos conectados
 
-You can review a list of IdP groups, see any teams connected to an IdP group, and see the membership of each IdP group on {% data variables.product.product_name %}. Debes editar la membrecía de un grupo en tu IdP.
+Puedes revisar una lista de grupos de IdP, ver cualquier equipo que esté conectado en un grupo de IdP y ver la membrecía de cada grupo de IdP en {% data variables.product.product_name %}. Debes editar la membrecía de un grupo en tu IdP.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. To review a list of IdP groups, in the left sidebar, click {% octicon "key" aria-label="The key icon" %} **Identity provider**. ![Screenshot showing "Identity provider" tab in enterprise sidebar](/assets/images/help/enterprises/enterprise-account-identity-provider-tab.png)
-2. To see the members and teams connected to an IdP group, click the group's name. ![Screenshot showing list of IdP groups, the group name is highlighted](/assets/images/help/enterprises/select-idp-group.png)
-4. To view the teams connected to the IdP group, click **Teams**. ![Screenshot showing the "Teams" button](/assets/images/help/enterprises/idp-groups-team-switcher.png)
+1. Para revisar una lista de grupos de IdP, en la barra lateral izquierda, haz clic en {% octicon "key" aria-label="The key icon" %} **Proveedor de identidad**. ![Captura de pantalla que muestra la pestaña de "Proveedor de identidad" en la barra lateral de la empresa](/assets/images/help/enterprises/enterprise-account-identity-provider-tab.png)
+2. Para ver a los miembros y equipos conectados a un grupo de IdP, haz clic en el nombre del grupo. ![Captura de pantalla que muestra una lista de grupos de IdP en donde el nombre de grupo se encuentra resaltado](/assets/images/help/enterprises/select-idp-group.png)
+4. Para ver los equipos conectados al grupo de IdP, haz clic en **Equipos**. ![Captura de pantalla que muestra el botón "Equipos"](/assets/images/help/enterprises/idp-groups-team-switcher.png)

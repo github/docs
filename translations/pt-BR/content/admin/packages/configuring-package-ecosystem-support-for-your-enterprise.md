@@ -19,7 +19,6 @@ shortTitle: Configurar os ecossistemas dos pacotes
 
 Para evitar que novos pacotes sejam carregados, você pode definir um ecossistema que você previamente habilitou como **Read-Only**, ao mesmo tempo que permite que pacotes existentes sejam baixados.
 
-
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
@@ -29,7 +28,7 @@ Para evitar que novos pacotes sejam carregados, você pode definir um ecossistem
 ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion ghes = 3.0 or ghes > 3.0 %}
+{% ifversion ghes %}
 ## Conectar ao registro oficial do npm
 
 Se você habilitou os pacotes do npm na sua empresa e deseja permitir acesso ao registro oficial do npm, bem como ao registro npm do {% data variables.product.prodname_registry %}, você deverá executar uma configuração adicional.

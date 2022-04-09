@@ -1,7 +1,7 @@
 ---
-title: About GitHub Actions for enterprises
+title: Acerca de las GitHub Actions para las empresas
 shortTitle: Acerca de Acciones de GitHub
-intro: '{% data variables.product.prodname_actions %} can improve developer productivity by automating your enterprise''s software development cycle.'
+intro: 'Las {% data variables.product.prodname_actions %} pueden mejorar la productividad de los desarrolladores al automatizar el ciclo de desarrollo de software de tu empresa.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -12,31 +12,52 @@ topics:
   - Enterprise
 ---
 
-With {% data variables.product.prodname_actions %}, you can improve developer productivity by automating every phase of your enterprise's software development workflow.
+{% ifversion ghes < 3.3 %}
+{% note %}
 
-| Tarea                                                                 | Más información                                                                                                                                                        |
-| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Automatically test and build your application                         | "[Acerca de la integración continua](/actions/automating-builds-and-tests/about-continuous-integration)"                                                               |
-| Deploy your application                                               | "[About continuous deployment](/actions/deployment/about-deployments/about-continuous-deployment)"                                                                     |
-| Automatically and securely package code into artifacts and containers | "[About packaging with {% data variables.product.prodname_actions %}](/actions/publishing-packages/about-packaging-with-github-actions)"                               |
-| Automate your project management tasks                                | "[Using {% data variables.product.prodname_actions %} for project management](/actions/managing-issues-and-pull-requests/using-github-actions-for-project-management)" |
+**Nota:**{% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-{% data variables.product.prodname_actions %} helps your team work faster at scale. When large repositories start using {% data variables.product.prodname_actions %}, teams merge significantly more pull requests per day, and the pull requests are merged significantly faster. For more information, see "[Writing and shipping code faster](https://octoverse.github.com/writing-code-faster/#scale-through-automation)" in the State of the Octoverse.
+{% endnote %}
+{% endif %}
 
-{% data variables.product.prodname_actions %} also provides greater control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets.{% ifversion ghec or ghae-issue-4856 %} If your workflows need to access resources from a cloud provider that supports OpenID Connect (OIDC), you can configure your workflows to authenticate directly to the cloud provider. This will allow you to stop storing credentials as long-lived secrets and provide other security benefits. For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."{% endif %}
+## Acerca de {% data variables.product.prodname_actions %} para empresas
 
-{% data variables.product.prodname_actions %} is developer friendly, because it's integrated directly into the familiar {% data variables.product.product_name %} experience.
+{% data reusables.actions.about-actions-for-enterprises %}
 
-You can create your own unique automations, or you can use and adapt workflows from our ecosystem of over 10,000 actions built by industry leaders and the open source community. Para obtener más información, consulta la sección "[Encontrar y personalizar las acciones](/actions/learn-github-actions/finding-and-customizing-actions)".
+| Tarea                                                                   | Más información                                                                                                                                                                            |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Prueba y crea tu aplicación automáticamente                             | "[Acerca de la integración continua](/actions/automating-builds-and-tests/about-continuous-integration)"                                                                                   |
+| Desplegar tu aplicación                                                 | "[Acerca del despliegue continuo](/actions/deployment/about-deployments/about-continuous-deployment)"                                                                                      |
+| Empaca código segura y automáticamente en los artefactos y contenedores | "[Acerca de crear paquetes con {% data variables.product.prodname_actions %}](/actions/publishing-packages/about-packaging-with-github-actions)"                                           |
+| Automatiza tus tareas de administración de proyectos                    | "[Utilizar las {% data variables.product.prodname_actions %} para la administración de proyectos](/actions/managing-issues-and-pull-requests/using-github-actions-for-project-management)" |
 
-{% ifversion ghec %}You can enjoy the convenience of {% data variables.product.company_short %}-hosted runners, which are maintained and upgraded by {% data variables.product.company_short %}, or you{% else %}You{% endif %} can control your own private CI/CD infrastructure by using self-hosted runners. Self-hosted runners allow you to determine the exact environment and resources that complete your builds, testing, and deployments, without exposing your software development cycle to the internet. For more information, see {% ifversion ghec %}"[About {% data variables.product.company_short %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners)" and{% endif %} "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+Las {% data variables.product.prodname_actions %} ayudan a que tu equipo trabaje más rápido a escala. Cuando los repositorios grandes comienzan a utilizar {% data variables.product.prodname_actions %}, los equipos fusionan significativamente más solicitudes de cambios por día y estas también se fusionan significativamente más rápido. Para obtener más información, consulta la sección "[Escribir y enviar código más rápidamente](https://octoverse.github.com/writing-code-faster/#scale-through-automation)" en el estado del Octoverse.
 
-{% data variables.product.prodname_actions %} also includes tools to govern your enterprise's software development cycle and meet compliance obligations. Para obtener más información, consulta la sección "[Requerir políticas para las {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)".
+Puedes crear tus propias automatizaciones únicas o puedes utilizar y adaptar flujos de trabajo desde nuestro ecosistema de más de 10,000 acciones creadas por los líderes de la industria y por la comunidad de código abierto. {% ifversion ghec %}Para obtener más información, consulta la sección "[.{% else %}Encontrar y personalizar acciones".](/actions/learn-github-actions/finding-and-customizing-actions)Puedes restringir a tus desarrolladores para que utilicen acciones que existen en {% data variables.product.product_location %} o puedes permitirles acceder a aquellas en {% data variables.product.prodname_dotcom_the_website %}. Para obtener más información, consulta la sección "[Acerca de utilizar acciones en tu empresa](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)".{% endif %}
 
+{% data variables.product.prodname_actions %} es amigable para los desarrolladores, ya que se integra directamente en la experiencia familiar de {% data variables.product.product_name %}.
 
-To learn more about how you can successfully adopt {% data variables.product.prodname_actions %} for your enterprise, follow the "[Adopt {% data variables.product.prodname_actions %} for your enterprise](/admin/guides#adopt-github-actions-for-your-enterprise)" learning path.
+{% ifversion ghec %}Puedes disfrutar la convivencia de los ejecutores hospedados en {% data variables.product.company_short %}, los cuales mantiene y mejora {% data variables.product.company_short %}, o puedes{% else %}Puedes{% endif %} controlar tu propia infraestructura de IC/DC utilizando ejecutores auto-hospedados. Los ejecutores auto-hospedados te permiten determinar el ambiente y recursos exactos que completan tus compilaciones, pruebas y despliegues sin exponer tu ciclo de desarrollo de software a la internet. Para obtener más información, consulta las secciones {% ifversion ghec %}"[Acerca de los ejecutores hospedados por {% data variables.product.company_short %}](/actions/using-github-hosted-runners/about-github-hosted-runners)" y{% endif %} "[Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)".
+
+Las {% data variables.product.prodname_actions %} proprocionan un control mayor sobre los despliegues. Por ejemplo, puedes utilizar ambientes para requerir aprobaciones para que un job pueda proceder, restringir qué ramas pueden activar un flujo de trabajo o limitar el acceso a los secretos.{% ifversion ghec or ghae-issue-4856 %} Si tus flujos de trabajo necesitan acceder a los recursos desde un proveedor de servicios en la nube que sea compatible con OpenID Conect (OIDC), puedes configurar tus flujos de trabajo para que se autentiquen directamente con dicho proveedor. OIDC proporciona beneficios de seguridad tales como el eliminar la necesidad de almacenar credenciales como secretos de larga duración. Para obtener más información, consulta la sección "[Acerca del fortalecimiento de seguridad con OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".{% endif %}
+
+Las {% data variables.product.prodname_actions %} también incluyen herramientas para regir el ciclo de desarrollo de software de tu empresa y satisfacer las obligaciones de cumplimiento. Para obtener más información, consulta la sección "[Requerir políticas para las {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)".
+
+## Acerca de comenzar con las {% data variables.product.prodname_actions %}
+
+{% data reusables.actions.introducing-enterprise %}
+
+{% data reusables.actions.migrating-enterprise %}
+
+{% ifversion ghes %}
+{% data reusables.actions.ghes-actions-not-enabled-by-default %} Después de que termines de planear, puedes seguir las instrucciones para habilitar las {% data variables.product.prodname_actions %}. Por ejemplo, podrías necesitar mejorar los recursos de CPU y memoria para {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)".
+
+{% else %}
+Después de que termines de planear, puedes seguir las instrucciones para iniciar con {% data variables.product.prodname_actions %}. Para obtener más información, consulta la sección {% ifversion ghec %}"[Iniciar con {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_cloud %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud)".{% elsif ghae %}"[Iniciar con las {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_managed %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae)".{% endif %}
+{% endif %}
+
 
 ## Leer más
 
-- "[Understanding {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)"{% ifversion ghec %}
-- "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)"{% endif %}
+- "[Entender las {% data variables.product.prodname_actions %}](/actions/learn-github-actions/understanding-github-actions)"{% ifversion ghec %}
+- "[Acerca de la facturación para las {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)"{% endif %}

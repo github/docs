@@ -25,6 +25,11 @@ shortTitle: Basic formatting syntax
 
 ![表示された H1、H2、H6 のヘッディング](/assets/images/help/writing/headings-rendered.png)
 
+When you use two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section.
+
+![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
+
+
 ## スタイル付きテキスト
 
 コメントフィールドと `.md` ファイルでは、太字、斜体、または取り消し線のテキストで強調を示すことができます。
@@ -80,7 +85,7 @@ git commit
 
 詳しい情報については[コードブロックの作成とハイライト](/articles/creating-and-highlighting-code-blocks)を参照してください。
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## リンク
 
@@ -184,6 +189,12 @@ We distinguish between light and dark color modes, so there are two options avai
    - 最初の入れ子になったリストアイテム
      - 2 番目の入れ子になったリストアイテム
 ```
+
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
 
 ![並びがハイライトされた入れ子になったリスト](/assets/images/help/writing/nested-list-alignment.png)
 

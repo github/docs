@@ -50,6 +50,9 @@ Para cada regra de proteção do branch, você pode escolher habilitar ou desabi
 {% ifversion fpt or ghec %}
 - [Exigir uma fila de fusão](#require-merge-queue)
 {% endif %}
+{%- if required-deployments %}
+- [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
+{%- endif %}
 - [Incluir administradores](#include-administrators)
 - [Restringir quem pode fazer push para branches correspondentes](#restrict-who-can-push-to-matching-branches)
 - [Permitir push forçado](#allow-force-pushes)
@@ -144,6 +147,11 @@ Antes de exigir um histórico de commit linear, seu repositório deve permitir m
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
+
+### Require deployments to succeed before merging
+
+You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+
 ### Incluir administradores
 
 Por padrão, as regras de branch protegidos não se aplicam a pessoas com permissões de administrador em um repositório. Você pode habilitar essa configuração para incluir administradores em suas regras de branch protegido.
@@ -160,7 +168,7 @@ Você só pode dar acesso de push a um branch protegido a usuários, equipes ou 
 
 ### Permitir push forçado
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
 Por padrão, os blocks do {% data variables.product.product_name %} fazem push forçado em todos os branches protegidos. Ao habilitar push forçado em um branch protegido, você pode escolher um dos dois grupos que podem fazer push forçado:
 
 1. Permitir que todos com, no mínimo, permissões de gravação para que o repositório faça push forçado no branch, incluindo aqueles com permissões de administrador.

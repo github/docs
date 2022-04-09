@@ -4,7 +4,6 @@ intro: Use os filtros para ver categorias específicas de alertas
 permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  fpt: '*'
   ghae: issue-4554
   ghes: '>3.1'
   ghec: '*'
@@ -18,7 +17,9 @@ topics:
 shortTitle: Filtrando alertas
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Sobre a filtragem da visão geral de segurança
 
@@ -53,7 +54,7 @@ Disponível no nível da organização e na visão geral do nível da equipe.
 | Qualifier | Descrição |
 | --------- | --------- |
 |           |           |
-{%- ifversion fpt or ghes or ghec %}
+{%- ifversion ghes or ghec %}
 | `is:public` | Exibe repositórios públicos. |
 {%- endif %}
 {%- ifversion ghes or ghec or ghae %}
@@ -122,16 +123,15 @@ Disponível na visualização de alerta de digitalização de código. Todos os 
 
 Disponível nas visualizações de alerta de segredos.
 
-| Qualifier                                                                                                                                                                                                               | Descrição                                                                                                                                                                                                                            |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `secret-type:SERVICE_PROVIDER`                                                                                                                                                                                          | Exibe alertas para o segredo e provedor especificados. Para obter mais informações, consulte "[Parceiros de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-partners)." |
-| `secret-type:CUSTOM-PATTERN`                                                                                                                                                                                            | Exibe alertas de segredos que correspondem ao padrão personalizado especificado.                                                                                                                                                     |
-| {% ifversion not fpt %}Para obter mais informações, consulte "[Definindo padrões personalizados para digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning).{% endif %} |                                                                                                                                                                                                                                      |
+| Qualifier                      | Descrição                                                                                                                                                                                                                                                                |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `secret-type:SERVICE_PROVIDER` | Exibe alertas para o segredo e provedor especificados. Para obter mais informações, consulte "[Padrões de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)."                                       |
+| `secret-type:CUSTOM-PATTERN`   | Exibe alertas de segredos que correspondem ao padrão personalizado especificado. Para obter mais informações, consulte "[Definindo padrões personalizados para digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning). " |
 
 ## Filtrar por provedor
 
 Disponível nas visualizações de alerta de segredos.
 
-| Qualifier                | Descrição                                                                                                                                                                                                                                                  |
-| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `provider:PROVIDER_NAME` | Exibe alertas para todos os problemas de segredos por provedor especificado. Para obter mais informações, consulte "[Parceiros de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-partners)." |
+| Qualifier                | Descrição                                                                                                                                                                                                                                                |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `provider:PROVIDER_NAME` | Exibe alertas para todos os problemas de segredos por provedor especificado. Para obter mais informações, consulte "[Padrões de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)." |

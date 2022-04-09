@@ -4,7 +4,6 @@ intro: Acesse as diferentes visualizações disponíveis na visão geral de segu
 permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  fpt: '*'
   ghae: issue-5503
   ghes: '>3.1'
   ghec: '*'
@@ -18,7 +17,9 @@ topics:
 shortTitle: Ver visão geral de segurança
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Visualizar a visão geral de segurança de uma organização
 
@@ -36,6 +37,13 @@ shortTitle: Ver visão geral de segurança
 1. Na barra lateral de segurança, selecione o subconjunto de alertas que você deseja visualizar. ![Ver subconjunto de alerta](/assets/images/help/organizations/view-alert-subset.png)
 2. Opcionalmente, filtre a lista de alertas. Cada visualização tem sua própria seleção de filtros disponíveis. Você pode clicar em vários filtros nos menus suspensos de filtro para restringir a sua pesquisa. Você também pode digitar os qualificadores de busca no campo de busca. Para obter mais informações sobre os qualificados disponíveis, consulte "[Filtrando alertas na visão geral de segurança](/code-security/security-overview/filtering-alerts-in-the-security-overview)". ![Os menus de filtro suspenso e o campo de repositórios de pesquisa na visualização de digitalização de segredo](/assets/images/help/organizations/secret-scanning-filter-alerts.png)
 
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6199 %}
+## Visualizando a visão geral de segurança de uma empresa
+
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+1. Na barra lateral esquerda, clique em {% octicon "shield" aria-label="The shield icon" %} **Código de Segurança**.
+{% endif %}
+
 ## Visualizando alertas de um repositório
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -48,7 +56,7 @@ shortTitle: Ver visão geral de segurança
 ## Visualizar a visão geral de segurança de uma equipe
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}

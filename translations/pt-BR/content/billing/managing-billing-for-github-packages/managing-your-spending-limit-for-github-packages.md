@@ -38,8 +38,8 @@ Como você não ativou os excessos, sua próxima tentativa de publicar uma vers�
 
 Qualquer pessoa pode gerenciar o limite de gastos do {% data variables.product.prodname_registry %} para sua própria conta de usuário.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

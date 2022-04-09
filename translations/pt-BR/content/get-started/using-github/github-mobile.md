@@ -13,8 +13,6 @@ redirect_from:
   - /github/getting-started-with-github/using-github/github-for-mobile
 ---
 
-{% data reusables.mobile.ghes-release-phase %}
-
 ## Sobre o {% data variables.product.prodname_mobile %}
 
 {% data reusables.mobile.about-mobile %}
@@ -27,7 +25,7 @@ Com o {% data variables.product.prodname_mobile %} você pode:
 - Leia, analisar e colaborar em problemas e pull requests
 - Pesquisar, navegar e interagir com usuários, repositórios e organizações
 - Receber uma notificação push quando alguém mencionar seu nome de usuário
-{% ifversion fpt or ghec %}- Secure your GitHub.com account with two-factor authentication{% endif %}
+{% ifversion fpt or ghec %}- Proteja sua conta do GitHub.com com autenticação de dois fatores{% endif %}
 
 Para mais informações sobre notificações para {% data variables.product.prodname_mobile %}, consulte "[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-mobile)."
 

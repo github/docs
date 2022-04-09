@@ -47,7 +47,7 @@ Se sua empresa usa {% data variables.product.prodname_emus %}, os proprietários
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Na barra lateral esquerda, clique em **Administrators** (Administradores). ![Aba Administrators (Administradores) na barra lateral esquerda](/assets/images/help/business-accounts/administrators-tab.png)
+{% data reusables.enterprise-accounts.administrators-tab %}
 1. Acima da lista de administradores, clique em {% ifversion ghec %}**Convidar administrador**{% elsif ghes %}**Add proprietário**{% endif %}.
   {% ifversion ghec %}
   ![Botão "Convidar administrador" acima da lista de proprietários corporativos](/assets/images/help/business-accounts/invite-admin-button.png)
@@ -65,10 +65,11 @@ Somente proprietários corporativos podem remover outros administradores corpora
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Ao lado do nome de usuário da pessoa que você deseja remover, clique em {% octicon "gear" aria-label="The Settings gear" %} e, em seguida, clique em **Remover proprietário**{% ifversion ghec %} ou **Remover gerente de cobrança**{% endif %}.
+{% data reusables.enterprise-accounts.administrators-tab %}
+1. Ao lado do nome de usuário da pessoa que você deseja remover, clique em {% octicon "gear" aria-label="The Settings gear" %} e, em seguida, clique em {% ifversion ghes %}**Remover o proprietário**{% elsif ghec %}**Converter em integrante**{% endif %}.
   {% ifversion ghec %}
   ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}
   ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/ghes-remove-owner.png)
   {% endif %}
-1. Leia a confirmação, clique **Remover proprietário**{% ifversion ghec %} ou **Remover gerente de cobrança**{% endif %}.
+1. Leia a confirmação e, em seguida, clique em {% ifversion ghes %}**Remover o proprietário**{% elsif ghec %}**Sim, converter nome de usuário em integrante**{% endif %}.

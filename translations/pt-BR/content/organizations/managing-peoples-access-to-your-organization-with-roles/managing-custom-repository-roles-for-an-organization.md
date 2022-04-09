@@ -20,9 +20,7 @@ Para executar quaisquer ações em {% data variables.product.product_name %}, co
 
 Dentro de uma organização, você pode atribuir funções ao nível da organização, equipe e repositório. Para obter mais informações sobre os diferentes níveis de funções, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-Se a sua organização usar {% data variables.product.prodname_ghe_cloud %}, você poderá ter um controle mais granular sobre as permissões que você concede no nível de repositório, criando até três funções personalizadas no repositório. Uma função de repositório personalizado é um conjunto configurável de permissões com um nome personalizado que você escolheu. Depois de criar um cargo personalizado, qualquer pessoa com acesso de administrador a um repositório pode atribuir a função a um indivíduo ou equipe. Para obter mais informações, consulte "[Gerenciando o acesso de um indivíduo ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" e "[Gerenciando o acesso da equipe ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
-
-{% data reusables.enterprise.link-to-ghec-trial %}
+You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. Uma função de repositório personalizado é um conjunto configurável de permissões com um nome personalizado que você escolheu. Depois de criar um cargo personalizado, qualquer pessoa com acesso de administrador a um repositório pode atribuir a função a um indivíduo ou equipe. Para obter mais informações, consulte "[Gerenciando o acesso de um indivíduo ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" e "[Gerenciando o acesso da equipe ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
 
 ## Sobre a função herdada
 
@@ -41,11 +39,11 @@ As suas opções para a função herdada são padronizadas para diferentes tipos
 
 Aqui estão alguns exemplos de funções de repositórios personalizados que você pode configurar.
 
-| Função do repositório personalizado | Sumário                                                                                     | Função herdada | Permissões adicionais                                                                                                                                                                                             |
-| ----------------------------------- | ------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Engenheiro de segurança             | Capaz de contribuir com código e manter o pipeline de segurança                             | **Manutenção** | Excluir resultados da varredura de código                                                                                                                                                                         |
-| Contratado                          | Capaz de desenvolver integrações de webhooks                                                | **Gravação**   | Gerenciar webhooks                                                                                                                                                                                                |
-| Gerente de comunidade               | Capaz de lidar com todas as interações da comunidade sem ser capaz de contribuir com código | **Leitura**    | - Mark an issue as duplicate <br> - Manage GitHub Page settings <br> - Manage wiki settings <br> - Set the social preview <br> - Edit repository metadata <br> - Triage discussions |
+| Função do repositório personalizado | Sumário                                                                                     | Função herdada | Permissões adicionais                                                                                                                                                                                                                            |
+| ----------------------------------- | ------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Engenheiro de segurança             | Capaz de contribuir com código e manter o pipeline de segurança                             | **Manutenção** | Excluir resultados da varredura de código                                                                                                                                                                                                        |
+| Contratado                          | Capaz de desenvolver integrações de webhooks                                                | **Gravação**   | Gerenciar webhooks                                                                                                                                                                                                                               |
+| Gerente de comunidade               | Capaz de lidar com todas as interações da comunidade sem ser capaz de contribuir com código | **Leitura**    | - Marcar um problema como duplicado <br> - Gerenciar configurações da Página do GitHub <br> - Gerenciar configurações da wiki <br> - Definir a visualização social <br> - Editar metadados <br> - Triar discussões |
 
 ## Permissões adicionais para funções personalizadas
 
@@ -68,78 +66,88 @@ Você só pode escolher uma permissão adicional se já não estiver incluída n
 ### Pull Request
 
 - **Feche um pull request**
-- **Reopen a closed pull request**
-- **Request a pull request review**: Request a review from a user or team.
+- **Reabrir um pull request fechado**
+- **Solicitar uma revisão de pull request**: Solicitar uma revisão de um usuário ou equipe.
 
 ### Repositório
 
-- **Set milestones**: Add milestones to an issue or pull request.
-- **Manage wiki settings**: Turn on wikis for a repository.
-- **Manage project settings**: Turning on projects for a repository.
-- **Manage pull request merging settings**: Choose the type of merge commits that are allowed in your repository, such as merge, squash, or rebase.
-- **Manage {% data variables.product.prodname_pages %} settings**: Enable {% data variables.product.prodname_pages %} for the repository, and select the branch you want to publish. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".
-- **Manage webhooks**: Add webhooks to the repository.
-- **Manage deploy keys**: Add deploy keys to the repository.
-- **Edit repository metadata**: Update the repository description as well as the repository topics.
-- **Set interaction limits**: Temporarily restrict certain users from commenting, opening issues, or creating pull requests in your public repository to enforce a period of limited activity. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
-- **Set the social preview**: Add an identifying image to your repository that appears on social media platforms when your repository is linked. Para obter mais informações, consulte "[Personalizar a exibição das redes sociais do repositório](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)".
-- **Push commits to protected branches**: Push to a branch that is marked as a protected branch.
+- **Definir marcos**: Adicionar marcos a um problema ou pull request.
+- **Gerenciar configurações de wiki**: Ative wikis para um repositório.
+- **Gerenciar configurações do projeto**: Ativando projetos para um repositório.
+- **Gerenciar configurações de merge do pull request**: Escolha o tipo de commits de merge permitidos no seu repositório, tais como merge, combinação por squash ou rebase.
+- **Gerenciar as configurações de {% data variables.product.prodname_pages %}**: Permitir {% data variables.product.prodname_pages %} para o repositório e selecione o branch que você deseja publicar. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)".
+- **Gerenciar webhooks**: Adicione webhooks ao repositório.
+- **Gerenciar chaves de implantação**: Adicione chaves de deploy ao repositório.
+- **Editar os metadados do repositório**: Atualize a descrição do repositório, bem como os tópicos do repositório.
+- **Definir limites de interação**: Restrinja temporariamente certos usuários de comentários, problemas de abertura ou criação de pull requests no seu repositório público para aplicar um período de atividade limitada. Para obter mais informações, consulte "[Restringir interações no seu repositório](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
+- **Defina a visualização social**: Adicione uma imagem de identificação ao repositório que aparece nas plataformas de mídia social quando seu repositório é vinculado. Para obter mais informações, consulte "[Personalizar a exibição das redes sociais do repositório](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)".
+- **Faça push commits para branches protegidos**: Faça push para um branch que é marcado como um branch protegido.
+- **Crie etiquetas protegidas**: Crie etiquetas que correspondam a uma regra de proteção de tags. Para obter mais informações, consulte "[Configurando regras de proteção de tagsde](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)".
+- **Excluir tags protegidas**: Excluir tags que correspondam a uma regra de proteção de tags. Para obter mais informações, consulte "[Configurando regras de proteção de tagsde](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)".
 
 ### Segurança
 
-- **View {% data variables.product.prodname_code_scanning %} results**: Ability to view {% data variables.product.prodname_code_scanning %} alerts.
-- **Dismiss or reopen {% data variables.product.prodname_code_scanning %} results**: Ability to dismiss or reopen {% data variables.product.prodname_code_scanning %} alerts.
-- **Delete {% data variables.product.prodname_code_scanning %} results**: Ability to delete {% data variables.product.prodname_code_scanning %} alerts.
-- **View {% data variables.product.prodname_dependabot_alerts %}**: Ability to view {% data variables.product.prodname_dependabot_alerts %}.
-- **Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}**: Ability to dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}.
-- **View {% data variables.product.prodname_secret_scanning %} results**: Ability to view {% data variables.product.prodname_secret_scanning %} alerts.
-- **Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results**: Ability to dismiss or reopen {% data variables.product.prodname_secret_scanning %} alerts.
+- **Ver resultados de {% data variables.product.prodname_code_scanning %}**: Habilidade de ver alertas de {% data variables.product.prodname_code_scanning %}.
+- **Ignorar ou reabrir {% data variables.product.prodname_code_scanning %} resultados**: Habilidade de ignorar ou reabrir alertas de {% data variables.product.prodname_code_scanning %}.
+- **Excluir {% data variables.product.prodname_code_scanning %} resultados**: Habilidade de excluir alertas de {% data variables.product.prodname_code_scanning %}.
+- **Visualizar {% data variables.product.prodname_dependabot_alerts %}**: Habilidade de visualizar {% data variables.product.prodname_dependabot_alerts %}.
+- **Ignorarou reabrir {% data variables.product.prodname_dependabot_alerts %}**: Habilidade de ignorar ou reabrir {% data variables.product.prodname_dependabot_alerts %}.
+- **Visualizar {% data variables.product.prodname_secret_scanning %} resultados**: Habilidade de visualizar alertas de {% data variables.product.prodname_secret_scanning %}.
+- **Ignorar ou reabrir {% data variables.product.prodname_secret_scanning %} resultados**: Habilidade de ignorar ou reabrir alertas de {% data variables.product.prodname_secret_scanning %}.
 
-## Precedence for different levels of access
+## Precedência para diferentes níveis de acesso
 
-If a person is given different levels of access through different avenues, such as team membership and the base permissions for an organization, the highest access overrides the others. For example, if an organization owner gives an organization member a custom role that uses the "Read" inherited role, and then an organization owner sets the organization's base permission to "Write", then this custom role will have write access, along with any additional permissions included in the custom role.
+Se uma pessoa receber diferentes níveis de acesso por meio de caminhos diferentes como, por exemplo, a associação a uma equipe e as permissões básicas para uma organização, o maior acesso substitui os outros. Por exemplo, se um proprietário da organização dá a um integrante da organização uma função personalizada que use a função de "ler" herdada e, em seguida, o proprietário da organização definir a permissão de base da organização para "gravar", essa função personalizada terá acesso de gravação, junto com quaisquer permissões adicionais incluídas na função personalizada.
 
-If a person has been given conflicting access, you'll see a warning on the repository access page. The warning appears with "{% octicon "alert" aria-label="The alert icon" %} Mixed roles" next to the person with the conflicting access. To see the source of the conflicting access, hover over the warning icon or click **Mixed roles**.
+{% data reusables.organizations.mixed-roles-warning %}
 
-To resolve conflicting access, you can adjust your organization's base permissions or the team's access, or edit the custom role. Para obter mais informações, consulte:
+Para resolver o acesso conflitante, você pode ajustar as permissões básicas da sua organização ou o acesso da equipe ou editar a função personalizada. Para obter mais informações, consulte:
   - "[Configurando permissões de base para uma organização](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
   - "[Gerenciar o acesso da equipe a um repositório da organização](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
-  - "[Editing a repository role](#editing-a-repository-role)"
+  - "[Editando uma função do repositório](#editing-a-repository-role)"
 
-## Creating a repository role
+## Criando a função de um repositório
 
-To create a new repository role, you add permissions to an inherited role and give the custom role a name.
+Para criar uma nova função do repositório, você deve adicionar permissões a uma função herdada e dar um nome à função personalizada.
 
-{% data reusables.profile.access_profile %}
-{% data reusables.profile.access_org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.org-list %}
-{% data reusables.organizations.org-settings-repository-roles %}
-5. Click **Create a Role**. ![Screenshot of "Create a Role" button](/assets/images/help/organizations/repository-role-create-role.png)
-4. Under "Name", type the name of your repository role. ![Field to type a name for the repository role](/assets/images/help/organizations/repository-role-name.png)
-5. Under "Description", type a description of your repository role. ![Field to type a description for the repository role](/assets/images/help/organizations/repository-role-description.png)
-6. Under "Choose a role to inherit", select the role you want to inherit. ![Selecting repository role base role option](/assets/images/help/organizations/repository-role-base-role-option.png)
-7. Under "Add Permissions", use the drop-down menu to select the permissions you want your custom role to include. ![Selecting permission levels from repository role drop-down](/assets/images/help/organizations/repository-role-drop-down.png)
-7. Click **Create role**. ![Confirm creating a repository role](/assets/images/help/organizations/repository-role-creation-confirm.png)
+{% ifversion ghec %}
+{% note %}
 
-## Editing a repository role
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can create custom repository roles. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.org-list %}
 {% data reusables.organizations.org-settings-repository-roles %}
-3. To the right of the role you want to edit, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Edit**. ![Edit option in drop-down menu for repository roles](/assets/images/help/organizations/repository-role-edit-setting.png)
-4. Edit, then click **Update role**. ![Edit fields and update repository roles](/assets/images/help/organizations/repository-role-update.png)
+5. Clique **Criar uma função**. ![Captura de tela do botão "Criar uma função"](/assets/images/help/organizations/repository-role-create-role.png)
+4. Em "Nome", digite o nome da função do seu repositório. ![Campo para digitar um nome para a função de um repositório](/assets/images/help/organizations/repository-role-name.png)
+5. Em "Descrição", digite uma descrição da função do repositório. ![Campo para digitar uma descrição para o papel do repositório](/assets/images/help/organizations/repository-role-description.png)
+6. Em "Escolha uma função para herdar", selecione a função que deseja herdar. ![Selecionando a opção da função de base do repositório](/assets/images/help/organizations/repository-role-base-role-option.png)
+7. Em "Adicionar permissões", use o menu suspenso para selecionar as permissões que você deseja que a sua função personalizada inclua. ![Selecionando níveis de permissão da função a partir do menu suspenso da função do repositório](/assets/images/help/organizations/repository-role-drop-down.png)
+7. Clique em **Criar função**. ![Confirmar a criação de função de repositório](/assets/images/help/organizations/repository-role-creation-confirm.png)
 
-## Deleting a repository role
-
-If you delete an existing repository role, all pending invitations, teams, and users with the custom role will be reassigned to the organization's base permissions.
+## Editando a função de um repositório
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.org-list %}
 {% data reusables.organizations.org-settings-repository-roles %}
-3. To the right of the role you want to delete, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**. ![Edit option in drop-down menu for repository roles](/assets/images/help/organizations/repository-role-delete-setting.png)
+3. À direita da função que você deseja editar, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e, em seguida, clique em **Editar**. ![Editar opção no menu suspenso para funções de repositório](/assets/images/help/organizations/repository-role-edit-setting.png)
+4. Edite e, em seguida, clique em **Atualizar função**. ![Editar campos e atualizar funções do repositório](/assets/images/help/organizations/repository-role-update.png)
+
+## Excluindo a função de um repositório
+
+Se você excluir a função de um repositório existente, todos os convites pendentes, equipes e usuários com a função personalizada serão reatribuidos às permissões básicas da organização.
+
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.org-list %}
+{% data reusables.organizations.org-settings-repository-roles %}
+3. À direita da função que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e, em seguida, clique em **Excluir**. ![Editar opção no menu suspenso para funções de repositório](/assets/images/help/organizations/repository-role-delete-setting.png)
 4. Revise as alterações para a função que você deseja remover e, em seguida, clique em **Excluir função**. ![Confirme a exclusão de uma função do repositório](/assets/images/help/organizations/repository-role-delete-confirm.png)

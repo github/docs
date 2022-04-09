@@ -1,5 +1,5 @@
 ---
-title: Introduction to dev containers
+title: Introducción a los contenedores dev
 intro: 'Puedes utilizar un archivo de `devcontainer.json` para definir un ambiente de {% data variables.product.prodname_codespaces %} para tu repositorio.'
 allowTitleToDifferFromFilename: true
 permissions: People with write permissions to a repository can create or edit the codespace configuration.
@@ -164,4 +164,8 @@ For more information about the available settings for `devcontainer.json`, see [
 1. {% data reusables.codespaces.recovery-mode %} Arreglar los errores en la configuración. ![Mensaje de error sobre el modo de recuperación](/assets/images/help/codespaces/recovery-mode-error-message.png)
    - Para diagnosticar el error revisando la bitácora de creación, haz clic en **Ver bitácora de creación**.
    - Para arreglar los errores que se identificaron en las bitácoras, actualiza tu archivo `devcontainer.json`.
-   - Para aplicar los cambios, vuelve a crear tu contenedor. 
+   - Para aplicar los cambios, vuelve a crear tu contenedor.
+
+## Leer más
+
+- "[Precompilar tus codespaces](/codespaces/prebuilding-your-codespaces)"

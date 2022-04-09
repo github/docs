@@ -21,8 +21,6 @@ topics:
 shortTitle: Gerenciar versões
 ---
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-
 ## Sobre o gerenciamento da versão
 
 Você pode criar novas versões com observações de versões, @menções de contribuidores e links para arquivos binários, bem como editar ou excluir versões existentes.
@@ -33,10 +31,6 @@ Você também pode publicar uma ação a partir de uma versão específica em {%
 Você pode escolher se objetos {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) estão incluídos nos arquivos ZIP e tarballs que {% data variables.product.product_name %} cria para cada versão. Para obter mais informações, consulte "
 
 [Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)". </p> 
-
-{% endif %}
-
-
 
 {% endif %}
 
