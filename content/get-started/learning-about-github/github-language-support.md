@@ -30,6 +30,7 @@ Some features are supported for additional languages or package managers. If you
 {% data reusables.supported-languages.C %}
 {% data reusables.supported-languages.Cpp %}
 {% data reusables.supported-languages.Cs %}
+{% data reusables.supported-languages.elixir %}
 {% data reusables.supported-languages.go %}
 {% data reusables.supported-languages.java %}
 {% data reusables.supported-languages.javascript %}
