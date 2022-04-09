@@ -137,6 +137,7 @@ When publishing, you need to use the same value for `OWNER` in your *csproj* fil
       <Company>GitHub</Company>
       <PackageDescription>This package adds an Octocat!</PackageDescription>
       <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
+      <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
   </Project>
@@ -171,6 +172,7 @@ For example, the *OctodogApp* and *OctocatApp* projects will publish to the same
     <Company>GitHub</Company>
     <PackageDescription>This package adds an Octodog!</PackageDescription>
     <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>
@@ -188,6 +190,7 @@ For example, the *OctodogApp* and *OctocatApp* projects will publish to the same
     <Company>GitHub</Company>
     <PackageDescription>This package adds an Octocat!</PackageDescription>
     <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/octo-org/octo-cats-and-dogs</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
 </Project>
