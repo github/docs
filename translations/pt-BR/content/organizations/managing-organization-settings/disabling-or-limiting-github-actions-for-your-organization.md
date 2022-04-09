@@ -55,14 +55,14 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% if actions-workflow-policy %} and reusable workflows{% endif %} to the list.
+1. Em "Políticas", selecione {% data reusables.actions.policy-label-for-select-actions-workflows %} e adicione suas ações necessárias{% if actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %} à lista.
 
    {% if actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
+   ![Adicionar ações e fluxos de trabalho reutilizáveis à lista de permissões](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
    {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
+   ![Adicionar ações à lista de permissões](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   ![Adicionar ações à lista de permissões](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
    {%- endif %}
 1. Clique em **Salvar**.
 

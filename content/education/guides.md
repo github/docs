@@ -43,6 +43,6 @@ Incorporate {% data variables.product.prodname_dotcom %} into your education, an
 
 Participate in the community, get training from {% data variables.product.company_short %}, and learn or teach new skills.
 
-- [{% data variables.product.prodname_education_community %}](https://education.github.community)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
 - [About Campus Experts](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-experts)
 - [About Campus Advisors](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)

@@ -205,7 +205,7 @@ A palavra-chave <code>usa</code> especifica que esta etapa irá executar <code>v
   ```
 </td>
 <td>
-  This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). Isso coloca os dois comandos <code>nó</code> e <code>npm</code> no seu <code>PATH</code>.
+  Essa etapa usa a <code>ação de {% data reusables.actions.action-setup-node %}</code> para instalar a versão especificada do Node.js (este exemplo usa v14). Isso coloca os dois comandos <code>nó</code> e <code>npm</code> no seu <code>PATH</code>.
 </td>
 </tr>
 <tr>
