@@ -112,10 +112,10 @@ You can define inputs and secrets, which can be passed from the caller workflow 
      reusable_workflow_job:
        runs-on: ubuntu-latest
        environment: production
-       - uses: ./.github/workflows/my-action
-         with:
-           username: ${{ inputs.username }}
-           token: ${{ secrets.envPAT }}
+       uses: ./.github/workflows/my-action
+       with:
+         username: ${{ inputs.username }}
+         token: ${{ secrets.envPAT }}
    ```
    {% endraw %}
    In the example above, `envPAT` is an environment secret that's been added to the `production` environment. This environment is therefore referenced within the job.
