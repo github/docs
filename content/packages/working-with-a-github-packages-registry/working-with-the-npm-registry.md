@@ -115,7 +115,7 @@ You can use an *.npmrc* file to configure the scope mapping for your project. In
 
 ### Publishing a package using `publishConfig` in the *package.json* file
 
-You can use `publishConfig` element in the *package.json* file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
+You  can use `publishConfig` element in the *package.json* file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
 
 1. Edit the *package.json* file for your package and include a `publishConfig` entry.
   {% ifversion ghes %}
