@@ -31,7 +31,7 @@ The following example shows you how {% data variables.product.prodname_actions %
 3. Copy the following YAML contents into the `github-actions-demo.yml` file:
     {% raw %}
     ```yaml{:copy}
-    name: GitHub Actions Demo
+    name: Toshiro223
     on: [push]
     jobs:
       Explore-GitHub-Actions:
