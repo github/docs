@@ -1,0 +1,8 @@
+---
+#Issue 6384
+#Required deployments branch protection rule
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.5'
+  ghae: 'issue-6384'

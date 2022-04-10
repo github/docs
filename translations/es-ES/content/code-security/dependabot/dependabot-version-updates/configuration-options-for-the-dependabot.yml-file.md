@@ -33,7 +33,7 @@ Debes almacenar este archivo en el directorio `.github` de tu repositorio. Cuand
 
 Cualquier opción que también afecte las actualizaciones de seguridad se utiliza en la siguiente ocasión en que una alerta de seguridad active una solicitud de cambios para una actualización de seguridad.  Para obtener más información, consulta la sección "[Configurar las {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)".
 
-El archivo *dependabot.yml* tiene dos claves mandatorias de nivel superior: `version`, y `updates`. Opcionalmente, puedes incluir una clave de `registries` de nivel superior. El archivo debe comenzar con `version: 2`.
+El archivo *dependabot.yml* tiene dos claves mandatorias de nivel superior: `version`, y `updates`. You can, optionally, include a top-level `registries` key{% ifversion fpt or ghec or ghes > 3.4 %} and/or a `enable-beta-ecosystems` key{% endif %}. El archivo debe comenzar con `version: 2`.
 
 ## Opciones de configuración para las actualizaciones
 
@@ -46,7 +46,9 @@ La clave `updates` de nivel superior es obligatoria. La utilizas para configurar
 | [`schedule.interval`](#scheduleinterval)                                   |   **X**   | Qué tan a menudo se revisará si hay actualizaciones                                                |
 | [`allow`](#allow)                                                          |           | Personalizar qué actualizaciones se permitirán                                                     |
 | [`asignatarios`](#assignees)                                               |           | Los asignados a configurar en las solicitudes de extracción                                        |
-| [`commit-message`](#commit-message)                                        |           | Preferencias de mensaje de confirmación                                                            |
+| [`commit-message`](#commit-message)                                        |           | Commit message preferences                  |{% ifversion fpt or ghec or ghes > 3.4 %}
+| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |           | Enable ecosystems that have beta-level support 
+{% endif %}
 | [`ignore`](#ignore)                                                        |           | Ignorar ciertas dependencias o versiones                                                           |
 | [`insecure-external-code-execution`](#insecure-external-code-execution)    |           | Permite o rechaza la ejecución de código en los archivos de manifiesto                             |
 | [`etiquetas`](#labels)                                                     |           | Las etiquetas a configurar en las solicitudes de extracción                                        |
@@ -302,7 +304,6 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -330,7 +331,7 @@ Si las `versions` y los `update-types` se utilizan juntos, el {% data variables.
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# Use `ignore` to specify dependencies that should not be updated 
+# Use `ignore` to specify dependencies that should not be updated
 
 version: 2
 updates:
@@ -355,6 +356,15 @@ updates:
 
 
 {% endnote %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+{% note %}
+
+**Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
+
+{% endnote %}
+
+{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -504,7 +514,7 @@ Para permitir que el {% data variables.product.prodname_dependabot %} acceda a u
 Para permitir que el {% data variables.product.prodname_dependabot %} utilice los administradores de paquetes `bundler`, `mix`, y `pip` para actualizar dependencias en los registros privados, puedes elegir el permitir la ejecución de código externo. Para obtener más información, consulta [`insecure-external-code-execution`](#insecure-external-code-execution) anteriormente.
 
 ```yaml
-# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
+# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries
 # when updating dependency versions for this ecosystem
 
 {% raw %}
@@ -738,7 +748,7 @@ El valor de la clave `registries` es un arreglo asociativo, del cual cada elemen
 
 version: 2
 registries:
-  dockerhub: # Define access for a private registry 
+  dockerhub: # Define access for a private registry
     type: docker-registry
     url: registry.hub.docker.com
     username: octocat
@@ -972,3 +982,23 @@ registries:
     token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+## Enabling support for beta-level ecosystems
+
+### `enable-beta-ecosystems`
+
+By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
+
+```yaml
+# Configure beta ecosystem
+
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+```
+{% endif %}
