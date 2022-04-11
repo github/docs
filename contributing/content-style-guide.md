@@ -550,7 +550,7 @@ To avoid ambiguity and confusion, do not use product names as adjectives to desc
 
 #### Individual people's accounts on GitHub
 
-The name of the account that an individual person signs into varies depending on the context.
+The way we refer to an account that an individual person signs into varies depending on the context.
 
 Unless the content is about administering an enterprise product, describe an individual person's account on GitHub as a "personal account."
 
