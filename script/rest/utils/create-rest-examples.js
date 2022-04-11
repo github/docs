@@ -18,13 +18,7 @@ export default function getCodeSamples(operation) {
   return mergeExamples(requestExamples, responseExamples)
 }
 
-// Iterates over the larger array or "target" (or if equal requests) to see
-// if there are any matches in the smaller array or "source"
-// (or if equal responses) that can be added to target array. If a request
-// example and response example have matching keys they will be merged into
-// an example. If there is more than one key match, the first match will
-// be used.
-function mergeExamples(requestExamples, responseExamples) {
+export function mergeExamples(requestExamples, responseExamples) {
   // There is always at least one request example, but it won't create
   // a meaningful example unless it has a response example.
   if (requestExamples.length === 1 && responseExamples.length === 0) {
@@ -36,7 +30,7 @@ function mergeExamples(requestExamples, responseExamples) {
   // to match keys directly. This allows falling back in the
   // case that the existing OpenAPI schema has mismatched example keys.
   if (requestExamples.length === 1 && responseExamples.length === 1) {
-    return [{ ...requestExamples[0], ...responseExamples[0] }]
+    return [{ ...requestExamples[0], response: responseExamples[0].response }]
   }
 
   // If there is a request with no request body parameters and all of
@@ -74,6 +68,12 @@ function mergeExamples(requestExamples, responseExamples) {
   const target = requestsExamplesLarger ? requestExamples : responseExamples
   const source = requestsExamplesLarger ? responseExamples : requestExamples
 
+  // Iterates over the larger array or "target" (or if equal requests) to see
+  // if there are any matches in the smaller array or "source"
+  // (or if equal responses) that can be added to target array. If a request
+  // example and response example have matching keys they will be merged into
+  // an example. If there is more than one key match, the first match will
+  // be used.
   return target.filter((targetEx) => {
     const match = source.find((srcEx) => srcEx.key === targetEx.key)
     if (match) return Object.assign(targetEx, match)

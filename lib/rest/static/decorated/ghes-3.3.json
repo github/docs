@@ -222,7 +222,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -296,7 +296,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "302",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -539,7 +539,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -686,7 +686,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -747,7 +747,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -802,7 +802,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -924,7 +924,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "selected_actions",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -1058,7 +1058,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -1314,7 +1314,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -1375,7 +1375,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -1430,7 +1430,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -1552,7 +1552,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "selected_actions",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -1700,7 +1700,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -1846,7 +1846,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "selected_actions",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -2253,7 +2253,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -2469,7 +2469,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -2539,7 +2539,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -2608,7 +2608,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -3012,7 +3012,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -3412,7 +3412,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -3860,7 +3860,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -4022,7 +4022,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -4093,7 +4093,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -4158,7 +4158,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -4360,7 +4360,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -4431,7 +4431,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -4496,7 +4496,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -4950,7 +4950,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -5339,7 +5339,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -5410,7 +5410,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -5475,7 +5475,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -5677,7 +5677,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -5748,7 +5748,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -5813,7 +5813,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -6266,7 +6266,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -6716,7 +6716,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -7225,7 +7225,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -7464,7 +7464,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "302",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -8317,7 +8317,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -8485,7 +8485,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "202",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -8554,7 +8554,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "302",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -8619,7 +8619,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -8969,7 +8969,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "201",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -9574,7 +9574,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -9669,7 +9669,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -9749,7 +9749,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -9970,7 +9970,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -10042,7 +10042,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -10106,7 +10106,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -10178,7 +10178,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -10242,7 +10242,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -10305,7 +10305,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -10368,7 +10368,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -12211,7 +12211,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "default-response",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -12489,7 +12489,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "response-if-you-subscribe-to-the-repository",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -12645,7 +12645,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -13440,7 +13440,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -14566,7 +14566,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -14620,7 +14620,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -15250,7 +15250,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -15956,7 +15956,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -16023,7 +16023,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -16310,7 +16310,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -17634,7 +17634,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -18009,7 +18009,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "202",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -18191,7 +18191,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -19185,7 +19185,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -19310,7 +19310,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -19522,7 +19522,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -19945,7 +19945,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -20165,7 +20165,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -20427,7 +20427,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -21000,7 +21000,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -25023,7 +25023,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "201",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -26975,7 +26975,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "201",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -28339,7 +28339,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "default-response",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -28891,7 +28891,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -29185,7 +29185,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -29250,7 +29250,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-if-user-has-admin-permissions",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -29741,7 +29741,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -31901,7 +31901,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -32981,7 +32981,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -33528,7 +33528,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -34112,7 +34112,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -34718,7 +34718,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -34750,7 +34750,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -34782,7 +34782,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -34814,7 +34814,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -34846,7 +34846,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -34878,7 +34878,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -34910,7 +34910,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -34942,7 +34942,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -34974,7 +34974,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -35006,7 +35006,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -35144,7 +35144,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -35951,7 +35951,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -35996,7 +35996,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -36416,7 +36416,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "202",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -36755,7 +36755,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/x-www-form-urlencoded",
               "description": "Example",
@@ -36988,7 +36988,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "202",
+            "key": "default",
             "request": {
               "contentType": "application/x-www-form-urlencoded",
               "description": "Example",
@@ -37031,7 +37031,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "202",
+            "key": "default",
             "request": {
               "contentType": "application/x-www-form-urlencoded",
               "description": "Example",
@@ -37809,7 +37809,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "default-response",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -37876,7 +37876,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -37925,7 +37925,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "default-response",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -38498,7 +38498,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -39009,7 +39009,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -39140,7 +39140,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -39326,7 +39326,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -39493,7 +39493,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -39538,7 +39538,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -39583,7 +39583,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -39638,7 +39638,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -39694,7 +39694,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -42734,7 +42734,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -45815,7 +45815,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -45897,7 +45897,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -46476,7 +46476,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -47401,7 +47401,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -48724,7 +48724,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -49281,7 +49281,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -50023,7 +50023,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -50112,7 +50112,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -50545,7 +50545,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -50634,7 +50634,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -50666,7 +50666,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json"
@@ -52412,7 +52412,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "default-response",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -53520,7 +53520,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -53579,7 +53579,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-if-user-has-an-active-admin-membership-with-organization",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -53698,7 +53698,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-if-user-already-had-membership-with-organization",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -53803,7 +53803,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -53952,7 +53952,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -54011,7 +54011,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -54070,7 +54070,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -54681,7 +54681,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -55469,7 +55469,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -55946,7 +55946,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "202",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -56010,7 +56010,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -56385,7 +56385,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -56456,7 +56456,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -62340,7 +62340,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -62451,7 +62451,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-if-merge-was-successful",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -63069,7 +63069,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -64520,7 +64520,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "200",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -66301,7 +66301,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -66675,7 +66675,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -67117,7 +67117,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -67498,7 +67498,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -67883,7 +67883,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -68264,7 +68264,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -68641,7 +68641,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -70286,7 +70286,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -70597,7 +70597,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -70799,7 +70799,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-for-successful-upload",
+            "key": "default",
             "request": {
               "contentType": "*/*",
               "description": "Example",
@@ -71482,7 +71482,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "default-response",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -72863,7 +72863,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -73071,7 +73071,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -75377,7 +75377,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -76555,7 +76555,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "302",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -76620,7 +76620,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "302",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -77482,7 +77482,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "202",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -77541,7 +77541,7 @@
         "enabledForGitHubApps": false,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -80542,7 +80542,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -80849,7 +80849,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -80919,7 +80919,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -81522,7 +81522,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -81598,7 +81598,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -81673,7 +81673,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-if-child-teams-exist",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -82087,7 +82087,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -82376,7 +82376,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -82444,7 +82444,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -83026,7 +83026,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -83100,7 +83100,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -83165,7 +83165,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-if-child-teams-exist",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -83920,7 +83920,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -84472,7 +84472,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -85083,7 +85083,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -85634,7 +85634,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -85811,7 +85811,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-if-user-is-a-team-maintainer",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -85901,7 +85901,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-if-users-membership-with-team-is-now-pending",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -85981,7 +85981,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -86146,7 +86146,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -86205,7 +86205,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -86272,7 +86272,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -86331,7 +86331,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-if-user-is-a-team-maintainer",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -86411,7 +86411,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "response-if-users-membership-with-team-is-now-pending",
+            "key": "default",
             "request": {
               "contentType": "application/json",
               "description": "Example",
@@ -86485,7 +86485,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -88024,7 +88024,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -89403,7 +89403,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "202",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -90334,7 +90334,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -90403,7 +90403,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
@@ -90472,7 +90472,7 @@
         "enabledForGitHubApps": true,
         "codeExamples": [
           {
-            "key": "204",
+            "key": "default",
             "request": {
               "description": "Example",
               "acceptHeader": "application/vnd.github.v3+json",
