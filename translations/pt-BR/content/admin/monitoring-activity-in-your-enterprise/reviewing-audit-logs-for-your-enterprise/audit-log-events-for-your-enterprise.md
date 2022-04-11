@@ -1,7 +1,7 @@
 ---
-title: Audit log events for your enterprise
-intro: Learn about audit log events recorded for your enterprise.
-shortTitle: Audit log events
+title: Log de eventos de auditoria para sua empresa
+intro: Saiba mais sobre os eventos de log de auditoria registrados para sua empresa.
+shortTitle: Eventos de log de auditoria
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can interact with the audit log.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
@@ -25,85 +25,85 @@ topics:
 {%- ifversion fpt or ghec %}
 ### ações de categoria da `conta`
 
-| Ação                                  | Descrição                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `account.billing_plan_change`         | An organization's billing cycle changed. Para obter mais informações, consulte "[Alterando a duração do seu ciclo de cobrança](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)".                                                                                    |
-| `account.plan_change`                 | An organization's subscription changed. For more information, see "[About billing for GitHub accounts](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)."                                                                                                                   |
-| `account.pending_plan_change`         | An organization owner or billing manager canceled or downgraded a paid subscription. Para obter mais informações, consulte "[Como a atualização ou o downgrade afeta o processo de cobrança?](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)." |
-| `account.pending_subscription_change` | A {% data variables.product.prodname_marketplace %} free trial started or expired. For more information, see "[About billing for GitHub Marketplace](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)."                                                              |
+| Ação                                  | Descrição                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `account.billing_plan_change`         | O ciclo de cobrança de uma organização foi alterado. Para obter mais informações, consulte "[Alterando a duração do seu ciclo de cobrança](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)".                                                                                   |
+| `account.plan_change`                 | A assinatura de uma organização foi alterada. Para obter mais informações, consulte[Sobre a cobrança para contas do GitHub](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)".                                                                                                         |
+| `account.pending_plan_change`         | Um proprietário ou gerente de cobrança da organização cancelou ou rebaixou uma assinatura paga. Para obter mais informações, consulte "[Como a atualização ou o downgrade afeta o processo de cobrança?](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)." |
+| `account.pending_subscription_change` | Um teste gratuito de {% data variables.product.prodname_marketplace %} foi iniciado ou venceu. Para obter mais informações, consulte[Sobre a cobrança para o GitHub Marketplace](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)".                                             |
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
 ### ações de categoria de `advisory_credit`
 
-| Ação                      | Descrição                                                                                                                                                                                           |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `advisory_credit.accept`  | Someone accepted credit for a security advisory. Para obter mais informações, consulte "[Editar um consultor de segurança](/github/managing-security-vulnerabilities/editing-a-security-advisory)". |
-| `advisory_credit.create`  | The administrator of a security advisory added someone to the credit section.                                                                                                                       |
-| `advisory_credit.decline` | Someone declined credit for a security advisory.                                                                                                                                                    |
-| `advisory_credit.destroy` | The administrator of a security advisory removed someone from the credit section.                                                                                                                   |
+| Ação                      | Descrição                                                                                                                                                                                                     |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `advisory_credit.accept`  | Alguém aceitou o crédito por uma consultoria de segurança. Para obter mais informações, consulte "[Editar um consultor de segurança](/github/managing-security-vulnerabilities/editing-a-security-advisory)". |
+| `advisory_credit.create`  | O administrador de uma consultoria de segurança adicionou alguém à seção de crédito.                                                                                                                          |
+| `advisory_credit.decline` | Alguém recusou o crédito para uma consultoria de segurança.                                                                                                                                                   |
+| `advisory_credit.destroy` | O administrador de uma consultoria de segurança removeu alguém da seção de crédito.                                                                                                                           |
 {%- endif %}
 
-### `artifact` category actions
+### Ações de categoria `artefato`
 
-| Ação               | Descrição                                     |
-| ------------------ | --------------------------------------------- |
-| `artifact.destroy` | A workflow run artifact was manually deleted. |
+| Ação               | Descrição                                                              |
+| ------------------ | ---------------------------------------------------------------------- |
+| `artifact.destroy` | Um artefato da execução de fluxo de trabalho foi excluído manualmente. |
 
 {%- ifversion ghec %}
-### `audit_log_streaming` category actions
+### Ações da categoria `audit_log_streaming`
 
-| Ação                          | Descrição                                                                                                           |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `audit_log_streaming.check`   | A manual check was performed of the endpoint configured for audit log streaming.                                    |
-| `audit_log_streaming.create`  | An endpoint was added for audit log streaming.                                                                      |
-| `audit_log_streaming.update`  | An endpoint configuration was updated for audit log streaming, such as the stream was paused, enabled, or disabled. |
-| `audit_log_streaming.destroy` | An audit log streaming endpoint was deleted.                                                                        |
+| Ação                          | Descrição                                                                                                                                                   |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `audit_log_streaming.check`   | Foi realizada uma verificação manual do ponto de extremidae configurado para transmissão de logs de auditoria.                                              |
+| `audit_log_streaming.create`  | Um ponto de extremidade foi adicionado ao streaming do log de auditoria.                                                                                    |
+| `audit_log_streaming.update`  | Uma configuração de ponto de extremidade foi atualizada para a transmissão do log de auditoria, como a transmissão foi pausada, habilitada ou desabilitada. |
+| `audit_log_streaming.destroy` | Um ponto de extremidade da transmissão do log auditoria foi excluído.                                                                                       |
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
 ### ações de categoria de `cobrança`
 
-| Ação                          | Descrição                                                                                                                                                                                                                                                  |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `billing.change_billing_type` | An organization changed how it paid for {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Adicionar ou editar forma de pagamento](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)". |
-| `billing.change_email`        | An organization's billing email address changed. Para obter mais informações, consulte "[Configurar o e-mail de cobrança](/billing/managing-your-github-billing-settings/setting-your-billing-email)".                                                     |
+| Ação                          | Descrição                                                                                                                                                                                                                                                         |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `billing.change_billing_type` | Uma organização alterou a forma como pagou por {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Adicionar ou editar forma de pagamento](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)". |
+| `billing.change_email`        | O endereço de e-mail de cobrança de uma organização foi alterado. Para obter mais informações, consulte "[Configurar o e-mail de cobrança](/billing/managing-your-github-billing-settings/setting-your-billing-email)".                                           |
 {%- endif %}
 
 ### ações da categoria `business`
 
-| Ação                 | Descrição                                                                                            |
-| -------------------- | ---------------------------------------------------------------------------------------------------- |
-| `business.add_admin` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} was added to an enterprise. |
+| Ação                 | Descrição                                                                                                        |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `business.add_admin` | Um proprietário da empresa{% ifversion ghes %} ou administrador do site{% endif %} foi adicionado a uma empresa. |
 {%- ifversion ghec %}
-| `business.add_billing_manager` | A billing manager was added to an enterprise.
+| `business.add_billing_manager` | Um gerente de cobrança foi adicionado a uma empresa.
 {%- endif %}
-| `business.add_organization` | An organization was added to an enterprise.
+| `business.add_organization` | Uma organização foi adicionada a uma empresa.
 {%- ifversion ghec %}
 | `business.add_support_entitlee` | A support entitlement was added to a member of an enterprise. Para obter mais informações, consulte "[Gerenciar direitos de suporte para a sua empresa](/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)".
 {%- endif %}
 {%- ifversion ghes > 3.0 or ghae %}
-| `business.advanced_security_policy_update` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} created, updated, or removed a policy for {% data variables.product.prodname_GH_advanced_security %}. Para obter mais informações, consulte "[Aplicar políticas para {% data variables.product.prodname_advanced_security %} na sua empresa](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)".
+| `business.advanced_security_policy_update` | Um proprietário corporativo{% ifversion ghes %} ou administrador de site{% endif %} criou, atualizou ou removeru uma política para {% data variables.product.prodname_GH_advanced_security %}. Para obter mais informações, consulte "[Aplicar políticas para {% data variables.product.prodname_advanced_security %} na sua empresa](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)".
 {%- endif %}
 {%- ifversion ghec %}
-| `business.cancel_admin_invitation` | An invitation for someone to be an owner{% ifversion ghes %} or site administrator{% endif %} of an enterprise was canceled. | `business.cancel_billing_manager_invitation` | An invitation for someone to be an billing manager of an enterprise was canceled.
+| `business.cancel_admin_invitation` | Um convite para alguém ser proprietário{% ifversion ghes %} ou administrador do site{% endif %} de uma empresa foi cancelado. | `business.cancel_billing_manager_invitation` | Um convite para alguém ser um gerente de cobrança de uma empresa foi cancelado.
 {%- endif %}
 {%- ifversion ghes %}
-| `business.clear_actions_settings` | An enterprise owner or site administrator cleared {% data variables.product.prodname_actions %} policy settings for an enterprise. For more information, see "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
+| `business.clear_actions_settings` | An enterprise owner or site administrator cleared {% data variables.product.prodname_actions %} policy settings for an enterprise. Para obter mais informações, consulte "[Aplicando as políticas para o GitHub Actions na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)".
 {%- endif %}
-| `business.clear_default_repository_permission` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the base repository permission policy setting for an enterprise. For more information, see "[Enforcing a policy for base repository permissions](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)." | `business.clear_members_can_create_repos`      | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared a restriction on repository creation in organizations in the enterprise. Para obter mais informações, consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)". | `business.create`                              | An enterprise was created.
+| `business.clear_default_repository_permission` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the base repository permission policy setting for an enterprise. Para obter mais informações, consulte "[Aplicando uma política para as permissões do repositório base](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)". | `business.clear_members_can_create_repos`      | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared a restriction on repository creation in organizations in the enterprise. Para obter mais informações, consulte "[Aplicar políticas de gerenciamento do repositório na sua empresa](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)". | `business.create`                              | Uma empresa foi criada.
 {%- ifversion ghec %}
-| `business.disable_saml` | SAML single sign-on was disabled for an enterprise.
+| `business.disable_saml` | O logon único SAML foi desabilitado para uma empresa.
 {%- endif %}
-| `business.disable_two_factor_requirement` | The requirement for members to have two-factor authentication enabled to access an enterprise was disabled.
+| `business.disable_two_factor_requirement` | O requisito para os integrantes terem a autenticação de dois fatores habilitada para acessar uma empresa foi desabilitado.
 {%- ifversion ghec %}
-| `business.enable_saml` | SAML single sign-on was enabled for an enterprise.
+| `business.enable_saml` | O logon único SAML foi habilitado para uma empresa.
 {%- endif %}
-| `business.enable_two_factor_requirement` | The requirement for members to have two-factor authentication enabled to access an enterprise was enabled.
+| `business.enable_two_factor_requirement` | O requisito para os integrantes terem a autenticação de dois fatores habilitada para acessar uma empresa foi desabilitado.
 {%- ifversion ghec %}
-| `business.enterprise_server_license_download` | A {% data variables.product.prodname_ghe_server %} license was downloaded. | `business.import_license_usage` | License usage information was imported from a {% data variables.product.prodname_ghe_server %} instance to an enterprise account on {% data variables.product.prodname_dotcom_the_website %}. | `business.invite_admin` | An invitation for someone to be an enterprise owner{% ifversion ghes %} or site administrator{% endif %} of an enterprise was sent. | `business.invite_billing_manager` | An invitation for someone to be an billing manager of an enterprise was sent.
+| `business.enterprise_server_license_download` | Foi feito o download de uma licença de {% data variables.product.prodname_ghe_server %}. | `business.import_license_usage` | As informações do uso da licença foram importadas de uma instância de {% data variables.product.prodname_ghe_server %} para a conta de uma empresa em {% data variables.product.prodname_dotcom_the_website %}. | `business.invite_admin` | Um convite para alguém ser um proprietário corporativo {% ifversion ghes %} ou administrador do site{% endif %} de uma empresa foi enviado. | `business.invite_billing_manager` | Um convite para alguém ser um gerente de cobrança de uma empresa foi enviado.
 {%- endif %}
-| `business.members_can_update_protected_branches.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} unset a policy for whether members of an enterprise can update protected branches on repositories for individual organizations. Organization administrators can choose whether to allow updating protected branches settings. | `business.members_can_update_protected_branches.disable` | The ability for enterprise members to update branch protection rules was disabled. Only enterprise owners can update protected branches. | `business.members_can_update_protected_branches.enable` | The ability for enterprise members to update branch protection rules was enabled. Enterprise owners and members can update protected branches. | `business.remove_admin` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} was removed from an enterprise.
+| `business.members_can_update_protected_branches.clear` | Um proprietário de uma empresa{% ifversion ghes %} ou administrador de site{% endif %} cancelou a política de os integrantes de uma empresa poderem atualizar branches protegidos nos repositórios para organizações individuais. Os administradores da organização podem escolher se permitem a atualização das configurações dos branches protegidos. | `business.members_can_update_protected_branches.disable` | A capacidade para os integrantes corporativos de atualizar as regras de proteção do branch foi desabilitada. Apenas os proprietários corporativos podem atualizar branches protegidos. | `business.members_can_update_protected_branches.enable` | The ability for enterprise members to update branch protection rules was enabled. Enterprise owners and members can update protected branches. | `business.remove_admin` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} was removed from an enterprise.
 {%- ifversion ghes > 3.1 %}
 | `business.referrer_override_enable` | An enterprise owner or site administrator enabled the referrer policy override. Para obter mais informações, consulte "[Configurando a política de indicação para sua empresa](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)". | `business.referrer_override_disable` | An enterprise owner or site administrator disabled the referrer policy override. Para obter mais informações, consulte "[Configurando a política de indicação para sua empresa](/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise)".
 {%- endif %}
@@ -126,9 +126,9 @@ topics:
 | `business.set_fork_pr_workflows_policy` | The policy for workflows on private repository forks was changed. For more information, see "{% ifversion ghec %}[Enforcing policies for {% data variables.product.prodname_actions %} in an enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[Enabling workflows for private repository forks](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enforcing-github-actions-policies-for-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}."
 {%- endif %}
 {%- ifversion ghes %}
-| `business.update_actions_settings` | An enterprise owner or site administrator updated {% data variables.product.prodname_actions %} policy settings for an enterprise. For more information, see "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
+| `business.update_actions_settings` | An enterprise owner or site administrator updated {% data variables.product.prodname_actions %} policy settings for an enterprise. Para obter mais informações, consulte "[Aplicando as políticas para o GitHub Actions na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)".
 {%- endif %}
-| `business.update_default_repository_permission` | The base repository permission setting was updated for all organizations in an enterprise. For more information, see "[Enforcing a policy for base repository permissions](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)." | `business.update_member_repository_creation_permission` | The repository creation setting was updated for an enterprise. For more information, see "[Enforcing a policy for repository creation](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)." | `business.update_member_repository_invitation_permission` | The policy setting for enterprise members inviting outside collaborators to repositories was updated. For more information, see "[Enforcing a policy for inviting outside collaborators to repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)."
+| `business.update_default_repository_permission` | The base repository permission setting was updated for all organizations in an enterprise. Para obter mais informações, consulte "[Aplicando uma política para as permissões do repositório base](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)". | `business.update_member_repository_creation_permission` | The repository creation setting was updated for an enterprise. For more information, see "[Enforcing a policy for repository creation](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)." | `business.update_member_repository_invitation_permission` | The policy setting for enterprise members inviting outside collaborators to repositories was updated. For more information, see "[Enforcing a policy for inviting outside collaborators to repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)."
 {%- ifversion ghec %}
 | `business.update_saml_provider_settings` | The SAML single sign-on provider settings for an enterprise were updated.
 {%- endif %}
@@ -176,6 +176,16 @@ topics:
 | ------------------------ | ----------------------------- |
 | `commit_comment.destroy` | A commit comment was deleted. |
 | `commit_comment.update`  | A commit comment was updated. |
+{%- endif %}
+
+{%- ifversion ghes %}
+### `config_entry` category actions
+
+| Ação                   | Descrição                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry.create`  | A configuration setting was created. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings. |
+| `config_entry.destroy` | A configuration setting was deleted. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings. |
+| `config_entry.update`  | A configuration setting was edited. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.  |
 {%- endif %}
 
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
@@ -351,6 +361,14 @@ topics:
 | `external_identity.provision`   | An Okta user was added to an Okta group and was subsequently provisioned to the mapped team on {% data variables.product.prodname_ghe_managed %}. Para obter mais informações, consulte "[Mapeando grupos do Okta nas equipes](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)". |
 | `external_identity.update`      | An Okta user's settings were updated. Para obter mais informações, consulte "[Mapeando grupos do Okta nas equipes](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)".                                                                                                               |
 {%- endif %}
+
+### `gist` category actions
+
+| Ação                     | Descrição                            |
+| ------------------------ | ------------------------------------ |
+| `gist.create`            | A gist is created.                   |
+| `gist.destroy`           | A gist is deleted.                   |
+| `gist.visibility_change` | The visibility of a gist is changed. |
 
 ### ações da categoria `git`
 
@@ -596,7 +614,7 @@ topics:
 {%- ifversion not ghae %}
 | `org.enable_two_factor_requirement` | An organization owner requires two-factor authentication for all members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators in an organization.
 {%- endif %}
-| `org.integration_manager_added` | An organization owner granted a member access to manage all GitHub Apps owned by an organization. | `org.integration_manager_removed` | An organization owner removed access to manage all GitHub Apps owned by an organization from an organization member. | `org.invite_member` | A new user was invited to join an organization. |{% ifversion fpt or ghec %}For more information, see "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."{% endif %}| | `org.invite_to_business` | An organization was invited to join an enterprise. | `org.members_can_update_protected_branches.clear` | An organization owner unset a policy for whether members of an organization can update protected branches on repositories in an organization. Organization administrators can choose whether to allow updating protected branches settings. | `org.members_can_update_protected_branches.disable` | The ability for enterprise members to update protected branches was disabled. Only enterprise owners can update protected branches. | `org.members_can_update_protected_branches.enable` |  The ability for enterprise members to update protected branches was enabled. Members of an organization can update protected branches.
+| `org.integration_manager_added` | An organization owner granted a member access to manage all GitHub Apps owned by an organization. | `org.integration_manager_removed` | An organization owner removed access to manage all GitHub Apps owned by an organization from an organization member. | `org.invite_member` | A new user was invited to join an organization. |{% ifversion fpt or ghec %}For more information, see "[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."{% endif %}| | `org.invite_to_business` | An organization was invited to join an enterprise. | `org.members_can_update_protected_branches.clear` | An organization owner unset a policy for whether members of an organization can update protected branches on repositories in an organization. Os administradores da organização podem escolher se permitem a atualização das configurações dos branches protegidos. | `org.members_can_update_protected_branches.disable` | The ability for enterprise members to update protected branches was disabled. Apenas os proprietários corporativos podem atualizar branches protegidos. | `org.members_can_update_protected_branches.enable` |  The ability for enterprise members to update protected branches was enabled. Members of an organization can update protected branches.
 {%- ifversion fpt or ghec %}
 | `org.oauth_app_access_approved` | An owner [granted organization access to an {% data variables.product.prodname_oauth_app %}](/organizations/restricting-access-to-your-organizations-data/approving-oauth-apps-for-your-organization). | `org.oauth_app_access_denied` | An owner [disabled a previously approved {% data variables.product.prodname_oauth_app %}'s access](/organizations/restricting-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization) to an organization. | `org.oauth_app_access_requested` | An organization member requested that an owner grant an {% data variables.product.prodname_oauth_app %} access to an organization.
 {%- endif %}
@@ -944,6 +962,14 @@ topics:
 | `repository_image.create`  | An image to represent a repository was uploaded. |
 | `repository_image.destroy` | An image to represent a repository was deleted.  |
 
+### `repository_invitation` category actions
+
+| Ação                           | Descrição                                        |
+| ------------------------------ | ------------------------------------------------ |
+| `repository_invitation.accept` | An invitation to join a repository was accepted. |
+| `repository_invitation.create` | An invitation to join a repository was sent.     |
+| `repository_invitation.reject` | An invitation to join a repository was canceled. |
+
 ### `repository_projects_change` category actions
 
 | Ação                                 | Descrição                                                                                                                                                                                                                                                                                                                                                                      |
@@ -1108,7 +1134,18 @@ topics:
 {%- ifversion ghes > 3.2 or ghae %}
 | `staff.exit_fake_login`       | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} ended an impersonation session on {% data variables.product.product_name %}. | `staff.fake_login`            | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} signed into {% data variables.product.product_name %} as another user.
 {%- endif %}
-| `staff.repo_lock`             | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator locked (temporarily gained full access to) a user's private repository. | `staff.repo_unlock`           | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator unlocked (ended their temporary access to) a user's private repository. | `staff.unlock`                | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} unlocked (temporarily gained full access to) all of a user's private repositories. | `staff.set_domain_token_expiration` | |{% ifversion ghes %}A site administrator or {% endif %}GitHub staff set the verification code expiry time for an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}| | `staff.unverify_domain` | |{% ifversion ghes %}A site administrator or {% endif %}GitHub staff unverified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}| | `staff.verify_domain` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff verified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+| `staff.repo_lock`             | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator locked (temporarily gained full access to) a user's private repository. | `staff.repo_unlock`           | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator unlocked (ended their temporary access to) a user's private repository.
+{%- ifversion ghes %}
+| `staff.search_audit_log` | A site administrator performed a search of the site admin audit log.
+{%- endif %}
+| `staff.set_domain_token_expiration` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff set the verification code expiry time for an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+{%- ifversion ghes %}
+| `staff.unlock`                | A site administrator unlocked (temporarily gained full access to) all of a user's private repositories.
+{%- endif %}
+| `staff.unverify_domain` | |{% ifversion ghes %}A site administrator or {% endif %}GitHub staff unverified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}| | `staff.verify_domain` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff verified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+{%- ifversion ghes %}
+| `staff.view_audit_log` | A site administrator viewed the site admin audit log.
+{%- endif %}
 
 ### ações de categoria de `equipe`
 

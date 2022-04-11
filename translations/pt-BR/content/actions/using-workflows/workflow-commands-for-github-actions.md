@@ -214,7 +214,7 @@ Cria uma mensagem de aviso e a imprime no log. {% data reusables.actions.message
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a warning message
+### Exemplo: Configurando uma mensagem de aviso
 
 {% bash %}
 
@@ -241,7 +241,7 @@ Cria uma mensagem de erro e a imprime no log. {% data reusables.actions.message-
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting an error message
+### Exemplo: Configurando uma mensagem de erro
 
 {% bash %}
 
@@ -268,7 +268,7 @@ Cria um grupo expansível no registro. Para criar um grupo, use o comando `grupo
 ::endgroup::
 ```
 
-### Example: Grouping log lines
+### Exemplo: Agrupamento de linhas de log
 
 {% bash %}
 
@@ -310,9 +310,9 @@ jobs:
 ::add-mask::{value}
 ```
 
-Mascarar um valor evita que uma string ou variável seja impressa no log. Cada palavra mascarada separada por espaço em branco é substituída pelo caractere `*`. Você pode usar uma variável de ambiente ou string para o `value` da máscara. Quando você mascara um valor, ele é tratado como um segredo e será redatado no executor. For example, after you mask a value, you won't be able to set that value as an output.
+Mascarar um valor evita que uma string ou variável seja impressa no log. Cada palavra mascarada separada por espaço em branco é substituída pelo caractere `*`. Você pode usar uma variável de ambiente ou string para o `value` da máscara. Quando você mascara um valor, ele é tratado como um segredo e será redatado no executor. Por exemplo, depois de você mascarar um valor, você nãopoderá configurar esse valor como uma saída.
 
-### Example: Masking a string
+### Exemplo: Mascarando uma string
 
 Quando você imprime `"Mona The Octocat"` no log, você verá `"***"`.
 
@@ -332,7 +332,7 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
-### Example: Masking an environment variable
+### Exemplo: Mascarando uma variável de ambiente
 
 Ao imprimir a variável `MY_NAME` ou o valor `"Mona The Octocat"` no log, você verá `"***"` em vez de `"Mona The Octocat"`.
 
@@ -689,7 +689,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 {% endbash %}
 
 
-This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
+Este exemplo demonstra como adicionar o diretório do usuário `$env:HOMEPATH/.local/bin` a `PATH`:
 
 {% powershell %}
 

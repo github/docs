@@ -48,6 +48,12 @@ Para ajudar a prevenir a divulgação acidental, o {% data variables.product.pro
 - **Considere a necessidade de revisão para acesso a segredos**
     - Você pode usar revisores necessários para proteger os segredos do ambiente. Um trabalho de fluxo de trabalho não pode acessar segredos de ambiente até que a aprovação seja concedida por um revisor. Para mais informações sobre armazenar segredos em ambientes ou exigir revisões para ambientes, consulte "[segredos criptografados](/actions/reference/encrypted-secrets)" e "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)".
 
+{% warning %}
+
+**Aviso**: Qualquer usuário com acesso de gravação ao repositório tem acesso a todos os segredos configurados no seu repositório. Portanto, você deve garantir que as credenciais usadas nos fluxos de trabalho tenham o mínimo de privilégios necessários.
+
+{% endwarning %}
+
 ## Usar `CODEOWNERS` para monitorar alterações
 
 Você pode usar o recurso `CODEOWNERS` para controlar como são feitas alterações nos seus arquivos de fluxo de trabalho. Por exemplo, se todos os arquivos de fluxo de trabalho forem armazenados em `.github/workflows`, você pode adicionar este diretório à lista de proprietários do código para que quaisquer alterações propostas nestes arquivos exijam primeiro a aprovação de um revisor designado.
@@ -298,7 +304,7 @@ Você pode usar o log de auditoria para monitorar tarefas administrativas em uma
 
 Por exemplo, você pode usar o log de auditoria para acompanhar o evento `org.update_actions_secret`, que controla as alterações nos segredos da organização: ![Entradas do log de auditoria](/assets/images/help/repository/audit-log-entries.png)
 
-As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_actions %} que você pode encontrar no log de auditoria. For more information on using the audit log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" and "[Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
+As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_actions %} que você pode encontrar no log de auditoria. Para obter mais informações sobre o uso do log de auditoria, consulte "[Revisando o log de auditoria para sua organização](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" e "[Revisando logs de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
 
 {% ifversion fpt or ghec %}
 ### Eventos para ambientes
@@ -316,7 +322,7 @@ As tabelas a seguir descrevem os eventos de {% data variables.product.prodname_a
 | Ação                                  | Descrição                                                                                                                                                                                                                                                                                                               |
 | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `repo.actions_enabled`                | Acionada quando {% data variables.product.prodname_actions %} está habilitado para um repositório. Pode ser visto usando a interface do usuário. Este evento não fica visível quando você acessar o log de auditoria usando a API REST. Para obter mais informações, consulte "[Usar a API REST](#using-the-rest-api)". |
-| `repo.update_actions_access_settings` | Triggered when the setting to control how your repository is used by {% data variables.product.prodname_actions %} workflows in other repositories is changed.                                                                                                                                                          |
+| `repo.update_actions_access_settings` | Acionada quando a configuração de controle de como o repositório é usado pelos fluxos de trabalho {% data variables.product.prodname_actions %} em outros repositórios é alterada.                                                                                                                                      |
 {% endif %}
 
 ### Eventos para gerenciamento de segredo

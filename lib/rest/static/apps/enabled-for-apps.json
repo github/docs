@@ -2550,6 +2550,21 @@
         "requestPath": "/repos/{owner}/{repo}/tags"
       },
       {
+        "slug": "list-tag-protection-states-for-a-repository",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/tags/protection"
+      },
+      {
+        "slug": "create-a-tag-protection-state-for-a-repository",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/tags/protection"
+      },
+      {
+        "slug": "delete-a-tag-protection-state-for-a-repository",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
+      },
+      {
         "slug": "download-a-repository-archive-tar",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/tarball/{ref}"

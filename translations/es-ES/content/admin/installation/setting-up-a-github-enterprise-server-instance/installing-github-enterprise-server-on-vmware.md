@@ -31,7 +31,6 @@ shortTitle: Instalar en VMware
 
 ## Descargar la imagen {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
 4. Selecciona {% data variables.product.prodname_dotcom %} local, después haz clic en **VMware ESXi/vSphere (OVA)**.

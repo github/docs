@@ -25,3 +25,4 @@ children:
 shortTitle: Administrar el inicio de sesión único de SAML
 ---
 
+{% data reusables.saml.ghec-only %}
