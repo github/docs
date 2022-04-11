@@ -88,7 +88,7 @@ If you prefer to receive certain reports outside of {% data variables.product.pr
 
 Here is an example *config.yml* file.
 
-```shell{:copy}
+```yaml{:copy}
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}
