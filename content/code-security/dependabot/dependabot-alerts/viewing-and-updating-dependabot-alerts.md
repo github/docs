@@ -174,12 +174,6 @@ The alert details page shows:
 
 ![Screenshot showing the alert details page](/assets/images/help/repository/vulnerable-calls-alert-details-page.png)
 
-During the beta release, the detection of calls to vulnerable functions has the following limitations.
-
-- The feature is only available via the {% data variables.product.prodname_dependabot_alerts %} page on {% data variables.product.company_short %}, for new Python advisories created _after_ April 7, 2022, and for a prioritized set of critical historic advisories. For more information about the supported advisories, see TODO:.
-- There is currently no support for other languages.
-- We haven't made any changes to {% data variables.product.prodname_dependabot %} pull requests, or to the notifications for alerts with exposure identified.
-
 For more information about reviewing your exposure to a vulnerability, see the section below.
 ## Reviewing your exposure to a vulnerability
 
