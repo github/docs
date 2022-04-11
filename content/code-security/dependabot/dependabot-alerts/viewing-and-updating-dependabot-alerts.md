@@ -44,6 +44,31 @@ You can enable automatic security updates for any repository that uses {% data v
 Each {% data variables.product.prodname_dependabot %} alert has a unique numeric identifier and the {% data variables.product.prodname_dependabot_alerts %} tab lists an alert for every detected vulnerability. Legacy {% data variables.product.prodname_dependabot_alerts %} grouped vulnerabilities by dependency and generated a single alert per dependency. If you navigate to a legacy {% data variables.product.prodname_dependabot %} alert, you will be redirected to a {% data variables.product.prodname_dependabot_alerts %} tab filtered for that package. {% endif %}
 {% endif %}
 
+{% if dependabot-alerts-vulnerable-calls %}
+## About calls to vulnerable functions
+
+{% data reusables.dependabot.vulnerable-calls-beta %}
+
+This feature is enabled for supported {% data variables.product.prodname_dependabot_alerts %} on public repositories, as well as on private repositories with {% data variables.product.prodname_GH_advanced_security %} enabled.
+
+{% data variables.product.prodname_dependabot_alerts %} can also detect whether the code in your repository calls vulnerable code paths, so that you can prioritize and remediate alerts more effectively.
+
+The detection of calls to vulnerable functions uses the semantic code graph to figure out if a repository calls a vulnerable function. The "Vulnerable call" label next to an alert highlights alerts for which the code in the current repository calls known vulnerable functions. 
+
+![Screenshot showing the "Vulnerable call" label](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
+
+The alert details page shows:
+
+- The first of several exposures (if relevant) you have to the vulnerable function
+- A code block with the location of where the function is used
+- An annotation calling out the function itself
+
+![Screenshot showing the alert details page](/assets/images/help/repository/vulnerable-calls-alert-details-page.png)
+
+For more information, see the "[Reviewing your exposure to a vulnerability](#reviewing-your-exposure-to-a-vulnerability) section below.
+
+{% endif %}
+
 ## Viewing vulnerable dependencies
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
@@ -151,30 +176,7 @@ Each {% data variables.product.prodname_dependabot %} alert has a unique numeric
 
 {% endif %}
 
-<!-- TODO: review where to put this content - I'd be tempted to have conceptual information at the top of the article and procedural sections afterwards but I'm wondering if this breaks the flow -->
-
 {% if dependabot-alerts-vulnerable-calls %}
-## About vulnerable calls
-
-{% data reusables.dependabot.vulnerable-calls-beta %}
-
-This feature is enabled for supported {% data variables.product.prodname_dependabot_alerts %} on public repositories, as well as on private repositories with {% data variables.product.prodname_GH_advanced_security %} enabled.
-
-{% data variables.product.prodname_dependabot_alerts %} can also detect whether the code in your repository calls vulnerable code paths, so that you can prioritize and remediate alerts more effectively.
-
-The detection of calls to vulnerable functions uses the semantic code graph to figure out if a repository calls a vulnerable function. The "Vulnerable call" label next to an alert highlights alerts for which the code in the current repository calls known vulnerable functions. 
-
-![Screenshot showing the "Vulnerable call" label](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
-
-The alert details page shows:
-
-- The first of several exposures (if relevant) you have to the vulnerable function
-- A code block with the location of where the function is used
-- An annotation calling out the function itself
-
-![Screenshot showing the alert details page](/assets/images/help/repository/vulnerable-calls-alert-details-page.png)
-
-For more information about reviewing your exposure to a vulnerability, see the section below.
 ## Reviewing your exposure to a vulnerability
 
 {% data reusables.repositories.navigate-to-repo %}

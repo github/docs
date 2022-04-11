@@ -18,7 +18,7 @@ shortTitle: Gerenciar comentários
 
 ## Ocultar um comentário
 
-{% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can hide comments on issues, pull requests, and commits.
+{% ifversion fpt or ghec %}Os moderadores de organização e qualquer pessoa{% else %}{% endif %} com acesso de gravação a um repositório podem ocultar comentários em problemas, pull requests e commits.
 
 Se um comentário não diz respeito ao assunto, está desatualizado ou resolvido, pode ser que você queira ocultar o comentário para manter o foco da discussão ou fazer uma pull request mais simples para navegar e revisar. Comentários ocultos são minimizados, mas as pessoas com acesso de leitura no repositório podem expandi-los.
 
@@ -35,7 +35,7 @@ Se um comentário não diz respeito ao assunto, está desatualizado ou resolvido
 
 ## Mostrar um comentário
 
-{% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can unhide comments on issues, pull requests, and commits.
+{% ifversion fpt or ghec %}Os moderadores de organização e qualquer pessoa{% else %}{% endif %} com acesso de gravação a um repositório podem exibir comentários em problemas, pull requests e commits.
 
 1. Navegue até o comentário que deseja mostrar.
 2. No canto superior direito do comentário, clique em **{% octicon "fold" aria-label="The fold icon" %} Show comment** (Mostrar comentário). ![Mostrar texto de comentário](/assets/images/help/repository/hidden-comment-show.png)
@@ -85,5 +85,5 @@ Se o comentário contém algum conteúdo construtivo que contribui para a conver
 
 {% ifversion fpt or ghec %}
 ## Leia mais
-- "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
+- "[Gerenciando moderadores na sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
 {% endif %} 
