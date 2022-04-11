@@ -49,7 +49,7 @@ Quando um trabalho é executado diretamente em uma máquina executora, o serviç
 
 Você pode usar a palavra-chave `serviços` para criar contêineres de serviço que fazem parte de um trabalho no seu fluxo de trabalho. Para obter mais informações, consulte [`trabalhos.<job_id>.serviços`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
 
-Este exemplo cria um serviço denominado `redis` em um trabalho denominado `container-job`. The Docker host in this example is the `node:16-bullseye` container.
+Este exemplo cria um serviço denominado `redis` em um trabalho denominado `container-job`. O host Docker neste exemplo é o contêiner `node:16-bullseye`.
 
 {% raw %}
 ```yaml{:copy}
