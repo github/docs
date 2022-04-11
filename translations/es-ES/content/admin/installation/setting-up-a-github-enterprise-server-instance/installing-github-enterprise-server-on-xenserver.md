@@ -34,7 +34,6 @@ shortTitle: Install on XenServer
 
 ## Downloading the {% data variables.product.prodname_ghe_server %} image
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
 4. Select {% data variables.product.prodname_dotcom %} On-premises, then click **XenServer (VHD)**.

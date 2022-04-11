@@ -17,7 +17,9 @@ topics:
 shortTitle: Ver el resumen de seguridad
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Visualizar el resumen de seguridad de una organización
 
@@ -39,7 +41,7 @@ shortTitle: Ver el resumen de seguridad
 ## Ver el resumen de seguridad de una empresa
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. En la barra lateral izquierda, haz clic en {% octicon "shield" aria-label="The shield icon" %} **Seguridad**.
+1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
 {% endif %}
 
 ## Visualizar las alertas para un repositorio

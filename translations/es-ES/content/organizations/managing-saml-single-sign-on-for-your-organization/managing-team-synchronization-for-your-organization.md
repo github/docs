@@ -24,6 +24,8 @@ Puedes habilitar la sincronización de equipos entre tu IdP y {% data variables.
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.identity-and-permissions.supported-idps-team-sync %}
 
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}

@@ -17,7 +17,9 @@ topics:
 shortTitle: Ver visão geral de segurança
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Visualizar a visão geral de segurança de uma organização
 
@@ -39,7 +41,7 @@ shortTitle: Ver visão geral de segurança
 ## Visualizando a visão geral de segurança de uma empresa
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. Na barra lateral esquerda, clique em {% octicon "shield" aria-label="The shield icon" %} **Segurança**.
+1. Na barra lateral esquerda, clique em {% octicon "shield" aria-label="The shield icon" %} **Código de Segurança**.
 {% endif %}
 
 ## Visualizando alertas de um repositório

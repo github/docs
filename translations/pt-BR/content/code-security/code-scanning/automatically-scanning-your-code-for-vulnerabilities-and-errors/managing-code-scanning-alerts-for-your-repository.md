@@ -165,7 +165,7 @@ Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o 
 {% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
 {% note %}
 
-**Note:** If you run code scanning using multiple configurations, then sometimes an alert will have multiple analysis origins. Unless you run all configurations regularly, you may see alerts that are fixed in one analysis origin but not in another. For more information, see "[About analysis origins](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
+**Observação:** Se você executar a digitalização de código usando várias configurações, às vezes, um alerta terá múltiplas origens da análise. A menos que você execute todas as configurações regularmente, você poderá ver alertas fixos em uma análise de origem, mas não em outra. Para obter mais informações, consulte[Sobre as origens da análise](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)".
 
 {% endnote %}
 {% endif %}

@@ -1,34 +1,26 @@
 {
-	"name": "docs.github.com",
+	"name": "test",
 
-	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash",
-		"cSpell.language": ",en"
+		"terminal.integrated.shell.linux": "/bin/zsh",
 	},
-
-	// Install features. Type 'feature' in the VS Code command palette for a full list.
-	"features": {
-		"git-lfs": "latest"
-	 },
 
 	// Visual Studio Code extensions which help authoring for docs.github.com.
 	"extensions": [
 		"dbaeumer.vscode-eslint",
-		"sissel.shopify-liquid",
-		"davidanson.vscode-markdownlint",
-		"bierner.markdown-preview-github-styles",
-		"streetsidesoftware.code-spell-checker"
+		"sissel.shopify-liquid"
 	],
 
+	"hostRequirements": {
+	   "cpus": 8,
+	   "memory": "8gb",
+	   "storage": "32gb" 
+	},
+		
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4000],
+	"forwardPorts": [5000],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	//"postCreateCommand": "git lfs pull && npm ci",
-	"postCreateCommand": "echo This file was created by the postCreateCommand in the custom devcontainer.json > aaa-TEST.txt",
-
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "node"
+	"postCreateCommand": "echo test > aaa-TEST.txt"
 
 }
