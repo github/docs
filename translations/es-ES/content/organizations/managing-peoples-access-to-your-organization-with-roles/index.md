@@ -20,6 +20,7 @@ children:
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
   - /managing-security-managers-in-your-organization
+  - /managing-moderators-in-your-organization
 shortTitle: Administrar el acceso con los roles
 ---
 

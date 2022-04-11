@@ -17,7 +17,7 @@ shortTitle: Gerenciamento & moderação
 
 {% data variables.product.prodname_dotcom %} também oferece ferramentas para mantenedores de repositório definirem e aplicarem padrões de comportamento mais altos em suas próprias comunidades em {% data variables.product.prodname_dotcom_the_website %}.
 
-Organization owners can specify organization members as moderators. This gives these members access to moderation features otherwise reserved for organization owners. For more information, see "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)."
+Os proprietários da organização podem especificar integrantes da organização como moderadores. Isso fornece a esses integrantes o acesso a funcionalidades de moderação de outra forma reservados para os proprietários da organização. Para obter mais informações, consulte "[Gerenciando os moderadores na sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)".
 
 Depois de estabelecer padrões de comportamento para sua comunidade, você pode incentivar um ambiente agradável e produtivo, respondendo ao comportamento perturbador de maneira rápida e justa. A moderação eficaz cria confiança em sua comunidade e ajuda os colaboradores a se sentirem seguros e bem-vindos.
 

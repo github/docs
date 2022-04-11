@@ -362,18 +362,16 @@ describe('server', () => {
       expect($('h2#in-this-article').length).toBe(0)
     })
 
+    // TODO
     test('renders mini TOC with correct links when headings contain markup', async () => {
-      const $ = await getDOM(
-        '/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates'
-      )
-      expect($('h2#in-this-article + div div ul a[href="#package-ecosystem"]').length).toBe(1)
+      const $ = await getDOM('/en/actions/using-workflows/workflow-syntax-for-github-actions')
+      expect($('h2#in-this-article + div div ul a[href="#on"]').length).toBe(1)
     })
 
+    // TODO
     test('renders mini TOC with correct links when headings contain markup in localized content', async () => {
-      const $ = await getDOM(
-        '/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates'
-      )
-      expect($('h2#in-this-article + div div ul a[href="#package-ecosystem"]').length).toBe(1)
+      const $ = await getDOM('/ja/actions/using-workflows/workflow-syntax-for-github-actions')
+      expect($('h2#in-this-article + div div ul a[href="#on"]').length).toBe(1)
     })
   })
 

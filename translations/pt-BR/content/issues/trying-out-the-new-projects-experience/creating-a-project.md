@@ -63,6 +63,15 @@ Os problemas do rascunho podem ter um título, texto, responsável e quaisquer c
 3. Selecione o repositório onde está localizado o pull request ou problema. Você pode digitar parte do nome do repositório para restringir suas opções.
 4. Selecione o problema ou pull request. Você pode digitar parte do título para restringir suas opções.
 
+#### Adding multiple issues or pull requests from a repository
+
+1. On {% data variables.product.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+{% data reusables.repositories.sidebar-issue-pr %}
+1. To the left of each issue title, select the issues that you want to add to your project. ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)
+1. Optionally, to select every issue or pull request on the page, at the top of the list of issues or pull requests, select all. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/select-all-checkbox.png)
+1. Above the list of issues or pull requests, click **Projects (beta)**. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/projects-beta-assign-button.png)
+1. Click the projects you want to add the selected issues or pull requests to. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/projects-beta-assign-dropdown.png)
+
 #### Atribuindo um projeto de dentro de um problema ou pull request
 
 1. Acesse o problema ou pull request que você deseja adicionar a um projeto.
@@ -102,7 +111,20 @@ Você pode restaurar itens arquivados, mas não itens excluídos. Para obter mai
 
 ## Restaurando itens arquivados
 
-Para restaurar um item arquivado, acesse o problema ou pull request. Na barra lateral do projeto no problema ou pull request, clique em **Restaurar** para o projeto para o qual você deseja restaurar o item. Os rascunhos de problemas não podem ser restaurados.
+1. Navigate to your project.
+1. In the top-right, click {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
+1. In the menu, click **Archived items**.
+1. Optionally, to filter the archived items displayed, type your filter into the text box above the list of items. For more information about the available filters, see "[Filtering projects (beta)](/issues/trying-out-the-new-projects-experience/filtering-projects)."
+
+   ![Screenshot showing field for filtering archived items](/assets/images/help/issues/filter-archived-items.png)
+
+1. To the left of each item title, select the items you would like to restore.
+
+   ![Screenshot showing checkboxes next to archived items](/assets/images/help/issues/select-archived-item.png)
+
+1. To restore the selected items, above the list of items, click **Restore**.
+
+   ![Screenshot showing the "Restore" button](/assets/images/help/issues/restore-archived-item-button.png)
 
 ## Adicionando campos
 
