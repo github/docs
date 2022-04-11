@@ -1,1 +1,0 @@
-| Elixir | {% octicon "check" aria-label="The check icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "x" aria-label="The X icon" %} | {% octicon "x" aria-label="The X icon" %} |

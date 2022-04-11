@@ -29,8 +29,7 @@ Some features are supported for additional languages or package managers. If you
 | Language {% data reusables.supported-languages.products-table-header %}
 {% data reusables.supported-languages.C %}
 {% data reusables.supported-languages.Cpp %}
-{% data reusables.supported-languages.Cs %}{% ifversion fpt or ghec %}
-{% data reusables.supported-languages.elixir %}{% endif %}
+{% data reusables.supported-languages.Cs %}
 {% data reusables.supported-languages.go %}
 {% data reusables.supported-languages.java %}
 {% data reusables.supported-languages.javascript %}
