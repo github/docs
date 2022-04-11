@@ -153,21 +153,37 @@ Each {% data variables.product.prodname_dependabot %} alert has a unique numeric
 
 TODO: review where to put this content
 
-{% if dependabot-alerts-vulnerability-exposure-analysis %}
-## About vulnerability exposure analysis
+{% if dependabot-alerts-vulnerable-calls %}
+## About vulnerable calls
 
-{% data reusables.dependabot.vulnerability-exposure-analysis %}
+{% data reusables.dependabot.vulnerable-calls-beta %}
 
-Describe the purpose of the feature
-Mention the label and ability to view affected files
+This feature is enabled for supported {% data variables.product.prodname_dependabot_alerts %} on public repositories, as well as on private repositories with {% data variables.product.prodname_GH_advanced_security %} enabled.
 
-Explain availability (see "Products affected and versioning" above) and that it requires GHAS to be enabled for a private repository
-Link to the sample repository that contains the supported advisories
-Link to the new section on reviewing exposure to a vulnerability
+{% data variables.product.prodname_dependabot_alerts %} can also detect whether the code in your repository calls vulnerable code paths, so that you can prioritize and remediate alerts more effectively.
 
+The detection of calls to vulnerable functions uses the semantic code graph to figure out if a repository calls a vulnerable function. The "Vulnerable call" label next to an alert highlights alerts for which the code in the current repository calls known vulnerable functions. 
+
+![Screenshot showing the "Vulnerable call" label](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
+
+The alert details page shows:
+
+- The first of several exposures (if relevant) you have to the vulnerable function
+- A code block with the location of where the function is used
+- An annotation calling out the function itself
+
+![Screenshot showing the alert details page](/assets/images/help/repository/vulnerable-calls-alert-details-page.png)
+
+During the beta release, the detection of calls to vulnerable functions has the following limitations.
+
+- The feature is only available via the {% data variables.product.prodname_dependabot_alerts %} page on {% data variables.product.company_short %}, for new Python advisories created _after_ April 7, 2022, and for a prioritized set of critical historic advisories. For more information about the supported advisories, see TODO:.
+- There is currently no support for other languages.
+- We haven't made any changes to {% data variables.product.prodname_dependabot %} pull requests, or to the notifications for alerts with exposure identified.
+
+For more information about reviewing your exposure to a vulnerability, see the section below.
 ## Reviewing your exposure to a vulnerability
 
-how to review exposure to a vulnerability manually (brief outline) and using the new feature.
+how to review exposure to a vulnerability manually (brief outline) and using the new feature. TODO:
 
 {% endif %}
 ## Further reading
@@ -177,6 +193,3 @@ how to review exposure to a vulnerability manually (brief outline) and using the
 - "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
 - "[Troubleshooting the detection of vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes > 3.2 %}
 - "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}
-
-
-dependabot-alerts-vulnerability-exposure-analysis
