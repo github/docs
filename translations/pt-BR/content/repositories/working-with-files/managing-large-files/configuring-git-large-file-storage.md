@@ -39,11 +39,15 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
   ```
   Cada tipo de arquivo que desejar associar ao {% data variables.large_files.product_name_short %} precisará ser adicionado com `git {% data variables.large_files.command_name %} track`. Esse comando corrige o arquivo *.gitattributes* do repositório e associa arquivos grandes ao {% data variables.large_files.product_name_short %}.
 
-  {% tip %}
+  {% note %}
 
-  **Dica:** sugerimos enfaticamente que você faça commit do arquivo *.gitattributes* local no repositório. Depender de um arquivo *.gitattributes* global associado ao {% data variables.large_files.product_name_short %} pode causar conflitos durante a contribuição com outros projetos do Git.
+  **Note:** We strongly suggest that you commit your local *.gitattributes* file into your repository.
 
-  {% endtip %}
+    - Depender de um arquivo *.gitattributes* global associado ao {% data variables.large_files.product_name_short %} pode causar conflitos durante a contribuição com outros projetos do Git.
+    - Including the *.gitattributes* file in the repository allows people creating forks or fresh clones to more easily collaborate using {% data variables.large_files.product_name_short %}.
+    - Including the *.gitattributes* file in the repository allows {% data variables.large_files.product_name_short %} objects to optionally be included in ZIP file and tarball archives.
+
+  {% endnote %}
 
 4. Adicione um arquivo ao repositório correspondente à extensão associada:
   ```shell

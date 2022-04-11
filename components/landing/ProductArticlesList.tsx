@@ -57,7 +57,7 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
                 }}
               >
                 <Link className="d-block width-full" href={childNode.href}>
-                  {childNode.page.title}
+                  {childNode.renderedFullTitle}
                   {childNode.page.documentType === 'mapTopic' ? (
                     <small className="color-fg-muted d-inline-block">
                       &nbsp;&bull; {childNode.childPages.length} articles
