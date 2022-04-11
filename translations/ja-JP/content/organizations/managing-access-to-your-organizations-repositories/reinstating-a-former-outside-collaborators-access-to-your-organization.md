@@ -33,7 +33,7 @@ Organization のプライベートリポジトリへの外部のコラボレー�
 
 **ヒント**:
 
- - 外部コラボレーターの Organization へのアクセスを復帰させることができるのは、Organization のオーナーだけです。 詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
+ - Organizationのオーナーのみが、外部のコラボレータのOrganizationへのアクセスを復帰させることができます。{% if prevent-org-admin-add-outside-collaborator %}Entepriseのオーナーは、外部コラボレータのアクセスを復帰させる機能を、Enterpriseのオーナーのみに制限できます。{% endif %}詳しい情報については「[Organizationのロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
  - {% data variables.product.product_location %} のメンバー復帰フローでは、外部コラボレーターの復帰を説明するために「メンバー」という用語を使用することがありますが、この個人を復帰させて以前の権限を保持しても、付与されるのはその[外部コラボレーターの以前の権限](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)のみです。{% ifversion fpt or ghec %}
  - Organization がユーザ単位の有料プランである場合、新しいメンバーを招待して参加させる、または Organization の以前のメンバーを復帰させる前に、そのためのライセンスが用意されている必要があります。 詳しい情報については、「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。{% endif %}
 
