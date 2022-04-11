@@ -41,7 +41,7 @@ Una vez que se cree tu codespace, tu repositorio se clonará automáticamente en
 
     Si estás siguiendo la guía con un tipo de aplicación diferente, ingresa el comando de incio correspondiente para este.
 
-2. Cuando tu aplicación inicie, el codespace reconocerá el puerto en el cual está ejecutándose y mostrará un mensaje para reenviar este puerto para que te puedas conectar a él.
+2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded.
 
   ![Notificación de reenvío de puertos](/assets/images/help/codespaces/quickstart-port-toast.png)
 

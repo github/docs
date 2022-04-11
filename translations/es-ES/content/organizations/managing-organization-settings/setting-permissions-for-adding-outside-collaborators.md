@@ -17,7 +17,6 @@ shortTitle: Configurar la política de colaboradores
 
 Predeterminadamente, cualquiera con acceso administrativo en un repositorio puede invitar a los colaboradores externos a trabajar en el repositorio. Puedes elegir restringir la capacidad de invitar colaboradores externos para que solo sean propietarios de la organización.
 
-
 {% ifversion ghec %}
 {% note %}
 
@@ -25,6 +24,8 @@ Predeterminadamente, cualquiera con acceso administrativo en un repositorio pued
 
 {% endnote %}
 {% endif %}
+
+{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing repository management policies in your enterprise]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}."
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
