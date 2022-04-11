@@ -25,3 +25,4 @@ children:
 shortTitle: Manage SAML single sign-on
 ---
 
+{% data reusables.saml.ghec-only %}

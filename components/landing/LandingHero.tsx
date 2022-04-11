@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { useMainContext } from 'components/context/MainContext'
+import { LinkExternalIcon } from '@primer/octicons-react'
 
+import { useMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
 import { useProductLandingContext } from 'components/context/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -46,7 +47,7 @@ export const LandingHero = () => {
                   href={link}
                   className={cx('btn btn-large f4 mt-3 mr-3 ', i === 0 && 'btn-primary')}
                 >
-                  {t(key)}
+                  {t(key) || key}
                 </FullLink>
               )
             })}
@@ -72,7 +73,8 @@ export const LandingHero = () => {
   )
 }
 
-// Fully Qualified Link - it includes the version and locale in the path
+// Fully Qualified Link - it includes the version and locale in the path if
+// the href is not an external link.
 type Props = {
   href: string
   children: React.ReactNode
@@ -81,13 +83,24 @@ type Props = {
 export const FullLink = ({ href, children, className }: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
-  const locale = router.locale || 'en'
-  const fullyQualifiedHref = `/${locale}${
-    currentVersion !== 'free-pro-team@latest' ? `/${currentVersion}` : ''
-  }${href}`
+
+  const isExternal = href.startsWith('https')
+  let linkHref = href
+  if (!isExternal) {
+    const locale = router.locale || 'en'
+    linkHref = `/${locale}${
+      currentVersion !== 'free-pro-team@latest' ? `/${currentVersion}` : ''
+    }${href}`
+  }
+
   return (
-    <Link href={fullyQualifiedHref} className={className}>
-      {children}
+    <Link href={linkHref} className={className}>
+      {children}{' '}
+      {isExternal && (
+        <span className="ml-1">
+          <LinkExternalIcon size="small" />
+        </span>
+      )}
     </Link>
   )
 }

@@ -61,7 +61,6 @@ shortTitle: Node.js 包
 
 此示例将 `NPM_TOKEN` 密码存储在 `NODE_AUTH_TOKEN` 环境变量中。 当 `setup-node` 操作创建 *.npmrc* 文件时，会引用 `NODE_AUTH_TOKEN` 环境变量中的令牌。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Package to npmjs
 on:
@@ -71,18 +70,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 在上面的示例中，`setup-node` 操作在运行器上创建一个包含以下内容的 *.npmrc* 文件：
 
@@ -135,9 +133,9 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://npm.pkg.github.com'
@@ -161,7 +159,6 @@ always-auth=true
 
 如果您使用 Yarn 包管理器，可以使用 Yarn 安装和发布包。
 
-{% raw %}
 ```yaml{:copy}
 name: Publish Package to npmjs
 on:
@@ -171,9 +168,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
@@ -182,6 +179,5 @@ jobs:
       - run: yarn
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
-{% endraw %}

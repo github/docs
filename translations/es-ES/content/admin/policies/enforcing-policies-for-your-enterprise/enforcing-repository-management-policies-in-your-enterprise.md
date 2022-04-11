@@ -115,7 +115,7 @@ En todas las organizaciones que pertenezcan a tu empresa, puedes permitir o proh
 
 ## Requerir una política para invitar colaboradores{% ifversion ghec %} externos{% endif %} a los repositorios
 
-En todas las organizaciones que pertenezcan a tu empresa, puedes permitir que los miembros inviten colaboradores{% ifversion ghec %} externos{% endif %} a los repositorios, restrinjan invitaciones de {% ifversion ghec %}colaboradores externos {% endif %}a los propietarios de la organización o permitan que los propietarios administren el ajuste a nivel organizacional.
+Across all organizations owned by your enterprise, you can allow members to invite{% ifversion ghec %} outside{% endif %} collaborators to repositories, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to organization owners, {% if prevent-org-admin-add-outside-collaborator %}restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to enterprise owners, {% endif %}or allow organization owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

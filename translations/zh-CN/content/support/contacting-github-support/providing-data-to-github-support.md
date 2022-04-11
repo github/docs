@@ -1,7 +1,7 @@
 ---
 title: 将数据提供给 GitHub Support
-intro: 'Since {% data variables.contact.github_support %} doesn''t have access to your environment, we sometimes require some additional information from you.'
-shortTitle: Providing data
+intro: '由于 {% data variables.contact.github_support %} 无法访问您的环境，因此我们有时需要您提供一些附加信息。'
+shortTitle: 提供数据
 versions:
   ghes: '*'
 redirect_from:
@@ -15,15 +15,15 @@ topics:
   - Support
 ---
 
-## About diagnostic files and support bundles
+## 关于诊断文件和支持包
 
-{% data variables.contact.github_support %} may ask you to provide additional data in the form of sanitized log files. There are three types of log file you may be asked to provide.
+{% data variables.contact.github_support %} 可能会要求您以经过清理的日志文件形式提供其他数据。 可能会要求您提供三种类型的日志文件。
 
-Diagnostic files contain information about a {% data variables.product.prodname_ghe_server %} instance's settings and environment, support bundles contain diagnostics and logs from the past two days, and extended support bundles also contain diagnostics and logs but from the past seven days.
+诊断文件包含有关 {% data variables.product.prodname_ghe_server %} 实例的设置和环境的信息，支持包则包含过去两天的诊断和日志，扩展支持包还包含过去七天的诊断和日志。
 
-## About log file sanitization
+## 关于日志文件清理
 
-Authentication tokens, keys, and secrets are removed from log files in the following log directories contained within a support bundle or diagnostics file:
+身份验证令牌、密钥和机密将从支持包或诊断文件中包含的以下日志目录中的日志文件中删除：
 
 * `alambic-logs`
 * `babeld-logs`
@@ -41,7 +41,7 @@ Authentication tokens, keys, and secrets are removed from log files in the follo
 
 ## 创建和共享诊断文件
 
-Diagnostic files are an overview of a {% data variables.product.prodname_ghe_server %} instance's settings and environment that contains:
+诊断文件是 {% data variables.product.prodname_ghe_server %} 实例的设置和环境的概述，其中包含：
 
 - 客户端许可信息，包括公司名称、到期日期和用户许可数量
 - 版本号和 SHA
@@ -129,10 +129,10 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. 在左侧边栏中，单击 **Enterprise licensing（企业许可）**。 ![Screenshot showing "Enterprise licensing" link in the enterprise account settings sidebar.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. 在“{% data variables.product.prodname_enterprise %} 帮助”下，单击 **Upload a support bundle（上传支持包）**。 ![Screenshot showing "Upload a support bundle link".](/assets/images/enterprise/support/upload-support-bundle.png)
-5. 在“Select an enterprise account（选择企业帐户）”下，从下拉菜单选择支持包的相关帐户。 ![Screenshot showing the dropdown menu to select the support bundle's enterprise account.](/assets/images/enterprise/support/support-bundle-account.png)
-6. 在“为 {% data variables.contact.enterprise_support %} 上传支持包”下，选择您的支持包，单击 **Choose file（选择文件）**，或将您的支持包文件拖到 **Choose file（选择文件）**上。 ![Screenshot showing the "Choose file" button to upload a support bundle file.](/assets/images/enterprise/support/choose-support-bundle-file.png)
+3. 在左侧边栏中，单击 **Enterprise licensing（企业许可）**。 ![显示企业帐户设置边栏中 "企业许可" 链接的屏幕截图。](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+4. 在“{% data variables.product.prodname_enterprise %} 帮助”下，单击 **Upload a support bundle（上传支持包）**。 ![显示"上传支持包链接"的屏幕截图。](/assets/images/enterprise/support/upload-support-bundle.png)
+5. 在“Select an enterprise account（选择企业帐户）”下，从下拉菜单选择支持包的相关帐户。 ![显示用于选择支持包的企业帐户的下拉菜单屏幕截图。](/assets/images/enterprise/support/support-bundle-account.png)
+6. 在“为 {% data variables.contact.enterprise_support %} 上传支持包”下，选择您的支持包，单击 **Choose file（选择文件）**，或将您的支持包文件拖到 **Choose file（选择文件）**上。 ![显示用于上传支持包文件的"选择文件" 按钮屏幕截图。](/assets/images/enterprise/support/choose-support-bundle-file.png)
 7. 单击 **Upload（上传）**。
 
 ### 使用 SSH 直接上传支持包
@@ -177,4 +177,4 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 ## 延伸阅读
 
 - “[关于 GitHub 支持](/support/learning-about-github-support/about-github-support)”
-- "[Generating a Health Check for your enterprise](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"
+- “[为企业生成运行状况检查](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)”

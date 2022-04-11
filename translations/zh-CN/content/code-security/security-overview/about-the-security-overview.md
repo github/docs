@@ -26,8 +26,9 @@ shortTitle: 关于安全概述
 
 ## 关于安全概述
 
-您可以使用安全概述来简要了解组织的安全状态，或识别需要干预的问题仓库。 您可以在安全概述中查看综合或存储库特定的安全信息。 您还可以使用安全概述来查看为存储库启用了哪些安全功能，并配置当前未使用的任何可用安全功能。
+{% ifversion ghes or ghec or ghae %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can use the security overview for a high-level view of the security status of {% ifversion ghes or ghec or ghae %}your  {% elsif fpt %}their{% endif %} organization or to identify problematic repositories that require intervention. {% ifversion ghes or ghec or ghae %}You {% elsif fpt %}These organizations{% endif %} can view aggregate or repository-specific security information in the security overview. {% ifversion ghes or ghec or ghae %}You {% elsif fpt %} Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can also use the security overview to see which security features are enabled for {% ifversion ghes or ghec or ghae %}your {% elsif fpt %}their {% endif %} repositories and to configure any available security features that are not currently in use. {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
 
+{% ifversion ghec or ghes or ghae %}
 安全概述指示是否为组织拥有的存储库启用了 {% ifversion fpt or ghes > 3.1 or ghec %}安全{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} 功能，并合并每个功能的警报。{% ifversion fpt or ghes > 3.1 or ghec %} 安全功能包括 {% data variables.product.prodname_GH_advanced_security %} 功能，例如 {% data variables.product.prodname_code_scanning %} 和 {% data variables.product.prodname_secret_scanning %}以及 {% data variables.product.prodname_dependabot_alerts %}。{% endif %} 有关 {% data variables.product.prodname_GH_advanced_security %} 功能的详细信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)”。{% ifversion fpt or ghes > 3.1 or ghec %} 有关 {% data variables.product.prodname_dependabot_alerts %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)”。{% endif %}
 
 有关在存储库和组织级别保护代码的详细信息，请参阅“[保护存储库](/code-security/getting-started/securing-your-repository)”和“[保护组织](/code-security/getting-started/securing-your-organization)”。
@@ -77,6 +78,4 @@ shortTitle: 关于安全概述
 
 ### 关于团队级安全性概述
 在团队级别，安全概述显示团队拥有管理权限的仓库特定安全信息。 For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
-
-### 关于存储库级安全性概述
-在存储库级别，安全性概述显示为存储库启用了哪些安全功能，并提供用于配置当前未启用的任何可用安全功能的选项。
+{% endif %}

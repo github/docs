@@ -18,6 +18,8 @@ shortTitle: IAM com SSO do SAML
 
 {% data reusables.saml.dotcom-saml-explanation %}
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.saml-accounts %}
 
 Os proprietários da organização podem aplicar o SSO do SAML para uma organização individual ou os proprietários corporativos podem aplicar o SSO do SAML para todas as organizações em uma conta corporativa. Para obter mais informações, consulte "[Configurar logon único SAML para a sua empresa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".

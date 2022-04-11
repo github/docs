@@ -97,16 +97,10 @@ shortTitle: 将您的签名密钥告诉 Git
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. 要将 GPG 密钥添加到您的 bash 配置文件中，请运行以下命令：
-  ```shell
-  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
-    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+1. To add your GPG key to your `.bashrc` startup file, run the following command:
+  ```bash
+  $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
-  {% note %}
-
-  **注：**如果您没有 `.bash_profile`，此命令会将 GPG 密钥添加到 `.profile`。
-
-  {% endnote %}
 
 {% endlinux %}
 

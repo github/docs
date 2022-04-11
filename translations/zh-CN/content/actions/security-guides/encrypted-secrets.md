@@ -327,29 +327,27 @@ steps:
 
 1. 从工作流程使用 `step` 调用 shell 脚本并对密码解密。 要在工作流程运行的环境中创建仓库的副本，需要使用 [`actions/checkout`](https://github.com/actions/checkout) 操作。 使用与仓库根目录相关的 `run` 命令引用 shell 脚本。
 
-{% raw %}
-  ```yaml
-  name: Workflows with large secrets
+   ```yaml
+   name: Workflows with large secrets
 
-  on: push
+   on: push
 
-  jobs:
-    my-job:
-      name: My Job
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: Decrypt large secret
-          run: ./.github/scripts/decrypt_secret.sh
-          env:
-            LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
-        # This command is just an example to show your secret being printed
-        # Ensure you remove any print statements of your secrets. GitHub does
-        # not hide secrets that use this workaround.
-        - name: Test printing your secret (Remove this step in production)
-          run: cat $HOME/secrets/my_secret.json
-  ```
-{% endraw %}
+   jobs:
+     my-job:
+       name: My Job
+       runs-on: ubuntu-latest
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+         - name: Decrypt large secret
+           run: ./.github/scripts/decrypt_secret.sh
+           env:
+             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets. LARGE_SECRET_PASSPHRASE }}{% endraw %}
+         # This command is just an example to show your secret being printed
+         # Ensure you remove any print statements of your secrets. GitHub does
+         # not hide secrets that use this workaround.
+         - name: Test printing your secret (Remove this step in production)
+           run: cat $HOME/secrets/my_secret.json
+   ```
 
 ## 将 Base64 二进制 blob 存储为机密
 
@@ -385,7 +383,7 @@ steps:
      decode-secret:
        runs-on: ubuntu-latest
        steps:
-         - uses: actions/checkout@v2
+         - uses: {% data reusables.actions.action-checkout %}
          - name: Retrieve the secret and decode it to a file
            env:
              {% raw %}CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}{% endraw %}
@@ -395,4 +393,3 @@ steps:
            run: |
              openssl x509 -in cert.der -inform DER -text -noout
    ```
-

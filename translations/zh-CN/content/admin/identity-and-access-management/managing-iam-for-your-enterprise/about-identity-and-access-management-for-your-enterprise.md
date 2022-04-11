@@ -27,13 +27,13 @@ redirect_from:
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} 更多信息请参阅“[为企业配置 SAML 单点登录](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。
 
-{% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
+{% data reusables.enterprise-accounts.about-recovery-codes %} 更多信息请参阅“[管理企业的恢复代码](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)”。
 
 启用 SAML SSO 后，根据使用的 IDP，您可能能够启用额外的身份和访问管理功能。 {% data reusables.scim.enterprise-account-scim %}
 
 如果使用 Azure AD 作为 IDP，您可以使用团队同步来管理每个组织中的团队成员身份。 {% data reusables.identity-and-permissions.about-team-sync %} 更多信息请参阅“[管理企业帐户中组织的团队同步](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)”。
 
-{% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[Switching your SAML configuration from an organization to an enterprise account](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
+{% data reusables.saml.switching-from-org-to-enterprise %} 更多信息请参阅“[将 SAML 配置从组织切换到企业帐户](/github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)”。
 
 ## 关于 {% data variables.product.prodname_emus %}
 
@@ -58,7 +58,7 @@ redirect_from:
 
 {% data reusables.saml.ae-uses-saml-sso %} {% data reusables.saml.ae-enable-saml-sso-during-bootstrapping %}
 
-After you configure the application for {% data variables.product.product_name %} on your identity provider (IdP), you can provision access to {% data variables.product.product_location %} by assigning the application to users and groups on your IdP. 有关用于 {% data variables.product.product_name %} 的 SAML SSO 的详细信息，请参阅“[为企业配置 SAML 单点登录](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)”。
+在身份提供程序 (IdP) 上为 {% data variables.product.product_name %} 配置应用程序后，可以通过将应用程序分配到 IdP 上的用户和组来预配其访问 {% data variables.product.product_location %} 的权限。 有关用于 {% data variables.product.product_name %} 的 SAML SSO 的详细信息，请参阅“[为企业配置 SAML 单点登录](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)”。
 
 {% data reusables.scim.after-you-configure-saml %} 更多信息请参阅“[配置企业的用户预配](/admin/authentication/configuring-user-provisioning-for-your-enterprise)”。
 
@@ -66,15 +66,15 @@ After you configure the application for {% data variables.product.product_name %
 
 ## 支持的 IdP
 
-The following IdPs are officially supported for integration with {% data variables.product.prodname_ghe_managed %}.
+正式支持以下 IdP 与 {% data variables.product.prodname_ghe_managed %} 集成。
 
 {% data reusables.saml.okta-ae-sso-beta %}
 
 {% data reusables.github-ae.saml-idp-table %}
 
-## Mapping {% data variables.product.prodname_ghe_managed %} teams to Okta groups
+## 将 {% data variables.product.prodname_ghe_managed %} 团队映射到 Okta 组
 
-If you use Okta as your IdP, you can map your Okta groups to teams on {% data variables.product.prodname_ghe_managed %}. 更多信息请参阅“[将 Okta 组映射到团队](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
+如果您使用 Okta 作为您的 IdP，则可以将 Okta 组映射到 {% data variables.product.prodname_ghe_managed %} 上的团队。 更多信息请参阅“[将 Okta 组映射到团队](/admin/authentication/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)”。
 
 {% endif %}
 

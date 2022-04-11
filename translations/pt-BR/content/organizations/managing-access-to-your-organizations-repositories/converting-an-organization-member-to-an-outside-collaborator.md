@@ -15,6 +15,8 @@ topics:
 shortTitle: Converter integrante em colaborador
 ---
 
+## About conversion of organization members to outside collaborators
+
 {% data reusables.organizations.owners-and-admins-can %} converter integrantes da organização em colaboradores externos.
 
 {% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
@@ -31,6 +33,14 @@ Para obter mais informações, consulte "[Funções em uma organização](/organ
 Recomendamos rever o acesso dos membros da organização aos repositórios para garantir que seu o acesso seja como você espera. Para obter mais informações, consulte "[Gerenciar o acesso de um indivíduo ao repositório de uma organização](/articles/managing-an-individual-s-access-to-an-organization-repository)".
 
 Na conversão de um integrante da organização em um colaborador externo, os privilégios dele como integrante da organização ficam salvos por três meses para que seja possível restaurar os privilégios de associação se você{% ifversion fpt or ghec %}convidá-lo para reingressar{% else %} adicioná-lo de volta{% endif %} na organização dentro desse período. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
+
+## Converter um integrante da organização em colaborador externo
+
+{% note %}
+
+**Note:** You may not be able to convert an organization member to an outside collaborator, if an organization owner{% ifversion not fpt %} or enterprise owner{% endif %} has restricted your ability to add outside collaborators.
+
+{% endnote %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
