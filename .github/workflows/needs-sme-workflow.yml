@@ -24,7 +24,7 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Thanks for opening an issue! We've triaged this issue for technical review by a subject matter expert :eyes:
-     
+
   add-pr-comment:
     if: ${{ github.repository == 'github/docs' && github.event.label.name == 'needs SME' }}
     runs-on: ubuntu-latest
