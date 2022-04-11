@@ -102,7 +102,16 @@ Multiple workflows within a repository share cache entries. A cache created for 
           ~/.gradle/wrapper
     ```
   - `cache` アクションの `v1` では、単一のパスのみがサポートされ、かつそれがディレクトリである必要があります。 単一のファイルをキャッシュすることはできません。
-- `restore-keys`: **オプション** `key`に対するキャッシュヒットがなかった場合にキャッシュを見つけるために使われる代理キーの順序付きリスト。
+- `restore-keys`: **Optional** A string containing alternative restore keys, with each restore key placed on a new line. If no cache hit occurred for `key`, these restore keys are used sequentially in the order provided to find and restore a cache. 例:
+
+  {% raw %}
+  ```yaml
+  restore-keys: |
+    npm-foobar-${{ hashFiles('package-lock.json') }}
+    npm-foobar-
+    npm-
+  ```
+  {% endraw %}
 
 ### `cache`アクションの出力パラメータ
 
