@@ -151,7 +151,7 @@ Each {% data variables.product.prodname_dependabot %} alert has a unique numeric
 
 {% endif %}
 
-TODO: review where to put this content
+<!-- TODO: review where to put this content - I'd be tempted to have conceptual information at the top of the article and procedural sections afterwards but I'm wondering if this breaks the flow -->
 
 {% if dependabot-alerts-vulnerable-calls %}
 ## About vulnerable calls
@@ -183,7 +183,21 @@ During the beta release, the detection of calls to vulnerable functions has the 
 For more information about reviewing your exposure to a vulnerability, see the section below.
 ## Reviewing your exposure to a vulnerability
 
-how to review exposure to a vulnerability manually (brief outline) and using the new feature. TODO:
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-dependabot-alerts %}
+
+<!-- STOPPED HERE - issue with filtering "Vulnerable call" alerts -->
+1. Optionally, to filter alerts, select the **Repository**, **Package**, **Ecosystem**, or **Manifest** dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. For example, `ecosystem:npm` or `has:patch`. To sort alerts, select the **Sort** dropdown menu then click the option that you would like to sort by.
+  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters.png)
+1. Click the alert that you would like to view.
+  ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-ungrouped.png)
+1. Review the details of the vulnerability and, if available, the pull request containing the automated security update.
+2. Optionally, if there isn't already a {% data variables.product.prodname_dependabot %} update for the alert, to create a pull request to resolve the vulnerability, click **Create {% data variables.product.prodname_dependabot %} security update**.
+  ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+1. When you're ready to update your dependency and resolve the vulnerability, merge the pull request. Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+1. Optionally, if the alert is being fixed, if it's incorrect, or located in unused code, select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% if reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
+   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 
 {% endif %}
 ## Further reading
