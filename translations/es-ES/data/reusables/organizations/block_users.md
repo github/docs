@@ -1,1 +1,1 @@
-1. En la sección de "Acceso" de la barra lateral, selecciona **{% octicon "report" aria-label="The report icon" %} Moderación** y luego haz clic en **Usuarios bloqueados**.
+1. In the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation**, then click **Blocked users**.

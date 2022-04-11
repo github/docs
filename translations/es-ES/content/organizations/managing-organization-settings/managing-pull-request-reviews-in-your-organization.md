@@ -22,6 +22,6 @@ You can also enable code review limits for individual repositories. If you enabl
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}
+1. In the "Access" section of the sidebar, click **{% octicon "report" aria-label="The report icon" %} Moderation**.
 1. Under "{% octicon "report" aria-label="The report icon" %} Moderation", click **Code review limits**. ![Screenshot of sidebar item for code review limits for organizations](/assets/images/help/organizations/code-review-limits-organizations.png)
 1. Review the information on screen. Click **Limit review on all repositories** to limit reviews to those with explicit access, or click **Remove review limits from all repositories** to remove the limits from every public repository in your organization. ![Screenshot of code review limits settings for organizations](/assets/images/help/organizations/code-review-limits-organizations-settings.png)

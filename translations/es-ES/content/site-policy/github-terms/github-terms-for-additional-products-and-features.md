@@ -128,6 +128,10 @@ Las GitHub Pages no pueden utilizarse si violan el acuerdo, las [Políticas de U
 
 Su tuebes dudas sobre si tu uso o intención de uso cae en las siguientes categorías, por favor, contacta al [Soporte de GitHub](https://support.github.com/contact?tags=docs-policy). GitHub se reserva el derecho en todo momento de reclamar cualquier subdominio de GitHub sin responsabilidad.
 
+## Previews
+
+Previews means software, online services and additional products and features provided for preview, evaluation, demonstration or trial purposes, or pre-release versions of those, such as alpha, beta, or early access. If your Agreement does not include terms and conditions that address Previews, then the following terms apply. GitHub grants a limited right to use a non-production instance of the Preview. Previews are provided “AS-IS”, “WITH ALL FAULTS” and “AS AVAILABLE”. GitHub may change or discontinue Previews at any time without notice. Any information we give you about a private Preview will be considered GitHub’s confidential information. If you choose to provide comments or suggestions about a Preview, we may use that feedback for any purpose without obligation of any kind. GitHub’s maximum liability is limited to direct damages up to US $5,000. GitHub has no obligation to defend, indemnify, or hold you harmless for claims brought by third parties arising from your use of Previews.
+
 ## Programa de patrocinadores
 
 GitHub Sponsors permite a la comunidad de desarrolladores apoyar financieramente al personal y organizaciones que diseñan, crean y mantienen los proyectos de código abierto de los cuales dependen, directamente en GitHub. Para convertirse en un Desarrollador Patrocinado, debes aceptar los [Términos Adicionales del Programa de Patrocinadores de GitHub](/github/site-policy/github-sponsors-additional-terms).
