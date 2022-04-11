@@ -63,6 +63,15 @@ topics:
 3. Pull RequestあるいはIssueがあるリポジトリを選択してください。 リポジトリ名の一部を入力して、選択肢を狭めることができます。
 4. IssueあるいはPull Requestを選択してください。 タイトルの一部を入力して、選択肢を狭めることができます。
 
+#### リポジトリから複数のIssueあるいはPull Requestを追加する
+
+1. {% data variables.product.product_location %}で、プロジェクトに追加したいIssueあるいはPull Requestが含まれているリポジトリにアクセスしてください。
+{% data reusables.repositories.sidebar-issue-pr %}
+1. それぞれのIssueのタイトルの左で、プロジェクトに追加したいIssueを選択してください。 ![IssueあるいはPull Requestを選択するためのチェックボックスが表示されているスクリーンショット](/assets/images/help/issues/select-issue-checkbox.png)
+1. あるいは、ページ上のすべてのIssueあるいはPull Requestを選択するには、IssueあるいはPull Requestのリストの上部で、すべてを選択してください。 ![画面上のすべてを選択するためのチェックボックスが表示されているスクリーンショット](/assets/images/help/issues/select-all-checkbox.png)
+1. IssueあるいはPull Requestのリストの上部で、**Projects (beta)（プロジェクト（ベータ））**をクリックしてください。 ![画面上のすべてを選択するためのチェックボックスが表示されているスクリーンショット](/assets/images/help/issues/projects-beta-assign-button.png)
+1. 選択されたIssueあるいはPull Requestを追加したいプロジェクトをクリックしてください。 ![画面上のすべてを選択するためのチェックボックスが表示されているスクリーンショット](/assets/images/help/issues/projects-beta-assign-dropdown.png)
+
 #### IssueあるいはPull Requestの中からプロジェクトをアサインする
 
 1. プロジェクトに追加したいIssueあるいはPull Requestにアクセスしてください。
@@ -100,9 +109,22 @@ topics:
 
 アーカイブされたアイテムはリストアできますが、削除されたアイテムはリストアできません。 詳しい情報については[アーカイブされたアイテムのリストア](#restoring-archived-items)を参照してください。
 
-## アーカイブされたアイテムのリストア
+## アーカイブされたアイテムの復元
 
-アーカイブされたアイテムをリストアするには、そのIssueもしくはPull Requestに移動してください。 IssueあるいはPull Requestのプロジェクトのサイドバーで、アイテムをリストアしたいプロジェクトの**Restore（リストア）**をクリックしてください。 ドラフトIssueはリストアできません。
+1. プロジェクトにアクセスしてください。
+1. 右上にある {% octicon "kebab-horizontal" aria-label="the kebab icon" %} をクリックしてください。
+1. メニューで**Archived items（アーカイブされたアイテム）**をクリックしてください。
+1. あるいは、表示されているアーカイブされたアイテムをフィルタリングするには、アイテムのリストの上にあるテキストボックスにフィルタを入力してください。 利用可能なフィルタに関する詳しい情報については「[プロジェクト（ベータ）のフィルタリング](/issues/trying-out-the-new-projects-experience/filtering-projects)」を参照してください。
+
+   ![アーカイブされているアイテムをフィルタリングするためのフィールドが表示されているスクリーンショット](/assets/images/help/issues/filter-archived-items.png)
+
+1. 各アイテムのタイトルの左で、復元したいアイテムを選択してください。
+
+   ![アーカイブされたアイテムの隣のチェックボックスが表示されているスクリーンショット](/assets/images/help/issues/select-archived-item.png)
+
+1. 選択されたアイテムを復元するには、アイテムのリストの上部で**Restore（復元）**をクリックしてください。
+
+   !["復元"ボタンが表示されているスクリーンショット](/assets/images/help/issues/restore-archived-item-button.png)
 
 ## フィールドの追加
 

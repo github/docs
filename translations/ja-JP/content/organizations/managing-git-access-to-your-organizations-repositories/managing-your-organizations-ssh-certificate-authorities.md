@@ -14,11 +14,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: SSH認証局の管理
+permissions: Organization owners can manage an organization's SSH certificate authorities (CA).
 ---
 
-Organizationのオーナーは、OrganizationのSSH認証局 (CAN) を管理できます。
+SSH CAをOrganizationに追加すると、メンバーはあなたが提供したSSH証明書を使用してOrganizationにアクセスできるようになります。 {% data reusables.organizations.can-require-ssh-cert %}詳しい情報については、「[SSS 認証局について](/articles/about-ssh-certificate-authorities)」を参照してください。
 
-SSH CAをOrganizationに追加すると、メンバーはあなたが提供したSSH証明書を使用してOrganizationにアクセスできるようになります。 {% data reusables.organizations.can-require-ssh-cert %}詳細については、「[SSH認証局について](/articles/about-ssh-certificate-authorities)」を参照してください。
+{% data reusables.organizations.ssh-ca-ghec-only %}
 
 {% data reusables.organizations.add-extension-to-cert %}
 
