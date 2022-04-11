@@ -591,39 +591,6 @@ For enterprises on GitHub Enterprise Cloud that don't use Enterprise Managed Use
 
 Documentation that describes GitHub Enterprise Cloud without Enterprise Managed Users is generally in the "[Managing SAML single sign-on for your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" category.
 
-#### Enterprise products
-
-With GitHub's enterprise products, administrators manage an enterprise account. An enterprise account can own multiple organizations, and people's user accounts can be members of the organizations. For more information, see the "Roles in an enterprise" article for each product.
-
-- "[GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
-- "[GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
-- "[GitHub AE](https://docs.github.com/en/github-ae@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"
-
-If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
-
-- GitHub Enterprise Cloud with Enterprise Managed Users
-  - **Use:** With Enterprise Managed Users, you can create and manage user accounts for your enterprise members.
-  - **Avoid:** With Enterprise Managed Users, you can create and manage the personal accounts for your enterprise members.
-- GitHub Enterprise Server
-  - **Use:** If you need to temporarily take over a user account...
-  - **Avoid:** If you need to temporarily take over a personal account...
-- GitHub AE
-  - **Use:** Authorized users can access your enterprise from any IP address.
-  - **Avoid:** Authorized personal accounts can access your enterprise from any IP address.
-
-The following documentation should reference "user accounts."
-
-- The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product
-- Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
-- Content within other products that's intended for an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Setting up a trial of GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
-- Enterprise-specific API content, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
-
-For enterprises on GitHub Enterprise Cloud that don't use Enterprise Managed Users, use "personal account" when describing members of organizations owned by the enterprise.
-
-- **Use:** If you configure SAML SSO, members of your organization will continue to log into their personal accounts on GitHub.com.
-- **Avoid:** If you configure SAML SSO, members of your organization will continue to log into their user accounts on GitHub.com.
-
-Documentation that describes GitHub Enterprise Cloud without Enterprise Managed Users feature is generally in the "[Managing SAML single sign-on for your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" category.
 #### People's accounts for other services
 
 When you describe a person's account for a service other than GitHub, such as an integration or authentication provider, use "user account."
