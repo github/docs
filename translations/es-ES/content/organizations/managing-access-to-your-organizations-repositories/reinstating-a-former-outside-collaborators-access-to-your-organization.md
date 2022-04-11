@@ -33,7 +33,7 @@ Cuando reinstalas un colaborador externo antiguo, puedes restaurar lo siguiente:
 
 **Tips**:
 
- - Solo los propietarios de la organización pueden reinstalar el acceso de colaboradores externos a una organización. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
+ - Only organization owners can reinstate outside collaborators' access to an organization.{% if prevent-org-admin-add-outside-collaborator %} Enterprise owners may further restrict the ability to reinstate outside collaborators' access to enterprise owners only.{% endif %} For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
  - Puede que el flujo de reinstalación de un miembro en {% data variables.product.product_location %} utilice el término "miembro" para describir la reinstalación de un colaborador externo, pero si reinstalas a esta persona y mantienes sus privilegios previos, solo tendrá los [permisos de colaborador externo](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators) anteriores.{% ifversion fpt or ghec %}
  - Si tu organización tiene una suscripción de pago por usuario, debe de existir una licencia sin utilizarse antes de que puedas invitar a un nuevo miembro para que se una a la organización o antes de reinstaurar a algún miembro previo de la misma. Para obtener más información, consulta "[Acerca del precio por usuario](/articles/about-per-user-pricing)."{% endif %}
 

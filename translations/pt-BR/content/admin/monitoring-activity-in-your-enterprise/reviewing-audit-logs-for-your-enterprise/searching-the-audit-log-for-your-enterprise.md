@@ -54,34 +54,34 @@ Observe que não é possível pesquisar as entradas usando texto. No entanto, é
 
 ## Sintaxe de consulta de pesquisa
 
-You can compose a search query from one or more `key:value` pairs, separated by AND/OR logical operators. Por exemplo, para ver todas as ações que afetaram o repositório `octocat/Spoon-Knife` desde o início de 2017:
+Você pode compor uma consulta de pesquisa a partir de um ou mais pares de `key:value`, separados pelos operadores lógicos e/ou. Por exemplo, para ver todas as ações que afetaram o repositório `octocat/Spoon-Knife` desde o início de 2017:
 
   `repo:"octocat/Spoon-Knife" AND created:>=2017-01-01`
 
-The `key:value` pairs that can be used in a search query are:
+Os pares `key:value` que podem ser usados em uma consulta de pesquisa são:
 
-|          Tecla | Valor                                                                                                                                               |
-| --------------:| --------------------------------------------------------------------------------------------------------------------------------------------------- |
-|     `actor_id` | ID da conta do usuário que iniciou a ação.                                                                                                          |
-|        `actor` | Nome da conta do usuário que iniciou a ação.                                                                                                        |
-| `oauth_app_id` | ID do aplicativo OAuth associado à ação.                                                                                                            |
-|         `Ação` | Nome da ação auditada                                                                                                                               |
-|      `user_id` | ID do usuário afetado pela ação.                                                                                                                    |
-|      `usuário` | Nome do usuário afetado pela ação.                                                                                                                  |
-|      `repo_id` | ID do repositório afetado pela ação (se aplicável).                                                                                                 |
-|         `repo` | Nome do repositório afetado pela ação (se aplicável).                                                                                               |
-|     `actor_ip` | Endereço IP do qual a ação foi iniciada.                                                                                                            |
-|      `created` | Time at which the action occurred{% ifversion ghes %}. If querying the audit log from the site admin dashboard, use `created_at` instead{% endif %}
-|         `from` | Exibição da qual a ação foi iniciada.                                                                                                               |
-|         `note` | Informações diversas sobre eventos específicos (em texto sem formatação ou formato JSON).                                                           |
-|          `org` | Nome da organização afetada pela ação (se aplicável).                                                                                               |
-|       `org_id` | ID da organização afetada pela ação (se aplicável).                                                                                                 |
-|     `negócios` | Name of the enterprise affected by the action (if applicable)                                                                                       |
-|  `business_id` | ID of the enterprise affected by the action (if applicable)                                                                                         |
+|          Tecla | Valor                                                                                                                                           |
+| --------------:| ----------------------------------------------------------------------------------------------------------------------------------------------- |
+|     `actor_id` | ID da conta do usuário que iniciou a ação.                                                                                                      |
+|        `actor` | Nome da conta do usuário que iniciou a ação.                                                                                                    |
+| `oauth_app_id` | ID do aplicativo OAuth associado à ação.                                                                                                        |
+|         `Ação` | Nome da ação auditada                                                                                                                           |
+|      `user_id` | ID do usuário afetado pela ação.                                                                                                                |
+|      `usuário` | Nome do usuário afetado pela ação.                                                                                                              |
+|      `repo_id` | ID do repositório afetado pela ação (se aplicável).                                                                                             |
+|         `repo` | Nome do repositório afetado pela ação (se aplicável).                                                                                           |
+|     `actor_ip` | Endereço IP do qual a ação foi iniciada.                                                                                                        |
+|      `created` | Hora em que a ação ocorreu{% ifversion ghes %}. Se consultar o log de auditoria do painel de administração do site, use `created_at`{% endif %}
+|         `from` | Exibição da qual a ação foi iniciada.                                                                                                           |
+|         `note` | Informações diversas sobre eventos específicos (em texto sem formatação ou formato JSON).                                                       |
+|          `org` | Nome da organização afetada pela ação (se aplicável).                                                                                           |
+|       `org_id` | ID da organização afetada pela ação (se aplicável).                                                                                             |
+|     `negócios` | Nome da empresa afetada pela ação (se aplicável)                                                                                                |
+|  `business_id` | ID da empresa afetada pela ação (se aplicável)                                                                                                  |
 
-To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
+Para ver as ações agrupadas por categoria, você também pode usar o qualificador da ação como um par de `key:value`. Para obter mais informações, consulte "[Pesquisa com base na ação executada](#search-based-on-the-action-performed). "
 
-For a full list of actions in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
+Para obter uma lista completa de ações no log de auditoria da empresa, consulte "[Ações de logs de auditoria para a sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
 ## Pesquisar no log de auditoria
 
@@ -103,7 +103,7 @@ Cada categoria tem um conjunto de ações associadas que você pode filtrar. Por
   * `action:team.create` localiza todos os eventos em que uma equipe foi criada;
   * `-action:hook.events_changed` exclui todos os eventos nos quais os eventos em um webhook foram alterados.
 
-Actions that can be found in your enterprise audit log are grouped within the following categories:
+As ações que podem ser encontradas no log de auditoria da empresa estão agrupadas nas seguintes categorias:
 
 {% data reusables.audit_log.audit-log-action-categories %}
 ### Pesquisar com base na hora da ação
@@ -123,7 +123,7 @@ Por exemplo:
 
 ### Pesquisar com base no local
 
-Ao usar o qualificador `país`, você pode filtrar eventos no log de auditoria com base no país de origem. You can use a country's two-letter short code or full name. Countries with spaces in their name will need to be wrapped in quotation marks. Por exemplo:
+Ao usar o qualificador `país`, você pode filtrar eventos no log de auditoria com base no país de origem. Você pode usar o código curto de duas letras de um país ou o nome completo. Os países com espaços no seu nome terão de ser escritos entre aspas. Por exemplo:
 
   * `country:de` localiza todos os eventos ocorridos na Alemanha;
   * `country:Mexico` localiza todos os eventos ocorridos no México;
