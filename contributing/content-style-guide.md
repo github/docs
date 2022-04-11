@@ -552,7 +552,7 @@ To avoid ambiguity and confusion, do not use product names as adjectives to desc
 
 The way we refer to an account that an individual person signs into varies depending on the context.
 
-Unless the content is about administering an enterprise product, describe an individual person's account on GitHub as a "personal account."
+Unless the content is about administering an enterprise product, describe an individual person's account on GitHub as a "personal account." This creates consistency with the UI and prevents readers from being confused by seeing two terms that mean the same thing.
 
 - **Use:** Managing scheduled reminders for your personal account
 - **Avoid:** Managing scheduled reminders for your user account
@@ -576,7 +576,7 @@ The following locations contain administrative content and should describe an in
 
 - The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product
 - Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
-- Content within other products that's intended for an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Signing up for GitHub](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github)" in the "Get started" product
+- Content within other products that's intended for an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Setting up a trial of GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
 - Enterprise-specific API content, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
 
 #### People's accounts for other services
