@@ -49,7 +49,7 @@ Cuando un trabajo se ejecuta directamente en una máquina del ejecutor, el servi
 
 Puedes usar la palabra clave `services` para crear contenedores de servicios que sean parte de un trabajo en tu flujo de trabajo. Para obtener más información, consulta [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
 
-Este ejemplo crea un servicio llamado `redis` en un trabajo llamado `container-job`. El host de Docker en este ejemplo es el contenedor `node: 10.18-jessie`.
+Este ejemplo crea un servicio llamado `redis` en un trabajo llamado `container-job`. The Docker host in this example is the `node:16-bullseye` container.
 
 {% raw %}
 ```yaml{:copy}
@@ -57,17 +57,18 @@ name: Redis container example
 on: push
 
 jobs:
-  # Etiqueta del trabajo del contenedor
+  # Label of the container job
   container-job:
-    # Los contenedores deben ejecutarse en sistemas operativos basados en Linux
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # Imagen de Docker Hub que 'container-job' ejecuta en
-    el contendor: node:10.18-jessie
+    # Docker Hub image that `container-job` executes in
+    container: node:16-bullseye
 
-    # Contenedores de servicios para ejecutar con servicios de 'container-job':
-      # Etiqueta usada para acceder al contenedor de servicios
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
       redis:
-        # Imagen de Docker Hub
+        # Docker Hub image
         image: redis
 ```
 {% endraw %}

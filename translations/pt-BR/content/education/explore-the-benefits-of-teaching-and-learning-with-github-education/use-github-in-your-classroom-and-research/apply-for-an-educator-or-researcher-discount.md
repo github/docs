@@ -57,4 +57,4 @@ Depois que sua solicitação para desconto de educador ou pesquisador for aprova
 - "[Por que minha solicitação para desconto de educador ou pesquisador não foi aprovada?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)
 - [Vídeos do {% data variables.product.prodname_classroom %}](https://classroom.github.com/videos)
-- [{% data variables.product.prodname_education_community %}](https://education.github.community/)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})
