@@ -109,6 +109,7 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
 ## Reviewing and fixing vulnerable dependencies
 
 {% if dependabot-alerts-vulnerable-calls %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
@@ -127,7 +128,9 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
 1. Optionally, if the alert is being fixed, if it's incorrect, or located in unused code, select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% if reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
    ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 
-{% elsif ghes = 3.5 or ghae-issue-5638 %}
+{% endif %}
+
+{% ifversion ghes = 3.5 or ghae-issue-5638 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
@@ -142,7 +145,8 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
 1. Optionally, if the alert is being fixed, if it's incorrect, or located in unused code, select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% if reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
    ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 
-{% elsif ghes = 3.3 %}
+{% endif %}
+{% ifversion ghes = 3.3 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
@@ -155,7 +159,8 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
 1. Optionally, if the alert is being fixed, if it's incorrect, or located in unused code, select the "Dismiss" drop-down, and click a reason for dismissing the alert.
    ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down.png)
 
-{% elsif ghes = 3.1 or ghes = 3.2 or ghae-issue-4864 %}
+{% endif %}
+{% ifversion ghes = 3.1 or ghes = 3.2 or ghae-issue-4864 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-dependabot-alerts %}
@@ -165,7 +170,8 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
 1. When you merge a pull request that updates the manifest or lock file to a secure version of the dependency, this will resolve the alert. Alternatively, if you decide not to update the dependency, select the **Dismiss** drop-down, and click a reason for dismissing the alert.
    ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/enterprise/repository/dependabot-alert-dismiss-drop-down.png)
 
-{% else %}
+{% endif %}
+{%ifversion ghes = 3.4 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
