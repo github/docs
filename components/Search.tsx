@@ -241,7 +241,7 @@ export function Search({
               )}
               type="search"
               placeholder={t`placeholder`}
-              autoComplete="off"
+              autoComplete={localQuery ? 'on' : 'off'}
               autoCorrect="off"
               autoCapitalize="off"
               spellCheck="false"
@@ -399,7 +399,12 @@ function ShowSearchResults({
             You're searching the <strong>{searchVersion}</strong> version.
           </p>
           <div className="float-right mr-4">
-            <p className={cx(styles.selectWording, 'f6 d-inline-block')}>Select version:</p>
+            <p
+              aria-describedby={`You're searching the ${searchVersion} version`}
+              className={cx(styles.selectWording, 'f6 d-inline-block')}
+            >
+              Select version:
+            </p>
             <DropdownMenu
               placeholder={searchVersion}
               items={searchVersions}
