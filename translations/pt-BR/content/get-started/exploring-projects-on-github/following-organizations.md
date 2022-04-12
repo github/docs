@@ -1,6 +1,6 @@
 ---
-title: Following organizations
-intro: 'You can follow organizations on {% data variables.product.product_name %} to receive notifications about their activity.'
+title: Seguindo organizações
+intro: 'Você pode seguir as organizações no {% data variables.product.product_name %} para receber notificações sobre suas atividades.'
 versions:
   feature: for-you-feed
 topics:
@@ -9,31 +9,31 @@ topics:
 
 {% note %}
 
-**Note:** The ability to follow organizations is currently in public beta and subject to change.
+**Observação:** A capacidade de seguir organizações está atualmente em versão beta pública e sujeita a alterações.
 
 {% endnote %}
 
 ## Sobre seguidores em {% data variables.product.product_name %}
 
-When you follow organizations, you'll see their public activity on your personal dashboard. Para obter mais informações, consulte "[Sobre seu painel pessoal](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
+Ao seguir as organizações, você verá as atividades públicas delas no seu painel pessoal. Para obter mais informações, consulte "[Sobre seu painel pessoal](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
 
-You can unfollow an organization if you do not wish to see their public activity on {% data variables.product.product_name %}.
+Você pode deixar de seguir uma organização se não quiser ver suas atividades públicas em {% data variables.product.product_name %}.
 
-## Following an organization on {% data variables.product.product_name %}
+## Seguindo uma organização em {% data variables.product.product_name %}
 
-1. Go to the organization page you want to follow
-2. Click **Follow** in the top-right corner of the header
+1. Acesse a página da organização que você deseja seguir
+2. Clique **Seguir** no canto superior direito do cabeçalho
 
-  ![Screenshot of the organization header, with the follow button highlighted](/assets/images/help/profile/organization-profile-following.png)
+  ![Captura de tela do cabeçalho da organização, com o botão seguir destacado](/assets/images/help/profile/organization-profile-following.png)
 
-## Unfollowing an organization on {% data variables.product.product_name %}
+## Deixando de seguir uma organização em {% data variables.product.product_name %}
 
-1. Go to the organization page you want to unfollow
-2. Click **Unfollow** in the top-right corner of the header.
+1. Acesse a página da organização que você deseja deixar de seguir
+2. Clique em **Deixar de seguir** no canto superior direito do cabeçalho.
 
-  ![Screenshot of the organization header, with the unfollow button highlighted](/assets/images/help/profile/organization-profile-unfollowing.png)
+  ![Captura de tela do cabeçalho da organização, com o botão deixar de seguir destacado](/assets/images/help/profile/organization-profile-unfollowing.png)
 
-## Viewing people and organizations a user follows on {% data variables.product.product_name %}
+## Visualizando pessoas e organizações que um usuário segue em {% data variables.product.product_name %}
 
 1. Clique em uma imagem de usuário para exibir o perfil do usuário.
 
@@ -46,5 +46,5 @@ You can unfollow an organization if you do not wish to see their public activity
 {% ifversion fpt or ghec %}
 ## Leia mais
 
-- "[Following people](/get-started/exploring-projects-on-github/following-people)"
+- "[Seguindo pessoas](/get-started/exploring-projects-on-github/following-people)"
 {% endif %}

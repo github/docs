@@ -20,6 +20,8 @@ SAML SSOを有効化すると、{% data variables.product.prodname_dotcom %}は{
 
 OrganizationでもSAML SSOを施行できます。 {% data reusables.saml.when-you-enforce %} この施行によって、IdP経由での認証を受けなかったメンバーや管理者は、Organizationから削除されます。 {% data variables.product.company_short %}は削除された各メンバーにメール通知を送信します。
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.removed-users-can-rejoin %} ユーザが3ヶ月以内にOrganizationに再参加すれば、ユーザのアクセス権限や設定はリストアされます。 詳しい情報については、「[Organization の以前のメンバーを回復する](/articles/reinstating-a-former-member-of-your-organization)」を参照してください。
 
 OrganizationのIdPで外部アイデンティティがセットアップされていないボットやサービスアカウントも、SAML SSOの施行時に削除されます。 ボットやサービスアカウントに関する詳しい情報については「[SAMLシングルサインオンでのボットやサービスアカウントの管理](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)」を参照してください。
