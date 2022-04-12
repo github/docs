@@ -40,10 +40,12 @@ Enterpriseのオーナーは、Organizatoinのリポジトリ作成ポリシー�
    ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
    {%- elsif fpt %}
    ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {%- endif %}
 
+   {% ifversion fpt or ghec %}
    {% note %}
 
-   **ノート:** プライベートリポジトリだけを作成できるメンバーを制限するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。
+   **ノート:** プライベートリポジトリだけを作成できるメンバーを制限するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。 {% data reusables.enterprise.link-to-ghec-trial %}
 
    {% endnote %}
    {%- endif %}

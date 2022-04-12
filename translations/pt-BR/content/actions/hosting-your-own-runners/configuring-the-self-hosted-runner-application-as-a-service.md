@@ -81,7 +81,7 @@ Você pode gerenciar o serviço do executor no aplicativo **Serviços** do Windo
 O comando usa um argumento `usuário` opcional para instalar o serviço como um usuário diferente.
 
 ```shell
-./svc.sh install --user <em>USERNAME</em>
+./svc.sh install <em>USERNAME</em>
 ```
 
 ## Iniciar o serviço

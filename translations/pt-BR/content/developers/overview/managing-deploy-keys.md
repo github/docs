@@ -117,7 +117,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 Se seu servidor precisar acessar repositórios em uma ou mais organizações, você poderá usar um aplicativo GitHub para definir o acesso que você precisa e, em seguida, gerar tokens de _escopo limitado_, _servidor para servidor_ a partir daquele aplicativo GitHub. Os tokens do servidor para servidor podem ter escopo de repositório único ou múltiplo e podem ter permissões refinadas. Por exemplo, você pode gerar um token com acesso somente leitura para o conteúdo de um repositório.
 
-Uma vez que os aplicativos GitHub são um ator de primeira classe em  {% data variables.product.product_name %}, os tokens do servidor para servidor são dissociados de qualquer usuário do GitHub, o que os torna comparáveis aos "tokens de serviço". Além disso, tokens de servidor para servidor têm limites de taxa dedicados que escalam com o tamanho das organizações sobre as quais eles atuam. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
+Uma vez que os aplicativos GitHub são um ator de primeira classe em  {% data variables.product.product_name %}, os tokens do servidor para servidor são dissociados de qualquer usuário do GitHub, o que os torna comparáveis aos "tokens de serviço". Além disso, tokens de servidor para servidor têm limites de taxa dedicados que escalam com o tamanho das organizações sobre as quais eles atuam. Para obter mais informações, consulte [Limites de taxa para {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
 #### Prós
 

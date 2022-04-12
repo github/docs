@@ -123,9 +123,9 @@ Antes de definir um padrão personalizado, você deverá habilitar {% data varia
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 {%- if secret-scanning-org-dry-runs %}
-1. When you're ready to test your new custom pattern, to identify matches in select repositories without creating alerts, click **Save and dry run**.
-1. Search for and select the repositories where you want to perform the dry run. You can select up to 10 repositories. ![Screenshot showing repositories selected for the dry run](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repo.png)
-1. When you're ready to test your new custom pattern, click **Dry run**.
+1. Quando você estiver pronto para testar seu novo padrão personalizado, para identificar correspondências em repositórios selecionados sem criar alertas, clique em **Salvar e testar**.
+1. Pesquise e selecione os repositórios onde você deseja executar o teste. Você pode selecionar até 10 repositórios. ![Captura de tela que mostra os repositórios selecionados para o teste](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repo.png)
+1. Quando estiver pronto para testar seu novo padrão personalizado, clique em **Testar**.
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
