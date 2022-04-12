@@ -15998,19 +15998,29 @@
             "properties": {
               "strict": {
                 "type": "boolean",
-                "description": "Require branches to be up to date before merging."
+                "description": "<p><strong>Required</strong>. Require branches to be up to date before merging.</p>",
+                "name": "strict",
+                "in": "body",
+                "rawType": "boolean",
+                "rawDescription": "Require branches to be up to date before merging.",
+                "childParamsGroups": []
               },
               "contexts": {
-                "type": "array",
+                "type": "array of strings",
                 "deprecated": true,
-                "description": "**Deprecated**: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use `checks` instead of `contexts` for more fine-grained control.\n",
+                "description": "<p><strong>Required</strong>. <strong>Deprecated</strong>: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use <code>checks</code> instead of <code>contexts</code> for more fine-grained control.</p>",
                 "items": {
                   "type": "string"
-                }
+                },
+                "name": "contexts",
+                "in": "body",
+                "rawType": "array",
+                "rawDescription": "**Deprecated**: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use `checks` instead of `contexts` for more fine-grained control.\n",
+                "childParamsGroups": []
               },
               "checks": {
-                "type": "array",
-                "description": "The list of status checks to require in order to merge into this branch.",
+                "type": "array of objects",
+                "description": "<p>The list of status checks to require in order to merge into this branch.</p>",
                 "items": {
                   "type": "object",
                   "required": [
@@ -16019,14 +16029,55 @@
                   "properties": {
                     "context": {
                       "type": "string",
-                      "description": "The name of the required check"
+                      "description": "<p><strong>Required</strong>. The name of the required check</p>",
+                      "name": "context",
+                      "in": "body",
+                      "rawType": "string",
+                      "rawDescription": "The name of the required check",
+                      "childParamsGroups": []
                     },
                     "app_id": {
                       "type": "integer",
-                      "description": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status."
+                      "description": "<p>The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.</p>",
+                      "name": "app_id",
+                      "in": "body",
+                      "rawType": "integer",
+                      "rawDescription": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                      "childParamsGroups": []
                     }
                   }
-                }
+                },
+                "name": "checks",
+                "in": "body",
+                "rawType": "array",
+                "rawDescription": "The list of status checks to require in order to merge into this branch.",
+                "childParamsGroups": [
+                  {
+                    "parentName": "checks",
+                    "parentType": "items",
+                    "id": "checks-items",
+                    "params": [
+                      {
+                        "type": "string",
+                        "description": "<p><strong>Required</strong>. The name of the required check</p>",
+                        "name": "context",
+                        "in": "body",
+                        "rawType": "string",
+                        "rawDescription": "The name of the required check",
+                        "childParamsGroups": []
+                      },
+                      {
+                        "type": "integer",
+                        "description": "<p>The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.</p>",
+                        "name": "app_id",
+                        "in": "body",
+                        "rawType": "integer",
+                        "rawDescription": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                        "childParamsGroups": []
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "required": [
@@ -16040,7 +16091,123 @@
               "null"
             ],
             "rawDescription": "Require status checks to pass before merging. Set to `null` to disable.",
-            "childParamsGroups": []
+            "childParamsGroups": [
+              {
+                "parentName": "required_status_checks",
+                "parentType": "object",
+                "id": "required_status_checks-object",
+                "params": [
+                  {
+                    "type": "boolean",
+                    "description": "<p><strong>Required</strong>. Require branches to be up to date before merging.</p>",
+                    "name": "strict",
+                    "in": "body",
+                    "rawType": "boolean",
+                    "rawDescription": "Require branches to be up to date before merging.",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of strings",
+                    "deprecated": true,
+                    "description": "<p><strong>Required</strong>. <strong>Deprecated</strong>: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use <code>checks</code> instead of <code>contexts</code> for more fine-grained control.</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "contexts",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "**Deprecated**: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use `checks` instead of `contexts` for more fine-grained control.\n",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of objects",
+                    "description": "<p>The list of status checks to require in order to merge into this branch.</p>",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "context"
+                      ],
+                      "properties": {
+                        "context": {
+                          "type": "string",
+                          "description": "<p><strong>Required</strong>. The name of the required check</p>",
+                          "name": "context",
+                          "in": "body",
+                          "rawType": "string",
+                          "rawDescription": "The name of the required check",
+                          "childParamsGroups": []
+                        },
+                        "app_id": {
+                          "type": "integer",
+                          "description": "<p>The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.</p>",
+                          "name": "app_id",
+                          "in": "body",
+                          "rawType": "integer",
+                          "rawDescription": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                          "childParamsGroups": []
+                        }
+                      }
+                    },
+                    "name": "checks",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of status checks to require in order to merge into this branch.",
+                    "childParamsGroups": [
+                      {
+                        "parentName": "checks",
+                        "parentType": "items",
+                        "id": "checks-items",
+                        "params": [
+                          {
+                            "type": "string",
+                            "description": "<p><strong>Required</strong>. The name of the required check</p>",
+                            "name": "context",
+                            "in": "body",
+                            "rawType": "string",
+                            "rawDescription": "The name of the required check",
+                            "childParamsGroups": []
+                          },
+                          {
+                            "type": "integer",
+                            "description": "<p>The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.</p>",
+                            "name": "app_id",
+                            "in": "body",
+                            "rawType": "integer",
+                            "rawDescription": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                            "childParamsGroups": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "parentName": "checks",
+                "parentType": "items",
+                "id": "checks-items",
+                "params": [
+                  {
+                    "type": "string",
+                    "description": "<p><strong>Required</strong>. The name of the required check</p>",
+                    "name": "context",
+                    "in": "body",
+                    "rawType": "string",
+                    "rawDescription": "The name of the required check",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "integer",
+                    "description": "<p>The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.</p>",
+                    "name": "app_id",
+                    "in": "body",
+                    "rawType": "integer",
+                    "rawDescription": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                    "childParamsGroups": []
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "boolean or null",
@@ -16060,55 +16227,164 @@
             "properties": {
               "dismissal_restrictions": {
                 "type": "object",
-                "description": "Specify which users and teams can dismiss pull request reviews. Pass an empty `dismissal_restrictions` object to disable. User and team `dismissal_restrictions` are only available for organization-owned repositories. Omit this parameter for personal repositories.",
+                "description": "<p>Specify which users and teams can dismiss pull request reviews. Pass an empty <code>dismissal_restrictions</code> object to disable. User and team <code>dismissal_restrictions</code> are only available for organization-owned repositories. Omit this parameter for personal repositories.</p>",
                 "properties": {
                   "users": {
-                    "type": "array",
-                    "description": "The list of user `login`s with dismissal access",
+                    "type": "array of strings",
+                    "description": "<p>The list of user <code>login</code>s with dismissal access</p>",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "name": "users",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of user `login`s with dismissal access",
+                    "childParamsGroups": []
                   },
                   "teams": {
-                    "type": "array",
-                    "description": "The list of team `slug`s with dismissal access",
+                    "type": "array of strings",
+                    "description": "<p>The list of team <code>slug</code>s with dismissal access</p>",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "name": "teams",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of team `slug`s with dismissal access",
+                    "childParamsGroups": []
                   }
-                }
+                },
+                "name": "dismissal_restrictions",
+                "in": "body",
+                "rawType": "object",
+                "rawDescription": "Specify which users and teams can dismiss pull request reviews. Pass an empty `dismissal_restrictions` object to disable. User and team `dismissal_restrictions` are only available for organization-owned repositories. Omit this parameter for personal repositories.",
+                "childParamsGroups": [
+                  {
+                    "parentName": "dismissal_restrictions",
+                    "parentType": "object",
+                    "id": "dismissal_restrictions-object",
+                    "params": [
+                      {
+                        "type": "array of strings",
+                        "description": "<p>The list of user <code>login</code>s with dismissal access</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "users",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of user `login`s with dismissal access",
+                        "childParamsGroups": []
+                      },
+                      {
+                        "type": "array of strings",
+                        "description": "<p>The list of team <code>slug</code>s with dismissal access</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "teams",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of team `slug`s with dismissal access",
+                        "childParamsGroups": []
+                      }
+                    ]
+                  }
+                ]
               },
               "dismiss_stale_reviews": {
                 "type": "boolean",
-                "description": "Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit."
+                "description": "<p>Set to <code>true</code> if you want to automatically dismiss approving reviews when someone pushes a new commit.</p>",
+                "name": "dismiss_stale_reviews",
+                "in": "body",
+                "rawType": "boolean",
+                "rawDescription": "Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit.",
+                "childParamsGroups": []
               },
               "require_code_owner_reviews": {
                 "type": "boolean",
-                "description": "Blocks merging pull requests until [code owners](https://docs.github.com/articles/about-code-owners/) review them."
+                "description": "<p>Blocks merging pull requests until <a href=\"https://docs.github.com/articles/about-code-owners/\">code owners</a> review them.</p>",
+                "name": "require_code_owner_reviews",
+                "in": "body",
+                "rawType": "boolean",
+                "rawDescription": "Blocks merging pull requests until [code owners](https://docs.github.com/articles/about-code-owners/) review them.",
+                "childParamsGroups": []
               },
               "required_approving_review_count": {
                 "type": "integer",
-                "description": "Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6 or 0 to not require reviewers."
+                "description": "<p>Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6 or 0 to not require reviewers.</p>",
+                "name": "required_approving_review_count",
+                "in": "body",
+                "rawType": "integer",
+                "rawDescription": "Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6 or 0 to not require reviewers.",
+                "childParamsGroups": []
               },
               "bypass_pull_request_allowances": {
                 "type": "object",
-                "description": "Allow specific users or teams to bypass pull request requirements.",
+                "description": "<p>Allow specific users or teams to bypass pull request requirements.</p>",
                 "properties": {
                   "users": {
-                    "type": "array",
-                    "description": "The list of user `login`s allowed to bypass pull request requirements.",
+                    "type": "array of strings",
+                    "description": "<p>The list of user <code>login</code>s allowed to bypass pull request requirements.</p>",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "name": "users",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of user `login`s allowed to bypass pull request requirements.",
+                    "childParamsGroups": []
                   },
                   "teams": {
-                    "type": "array",
-                    "description": "The list of team `slug`s allowed to bypass pull request requirements.",
+                    "type": "array of strings",
+                    "description": "<p>The list of team <code>slug</code>s allowed to bypass pull request requirements.</p>",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "name": "teams",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of team `slug`s allowed to bypass pull request requirements.",
+                    "childParamsGroups": []
                   }
-                }
+                },
+                "name": "bypass_pull_request_allowances",
+                "in": "body",
+                "rawType": "object",
+                "rawDescription": "Allow specific users or teams to bypass pull request requirements.",
+                "childParamsGroups": [
+                  {
+                    "parentName": "bypass_pull_request_allowances",
+                    "parentType": "object",
+                    "id": "bypass_pull_request_allowances-object",
+                    "params": [
+                      {
+                        "type": "array of strings",
+                        "description": "<p>The list of user <code>login</code>s allowed to bypass pull request requirements.</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "users",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of user `login`s allowed to bypass pull request requirements.",
+                        "childParamsGroups": []
+                      },
+                      {
+                        "type": "array of strings",
+                        "description": "<p>The list of team <code>slug</code>s allowed to bypass pull request requirements.</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "teams",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of team `slug`s allowed to bypass pull request requirements.",
+                        "childParamsGroups": []
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "name": "required_pull_request_reviews",
@@ -16118,32 +16394,278 @@
               "null"
             ],
             "rawDescription": "Require at least one approving review on a pull request, before merging. Set to `null` to disable.",
-            "childParamsGroups": []
+            "childParamsGroups": [
+              {
+                "parentName": "required_pull_request_reviews",
+                "parentType": "object",
+                "id": "required_pull_request_reviews-object",
+                "params": [
+                  {
+                    "type": "object",
+                    "description": "<p>Specify which users and teams can dismiss pull request reviews. Pass an empty <code>dismissal_restrictions</code> object to disable. User and team <code>dismissal_restrictions</code> are only available for organization-owned repositories. Omit this parameter for personal repositories.</p>",
+                    "properties": {
+                      "users": {
+                        "type": "array of strings",
+                        "description": "<p>The list of user <code>login</code>s with dismissal access</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "users",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of user `login`s with dismissal access",
+                        "childParamsGroups": []
+                      },
+                      "teams": {
+                        "type": "array of strings",
+                        "description": "<p>The list of team <code>slug</code>s with dismissal access</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "teams",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of team `slug`s with dismissal access",
+                        "childParamsGroups": []
+                      }
+                    },
+                    "name": "dismissal_restrictions",
+                    "in": "body",
+                    "rawType": "object",
+                    "rawDescription": "Specify which users and teams can dismiss pull request reviews. Pass an empty `dismissal_restrictions` object to disable. User and team `dismissal_restrictions` are only available for organization-owned repositories. Omit this parameter for personal repositories.",
+                    "childParamsGroups": [
+                      {
+                        "parentName": "dismissal_restrictions",
+                        "parentType": "object",
+                        "id": "dismissal_restrictions-object",
+                        "params": [
+                          {
+                            "type": "array of strings",
+                            "description": "<p>The list of user <code>login</code>s with dismissal access</p>",
+                            "items": {
+                              "type": "string"
+                            },
+                            "name": "users",
+                            "in": "body",
+                            "rawType": "array",
+                            "rawDescription": "The list of user `login`s with dismissal access",
+                            "childParamsGroups": []
+                          },
+                          {
+                            "type": "array of strings",
+                            "description": "<p>The list of team <code>slug</code>s with dismissal access</p>",
+                            "items": {
+                              "type": "string"
+                            },
+                            "name": "teams",
+                            "in": "body",
+                            "rawType": "array",
+                            "rawDescription": "The list of team `slug`s with dismissal access",
+                            "childParamsGroups": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "boolean",
+                    "description": "<p>Set to <code>true</code> if you want to automatically dismiss approving reviews when someone pushes a new commit.</p>",
+                    "name": "dismiss_stale_reviews",
+                    "in": "body",
+                    "rawType": "boolean",
+                    "rawDescription": "Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit.",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "boolean",
+                    "description": "<p>Blocks merging pull requests until <a href=\"https://docs.github.com/articles/about-code-owners/\">code owners</a> review them.</p>",
+                    "name": "require_code_owner_reviews",
+                    "in": "body",
+                    "rawType": "boolean",
+                    "rawDescription": "Blocks merging pull requests until [code owners](https://docs.github.com/articles/about-code-owners/) review them.",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "integer",
+                    "description": "<p>Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6 or 0 to not require reviewers.</p>",
+                    "name": "required_approving_review_count",
+                    "in": "body",
+                    "rawType": "integer",
+                    "rawDescription": "Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6 or 0 to not require reviewers.",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "object",
+                    "description": "<p>Allow specific users or teams to bypass pull request requirements.</p>",
+                    "properties": {
+                      "users": {
+                        "type": "array of strings",
+                        "description": "<p>The list of user <code>login</code>s allowed to bypass pull request requirements.</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "users",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of user `login`s allowed to bypass pull request requirements.",
+                        "childParamsGroups": []
+                      },
+                      "teams": {
+                        "type": "array of strings",
+                        "description": "<p>The list of team <code>slug</code>s allowed to bypass pull request requirements.</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "teams",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of team `slug`s allowed to bypass pull request requirements.",
+                        "childParamsGroups": []
+                      }
+                    },
+                    "name": "bypass_pull_request_allowances",
+                    "in": "body",
+                    "rawType": "object",
+                    "rawDescription": "Allow specific users or teams to bypass pull request requirements.",
+                    "childParamsGroups": [
+                      {
+                        "parentName": "bypass_pull_request_allowances",
+                        "parentType": "object",
+                        "id": "bypass_pull_request_allowances-object",
+                        "params": [
+                          {
+                            "type": "array of strings",
+                            "description": "<p>The list of user <code>login</code>s allowed to bypass pull request requirements.</p>",
+                            "items": {
+                              "type": "string"
+                            },
+                            "name": "users",
+                            "in": "body",
+                            "rawType": "array",
+                            "rawDescription": "The list of user `login`s allowed to bypass pull request requirements.",
+                            "childParamsGroups": []
+                          },
+                          {
+                            "type": "array of strings",
+                            "description": "<p>The list of team <code>slug</code>s allowed to bypass pull request requirements.</p>",
+                            "items": {
+                              "type": "string"
+                            },
+                            "name": "teams",
+                            "in": "body",
+                            "rawType": "array",
+                            "rawDescription": "The list of team `slug`s allowed to bypass pull request requirements.",
+                            "childParamsGroups": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "parentName": "dismissal_restrictions",
+                "parentType": "object",
+                "id": "dismissal_restrictions-object",
+                "params": [
+                  {
+                    "type": "array of strings",
+                    "description": "<p>The list of user <code>login</code>s with dismissal access</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "users",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of user `login`s with dismissal access",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of strings",
+                    "description": "<p>The list of team <code>slug</code>s with dismissal access</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "teams",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of team `slug`s with dismissal access",
+                    "childParamsGroups": []
+                  }
+                ]
+              },
+              {
+                "parentName": "bypass_pull_request_allowances",
+                "parentType": "object",
+                "id": "bypass_pull_request_allowances-object",
+                "params": [
+                  {
+                    "type": "array of strings",
+                    "description": "<p>The list of user <code>login</code>s allowed to bypass pull request requirements.</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "users",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of user `login`s allowed to bypass pull request requirements.",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of strings",
+                    "description": "<p>The list of team <code>slug</code>s allowed to bypass pull request requirements.</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "teams",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of team `slug`s allowed to bypass pull request requirements.",
+                    "childParamsGroups": []
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "object or null",
             "description": "<p><strong>Required</strong>. Restrict who can push to the protected branch. User, app, and team <code>restrictions</code> are only available for organization-owned repositories. Set to <code>null</code> to disable.</p>",
             "properties": {
               "users": {
-                "type": "array",
-                "description": "The list of user `login`s with push access",
+                "type": "array of strings",
+                "description": "<p><strong>Required</strong>. The list of user <code>login</code>s with push access</p>",
                 "items": {
                   "type": "string"
-                }
+                },
+                "name": "users",
+                "in": "body",
+                "rawType": "array",
+                "rawDescription": "The list of user `login`s with push access",
+                "childParamsGroups": []
               },
               "teams": {
-                "type": "array",
-                "description": "The list of team `slug`s with push access",
+                "type": "array of strings",
+                "description": "<p><strong>Required</strong>. The list of team <code>slug</code>s with push access</p>",
                 "items": {
                   "type": "string"
-                }
+                },
+                "name": "teams",
+                "in": "body",
+                "rawType": "array",
+                "rawDescription": "The list of team `slug`s with push access",
+                "childParamsGroups": []
               },
               "apps": {
-                "type": "array",
-                "description": "The list of app `slug`s with push access",
+                "type": "array of strings",
+                "description": "<p>The list of app <code>slug</code>s with push access</p>",
                 "items": {
                   "type": "string"
-                }
+                },
+                "name": "apps",
+                "in": "body",
+                "rawType": "array",
+                "rawDescription": "The list of app `slug`s with push access",
+                "childParamsGroups": []
               }
             },
             "required": [
@@ -16157,7 +16679,51 @@
               "null"
             ],
             "rawDescription": "Restrict who can push to the protected branch. User, app, and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.",
-            "childParamsGroups": []
+            "childParamsGroups": [
+              {
+                "parentName": "restrictions",
+                "parentType": "object",
+                "id": "restrictions-object",
+                "params": [
+                  {
+                    "type": "array of strings",
+                    "description": "<p><strong>Required</strong>. The list of user <code>login</code>s with push access</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "users",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of user `login`s with push access",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of strings",
+                    "description": "<p><strong>Required</strong>. The list of team <code>slug</code>s with push access</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "teams",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of team `slug`s with push access",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of strings",
+                    "description": "<p>The list of app <code>slug</code>s with push access</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "apps",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of app `slug`s with push access",
+                    "childParamsGroups": []
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "boolean",
@@ -31096,11 +31662,21 @@
             "properties": {
               "protected_branches": {
                 "type": "boolean",
-                "description": "Whether only branches with branch protection rules can deploy to this environment. If `protected_branches` is `true`, `custom_branch_policies` must be `false`; if `protected_branches` is `false`, `custom_branch_policies` must be `true`."
+                "description": "<p><strong>Required</strong>. Whether only branches with branch protection rules can deploy to this environment. If <code>protected_branches</code> is <code>true</code>, <code>custom_branch_policies</code> must be <code>false</code>; if <code>protected_branches</code> is <code>false</code>, <code>custom_branch_policies</code> must be <code>true</code>.</p>",
+                "name": "protected_branches",
+                "in": "body",
+                "rawType": "boolean",
+                "rawDescription": "Whether only branches with branch protection rules can deploy to this environment. If `protected_branches` is `true`, `custom_branch_policies` must be `false`; if `protected_branches` is `false`, `custom_branch_policies` must be `true`.",
+                "childParamsGroups": []
               },
               "custom_branch_policies": {
                 "type": "boolean",
-                "description": "Whether only branches that match the specified name patterns can deploy to this environment.  If `custom_branch_policies` is `true`, `protected_branches` must be `false`; if `custom_branch_policies` is `false`, `protected_branches` must be `true`."
+                "description": "<p><strong>Required</strong>. Whether only branches that match the specified name patterns can deploy to this environment.  If <code>custom_branch_policies</code> is <code>true</code>, <code>protected_branches</code> must be <code>false</code>; if <code>custom_branch_policies</code> is <code>false</code>, <code>protected_branches</code> must be <code>true</code>.</p>",
+                "name": "custom_branch_policies",
+                "in": "body",
+                "rawType": "boolean",
+                "rawDescription": "Whether only branches that match the specified name patterns can deploy to this environment.  If `custom_branch_policies` is `true`, `protected_branches` must be `false`; if `custom_branch_policies` is `false`, `protected_branches` must be `true`.",
+                "childParamsGroups": []
               }
             },
             "required": [
@@ -31114,7 +31690,33 @@
               "null"
             ],
             "rawDescription": "The type of deployment branch policy for this environment. To allow all branches to deploy, set to `null`.",
-            "childParamsGroups": []
+            "childParamsGroups": [
+              {
+                "parentName": "deployment_branch_policy",
+                "parentType": "object",
+                "id": "deployment_branch_policy-object",
+                "params": [
+                  {
+                    "type": "boolean",
+                    "description": "<p><strong>Required</strong>. Whether only branches with branch protection rules can deploy to this environment. If <code>protected_branches</code> is <code>true</code>, <code>custom_branch_policies</code> must be <code>false</code>; if <code>protected_branches</code> is <code>false</code>, <code>custom_branch_policies</code> must be <code>true</code>.</p>",
+                    "name": "protected_branches",
+                    "in": "body",
+                    "rawType": "boolean",
+                    "rawDescription": "Whether only branches with branch protection rules can deploy to this environment. If `protected_branches` is `true`, `custom_branch_policies` must be `false`; if `protected_branches` is `false`, `custom_branch_policies` must be `true`.",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "boolean",
+                    "description": "<p><strong>Required</strong>. Whether only branches that match the specified name patterns can deploy to this environment.  If <code>custom_branch_policies</code> is <code>true</code>, <code>protected_branches</code> must be <code>false</code>; if <code>custom_branch_policies</code> is <code>false</code>, <code>protected_branches</code> must be <code>true</code>.</p>",
+                    "name": "custom_branch_policies",
+                    "in": "body",
+                    "rawType": "boolean",
+                    "rawDescription": "Whether only branches that match the specified name patterns can deploy to this environment.  If `custom_branch_policies` is `true`, `protected_branches` must be `false`; if `custom_branch_policies` is `false`, `protected_branches` must be `true`.",
+                    "childParamsGroups": []
+                  }
+                ]
+              }
+            ]
           }
         ],
         "enabledForGitHubApps": true,
@@ -66766,33 +67368,114 @@
             "properties": {
               "advanced_security": {
                 "type": "object",
-                "description": "Use the `status` property to enable or disable GitHub Advanced Security for this repository. For more information, see \"[About GitHub Advanced Security](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).\"",
+                "description": "<p>Use the <code>status</code> property to enable or disable GitHub Advanced Security for this repository. For more information, see \"<a href=\"/github/getting-started-with-github/learning-about-github/about-github-advanced-security\">About GitHub Advanced Security</a>.\"</p>",
                 "properties": {
                   "status": {
                     "type": "string",
-                    "description": "Can be `enabled` or `disabled`."
+                    "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                    "name": "status",
+                    "in": "body",
+                    "rawType": "string",
+                    "rawDescription": "Can be `enabled` or `disabled`.",
+                    "childParamsGroups": []
                   }
-                }
+                },
+                "name": "advanced_security",
+                "in": "body",
+                "rawType": "object",
+                "rawDescription": "Use the `status` property to enable or disable GitHub Advanced Security for this repository. For more information, see \"[About GitHub Advanced Security](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).\"",
+                "childParamsGroups": [
+                  {
+                    "parentName": "advanced_security",
+                    "parentType": "object",
+                    "id": "advanced_security-object",
+                    "params": [
+                      {
+                        "type": "string",
+                        "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                        "name": "status",
+                        "in": "body",
+                        "rawType": "string",
+                        "rawDescription": "Can be `enabled` or `disabled`.",
+                        "childParamsGroups": []
+                      }
+                    ]
+                  }
+                ]
               },
               "secret_scanning": {
                 "type": "object",
-                "description": "Use the `status` property to enable or disable secret scanning for this repository. For more information, see \"[About secret scanning](/code-security/secret-security/about-secret-scanning).\"",
+                "description": "<p>Use the <code>status</code> property to enable or disable secret scanning for this repository. For more information, see \"<a href=\"/code-security/secret-security/about-secret-scanning\">About secret scanning</a>.\"</p>",
                 "properties": {
                   "status": {
                     "type": "string",
-                    "description": "Can be `enabled` or `disabled`."
+                    "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                    "name": "status",
+                    "in": "body",
+                    "rawType": "string",
+                    "rawDescription": "Can be `enabled` or `disabled`.",
+                    "childParamsGroups": []
                   }
-                }
+                },
+                "name": "secret_scanning",
+                "in": "body",
+                "rawType": "object",
+                "rawDescription": "Use the `status` property to enable or disable secret scanning for this repository. For more information, see \"[About secret scanning](/code-security/secret-security/about-secret-scanning).\"",
+                "childParamsGroups": [
+                  {
+                    "parentName": "secret_scanning",
+                    "parentType": "object",
+                    "id": "secret_scanning-object",
+                    "params": [
+                      {
+                        "type": "string",
+                        "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                        "name": "status",
+                        "in": "body",
+                        "rawType": "string",
+                        "rawDescription": "Can be `enabled` or `disabled`.",
+                        "childParamsGroups": []
+                      }
+                    ]
+                  }
+                ]
               },
               "secret_scanning_push_protection": {
                 "type": "object",
-                "description": "Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see \"[Protecting pushes with secret scanning](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning).\"",
+                "description": "<p>Use the <code>status</code> property to enable or disable secret scanning push protection for this repository. For more information, see \"<a href=\"/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning\">Protecting pushes with secret scanning</a>.\"</p>",
                 "properties": {
                   "status": {
                     "type": "string",
-                    "description": "Can be `enabled` or `disabled`."
+                    "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                    "name": "status",
+                    "in": "body",
+                    "rawType": "string",
+                    "rawDescription": "Can be `enabled` or `disabled`.",
+                    "childParamsGroups": []
                   }
-                }
+                },
+                "name": "secret_scanning_push_protection",
+                "in": "body",
+                "rawType": "object",
+                "rawDescription": "Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see \"[Protecting pushes with secret scanning](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning).\"",
+                "childParamsGroups": [
+                  {
+                    "parentName": "secret_scanning_push_protection",
+                    "parentType": "object",
+                    "id": "secret_scanning_push_protection-object",
+                    "params": [
+                      {
+                        "type": "string",
+                        "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                        "name": "status",
+                        "in": "body",
+                        "rawType": "string",
+                        "rawDescription": "Can be `enabled` or `disabled`.",
+                        "childParamsGroups": []
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "name": "security_and_analysis",
@@ -66802,7 +67485,174 @@
               "null"
             ],
             "rawDescription": "Specify which security and analysis features to enable or disable. For example, to enable GitHub Advanced Security, use this data in the body of the PATCH request: `{\"security_and_analysis\": {\"advanced_security\": {\"status\": \"enabled\"}}}`. If you have admin permissions for a private repository covered by an Advanced Security license, you can check which security and analysis features are currently enabled by using a `GET /repos/{owner}/{repo}` request.",
-            "childParamsGroups": []
+            "childParamsGroups": [
+              {
+                "parentName": "security_and_analysis",
+                "parentType": "object",
+                "id": "security_and_analysis-object",
+                "params": [
+                  {
+                    "type": "object",
+                    "description": "<p>Use the <code>status</code> property to enable or disable GitHub Advanced Security for this repository. For more information, see \"<a href=\"/github/getting-started-with-github/learning-about-github/about-github-advanced-security\">About GitHub Advanced Security</a>.\"</p>",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                        "name": "status",
+                        "in": "body",
+                        "rawType": "string",
+                        "rawDescription": "Can be `enabled` or `disabled`.",
+                        "childParamsGroups": []
+                      }
+                    },
+                    "name": "advanced_security",
+                    "in": "body",
+                    "rawType": "object",
+                    "rawDescription": "Use the `status` property to enable or disable GitHub Advanced Security for this repository. For more information, see \"[About GitHub Advanced Security](/github/getting-started-with-github/learning-about-github/about-github-advanced-security).\"",
+                    "childParamsGroups": [
+                      {
+                        "parentName": "advanced_security",
+                        "parentType": "object",
+                        "id": "advanced_security-object",
+                        "params": [
+                          {
+                            "type": "string",
+                            "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                            "name": "status",
+                            "in": "body",
+                            "rawType": "string",
+                            "rawDescription": "Can be `enabled` or `disabled`.",
+                            "childParamsGroups": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "description": "<p>Use the <code>status</code> property to enable or disable secret scanning for this repository. For more information, see \"<a href=\"/code-security/secret-security/about-secret-scanning\">About secret scanning</a>.\"</p>",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                        "name": "status",
+                        "in": "body",
+                        "rawType": "string",
+                        "rawDescription": "Can be `enabled` or `disabled`.",
+                        "childParamsGroups": []
+                      }
+                    },
+                    "name": "secret_scanning",
+                    "in": "body",
+                    "rawType": "object",
+                    "rawDescription": "Use the `status` property to enable or disable secret scanning for this repository. For more information, see \"[About secret scanning](/code-security/secret-security/about-secret-scanning).\"",
+                    "childParamsGroups": [
+                      {
+                        "parentName": "secret_scanning",
+                        "parentType": "object",
+                        "id": "secret_scanning-object",
+                        "params": [
+                          {
+                            "type": "string",
+                            "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                            "name": "status",
+                            "in": "body",
+                            "rawType": "string",
+                            "rawDescription": "Can be `enabled` or `disabled`.",
+                            "childParamsGroups": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "description": "<p>Use the <code>status</code> property to enable or disable secret scanning push protection for this repository. For more information, see \"<a href=\"/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning\">Protecting pushes with secret scanning</a>.\"</p>",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                        "name": "status",
+                        "in": "body",
+                        "rawType": "string",
+                        "rawDescription": "Can be `enabled` or `disabled`.",
+                        "childParamsGroups": []
+                      }
+                    },
+                    "name": "secret_scanning_push_protection",
+                    "in": "body",
+                    "rawType": "object",
+                    "rawDescription": "Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see \"[Protecting pushes with secret scanning](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning).\"",
+                    "childParamsGroups": [
+                      {
+                        "parentName": "secret_scanning_push_protection",
+                        "parentType": "object",
+                        "id": "secret_scanning_push_protection-object",
+                        "params": [
+                          {
+                            "type": "string",
+                            "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                            "name": "status",
+                            "in": "body",
+                            "rawType": "string",
+                            "rawDescription": "Can be `enabled` or `disabled`.",
+                            "childParamsGroups": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "parentName": "advanced_security",
+                "parentType": "object",
+                "id": "advanced_security-object",
+                "params": [
+                  {
+                    "type": "string",
+                    "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                    "name": "status",
+                    "in": "body",
+                    "rawType": "string",
+                    "rawDescription": "Can be `enabled` or `disabled`.",
+                    "childParamsGroups": []
+                  }
+                ]
+              },
+              {
+                "parentName": "secret_scanning",
+                "parentType": "object",
+                "id": "secret_scanning-object",
+                "params": [
+                  {
+                    "type": "string",
+                    "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                    "name": "status",
+                    "in": "body",
+                    "rawType": "string",
+                    "rawDescription": "Can be `enabled` or `disabled`.",
+                    "childParamsGroups": []
+                  }
+                ]
+              },
+              {
+                "parentName": "secret_scanning_push_protection",
+                "parentType": "object",
+                "id": "secret_scanning_push_protection-object",
+                "params": [
+                  {
+                    "type": "string",
+                    "description": "<p>Can be <code>enabled</code> or <code>disabled</code>.</p>",
+                    "name": "status",
+                    "in": "body",
+                    "rawType": "string",
+                    "rawDescription": "Can be `enabled` or `disabled`.",
+                    "childParamsGroups": []
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "boolean",
