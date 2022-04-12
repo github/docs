@@ -10,6 +10,8 @@ shortTitle: Reuse an assignment
 
 You can reuse an existing individual or group assignment in any other classroom you have access to, including classrooms in a different organization. If you choose to reuse an assignment, {% data variables.product.prodname_classroom %} will copy the assignment to the classroom you choose. If the assignment uses a template repository and you choose to reuse it in a classroom from a different organization, {% data variables.product.prodname_classroom %} will create a copy of the repository and its contents in the target organization.
 
+The copied assignment includes assignment details such as the name, source repository, autograding test, and preferred editor. You can edit the assignment after it has been copied to make changes. You cannot make changes to the preferred editor. 
+
 ## Reusing an assignment
 
 1. Sign into {% data variables.product.prodname_classroom_with_url %}.
