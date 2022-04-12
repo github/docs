@@ -1,6 +1,7 @@
 .search-cache
 .DS_Store
 .env
+.vscode/settings.json
 /node_modules/
 npm-debug.log
 coverage/
