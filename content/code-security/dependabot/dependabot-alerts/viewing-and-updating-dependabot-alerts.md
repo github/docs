@@ -82,7 +82,6 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters.png)
 1. Click the alert that you would like to view.
   ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-ungrouped.png)
-1. Review the details of the vulnerability and, if available, the pull request containing the automated security update.
 
 {% elsif ghes = 3.3 %}
 {% data reusables.repositories.navigate-to-repo %}
@@ -120,7 +119,7 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
 1. Review the details of the vulnerability and, if available, the pull request containing the automated security update.
 2. Optionally, if the alert highlights a call to a vulnerable function, you may want to identify the functions that are affected and check whether you're using them. Such {% data variables.product.prodname_dependabot_alerts %} have the `vulnerable-call` label, and you can use the `has:vulnerable-call` filter to only display this type of alert in the list. 
   ![Identifying alerts highlighting calls to vulnerable functions](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)   
-   Click the alert to establish whether the vulnerability is in tests or production code, and asses the need to fix the alert based on this information. If appropriate, you may dismiss the alert. For more information, see the step below about dismissing alerts.
+   View alert details on the alert page to establish whether the vulnerability is in tests or production code, and asses the need to fix the alert based on this information. If appropriate, you may dismiss the alert. For more information, see the step below about dismissing alerts.
   ![Screenshot showing the type of information displayed for alerts highlighting calls to vulnerable functions](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)   
 1. Optionally, if there isn't already a {% data variables.product.prodname_dependabot %} update for the alert, to create a pull request to resolve the vulnerability, click **Create {% data variables.product.prodname_dependabot %} security update**.
   ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
