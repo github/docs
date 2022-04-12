@@ -34,7 +34,7 @@ Each codespace has its own isolated virtual network. We use firewalls to block i
 
 ### Authentication
 
-You can connect to a codespace using a web browser or from Visual Studio Code. If you connect from Visual Studio Code, you are prompted to authenticate with {% data variables.product.product_name %}. 
+You can connect to a codespace using a web browser or from {% data variables.product.prodname_vscode %}. If you connect from {% data variables.product.prodname_vscode_shortname %}, you are prompted to authenticate with {% data variables.product.product_name %}. 
 
 Every time a codespace is created or restarted, it's assigned a new {% data variables.product.company_short %} token with an automatic expiry period. This period allows you to work in the codespace without needing to reauthenticate during a typical working day, but reduces the chance that you will leave a connection open when you stop using the codespace.
 
@@ -107,4 +107,4 @@ Certain development features can potentially add risk to your environment. For e
 
 #### Using extensions
 
-Any additional {% data variables.product.prodname_vscode %} extensions that you've installed can potentially introduce more risk. To help mitigate this risk, ensure that the you only install trusted extensions, and that they are always kept up to date.
+Any additional {% data variables.product.prodname_vscode_shortname %} extensions that you've installed can potentially introduce more risk. To help mitigate this risk, ensure that the you only install trusted extensions, and that they are always kept up to date.

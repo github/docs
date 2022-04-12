@@ -46,13 +46,13 @@ Since your repository is cloned onto the host VM before the container is created
 
 ### Step 3: Connecting to the codespace
 
-When your container has been created and any other initialization has run, you'll be connected to your codespace. You can connect to it through the web or via [Visual Studio Code](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code), or both, if needed.
+When your container has been created and any other initialization has run, you'll be connected to your codespace. You can connect to it through the web or via [{% data variables.product.prodname_vscode_shortname %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code), or both, if needed.
 
 ### Step 4: Post-creation setup
 
 Once you are connected to your codespace, your automated setup may continue to build based on the configuration you specified in your `devcontainer.json` file. You may see `postCreateCommand` and `postAttachCommand` run.
 
-If you want to use Git hooks in your codespace,  set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`. For more information, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the Visual Studio Code documentation.
+If you want to use Git hooks in your codespace,  set up hooks using the [`devcontainer.json` lifecycle scripts](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_lifecycle-scripts), such as `postCreateCommand`. For more information, see the [`devcontainer.json` reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_devcontainerjson-properties) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 If you have a public dotfiles repository for {% data variables.product.prodname_codespaces %}, you can enable it for use with new codespaces. When enabled, your dotfiles will be cloned to the container and the install script will be invoked. For more information, see "[Personalizing {% data variables.product.prodname_codespaces %} for your account](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account#dotfiles)." 
 
@@ -67,12 +67,12 @@ As you develop in your codespace, it will save any changes to your files every f
 
 {% note %}
 
-**Note:** Changes in a codespace in {% data variables.product.prodname_vscode %} are not saved automatically, unless you have enabled [Auto Save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
+**Note:** Changes in a codespace in {% data variables.product.prodname_vscode_shortname %} are not saved automatically, unless you have enabled [Auto Save](https://code.visualstudio.com/docs/editor/codebasics#_save-auto-save).
 {% endnote %}
 
 ### Closing or stopping your codespace
 
-To stop your codespace you can [use the {% data variables.product.prodname_vscode_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command (for example, closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  By default, the window of inactivity is 30 minutes. 
+To stop your codespace you can [use the {% data variables.product.prodname_vs_command_palette %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces#suspending-or-stopping-a-codespace) (`Shift + Command + P` (Mac) / `Ctrl + Shift + P` (Windows)). If you exit your codespace without running the stop command (for example, closing the browser tab), or if you leave the codespace running without interaction, the codespace and its running processes will continue until a window of inactivity occurs, after which the codespace will stop.  By default, the window of inactivity is 30 minutes. 
 
 When you close or stop your codespace, all uncommitted changes are preserved until you connect to the codespace again.
 
@@ -93,7 +93,7 @@ Running your application when you first land in your codespace can make for a fa
 
 ## Committing and pushing your changes
 
-Git is available by default in your codespace and so you can rely on your existing Git workflow. You can work with Git in your codespace either via the Terminal or by using [Visual Studio Code](https://code.visualstudio.com/docs/editor/versioncontrol)'s source control UI. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
+Git is available by default in your codespace and so you can rely on your existing Git workflow. You can work with Git in your codespace either via the Terminal or by using [{% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/editor/versioncontrol)'s source control UI. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace)"
 
 ![Running git status in Codespaces Terminal](/assets/images/help/codespaces/git-status.png)
 
@@ -107,9 +107,9 @@ You can create a codespace from any branch, commit, or pull request in your proj
 
 ## Personalizing your codespace with extensions
 
-Using {% data variables.product.prodname_vscode %} in your codespace gives you access to the {% data variables.product.prodname_vscode %} Marketplace so that you can add any extensions you need. For information on how extensions run in {% data variables.product.prodname_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode %} docs. 
+Using {% data variables.product.prodname_vscode_shortname %} in your codespace gives you access to the {% data variables.product.prodname_vs_marketplace %} so that you can add any extensions you need. For information on how extensions run in {% data variables.product.prodname_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} docs. 
 
-If you already use {% data variables.product.prodname_vscode %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any {% data variables.product.prodname_codespaces %} you create.
+If you already use {% data variables.product.prodname_vscode_shortname %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any {% data variables.product.prodname_codespaces %} you create.
 
 ## Further reading
 

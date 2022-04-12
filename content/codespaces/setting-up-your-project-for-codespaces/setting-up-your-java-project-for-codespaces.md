@@ -164,7 +164,7 @@ With your dev container added and a basic understanding of what everything does,
   "forwardPorts": [4000],
   ```
 
-  For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) on the Visual Studio Code docs.
+  For more information on `devcontainer.json` properties, see the [devcontainer.json reference](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) on the {% data variables.product.prodname_vscode_shortname %} docs.
 
 {% data reusables.codespaces.rebuild-command %}
 

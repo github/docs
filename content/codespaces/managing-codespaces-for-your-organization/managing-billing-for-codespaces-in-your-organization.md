@@ -41,7 +41,7 @@ You can limit the choice of machine types that are available for repositories ow
 
 ## Deleting unused codespaces
 
-Your users can delete their codespaces in https://github.com/codespaces and from within Visual Studio Code. To reduce the size of a codespace, users can manually delete files using the terminal or from within Visual Studio Code. 
+Your users can delete their codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}. 
 
 {% note %}
 

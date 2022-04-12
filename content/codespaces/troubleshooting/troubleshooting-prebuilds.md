@@ -22,7 +22,7 @@ If multiple machine types are available when you create a codespace then a dialo
 
 ![The dialog box for choosing a machine type](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-If you have your {% data variables.product.prodname_codespaces %} editor preference set to "Visual Studio Code for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used. Similarly, if your editor preference is "Visual Studio Code" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[Setting your default editor for Codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)."
+If you have your {% data variables.product.prodname_codespaces %} editor preference set to "{% data variables.product.prodname_vscode %} for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used. Similarly, if your editor preference is "{% data variables.product.prodname_vscode %}" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[Setting your default editor for Codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)."
 
 After you have created a codespace you can check whether it was created from a prebuild by running the following {% data variables.product.prodname_cli %} command in the terminal:
 

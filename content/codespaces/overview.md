@@ -34,7 +34,7 @@ To customize the runtimes and tools in your codespace, you can create a custom c
 
 If you don't do any custom configuration, {% data variables.product.prodname_codespaces %} will clone your repository into an environment with the default codespace image that includes many tools, languages, and runtime environments. For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
-You can also personalize aspects of your codespace environment by using a public [dotfiles](https://dotfiles.github.io/tutorials/) repository and [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync). Personalization can include shell preferences, additional tools, editor settings, and VS Code extensions. For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)".
+You can also personalize aspects of your codespace environment by using a public [dotfiles](https://dotfiles.github.io/tutorials/) repository and [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync). Personalization can include shell preferences, additional tools, editor settings, and {% data variables.product.prodname_vscode_shortname %} extensions. For more information, see "[Customizing your codespace](/codespaces/customizing-your-codespace)".
 
 ## About billing for {% data variables.product.prodname_codespaces %}
 

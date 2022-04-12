@@ -23,7 +23,7 @@ After a student accepts an assignment with an IDE, the README file in the studen
 | IDE | More information |
 | :- | :- |
 | Microsoft MakeCode Arcade | "[About using MakeCode Arcade with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| Visual Studio Code | [{% data variables.product.prodname_classroom %} extension](http://aka.ms/classroom-vscode-ext) in the Visual Studio Marketplace |
+| {% data variables.product.prodname_vscode %} | [{% data variables.product.prodname_classroom %} extension](http://aka.ms/classroom-vscode-ext) in the Visual Studio Marketplace |
 
 We know cloud IDE integrations are important to your classroom and are working to bring more options. 
 
