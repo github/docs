@@ -57,8 +57,7 @@ The detection of calls to vulnerable functions uses the semantic code graph to f
 
 ![Screenshot showing the "Vulnerable call" label](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
 
-<!-- TODO: this filter is currently not working. Double-check -->
-You can filter the list of {% data variables.product.prodname_dependabot_alerts %} to only show alerts detecting calls to vulnerable function by using the `has:vulnerable-call` filter in the search field.
+You can filter the list of {% data variables.product.prodname_dependabot_alerts %} to only show alerts detecting calls to vulnerable function by using the `has:vulnerable-calls` filter in the search field.
 
 The alert details page shows:
 
@@ -118,7 +117,7 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
 1. Click the alert that you would like to view.
   ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-ungrouped.png)
 1. Review the details of the vulnerability and, if available, the pull request containing the automated security update.
-2. Optionally, if the alert highlights a call to a vulnerable function, you may want to identify the functions that are affected and check whether you're using them. Such {% data variables.product.prodname_dependabot_alerts %} have the `vulnerable-call` label, and you can use the `has:vulnerable-call` filter to only display this type of alert in the list. 
+2. Optionally, if the alert highlights a call to a vulnerable function, you may want to identify the functions that are affected and check whether you're using them. Such {% data variables.product.prodname_dependabot_alerts %} have the `vulnerable-call` label, and you can use the `has:vulnerable-calls` filter to only display this type of alert in the list. 
   ![Identifying alerts highlighting calls to vulnerable functions](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)   
    View alert details on the alert page to establish whether the vulnerability is in tests or production code, and asses the need to fix the alert based on this information. If appropriate, you may dismiss the alert. For more information, see the step below about dismissing alerts.
   ![Screenshot showing the type of information displayed for alerts highlighting calls to vulnerable functions](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)   
