@@ -45,7 +45,7 @@ Each {% data variables.product.prodname_dependabot %} alert has a unique numeric
 {% endif %}
 
 {% if dependabot-alerts-vulnerable-calls %}
-## About calls to vulnerable functions
+## About the detection of calls to vulnerable functions
 
 {% data reusables.dependabot.vulnerable-calls-beta %}
 
@@ -57,6 +57,9 @@ The detection of calls to vulnerable functions uses the semantic code graph to f
 
 ![Screenshot showing the "Vulnerable call" label](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
 
+<!-- TODO: this filter is not supported. Double-check -->
+You can filter the list of {% data variables.product.prodname_dependabot_alerts %} to only show alerts using the `has:vulnerable-call` filter in the search field.
+
 The alert details page shows:
 
 - The first of several exposures (if relevant) you have to the vulnerable function
@@ -65,7 +68,7 @@ The alert details page shows:
 
 ![Screenshot showing the alert details page](/assets/images/help/repository/vulnerable-calls-alert-details-page.png)
 
-For more information, see the "[Reviewing your exposure to a vulnerability](#reviewing-your-exposure-to-a-vulnerability) section below.
+For more information, see "[Reviewing your exposure to a vulnerability](#reviewing-your-exposure-to-a-vulnerability) below.
 
 {% endif %}
 
@@ -80,11 +83,6 @@ For more information, see the "[Reviewing your exposure to a vulnerability](#rev
 1. Click the alert that you would like to view.
   ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-ungrouped.png)
 1. Review the details of the vulnerability and, if available, the pull request containing the automated security update.
-2. Optionally, if there isn't already a {% data variables.product.prodname_dependabot %} update for the alert, to create a pull request to resolve the vulnerability, click **Create {% data variables.product.prodname_dependabot %} security update**.
-  ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
-1. When you're ready to update your dependency and resolve the vulnerability, merge the pull request. Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
-1. Optionally, if the alert is being fixed, if it's incorrect, or located in unused code, select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% if reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
-   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 
 {% elsif ghes = 3.3 %}
 {% data reusables.repositories.navigate-to-repo %}
@@ -109,8 +107,9 @@ For more information, see the "[Reviewing your exposure to a vulnerability](#rev
 
 {% endif %}
 
-## Fixing vulnerable dependencies
+## Reviewing and fixing vulnerable dependencies
 
+STOPPED HERE
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -203,3 +202,43 @@ For more information, see the "[Reviewing your exposure to a vulnerability](#rev
 - "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
 - "[Troubleshooting the detection of vulnerable dependencies](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-the-detection-of-vulnerable-dependencies)"{% ifversion fpt or ghec or ghes > 3.2 %}
 - "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-dependabot-errors)"{% endif %}
+
+
+TODO: for reviewing:
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-dependabot-alerts %}
+1. Optionally, to filter alerts, select the **Repository**, **Package**, **Ecosystem**, or **Manifest** dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. For example, `ecosystem:npm` or `has:patch`. To sort alerts, select the **Sort** dropdown menu then click the option that you would like to sort by.
+  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters.png)
+1. Click the alert that you would like to view.
+  ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list-ungrouped.png)
+1. Review the details of the vulnerability and, if available, the pull request containing the automated security update.
+2. Optionally, if there isn't already a {% data variables.product.prodname_dependabot %} update for the alert, to create a pull request to resolve the vulnerability, click **Create {% data variables.product.prodname_dependabot %} security update**.
+  ![Create {% data variables.product.prodname_dependabot %} security update button](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+1. When you're ready to update your dependency and resolve the vulnerability, merge the pull request. Each pull request raised by {% data variables.product.prodname_dependabot %} includes information on commands you can use to control {% data variables.product.prodname_dependabot %}. For more information, see "[Managing pull requests for dependency updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+1. Optionally, if the alert is being fixed, if it's incorrect, or located in unused code, select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% if reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %}
+   ![Choosing reason for dismissing the alert via the "Dismiss" drop-down](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+
+{% elsif ghes = 3.3 %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-dependabot-alerts %}
+1. Click the alert you'd like to view.
+  ![Alert selected in list of alerts](/assets/images/help/graphs/click-alert-in-alerts-list.png)
+
+{% elsif ghes = 3.1 or ghes = 3.2 or ghae-issue-4864 %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-dependabot-alerts %}
+1. Click the alert you'd like to view.
+  ![Alert selected in list of alerts](/assets/images/enterprise/graphs/click-alert-in-alerts-list.png)
+
+{% else %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
+1. Click the version number of the vulnerable dependency to display detailed information.
+  ![Detailed information on the vulnerable dependency](/assets/images/enterprise/3.0/dependabot-alert-info.png)
+
+{% endif %}
