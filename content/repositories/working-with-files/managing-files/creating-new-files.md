@@ -32,4 +32,4 @@ When creating a file on {% data variables.product.product_name %}, consider the 
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
-{% data reusables.files.propose_new_file %}
+{% data reusables.files.propose_new_file %} 
