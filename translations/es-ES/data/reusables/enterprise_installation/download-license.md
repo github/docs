@@ -1,1 +1,1 @@
-1. Para descargar tu archivo de licencia, haz clic en **Download license (Descargar licencia)**.
+1. Descargar tu licencia. Paa obtener más información, consulta la sección "[Descargar tu licencia para {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)".

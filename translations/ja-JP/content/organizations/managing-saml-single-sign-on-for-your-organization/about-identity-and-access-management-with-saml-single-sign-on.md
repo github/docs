@@ -18,6 +18,8 @@ shortTitle: SAML SSOを使うIAM
 
 {% data reusables.saml.dotcom-saml-explanation %}
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.saml-accounts %}
 
 Organization のオーナーは、個々の Organization に SAML SSO を適用できます。または、Enterprise のオーナーは、Enterprise アカウント内のすべての Organization に SAML SSO を適用できます。 詳しい情報については、「[Enterprise 向けのSAML シングルサインオンを設定する](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)」を参照してください。
