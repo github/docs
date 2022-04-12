@@ -1,10 +1,12 @@
 ---
-title: Encontrar discussões entre vários repositórios
-intro: Você pode acessar facilmente todas as discussões que você criou ou participou de vários repositórios.
+title: Finding your discussions
+intro: You can easily access every discussion you've created or participated in.
 versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Encontrar discussões
+redirect_from:
+  - /discussions/guides/finding-discussions-across-multiple-repositories
 ---
 
 
