@@ -58,7 +58,7 @@ For more information, see "[About permissions for {% data variables.product.prod
 {% endif %}
 
 ## Supported clients and formats
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported clients or formats. -->
+<!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
 {% data variables.product.prodname_registry %} uses the native package tooling commands you're already familiar with to publish and install package versions.
 ### Support for package registries
