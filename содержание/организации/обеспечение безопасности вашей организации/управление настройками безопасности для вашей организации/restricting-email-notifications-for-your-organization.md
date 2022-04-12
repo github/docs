@@ -1,4 +1,4 @@
----
+Anna88babenko@gmail.com---
 title: Restricting email notifications for your organization
 intro: 'To prevent organization information from leaking into personal email accounts, you can restrict the domains where members can receive email notifications about organization activity.'
 product: '{% data reusables.gated-features.restrict-email-domain %}'
