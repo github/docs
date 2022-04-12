@@ -49,7 +49,7 @@ topics:
 
 `services`キーワードを使って、ワークフロー内のジョブの一部であるサービスコンテナを作成できます。 詳しい情報については[`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices)を参照してください。
 
-以下の例は、`container-job`というジョブの中に`redis`というサービスを作成します。 この例でのDockerホストは`node:10.18-jessie`コンテナです。
+以下の例は、`container-job`というジョブの中に`redis`というサービスを作成します。 The Docker host in this example is the `node:16-bullseye` container.
 
 {% raw %}
 ```yaml{:copy}
@@ -57,18 +57,18 @@ name: Redis container example
 on: push
 
 jobs:
-  # コンテナジョブのラベル
+  # Label of the container job
   container-job:
-    # コンテナはLinuxベースのオペレーティングシステム内で実行する
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # `container-job`が実行されるDocker Hubイメージ
-    container: node:10.18-jessie
+    # Docker Hub image that `container-job` executes in
+    container: node:16-bullseye
 
-    # `container-job`と実行されるサービスコンテナ
+    # Service containers to run with `container-job`
     services:
-      # サービスコンテナへのアクセスに使われるラベル
+      # Label used to access the service container
       redis:
-        # Docker Hubのイメージ
+        # Docker Hub image
         image: redis
 ```
 {% endraw %}

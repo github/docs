@@ -19,6 +19,8 @@ shortTitle: Discussions
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
 1. To disable discussions, under "Features", unselect **Discussions**.
 
+You can also use organization discussions to facilitate conversations that span multiple repositories in your organization. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+
 ## Further reading
 
 - "[About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"

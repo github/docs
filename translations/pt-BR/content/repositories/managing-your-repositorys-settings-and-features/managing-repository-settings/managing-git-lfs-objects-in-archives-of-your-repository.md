@@ -15,11 +15,11 @@ redirect_from:
 
 ## Sobre os objetos {% data variables.large_files.product_name_short %} nos arquivos
 
-O {% data variables.product.product_name %} cria arquivos de código-fonte do seu repositório na forma de arquivos ZIP e tarballs. As pessoas podem baixar esses arquivos na página principal do seu repositório ou como ativos de versão. Por padrão, os objetos {% data variables.large_files.product_name_short %} não estão incluídos nesses arquivos, apenas os arquivos de ponteiro para esses objetos. Para melhorar a usabilidade dos arquivos no seu repositório, você pode optar por incluir os objetos do {% data variables.large_files.product_name_short %}.
+O {% data variables.product.product_name %} cria arquivos de código-fonte do seu repositório na forma de arquivos ZIP e tarballs. As pessoas podem baixar esses arquivos na página principal do seu repositório ou como ativos de versão. Por padrão, os objetos {% data variables.large_files.product_name_short %} não estão incluídos nesses arquivos, apenas os arquivos de ponteiro para esses objetos. Para melhorar a usabilidade dos arquivos no seu repositório, você pode optar por incluir os objetos do {% data variables.large_files.product_name_short %}. To be included, the {% data variables.large_files.product_name_short %} objects must be covered by tracking rules in a *.gitattributes* file that has been committed to the repository.
 
 Sevocê optar por incluir os objetos {% data variables.large_files.product_name_short %}  nos arquivos de seu repositório, cada download desses arquivos contará para o uso de largura de banda de sua conta. Cada conta recebe {% data variables.large_files.initial_bandwidth_quota %} por mês de largura de banda gratuitamente, e você pode pagar pelo uso adicional. Para obter mais informações, consulte "[Sobre armazenamento e uso de largura de banda](/github/managing-large-files/about-storage-and-bandwidth-usage)" e "[Gerenciando a cobrança para {% data variables.large_files.product_name_long %}](/billing/managing-billing-for-git-large-file-storage)".
 
-Se você usar um servidor LFS externo (configurado no seu `.lfsconfig`), os arquivos LFS não serão incluídos nos arquivos do repositório. O arquivo conterá apenas arquivos que têm commit para {% data variables.product.product_name %}.
+Se você usar um servidor LFS externo (configurado no seu *.lfsconfig*), os arquivos LFS não serão incluídos nos arquivos do repositório. O arquivo conterá apenas arquivos que têm commit para {% data variables.product.product_name %}.
 
 ## Gerenciando objetos {% data variables.large_files.product_name_short %} nos arquivos
 

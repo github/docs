@@ -22,6 +22,8 @@ You can decide how many teams one assignment can have, and how many members each
 
 For a video demonstration of the creation of a group assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## Prerequisites
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}

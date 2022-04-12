@@ -22,7 +22,8 @@ export const CodeExamples = () => {
   const isSearching = !!search
   let searchResults: typeof productCodeExamples = []
   if (isSearching) {
-    const matchReg = new RegExp(search, 'i')
+    // The following replace method escapes special characters in regular expression creation.
+    const matchReg = new RegExp(search.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), 'i')
     searchResults = productCodeExamples.filter((example) => {
       const searchableStr = `${example.tags.join(' ')} ${example.title} ${example.description}`
       return matchReg.test(searchableStr)

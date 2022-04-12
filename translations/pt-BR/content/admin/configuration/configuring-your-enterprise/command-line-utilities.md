@@ -115,7 +115,7 @@ Permite encontrar o identificador universalmente exclusivo (UUID) do seu nó em 
 ```
 
 {% ifversion ghes %}
-Allows you to exempt a list of users from REST API rate limits. Um limite rígido de 120.000 solicitações ainda será aplicado a esses usuários. Para obter mais informações, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".
+Permite isentar uma lista de usuários do limite de taxa da API REST. Um limite rígido de 120.000 solicitações ainda será aplicado a esses usuários. Para obter mais informações, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limiting)".
 
 ``` shell
 $ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
