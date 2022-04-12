@@ -28684,7 +28684,7 @@
           }
         ],
         "previews": [],
-        "descriptionHTML": "<p>For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.</p>\n<p>Team members will include the members of child teams.</p>\n<p>You must authenticate using an access token with the <code>read:org</code> and <code>repo</code> scopes with push access to use this\nendpoint. GitHub Apps must have the <code>members</code> organization permission and <code>metadata</code> repository permission to use this\nendpoint.</p>",
+        "descriptionHTML": "<p>For organization-owned repositories, the list of collaborators includes outside collaborators, organization members that are direct collaborators, organization members with access through team memberships, organization members with access through default organization permissions, and organization owners.\nOrganization members with write, maintain, or admin privileges on the organization-owned repository can use this endpoint.</p>\n<p>Team members will include the members of child teams.</p>\n<p>You must authenticate using an access token with the <code>read:org</code> and <code>repo</code> scopes with push access to use this\nendpoint. GitHub Apps must have the <code>members</code> organization permission and <code>metadata</code> repository permission to use this\nendpoint.</p>",
         "statusCodes": [
           {
             "httpStatusCode": "200",
