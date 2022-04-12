@@ -109,7 +109,6 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
 
 ## Reviewing and fixing vulnerable dependencies
 
-STOPPED HERE
 {% if dependabot-alerts-vulnerable-calls %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
