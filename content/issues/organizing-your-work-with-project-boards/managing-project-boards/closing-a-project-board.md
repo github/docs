@@ -20,7 +20,7 @@ When you close a project board, any configured workflow automation will pause by
 
 If you reopen a project board, you have the option to *sync* automation, which updates the position of the cards on the board according to the automation settings configured for the board. For more information, see "[Reopening a closed project board](/articles/reopening-a-closed-project-board)" or "[About automation for project boards](/articles/about-automation-for-project-boards)."
 
-1. Navigate to the list of project boards in your repository or organization, or owned by your user account.
+1. Navigate to the list of project boards in your repository or organization, or owned by your personal account.
 2. In the projects list, next to the project board you want to close, click {% octicon "chevron-down" aria-label="The chevron icon" %}.
 ![Chevron icon to the right of the project board's name](/assets/images/help/projects/project-list-action-chevron.png)
 3. Click **Close**.

@@ -18,7 +18,7 @@ After you create issue and pull request templates in your repository, contributo
 
 {% ifversion fpt or ghes or ghec %}
 
-You can create default issue and pull request templates for your organization or user account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default issue and pull request templates for your organization or personal account. For more information, see "[Creating a default community health file](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

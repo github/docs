@@ -192,10 +192,10 @@ Estes comandos só estão disponíveis quando você abre a paleta de comandos em
 
 | Comando                         | Comportamento                                                                                                                                                                                                                                               |
 |:------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Excluir discussão...`          | Excluir permanentemente a discussão. Para obter mais informações, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)".                 |
+| `Excluir discussão...`          | Excluir permanentemente a discussão. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."                                                                   |
 | `Editar texto da discussão`     | Abra o texto principal da discussão que está pronto para edição.                                                                                                                                                                                            |
 | `Assinar`/`Cancelar assinatura` | Opte por participar ou não receber notificações de adições à discussão. Para obter mais informações, consulte "[Sobre notificações](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)". |
-| `Transferir discussão...`       | Mover a discussão para um repositório diferente. Para obter mais informações, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#transferring-a-discussion)". |
+| `Transferir discussão...`       | Mover a discussão para um repositório diferente. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion)."                                                   |
 
 ### Comandos de problemas
 

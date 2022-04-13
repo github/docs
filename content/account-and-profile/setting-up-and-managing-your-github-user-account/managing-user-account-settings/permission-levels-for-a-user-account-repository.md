@@ -1,6 +1,6 @@
 ---
 title: Permission levels for a user account repository
-intro: 'A repository owned by a user account has two permission levels: the repository owner and collaborators.'
+intro: 'A repository owned by a personal account has two permission levels: the repository owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository
@@ -14,19 +14,19 @@ topics:
   - Accounts
 shortTitle: Permission user repositories
 ---
-## About permissions levels for a user account repository
+## About permissions levels for a personal account repository
 
-Repositories owned by user accounts have one owner. Ownership permissions can't be shared with another user account.
+Repositories owned by personal accounts have one owner. Ownership permissions can't be shared with another personal account.
 
 You can also {% ifversion fpt or ghec %}invite{% else %}add{% endif %} users on {% data variables.product.product_name %} to your repository as collaborators. For more information, see "[Inviting collaborators to a personal repository](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)."
 
 {% tip %}
 
-**Tip:** If you require more granular access to a repository owned by your user account, consider transferring the repository to an organization. For more information, see "[Transferring a repository](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)."
+**Tip:** If you require more granular access to a repository owned by your personal account, consider transferring the repository to an organization. For more information, see "[Transferring a repository](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-personal-account)."
 
 {% endtip %}
 
-## Owner access for a repository owned by a user account
+## Owner access for a repository owned by a personal account
 
 The repository owner has full control of the repository. In addition to the actions that any collaborator can perform, the repository owner can perform the following actions.
 
@@ -53,13 +53,13 @@ The repository owner has full control of the repository. In addition to the acti
 | Display a sponsor button | "[Displaying a sponsor button in your repository](/github/administering-a-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}
 | Allow or disallow auto-merge for pull requests | "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)" | 
 
-## Collaborator access for a repository owned by a user account
+## Collaborator access for a repository owned by a personal account
 
 Collaborators on a personal repository can pull (read) the contents of the repository and push (write) changes to the repository.
 
 {% note %}
 
-**Note:** In a private repository, repository owners can only grant write access to collaborators. Collaborators can't have read-only access to repositories owned by a user account.
+**Note:** In a private repository, repository owners can only grant write access to collaborators. Collaborators can't have read-only access to repositories owned by a personal account.
 
 {% endnote %}
 

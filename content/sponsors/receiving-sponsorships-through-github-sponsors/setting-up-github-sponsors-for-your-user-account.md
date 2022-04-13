@@ -12,7 +12,7 @@ type: how_to
 topics:
   - User account
   - Sponsors profile
-shortTitle: Set up for user account
+shortTitle: Set up for personal account
 ---
 
 ## Joining {% data variables.product.prodname_sponsors %}
@@ -22,7 +22,7 @@ shortTitle: Set up for user account
 To join {% data variables.product.prodname_sponsors %} as an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
-2. If you are an organization owner, you have more than one eligible account. Click **View your eligible accounts**, then in the list of accounts, find your user account.
+2. If you are an organization owner, you have more than one eligible account. Click **View your eligible accounts**, then in the list of accounts, find your personal account.
 3. Click **Join the waitlist**.
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}
