@@ -7,5 +7,5 @@ You can also enable or disable the dependency graph for all repositories owned b
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 4. Read the message about granting {% data variables.product.product_name %} read-only access to the repository data to enable the dependency graph, then next to "Dependency Graph", click **Enable**.
    !["Enable" button for the dependency graph](/assets/images/help/repository/dependency-graph-enable-button.png)
-
-You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the Security & analysis tab.
+   
+   You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the Code security and analysis tab.
