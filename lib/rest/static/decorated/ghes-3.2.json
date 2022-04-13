@@ -23663,7 +23663,7 @@
             "key": "example-of-in-progress-conclusion",
             "request": {
               "contentType": "application/json",
-              "description": "Response for in_progress conclusion",
+              "description": "Example of an in_progress conclusion",
               "acceptHeader": "application/vnd.github.v3+json",
               "bodyParameters": {
                 "name": "mighty_readme",
@@ -23685,7 +23685,7 @@
             "response": {
               "statusCode": "201",
               "contentType": "application/json",
-              "description": "Response for completed conclusion",
+              "description": "Response for in_progress conclusion",
               "example": {
                 "id": 4,
                 "head_sha": "ce587453ced02b1526dfb4cb910479d431683101",
@@ -23782,7 +23782,7 @@
             "key": "example-of-completed-conclusion",
             "request": {
               "contentType": "application/json",
-              "description": "Response for completed conclusion",
+              "description": "Example of a completed conclusion",
               "acceptHeader": "application/vnd.github.v3+json",
               "bodyParameters": {
                 "name": "mighty_readme",
@@ -70724,7 +70724,7 @@
         ]
       },
       {
-        "serverUrl": "https%3A%2F%2Fuploads.github.com",
+        "serverUrl": "https://uploads.github.com",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/assets",
         "title": "Upload a release asset",
