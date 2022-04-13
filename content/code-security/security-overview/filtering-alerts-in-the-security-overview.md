@@ -126,7 +126,7 @@ Available in the {% data variables.product.prodname_dependabot %} alert views. Y
 | Qualifier | Description |
 | -------- | -------- |
 |`has:patch`|Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.|
-|`has:vulnerable-calls`|Displays {% data variables.product.prodname_depednabot %} alerts where at least one call from the repository to a vulnerable function is detected.|
+|`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected.|
 {% endif %}
 
 {% endif %}
