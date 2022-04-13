@@ -1,5 +1,5 @@
 ---
-title: Permission levels for user-owned project boards
+title: Permission levels for project boards owned by a personal account
 intro: 'A project board owned by a personal account has two permission levels: the project board owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
@@ -7,6 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-user-owned-project-boards
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-user-owned-project-boards
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-personal-account-settings/permission-levels-for-user-owned-project-boards
+  - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-user-owned-project-boards
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,7 +15,7 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Permission user project boards
+shortTitle: Project board permissions
 ---
 ## Permissions overview
 

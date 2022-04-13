@@ -1,5 +1,5 @@
 ---
-title: Permission levels for a user account repository
+title: Permission levels for a personal account repository
 intro: 'A repository owned by a personal account has two permission levels: the repository owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Permission user repositories
+shortTitle: Repository permissions
 ---
 ## About permissions levels for a personal account repository
 

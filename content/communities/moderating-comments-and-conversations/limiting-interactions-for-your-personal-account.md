@@ -1,5 +1,5 @@
 ---
-title: Limiting interactions for your user account
+title: Limiting interactions for your personal account
 intro: You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your personal account.
 versions:
   fpt: '*'

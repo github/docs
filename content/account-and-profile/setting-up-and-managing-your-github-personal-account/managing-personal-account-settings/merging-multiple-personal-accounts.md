@@ -1,5 +1,5 @@
 ---
-title: Merging multiple user accounts
+title: Merging multiple personal accounts
 intro: 'If you have separate accounts for work and personal use, you can merge the accounts.'
 redirect_from:
   - /articles/can-i-merge-two-accounts
