@@ -67,7 +67,7 @@ Se um repositório privado passa a ser público e depois é excluído, as bifurc
 
 
 
-Se a política para a sua empresa permitir a bifurcação, qualquer bifurcação de um repositório interno será privado. Se você alterar a visibilidade de um repositório interno, qualquer bifurcação pertencente a uma organização ou conta de usuário continuará sendo privada.
+Se a política para a sua empresa permitir a bifurcação, qualquer bifurcação de um repositório interno será privado. If you change the visibility of an internal repository, any fork owned by an organization or personal account will remain private.
 
 ### Excluir o repositório interno
 

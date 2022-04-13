@@ -26,10 +26,10 @@ Você pode possuir repositórios individualmente ou compartilhar a propriedade d
 
 É possível restringir quem tem acesso a um repositório escolhendo a visibilidade do repositório. Para obter mais informações, consulte "[Sobre a visibilidade do repositório](#about-repository-visibility)."
 
-Para repositórios possuídos pelo usuário, você pode fornecer a outras pessoas acesso de colaborador para que elas possam colaborar no seu projeto. Se um repositório pertencer a uma organização, você poderá fornecer aos integrantes da organização permissões de acesso para colaboração no seu repositório. Para obter mais informações, consulte "[Níveis de permissão para uma repositório de conta de usuário](/articles/permission-levels-for-a-user-account-repository/)" e "[Funções de repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+Para repositórios possuídos pelo usuário, você pode fornecer a outras pessoas acesso de colaborador para que elas possam colaborar no seu projeto. Se um repositório pertencer a uma organização, você poderá fornecer aos integrantes da organização permissões de acesso para colaboração no seu repositório. For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% ifversion fpt or ghec %}
-Com o {% data variables.product.prodname_free_team %} em contas de usuário e organizações, você pode trabalhar com colaboradores ilimitados em repositórios públicos ilimitados, com um conjunto completo de recursos, ou em repositórios privados ilimitados com um conjunto de recursos limitados. Para obter ferramentas avançadas para repositórios privados, você pode fazer o upgrade para {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
+With {% data variables.product.prodname_free_team %} for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. Para obter ferramentas avançadas para repositórios privados, você pode fazer o upgrade para {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
 {% else %}
 Cada pessoa e organização podem ter repositórios ilimitados e convidar um número ilimitado de colaboradores para todos os repositórios.
 {% endif %}
@@ -52,7 +52,7 @@ Ao criar um repositório, você pode optar por tornar o repositório público ou
 
 {% elsif ghae %}
 
-Ao criar um repositório pertencente à sua conta de usuário, o repositório é sempre privado. Ao criar um repositório pertencente a uma organização, você pode optar por tornar o repositório privado ou interno.
+When you create a repository owned by your personal account, the repository is always private. Ao criar um repositório pertencente a uma organização, você pode optar por tornar o repositório privado ou interno.
 
 {% endif %}
 
@@ -90,7 +90,7 @@ Todos os integrantes da empresa têm permissões de leitura no repositório inte
 
 {% data reusables.repositories.internal-repo-default %}
 
-Qualquer integrante da empresa pode bifurcar qualquer repositório interno pertencente a uma organização da empresa. O repositório bifurcado pertencerá à conta de usuário do integrante e a visibilidade da bifurcação será privada. Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
+Qualquer integrante da empresa pode bifurcar qualquer repositório interno pertencente a uma organização da empresa. The forked repository will belong to the member's personal account, and the visibility of the fork will be private. Se um usuário for removido de todas as organizações pertencentes à empresa, essas bifurcações do usuário dos repositórios internos do usuário serão removidas automaticamente.
 {% endif %}
 
 ## Limites para visualização de conteúdo e diffs no repositório

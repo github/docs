@@ -1,7 +1,7 @@
 ---
 title: Sua conta e seu perfil no GitHub
 shortTitle: Conta e perfil
-intro: 'Faça {% data variables.product.product_name %} funcionar melhor para você, ajustando as configurações para sua conta de usuário, personalizando a página do seu perfil e gerenciando as notificações que você recebe para atividades em {% data variables.product.prodname_dotcom %}.'
+intro: 'Make {% data variables.product.product_name %} work best for you by adjusting the settings for your personal account, personalizing your profile page, and managing the notifications you receive for activity on {% data variables.product.prodname_dotcom %}.'
 introLinks:
   quickstart: /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:

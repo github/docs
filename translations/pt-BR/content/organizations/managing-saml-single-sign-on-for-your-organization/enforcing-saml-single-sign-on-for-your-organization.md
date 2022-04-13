@@ -14,7 +14,7 @@ shortTitle: Aplicar logon único SAML
 
 ## Sobre a aplicação do SAML SSO para sua organização
 
-Ao habilitar o SAML SSO, {% data variables.product.prodname_dotcom %} solicitará que os integrantes que visitam os recursos da organização em {% data variables.product.prodname_dotcom_the_website %} efetuem a autenticação no seu IdP, que vincula a conta de usuário do integrante a uma identidade no IdP. Os integrantes ainda podem acessar os recursos da organização antes da autenticação com seu IdP.
+When you enable SAML SSO, {% data variables.product.prodname_dotcom %} will prompt members who visit the organization's resources on {% data variables.product.prodname_dotcom_the_website %} to authenticate on your IdP, which links the member's personal account to an identity on the IdP. Os integrantes ainda podem acessar os recursos da organização antes da autenticação com seu IdP.
 
 ![Banner com solicitação para efetuar a autenticação por meio do SAML SSO para acessar a organização](/assets/images/help/saml/sso-has-been-enabled.png)
 

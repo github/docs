@@ -16,13 +16,17 @@ miniTocMaxHeadingLevel: 3
 
 ## Verificando, alterando e excluindo suas configurações de pré-compilação
 
-As pré-compilações que você configurar são criadas e atualizadas usando um fluxo de trabalho de {% data variables.product.prodname_actions %}, gerenciado pelo serviço de {% data variables.product.prodname_codespaces %}.
+The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_codespaces %} service.
 
-O fluxo de trabalho é acionado por estes eventos:
+Depending on the settings in a prebuild configuration, the workflow to update the prebuild template may be triggered by these events:
 
 * Criando ou atualizando a configuração de pré-compilação
 * Enviando por push um commit ou um pull request para um branch configurado para pré-compilações
+* Changing any of the dev container configuration files
+* A schedule that you've defined in the prebuild configuration
 * Acionando manualmente o fluxo de trabalho
+
+The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild template. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
 
 As pessoas com acesso de administrador a um repositório podem verificar o progresso de pré-compilações, editar e excluir configurações de pré-criação.
 

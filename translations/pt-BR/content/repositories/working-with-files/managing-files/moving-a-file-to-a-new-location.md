@@ -26,7 +26,7 @@ Além de alterar o local do arquivo, também é possível [atualizar o conteúdo
 
 **Dicas**:
 
-- Se você tentar mover um arquivo em um repositório que não tem acesso, bifurcaremos o projeto para sua conta de usuário e ajudaremos você a enviar [uma pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) para o repositório original depois de fazer o commit da alteração.
+- If you try to move a file in a repository that you don’t have access to, we'll fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
 - Alguns arquivos, como imagens, exigem que você os mova com a linha de comando. Para obter mais informações, consulte "[Mover um arquivo para um novo local usando a linha de comando](/articles/moving-a-file-to-a-new-location-using-the-command-line)".
 - {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 

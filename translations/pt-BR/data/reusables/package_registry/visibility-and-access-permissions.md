@@ -3,7 +3,7 @@ Se você tiver permissões de administrador para a imagem de um contêiner, voc�
 
 Como administrador, você também pode conceder permissões de acesso para uma imagem contêiner separada das permissões que você configurou nos níveis da organização e repositório.
 
-Para imagens de contêiner publicadas e pertencentes a uma conta de usuário, você pode dar a qualquer pessoa uma função de acesso. Para imagens de contêineres publicadas e pertencentes a uma organização, você pode dar uma função de acesso a qualquer pessoa ou equipe na organização.
+For container images published and owned by a personal account, you can give any person an access role. Para imagens de contêineres publicadas e pertencentes a uma organização, você pode dar uma função de acesso a qualquer pessoa ou equipe na organização.
 
 | Permissão     | Descrição de acesso                                                                                                                                          |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |

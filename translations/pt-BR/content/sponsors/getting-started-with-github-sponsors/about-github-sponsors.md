@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.sponsors.no-fees %} Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)".
 
-{% data reusables.sponsors.you-can-be-a-sponsored-developer %} Para mais informações, consulte "[Sobre {% data variables.product.prodname_sponsors %} para contribuidores de código aberto](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)" e "[Configurando {% data variables.product.prodname_sponsors %} para sua conta de usuário](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
+{% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[About {% data variables.product.prodname_sponsors %} for open source contributors](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)" and "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %} Para mais informações, consulte "[Configurando o {% data variables.product.prodname_sponsors %} para a sua organização](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 

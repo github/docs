@@ -20,7 +20,7 @@ Você pode criar um subdiretório *PULL_REQUEST_TEMPLATE/* em qualquer uma das p
 
 {% ifversion fpt or ghes or ghec %}
 
-Você pode criar modelos de pull request padrão para sua organização{% ifversion fpt or ghes or ghec %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default pull request templates for your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
