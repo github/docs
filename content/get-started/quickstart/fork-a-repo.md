@@ -30,7 +30,7 @@ For example, you can use forks to propose changes related to fixing a bug. Rathe
 - Fork the repository.
 - Make the fix.
 - Submit a pull request to the project owner.
-
+fork-a-repo.md
 ### Use someone else's project as a starting point for your own idea.
 
 Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the "[About the Open Source Initiative](http://opensource.org/about)" on the Open Source Initiative.
