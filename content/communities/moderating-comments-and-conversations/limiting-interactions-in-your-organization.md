@@ -43,6 +43,6 @@ Organization owners and moderators can also block users for a specific amount of
 ## Further reading
 - "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)"
+- "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository)"
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"

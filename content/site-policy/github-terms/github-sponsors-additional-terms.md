@@ -60,7 +60,7 @@ The GitHub Sponsors Matching Fund aims to encourage the community that participa
 #### 2.2.1. Matching Fund Terms.
 Eligibility for the GitHub Sponsors Matching Fund is evaluated on a case-by-case basis and is subject to the following limitations:
 
-* You must have a GitHub account, be accepted into the Program as an individual, and be actively contributing to OSS. Please note, GitHub does not allow operating more than one free user account. As such, matching is available on an individual basis and will not be approved across multiple accounts.
+* You must have a GitHub account, be accepted into the Program as an individual, and be actively contributing to OSS. Please note, GitHub does not allow operating more than one free personal account. As such, matching is available on an individual basis and will not be approved across multiple accounts.
 
 * Your use of GitHub and your Sponsored Developer Account must be, based on our determination, in our sole discretion, in accordance with the GitHub Sponsors mission to expand the opportunities to contribute to open source that upholds the [GitHub Community Guidelines](/github/site-policy/github-community-guidelines).
 
