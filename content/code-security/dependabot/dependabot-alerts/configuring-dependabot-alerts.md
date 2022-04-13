@@ -42,11 +42,7 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 5. Click **Disable {% data variables.product.prodname_dependabot_alerts %}** or **Enable {% data variables.product.prodname_dependabot_alerts %}** to disable or enable {% data variables.product.prodname_dependabot_alerts %} for all the repositories you own.
   {% ifversion ghes > 3.2 %}![Button to disable or enable feature](/assets/images/enterprise/3.3/settings/security-and-analysis-enable-dependency-graph.png){% else %}![Screenshot of "Enable Dependabot alerts" with "Enable  Dependabot alerts" button emphasized](/assets/images/help/dependabot/dependabot-alerts-enable-dependabot-alerts.png){% endif %}
 
-When you enable {% data variables.product.prodname_dependabot_alerts %} for existing repositories, you will see any results displayed on GitHub within minutes:
-
-- All the existing repositories will have the selected configuration.
-- New repositories will follow the selected configuration if you've enabled the checkbox for new repositories.
-- We use the permissions to scan for manifest files to apply the relevant services.
+When you enable {% data variables.product.prodname_dependabot_alerts %} for existing repositories, you will see any results displayed on GitHub within minutes.
 
 ### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for new repositories
 
