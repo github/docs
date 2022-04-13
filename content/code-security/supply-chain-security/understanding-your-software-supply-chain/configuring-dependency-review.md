@@ -39,6 +39,12 @@ Dependency review is available when dependency graph is enabled for {% data vari
 
 ### Checking if the dependency graph is enabled
 
+{% note %}
+
+**Note:** Your site administrator or organization owner can access the repository settings.
+
+{% endnote %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
