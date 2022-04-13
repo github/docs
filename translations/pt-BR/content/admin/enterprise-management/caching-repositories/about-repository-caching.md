@@ -16,6 +16,6 @@ Um cache de repositório elimina a necessidade de {% data variables.product.prod
 
 O cache do repositório escuta a instância principal, seja uma instância única ou um conjunto de instâncias replicadas georreplicado, para alterações nos dados do Git. As farms de CI e outros consumidores muito pesados clonam e buscam do cache do repositório em vez da instância primária. As alterações são propagadas na rede, em intervalos periódicos, uma vez por instância de cache ao invés de uma vez por cliente. Os dados do Git normalmente serão visíveis no cache do repositório dentro de alguns minutos após os dados serem enviados para a instância primária.  {% ifversion ghes > 3.3 %}O webhook [`cache_sync` webhook](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#cache_sync) pode ser usado por sistemas de CI para reagir a dados que estão disponíveis no cache.{% endif %}
 
-Você tem controle refinado sobre quais repositórios estão autorizados a sincronizar com o cache do repositório. Git data will only be replicated to the locations you specify.
+Você tem controle refinado sobre quais repositórios estão autorizados a sincronizar com o cache do repositório. Os dados do Git só serão replicados nos locais que você especificar.
 
 {% data reusables.enterprise.repository-caching-config-summary %} Para obter mais informações, consulte "[Configurando um cache do repositório](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)".

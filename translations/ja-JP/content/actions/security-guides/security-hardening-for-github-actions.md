@@ -48,6 +48,12 @@ miniTocMaxHeadingLevel: 3
 - **シークレットへのアクセスのレビューを必須とすることを検討する**
     - 必須のレビュー担当者を使って環境のシークレットを保護できます。 レビュー担当者によって許可されるまで、ワークフローのジョブは環境のシークレットにアクセスできません。 For more information about storing secrets in environments or requiring reviews for environments, see "[Encrypted secrets](/actions/reference/encrypted-secrets)" and "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)."
 
+{% warning %}
+
+**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+
+{% endwarning %}
+
 ## Using `CODEOWNERS` to monitor changes
 
 You can use the `CODEOWNERS` feature to control how changes are made to your workflow files. For example, if all your workflow files are stored in `.github/workflows`, you can add this directory to the code owners list, so that any proposed changes to these files will first require approval from a designated reviewer.
@@ -298,7 +304,7 @@ Organizationの管理タスクをモニタするために、監査ログを使�
 
 たとえば、監査ログを使用して、Organization のシークレットへの変更を追跡する `org.update_actions_secret` イベントを追跡できます。 ![監査ログのエントリ](/assets/images/help/repository/audit-log-entries.png)
 
-以下の表は、監査ログにある{% data variables.product.prodname_actions %}のイベントを示します。 For more information on using the audit log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)."
+以下の表は、監査ログにある{% data variables.product.prodname_actions %}のイベントを示します。 For more information on using the audit log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" and "[Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
 
 {% ifversion fpt or ghec %}
 ### 環境のイベント
@@ -313,9 +319,10 @@ Organizationの管理タスクをモニタするために、監査ログを使�
 
 {% ifversion fpt or ghes or ghec %}
 ### 設定変更のイベント
-| アクション                  | 説明                                                                                                                                                                                                            |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repo.actions_enabled` | リポジトリに対して {% data variables.product.prodname_actions %} が有効化されたときにトリガーされます。 UI を使用して表示できます。 このイベントは、REST API を使用して Audit log にアクセスした場合には表示されません。 詳しい情報については、「[REST API を使用する](#using-the-rest-api)」を参照してください。 |
+| アクション                                 | 説明                                                                                                                                                                                                            |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repo.actions_enabled`                | リポジトリに対して {% data variables.product.prodname_actions %} が有効化されたときにトリガーされます。 UI を使用して表示できます。 このイベントは、REST API を使用して Audit log にアクセスした場合には表示されません。 詳しい情報については、「[REST API を使用する](#using-the-rest-api)」を参照してください。 |
+| `repo.update_actions_access_settings` | Triggered when the setting to control how your repository is used by {% data variables.product.prodname_actions %} workflows in other repositories is changed.                                                |
 {% endif %}
 
 ### シークレット管理のイベント

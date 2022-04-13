@@ -192,6 +192,16 @@ Action                        | Description
 | `commit_comment.update` | A commit comment was updated.
 {%- endif %}
 
+{%- ifversion ghes %}
+### `config_entry` category actions
+
+| Action | Description
+|--------|-------------
+| `config_entry.create` | A configuration setting was created. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
+| `config_entry.destroy` | A configuration setting was deleted. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
+| `config_entry.update` | A configuration setting was edited. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
+{%- endif %}
+
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
 ### `dependabot_alerts` category actions
 
@@ -366,6 +376,14 @@ Action                        | Description
 | `external_identity.provision` | An Okta user was added to an Okta group and was subsequently provisioned to the mapped team on {% data variables.product.prodname_ghe_managed %}. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
 | `external_identity.update` | An Okta user's settings were updated. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."
 {%- endif %}
+
+### `gist` category actions
+
+| Action | Description
+|--------|-------------
+| `gist.create` | A gist is created.
+| `gist.destroy` | A gist is deleted.
+| `gist.visibility_change` | The visibility of a gist is changed.
 
 ### `git` category actions
 
@@ -1075,6 +1093,14 @@ Action                        | Description
 | `repository_image.create` | An image to represent a repository was uploaded.
 | `repository_image.destroy` | An image to represent a repository was deleted.
 
+### `repository_invitation` category actions
+
+| Action | Description
+|--------|-------------
+| `repository_invitation.accept` | An invitation to join a repository was accepted.
+| `repository_invitation.create` | An invitation to join a repository was sent.
+| `repository_invitation.reject` | An invitation to join a repository was canceled.
+
 ### `repository_projects_change` category actions
 
 | Action | Description
@@ -1242,10 +1268,18 @@ Action                        | Description
 {%- endif %}
 | `staff.repo_lock`             | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator locked (temporarily gained full access to) a user's private repository.
 | `staff.repo_unlock`           | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator unlocked (ended their temporary access to) a user's private repository.
-| `staff.unlock`                | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} unlocked (temporarily gained full access to) all of a user's private repositories.
+{%- ifversion ghes %}
+| `staff.search_audit_log` | A site administrator performed a search of the site admin audit log.
+{%- endif %}
 | `staff.set_domain_token_expiration` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff set the verification code expiry time for an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+{%- ifversion ghes %}
+| `staff.unlock`                | A site administrator unlocked (temporarily gained full access to) all of a user's private repositories.
+{%- endif %}
 | `staff.unverify_domain` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff unverified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
 | `staff.verify_domain` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff verified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+{%- ifversion ghes %}
+| `staff.view_audit_log` | A site administrator viewed the site admin audit log.
+{%- endif %}
 
 ### `team` category actions
 

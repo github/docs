@@ -17,6 +17,13 @@ Você pode acessar os relatórios de conformidade de {% data variables.product.c
 
 {% data reusables.security.compliance-report-list %}
 
+
+{% note %}
+
+**Obserbação:** Para ver relatórios de conformidade, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+
 ## Acessando relatórios de conformidade para a sua organização
 
 {% data reusables.profile.access_org %}

@@ -192,7 +192,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-The <code>uses</code> keyword specifies that this step will run <code>v2</code> of the <code>actions/checkout</code> action.  This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
+The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action.  This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
 </td>
 </tr>
 <tr>

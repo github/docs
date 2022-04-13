@@ -45,9 +45,9 @@ Data for GitHub's [trending page][] is calculated into daily, weekly, and monthl
 
 {% data variables.product.product_name %} keeps a running log of audited actions that you can query.
 
-By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[Searching the audit log](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)."
+By default, the audit log shows you a list of all audited actions in reverse chronological order. You can filter this list by entering key-value pairs in the **Query** text box and then clicking **Search**, as explained in "[Searching the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/searching-the-audit-log-for-your-enterprise)."
 
-For more information on audit logging in general, see "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)." For a full list of audited actions, see "[Audited actions](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)."
+For more information on audit logging in general, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)." For a full list of audited actions, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
 ## Reports
 

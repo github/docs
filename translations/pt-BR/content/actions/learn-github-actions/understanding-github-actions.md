@@ -192,7 +192,7 @@ Define uma tarefa chamada <code>check-bats-version</code>. As chaves secundaári
   ```
 </td>
 <td>
-A palavra-chave <code>usa</code> especifica que esta etapa irá executar <code>v2</code> da ação <code>actions/checkout</code>.  Esta é uma ação que faz o check-out do seu repositório para o executor, permitindo que você execute scripts ou outras ações com base no seu código (como ferramentas de compilação e teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório.
+The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action.  Esta é uma ação que faz o check-out do seu repositório para o executor, permitindo que você execute scripts ou outras ações com base no seu código (como ferramentas de compilação e teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório.
 </td>
 </tr>
 <tr>
@@ -205,7 +205,7 @@ A palavra-chave <code>usa</code> especifica que esta etapa irá executar <code>v
   ```
 </td>
 <td>
-  This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). Isso coloca os dois comandos <code>nó</code> e <code>npm</code> no seu <code>PATH</code>.
+  Essa etapa usa a <code>ação de {% data reusables.actions.action-setup-node %}</code> para instalar a versão especificada do Node.js (este exemplo usa v14). Isso coloca os dois comandos <code>nó</code> e <code>npm</code> no seu <code>PATH</code>.
 </td>
 </tr>
 <tr>

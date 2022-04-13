@@ -42,6 +42,14 @@ To turn off notifications for team discussions, you can unsubscribe to a specifi
 
 For more information, see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" and "[Nested teams](/articles/about-teams/#nested-teams)."
 
+{% ifversion fpt or ghec %}
+
+## Organization discussions
+
+You can also use organization discussions to facilitate conversations across your organization. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+
+{% endif %}
+
 ## Further reading
 
 - "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
