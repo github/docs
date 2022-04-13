@@ -16,11 +16,11 @@ topics:
   - Secret scanning
 ---
 
-## About this guide
+## 关于本指南
 
-This guide describes the highest impact changes you can make to improve the security of your code. Each section outlines a change you can make to your processes to improve security. The highest impact changes are listed first.
+This guide describes the highest impact changes you can make to improve the security of your code. 每个部分都概述了为提高安全性而可以对流程进行的更改。 影响最大的更改列在最前面。
 
-## What's the risk?
+## 风险是什么？
 
 Key risks in the development process include:
 
@@ -112,8 +112,8 @@ Insecure code patterns are often difficult for reviewers to spot unaided. In add
 
 ## 后续步骤
 
-- "[Securing your end-to-end supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+- “[保护您的端到端供应链](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)”
 
-- "[Best practices for securing accounts](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+- “[保护帐户的最佳实践](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)”
 
-- "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- “[保护构建系统的最佳实践](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)”

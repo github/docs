@@ -245,7 +245,7 @@ GitHub 仅使用绝对必要的 Cookie。 Cookie 是网站通常存储在访客�
 
 使用我们的服务，即表示您同意我们将这些类型的 cookie 放在您的计算机或设备上。 如果您禁止浏览器或设备接受这些 cookie，则将无法登录或使用我们的服务。
 
-We provide more information about [cookies on GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) on our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page that describes the cookies we set, the needs we have for those cookies, and the expiration of such cookies.
+我们在 [GitHub 子处理器和 Cookie](/github/site-policy/github-subprocessors-and-cookies) 页面上提供有关 [GitHub 上 Cookie](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) 的更多信息，其中描述了我们设置的 Cookie、我们对这些 Cookie 的需求以及此类 Cookie 的过期时间。
 
 ### DNT
 
@@ -322,7 +322,7 @@ GitHub 处理美国境内外的个人信息，并依靠标准合同条款作为�
 
 ## 隐私声明的变更
 
-GitHub 可能会不时更改我们的隐私声明，不过大多数情况都是小变动。 如果本隐私声明发生重大变更，我们会在变更生效之前至少 30 天通知用户 - 在我们网站的主页上发布通知，或者发送电子邮件到您的 GitHub 帐户中指定的主电子邮件地址。 我们还会更新我们的[站点政策仓库](https://github.com/github/site-policy/)，通过它可跟踪本政策的所有变更。 For other changes to this Privacy Statement, we encourage Users to [watch](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) or to check our Site Policy repository frequently.
+GitHub 可能会不时更改我们的隐私声明，不过大多数情况都是小变动。 如果本隐私声明发生重大变更，我们会在变更生效之前至少 30 天通知用户 - 在我们网站的主页上发布通知，或者发送电子邮件到您的 GitHub 帐户中指定的主电子邮件地址。 我们还会更新我们的[站点政策仓库](https://github.com/github/site-policy/)，通过它可跟踪本政策的所有变更。 对于本隐私声明的其他更改，我们建议用户[关注](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)或经常查看我们的网站政策仓库。
 
 ## 许可
 

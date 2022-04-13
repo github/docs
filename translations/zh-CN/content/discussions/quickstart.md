@@ -1,6 +1,6 @@
 ---
 title: GitHub Discussions 快速入门
-intro: '在现有仓库上启用 {% data variables.product.prodname_discussions %} ，并发起与社区的对话。'
+intro: 'Enable {% data variables.product.prodname_discussions %} on an existing repository or organization and start conversations with your community.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -27,34 +27,50 @@ shortTitle: 快速入门
 1. 在“Start a new discussion（开始新讨论）”下，编辑模板以与要为社区设置的资源和语气保持一致。
 1. 单击 **Start discussion（开始讨论）**。 !["Start discussion（开始讨论）"按钮](/assets/images/help/discussions/new-discussion-start-discussion-button.png)
 
+## Enabling {% data variables.product.prodname_discussions %} on your organization
+
+Organization owners can enable {% data variables.product.prodname_discussions %} for their organization.
+
+{% data reusables.discussions.about-organization-discussions %}
+
+{% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-organization %}
+
 ## 欢迎参与您的讨论
 
-您可以通过创建欢迎帖子并固定帖子到 {% data variables.product.prodname_discussions %} 页面，欢迎您的社区，并引入在仓库中沟通的新方式。 固定和锁定讨论有助于人们知道帖子是作为公告发布的。 您可以使用公告将人员链接到更多资源，并指导在社区中开始讨论。 有关固定讨论的更多信息，请参阅“[管理仓库中的讨论](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#pinning-a-discussion)”。
+You can welcome your community and introduce a new way to communicate in a repository or organization by creating a welcome post and pinning the post to your {% data variables.product.prodname_discussions %} page. 固定和锁定讨论有助于人们知道帖子是作为公告发布的。 您可以使用公告将人员链接到更多资源，并指导在社区中开始讨论。 For more information about pinning a discussion, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)."
 
 
 ## 为贡献者设置社区指南
 
-您可以设置参与指南，以鼓励协作者进行与仓库相关的有意义、有用的对话。 您还可以更新仓库的 README，以传达协作者何时应打开问题或讨论的期望。
+For repository discussions, you can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. 您还可以更新仓库的 README，以传达协作者何时应打开问题或讨论的期望。 有关为项目提供指南的更多信息，请参阅“[为项目添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
 
-有关为项目提供指南的更多信息，请参阅“[为项目添加行为准则](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)”和“[设置健康参与的项目](/communities/setting-up-your-project-for-healthy-contributions)”。
+For organization discussions, you share information about how to engage with your organization by creating an organization profile README. 更多信息请参阅“[自定义组织的配置文件](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)”。
 
 ## 创建新讨论
 
-任何可以查看仓库的认证用户都可以创建讨论。
+Any authenticated user who can view the repository can create a discussion in that repository. Similarly, since organization discussions are based on a source repository, any authenticated user who can view the source repository can create a discussion in that organization.
 
 {% data reusables.discussions.starting-a-discussion %}
 
+## Creating a new poll
+
+Any authenticated user who can view a repository can create a poll. Similarly, since organization discussions are based on a source repository, any authenticated user who can view the source repository can create a poll in that organization.
+
+{% data reusables.discussions.starting-a-poll %}
+
 ## 组织讨论
 
-仓库所有者和具有写入权限的人可以创建新类别来保持讨论井然有序。 参与和创建新讨论的协作者可以将讨论分组到最相关的现有类别。 讨论也可以在创建后重新分类。 更多信息请参阅“[管理仓库中讨论的类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions-in-your-repository)”。
+Repository owners and people with write access to the repository can create new categories to keep discussions organized. Similarly, since organization discussions are based on a source repository, repository owners and people with write access to the source repository can create new categories for organization discussions.
+
+参与和创建新讨论的协作者可以将讨论分组到最相关的现有类别。 讨论也可以在创建后重新分类。 For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
 
 {% data reusables.discussions.you-can-label-discussions %}
 
 ## 促进健康的对话
 
-具有仓库写入权限的人可以通过固定讨论、删除不再有用或对社区有害的讨论以及将讨论转移到组织拥有的更相关的仓库，来帮助显示重要的对话。 更多信息请参阅“[管理仓库中的讨论](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)”。
+People with write permissions for the repository, or for the source repository for organization discussions, can help surface important conversations by pinning discussions, deleting discussions that are no longer useful or are damaging to the community, and transferring discussions to more relevant repositories owned by the organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
 
-对仓库具有分类权限的人可以通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发的早期阶段时将问题转换为讨论，从而帮助主持项目的讨论。 更多信息请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions)”。
+People with triage permissions for the repository, or for the source repository for organization discussions, can help moderate a project's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. 更多信息请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions)”。
 
 ## 后续步骤
 

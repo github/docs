@@ -50,3 +50,17 @@ redirect_from:
 
 启用依赖关系图时，依赖项审查功能可用。 更多信息请参阅“{% ifversion ghec %}[启用依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[为企业启用依赖关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}”。
 {% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+## 依赖项审查实施
+
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+
+可以使用存储库中的依赖项审查 GitHub 操作对拉取请求强制执行依赖项审查。 该操作将扫描由拉取请求中的包版本更改是否引入有漏洞的依赖项版本，并向您示警相关的安全漏洞。 这便于您更好地了解拉取请求中发生的变化，并有助于防止将漏洞添加到存储库中。 更多信息请参阅 [`dependency-review-action`](https://github.com/actions/dependency-review-action)。
+
+![依赖项审查操作示例](/assets/images/help/graphs/dependency-review-action.png)
+
+依赖项审查 GitHub 操作检查在发现任何易受攻击的包时会失败，但只有在存储库所有者要求在合并之前通过检查时，才会阻止合并拉取请求。 更多信息请参阅“[关于受保护分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)”。
+
+该操作使用依赖项审查 REST API 来获取基本提交和头部提交之间的依赖项更改差异。 您可以使用依赖项审查 API 来获取存储库上任意两个提交之间的依赖项更改差异（包括漏洞数据）。 更多信息请参阅“[依赖项审查](/rest/reference/dependency-graph#dependency-review)”。
+{% endif %}

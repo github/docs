@@ -35,7 +35,7 @@ shortTitle: 配置维护模式
 
 ![关于已排定维护的最终用户横幅](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
 
-在实例进入维护模式后，所有正常 HTTP 和 Git 访问都会遭到拒绝。 Git 提取、克隆和推送操作也会被拒绝，并显示一条错误消息，指示站点暂时不可用。 GitHub Actions 作业不会执行。 在浏览器中访问该站点会显示维护页面。
+在实例进入维护模式后，所有正常 HTTP 和 Git 访问都会遭到拒绝。 Git 提取、克隆和推送操作也会被拒绝，并显示一条错误消息，指示站点暂时不可用。 在高可用性配置中，Git 复制将暂停。 GitHub Actions 作业不会执行。 在浏览器中访问该站点会显示维护页面。
 
 ![维护模式启动屏幕](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 

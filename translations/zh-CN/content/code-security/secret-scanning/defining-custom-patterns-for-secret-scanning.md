@@ -64,14 +64,12 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-security-and-analysis %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5499 %}
 1. 当您准备好测试新的自定义模式时，要识别存储库中的匹配项而不创建警报，请单击 **Save and dry run（保存并空运行）**。
-1. 空运行完成后，您将看到存储库中的结果示例（最多 1000 个）。 查看结果并确定任何误报结果。 ![显示空运行结果的屏幕截图](/assets/images/help/repository/secret-scanning-publish-pattern.png)
-1. 编辑新的自定义模式以修复结果的任何问题，然后单击 **Save and dry run（保存并空运行）**以测试更改。
-{% indented_data_reference reusables.secret-scanning.beta-dry-runs spaces=3 %}
+{% data reusables.advanced-security.secret-scanning-dry-run-results %}
 {% endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
@@ -110,11 +108,13 @@ aAAAe9
 
 在定义自定义模式之前，您必须确保在组织中为要扫描的仓库启用 {% data variables.product.prodname_secret_scanning %}。 要在组织中的所有存储库上启用 {% data variables.product.prodname_secret_scanning %} ，请参阅“[管理组织的安全和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”。
 
+{% ifversion ghes < 3.5 or ghae %}
 {% note %}
 
 **注意：** 由于没有试运行功能，我们建议您先在存储库中测试自定义模式，然后再为整个组织定义它们。 这样，可以避免创建过多的误报 {% data variables.product.prodname_secret_scanning %} 警报。
 
 {% endnote %}
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -122,6 +122,12 @@ aAAAe9
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
+{%- if secret-scanning-org-dry-runs %}
+1. 当您准备好测试新的自定义模式时，要识别所选存储库中的匹配项而不创建警报，请单击 **Save and dry run（保存并试运行）**。
+1. 搜索并选择要在其中执行试运行的存储库。 您最多可以选择 10 个存储库。 ![显示为试运行选择的存储库的屏幕截图](/assets/images/help/repository/secret-scanning-dry-run-custom-pattern-select-repo.png)
+1. 当您准备好测试新的自定义模式时，请单击 **Dry run（试运行）**。
+{% data reusables.advanced-security.secret-scanning-dry-run-results %}
+{%- endif %}
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}
 
 创建模式后，{% data variables.product.prodname_secret_scanning %} 扫描组织的仓库中的任何密钥，包括其所有分支的整个 Git 历史记录。 组织所有者和仓库管理员将会收到发现的任何密钥警报通知，并且可以审查发现密钥的仓库中的警报。 有关查看 {% data variables.product.prodname_secret_scanning %} 警报的详细信息，请参阅“[管理来自 {% data variables.product.prodname_secret_scanning %} 的警报](/code-security/secret-security/managing-alerts-from-secret-scanning)”。

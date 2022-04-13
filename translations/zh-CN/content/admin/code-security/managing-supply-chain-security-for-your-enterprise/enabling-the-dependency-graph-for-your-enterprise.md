@@ -1,7 +1,7 @@
 ---
-title: Enabling the dependency graph for your enterprise
-intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
-shortTitle: Enable dependency graph
+title: 为企业启用依赖关系图
+intro: 您可以通过启用依赖项关系图来允许用户标识其项目的依赖项。
+shortTitle: 启用依赖关系图
 permissions: Site administrators can enable the dependency graph.
 versions:
   ghes: '*'
@@ -14,16 +14,16 @@ topics:
 
 ## 关于依赖项图
 
-{% data reusables.dependabot.about-the-dependency-graph %} For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
+{% data reusables.dependabot.about-the-dependency-graph %}更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 
-After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect vulnerable dependencies in your repository{% ifversion ghes > 3.2 %} and automatically fix the vulnerabilities{% endif %}. 更多信息请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
+为企业启用依赖关系图后，可以启用 {% data variables.product.prodname_dependabot %} 以检测存储库中易受攻击的依赖项{% ifversion ghes > 3.2 %}，并自动修复漏洞{% endif %}。 更多信息请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 
 {% ifversion ghes > 3.1 %}
-您可以通过 {% data variables.enterprise.management_console %} 或管理 shell 启用依赖关系图。 We recommend using the {% data variables.enterprise.management_console %} unless {% data variables.product.product_location %} uses clustering.
+您可以通过 {% data variables.enterprise.management_console %} 或管理 shell 启用依赖关系图。 我们建议您使用 {% data variables.enterprise.management_console %}，除非 {% data variables.product.product_location %} 使用集群。
 
 ## 通过 {% data variables.enterprise.management_console %} 启用依赖关系图
 
-If your {% data variables.product.product_location %} uses clustering, you cannot enable the dependency graph with the {% data variables.enterprise.management_console %} and must use the administrative shell instead. For more information, see "[Enabling the dependency graph via the administrative shell](#enabling-the-dependency-graph-via-the-administrative-shell)."
+如果您的 {% data variables.product.product_location %} 使用群集，则无法使用 {% data variables.enterprise.management_console %} 启用依赖关系图，而必须改用管理 shell。 更多信息请参阅“[通过管理 shell 启用依赖关系图](#enabling-the-dependency-graph-via-the-administrative-shell)”。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}

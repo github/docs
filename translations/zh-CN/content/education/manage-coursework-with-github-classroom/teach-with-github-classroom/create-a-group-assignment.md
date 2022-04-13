@@ -23,6 +23,8 @@ redirect_from:
 
 有关创建小组作业的视频演示，请参阅“[设置 {% data variables.product.prodname_classroom %} 的基本知识](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)”。
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## 基本要求
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}

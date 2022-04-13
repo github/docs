@@ -56,6 +56,8 @@ shortTitle: 代码空间中的安全性
 
 如果需要连接到在代码空间内运行的服务（如开发 Web 服务器），则可以配置端口转发以使该服务在互联网上可用。
 
+组织所有者可以限制公开或在组织内提供转发端口的能力。 更多信息请参阅“[限制转发端口的可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)”。
+
 **私密转发端口**：可在互联网上访问，但只有代码空间创建者在向 {% data variables.product.product_name %} 验证后才可访问它们。
 
 **组织内公开转发的端口**：在通过身份验证后，可在互联网上访问，但只能由与代码空间相同的组织的成员访问 {% data variables.product.product_name %}。

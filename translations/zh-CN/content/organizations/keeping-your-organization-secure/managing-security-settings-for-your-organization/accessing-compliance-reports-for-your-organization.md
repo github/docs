@@ -17,6 +17,13 @@ shortTitle: 访问合规性报告
 
 {% data reusables.security.compliance-report-list %}
 
+
+{% note %}
+
+**注意：** 若要查看合规性报告，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+
 ## 访问组织的合规性报告
 
 {% data reusables.profile.access_org %}

@@ -30,7 +30,7 @@ After your Docker images have been migrated to the {% data variables.product.pro
 The {% data variables.product.prodname_container_registry %} is optimized to support some of the unique needs of containers.
 
 With the {% data variables.product.prodname_container_registry %} you can:
-- Store container images within your organization and user account, or connect them to a repository.
+- Store container images within your organization and personal account, or connect them to a repository.
 - Choose whether to inherit permissions from a repository, or set granular permissions independently of a repository.
 - Access public container images anonymously.
 

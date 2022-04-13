@@ -63,6 +63,15 @@ topics:
 3. 选择拉取请求或议题所在的仓库。 您可以输入仓库名称的一部分来缩小选项范围。
 4. 选择议题或拉取请求。 您可以键入标题的一部分以缩小选项范围。
 
+#### 从存储库添加多个议题或拉取请求
+
+1. 在 {% data variables.product.product_location %} 上，导航到包含要添加到项目中的议题或拉取请求的存储库。
+{% data reusables.repositories.sidebar-issue-pr %}
+1. 在每个议题标题的左侧，选择要添加到项目中的议题。 ![显示用于选择议题或拉取请求的复选框的屏幕截图](/assets/images/help/issues/select-issue-checkbox.png)
+1. （可选）若要选择页面上的每个议题或拉取请求，请在议题或拉取请求列表的顶部选择全部。 ![显示用于全选的复选框的屏幕截图](/assets/images/help/issues/select-all-checkbox.png)
+1. 在议题列表或拉取请求上方，单击 **Projects (beta)（项目[测试版]）**。 ![显示用于全选的复选框的屏幕截图](/assets/images/help/issues/projects-beta-assign-button.png)
+1. 单击要向其添加所选议题或拉取请求的项目。 ![显示用于全选的复选框的屏幕截图](/assets/images/help/issues/projects-beta-assign-dropdown.png)
+
 #### 从议题或拉取请求中分配项目
 
 1. 导航到要添加到项目的议题或拉取请求。
@@ -102,7 +111,20 @@ topics:
 
 ## 恢复存档的项
 
-要恢复存档的项，请导航到议题或拉取请求。 在议题或拉取请求的项目侧栏中，对要将项还原到的项目单击 **Restore（恢复）**。 草稿议题无法恢复。
+1. Navigate to your project.
+1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="the kebab icon" %}。
+1. 在菜单中，单击 **Archived items（已存档的项）**。
+1. （可选）要筛选显示的已存档项，请在项列表上方的文本框中键入筛选器。 有关可用筛选器的详细信息，请参阅“[筛选项目 （测试版）](/issues/trying-out-the-new-projects-experience/filtering-projects)”。
+
+   ![显示用于筛选已存档项的字段的屏幕截图](/assets/images/help/issues/filter-archived-items.png)
+
+1. 在每个项标题的左侧，选择要恢复的项。
+
+   ![显示已存档项旁边复选框的屏幕截图](/assets/images/help/issues/select-archived-item.png)
+
+1. 要恢复所选项，请在项列表上方单击 **Restore（恢复）**。
+
+   ![显示"恢复"按钮的屏幕截图](/assets/images/help/issues/restore-archived-item-button.png)
 
 ## 添加字段
 

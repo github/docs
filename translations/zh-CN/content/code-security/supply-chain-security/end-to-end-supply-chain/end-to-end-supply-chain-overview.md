@@ -1,8 +1,8 @@
 ---
-title: Securing your end-to-end supply chain
+title: 保护您的端到端供应链
 shortTitle: 概览
 allowTitleToDifferFromFilename: true
-intro: 'Introducing best practice guides on complete end-to-end supply chain security including personal accounts, code, and build processes.'
+intro: 介绍有关完整端到端供应链安全性（包括个人帐户、代码和构建流程）的最佳实践指南。
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,24 +15,24 @@ topics:
   - Advanced Security
 ---
 
-## What is the end-to-end supply chain?
+## 什么是端到端供应链？
 
-At its core, end-to-end software supply chain security is about making sure the code you distribute hasn't been tampered with. Previously, attackers focused on targeting dependencies you use, for example libraries and frameworks. Attackers have now expanded their focus to include targeting user accounts and build processes, and so those systems must be defended as well.
+端到端软件供应链安全的核心是确保您分发的代码未被篡改。 以前，攻击者专注于针对您使用的依赖项，例如库和框架。 攻击者现在已经扩大了他们的关注点，包括针对用户帐户和构建过程，因此这些系统也必须得到保护。
 
-## About these guides
+## 关于这些指南
 
-This series of guides explains how to think about securing your end-to-end supply chain: personal account, code, and build processes. Each guide explains the risk to that area, and introduces the {% data variables.product.product_name %} features that can help you address that risk.
+本系列指南介绍了如何考虑保护端到端供应链：个人帐户、代码和构建流程。 每本指南都解释了该领域的风险，并介绍可帮助您解决该风险的 {% data variables.product.product_name %} 功能。
 
-Everyone's needs are different, so each guide starts with the highest impact change, and continues from there with additional improvements you should consider. You should feel free to skip around and focus on improvements you think will have the biggest benefit. The goal isn't to do everything at once but to continuously improve security in your systems over time.
+每个人的需求都是不同的，因此每本指南都从影响最大的变化开始，然后从那里继续进行您应该考虑的其他改进。 您应该自由跳过，注重于您认为会带来最大好处的改进。 目标不是一次完成所有操作，而是随着时间的推移不断提高系统的安全性。
 
-- "[Best practices for securing accounts](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+- “[保护帐户的最佳实践](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)”
 
-- "[Best practices for securing code in your supply chain](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
+- “[保护供应链中代码的最佳实践](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)”
 
-- "[Best practices for securing your build system](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- “[保护构建系统的最佳实践](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)”
 
 ## 延伸阅读
 
-- [Safeguarding artifact integrity across any software supply chain](https://slsa.dev/)
-- [Microsoft Supply Chain Integrity Model](https://github.com/microsoft/scim)
-- [Software Supply Chain Security Paper - CNCF Security Technical Advisory Group](https://github.com/cncf/tag-security/blob/main/supply-chain-security/supply-chain-security-paper/CNCF_SSCP_v1.pdf)
+- [保护任何软件供应链中的构件完整性](https://slsa.dev/)
+- [Microsoft 供应链诚信模型](https://github.com/microsoft/scim)
+- [软件供应链安全白皮书 - CNCF 安全技术咨询小组](https://github.com/cncf/tag-security/blob/main/supply-chain-security/supply-chain-security-paper/CNCF_SSCP_v1.pdf)

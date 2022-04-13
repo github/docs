@@ -33,9 +33,9 @@ As soon as you set a spending limit other than $0, you will be responsible for a
 
 Because you have not enabled overages, your next attempt to publish a version of the package will fail. You will not receive a bill for the 0.1GB overage that month. However, if you enable overages, your first bill will include the 0.1GB of existing overage for the current billing cycle, as well as any additional overages you accrue.
 
-## Managing the spending limit for {% data variables.product.prodname_registry %} for your user account
+## Managing the spending limit for {% data variables.product.prodname_registry %} for your personal account
 
-Anyone can manage the spending limit for {% data variables.product.prodname_registry %} for their own user account.
+Anyone can manage the spending limit for {% data variables.product.prodname_registry %} for their own personal account.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

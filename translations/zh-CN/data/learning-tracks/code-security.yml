@@ -105,7 +105,7 @@ code_security_ci:
     - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/troubleshooting-codeql-runner-in-your-ci-system
 #Feature available in all versions
 end_to_end_supply_chain:
-  title: 'End-to-end supply chain'
+  title: '端到端供应链'
   description: 'How to think about securing your user accounts, your code, and your build process.'
   guides:
     - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
