@@ -35,7 +35,7 @@ shortTitle: 查看组织中的人员
 
 如果您的组织由企业帐户管理，则可以查看管理企业所有组织的帐单设置和策略的企业所有者。 有关企业帐户的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 帐户类型](/get-started/learning-about-github/types-of-github-accounts)”。
 
-您还可以查看企业所有者是否在组织中具有特定角色。 Enterprise owners can also be an organization member, any other organization role, or be un-affiliated with the organization.
+您还可以查看企业所有者是否在组织中具有特定角色。 企业所有者也可以是组织成员、任何其他组织角色或与组织无关。
 
 {% note %}
 
@@ -43,11 +43,11 @@ shortTitle: 查看组织中的人员
 
 {% endnote %}
 
-| **企业角色** | **组织角色**                                       | **组织访问或影响**                    |
-| -------- | ---------------------------------------------- | ------------------------------ |
-| 企业所有者    | Un-affiliated or no official organization role | 无法访问组织内容或存储库，但可管理影响组织的企业设置和策略。 |
-| 企业所有者    | 组织所有者                                          | 能够配置组织设置并通过团队等管理对组织资源的访问。      |
-| 企业所有者    | 组织成员                                           | 能够访问组织资源和内容（如存储库），而无需访问组织的设置。  |
+| **企业角色** | **组织角色**    | **组织访问或影响**                    |
+| -------- | ----------- | ------------------------------ |
+| 企业所有者    | 非附属或无官方组织角色 | 无法访问组织内容或存储库，但可管理影响组织的企业设置和策略。 |
+| 企业所有者    | 组织所有者       | 能够配置组织设置并通过团队等管理对组织资源的访问。      |
+| 企业所有者    | 组织成员        | 能够访问组织资源和内容（如存储库），而无需访问组织的设置。  |
 
 要查看组织中的所有角色，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。 {% ifversion ghec %} 组织成员还可以具有特定存储库的自定义角色。 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。{% endif %}
 

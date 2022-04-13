@@ -18,7 +18,7 @@ shortTitle: 管理评论
 
 ## 隐藏评论
 
-对仓库具有写入权限的任何人都可以隐藏议题、拉取请求及提交上的评论。
+{% ifversion fpt or ghec %}组织版主以及对存储库有写入权限的任何人{% else %}任何人{% endif %} 都可以隐藏对议题、拉取请求和提交的评论。
 
 如果评论偏离主题、已过期或已解决，您可能想要隐藏评论，以保持讨论重点或使拉取请求更易于导航和审查。 隐藏的评论已最小化，但对仓库具有读取权限的人员可将其展开。
 
@@ -35,7 +35,7 @@ shortTitle: 管理评论
 
 ## 取消隐藏评论
 
-对仓库具有写入权限的任何人都可以取消隐藏议题、拉取请求及提交上的评论。
+{% ifversion fpt or ghec %}组织版主以及对存储库有写入权限的任何人{% else %}任何人{% endif %} 都可以取消隐藏对议题、拉取请求和提交的评论。
 
 1. 导航到您要取消隐藏的评论。
 2. 在评论右上角，单击 **{% octicon "fold" aria-label="The fold icon" %} Show comment（显示评论）**。 ![显示评论文本](/assets/images/help/repository/hidden-comment-show.png)
@@ -82,3 +82,8 @@ shortTitle: 管理评论
 1. 导航到您要删除的评论。
 2. 在评论的右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Delete（删除）**。 ![显示编辑、隐藏、删除和报告选项的水平烤肉串图标和评论调解菜单](/assets/images/help/repository/comment-menu.png)
 3. 也可以说明您删除了哪些评论，为什么要删除。
+
+{% ifversion fpt or ghec %}
+## 延伸阅读
+- “[管理组织中的版主](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)”
+{% endif %} 

@@ -307,8 +307,12 @@ async function getBodyParams(paramsObject, requiredParams) {
         param.childParamsGroups.push(childParamsGroup)
       }
 
-      // if the param is an object, it may have child object params that have child params :/
-      if (param.rawType === 'object') {
+      // If the param is an object, it may have child object params that have child params :/
+      // Objects can potentially be null where the rawType is [ 'object', 'null' ].
+      if (
+        param.rawType === 'object' ||
+        (Array.isArray(param.rawType) && param.rawType.includes('object'))
+      ) {
         param.childParamsGroups.push(
           ...flatten(
             childParamsGroup.params
@@ -324,8 +328,18 @@ async function getBodyParams(paramsObject, requiredParams) {
 }
 
 async function getChildParamsGroup(param) {
-  // only objects, arrays of objects, anyOf, allOf, and oneOf have child params
-  if (!(param.rawType === 'array' || param.rawType === 'object' || param.oneOf)) return
+  // Only objects, arrays of objects, anyOf, allOf, and oneOf have child params.
+  // Objects can potentially be null where the rawType is [ 'object', 'null' ].
+  if (
+    !(
+      param.rawType === 'array' ||
+      (Array.isArray(param.rawType) && param.rawType.includes('array')) ||
+      param.rawType === 'object' ||
+      (Array.isArray(param.rawType) && param.rawType.includes('object')) ||
+      param.oneOf
+    )
+  )
+    return
   if (
     param.oneOf &&
     !param.oneOf.filter((param) => param.type === 'object' || param.type === 'array')
@@ -338,7 +352,19 @@ async function getChildParamsGroup(param) {
   const childParams = await getBodyParams(childParamsObject, requiredParams)
 
   // adjust the type for easier readability in the child table
-  const parentType = param.rawType === 'array' ? 'items' : param.rawType
+  let parentType
+
+  if (param.rawType === 'array') {
+    parentType = 'items'
+  } else if (Array.isArray(param.rawType) && param.rawType.includes('array')) {
+    // handle the case where rawType is [ 'array', 'null' ]
+    parentType = 'items'
+  } else if (Array.isArray(param.rawType) && param.rawType.includes('object')) {
+    // handle the case where rawType is [ 'object', 'null' ]
+    parentType = 'object'
+  } else {
+    parentType = param.rawType
+  }
 
   // add an ID to the child table so they can be linked to
   slugger.reset()

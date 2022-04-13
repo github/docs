@@ -16,6 +16,6 @@ topics:
 shortTitle: Permissão negada por outro repositório
 ---
 
-Para corrigir, remova a chave de implantação do repositório e [adicione a chave à sua conta de usuário](/articles/adding-a-new-ssh-key-to-your-github-account).
+To fix this, remove the deploy key from the repository, and [add the key to your personal account](/articles/adding-a-new-ssh-key-to-your-github-account) instead.
 
 Caso a chave deva ser utilizada como uma chave de implantação, consulte [o guia de chaves de implantação](/guides/managing-deploy-keys) para mais informações.

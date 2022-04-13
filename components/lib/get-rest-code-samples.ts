@@ -117,7 +117,26 @@ export function getJSExample(operation: Operation, codeSample: CodeSample) {
   const parameters = codeSample.request
     ? { ...codeSample.request.parameters, ...codeSample.request.bodyParameters }
     : {}
+
+  let queryParameters = ''
+
+  // Add query parameters to the request path for POST and PUT operations in
+  // URL template format e.g. 'POST /repos/{owner}/{repo}/releases/{release_id}/assets{?name,label}'
+  if (operation.verb === 'post' || operation.verb === 'put') {
+    const queryParms = operation.parameters
+      .filter((param) => {
+        return param.in === 'query'
+      })
+      .map((param) => {
+        return param.name
+      })
+
+    if (queryParms.length > 0) {
+      queryParameters = `{?${queryParms.join(',')}}`
+    }
+  }
+
   return `await octokit.request('${operation.verb.toUpperCase()} ${
     operation.requestPath
-  }', ${stringify(parameters, null, 2)})`
+  }${queryParameters}', ${stringify(parameters, null, 2)})`
 }

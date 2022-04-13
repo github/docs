@@ -22,7 +22,7 @@ shortTitle: Limit interactions in repo
 
 {% data reusables.community.types-of-interaction-limits %}
 
-You can also enable activity limitations on all repositories owned by your user account or an organization. If a user-wide or organization-wide limit is enabled, you can't limit activity for individual repositories owned by the account. For more information, see "[Limiting interactions for your user account](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)" and "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)."
+You can also enable activity limitations on all repositories owned by your personal account or an organization. If a user-wide or organization-wide limit is enabled, you can't limit activity for individual repositories owned by the account. For more information, see "[Limiting interactions for your personal account](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)" and "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)."
 
 ## Limiting interactions in your repository
 
@@ -35,6 +35,6 @@ You can also enable activity limitations on all repositories owned by your user 
 ## Further reading
 - "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Managing an individual's access to an organization repository](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository)"
+- "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository)"
 - "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"

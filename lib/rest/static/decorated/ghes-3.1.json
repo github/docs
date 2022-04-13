@@ -17838,19 +17838,29 @@
             "properties": {
               "strict": {
                 "type": "boolean",
-                "description": "Require branches to be up to date before merging."
+                "description": "<p><strong>Required</strong>. Require branches to be up to date before merging.</p>",
+                "name": "strict",
+                "in": "body",
+                "rawType": "boolean",
+                "rawDescription": "Require branches to be up to date before merging.",
+                "childParamsGroups": []
               },
               "contexts": {
-                "type": "array",
+                "type": "array of strings",
                 "deprecated": true,
-                "description": "**Deprecated**: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use `checks` instead of `contexts` for more fine-grained control.\n",
+                "description": "<p><strong>Required</strong>. <strong>Deprecated</strong>: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use <code>checks</code> instead of <code>contexts</code> for more fine-grained control.</p>",
                 "items": {
                   "type": "string"
-                }
+                },
+                "name": "contexts",
+                "in": "body",
+                "rawType": "array",
+                "rawDescription": "**Deprecated**: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use `checks` instead of `contexts` for more fine-grained control.\n",
+                "childParamsGroups": []
               },
               "checks": {
-                "type": "array",
-                "description": "The list of status checks to require in order to merge into this branch.",
+                "type": "array of objects",
+                "description": "<p>The list of status checks to require in order to merge into this branch.</p>",
                 "items": {
                   "type": "object",
                   "required": [
@@ -17859,14 +17869,55 @@
                   "properties": {
                     "context": {
                       "type": "string",
-                      "description": "The name of the required check"
+                      "description": "<p><strong>Required</strong>. The name of the required check</p>",
+                      "name": "context",
+                      "in": "body",
+                      "rawType": "string",
+                      "rawDescription": "The name of the required check",
+                      "childParamsGroups": []
                     },
                     "app_id": {
                       "type": "integer",
-                      "description": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status."
+                      "description": "<p>The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.</p>",
+                      "name": "app_id",
+                      "in": "body",
+                      "rawType": "integer",
+                      "rawDescription": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                      "childParamsGroups": []
                     }
                   }
-                }
+                },
+                "name": "checks",
+                "in": "body",
+                "rawType": "array",
+                "rawDescription": "The list of status checks to require in order to merge into this branch.",
+                "childParamsGroups": [
+                  {
+                    "parentName": "checks",
+                    "parentType": "items",
+                    "id": "checks-items",
+                    "params": [
+                      {
+                        "type": "string",
+                        "description": "<p><strong>Required</strong>. The name of the required check</p>",
+                        "name": "context",
+                        "in": "body",
+                        "rawType": "string",
+                        "rawDescription": "The name of the required check",
+                        "childParamsGroups": []
+                      },
+                      {
+                        "type": "integer",
+                        "description": "<p>The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.</p>",
+                        "name": "app_id",
+                        "in": "body",
+                        "rawType": "integer",
+                        "rawDescription": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                        "childParamsGroups": []
+                      }
+                    ]
+                  }
+                ]
               }
             },
             "required": [
@@ -17880,7 +17931,123 @@
               "null"
             ],
             "rawDescription": "Require status checks to pass before merging. Set to `null` to disable.",
-            "childParamsGroups": []
+            "childParamsGroups": [
+              {
+                "parentName": "required_status_checks",
+                "parentType": "object",
+                "id": "required_status_checks-object",
+                "params": [
+                  {
+                    "type": "boolean",
+                    "description": "<p><strong>Required</strong>. Require branches to be up to date before merging.</p>",
+                    "name": "strict",
+                    "in": "body",
+                    "rawType": "boolean",
+                    "rawDescription": "Require branches to be up to date before merging.",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of strings",
+                    "deprecated": true,
+                    "description": "<p><strong>Required</strong>. <strong>Deprecated</strong>: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use <code>checks</code> instead of <code>contexts</code> for more fine-grained control.</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "contexts",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "**Deprecated**: The list of status checks to require in order to merge into this branch. If any of these checks have recently been set by a particular GitHub App, they will be required to come from that app in future for the branch to merge. Use `checks` instead of `contexts` for more fine-grained control.\n",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of objects",
+                    "description": "<p>The list of status checks to require in order to merge into this branch.</p>",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "context"
+                      ],
+                      "properties": {
+                        "context": {
+                          "type": "string",
+                          "description": "<p><strong>Required</strong>. The name of the required check</p>",
+                          "name": "context",
+                          "in": "body",
+                          "rawType": "string",
+                          "rawDescription": "The name of the required check",
+                          "childParamsGroups": []
+                        },
+                        "app_id": {
+                          "type": "integer",
+                          "description": "<p>The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.</p>",
+                          "name": "app_id",
+                          "in": "body",
+                          "rawType": "integer",
+                          "rawDescription": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                          "childParamsGroups": []
+                        }
+                      }
+                    },
+                    "name": "checks",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of status checks to require in order to merge into this branch.",
+                    "childParamsGroups": [
+                      {
+                        "parentName": "checks",
+                        "parentType": "items",
+                        "id": "checks-items",
+                        "params": [
+                          {
+                            "type": "string",
+                            "description": "<p><strong>Required</strong>. The name of the required check</p>",
+                            "name": "context",
+                            "in": "body",
+                            "rawType": "string",
+                            "rawDescription": "The name of the required check",
+                            "childParamsGroups": []
+                          },
+                          {
+                            "type": "integer",
+                            "description": "<p>The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.</p>",
+                            "name": "app_id",
+                            "in": "body",
+                            "rawType": "integer",
+                            "rawDescription": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                            "childParamsGroups": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "parentName": "checks",
+                "parentType": "items",
+                "id": "checks-items",
+                "params": [
+                  {
+                    "type": "string",
+                    "description": "<p><strong>Required</strong>. The name of the required check</p>",
+                    "name": "context",
+                    "in": "body",
+                    "rawType": "string",
+                    "rawDescription": "The name of the required check",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "integer",
+                    "description": "<p>The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.</p>",
+                    "name": "app_id",
+                    "in": "body",
+                    "rawType": "integer",
+                    "rawDescription": "The ID of the GitHub App that must provide this check. Omit this field to automatically select the GitHub App that has recently provided this check, or any app if it was not set by a GitHub App. Pass -1 to explicitly allow any app to set the status.",
+                    "childParamsGroups": []
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "boolean or null",
@@ -17900,35 +18067,97 @@
             "properties": {
               "dismissal_restrictions": {
                 "type": "object",
-                "description": "Specify which users and teams can dismiss pull request reviews. Pass an empty `dismissal_restrictions` object to disable. User and team `dismissal_restrictions` are only available for organization-owned repositories. Omit this parameter for personal repositories.",
+                "description": "<p>Specify which users and teams can dismiss pull request reviews. Pass an empty <code>dismissal_restrictions</code> object to disable. User and team <code>dismissal_restrictions</code> are only available for organization-owned repositories. Omit this parameter for personal repositories.</p>",
                 "properties": {
                   "users": {
-                    "type": "array",
-                    "description": "The list of user `login`s with dismissal access",
+                    "type": "array of strings",
+                    "description": "<p>The list of user <code>login</code>s with dismissal access</p>",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "name": "users",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of user `login`s with dismissal access",
+                    "childParamsGroups": []
                   },
                   "teams": {
-                    "type": "array",
-                    "description": "The list of team `slug`s with dismissal access",
+                    "type": "array of strings",
+                    "description": "<p>The list of team <code>slug</code>s with dismissal access</p>",
                     "items": {
                       "type": "string"
-                    }
+                    },
+                    "name": "teams",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of team `slug`s with dismissal access",
+                    "childParamsGroups": []
                   }
-                }
+                },
+                "name": "dismissal_restrictions",
+                "in": "body",
+                "rawType": "object",
+                "rawDescription": "Specify which users and teams can dismiss pull request reviews. Pass an empty `dismissal_restrictions` object to disable. User and team `dismissal_restrictions` are only available for organization-owned repositories. Omit this parameter for personal repositories.",
+                "childParamsGroups": [
+                  {
+                    "parentName": "dismissal_restrictions",
+                    "parentType": "object",
+                    "id": "dismissal_restrictions-object",
+                    "params": [
+                      {
+                        "type": "array of strings",
+                        "description": "<p>The list of user <code>login</code>s with dismissal access</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "users",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of user `login`s with dismissal access",
+                        "childParamsGroups": []
+                      },
+                      {
+                        "type": "array of strings",
+                        "description": "<p>The list of team <code>slug</code>s with dismissal access</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "teams",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of team `slug`s with dismissal access",
+                        "childParamsGroups": []
+                      }
+                    ]
+                  }
+                ]
               },
               "dismiss_stale_reviews": {
                 "type": "boolean",
-                "description": "Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit."
+                "description": "<p>Set to <code>true</code> if you want to automatically dismiss approving reviews when someone pushes a new commit.</p>",
+                "name": "dismiss_stale_reviews",
+                "in": "body",
+                "rawType": "boolean",
+                "rawDescription": "Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit.",
+                "childParamsGroups": []
               },
               "require_code_owner_reviews": {
                 "type": "boolean",
-                "description": "Blocks merging pull requests until [code owners](https://docs.github.com/articles/about-code-owners/) review them."
+                "description": "<p>Blocks merging pull requests until <a href=\"https://docs.github.com/articles/about-code-owners/\">code owners</a> review them.</p>",
+                "name": "require_code_owner_reviews",
+                "in": "body",
+                "rawType": "boolean",
+                "rawDescription": "Blocks merging pull requests until [code owners](https://docs.github.com/articles/about-code-owners/) review them.",
+                "childParamsGroups": []
               },
               "required_approving_review_count": {
                 "type": "integer",
-                "description": "Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6."
+                "description": "<p>Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6.</p>",
+                "name": "required_approving_review_count",
+                "in": "body",
+                "rawType": "integer",
+                "rawDescription": "Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6.",
+                "childParamsGroups": []
               }
             },
             "name": "required_pull_request_reviews",
@@ -17938,32 +18167,180 @@
               "null"
             ],
             "rawDescription": "Require at least one approving review on a pull request, before merging. Set to `null` to disable.",
-            "childParamsGroups": []
+            "childParamsGroups": [
+              {
+                "parentName": "required_pull_request_reviews",
+                "parentType": "object",
+                "id": "required_pull_request_reviews-object",
+                "params": [
+                  {
+                    "type": "object",
+                    "description": "<p>Specify which users and teams can dismiss pull request reviews. Pass an empty <code>dismissal_restrictions</code> object to disable. User and team <code>dismissal_restrictions</code> are only available for organization-owned repositories. Omit this parameter for personal repositories.</p>",
+                    "properties": {
+                      "users": {
+                        "type": "array of strings",
+                        "description": "<p>The list of user <code>login</code>s with dismissal access</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "users",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of user `login`s with dismissal access",
+                        "childParamsGroups": []
+                      },
+                      "teams": {
+                        "type": "array of strings",
+                        "description": "<p>The list of team <code>slug</code>s with dismissal access</p>",
+                        "items": {
+                          "type": "string"
+                        },
+                        "name": "teams",
+                        "in": "body",
+                        "rawType": "array",
+                        "rawDescription": "The list of team `slug`s with dismissal access",
+                        "childParamsGroups": []
+                      }
+                    },
+                    "name": "dismissal_restrictions",
+                    "in": "body",
+                    "rawType": "object",
+                    "rawDescription": "Specify which users and teams can dismiss pull request reviews. Pass an empty `dismissal_restrictions` object to disable. User and team `dismissal_restrictions` are only available for organization-owned repositories. Omit this parameter for personal repositories.",
+                    "childParamsGroups": [
+                      {
+                        "parentName": "dismissal_restrictions",
+                        "parentType": "object",
+                        "id": "dismissal_restrictions-object",
+                        "params": [
+                          {
+                            "type": "array of strings",
+                            "description": "<p>The list of user <code>login</code>s with dismissal access</p>",
+                            "items": {
+                              "type": "string"
+                            },
+                            "name": "users",
+                            "in": "body",
+                            "rawType": "array",
+                            "rawDescription": "The list of user `login`s with dismissal access",
+                            "childParamsGroups": []
+                          },
+                          {
+                            "type": "array of strings",
+                            "description": "<p>The list of team <code>slug</code>s with dismissal access</p>",
+                            "items": {
+                              "type": "string"
+                            },
+                            "name": "teams",
+                            "in": "body",
+                            "rawType": "array",
+                            "rawDescription": "The list of team `slug`s with dismissal access",
+                            "childParamsGroups": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "boolean",
+                    "description": "<p>Set to <code>true</code> if you want to automatically dismiss approving reviews when someone pushes a new commit.</p>",
+                    "name": "dismiss_stale_reviews",
+                    "in": "body",
+                    "rawType": "boolean",
+                    "rawDescription": "Set to `true` if you want to automatically dismiss approving reviews when someone pushes a new commit.",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "boolean",
+                    "description": "<p>Blocks merging pull requests until <a href=\"https://docs.github.com/articles/about-code-owners/\">code owners</a> review them.</p>",
+                    "name": "require_code_owner_reviews",
+                    "in": "body",
+                    "rawType": "boolean",
+                    "rawDescription": "Blocks merging pull requests until [code owners](https://docs.github.com/articles/about-code-owners/) review them.",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "integer",
+                    "description": "<p>Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6.</p>",
+                    "name": "required_approving_review_count",
+                    "in": "body",
+                    "rawType": "integer",
+                    "rawDescription": "Specify the number of reviewers required to approve pull requests. Use a number between 1 and 6.",
+                    "childParamsGroups": []
+                  }
+                ]
+              },
+              {
+                "parentName": "dismissal_restrictions",
+                "parentType": "object",
+                "id": "dismissal_restrictions-object",
+                "params": [
+                  {
+                    "type": "array of strings",
+                    "description": "<p>The list of user <code>login</code>s with dismissal access</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "users",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of user `login`s with dismissal access",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of strings",
+                    "description": "<p>The list of team <code>slug</code>s with dismissal access</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "teams",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of team `slug`s with dismissal access",
+                    "childParamsGroups": []
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "object or null",
             "description": "<p><strong>Required</strong>. Restrict who can push to the protected branch. User, app, and team <code>restrictions</code> are only available for organization-owned repositories. Set to <code>null</code> to disable.</p>",
             "properties": {
               "users": {
-                "type": "array",
-                "description": "The list of user `login`s with push access",
+                "type": "array of strings",
+                "description": "<p><strong>Required</strong>. The list of user <code>login</code>s with push access</p>",
                 "items": {
                   "type": "string"
-                }
+                },
+                "name": "users",
+                "in": "body",
+                "rawType": "array",
+                "rawDescription": "The list of user `login`s with push access",
+                "childParamsGroups": []
               },
               "teams": {
-                "type": "array",
-                "description": "The list of team `slug`s with push access",
+                "type": "array of strings",
+                "description": "<p><strong>Required</strong>. The list of team <code>slug</code>s with push access</p>",
                 "items": {
                   "type": "string"
-                }
+                },
+                "name": "teams",
+                "in": "body",
+                "rawType": "array",
+                "rawDescription": "The list of team `slug`s with push access",
+                "childParamsGroups": []
               },
               "apps": {
-                "type": "array",
-                "description": "The list of app `slug`s with push access",
+                "type": "array of strings",
+                "description": "<p>The list of app <code>slug</code>s with push access</p>",
                 "items": {
                   "type": "string"
-                }
+                },
+                "name": "apps",
+                "in": "body",
+                "rawType": "array",
+                "rawDescription": "The list of app `slug`s with push access",
+                "childParamsGroups": []
               }
             },
             "required": [
@@ -17977,7 +18354,51 @@
               "null"
             ],
             "rawDescription": "Restrict who can push to the protected branch. User, app, and team `restrictions` are only available for organization-owned repositories. Set to `null` to disable.",
-            "childParamsGroups": []
+            "childParamsGroups": [
+              {
+                "parentName": "restrictions",
+                "parentType": "object",
+                "id": "restrictions-object",
+                "params": [
+                  {
+                    "type": "array of strings",
+                    "description": "<p><strong>Required</strong>. The list of user <code>login</code>s with push access</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "users",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of user `login`s with push access",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of strings",
+                    "description": "<p><strong>Required</strong>. The list of team <code>slug</code>s with push access</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "teams",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of team `slug`s with push access",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "array of strings",
+                    "description": "<p>The list of app <code>slug</code>s with push access</p>",
+                    "items": {
+                      "type": "string"
+                    },
+                    "name": "apps",
+                    "in": "body",
+                    "rawType": "array",
+                    "rawDescription": "The list of app `slug`s with push access",
+                    "childParamsGroups": []
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "boolean",
@@ -22186,7 +22607,7 @@
             "key": "example-of-in-progress-conclusion",
             "request": {
               "contentType": "application/json",
-              "description": "Response for in_progress conclusion",
+              "description": "Example of an in_progress conclusion",
               "acceptHeader": "application/vnd.github.v3+json",
               "bodyParameters": {
                 "name": "mighty_readme",
@@ -22208,7 +22629,7 @@
             "response": {
               "statusCode": "201",
               "contentType": "application/json",
-              "description": "Response for completed conclusion",
+              "description": "Response for in_progress conclusion",
               "example": {
                 "id": 4,
                 "head_sha": "ce587453ced02b1526dfb4cb910479d431683101",
@@ -22305,7 +22726,7 @@
             "key": "example-of-completed-conclusion",
             "request": {
               "contentType": "application/json",
-              "description": "Response for completed conclusion",
+              "description": "Example of a completed conclusion",
               "acceptHeader": "application/vnd.github.v3+json",
               "bodyParameters": {
                 "name": "mighty_readme",
@@ -67892,7 +68313,7 @@
         ]
       },
       {
-        "serverUrl": "https%3A%2F%2Fuploads.github.com",
+        "serverUrl": "https://uploads.github.com",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}/assets",
         "title": "Upload a release asset",
