@@ -21,7 +21,7 @@ A principal diferença entre os produtos é que {% data variables.product.prodna
 
 Com {% data variables.product.prodname_ghe_cloud %}, você tem a opção de usar {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
-Se você optar por deixar seus integrantes criarem e gerenciarem suas próprias contas de usuário, há dois tipos de contas que você pode usar com {% data variables.product.prodname_ghe_cloud %}:
+If you choose to let your members create and manage their own personal accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
 
 - Uma conta de organização única
 - Uma conta corporativa que contém várias organizações

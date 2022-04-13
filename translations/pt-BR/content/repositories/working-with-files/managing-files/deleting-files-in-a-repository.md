@@ -22,7 +22,7 @@ shortTitle: Excluir arquivos
 
 É possível excluir um arquivo individual no repositório{% ifversion fpt or ghes or ghec %} ou um diretório inteiro, incluindo todos os arquivos no diretório{% endif %}.
 
-Se você tentar excluir um arquivo{% ifversion fpt or ghes or ghec %} ou diretório{% endif %} em um repositório no qual você não tem permissões de gravação, faremos uma bifurcação do projeto para a sua conta de usuário e iremos ajudá-lo a enviar um pull request para o repositório original depois de fazer commit da sua alteração. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
+If you try to delete a file{% ifversion fpt or ghes or ghec %} or directory{% endif %} in a repository that you don’t have write permissions to, we'll fork the project to your personal account and help you send a pull request to the original repository after you commit your change. Para obter mais informações, consulte "[Sobre pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)".
 
 Se o arquivo{% ifversion fpt or ghes or ghec %} ou diretório{% endif %} que você excluiu contém dados cnfidenciais, os dados ainda estarão disponíveis no histórico Git do repositório. Para remover completamente o arquivo de {% data variables.product.product_name %}, você deve remover o arquivo do histórico do seu repositório. Para obter mais informações, consulte "[Remover dados confidenciais do repositório](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
 

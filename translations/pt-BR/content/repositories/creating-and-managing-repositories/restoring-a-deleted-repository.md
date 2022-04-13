@@ -16,7 +16,7 @@ shortTitle: Restaurar repositório excluído
 ---
 
 {% ifversion fpt or ghec %}
-Qualquer pessoa pode restaurar repositórios excluídos que pertenciam à própria conta de usuário. Os proprietários da organização podem restaurar repositórios excluídos que pertenciam à organização.
+Anyone can restore deleted repositories that were owned by their own personal account. Os proprietários da organização podem restaurar repositórios excluídos que pertenciam à organização.
 
 ## Sobre a restauração do repositório
 
@@ -28,7 +28,7 @@ Depois que um repositório é excluído, pode levar até uma hora para que ele s
 
 Restaurar um repositório não vai restaurar anexos de versão nem permissões de equipe. Os problemas que são restaurados não serão etiquetados.
 
-## Restaurar um repositório excluído que pertencia a uma conta de usuário
+## Restoring a deleted repository that was owned by a personal account
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.repo-tab %}

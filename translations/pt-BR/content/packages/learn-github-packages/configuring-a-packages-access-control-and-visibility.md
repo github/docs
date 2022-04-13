@@ -23,12 +23,12 @@ Para obter mais informações sobre permissões para pacotes com escopo de repos
 
 ## Configurar acesso a imagens de contêiner para sua conta pessoal
 
-Se você tiver permissões de administrador para uma imagem de contêiner que pertence a uma conta de usuário, você pode atribuir funções de leitura, gravação ou administração a outros usuários. Para obter mais informações sobre essas funções de permissão, consulte "[Visibilidade e permissões de acesso para imagens de contêiner](#visibility-and-access-permissions-for-container-images)".
+If you have admin permissions to a container image that's owned by a personal account, you can assign read, write, or admin roles to other users. Para obter mais informações sobre essas funções de permissão, consulte "[Visibilidade e permissões de acesso para imagens de contêiner](#visibility-and-access-permissions-for-container-images)".
 
 Se o seu pacote for privado ou interno e pertencer a uma organização, você somente poderá dar acesso a outros integrantes ou equipes da organização.
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-1. Na página de configurações do pacote, clique em **Convidar equipes ou pessoas** e digite o nome, nome de usuário ou e-mail da pessoa à qual você deseja conceder acesso. As equipes não podem ter acesso a uma imagem de contêiner de uma conta de usuário. ![Botão de convite de acesso ao contêiner](/assets/images/help/package-registry/container-access-invite.png)
+1. Na página de configurações do pacote, clique em **Convidar equipes ou pessoas** e digite o nome, nome de usuário ou e-mail da pessoa à qual você deseja conceder acesso. Teams cannot be given access to a container image owned by a personal account. ![Botão de convite de acesso ao contêiner](/assets/images/help/package-registry/container-access-invite.png)
 1. Ao lado do nome de usuário ou nome de equipe, use o menu suspenso "Função" para selecionar um nível de permissão desejado. ![Opções de acesso ao contêiner](/assets/images/help/package-registry/container-access-control-options.png)
 
 Os usuários selecionados receberão acesso automaticamente e não precisarão aceitar um convite primeiro.

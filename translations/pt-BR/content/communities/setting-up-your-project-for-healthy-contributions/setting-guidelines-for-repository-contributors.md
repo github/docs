@@ -28,7 +28,7 @@ Para proprietários e contribuidores, as diretrizes de contribuição economizam
 
 {% ifversion fpt or ghes or ghec %}
 
-Você pode criar diretrizes de contribuição padrão para sua organização{% ifversion fpt or ghes or ghec %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default contribution guidelines for your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](//communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

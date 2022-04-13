@@ -16,7 +16,7 @@ topics:
 
 ## Sobre os logs de segurança de {% data variables.product.prodname_codespaces %}
 
-Quando você executar uma ação relacionada a {% data variables.product.prodname_codespaces %} em repositórios pertencentes à sua conta de usuário, você poderá revisar as ações no log de segurança. Para obter informações sobre acesso ao registro, consulte "[Revisar seu log de segurança](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)".
+When you perform an action related to {% data variables.product.prodname_codespaces %} in repositories owned by your personal account, you can review the actions in the security log. Para obter informações sobre acesso ao registro, consulte "[Revisar seu log de segurança](/github/authenticating-to-github/reviewing-your-security-log#accessing-your-security-log)".
 
 ![log de segurança com informações de codespaces](/assets/images/help/settings/codespaces-audit-log.png)
 

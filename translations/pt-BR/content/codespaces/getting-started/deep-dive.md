@@ -97,7 +97,7 @@ O Git está disponível por padrão no seu codespace. Portanto, você pode confi
 
 ![Executando o status do git no terminal do codespaces](/assets/images/help/codespaces/git-status.png)
 
-Você pode criar um codespace a partir de qualquer branch, commit ou pull request no seu projeto, ou você pode mudar para branch novo branch ou branch existente de dentro do seu codespace ativo. Uma vez que {% data variables.product.prodname_codespaces %} foi projetado para ser efêmero, você pode usá-lo como um ambiente isolado para experimentar, verificar o pull request de um amigo de equipe ou corrigir os conflitos de merge. Você pode criar mais de um código de espaço por repositório ou até mesmo por branch. No entanto, cada conta de usuário tem um limite de 10 codespaces. Se você atingiu o limite e deseja criar um novo espaço de código, você deve primeiro excluir um código.
+Você pode criar um codespace a partir de qualquer branch, commit ou pull request no seu projeto, ou você pode mudar para branch novo branch ou branch existente de dentro do seu codespace ativo. Uma vez que {% data variables.product.prodname_codespaces %} foi projetado para ser efêmero, você pode usá-lo como um ambiente isolado para experimentar, verificar o pull request de um amigo de equipe ou corrigir os conflitos de merge. Você pode criar mais de um código de espaço por repositório ou até mesmo por branch. However, each personal account has a limit of 10 codespaces. Se você atingiu o limite e deseja criar um novo espaço de código, você deve primeiro excluir um código.
 
 {% note %}
 

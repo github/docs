@@ -15,7 +15,7 @@ topics:
 shortTitle: Sobre organizações
 ---
 
-Para acessar uma organização, cada integrante deve entrar na própria conta de usuário pessoal.
+To access an organization, each member must sign into their own personal account.
 
 Os integrantes da organização podem ter diferentes funções, como *proprietário* ou *gerente de cobrança*:
 

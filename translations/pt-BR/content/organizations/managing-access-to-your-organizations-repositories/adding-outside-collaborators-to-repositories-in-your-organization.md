@@ -29,7 +29,7 @@ O proprietário da organização pode restringir a capacidade de convidar colabo
 {% endif %}
 
 {% ifversion ghes %}
-Antes de adicionar alguém como colaborador externo em um repositório, a pessoa deve ter uma conta de usuário em {% data variables.product.product_location %}. Se a empresa usa um sistema de autenticação externa, como SAML ou LDAP, a pessoa que você deseja adicionar deverá efetuar o login por meio desse sistema para criar uma conta. Se a pessoa não tiver acesso ao sistema de autenticação e a autenticação integrada estiver habilitada para a sua empresa, um administrador do site poderá criar uma conta de usuário para a pessoa. Para obter mais informações, consulte "[Usar autenticação integrada](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)".
+Before you can add someone as an outside collaborator on a repository, the person must have a personal account on {% data variables.product.product_location %}. Se a empresa usa um sistema de autenticação externa, como SAML ou LDAP, a pessoa que você deseja adicionar deverá efetuar o login por meio desse sistema para criar uma conta. If the person does not have access to the authentication system and built-in authentication is enabled for your enterprise, a site admin can create a personal account for the person. Para obter mais informações, consulte "[Usar autenticação integrada](/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication#inviting-users)".
 {% endif %}
 
 {% ifversion not ghae %}
