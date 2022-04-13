@@ -4,7 +4,6 @@ intro: Navegar a las diversas vistas disponibles en el resumen de seguridad
 permissions: Organization owners and security managers can access the security overview for organizations. Members of a team can see the security overview for repositories that the team has admin privileges for.
 product: '{% data reusables.gated-features.security-center %}'
 versions:
-  fpt: '*'
   ghae: issue-5503
   ghes: '>3.1'
   ghec: '*'
@@ -18,7 +17,9 @@ topics:
 shortTitle: Ver el resumen de seguridad
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Visualizar el resumen de seguridad de una organización
 
@@ -40,7 +41,7 @@ shortTitle: Ver el resumen de seguridad
 ## Ver el resumen de seguridad de una empresa
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. En la barra lateral izquierda, haz clic en {% octicon "shield" aria-label="The shield icon" %} **Seguridad**.
+1. In the left sidebar, click {% octicon "shield" aria-label="The shield icon" %} **Code Security**.
 {% endif %}
 
 ## Visualizar las alertas para un repositorio

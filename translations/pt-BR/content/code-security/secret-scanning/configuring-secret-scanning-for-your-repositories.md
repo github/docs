@@ -28,13 +28,15 @@ Você pode habilitar {% data variables.product.prodname_secret_scanning_GHAS %} 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-security-and-analysis %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
 4. Se {% data variables.product.prodname_advanced_security %} ainda não estiver habilitado para o repositório, à direita de "{% data variables.product.prodname_GH_advanced_security %}", clique em **Habilitar**.
    {% ifversion fpt or ghec %}![Habilitar {% data variables.product.prodname_GH_advanced_security %} para o seu repositório](/assets/images/help/repository/enable-ghas-dotcom.png)
    {% elsif ghes or ghae %}![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository](/assets/images/enterprise/3.1/help/repository/enable-ghas.png){% endif %}
 5. Revise o impacto de habilitar {% data variables.product.prodname_advanced_security %}, e clique em **Permitir {% data variables.product.prodname_GH_advanced_security %} para este repositório**.
 6. Quando você habilitar {% data variables.product.prodname_advanced_security %}, {% data variables.product.prodname_secret_scanning %} pode ser habilitado automaticamente para o repositório, devido às configurações da organização. Se "{% data variables.product.prodname_secret_scanning_caps %}" é exibido com um botão **habilitar**. Você ainda precisa habilitar {% data variables.product.prodname_secret_scanning %} clicando em **Habilitar**. Se você vir um botão **Desabilitar**, significa que {% data variables.product.prodname_secret_scanning %} já está habilitado. ![Habilitar {% data variables.product.prodname_secret_scanning %} para o seu repositório](/assets/images/help/repository/enable-secret-scanning-dotcom.png)
-
+{% if secret-scanning-push-protection %}
+7. Opcionalmente, se você quiser habilitar a proteção push, clique em **Habilitar** à direita de "Proteção push". {% data reusables.secret-scanning.push-protection-overview %} Para obter mais informações, consulte "[Protegendo pushes com {% data variables.product.prodname_secret_scanning %}](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)". ![Habilitar proteção push para o seu repositório](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
+{% endif %}
 {% ifversion ghae %}
 1. Antes de habilitar {% data variables.product.prodname_secret_scanning %}, você precisa habilitar {% data variables.product.prodname_GH_advanced_security %} primeiro. À direita de "{% data variables.product.prodname_GH_advanced_security %}", clique em **Habilitar**. ![Habilitar {% data variables.product.prodname_GH_advanced_security %} para o seu repositório](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
 2. Clique **Habilitar {% data variables.product.prodname_GH_advanced_security %} para este repositório** para confirmar a ação. ![Confirme a habilitação de {% data variables.product.prodname_GH_advanced_security %} para o seu repositório](/assets/images/enterprise/github-ae/repository/enable-ghas-confirmation-ghae.png)

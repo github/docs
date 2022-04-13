@@ -17,7 +17,6 @@ shortTitle: Definir política de colaborador
 
 Por padrão, qualquer pessoa com acesso de administrador a um repositório pode convidar colaboradores externos para trabalhar no repositório. Você pode optar por restringir a capacidade de convidar colaboradores externos apenas para os proprietários da organização.
 
-
 {% ifversion ghec %}
 {% note %}
 
@@ -25,6 +24,8 @@ Por padrão, qualquer pessoa com acesso de administrador a um repositório pode 
 
 {% endnote %}
 {% endif %}
+
+{% ifversion ghec %}Se sua organização pertencer a uma conta corporativa, você{% else %}você{% endif %} não poderá definir essa configuração para sua organização, se um proprietário da empresa definiu uma política a nível da empresa. Para obter mais informações, consulte "[Aplicando políticas de gerenciamento de repositórios na sua empresa]{% ifversion ghec %}(/admin/policies/execuing-policies-por-sua-empresa-empresa/execução-repositório-gerenciamento-em-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"{% else %}(/admin/polices/enforcing-polices-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositórios){% endif %}."
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 

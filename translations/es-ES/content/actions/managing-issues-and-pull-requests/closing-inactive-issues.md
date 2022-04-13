@@ -42,7 +42,7 @@ En el tutorial, prmero crearás un archivo de flujo de trabajo que utilice la [a
           issues: write
           pull-requests: write{% endif %}
         steps:
-          - uses: actions/stale@v3
+          - uses: {% data reusables.actions.action-stale %}
             with:
               days-before-issue-stale: 30
               days-before-issue-close: 14

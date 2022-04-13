@@ -18,7 +18,7 @@ shortTitle: Gerenciar comentários
 
 ## Ocultar um comentário
 
-Qualquer pessoa com acesso de gravação em um repositório podem ocultar comentários sobre problemas, pull requests e commits.
+{% ifversion fpt or ghec %}Os moderadores de organização e qualquer pessoa{% else %}{% endif %} com acesso de gravação a um repositório podem ocultar comentários em problemas, pull requests e commits.
 
 Se um comentário não diz respeito ao assunto, está desatualizado ou resolvido, pode ser que você queira ocultar o comentário para manter o foco da discussão ou fazer uma pull request mais simples para navegar e revisar. Comentários ocultos são minimizados, mas as pessoas com acesso de leitura no repositório podem expandi-los.
 
@@ -35,7 +35,7 @@ Se um comentário não diz respeito ao assunto, está desatualizado ou resolvido
 
 ## Mostrar um comentário
 
-Qualquer pessoa com acesso de gravação em um repositório pode reexibir comentários sobre problemas, pull requests e commits.
+{% ifversion fpt or ghec %}Os moderadores de organização e qualquer pessoa{% else %}{% endif %} com acesso de gravação a um repositório podem exibir comentários em problemas, pull requests e commits.
 
 1. Navegue até o comentário que deseja mostrar.
 2. No canto superior direito do comentário, clique em **{% octicon "fold" aria-label="The fold icon" %} Show comment** (Mostrar comentário). ![Mostrar texto de comentário](/assets/images/help/repository/hidden-comment-show.png)
@@ -82,3 +82,8 @@ Se o comentário contém algum conteúdo construtivo que contribui para a conver
 1. Navegue até o comentário que deseja excluir.
 2. No canto superior direito do comentário, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **Delete** (Excluir). ![Ícone horizontal kebab e menu comment moderation (moderação de comentários) mostrando as opções edit, hide, delete e report (editar, ocultar, excluir e denunciar)](/assets/images/help/repository/comment-menu.png)
 3. Opcionalmente, escreva um comentário informando que você deletou o comentário e por quê.
+
+{% ifversion fpt or ghec %}
+## Leia mais
+- "[Gerenciando moderadores na sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
+{% endif %} 

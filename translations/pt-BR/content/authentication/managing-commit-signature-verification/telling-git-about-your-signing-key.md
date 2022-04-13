@@ -97,16 +97,10 @@ Se você tiver várias chaves GPG, precisará informar ao Git qual deve ser usad
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 {% data reusables.gpg.paste-gpg-key-id %}
-1. Para adicionar a sua chave GPG ao seu perfil bash, execute o seguinte comando:
-  ```shell
-  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
-    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
+1. Para adicionar a sua chave de GPG ao seu arquivo de inicialização `.bashrc`, execute o seguinte comando:
+  ```bash
+  $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
   ```
-  {% note %}
-
-  **Observação:** se você não tiver `.bash_profile`, este comando adicionará sua chave GPG a `.profile`.
-
-  {% endnote %}
 
 {% endlinux %}
 

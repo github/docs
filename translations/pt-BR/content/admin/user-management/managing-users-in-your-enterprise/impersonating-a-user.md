@@ -19,7 +19,7 @@ Se você precisar assumir temporariamente uma conta de usuário, por exemplo, ao
 
 Para cada sessão de representação, você deve fornecer um motivo para a representação. Uma sessão é limitada a uma hora, e você terá o mesmo acesso que o usuário que está sendo representado.
 
-As ações que você realiza durante uma sessão de representação são registradas como eventos no log de auditoria corporativo, bem como no log de segurança do usuário representado. A pessoa que está sendo representada recebe uma notificação por e-mail quando começa a sessão de representação. Para obter mais informações, consulte "[Ações auditadas](/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions)" e "[Revisando o seu registro de segurança](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)".
+As ações que você realiza durante uma sessão de representação são registradas como eventos no log de auditoria corporativo, bem como no log de segurança do usuário representado. A pessoa que está sendo representada recebe uma notificação por e-mail quando começa a sessão de representação. Para obter mais informações, consulte "[Eventos de log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" e "[Revisando seu log de segurança](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)".
 
 ## Representando um usuário
 

@@ -22,12 +22,15 @@ topics:
 shortTitle: Sobre a visão geral de segurança
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Sobre a visão geral de segurança
 
-Você pode usar a visão geral de segurança para uma visão de alto nível do status de segurança da sua organização ou para identificar repositórios problemáticos que exigem intervenção. É possível visualizar as informações de segurança de tipo agregado ou específico do repositório na visão geral de segurança. Você também pode usar a visão geral de segurança para ver quais funcionalidades de segurança são habilitadas para os repositórios e para configurar quaisquer funcionalidades de segurança disponíveis que não estão em uso atualmente.
+{% ifversion ghes or ghec or ghae %}Você{% elsif fpt %}As organizações que usam {% data variables.product.prodname_ghe_cloud %}{% endif %} podem usar a visão geral de segurança para uma visão geral de alto nível do status de segurança da {% ifversion ghes or ghec or ghae %}sua  {% elsif fpt %}sua organização{% endif %} ou para identificar repositórios problemáticos que exigem intervenção. {% ifversion ghes or ghec or ghae %}Você {% elsif fpt %}Essas organizações{% endif %} podem ver informações de segurança específicas para o repositório ou agregadas na visão geral de segurança. {% ifversion ghes or ghec or ghae %}Você {% elsif fpt %} As organizações que usam {% data variables.product.prodname_ghe_cloud %}{% endif %} também podem usar a visão geral de segurança para ver quais funcionalidades de segurança estão habilitadas para {% ifversion ghes or ghec or ghae %}seus {% elsif fpt %}repositórios {% endif %} e para configurar quaisquer funcionalidades de segurança disponíveis que atualmente não estejam em uso. {% ifversion fpt %}Para obter mais informações, consulte [a documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
 
+{% ifversion ghec or ghes or ghae %}
 A visão geral de segurança indica se {% ifversion fpt or ghes > 3.1 or ghec %}os recursos de segurança{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} estão habilitados para os repositórios pertencentes à sua organização e consolida os alertas para cada recurso.{% ifversion fpt or ghes > 3.1 or ghec %} As funcionalidades de segurança incluem funcionalidaes de {% data variables.product.prodname_GH_advanced_security %} como, por exemplo, {% data variables.product.prodname_code_scanning %} e {% data variables.product.prodname_secret_scanning %}, bem como {% data variables.product.prodname_dependabot_alerts %}.{% endif %} Para obter mais informações sobre as funcionalidades de {% data variables.product.prodname_GH_advanced_security %} conuslte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."{% ifversion fpt or ghes > 3.1 or ghec %} Para obter mais informações sobre {% data variables.product.prodname_dependabot_alerts %}, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)."{% endif %}
 
 Para obter mais informações sobre como proteger seu código nos níveis do repositório e da organização, consulte "[Protegendo seu repositório](/code-security/getting-started/securing-your-repository)" e "[Protegendo sua organização](/code-security/getting-started/securing-your-organization)".
@@ -77,6 +80,4 @@ A nível da empresa, a visão geral de segurança exibe informações agregadas 
 
 ### Sobre a visão geral de segurança da equipe
 No nível da equipe, a visão geral de segurança exibe informações de segurança específicas para repositórios para os quais a equipe tem privilégios de administrador. Para obter mais informações, consulte "[Gerenciando o acesso da equipe ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
-
-### Sobre a visão geral de segurança do repositório
-No nível do repositório, a visão geral de segurança mostra quais funcionalidades de segurança são habilitados para o repositório e oferece a opção de configurar todos os funcionalidades de segurança disponíveis que não estejam habilitadas atualmente.
+{% endif %}

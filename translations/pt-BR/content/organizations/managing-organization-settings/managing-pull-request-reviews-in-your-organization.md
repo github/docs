@@ -22,6 +22,6 @@ Você também pode habilitar os limites de revisão de código para repositório
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}
+1. Na seção "Acesso" da barra lateral, clique em **Moderação de {% octicon "report" aria-label="The report icon" %}**.
 1. Em "Moderação de {% octicon "report" aria-label="The report icon" %}", clique em **Limites de revisão de código**. ![Captura de tela do item na barra lateral para limites de revisão de código para organizações](/assets/images/help/organizations/code-review-limits-organizations.png)
 1. Revise as informações na tela. Clique em **Limitar revisão em todos os repositórios** para limitar análises para aqueles com acesso explícito ou clique em **Remover limites de revisão de todos os repositórios** para remover os limites de cada repositório público na sua organização. ![Captura de tela de revisão de código de configurações de limites para organizações](/assets/images/help/organizations/code-review-limits-organizations-settings.png)

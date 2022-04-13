@@ -17,7 +17,6 @@ shortTitle: Set collaborator policy
 
 By default, anyone with admin access to a repository can invite outside collaborators to work on the repository. You can choose to restrict the ability to invite outside collaborators to organization owners only.
 
-
 {% ifversion ghec %}
 {% note %}
 
@@ -25,6 +24,8 @@ By default, anyone with admin access to a repository can invite outside collabor
 
 {% endnote %}
 {% endif %}
+
+{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing repository management policies in your enterprise]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}."
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 

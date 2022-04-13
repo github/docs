@@ -127,7 +127,13 @@ export const RestReferencePage = ({
         as="li"
         key={item.contents}
         className={item.platform}
-        sx={{ listStyle: 'none', padding: '2px' }}
+        sx={{
+          listStyle: 'none',
+          padding: '2px',
+          ':hover': {
+            bg: 'var(--color-canvas-inset)',
+          },
+        }}
       >
         <div className={cx('lh-condensed d-block width-full')}>
           <div className="d-inline-flex" dangerouslySetInnerHTML={{ __html: item.contents }} />
@@ -188,10 +194,13 @@ export const RestReferencePage = ({
         </div>
         <MarkdownContent>
           {subcategories.map((subcategory, index) => (
-            <div key={`restCategory-${index}`}>
+            <div key={`${subcategory}-${index}`}>
               <div dangerouslySetInnerHTML={{ __html: descriptions[subcategory] }} />
               {restOperations[subcategory].map((operation, index) => (
-                <RestOperation key={`restOperation-${index}`} operation={operation} index={index} />
+                <RestOperation
+                  key={`${subcategory}-${operation.title}-${index}`}
+                  operation={operation}
+                />
               ))}
             </div>
           ))}
