@@ -68,7 +68,7 @@ export const CodeExampleCard = ({ example }: Props) => {
               )
             } else if (tag === 'Dependabot') {
               return (
-                <Label key={tag} variant="small" sx={{ bg: 'attention.emphasis', mb: 1, mr: 2 }}>
+                <Label key={tag} variant="small" sx={{ bg: '#e39d00', mb: 1, mr: 2 }}>
                   {tag}
                 </Label>
               )
