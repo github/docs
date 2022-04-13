@@ -50,7 +50,7 @@ As a first step, you want to make a complete inventory of your dependencies. The
 
 ### Assessment of exposure to risk from a vulnerable dependency
 
-{% data reusables.dependabot.vulnerable-calls-beta %}
+{% data reusables.dependabot.assessing-risk-dependabot-alerts %}
 
 ## Secure your communication tokens
 
