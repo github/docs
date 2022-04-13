@@ -17,7 +17,7 @@ describe('breadcrumbs', () => {
 
     test('article pages have breadcrumbs with product, category, maptopic, and article', async () => {
       const $ = await getDOM(
-        '/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
+        '/account-and-profile/setting-up-and-managing-your-github-personal-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
@@ -30,7 +30,7 @@ describe('breadcrumbs', () => {
 
     test('maptopic pages include their own grayed-out breadcrumb', async () => {
       const $ = await getDOM(
-        '/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences'
+        '/account-and-profile/setting-up-and-managing-your-github-personal-account/managing-email-preferences'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
 
@@ -43,7 +43,7 @@ describe('breadcrumbs', () => {
 
     test('works for enterprise user pages', async () => {
       const $ = await getDOM(
-        '/en/enterprise-server/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
+        '/en/enterprise-server/account-and-profile/setting-up-and-managing-your-github-personal-account/managing-email-preferences/adding-an-email-address-to-your-github-account'
       )
       const $breadcrumbs = $('[data-testid=breadcrumbs] a')
       expect($breadcrumbs).toHaveLength(8)
@@ -149,7 +149,7 @@ describe('breadcrumbs', () => {
 
     test('works on maptopic pages', async () => {
       const breadcrumbs = await getJSON(
-        '/en/account-and-profile/setting-up-and-managing-your-github-personal-account/managing-user-account-settings?json=breadcrumbs'
+        '/en/account-and-profile/setting-up-and-managing-your-github-personal-account/managing-personal-account-settings?json=breadcrumbs'
       )
       const expected = [
         {
