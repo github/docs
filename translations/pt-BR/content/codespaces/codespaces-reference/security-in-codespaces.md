@@ -56,7 +56,7 @@ Se você precisar permitir acesso externo a serviços em execução em um codesp
 
 Se você precisar conectar-se a um serviço (como um servidor web de desenvolvimento) em execução no seu codespace, você poderá configurar o encaminhamento de portas para tornar o serviço disponível na internet.
 
-Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+Os proprietários da organização podem restringir a capacidade de tornar portas encaminhadas disponíveis publicamente ou dentro da organização. Para obter mais informações, consulte "[Restringindo a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports). "
 
 **Portas encaminhadas em particular**: Podem ser acessadas na internet, mas somente o criador do codespace pode acessá-las, após efetuar a autenticação em {% data variables.product.product_name %}.
 

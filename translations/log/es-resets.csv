@@ -76,7 +76,6 @@ translations/es-ES/content/admin/user-management/managing-users-in-your-enterpri
 translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users.md,broken liquid tags
 translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,Listed in localization-support#489
 translations/es-ES/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom.md,Listed in localization-support#489
-translations/es-ES/content/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions.md,Listed in localization-support#489
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account.md,Listed in localization-support#489
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,Listed in localization-support#489
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/about-anonymized-urls.md,Listed in localization-support#489
@@ -325,7 +324,6 @@ translations/es-ES/data/reusables/code-scanning/enabling-options.md,broken liqui
 translations/es-ES/data/reusables/code-scanning/licensing-note.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/run-additional-queries.md,broken liquid tags
 translations/es-ES/data/reusables/dependabot/dependabot-tos.md,broken liquid tags
-translations/es-ES/data/reusables/enterprise_installation/download-appliance.md,broken liquid tags
 translations/es-ES/data/reusables/enterprise_management_console/badge_indicator.md,broken liquid tags
 translations/es-ES/data/reusables/getting-started/marketplace.md,broken liquid tags
 translations/es-ES/data/reusables/github-connect/send-contribution-counts-to-githubcom.md,broken liquid tags

@@ -17,7 +17,9 @@ topics:
 shortTitle: Filtrando alertas
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Sobre a filtragem da visão geral de segurança
 

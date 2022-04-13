@@ -30,17 +30,17 @@ shortTitle: Downgrade subscription
 ---
 ## Downgrading your {% data variables.product.product_name %} subscription
 
-When you downgrade your user account or organization's subscription, pricing and account feature changes take effect on your next billing date. Changes to your paid user account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features. For more information, see "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
+When you downgrade your personal account or organization's subscription, pricing and account feature changes take effect on your next billing date. Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features. For more information, see "[How does upgrading or downgrading affect the billing process?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
 
-## Downgrading your user account's subscription
+## Downgrading your personal account's subscription
 
-If you downgrade your user account from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, the account will lose access to advanced code review tools on private repositories. {% data reusables.gated-features.more-info %}
+If you downgrade your personal account from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, the account will lose access to advanced code review tools on private repositories. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 1. Under "Current plan", use the **Edit** drop-down and click **Downgrade to Free**.
   ![Downgrade to free button](/assets/images/help/billing/downgrade-to-free.png)
-5. Read the information about the features your user account will no longer have access to on your next billing date, then click **I understand. Continue with downgrade**.
+5. Read the information about the features your personal account will no longer have access to on your next billing date, then click **I understand. Continue with downgrade**.
   ![Continue with downgrade button](/assets/images/help/billing/continue-with-downgrade.png)
 
 If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, remove or update your DNS records before downgrading from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."

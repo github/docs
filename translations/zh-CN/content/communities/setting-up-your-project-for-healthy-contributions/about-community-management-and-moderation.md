@@ -17,6 +17,8 @@ shortTitle: 管理和调节
 
 {% data variables.product.prodname_dotcom %} 还为仓库维护员提供在他们自己的 {% data variables.product.prodname_dotcom_the_website %} 社区制定和执行更高行为标准的工具。
 
+组织所有者可以将组织成员指定为版主。 这使这些成员可以访问为组织所有者保留的审核功能。 更多信息请参阅“[管理组织中的版主](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)”。
+
 在为社区制定行为标准后，可以通过快速、公平地响应破坏性行为来促进营造一个愉快、高效的环境。 有效的调解能在社区中建立信任，让贡献者感受到安全和热情。
 
 ## 社区调解工具

@@ -12,11 +12,16 @@ topics:
   - Organizations
   - Teams
 shortTitle: Organizationインサイトの表示
+permissions: Organization members can view organization insights.
 ---
 
-Organization のメンバー全員が Organization のインサイトを表示できます。 詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
-
 Organization のメンバーが、コードについてコラボレートや作業をするため {% data variables.product.product_name %} をどう使っているかについて、より深く理解するために、Organization activity insights を使用できます。 dependency insights は、Organization のオープンソース利用について追跡、レポート、および行動するため役立ちます。
+
+{% note %}
+
+**ノート:** Organizationインサイトを表示するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
 
 ## Organization activity insights を表示する
 

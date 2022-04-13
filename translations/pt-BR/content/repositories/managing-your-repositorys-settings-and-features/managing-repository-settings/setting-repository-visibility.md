@@ -24,7 +24,7 @@ Os proprietários da organização podem restringir a capacidade de alterar a vi
 
 {% ifversion ghec %}
 
-Os membros de um {% data variables.product.prodname_emu_enterprise %} só podem definir a visibilidade de repositórios pertencentes à sua conta de usuário como privada, e os repositórios das organizações de sua empresa só podem ser privados ou internos. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+Members of an {% data variables.product.prodname_emu_enterprise %} can only set the visibility of repositories owned by their personal account to private, and repositories in their enterprise's organizations can only be private or internal. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 
 {% endif %}
 
@@ -52,7 +52,7 @@ Recomendamos revisar as seguintes advertências antes de alterar a visibilidade 
 {%- endif %}
 
 {%- ifversion fpt %}
-* Se você estiver usando {% data variables.product.prodname_free_user %} para contas de usuário ou organizações, alguns recursos não estarão disponíveis no repositório depois de alterar a visibilidade para privada. Qualquer site publicado do {% data variables.product.prodname_pages %} terá sua publicação cancelada automaticamente. Se você adicionou um domínio personalizado ao site do {% data variables.product.prodname_pages %}, deverá remover ou atualizar os registros de DNS antes de tornar o repositório privado para evitar o risco de uma aquisição de domínio. Para obter mais informações, consulte "[Produtos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products) e "[Gerenciando um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
+* If you're using {% data variables.product.prodname_free_user %} for personal accounts or organizations, some features won't be available in the repository after you change the visibility to private. Qualquer site publicado do {% data variables.product.prodname_pages %} terá sua publicação cancelada automaticamente. Se você adicionou um domínio personalizado ao site do {% data variables.product.prodname_pages %}, deverá remover ou atualizar os registros de DNS antes de tornar o repositório privado para evitar o risco de uma aquisição de domínio. Para obter mais informações, consulte "[Produtos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products) e "[Gerenciando um domínio personalizado para o seu site de {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
 {%- endif %}
 
 {%- ifversion fpt or ghec %}

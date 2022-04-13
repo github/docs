@@ -1,14 +1,14 @@
 import cx from 'classnames'
-import { CodeResponse } from './types'
+import { StatusCode } from './types'
 import { useTranslation } from 'components/hooks/useTranslation'
 import styles from './RestResponseTable.module.scss'
 
 type Props = {
   heading: string
-  responses: Array<CodeResponse>
+  statusCodes: Array<StatusCode>
 }
 
-export function RestStatusCodes({ heading, responses }: Props) {
+export function RestStatusCodes({ heading, statusCodes }: Props) {
   const { t } = useTranslation('products')
 
   return (
@@ -22,21 +22,22 @@ export function RestStatusCodes({ heading, responses }: Props) {
           </tr>
         </thead>
         <tbody>
-          {responses.map((response, index) => (
-            <tr key={`${response.description}-${index}}`}>
-              <td>
-                <code>{response.httpStatusCode}</code>
-              </td>
-              <td>
-                {response.description &&
-                response.description.toLowerCase() !== '<p>response</p>' ? (
-                  <div dangerouslySetInnerHTML={{ __html: response.description }} />
-                ) : (
-                  response.httpStatusMessage
-                )}
-              </td>
-            </tr>
-          ))}
+          {statusCodes.map((statusCode, index) => {
+            return (
+              <tr key={`${statusCode.description}-${index}}`}>
+                <td>
+                  <code>{statusCode.httpStatusCode}</code>
+                </td>
+                <td>
+                  {statusCode.description ? (
+                    <div dangerouslySetInnerHTML={{ __html: statusCode.description }} />
+                  ) : (
+                    statusCode.httpStatusMessage
+                  )}
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </>

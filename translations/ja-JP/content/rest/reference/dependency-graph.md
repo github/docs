@@ -1,6 +1,6 @@
 ---
 title: 依存関係グラフ
-intro: 'With the Dependency Graph API, you can view dependency changes and their security impact on your repository.'
+intro: Dependency Graph APIを使うと、リポジトリにおける依存関係の変更や、その変更のセキュリティへの影響を見ることができます。
 versions:
   fpt: '*'
   ghes: '>=3.6'

@@ -1,6 +1,6 @@
 ---
 title: Changing your primary email address
-intro: You can change the email address associated with your user account at any time.
+intro: You can change the email address associated with your personal account at any time.
 redirect_from:
   - /articles/changing-your-primary-email-address
   - /github/setting-up-and-managing-your-github-user-account/changing-your-primary-email-address

@@ -12,9 +12,9 @@ topics:
   - Legal
 ---
 
-Millions of developers across the world host millions of projects—both open and closed source—on GitHub. We're fortunate to be able to play a part in enabling collaboration across the developer community every day, which is a responsibility we don’t take lightly. Together, we all have the exciting opportunity to make this a community we can be proud of.
+全球数以百万计的开发人员在 GitHub 上托管了数百万个项目，包括开源和闭源项目。 我们很幸运能够每天促进开发人员社区的协作，这是我们很重视的责任。 走在一起，我们都有机会让这个社区成为我们值得骄傲的地方。
 
-Our diverse user base brings different perspectives, ideas, and experiences, and ranges from people who created their first "Hello World" project last week to the most well-known software developers in the world. We are committed to making GitHub an environment that welcomes all the different voices and perspectives our community has to offer, while maintaining a safe place for developers to do their best work.
+我们多样化的用户群带来了不同的观点、想法和经验，从上周创建第一个“Hello World”项目的人到世界上最知名的软件开发人员。 我们致力于将 GitHub 营造成一个欢迎社区提供所有不同声音和观点的环境，同时为开发人员提供一个尽其所能工作的地方。
 
 By outlining what we think a [safe, welcoming, and productive community](https://opensource.guide/building-community/) looks like at GitHub, we hope to help you understand how best to interact and collaborate on our platform in line with our [Terms of Service](/github/site-policy/github-terms-of-service) and [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies).
 
@@ -23,13 +23,13 @@ We encourage our community members to communicate expectations clearly, [moderat
 
 ## Maintaining a strong community
 
-GitHub 社区的主要目的是协作处理软件项目。 我们致力于维持一个用户能够自由表达意见并对彼此想法（包括技术和其他方面）提出挑战的社区。 At the same time, it's important that users remain respectful and allow space for others to contribute openly. In order to foster both a safe and productive environment, we encourage our community members to look to these guidelines to inform how they interact on our platform.  Below, you’ll find some suggestions for how to have successful interactions as a valued member of the GitHub community.
+GitHub 社区的主要目的是协作处理软件项目。 我们致力于维持一个用户能够自由表达意见并对彼此想法（包括技术和其他方面）提出挑战的社区。 同时，重要的是用户保持尊重，并为其他人留出公开贡献的空间。 为了营造一个安全和富有成效的环境，我们鼓励社区成员参考这些准则，以了解如何在我们的平台上进行互动。  下面，您将找到一些有关如何作为 GitHub 社区的重要成员进行成功互动的建议。
 
-* **Be welcoming and open-minded** - New users join our community each day. Some are well-established developers, while others are just beginning. Be open to other ideas and experience levels. Make room for opinions other than your own and be welcoming to new collaborators and those just getting started.
+* **热情和开放** - 每天都有新用户加入我们的社区。 有些是成熟的开发人员，而另一些则刚入门。 请对其他想法和经验水平持开放态度。 为您自己以外的意见留出空间，欢迎新的合作者和刚入门的合作者。
 
-* **Be respectful** - Working in a collaborative environment means disagreements may happen. 但请记住，您的批评要对事不对人。 Share thoughtful, constructive criticism and be courteous to those you interact with. If you’re unable to engage respectfully, consider taking a step back or using some of our moderation tools to deescalate a tense situation.
+* **尊重** - 在协作环境中工作意味着可能会发生分歧。 但请记住，您的批评要对事不对人。 分享深思熟虑的、建设性的批评，并对与您互动的人保持礼貌。 如果您无法恭敬地参与，请考虑退后一步或使用我们的一些审核工具来缓解紧张局势。
 
-* **Be empathetic** - GitHub is a global community with people from a wide variety of backgrounds and perspectives, many of which may not be your own. Try to put yourself in others’ shoes and understand their feelings before you address them. Do your best to help make GitHub a community where others feel safe to make contributions, participate in discussions, and share different ideas.
+* **富有同情心** - GitHub 是一个全球性社区，拥有来自不同背景和观点的人，其中很多可能与您不同。 试着设身处地为他人着想，在解决问题之前，先了解他们的感受。 尽最大努力帮助 GitHub 成为一个任何人都能安全地做出贡献、参与讨论和分享不同想法的社区。
 
 
 ## 如果某事或某人冒犯您会怎么样？

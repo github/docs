@@ -79,7 +79,7 @@ Se você preferir receber determinados relatórios fora de {% data variables.pro
 
 Aqui está um exemplo de arquivo *config.yml*.
 
-```shell{:copy}
+```yaml{:copy}
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}

@@ -1,4 +1,5 @@
-{% data reusables.repositories.navigate-to-repo %}
+1. Activado
+{% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to start a discussion.
 {% data reusables.discussions.discussions-tab %}
 1. Da clic en **Debate nuevo**. ![Botón de "Debate nuevo" dentro de la pestaña de "Debates" en un repositorio](/assets/images/help/discussions/new-discussion-button.png)
 1. Selecciona el menú desplegable de **Seleccionar categoría** y da clic en una categoría para tu debate. ![Menú desplegable de "Seleccionar categoría" y lista de categorías disponibles en un repositorio](/assets/images/help/discussions/new-discussion-select-category-dropdown-menu.png)

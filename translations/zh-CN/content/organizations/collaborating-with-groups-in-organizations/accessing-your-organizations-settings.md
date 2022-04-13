@@ -25,7 +25,7 @@ shortTitle: 访问组织设置
 
 {% tip %}
 
-**提示：**只有组织所有者和帐单管理员可以查看及更改组织的帐单信息与帐户设置。 {% data reusables.organizations.new-org-permissions-more-info %}
+**提示：**只有组织所有者和帐单管理员可以查看及更改组织的帐单信息与全套帐户设置。 组织版主只能看到主持设置。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 

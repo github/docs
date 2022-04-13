@@ -17,7 +17,9 @@ topics:
 shortTitle: Filtrar alertas
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## Acerca de filtrar el resumen de seguridad
 
