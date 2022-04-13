@@ -24,13 +24,13 @@ topics:
 
 要缓存作业的依赖项，您需要使用 {% data variables.product.prodname_dotcom %} 的 `cache` 操作。 该操作检索由唯一键标识的缓存。 更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。
 
-If you are caching the package managers listed below, consider using the respective setup-* actions, which require almost zero configuration and are easy to use.
+如果要缓存下面列出的包管理器，请考虑使用相应的 setup-* 操作，这些操作几乎不需要任何配置，并且易于使用。
 
 <table>
 <thead>
   <tr>
-    <th>Package managers</th>
-    <th>setup-* action for caching</th>
+    <th>包管理器</th>
+    <th>用于缓存的 setup-* 操作</th>
   </tr>
 </thead>
 <tbody>
@@ -89,7 +89,7 @@ If you are caching the package managers listed below, consider using the respect
 ### `cache` 操作的输入参数
 
 - `key`：**必要** 保存缓存时创建的键，以及用于搜索缓存的键。 可以是变量、上下文值、静态字符串和函数的任何组合。 密钥最大长度为 512 个字符，密钥长度超过最大长度将导致操作失败。
-- `path`：**必要** 运行器上缓存或还原的文件路径。 The path can be an absolute path or relative to the workspace directory.
+- `path`：**必要** 运行器上缓存或还原的文件路径。 路径可以是绝对路径或相对于工作区目录的路径。
   - 路径可以是目录或单个文件，并且支持 glob 模式。
   - 使用 `cache` 操作的 `v2`，可以指定单个路径，也可以在单独的行上添加多个路径。 例如：
 
@@ -102,7 +102,16 @@ If you are caching the package managers listed below, consider using the respect
           ~/.gradle/wrapper
     ```
   - 对于 `cache` 操作的 `v1`，仅支持单个路径，它必须是一个目录。 您不能缓存单个文件。
-- `restore-keys`：**可选** `key` 没有发生缓存命中时用于查找缓存的其他密钥顺序列表。
+- `restore-keys`：**可选** 包含备用恢复键的字符串，每个恢复键都放在新行上。 如果 `key` 未发生缓存命中，则按提供的查找和恢复缓存的顺序使用这些恢复密钥。 例如：
+
+  {% raw %}
+  ```yaml
+  restore-keys: |
+    npm-foobar-${{ hashFiles('package-lock.json') }}
+    npm-foobar-
+    npm-
+  ```
+  {% endraw %}
 
 ### `cache` 操作的输出参数
 
@@ -232,12 +241,12 @@ restore-keys: |
 
 ## 使用限制和收回政策
 
-{% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 10 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 10 GB.
+{% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制为 10 GB。 如果超过此限制，{% data variables.product.prodname_dotcom %} 将保存缓存，但会开始收回缓存，直到总大小小于 10 GB。
 
 {% if actions-cache-management %}
 
-## Managing caches
+## 管理缓存
 
-You can use the {% data variables.product.product_name %} REST API to manage your caches. At present, you can use the API to see your cache usage, with more functionality expected in future updates. For more information, see the "[Actions](/rest/reference/actions#cache)" REST API documentation.
+您可以使用 {% data variables.product.product_name %} REST API 来管理缓存。 目前，您可以使用 API 来查看缓存使用情况，并期望在未来的更新中提供更多功能。 更多信息请参阅 REST API 文档中的“[操作](/rest/reference/actions#cache)”。
 
 {% endif %}

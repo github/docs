@@ -1,6 +1,6 @@
 ---
-title: Prebuilding your codespaces
-intro: 'To speed up codespace creation, you can configure your project to prebuild codespaces for specific branches in specific regions.'
+title: 预构建代码空间
+intro: 为加快代码空间的创建，可以配置项目为特定区域中的特定分支预构建代码空间。
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'

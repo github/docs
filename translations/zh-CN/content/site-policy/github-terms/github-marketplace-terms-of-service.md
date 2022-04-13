@@ -18,7 +18,7 @@ topics:
 
 ## A. GitHub.com 的服务条款
 
-Marketplace is provided by GitHub, and is governed by either the [Terms of Service](/articles/github-terms-of-service/) or the [Corporate Terms of Service](/articles/github-corporate-terms-of-service/) ("GitHub Terms"), depending on the type of account you're on, as well as these Marketplace Terms. 如果您将开发者产品配置为用于 GitHub.com 网站上的一个或多个帐户，则您对开发者产品的使用也将受适用 GitHub 条款的约束。 本文档中未定义的任何大写术语将在您适用的 GitHub 条款中定义。
+Marketplace 由 GitHub 提供，受[服务条款](/articles/github-terms-of-service/)或[公司服务条款](/articles/github-corporate-terms-of-service/)（“GitHub 条款”，具体取决于您使用的帐户类型）以及这些 Marketplace 条款的约束。 如果您将开发者产品配置为用于 GitHub.com 网站上的一个或多个帐户，则您对开发者产品的使用也将受适用 GitHub 条款的约束。 本文档中未定义的任何大写术语将在您适用的 GitHub 条款中定义。
 
 使用开发者产品时不得违反适用的 GitHub 条款。 许多此类开发者产品专门用于执行自动化任务。 此外，多个用户可以指示开发者产品的操作。 但是，如果您用自己的帐户购买和/或设置开发者产品，或者您是具有集成开发者产品的帐户之所有者，则您应对在您的帐户上或通过您的帐户执行的开发者产品操作负责。
 
@@ -44,7 +44,7 @@ Marketplace is provided by GitHub, and is governed by either the [Terms of Servi
 
 ## E. 您的数据和 GitHub 隐私政策
 
-**Privacy.** When you select or use a Developer Product, GitHub may share certain Personal Information (as defined in the [GitHub Privacy Statement](/articles/github-privacy-statement/)) with the Product Provider (if any such Personal Information is received from you) in order to provide you with the Developer Product, regardless of your privacy settings. GitHub 分享信息的多少取决于您所选开发者产品的要求，最少会分享您的用户帐户名称、ID 和主电子邮件地址，最多会分享您仓库内容的访问权限，包括阅读和修改您私有数据的权限。 通过 OAuth 授予权限时，您可以查看开发者产品要求的权限范围，然后选择接受或拒绝。
+**隐私**。当您选择或使用开发者产品时，GitHub 必须与产品提供者分享某些个人信息（定义见 [GitHub 隐私声明](/articles/github-privacy-statement/)）（如果收到您的任何此类个人信息），以便为您提供开发者产品，无论您的隐私设置如何。 GitHub 分享信息的多少取决于您所选开发者产品的要求，最少会分享您的用户帐户名称、ID 和主电子邮件地址，最多会分享您仓库内容的访问权限，包括阅读和修改您私有数据的权限。 通过 OAuth 授予权限时，您可以查看开发者产品要求的权限范围，然后选择接受或拒绝。
 
 如果您停止使用开发者产品并通过帐户设置撤消访问权限，则产品提供者将无法再访问您的帐户。 产品提供者负责在其规定的时间内从其系统中删除您的个人信息。 请联系产品提供者以确保您的帐户以被正确终止。
 

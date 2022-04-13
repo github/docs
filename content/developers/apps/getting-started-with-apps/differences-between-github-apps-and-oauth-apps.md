@@ -102,7 +102,7 @@ Unlike OAuth apps, GitHub Apps have targeted permissions that allow them to requ
 
 ## Machine vs. bot accounts
 
-Machine user accounts are OAuth-based user accounts that segregate automated systems using GitHub's user system.
+Machine user accounts are OAuth-based personal accounts that segregate automated systems using GitHub's user system.
 
 Bot accounts are specific to GitHub Apps and are built into every GitHub App.
 

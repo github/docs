@@ -22,6 +22,6 @@ shortTitle: 管理拉取请求审查
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}
+1. 在边栏的“Access（访问）”部分中，单击 **{% octicon "report" aria-label="The report icon" %} 主持**。
 1. 在“{% octicon "report" aria-label="The report icon" %} Moderation（主持）”下，单击 **Code review limits（代码审查限制）**。 ![组织代码审查限制的侧边栏项屏幕截图](/assets/images/help/organizations/code-review-limits-organizations.png)
 1. 查看屏幕上的信息。 单击 **Limit review on all repositories（限制审查所有存储库）**以将审查限于具有显式访问权限的人员，或单击 **Remove review limits from all repositories（从所有存储库删除审查限制）**以从组织中的每个公共存储库中删除限制。 ![组织的代码审查限制设置屏幕截图](/assets/images/help/organizations/code-review-limits-organizations-settings.png)

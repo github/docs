@@ -15,6 +15,8 @@ topics:
 shortTitle: 将成员转换为协作者
 ---
 
+## 关于将组织成员转换为外部协作者
+
 {% data reusables.organizations.owners-and-admins-can %} 将组织成员转换为外部协作者。
 
 {% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
@@ -31,6 +33,14 @@ shortTitle: 将成员转换为协作者
 建议查看组织成员对仓库的访问权限，以确保其访问权限符合您的预期。 更多信息请参阅“[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)”。
 
 将组织成员转换为外部协作者时，他们作为组织成员的权限将保存三个月，因此，如果您在该时间范围内{% ifversion fpt or ghec %} 邀请他们重新加入{% else %} 将他们重新添加到{% endif %} 您的组织，您可以恢复其成员权限。 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
+
+## 将组织成员转换为外部协作者
+
+{% note %}
+
+**注意：** 如果组织所有者{% ifversion not fpt %} 或企业所有者{% endif %} 限制了您添加外部协作者的能力，则您可能无法将组织成员转换为外部协作者。
+
+{% endnote %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

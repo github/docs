@@ -192,7 +192,7 @@ Define un job que se llame <code>check-bats-version</code>. Las llaves hijas def
   ```
 </td>
 <td>
-La palabra clave <code>uses</code> especifica que este paso ejecutará la <code>v2</code> de la acción <code>actions/checkout</code>.  Esta es una acción que comprueba tu repositorio en el ejecutor, lo cual te permite ejecutar scripts u otras acciones contra tu código (tales como herramientas de compilación y prueba). Debes utilizar la acción de verificación en cualquier momento en el que tu flujo de trabajo se ejecute contra el código del repositorio.
+The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action.  Esta es una acción que comprueba tu repositorio en el ejecutor, lo cual te permite ejecutar scripts u otras acciones contra tu código (tales como herramientas de compilación y prueba). Debes utilizar la acción de verificación en cualquier momento en el que tu flujo de trabajo se ejecute contra el código del repositorio.
 </td>
 </tr>
 <tr>

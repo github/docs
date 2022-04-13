@@ -31,10 +31,9 @@ shortTitle: 在 VMware 上安装
 
 ## 下载 {% data variables.product.prodname_ghe_server %} 映像
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. 选择 {% data variables.product.prodname_dotcom %} 内部部署，然后单击 **VMware ESXi/vSphere (OVA)**。
+4. 在“{% data variables.product.prodname_dotcom %} 本地”下，选择“Select your hypervisor（选择您的虚拟机管理程序）”下拉菜单，然后单击 **VMware ESXi/vSphere (OVA)**。
 5. 单击 **Download for VMware ESXi/vSphere (OVA)**。
 
 ## 创建 {% data variables.product.prodname_ghe_server %} 实例

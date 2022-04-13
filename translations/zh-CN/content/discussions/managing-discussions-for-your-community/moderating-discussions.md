@@ -1,7 +1,7 @@
 ---
 title: 主持讨论
 intro: 您可以通过将评论标记为答案、锁定或解锁讨论、将议题转换为讨论，以及编辑或删除评论、讨论和不符合社区行为准则的类别，以促进健康的协作。
-permissions: People with triage access to a repository can moderate discussions in the repository.
+permissions: People with triage access to a repository can moderate discussions in the repository. People with triage access to the source repository for organization discussions can moderate discussions in the organization.
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,7 +10,7 @@ versions:
 
 ## 关于主持讨论
 
-{% data reusables.discussions.about-discussions %}如果您对仓库具有分类权限，便可通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发的早期阶段时将问题转换为讨论，从而帮助主持项目的讨论。
+{% data reusables.discussions.about-discussions %} If you have triage permissions for a repository, you can help moderate a repository's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, if you have triage permission for the source repository for organization discussions, you can moderate discussions for that organization.
 
 ## 将评论标记为答案
 
@@ -18,9 +18,9 @@ versions:
 
 ## 锁定讨论
 
-当整个对话没有建设性或者违反社区的行为准则或 {% data variables.product.prodname_dotcom %} 的[社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines)时，锁定对话是明智之举。 您还可以锁定对话，以防止对要用作社区公告的讨论发表评论。 锁定对话时，对仓库具有写入权限的人仍然可以对讨论发表评论。
+当整个对话没有建设性或者违反社区的行为准则或 {% data variables.product.prodname_dotcom %} 的[社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines)时，锁定对话是明智之举。 您还可以锁定对话，以防止对要用作社区公告的讨论发表评论。 When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion.
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. 在讨论列表中，单击要锁定的讨论。 ![锁定讨论](/assets/images/help/discussions/unanswered-discussion.png)
 1. 在讨论的右侧边缘单击 **Lock conversation（锁定对话）**。
@@ -29,9 +29,9 @@ versions:
 
 ## 将议题转换为讨论
 
-在将议题转换为讨论时，会使用议题中的内容自动创建讨论。 对仓库拥有写入权限的人可以根据标签批量转换议题。 更多信息请参阅“[管理仓库中的讨论](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository)”。
+在将议题转换为讨论时，会使用议题中的内容自动创建讨论。 People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.repositories.sidebar-issues %}
 1. 在议题列表中，单击您想要转换的议题。
 1. 在议题的右侧边缘单击 **Convert to discussion（转换为讨论）**。

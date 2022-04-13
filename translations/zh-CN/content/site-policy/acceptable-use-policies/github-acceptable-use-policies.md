@@ -10,64 +10,64 @@ topics:
   - Legal
 ---
 
-**短版本：** _我们托管全球各地大量的协作项目，仅当用户能够善意一起工作时，该协作才能正常进行。 While using the Service, you must comply with our Acceptable Use Policies, which include some restrictions on content and conduct on GitHub related to user safety, intellectual property, privacy, authenticity, and other limitations. 简言之，要互惠互利。_
+**短版本：** _我们托管全球各地大量的协作项目，仅当用户能够善意一起工作时，该协作才能正常进行。 在使用服务时，您必须遵守我们的可接受使用政策，其中包括对 GitHub 上的内容和行为的一些限制，这些限制与用户安全、知识产权、隐私、真实性和其他限制有关。 简言之，要互惠互利。_
 
 有使用但在可接受使用政策中未定义的重要术语，其含义请参阅我们的[服务条款](/articles/github-terms-of-service)、[公司服务条款](/articles/github-corporate-terms-of-service)和[隐私声明](/articles/github-privacy-statement)。 对于受[公司服务条款](/articles/github-corporate-terms-of-service)约束的客户，“您”和“你的”是指“客户”或“用户”。 “我们”和“我们的”是指 "GitHub"。
 
 ## 1. 符合法律法规
 您负责遵照所有相关的法律、法规以及我们所有的可接受使用政策来使用服务。 这些政策可能不时更新，请参阅下面的内容以及我们的[服务条款](/articles/github-terms-of-service)和[公司服务条款](/articles/github-corporate-terms-of-service)。
 
-## 2. User Safety
-We do not allow content or activity on GitHub that:
+## 2. 用户安全
+我们不允许 GitHub 上的内容或活动：
 
 - 非法或宣传非法活动；
 
-- is [sexually obscene](/github/site-policy/github-sexually-obscene-content) or relates to sexual exploitation or abuse, including of minors;
+- [淫秽](/github/site-policy/github-sexually-obscene-content)或与性剥削或性虐待有关，包括对未成年人的性剥削或性虐待；
 
 - 诽谤、中伤或欺诈性内容；
 
 - 对任何个人或群体有[歧视性或辱骂性](/github/site-policy/github-hate-speech-and-discrimination)；
 
-- is [false, inaccurate, or intentionally deceptive information](/github/site-policy/github-misinformation-and-disinformation) and likely to adversely affect the public interest (including health, safety, election integrity, and civic participation);
+- 属于可能对公共利益（包括健康、安全、选举廉正和公民参与）产生不利影响的[虚假、不准确或有意欺骗性信息](/github/site-policy/github-misinformation-and-disinformation)；
 
-- [harasses or abuses](/github/site-policy/github-bullying-and-harassment) another individual or group, including our employees, officers, and agents, or other users;
+- [骚扰或辱骂](/github/site-policy/github-bullying-and-harassment)其他个人或团体，包括我们的员工、管理人员和代理人或其他用户；
 
-- [threatens or incites violence](/github/site-policy/github-threats-of-violence-and-gratuitously-violent-content) toward any individual or group, especially on the basis of who they are;
+- [威胁或煽动暴力](/github/site-policy/github-threats-of-violence-and-gratuitously-violent-content)对待任何个人或群体，特别是基于他们身份而行使暴力；
 
-- [gratuitously depicts or glorifies violence](/github/site-policy/github-threats-of-violence-and-gratuitously-violent-content), including violent images; or
+- [无端描述或美化暴力](/github/site-policy/github-threats-of-violence-and-gratuitously-violent-content)，包括暴力图像；或
 
-- is off-topic, or interacts with platform features in a way that significantly or repeatedly [disrupts the experience of other users](/github/site-policy/github-disrupting-the-experience-of-other-users).
+- 偏离主题，或以明显或反复[破坏其他用户体验](/github/site-policy/github-disrupting-the-experience-of-other-users)的方式与平台功能进行交互。
 
 
-## 3. Intellectual Property, Authenticity, and Private Information
-We do not allow content or activity on GitHub that:
+## 3. 知识产权、真实性和个人信息
+我们不允许 GitHub 上的内容或活动：
 
-- infringes any proprietary right of any party, including patent, trademark, trade secret, copyright, right of publicity, or other right;
+- 侵犯任何方的任何专有权利，包括专利、商标、商业秘密、版权、肖像权或其他权利；
 
-- unlawfully shares unauthorized product licensing keys, software for generating unauthorized product licensing keys, or software for bypassing checks for product licensing keys, including extension of a free license beyond its trial period;
+- 非法共享未经授权的产品许可密钥、用于生成未经授权的产品许可密钥的软件，或用于绕过产品许可密钥检查的软件，包括将免费许可证延长至试用期之后；
 
-- [impersonates any person or entity](/github/site-policy/github-impersonation), including any of our employees or representatives, including through false association with GitHub, or by fraudulently misrepresenting your identity or site's purpose; or
+- [冒充任何个人或实体](/github/site-policy/github-impersonation)，包括我们的任何员工或代表，无论是通过虚构与 GitHub 的关系，还是欺诈性误传您的身份或网站目的；或者
 
-- [violates the privacy of any third party](/github/site-policy/github-doxxing-and-invasion-of-privacy), such as by posting another person's personal information without consent.
+- [侵犯任何第三方](/github/site-policy/github-doxxing-and-invasion-of-privacy)的隐私，例如未经同意发布他人的个人信息。
 
 ## 4. GitHub 上的垃圾信息和假活动
-We do not allow content or activity on GitHub that is:
-- automated excessive bulk activity and coordinated inauthentic activity, such as
-   * spamming
-   * cryptocurrency mining;
+我们不允许在 GitHub 上发布以下内容或活动：
+- 自动执行过多的批量活动和协调的不真实活动，例如
+   * 垃圾邮件
+   * 加密货币挖矿；
 * GitHub 条款和政策禁止的促销和广告大量群分;
-* inauthentic interactions, such as fake accounts and automated inauthentic activity;
-* rank abuse, such as automated starring or following;
-* creation of or participation in secondary markets for the purpose of the proliferation of inauthentic activity;
+* 不真实的互动，例如虚假帐户和自动化的不真实活动；
+* 排名滥用，例如自动标星或关注；
+* 为传播假活动而创建或参与二级市场；
 * 将 GitHub 用作在其他平台上传播滥用的平台;
-* phishing or attempted phishing; or
-* using our servers for any form of excessive automated bulk activity, to place undue burden on our servers through automated means, or to relay any form of unsolicited advertising or solicitation through our servers, such as get-rich-quick schemes.
+* 钓鱼或试图钓鱼；或
+* 使用我们的服务器进行任何形式的过度自动化批量活动，通过自动化方式给我们的服务器带来不必要的负担，或通过我们的服务器中继任何形式的未经请求的广告或招揽，例如快速致富计划。
 
-## 5. Site Access and Safety
-We do not allow content or activity on GitHub that:
+## 5. 网站访问和安全
+我们不允许 GitHub 上的内容或活动：
 
 - 直接支持[非法的主动攻击或恶意软件活动](/github/site-policy/github-active-malware-or-exploits) ，这些活动正在造成技术伤害 - 例如使用我们的平台来提供恶意执行或作为攻击基础架构。 例如，通过组织拒绝服务攻击或管理命令和控制服务器 - 在发生滥用行为之前没有隐含或明确的双重用途目的；或
-- uses our servers to disrupt or to attempt to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account or network. Please note, activities permitted under bug bounty programs, such as the [GitHub Bug Bounty program](https://bounty.github.com), are not considered “unauthorized.”
+- 使用我们的服务器来破坏或试图破坏，或获取或试图未经授权访问任何服务、设备、数据、帐户或网络。 请注意，漏洞赏金计划允许的活动，例如 [GitHub 漏洞赏金计划](https://bounty.github.com)，不被视为“未经授权”。
 
 
 ## 6. 服务使用限制
@@ -98,17 +98,17 @@ We do not allow content or activity on GitHub that:
 
 我们理解，您可能想通过在帐户中发布支持者的姓名或徽标来推广您的内容，但在帐户中或通过帐户发布到服务的内容不应侧重于广告或促销。 这包括在页面、包、仓库和服务所有其他部分或者通过它们发布的内容。 您可在与您的帐户关联的自述文件中或项目说明部分包含静态图像、链接和宣传文本，但它们必须与您在 GitHub 上托管的项目相关。 您不能在其他用户的帐户中发布广告，例如在议题中发布货币化或过多的批量内容。
 
-You may not promote or distribute content or activity that is illegal or otherwise prohibited by our [Terms of Service](/github/site-policy/github-terms-of-service/) or [Acceptable Use Policies](/github/site-policy/github-acceptable-use-policies/), including excessive automated bulk activity (for example, spamming), get-rich-quick schemes, and misrepresentation or deception related to your promotion.
+您不得宣传或分发非法或我们[服务条款](/github/site-policy/github-terms-of-service/)或[可接受使用政策](/github/site-policy/github-acceptable-use-policies/)禁止的内容或活动，包括过度的自动批量活动（例如，垃圾邮件）、快速致富计划以及与您的促销相关的虚假陈述或欺骗。
 
 如果您决定在帐户中发布任何宣传材料，您将自行负责遵守所有适用的法律和法规，包括但不限于美国联邦贸易委员会的背书和推荐准则。 联邦贸易委员会的背书和推荐准则。 我们保留删除我们单方面认为违反了任何 GitHub 条款或政策的任何宣传材料或广告的权利。
 
 ## 11. 用户保护
 不得从事明显损害其他用户的活动。
 
-We will interpret our policies and resolve disputes in favor of protecting users as a whole.
+我们将从保护全体用户利益的角度解释我们的政策和解决争端。
 
 ---
 
-**Enforcement.** GitHub retains full discretion to [take action](/github/site-policy/github-community-guidelines#what-happens-if-someone-violates-githubs-policies) in response to a violation of these policies, including account suspension, account [termination](/github/site-policy/github-terms-of-service#3-github-may-terminate), or [removal](/github/site-policy/github-terms-of-service#2-github-may-remove-content) of content. Please also see our [Community Guidelines](/site-policy/github-terms/github-community-guidelines) for actions you can take if something or someone offends you.
+**执行。** GitHub 保留完全酌情权，可针对违反这些政策的行为[采取行动](/github/site-policy/github-community-guidelines#what-happens-if-someone-violates-githubs-policies)，包括帐户暂停、帐户[终止](/github/site-policy/github-terms-of-service#3-github-may-terminate)或[删除](/github/site-policy/github-terms-of-service#2-github-may-remove-content)内容。 另请参阅我们的[社区准则](/site-policy/github-terms/github-community-guidelines)，了解当有人冒犯您时您可以采取的措施。
 
-**Reinstatement and appeal.** If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
+**恢复和上诉。** 如果您的内容或帐户已被停用或限制，并且您寻求恢复或希望申诉，请参阅我们的[申诉和恢复页面](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement)，了解有关流程的信息，并使用我们的[申诉和恢复表单](https://support.github.com/contact/reinstatement)提交请求。

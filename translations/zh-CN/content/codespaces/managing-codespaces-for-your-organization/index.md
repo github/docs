@@ -14,6 +14,7 @@ children:
   - /managing-repository-access-for-your-organizations-codespaces
   - /reviewing-your-organizations-audit-logs-for-codespaces
   - /restricting-access-to-machine-types
+  - /restricting-the-visibility-of-forwarded-ports
 shortTitle: 管理组织
 ---
 
