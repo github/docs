@@ -6,7 +6,7 @@ Cuando marcas una pregunta como una respuesta, {% data variables.product.product
 
 No puedes marcar un comentario que tenga un hilo dentro de la respuesta de un comentario como la respuesta al debate. Tampoco puedes marcar un comentario minimizado como la respuesta a un debate.
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. En la lista de debates, da clic en el debate sin responder que quieras marcar como respondido. ![Debate sin responder](/assets/images/help/discussions/unanswered-discussion.png)
 1. En el debate, encuentra el comentario que quieras marcar como la respuesta.

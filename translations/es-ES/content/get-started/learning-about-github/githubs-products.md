@@ -1,5 +1,5 @@
 ---
-title: Productos de GitHub
+title: GitHub’s products
 intro: 'Un resumen de los productos de {% data variables.product.prodname_dotcom %} y de los planes de precios.'
 redirect_from:
   - /articles/github-s-products
