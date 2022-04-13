@@ -31,10 +31,14 @@ shortTitle: 保持所有权连续性
 
 {% endnote %}
 
+{% if enterprise-owner-join-org %}
+如果您的组织由企业帐户拥有，则任何企业所有者都可以将自己设为组织的所有者。 更多信息请参阅“[在企业拥有的组织中管理您的角色](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)”。
+{% endif %}
+
 ## 任命组织所有者
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. 选择要晋升为所有者的人员。 ![选择了两名成员的成员列表](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. 在成员列表的上方，使用下拉菜单并单击 **Change role（更改角色）**。 ![包含删除成员选项的下拉菜单](/assets/images/help/teams/user-bulk-management-options.png)

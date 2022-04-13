@@ -26,7 +26,21 @@ topics:
 
 {% data variables.product.prodname_actions %} va más allá de solo DevOps y te permite ejecutar flujos de trabajo cuando otros eventos suceden en tu repositorio. Por ejemplo, puedes ejecutar un flujo de trabajo para que agregue automáticamente las etiquetas adecuadas cada que alguien cree una propuesta nueva en tu repositorio.
 
+{% ifversion fpt or ghec %}
+
 {% data variables.product.prodname_dotcom %} proporciona máquinas virtuales Linux, Windows y macOS para que ejecutes tus flujos de trabajo o puedes hospedar tus propios ejecutores auto-hospedados en tu propio centro de datos o infraestructura en la nube.
+
+{% elsif ghes or ghae %}
+
+Debes hospedar tus propias máquinas virtuales Linux, Windows o macOS para ejecutar flujos de trabajo para {% data variables.product.product_location %}. {% data reusables.actions.self-hosted-runner-locations %}
+
+{% endif %}
+
+{% ifversion ghec or ghes or ghae %}
+
+Para obtener más información sobre cómo introducir las {% data variables.product.prodname_actions %} en tu empresa, consulta la sección "[Introducir las {% data variables.product.prodname_actions %} a tu empresa](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)".
+
+{% endif %}
 
 ## Los componentes de las {% data variables.product.prodname_actions %}
 
@@ -38,7 +52,7 @@ Puedes configurar un _flujo de trabajo_ de {% data variables.product.prodname_ac
 
 Un flujo de trabajo es un proceso automatizado configurable que ejecutará uno o más jobs.  Los flujos de trabajo se definen mediante un archivo de YAML que se verifica en tu repositorio y se ejecutará cuando lo active un evento dentro de este o puede activarse manualmente o en una programación definida.
 
-Tu repositorio puede tener varios flujos de trabajo dentro de él, cada uno de los cuales puede llevar a cabo un conjunto de pasos diferente.  Por ejemplo, puedes tener un flujo de trabajo para crear y probar las solicitudes de cambio, otro para desplegar tu aplicación cada que se cree un lanzamiento y todavía otro más que agregue una etiqueta cada que alguien abra una propuesta nueva.
+Puedes tener flujos de trabajo múltiples en un repositorio, cada uno de los cuales pueden llevar a cabo un conjunto de pasos diferente.  Por ejemplo, puedes tener un flujo de trabajo para crear y probar las solicitudes de cambio, otro para desplegar tu aplicación cada que se cree un lanzamiento y todavía otro más que agregue una etiqueta cada que alguien abra una propuesta nueva.
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Puedes referenciar un flujo de trabajo dentro de otro flujo de trabajo, consulta la sección "[Reutilizar flujos de trabajo](/actions/learn-github-actions/reusing-workflows)".{% endif %}
 
@@ -80,20 +94,21 @@ Puedes crear un flujo de trabajo de ejemplo en tu repositorio que active automá
 
 1. En tu repositorio, crea el directorio `.github/workflows/` para almacenar tus archivos de flujo de trabajo.
 1. En el directorio `.github/workflows/`, crea un archivo nuevo que se llame `learn-github-actions.yml` y agrega el siguiente código.
-    ```yaml
-    name: learn-github-actions
-    on: [push]
-    jobs:
-      check-bats-version:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
-            with:
-              node-version: '14'
-          - run: npm install -g bats
-          - run: bats -v
-    ```
+
+   ```yaml
+   name: learn-github-actions
+   on: [push]
+   jobs:
+     check-bats-version:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+         - uses: {% data reusables.actions.action-setup-node %}
+           with:
+             node-version: '14'
+         - run: npm install -g bats
+         - run: bats -v
+   ```
 1. Confirma estos cambios y cárgalos a tu repositorio de {% data variables.product.prodname_dotcom %}.
 
 Tu archivo de flujo de trabajo de {% data variables.product.prodname_actions %} nuevo estará ahora instalado en tu repositorio y se ejecutará automáticamente cada que alguien suba un cambio a éste. Para encontrar los detalles sobre el historial de ejecución un job, consulta la sección "[Visualizar la actividad del flujo de trabajo](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)".
@@ -173,7 +188,7 @@ Define un job que se llame <code>check-bats-version</code>. Las llaves hijas def
 <td>
 
   ```yaml
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
   ```
 </td>
 <td>
@@ -184,13 +199,13 @@ La palabra clave <code>uses</code> especifica que este paso ejecutará la <code>
 <td>
 
   ```yaml
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '14'
   ```
 </td>
 <td>
-  Este paso utiliza la acción <code>actions/setup-node@v2</code> para instalar la versión especificada del Node.js (este ejemplo utiliza la v14). Esto pone a los comandos <code>node</code> y <code>npm</code> en tu <code>PATH</code>.
+  This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). Esto pone a los comandos <code>node</code> y <code>npm</code> en tu <code>PATH</code>.
 </td>
 </tr>
 <tr>
@@ -225,22 +240,14 @@ En este diagrama, puedes ver el archivo de flujo de trabajo que acabas de crear,
 
 ## Ver la actividad del flujo de trabajo
 
-Una vez que tu flujo de trabajo comience a ejecutarse, podrás{% ifversion fpt or ghes > 3.0 or ghae or ghec %}ver una gráfica de visualización del progreso de dicha ejecución y {% endif %}ver la actividad de cada paso en {% data variables.product.prodname_dotcom %}.
+Una vez que tu flujo de trabajo haya comenzado a ejecutarse, puedes ver la gráfica de visualización del progreso de dicha ejecución, así como la actividad de cada paso en {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Debajo del nombre de tu repositorio, da clic en **Acciones**. ![Navegar al repositorio](/assets/images/help/images/learn-github-actions-repository.png)
 1. En la barra lateral izquierda, da clic en el flujo de trabajo que quieras ver. ![Impresión de pantalla de los resultados del flujo de trabajo](/assets/images/help/images/learn-github-actions-workflow.png)
-1. Debajo de "Ejecuciones de flujo de trabajo", da clic en el nombre de la ejecución que quieres ver. ![Captura de pantalla de las ejecuciones del flujo de trabajo](/assets/images/help/images/learn-github-actions-run.png)
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+1. Debajo de "Ejecuciones de flujo de trabajo", da clic en el nombre de la ejecución que quieres ver. ![Impresión de pantalla de las ejecuciones del flujo de trabajo](/assets/images/help/images/learn-github-actions-run.png)
 1. Debajo de **Jobs** o en la gráfica de visualización, da clic en el job que quieras ver. ![Seleccionar job](/assets/images/help/images/overview-actions-result-navigate.png)
-{% endif %}
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 1. Ve los resultados de cada paso. ![Impresión de pantalla de los detalles de la ejecución del flujo de trabajo](/assets/images/help/images/overview-actions-result-updated-2.png)
-{% elsif ghes %}
-1. Da clic en el nombre del job para ver los resultados de cada paso. ![Impresión de pantalla de los detalles de la ejecución del flujo de trabajo](/assets/images/help/images/overview-actions-result-updated.png)
-{% else %}
-1. Da clic en el nombre del job para ver los resultados de cada paso. ![Impresión de pantalla de los detalles de la ejecución del flujo de trabajo](/assets/images/help/images/overview-actions-result.png)
-{% endif %}
 
 ## Pasos siguientes
 
@@ -254,7 +261,7 @@ Para entender cómo funciona la facturación de las {% data variables.product.pr
 
 ## Contactar con soporte técnico
 
-{% data reusables.github-actions.contacting-support %}
+{% data reusables.actions.contacting-support %}
 
 ## Leer más
 

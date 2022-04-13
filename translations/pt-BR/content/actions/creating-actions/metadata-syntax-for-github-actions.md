@@ -272,7 +272,7 @@ Para obter mais informações, consulte "[`github context`](/actions/reference/c
 
 **Opcional** Você pode usar o `if` condicional para evitar que uma etapa seja executada, a menos que uma condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
 
-{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
+{% data reusables.actions.expression-syntax-if %} Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 **Exemplo: Usando contextos**
 
@@ -333,9 +333,9 @@ runs:
     # Reference a specific commit
     - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     # Reference the major version of a release
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
     # Reference a specific version
-    - uses: actions/checkout@v2.2.0
+    - uses: {% data reusables.actions.action-checkout %}.2.0
     # Reference a branch
     - uses: actions/checkout@main
     # References a subdirectory in a public GitHub repository at a specific branch, ref, or SHA
@@ -441,7 +441,7 @@ runs:
 
 `args` são usados em substituição à instrução `CMD` em um `Dockerfile`. Se você usar `CMD` no `Dockerfile`, use as diretrizes ordenadas por preferência:
 
-{% data reusables.github-actions.dockerfile-guidelines %}
+{% data reusables.actions.dockerfile-guidelines %}
 
 Se você precisar passar variáveis de ambiente para uma ação, certifique-se de que sua ação executa um shell de comando para realizar a substituição de variáveis. Por exemplo, se seu atributo `entrypoint` é definido como `"sh -c"`, os `args` serão executados em um terminal de comando. Como alternativa, se o seu `arquivo Docker` usar um `Entrypoint` para executar o mesmo comando (`"sh-c"`), os `Args` serão executado em um shell de comando.
 
@@ -479,10 +479,40 @@ Cor de fundo do selo. Pode ser: `branco`, `amarelo`, `azul`, `verde`, `laranja`,
 
 ### `branding.icon`
 
-Nome do ícone [Feather](https://feathericons.com/) (pena) para usar. <!-- 
+O nome do ícone de [Pena](https://feathericons.com/) da v4.28.0 a ser utilizado. Os ícones da marca são omitidos, assim como os itens seguintes:
+
+<table>
+<tr>
+<td>coffee</td>
+<td>colunas</td>
+<td>divide-circle</td>
+<td>divide-square</td>
+</tr>
+<tr>
+<td>divide</td>
+<td>frown</td>
+<td>hexagon</td>
+<td>Chave</td>
+</tr>
+<tr>
+<td>meh</td>
+<td>mouse-pointer</td>
+<td>smile</td>
+<td>ferramenta</td>
+</tr>
+<tr>
+<td>x-octagon</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</table>
+
+Aqui está uma lista taxativa de todos os ícones atualmente compatíveis:
+
+
+<!-- 
   This table should match the icon list in `app/models/repository_actions/icons.rb` in the internal github repo.
-  This table does not match the latest version the feather library. 
-  (Brand icons are omitted, and our supported list is not necessarily up-to-date with the latest version of the feather icon library.)
   To support a new icon, update `app/models/repository_actions/icons.rb` and add the svg to `/static/images/icons/feather` in the internal github repo. 
 -->
 

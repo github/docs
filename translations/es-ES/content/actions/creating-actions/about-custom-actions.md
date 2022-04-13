@@ -47,13 +47,13 @@ Los contenedores Docker empaquetan el entorno con el código de las {% data vari
 
 Un contenedor Docker te permite usar versiones específicas de un sistema operativo, dependencias, herramientas y código. Para las acciones que se deben ejecutar en una configuración de entorno específica, Docker es una opción ideal porque puedes personalizar el sistema operativo y las herramientas. Debido a la latencia para crear y recuperar el contenedor, las acciones del contenedor Docker son más lentas que las acciones de JavaScript.
 
-Las acciones de contenedor de Docker solo pueden ejecutarse en ejecutores con un sistema operativo Linux. {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
+Las acciones de contenedor de Docker solo pueden ejecutarse en ejecutores con un sistema operativo Linux. {% data reusables.actions.self-hosted-runner-reqs-docker %}
 
 ### Acciones de JavaScript
 
 Las acciones de JavaScript pueden ejecutarse directamente en una máquina del ejecutor y separar el código de acción del entorno utilizado para ejecutar el código. El uso de una acción de JavaScript simplifica el código de acción y se ejecuta más rápido que una acción de contenedor Docker.
 
-{% data reusables.github-actions.pure-javascript %}
+{% data reusables.actions.pure-javascript %}
 
 Si estás desarrollando un proyecto Node.js, el conjunto de herramientas de las {% data variables.product.prodname_actions %} te ofrece paquetes que puedes usar en tu proyecto para acelerar el desarrollo. Para obtener más información, consulta el repositorio [actions/toolkit](https://github.com/actions/toolkit).
 
@@ -72,7 +72,6 @@ Con el almacenamiento de una acción en su propio repositorio es más fácil par
 {% data reusables.actions.internal-actions-summary %}
 
 {% ifversion fpt or ghec %}Si estás creando una acción que no piensas poner disponible para otros, puedes {% else %} Puedes {% endif %} almacenar los archivos de dicha acción en cualquier ubicación de tu repositorio. Si tienes la intención de combinar la acción, el flujo de trabajo y el código de aplicación en un único repositorio, es recomendable que almacenes las acciones en el directorio `.github`. Por ejemplo, `.github/actions/action-a` y `.github/actions/action-b`.
-
 
 ## Compatibilidad con {% data variables.product.prodname_ghe_server %}
 
@@ -130,7 +129,7 @@ steps:
 
 ### Utilizar el SHA de las confirmaciones para la administración de lanzamientos
 
-Cada confirmación de Git recibe un valor calculado de SHA, el cual es único e inmutable. Los usuarios de tus acciones podrían preferir obtener un valor de SHA para la confirmación, ya que este acercamiento puede ser más confiable que especificar una etiqueta, la cual podría borrarse o moverse. Sin embargo, esto significa que los usuarios no recibirán ls actualizaciones posteriores que se hagan a la acción. {% ifversion fpt or ghes > 3.0 or ghae or ghec %}Debes utilizar el valor completo del SHA de la confirmación y no el abreviado.{% else %}El utilizar el valor completo del SHA de la confirmación en vez del abreviado ayuda a prevenir que las personas utilicen una confirmación mal intencionada que utiice la misma abreviación.{% endif %}
+Cada confirmación de Git recibe un valor calculado de SHA, el cual es único e inmutable. Los usuarios de tus acciones podrían preferir obtener un valor de SHA para la confirmación, ya que este acercamiento puede ser más confiable que especificar una etiqueta, la cual podría borrarse o moverse. Sin embargo, esto significa que los usuarios no recibirán ls actualizaciones posteriores que se hagan a la acción. Debes utilizar un valor SHA completo de la confirmación y no un valor abreviado.
 
 ```yaml
 steps:

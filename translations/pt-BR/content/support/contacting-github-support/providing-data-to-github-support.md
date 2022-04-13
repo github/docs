@@ -89,7 +89,7 @@ Depois do envio da sua solicitação de suporte, podemos pedir que você compart
 - `collectd/logs/collectd.log`: logs coletados;
 - `mail-logs/mail.log`: logs de entrega de e-mail por SMTP;
 
-Para obter mais informações, consulte "[Gerar logs de auditoria](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)".
+For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
 Os pacotes de suporte incluem logs dos últimos dois dias. Para obter logs dos últimos sete dias, você pode baixar um pacote de suporte estendido. Para obter mais informações, consulte "[Criar e compartilhar pacotes de suporte estendidos](#creating-and-sharing-extended-support-bundles)".
 
@@ -177,3 +177,4 @@ Você pode fazer upload diretamente de um pacote de suporte para o nosso servido
 ## Leia mais
 
 - "[Sobre o suporte do GitHub](/support/learning-about-github-support/about-github-support)"
+- "[Gerando uma verificação de integridade da sua empresa](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

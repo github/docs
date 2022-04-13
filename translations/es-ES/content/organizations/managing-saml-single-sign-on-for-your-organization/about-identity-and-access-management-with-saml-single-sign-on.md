@@ -18,6 +18,8 @@ shortTitle: IAM con el SSO de SAML
 
 {% data reusables.saml.dotcom-saml-explanation %}
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.saml-accounts %}
 
 Los propietarios de las organizaciones pueden requerir el SSO de SAML para una organización individual o para todas las organizaciones en una cuenta empresarial. Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML para tu empresa](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
@@ -30,7 +32,7 @@ En una organización, el SSO de SAML puede inhabilitarse, habilitarse pero no re
 
 Los miembros deben autenticarse regularmente con tu IdP y obtener acceso a los recursos de tu organización. Tu IdP especifica la duración de este período de inicio de sesión y, generalmente, es de 24 horas. Este requisito de inicio de sesión periódico limita la duración del acceso y requiere que los usuarios se vuelvan a identificar para continuar.
 
-Para acceder a los recursos protegidos de tu organización tulizando la API y Git en la línea de comando, los miembros deberán autorizar y autentificarse con un token de acceso personal o llave SSH. Para obtener más información, consulta las secciones "[Autorizar que un token de acceso personal se utilice con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" y "[Autorizar a una llave SSH para que se utilice con el inicio de sesión único de SAML](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)".
+Para acceder a los recursos protegidos de tu organización tulizando la API y Git en la línea de comando, los miembros deberán autorizar y autentificarse con un token de acceso personal o llave SSH. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" and "[Authorizing an SSH key for use with SAML single sign-on](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
 
 La primera vez que un miembro utiliza el SSO de SAML para acceder a tu organización, {% data variables.product.prodname_dotcom %} crea un registro automáticamente, el cual vincula tu organización, la cuenta del miembro en {% data variables.product.product_location %} y la cuenta del miembro en tu IdP. Puedes ver y retirar la identidad de SAML que se ha vinculado, activar sesiones, y autorizar las credenciales para los miembros de tu organización o cuenta empresarial. Para obtener más información, consulta la sección "[Visualizar y administrar un acceso de SAML de un miembro a tu organización](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)" y [Visualizar y administrar un acceso de SAML de un usuario a tu cuenta empresarial](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)".
 

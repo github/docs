@@ -1,7 +1,7 @@
 
 Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configurations. マトリックスによって、単一のジョブの定義内の変数の置き換えを行い、複数のジョブを作成できるようになります。 たとえば、マトリックスを使って複数のサポートされているバージョンのプログラミング言語、オペレーティングシステム、ツールに対するジョブを作成できます。 マトリックスは、ジョブの設定を再利用し、設定した各マトリクスに対してジョブを作成します。
 
-{% data reusables.github-actions.usage-matrix-limits %}
+{% data reusables.actions.usage-matrix-limits %}
 
 `matrix`内で定義した各オプションは、キーと値を持ちます。 定義したキーは`matrix`コンテキスト中の属性となり、ワークフローファイルの他のエリア内のプロパティを参照できます。 たとえば、オペレーティングシステムの配列を含む`os`というキーを定義したなら、`matrix.os`属性を`runs-on`キーワードの値として使い、それぞれのオペレーティングシステムに対するジョブを作成できます。 詳細については、「[コンテキスト](/actions/learn-github-actions/contexts)」を参照してください。
 
@@ -13,19 +13,17 @@ Use `jobs.<job_id>.strategy.matrix` to define a matrix of different job configur
 
 この例では、`node`キーにNode.jsの3つのバージョンの配列を設定することによって、3つのジョブのマトリクスを作成します。 このマトリックスを使用するために、この例では`matrix.node`コンテキスト属性を`setup-node`アクションの入力パラメータである`node-version`に設定しています。 その結果、3 つのジョブが実行され、それぞれが異なるバージョンのNode.js を使用します。
 
-{% raw %}
 ```yaml
 strategy:
   matrix:
     node: [10, 12, 14]
 steps:
-  # GitHub でホストされているランナーで使用されるノードバージョンを設定する
-  - uses: actions/setup-node@v2
+  # Configures the node version used on GitHub-hosted runners
+  - uses: {% data reusables.actions.action-setup-node %}
     with:
       # The Node.js version to configure
-      node-version: ${{ matrix.node }}
+      node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 {% data variables.product.prodname_dotcom %}ホストランナーを使う場合にNode.jsのバージョンを設定する方法としては、`setup-node`アクションをおすすめします。 詳しい情報については[`setup-node`](https://github.com/actions/setup-node)アクションを参照してください。
 
@@ -38,19 +36,17 @@ steps:
 
 {% data reusables.repositories.actions-matrix-builds-os %}
 
-{% raw %}
 ```yaml
-runs-on: ${{ matrix.os }}
+runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 strategy:
   matrix:
     os: [ubuntu-18.04, ubuntu-20.04]
     node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v2
+  - uses: {% data reusables.actions.action-setup-node %}
     with:
-      node-version: ${{ matrix.node }}
+      node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 {% ifversion ghae %}
 For more information about the configuration of self-hosted runners, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."
@@ -123,4 +119,4 @@ strategy:
 
 それぞれのテストの組み合わせに、`include`キーを使ってカスタムの環境変数を追加できます。 そして、後のステップでそのカスタムの環境変数を参照できます。
 
-{% data reusables.github-actions.matrix-variable-example %}
+{% data reusables.actions.matrix-variable-example %}

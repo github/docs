@@ -46,7 +46,7 @@ Após criar o seu tíquete, você poderá vê-lo e as respostas de {% data varia
 
 ## O que incluir no seu tíquete de suporte
 
-Providing {% data variables.contact.github_support %} with everything they need to understand, locate, and reproduce an issue will allow for a faster resolution and less back-and-forth between yourself and the support team. Para garantir que {% data variables.contact.github_support %} posse ajudar você, considere os seguintes pontos quando você abrir o seu tíquete:
+Fornecer {% data variables.contact.github_support %} tudo o que precisa para entender, localizar, e reproduzir um problema permitirá uma resolução mais rápida e menos gargalos entre você e a equipe de suporte. Para garantir que {% data variables.contact.github_support %} posse ajudar você, considere os seguintes pontos quando você abrir o seu tíquete:
 
 - Obter informações que possam ajudar o {% data variables.contact.github_support %} a acompanhar, priorizar, reproduzir ou investigar o problema.
 - Incluir URLs completos, nomes de repositório e nomes de usuário sempre que possível.

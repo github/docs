@@ -73,7 +73,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: {% data reusables.actions.action-checkout %}
 
     - name: Azure Login
       uses: azure/login@89d153571fe9a34ed70fcf9f1d95ab8debea7a73
@@ -121,6 +121,6 @@ jobs:
 
 以下のリソースも役に立つでしょう。
 
-* For the original starter workflow, see [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+* オリジナルのスターターワークフローについては、{% data variables.product.prodname_actions %} `starter-workflows`リポジトリ中の[`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml)を参照してください。
 * The actions used to in this workflow are the official Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake), and [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy)actions.
 * For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

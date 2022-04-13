@@ -17,6 +17,5 @@ children:
   - /configuring-scim-provisioning-for-enterprise-managed-users
   - /configuring-scim-provisioning-for-enterprise-managed-users-with-okta
   - /managing-team-memberships-with-identity-provider-groups
-  - /auditing-activity-in-your-enterprise
 ---
 

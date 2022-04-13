@@ -50,13 +50,6 @@ upcoming_changes:
     criticality: breaking
     owner: BrentWheeldon
   - 
-    location: EnterpriseOwnerInfo.pendingCollaborators
-    description: '`pendingCollaborators` será removido. Use o campo `pendingCollaboratorInvitations` em vez disso.'
-    reason: Os convites de repositório agora podem ser associados a um email, não apenas a um convidado.
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
-  - 
     location: Issue.timeline
     description: '`timeline` será removido. Use Issue.timelineItems em vez disso.'
     reason: '`timeline` será removido'
@@ -70,13 +63,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: breaking
     owner: mikesea
-  - 
-    location: RepositoryInvitationOrderField.INVITEE_LOGIN
-    description: '`INVITEE_LOGIN` será removido.'
-    reason: '`INVITEE_LOGIN` não é mais um valor de campo válido. Convites de repositório agora podem ser associados a um email, não apenas a um convidado.'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
   - 
     location: Sponsorship.sponsor
     description: '`sponsor` será removido. Use `Sponsorship.sponsorEntity` em vez disso.'
@@ -95,13 +81,6 @@ upcoming_changes:
     location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
     description: '`isUnlicensed` será removido.'
     reason: Todos os colaboradores externos consomem uma licença
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: EnterprisePendingCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` será removido.'
-    reason: Todos os colaboradores pendentes consomem uma licença
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon
@@ -126,3 +105,38 @@ upcoming_changes:
     date: '2021-10-01T00:00:00+00:00'
     criticality: breaking
     owner: synthead
+  - 
+    location: PullRequest.viewerCanOverrideMergeQueue
+    description: '`viewerCanOverrideMergeQueue` será removido. Use PullRequest.viewerCanMergeAsAdmin.'
+    reason: '`viewer_can_override_merge_queue` will be removed'
+    date: '2022-04-01'
+    criticality: breaking
+    owner: cbeaman
+  - 
+    location: Repository.defaultMergeQueue
+    description: 'O `defaultMergeQueue` será removido. Use `Repository.mergeQueue`.'
+    reason: '`defaultMergeQueue` será removido.'
+    date: '2022-04-01'
+    criticality: breaking
+    owner: colinshum
+  - 
+    location: AddPullRequestToMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason: PRs are added to the merge queue for the base branch, the `branch` argument is now a no-op
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - 
+    location: Enterprise.userAccounts
+    description: '`userAccounts` will be removed. Use the `Enterprise.members` field instead.'
+    reason: The `Enterprise.userAccounts` field is being removed.
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jdennes
+  - 
+    location: Query.sponsorables.dependencyEcosystem
+    description: '`dependencyEcosystem` será removido. Use o argumento do ecossistema.'
+    reason: O tipo está mudando de SecurityAdvisoryEcosystem para DependencyGraphEcosystem.
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137

@@ -13,9 +13,8 @@ topics:
   - Organizations
   - Teams
 shortTitle: 删除成员
+permissions: Organization owners can remove members from an organization.
 ---
-
-只有组织所有者才能从组织中删除成员。
 
 {% ifversion fpt or ghec %}
 
@@ -55,7 +54,7 @@ shortTitle: 删除成员
 ## 撤销用户的成员身份
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. 选择您想要从组织中删除的成员。 ![选择了两名成员的成员列表](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. 在成员列表上方，使用下拉菜单，然后单击 **Remove from organization（从组织中删除）**。 ![包含删除成员选项的下拉菜单](/assets/images/help/teams/user-bulk-management-options.png)
@@ -63,4 +62,5 @@ shortTitle: 删除成员
 
 ## 延伸阅读
 
-- “[从团队中删除组织成员](/articles/removing-organization-members-from-a-team)”
+- "[从团队中移除组织成员](/articles/removing-organization-members-from-a-team)"{% if remove-enterprise-members %}
+- "[从企业中移除成员](/admin/user-management/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise)"{% endif %}

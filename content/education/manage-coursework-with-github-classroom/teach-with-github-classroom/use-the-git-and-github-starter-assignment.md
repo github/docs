@@ -3,7 +3,7 @@ title: Use the Git and GitHub starter assignment
 intro: 'You can use the Git & {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.company_short %} fundamentals.'
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can use Git & {% data variables.product.company_short %} starter assignments. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment
 shortTitle: Starter assignment
@@ -96,7 +96,7 @@ The Git & {% data variables.product.company_short %} starter assignment is only 
 
 ## Next steps
 
-- Make additional assignments customized to your course. For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" and "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+- Make additional assignments customized to your course. For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)," and "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
 ## Further reading
 

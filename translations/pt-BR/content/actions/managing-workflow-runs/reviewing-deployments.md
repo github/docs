@@ -4,7 +4,7 @@ intro: Você pode aprovar ou rejeitar trabalhos que estão aguardando revisão.
 product: '{% data reusables.gated-features.environments %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 ---

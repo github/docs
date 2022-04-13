@@ -51,7 +51,7 @@ To create secrets for an organization repository, you must have administrator ac
 
 When creating a secret in an organization, you can use a policy to limit which repositories can access that secret. For example, you can grant access to all repositories, or limit access to only private repositories or a specified list of repositories.
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -69,7 +69,7 @@ You can check which access policies are applied to a secret in your organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. The list of secrets includes any configured permissions and policies. For example:
 ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
 1. For more details on the configured permissions for each secret, click **Update**.

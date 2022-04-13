@@ -26,9 +26,9 @@ Cuando eliminas a un colaborador de un repositorio en tu organización, el colab
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5974 %}
 ## Administrar el acceso de una persona a un repositorio de una organización
-You can give a person access to a repository or change a person's level of access to a repository in your repository settings. For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+Puedes otorgarle a alguien acceso a un repositorio o cambiar su nivel de acceso a este en tus ajustes de repositorio. Para obtener más información, consulta la sección "[Administrar los equipos y personas con acceso a tu repositorio](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)".
 {% else %}
-## Giving a person access to a repository
+## Otorgar acceso a un repositorio
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -40,7 +40,7 @@ You can give a person access to a repository or change a person's level of acces
 ## Administrar el acceso de una persona a un repositorio de una organización
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 4. Haz clic en **Members (Miembros)** o **Outside collaborators (Colaboradores externos)** para administrar las personas con diferentes tipos de acceso. ![Botón para invitar a miembros o colaboradores externos a una organización](/assets/images/help/organizations/select-outside-collaborators.png)
 5. A la derecha del nombre de la persona que desearías administrar, utiliza el menú desplegable {% octicon "gear" aria-label="The Settings gear" %}, y haz clic en **Manage (Administrar)**. ![Enlace de acceso al gerente](/assets/images/help/organizations/member-manage-access.png)
@@ -49,5 +49,5 @@ You can give a person access to a repository or change a person's level of acces
 {% endif %}
 ## Leer más
 
-{% ifversion fpt or ghec %}- "[Limiting interactions with your repository](/articles/limiting-interactions-with-your-repository)"{% endif %}
+{% ifversion fpt or ghec %}- "[Limitar las interacciones con tu repositorio](/articles/limiting-interactions-with-your-repository)"{% endif %}
 - "[Roles de repositorio para una organización](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

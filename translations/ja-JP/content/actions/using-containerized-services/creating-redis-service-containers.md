@@ -24,11 +24,11 @@ topics:
 
 このガイドでは、Docker Hubの`redis`イメージを使ってサービスコンテナを設定するワークフローの例を紹介します。 このワークフローは、Redisのクライアントを作成してクライアントにデータを展開するスクリプトを実行します。 Redisクライアントを作成して展開するワークフローをテストするために、このスクリプトはクライアントのデータをコンソールに出力します。
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## 必要な環境
 
-{% data reusables.github-actions.service-container-prereqs %}
+{% data reusables.actions.service-container-prereqs %}
 
 YAML、{% data variables.product.prodname_actions %}の構文、Redisの基本な理解があれば役立つかも知れません。 詳しい情報については、以下を参照してください。
 
@@ -37,30 +37,29 @@ YAML、{% data variables.product.prodname_actions %}の構文、Redisの基本�
 
 ## コンテナ内でのジョブの実行
 
-{% data reusables.github-actions.container-jobs-intro %}
+{% data reusables.actions.container-jobs-intro %}
 
-{% data reusables.github-actions.copy-workflow-file %}
+{% data reusables.actions.copy-workflow-file %}
 
-{% raw %}
 ```yaml{:copy}
 name: Redis container example
 on: push
 
 jobs:
-  # コンテナジョブのラベル
+  # Label of the container job
   container-job:
-    # コンテナはLinuxベースのオペレーティングシステム内で実行しなければならない
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # `container-job`が実行されるDocker Hubのイメージ
+    # Docker Hub image that `container-job` executes in
     container: node:10.18-jessie
 
-    # `container-job`と実行されるサービスコンテナ
+    # Service containers to run with `container-job`
     services:
-      # サービスコンテナへのアクセスに使われるラベル
+      # Label used to access the service container
       redis:
-        # Docker Hubのイメージ
+        # Docker Hub image
         image: redis
-        # redisが起動するまで待つヘルスチェックの設定
+        # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
@@ -68,33 +67,32 @@ jobs:
           --health-retries 5
 
     steps:
-      # CIテストの実行前にリポジトリからコードのコピーをダウンロード
+      # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
-      # `package.json`ファイル内のすべての依存関係のクリーンインストールの実行
-      # 詳しい情報についてはhttps://docs.npmjs.com/cli/ci.htmlを参照
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to Redis
-        # Redisクライアントを作成し、クライアントにデータを展開し、
-        # データを取り出すスクリプトを実行
+        # Runs a script that creates a Redis client, populates
+        # the client with data, and retrieves data
         run: node client.js
-        # `client.js`スクリプトが新しいRedisクライアントを作成するのに使う環境変数
+        # Environment variable used by the `client.js` script to create a new Redis client.
         env:
           # Redisサービスコンテナとの通信に使われるホスト名
           REDIS_HOST: redis
           # デフォルトのRedisポート
           REDIS_PORT: 6379
 ```
-{% endraw %}
 
 ### コンテナジョブの設定
 
-{% data reusables.github-actions.service-container-host %}
+{% data reusables.actions.service-container-host %}
 
-{% data reusables.github-actions.redis-label-description %}
+{% data reusables.actions.redis-label-description %}
 
 ```yaml{:copy}
 jobs:
@@ -121,24 +119,24 @@ jobs:
 
 ### ステップの設定
 
-{% data reusables.github-actions.service-template-steps %}
+{% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
 steps:
-  # CIテストの実行前にリポジトリのコードのコピーをダウンロード
+  # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
-    uses: actions/checkout@v2
+    uses: {% data reusables.actions.action-checkout %}
 
-  # `package.json`ファイル中のすべての依存関係のクリーンインストールの実行
-  # 詳しい情報については https://docs.npmjs.com/cli/ci.html を参照
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
   - name: Install dependencies
     run: npm ci
 
   - name: Connect to Redis
-    # Redisクライアントを作成し、クライアントにデータを展開し、
-    # データを取り出すスクリプトを実行
+    # Runs a script that creates a Redis client, populates
+    # the client with data, and retrieves data
     run: node client.js
-    # `client.js`スクリプトが新しいRedisクライアントを作成する際に利用する環境変数
+    # Environment variable used by the `client.js` script to create a new Redis client.
     env:
           # Redisサービスコンテナとの通信に使われるホスト名
           REDIS_HOST: redis
@@ -146,7 +144,7 @@ steps:
           REDIS_PORT: 6379
 ```
 
-{% data reusables.github-actions.redis-environment-variables %}
+{% data reusables.actions.redis-environment-variables %}
 
 Redisサービスのホスト名は、ワークフロー中で設定されたラベルで、ここでは`redis`です。 同じユーザー定義ブリッジネットワーク上のDockerコンテナは、デフォルトですべてのポートをオープンするので、サービスコンテナにはデフォルトのRedisのポートである6379でアクセスできます。
 
@@ -154,64 +152,62 @@ Redisサービスのホスト名は、ワークフロー中で設定されたラ
 
 ランナーマシン上で直接ジョブを実行する場合、サービスコンテナ上のポートをDockerホスト上のポートにマップしなければなりません。 Dockerホストからサービスコンテナへは、`localhost`とDockerホストのポート番号を使ってアクセスできます。
 
-{% data reusables.github-actions.copy-workflow-file %}
+{% data reusables.actions.copy-workflow-file %}
 
-{% raw %}
 ```yaml{:copy}
 name: Redis runner example
 on: push
 
 jobs:
-  # ランナージョブのラベル
+  # Label of the runner job
   runner-job:
-    # サービスコンテナもしくはコンテナジョブを使う際にはLinux環境を使わなければならない
+    # You must use a Linux environment when using service containers or container jobs
     runs-on: ubuntu-latest
 
-    # `runner-job`と実行されるサービスコンテナ
+    # Service containers to run with `runner-job`
     services:
-      # サービスコンテナへのアクセスに使われるラベル
+      # Label used to access the service container
       redis:
-        # Docker Hubのイメージ
+        # Docker Hub image
         image: redis
-        # redisが起動するまで待つヘルスチェックの設定
+        # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
         ports:
-          # サービスコンテナのポート6379をホストにマップ
+          # Maps port 6379 on service container to the host
           - 6379:6379
 
     steps:
-      # CIテストの実行前にリポジトリのコードのコピーをダウンロード
+      # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
-      # `package.json`ファイル内のすべての依存関係のクリーンインストールの実行
-      # 詳しい情報についてはhttps://docs.npmjs.com/cli/ci.htmlを参照
+      # Performs a clean installation of all dependencies in the `package.json` file
+      # For more information, see https://docs.npmjs.com/cli/ci.html
       - name: Install dependencies
         run: npm ci
 
       - name: Connect to Redis
-        # Redisクライアントを作成し、クライアントにデータを展開し、
-        # データを取り出すスクリプトを実行
+        # Runs a script that creates a Redis client, populates
+        # the client with data, and retrieves data
         run: node client.js
-        # `client.js`スクリプトが新しいRedisクライアントを作成するのに
-        # 使う環境変数
+        # Environment variable used by the `client.js` script to create
+        # a new Redis client.
         env:
           # Redisサービスコンテナとの通信に使われるホスト名
           REDIS_HOST: localhost
           # デフォルトのRedisポート
           REDIS_PORT: 6379
 ```
-{% endraw %}
 
 ### ランナージョブの設定
 
-{% data reusables.github-actions.service-container-host-runner %}
+{% data reusables.actions.service-container-host-runner %}
 
-{% data reusables.github-actions.redis-label-description %}
+{% data reusables.actions.redis-label-description %}
 
 このワークフローはRedisサービスコンテナ上のポート6379をDockerホストにマップします。 `ports`キーワードに関する詳しい情報については「[サービスコンテナについて](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)」を参照してください。
 
@@ -241,25 +237,25 @@ jobs:
 
 ### ステップの設定
 
-{% data reusables.github-actions.service-template-steps %}
+{% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
 steps:
-  # CIテストの実行前にリポジトリのコードのコピーをダウンロード
+  # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
-    uses: actions/checkout@v2
+    uses: {% data reusables.actions.action-checkout %}
 
-  # `package.json`ファイル中のすべての依存関係のクリーンインストールの実行
-  # 詳しい情報については https://docs.npmjs.com/cli/ci.html を参照
+  # Performs a clean installation of all dependencies in the `package.json` file
+  # For more information, see https://docs.npmjs.com/cli/ci.html
   - name: Install dependencies
     run: npm ci
 
   - name: Connect to Redis
-    # Redisクライアントを作成し、クライアントにデータを展開し、
-    # データを取り出すスクリプトを実行
+    # Runs a script that creates a Redis client, populates
+    # the client with data, and retrieves data
     run: node client.js
-    # `client.js`スクリプトが新しいRedisクライアントを作成する際に
-    # 利用する環境変数
+    # Environment variable used by the `client.js` script to create
+    # a new Redis client.
     env:
           # Redisサービスコンテナとの通信に使われるホスト名
           REDIS_HOST: localhost
@@ -267,9 +263,9 @@ steps:
           REDIS_PORT: 6379
 ```
 
-{% data reusables.github-actions.redis-environment-variables %}
+{% data reusables.actions.redis-environment-variables %}
 
-{% data reusables.github-actions.service-container-localhost %}
+{% data reusables.actions.service-container-localhost %}
 
 ## Redisサービスコンテナのテスト
 
@@ -277,7 +273,7 @@ steps:
 
 *client.js*を修正して、ワークフローで必要なRedisの操作を含めることができます。 この例では、スクリプトはRedisクライアントのインスタンスを作成し、プレースホルダーデータを追加し、そしてそのデータを取り出します。
 
-{% data reusables.github-actions.service-container-add-script %}
+{% data reusables.actions.service-container-add-script %}
 
 ```javascript{:copy}
 const redis = require("redis");

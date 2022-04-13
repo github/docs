@@ -72,7 +72,7 @@ Você pode usar o método de autenticação interno do {% data variables.product
 Você também pode exigir autenticação de dois fatores para cada uma de suas organizações. Para obter mais informações, consulte "[Exigindo a autenticação de dois fatores para uma organização](/admin/user-management/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization)".
 
 ### 2. Manter a conformidade
-Você pode implementar verificações de status necessárias e realizar verificações de commit para fazer cumprir os padrões de conformidade da sua organização e automatizar os fluxos de trabalho de conformidade. Você também pode usar o log de auditoria para sua organização revisar as ações executadas pela sua equipe. Para obter mais informações, consulte "[Aplicando a política com hooks pre-receive](/admin/policies/enforcing-policy-with-pre-receive-hooks)" e "[Log de auditoria](/admin/user-management/monitoring-activity-in-your-enterprise/audit-logging)".
+Você pode implementar verificações de status necessárias e realizar verificações de commit para fazer cumprir os padrões de conformidade da sua organização e automatizar os fluxos de trabalho de conformidade. Você também pode usar o log de auditoria para sua organização revisar as ações executadas pela sua equipe. Para obter mais informações, consulte "[Aplicando a política de hooks pre-receive](/admin/policies/enforcing-policy-with-pre-receive-hooks)" e "[Sobre o log de auditoria da sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)".
 
 {% ifversion ghes %}
 ### 3. Configurar as funcionalidades de segurança para as suas organizações

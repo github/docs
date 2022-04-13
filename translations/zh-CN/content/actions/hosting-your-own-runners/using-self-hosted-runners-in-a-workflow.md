@@ -13,7 +13,6 @@ type: tutorial
 shortTitle: 在工作流程中使用运行器
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -23,7 +22,7 @@ shortTitle: 在工作流程中使用运行器
 
 标签允许您根据其共同特征向特定类型的自托管运行器发送工作流程作业。 例如，如果您的作业需要特定的硬件组件或软件包。 您可以将一个自定义标签分配给运行器，然后将您的作业配置为仅在带该标签的运行器中执行。
 
-{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
+{% data reusables.actions.self-hosted-runner-labels-runs-on %}
 
 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
 

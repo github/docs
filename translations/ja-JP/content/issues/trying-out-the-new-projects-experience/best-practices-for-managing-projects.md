@@ -27,19 +27,19 @@ topics:
 
 IssueとPull Requestには、コラボレータと容易にコミュニケーションが取れるようにする組み込みの機能があります。 @メンションを使って、個人やTeam全体に対しコメントに関するアラートを発してください。 責任を伝えるために、Issueにコラボレータをアサインしてください。 関連性を伝えるために、関連するIssueやPull Requestにリンクしてください。
 
-## Make use of the description and README
+## 説明とREADMEの利用
 
-Use your project's description and README to share information about the project.
+プロジェクトの説明とREADMEを使って、プロジェクトに関する情報を共有してください。
 
 例:
 
-- Explaining the purpose of the project.
-- Describing the project views and how to use them.
-- Including relevant links and people to contact for more information.
+- プロジェクトの目的の説明。
+- プロジェクトのビューとその利用方法の説明。
+- 関連するリンクや、詳細情報のための連絡先を含める。
 
-Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers.
+プロジェクトのREADMEはMarkdownをサポートしており、画像や、リンク、リスト、ヘッダといった高度なフォーマットを使用できます。
 
-For more information, see "[Creating a project (beta)](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)."
+詳しい情報については「[プロジェクト（ベータ）の作成](/issues/trying-out-the-new-projects-experience/creating-a-project#updating-your-project-description-and-readme)」を参照してください。
 
 ## ビューの利用
 
@@ -75,7 +75,7 @@ For more information, see "[Creating a project (beta)](/issues/trying-out-the-ne
 
 様々なフィールドタイプを活用して、要求を満たしてください。
 
-繰り返しフィールドを使って、作業をスケジュールしたり、タイムラインを作成したりしてください。 繰り返しをグループ化して、アイテムが繰り返し間でバランスしているかを見たり、あるいは繰り返しの1つに焦点を当てるためにフィルタリングできます。 繰り返しフィールドを使えば、過去の繰り返しで完了した作業を見ることもでき、それを速度の計画とチームの成果への反映に役立てられます。
+繰り返しフィールドを使って、作業をスケジュールしたり、タイムラインを作成したりしてください。 繰り返しをグループ化して、アイテムが繰り返し間でバランスしているかを見たり、あるいは繰り返しの1つに焦点を当てるためにフィルタリングできます。 繰り返しフィールドを使えば、過去の繰り返しで完了した作業を見ることもでき、それを速度の計画とチームの成果への反映に役立てられます。 繰り返しフィールドは、あなたとあなたのチームが繰り返しから離れる時間を取っている時を示す休憩もサポートします。 詳しい情報については「[プロジェクトでの繰り返しの管理](/issues/trying-out-the-new-projects-experience/managing-iterations)」を参照してください。
 
 単一の選択フィールドを利用して、事前設定された値のリストに基づき、タスクに関する情報を追跡してください。 たとえば、優先度やプロジェクトのフェーズを追跡してください。 値は事前設定されたリストから選択されるので、グループ化や特定の値のアイテムに集中するためのフィルタリングが容易です。
 

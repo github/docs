@@ -30,16 +30,23 @@ For more information about adding people to your enterprise, see "[Authenticatio
 
 {% endif %}
 
-## Enterprise owner
+## Enterprise owners
 
 Enterprise owners have complete control over the enterprise and can take every action, including:
 - Managing administrators
-- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise
+- {% ifversion ghec %}Adding and removing {% elsif ghae or ghes %}Managing{% endif %} organizations {% ifversion ghec %}to and from {% elsif ghae or ghes %} in{% endif %} the enterprise{% if remove-enterprise-members %}
+- Removing enterprise members from all organizations owned by the enterprise{% endif %}
 - Managing enterprise settings
 - Enforcing policy across organizations
 {% ifversion ghec %}- Managing billing settings{% endif %}
 
+{% if enterprise-owner-join-org %}
+Enterprise owners do not have access to organization settings or content by default. To gain access, enterprise owners can join any organization owned by their enterprise. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+
+Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
+{% else %}
 Enterprise owners cannot access organization settings or content unless they are made an organization owner or given direct access to an organization-owned repository. Similarly, owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
+{% endif %}
 
 An enterprise owner will only consume a license if they are an owner or member of at least one organization within the enterprise. Even if an enterprise owner has a role in multiple organizations, they will consume a single license. {% ifversion ghec %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
 
@@ -55,7 +62,7 @@ People with outside collaborator access to repositories owned by your organizati
 
 {% ifversion ghec %}
 
-## Billing manager
+## Billing managers
 
 Billing managers only have access to your enterprise's billing settings. Billing managers for your enterprise can:
 - View and manage user licenses, {% data variables.large_files.product_name_short %} packs and other billing settings

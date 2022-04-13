@@ -85,7 +85,7 @@ git commit
 
 Para obtener más información, consulta "[Crear y resaltar bloques de código](/articles/creating-and-highlighting-code-blocks)".
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## Enlaces
 
@@ -189,6 +189,12 @@ Para crear una lista anidada mediante el editor web en {% data variables.product
    - Primer elemento de la lista anidado
      - Segundo elemento de la lista anidado
 ```
+
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
 
 ![Lista anidada con alineación resaltada](/assets/images/help/writing/nested-list-alignment.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Managing suggestions to update pull request branches
-intro: You can give users the ability to always update a pull request branch when it is not up to date with the base branch.
+title: 管理更新请求分支的建议
+intro: 您可以授予用户在拉取请求分支与基本分支不同步时始终更新该分支的能力。
 versions:
   fpt: '*'
   ghes: '> 3.4'
@@ -8,16 +8,16 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: Manage branch updates
+shortTitle: 管理分支更新
 permissions: People with maintainer permissions can enable or disable the setting to suggest updating pull request branches.
 ---
 
-## About suggestions to update a pull request branch
+## 关于更新拉取请求分支的建议
 
-If you enable the setting to always suggest updating pull request branches in your repository, people with write permissions will always have the ability, on the pull request page, to update a pull request's head branch when it's not up to date with the base branch. When not enabled, the ability to update is only available when the base branch requires branches to be up to date before merging and the branch is not up to date. For more information, see "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
+如果启用该设置以始终建议更新存储库中的拉取请求分支，则当拉取请求的头部分支与基本分支不符时，具有写入权限的人员将始终能够在拉取请求页面上更新头部分支。 如果未启用，则仅当基本分支要求分支在合并之前保持最新并且分支不是最新时，才可以使用更新功能。 更多信息请参阅“[使拉取请求与基本分支保持同步](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)”。
 
-## Managing suggestions to update a pull request branch
+## 管理更新请求分支的建议
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Pull Requests", select or unselect **Always suggest updating pull request branches**. ![Checkbox to enable or disable always suggest updating branch](/assets/images/help/repository/always-suggest-updating-branches.png)
+3. 在“Pull Requests（拉取请求）”下，选择或取消选择 **Always suggest updating pull request branches（始终建议更新拉取请求分支）**。 ![启用或禁用始终建议更新分支的复选框](/assets/images/help/repository/always-suggest-updating-branches.png)

@@ -16,10 +16,6 @@ topics:
   - Notifications
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## 通知和订阅
 
 您可以选择通过订阅接收有关 {% data variables.product.product_location %} 上特定活动的持续更新。 通知是您收到的已订阅特定活动的更新。
@@ -29,9 +25,8 @@ topics:
 您可以选择订阅关于以下内容的通知：
 - 关于特定议题、拉取请求或 Gist 的对话。
 - 仓库或团队讨论中的所有活动。
-- CI 活动，例如仓库中使用 {% data variables.product.prodname_actions %} 设置的工作流程的状态。 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-- 仓库 {% data reusables.notifications-v2.custom-notification-types %} (如果启用)。{% else %}
-- 在仓库中发布。{% endif %}
+- CI 活动，例如仓库中使用 {% data variables.product.prodname_actions %} 设置的工作流程的状态。
+- 仓库 {% data reusables.notifications-v2.custom-notification-types %} (如果启用)。
 
 您也可以选择自动关注所有您有推送访问权限的仓库，但复刻除外。 您可以通过单击 **Watch（关注）**来手动关注您有权访问的任何其他仓库。
 
@@ -101,4 +96,4 @@ topics:
 
 ## 反馈和支持
 
-If you have feedback or feature requests for notifications, use a [{% data variables.product.product_name %} feedback discussion](https://github.com/github/feedback/discussions/categories/general-feedback).
+如果您有针对通知的反馈或功能请求，请使用 [{% data variables.product.product_name %} 反馈讨论](https://github.com/github/feedback/discussions/categories/general-feedback)。

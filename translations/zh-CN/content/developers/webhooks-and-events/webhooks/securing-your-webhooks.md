@@ -37,7 +37,7 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 ## 验证来自 GitHub 的有效负载
 
-设置密钥令牌后，{% data variables.product.product_name %} 使用它为每个有效负载创建一个哈希签名。 This hash signature is included with the headers of each request as `X-Hub-Signature-256`.
+设置密钥令牌后，{% data variables.product.product_name %} 使用它为每个有效负载创建一个哈希签名。 此哈希签名包含在每个请求的标头中，作为 `X-Hub-Signature-256`。
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
@@ -85,7 +85,7 @@ end
 
 您的语言和服务器实现可能与此示例代码不同。 但是，需要指出一些非常重要的事情：
 
-* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
+* 无论您使用哪种实现方式，哈希签名都以 `sha256=`开头，使用您的秘密令牌和有效负载主体的密钥。
 
 * **不建议**使用普通的 `==` 运算符。 像 [`secure_compare`][secure_compare] 这样的方法执行“恒定时间”字符串比较，这有助于减轻针对常规相等运算符的某些定时攻击。
 

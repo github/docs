@@ -1,0 +1,50 @@
+---
+date: '2022-04-04'
+sections:
+  security_fixes:
+    - 'MEDIUM: A path traversal vulnerability was identified in {% data variables.product.prodname_ghe_server %} Management Console that allowed the bypass of CSRF protections. This vulnerability affected all versions of {% data variables.product.prodname_ghe_server %} prior to 3.5 and was fixed in versions 3.1.19, 3.2.11, 3.3.6, 3.4.1. This vulnerability was reported via the {% data variables.product.prodname_dotcom %} Bug Bounty program and has been assigned CVE-2022-23732.'
+    - 'MEDIUM: An integer overflow vulnerability was identified in the 1.x branch and the 2.x branch of `yajil` which leads to subsequent heap memory corruption when dealing with large (~2GB) inputs. This vulnerability was reported internally and has been assigned CVE-2022-24795. '
+    - Support bundles could include sensitive files if {% data variables.product.prodname_actions %} was enabled.
+    - Os pacotes foram atualizados para as últimas versões de segurança.
+  bugs:
+    - When enabling {% data variables.product.prodname_dependabot %}, an error caused some security advisories to temporarily read as no-longer applicable.
+    - Minio processes would have high CPU usage if an old configuration option was present after upgrading {% data variables.product.prodname_ghe_server %}.
+    - The options to enable `TLS 1.0` and `TLS 1.1` in the Privacy settings of the Management Console were shown, although removal of those protocol versions occurred in an earlier release.
+    - In a HA environment, configuring MSSQL replication could require additional manual steps after enabling {% data variables.product.prodname_actions %} for the first time.
+    - A subset of internal configuration files are more reliably updated after a hotpatch.
+    - The `ghe-run-migrations` script would sometimes fail to generate temporary certificate names correctly.
+    - In a cluster environment, Git LFS operations could fail with failed internal API calls that crossed multiple web nodes.
+    - Pre-receive hooks that used `gpg --import` timed out due to insufficient `syscall` privileges.
+    - In some cluster topologies, webhook delivery information was not available.
+    - Elasticsearch health checks would not allow a yellow cluster status when running migrations.
+    - Repositories would display a non-functional Discussions tab in the web UI.
+    - Organizations created as a result of a user transforming their user account into an organization were not added to the global enterprise account.
+    - Links to inaccessible pages were removed.
+    - The {% data variables.product.prodname_actions %} deployment graph would display an error when rendering a pending job.
+    - Some instances experienced high CPU usage due to large amounts unnecessary background jobs being queued.
+    - LDAP user sync jobs would fail when trying to sync GPG keys that had been synced previously.
+    - Following a link to a pull request from the users Pull Request dashboard would result in the repository header not loading.
+    - Adding a team as a reviewer to a pull request would sometimes show the incorrect number of members on that team.
+    - The remove team membership API endpoint would respond with an error when attempting to remove member externally managed via a SCIM Group.
+    - A large number of dormant users could cause a {% data variables.product.prodname_github_connect %} configuration to fail.
+    - The "Feature & beta enrollments" page in the Site admin web UI was incorrectly available.
+    - The "Site admin mode" link in the site footer did not change state when clicked.
+    - 'The `spokesctl cache-policy rm` command no longer fails with the message `error: failed to delete cache policy`.'
+  changes:
+    - Memcached connection limits were increased to better accommodate large cluster topologies.
+    - The Dependency Graph API previously ran with a statically defined port.
+    - The default shard counts for cluster-related Elasticsearch shard settings have been updated.
+    - When filtering enterprise members by organization role on the "People" page, the text for the dropdown menu items has been improved.
+    - The “Triage” and “Maintain” team roles are preserved during repository migrations.
+    - Performance has been improved for web requests made by enterprise owners.
+  known_issues:
+    - Após a atualização para {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} pode não ser iniciado automaticamente. Para resolver esse problema, conecte-se ao dispositivo via SSH e execute o comando `ghe-actions-start`.
+    - Em uma instância de {% data variables.product.prodname_ghe_server %} recém-configurada sem usuários, um invasor pode criar o primeiro usuário administrador.
+    - As regras de firewall personalizadas são removidas durante o processo de atualização.
+    - Arquivos LFS do Git [enviados através da interface web](https://github.com/blog/2105-upload-files-to-your-repositories) são adicionados diretamente ao repositório e de forma incorreta.
+    - Os problemas não podem ser fechados se contiverem um permalink para um blob no mesmo repositório, onde o caminho do arquivo blob's é maior que 255 caracteres.
+    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - O registro npm de {% data variables.product.prodname_registry %} não retorna mais o valor de tempo em respostas de metadados. Isso foi feito para permitir melhorias substanciais de desempenho. Continuamos a ter todos os dados necessários para devolver um valor de tempo como parte da resposta aos metadados e retomaremos o retorno desse valor no futuro, assim que tivermos resolvido os problemas de desempenho existentes.
+    - Os limites de recursos que são específicos para processamento de hooks pre-receive podem causar falha em alguns hooks pre-receive.
+    - 'As configurações de armazenamento de {% data variables.product.prodname_actions %} não podem ser validadas e salvas no {% data variables.enterprise.management_console %} quando "Forçar estilo de caminho" for selecionado e deverão ser definidas com a ferramenta de linha de comando `ghe-actions-precheck`.'
+    - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'

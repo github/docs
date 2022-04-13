@@ -19,9 +19,9 @@ shortTitle: Actionsの利用上限
 
 ## {% data variables.product.prodname_actions %} の利用上限について
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %}
+{% data reusables.actions.actions-spending-limit-brief %}
 
 {% data reusables.actions.actions-packages-set-spending-limit %} {% data variables.product.prodname_actions %} 使用料金の詳細については、「[{% data variables.product.prodname_actions %} の支払いについて](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)」を参照してください。
 
@@ -37,8 +37,8 @@ $0 以外の利用上限を設定すると、直ちに現在の支払い期間�
 
 自身のユーザアカウントに対する {% data variables.product.prodname_actions %} の利用上限は、誰でも管理できます。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
@@ -64,5 +64,5 @@ Enterprise アカウントの {% data variables.product.prodname_actions %} の�
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 
-## Managing usage and spending limit email notifications
+## 使用状況の管理と利用上限のメール通知
 {% data reusables.billing.email-notifications %}

@@ -86,13 +86,17 @@ jobs:
   build:
     runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
-      security-events: write{% endif %}
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read{% endif %}
     steps:
       # This step checks out a copy of your repository.
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v1
+        uses: {% data reusables.actions.action-codeql-action-upload-sarif %}
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: results.sarif
@@ -123,9 +127,13 @@ jobs:
   build:
     runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
     permissions:
-      security-events: write{% endif %}
+      # required for all workflows
+      security-events: write
+      # only required for workflows in private repositories
+      actions: read
+      contents: read{% endif %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run npm install
         run: npm install
       # Runs the ESlint code analysis
@@ -133,7 +141,7 @@ jobs:
         # eslint exits 1 if it finds anything to report
         run: node_modules/.bin/eslint build docs lib script spec-main -f node_modules/@microsoft/eslint-formatter-sarif/sarif.js -o results.sarif || true
       # Uploads results.sarif to GitHub repository using the upload-sarif action
-      - uses: github/codeql-action/upload-sarif@v1
+      - uses: {% data reusables.actions.action-codeql-action-upload-sarif %}
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: results.sarif

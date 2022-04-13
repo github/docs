@@ -7,7 +7,7 @@ import nock from 'nock'
 import japaneseCharacters from 'japanese-characters'
 
 import '../../lib/feature-flags.js'
-import { getDOM, getJSON } from '../helpers/supertest.js'
+import { getDOM, getJSON } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -74,7 +74,7 @@ describe('featuredLinks', () => {
       expect($featuredLinks.eq(0).attr('href')).toBe(
         `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
       )
-      expect($featuredLinks.eq(0).children('h3').text().startsWith("GitHub's products")).toBe(true)
+      expect($featuredLinks.eq(0).children('h3').text().startsWith('GitHub’s products')).toBe(true)
       expect(
         $featuredLinks
           .eq(0)

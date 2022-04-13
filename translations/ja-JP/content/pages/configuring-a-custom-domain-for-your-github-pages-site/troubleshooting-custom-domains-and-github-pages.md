@@ -31,12 +31,12 @@ shortTitle: カスタムドメインのトラブルシューティング
 
 ## DNS の設定ミス
 
-デフォルトドメインをカスタムドメインにポイントすることに問題がある場合は、DNS プロバイダに連絡してください。
+サイトのデフォルトドメインをカスタムドメインを指すようにすることに問題がある場合は、DNS プロバイダに連絡してください。
 
-You can also use one of the following methods to test whether your custom domain's DNS records are configured correctly:
+カスタムドメインのDNSレコードが正しく設定されているかをテストするには、以下の方法のいずれかを使うこともできます。
 
-- A CLI tool such as `dig`. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)".
-- An online DNS lookup tool.
+- `dig`のようなCLIツール。 詳しい情報については「[{% data variables.product.prodname_pages %}サイトのカスタムドメインの管理](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
+- オンラインのDNSルックアップツール。
 
 ## サポートされていないカスタムドメイン名
 

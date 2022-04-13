@@ -21,8 +21,8 @@ You can also view the billable job execution minutes for an individual workflow 
 
 Anyone can view {% data variables.product.prodname_actions %} usage for their own user account.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
@@ -34,7 +34,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Viewing {% data variables.product.prodname_actions %} usage for your enterprise account
 
@@ -42,7 +42,7 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 
 {% note %}
 
-**Note:** Billing details for enterprise accounts don't summarize the usage minutes for each operating system. {% data reusables.github-actions.enterprise-billing-details %}
+**Note:** Billing details for enterprise accounts don't summarize the usage minutes for each operating system. {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

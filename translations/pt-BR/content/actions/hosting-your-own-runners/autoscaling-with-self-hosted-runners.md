@@ -5,10 +5,10 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.2'
+  ghae: issue-4462
 type: overview
 ---
 
-{% data reusables.actions.ae-self-hosted-runners-notice %}
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -32,7 +32,7 @@ Cada solução tem certas especificações que podem ser importantes para consid
 | Tempo de execução                          | Kubernetes                                                                                    | VMs do Linux e do Windows                                                            |
 | Nuvens compatíveis                         | Azure, Amazon Web Services, Google Cloud Platform, nos locais                                 | Amazon Web Services                                                                  |
 | Onde os executores podem ser dimensionados | Níveis de empresa, organização e repositório. Por etiqueta do executor e grupo de executores. | Níveis de organização e repositório. Por etiqueta do executor e grupo de executores. |
-| Como os executores podem ser dimensionados | Webhook events, Scheduled, Pull-based                                                         | Webhook events, Scheduled (org-level runners only)                                   |
+| Como os executores podem ser dimensionados | Eventos de webhook, Programados, Baseados em extrações                                        | Eventos de Webhook, Programados (únicamente executores a nível de organização)       |
 
 ## Usaar executores efêmeros para dimensionamento automático
 
@@ -58,10 +58,10 @@ O serviço {% data variables.product.prodname_actions %} irá cancelar o resgist
 
 Por padrão, os executores auto-hospedados realizarão automaticamente uma atualização de software sempre que uma nova versão do executor estiver disponível.  Se você usar executoresefêmeros em contêineres, isso pode gerar a atualizações de software repetidas quando uma nova versão do executor for lançada.  A desabilitação das atualizações automáticas permite que você atualize a versão do executor na imagem do contêiner diretamente no seu próprio agendamento.
 
-Se você deseja desativar as atualizações automáticas de software e instalar as atualizações de software, você poderá especificar o parâmetro `--disableupdate` ao iniciar o executor.  Por exemplo:
+Para desabilitar a atualização automática de software e instalar atualizações, especifique o sinalizador `--disableupdate` quando registrar seu executor usando a configuração `config.sh`. Por exemplo:
 
 ```shell
-./run.sh --disableupdate
+./config.sh --url <em>https://github.com/octo-org</em> --token <em>example-token</em> --disableupdate
 ```
 
 Se você desabilitar as atualizações automáticas, você ainda deverá atualizar sua versão do executor regularmente.  A nova funcionalidade em {% data variables.product.prodname_actions %} exige alterações no serviço de {% data variables.product.prodname_actions %} service _e_ no software do executor.  O executor pode não conseguir de processar corretamente os trabalhos que aproveitam novas funcioanlidades em {% data variables.product.prodname_actions %} sem a atualização de um software.
@@ -91,6 +91,7 @@ Seu token de acesso exigirá o seguinte escopo:
 
 - Para repositórios privados, use um token de acesso com o escopo [`repo`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 - Para repositórios públicos, use um token de acesso com o escopo [`public_repo`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
+- Para as organizações, use um token de acesso com o escopo [`admin:org`](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 
 Para efetuar a autenticação usando um aplicativo de {% data variables.product.prodname_dotcom %}, este deverá ter as seguintes permissões:
 - Para repositórios, atribua a permissão de `administração`.

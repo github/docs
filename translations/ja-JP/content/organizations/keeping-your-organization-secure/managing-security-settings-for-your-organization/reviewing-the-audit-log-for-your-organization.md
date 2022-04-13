@@ -21,6 +21,8 @@ shortTitle: Review audit log
 
 The audit log lists events triggered by activities that affect your organization within the current month and previous six months. Only owners can access an organization's audit log.
 
+{% data reusables.audit_log.only-three-months-displayed %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
@@ -39,9 +41,9 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`advisory_credit`](#advisory_credit-category-actions) | Contains all activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 | [`billing`](#billing-category-actions) | Contains all activities related to your organization's billing.
 | [`business`](#business-category-actions) | Contains activities related to business settings for an enterprise. |
-| [`codespaces`](#codespaces-category-actions) | Contains all activities related to your organization's codespaces. |{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
-| [`dependabot_alerts`](#dependabot_alerts-category-actions) | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
-| [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions) | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.
+| [`codespaces`](#codespaces-category-actions) | Contains all activities related to your organization's codespaces. |{% endif %}{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
+| [`dependabot_alerts`](#dependabot_alerts-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+| [`dependabot_alerts_new_repos`](#dependabot_alerts_new_repos-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization.{% endif %}{% ifversion fpt or ghec or ghes > 3.2 %}
 | [`dependabot_security_updates`](#dependabot_security_updates-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} in existing repositories. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-dependabot-security-updates)."
 | [`dependabot_security_updates_new_repos`](#dependabot_security_updates_new_repos-category-actions) | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_security_updates %} for new repositories created in the organization.{% endif %}{% ifversion fpt or ghec %}
 | [`dependency_graph`](#dependency_graph-category-actions) | Contains organization-level configuration activities for dependency graphs for repositories. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
@@ -50,18 +52,19 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`discussion_post_reply`](#discussion_post_reply-category-actions) | Contains all activities related to replies to discussions posted to a team page.{% ifversion fpt or ghes or ghec %}
 | [`enterprise`](#enterprise-category-actions) | Contains activities related to enterprise settings. | {% endif %}
 | [`hook`](#hook-category-actions) | Contains all activities related to webhooks.
-| [`integration_installation_request`](#integration_installation_request-category-actions) | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |
-| [`ip_allow_list`](#ip_allow_list) | Contains activities related to enabling or disabling the IP allow list for an organization.
-| [`ip_allow_list_entry`](#ip_allow_list_entry) | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.
+| [`integration_installation_request`](#integration_installation_request-category-actions) | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |{% ifversion ghec or ghae %}
+| [`ip_allow_list`](#ip_allow_list-category-actions) | Contains activities related to enabling or disabling the IP allow list for an organization.
+| [`ip_allow_list_entry`](#ip_allow_list_entry-category-actions) | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.{% endif %}
 | [`issue`](#issue-category-actions) | Contains activities related to deleting an issue. {% ifversion fpt or ghec %}
 | [`marketplace_agreement_signature`](#marketplace_agreement_signature-category-actions) | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
-| [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% ifversion fpt or ghes > 3.0 or ghec %}
+| [`marketplace_listing`](#marketplace_listing-category-actions) | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% ifversion fpt or ghes or ghec %}
 | [`members_can_create_pages`](#members_can_create_pages-category-actions) | Contains all activities related to managing the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites for your organization](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
 | [`org`](#org-category-actions) | Contains activities related to organization membership.{% ifversion ghec %}
-| [`org_credential_authorization`](#org_credential_authorization-category-actions) | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% ifversion fpt or ghes or ghae or ghec %}
+| [`org_credential_authorization`](#org_credential_authorization-category-actions) | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% if secret-scanning-audit-log-custom-patterns %}
+| [`org_secret_scanning_custom_pattern`](#org_secret_scanning_custom_pattern-category-actions) | Contains organization-level activities related to secret scanning custom patterns. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}{% ifversion fpt or ghes or ghae or ghec %}
 | [`organization_label`](#organization_label-category-actions) | Contains all activities related to default labels for repositories in your organization.{% endif %}
-| [`oauth_application`](#oauth_application-category-actions) | Contains all activities related to OAuth Apps.{% ifversion fpt or ghes > 3.0 or ghec %}
-| [`packages`](#packages-category-actions) | Contains all activities related to {% data variables.product.prodname_registry %}.{% endif %}{% ifversion fpt or ghec %}
+| [`oauth_application`](#oauth_application-category-actions) | Contains all activities related to OAuth Apps.
+| [`packages`](#packages-category-actions) | Contains all activities related to {% data variables.product.prodname_registry %}.{% ifversion fpt or ghec %}
 | [`payment_method`](#payment_method-category-actions) | Contains all activities related to how your organization pays for GitHub.{% endif %}
 | [`profile_picture`](#profile_picture-category-actions) | Contains all activities related to your organization's profile picture.
 | [`project`](#project-category-actions) | Contains all activities related to project boards.
@@ -70,7 +73,9 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | [`repository_advisory`](#repository_advisory-category-actions) | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[About {% data variables.product.prodname_dotcom %} Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 | [`repository_content_analysis`](#repository_content_analysis-category-actions) | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).{% endif %}{% ifversion fpt or ghec %}
 | [`repository_dependency_graph`](#repository_dependency_graph-category-actions) | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."{% endif %}{% ifversion ghes or ghae or ghec %}
-| [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| [`repository_secret_scanning`](#repository_secret_scanning-category-actions) | Contains repository-level activities related to secret scanning. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)." {% endif %}{% if secret-scanning-audit-log-custom-patterns %}
+| [`repository_secret_scanning_custom_pattern`](#respository_secret_scanning_custom_pattern-category-actions) | Contains repository-level activities related to secret scanning custom patterns. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}{% if secret-scanning-audit-log-custom-patterns %}
+| [`repository_secret_scanning_push_protection`](#respository_secret_scanning_push_protection) | Contains repository-level activities related to secret scanning custom patterns. For more information, see "[Protecting pushes with secert scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." {% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions) | Contains all activities related to [{% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% ifversion fpt or ghec %}
 | [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions) | Contains repository-level configuration activities for {% data variables.product.prodname_dependabot_alerts %}.{% endif %}{% ifversion ghec %}
 | [`role`](#role-category-actions) | Contains all activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).{% endif %}{% ifversion ghes or ghae or ghec %}
@@ -104,10 +109,9 @@ For example:
   * `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
   * `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
-
 {% note %}
 
-**ノート**: Audit logには、当月と過去6ヶ月の毎日のデータが含まれます。
+**Note**: The audit log contains data for the current month and every day of the previous six months.
 
 {% endnote %}
 
@@ -131,17 +135,16 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 You can interact with the audit log using the GraphQL API{% ifversion fpt or ghec %} or the REST API{% endif %}.
 
 {% ifversion fpt or ghec %}
-The audit log API requires {% data variables.product.prodname_ghe_cloud %}.{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
+
+{% note %}
+
+**Note:** To use the audit log API, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
 
 ### Using the GraphQL API
 
 {% endif %}
-
-{% note %}
-
-**Note**: The audit log GraphQL API is available for organizations using {% data variables.product.prodname_enterprise %}. {% data reusables.gated-features.more-info-org-products %}
-
-{% endnote %}
 
 To ensure your intellectual property is secure, and you maintain compliance for your organization, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audit-log-api-info %}
@@ -158,16 +161,12 @@ For example, you can make a GraphQL request to see all the new organization memb
 
 ### Using the REST API
 
-{% note %}
-
-**Note:** The audit log REST API is available for users of {% data variables.product.prodname_ghe_cloud %} only.
-
-{% endnote %}
-
 To ensure your intellectual property is secure, and you maintain compliance for your organization, you can use the audit log REST API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audited-data-list %}
 
 {% data reusables.audit_log.audit-log-git-events-retention %}
+
+By default, only events from the past three months are returned. To include older events, you must specify a timestamp in your query.
 
 For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
 
@@ -230,7 +229,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `manage_access_and_security` | Triggered when a user updates [which repositories a codespace can access](/github/developing-online-with-codespaces/managing-access-and-security-for-codespaces).
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.2 %}
+{% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
 ### `dependabot_alerts` category actions
 
 | Action | Description
@@ -244,7 +243,9 @@ An overview of some of the most common actions that are recorded as events in th
 |------------------|-------------------
 | `disable` | Triggered when an organization owner disables {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
 | `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories.
+{% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.2 %}
 ### `dependabot_security_updates` category actions
 
 | Action | Description
@@ -357,6 +358,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `create` | Triggered when an organization member requests that an organization owner install an integration for use in the organization.
 | `close` | Triggered when a request to install an integration for use in an organization is either approved or denied by an organization owner, or canceled by the organization member who opened the request.
 
+{% ifversion ghec or ghae %}
 ### `ip_allow_list` category actions
 
 | Action | Description
@@ -373,6 +375,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `create` | Triggered when an IP address was added to an IP allow list.
 | `update` | Triggered when an IP address or its description was changed.
 | `destroy` | Triggered when an IP address was deleted from an IP allow list.
+{% endif %}
 
 ### `issue` category actions
 
@@ -400,7 +403,7 @@ An overview of some of the most common actions that are recorded as events in th
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 
 ### `members_can_create_pages` category actions
 
@@ -417,9 +420,9 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 | Action | Description
 |------------------|-------------------
-| `add_member` | Triggered when a user joins an organization.{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+| `add_member` | Triggered when a user joins an organization.
 | `advanced_security_policy_selected_member_disabled` | Triggered when an enterprise owner prevents {% data variables.product.prodname_GH_advanced_security %} features from being enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}
-| `advanced_security_policy_selected_member_enabled` | Triggered when an enterprise owner allows {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% endif %}{% ifversion fpt or ghec %}
+| `advanced_security_policy_selected_member_enabled` | Triggered when an enterprise owner allows {% data variables.product.prodname_GH_advanced_security %} features to be enabled for repositories owned by the organization. {% data reusables.advanced-security.more-information-about-enforcement-policy %}{% ifversion fpt or ghec %}
 | `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
 | `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
 | `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% ifversion fpt or ghes or ghec %}
@@ -449,7 +452,9 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[Changing the access policy of a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
 | `runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see [Moving a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).
 | `runner_group_runner_removed` |  Triggered when the REST API is used to remove a self-hosted runner from a group. For more information, see "[Remove a self-hosted runner from a group for an organization](/rest/reference/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
-| `runner_group_runners_updated`|  Triggered when a runner group's list of members is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+| `runner_group_runners_updated`|  Triggered when a runner group's list of members is updated. For more information, see "[Set self-hosted runners in a group for an organization](/rest/reference/actions#set-self-hosted-runners-in-a-group-for-an-organization)."{% if secret-scanning-audit-log-custom-patterns %}
+| `secret_scanning_push_protection_disable ` | Triggered when an organization owner or person with admin access to the organization disables push protection for secret scanning. For more information, see "[Protecting pushes with secret scanning](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `secret_scanning_push_protection_enable ` | Triggered when an organization owner or person with admin access to the organization enables push protection for secret scanning.{% endif %}{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 | `self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
 | `self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[Checking the status of a self-hosted runner](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% endif %}{% ifversion fpt or ghes or ghec %}
 | `self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}{% ifversion fpt or ghec %}
@@ -474,8 +479,17 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `deauthorized` | Triggered when a member [deauthorizes credentials for use with SAML single sign-on](/github/authenticating-to-github/authenticating-with-saml-single-sign-on).
 | `revoke` | Triggered when an owner [revokes authorized credentials](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization).
 
-{% endif %}
+{% endif %}{% if secret-scanning-audit-log-custom-patterns %}
 
+### `org_secret_scanning_custom_pattern` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a custom pattern is published for secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+| `update` | Triggered when changes to a custom pattern are saved for secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
+| `delete` | Triggered when a custom pattern is removed from secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
+
+{% endif %}
 {% ifversion fpt or ghes or ghae or ghec %}
 ### `organization_label` category actions
 
@@ -497,18 +511,15 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `revoke_tokens` | Triggered when an {% data variables.product.prodname_oauth_app %}'s user tokens are revoked.
 | `transfer` |  Triggered when an existing {% data variables.product.prodname_oauth_app %} is transferred to a new organization.
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
 ### `packages` category actions
 
 | Action | Description |
 |--------|-------------|
 | `package_version_published` | Triggered when a package version is published. |
-| `package_version_deleted` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_deleted` | Triggered when an entire package is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_version_restored` | Triggered when a specific package version is deleted. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_restored` | Triggered when an entire package is restored. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-
-{% endif %}
+| `package_version_deleted` | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_deleted` | Triggered when an entire package is deleted.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_version_restored` | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_restored` | Triggered when an entire package is restored.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -601,9 +612,9 @@ For more information, see "[Managing the publication of {% data variables.produc
 | `access` | Triggered when a user [changes the visibility](/github/administering-a-repository/setting-repository-visibility) of a repository in the organization.
 | `actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not included when you access the audit log using the REST API. For more information, see "[Using the REST API](#using-the-rest-api)."
 | `add_member` | Triggered when a user accepts an [invitation to have collaboration access to a repository](/articles/inviting-collaborators-to-a-personal-repository).
-| `add_topic` | Triggered when a repository admin [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
+| `add_topic` | Triggered when a repository admin [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.
 | `advanced_security_disabled` | Triggered when a repository administrator disables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
-| `advanced_security_enabled` | Triggered when a repository administrator enables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).".{% endif %}
+| `advanced_security_enabled` | Triggered when a repository administrator enables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository).".
 | `archived` | Triggered when a repository admin [archives a repository](/articles/about-archiving-repositories).{% ifversion ghes %}
 | `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | `config.enable_anonymous_git_access` | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
@@ -667,15 +678,34 @@ For more information, see "[Managing the publication of {% data variables.produc
 
 | Action | Description
 |------------------|-------------------
-| `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
-| `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a {% ifversion ghec %}private or internal {% endif %}repository.
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a repository. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a repository.
+
+{% endif %}{% if secret-scanning-audit-log-custom-patterns %}
+
+### `repository_secret_scanning_custom_pattern` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when a custom pattern is published for secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+| `update` | Triggered when changes to a custom pattern are saved for secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
+| `delete` | Triggered when a custom pattern is removed from secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
+
+{% endif %}{% if secret-scanning-audit-log-custom-patterns %}
+
+### `repository_secret_scanning_push_protection` category actions
+
+| Action | Description
+|------------------|-------------------
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a repository.
 
 {% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ### `repository_vulnerability_alert` category actions
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when {% data variables.product.product_name %} creates a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+| `create` | Triggered when {% data variables.product.product_name %} creates a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 | `dismiss` | Triggered when an organization owner or person with admin access to the repository dismisses a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.
 | `resolve` | Triggered when someone with write access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
 

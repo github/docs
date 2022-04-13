@@ -1,6 +1,6 @@
 ---
 title: Organization へのアクセスをロールで管理する
-intro: 'You can control access to your organizations''s settings and repositories by giving people organization, repository, and team roles.'
+intro: Organizationの設定とリポジトリへのアクセスを、ユーザにOrganization、リポジトリ、Teamロールを与えることで制御できます。
 redirect_from:
   - /articles/managing-people-s-access-to-your-organization-with-roles
   - /articles/managing-peoples-access-to-your-organization-with-roles
@@ -20,6 +20,7 @@ children:
   - /adding-a-billing-manager-to-your-organization
   - /removing-a-billing-manager-from-your-organization
   - /managing-security-managers-in-your-organization
+  - /managing-moderators-in-your-organization
 shortTitle: ロールでのアクセス管理
 ---
 

@@ -118,7 +118,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, _server-to-server_ tokens from that GitHub App. The server-to-server tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
 
-Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for Github Apps](/developers/apps/rate-limits-for-github-apps).
+Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the server-to-server tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, server-to-server tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
 #### Pros
 

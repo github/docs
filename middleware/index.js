@@ -8,7 +8,6 @@ import abort from './abort.js'
 import timeout from './timeout.js'
 import morgan from 'morgan'
 import datadog from './connect-datadog.js'
-import rateLimit from './rate-limit.js'
 import cors from './cors.js'
 import helmet from 'helmet'
 import csp from './csp.js'
@@ -36,6 +35,7 @@ import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-ass
 import events from './events.js'
 import search from './search.js'
 import healthz from './healthz.js'
+import remoteIP from './remote-ip.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
@@ -45,13 +45,11 @@ import triggerError from './trigger-error.js'
 import releaseNotes from './contextualizers/release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
 import graphQL from './contextualizers/graphql.js'
-import rest from './contextualizers/rest.js'
 import webhooks from './contextualizers/webhooks.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
 import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
-import earlyAccessBreadcrumbs from './contextualizers/early-access-breadcrumbs.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
 import featuredLinks from './featured-links.js'
@@ -74,14 +72,46 @@ const asyncMiddleware = (fn) => (req, res, next) => {
   Promise.resolve(fn(req, res, next)).catch(next)
 }
 
-// The IP address that Fastly regards as the true client making the request w/ fallback to req.ip
-morgan.token('client-ip', (req) => req.headers['Fastly-Client-IP'] || req.ip)
-const productionLogFormat = `:client-ip - ":method :url" :status - :response-time ms`
+// By default, `:remote-addr` is described as following in the morgon docs:
+//
+//    The remote address of the request. This will use req.ip, otherwise
+//    the standard req.connection.remoteAddress value (socket address).
+//
+// But in production, by default, `req.ip` is the IP of the Azure machine
+// which is something like "104.156.87.177:28244" which is *not* the
+// end user. BUT! Because we configure `app.set('trust proxy', true)`
+// *before* morgain is enabled, it will use the first entry from
+// the `x-forwarded-for` header which is looking like this:
+// "75.40.90.27, 157.52.111.52, 104.156.87.177:5786" which is
+// "{USER'S IP}, {FASTLY'S POP IP}, {AZURE'S IP}".
+// Incidentally, that first IP in the comma separated list is the
+// same as the value of `req.headers['fastly-client-ip']` but
+// Fastly will put that into the X-Forwarded-IP.
+// By leaning in to X-Forwarded-IP (*and* the use
+// `app.set('trust proxy', true)`) we can express ourselves here
+// without having to use vendor specific headers.
+const productionLogFormat = `:remote-addr - ":method :url" :status - :response-time ms`
 
 export default function (app) {
   // *** Request connection management ***
   if (!isTest) app.use(timeout)
   app.use(abort)
+
+  // Don't use the proxy's IP, use the requester's for rate limiting or
+  // logging.
+  // See https://expressjs.com/en/guide/behind-proxies.html
+  // Essentially, setting this means it believe that the IP is the
+  // first of the `X-Forwarded-For` header values.
+  // If it was 0 (or false), the value would be that
+  // of `req.socket.remoteAddress`.
+  // Now, the `req.ip` becomes the first entry from x-forwarded-for
+  // and falls back on `req.socket.remoteAddress` in all other cases.
+  // Their documentation says:
+  //
+  //   	If true, the client's IP address is understood as the
+  //    left-most entry in the X-Forwarded-For header.
+  //
+  app.set('trust proxy', true)
 
   // *** Request logging ***
   // Enabled in development and azure deployed environments
@@ -180,10 +210,6 @@ export default function (app) {
   }
 
   // *** Early exits ***
-  // Don't use the proxy's IP, use the requester's for rate limiting
-  // See https://expressjs.com/en/guide/behind-proxies.html
-  app.set('trust proxy', 1)
-  app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
@@ -237,6 +263,7 @@ export default function (app) {
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
   app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
+  app.get('/_ip', asyncMiddleware(instrument(remoteIP, './remoteIP')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
@@ -259,18 +286,12 @@ export default function (app) {
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
   app.use(instrument(graphQL, './contextualizers/graphql'))
-  app.use(asyncMiddleware(instrument(rest, './contextualizers/rest')))
   app.use(instrument(webhooks, './contextualizers/webhooks'))
   app.use(asyncMiddleware(instrument(whatsNewChangelog, './contextualizers/whats-new-changelog')))
   app.use(instrument(layout, './contextualizers/layout'))
   app.use(instrument(currentProductTree, './contextualizers/current-product-tree'))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
-  app.use(
-    asyncMiddleware(
-      instrument(earlyAccessBreadcrumbs, './contextualizers/early-access-breadcrumbs')
-    )
-  )
   app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
 

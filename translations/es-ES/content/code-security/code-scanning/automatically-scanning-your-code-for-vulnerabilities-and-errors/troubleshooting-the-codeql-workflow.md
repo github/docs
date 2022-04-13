@@ -34,7 +34,7 @@ topics:
 {% ifversion ghes or ghae %}
 {% note %}
 
-**Note:** This article describes the features available with the version of the CodeQL action and associated CodeQL CLI bundle included in the initial release of this version of {% data variables.product.product_name %}. If your enterprise uses a more recent version of the CodeQL action, see the [{% data variables.product.prodname_ghe_cloud %} article](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) for information on the latest features. {% ifversion not ghae %} For information on using the latest version, see "[Configuring code scanning for your appliance](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)."{% endif %}
+**Nota:** Este artículo describe las características disponibles con la versión de la acción de CodeQL y el paquete asociado del CLI de CodeQL que se incluye en el lanzamiento inicial de esta versión de {% data variables.product.product_name %}. Si tu empresa utiliza una versión más reciente de la acción de CodeQL, consulta el [ artículo de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow) para obtener más información sobre las últimas características. {% ifversion not ghae %} Para obtener más información sobre cómo utilizar la última versión, consulta la sección "[Configurar el escaneo de código para tu aplicativo](/admin/advanced-security/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access)".{% endif %}
 
 {% endnote %}
 {% endif %}
@@ -51,10 +51,11 @@ Puedes obtener artefactos para que te ayuden a depurar {% data variables.product
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v1
+  uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     debug: true
 ```
+
 Los artefactos de depuración se cargarán a la ejecución de flujo de trabajo como un artefacto de nombre `debug-artifacts`. Los datos contienen las bitácoras de {% data variables.product.prodname_codeql %}. la(s) base(s) de datos de {% data variables.product.prodname_codeql %} y cualquier archivo SARIF que produzca el flujo de trabajo.
 
 Estos artefactos te ayudarán a depurar los problemas con el escaneo de código de {% data variables.product.prodname_codeql %}. Si contactas al soporte de GitHub, podrían pedirte estos datos.
@@ -86,7 +87,7 @@ Si una compilación automática de código para un lenguaje compilado dentro de 
       steps:
       ...
         - name: Initialize {% data variables.product.prodname_codeql %}
-          uses: github/codeql-action/init@v1
+          uses: {% data reusables.actions.action-codeql-action-init %}
           with:
             languages: {% raw %}${{ matrix.language }}{% endraw %}
   ```
@@ -146,11 +147,11 @@ Si tu análisis de {% data variables.product.prodname_codeql %} escanea menos l�
 Reemplaza el paso `autobuild` con los mismos comandos de compilación que utilizarías en producción. Esto garantiza que {% data variables.product.prodname_codeql %} sepa exactamente cómo compilar todos los archivos de código fuente que quieras escanear. Para obtener más información, consulta la sección "[Configurar el flujo de trabajo de {% data variables.product.prodname_codeql %} para los lenguajes compilados](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)".
 
 ### Inspecciona la copia de los archivos de código fuente en la base de datos de {% data variables.product.prodname_codeql %}
-Podrías entender por qué algunos archivos de código fuente no se ha analizado si inspeccionas la copia del código fuente que se incluye utilizando la base de datos de {% data variables.product.prodname_codeql %}. To obtain the database from your Actions workflow, modify the `init` step of your {% data variables.product.prodname_codeql %} workflow file and set `debug: true`.
+Podrías entender por qué algunos archivos de código fuente no se ha analizado si inspeccionas la copia del código fuente que se incluye utilizando la base de datos de {% data variables.product.prodname_codeql %}. Para obtener la base de datos de tu flujo de trabajo de Acciones, modifica el paso `init` de tu flujo de trabajo de {% data variables.product.prodname_codeql %} y configura `debug: true`.
 
 ```yaml
 - name: Initialize CodeQL
-  uses: github/codeql-action/init@v1
+  uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     debug: true
 ```
@@ -198,16 +199,16 @@ Si divides tu análisis en varios flujos de trabajo como se describió anteriorm
 
 Si tu análisis aún es muy lento como para ejecutarse durante eventos de `push` o de `pull_request`, entonces tal vez quieras activar el análisis únicamente en el evento de `schedule`. Para obtener más información, consulta la sección "[Eventos](/actions/learn-github-actions/introduction-to-github-actions#events)".
 
-### Check which query suites the workflow runs
+### Verificar qué suites de consultas ejecuta el flujo de trabajo
 
-By default, there are three main query suites available for each language. If you have optimized the CodeQL database build and the process is still too long, you could reduce the number of queries you run. The default query suite is run automatically; it contains the fastest security queries with the lowest rates of false positive results.
+Predeterminadamente, existen tres suites de consultas principales disponibles para cada lenguaje. Si optimizaste la compilación de la base de datos de CodeQL y el proceso aún es demasiado largo, podrías reducir la cantidad de consultas que ejecutas. La suite de consultas predeterminada se ejecuta automáticamente; esta contiene las consultas de seguridad más rápidas con las tasas más bajas de resultados falsos positivos.
 
-You may be running extra queries or query suites in addition to the default queries. Check whether the workflow defines an additional query suite or additional queries to run using the `queries` element. You can experiment with disabling the additional query suite or queries. Para obtener más información, consulta "[Configurar {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)".
+Podrías estar ejecutando consultas o suites de consultas adicionales además de aquellas predeterminadas. Verifica si el flujo de trabajo define una consulta o suite de consultas adicionales a ejecutar utilizando el elemento `queries`. Puedes probar el inhabilitar la consulta o suite de consultas adicionales. Para obtener más información, consulta "[Configurar {% data variables.product.prodname_code_scanning %}](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#using-queries-in-ql-packs)".
 
 {% if codeql-ml-queries %}
 {% note %}
 
-**Note:** If you run the `security-extended` or `security-and-quality` query suite for JavaScript, then some queries use experimental technology. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)."
+**Nota:** Si ejecutas la suite de consultas `security-extended` o `security-and-quality` para JavaScript, entonces algunas consultas utilizarán tecnología experimental. Para obtener más información, consulta la sección "[Acerca de las alertas del escaneo de código](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-experimental-alerts)".
 {% endnote %}
 {% endif %}
 
@@ -226,7 +227,7 @@ Si la ejecución de un flujo de trabajo para {% data variables.product.prodname_
 
 ## Error: "Out of disk" o "Out of memory"
 
-On very large projects, {% data variables.product.prodname_codeql %} may run out of disk or memory on the runner.
+En proyectos muy grandes, {% data variables.product.prodname_codeql %} podría quedarse sin memoria o espacio de disco en el ejecutor.
 {% ifversion fpt or ghec %}Si te encuentras con este problema en un ejecutor de {% data variables.product.prodname_actions %}, contacta a {% data variables.contact.contact_support %} para que podamos investigar el problema.
 {% else %}Si llegas a tener este problema, intenta incrementar la memoria en el ejecutor.{% endif %}
 
@@ -292,11 +293,11 @@ La sección revisada de `steps` en el flujo de trabajo se deberá ver así:
 ```yaml
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       # Initializes the {% data variables.product.prodname_codeql %} tools for scanning.
       - name: Initialize {% data variables.product.prodname_codeql %}
-        uses: github/codeql-action/init@v1
+        uses: {% data reusables.actions.action-codeql-action-init %}
 
       ...
 ```

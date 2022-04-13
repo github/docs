@@ -219,7 +219,7 @@ Um ref do Git foi sincronizado com sucesso para uma réplica de cache. Para obte
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
-</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto `sender` está {% ifversion fpt or ghec %}`github`{% elsif ghes > 3.0 or ghae %}`github-enterprise`{% else %}vazio{% endif %} para todas as outras ações.
+</code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto `sender` está {% ifversion fpt or ghec %}`github`{% elsif ghes or ghae %}`github-enterprise`{% else %}vazio{% endif %} para todas as outras ações.
 
 ### Exemplo de carga de webhook
 
@@ -1216,7 +1216,7 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 
 ## secret_scanning_alert
 
@@ -1241,12 +1241,35 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
+{% ifversion fpt or ghes > 3.4 or ghec or ghae-issue-6581 %}
+## secret_scanning_alert_location
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_short_desc %}
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com a permissão `secret_scanning_alerts:read`
+
+### Objeto da carga do webhook
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert_location.created }}
+{% endif %}
+
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 
 Atividade relacionada a uma consultoria de segurança que foi revisada por {% data variables.product.company_short %}. Uma consultoria de segurança revisada por {% data variables.product.company_short %} fornece informações sobre vulnerabilidades relacionadas à segurança no software em {% data variables.product.prodname_dotcom %}.
 
-O conjunto de dados consultivos de segurança também alimentam o GitHub {% data variables.product.prodname_dependabot_alerts %}. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)"
+O conjunto de dados consultivos de segurança também alimentam o GitHub {% data variables.product.prodname_dependabot_alerts %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)".
 
 ### Disponibilidade
 
@@ -1448,7 +1471,7 @@ Esse evento ocorre quando alguém aciona a execução de um fluxo de trabalho no
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.2 or ghec %}
+{% ifversion fpt or ghes > 3.2 or ghec or ghae-issue-4462 %}
 
 ## workflow_job
 

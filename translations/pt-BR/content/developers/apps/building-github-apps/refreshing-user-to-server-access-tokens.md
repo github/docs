@@ -16,7 +16,6 @@ shortTitle: Atualizar acesso do usuário-servidor
 
 {% data reusables.pre-release-program.expiring-user-access-tokens %}
 
-
 ## Sobre os tokens de acesso do usuário expirados
 
 Para aplicar a rotação regular do token e reduzir o impacto de um token comprometido, você pode configurar seu {% data variables.product.prodname_github_app %} para usar tokens de acesso do usuário expirados. Para obter mais informações sobre como fazer solicitações de usuário para servidor, consulte "[Identificando e autorizando usuários para aplicativos GitHub](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
@@ -60,8 +59,7 @@ Você pode habilitar ou desabilitar a expiração de tokens de autorização usu
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. Clique em **Editar** próximo à sua escolha {% data variables.product.prodname_github_app %}. ![Configurações para edição de um aplicativo GitHub](/assets/images/github-apps/edit-test-app.png)
-5. Na barra lateral esquerda, clique em **{% ifversion ghes < 3.1 %} Funcionalidades {% else %} Opcionais {% endif %} de Beta**.
-  {% ifversion ghes < 3.1 %} ![Beta features tab](/assets/images/github-apps/beta-features-option.png) {% else %} ![Optional features tab](/assets/images/github-apps/optional-features-option.png) {% endif %}
+5. Na barra lateral esquerda, clique em **Funcionalidades opcionais**. ![Aba de funcionalidades opcionais](/assets/images/github-apps/optional-features-option.png)
 6. Ao lado de "Expiração do token do usuário para o servidor", clique em **Participar** ou **Não participar**. Esta configuração pode levar alguns segundos para ser aplicada.
 
 ## Não participar dos tokens expirados para novos aplicativos do GitHub

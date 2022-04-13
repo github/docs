@@ -41,7 +41,7 @@ Once your codespace is created, your repository will be automatically cloned int
 
     If you're following along with a different application type, enter the corresponding start command for that project.
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to forward that port so you can connect to it. 
+2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
 
   ![Port forwarding toast](/assets/images/help/codespaces/quickstart-port-toast.png)
 

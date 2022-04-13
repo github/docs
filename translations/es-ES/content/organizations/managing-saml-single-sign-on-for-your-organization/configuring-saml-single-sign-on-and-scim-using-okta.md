@@ -16,6 +16,8 @@ shortTitle: Configurar SAML & SCIM con Okta
 
 Puedes controlar el acceso a tu organización en {% data variables.product.product_location %} y a otras aplicaciones web desde una interface central si configuras dicha organización para que utilice el SSO de SAML y SCIM con Okta, un proveedor de identidad (IdP).
 
+{% data reusables.saml.ghec-only %}
+
 El SSO de SAML controla y asegura el acceso a los recursos organizacionales como los repositorios, informes de problemas y solicitudes de extracción. SCIM agrega, administra y elimina automáticamente el acceso a tu organización en {% data variables.product.product_location %} cuando haces cambios en Okta. Para obtener más información, consulta la sección "[Acerca de la administración de accesos e identidad con el inicio de sesión único de SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" y "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
 
 Después de que habilites SCIM, las siguientes características de aprovisionamiento estarán disponibles para cualquier usuario al que asignes tu aplicación de {% data variables.product.prodname_ghe_cloud %} en Okta.
@@ -41,7 +43,7 @@ Como alternativa, puedes configurar el SSO de SAML para una empresa utilizando O
 {% data reusables.saml.okta-provisioning-tab %}
 {% data reusables.saml.okta-configure-api-integration %}
 {% data reusables.saml.okta-enable-api-integration %}
-1. Da clic en **Autenticar con Github Enterprise Cloud - Ortanizaction**.
+1. Click **Authenticate with {% data variables.product.prodname_ghe_cloud %} - Organization**.
 1. A la derecha del nombre de tu organizaciòn, da clic en **Otorgar**.
 
   ![Botón "Otorgar" para autorizar la integración de SCIM de Okta para acceder a la organización](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)

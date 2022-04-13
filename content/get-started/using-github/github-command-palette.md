@@ -2,7 +2,7 @@
 title: GitHub Command Palette
 intro: 'Use the command palette in {% data variables.product.product_name %} to navigate, search, and run commands directly from your keyboard.'
 versions:
-  feature: 'command-palette'
+  feature: command-palette
 shortTitle: GitHub Command Palette
 ---
 
@@ -192,10 +192,10 @@ These commands are available only when you open the command palette from a discu
 
 | Command | Behavior|
 | :- | :- |
-|`Delete discussion...`|Permanently delete the discussion. For more information, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)."
+|`Delete discussion...`|Permanently delete the discussion. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
 |`Edit discussion body`|Open the main body of the discussion ready for editing.
 |`Subscribe`/`unsubscribe`|Opt in or out of notifications for additions to the discussion. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
-|`Transfer discussion...`|Move the discussion to a different repository. For more information, see "[Managing discussions in your repository](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#transferring-a-discussion)."
+|`Transfer discussion...`|Move the discussion to a different repository. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion)."
 
 ### Issue commands
 
@@ -210,7 +210,7 @@ These commands are available only when you open the command palette from an issu
 |`Edit issue title`|Open the title of the issue ready for editing.
 |`Lock issue`|Limit new comments to users with write access to the repository. For more information, see "[Locking conversations](/communities/moderating-comments-and-conversations/locking-conversations)."
 |`Pin`/`unpin issue`|Change whether or not the issue is shown in the pinned issues section for the repository. For more information, see "[Pinning an issue to your repository](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)."|
-|`Subscribe`/`unscubscribe`|Opt in or out of notifications for changes to this issue. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this issue. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 |`Transfer issue...`|Transfer the issue to another repository. For more information, see "[Transferring an issue to another repository](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)."|
 
 ### Pull request commands
@@ -225,5 +225,5 @@ These commands are available only when you open the command palette from a pull 
 |`Edit pull request body`|Open the main body of the pull request ready for editing.
 |`Edit pull request title`|Open the title of the pull request ready for editing.
 |`Open in new codespace`|Create and open a codespace for the head branch of the pull request. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
-|`Subscribe`/`unscubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 |`Update current branch`|Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see "[About branches](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)."|

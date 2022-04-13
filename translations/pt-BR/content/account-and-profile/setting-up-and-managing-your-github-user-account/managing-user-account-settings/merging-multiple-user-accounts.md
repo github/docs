@@ -31,7 +31,9 @@ shortTitle: Fazer merge de várias contas de usuário
 
 {% warning %}
 
-**Aviso:** A organização e as permissões de acesso ao repositório não são transferíveis entre contas. Se a conta que você deseja excluir tiver uma permissão de acesso existente, um proprietário ou administrador de repositório da organização precisará convidar a conta que você deseja manter.
+**Aviso:**
+- As permissões de organização e acesso ao repositório não podem ser transferidas entre contas. Se a conta que você deseja excluir tiver uma permissão de acesso existente, um proprietário ou administrador de repositório da organização precisará convidar a conta que você deseja manter.
+- Qualquer commit criado com um endereço de e-mail `noreply` fornecido pelo GitHub não pode ser transferido de uma conta para outra. Se a conta que você deseja excluir usou a opção **Manter o meu endereço de e-mail privado** opção, não será possível transferir os commits criados pela conta que você está excluindo para a conta que você deseja manter.
 
 {% endwarning %}
 

@@ -22,8 +22,8 @@ Você também pode visualizar os minutos de execução do trabalho faturáveis p
 
 Qualquer pessoa pode visualizar o uso de {% data variables.product.prodname_actions %} para sua própria conta de usuário.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download %}
@@ -35,7 +35,7 @@ Os proprietários da organização e gerentes de faturamento podem ver o uso do 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Visualizando o uso de {% data variables.product.prodname_actions %} para sua conta corporativa
 
@@ -43,7 +43,7 @@ Proprietários de organizações e gestores de faturamento podem visualizar o us
 
 {% note %}
 
-**Nota:** Os detalhes de faturamento para contas corporativas não resumem os minutos de uso para cada sistema operacional. {% data reusables.github-actions.enterprise-billing-details %}
+**Nota:** Os detalhes de faturamento para contas corporativas não resumem os minutos de uso para cada sistema operacional. {% data reusables.actions.enterprise-billing-details %}
 
 {% endnote %}
 

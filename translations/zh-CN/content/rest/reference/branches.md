@@ -1,6 +1,6 @@
 ---
 title: 分支
-intro: The branches API allows you to modify branches and their protection settings.
+intro: 分支 API 允许您修改分支及其保护设置。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -12,11 +12,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-{% for operation in currentRestOperations %}
-  {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
-{% endfor %}
-
-## 受保护分支
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'branch-protection' %}{% include rest_operation %}{% endif %}
-{% endfor %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/branches
+-->

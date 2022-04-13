@@ -120,11 +120,9 @@ Armazene o nome do seu projeto como um segredo denominado `GKE_PROJECT`. Para ob
 ### (Opcional) Configurar kustomize
 Kustomize é uma ferramenta opcional usada para gerenciar especificações do YAML. Depois de criar um arquivo do `kustomization`, o fluxo de trabalho abaixo pode ser usado para definir dinamicamente os campos da imagem e adicionar o resultado ao `kubectl`. Para obter mais informações, consulte [uso de kustomize](https://github.com/kubernetes-sigs/kustomize#usage).
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 ### (Opcional) Configure um ambiente de implantação
 
 {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Criar o fluxo de trabalho
 
@@ -161,7 +159,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: {% data reusables.actions.action-checkout %}
 
     # Setup gcloud CLI
     - uses: google-github-actions/setup-gcloud@94337306dda8180d967a56932ceb4ddcf01edae7

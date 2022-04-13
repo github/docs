@@ -12,11 +12,16 @@ topics:
   - Organizations
   - Teams
 shortTitle: Organizationインサイトの表示
+permissions: Organization members can view organization insights.
 ---
 
-Organization のメンバー全員が Organization のインサイトを表示できます。 詳しい情報については「[Organization内のロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
-
 Organization のメンバーが、コードについてコラボレートや作業をするため {% data variables.product.product_name %} をどう使っているかについて、より深く理解するために、Organization activity insights を使用できます。 dependency insights は、Organization のオープンソース利用について追跡、レポート、および行動するため役立ちます。
+
+{% note %}
+
+**ノート:** Organizationインサイトを表示するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
 
 ## Organization activity insights を表示する
 
@@ -29,7 +34,7 @@ Organization のメンバーが、コードについてコラボレートや作�
 Organization activity insights を使えば、Issue やプルリクエストアクティビティ、使用されている言語の上位、Organization のメンバーが時間を費やした場所についての累積的情報などを含む、Organization 全体や特定のリポジトリに関するデータの視覚的表現を月ごと、週ごと、年ごとに表示できます。
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 3. Organization 名の下にある {% octicon "graph" aria-label="The bar graph icon" %} [**Insights**] をクリックします。 ![[organization insights] タブをクリックする](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. オプションで、ページ右上において、表示するデータを直近**1 週間**、**1 か月**、 **1 年**から選びます。 ![org insights を表示する期間を選択する](/assets/images/help/organizations/org-insights-time-period.png)
 5. オプションで、ページ右上において、データを表示するリポジトリを最大 3 つまで選んで、[**Apply**] をクリックします。 ![org insights を表示するリポジトリを選択する](/assets/images/help/organizations/org-insights-repos.png)
@@ -45,7 +50,7 @@ Organization activity insights を使えば、Issue やプルリクエストア�
 dependency insights を使えば、あなたの Organization が頼るオープンソースプロジェクトの脆弱性、ライセンスその他の重要情報を表示できます。
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 3. Organization 名の下にある {% octicon "graph" aria-label="The bar graph icon" %} [**Insights**] をクリックします。 ![メイン Organization ナビゲーションバーの [Insights] タブ](/assets/images/help/organizations/org-nav-insights-tab.png)
 4. この Organization への依存関係を表示するには、[**Dependencies**] をクリックします。 ![メイン Organization ナビゲーションバーの下にある [Dependencies] タブ](/assets/images/help/organizations/org-insights-dependencies-tab.png)
 5. あなたの {% data variables.product.prodname_ghe_cloud %} Organization の dependency insights をすべて表示するには、[**My organizations**] をクリックします。 ![[Dependencies] タブの下にある [My organizations] ボタン](/assets/images/help/organizations/org-insights-dependencies-my-orgs-button.png)

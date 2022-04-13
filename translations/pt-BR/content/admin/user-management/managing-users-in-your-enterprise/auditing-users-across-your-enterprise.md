@@ -81,7 +81,7 @@ O qualificador `org` limita as ações a uma organização específica. Por exem
 
 ### Pesquisar com base na ação
 
-O qualificador `action` pesquisa eventos específicos, agrupados em categorias. Para informações sobre os eventos associados a essas categorias, consulte "[Ações auditadas](/admin/user-management/audited-actions)".
+O qualificador `action` pesquisa eventos específicos, agrupados em categorias. Para obter informações sobre os eventos associados a essas categorias, consulte "[Eventos de log de auditoria para sua empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
 | Categoria | Descrição                                                                         |
 | --------- | --------------------------------------------------------------------------------- |

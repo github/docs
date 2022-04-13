@@ -22,7 +22,7 @@ shortTitle: 子チームの追加
 {% data reusables.organizations.child-team-inherits-permissions %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.teams %}
 4. Team のリストで、子チームを追加する先の Team の名前をクリックします。 ![Organization の Team のリスト](/assets/images/help/teams/click-team-name.png)
 5. Team ページの上部で、{% octicon "people" aria-label="The people icon" %} [**Teams**] をクリックします。 ![Team ページでの [Teams] タブ](/assets/images/help/teams/team-teams-tab.png)

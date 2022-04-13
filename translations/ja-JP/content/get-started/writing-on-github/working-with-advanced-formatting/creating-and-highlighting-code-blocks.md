@@ -46,7 +46,7 @@ Look! You can see my backticks.
 
 ![Rendered fenced code with backticks block](/assets/images/help/writing/fenced-code-show-backticks-rendered.png)
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## 構文の強調表示
 
@@ -69,10 +69,9 @@ Look! You can see my backticks.
 {% if mermaid %}
 ## Creating diagrams
 
-You can use Mermaid syntax to add diagrams. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
+You can also use code blocks to create diagrams in Markdown. GitHub supports Mermaid, geoJSON, topoJSON, and ASCII STL syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
 
 {% endif %}
-
 ## 参考リンク
 
 - [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)

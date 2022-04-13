@@ -89,7 +89,7 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 - `collectd/logs/collectd.log`：Collectdのログ
 - `mail-logs/mail.log`：SMTPのメール配送ログ
 
-詳細は「[監査ログ](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)」を参照してください。
+For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
 Support Bundle には過去 2 日分のログが含まれます。 過去 7 日分のログを取得したい場合には、拡張 Support Bundle をダウンロードできます。 詳細は「[拡張 Support Bundle の作成と共有](#creating-and-sharing-extended-support-bundles)」を参照してください。
 
@@ -177,3 +177,4 @@ Support Bundleには過去2日分のログが含まれますが、_拡張_Suppor
 ## 参考リンク
 
 - "[About GitHub Support](/support/learning-about-github-support/about-github-support)"
+- "[Generating a Health Check for your enterprise](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"
