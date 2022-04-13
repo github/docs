@@ -18,11 +18,8 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
     ```
     script/update-enterprise-dates.js
     ```
-- [ ] Create REST files based on previous version. For example `script/enterprise-server-releases/create-rest-files.js --oldVersion enterprise-server@3.2 --newVersion enterprise-server@3.3`:
+- [ ] Create REST files based on previous version. Copy the latest GHES version of the dereferenced file from `lib/rest/static/dereferenced` to a new file in the same directory for the new GHES release. Ex, `cp lib/rest/static/dereferenced/ghes-3.4.deref.json lib/rest/static/dereferenced/ghes-3.5.deref.json`. Then run `script/rest/updated-files.js --decorate-only` and check in the resulting files.
 
-  ```
-  script/enterprise-server-releases/create-rest-files.js --oldVersion <PLAN@RELEASE> --newVersion <PLAN@RELEASE>
-  ```
 - [ ] Create GraphQL files based on previous version:
 
   ```
