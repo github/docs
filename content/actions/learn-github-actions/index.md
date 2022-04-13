@@ -1,3 +1,4 @@
+run
 ---
 title: Learn GitHub Actions
 shortTitle: Learn GitHub Actions
