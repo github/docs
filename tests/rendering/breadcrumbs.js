@@ -149,7 +149,7 @@ describe('breadcrumbs', () => {
 
     test('works on maptopic pages', async () => {
       const breadcrumbs = await getJSON(
-        '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings?json=breadcrumbs'
+        '/en/account-and-profile/setting-up-and-managing-your-github-personal-account/managing-user-account-settings?json=breadcrumbs'
       )
       const expected = [
         {
@@ -157,11 +157,11 @@ describe('breadcrumbs', () => {
           title: 'Account and profile',
         },
         {
-          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-personal-account',
           title: 'Personal accounts',
         },
         {
-          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-personal-account/managing-personal-account-settings',
           title: 'Personal account settings',
         },
       ]
@@ -170,7 +170,7 @@ describe('breadcrumbs', () => {
 
     test('works on articles that DO have maptopics ', async () => {
       const breadcrumbs = await getJSON(
-        '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard?json=breadcrumbs'
+        '/en/account-and-profile/setting-up-and-managing-your-github-personal-account/managing-personal-account-settings/about-your-personal-dashboard?json=breadcrumbs'
       )
       const expected = [
         {
@@ -178,15 +178,15 @@ describe('breadcrumbs', () => {
           title: 'Account and profile',
         },
         {
-          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-personal-account',
           title: 'Personal accounts',
         },
         {
-          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-personal-account/managing-personal-account-settings',
           title: 'Personal account settings',
         },
         {
-          href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard',
+          href: '/en/account-and-profile/setting-up-and-managing-your-github-personal-account/managing-personal-account-settings/about-your-personal-dashboard',
           title: 'Your personal dashboard',
         },
       ]
