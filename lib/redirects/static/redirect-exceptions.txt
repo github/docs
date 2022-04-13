@@ -463,3 +463,6 @@
 
 /enterprise-cloud@latest/code-security/security-overview/filtering-alerts-in-the-security-overview
 - /code-security/security-overview/filtering-alerts-in-the-security-overview
+
+/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage

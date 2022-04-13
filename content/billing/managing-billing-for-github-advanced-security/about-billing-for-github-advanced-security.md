@@ -41,7 +41,16 @@ You can make extra features for code security available to users by buying and u
 
 {% endif %}
 
+{% ifversion fpt %} 
+
+For more information about billing for {% data variables.product.prodname_GH_advanced_security %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+
+{% endif %}
+
 To discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise, contact {% data variables.contact.contact_enterprise_sales %}.
+
+
+{% ifversion ghes or ghec %}
 
 ## About committer numbers for {% data variables.product.prodname_GH_advanced_security %}
 
@@ -82,3 +91,5 @@ The following example timeline demonstrates how active committer count for {% da
 ## Getting the most out of {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.getting-the-most-from-your-license %}
+
+{% endif %}
