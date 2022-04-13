@@ -60,7 +60,7 @@ By default, we notify people with admin permissions in the affected repositories
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for public or private repositories
+### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
