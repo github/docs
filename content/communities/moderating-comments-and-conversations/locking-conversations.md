@@ -19,7 +19,7 @@ Locking a conversation creates a timeline event that is visible to anyone with r
 
 ![Anonymized timeline event for a locked conversation](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-While a conversation is locked, only [people with write access](/articles/repository-permission-levels-for-an-organization/) and [repository owners and collaborators](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) can add, hide, and delete comments.
+While a conversation is locked, only [people with write access](/articles/repository-permission-levels-for-an-organization/) and [repository owners and collaborators](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account) can add, hide, and delete comments.
 
 To search for locked conversations in a repository that is not archived, you can use the search qualifiers `is:locked` and `archived:false`. Conversations are automatically locked in archived repositories. For more information, see "[Searching issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)."
 

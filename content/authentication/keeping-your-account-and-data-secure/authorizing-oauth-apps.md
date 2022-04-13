@@ -77,7 +77,7 @@ When {% data variables.product.prodname_oauth_apps %} request new access permiss
 
 ## {% data variables.product.prodname_oauth_apps %} and organizations
 
-When you authorize an {% data variables.product.prodname_oauth_app %} for your personal user account, you'll also see how the authorization will affect each organization you're a member of.
+When you authorize an {% data variables.product.prodname_oauth_app %} for your personal account, you'll also see how the authorization will affect each organization you're a member of.
 
 - **For organizations *with* {% data variables.product.prodname_oauth_app %} access restrictions, you can request that organization admins approve the application for use in that organization.** If the organization does not approve the application, then the application will only be able to access the organization's public resources. If you're an organization admin, you can [approve the application](/articles/approving-oauth-apps-for-your-organization) yourself.
 

@@ -17,7 +17,7 @@ shortTitle: Apply for a student pack
 To be eligible for the {% data variables.product.prodname_student_pack %}, you must:
 - Be currently enrolled in a degree or diploma granting course of study such as a high school, secondary school, college, university, homeschool, or similar educational institution
 - Have a verifiable school-issued email address or upload documents that prove your current student status
-- Have a [{% data variables.product.prodname_dotcom %} user account](/articles/signing-up-for-a-new-github-account)
+- Have a [{% data variables.product.prodname_dotcom %} personal account](/articles/signing-up-for-a-new-github-account)
 - Be at least 13 years old
 
 Documents that prove your current student status include a picture of your school ID with current enrollment date, class schedule, transcript, and affiliation or enrollment verification letter.
@@ -26,7 +26,7 @@ During your tenure as a student, you may be prompted to periodically re-verify y
 
 {% note %}
 
-**Note:** You cannot transfer academic discounts from one account to another. If you have more than one account you want to apply the discount to, consider [merging](/articles/merging-multiple-user-accounts) your user accounts and [renaming](/articles/changing-your-github-username) the retained account if desired.
+**Note:** You cannot transfer academic discounts from one account to another. If you have more than one account you want to apply the discount to, consider [merging](/articles/merging-multiple-user-accounts) your personal accounts and [renaming](/articles/changing-your-github-username) the retained account if desired.
 
 {% endnote %}
 
