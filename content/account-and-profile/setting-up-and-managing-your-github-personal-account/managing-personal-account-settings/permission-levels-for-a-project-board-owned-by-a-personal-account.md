@@ -1,5 +1,5 @@
 ---
-title: Permission levels for project boards owned by a personal account
+title: Permission levels for a project board owned by a personal account
 intro: 'A project board owned by a personal account has two permission levels: the project board owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards

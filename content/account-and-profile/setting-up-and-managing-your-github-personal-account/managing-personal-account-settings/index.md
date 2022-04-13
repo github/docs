@@ -24,7 +24,7 @@ children:
   - /converting-a-user-into-an-organization
   - /deleting-your-personal-account
   - /permission-levels-for-a-personal-account-repository
-  - /permission-levels-for-user-owned-project-boards
+  - /permission-levels-for-a-project-board-owned-by-a-personal-account
   - /managing-accessibility-settings
   - /managing-the-default-branch-name-for-your-repositories
   - /managing-security-and-analysis-settings-for-your-personal-account
