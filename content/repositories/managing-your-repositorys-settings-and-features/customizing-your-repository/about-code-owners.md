@@ -49,6 +49,8 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 
 A CODEOWNERS file uses a pattern that follows most of the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files, with [some exceptions](#syntax-exceptions). The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. Users must have `read` access to the repository and teams must have explicit `write` access, even if the team's members already have access. You can also refer to a user by an email address that has been added to their account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, for example `user@example.com`.
 
+{% data reusables.enterprise-accounts.emu-codeowners-note %}
+
 CODEOWNERS paths are case sensitive, because {% data variables.product.prodname_dotcom %} uses a case sensitive file system. Since CODEOWNERS are evaluated by {% data variables.product.prodname_dotcom %}, even systems that are case insensitive (for example, macOS) must use paths and files that are cased correctly in the CODEOWNERS file.
 
 {% if codeowners-errors %}
