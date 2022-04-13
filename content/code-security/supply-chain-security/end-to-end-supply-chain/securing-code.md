@@ -50,9 +50,7 @@ As a first step, you want to make a complete inventory of your dependencies. The
 
 ### Assessment of exposure to risk from a vulnerable dependency
 
-When you discover you are using a vulnerable dependency, for example, a library or a framework, you must assess your project's level of exposure and determine what action to take. Vulnerabilities are usually reported with a severity score to show how severe their impact could be. The severity score is a useful guide but cannot tell you the full impact of the vulnerability on your code.
-
-To assess the impact of a vulnerability on your code, you also need to consider how you use the library and determine how much risk that actually poses to your system. Maybe the vulnerability is part of a feature that you don't use, and you can update the affected library and continue with your normal release cycle. Or maybe your code is badly exposed to risk, and you need to update the affected library and ship an updated build right away. This decision depends on how you're using the library in your system, and is a decision that only you have the knowledge to make.
+{% data reusables.dependabot.vulnerable-calls-beta %}
 
 ## Secure your communication tokens
 
