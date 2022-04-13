@@ -95,9 +95,11 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
 
 ## Reviewing and fixing vulnerable dependencies
 
-{% data reusables.dependabot.assessing-risk-dependabot-alerts %}
+It’s important to ensure that all of your dependencies are clean of any security weaknesses. When {% data variables.product.prodname_dependabot %} discovers vulnerabilities in your dependencies, you should assess your project’s level of exposure and determine what remediation steps to take to secure your application.
 
-When you click through to view a {% data variables.product.prodname_dependabot %} alert, you can see the full details of the security advisory for the dependency including the affected functions. Then you can check whether you call the functions and, if so, how badly your code is exposed to risk. You can use this information to decide whether to prioritize remediation work or to dismiss the alert. 
+If a patched version is available, you can generate a {% data variables.product.prodname_dependabot %} pull request to update this dependency directly from a {% data variables.product.prodname_dependabot %} alert. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, the pull request may be linked will in the Dependabot alert. 
+
+In cases where a patched version is not available, or you can’t update to the secure version, {% data variables.product.prodname_dependabot %} shares additional information to help you determine next steps. When you click through to view a {% data variables.product.prodname_dependabot %} alert, you can see the full details of the security advisory for the dependency including the affected functions. You can then check whether your code calls the impacted functions. This information can help you further assess your risk level, and determine workarounds or if you’re able to accept the risk represented by the security vulnerability.
 
 {% if dependabot-alerts-vulnerable-calls %}
 
