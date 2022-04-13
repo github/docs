@@ -63,6 +63,15 @@ Los borradores de propuesta pueden tener un título, cuerpo de texto, asignados 
 3. Selecciona el repositorio en donde se ubica la solicitud de cambios o propuesta. Puedes teclear la parte del nombre de repositorio para reducir tus opciones.
 4. Selecciona la propuesta o solicitud de cambios. Puedes teclear parte del título para reducir tus opciones.
 
+#### Adding multiple issues or pull requests from a repository
+
+1. On {% data variables.product.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+{% data reusables.repositories.sidebar-issue-pr %}
+1. To the left of each issue title, select the issues that you want to add to your project. ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)
+1. Optionally, to select every issue or pull request on the page, at the top of the list of issues or pull requests, select all. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/select-all-checkbox.png)
+1. Above the list of issues or pull requests, click **Projects (beta)**. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/projects-beta-assign-button.png)
+1. Click the projects you want to add the selected issues or pull requests to. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/projects-beta-assign-dropdown.png)
+
 #### Asignar un rpoyecto desde dentro de una propuesta o solicitud de cambios
 
 1. Navega a la propuesta o solicitud de cambios que quieras agregar a un proyecto.
@@ -102,7 +111,20 @@ Puedes restablecer los elementos archivados, pero no los borrados. Para obtener 
 
 ## Restaurar los elementos archivados
 
-Para restablecer un elemento archivado, navega a la propuesta o solicitud de cambios. En la barra lateral del proyecto sobre la propuesta o solicitud de cambios, haz clic en **Restablecer** en el proyecto al cual quieras restablecer el elemento. Los borradores de propuestas no pueden restaurarse.
+1. Navegar a tu proyecto.
+1. In the top-right, click {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
+1. In the menu, click **Archived items**.
+1. Optionally, to filter the archived items displayed, type your filter into the text box above the list of items. For more information about the available filters, see "[Filtering projects (beta)](/issues/trying-out-the-new-projects-experience/filtering-projects)."
+
+   ![Screenshot showing field for filtering archived items](/assets/images/help/issues/filter-archived-items.png)
+
+1. To the left of each item title, select the items you would like to restore.
+
+   ![Screenshot showing checkboxes next to archived items](/assets/images/help/issues/select-archived-item.png)
+
+1. To restore the selected items, above the list of items, click **Restore**.
+
+   ![Screenshot showing the "Restore" button](/assets/images/help/issues/restore-archived-item-button.png)
 
 ## Agregar campos
 
@@ -131,7 +153,7 @@ Los campos personalizados pueden ser de texto, número, fecha, selección simple
 - Número: El valor debe ser un número.
 - Fecha: El valor puede ser una fecha.
 - Selección simple: El valor debe seleccionarse desde un conjunto de valores especificados.
-- Iteración: el valor debe seleccionarse desde un conjunto de rangos de fechas (iteraciones). Las iteraciones pasadas se marcan automáticamente como "completadas" y la iteración que cubre el rango de fecha actual se marca como "actual".
+- Iteración: el valor debe seleccionarse desde un conjunto de rangos de fechas (iteraciones). Las iteraciones pasadas se marcan automáticamente como "completadas" y la iteración que cubre el rango de fecha actual se marca como "actual". Para obtener más información, consulta la sección "[Administrar las iteraciones en los proyectos](/issues/trying-out-the-new-projects-experience/managing-iterations)".
 
 1. {% data reusables.projects.open-command-palette %} Comienza a teclear cualquier parte de "Create new field". Cuando se muestre "Create new field" en la paleta de comandos, selecciónalo.
 2. Como alternativa, haz clic en {% octicon "plus" aria-label="the plus icon" %} en el encabezado de campo que está lo más hacia la derecha. Aparecerá un menú desplegable con los campos de proyecto. Haz clic en **Campo nuevo**.
@@ -146,7 +168,9 @@ Puedes editar las opciones del menú desplegable posteriormente para los campos 
 {% data reusables.projects.project-settings %}
 1. Debajo de **Campos**, selecciona aquél que quieras editar.
 1. Para los campos de selección sencilla, puedes agregar, borrar o reordenar las opciones.
-2. Para los campos de iteración, puedes agregar o borrar las iteraciones, cambiar los nombres de estas y cambiar la fecha de inicio y duración de las mismas.
+1. Para los campos de iteración, puedes agregar o borrar las iteraciones, cambiar los nombres de estas y cambiar la fecha de inicio y duración de las mismas.
+
+   Para encontrar más información sobre cómo modificar los campos de iteración, consulta "[Administrar las iteraciones en los proyectos](/issues/trying-out-the-new-projects-experience/managing-iterations)".
 
 ## Personalizar tus vistas
 

@@ -50,6 +50,12 @@ Antes de usar o Jekyll para testar um site, você deve:
   ```
 3. Para visualizar o site, navegue para `http://localhost:4000` no navegador da web.
 
+{% note %}
+
+**Observação:** Se você estiver usando o Ruby 3.0 e Jekyll 4.2 ou versão anterior, você deverá adicionar o gem do `webrick` ao arquivo do seu projeto antes de executar `bundle install`.
+
+{% endnote %}
+
 ## Atualizar o gem do {% data variables.product.prodname_pages %}
 
 O Jekyll é um projeto ativo de código aberto que é atualizado com frequência. Se o gem `github-pages` no seu computador estiver desatualizado em relação ao gem `github-pages` no servidor do {% data variables.product.prodname_pages %}, seu site poderá ter uma aparência diferente da criada localmente quando for publicado no {% data variables.product.product_name %}. Para evitar isso, atualize regularmente o gem `github-pages` no seu computador.

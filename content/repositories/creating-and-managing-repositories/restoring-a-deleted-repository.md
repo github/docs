@@ -15,7 +15,7 @@ topics:
 shortTitle: Restore deleted repository
 ---
 {% ifversion fpt or ghec %}
-Anyone can restore deleted repositories that were owned by their own user account. Organization owners can restore deleted repositories that were owned by the organization.
+Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.
 
 ## About repository restoration
 
@@ -27,7 +27,7 @@ It can take up to an hour after a repository is deleted before that repository i
 
 Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
 
-## Restoring a deleted repository that was owned by a user account
+## Restoring a deleted repository that was owned by a personal account
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.repo-tab %}

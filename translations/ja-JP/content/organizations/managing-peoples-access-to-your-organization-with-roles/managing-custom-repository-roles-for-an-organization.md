@@ -20,9 +20,7 @@ redirect_from:
 
 Organization内では、ロールをOrganization、Team、リポジトリのレベルで割り当てることができます。 ロールの様々なレベルに関する詳しい情報については「[Organizationのロール](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)」を参照してください。
 
-Organizationが{% data variables.product.prodname_ghe_cloud %}を使っているなら、最大で3つのカスタムリポジトリロールを作成することで、リポジトリレベルで付与する権限をより詳細に制御できます。 カスタムリポジトリロールは、選択したカスタム名を持つ設定可能な権限のセットです。 カスタムロールを作成すると、リポジトリへの管理アクセスを持つユーザはそのロールを個人やTeamに割り当てることができます。 詳しい情報については「[Organizationのリポジトリへの個人のアクセスの管理](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)」及び「[OrganizationのリポジトリへのTeamのアクセスの管理](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)」を参照してください。
-
-{% data reusables.enterprise.link-to-ghec-trial %}
+最大で3つのカスタムリポジトリロールを作成することによって、リポジトリレベルで付与する権限をもっと詳細に制御できます。 カスタムリポジトリロールは、選択したカスタム名を持つ設定可能な権限のセットです。 カスタムロールを作成すると、リポジトリへの管理アクセスを持つユーザはそのロールを個人やTeamに割り当てることができます。 詳しい情報については「[Organizationのリポジトリへの個人のアクセスの管理](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)」及び「[OrganizationのリポジトリへのTeamのアクセスの管理](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)」を参照してください。
 
 ## 継承されたロールについて
 
@@ -84,6 +82,8 @@ Organizationが{% data variables.product.prodname_ghe_cloud %}を使っている
 - **Set interaction limits（インタラクションの制限を設定）**: 自分のパブリックリポジトリで特定のユーザによるコメント、Issueのオープン、Pull Requestの作成を一時的に制限し、アクティビティの制限期間を施行。 詳しい情報については「[リポジトリでのインタラクションの制限](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)」を参照してください。
 - **Set the social preview（ソーシャルプレビューの設定）**: リポジトリがリンクされたときにソーシャルメディア上に表示される識別画像をリポジトリに追加。 詳細は「[リポジトリのソーシャルメディア向けプレビューをカスタマイズする](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)」を参照してください。
 - **Push commits to protected branches（保護されたブランチにコミットをプッシュ）**: 保護されたブランチとしてマークされているブランチにプッシュ。
+- **Create protected tags（保護されたタグの作成）**: タグの保護ルールにマッチしたタグの作成。 詳しい情報については「[タグ保護ルールの設定](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)」を参照してください。
+- **Delete protected tags（タグ保護ルールの削除）**: タグ保護ルールにマッチしたタグの削除。 詳しい情報については「[タグ保護ルールの設定](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)」を参照してください。
 
 ### セキュリティ
 
@@ -109,6 +109,14 @@ TeamのメンバーシップやOrganizationの基本権限など、様々な方�
 ## リポジトリロールの作成
 
 新しいリポジトリロールを作成するには、継承されたロールに権限を追加し、カスタムロールに名前を付けます
+
+{% ifversion ghec %}
+{% note %}
+
+**ノート:** {% data variables.product.prodname_ghe_cloud %}を使うOrganizationだけがカスタムリポジトリロールを作成できます。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

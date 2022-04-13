@@ -1,16 +1,17 @@
 export interface Operation {
   verb: string
-  summary: string
-  slug: string
+  title: string
   descriptionHTML: string
-  notes: Array<string>
+  previews: Array<string>
   requestPath: string
-  responses: Array<CodeResponse>
-  hasRequiredPreviews: boolean
+  serverUrl: string
+  statusCodes: Array<StatusCode>
   parameters: Array<Parameter>
   bodyParameters: Array<BodyParameter>
-  'x-github': xGitHub
-  'x-codeSamples': Array<xCodeSample>
+  category: string
+  subcategory: string
+  enabledForGitHubApps: boolean
+  codeExamples: Array<CodeSample>
 }
 
 export interface Parameter {
@@ -24,28 +25,27 @@ export interface Parameter {
   }
 }
 
-export interface xGitHub {
-  category: string
-  enabledForGitHubApps: boolean
-  previews: Array<Preview> | []
-}
-
-export interface CodeResponse {
+export interface StatusCode {
   description: string
   httpStatusCode: string
   httpStatusMessage: string
-  payload: string
 }
 
-export interface xCodeSample {
-  lang: string
-  source: string
-}
-
-export interface Preview {
-  html: string
-  required: boolean
-  name: string
+export interface CodeSample {
+  key: string
+  response: {
+    contentType: string
+    description: string
+    example: Record<string, string>
+    statusCode: string
+  }
+  request: {
+    contentType: string
+    acceptHeader: string
+    bodyParameters: Record<string, string>
+    parameters: Record<string, string>
+    description: string
+  }
 }
 
 export interface BodyParameter {

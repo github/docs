@@ -1,7 +1,7 @@
 ---
 title: Utilizar flujos de trabajo
 shortTitle: Utilizar flujos de trabajo
-intro: 'Creating and managing {% data variables.product.prodname_actions %} workflows.'
+intro: 'Crear y administrar flujos de trabajo de las {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /actions/configuring-and-managing-workflows/configuring-a-workflow
   - /articles/creating-a-workflow-with-github-actions

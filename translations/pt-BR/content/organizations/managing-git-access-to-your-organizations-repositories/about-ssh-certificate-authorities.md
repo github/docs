@@ -20,6 +20,8 @@ shortTitle: Autoridades do certificado SSH
 
 Um certificado SSH é um mecanismo utilizado para uma chave SSH assinar outra chave SSH. Se você usa uma autoridade certificada (CA) SSH para fornecer certificados SSH aos integrantes da organização, você pode adicionar a CA em sua conta corporativa ou organização para permitir que integrantes da organização usem os certificados deles para acessar os recursos da organização.
 
+{% data reusables.organizations.ssh-ca-ghec-only %}
+
 Depois de adicionar uma CA SSH à sua organização ou conta corporativa, você pode usar a CA para assinar certificados SSH de cliente para integrantes da organização. Integrantes da organização podem usar os certificados assinados para acessar os repositórios da sua organização (e somente os repositórios da sua organização) no Git. Opcionalmente, você pode exigir que os integrantes utilizem certificados SSH para acessar recursos da organização. Para obter mais informações, consulte "[Gerenciando as autoridades certificadas SSH da sua organização](/articles/managing-your-organizations-ssh-certificate-authorities)" e "[Aplicando as políticas para configurações de segurança na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise). "
 
 Por exemplo, você pode desenvolver um sistema interno que emite um novo certificado para seus desenvolvedores todas as manhãs. Cada desenvolvedor pode usar o certificado diário para trabalhar nos repositórios da organização no {% data variables.product.product_name %}. No final do dia, o certificado pode expirar automaticamente, protegendo seus repositórios caso o certificado seja adulterado mais tarde.
@@ -28,15 +30,15 @@ Por exemplo, você pode desenvolver um sistema interno que emite um novo certifi
 Integrantes da organização podem usar os certificados assinados para autenticação mesmo que você tenha aplicado o logon único SAML. A menos que você exija certificados SSH, os integrantes podem continuar a usar outros meios de autenticação para acessar os recursos da organização no Git, como o nome de usuário e senha deles, tokens de acesso pessoais e outras chaves SSH próprias.
 {% endif %}
 
-Members will not be able to use their certificates to access forks of your repositories that are owned by their personal accounts.
+Os integrantes não poderão usar seus certificados para acessar bifurcações dos seus repositórios que são propriedade das contas pessoais.
 
-## About SSH URLs with SSH certificates
+## Sobre os URLs do SSH com certificados SSH
 
-If your organization requires SSH certificates, to prevent authentication errors, organization members should use a special URL that includes the organization ID when performing Git operations over SSH. This special URL allows the client and server to more easily negotiate which key on the member's computer should be used for authentication. If a member uses the normal URL, which starts with `git@github.com`, the SSH client might offer the wrong key, causing the operation to fail.
+Se sua organização exigir certificados SSH, para evitar erros de autenticação, os integrantes da organização deverão usar um URL especial que inclua o ID da organização quando executar operações Git por meio do SSH. Este URL especial permite que o cliente e servidor negociem mais facilmente qual chave no computador do integrante deverá ser usada para autenticação. Se um integrante usar a URL normal, que começa com `git@github. om`, o cliente do SSH poderá oferecer a chave incorreta, causando falha na operação.
 
-Anyone with read access to the repository can find this URL by selecting the **Code** dropdown menu on the main page of the repository, then clicking **Use SSH**.
+Qualquer pessoa com acesso de leitura ao repositório pode encontrar esse URL selecionando o menu suspenso do **Código** na página principal do repositório e, em seguida, clicando em **Usar SSH**.
 
-If your organization doesn't require SSH certificates, members can continue to use their own SSH keys, or other means of authentication. In that case, either the special URL or the normal URL, which starts with `git@github.com`, will work.
+Se sua organização não exigir certificados SSH, os integrantes poderão continuar usando suas próprias chaves SSH ou outros meios de autenticação. Nesse caso, o URL especial ou o URL normal, que começa com `git@github.com`, irá funcionar.
 
 ## Emitindo certificados
 

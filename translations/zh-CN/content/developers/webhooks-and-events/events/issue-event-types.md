@@ -322,7 +322,7 @@ GitHub 尝试自动更改拉取请求的基本分支已成功。
 
 ## head_ref_force_pushed
 
-The pull request's HEAD branch was force pushed.
+拉取请求的 HEAD 分支已强制推送。
 
 ### 可用性
 

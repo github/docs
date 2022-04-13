@@ -73,7 +73,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: {% data reusables.actions.action-checkout %}
 
     - name: Azure Login
       uses: azure/login@89d153571fe9a34ed70fcf9f1d95ab8debea7a73

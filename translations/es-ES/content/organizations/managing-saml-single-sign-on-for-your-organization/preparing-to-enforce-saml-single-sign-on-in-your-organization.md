@@ -12,6 +12,8 @@ topics:
 shortTitle: Prepararse para requerir el SSO de SAML
 ---
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.when-you-enforce %} Antes de requerir el SSO de SAML en tu organización, debes revisar la membrecía de la misma, habilitar el SSO de SAML y revisar el acceso de SAML de los miembros de esta. Para obtener más información, consulta lo siguiente.
 
 | Tarea                                                                                                     | Más información           |

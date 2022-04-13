@@ -6,7 +6,7 @@ redirect_from:
   - /articles/supported-browsers
   - /github/getting-started-with-github/supported-browsers
   - /github/getting-started-with-github/using-github/supported-browsers
-intro: 'Nós projetamos o {% data variables.product.product_name %} para ser compatível com os navegadores web mais recentes. Oferecemos suporte às versões atuais de [Chrome](https://www.google.com/chrome/), [Firefox](http://www.mozilla.org/firefox/), [Safari](http://www.apple.com/safari/) e [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge).'
+intro: 'Para obter a melhor experiência com {% data variables.product.product_name %}, recomendamos o uso da versão mais recente do [Chrome](https://google.com/chrome), [Edge](https://microsoft.com/windows/microsoft-edge), [Firefox](https://mozilla.org/firefox) ou [Safari](https://apple.com/safari).'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,9 +14,28 @@ versions:
   ghec: '*'
 ---
 
-## Versão de suporte estendido do Firefox
+## Sobre o suporte ao navegador da web para {% data variables.product.product_name %}
 
-Fazemos o máximo possível para oferecer suporte à [Versão de suporte estendido](https://www.mozilla.org/en-US/firefox/organizations/) (ESR) mais recente do Firefox. Versões mais antigas do Firefox podem desabilitar alguns recursos no {% data variables.product.product_name %} e exigir a versão mais recente do Firefox.
+Nós projetamos {% data variables.product.product_name %} com os últimos navegadores web em mente. Recomendamos que você use a versão mais recente de um dos seguintes navegadores.
+
+ - [Safari da Apple](https://apple.com/safari)
+ - [Google Chrome](https://google.com/chrome)
+ - [Microsoft Edge](https://microsoft.com/windows/microsoft-edge)
+ - [Mozilla Firefox](https://mozilla.org/firefox)
+
+Se você não usa a versão mais recente de um navegador recomendado, ou se você usa um navegador que não está listado acima, é possível que {% data variables.product.product_name %} ou algumas funcionalidades não funcionem como você espera ou não funcionem completamente.
+
+Para obter mais informações sobre como manter a compatibilidade do navegador para os produtos de {% data variables.product.company_short %}, consulte o repositório [`github/browser-support`](https://github.com/github/browser-support).
+## Suporte estendido para navegadores da web recomendados
+
+Alguns fornecedores do navegador fornecem versões de suporte estendidas. Fazemos nosso melhor para garantir que {% data variables.product.product_name %} funcione corretamente na última versão estendida de suporte para:
+
+- [Canal estável estendido](https://support.google.com/chrome/a/answer/9027636) do Chrome
+- [Canal estável estendido](https://docs.microsoft.com/en-gb/deployedge/microsoft-edge-channels#extended-stable-channel) do Edge
+- [Versão do suporte estendido](https://www.mozilla.org/en-US/firefox/organizations/) (ESR) do Firefox
+
+Em versões anteriores de suporte estendido, é possível que {% data variables.product.product_name %} não funcione como você espera, e algumas funcionalidades podem não estar disponíveis.
+
 
 ## Compilações Beta e de desenvolvedor
 

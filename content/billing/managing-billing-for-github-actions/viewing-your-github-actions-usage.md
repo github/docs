@@ -17,9 +17,9 @@ shortTitle: View your Actions usage
 ---
 You can also view the billable job execution minutes for an individual workflow run. For more information, see "[Viewing job execution time](/actions/managing-workflow-runs/viewing-job-execution-time)."
 
-## Viewing {% data variables.product.prodname_actions %} usage for your user account
+## Viewing {% data variables.product.prodname_actions %} usage for your personal account
 
-Anyone can view {% data variables.product.prodname_actions %} usage for their own user account.
+Anyone can view {% data variables.product.prodname_actions %} usage for their own personal account.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -34,7 +34,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Viewing {% data variables.product.prodname_actions %} usage for your enterprise account
 

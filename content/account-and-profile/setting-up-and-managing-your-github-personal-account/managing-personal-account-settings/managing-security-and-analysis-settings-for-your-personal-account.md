@@ -21,7 +21,7 @@ shortTitle: Manage security & analysis
 
 You can still manage the security and analysis features for individual repositories. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)."
 
-You can also review the security log for all activity on your user account. For more information, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+You can also review the security log for all activity on your personal account. For more information, see "[Reviewing your security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 
@@ -52,5 +52,5 @@ For an overview of repository-level security, see "[Securing your repository](/c
 ## Further reading
 
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Managing vulnerabilities in your project's dependencies](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"
+- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
 - "[Keeping your dependencies updated automatically](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"

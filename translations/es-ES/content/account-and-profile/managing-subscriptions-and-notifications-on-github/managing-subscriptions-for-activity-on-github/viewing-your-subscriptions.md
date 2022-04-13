@@ -72,7 +72,7 @@ Muchas personas se olvidan de los repositorios que han marcado para observar. De
 
   {% tip %}
 
-  **Tip:** Instead of watching a repository, consider only receiving notifications when there are updates to {% data reusables.notifications-v2.custom-notification-types %} (if enabled for the repository), or any combination of these options, or completely unwatching a repository.
+  **Tip:** En vez de observar un repositorio, considera solo recibir notificaciones cuando hayan actualziaciones a {% data reusables.notifications-v2.custom-notification-types %} (si se habilitaron para el repositorio) o cualquier combinación de estas opciones o dejar de observarlo por completo.
 
   Cuando dejas de seguir un repositorio, aún se te puede notificar cuando te @mencionan o cuando participas en un hilo. Cuando configuras el recibir notificaciones para ciertos tipos de evento, solo se te notificará cuando existan actualizaciones en éstos dentro del repositorio, si estás participando en un hilo, o si tú o un equipo al que perteneces tiene alguna @mención.
 

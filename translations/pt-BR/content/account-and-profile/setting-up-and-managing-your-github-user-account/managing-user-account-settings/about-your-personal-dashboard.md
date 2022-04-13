@@ -41,9 +41,23 @@ Também é possível encontrar uma lista de seus repositórios, equipes e quadro
 
 ## Permanecer atualizado com as atividades da comunidade
 
-Na seção "All activity" (Todas as atividades) do feed de notícias, você pode exibir atualizações de repositórios em que está inscrito e de pessoas que você segue. Essa seção mostra atualizações dos repositórios que você inspeciona ou marca com estrela e dos usuários que você segue.
+{% if for-you-feed %}
+A seção principal do seu painel tem dois feeds de atividades:
+
+- Seguindo: Atividades de pessoas que você segue e dos repositórios que você inspeciona.
+- Para você: Atividade e recomendações com base na sua rede de {% data variables.product.product_name %}.
+
+### Seguindo o feed
+
+Este feed mostra a atividade dos repositórios e usuários nos quais você mostrou interesse direto, seguindo um usuário ou inspecionando um repositório. Por exemplo, você verá atualizações quando um usuário que você segue:
+
+{% else %}
+Na seção "Todas as atividades" do feed de notícias, você pode ver as atualizações dos repositórios que você inspeciona e de usuários que você segue.
 
 Atualizações serão exibidas no feed de notícias quando um usuário que você segue:
+{% endif %}
+
+
 - Marcar um repositório com estrelas.
 - Segue outro usuário.{% ifversion fpt or ghes or ghec %}
 - Cria um repositório público.{% endif %}
@@ -52,7 +66,26 @@ Atualizações serão exibidas no feed de notícias quando um usuário que você
 - Bifurca um repositório público.{% endif %}
 - Publica uma nova versão.
 
-Para obter mais informações sobre como atribuir estrelas a repositórios e seguir pessoas, consulte "[Salvar repositórios com estrelas](/articles/saving-repositories-with-stars/)" e "[Seguir pessoas](/articles/following-people)".
+Para obter mais informações sobre as seguir pessoas e inspecionar repositórios, consulte "[Seguindo as pessoas](/get-started/exploring-projects-on-github/following-people)" e "[Ser social](/get-started/quickstart/be-social)".
+
+{% if for-you-feed %}
+### Para o feed
+
+{% note %}
+
+**Observação:** Esta nova guia está atualmente na versão beta pública e sujeita a alterações.
+
+{% endnote %}
+
+Este feed mostra a atividade e as recomendações com base na sua rede em {% data variables.product.product_name %}. El foi projetado para fornecer atualizações que inspiram, mantém você atualizaro e ajuda a encontrar novas comunidades das quais deseja participar. Sua rede inclui:
+
+- Repositórios que você favoritou
+- Repositórios para os quais você contribuiu
+- Usuários que você segue ou patrocina
+- Usuários com os quais você colaborou
+- Organizações que você segue
+
+{% endif %}
 
 ## Explorar repositórios recomendados
 

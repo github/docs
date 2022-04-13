@@ -15,7 +15,7 @@ topics:
 
 ## {% data variables.product.prodname_codespaces %} 定价
 
-{% data variables.product.prodname_codespaces %} 的使用将针对团队和企业计划中的所有帐户计费，并且不包括任何权利。 个人帐户目前不为 {% data variables.product.prodname_codespaces %} 使用付费。
+对于 {% data variables.product.prodname_codespaces %} 使用的计费将针对 {% data variables.product.prodname_team %} 和 {% data variables.product.prodname_enterprise %} 上的所有组织和企业帐户，不包括任何免费的分钟数或存储空间。 个人帐户目前不对 {% data variables.product.prodname_codespaces %} 使用付费。
 
 {% data variables.product.prodname_codespaces %} 使用按下表中的计量单位计费：
 
@@ -38,7 +38,7 @@ topics:
 如果您通过微软企业协议购买 {% data variables.product.prodname_enterprise %} ， 您可以将您的 Azure 订阅ID 连接到您的企业账户，以启用并支付您的 {% data variables.product.prodname_codespaces %} 使用费用。 更多信息请参阅“[将 Azure 订阅连接到您的企业](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)”。
 {% endif %}
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_codespaces %}
 
 ### {% data variables.product.prodname_codespaces %} 预构建的计费
 
@@ -58,7 +58,7 @@ topics:
 
 用户在创建代码空间时选择的计算机类型会影响该代码空间的每分钟费用，如上所示。
 
-组织所有者可以创建策略来限制用户可用的计算机类型。 For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+组织所有者可以创建策略来限制用户可用的计算机类型。 更多信息请参阅“[限制对机器类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”。
 
 ## 如何处理复刻的存储库的计费
 

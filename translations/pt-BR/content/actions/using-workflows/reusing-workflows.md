@@ -48,7 +48,7 @@ Para obter mais informações, consulte "[Criando fluxos de trabalho iniciais pa
 Um fluxo de trabalho reutilizável pode ser usado por outro fluxo de trabalho se {% ifversion ghes or ghec or ghae %}qualquer{% else %}ou{% endif %} dos pontos a seguir for verdadeiro:
 
 * Ambos os fluxos de trabalho estão no mesmo repositório.
-* O fluxo de trabalho chamado é armazenado em um repositório público.{% ifversion ghes or ghec or ghae %}
+* O fluxo de trabalho chamado é armazenado em um repositório público{% if actions-workflow-policy %}, e sua {% ifversion ghec %}empresa{% else %}organização{% endif %} permite que você use fluxos de trabalho públicos reutilizáveis{% endif %}.{% ifversion ghes or ghec or ghae %}
 * O fluxo de trabalho chamado é armazenado em um repositório interno e as configurações para esse repositório permitem que ele seja acessado. Para obter mais informações, consulte {% if internal-actions %}"[Compartilhando ações e fluxos de trabalho com a sua empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Gerenciando configurações de {% data variables.product.prodname_actions %} para um repositório](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}.{% endif %}
 
 ## Usando executores
@@ -307,3 +307,5 @@ Para obter informações sobre o uso da API REST para consultar o log de auditor
 ## Próximas etapas
 
 Para continuar aprendendo sobre {% data variables.product.prodname_actions %}, consulte "[Eventos que desencadeiam fluxos de trabalho](/actions/learn-github-actions/events-that-trigger-workflows)".
+
+{% if restrict-groups-to-workflows %}Você pode padronizar implantações criando um grupo de executores auto-hospedados que só pode executar um fluxo de trabalho específico reutilizável. Para obter mais informações, consulte "[Gerenciando acesso a executores auto-hospedados usando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}

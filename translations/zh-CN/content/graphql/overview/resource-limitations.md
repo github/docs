@@ -24,7 +24,9 @@ topics:
 
 下面两个示例显示如何计算调用中的节点总数。
 
-1. 简单查询： <pre>query {
+1. 简单查询：
+
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -46,13 +48,17 @@ topics:
     }
   }</pre>
 
-  计算： <pre><span class="redbox">50</span>         = 50 repositories
+  计算：
+
+  <pre><span class="redbox">50</span>         = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">10</span>  = 500 repository issues
 
               = 550 total nodes</pre>
 
-2. 复杂查询： <pre>query {
+2. 复杂查询：
+
+  <pre>query {
     viewer {
       repositories(first: <span class="redbox">50</span>) {
         edges {
@@ -106,7 +112,9 @@ topics:
     }
   }</code></pre>
 
-  计算： <pre><span class="redbox">50</span>              = 50 repositories
+  计算：
+
+  <pre><span class="redbox">50</span>              = 50 repositories
    +
   <span class="redbox">50</span> x <span class="greenbox">20</span>       = 1,000 pullRequests
    +

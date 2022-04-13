@@ -1,7 +1,7 @@
 ---
-title: Deploying to your cloud provider
-shortTitle: Deploying to your cloud provider
-intro: 'You can deploy to various cloud providers, such as AWS, Azure, and GKE.'
+title: 部署到云提供商
+shortTitle: 部署到云提供商
+intro: 您可以部署到各种云提供商，例如 AWS、Azure 和 GKE。
 versions:
   fpt: '*'
   ghae: '*'

@@ -20,11 +20,13 @@ concurrency:
 
 jobs:
   build-and-push-nonprod-cache:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
       ENABLE_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
       DOCKER_IMAGE_CACHE_REF: ${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
+      NONPROD_REGISTRY_USERNAME: ${{ fromJSON('["ghdocs", "ghdocsinternal"]')[github.repository == 'github/docs-internal'] }}
 
     steps:
       - name: 'Az CLI login'
@@ -36,7 +38,7 @@ jobs:
         uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
-          username: ${{ secrets.NONPROD_REGISTRY_USERNAME }}
+          username: ${{ env.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx

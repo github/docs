@@ -25,7 +25,7 @@ shortTitle: Organization設定へのアクセス
 
 {% tip %}
 
-**ヒント:** Organization の支払い情報とアカウント設定を見て変更できるのは、Organization のオーナーと支払いマネージャーのみです。 {% data reusables.organizations.new-org-permissions-more-info %}
+**参考:** Organization の支払い情報とアカウント設定全体を見て変更できるのは、Organization のオーナーと支払いマネージャーのみです。 Organizationのモデレーターには、モデレーション設定だけが表示されます。 {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 

@@ -22,7 +22,7 @@ topics:
 
 ## Sobre bifurcações
 
-O uso mais comum das bifurcações são propostas de mudanças no projeto de alguma outra pessoa ou o uso do projeto de outra pessoa como ponto de partida para sua própria ideia. Você pode bifurcar um repositório para criar uma cópia do repositório e fazer alterações sem afetar o repositório upstream. Para obter mais informações, consulte "[Trabalhando com as bifurcações](/github/collaborating-with-issues-and-pull-requests/working-with-forks)".
+Mais comumente, as bifurcações são usadas para propor mudanças no projeto de outra pessoa ao qual você não tem acesso de gravação, ou para usar o projeto de outra pessoa como ponto de partida para sua própria ideia. Você pode bifurcar um repositório para criar uma cópia do repositório e fazer alterações sem afetar o repositório upstream. Para obter mais informações, consulte "[Trabalhando com as bifurcações](/github/collaborating-with-issues-and-pull-requests/working-with-forks)".
 
 ### Proponha mudanças no projeto de outra pessoa
 
@@ -152,7 +152,7 @@ Ao bifurcar um projeto para propor mudanças no repositório original, é possí
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
-6. Digite `git remote add upstream`, cole a URL que você copiou na etapa 2 e pressione **Enter**. Ficará assim:
+6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. Ficará assim:
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```

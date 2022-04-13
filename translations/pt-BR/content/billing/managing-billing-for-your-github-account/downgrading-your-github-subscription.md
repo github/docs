@@ -55,7 +55,7 @@ Se você fizer o downgrade da sua organização de {% data variables.product.pro
 
 {% note %}
 
-**Note:** If you're currently trialing {% data variables.product.prodname_ghe_cloud %}, and you don't purchase {% data variables.product.prodname_enterprise %} before the trial ends, your organization will be automatically downgraded to {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %}. Para obter mais informações, consulte "[Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)".
+**Nota:** Se você estiver testando {% data variables.product.prodname_ghe_cloud %} no momento e você não comprar {% data variables.product.prodname_enterprise %} antes do término do teste, sua organização será automaticamente rebaixada para {% data variables.product.prodname_free_team %} ou {% data variables.product.prodname_team %}. Para obter mais informações, consulte "[Configurar uma versão de avaliação do {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud#finishing-your-trial)".
 
 {% endnote %}
 

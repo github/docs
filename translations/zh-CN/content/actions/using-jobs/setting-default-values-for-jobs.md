@@ -1,7 +1,7 @@
 ---
-title: Setting default values for jobs
-shortTitle: Setting default values for jobs
-intro: 'Define the default settings that will apply to all jobs in the workflow, or all steps in a job.'
+title: 设置作业的默认值
+shortTitle: 设置作业的默认值
+intro: 定义将应用于工作流程中的所有作业或作业中所有步骤的默认设置。
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,14 +17,14 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults %}
 
-## Setting default shell and working directory
+## 设置默认 shell 和工作目录
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run %}
 
-## Setting default values for a specific job
+## 设置特定作业的默认值
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job %}
 
-## Setting default shell and working directory for a job
+## 设置作业的默认 shell 和工作目录
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run %}

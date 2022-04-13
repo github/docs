@@ -1,5 +1,5 @@
 ---
-title: Using the Visual Studio Code Command Palette in Codespaces
+title: 在 Codespaces 中使用 Visual Studio 代码命令面板
 intro: '您可以使用 {% data variables.product.prodname_vscode %} 的命令调色板功能访问代码空间中的许多命令。'
 versions:
   fpt: '*'
@@ -9,21 +9,21 @@ topics:
   - Codespaces
   - Visual Studio Code
 product: '{% data reusables.gated-features.codespaces %}'
-shortTitle: VS Code Command Palette
+shortTitle: VS 代码命令面板
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /codespaces/codespaces-reference/using-the-command-palette-in-codespaces
 ---
 
-## About the {% data variables.product.prodname_vscode %} Command Palette
+## 关于 {% data variables.product.prodname_vscode %} 命令面板
 
-命令调色板是 {% data variables.product.prodname_vscode %} 的重点功能之一，可用于代码空间。 The {% data variables.product.prodname_vscode_command_palette %} allows you to access many commands for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information on using the {% data variables.product.prodname_vscode_command_palette %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the Visual Studio Code documentation.
+命令调色板是 {% data variables.product.prodname_vscode %} 的重点功能之一，可用于代码空间。 {% data variables.product.prodname_vscode_command_palette %} 允许您访问 {% data variables.product.prodname_codespaces %} 和 {% data variables.product.prodname_vscode %} 的许多命令。 有关使用 {% data variables.product.prodname_vscode_command_palette %} 的更多信息，请参阅 visual Studio Code 文档中的 “[用户界面](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)”。
 
-## Accessing the {% data variables.product.prodname_vscode_command_palette %}
+## 访问 {% data variables.product.prodname_vscode_command_palette %}
 
-You can access the {% data variables.product.prodname_vscode_command_palette %} in a number of ways.
+您可以通过多种方式访问 {% data variables.product.prodname_vscode_command_palette %}。
 
-- <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
+- <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)。
 
   请注意，此命令是 Firefox 中保留的键盘快捷键。
 - <kbd>F1</kbd>
@@ -33,21 +33,21 @@ You can access the {% data variables.product.prodname_vscode_command_palette %} 
 
 ## {% data variables.product.prodname_github_codespaces %} 命令
 
-To see all commands related to {% data variables.product.prodname_github_codespaces %}, [access the {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette), then start typing "Codespaces".
+要查看与 {% data variables.product.prodname_github_codespaces %} 相关的所有命令， [访问 {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette)，然后开始键入 "Codespaces"。
 
 ![与代码空间相关的所有命令列表](/assets/images/help/codespaces/codespaces-command-palette.png)
 
 ### 挂起或停止代码空间
 
-If you add a new secret or change the machine type, you'll have to stop and restart the codespace for it to apply your changes.
+如果添加新密钥或更换机器类型，则必须停止并重新启动代码空间才能应用更改。
 
-To suspend or stop your codespace's container, [access the {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette), then start typing "stop". 选择 **Codespaces: Stop Current Codespace（Codespace：停止当前 Codespace）**。
+要暂停或停止代码空间的容器，[访问 {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette)，然后开始键入"stop"。 选择 **Codespaces: Stop Current Codespace（Codespace：停止当前 Codespace）**。
 
 ![停止代码空间的命令](/assets/images/help/codespaces/codespaces-stop.png)
 
 ### 从模板添加开发容器
 
-To add a dev container from a template, [access the {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette), then start typing "dev container". 选择 **Codespaces: Add Development Container Configuration Files...（Codespaces：添加开发容器配置文件...）**
+要从模板添加开发容器，[访问 {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette)，然后开始键入 "dev container"。 选择 **Codespaces: Add Development Container Configuration Files...（Codespaces：添加开发容器配置文件...）**
 
 ![添加开发容器的命令](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
@@ -55,14 +55,14 @@ To add a dev container from a template, [access the {% data variables.product.pr
 
 如果您添加 dev 容器或编辑任何配置文件（`devcontainer.json` 和 `Dockerfile`），则需要重建代码空间才可应用更改。
 
-To rebuild your container, [access the {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette), then start typing "rebuild". 选择 **Codespaces: Rebuild Container（代码空间：重建容器）**。
+要重建容器，[访问 {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette)，然后开始键入 "rebuild"。 选择 **Codespaces: Rebuild Container（代码空间：重建容器）**。
 
 ![重建代码空间的命令](/assets/images/help/codespaces/codespaces-rebuild.png)
 
 ### Codespaces 日志
 
-You can use the {% data variables.product.prodname_vscode_command_palette %} to access the codespace creation logs, or you can use it export all logs.
+可以使用 {% data variables.product.prodname_vscode_command_palette %} 访问代码空间创建日志，也可以使用它导出所有日志。
 
-To retrieve the logs for Codespaces, [access the {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette), then start typing "log". 选择 **Codespaces: Export Logs（Codespaces：导出日志）**以导出所有与 Codespaces 相关的日志，或选择 **Codespaces: View Creation Logs（Codespaces：查看创建日志）**以查看与设置相关的日志。
+要检索 Codespaces 的日志，[访问 {% data variables.product.prodname_vscode_command_palette %}](#accessing-the-command-palette)，然后开始键入 "log"。 选择 **Codespaces: Export Logs（Codespaces：导出日志）**以导出所有与 Codespaces 相关的日志，或选择 **Codespaces: View Creation Logs（Codespaces：查看创建日志）**以查看与设置相关的日志。
 
 ![访问日志的命令](/assets/images/help/codespaces/codespaces-logs.png)

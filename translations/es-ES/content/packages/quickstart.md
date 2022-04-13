@@ -18,7 +18,7 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
 
 ## Publicar tu paquete
 
-1. Crea un repositorio nuevo en {% data variables.product.prodname_dotcom %}, agregando el `.gitignore` para Node. For more information, see "[Creating a new repository](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)."
+1. Crea un repositorio nuevo en {% data variables.product.prodname_dotcom %}, agregando el `.gitignore` para Node. Para obtener más información, consulta la sección "[Crear un repositorio nuevo](/github/creating-cloning-and-archiving-repositories/creating-a-new-repository)".
 2. Clona el repositorio en tu máquina local.
     ```shell
     $ git clone https://{% ifversion ghae %}<em>YOUR-HOSTNAME</em>{% else %}github.com{% endif %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
@@ -61,8 +61,8 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
       build:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
+          - uses: {% data reusables.actions.action-checkout %}
+          - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
           - run: npm ci
@@ -75,8 +75,8 @@ En esta guía, crearás un flujo de trabajo de {% data variables.product.prodnam
           packages: write
           contents: read{% endif %}
         steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
+          - uses: {% data reusables.actions.action-checkout %}
+          - uses: {% data reusables.actions.action-setup-node %}
             with:
               node-version: 12
               registry-url: {% ifversion ghae %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}

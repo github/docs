@@ -89,7 +89,7 @@ Después de que emites tu solicitud de soporte, podríamos pedirte que compartas
 - `collectd/logs/collectd.log`: registros Collectd
 - `mail-logs/mail.log`: registros de entrega por correo electrónico SMTP
 
-Para obtener más información, consulta "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging) (Registro de auditoría".
+For more information, see "[About the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
 
 Los paquetes de soporte incluyen registros de los dos últimos días. Para obtener registros de los últimos siete días, puedes descargar un paquete de soporte extendido. Para obtener más información, consulta "[Crear y compartir paquete de soporte extendido](#creating-and-sharing-extended-support-bundles)".
 
@@ -177,4 +177,4 @@ Puedes cargar directamente un paquete de soporte a nuestro servidor si:
 ## Leer más
 
 - "[Acerca del soporte de GitHub](/support/learning-about-github-support/about-github-support)"
-- "[Generating a Health Check for your enterprise](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"
+- "[Generar una alerta de salud para tu empresa](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"

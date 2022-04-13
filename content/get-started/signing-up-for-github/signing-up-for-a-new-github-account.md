@@ -1,7 +1,7 @@
 ---
 title: Signing up for a new GitHub account
 shortTitle: Sign up for a new GitHub account
-intro: '{% data variables.product.company_short %} offers user accounts for individuals and organizations for teams of people working together.'
+intro: '{% data variables.product.company_short %} offers personal accounts for individuals and organizations for teams of people working together.'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
   - /github/getting-started-with-github/signing-up-for-a-new-github-account

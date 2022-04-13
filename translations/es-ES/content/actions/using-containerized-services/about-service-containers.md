@@ -23,7 +23,7 @@ topics:
 
 Los contenedores de servicios son contenedores de Docker que ofrecen una manera sencilla y portátil de alojar servicios que probablemente necesites para probar o usar tu aplicación en un flujo de trabajo. Por ejemplo, es posible que tu flujo de trabajo tenga que ejecutar pruebas de integración que requieran acceso a una base de datos y a una memoria caché.
 
-Puedes configurar contenedores de servicios para cada trabajo en un flujo de trabajo. {% data variables.product.prodname_dotcom %} crea un contenedor de Docker nuevo para cada servicio configurado en el flujo de trabajo y destruye el contenedor de servicios cuando se termina el trabajo. Los pasos de un trabajo pueden comunicarse con todos los contenedores de servicios que son parte del mismo trabajo.
+Puedes configurar contenedores de servicios para cada trabajo en un flujo de trabajo. {% data variables.product.prodname_dotcom %} crea un contenedor de Docker nuevo para cada servicio configurado en el flujo de trabajo y destruye el contenedor de servicios cuando se termina el trabajo. Los pasos de un trabajo pueden comunicarse con todos los contenedores de servicios que son parte del mismo trabajo. However, you cannot create and use service containers inside a composite action.
 
 {% data reusables.actions.docker-container-os-support %}
 
@@ -49,7 +49,7 @@ Cuando un trabajo se ejecuta directamente en una máquina del ejecutor, el servi
 
 Puedes usar la palabra clave `services` para crear contenedores de servicios que sean parte de un trabajo en tu flujo de trabajo. Para obtener más información, consulta [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices).
 
-Este ejemplo crea un servicio llamado `redis` en un trabajo llamado `container-job`. El host de Docker en este ejemplo es el contenedor `node: 10.18-jessie`.
+Este ejemplo crea un servicio llamado `redis` en un trabajo llamado `container-job`. The Docker host in this example is the `node:16-bullseye` container.
 
 {% raw %}
 ```yaml{:copy}
@@ -57,17 +57,18 @@ name: Redis container example
 on: push
 
 jobs:
-  # Etiqueta del trabajo del contenedor
+  # Label of the container job
   container-job:
-    # Los contenedores deben ejecutarse en sistemas operativos basados en Linux
+    # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    # Imagen de Docker Hub que 'container-job' ejecuta en
-    el contendor: node:10.18-jessie
+    # Docker Hub image that `container-job` executes in
+    container: node:16-bullseye
 
-    # Contenedores de servicios para ejecutar con servicios de 'container-job':
-      # Etiqueta usada para acceder al contenedor de servicios
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
       redis:
-        # Imagen de Docker Hub
+        # Docker Hub image
         image: redis
 ```
 {% endraw %}
