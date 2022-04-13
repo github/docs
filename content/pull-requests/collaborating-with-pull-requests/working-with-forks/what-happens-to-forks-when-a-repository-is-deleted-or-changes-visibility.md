@@ -66,7 +66,7 @@ If a private repository is made public and then deleted, its private forks will 
 
 
 
-If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
+If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or personal account will remain private.
 
 ### Deleting the internal repository
 

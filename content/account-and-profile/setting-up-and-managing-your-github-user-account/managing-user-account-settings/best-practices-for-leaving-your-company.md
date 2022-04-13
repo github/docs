@@ -1,6 +1,6 @@
 ---
 title: Best practices for leaving your company
-intro: 'Changing jobs is a fact of life. If you use your GitHub user account for both personal *and* work purposes, there are a few things to keep in mind when you leave your company or organization.'
+intro: 'If you use your account on {% data variables.product.product_name %} for both personal and work purposes, there are a few things to keep in mind when you leave your company or organization.'
 redirect_from:
   - /articles/best-practices-for-leaving-your-company
   - /github/setting-up-and-managing-your-github-user-account/best-practices-for-leaving-your-company
@@ -12,7 +12,7 @@ topics:
   - Accounts
 shortTitle: Leaving your company
 ---
-Before you leave your company, make sure you update the following information in your user account:
+Before you leave your company, make sure you update the following information in your personal account:
 
 - Unverify your company email address by [deleting it in your Email settings](/articles/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
 - [Change your primary email address](/articles/changing-your-primary-email-address) from your company email to your personal email.
@@ -27,7 +27,7 @@ If you've been working with repositories that belong to an organization, you'll 
 
 ## Removing professional associations with personal repositories
 
-If you've been collaborating professionally with another person on repositories that belong to their personal user account, you'll want to [remove yourself as a collaborator](/articles/removing-yourself-from-a-collaborator-s-repository) from those repositories.
+If you've been collaborating professionally with another person on repositories that belong to their personal account, you'll want to [remove yourself as a collaborator](/articles/removing-yourself-from-a-collaborator-s-repository) from those repositories.
 
 - [Stop watching repositories](https://github.com/watching) related to your work. You won't want those notifications anymore!
 - [Transfer repositories you own](/articles/how-to-transfer-a-repository) that others may need to continue working on after you leave.

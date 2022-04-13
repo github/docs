@@ -21,7 +21,7 @@ The main difference between the products is that {% data variables.product.prodn
 
 With {% data variables.product.prodname_ghe_cloud %}, you have the option of using {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
-If you choose to let your members create and manage their own user accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
+If you choose to let your members create and manage their own personal accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
 
 - A single organization account
 - An enterprise account that contains multiple organizations
