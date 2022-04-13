@@ -62,7 +62,7 @@ For alerts where vulnerable calls are detected, the alert details page shows add
 - A code block showing where the function is used or, where there are multiple calls, the first call to the function.
 - An annotation listing the function itself, with a link to the line where the function is called.
 
-![Screenshot showing the alert details page for an alert with a "Vulnerable call" label](/assets/images/help/repository/vulnerable-calls-alert-details-page.png)
+![Screenshot showing the alert details page for an alert with a "Vulnerable call" label](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
 
 For more information, see "[Reviewing and fixing vulnerable dependencies](#reviewing-and-fixing-vulnerable-dependencies) below.
 
