@@ -16,6 +16,8 @@ shortTitle: 使用 Octa 配置 SAML 和 SCIM
 
 通过将组织配置为将 SAML SSO 和 SCIM 与身份提供程序 (IdP) Okta 结合使用，您可以从一个中心界面控制对您 {% data variables.product.product_location %} 和其他 Web 应用程序上的组织的访问。
 
+{% data reusables.saml.ghec-only %}
+
 SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）的访问。 当您在 Okta 中进行更改时，SCIM 会自动添加、管理和删除成员对您在 {% data variables.product.product_location %} 上的组织的访问权限。 更多信息请参阅“[关于使用 SAML 单点登录管理身份和访问](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)”和“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
 
 启用 SCIM 后，您在 Okta 中为其分配了 {% data variables.product.prodname_ghe_cloud %} 应用程序的任何用户都可以使用以下配置。

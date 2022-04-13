@@ -1,7 +1,7 @@
 ---
-title: Managing recovery codes for your enterprise
-shortTitle: Manage recovery codes
-intro: 'With SAML single sign-on recovery codes, you can access your enterprise account even when your identity provider is unavailable.'
+title: 管理企业的恢复代码
+shortTitle: 管理恢复代码
+intro: 使用 SAML 单点登录恢复代码，即使身份提供程序不可用，您也可以访问企业帐户。
 versions:
   ghec: '*'
 topics:

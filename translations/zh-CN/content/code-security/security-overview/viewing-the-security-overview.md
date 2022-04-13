@@ -17,7 +17,9 @@ topics:
 shortTitle: 查看安全性概述
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## 查看组织的安全概述
 
@@ -39,7 +41,7 @@ shortTitle: 查看安全性概述
 ## 查看企业的安全性概述
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
-1. 在左侧边栏中，单击 {% octicon "shield" aria-label="The shield icon" %}** 安全性**。
+1. 在左侧边栏中，单击 {% octicon "shield" aria-label="The shield icon" %} **代码安全性**。
 {% endif %}
 
 ## 查看仓库的警报

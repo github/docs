@@ -46,7 +46,7 @@ GitHub 的供应链包括用于我们产品和运营的商品和服务，包括�
 
 **GitHub 的行为标准**禁止不安全和非法的行为，包括故意使用、参与、支持或容忍现代奴隶制（奴役、强迫或强制劳动、贩运、压榨以及监禁或以契约束缚劳动者）或童工。
 
-GitHub complies with laws prohibiting trafficking and child labor in the jurisdictions in which it operates, including [U.S. 关于打击人口贩运的联邦采购法规 22.17](https://www.govinfo.gov/content/pkg/CFR-2009-title48-vol1/pdf/CFR-2009-title48-vol1-part22-subpart22-17.pdf)。
+GitHub 遵守其运营所在辖区中禁止贩运劳工和使用童工的法律，包括[美国 关于打击人口贩运的联邦采购法规 22.17](https://www.govinfo.gov/content/pkg/CFR-2009-title48-vol1/pdf/CFR-2009-title48-vol1-part22-subpart22-17.pdf)。
 
 此外，GitHub 与 FairHotel 计划建立了合作伙伴关系，这意味着 GitHub 鼓励其员工选择 FairHotel 认可的酒店，因为这种酒店的工人工资合理、福利充足且在工作中有发言权。 成为 FairHotel 合作伙伴，也意味着 GitHub 作为公平雇主为酒店提供业务。
 

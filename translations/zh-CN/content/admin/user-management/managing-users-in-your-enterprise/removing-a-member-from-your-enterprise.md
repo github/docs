@@ -1,39 +1,39 @@
 ---
-title: Removing a member from your enterprise
-intro: You can remove a member from all organizations owned by your enterprise.
+title: 从企业中删除成员
+intro: 您可以从企业拥有的所有组织中删除成员。
 permissions: Enterprise owners can remove an enterprise member from the enterprise.
 versions:
   feature: remove-enterprise-members
 type: how_to
 topics:
   - Enterprise
-shortTitle: Remove member
+shortTitle: 删除成员
 ---
 
 {% note %}
 
-**Note:** The ability to remove enterprise members is in beta and subject to change.
+**注意：** 删除企业成员的功能处于测试阶段，可能会发生更改。
 
 {% endnote %}
 
-## About removal of enterprise members
+## 关于删除企业成员
 
-When you remove an enterprise member from your enterprise, the member is removed from all organizations owned by your enterprise.
+从企业中删除企业成员时，该成员将从企业拥有的所有组织中删除。
 
-If the enterprise member you're removing is the last owner of an organization owned by your enterprise, you will become an owner of that organization.
+如果要删除的企业成员是企业拥有的组织的最后一个所有者，您将成为该组织的所有者。
 
-If your enterprise or any of the organizations owned by your enterprise uses an identity provider (IdP) to manage organization membership, the member may be added back to the organization by the IdP. Make sure to also make any necessary changes in your IdP.
+如果您的企业或您的企业拥有的任何组织使用身份提供程序 (IdP) 来管理组织成员身份，则 IdP 可能会将成员添加回组织。 确保还要对 IdP 进行任何必要的更改。
 
-## Removing a member from your enterprise
+## 从企业中删除成员
 
 {% note %}
 
-**Note:** If an enterprise member uses only {% data variables.product.prodname_ghe_server %}, and not {% data variables.product.prodname_ghe_cloud %}, you cannot remove the enterprise member this way.
+**注意：** 如果企业成员仅使用 {% data variables.product.prodname_ghe_server %}，而不使用 {% data variables.product.prodname_ghe_cloud %}，则无法以这种方式删除企业成员。
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. To the right of the person you want to remove, select the {% octicon "gear" aria-label="The gear icon" %} dropdown menu and click **Remove from enterprise**.
+1. 在要删除的人员的右侧，选择 {% octicon "gear" aria-label="The gear icon" %} 下拉菜单，然后单击 **Remove from enterprise（从企业中删除）**。
 
-   ![Screenshot of the "Remove from enterprise" option for an enterprise member](/assets/images/help/business-accounts/remove-member.png)
+   ![企业成员的 "从企业中删除" 选项的屏幕截图](/assets/images/help/business-accounts/remove-member.png)

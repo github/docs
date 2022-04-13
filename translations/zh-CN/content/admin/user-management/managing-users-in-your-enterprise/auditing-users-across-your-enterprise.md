@@ -81,7 +81,7 @@ shortTitle: 审计用户
 
 ### 基于执行的操作搜索
 
-`action` 限定符可搜索特定事件（按类别组织）。 有关与这些类别相关的事件的信息，请参阅“[审核的操作](/admin/user-management/audited-actions)”。
+`action` 限定符可搜索特定事件（按类别组织）。 有关与这些类别相关的事件的信息，请参阅“[审核企业的日志事件](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)”。
 
 | 类别名称   | 描述                   |
 | ------ | -------------------- |

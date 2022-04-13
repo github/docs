@@ -17,7 +17,6 @@ shortTitle: 设置协作者策略
 
 默认情况下，对存储库具有管理员访问权限的任何人都可以邀请外部协作者处理存储库。 您可以选择将邀请外部协作者的能力限制为仅邀请组织所有者。
 
-
 {% ifversion ghec %}
 {% note %}
 
@@ -25,6 +24,8 @@ shortTitle: 设置协作者策略
 
 {% endnote %}
 {% endif %}
+
+{% ifversion ghec %}如果您的组织由企业帐户拥有，则当企业所有者在企业级别设置了策略后，您{% else %}您{% endif %} 可能无法为您的组织配置此设置。 更多信息请参阅“[在企业中强制实施存储库管理策略]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)”{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}”。
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 

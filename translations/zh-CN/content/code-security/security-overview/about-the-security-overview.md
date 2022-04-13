@@ -22,11 +22,13 @@ topics:
 shortTitle: 关于安全概述
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## 关于安全概述
 
-{% ifversion ghes or ghec or ghae %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can use the security overview for a high-level view of the security status of {% ifversion ghes or ghec or ghae %}your  {% elsif fpt %}their{% endif %} organization or to identify problematic repositories that require intervention. {% ifversion ghes or ghec or ghae %}You {% elsif fpt %}These organizations{% endif %} can view aggregate or repository-specific security information in the security overview. {% ifversion ghes or ghec or ghae %}You {% elsif fpt %} Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can also use the security overview to see which security features are enabled for {% ifversion ghes or ghec or ghae %}your {% elsif fpt %}their {% endif %} repositories and to configure any available security features that are not currently in use. {% ifversion fpt %}For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview).{% endif %}
+{% ifversion ghes or ghec or ghae %}您{% elsif fpt %}使用 {% data variables.product.prodname_ghe_cloud %}{% endif %} 的组织可以使用安全性概述来获取{% ifversion ghes or ghec or ghae %} 您的 {% elsif fpt %}其{% endif %} 组织安全状态的高级视图，或者识别需要干预的问题存储库。 {% ifversion ghes or ghec or ghae %}您 {% elsif fpt %}这些组织{% endif %} 可以在安全性概述中查看汇总或存储库特定的安全信息。 {% ifversion ghes or ghec or ghae %}您 {% elsif fpt %} 使用 {% data variables.product.prodname_ghe_cloud %} 的组织{% endif %}还可以使用安全性概述来查看 {% ifversion ghes or ghec or ghae %}您的 {% elsif fpt %}其 {% endif %} 存储库启用了哪些安全功能，并配置当前未使用的任何可用安全功能。 {% ifversion fpt %}更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview)。{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 安全概述指示是否为组织拥有的存储库启用了 {% ifversion fpt or ghes > 3.1 or ghec %}安全{% endif %}{% ifversion ghae %}{% data variables.product.prodname_GH_advanced_security %}{% endif %} 功能，并合并每个功能的警报。{% ifversion fpt or ghes > 3.1 or ghec %} 安全功能包括 {% data variables.product.prodname_GH_advanced_security %} 功能，例如 {% data variables.product.prodname_code_scanning %} 和 {% data variables.product.prodname_secret_scanning %}以及 {% data variables.product.prodname_dependabot_alerts %}。{% endif %} 有关 {% data variables.product.prodname_GH_advanced_security %} 功能的详细信息，请参阅“[关于 {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)”。{% ifversion fpt or ghes > 3.1 or ghec %} 有关 {% data variables.product.prodname_dependabot_alerts %} 的详细信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)”。{% endif %}
@@ -77,5 +79,5 @@ shortTitle: 关于安全概述
 {% endif %}
 
 ### 关于团队级安全性概述
-在团队级别，安全概述显示团队拥有管理权限的仓库特定安全信息。 For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+在团队级别，安全概述显示团队拥有管理权限的仓库特定安全信息。 更多信息请参阅“[管理团队的组织仓库访问权限](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)”。
 {% endif %}

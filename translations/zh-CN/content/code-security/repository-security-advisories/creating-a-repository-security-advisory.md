@@ -1,5 +1,5 @@
 ---
-title: Creating a repository security advisory
+title: 创建仓库安全通告
 intro: 您可以创建安全通告草稿，以私下讨论和修复开源项目中的安全漏洞。
 redirect_from:
   - /articles/creating-a-maintainer-security-advisory
@@ -13,7 +13,7 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Create repository advisories
+shortTitle: 创建仓库通告
 ---
 
 任何对仓库有管理员权限的人都可以创建安全通告。
@@ -36,7 +36,7 @@ shortTitle: Create repository advisories
 ## 后续步骤
 
 - 评论安全通告草稿，与团队讨论漏洞。
-- 添加协作者到安全通告。 For more information, see "[Adding a collaborator to a repository security advisory](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)."
-- 在临时私有复刻中私下协作以修复漏洞。 For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
-- 添加因对安全通告做出贡献而应获得积分的个人。 For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
-- 发布安全通告以向社区提醒安全漏洞。 For more information, see "[Publishing a repository security advisory](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)."
+- 添加协作者到安全通告。 更多信息请参阅“[添加协作者到仓库安全通告](/code-security/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)”。
+- 在临时私有复刻中私下协作以修复漏洞。 更多信息请参阅“[在临时私有复刻中协作以解决存储库安全漏洞](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)”。
+- 添加因对安全通告做出贡献而应获得积分的个人。 更多信息请参阅“[编辑存储库安全通告](/code-security/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)”。
+- 发布安全通告以向社区提醒安全漏洞。 更多信息请参阅“[发布存储库安全通告](/code-security/repository-security-advisories/publishing-a-repository-security-advisory)”。

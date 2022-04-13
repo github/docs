@@ -190,6 +190,12 @@ git commit
      - 第二个嵌套列表项
 ```
 
+{% tip %}
+
+**注意**：在基于 Web 的编辑器中，您可以缩进或缩减一行文本，方法是首先突出显示所需的行，然后分别使用 <kbd>Tab</kbd> 或 <kbd>Shift</kbd>+<kbd>Tab</kbd>。
+
+{% endtip %}
+
 ![突出显示对齐的嵌套列表](/assets/images/help/writing/nested-list-alignment.png)
 
 ![含两级嵌套项的列表](/assets/images/help/writing/nested-list-example-1.png)

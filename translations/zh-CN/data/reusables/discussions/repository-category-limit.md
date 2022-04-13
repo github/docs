@@ -1,1 +1,1 @@
-每个仓库最多可以有 10 个类别。
+Each repository or organization can have up to 10 categories.

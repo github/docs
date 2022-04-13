@@ -25,6 +25,8 @@ redirect_from:
 
 使用完教室后，可以存档教室，以后可以参考该教室、名册和作业，或者如果您不再需要该教室，也可以将其删除。
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## 关于教室名册
 
 每个教室都有一个名册。 名册是参加您的课程的学生的标识符列表。
@@ -45,7 +47,7 @@ redirect_from:
 1. 单击 **New classroom（新教室）**。 !["New classroom（新教室）"按钮](/assets/images/help/classroom/click-new-classroom-button.png)
 {% data reusables.classroom.guide-create-new-classroom %}
 
-创建教室后，您便可开始为学生创建作业。 更多信息请参阅“[使用 Git 和 {% data variables.product.company_short %} 起始作业](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)”、“[创建个别作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”或“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
+创建教室后，您便可开始为学生创建作业。 For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)," or "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
 ## 为教室创建名册
 
