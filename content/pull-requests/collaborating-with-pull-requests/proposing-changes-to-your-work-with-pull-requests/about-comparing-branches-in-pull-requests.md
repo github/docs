@@ -80,7 +80,7 @@ Since the three-dot comparison compares with the merge base, it is focusing on "
 
 When you use a two-dot comparison, the diff changes when the base branch is updated, even if you haven't made any changes to the topic branch. Additionally, a two-dot comparison focuses on the base branch. This means that anything you add is displayed as missing from the base branch, as if it was a deletion, and vice versa. As a result, the changes the topic branch introduces become ambiguous.
 
-On the other hand, by comparing the branches using the three-dot comparison, changes in the topic branch are always in the diff if `main` is updated because the diff shows changes since the branches diverged.
+In contrast, by comparing the branches using the three-dot comparison, changes in the topic branch are always in the diff if the base branch is updated, because the diff shows all of the changes since the branches diverged.
 
 ### Merging often
 
