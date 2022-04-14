@@ -21,7 +21,7 @@ shortTitle: Apply for a discount
 
 {% data reusables.education.educator-requirements %}
 
-{% data variables.product.product_name %}のユーザアカウント作成に関する詳しい情報については「[新規{% data variables.product.prodname_dotcom %}アカウントにサインアップする](/github/getting-started-with-github/signing-up-for-a-new-github-account)」を参照してください。
+For more information about personal accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
 
 ## 教育者割引または研究者割引に応募する
 
