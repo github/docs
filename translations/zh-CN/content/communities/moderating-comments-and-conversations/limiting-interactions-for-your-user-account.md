@@ -26,7 +26,7 @@ shortTitle: 限制帐户中的交互
 
 ## 限制用户帐户的交互
 
-{% data reusables.user_settings.access_settings %}
-1. 在在用户设置侧边栏中的“Moderation settings（管理设置）”下，单击 **Interaction limits（交互限制）**。 ![用户设置侧边栏中的"交互限制"选项卡](/assets/images/help/settings/settings-sidebar-interaction-limits.png)
+{% data reusables.user-settings.access_settings %}
+1. 在侧边栏的“Access（访问）”部分中，选择 **{% octicon "report" aria-label="The report icon" %} 主持**，然后点击 **Interaction limits（互动限制）**。
 {% data reusables.community.set-interaction-limit %}
   ![临时交互限制选项](/assets/images/help/settings/user-account-temporary-interaction-limits-options.png)

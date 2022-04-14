@@ -1,6 +1,6 @@
 ---
-title: Adding or editing wiki pages
-intro: 'You can add and edit wiki pages directly on {% data variables.product.product_name %} or locally using the command line.'
+title: Adicionar ou editar páginas wiki
+intro: 'Você pode adicionar e editar páginas wiki diretamente no {% data variables.product.product_name %} ou localmente usando a linha de comando.'
 redirect_from:
   - /articles/adding-wiki-pages-via-the-online-interface
   - /articles/editing-wiki-pages-via-the-online-interface
@@ -16,55 +16,47 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Manage wiki pages
+shortTitle: Gerenciar páginas wiki
 ---
 
-## Adding wiki pages
+## Adicionar páginas wiki
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-3. In the upper-right corner of the page, click **New Page**.
-  ![Wiki new page button](/assets/images/help/wiki/wiki_new_page_button.png)
-4. Optionally, to write in a format other than Markdown, use the Edit mode drop-down menu, and click a different format.
-  ![Wiki markup selection](/assets/images/help/wiki/wiki_dropdown_markup.gif)
-5. Use the text editor to add your page's content.
-  ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Type a commit message describing the new file you’re adding.
-  ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
-7. To commit your changes to the wiki, click **Save Page**.
+3. No canto superior direito da página, clique em **New Page** (Nova página). ![Botão Wiki new page (Nova página wiki)](/assets/images/help/wiki/wiki_new_page_button.png)
+4. Se preferir escrever em um formato diferente do markdown, use o menu suspenso Edite mode (Editar modo) e clique em outro formato. ![Seleção de markup do wiki](/assets/images/help/wiki/wiki_dropdown_markup.gif)
+5. Use o editor de texto para adicionar o conteúdo da página. ![WYSIWYG do wiki](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. Digite uma mensagem do commit descrevendo o novo arquivo que você está adicionando. ![Mensagem do commit do wiki](/assets/images/help/wiki/wiki_commit_message.png)
+7. Para fazer commit das alterações no wiki, clique em **Save Page** (Salvar página).
 
-## Editing wiki pages
+## Editar páginas wiki
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-4. Using the wiki sidebar, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**.
-   ![Wiki edit page button](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Use the text editor edit the page's content.
-   ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Type a commit message describing your changes.
-   ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
-7. To commit your changes to the wiki, click **Save Page**.
+4. Usando a barra lateral do wiki, navegue até a página que deseja alterar. No canto superior direito da página, clique em **Edit** (Editar). ![Botão Wiki edit page (Editar página wiki)](/assets/images/help/wiki/wiki_edit_page_button.png)
+5. Use o editor de texto para editar o conteúdo da página. ![WYSIWYG do wiki](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. Digite uma mensagem do commit descrevendo as alterações. ![Mensagem do commit do wiki](/assets/images/help/wiki/wiki_commit_message.png)
+7. Para fazer commit das alterações no wiki, clique em **Save Page** (Salvar página).
 
-## Adding or editing wiki pages locally
+## Adicionar ou editar páginas wiki localmente
 
-Wikis are part of Git repositories, so you can make changes locally and push them to your repository using a Git workflow.
+Os wikis fazem parte dos repositórios Git, de modo que é possível fazer alterações localmente e fazer push delas no seu repositório usando o fluxo de trabalho Git.
 
-### Cloning wikis to your computer
+### Clonar wikis para seu computador
 
-Every wiki provides an easy way to clone its contents down to your computer.
-You can clone the repository to your computer with the provided URL:
+Cada wiki fornece uma maneira fácil de clonar o respectivo conteúdo para seu computador. Você pode clonar o repositório no seu computador com a URL fornecida:
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git
-# Clones the wiki locally
+# Clona o wiki localmente
 ```
 
-Once you have cloned the wiki, you can add new files, edit existing ones, and commit your changes. You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
+Depois de clonar o wiki, é possível adicionar novos arquivos, editar os existentes e fazer commit das alterações. Você e seus colaboradores podem criar branches ao trabalhar em wikis, mas somente as alterações enviadas por push ao branch-padrão serão ativadas e disponibilizadas para os seus leitores.
 
-## About wiki filenames
+## Sobre nomes de arquivo de wiki
 
-The filename determines the title of your wiki page, and the file extension determines how your wiki content is rendered.
+O nome de arquivo determina o título da sua página wiki e a extensão do arquivo determina como o conteúdo do wiki será renderizado.
 
-Wikis use [our open-source Markup library](https://github.com/github/markup) to convert the markup, and it determines which converter to use by a file's extension. For example, if you name a file *foo.md* or *foo.markdown*, wiki will use the Markdown converter, while a file named *foo.textile* will use the Textile converter.
+Os wikis usam [nossa biblioteca de markup de código aberto](https://github.com/github/markup) para converter o markup e determinam qual conversor usar pela extensão de um arquivo. Por exemplo, se o nome de um arquivo for *foo.md* ou *foo.markdown*, o wiki usará o conversor Markdown, enquanto em um arquivo chamado *foo.textile*, ele usará o conversor Textile.
 
-Don't use the following characters in your wiki page's titles: `\ / : * ? " < > |`. Users on certain operating systems won't be able to work with filenames containing these characters. Be sure to write your content using a markup language that matches the extension, or your content won't render properly.
+Não use os seguintes caracteres nos títulos da sua página wiki: `\ / : * ? " < > |`. Os usuários em determinados sistemas operacionais não poderão trabalhar com nomes de arquivo contendo esses caracteres. Certifique-se de escrever seu conteúdo usando uma linguagem markup que corresponda à extensão, ou o conteúdo não será renderizado adequadamente.

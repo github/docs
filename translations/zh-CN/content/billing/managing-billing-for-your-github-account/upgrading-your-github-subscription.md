@@ -42,8 +42,8 @@ When you upgrade the subscription for an account, the upgrade changes the paid f
 
 You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories owned by your user account. Upgrading your personal account does not affect any organizations you may manage or repositories owned by those organizations. {% data reusables.gated-features.more-info %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 1. Next to "Current plan", click **Upgrade**.
   ![Upgrade button](/assets/images/help/billing/settings_billing_user_upgrade.png)
 2. Under "Pro" on the "Compare plans" page, click **Upgrade to Pro**.

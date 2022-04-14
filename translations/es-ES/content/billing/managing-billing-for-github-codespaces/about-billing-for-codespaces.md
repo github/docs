@@ -15,18 +15,18 @@ topics:
 
 ## Precios de {% data variables.product.prodname_codespaces %}
 
-El uso de {% data variables.product.prodname_codespaces %} se factura para todas las cuentas en los planes de equipo y empresa y no incluye ningún derecho. El uso de {% data variables.product.prodname_codespaces %} no se cobra actualmente para las cuentas individuales.
+{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
 
 El uso de {% data variables.product.prodname_codespaces %} se cobra de acuerdo con las unidades de medida en la siguiente tabla:
 
-| Producto           | SKU            | Unit of measure | Price |
-| ------------------ | -------------- | --------------- | ----- |
-| Codespaces Compute | 2 núcleos      | 1 hour          | $0.18 |
-|                    | 4 núcleos      | 1 hour          | $0.36 |
-|                    | 8 núcleos      | 1 hour          | $0.72 |
-|                    | 16 núcleos     | 1 hour          | $1.44 |
-|                    | 32 núcleos     | 1 hour          | $2.88 |
-| Codespaces Storage | Almacenamiento | 1 GB-month      | $0.07 |
+| Producto                     | SKU            | Unidad de medida | Precio |
+| ---------------------------- | -------------- | ---------------- | ------ |
+| Cálculos de codespaces       | 2 núcleos      | 1 hora           | $0.18  |
+|                              | 4 núcleos      | 1 hora           | $0.36  |
+|                              | 8 núcleos      | 1 hora           | $0.72  |
+|                              | 16 núcleos     | 1 hora           | $1.44  |
+|                              | 32 núcleos     | 1 hora           | $2.88  |
+| Almacenamiento de codespaces | Almacenamiento | 1 GB-mes         | $0.07  |
 
 ## Acerca de la facturación para {% data variables.product.prodname_codespaces %}
 
@@ -38,7 +38,13 @@ Tu uso de {% data variables.product.prodname_codespaces %} comparte la fecha de 
 Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
 {% endif %}
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_codespaces %}
+
+### Facturación para las precompilaciones de los {% data variables.product.prodname_codespaces %}
+
+{% data reusables.codespaces.prebuilds-beta-note %}
+
+{% data reusables.codespaces.billing-for-prebuilds %}
 
 ## Configurar un límite de gastos
 
@@ -47,6 +53,12 @@ Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerd
 Para obtener más información sobre cómo administrar y cambiar el límite de gastos de tu organización, consulta la sección "[Administrar tu límite de gastos para {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)".
 
 {% data reusables.codespaces.exporting-changes %}
+
+## Limitar la elección de tipos de máquina
+
+El tipo de máquina que elija un usuario cuando crea un codespace afectará la carga por minuto del mismo, como se muestra anteriormente.
+
+Los propietarios de las organizaciones pueden crear una política para restringir los tipos de máquina que están disponibles para los usuarios. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
 
 ## Cómo se maneja la facturación para los repositorios bifurcados
 

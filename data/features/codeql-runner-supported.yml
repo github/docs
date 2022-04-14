@@ -1,0 +1,6 @@
+# Tracking deprecation of CodeQL runner
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'

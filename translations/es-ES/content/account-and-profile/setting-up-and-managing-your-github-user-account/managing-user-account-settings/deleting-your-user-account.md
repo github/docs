@@ -37,8 +37,8 @@ Before you delete your user account, make a copy of all repositories, private fo
 
 ## Delete your user account
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.account_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.account_settings %}
 3. At the bottom of the Account Settings page, under "Delete account", click **Delete your account**. Before you can delete your user account:
     - If you're the only owner in the organization, you must transfer ownership to another person or delete your organization.
     - If there are other organization owners in the organization, you must remove yourself from the organization.

@@ -1,6 +1,7 @@
-import { getDOM } from '../helpers/supertest.js'
-import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 import { jest } from '@jest/globals'
+
+import { getDOM } from '../helpers/e2etest.js'
+import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 
 describe('header', () => {
   jest.setTimeout(5 * 60 * 1000)
@@ -75,99 +76,102 @@ describe('header', () => {
     })
 
     test('displays translation disclaimer notice on localized site-policy pages', async () => {
-      const $ = await getDOM('/ja/github/site-policy/github-logo-policy')
+      const $ = await getDOM('/ja/site-policy/other-site-policies/github-logo-policy')
+      // The first case is for a complete translation, the second case is for a page pending complete translation.
       expect(
         $(
           '[data-testid=header-notification][data-type=TRANSLATION] a[href="https://github.com/github/site-policy/issues"]'
-        ).length
+        ).length ||
+          $(
+            '[data-testid=header-notification][data-type=TRANSLATION] a[href="https://github.com/contact?form[subject]=translation%20issue%20on%20docs.github.com&form[comments]="]'
+          ).length
       ).toBe(1)
     })
 
     test("renders a link to the same page in user's preferred language, if available", async () => {
       const headers = { 'accept-language': 'ja' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
     })
 
     test("renders a link to the same page if user's preferred language is Chinese - PRC", async () => {
       const headers = { 'accept-language': 'zh-CN' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href*="/cn"]').length).toBe(1)
     })
 
     test("does not render a link when user's preferred language is Chinese - Taiwan", async () => {
       const headers = { 'accept-language': 'zh-TW' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification]').length).toBe(0)
     })
 
     test("does not render a link when user's preferred language is English", async () => {
       const headers = { 'accept-language': 'en' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification]').length).toBe(0)
     })
 
     test("renders a link to the same page in user's preferred language from multiple, if available", async () => {
       const headers = { 'accept-language': 'ja, *;q=0.9' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
     })
 
     test("renders a link to the same page in user's preferred language with weights, if available", async () => {
       const headers = { 'accept-language': 'ja;q=1.0, *;q=0.9' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
     })
 
     test("renders a link to the user's 2nd preferred language if 1st is not available", async () => {
       const headers = { 'accept-language': 'zh-TW,zh;q=0.9,ja *;q=0.8' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification][data-type=TRANSLATION]').length).toBe(1)
       expect($('[data-testid=header-notification] a[href*="/ja"]').length).toBe(1)
     })
 
     test('renders no notices if no language preference is available', async () => {
       const headers = { 'accept-language': 'zh-TW,zh;q=0.9,zh-SG *;q=0.8' }
-      const $ = await getDOM('/en', headers)
+      const $ = await getDOM('/en', { headers })
       expect($('[data-testid=header-notification]').length).toBe(0)
     })
   })
 
   describe('mobile-only product dropdown links', () => {
-    test('include github and admin, and emphasize the current product', async () => {
+    test('include Get started and admin, and emphasize the current product', async () => {
       const $ = await getDOM(
-        '/en/github/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
+        '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/about-github-importer'
       )
-      const github = $('[data-testid=product-picker][data-current-product-path="/github"] summary')
-      expect(github.length).toBe(1)
-      expect(github.text().trim()).toBe('GitHub')
+      const getStarted = $(
+        '[data-testid=product-picker][data-current-product-path="/get-started"] summary'
+      )
+      expect(getStarted.length).toBe(1)
+      expect(getStarted.text().trim()).toBe('Get started')
 
       const ghec = $(`[data-testid=product-picker] a[href="/en/enterprise-cloud@latest/admin"]`)
       expect(ghec.length).toBe(1)
       expect(ghec.text().trim()).toBe('Enterprise administrators')
     })
 
-    // Skipped. Docs Engineering issue: 923
-    test.skip("point to homepages in the current page's language", async () => {
-      const $ = await getDOM(
-        '/ja/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests'
-      )
-      expect(
-        $('[data-testid=product-picker][data-current-product-path="/repositories"]').length
-      ).toBe(1)
-      expect($(`[data-testid=product-picker] a[href="/ja/enterprise-cloud/admin"]`).length).toBe(1)
+    test("point to homepages in the current page's language", async () => {
+      const $ = await getDOM('/ja/github/site-policy/github-terms-of-service')
+      const $breadcrumbRefs = $('[data-testid=breadcrumbs] a')
+      expect($breadcrumbRefs[0].attribs.href.startsWith('/ja')).toBe(true)
+      const $sidebarRefs = $('[data-testid=sidebar] a')
+      expect($sidebarRefs[0].attribs.href.startsWith('/ja')).toBe(true)
     })
 
     test('emphasizes the product that corresponds to the current page', async () => {
       const $ = await getDOM(
-        `/en/enterprise-server@${oldestSupported}/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
+        `/en/enterprise-server@${oldestSupported}/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line`
       )
 
-      expect($('[data-testid=product-picker] summary').text()).toBe('GitHub')
+      expect($('[data-testid=product-picker] summary').text()).toBe('Get started')
     })
   })
 })

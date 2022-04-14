@@ -21,10 +21,10 @@ shortTitle: 设置基本权限
 
 {% ifversion fpt or ghec %}默认情况下，组织成员具有对组织仓库的**读取**权限。{% endif %}
 
-If someone with admin access to an organization's repository grants a member a higher level of access for the repository, the higher level of access overrides the base permission.
+如果对组织存储库具有管理员访问权限的人员向成员授予对存储库的更高级别的访问权限，则较高级别的访问权限将覆盖基本权限。
 
 {% ifversion ghec %}
-If you've created a custom repository role with an inherited role that is lower access than your organization's base permissions, any members assigned to that role will default to the organization's base permissions rather than the inherited role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+如果您创建了继承角色的访问权限低于组织基本权限的自定义仓库角色，则分配给该角色的任何成员都将默认使用组织的基本权限，而不是继承的角色。 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
 {% endif %}
 
 ## 设置基本权限
@@ -37,5 +37,5 @@ If you've created a custom repository role with an inherited role that is lower 
 
 ## 延伸阅读
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - “[将外部协作者添加到组织中的仓库](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)”

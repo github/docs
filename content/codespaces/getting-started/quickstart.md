@@ -25,9 +25,9 @@ For more information on exactly how {% data variables.product.prodname_codespace
 
 1. Navigate to the [template repository](https://github.com/2percentsilk/haikus-for-codespaces) and select **Use this template**. 
 
-2. Name your repository, select your preferred privacy setting, and click **Create repository from this template**.
+2. Name your repository, select your preferred privacy setting, and click **Create repository from template**.
 
-3. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+3. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -41,7 +41,7 @@ Once your codespace is created, your repository will be automatically cloned int
 
     If you're following along with a different application type, enter the corresponding start command for that project.
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to forward that port so you can connect to it. 
+2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
 
   ![Port forwarding toast](/assets/images/help/codespaces/quickstart-port-toast.png)
 
@@ -94,7 +94,7 @@ Within a codespace, you have access to the Visual Studio Code Marketplace. For t
 
 You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_codespaces %}.
   - [Deep dive](/codespaces/getting-started/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_codespaces %}. The deep dive looks at these areas from a technical standpoint.
-  - [Setting up your project for {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): These guides provide information on setting up your project to use {% data variables.product.prodname_codespaces %} with specific languages
+  - [Setting up your project for {% data variables.product.prodname_codespaces %}](/codespaces/getting-started-with-codespaces): These guides provide information on setting up your project to use {% data variables.product.prodname_codespaces %} with specific languages.
   - [Configuring {% data variables.product.prodname_codespaces %} for your project](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project): This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
 
 ## Further reading

@@ -9,7 +9,6 @@ redirect_from:
   - /articles/removing-yourself-from-a-collaborators-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository
-product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,9 +19,13 @@ topics:
   - Repositories
 shortTitle: Remove yourself
 ---
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+2. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-label="The repo icon" %} Repositories**.
+{% else %}
 2. In the left sidebar, click **Repositories**.
   ![Repositories tab](/assets/images/help/settings/settings-sidebar-repositories.png)
+{% endif %}
 3. Next to the repository you want to leave, click **Leave**.
   ![Leave button](/assets/images/help/repository/repo-leave.png)
 4. Read the warning carefully, then click "I understand, leave this repository."

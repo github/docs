@@ -1,0 +1,1 @@
+1. Run the `ghe-actions-precheck` command to test your blob storage configuration. 更多信息请参阅“[命令行实用程序](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-precheck)”。

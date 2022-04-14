@@ -21,7 +21,7 @@ shortTitle: Acerca de la facturación de LFS de Git
 
 {% data reusables.large_files.owner_quota_only %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Comprar ancho de banda y almacenamiento adicional
 

@@ -1,1 +1,1 @@
-如果映像的容器注册表需要身份验证才能拉取映像，可以使用 `credentials` 设置 `username` 和 `password` 的 `map`。 凭据与您提供给 [`Docker 登录`](https://docs.docker.com/engine/reference/commandline/login/) 命令的值相同。
+If the image's container registry requires authentication to pull the image, you can use `jobs.<job_id>.container.credentials` to set a `map` of the `username` and `password`. 凭据与您提供给 [`Docker 登录`](https://docs.docker.com/engine/reference/commandline/login/) 命令的值相同。

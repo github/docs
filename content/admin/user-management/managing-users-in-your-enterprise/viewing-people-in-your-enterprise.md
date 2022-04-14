@@ -1,7 +1,6 @@
 ---
 title: Viewing people in your enterprise
 intro: 'To audit access to enterprise-owned resources or user license usage, enterprise owners can view every administrator and member of the enterprise.'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
   - /articles/viewing-people-in-your-enterprise-account
@@ -37,6 +36,19 @@ You can view {% ifversion ghec %}all the {% data variables.product.prodname_ghe_
   ![Outside collaborators tab on the Organization members page](/assets/images/help/business-accounts/outside-collaborators-tab.png)
 {% ifversion ghec %}1. Optionally, to view a list of pending invitations, click **_NUMBER_ pending**.
   !["NUMBER pending" button to the right of search and filter options](/assets/images/help/enterprises/members-pending.png){% endif %}
+
+{% ifversion ghec %}
+
+## Viewing suspended members in an {% data variables.product.prodname_emu_enterprise %}
+
+If your enterprise uses {% data variables.product.prodname_emus %}, you can also view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the {% data variables.product.prodname_emu_idp_application %} application or deleted from the identity provider. For more information, see "[About Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)."
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. To view a list of suspended members, above the list of active members, click **Suspended**.
+  ![Screenshot showing "Suspended" option](/assets/images/help/enterprises/view-suspended-members.png)
+
+{% endif %}
 
 ## Viewing dormant users
 

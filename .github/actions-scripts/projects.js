@@ -114,6 +114,29 @@ export async function isDocsTeamMember(login) {
   return teamMembers.includes(login)
 }
 
+// Given a GitHub login, returns a bool indicating
+// whether the login is part of the GitHub org
+export async function isGitHubOrgMember(login) {
+  const data = await graphql(
+    `
+      query {
+        user(login: "${login}") {
+          organization(login: "github"){
+            name
+          }
+        }
+      }
+    `,
+    {
+      headers: {
+        authorization: `token ${process.env.TOKEN}`,
+      },
+    }
+  )
+
+  return Boolean(data.user.organization)
+}
+
 // Formats a date object into the required format for projects
 export function formatDateForProject(date) {
   return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
@@ -167,7 +190,7 @@ export function generateUpdateProjectNextItemFieldMutation({
     // Strip all non-alphanumeric out of the item ID when creating the mutation ID to avoid a GraphQL parsing error
     // (statistically, this should still give us a unique mutation ID)
     return `
-      set_${fieldID.substr(1)}_item_${item.replaceAll(
+      set_${fieldID.slice(1)}_item_${item.replaceAll(
       /[^a-z0-9]/g,
       ''
     )}: updateProjectNextItemField(input: {
@@ -246,6 +269,7 @@ export default {
   addItemsToProject,
   addItemToProject,
   isDocsTeamMember,
+  isGitHubOrgMember,
   findFieldID,
   findSingleSelectID,
   formatDateForProject,

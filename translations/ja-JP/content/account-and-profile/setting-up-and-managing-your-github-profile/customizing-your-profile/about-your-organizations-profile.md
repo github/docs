@@ -16,7 +16,7 @@ topics:
 shortTitle: Organization's profile
 ---
 
-You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories.{% ifversion not ghes and not ghae %} You can customize your organization's profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."{% endif %}
+You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4749 %} You can customize your organization's profile by adding a README.md file. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."{% endif %}
 
 {% ifversion fpt or ghec %}自分の Organization の素性を確認し、Organization のプロフィールページに "Verified (検証済み)" バッジを表示するには、Organization のドメインを {% data variables.product.product_name %}で検証しなければなりません。 For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."{% endif %}
 

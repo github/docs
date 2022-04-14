@@ -1,42 +1,43 @@
 ---
-title: Integrate GitHub Classroom with an IDE
-shortTitle: Integrate with an IDE
-intro: 'You can preconfigure a supported integrated development environment (IDE) for assignments you create in {% data variables.product.prodname_classroom %}.'
+title: 集成 GitHub Classroom 与 IDE
+shortTitle: 与 IDE 集成
+intro: '您可以为您在 {% data variables.product.prodname_classroom %} 中创建的作业预配置受支持的集成开发环境 (IDE)。'
 versions:
   fpt: '*'
-permissions: Organization owners who are admins for a classroom can integrate {% data variables.product.prodname_classroom %} with an IDE. {% data reusables.classroom.classroom-admins-link %}
+permissions: 'Organization owners who are admins for a classroom can integrate {% data variables.product.prodname_classroom %} with an IDE. {% data reusables.classroom.classroom-admins-link %}'
 redirect_from:
   - /education/manage-coursework-with-github-classroom/online-ide-integrations
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-online-ide
   - /education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-online-ide
 ---
-## About integration with an IDE
 
-{% data reusables.classroom.about-online-ides %} 
+## 关于与 IDE 集成
 
-After a student accepts an assignment with an IDE, the README file in the student's assignment repository will contain a button to open the assignment in the IDE. The student can begin working immediately, and no additional configuration is necessary.
+{% data reusables.classroom.about-online-ides %}
 
-## Supported IDEs
+学生接受具有 IDE 的作业后，学生作业仓库中的 README 文件将包含一个按钮，用于打开 IDE 中的作业。 学生可以立即开始工作，无需进行其他配置。
 
-{% data variables.product.prodname_classroom %} supports the following IDEs. You can learn more about the student experience for each IDE.
+## 支持的 IDE
 
-| IDE | More information |
-| :- | :- |
-| Microsoft MakeCode Arcade | "[About using MakeCode Arcade with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| Visual Studio Code | [{% data variables.product.prodname_classroom %} extension](http://aka.ms/classroom-vscode-ext) in the Visual Studio Marketplace |
+{% data variables.product.prodname_classroom %} 支持以下 IDE。 您可以详细了解每个 IDE 的学生体验。
 
-We know cloud IDE integrations are important to your classroom and are working to bring more options. 
+| IDE                       | 更多信息                                                                                                                                                                               |
+|:------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Microsoft MakeCode Arcade | "[关于结合使用 MakeCode Arcade 与 {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
+| Visual Studio Code        | Visual Studio Marketplace 中的 [{% data variables.product.prodname_classroom %} 扩展](http://aka.ms/classroom-vscode-ext)                                                              |
 
-## Configuring an IDE for an assignment
+我们知道云 IDE 集成对您的课堂非常重要，正在努力提供更多选择。
 
-You can choose the IDE you'd like to use for an assignment when you create an assignment. To learn how to create a new assignment that uses an IDE, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" or "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+## 为作业配置 IDE
 
-## Authorizing the OAuth app for an IDE
+创建作业时，您可以选择要用于作业的 IDE。 要了解如何创建使用 IDE 的新作业，请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”或“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
 
-The first time you configure an assignment with an IDE, you must authorize the OAuth app for the IDE for your organization.
+## 为 IDE 授权 OAuth 应用程序
 
-For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. For more information, see "[Authorizing OAuth Apps](/github/authenticating-to-github/authorizing-oauth-apps)."
+第一次使用 IDE 配置作业时，必须为组织的 IDE 授权 OAuth 应用程序。
 
-## Further reading
+对于所有仓库，授予应用程序**读取**元数据、管理和代码的权限，以及**写入**问管理和代码的权限。 更多信息请参阅“[授权 OAuth 应用程序](/github/authenticating-to-github/authorizing-oauth-apps)”。
 
-- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+## 延伸阅读
+
+- "[关于 README](/github/creating-cloning-and-archiving-repositories/about-readmes)"

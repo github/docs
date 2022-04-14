@@ -23,5 +23,5 @@ O quadro do [GitHub Jobs](https://jobs.github.com/) é uma ótima maneira de enc
 
 ![Anúncios do GitHub Jobs no painel](/assets/images/help/settings/jobs-ads-on-dashboard.png)
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. Em Jobs Profile (Perfil de trabalhos), selecione **Available for hire** (Disponível para contratação) e clique em **Save jobs profile** (Salvar perfil de trabalhos). ![Configurações de Jobs profile (Perfil de trabalhos)](/assets/images/help/settings/jobs-profile-settings.png)

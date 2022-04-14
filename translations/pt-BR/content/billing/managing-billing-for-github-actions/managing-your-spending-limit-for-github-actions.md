@@ -19,9 +19,9 @@ shortTitle: Limites de gastos para ações
 
 ## Sobre sintaxe limites de gastos para o {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %}
+{% data reusables.actions.actions-spending-limit-brief %}
 
 {% data reusables.actions.actions-packages-set-spending-limit %} Para obter mais informações sobre os preços para uso de {% data variables.product.prodname_actions %}, consulte "[Sobre cobrança para {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)".
 
@@ -33,12 +33,12 @@ Assim que você definir um limite de gastos diferente de $ 0, você será respon
 
 Como você não habilitou os excedentes, a sua próxima tentativa de criar um artefato de fluxo de trabalho falhará. Você não receberá uma fatura pelo excesso de 0.1GB naquele mês. No entanto, se você habilitar os excedentes, a sua primeira conta incluirá o 0,1 GB do excedente existente para o ciclo de cobrança atual, bem como qualquer superação adicional que você acumular.
 
-## Gerenciando o limite de gastos de {% data variables.product.prodname_actions %} para sua conta de usuário
+## Managing the spending limit for {% data variables.product.prodname_actions %} for your personal account
 
-Qualquer pessoa pode gerenciar o limite de gastos do {% data variables.product.prodname_actions %} para sua própria conta de usuário.
+Anyone can manage the spending limit for {% data variables.product.prodname_actions %} for their own personal account.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

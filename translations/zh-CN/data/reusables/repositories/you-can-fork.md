@@ -1,4 +1,4 @@
-{% ifversion ghae %}如果企业的策略允许复刻内部和私有仓库{% else %}您{% endif %}可以将仓库复刻到您的用户帐户或具有仓库创建权限的任何组织。 For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+{% ifversion ghae %}如果企业的策略允许复刻内部和私有仓库{% else %}您{% endif %}可以将仓库复刻到您的用户帐户或具有仓库创建权限的任何组织。 更多信息请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
 {% ifversion fpt or ghes or ghec %}
 

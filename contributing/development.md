@@ -32,7 +32,7 @@ Note that `npm ci` and `npm run build` are steps that should typically only need
 
 ### Using GitHub Codespaces
 
-As an alternative, you can simply use [GitHub Codespaces](https://github.com/features/codespaces).
+As an alternative, you can simply use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview). For more information about using a codespace for working on GitHub documentation, see "[Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md)."
 
 In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
 

@@ -1,7 +1,7 @@
 {% ifversion ghae-issue-4864 %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_dependabot_alerts %} is currently in beta and is subject to change.
+**Nota:** {% data variables.product.prodname_dependabot_alerts %} se encuentra acutalmente en beta y está sujeto a cambios.
 
 {% endnote %}
 {% endif %}

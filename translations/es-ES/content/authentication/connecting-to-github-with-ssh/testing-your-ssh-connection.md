@@ -1,6 +1,6 @@
 ---
 title: Probar tu conexión SSH
-intro: 'After you''ve set up your SSH key and added it to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, you can test your connection.'
+intro: 'Después de que hayas configurado tu llave SSH y la hayas agregado a tu cuenta de {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, podrás probar tu conexión.'
 redirect_from:
   - /articles/testing-your-ssh-connection
   - /github/authenticating-to-github/testing-your-ssh-connection
@@ -37,7 +37,7 @@ Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu 
   > ¿Estás seguro de que quieres continuar conectado (sí/no)?
   ```
 
-3. Verifica que la huella digital en el mensaje que ves empate con {% ifversion fpt or ghec %}[la huella digital de la llave pública de RSA de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %}la huella digital de la llave pública de tu empresa{% endif %}. Si lo hace, entonces teclea `yes`:
+3. Verifica que la huella dactilar en el mensaje que ves empate con {% ifversion fpt or ghec %}[la huella dactilar de la llave pública de {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/githubs-ssh-key-fingerprints){% else %} la huella dactilar de la llave pública de tu empresa{% endif %}. Si lo hace, entonces teclea `yes`:
   ```shell
   > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
   > provide shell access.

@@ -16,7 +16,7 @@ shortTitle: Manage payouts
 
 ## About payouts from {% data variables.product.prodname_sponsors %}
 
-You can only manage your payouts from {% data variables.product.prodname_sponsors %} if you are paid through Stripe Connect. If you are paid through ACH transfer or wire transfer for your sponsored user account, you will not see the **Payouts** tab on your sponsored open source contributor dashboard. Sponsored organizations can only use Stripe Connect for payouts. For more information, see "[About {% data variables.product.prodname_sponsors %} for open source contributors](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)."
+You can only manage your payouts from {% data variables.product.prodname_sponsors %} if you are paid through Stripe Connect. If you are paid through ACH transfer or wire transfer for your sponsored personal account, you will not see the **Payouts** tab on your sponsored open source contributor dashboard. Sponsored organizations can only use Stripe Connect for payouts. For more information, see "[About {% data variables.product.prodname_sponsors %} for open source contributors](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)."
 
 {% data reusables.sponsors.payout-info %}
 

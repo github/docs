@@ -406,7 +406,7 @@
   "/v3/apps/installations": "/en/rest/reference/apps#installations",
   "/v3/apps/marketplace": "/en/rest/reference/apps#marketplace",
   "/v3/apps/oauth_applications": "/en/rest/reference/apps#oauth-applications",
-  "/v3/apps/permissions": "/en/rest/reference/permissions-required-for-github-apps",
+  "/v3/apps/permissions": "/en/rest/overview/permissions-required-for-github-apps",
   "/v3/checks": "/en/rest/reference/checks",
   "/v3/checks/runs": "/en/rest/reference/checks#runs",
   "/v3/checks/suites": "/en/rest/reference/checks#suites",

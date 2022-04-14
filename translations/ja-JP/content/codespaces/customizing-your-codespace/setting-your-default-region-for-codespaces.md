@@ -16,8 +16,7 @@ You can manually select the region that your codespaces will be created in, allo
 
 ## Setting your default region
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.codespaces-tab %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.codespaces-tab %}
 1. Under "Region", select the setting you want.
-2. If you chose "Set manually", select your region in the drop-down list.
-   ![Selecting your region](/assets/images/help/codespaces/select-default-region.png)
+2. If you chose "Set manually", select your region in the drop-down list. ![Selecting your region](/assets/images/help/codespaces/select-default-region.png)

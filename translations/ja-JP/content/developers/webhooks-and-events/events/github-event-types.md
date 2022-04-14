@@ -1,7 +1,6 @@
 ---
 title: GitHubイベントの種類
 intro: '{% data variables.product.prodname_dotcom %} Event APIについて、各イベントの種類、{% data variables.product.prodname_dotcom %}上でのトリガーするアクション、各イベント固有のプロパティについて学んでください。'
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types

@@ -18,6 +18,7 @@ import yaml from 'js-yaml'
 const tempDocsDir = path.join(process.cwd(), 'openapiTmp')
 const githubRepoDir = path.join(process.cwd(), '../github')
 const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
+const appsStaticPath = path.join(process.cwd(), 'lib/rest/static/apps')
 const decoratedPath = path.join(process.cwd(), 'lib/rest/static/decorated')
 const openApiReleasesDir = `${githubRepoDir}/app/api/description/config/releases`
 
@@ -33,13 +34,15 @@ program
   )
   .option('-d --include-deprecated', 'Includes schemas that are marked as `deprecated: true`')
   .option('-u --include-unpublished', 'Includes schemas that are marked as `published: false`')
+  .option('--redirects-only', 'Only generate the redirects file')
   .parse(process.argv)
 
-const { decorateOnly, versions, includeUnpublished, includeDeprecated } = program.opts()
+const { decorateOnly, versions, includeUnpublished, includeDeprecated, redirectsOnly } =
+  program.opts()
 
 // Check that the github/github repo exists. If the files are only being
 // decorated, the github/github repo isn't needed.
-if (!decorateOnly) {
+if (!decorateOnly && !redirectsOnly) {
   try {
     await stat(githubRepoDir)
   } catch (error) {
@@ -68,11 +71,15 @@ main()
 
 async function main() {
   // Generate the dereferenced OpenAPI schema files
-  if (!decorateOnly) {
+  if (!decorateOnly && !redirectsOnly) {
     await getDereferencedFiles()
   }
   // Decorate the dereferenced files in a format ingestible by docs.github.com
-  await decorate()
+  if (!redirectsOnly) {
+    await decorate()
+  }
+
+  await updateRedirectOverrides()
 
   console.log(
     '\n🏁 The static REST API files are now up-to-date with your local `github/github` checkout. To revert uncommitted changes, run `git checkout lib/rest/static/*.\n\n'
@@ -128,6 +135,28 @@ async function getDereferencedFiles() {
   }
 }
 
+async function updateRedirectOverrides() {
+  const overrides = JSON.parse(await readFile('script/rest/utils/rest-api-overrides.json', 'utf8'))
+
+  const redirects = {}
+  console.log('\n➡️  Updating REST API redirect exception list.\n')
+  for (const [key, value] of Object.entries(overrides)) {
+    const oldUrl = value.originalUrl
+    const anchor = oldUrl.replace('/rest/reference', '').split('#')[1]
+    if (key.includes('#')) {
+      // We are updating a subcategory into a category
+      redirects[oldUrl] = `/rest/reference/${value.category}`
+    } else {
+      redirects[oldUrl] = `/rest/reference/${value.category}#${anchor}`
+    }
+  }
+  await writeFile(
+    'lib/redirects/static/client-side-rest-api-redirects.json',
+    JSON.stringify(redirects, null, 2),
+    'utf8'
+  )
+}
+
 async function decorate() {
   console.log('\n🎄 Decorating the OpenAPI schema files in lib/rest/static/dereferenced.\n')
   const dereferencedSchemas = {}
@@ -137,19 +166,85 @@ async function decorate() {
     dereferencedSchemas[key] = schema
   }
 
+  const operationsEnabledForGitHubApps = {}
   for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
     try {
       // munge OpenAPI definitions object in an array of operations objects
       const operations = await getOperations(schema)
-
       // process each operation, asynchronously rendering markdown and stuff
       await Promise.all(operations.map((operation) => operation.process()))
+      const categories = [...new Set(operations.map((operation) => operation.category))].sort()
+
+      // Orders the operations by their category and subcategories.
+      // All operations must have a category, but operations don't need
+      // a subcategory. When no subcategory is present, the subcategory
+      // property is an empty string ('').
+      /* 
+        Example:
+        {
+          [category]: {
+            '': {
+              "description": "",
+              "operations": []
+            },
+            [subcategory sorted alphabetically]: {
+              "description": "",
+              "operations": []
+            }
+          }
+        }
+      */
+      const operationsByCategory = {}
+      categories.forEach((category) => {
+        operationsByCategory[category] = {}
+        const categoryOperations = operations.filter((operation) => operation.category === category)
+        categoryOperations
+          .filter((operation) => !operation.subcategory)
+          .map((operation) => (operation.subcategory = operation.category))
+
+        const subcategories = [
+          ...new Set(categoryOperations.map((operation) => operation.subcategory)),
+        ].sort()
+        // the first item should be the item that has no subcategory
+        // e.g., when the subcategory = category
+        const firstItemIndex = subcategories.indexOf(category)
+        if (firstItemIndex > -1) {
+          const firstItem = subcategories.splice(firstItemIndex, 1)[0]
+          subcategories.unshift(firstItem)
+        }
+
+        subcategories.forEach((subcategory) => {
+          operationsByCategory[category][subcategory] = {}
+
+          const subcategoryOperations = categoryOperations.filter(
+            (operation) => operation.subcategory === subcategory
+          )
+
+          operationsByCategory[category][subcategory] = subcategoryOperations
+        })
+      })
 
       const filename = path.join(decoratedPath, `${schemaName}.json`).replace('.deref', '')
       // write processed operations to disk
-      await writeFile(filename, JSON.stringify(operations, null, 2))
-
+      await writeFile(filename, JSON.stringify(operationsByCategory, null, 2))
       console.log('Wrote', path.relative(process.cwd(), filename))
+
+      // Create the enabled-for-apps.json file used for
+      // https://docs.github.com/en/rest/overview/endpoints-available-for-github-apps
+      operationsEnabledForGitHubApps[schemaName] = {}
+      for (const category of categories) {
+        const categoryOperations = operations.filter((operation) => operation.category === category)
+
+        // This is a collection of operations that have `enabledForGitHubApps = true`
+        // It's grouped by resource title to make rendering easier
+        operationsEnabledForGitHubApps[schemaName][category] = categoryOperations
+          .filter((operation) => operation.enabledForGitHubApps)
+          .map((operation) => ({
+            slug: operation.slug,
+            verb: operation.verb,
+            requestPath: operation.requestPath,
+          }))
+      }
     } catch (error) {
       console.error(error)
       console.log(
@@ -158,6 +253,11 @@ async function decorate() {
       process.exit(1)
     }
   }
+  await writeFile(
+    path.join(appsStaticPath, 'enabled-for-apps.json'),
+    JSON.stringify(operationsEnabledForGitHubApps, null, 2)
+  )
+  console.log('Wrote', path.relative(process.cwd(), `${appsStaticPath}/enabled-for-apps.json`))
 }
 
 async function validateInputParameters(schemas) {

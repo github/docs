@@ -3,8 +3,8 @@ title: Acerca de las propuestas
 intro: 'Utiliza {% data variables.product.prodname_github_issues %} para rastrear ideas, retroalimentación, tareas o errores para trabajar en {% data variables.product.company_short %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/about-issues
-  - /articles/creating-issues/
-  - /articles/about-issues/
+  - /articles/creating-issues
+  - /articles/about-issues
   - /github/managing-your-work-on-github/about-issues
   - /issues/tracking-your-work-with-issues/creating-issues/about-issues
 versions:
@@ -45,7 +45,7 @@ Para ayudar a que los colaboradores abran propuestas significativas que proporci
 ## Comunicación eficiente
 
 Puedes @mencionar colaboradores que tengan acceso a tu repositorio en una propuesta para dirigir su atención a un cometnario. Para enlazar las propuestas relacionadas en el mismo repositorio, puedes teclear `#` seguido de parte del título de la propuesta y luego hacer clic en la propueta que quieras enlazar. Para comunicar la responsabilidad, puedes asignar propuestas. Si frecuentemente te encuentras tecleando el mismo comentario, puedes utilizar las respuestas guardadas.
-{% ifversion fpt or ghec %} Para obtener más información, consulta las secciones "[Sintaxis básica para escritura y formato](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" y "[Asignar propuestas y solicitudes de cambio a otros usuarios de GitHub](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)".
+{% ifversion fpt or ghec %} Para obtener más información, consulta las secciones "[Sintaxis básica para escritura y formato](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)" y "[Asignar propuestas y solicitudes de cambio a otros usuarios de GitHub](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users)".
 
 ## Comparar propuestas y debates
 

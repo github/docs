@@ -28,8 +28,8 @@ shortTitle: クイックスタート
 
 ユーザアカウントを作成した後は、無料Organizationアカウントを作成します。 {% data variables.product.prodname_classroom %}でクラスルームを作成および管理するには、Organizationアカウントを使用します。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 4. プロンプトに従って無料Organizationを作成します。
 

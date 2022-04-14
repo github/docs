@@ -18,9 +18,9 @@ shortTitle: Spending limits for Actions
 ---
 ## About spending limits for {% data variables.product.prodname_actions %}
 
-{% data reusables.github-actions.actions-billing %}
+{% data reusables.actions.actions-billing %}
 
-{% data reusables.github-actions.actions-spending-limit-brief %}
+{% data reusables.actions.actions-spending-limit-brief %}
 
 {% data reusables.actions.actions-packages-set-spending-limit %} For more information about pricing for {% data variables.product.prodname_actions %} usage, see "[About billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 
@@ -32,12 +32,12 @@ As soon as you set a spending limit other than $0, you will be responsible for a
 
 Because you have not enabled overages, your next attempt to create a workflow artifact will fail. You will not receive a bill for the 0.1GB overage that month. However, if you enable overages, your first bill will include the 0.1GB of existing overage for the current billing cycle, as well as any additional overages you accrue.
 
-## Managing the spending limit for {% data variables.product.prodname_actions %} for your user account
+## Managing the spending limit for {% data variables.product.prodname_actions %} for your personal account
 
-Anyone can manage the spending limit for {% data variables.product.prodname_actions %} for their own user account.
+Anyone can manage the spending limit for {% data variables.product.prodname_actions %} for their own personal account.
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

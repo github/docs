@@ -14,6 +14,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-You can use the Codes of Conduct API to retrieve information about a repository's code of conduct. To get a repository's code of conduct, use the "[Get a repository](/rest/reference/repos#get-a-repository)" endpoint.
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/codes-of-conduct
+-->

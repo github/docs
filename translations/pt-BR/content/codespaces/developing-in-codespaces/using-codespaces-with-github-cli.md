@@ -153,7 +153,7 @@ Para obter mais informações sobre o comando `gh code cp`, incluindo sinalizado
 
 ### Modificar portas em um codespace
 
-Você pode encaminhar uma porta em um codespace para uma porta local. A porta será encaminhada enquanto o processo estiver em execução. Para parar de encaminhar a porta, pressione <kbd>control</kbd>+<kbd>c</kbd>.
+Você pode encaminhar uma porta em um codespace para uma porta local. A porta será encaminhada enquanto o processo estiver em execução. Para parar de encaminhar a porta, pressione <kbd>Controle</kbd>+<kbd>C</kbd>.
 
 ```shell
 gh codespace ports forward <em>codespace-port-number</em>:<em>local-port-number</em> -c <em>codespace-name</em>

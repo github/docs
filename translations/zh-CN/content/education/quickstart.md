@@ -28,8 +28,8 @@ shortTitle: 快速入门
 
 创建用户帐户后，创建一个免费的组织帐户。 您将使用此组织帐户创建和管理教室 {% data variables.product.prodname_classroom %}。
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
 4. 按照提示创建免费组织。
 

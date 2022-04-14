@@ -1,1 +1,1 @@
-1. 打ち消したいコミットを右クリックして、**Revert This Commit（このコミットを打ち消し）**をクリックしてください。
+1. Right-click the commit you want to revert and click **Revert Changes in Commit**.

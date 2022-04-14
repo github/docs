@@ -17,7 +17,7 @@ Enterprise および Organization のオーナーは、IPアドレス許可リ�
 Organization に許可リストがある場合、{% data variables.product.prodname_github_app %} 経由で接続するサードパーティアプリケーションは、以下の両方が真でない限りアクセスを拒否されます。
 
 * {% data variables.product.prodname_github_app %} の作成者が、そのアプリケーションに対し、アプリケーションが動作する IP アドレスを指定した許許可リストを設定していること。 その詳しい方法については後述します。
-* Organizationのオーナーが {% data variables.product.prodname_github_app %}の許可リストにあるアドレスで、自らの許可リストを追加できるようにしていること。 詳細は「[ Organization に対する許可 IP アドレスを管理する](/organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#allowing-access-by-github-apps)」を参照してください。
+* Organizationのオーナーが {% data variables.product.prodname_github_app %}の許可リストにあるアドレスで、自らの許可リストを追加できるようにしていること。 For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% data reusables.apps.ip-allow-list-only-apps %}
 

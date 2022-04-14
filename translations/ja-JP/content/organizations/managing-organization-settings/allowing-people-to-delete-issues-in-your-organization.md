@@ -17,7 +17,7 @@ shortTitle: Issueの削除の許可
 
 デフォルトでは、Organization 内の Issue は削除できません。 Organization のオーナーは、まず Organization の全リポジトリでこの機能を有効化しなければなりません。
 
-Once enabled, organization owners and people with admin access in an organization-owned repository can delete issues. People with admin access in a repository include organization members and outside collaborators who were given admin access. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)" and "[Deleting an issue](/articles/deleting-an-issue)."
+有効化されると、Organizationのオーナー、そしてOrganizationが所有するリポジトリに管理アクセスを持つ人は、Issueを削除できるようになります。 リポジトリの管理アクセスを持つ人には、管理アクセスを付与されたOrganizationメンバーや外部コラボレーターが含まれます。 詳しい情報については「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」及び「[Issueの削除](/articles/deleting-an-issue)」を参照してください。
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

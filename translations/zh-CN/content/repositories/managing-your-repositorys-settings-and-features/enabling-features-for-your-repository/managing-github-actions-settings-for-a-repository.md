@@ -1,6 +1,6 @@
 ---
-title: Managing GitHub Actions settings for a repository
-intro: 'You can disable or configure {% data variables.product.prodname_actions %} for a specific repository.'
+title: 管理存储库的 GitHub Actions 设置
+intro: '您可以对特定仓库禁用或配置 {% data variables.product.prodname_actions %}。'
 redirect_from:
   - /github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository
   - /github/administering-a-repository/managing-repository-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository
@@ -16,128 +16,143 @@ topics:
   - Actions
   - Permissions
   - Pull requests
-shortTitle: Manage GitHub Actions settings
+shortTitle: 管理 GitHub Actions 设置
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About {% data variables.product.prodname_actions %} permissions for your repository
+## 关于仓库的 {% data variables.product.prodname_actions %} 权限
 
-{% data reusables.github-actions.disabling-github-actions %} For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)."
+{% data reusables.actions.disabling-github-actions %} 有关 {% data variables.product.prodname_actions %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/about-github-actions)”。
 
-You can enable {% data variables.product.prodname_actions %} for your repository. {% data reusables.github-actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for your repository altogether. {% data reusables.github-actions.disabled-actions-description %}
+您可以对您的仓库启用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.enabled-actions-description %} 您可以对您的仓库完全禁用 {% data variables.product.prodname_actions %}。 {% data reusables.actions.disabled-actions-description %}
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} in your repository but limit the actions a workflow can run. {% data reusables.github-actions.enabled-local-github-actions %}
+或者，您也可以在存储库中启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作{% if actions-workflow-policy %}和可重用工作流程{% endif %}。
 
-## Managing {% data variables.product.prodname_actions %} permissions for your repository
+## 管理仓库的 {% data variables.product.prodname_actions %} 权限
 
-You can disable all workflows for a repository or set a policy that configures which actions can be used in a repository.
-
-{% data reusables.actions.actions-use-policy-settings %}
+您可以禁用存储库的 {% data variables.product.prodname_actions %} ，或设置策略来配置可在存储库中使用的 {% if actions-workflow-policy %} 和可重用工作流{% endif %} 。
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization has an overriding policy or is managed by an enterprise that has overriding policy. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)" or "[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)."
+**注：**如果您的组织有覆盖策略或由具有覆盖策略的企业帐户管理，则可能无法管理这些设置。 更多信息请参阅“[禁用或限制组织的 {% data variables.product.prodname_actions %}](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)”或“[在企业帐户中实施 {% data variables.product.prodname_actions %} 策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)”。
 
 {% endnote %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Actions permissions**, select an option.
-  ![Set actions policy for this organization](/assets/images/help/repository/actions-policy.png)
-1. Click **Save**.
+{% data reusables.repositories.settings-sidebar-actions-general %}
+1. 在“Actions permissions（操作权限）”下，选择一个选项。
 
-## Allowing specific actions to run
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
+
+   {% if actions-workflow-policy %}
+   ![为此存储库设置操作策略](/assets/images/help/repository/actions-policy-with-workflows.png)
+   {%- else %}
+   ![为此存储库设置操作策略](/assets/images/help/repository/actions-policy.png)
+   {%- endif %}
+1. 单击 **Save（保存）**。
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list.
-   {%- ifversion ghes > 3.0 %}
-   ![Add actions to allow list](/assets/images/help/repository/actions-policy-allow-list.png)
+{% data reusables.repositories.settings-sidebar-actions-general %}
+1. 在 Actions permissions（操作权限）下，选择 {% data reusables.actions.policy-label-for-select-actions-workflows %} 并将所需操作添加到列表中。
+
+   {% if actions-workflow-policy%}
+   ![将操作和可重用工作流程添加到允许列表](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
+   {%- elsif ghes %}
+   ![向允许列表添加操作](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
-   ![Add actions to allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   ![向允许列表添加操作](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
-2. Click **Save**.
+1. 单击 **Save（保存）**。
 
 {% ifversion fpt or ghec %}
-## Configuring required approval for workflows from public forks
+## 配置公共复刻工作流程所需的批准
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
 
-You can configure this behavior for a repository using the procedure below. Modifying this setting overrides the configuration set at the organization or enterprise level.
+您可以使用以下过程为存储库配置此行为。 修改此设置会覆盖组织或企业级别的配置集。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-{% data reusables.github-actions.workflows-from-public-fork-setting %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.actions.workflows-from-public-fork-setting %}
 
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-## Enabling workflows for private repository forks
+## 为私有仓库复刻启用工作流程
 
-{% data reusables.github-actions.private-repository-forks-overview %}
+{% data reusables.actions.private-repository-forks-overview %}
 
-### Configuring the private fork policy for a repository
+如果为 {% ifversion ghec or ghae or ghes %}企业或{% endif %} 组织禁用了某个策略，则无法为存储库启用该策略。
+
+{% data reusables.actions.private-repository-forks-options %}
+
+### 为仓库配置私有复刻策略
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-{% data reusables.github-actions.private-repository-forks-configure %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.actions.private-repository-forks-configure %}
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-## Setting the permissions of the `GITHUB_TOKEN` for your repository
+## 为您的仓库设置 `GITHUB_TOKENN` 的权限
 
-{% data reusables.github-actions.workflow-permissions-intro %}
+{% data reusables.actions.workflow-permissions-intro %}
 
-The default permissions can also be configured in the organization settings. If the more restricted default has been selected in the organization settings, the same option is auto-selected in your repository settings and the permissive option is disabled.
+默认权限也可以在组织设置中配置。 如果在组织设置中选择了更受限制的默认值，则在仓库设置中自动选择相同的选项，并禁用许可的选项。
 
-{% data reusables.github-actions.workflow-permissions-modifying %}
+{% data reusables.actions.workflow-permissions-modifying %}
 
-### Configuring the default `GITHUB_TOKEN` permissions
+### 配置默认 `GITHUB_TOKENN` 权限
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Workflow permissions**, choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` scope.
-  ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
-1. Click **Save** to apply the settings.
+{% data reusables.repositories.settings-sidebar-actions-general %}
+1. 在 **Workflow permissions（工作流程权限）**下，选择您是否想要 `GITHUB_TOKENN` 读写所有范围限， 或者只读`内容`范围。
+
+  ![为此仓库设置 GITHUB_TOKENN 权限](/assets/images/help/settings/actions-workflow-permissions-repository.png)
+
+1. 单击 **Save（保存）**以应用设置。
 {% endif %}
 
 {% ifversion ghes > 3.3 or ghae-issue-4757 or ghec %}
-## Allowing access to components in an internal repository
+## 允许访问内部存储库中的组件
 
-Members of your enterprise can use internal repositories to work on projects without sharing information publicly. For information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
+企业成员可以使用内部存储库来处理项目，而无需公开共享信息。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)”。
 
-To configure whether workflows in an internal repository can be accessed from outside the repository:
+您可以使用以下步骤配置是否可以从存储库外部访问内部存储库中的 {% if internal-actions%}操作和 {% endif %}工作流程。{% if internal-actions %} 更多信息请参阅“[与企业共享操作和工作流程](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)”。 或者，您可以使用 REST API 来设置或获取访问级别的详细信息。 更多信息请参阅“[获取存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#get-the-level-of-access-for-workflows-outside-of-the-repository)”和“[设置存储库外部工作流程的访问级别](/rest/reference/actions#get-the-level-of-access-for-workflows-outside-of-the-repository#set-the-level-of-access-for-workflows-outside-of-the-repository)”。{% endif %}
 
-1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
-1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
-{% data reusables.repositories.settings-sidebar-actions %}
-1. Under **Access**, choose one of the access settings:
-   ![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png)
-   * **Not accessible** - Workflows in other repositories can't use workflows in this repository.
-   * **Accessible from repositories in the '&lt;organization name&gt;' organization** - Workflows in other repositories can use workflows in this repository if they are part of the same organization and their visibility is private or internal.
-   * **Accessible from repositories in the '&lt;enterprise name&gt;' enterprise** - Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.
-1. Click **Save** to apply the settings.
+1. 在 {% data variables.product.prodname_dotcom %} 上，导航到内部仓库的主页面。
+1. 在仓库名称下，单击 {% octicon "gear" aria-label="The gear icon" %}**Settings（设置）**。
+{% data reusables.repositories.settings-sidebar-actions-general %}
+1. 在 **Access（访问）**下，选择以下访问设置之一：
+
+   {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}![Set the access to Actions components](/assets/images/help/settings/actions-access-settings.png){% else %}![Set the access to Actions components](/assets/images/enterprise/3.4/actions-access-settings.png){% endif %}
+
+   * **Not accessible（无法访问）**- 其他存储库中的工作流程无法访问此存储库。
+   * **可从 'ORGANIZATION NAME' 组织中的存储库访问** - {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}属于 'ORGANIZATION NAME' 组织的其他存储库中的工作流程可以访问此存储库中的操作和工作流程。 仅允许从私有或内部存储库进行访问。{% else %}如果其他存储库中的工作流程属于同一组织，并且其可见性是私有或内部，则可以使用此存储库中的工作流程。{% endif %}
+   * **可从 ''ENTERPRISE NAME' 企业中的存储库访问** - {% ifversion ghes > 3.4 or ghae-issue-6090 or ghec %}属于 ''ENTERPRISE NAME' 企业的其他存储库中的工作流程可以访问此存储库中的操作和工作流程。 仅允许从私有或内部存储库进行访问。{% else %}如果其他存储库中的工作流程属于同一企业，并且其可见性是私有或内部，则可以使用此存储库中的工作流程。{% endif %}
+1. 单击 **Save（保存）**以应用设置。
 {% endif %}
 
-## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
+## 为仓库中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期
 
-You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository.
+您可以为仓库中的 {% data variables.product.prodname_actions %} 构件和日志配置保留期。
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-You can also define a custom retention period for a specific artifact created by a workflow. For more information, see "[Setting the retention period for an artifact](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)."
+您还可以为工作流程创建的特定构件自定义保留期。 更多信息请参阅“[设置构件的保留期](/actions/managing-workflow-runs/removing-workflow-artifacts#setting-the-retention-period-for-an-artifact)”。
 
-## Setting the retention period for a repository
+## 设置仓库的保留期
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.settings-sidebar-actions %}
-{% data reusables.github-actions.change-retention-period-for-artifacts-logs  %}
+{% data reusables.repositories.settings-sidebar-actions-general %}
+{% data reusables.actions.change-retention-period-for-artifacts-logs  %}

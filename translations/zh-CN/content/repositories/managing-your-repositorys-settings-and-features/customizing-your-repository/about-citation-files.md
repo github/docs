@@ -1,6 +1,6 @@
 ---
-title: About CITATION files
-intro: You can add a CITATION file to your repository to help users correctly cite your software.
+title: 关于 CITION 文件
+intro: 您可以将 CITATION 文件添加到存储库中，以帮助用户正确引用您的软件。
 redirect_from:
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files
 versions:
@@ -12,11 +12,11 @@ topics:
   - Repositories
 ---
 
-## About CITATION files
+## 关于 CITION 文件
 
-You can add a `CITATION.cff` file to the root of a repository to let others know how you would like them to cite your work. The citation file format is plain text with human- and machine-readable citation information.
+您可以将 `CITATION.cff` 文件添加到存储库的根目录中，让其他人知道您希望他们如何引用您的工作。 引文文件格式为纯文本，具有人类和机器可读的引文信息。
 
-Example `CITATION.cff` file:
+示例 `CITATION.cff` 文件：
 
 ```
 cff-version: 1.2.0
@@ -35,7 +35,7 @@ date-released: 2017-12-18
 url: "https://github.com/github/linguist"
 ```
 
-The GitHub citation prompt on your repository will show the example `CITATION.cff` content in these formats:
+存储库上的 GitHub 引文提示将显示以下格式的示例 `CITATION.cff` 内容：
 
 **APA**
 
@@ -59,35 +59,35 @@ Lisa, M., & Bot, H. (2017). My Research Software (Version 2.0.4) [Computer softw
 ```
 {% endraw %}
 
-Note the example above produces a _software_ citation (i.e., `@software` type in BibTeX rather than `@article`).
+请注意，上面的示例生成 _software_ 引文（即，在 BibTeX 中键入 `@software` 而不是 `@article`）。
 
-For more information, see the [Citation File Format](https://citation-file-format.github.io/) website.
+更多信息请参阅[引文文件格式](https://citation-file-format.github.io/)网站。
 
-When you add a `CITATION.cff` file to the default branch of your repository, it is automatically linked from the repository landing page. This makes it easy for other users to cite your software project, using the information you've provided.
+当您将 `CITATION.cff` 文件添加到存储库的默认分支时，该文件会自动从存储库登录页面链接。 这使得其他用户可以使用您提供的信息轻松引用您的软件项目。
 
-![Citation link on repository landing page](/assets/images/help/repository/citation-link.png)
+![存储库登录页上的引文链接](/assets/images/help/repository/citation-link.png)
 
-## Citing something other than software
+## 引用软件以外的内容
 
-If you would prefer the {% data variables.product.prodname_dotcom %} citation information to link to another resource such as a research article, then you can use the `preferred-citation` override in CFF with the following types.
+如果您希望 {% data variables.product.prodname_dotcom %} 引文信息链接到其他资源（如研究文章），则可以在 CFF 中使用 `preferred-citation` 覆盖以下类型。
 
-| Resource                          | CFF type                                                                                             | BibTeX type      | APA annotation      |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------- | ------------------- |
-| Journal article/paper             | `article`                                                                                            | `@article`       |                     |
-| Book                              | `book`                                                                                               | `@book`          |                     |
-| Booklet (bound but not published) | `pamphlet`                                                                                           | `@booklet`       |                     |
-| Conference article/paper          | `conference-paper`                                                                                   | `@inproceedings` | [Conference paper]  |
-| Conference proceedings            | `conference`, `proceedings`                                                                          | `@proceedings`   |                     |
-| Data set                          | `data`, `database`                                                                                   | `@misc`          | [Data set]          |
-| Magazine article                  | `magazine-article`                                                                                   | `@article`       |                     |
-| Manual                            | `manual`                                                                                             | `@manual`        |                     |
-| Misc/generic/other                | `generic`, any other CFF type                                                                        | `@misc`          |                     |
-| Newspaper article                 | `newspaper-article`                                                                                  | `@article`       |                     |
-| Software                          | `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software`      | [Computer software] |
-| Report/technical report           | `report`                                                                                             | `@techreport`    |                     |
-| Unpublished                       | `unpublished`                                                                                        | `@unpublished`   |                     |
+| 资源          | CFF 类型                                                                                               | BibTeX 类型        | APA 注释  |
+| ----------- | ---------------------------------------------------------------------------------------------------- | ---------------- | ------- |
+| 期刊文章/论文     | `article`                                                                                            | `@article`       |         |
+| 书籍          | `book`                                                                                               | `@book`          |         |
+| 小册子（装订但未出版） | `pamphlet`                                                                                           | `@booklet`       |         |
+| 会议文章/论文     | `conference-paper`                                                                                   | `@inproceedings` | [会议论文]  |
+| 会议论文集       | `conference`, `proceedings`                                                                          | `@proceedings`   |         |
+| 数据集         | `data`, `database`                                                                                   | `@misc`          | [数据集]   |
+| 杂志文章        | `magazine-article`                                                                                   | `@article`       |         |
+| 手册          | `manual`                                                                                             | `@manual`        |         |
+| 杂项/通用/其他    | `generic`，任何其他 CFF 类型                                                                                | `@misc`          |         |
+| 新闻报道        | `newspaper-article`                                                                                  | `@article`       |         |
+| 软件          | `software`, `software-code`, `software-container`, `software-executable`, `software-virtual-machine` | `@software`      | [计算机软件] |
+| 报告/技术报告     | `report`                                                                                             | `@techreport`    |         |
+| 已取消发布       | `unpublished`                                                                                        | `@unpublished`   |         |
 
-Extended CITATION.cff file describing the software, but linking to a research article as the preferred citation:
+扩展的 CITATION.cff 文件描述了该软件，但链接到研究文章作为首选引用：
 
 ```
 cff-version: 1.2.0
@@ -124,7 +124,7 @@ preferred-citation:
   year: 2021
 ```
 
-The example `CITATION.cff` file above will produce the following outputs in the GitHub citation prompt:
+上面的示例 `CITATION.cff` 文件将在 GitHub 引文提示中产生以下输出：
 
 **APA**
 
@@ -150,15 +150,15 @@ Lisa, M., & Bot, H. (2021). My awesome research software. Journal Title, 1(1), 1
 ```
 {% endraw %}
 
-## Citing a dataset
+## 引用数据集
 
-If your repository contains a dataset, you can set `type: dataset` at the top level of your `CITATION.cff` file to produce a data citation string output in the {% data variables.product.prodname_dotcom %} citation prompt.
+如果存储库包含数据集，则可以在 `CITATION.cff` 文件的顶层设置 `type: dataset` ，以便在 {% data variables.product.prodname_dotcom %} 引文提示中生成数据引文字符串输出。
 
-## Other citation files
+## 其他引文文件
 
-The GitHub citation feature will also detect a small number of additional files that are often used by communities and projects to describe how they would like their work to be cited.
+GitHub 引用功能还将检测社区和项目经常使用的少量其他文件，以描述他们希望如何引用他们的工作。
 
-GitHub will link to these files in the _Cite this repository_ prompt, but will not attempt to parse them into other citation formats.
+GitHub 将在 _Cite this repository_ 提示中链接到这些文件，但不会尝试将它们解析为其他引文格式。
 
 ```
 # Note these are case-insensitive and must be in the root of the repository
@@ -173,8 +173,8 @@ CITATIONS.md
 inst/CITATION
 ```
 
-## Citation formats
+## 引文格式
 
-We currently support APA and BibTex file formats.
+我们目前支持 APA 和 BibTex 文件格式。
 
-Are you looking for additional citation formats? GitHub uses a Ruby library, to parse the `CITATION.cff` files. You can request additional formats in the [ruby-cff](https://github.com/citation-file-format/ruby-cff) repository, or contribute them yourself.
+您是否正在寻找其他引文格式？ GitHub 使用 Ruby 库来解析 `CITATION.cff` 文件。 您可以在 [ruby-cff](https://github.com/citation-file-format/ruby-cff) 存储库中请求其他格式，也可以自己贡献它们。

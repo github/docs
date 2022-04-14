@@ -1,6 +1,6 @@
 ---
 title: Borrar los archivos en un repositorio
-intro: 'Puedes borrar un archivo individual{% ifversion fpt or ghes > 3.0 or ghec %} o un directorio completo{% endif %} en tu repositorio de {% data variables.product.product_name %}.'
+intro: 'Puedes borrar un archivo individual{% ifversion fpt or ghes or ghec %} o un directorio completo{% endif %} en tu repositorio de {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/deleting-files
   - /github/managing-files-in-a-repository/deleting-files
@@ -12,19 +12,19 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-permissions: 'People with write permissions can delete files{% ifversion fpt or ghes > 3.0 or ghec %} or directories{% endif %} in a repository.'
+permissions: 'People with write permissions can delete files{% ifversion fpt or ghes or ghec %} or directories{% endif %} in a repository.'
 topics:
   - Repositories
 shortTitle: Borrar archivos
 ---
 
-## Acerca del borrado de archivos{% ifversion fpt or ghes > 3.0 or ghec %} y directorios{% endif %}
+## Acerca del borrado de archivos{% ifversion fpt or ghes or ghec %} y directorios{% endif %}
 
-Puedes borrar un archivo individual en tu repositorio{% ifversion fpt or ghes > 3.0 or ghec %} o un directorio completo, incluyendo los archivos de dicho directorio{% endif %}.
+Puedes borrar un archivo individual en tu repositorio{% ifversion fpt or ghes or ghec %} o un directorio completo, incluyendo los archivos de dicho directorio{% endif %}.
 
-Si borras un archivo{% ifversion fpt or ghes > 3.0 or ghec %} o directorio{% endif %} en un repositorio en el que no tengas permisos de escritura, bifurcaremos el proyecto a tu cuenta de usuario y te ayudaremos a enviar una solicitud de cambios al repositorio original después de que confirmas tu cambio. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
+Si borras un archivo{% ifversion fpt or ghes or ghec %} o directorio{% endif %} en un repositorio en el que no tengas permisos de escritura, bifurcaremos el proyecto a tu cuenta de usuario y te ayudaremos a enviar una solicitud de cambios al repositorio original después de que confirmas tu cambio. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 
-Si el archivo{% ifversion fpt or ghes > 3.0 or ghec %} o directorio{% endif %} que borraste contiene datos sensibles, éstos aún estarán disponibles en el historial de Git del repositorio. Para eliminar el archivo por completo de {% data variables.product.product_name %}, debes eliminar el archivo del historial de tu repositorio. Para obtener más información, consulta "[Eliminar datos confidenciales de un repositorio](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
+Si el archivo{% ifversion fpt or ghes or ghec %} o directorio{% endif %} que borraste contiene datos sensibles, éstos aún estarán disponibles en el historial de Git del repositorio. Para eliminar el archivo por completo de {% data variables.product.product_name %}, debes eliminar el archivo del historial de tu repositorio. Para obtener más información, consulta "[Eliminar datos confidenciales de un repositorio](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
 
 ## Borrar un archivo
 
@@ -35,7 +35,7 @@ Si el archivo{% ifversion fpt or ghes > 3.0 or ghec %} o directorio{% endif %} q
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion fpt or ghes or ghec %}
 ## Borrar un directorio
 
 1. Navega hasta el directorio que deseas borrar en tu repositorio.

@@ -1,1 +1,1 @@
-あるいは、ユーザが{% data variables.product.product_location %}のアイデンティティプロバイダに属していないなら、**Allow built-in authentication**（ビルトイン認証の許可）を選択して、ビルトイン認証を使うように招待することもできます。
+Optionally, to allow people to use built-in authentication if they don't have an account on your IdP, select **Allow built-in authentication**. 詳細は「[使用中のアイデンティティプロバイダ外のユーザのためにビルトイン認証を許可する](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider)」を参照してください。

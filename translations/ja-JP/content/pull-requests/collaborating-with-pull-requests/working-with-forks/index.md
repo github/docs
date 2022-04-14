@@ -1,6 +1,6 @@
 ---
-title: Working with forks
-intro: 'Forks are often used in open source development on {% data variables.product.product_name %}.'
+title: フォークを使って作業する
+intro: 'フォークは、{% data variables.product.product_name %} のオープンソース開発でよく使われます。'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks
   - /articles/working-with-forks
@@ -20,3 +20,4 @@ children:
   - /allowing-changes-to-a-pull-request-branch-created-from-a-fork
   - /what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
 ---
+

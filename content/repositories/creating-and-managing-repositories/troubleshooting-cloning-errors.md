@@ -119,7 +119,7 @@ Make sure that you have access to the repository in one of these ways:
 
 In rare circumstances, you may not have the proper SSH access to a repository.
 
-You should ensure that the SSH key you are using is attached to your {% data variables.product.product_name %} user account. You can check this by typing
+You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. You can check this by typing
 the following into the command line:
 
 ```shell

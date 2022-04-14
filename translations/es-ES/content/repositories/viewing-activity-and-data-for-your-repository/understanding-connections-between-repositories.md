@@ -73,5 +73,5 @@ Casi todo el software depende de el código que otros desarrolladores mantienen 
 
 La gráfica de dependencias proporciona una forma genial de visualizar y explorar las depdendencias para un repositorio. Para obtener más información, consulta las secciones "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/about-the-dependency-graph)" y "[Explorar las dependencias de un repositorio](/code-security/supply-chain-security/exploring-the-dependencies-of-a-repository)".
 
-También puedes configurar tu repositorio para que {% data variables.product.company_short %} te alerte automáticamente en cualquier momento en el que se encuentre una vulnerabilidad de seguridad en alguna de tus dependencias. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
+También puedes configurar tu repositorio para que {% data variables.product.company_short %} te alerte automáticamente en cualquier momento en el que se encuentre una vulnerabilidad de seguridad en alguna de tus dependencias. Para obtener más información, consulta la sección "[Acerca de{% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
 {% endif %}

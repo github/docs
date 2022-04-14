@@ -18,29 +18,29 @@ shortTitle: Ver patrocinadores & patrocínios
 
 Você pode ver a análise sobre seus patrocínios atuais e anteriores, os pagamentos que recebeu de patrocinadores e eventos, como cancelamentos e mudanças na camada dos patrocinadores para seus patrocínios. Você também pode visualizar as atividades, tais como novos patrocinadores, alterações e cancelamentos nos patrocínios. Você pode filtrar a lista de atividades por data. Você também pode exportar dados de patrocínio para a conta que você está visualizando em formato CSV ou JSON.
 
-## About transaction metadata
+## Sobre os metadados de transação
 
-To track where your sponsorships are coming from, you can use custom URLs with metadata for your {% data variables.product.prodname_sponsors %} profile or checkout page. The metadata will be included in your transaction export in the metadata column. For more information about exporting transaction data, see "[Exporting your sponsorship data](#exporting-your-sponsorship-data)."
+Para controlar a origem dos seus patrocinadores, você pode usar URLs personalizados com metadados para a sua página de perfil {% data variables.product.prodname_sponsors %} ou para a sua página de check-out. Os metadados serão incluídos na sua exportação de transação na coluna de metadados. Para obter mais informações sobre a exportação de dados de transação, consulte "[Exportando seus dados de patrocínio](#exporting-your-sponsorship-data)".
 
-Metadata must use the `key=value` format and can be added to the end of these URLs.
+Os metadados devem usar o formato `key=value` e podem ser adicionados ao final dessas URLs.
 
-- Sponsored account profile: `https://github.com/sponsors/{account}`
-- Sponsorship checkout: `https://github.com/sponsors/{account}/sponsorships`
+- Perfil de conta patrocinado: `https://github.com/sponsors/{account}`
+- Checkout para patrocínio: `https://github.com/sponsors/{account}/sponsorships`
 
-The metadata will persist in the URL as a potential sponsor switches accounts to sponsor with, selects monthly or one-time payments, and chooses a different tier.
+Os metadados persistirão no URL, uma vez que um potencial patrocinador troca as contas para patrocinar, seleciona pagamentos mensais ou únicos e escolhe um nível diferente.
 
-### Syntax requirements
+### Requisitos de sintaxe
 
-Your metadata must meet the following requirements, which do not apply to any other URL parameters that are passed.
+Seus metadados devem atender aos seguintes requisitos, que não se aplicam a quaisquer outros parâmetros de URL passados.
 
-- Keys must be prefixed by `metadata_`, such as `metadata_campaign`. In your transaction export, the `metadata_` prefix will be removed from the key.
-- Keys and values must only contain alphanumeric values, dashes, or underscores. If non-accepted characters are passed in either keys or values, a 404 error will be presented.
-- Whitespaces are not allowed.
-- A maximum of **10** key-value pairs are accepted per request. If more are passed, only the first 10 will be saved.
-- A maximum of **25** characters per key are accepted. If more than that are passed, only the first 25 will be saved.
-- A maximum of **100** characters per value are accepted. If more than that are passed, only the first 100 will be saved.
+- As chaves devem ser prefixadas por `metadados_`, como `metadata_campaign`. Na exportação da sua transação, os prefixo `metadada_` serão removidos da chave.
+- As chaves e os valores devem conter apenas valores alfanuméricos, hífens ou sublinhados. Se os caracteres não aceitos forem passados em chaves ou valores, será exibido um erro 404.
+- Espaços brancos não são permitidos.
+- São aceitos, no máximo **10** pares de chave-valor por solicitação. Se mais forem aprovados, apenas os primeiros 10 serão salvos.
+- São aceitos, no máximo, **25** caracteres por chave. Se mais do que isso for aprovado, apenas os primeiros 25 serão salvos.
+- São aceitos, no máximo, **100** caracteres por valor. Se mais do que isso for aprovado, apenas os primeiros 100 serão salvos.
 
-For example, you can use `https://github.com/sponsors/{account}?metadata_campaign=myblog` to track sponsorships that originate from your blog. `metadata_campaign` is the key and `myblog` is the value. In the metadata column of your transaction export, the key will be listed as `campaign`.
+Por exemplo, você pode usar `https://github.com/sponsors/{account}?metadata_campaign=myblog` para acompanhar patrocinadores que se originaram no seu blogue. `metadata_campaign` é a chave e `myblog` é o valor. Na coluna de metadados da sua exportação da transação, a chave será listada como a `campanha`.
 
 ## Exibir patrocinadores e patrocínios
 

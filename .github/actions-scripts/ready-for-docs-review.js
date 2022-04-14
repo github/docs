@@ -3,6 +3,7 @@ import { graphql } from '@octokit/graphql'
 import {
   addItemToProject,
   isDocsTeamMember,
+  isGitHubOrgMember,
   findFieldID,
   findSingleSelectID,
   generateUpdateProjectNextItemFieldMutation,
@@ -178,9 +179,12 @@ async function run() {
   let contributorType
   if (await isDocsTeamMember(process.env.AUTHOR_LOGIN)) {
     contributorType = docsMemberTypeID
+  } else if (await isGitHubOrgMember(process.env.AUTHOR_LOGIN)) {
+    contributorType = hubberTypeID
   } else if (process.env.REPO === 'github/docs') {
     contributorType = osContributorTypeID
   } else {
+    // use hubber as the fallback so that the PR doesn't get lost on the board
     contributorType = hubberTypeID
   }
 

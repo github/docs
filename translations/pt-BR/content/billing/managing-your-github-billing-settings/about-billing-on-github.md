@@ -33,10 +33,10 @@ Para obter mais informações, consulte "[Gerenciar as configurações de cobran
 
 Se você for uma organização ou proprietário de empresa, você poderá alternar entre as configurações para suas diferentes contas usando o alternador de contexto nas suas configurações.
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 1. Na parte superior da página, à direita do seu nome de usuário, clique em **Mudar para outra conta**. ![Botão alternador de contexto](/assets/images/help/settings/context-switcher-button.png)
 1. Comece a digitar o nome da conta para a qual você deseja alternar e, em seguida, clique no nome da conta. ![Menu alternador de contexto](/assets/images/help/settings/context-switcher-menu.png)
-1. Na barra lateral esquerda, clique em **Planos de & cobrança **. ![Planos de & cobrança na barra lateral de configurações](/assets/images/help/organizations/billing-settings.png)
+1. Na barra lateral esquerda, clique em **Cobrança e planos de {% octicon "credit-card" aria-label="The credit card icon" %}**.
 
 ## Leia mais
 

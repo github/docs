@@ -241,7 +241,7 @@ body:
 
 | キー        | 説明                                                  | 必須 | 種類   | デフォルト                                           | 有効な値                                            |
 | --------- | --------------------------------------------------- | -- | ---- | ----------------------------------------------- | ----------------------------------------------- |
-| `ラベル`     | フォームに表示される、予想されるユーザ入力の簡単な説明。                        | 任意 | 文字列型 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| `ラベル`     | フォームに表示される、予想されるユーザ入力の簡単な説明。                        | 必須 | 文字列型 | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 | `説明`      | フォームに表示されるチェックボックスのセットの説明。 Markdown フォーマットをサポートします。 | 任意 | 文字列型 | 空の文字列                                           | {% octicon "dash" aria-label="The dash icon" %}
 | `options` | ユーザが選択できるチェックボックスの配列。 構文については、以下を参照してください。          | 必須 | 配列   | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 

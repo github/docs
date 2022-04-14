@@ -19,37 +19,39 @@ children:
   - /codes-of-conduct
   - /code-scanning
   - /codespaces
-  - /commits
   - /collaborators
+  - /commits
+  - /dependabot
+  - /dependency-graph
+  - /deploy_keys
   - /deployments
   - /emojis
   - /enterprise-admin
   - /gists
   - /git
-  - /pages
   - /gitignore
   - /interactions
   - /issues
   - /licenses
   - /markdown
   - /meta
+  - /metrics
   - /migrations
   - /oauth-authorizations
   - /orgs
   - /packages
+  - /pages
   - /projects
   - /pulls
   - /rate-limit
   - /reactions
   - /releases
   - /repos
-  - /repository-metrics
   - /scim
   - /search
   - /secret-scanning
   - /teams
   - /users
   - /webhooks
-  - /permissions-required-for-github-apps
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Skipping workflow runs
+title: ワークフロー実行をスキップする
 intro: You can skip workflow runs triggered by the `push` and `pull_request` events by including a command in your commit message.
 versions:
   fpt: '*'
@@ -20,14 +20,14 @@ Workflows that would otherwise be triggered using `on: push` or `on: pull_reques
 * `[skip actions]`
 * `[actions skip]`
 
-Alternatively, you can end the commit message with two empty lines followed by either `skip-checks: true` or `skip-checks:true`.
+または、コミットメッセージを 2 行の空行で終了し、その後に `skip-checks: true` または `skip-checks:true` のいずれかを続けることもできます。
 
-You won't be able to merge the pull request if your repository is configured to require specific checks to pass first. To allow the pull request to be merged you can push a new commit to the pull request without the skip instruction in the commit message.
+最初にリポジトリがパスするための特定のチェックを受けるように設定されている場合、プルリクエストをマージすることはできません。 プルリクエストをマージできるようにするには、コミットメッセージのスキップ命令なしでプルリクエストに新しいコミットをプッシュできます。
 
 {% note %}
 
-**Note:** Skip instructions only apply to the `push` and `pull_request` events. For example, adding `[skip ci]` to a commit message won't stop a workflow that's triggered `on: pull_request_target` from running.
+**注釈:** スキップ命令は、`push` および `pull_request` イベントにのみ適用されます。 たとえば、コミットメッセージに `[skip ci]` を追加しても、`on: pull_request_target` でトリガーされたワークフロー実行は停止されません。
 
 {% endnote %}
 
-Skip instructions only apply to the workflow run(s) that would be triggered by the commit that contains the skip instructions. You can also disable a workflow from running. For more information, see "[Disabling and enabling a workflow](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)."
+Skip instructions only apply to the workflow run(s) that would be triggered by the commit that contains the skip instructions. You can also disable a workflow from running. 詳しい情報については、「[ワークフローの無効化と有効化](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)」を参照してください。

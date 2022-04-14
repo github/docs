@@ -1,7 +1,6 @@
 ---
 title: 查看企业中的人员
 intro: 要审核对企业拥有的资源或用户许可证使用的访问权限，企业所有者可以查看企业的每个管理员和成员。
-product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
   - /articles/viewing-people-in-your-enterprise-account
@@ -38,9 +37,21 @@ shortTitle: 查看企业中的人员
 {% ifversion ghec %}1. （可选）要查看待处理邀请列表，请单击 **_NUMBER_ pending（待处理）**。
   ![搜索和过滤选项右侧的 "NUMBER 待处理" 按钮](/assets/images/help/enterprises/members-pending.png){% endif %}
 
+{% ifversion ghec %}
+
+## 在 {% data variables.product.prodname_emu_enterprise %} 中查看暂停的成员
+
+如果您的企业使用 {% data variables.product.prodname_emus %}，您还可以查看已暂停的用户。 暂停的用户是在从 {% data variables.product.prodname_emu_idp_application %} 应用程序取消分配或从身份提供商中删除后已取消预配的成员。 更多信息请参阅“[关于企业管理用户](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)”。
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. 要查看已暂停成员的列表，请在活动成员列表上方单击 **Suspended（已暂停）**。 ![显示"已暂停"选项的屏幕截图](/assets/images/help/enterprises/view-suspended-members.png)
+
+{% endif %}
+
 ## 查看休眠用户
 
-You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} 更多信息请参阅“[管理休眠用户](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”。
+您可以查看{% ifversion ghes or ghae %}尚未暂停以及{% endif %}不是站点管理员的所有休眠用户列表。 {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} 更多信息请参阅“[管理休眠用户](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)”。
 
 ## 延伸阅读
 

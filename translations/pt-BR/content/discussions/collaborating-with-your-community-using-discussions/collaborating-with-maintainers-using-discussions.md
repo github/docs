@@ -2,7 +2,7 @@
 title: Colaboração com mantenedores usando as discussões
 shortTitle: Colaborando com mantenedores
 intro: 'Você pode contribuir para objetivos, planos, saúde e comunidade para um projeto em {% data variables.product.product_name %} comunicando-se com os mantenedores do projeto em uma discussão.'
-permissions: 'People with read access to a repository can start and participate in discussions in the repository. {% data reusables.enterprise-accounts.emu-permission-interact %}'
+permissions: 'People with read access to a repository can start and participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can start and participate in discussions and polls in the organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,7 +15,7 @@ versions:
 
 {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %}
 
-Os administradores de repositório e mantenedores de projeto podem excluir uma discussão. Para obter mais informações, consulte "[Gerenciar discussões no seu repositório](/discussions/managing-discussions-for-your-community/managing-discussions-in-your-repository#deleting-a-discussion)".
+Repository administrators and project maintainers can delete a discussion in that repository. Similarly, administrators and maintainers of the source repository for an organization's discussions can delete a discussion in that organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
 
 {% data reusables.discussions.github-recognizes-members %} Estes membros aparecem em uma lista dos colaboradores mais úteis para as discussões do projeto. À medida que o seu projeto cresce, você pode conceder mais permissões de acesso aos integrantes ativos da sua comunidade. Para obter mais informações, consulte "[Conceder permissões mais elevadas aos melhores contribuidores](/discussions/guides/granting-higher-permissions-to-top-contributors)"
 
@@ -25,24 +25,30 @@ Para obter mais informações sobre a participação em discussões, consulte "[
 
 ## Pré-requisitos
 
-Para colaborar com mantenedores em discussões, um administrador ou mantenedor do projeto deverá habilitar {% data variables.product.prodname_discussions %} para o repositório. Para obter mais informações, consulte "[Habilitando ou desabilitando {% data variables.product.prodname_discussions %} para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
+To collaborate with maintainers in repository discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. Para obter mais informações, consulte "[Habilitando ou desabilitando {% data variables.product.prodname_discussions %} para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
+
+To collaborate with maintainers in organization discussions, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
 
 ## Iniciar uma discussão
 
 {% data reusables.discussions.starting-a-discussion %}
 
+## Starting a poll
+
+{% data reusables.discussions.starting-a-poll %}
+
 ## Filtrar a lista de discussões
 
-É possível pesquisar discussões e filtrar a lista de discussões em um repositório. Para obter mais informações, consulte "[Pesquisar discussões](/search-github/searching-on-github/searching-discussions)".
+You can search for discussions and filter the list of discussions in a repository or organization. Para obter mais informações, consulte "[Pesquisar discussões](/search-github/searching-on-github/searching-discussions)".
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. No campo **Pesquisar todas as discussões**, digite uma consulta de pesquisa. Opcionalmente, à direita do campo de pesquisa, clique em um botão para filtrar ainda mais os resultados. ![Barra de pesquisa e botões para filtrar discussões](/assets/images/help/discussions/search-and-filter-controls.png)
 1. Na lista de discussões, clique na discussão que você deseja visualizar. ![Resultados da busca de discussões](/assets/images/help/discussions/search-result.png)
 
 ## Converter um problema em uma discussão
 
-{% data reusables.discussions.you-can-convert-an-issue %} Para obter mais informações, consulte "[Moderar discussões no seu repositório](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion#converting-an-issue-to-a-discussion)".
+{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
 
 ## Leia mais
 

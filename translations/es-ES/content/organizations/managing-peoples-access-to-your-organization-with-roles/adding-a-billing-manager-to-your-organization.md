@@ -53,7 +53,7 @@ Los gerentes de facturación**no** pueden:
 {% ifversion ghec %}
 {% note %}
 
-**Nota:** Si tu organización se administra utilizando [Cuentas empresariales](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts) no podrás invitar a los gerentes de facturación a nivel organizacional.
+**Nota:** Si tu organización le pertenece a una cuenta empresarial, no podrás invitar a los gerentes de facturación a nivel de esta. Para obtener más información, consulta "[Acerca de las cuentas de empresa](/admin/overview/about-enterprise-accounts)".
 
 {% endnote %}
 {% endif %}
@@ -63,3 +63,7 @@ La persona invitada recibirá una invitación por correo electrónico solicitán
 {% data reusables.organizations.billing-settings %}
 1. Debajo de "Administración de la facturación", junto a "Gerentes de facturación", haz clic en **Agregar**. ![Invitar gerente de facturación](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Escribe el nombre de usuario o la dirección de correo electrónico de la persona a la que deseas agregar y haz clic en **Send invitation** (Enviar invitación). ![Página Invitar gerente de facturación](/assets/images/help/billing/billing_manager_invite.png)
+
+## Leer más
+
+- "[Invitar a las personas para que administren tu empresa](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} en la documentación de {% data variables.product.prodname_ghe_cloud %}{% endif %}

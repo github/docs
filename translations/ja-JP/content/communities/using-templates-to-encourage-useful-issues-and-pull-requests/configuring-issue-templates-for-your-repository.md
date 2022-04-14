@@ -79,7 +79,7 @@ Issueフォームのレンダリングバージョンは次のとおりです。
 
 *config.yml* ファイルの例は次のとおりです。
 
-```shell
+```shell{:copy}
 blank_issues_enabled: false
 contact_links:
   - name: {% data variables.product.prodname_gcf %}

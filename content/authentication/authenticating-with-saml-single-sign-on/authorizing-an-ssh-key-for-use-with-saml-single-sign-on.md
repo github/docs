@@ -14,6 +14,8 @@ shortTitle: SSH Key with SAML
 ---
 You can authorize an existing SSH key, or create a new SSH key and then authorize it. For more information about creating a new SSH key, see "[Generating a new SSH key and adding it to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
+{% data reusables.saml.must-authorize-linked-identity %}
+
 {% data reusables.saml.authorized-creds-info %}
 
 {% note %}
@@ -22,8 +24,8 @@ You can authorize an existing SSH key, or create a new SSH key and then authoriz
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
 3. Next to the SSH key you'd like to authorize, click **Enable SSO** or **Disable SSO**.
 ![SSO token authorize button](/assets/images/help/settings/ssh-sso-button.png)
 4. Find the organization you'd like to authorize the SSH key for.

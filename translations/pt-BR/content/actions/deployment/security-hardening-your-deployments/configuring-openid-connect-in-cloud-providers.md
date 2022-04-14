@@ -37,14 +37,7 @@ Se seu provedor de nuvem ainda não oferece uma ação oficial, você pode atual
 
 ### Adicionando configurações de permissões
 
-O fluxo de trabalho exigirá uma configuração `permissões` com um valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por exemplo:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-Você pode precisar especificar permissões adicionais aqui, dependendo das necessidades do seu fluxo de trabalho.
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Usando ações oficiais
 
@@ -75,7 +68,7 @@ jobs:
     - name: Install OIDC Client from Core Package
       run: npm install @actions/core@1.6.0 @actions/http-client
     - name: Get Id Token
-      uses: actions/github-script@v4
+      uses: {% data reusables.actions.action-github-script %}
       id: idtoken
       with:
         script: |
@@ -97,7 +90,7 @@ jobs:
   job:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/github-script@v4
+    - uses: {% data reusables.actions.action-github-script %}
       id: script
       timeout-minutes: 10
       with:

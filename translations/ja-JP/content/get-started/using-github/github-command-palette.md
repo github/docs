@@ -2,8 +2,6 @@
 title: GitHub Command Palette
 intro: 'Use the command palette in {% data variables.product.product_name %} to navigate, search, and run commands directly from your keyboard.'
 versions:
-  fpt: '*'
-  ghec: '*'
   feature: command-palette
 shortTitle: GitHub Command Palette
 ---
@@ -28,9 +26,11 @@ The ability to run commands directly from your keyboard, without navigating thro
 
 ## Opening the {% data variables.product.prodname_command_palette %}
 
-Open the command palette using one of the following keyboard shortcuts:
-- Windows and Linux: <kbd>Ctrl</kbd><kbd>k</kbd> or <kbd>Ctrl</kbd><kbd>alt</kbd><kbd>k</kbd>
-- Mac: <kbd>⌘</kbd><kbd>k</kbd> or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd>
+Open the command palette using one of the following default keyboard shortcuts:
+- Windows and Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>
+- Mac: <kbd>Command</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd>
+
+You can customize the keyboard shortcuts you use to open the command palette in the [Accessibility section](https://github.com/settings/accessibility) of your user settings. For more information, see "[Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts](#customizing-your-github-command-palette-keyboard-shortcuts)."
 
 When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `mashed-avocado` organization).
 
@@ -39,11 +39,17 @@ When you open the command palette, it shows your location at the top left and us
 {% note %}
 
 **ノート:**
-- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd><kbd>alt</kbd><kbd>k</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>option</kbd><kbd>k</kbd> (Mac).
+- If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).
 - If you are working on a project (beta), a project-specific command palette is displayed instead. 詳しい情報については「[プロジェクト（ベータ）のビューのカスタマイズ](/issues/trying-out-the-new-projects-experience/customizing-your-project-views)」を参照してください。
 
 {% endnote %}
 
+### Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts
+
+
+The default keyboard shortcuts used to open the command palette may conflict with your default OS and browser keyboard shortcuts. You have the option to customize your keyboard shortcuts in the [Accessibility section](https://github.com/settings/accessibility) of your account settings. In the command palette settings, you can customize the keyboard shortcuts for opening the command palette in both search mode and command mode.
+
+![Command palette keyboard shortcut settings](/assets/images/help/command-palette/command-palette-keyboard-shortcut-settings.png)
 ## Navigating with the {% data variables.product.prodname_command_palette %}
 
 You can use the command palette to navigate to any page that you have access to on {% data variables.product.product_name %}.
@@ -60,7 +66,7 @@ You can use the command palette to navigate to any page that you have access to 
 
 4. Finish entering the path, or use the arrow keys to highlight the path you want from the list of suggestions.
 
-5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd><kbd>Enter</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+5. Use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
 ## Searching with the {% data variables.product.prodname_command_palette %}
 
@@ -87,7 +93,7 @@ You can use the command palette to search for anything on {% data variables.prod
 
    {% endtip %}
 
-5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd><kbd>Enter</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
+5. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
 ## Running commands from the {% data variables.product.prodname_command_palette %}
 
@@ -98,7 +104,7 @@ You can use the {% data variables.product.prodname_command_palette %} to run com
 
 For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](#github-command-palette-reference)."
 
-1. Use <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>k</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Shift</kbd><kbd>k</kbd> (Mac) to open the command palette in command mode. If you already have the command palette open, press <kbd>></kbd> to switch to command mode. {% data variables.product.prodname_dotcom %} suggests commands based on your location.
+1. The default keyboard shortcuts to open the command palette in command mode are <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac). If you already have the command palette open, press <kbd>></kbd> to switch to command mode. {% data variables.product.prodname_dotcom %} suggests commands based on your location.
 
    ![Command palette command mode](/assets/images/help/command-palette/command-palette-command-mode.png)
 
@@ -108,12 +114,15 @@ For a full list of supported commands, see "[{% data variables.product.prodname_
 
 4. Use the arrow keys to highlight the command you want and use <kbd>Enter</kbd> to run it.
 
+
 ## Closing the command palette
 
 When the command palette is active, you can use one of the following keyboard shortcuts to close the command palette:
 
-- Search and navigation mode: <kbd>esc</kbd> or <kbd>Ctrl</kbd><kbd>k</kbd> (Windows and Linux)  <kbd>⌘</kbd><kbd>k</kbd> (Mac)
-- Command mode: <kbd>esc</kbd> or <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>k</kbd> (Windows and Linux)  <kbd>⌘</kbd><kbd>Shift</kbd><kbd>k</kbd> (Mac)
+- Search and navigation mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>K</kbd> (Mac)
+- Command mode: <kbd>Esc</kbd> or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux)  <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac)
+
+If you have customized the command palette keyboard shortcuts in the Accessibility settings, your customized keyboard shortcuts will be used for both opening and closing the command palette.
 
 ## {% data variables.product.prodname_command_palette %} reference
 
@@ -121,30 +130,30 @@ When the command palette is active, you can use one of the following keyboard sh
 
 These keystrokes are available when the command palette is in navigation and search modes, that is, they are not available in command mode.
 
-| Keystroke                                                       | Function                                                                                                                                                                                                                                       |
-|:--------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>></kbd>                                                    | Enter command mode. For more information, see "[Running commands from the {% data variables.product.prodname_command_palette %}](#running-commands-from-the-github-command-palette)."                                                        |
-| <kbd>#</kbd>                                                    | Search for issues, pull requests, discussions, and projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."                             |
-| <kbd>@</kbd>                                                    | Search for users, organizations, and repositories. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."                                       |
-| <kbd>/</kbd>                                                    | Search for files within a repository scope or repositories within an organization scope. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)." |
-| <kbd>!</kbd>                                                    | Search just for projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."                                                                |
-| <kbd>Ctrl</kbd><kbd>c</kbd> or <kbd>⌘</kbd><kbd>c</kbd>         | Copy the search or navigation URL for the highlighted result to the clipboard.                                                                                                                                                                 |
-| <kbd>Enter</kbd>                                                | Jump to the highlighted result or run the highlighted command.                                                                                                                                                                                 |
-| <kbd>Ctrl</kbd><kbd>Enter</kbd> or <kbd>⌘</kbd><kbd>Enter</kbd> | Open the highlighted search or navigation result in a new brower tab.                                                                                                                                                                          |
-| <kbd>?</kbd>                                                    | Display help within the command palette.                                                                                                                                                                                                       |
+| Keystroke                                                               | Function                                                                                                                                                                                                                                       |
+|:----------------------------------------------------------------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>></kbd>                                                            | Enter command mode. For more information, see "[Running commands from the {% data variables.product.prodname_command_palette %}](#running-commands-from-the-github-command-palette)."                                                        |
+| <kbd>#</kbd>                                                            | Search for issues, pull requests, discussions, and projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."                             |
+| <kbd>@</kbd>                                                            | Search for users, organizations, and repositories. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."                                       |
+| <kbd>/</kbd>                                                            | Search for files within a repository scope or repositories within an organization scope. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)." |
+| <kbd>!</kbd>                                                            | Search just for projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."                                                                |
+| <kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>Command</kbd>+<kbd>C</kbd>         | Copy the search or navigation URL for the highlighted result to the clipboard.                                                                                                                                                                 |
+| <kbd>Enter</kbd>                                                        | Jump to the highlighted result or run the highlighted command.                                                                                                                                                                                 |
+| <kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Command</kbd>+<kbd>Enter</kbd> | Open the highlighted search or navigation result in a new brower tab.                                                                                                                                                                          |
+| <kbd>?</kbd>                                                            | Display help within the command palette.                                                                                                                                                                                                       |
 
 ### Global commands
 
 These commands are available from all scopes.
 
-| Command                              | Behavior                                                                                                                                                                                                                                                                              |
-|:------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Import repository`                  | Create a new repository by importing a project from another version control system. For more information, see "[Importing a repository with GitHub importer](/github/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)." |
-| `New gist`                           | Open a new gist. For more information, see "[Creating a gist](/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."                                                                                                                                      |
-| `New organization`                   | Create a new organization. 詳しい情報については、「[新しい Organization をゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。                                                                                                    |
-| `新規プロジェクト`                           | Create a new project board. For more information, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."                                                                                                                                      |
-| `New repository`                     | Create a new repository from scratch. 詳しい情報については「[新しいリポジトリの作成](/repositories/creating-and-managing-repositories/creating-a-new-repository)」を参照してください。                                                                                                                                 |
-| `Switch theme to <theme name>` | Change directly to a different theme for the UI. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."                                       |
+| Command                              | Behavior                                                                                                                                                                                                                                                                                   |
+|:------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Import repository`                  | Create a new repository by importing a project from another version control system. For more information, see "[Importing a repository with GitHub importer](/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-repository-with-github-importer)." |
+| `New gist`                           | Open a new gist. For more information, see "[Creating a gist](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)."                                                                                                                                      |
+| `New organization`                   | Create a new organization. 詳しい情報については、「[新しい Organization をゼロから作成する](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)」を参照してください。                                                                                                         |
+| `新規プロジェクト`                           | Create a new project board. For more information, see "[Creating a project](/issues/trying-out-the-new-projects-experience/creating-a-project)."                                                                                                                                           |
+| `New repository`                     | Create a new repository from scratch. 詳しい情報については「[新しいリポジトリの作成](/repositories/creating-and-managing-repositories/creating-a-new-repository)」を参照してください。                                                                                                                                      |
+| `Switch theme to <theme name>` | Change directly to a different theme for the UI. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."                                            |
 
 
 ### Organization commands
@@ -201,7 +210,7 @@ These commands are available only when you open the command palette from an issu
 | `Edit issue title`               | Open the title of the issue ready for editing.                                                                                                                                                                  |
 | `Lock issue`                     | Limit new comments to users with write access to the repository. 詳細は「[会話をロックする](/communities/moderating-comments-and-conversations/locking-conversations)」を参照してください。                                            |
 | `Pin`/`unpin issue`              | Change whether or not the issue is shown in the pinned issues section for the repository. 詳細は「[Issue をリポジトリにピン止めする](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)」を参照してください。      |
-| `Subscribe`/`unscubscribe`       | Opt in or out of notifications for changes to this issue. 詳しい情報については、「[通知について](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)」を参照してください。 |
+| `Subscribe`/`unsubscribe`        | Opt in or out of notifications for changes to this issue. 詳しい情報については、「[通知について](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)」を参照してください。 |
 | `Transfer issue...`              | Transfer the issue to another repository. 詳細は「[他のリポジトリへ Issue を移譲する](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)」を参照してください。                                             |
 
 ### Pull request commands
@@ -216,5 +225,5 @@ These commands are available only when you open the command palette from a pull 
 | `Edit pull request body`                                   | Open the main body of the pull request ready for editing.                                                                                                                                                                                                                                                     |
 | `Edit pull request title`                                  | Open the title of the pull request ready for editing.                                                                                                                                                                                                                                                         |
 | `Open in new codespace`                                    | Create and open a codespace for the head branch of the pull request. 詳しい情報については、「[codespace を作成する](/codespaces/developing-in-codespaces/creating-a-codespace)」を参照してください。                                                                                                                                      |
-| `Subscribe`/`unscubscribe`                                 | Opt in or out of notifications for changes to this pull request. 詳しい情報については、「[通知について](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)」を参照してください。                                                                                        |
+| `Subscribe`/`unsubscribe`                                  | Opt in or out of notifications for changes to this pull request. 詳しい情報については、「[通知について](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)」を参照してください。                                                                                        |
 | `Update current branch`                                    | Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. 詳細は「[ブランチについて](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)」を参照してください。 |

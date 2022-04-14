@@ -26,7 +26,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 4. In the "Sign in" pane, click **Sign in using your browser**. {% data variables.product.prodname_desktop %} will open your default browser.
   ![The Sign in using your browser link](/assets/images/help/desktop/sign-in-browser.png)
 
-  {% data reusables.user_settings.password-authentication-deprecation-desktop %}
+  {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.authenticate-in-browser %}
 {% data reusables.desktop.2fa-in-browser %}
@@ -34,7 +34,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 ## Authenticating an account on {% data variables.product.prodname_enterprise %}
 
-{% data reusables.user_settings.password-authentication-deprecation-desktop %}
+{% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
@@ -56,7 +56,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 4. In the Sign in pane, click **Sign in using your browser**.
   ![The Sign in using your browser link](/assets/images/help/desktop/sign-in-browser.png)
 
-  {% data reusables.user_settings.password-authentication-deprecation-desktop %}
+  {% data reusables.user-settings.password-authentication-deprecation-desktop %}
 
 {% data reusables.desktop.authenticate-in-browser %}
 {% data reusables.desktop.2fa-in-browser %}

@@ -58,7 +58,7 @@ It's not possible to add CPU or memory resources to an existing AWS/EC2 instance
 
 {% note %}
 
-**Note:** To add CPU or memory resources in Microsoft Azure, you must be familiar with using either the Azure Portal, Azure CLI or Azure Powershell to manage VM instances. For background and details on using the Azure tools of your choice to perform the resize, please refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm).
+**Note:** To add CPU or memory resources in Microsoft Azure, you must be familiar with using either the Azure Portal, Azure CLI or Azure PowerShell to manage VM instances. For background and details on using the Azure tools of your choice to perform the resize, please refer to the Azure documentation on [changing the size of a virtual machine](https://docs.microsoft.com/en-us/azure/virtual-machines/resize-vm).
 
 {% endnote %}
 

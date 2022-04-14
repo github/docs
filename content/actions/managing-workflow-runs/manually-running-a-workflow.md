@@ -20,8 +20,6 @@ To run a workflow manually, the workflow must be configured to run on the `workf
 
 ## Running a workflow
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}

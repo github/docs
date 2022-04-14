@@ -2,7 +2,7 @@
 
 `product-landing`レイアウトを使うページは、`Examples`セクションを含むことができます。 現在は、3種類の例をサポートしています。
 
-1. コードサンプル https://docs.github.com/en/actions#code-examplesを参照してください。
+1. コードサンプル https://docs.github.com/en/codespaces#code-examplesを参照してください。
 
 2. コミュニティサンプル https://docs.github.com/en/discussions#community-examplesを参照してください。
 
@@ -10,7 +10,7 @@
 
 ## 動作の仕組み
 
-それぞれの製品のサンプルデータは、`data/product-landing-examples`内の、**製品**の名前のサブディレクトリと**example type**という名前のYMLファイル（たとえば`data/product-examples/sponsors/user-examples.yml`あるいは`data/product-examples/actions/code-examples.yml`）中で定義されています。 現在は、製品ごとに1種類の例のみをサポートしています。
+Example data for each product is defined in `data/product-landing-examples`, in a subdirectory named for the **product** and a YML file named for the **example type** (e.g., `data/product-examples/sponsors/user-examples.yml` or `data/product-examples/codespaces/code-examples.yml`). 現在は、製品ごとに1種類の例のみをサポートしています。
 
 ### バージョン管理
 

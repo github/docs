@@ -33,10 +33,10 @@ Para obtener más información, consulta "[Administrar tus parámetros de factur
 
 Si eres un propietario de empresa y organización, puedes cambiar entre los ajustes para tus cuentas diferentes utilizando el alternador de contexto en tu configuración.
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 1. En la parte superior de la lágina, a la derecha de tu nombre de usuario, haz clic en **Cambiar a otra cuenta**. ![Botón de interruptor de contexto](/assets/images/help/settings/context-switcher-button.png)
 1. Comienza a teclear el nombre de la cuenta a la que quieres cambiar y luego haz clic en su nombre. ![Menú del interruptor de contexto](/assets/images/help/settings/context-switcher-menu.png)
-1. En la barra lateral izquierda, haz clic en **Facturación & planes**. ![Facturación & planes en la barra lateral de configuración](/assets/images/help/organizations/billing-settings.png)
+1. En la barra lateral izquierda, haz clic en **{% octicon "credit-card" aria-label="The credit card icon" %} Facturación y planes**.
 
 ## Leer más
 

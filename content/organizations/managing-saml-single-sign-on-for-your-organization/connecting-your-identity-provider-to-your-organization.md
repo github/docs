@@ -14,6 +14,8 @@ shortTitle: Connect an IdP
 
 When you enable SAML SSO for your {% data variables.product.product_name %} organization, you connect your identity provider (IdP) to your organization. For more information, see "[Enabling and testing SAML single sign-on for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)."
 
+{% data reusables.saml.ghec-only %}
+
 You can find the SAML and SCIM implementation details for your IdP in the IdP's documentation.
 - Active Directory Federation Services (AD FS) [SAML](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
 - Azure Active Directory (Azure AD) [SAML](https://docs.microsoft.com/azure/active-directory/active-directory-saas-github-tutorial) and [SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-saas-github-provisioning-tutorial)
@@ -21,6 +23,12 @@ You can find the SAML and SCIM implementation details for your IdP in the IdP's 
 - OneLogin [SAML](https://onelogin.service-now.com/support?id=kb_article&sys_id=2929ddcfdbdc5700d5505eea4b9619c6) and [SCIM](https://onelogin.service-now.com/support?id=kb_article&sys_id=5aa91d03db109700d5505eea4b96197e)
 - PingOne [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector)
 - Shibboleth [SAML](https://wiki.shibboleth.net/confluence/display/IDP30/Home)
+
+You can access your organization's service provider metadata at the following URL, replacing ORGANIZATION with your organization's username.
+
+```
+http(s)://github.com/orgs/ORGANIZATION/saml/metadata.xml
+```
 
 {% note %}
 

@@ -63,10 +63,11 @@ export const GuidesHero = () => {
                 >
                   <StarFillIcon size={24} />
                 </div>
-                <h3 className="text-semibold my-4">{featuredTrack.title}</h3>
+                <h2 className="text-semibold my-4 f3">{featuredTrack.title}</h2>
                 <div className="f5 my-4">{featuredTrack.description}</div>
                 {featuredTrack.guides && (
                   <Link
+                    {...{ 'aria-label': `${featuredTrack.title} - ${t('start_path')}` }}
                     className="d-inline-flex flex-items-center flex-justify-center btn px-4 py-2 f5 no-underline text-bold"
                     role="button"
                     href={`${featuredTrack.guides[0].href}?learn=${featuredTrack.trackName}&learnProduct=${featuredTrack.trackProduct}`}

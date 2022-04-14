@@ -80,7 +80,7 @@ The `org` qualifier limits actions to a specific organization. For example:
 
 ### Search based on the action performed
 
-The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[Audited actions](/admin/user-management/audited-actions)".
+The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
 
 | Category name | Description
 |------------------|-------------------

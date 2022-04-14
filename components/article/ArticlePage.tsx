@@ -1,6 +1,6 @@
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import cx from 'classnames'
-import { ActionList, Heading } from '@primer/components'
+import dynamic from 'next/dynamic'
 
 import { ZapIcon, InfoIcon, ShieldLockIcon } from '@primer/octicons-react'
 import { Callout } from 'components/ui/Callout'
@@ -8,7 +8,7 @@ import { Callout } from 'components/ui/Callout'
 import { Link } from 'components/Link'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
-import { MiniTocItem, useArticleContext } from 'components/context/ArticleContext'
+import { useArticleContext } from 'components/context/ArticleContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { LearningTrackNav } from './LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
@@ -16,6 +16,9 @@ import { Lead } from 'components/ui/Lead'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
+import { MiniTocs } from 'components/ui/MiniTocs'
+
+const ClientSideHighlightJS = dynamic(() => import('./ClientSideHighlightJS'), { ssr: false })
 
 // Mapping of a "normal" article to it's interactive counterpart
 const interactiveAlternatives: Record<string, { href: string }> = {
@@ -42,9 +45,12 @@ const interactiveAlternatives: Record<string, { href: string }> = {
       href: '/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces?langId=py',
     },
 }
+type Props = {
+  children?: React.ReactNode
+}
 
-export const ArticlePage = () => {
-  const router = useRouter()
+export const ArticlePage = ({ children }: Props) => {
+  const { asPath } = useRouter()
   const {
     title,
     intro,
@@ -59,28 +65,32 @@ export const ArticlePage = () => {
     currentLearningTrack,
   } = useArticleContext()
   const { t } = useTranslation('pages')
-  const currentPath = router.asPath.split('?')[0]
+  const currentPath = asPath.split('?')[0]
 
-  const renderTocItem = (item: MiniTocItem) => {
-    return (
-      <ActionList.Item
-        as="li"
-        key={item.contents}
-        className={item.platform}
-        sx={{ listStyle: 'none', padding: '2px' }}
-      >
-        <div className={cx('lh-condensed d-block width-full')}>
-          <div dangerouslySetInnerHTML={{ __html: item.contents }} />
-          {item.items && item.items.length > 0 ? (
-            <ul className="ml-3">{item.items.map(renderTocItem)}</ul>
-          ) : null}
-        </div>
-      </ActionList.Item>
-    )
-  }
+  // If the page contains `[data-highlight]` blocks, these pages need
+  // syntax highlighting. But not every page needs it, so it's conditionally
+  // lazy-loaded on the client.
+  const [lazyLoadHighlightJS, setLazyLoadHighlightJS] = useState(false)
+  useEffect(() => {
+    // It doesn't need to use querySelector because all we care about is if
+    // there is greater than zero of these in the DOM.
+    // Note! This "core selector", which determines whether to bother
+    // or not, needs to match what's used inside ClientSideHighlightJS.tsx
+    if (document.querySelector('[data-highlight]')) {
+      setLazyLoadHighlightJS(true)
+    }
+
+    // Important to depend on the current path because the first page you
+    // load, before any client-side navigation, might not need it, but the
+    // consecutive one does.
+  }, [asPath])
 
   return (
     <DefaultLayout>
+      {/* Doesn't matter *where* this is included because it will
+      never render anything. It always just return null. */}
+      {lazyLoadHighlightJS && <ClientSideHighlightJS />}
+
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
           topper={<ArticleTitle>{title}</ArticleTitle>}
@@ -135,28 +145,13 @@ export const ArticlePage = () => {
                 </div>
               )}
               {miniTocItems.length > 1 && (
-                <>
-                  <Heading as="h2" fontSize={1} id="in-this-article" className="mb-1">
-                    <Link href="#in-this-article">{t('miniToc')}</Link>
-                  </Heading>
-
-                  <ActionList
-                    key={title}
-                    items={miniTocItems.map((items, i) => {
-                      return {
-                        key: title + i,
-                        text: title,
-                        renderItem: () => <ul>{renderTocItem(items)}</ul>,
-                      }
-                    })}
-                  />
-                </>
+                <MiniTocs pageTitle={title} miniTocItems={miniTocItems} />
               )}
             </>
           }
         >
           <div id="article-contents">
-            <MarkdownContent>{renderedPage}</MarkdownContent>
+            <MarkdownContent>{children || renderedPage}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">
                 Effective as of:{' '}

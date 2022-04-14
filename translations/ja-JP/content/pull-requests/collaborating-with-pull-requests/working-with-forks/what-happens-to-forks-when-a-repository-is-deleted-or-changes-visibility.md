@@ -1,6 +1,6 @@
 ---
-title: What happens to forks when a repository is deleted or changes visibility?
-intro: Deleting your repository or changing its visibility affects that repository's forks.
+title: リポジトリが削除されたり可視性が変更されたりするとフォークはどうなりますか？
+intro: リポジトリを削除したり、その可視性を変更したりすると、そのリポジトリのフォークに影響します。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
   - /articles/changing-the-visibility-of-a-network
@@ -16,68 +16,69 @@ topics:
   - Pull requests
 shortTitle: Deleted or changes visibility
 ---
+
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-## Deleting a private repository
+## プライベートリポジトリを削除する
 
-When you delete a private repository, all of its private forks are also deleted.
+プライベートリポジトリを削除すると、そのプライベートフォークもすべて削除されます。
 
 {% ifversion fpt or ghes or ghec %}
 
-## Deleting a public repository
+## パブリックリポジトリを削除する
 
-When you delete a public repository, one of the existing public forks is chosen to be the new parent repository. All other repositories are forked off of this new parent and subsequent pull requests go to this new parent.
+パブリックリポジトリを削除すると、既存のパブリックフォークの 1 つが新しい親リポジトリとして選択されます。 他のすべてのリポジトリはこの新しい親から分岐し、その後のプルリクエストはこの新しい親に送られます。
 
 {% endif %}
 
-## Private forks and permissions
+## プライベートフォークと権限
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
 {% ifversion fpt or ghes or ghec %}
 
-## Changing a public repository to a private repository
+## パブリックリポジトリをプライベートリポジトリに変更する
 
-If a public repository is made private, its public forks are split off into a new network. As with deleting a public repository, one of the existing public forks is chosen to be the new parent repository and all other repositories are forked off of this new parent. Subsequent pull requests go to this new parent.
+パブリックリポジトリを非公開にすると、そのパブリックフォークは新しいネットワークに分割されます。 パブリックリポジトリの削除と同様に、既存のパブリックフォークの 1 つが新しい親リポジトリとして選択され、他のすべてのリポジトリはこの新しい親から分岐されます。 後続のプルリクエストは、この新しい親に行きます。
 
-In other words, a public repository's forks will remain public in their own separate repository network even after the parent repository is made private. This allows the fork owners to continue to work and collaborate without interruption. If public forks were not moved into a separate network in this way, the owners of those forks would need to get the appropriate [access permissions](/articles/access-permissions-on-github) to pull changes from and submit pull requests to the (now private) parent repository—even though they didn't need those permissions before.
+言い換えれば、パブリックリポジトリのフォークは、親リポジトリが非公開にされた後も、独自の別のリポジトリネットワークで公開されたままになります。 これにより、フォークオーナーは作業を中断せずに作業を継続できます。 このようにパブリックフォークが別のネットワークに移動されなかった場合、それらのフォークのオーナーは適切な[アクセス許可](/articles/access-permissions-on-github)を取得してプルする必要があります。 以前はこれらのアクセス権が必要ではなかったとしても、(現在はプライベートになっている) 親リポジトリからの変更を取得して送信します。
 
 {% ifversion ghes or ghae %}
-If a public repository has anonymous Git read access enabled and the repository is made private, all of the repository's forks will lose anonymous Git read access and return to the default disabled setting. If a forked repository is made public, repository administrators can re-enable anonymous Git read access. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."
+パブリックリポジトリで匿名の Git 読み取りアクセスが有効になっていて、そのリポジトリが非公開になっている場合、リポジトリのすべてのフォークは匿名の Git 読み取りアクセスを失い、デフォルトの無効設定に戻ります。 分岐したリポジトリが公開された場合、リポジトリ管理者は匿名の Git 読み取りアクセスを再度有効にすることができます。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。
 {% endif %}
 
-### Deleting the private repository
+### プライベートリポジトリを削除する
 
-If a public repository is made private and then deleted, its public forks will continue to exist in a separate network.
+パブリックリポジトリを非公開にしてから削除しても、そのパブリックフォークは別のネットワークに存在し続けます。
 
-## Changing a private repository to a public repository
+## プライベートリポジトリのパブリックリポジトリへの変更
 
-If a private repository is made public, each of its private forks is turned into a standalone private repository and becomes the parent of its own new repository network. Private forks are never automatically made public because they could contain sensitive commits that shouldn't be exposed publicly.
+プライベートリポジトリが公開されると、そのプライベートフォークはそれぞれスタンドアロンのプライベートリポジトリになり、独自の新しいリポジトリネットワークの親になります。 プライベートフォークは、公開されるべきではない機密のコミットを含む可能性があるため、自動的に公開されることはありません。
 
-### Deleting the public repository
+### パブリックリポジトリを削除する
 
-If a private repository is made public and then deleted, its private forks will continue to exist as standalone private repositories in separate networks.
+プライベートリポジトリを公開してから削除しても、そのプライベートフォークは独立したプライベートリポジトリとして別々のネットワークに存在し続けます。
 
 {% endif %}
 
 {% ifversion ghes or ghec or ghae %}
 
-## Changing the visibility of an internal repository
+## 内部リポジトリの表示を変更する
 
 
 
-If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or user account will remain private.
+Enterprise のポリシーでフォークが許可されている場合、内部リポジトリのフォークはすべてプライベートになります。 内部リポジトリの表示を変更した場合、Organization またはユーザアカウントが所有するフォークはすべてプライベートのままになります。
 
-### Deleting the internal repository
+### 内部リポジトリを削除する
 
-If you change the visibility of an internal repository and then delete the repository, the forks will continue to exist in a separate network.
+内部リポジトリの表示を変更してからリポジトリを削除すると、フォークは別のネットワークに引き続き存在します。
 
 {% endif %}
 
-## Further reading
+## 参考リンク
 
-- "[Setting repository visibility](/articles/setting-repository-visibility)"
-- "[About forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Managing the forking policy for your repository](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)"
-- "[Managing the forking policy for your organization](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)"
+- 「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」
+- 「[フォークについて](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)」
+- 「[リポジトリのフォークポリシーを管理する](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」
+- 「[Organization のフォークポリシーを管理する](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)」
 - "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-forking-private-or-internal-repositories)"

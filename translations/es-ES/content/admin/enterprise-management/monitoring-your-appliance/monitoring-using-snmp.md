@@ -3,7 +3,7 @@ title: Supervisar por medio de SNMP
 intro: '{% data variables.product.prodname_enterprise %} proporciona datos sobre el uso del disco, la utilización del CPU, el uso de la memoria y más sobre SNMP.'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
-  - /enterprise/admin/articles/monitoring-using-snmp/
+  - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
 versions:

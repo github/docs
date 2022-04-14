@@ -2,10 +2,10 @@
 title: Configurar el correo electrónico para notificaciones
 intro: 'Para que sea más fácil para los usuarios el responder rápidamente a la actividad de {% data variables.product.product_name %}, puedes configurar a {% data variables.product.product_location %} para que envíe notificaciones por correo electrónico para las propuestas, solicitudes de cambio y comentarios de las confirmaciones.'
 redirect_from:
-  - /enterprise/admin/guides/installation/email-configuration/
-  - /enterprise/admin/articles/configuring-email/
-  - /enterprise/admin/articles/troubleshooting-email/
-  - /enterprise/admin/articles/email-configuration-and-troubleshooting/
+  - /enterprise/admin/guides/installation/email-configuration
+  - /enterprise/admin/articles/configuring-email
+  - /enterprise/admin/articles/troubleshooting-email
+  - /enterprise/admin/articles/email-configuration-and-troubleshooting
   - /enterprise/admin/user-management/configuring-email-for-notifications
   - /admin/configuration/configuring-email-for-notifications
 versions:
@@ -74,7 +74,7 @@ Los propietarios de las empresas pueden configurar los correos electrónicos par
 
 4. Si el correo electrónico de prueba falla, [soluciona los problemas de los parámetros de tu correo electrónico](#troubleshooting-email-delivery).
 5. Cuando el correo electrónico de prueba es exitoso, en la parte inferior de la página, haz clic en **Guardar parámetros**. ![Botón Guardar parámetros](/assets/images/enterprise/management-console/save-settings.png)
-6. Espera que se complete la fase de configuración. ![Configurar tu instancia](/assets/images/enterprise/management-console/configuration-run.png)
+{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 ## Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes
 

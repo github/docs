@@ -1,6 +1,6 @@
 ---
-title: Adding or editing wiki pages
-intro: 'You can add and edit wiki pages directly on {% data variables.product.product_name %} or locally using the command line.'
+title: ウィキページを追加または編集する
+intro: 'ウィキページは、{% data variables.product.product_name %} 上で直接、あるいはコマンドラインを使ってローカルで追加および編集できます。'
 redirect_from:
   - /articles/adding-wiki-pages-via-the-online-interface
   - /articles/editing-wiki-pages-via-the-online-interface
@@ -16,55 +16,47 @@ versions:
   ghec: '*'
 topics:
   - Community
-shortTitle: Manage wiki pages
+shortTitle: Wikiページの管理
 ---
 
-## Adding wiki pages
+## ウィキページを追加する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-3. In the upper-right corner of the page, click **New Page**.
-  ![Wiki new page button](/assets/images/help/wiki/wiki_new_page_button.png)
-4. Optionally, to write in a format other than Markdown, use the Edit mode drop-down menu, and click a different format.
-  ![Wiki markup selection](/assets/images/help/wiki/wiki_dropdown_markup.gif)
-5. Use the text editor to add your page's content.
-  ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Type a commit message describing the new file you’re adding.
-  ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
-7. To commit your changes to the wiki, click **Save Page**.
+3. ページの右上にある [**New Page**] をクリックします。 ![ウィキの新規ページボタン](/assets/images/help/wiki/wiki_new_page_button.png)
+4. Markdown 以外のフォーマットで書くために、[Edit mode] ドロップダウンメニューを使い、他のフォーマットをクリックすることもできます。 ![ウィキのマークアップの選択](/assets/images/help/wiki/wiki_dropdown_markup.gif)
+5. テキストエディタを使って、ページの内容を追加してください。 ![ウィキの WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. 追加しようとしている新しいファイルを説明するコミットメッセージを入力してください。 ![ウィキのコミットメッセージ](/assets/images/help/wiki/wiki_commit_message.png)
+7. 変更を wiki にコミットするには [**Save Page**] をクリックします。
 
-## Editing wiki pages
+## ウィキページを編集する
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}
-4. Using the wiki sidebar, navigate to the page you want to change. In the upper-right corner of the page, click **Edit**.
-   ![Wiki edit page button](/assets/images/help/wiki/wiki_edit_page_button.png)
-5. Use the text editor edit the page's content.
-   ![Wiki WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
-6. Type a commit message describing your changes.
-   ![Wiki commit message](/assets/images/help/wiki/wiki_commit_message.png)
-7. To commit your changes to the wiki, click **Save Page**.
+4. ウィキサイドバーを使用して、変更したいページに移動してください。 ページの右上にある [**Edit**] をクリックしてください。 ![ウィキのページ編集ボタン](/assets/images/help/wiki/wiki_edit_page_button.png)
+5. テキストエディタを使って、ページの内容を編集します。 ![ウィキの WYSIWYG](/assets/images/help/wiki/wiki_wysiwyg.png)
+6. 変更内容を説明するコミットメッセージを入力します。 ![ウィキのコミットメッセージ](/assets/images/help/wiki/wiki_commit_message.png)
+7. 変更を wiki にコミットするには [**Save Page**] をクリックします。
 
-## Adding or editing wiki pages locally
+## ローカルでウィキページを追加または編集する
 
-Wikis are part of Git repositories, so you can make changes locally and push them to your repository using a Git workflow.
+ウィキは Git のリポジトリの一部なので、Git ワークフローを使ってローカルで変更を加え、リポジトリにプッシュできます。
 
-### Cloning wikis to your computer
+### 手元のコンピュータへウィキをクローンする
 
-Every wiki provides an easy way to clone its contents down to your computer.
-You can clone the repository to your computer with the provided URL:
+すべてのウィキは、その内容をあなたのコンピュータにクローンする簡単な方法を提供しています。 提供されている次の URL でお使いのコンピュータにリポジトリをクローンできます。
 
 ```shell
 $ git clone https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.wiki.git
-# Clones the wiki locally
+# ローカルに wiki をクローン
 ```
 
-Once you have cloned the wiki, you can add new files, edit existing ones, and commit your changes. You and your collaborators can create branches when working on wikis, but only changes pushed to the default branch will be made live and available to your readers.
+wiki をクローンした後は、新しいファイルの追加、既存のファイルの編集、変更のコミットができます。 ユーザとコラボレータは、Wiki で作業するときにブランチを作成できますが、デフォルトブランチにプッシュされた変更のみがライブになり、読者はそれのみを利用できます。
 
-## About wiki filenames
+## ウィキのファイル名について
 
-The filename determines the title of your wiki page, and the file extension determines how your wiki content is rendered.
+wiki のページのタイトルはファイル名で決まり、ファイルの拡張子で wiki の内容の描画方法が決まります。
 
-Wikis use [our open-source Markup library](https://github.com/github/markup) to convert the markup, and it determines which converter to use by a file's extension. For example, if you name a file *foo.md* or *foo.markdown*, wiki will use the Markdown converter, while a file named *foo.textile* will use the Textile converter.
+wiki は[弊社のオープンソースマークアップライブラリ](https://github.com/github/markup)でマークアップに変換され、ライブラリはファイルの拡張子によって使用するコンバータが決定されます。 たとえばファイルに *foo.md* あるいは *foo.markdown* という名前を付けた場合、wiki は Markdown コンバータを使います。一方で、*foo.textile* という名前のファイルには Textile コンバータが使われます。
 
-Don't use the following characters in your wiki page's titles: `\ / : * ? " < > |`. Users on certain operating systems won't be able to work with filenames containing these characters. Be sure to write your content using a markup language that matches the extension, or your content won't render properly.
+wiki ページのタイトルには `\ / : * ? " < > |` という文字は使わないでください。 特定のオペレーティングシステムのユーザは、これらの文字を含むファイル名を扱えません。 内容を書く上では、拡張子にマッチしたマークアップ言語を使ってください。そうなっていない場合、内容は正しく描画されません。

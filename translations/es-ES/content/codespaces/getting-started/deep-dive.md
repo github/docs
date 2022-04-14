@@ -24,7 +24,7 @@ There are a number of entry points to create a codespace.
   
 Your codespace can be ephemeral if you need to test something or you can return to the same codespace to work on long-running feature work. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
 
-Once you've selected the option to create a new codespace, some steps happen in the background before the codespace is available to you.
+Once you've selected the option to create a new codespace, and chosen a machine type for your codespace, some steps happen in the background before the codespace is available to you.
 
 ![Open with Codespaces button](/assets/images/help/codespaces/new-codespace-button.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Creating a new repository
-intro: You can create a new repository on your personal account or any organization where you have sufficient permissions.
+title: Crear un repositorio nuevo
+intro: Puedes crear un repositorio nuevo en tu cuenta personal o la cuenta de cualquier organización en la que tengas los permisos suficientes.
 redirect_from:
   - /creating-a-repo
   - /articles/creating-a-repository-in-an-organization
@@ -19,41 +19,39 @@ versions:
 topics:
   - Repositories
 ---
+
 {% tip %}
 
-**Tip:** Owners can restrict repository creation permissions in an organization. For more information, see "[Restricting repository creation in your organization](/articles/restricting-repository-creation-in-your-organization)."
+**Sugerencia:** Los propietarios pueden restringir los permisos de creación de repositorios en una organización. Para obtener más información, consulta "[Restringir la creación de repositorios en tu organización](/articles/restricting-repository-creation-in-your-organization)".
 
 {% endtip %}
 
 {% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
-**Tip**: You can also create a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
+**Tip**: También puedes crear un repositorio utilizando el {% data variables.product.prodname_cli %}. Para obtener más información, consulta "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" en la documentación de {% data variables.product.prodname_cli %}.
 
 {% endtip %}
 {% endif %}
 
 {% data reusables.repositories.create_new %}
-2. Optionally, to create a repository with the directory structure and files of an existing repository, use the **Choose a template** drop-down and select a template repository. You'll see template repositories that are owned by you and organizations you're a member of or that you've used before. For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
-  ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% ifversion fpt or ghae or ghes or ghec %}
-3. Optionally, if you chose to use a template, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
-    ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
-3. In the Owner drop-down, select the account you wish to create the repository on.
-   ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
+2. Otra opción para crear un repositorio con la estructura del directorio y los archivos de un repositorio existente es usar el menú desplegable **Elegir una plantilla** y seleccionar un repositorio de plantillas. Verás repositorios de plantillas que te pertenecen a ti y a las organizaciones de las que eres miembro o bien repositorios de plantillas que has usado anteriormente. Para obtener más información, consulta "[Crear un repositorio a partir de una plantilla](/articles/creating-a-repository-from-a-template)". ![Template drop-down menu](/assets/images/help/repository/template-drop-down.png){% ifversion fpt or ghae or ghes or ghec %}
+3. De manera opcional, si decides utilizar una plantilla, para incluir la estructura del directorio y los archivos de todas las ramas en la misma y no solo la rama predeterminada, selecciona **Incluir todas las ramas**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
+3. En el menú desplegable de Propietario, selecciona la cuenta en la cual quieres crear el repositorio. ![Menú desplegable Propietario](/assets/images/help/repository/create-repository-owner.png)
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
-6. If you're not using a template, there are a number of optional items you can pre-populate your repository with. If you're importing an existing repository to {% data variables.product.product_name %}, don't choose any of these options, as you may introduce a merge conflict. You can add or create new files using the user interface or choose to add new files using the command line later. For more information, see "[Importing a Git repository using the command line](/articles/importing-a-git-repository-using-the-command-line/)," "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)," and "[Addressing merge conflicts](/articles/addressing-merge-conflicts/)."
-    - You can create a README, which is a document describing your project. For more information, see "[About READMEs](/articles/about-readmes/)."
-    - You can create a *.gitignore* file, which is a set of ignore rules. For more information, see "[Ignoring files](/github/getting-started-with-github/ignoring-files)."{% ifversion fpt or ghec %}
-    - You can choose to add a software license for your project. For more information, see "[Licensing a repository](/articles/licensing-a-repository)."{% endif %}
+6. Si no estás utilizando una plantilla, hay varios elementos opcionales que puedes pre-cargar en tu repositorio. Si estás importando un repositorio existente a {% data variables.product.product_name %}, no elijas ninguna de estas opciones, ya que producirás un conflicto de fusión. Puedes agregar o crear nuevos archivos usando la interfaz de usuario o elegir agregar nuevos archivos usando luego la línea de comando. Para obtener más información, consulta las secciones "[Importar un repositorio de Git utilizando la línea de comandos](/articles/importing-a-git-repository-using-the-command-line/)", "[Agregar un archivo a un repositorio](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)" y "[Abordar los conflictos de fusión](/articles/addressing-merge-conflicts/)".
+    - Puedes crear un README, que es un documento que describe tu proyecto. Para obtener más información, consulta "[Acerca de los README](/articles/about-readmes/)".
+    - Puedes crear un archivo *.gitignore*, que es un conjunto de reglas de ignorar. Para obtener más información, consulta "[Ignorar archivos](/github/getting-started-with-github/ignoring-files)".{% ifversion fpt or ghec %}
+    - Puedes elegir agregar una licencia de software a tu proyecto. Para más información, consulta "[Licenciando un repositorio](/articles/licensing-a-repository)."{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}
 {% ifversion fpt or ghec %}
-9. At the bottom of the resulting Quick Setup page, under "Import code from an old repository", you can choose to import a project to your new repository. To do so, click **Import code**.
+9. En la parte inferior de la página de Configuración rápida resultante, en "Importar el código del repositorio anterior", puedes elegir importar un proyecto en tu nuevo repositorio. Para hacerlo, haz clic en **Importar código**.
 {% endif %}
 
-## Further reading
+## Leer más
 
-- "[Managing access to your organization's repositories](/articles/managing-access-to-your-organization-s-repositories)"
-- [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
+- [Administrar el acceso a los repositorios de tu organización](/articles/managing-access-to-your-organization-s-repositories)"
+- [Guías de código abierto](https://opensource.guide/){% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

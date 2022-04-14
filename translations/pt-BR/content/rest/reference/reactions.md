@@ -13,10 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Tipos de reação
-
-Ao criar uma reação, os valores permitidos para o parâmetro `conteúdo` são os seguintes (com o emoji correspondente para referência):
-
-{% data reusables.repositories.reaction_list %}
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/reactions
+-->

@@ -1,7 +1,7 @@
 ---
-title: Using Codespaces for pull requests
+title: 将 Codespaces 用于拉取请求
 shortTitle: 拉取请求
-intro: 'You can use {% data variables.product.prodname_codespaces %} in your development workflow to create pull requests, review pull requests, and address review comments.'
+intro: '您可以在开发工作流程中使用 {% data variables.product.prodname_codespaces %} 来创建拉取请求、审阅拉取请求和处理审阅注释。'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -15,28 +15,28 @@ topics:
 
 ## 关于 {% data variables.product.prodname_codespaces %} 中的拉取请求
 
-{% data variables.product.prodname_codespaces %} provides you with many of the capabilities you might need to work with pull requests:
+{% data variables.product.prodname_codespaces %} 为您提供了处理拉取请求可能需要的许多功能：
 
-- [Create a pull request](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - Using either the Terminal and Git commands or the Source Control view, you can create pull requests just as you would on {% data variables.product.prodname_dotcom_the_website %}. If the repository uses a pull request template, you'll be able to use this within the Source Control view.
-- [Open a pull request](#opening-a-pull-request-in-codespaces) – You can open an existing pull request in a codespace, provided you have codespace access to the branch that is being merged in.
-- [Review a pull request](#reviewing-a-pull-request-in-codespaces) - Once you have opened a pull request in a codespace, you can use the "GitHub Pull Request" view to add review comments and approve pull requests. You can also use {% data variables.product.prodname_codespaces %} to [view review comments](#view-comments-from-a-review-in-codespaces).
+- [创建拉取请求](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - 使用终端和 Git 命令或源代码管理视图，您可以像创建 {% data variables.product.prodname_dotcom_the_website %} 一样创建拉取请求。 如果存储库使用拉取请求模板，则可以在源代码管理视图中使用它。
+- [打开拉取请求](#opening-a-pull-request-in-codespaces) – 您可以在代码空间中打开现有的拉取请求，前提是您对要合并的分支具有代码空间访问权限。
+- [审查拉取请求](#reviewing-a-pull-request-in-codespaces) - 在代码空间中打开拉取请求后，可以使用“GitHub 拉取请求”视图添加审阅注释并批准拉取请求。 您还可以使用 {% data variables.product.prodname_codespaces %} [查看审阅注释](#view-comments-from-a-review-in-codespaces)。
 
-## Opening a pull request in {% data variables.product.prodname_codespaces %}
+## 在 {% data variables.product.prodname_codespaces %} 中打开拉取请求
 
 {% data reusables.repositories.sidebar-pr %}
 
-2. In the list of pull requests, click the pull request you'd like to open in {% data variables.product.prodname_codespaces %}.
-3. On the right-hand side of your screen, click **{% octicon "code" aria-label="The code icon" %} Code**.
-4. From the {% data variables.product.prodname_codespaces %} tab, click **New codespace**. ![Option to open PR in a codespace](/assets/images/help/codespaces/open-with-codespaces-pr.png)
+2. 在拉取请求列表中，单击要在 {% data variables.product.prodname_codespaces %} 中打开的拉取请求。
+3. 在屏幕右侧，单击 **{% octicon "code" aria-label="The code icon" %} 代码**。
+4. 从 {% data variables.product.prodname_codespaces %} 选项卡中，单击 **New codespace（新建代码空间）**。 ![用于在代码空间中打开 PR 的选项](/assets/images/help/codespaces/open-with-codespaces-pr.png)
 
-## Reviewing a pull request in {% data variables.product.prodname_codespaces %}
+## 在 {% data variables.product.prodname_codespaces %} 中审阅拉取请求
 
 {% data reusables.codespaces.review-pr %}
 
-For more information on reviewing a pull request, see "[Reviewing proposed changes in a pull request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
+有关审阅拉取请求的详细信息，请参阅“[审阅拉取请求中提议的更改](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)”。
 
-## View comments from a review in {% data variables.product.prodname_codespaces %}
+## 查看 {% data variables.product.prodname_codespaces %} 中审阅的评论
 
-Once you have received feedback on a pull request, you can [open it in a codespace](#opening-a-pull-request-in-codespaces) to see the [review comments](#reviewing-a-pull-request-in-codespaces). From there you can respond to comments, add reactions, or dismiss the review.
+收到有关拉取请求的反馈后，您可以[在代码空间中将其打开](#opening-a-pull-request-in-codespaces)，以查看[审阅注释](#reviewing-a-pull-request-in-codespaces)。 从那里，您可以回复评论、添加回复或关闭评论。
 
-  ![Option to open PR in a codespace](/assets/images/help/codespaces/incorporating-codespaces.png)
+  ![用于在代码空间中打开 PR 的选项](/assets/images/help/codespaces/incorporating-codespaces.png)

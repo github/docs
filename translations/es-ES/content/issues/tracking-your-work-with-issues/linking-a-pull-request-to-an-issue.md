@@ -3,8 +3,8 @@ title: Linking a pull request to an issue
 intro: You can link a pull request to an issue to show that a fix is in progress and to automatically close the issue when the pull request is merged.
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
-  - /articles/closing-issues-via-commit-message/
-  - /articles/closing-issues-via-commit-messages/
+  - /articles/closing-issues-via-commit-message
+  - /articles/closing-issues-via-commit-messages
   - /articles/closing-issues-using-keywords
   - /github/managing-your-work-on-github/closing-issues-using-keywords
   - /github/managing-your-work-on-github/linking-a-pull-request-to-an-issue
@@ -71,8 +71,12 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 3. In the list of pull requests, click the pull request that you'd like to link to an issue.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6234 %}
+4. In the right sidebar, in the "Development" section click {% octicon "gear" aria-label="The Gear icon" %}.
+{% else %}
 4. In the right sidebar, click **Linked issues**.
   ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)
+{% endif %}
 5. Click the issue you want to link to the pull request.
   ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
 {% endif %}

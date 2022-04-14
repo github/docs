@@ -24,11 +24,11 @@ topics:
 
 This guide shows you workflow examples that configure a service container using the Docker Hub `redis` image. The workflow runs a script to create a Redis client and populate the client with data. To test that the workflow creates and populates the Redis client, the script prints the client's data to the console.
 
-{% data reusables.github-actions.docker-container-os-support %}
+{% data reusables.actions.docker-container-os-support %}
 
 ## Prerequisites
 
-{% data reusables.github-actions.service-container-prereqs %}
+{% data reusables.actions.service-container-prereqs %}
 
 You may also find it helpful to have a basic understanding of YAML, the syntax for {% data variables.product.prodname_actions %}, and Redis. For more information, see:
 
@@ -37,11 +37,10 @@ You may also find it helpful to have a basic understanding of YAML, the syntax f
 
 ## Running jobs in containers
 
-{% data reusables.github-actions.container-jobs-intro %}
+{% data reusables.actions.container-jobs-intro %}
 
-{% data reusables.github-actions.copy-workflow-file %}
+{% data reusables.actions.copy-workflow-file %}
 
-{% raw %}
 ```yaml{:copy}
 name: Redis container example
 on: push
@@ -70,7 +69,7 @@ jobs:
     steps:
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       # Performs a clean installation of all dependencies in the `package.json` file
       # For more information, see https://docs.npmjs.com/cli/ci.html
@@ -88,13 +87,12 @@ jobs:
           # The default Redis port
           REDIS_PORT: 6379
 ```
-{% endraw %}
 
 ### Configuring the container job
 
-{% data reusables.github-actions.service-container-host %}
+{% data reusables.actions.service-container-host %}
 
-{% data reusables.github-actions.redis-label-description %}
+{% data reusables.actions.redis-label-description %}
 
 ```yaml{:copy}
 jobs:
@@ -121,13 +119,13 @@ jobs:
 
 ### Configuring the steps
 
-{% data reusables.github-actions.service-template-steps %}
+{% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
-    uses: actions/checkout@v2
+    uses: {% data reusables.actions.action-checkout %}
 
   # Performs a clean installation of all dependencies in the `package.json` file
   # For more information, see https://docs.npmjs.com/cli/ci.html
@@ -146,7 +144,7 @@ steps:
       REDIS_PORT: 6379
 ```
 
-{% data reusables.github-actions.redis-environment-variables %}
+{% data reusables.actions.redis-environment-variables %}
 
 The hostname of the Redis service is the label you configured in your workflow, in this case, `redis`. Because Docker containers on the same user-defined bridge network open all ports by default, you'll be able to access the service container on the default Redis port 6379.
 
@@ -154,9 +152,8 @@ The hostname of the Redis service is the label you configured in your workflow, 
 
 When you run a job directly on the runner machine, you'll need to map the ports on the service container to ports on the Docker host. You can access service containers from the Docker host using `localhost` and the Docker host port number.
 
-{% data reusables.github-actions.copy-workflow-file %}
+{% data reusables.actions.copy-workflow-file %}
 
-{% raw %}
 ```yaml{:copy}
 name: Redis runner example
 on: push
@@ -186,7 +183,7 @@ jobs:
     steps:
       # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       # Performs a clean installation of all dependencies in the `package.json` file
       # For more information, see https://docs.npmjs.com/cli/ci.html
@@ -205,13 +202,12 @@ jobs:
           # The default Redis port
           REDIS_PORT: 6379
 ```
-{% endraw %}
 
 ### Configuring the runner job
 
-{% data reusables.github-actions.service-container-host-runner %}
+{% data reusables.actions.service-container-host-runner %}
 
-{% data reusables.github-actions.redis-label-description %}
+{% data reusables.actions.redis-label-description %}
 
 The workflow maps port 6379 on the Redis service container to the Docker host. For more information about the `ports` keyword, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
@@ -241,13 +237,13 @@ jobs:
 
 ### Configuring the steps
 
-{% data reusables.github-actions.service-template-steps %}
+{% data reusables.actions.service-template-steps %}
 
 ```yaml{:copy}
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
-    uses: actions/checkout@v2
+    uses: {% data reusables.actions.action-checkout %}
 
   # Performs a clean installation of all dependencies in the `package.json` file
   # For more information, see https://docs.npmjs.com/cli/ci.html
@@ -267,9 +263,9 @@ steps:
       REDIS_PORT: 6379
 ```
 
-{% data reusables.github-actions.redis-environment-variables %}
+{% data reusables.actions.redis-environment-variables %}
 
-{% data reusables.github-actions.service-container-localhost %}
+{% data reusables.actions.service-container-localhost %}
 
 ## Testing the Redis service container
 
@@ -277,7 +273,7 @@ You can test your workflow using the following script, which creates a Redis cli
 
 You can modify *client.js* to include any Redis operations needed by your workflow. In this example, the script creates the Redis client instance, adds placeholder data, then retrieves the data.
 
-{% data reusables.github-actions.service-container-add-script %}
+{% data reusables.actions.service-container-add-script %}
 
 ```javascript{:copy}
 const redis = require("redis");

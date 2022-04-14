@@ -16,7 +16,6 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
@@ -55,9 +54,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 1. Add an app setting called `SCM_DO_BUILD_DURING_DEPLOYMENT` and set the value to `1`.
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Creating the workflow
 
@@ -88,10 +85,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Set up Python version
-        uses: actions/setup-python@v2.2.2
+        uses: {% data reusables.actions.action-setup-python %}
         with:
           python-version: {% raw %}${{ env.PYTHON_VERSION }}{% endraw %}
 
@@ -101,7 +98,7 @@ jobs:
           source venv/bin/activate
       
       - name: Set up dependency caching for faster installs
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         with:
           path: ~/.cache/pip
           key: {% raw %}${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}{% endraw %}
@@ -114,11 +111,11 @@ jobs:
       # Optional: Add a step to run tests here (PyTest, Django test suites, etc.)
 
       - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: python-app
           path: |
-            . 
+            .
             !venv/
   deploy:
     runs-on: ubuntu-latest
@@ -129,7 +126,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: python-app
           path: .

@@ -16,7 +16,9 @@ shortTitle: 更改洞察可见性
 
 组织所有者可设置查看组织依赖项洞察图的限制。 默认情况下，组织的所有成员都可以查看组织依赖项洞察图。
 
-企业所有者可设置企业帐户中所有组织的查看组织依赖项洞察图限制。 更多信息请参阅“[在企业帐户中实施依赖项洞察的策略](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)”。
+{% ifversion ghec %}
+企业所有者可设置企业帐户中所有组织的查看组织依赖项洞察图限制。 更多信息请参阅“[在企业帐户中实施依赖项洞察的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise)”。
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

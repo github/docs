@@ -16,9 +16,9 @@ shortTitle: Request OAuth App approval
 ---
 ## Requesting organization approval for an {% data variables.product.prodname_oauth_app %} you've already authorized for your personal account
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.access_applications %}
-{% data reusables.user_settings.access_authorized_oauth_apps %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.access_applications %}
+{% data reusables.user-settings.access_authorized_oauth_apps %}
 3. In the list of applications, click the name of the {% data variables.product.prodname_oauth_app %} you'd like to request access for.
 ![View application button](/assets/images/help/settings/settings-third-party-view-app.png)
 4. Next to the organization you'd like the {% data variables.product.prodname_oauth_app %} to access, click **Request access**.

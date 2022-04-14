@@ -21,13 +21,13 @@
 {% data variables.product.prodname_dependabot_alerts %}について受ける方法は、カスタマイズできます。 たとえば、**Email a digest summary of vulnerabilities（脆弱性のダイジェストサマリーメール）**及び**Weekly security email digest（週間のセキュリティメールダイジェスト）**オプションを使って、最大10件のリポジトリに関するアラートをまとめた週間のダイジェストメールを受信できます。
 {% endif %}
 
-{% ifversion ghes = 3.0 or ghes = 3.1 %}
+{% ifversion ghes = 3.1 %}
 デフォルトでは、サイト管理者がインスタンスに関する通知のメールを設定すると、
 {% data variables.product.prodname_dependabot_alerts %}を受信することになります:
-- メールの場合、メールは{% ifversion ghes > 3.0 %}重要度が重大あるいは高の{% endif %}脆弱性が見つかるたびに送信されます（**Email each time a vulnerability is found（脆弱性が見つかるたびにメール）**オプション）
+- メールの場合、メールは重要度が重大あるいは高の脆弱性が見つかるたびに送信されます（**Email each time a vulnerability is found（脆弱性が見つかるたびにメール）**オプション）
 - ユーザインターフェースでは、脆弱な依存関係がある場合にリポジトリのファイル及びコードビューに警告が表示されます（**UI alerts（UIアラート）**オプション）
 - コマンドラインでは、脆弱性のある依存関係を伴うプッシュをリポジトリに対して行った場合に、コールバックとして警告が表示されます（**Command Line（コマンドライン）**オプション）
-- インボックスには、{% ifversion ghes > 3.0 %}重要度が重大もしくは高の新しい脆弱性に対して{% endif %}Web通知が表示されます（**Web**オプション）
+- インボックスには、重要度が重大もしくは高の新しい脆弱性に対してWeb通知が表示されます（**Web**オプション）
 通知を
 
 {% data variables.product.prodname_dependabot_alerts %}について受ける方法は、カスタマイズできます。 たとえば、**Email a digest summary of vulnerabilities（脆弱性のダイジェストサマリーメール）**及び**Weekly security email digest（週間のセキュリティメールダイジェスト）**オプションを使って、最大10件のリポジトリに関するアラートをまとめた週間のダイジェストメールを受信できます。

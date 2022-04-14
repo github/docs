@@ -1,11 +1,11 @@
 ---
-title: Configuring OpenID Connect in Amazon Web Services
-shortTitle: Configuring OpenID Connect in Amazon Web Services
-intro: 'Use OpenID Connect within your workflows to authenticate with Amazon Web Services.'
+title: 在 Amazon Web Services 中配置 OpenID Connect
+shortTitle: 在 Amazon Web Services 中配置 OpenID Connect
+intro: 在工作流程中使用 OpenID Connect 向 Amazon Web Services 进行身份验证。
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghae: 'issue-4856'
+  ghae: issue-4856
   ghec: '*'
 type: tutorial
 topics:
@@ -15,63 +15,57 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## Overview
+## 概览
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Amazon Web Services (AWS), without needing to store the AWS credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. 
+OpenID Connect (OIDC) 允许您的 {% data variables.product.prodname_actions %} 工作流程访问 Amazon Web Services (AWS) 中的资源，而无需将任何 AWS 凭据存储为长期 {% data variables.product.prodname_dotcom %} 机密。
 
-This guide explains how to configure AWS to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) that uses tokens to authenticate to AWS and access resources.
+本指南介绍如何配置 AWS 信任 {% data variables.product.prodname_dotcom %} 的 OIDC 作为联合标识，并包括使用令牌向 AWS 验证并访问资源的 [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) 工作流程示例。
 
-## Prerequisites
+## 基本要求
 
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
 
-## Adding the identity provider to AWS
+## 将身份提供商添加到 AWS
 
-To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
+要将 {% data variables.product.prodname_dotcom %} OIDC 提供商添加到 IAM，请参阅 [AWS 文档](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html)。
 
-- For the provider URL: Use `https://token.actions.githubusercontent.com`
-- For the "Audience": Use `sts.amazonaws.com` if you are using the [official action](https://github.com/aws-actions/configure-aws-credentials).
+- 对于提供商 URL：使用 `https://token.actions.githubusercontent.com`
+- 对于“受众”：如果您使用的是[官方操作](https://github.com/aws-actions/configure-aws-credentials)，请使用 `sts.amazonaws.com`。
 
-### Configuring the role and trust policy
+### 配置角色和信任策略
 
-To configure the role and trust in IAM, see the AWS documentation for ["Assuming a Role"](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role) and ["Creating a role for web identity or OpenID connect federation"](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html).
+要在 IAM 中配置角色和信任，请参阅 AWS 文档中的[“假定角色”](https://github.com/aws-actions/configure-aws-credentials#assuming-a-role)和[“为 Web 身份或 OpenID Connect Federation 创建角色”](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html)。
 
-Edit the trust relationship to add the `sub` field to the validation conditions. For example:
+编辑信任关系以将 `sub` 字段添加到验证条件。 例如：
 
 ```json{:copy}
 "Condition": {
-  "StringEquals": {
+  "ForAllValues:StringEquals": {
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
 ```
 
-## Updating your {% data variables.product.prodname_actions %} workflow
+## 更新 {% data variables.product.prodname_actions %} 工作流程
 
-To update your workflows for OIDC, you will need to make two changes to your YAML:
-1. Add permissions settings for the token.
-2. Use the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) action to exchange the OIDC token (JWT) for a cloud access token.
+要更新 OIDC 的工作流程，您需要对 YAML 进行两项更改：
+1. 为令牌添加权限设置。
+2. 使用 [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) 操作将 OIDC 令牌 (JWT) 交换为云访问令牌。
 
-### Adding permissions settings
+### 添加权限设置
 
-The workflow will require a `permissions` setting with a defined [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) value. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. For example:
+ {% data reusables.actions.oidc-permissions-token %}
 
-```yaml{:copy}
-permissions:
-  id-token: write
-```
+### 请求访问令牌
 
-You may need to specify additional permissions here, depending on your workflow's requirements. 
+`aws-actions/configure-aws-credentials` 操作从 {% data variables.product.prodname_dotcom %} OIDC 提供商接收 JWT，然后从 AWS 请求访问令牌。 更多信息请参阅 AWS [文档](https://github.com/aws-actions/configure-aws-credentials)。
 
-### Requesting the access token
-
-The `aws-actions/configure-aws-credentials` action receives a JWT from the {% data variables.product.prodname_dotcom %} OIDC provider, and then requests an access token from AWS. For more information, see the AWS [documentation](https://github.com/aws-actions/configure-aws-credentials).
-
-- `<example-bucket-name>`: Add the name of your S3 bucket here.
-- `<role-to-assume>`: Replace the example with your AWS role.
-- `<example-aws-region>`: Add the name of your AWS region here.
+- `<example-bucket-name>`：在此处添加 S3 存储桶的名称。
+- `<role-to-assume>`：将示例替换为您的 AWS 角色。
+- `<example-aws-region>`：在此处添加您的 AWS 区域的名称。
 
 ```yaml{:copy}
 # Sample workflow to access AWS resources when workflow is tied to branch
@@ -85,15 +79,15 @@ env:
 # permission can be added at job level or workflow level    
 permissions:
       id-token: write
-      contents: read    # This is required for actions/checkout@v1
+      contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
-        uses: actions/checkout@v1
+        uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession

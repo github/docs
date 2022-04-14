@@ -29,7 +29,7 @@ You can use custom fields to add metadata to your tasks. For example, you can tr
 - a number field to track the complexity of a task
 - a single select field to track whether a task is Low, Medium, or High priority
 - a text field to add a quick note
-- an iteration field to plan work week-by-week
+- an iteration field to plan work week-by-week, including support for breaks
 
 ### Viewing your project from different perspectives
 

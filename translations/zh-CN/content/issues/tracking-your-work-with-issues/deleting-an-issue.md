@@ -17,7 +17,7 @@ topics:
 
 仅可删除个人用户帐户拥有的仓库中的议题。 无法删除其他用户帐户拥有仓库中的议题，即使是该帐户的协作者也一样。
 
-如需删除组织拥有仓库中的议题，组织所有者必须启用删除组织仓库的议题，并且您必须拥有该仓库的管理员或所有者权限。 For more information, see "[Allowing people to delete issues in your organization](/articles/allowing-people-to-delete-issues-in-your-organization)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+如需删除组织拥有仓库中的议题，组织所有者必须启用删除组织仓库的议题，并且您必须拥有该仓库的管理员或所有者权限。 更多信息请参阅“[允许人员删除组织中的议题](/articles/allowing-people-to-delete-issues-in-your-organization)”和“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 删除议题时，协作者不会收到通知。 访问已删除议题的 URL 时，协作者会看到注明议题已删除的消息。 拥有仓库管理员或所有者权限的人员还将看到删除议题的人员的用户名和删除时间。
 

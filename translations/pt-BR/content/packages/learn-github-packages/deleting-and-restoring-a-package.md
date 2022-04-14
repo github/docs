@@ -9,8 +9,9 @@ redirect_from:
   - /packages/guides/deleting-a-container-image
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '>=3.2'
   ghec: '*'
+  ghae: '*'
 shortTitle: Excluir & restaurar um pacote
 ---
 
@@ -36,6 +37,7 @@ Em {% data variables.product.prodname_dotcom %}, você também pode restaurar um
 - Você restaurar o pacote dentro de 30 dias após a exclusão.
 - O mesmo namespace do pacote ainda estiver disponível e não for usado para um novo pacote.
 
+{% ifversion fpt or ghec or ghes %}
 ## Suporte de API de pacotes
 
 {% ifversion fpt or ghec %}
@@ -44,7 +46,7 @@ Você pode usar a API REST para gerenciar seus pacotes. Para obter mais informa�
 
 {% endif %}
 
-Para pacotes que herdam suas permissões e acesso dos repositórios, você pode usar o GraphQL para excluir uma versão específica de pacotes.{% ifversion fpt or ghec %} A {% data variables.product.prodname_registry %} API do GraphQL API não é compatível com contêineres ou imagens Docker que usam o namespace do pacote `https://ghcr.io/OWNER/PACKAGE-NAME`. Para obter mais informações sobre o suporte do GraphQL, consulte "[Excluir uma versão de um pacote com escopo de repositório com GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)".
+Para pacotes que herdam suas permissões e acesso dos repositórios, você pode usar o GraphQL para excluir uma versão específica de pacotes.{% ifversion fpt or ghec %} A API do GraphQL de {% data variables.product.prodname_registry %} não é compatível com contêineres ou imagens Docker que usam o namespace `https://ghcr. o/OWNER/PACKAGE-NAME`.{% endif %} Para obter mais informações sobre o suporte do GraphQL, consulte "[Excluindo uma versão de um pacote com escopo de repositório com o GraphQL](#deleting-a-version-of-a-repository-scoped-package-with-graphql)".
 
 {% endif %}
 
@@ -62,8 +64,7 @@ Os pacotes com escopo de repositório em {% data variables.product.prodname_regi
 
 {% ifversion fpt or ghec %}
 
-Para excluir um pacote que tem permissões granulares separadas de um repositório, como imagens de contêiner armazenadas em `https://ghcr.io/OWNER/PACKAGE-NAME`, você deverá ter acesso de administrador ao pacote.
- <!--PLACEHOLDER - once packages restructuring is done this is a good place to link to the access control and visibility article.-->
+Para excluir um pacote que tem permissões granulares separadas de um repositório, como imagens de contêiner armazenadas em `https://ghcr.io/OWNER/PACKAGE-NAME`, você deverá ter acesso de administrador ao pacote. Para obter mais informações, consulte "[Sobre permissões para {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages)".
 
 {% endif %}
 
@@ -80,13 +81,16 @@ Para excluir uma versão de um pacote com escopo do repositório, você deve ter
 5. À direita da versão que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e selecione **Excluir versão**. ![Botão para excluir a versão do pacote](/assets/images/help/package-registry/delete-container-package-version.png)
 6. Para confirmar a exclusão, digite o nome do pacote e clique em **Eu entendo as consequências. Exclua esta versão**. ![Botão de confirmar exclusão de pacote](/assets/images/help/package-registry/package-version-deletion-confirmation.png)
 
+{% ifversion fpt or ghec or ghes %}
 ### Excluir uma versão de um pacote com escopo do repositório com o GraphQL
 
 Para pacotes que herdam suas permissões e acesso dos repositórios, você pode usar o GraphQL para excluir uma versão específica de pacotes.
 
 {% ifversion fpt or ghec %}
-O GraphQL não é compatível com contêineres ou imagens Docker em `ghcr.io`.
-{% endif %}<!--PLACEHOLDER for when API link is live:  For full support, use the REST API. For more information, see the "\[{% data variables.product.prodname_registry %} API\](/rest/reference/packages)." -->Use a mutação `deletePackageVersion` na API do GraphQL. Você deve usar um token com os escopos `read:packages`, `delete:packages` e `repo`. For more information about tokens, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#about-tokens)."
+Para contêineres ou imagens do Docker em `ghcr.io`, o GraphQL não é compatível, mas você pode usar a API REST. Para obter mais informações, consulte o "[API de {% data variables.product.prodname_registry %}](/rest/reference/packages)".
+{% endif %}
+
+Use a mutação `deletePackageVersion` na API do GraphQL. Você deve usar um token com os escopos `read:packages`, `delete:packages` e `repo`. For more information about tokens, see "[About {% data variables.product.prodname_registry %}](/packages/publishing-and-managing-packages/about-github-packages#about-tokens)."
 
 O exemplo a seguir demonstra como excluir uma versão do pacote, usando um `packageVersionId` de `MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`.
 
@@ -98,11 +102,13 @@ curl -X POST \
 HOSTNAME/graphql
 ```
 
-To find all of the private packages you have published to {% data variables.product.prodname_registry %}, along with the version IDs for the packages, you can use the `registryPackagesForQuery` connection. Você vai precisar de um token com os escopos `read:packages` e `repo`. For more information, see the [`packages`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository) connection or the [`PackageOwner`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner) interface.
+Para encontrar todos os pacotes privados que você publicou em {% data variables.product.prodname_registry %}, junto com os IDs de versão dos pacotes, você pode usar a conexão dos `pacotes` através do objeto `repositório`. Você vai precisar de um token com os escopos `read:packages` e `repo`. Para obter mais informações, consulte a conexão dos [`pacotes`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/objects#repository) ou a interface do [`proprietário do pacote`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#packageowner).
 
 Para obter mais informações sobre a mutação `deletePackageVersion`, consulte "[`deletePackageVersion`]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/reference/mutations#deletepackageversion)".
 
 Você não pode excluir diretamente um pacote inteiro usando o GraphQL, mas se você excluir todas as versões de um pacote, o pacote não será mostrado em {% data variables.product.product_name %}.
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ### Excluindo uma versão de pacote com escopo do usuário em {% data variables.product.prodname_dotcom %}
@@ -117,11 +123,11 @@ Para revisar quem pode excluir uma versão de pacote, consulte "[Permissões nec
 5. À direita da versão que você deseja excluir, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e selecione **Excluir versão**. ![Botão para excluir a versão do pacote](/assets/images/help/package-registry/delete-container-package-version.png)
 6. Para confirmar a exclusão, digite o nome do pacote e clique em **Eu entendo as consequências. Exclua esta versão**. ![Botão de confirmar exclusão de pacote](/assets/images/help/package-registry/confirm-container-package-version-deletion.png)
 
-### Excluir uma versão de um pacote com escopo da organização no GitHub
+### Excluindo a versão de um pacote com escopo da organização em {% data variables.product.prodname_dotcom %}
 
 Para excluir uma versão específica de um pacote com escopo de organização em {% data variables.product.prodname_dotcom %}, como para uma imagem Docker em `ghcr.io`, siga estas etapas. Para excluir um pacote inteiro, consulte "[Excluir todo um pacote com escopo da organização em {% data variables.product.prodname_dotcom %}](#deleting-an-entire-organization-scoped-package-on-github)".
 
-Para revisar quem pode excluir uma versão de pacote, consulte "[Permissões necessárias](#required-permissions-to-delete-or-restore-a-package)".
+Para revisar quem pode excluir uma versão de pacote, consulte "[Permissões necessárias para excluir ou restaurar um pacote](#required-permissions-to-delete-or-restore-a-package)".
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
@@ -170,12 +176,18 @@ Você pode restaurar um pacote ou versão excluído, se:
 - Você restaurar o pacote dentro de 30 dias após a exclusão.
 - O mesmo namespace e versão do pacote ainda estiverem disponíveis e não forem reutilizados para um novo pacote.
 
-Por exemplo, se você tem um pacote de rubygem excluído denominado `octo-package` que teve o escopo definido como repositório `octo-repo-owner/octo-repo`, você só poderá restaurar o pacote se o namespace do pacote `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` ainda estiver disponível, e 30 dias ainda não passaram.
+Por exemplo, se você tem um pacote de RubyGems excluído denominado `octo-package` que teve o escopo definido como repositório `octo-repo-owner/octo-repo`, você só poderá restaurar o pacote se o namespace do pacote `rubygem.pkg.github.com/octo-repo-owner/octo-repo/octo-package` ainda estiver disponível, e 30 dias ainda não passaram.
 
-Você também deve atender a um destes requisitos de permissão:
+{% ifversion fpt or ghec %}
+Para restaurar um pacote excluído, você também deve atender a um desses requisitos de permissão:
   - Para pacotes com escopo de repositório: Você tem permissões de administrador no repositório ao qual o pacote excluído pertence.{% ifversion fpt or ghec %}
-  - Para pacotes com escopo de conta de usuário: Sua conta de usuário é proprietária do pacote excluído.
+  - For user-account scoped packages: Your personal account owns the deleted package.
   - Para os pacotes com escopo da organização: Você tem permissões de administrador para o pacote excluído na organização que é proprietário do pacote.{% endif %}
+{% endif %}
+
+{% ifversion ghae or ghes %}
+Para excluir um pacote, você também deve ter permissões de administrador no repositório que possui o pacote excluído.
+{% endif %}
 
 Para obter mais informações, consulte "[Permissões necessárias](#required-permissions-to-delete-or-restore-a-package)".
 
@@ -183,7 +195,7 @@ Uma vez restaurado o pacote, este usará o mesmo namespace de antes. Se o mesmo 
 
 ### Restaurando um pacote de uma organização
 
-Você pode restaurar um pacote excluído por meio das configurações da conta da sua organização, desde que o pacote esteja em um dos seus repositórios{% ifversion fpt or ghec %} ou tenha permissões granulares e tenha o escopo na conta da organização{% endif %}.
+ Você pode restaurar um pacote excluído por meio das configurações da conta da sua organização, desde que o pacote esteja em um repositório pertencente à organização{% ifversion fpt or ghec %} ou tenha permissões granulares e escopo na conta da sua organização{% endif %}.
 
 Para revisar quem pode restaurar um pacote em uma organização, consulte "[Permissões necessárias](#required-permissions-to-delete-or-restore-a-package)".
 
@@ -197,9 +209,9 @@ Para revisar quem pode restaurar um pacote em uma organização, consulte "[Perm
 
 ### Restaurar um pacote com escopo de conta de usuário
 
-Você pode restaurar um pacote excluído por meio das configurações da sua conta de usuário, se o pacote estiver em um de seus repositórios ou escopo para sua conta de usuário. Para obter mais informações, consulte "[Permissões necessárias](#required-permissions-to-delete-or-restore-a-package)".
+You can restore a deleted package through your personal account settings, if the package was in one of your repositories or scoped to your personal account. Para obter mais informações, consulte "[Permissões necessárias](#required-permissions-to-delete-or-restore-a-package)".
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
 2. À esquerda, clique em **Pacotes**.
 4. Em "Pacotes excluídos", ao lado do pacote que você deseja restaurar, clique em **Restaurar**. ![Botão de restaurar](/assets/images/help/package-registry/restore-option-for-deleted-package-in-an-org.png)
 5. Para confirmar, digite o nome do pacote e clique em **Eu entendo as consequências, restaure este pacote**. ![Restaurar botão de confirmação do pacote](/assets/images/help/package-registry/type-package-name-and-restore-button.png)

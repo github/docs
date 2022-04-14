@@ -1,6 +1,6 @@
 ---
-title: Restoring a deleted repository
-intro: Site administrators can restore deleted repositories to recover their contents.
+title: Restaurando un repositorio eliminado
+intro: Los administradores de sitio pueden restablecer repositorios borrados para recuperar sus contenidos.
 versions:
   ghes: '*'
   ghae: '*'
@@ -8,27 +8,28 @@ topics:
   - Enterprise
   - Privacy
   - Repositories
-shortTitle: Restore a deleted repository
+shortTitle: Restablecer un repositorio borrado
 ---
-Usually, if someone deletes a repository, it will be available on disk for 90 days and can be restored via the site admin dashboard. Unless a legal hold is in effect on a user or organization, after 90 days the repository is purged and deleted forever.
 
-## About repository restoration
+Generalmente, si alguien elimina un repositorio, estará disponible en el disco por 90 días y se puede restablecer mediante el tablero de administración del sitio. A menos de que exista una orden de conservación por razones legales en curso para un usuario u organización, el repositorio se purgará y borrará para siempre después de 90 días.
 
-If a repository was part of a fork network when it was deleted, the restored repository will be detached from the original fork network.
+## Acerca de la restauración de repositorios
 
-It can take up to an hour after a repository is deleted before that repository is available for restoration.
+Si un repositorio fuera parte de una red de bifurcaciones cuando se borró, el repositorio restablecido se desprenderá de la red de bifurcación original.
 
-Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
+Puede tardar hasta una hora después de que se elimine un repositorio antes de que ese repositorio esté disponible para la restauración.
 
-## Restoring a deleted repository
+Restaurar un repositorio no restaurará los archivos adjuntos de lanzamiento o los permisos de equipo. Las propuestas que se restablezcan no se etiquetarán.
+
+## Restaurando un repositorio eliminado
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
-1. In the {% octicon "repo" aria-label="The repo icon" %} **Repositories** section, click the {% octicon "trash" aria-label="The trash icon" %} **Deleted repositories** link.
-1. Find the repository you want to restore in the deleted repositories list, then to the right of the repository name click **Restore**.
-1. To confirm you would like to restore the named repository, click **Restore**.
+1. En la sección de {% octicon "repo" aria-label="The repo icon" %} **Repositorios**, haz clic en el enlace {% octicon "trash" aria-label="The trash icon" %} **Repositorios borrados**.
+1. Encuentra el repositorios que quieras restablecer en la lista de repositorios borrados y luego, a la derecha del nombre del mismo, haz clic en **Restablecer**.
+1. Para confirmar que te gustaría restablecer el repositorio nombrado, haz clic en **Restablecer**.
 
-## Further reading
+## Leer más
 
-- "[Placing a legal hold on a user or organization](/admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)"
+- "[Colocar una retención legal en un usuario u organización](/admin/user-management/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)"

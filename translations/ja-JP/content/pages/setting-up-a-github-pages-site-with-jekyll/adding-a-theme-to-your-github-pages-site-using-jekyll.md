@@ -1,6 +1,6 @@
 ---
-title: Adding a theme to your GitHub Pages site using Jekyll
-intro: You can personalize your Jekyll site by adding and customizing a theme.
+title: Jekyll を使用して GitHub Pages サイトにテーマを追加する
+intro: テーマを追加およびカスタマイズすることにより、Jekyll サイトをパーソナライズできます。
 redirect_from:
   - /articles/customizing-css-and-html-in-your-jekyll-theme
   - /articles/adding-a-jekyll-theme-to-your-github-pages-site
@@ -14,30 +14,28 @@ versions:
   ghec: '*'
 topics:
   - Pages
-shortTitle: Add theme to Pages site
+shortTitle: Pagesサイトへのテーマの追加
 ---
 
-People with write permissions for a repository can add a theme to a {% data variables.product.prodname_pages %} site using Jekyll.
+リポジトリへの書き込み権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加できます。
 
 {% data reusables.pages.test-locally %}
 
-## Adding a theme
+## テーマを追加する
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-2. Navigate to *_config.yml*.
+2. *_config.yml* に移動します。
 {% data reusables.repositories.edit-file %}
-4. Add a new line to the file for the theme name.
-   - To use a supported theme, type `theme: THEME-NAME`, replacing _THEME-NAME_ with the name of the theme as shown in the README of the theme's repository. For a list of supported themes, see "[Supported themes](https://pages.github.com/themes/)" on the {% data variables.product.prodname_pages %} site.
-   ![Supported theme in config file](/assets/images/help/pages/add-theme-to-config-file.png)
-   - To use any other Jekyll theme hosted on {% data variables.product.prodname_dotcom %}, type `remote_theme: THEME-NAME`, replacing THEME-NAME with the name of the theme as shown in the README of the theme's repository.
-   ![Unsupported theme in config file](/assets/images/help/pages/add-remote-theme-to-config-file.png)
+4. テーマ名のために、ファイルに新しい行を追加します。
+   - サポートされているテーマを使用するには、`theme: THEME-NAME` と入力し、テーマのリポジトリの README に表示されているテーマの名前に _THEME-NAME_ を置き換えます。 サポートされているテーマのリストについては、{% data variables.product.prodname_pages %} サイトで「[サポートされているテーマ](https://pages.github.com/themes/)」を参照してください。 ![設定ファイルでサポートされているテーマ](/assets/images/help/pages/add-theme-to-config-file.png)
+   - {% data variables.product.prodname_dotcom %} にホストされているその他の任意の Jekyll テーマを使うには、`remote_theme: THEME-NAME` と入力します。THEME-NAME の部分は、テーマのリポジトリの README に表示されている名前に置き換えます。 ![設定ファイルでサポートされていないテーマ](/assets/images/help/pages/add-remote-theme-to-config-file.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
 
-## Customizing your theme's CSS
+## テーマの CSS をカスタマイズする
 
 {% data reusables.pages.best-with-supported-themes %}
 
@@ -45,31 +43,31 @@ People with write permissions for a repository can add a theme to a {% data vari
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-1. Create a new file called _/assets/css/style.scss_.
-2. Add the following content to the top of the file:
+1. _/assets/css/style.scss_ という新しいファイルを作成します。
+2. ファイルの先頭に、以下の内容を追加します。
   ```scss
   ---
   ---
 
   @import "{{ site.theme }}";
   ```
-3. Add any custom CSS or Sass (including imports) you'd like immediately after the `@import` line.
+3. カスタム CSS または Sass (インポートファイルも含む) があれば `@import` 行の直後に追加します。
 
-## Customizing your theme's HTML layout
+## テーマの HTML レイアウトをカスタマイズする
 
 {% data reusables.pages.best-with-supported-themes %}
 
 {% data reusables.pages.theme-customization-help %}
 
-1. On {% data variables.product.prodname_dotcom %}, navigate to your theme's source repository. For example, the source repository for Minima is https://github.com/jekyll/minima.
-2. In the *_layouts* folder, navigate to your theme's _default.html_ file.
-3. Copy the contents of the file.
+1. {% data variables.product.prodname_dotcom %} 上で、テーマのソースリポジトリにアクセスします。 たとえば、Minima のソースリポジトリは https://github.com/jekyll/minima です。
+2. *_layouts* フォルダ内で、テーマの _default.html_ ファイルに移動します。
+3. ファイルのコンテンツをコピーします。
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.pages.navigate-publishing-source %}
-6. Create a file called *_layouts/default.html*.
-7. Paste the default layout content you copied earlier.
-8. Customize the layout as you'd like.
+6. *_layouts/default.html* というファイルを作成します。
+7. 先ほどコピーしたデフォルトのレイアウトコンテンツを貼り付けます。
+8. 必要に応じてレイアウトをカスタマイズします。
 
-## Further reading
+## 参考リンク
 
-- "[Creating new files](/articles/creating-new-files)"
+- [新しいファイルの作成](/articles/creating-new-files)

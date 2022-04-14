@@ -16,7 +16,7 @@ shortTitle: Crear una plantilla de solicitud de cambios
 
 Para obtener más información, consulta "[Acerca de las plantillas de propuestas y solicitudes de extracción](/articles/about-issue-and-pull-request-templates)".
 
-Puedes crear un subdirectorio *PULL_REQUEST_TEMPLATE/* en alguna de las carpetas admitidas para incluir múltiples plantillas de solicitudes de extracción, y utilizar el parámetro de consulta `template` para especificar la plantilla que completará el cuerpo de la solicitud de extracción. Para obtener más información, consulta "[Acerca de la automatización para las propuestas y las solicitudes de extracción con parámetros de consulta ](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"
+Puedes crear un subdirectorio *PULL_REQUEST_TEMPLATE/* en alguna de las carpetas admitidas para incluir múltiples plantillas de solicitudes de extracción, y utilizar el parámetro de consulta `template` para especificar la plantilla que completará el cuerpo de la solicitud de extracción. Para obtener más información, consulta la sección "[Utilizar parámetros de consulta para crear una solicitud de cambios](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/using-query-parameters-to-create-a-pull-request)".
 
 {% ifversion fpt or ghes or ghec %}
 

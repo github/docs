@@ -76,6 +76,7 @@ sections:
         - The latest release of the CodeQL CLI supports uploading analysis results to GitHub. This makes it easier to run code analysis for customers who wish to use CI/CD systems other than {% data variables.product.prodname_actions %}. Previously, such users had to use the separate CodeQL runner, which will continue to be available. For more information, see "[About CodeQL code scanning in your CI system](/enterprise-server@3.1/code-security/secure-coding/about-codeql-code-scanning-in-your-ci-system)."
         - '{% data variables.product.prodname_actions %} now supports skipping `push` and `pull_request` workflows by looking for some common keywords in your commit message.'
         - Check annotations older than four months will be archived.
+        - Scaling of worker allocation for background tasks has been revised. We recommend validating that the new defaults are appropriate for your workload. Custom background worker overrides should be unset in most cases. [Updated 2022-03-18]
 
     - heading: Security Changes
       notes:

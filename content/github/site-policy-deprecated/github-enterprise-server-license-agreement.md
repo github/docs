@@ -8,12 +8,7 @@ versions:
   fpt: '*'
 ---
 
-_These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://www.github.com/enterprise-legal for current terms._
-
-PLEASE READ THIS AGREEMENT CAREFULLY AS IT GOVERNS YOUR USE OF THE PRODUCTS (AS DEFINED BELOW), UNLESS WE HAVE EXECUTED A SEPARATE WRITTEN AGREEMENT WITH YOU FOR THAT PURPOSE.
-
-BY CLICKING ON THE "I AGREE" OR SIMILAR BUTTON OR BY ACCESSING THE PRODUCTS, YOU ACCEPT ALL THE TERMS AND CONDITIONS OF THIS AGREEMENT. IF YOU ARE ENTERING INTO THIS AGREEMENT ON BEHALF OF A COMPANY OR OTHER LEGAL ENTITY (HEREINAFTER "**Customer**"), CUSTOMER REPRESENTS THAT IT HAS THE LEGAL AUTHORITY TO BIND THE COMPANY OR OTHER LEGAL ENTITY TO THIS AGREEMENT. GITHUB MAY MODIFY THIS AGREEMENT FROM TIME TO TIME, SUBJECT
-TO SECTION 18.12.
+_These terms apply to Customers who have executed agreements in place referencing them. All other corporate customers are directed to https://www.github.com/customer-terms for current terms._
 
 This Agreement applies to the following GitHub offerings, as further defined below (collectively, the **“Products”**):
 
@@ -36,6 +31,8 @@ If Customer has purchased the Products from a GitHub Partner, the following prov
 "**Affiliate**" means any entity that directly or indirectly controls, is controlled by, or is under common control with a party where "control" means having more than fifty percent (50%) ownership or the right to direct the management of the entity.
 
 "**Beta Previews** means software, services, or features identified as alpha, beta, preview, early access, or evaluation, or words or phrases with similar meanings.
+
+"**Customer**" means the company or organization that has entered into this Agreement with GitHub by clicking on the "I AGREE" or similar button or by accessing the Products.
 
 "**Customer Modifications**" means Software modifications Customer may make solely for the purpose of developing bug fixes, customizations, or additional features to any libraries licensed under open source licenses that may be included with or linked to by the Software.
 

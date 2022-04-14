@@ -1,1 +1,1 @@
-（可选）选择 **Allow built-in authentication（允许内置身份验证）**以邀请用户使用内置身份验证（如果他们不属于 {% data variables.product.product_location %} 的身份提供程序）。
+Optionally, to allow people to use built-in authentication if they don't have an account on your IdP, select **Allow built-in authentication**. 更多信息请参阅“[允许对身份提供程序覆盖范围以外的用户进行内置身份验证](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/allowing-built-in-authentication-for-users-outside-your-identity-provider)”。

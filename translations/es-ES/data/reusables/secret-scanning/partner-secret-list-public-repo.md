@@ -58,6 +58,7 @@
 | Meta                      | Token de Acceso a Facebook                                  |
 | npm                       | Token de Acceso de npm                                      |
 | NuGet                     | Clave de API de NuGet                                       |
+| Octopus Deploy            | Llave de la API de Octopus Deploy                           |
 | OpenAI                    | Clave de la API de OpenAI                                   |
 | Palantir                  | Token Web de JSON de Palantir                               |
 | PlanetScale               | Contraseña de base de datos de PlanetScale                  |
@@ -90,6 +91,7 @@
 | Stripe                    | Clave Secreta de API de Pruebas de Stripe                   |
 | Stripe                    | Clave Restringida de API de Stripe Live                     |
 | Stripe                    | Clave Restringida de API de Pruebas de Stripe               |
+| Supabase                  | Supabase Service Key                                        |
 | Tencent Cloud             | ID de Secreto de Tencent Cloud                              |
 | Twilio                    | Identificador de Secuencia de Cuenta de Twilio              |
 | Twilio                    | Clave de API de Twilio                                      |

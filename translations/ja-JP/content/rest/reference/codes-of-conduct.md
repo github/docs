@@ -1,6 +1,6 @@
 ---
 title: 行動規範
-intro: The Codes of Conduct API lets you to retrieve the information about a particular repository's code of conduct.
+intro: Codes of Conduct APIを使うと、特定のリポジトリの行動規範に関する情報を取得できます。
 redirect_from:
   - /v3/codes_of_conduct
   - /v3/codes-of-conduct
@@ -14,6 +14,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Codes of Conduct API を使用して、リポジトリの行動規範に関する情報を取得できます。 リポジトリの行動規範を取得するには、「[Get a repository](/rest/reference/repos#get-a-repository)」エンドポイントを使用します。
-
-{% include rest_operations_at_current_path %}
+<!--
+  Operations are automatically generated. Markdown for this page is located in data/reusables/rest-reference/codes-of-conduct
+-->

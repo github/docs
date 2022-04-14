@@ -31,7 +31,7 @@ shortTitle: 验证或批准域
 
 {% ifversion fpt or ghec %}在 {% data variables.product.prodname_ghe_cloud %} 上，验证组织域的所有权后，您可以将组织的电子邮件通知限制为该域。 更多信息请参阅“[限制组织的电子邮件通知](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)”。 {% ifversion fpt %}{% data reusables.enterprise.link-to-ghec-trial %}{% endif %}{% endif %}
 
-{% ifversion fpt or ghec %}You can also verify custom domains used for {% data variables.product.prodname_pages %} to prevent domain takeovers when a custom domain remains configured but your {% data variables.product.prodname_pages %} site is either disabled or no longer uses the domain. For more information, see "[Verifying your custom domain for {% data variables.product.prodname_pages %}](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."{% endif %}
+{% ifversion fpt or ghec %}您还可以验证用于 {% data variables.product.prodname_pages %} 的自定义域，以防止在自定义域保持配置状态但您的 {% data variables.product.prodname_pages %} 站点被禁用或不再使用该域时域接管。 更多信息请参阅“[验证 {% data variables.product.prodname_pages %} 的自定义域](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)”。{% endif %}
 
 ## 关于域批准
 

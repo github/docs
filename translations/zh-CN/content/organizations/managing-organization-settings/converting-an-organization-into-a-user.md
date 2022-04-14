@@ -18,7 +18,7 @@ shortTitle: 将组织转换为用户
 
 {% note %}
 
-**Note**: After an account is deleted, the username at the time of deletion becomes unavailable for reuse for 90 days. To reuse an organization's username immediately, you must change the username before you delete the organization.
+**注意**：删除帐户后，删除时的用户名将在 90 天内无法重复使用。 要立即重复使用组织的用户名，您必须在删除组织之前更改用户名。
 
  {% endnote %}
 
@@ -26,7 +26,7 @@ shortTitle: 将组织转换为用户
 2. [将用户的角色更改为所有者](/articles/changing-a-person-s-role-to-owner)。
 3. {% data variables.product.signin_link %} 到新用户帐户。
 4. [将每个组织仓库转让](/articles/how-to-transfer-a-repository)给新用户帐户。
-5. [Rename the organization](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username) to make the current username available.
+5. [重命名组织](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username)以使当前用户名可用。
 6. [将用户重命名](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/changing-your-github-username)为组织的名称。
 7. [删除组织](/organizations/managing-organization-settings/deleting-an-organization-account)。
 

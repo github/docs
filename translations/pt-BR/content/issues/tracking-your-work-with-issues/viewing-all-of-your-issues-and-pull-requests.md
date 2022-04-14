@@ -1,6 +1,6 @@
 ---
-title: Viewing all of your issues and pull requests
-intro: 'The Issues and Pull Request dashboards list the open issues and pull requests you''ve created. You can use them to update items that have gone stale, close them, or keep track of where you''ve been mentioned across all repositories—including those you''re not subscribed to.'
+title: Exibir todos os problemas e pull requests
+intro: 'Os painéis Problemas e Pull Requests listam os problemas e pull requests abertos que foram criados por você. Você pode usá-los para atualizar itens que ficaram obsoletos, fechá-los ou acompanhar onde você foi mencionado em todos os repositórios, inclusive aqueles em que que você não fez assinatura.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/viewing-all-of-your-issues-and-pull-requests
   - /articles/viewing-all-of-your-issues-and-pull-requests
@@ -14,16 +14,15 @@ versions:
 topics:
   - Pull requests
   - Issues
-shortTitle: View all your issues & PRs
+shortTitle: Visualizar todos os seus problemas & PRs
 type: how_to
 ---
-Your issues and pull request dashboards are available at the top of any page. On each dashboard, you can filter the list to find issues or pull requests you created, that are assigned to you, or in which you're mentioned. You can also find pull requests that you've been asked to review.
 
-1. At the top of any page, click **Pull requests** or **Issues**.
-  ![The global pull requests and issues dashboards](/assets/images/help/overview/issues_and_pr_dashboard.png)
-2. Optionally, choose a filter or [use the search bar to filter for more specific results](/articles/using-search-to-filter-issues-and-pull-requests).
-  ![List of pull requests with the "Created" filter selected](/assets/images/help/overview/pr_dashboard_created.png)
+Os painéis de problemas e pull requests estão disponíveis na parte superior de qualquer página. Em cada painel, é possível filtrar a lista para encontrar problemas ou pull requests que você criou, que foram atribuídos a você ou nos quais você foi mencionado. Também é possível encontrar pull requests que você deverá revisar.
 
-## Further reading
+1. Na parte superior de qualquer página, clique em **Pull requests** (Pull requests) ou em **Issues** (Problemas). ![Os painéis globais de problemas e pull requests](/assets/images/help/overview/issues_and_pr_dashboard.png)
+2. Outra opção é escolher um filtro ou [usar a barra de pesquisa para filtrar resultados mais específicos](/articles/using-search-to-filter-issues-and-pull-requests). ![Lista de pull requests com o filtro "Created" (Criado) selecionado](/assets/images/help/overview/pr_dashboard_created.png)
 
-- {% ifversion fpt or ghes or ghae or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+## Leia mais
+
+- {% ifversion fpt or ghes or ghae or ghec %}"[Visualizando as suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}"[Listando os repositórios que você está inspecionando](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"

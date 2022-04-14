@@ -1,6 +1,6 @@
 ---
-title: Enabling subdomain isolation
-intro: 'You can set up subdomain isolation to securely separate user-supplied content from other portions of your {% data variables.product.prodname_ghe_server %} appliance.'
+title: Subdomain Isolationの有効化
+intro: 'Subdomain Isolation をセットアップすれば、ユーザーが提供したコンテンツを {% data variables.product.prodname_ghe_server %} アプライアンスの他の部分から安全に分離できるようになります。'
 redirect_from:
   - /enterprise/admin/guides/installation/about-subdomain-isolation
   - /enterprise/admin/installation/enabling-subdomain-isolation
@@ -17,49 +17,49 @@ topics:
   - Security
 shortTitle: Enable subdomain isolation
 ---
-## About subdomain isolation
 
-Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.product.product_location %}.
+## Subdomain Isolationについて
 
-When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains. After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
+Subdomain Isolationは、クロスサイトスクリプティングや関連するその他の脆弱性を緩和します。 詳しい情報については"Wikipediaの[クロスサイトスクリプティング](http://en.wikipedia.org/wiki/Cross-site_scripting)"を参照してください。 {% data variables.product.product_location %}ではSubdomain Isolationを有効化することを強くお勧めします。
 
-| Path without subdomain isolation  | Path with subdomain isolation   |
-| --- | --- |
-| `http(s)://HOSTNAME/assets/`      | `http(s)://assets.HOSTNAME/`      |
-| `http(s)://HOSTNAME/avatars/`     | `http(s)://avatars.HOSTNAME/`     |
-| `http(s)://HOSTNAME/codeload/`    | `http(s)://codeload.HOSTNAME/`    |
-| `http(s)://HOSTNAME/gist/`        | `http(s)://gist.HOSTNAME/`        |
-| `http(s)://HOSTNAME/media/`       | `http(s)://media.HOSTNAME/`       |
-| `http(s)://HOSTNAME/pages/`       | `http(s)://pages.HOSTNAME/`       |
-| `http(s)://HOSTNAME/raw/`         | `http(s)://raw.HOSTNAME/`         |
-| `http(s)://HOSTNAME/render/`      | `http(s)://render.HOSTNAME/`      |
-| `http(s)://HOSTNAME/reply/`       | `http(s)://reply.HOSTNAME/`       |
-| `http(s)://HOSTNAME/uploads/`     | `http(s)://uploads.HOSTNAME/`     | {% ifversion ghes %}
-| `https://HOSTNAME/_registry/docker/` | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
-| `https://HOSTNAME/_registry/npm/` | `https://npm.HOSTNAME/`
-| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`
-| `https://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/`
-| `https://HOSTNAME/_registry/nuget/` | `https://nuget.HOSTNAME/`{% endif %}
+Subdomain Isolation が有効な場合、{% data variables.product.prodname_ghe_server %} はいくつかのパスをサブドメインで置き換えます。 After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
 
-## Prerequisites
+| Subdomain Isolationなしのパス               | Subdomain Isolationされたパス                                    |
+| -------------------------------------- | ----------------------------------------------------------- |
+| `http(s)://HOSTNAME/assets/`           | `http(s)://assets.HOSTNAME/`                                |
+| `http(s)://HOSTNAME/avatars/`          | `http(s)://avatars.HOSTNAME/`                               |
+| `http(s)://HOSTNAME/codeload/`         | `http(s)://codeload.HOSTNAME/`                              |
+| `http(s)://HOSTNAME/gist/`             | `http(s)://gist.HOSTNAME/`                                  |
+| `http(s)://HOSTNAME/media/`            | `http(s)://media.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/pages/`            | `http(s)://pages.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/raw/`              | `http(s)://raw.HOSTNAME/`                                   |
+| `http(s)://HOSTNAME/render/`           | `http(s)://render.HOSTNAME/`                                |
+| `http(s)://HOSTNAME/reply/`            | `http(s)://reply.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/uploads/`          | `http(s)://uploads.HOSTNAME/`                               |{% ifversion ghes %}
+| `https://HOSTNAME/_registry/docker/`   | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
+| `https://HOSTNAME/_registry/npm/`      | `https://npm.HOSTNAME/`                                     |
+| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`                                |
+| `https://HOSTNAME/_registry/maven/`    | `https://maven.HOSTNAME/`                                   |
+| `https://HOSTNAME/_registry/nuget/`    | `https://nuget.HOSTNAME/`{% endif %}
+
+## 必要な環境
 
 {% data reusables.enterprise_installation.disable-github-pages-warning %}
 
-Before you enable subdomain isolation, you must configure your network settings for your new domain.
+Subdomain Isolationを有効化する前に、新しいドメインに合わせてネットワークを設定しなければなりません。
 
-- Specify a valid domain name as your hostname, instead of an IP address. For more information, see "[Configuring a hostname](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-a-hostname)."
+- 有効なドメイン名を、IP アドレスではなくホスト名として指定します。 詳しい情報については、「[ホスト名を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-a-hostname)」を参照してください。
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
-- Set up a wildcard Domain Name System (DNS) record or individual DNS records for the subdomains listed above. We recommend creating an A record for `*.HOSTNAME` that points to your server's IP address so you don't have to create multiple records for each subdomain.
-- Get a wildcard Transport Layer Security (TLS) certificate for `*.HOSTNAME` with a Subject Alternative Name (SAN) for both `HOSTNAME` and the wildcard domain `*.HOSTNAME`. For example, if your hostname is `github.octoinc.com`, get a certificate with the Common Name value set to `*.github.octoinc.com` and a SAN value set to both `github.octoinc.com` and `*.github.octoinc.com`.
-- Enable TLS on your appliance. For more information, see "[Configuring TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls/)."
+- 上記のサブドメインに対して、ワイルドカードのドメインネームシステム (DNS) レコードまたは個々の DNS レコードをセットアップします。 各サブドメイン用に複数のレコードを作成せずに済むよう、サーバのIPアドレスを指す`*.HOSTNAME`のAレコードを作成することをおすすめします。
+- `HOSTNAME` とワイルドカードのドメイン `*.HOSTNAME` の両方に対するサブジェクト代替名 (SAN) が記載された、`*.HOSTNAME` に対するワイルドカードの Transport Layer Security (TLS) 証明書を取得します。 たとえば、ホスト名が `github.octoinc.com` である場合は、Common Name の値が `*.github.octoinc.com` に設定され、SAN の値が `github.octoinc.com` と `*.github.octoinc.com` の両方に設定された証明書を取得します。
+- アプライアンスで TLS を有効にします。 詳しい情報については"[TLSの設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls/)"を参照してください
 
-## Enabling subdomain isolation
+## Subdomain Isolationの有効化
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.hostname-menu-item %}
-4. Select **Subdomain isolation (recommended)**.
-  ![Checkbox to enable subdomain isolation](/assets/images/enterprise/management-console/subdomain-isolation.png)
+4. **Subdomain isolation (recommended)（Subdomain Isolation（推奨））**を選択してください。 ![Subdomain Isolation を有効化するチェックボックス](/assets/images/enterprise/management-console/subdomain-isolation.png)
 {% data reusables.enterprise_management_console.save-settings %}

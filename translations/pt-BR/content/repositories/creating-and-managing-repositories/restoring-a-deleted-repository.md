@@ -16,7 +16,7 @@ shortTitle: Restaurar repositório excluído
 ---
 
 {% ifversion fpt or ghec %}
-Qualquer pessoa pode restaurar repositórios excluídos que pertenciam à própria conta de usuário. Os proprietários da organização podem restaurar repositórios excluídos que pertenciam à organização.
+Anyone can restore deleted repositories that were owned by their own personal account. Os proprietários da organização podem restaurar repositórios excluídos que pertenciam à organização.
 
 ## Sobre a restauração do repositório
 
@@ -28,13 +28,13 @@ Depois que um repositório é excluído, pode levar até uma hora para que ele s
 
 Restaurar um repositório não vai restaurar anexos de versão nem permissões de equipe. Os problemas que são restaurados não serão etiquetados.
 
-## Restaurar um repositório excluído que pertencia a uma conta de usuário
+## Restoring a deleted repository that was owned by a personal account
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.repo-tab %}
-{% data reusables.user_settings.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.repo-tab %}
+{% data reusables.user-settings.deleted-repos %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## Restaurar um repositório excluído que pertencia a uma organização
 
@@ -42,13 +42,13 @@ Restaurar um repositório não vai restaurar anexos de versão nem permissões d
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## Leia mais
 
 - "[Excluir um repositório](/articles/deleting-a-repository)"
 
 {% else %}
-Usually, deleted repositories can be restored within 90 days by a {% data variables.product.prodname_enterprise %} site administrator. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
+Normalmente, repositórios excluídos podem ser restaurados dentro de 90 dias por um administrador do site {% data variables.product.prodname_enterprise %}. Para obter mais informações, consulte "[Restaurar um repositório excluído](/admin/user-management/managing-repositories-in-your-enterprise/restoring-a-deleted-repository)".
 {% endif %}

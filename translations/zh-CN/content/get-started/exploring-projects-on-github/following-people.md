@@ -15,51 +15,51 @@ topics:
   - Profile
 ---
 
-## About followers on {% data variables.product.product_name %}
+## 关于 {% data variables.product.product_name %} 上的关注者
 
-When you follow people, you'll see their public activity in the activity view of your news feed.{% ifversion fpt or ghec %} If someone you follow stars a public repository, {% data variables.product.product_name %} may recommend the repository to you in the discovery view of your news feed.{% endif %}
+关注用户后，您会在个人信息中心看到他们的公开活动。{% ifversion fpt or ghec %} 如果您关注的人将某个公共存储库标星， {% data variables.product.product_name %} 可能会向您推荐该存储库。{% endif %} 更多信息请参阅“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
 
-You can unfollow someone if you do not wish to see their public activity on {% data variables.product.product_name %}.
+如果您不希望在 {% data variables.product.product_name %} 上看到某人的公开活动，则可以取消关注他们。
 
-## Following a user on {% data variables.product.product_name %}
+## 在 {% data variables.product.product_name %} 上关注用户
 
-1. Click a user image to display that user's profile.
+1. 单击用户图像以显示该用户的配置文件。
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
+  ![用户图像](/assets/images/help/profile/user-profile-image.png)
 
-2. Click **Follow** under their profile image.
+2. 在个人资料图片下点击 **Follow（关注）**。
 
   ![关注用户按钮](/assets/images/help/profile/follow-user-button.png)
 
-## Unfollowing a user on {% data variables.product.product_name %}
+## 在 {% data variables.product.product_name %} 上取消关注用户
 
-1.  Click a user image to display that user's profile.
+1.  单击用户图像以显示该用户的配置文件。
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
+  ![用户图像](/assets/images/help/profile/user-profile-image.png)
 
-2.  Click **Unfollow** under their profile image.
+2.  在其个人资料图片下点击 **Unfollow（取消关注）**。
 
-  ![User profile button](/assets/images/help/profile/user-profile-unfollow-button.png)
+  ![用户个人资料按钮](/assets/images/help/profile/user-profile-unfollow-button.png)
 
-## Viewing followed users on {% data variables.product.product_name %}
+## 查看 {% data variables.product.product_name %} 上关注的用户
 
-1. Click a user image to display that user's profile.
+1. 单击用户图像以显示该用户的配置文件。
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
+  ![用户图像](/assets/images/help/profile/user-profile-image.png)
 
-2. Click **following** under their profile image.
+2. 在其个人资料图片下点击**关注**。
 
-  ![User following](/assets/images/help/profile/user-profile-following.png)
+  ![用户关注](/assets/images/help/profile/user-profile-following.png)
 
-## Viewing followers on {% data variables.product.product_name %}
+## 查看 {% data variables.product.product_name %} 上的关注者
 
-1. Click a user image to display that user's profile.
+1. 单击用户图像以显示该用户的配置文件。
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
+  ![用户图像](/assets/images/help/profile/user-profile-image.png)
 
-2. Click **followers** under their profile image.
+2. 在个人资料图片下点击**关注者**。
 
-  ![User following](/assets/images/help/profile/user-profile-followers.png)
+  ![用户关注](/assets/images/help/profile/user-profile-followers.png)
 
 
 
