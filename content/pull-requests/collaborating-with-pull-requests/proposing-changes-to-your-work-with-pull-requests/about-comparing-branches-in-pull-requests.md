@@ -84,7 +84,7 @@ In contrast, by comparing the branches using the three-dot comparison, changes i
 
 ### Merging often
 
-To avoid getting confused, merge the `main` into the topic branch frequently. By merging `main`, the diffs shown by two-dot and three-dot are the same. We recommend merging a pull request as soon as possible. This encourages users to make pull requests smaller, which is recommended in general.
+To avoid getting confused, merge the base branch (for example, `main`) into your topic branch frequently. By merging the base branch, the diffs shown by two-dot and three-dot comparisons are the same. We recommend merging a pull request as soon as possible. This encourages contributors to make pull requests smaller, which is recommended in general.
 
 ## Further reading
 
