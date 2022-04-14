@@ -84,6 +84,12 @@ Enterprise owners, organization and repository administrators can add self-hoste
 
 ## Setting up {% data variables.product.prodname_code_scanning %} manually
 
+{% ifversion fpt %}
+
+You can set up {% data variables.product.prodname_code_scanning %} in any public repository where you have write access.
+
+{% endif %}
+
 {% data reusables.code-scanning.billing %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
