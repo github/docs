@@ -62,7 +62,7 @@ The three-dot comparison shows the difference between the latest common commit o
 
 ### Two-dot Git diff comparison
 
-The two-dot comparison shows the difference between the most recent version of the topic branch and the latest state of the `main` branch.
+The two-dot comparison shows the difference between the latest state of the base branch (for example, `main`) and the most recent version of the topic branch.
 
 To see two committish references in a two-dot diff comparison on {% data variables.product.prodname_dotcom %}, you can edit the URL of your repository's "Comparing changes" page. For more information, see the  [Git Glossary for "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) from the _Pro Git_ book site.
 
