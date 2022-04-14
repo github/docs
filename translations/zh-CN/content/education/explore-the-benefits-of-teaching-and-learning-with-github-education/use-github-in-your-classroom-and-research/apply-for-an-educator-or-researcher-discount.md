@@ -57,4 +57,4 @@ shortTitle: 申请折扣
 - "[为什么我的教育者或研究人员折扣申请未获得批准？](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)
 - [{% data variables.product.prodname_classroom %} 视频](https://classroom.github.com/videos)
-- [{% data variables.product.prodname_education_community %}](https://education.github.community/)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})

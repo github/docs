@@ -218,7 +218,11 @@ export function Search({
       <div className="position-relative z-2">
         <form role="search" className="width-full d-flex" noValidate onSubmit={onFormSubmit}>
           <label className="text-normal width-full">
-            <span className="visually-hidden">{t`placeholder`}</span>
+            <span
+              className="visually-hidden"
+              aria-label={t`label`}
+              aria-describedby={t`description`}
+            >{t`placeholder`}</span>
             <input
               data-testid="site-search-input"
               ref={inputRef}
@@ -237,13 +241,15 @@ export function Search({
               )}
               type="search"
               placeholder={t`placeholder`}
-              autoComplete="off"
+              autoComplete={localQuery ? 'on' : 'off'}
               autoCorrect="off"
               autoCapitalize="off"
               spellCheck="false"
               maxLength={512}
               onChange={onSearch}
               value={localQuery}
+              aria-label={t`label`}
+              aria-describedby={t`description`}
             />
           </label>
           <button className="d-none" type="submit" title="Submit the search query." hidden />
@@ -393,7 +399,12 @@ function ShowSearchResults({
             You're searching the <strong>{searchVersion}</strong> version.
           </p>
           <div className="float-right mr-4">
-            <p className={cx(styles.selectWording, 'f6 d-inline-block')}>Select version:</p>
+            <p
+              aria-describedby={`You're searching the ${searchVersion} version`}
+              className={cx(styles.selectWording, 'f6 d-inline-block')}
+            >
+              Select version:
+            </p>
             <DropdownMenu
               placeholder={searchVersion}
               items={searchVersions}

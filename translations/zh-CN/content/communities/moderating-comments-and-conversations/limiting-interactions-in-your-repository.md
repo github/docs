@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-permissions: People with admin permissions to a repository can temporarily limit interactions in that repository.
+permissions: 'People with admin permissions to a repository, and organization moderators, can temporarily limit interactions in that repository.'
 topics:
   - Community
 shortTitle: 限制仓库中的交互
@@ -28,7 +28,7 @@ shortTitle: 限制仓库中的交互
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. 在侧边栏的“Access（访问）”部分中，选择 **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} 主持选项**，然后点击 **Interaction limits（互动限制）**。
+1. 在侧边栏中，选择 **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} 主持选项**，然后点击 **Interaction limits（互动限制）**。
 {% data reusables.community.set-interaction-limit %}
   ![临时交互限制选项](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
@@ -37,3 +37,4 @@ shortTitle: 限制仓库中的交互
 - "[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository)"
 - "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- “[管理组织中的版主](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)”

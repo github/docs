@@ -13,13 +13,13 @@ topics:
 
 ## 概述和宗旨
 
-Millions of developers across the world host millions of projects—both open and closed source—on GitHub. We're fortunate to be able to play a part in enabling collaboration across the developer community every day, which is a responsibility we don’t take lightly. Together, we all have the exciting opportunity to make this a community we can be proud of.
+全球数以百万计的开发人员在 GitHub 上托管了数百万个项目，包括开源和闭源项目。 我们很幸运能够每天促进开发人员社区的协作，这是我们很重视的责任。 走在一起，我们都有机会让这个社区成为我们值得骄傲的地方。
 
 GitHub 社区论坛旨在成为推动协作、支持和集思广益的地方。 这是一个文明荟萃之地，在这里，您可以与其他用户联系、学习新技能、分享反馈和想法、寻找您的 GitHub 项目所需的所有支持。 参与本社区，即表示您同意遵守适用于 GitHub.com 的<[服务条款](/github/site-policy/github-terms-of-service/)和 [GitHub 可接受使用政策](/github/site-policy/github-acceptable-use-policies)以及本社区特定的行为准则。
 
 我们希望通过本行为准则，帮助您了解如何在 GitHub 社区论坛中完美协作、版主的职能以及哪些类型的行为或内容可能导致暂停或永久性终止社区参与。 我们将调查任何滥用举报，并且可能会删除社区内我们确定违反了 GitHub 服务条款或本行为准则的公共内容。
 
-Our diverse user base brings different perspectives, ideas, and experiences, and ranges from people who created their first "Hello World" project last week to the most well-known software developers in the world. We are committed to making GitHub an environment that welcomes all the different voices and perspectives our community has to offer, while maintaining a safe place for developers to do their best work.
+我们多样化的用户群带来了不同的观点、想法和经验，从上周创建第一个“Hello World”项目的人到世界上最知名的软件开发人员。 我们致力于将 GitHub 营造成一个欢迎社区提供所有不同声音和观点的环境，同时为开发人员提供一个尽其所能工作的地方。
 
 ## 承诺
 
@@ -31,23 +31,23 @@ GitHub 社区论坛提倡互相尊重。 论坛是一种共享资源 — 通过�
 
 以下规则并非硬性规定，仅用于帮助我们社区的人为判断。 我们使用这些准则为文明的公众讨论提供一个窗明几净的环境。
 
-### *Best Practices for Maintaining a Strong Community*
+### *维护强大社区的最佳实践*
 
-GitHub 社区的主要目的是协作处理软件项目。 我们致力于维持一个用户能够自由表达意见并对彼此想法（包括技术和其他方面）提出挑战的社区。 At the same time, it's important that users remain respectful and allow space for others to contribute openly. In order to foster both a safe and productive environment, we encourage our community members to look to these guidelines to inform how they interact on our platform. Below, you’ll find some suggestions for how to have successful interactions as a valued member of the GitHub community.
+GitHub 社区的主要目的是协作处理软件项目。 我们致力于维持一个用户能够自由表达意见并对彼此想法（包括技术和其他方面）提出挑战的社区。 同时，重要的是用户保持尊重，并为其他人留出公开贡献的空间。 为了营造一个安全和富有成效的环境，我们鼓励社区成员参考这些准则，以了解如何在我们的平台上进行互动。 下面，您将找到一些有关如何作为 GitHub 社区的重要成员进行成功互动的建议。
 
-- Engage with consideration and respect.
+- 以体贴和尊重的方式参与。
 
-     - **Be welcoming and open-minded** - New users join our community each day. Some are well-established developers, while others are just beginning. Be open to other ideas and experience levels. Make room for opinions other than your own and be welcoming to new collaborators and those just getting started.
+     - **热情和开放** - 每天都有新用户加入我们的社区。 有些是成熟的开发人员，而另一些则刚入门。 请对其他想法和经验水平持开放态度。 为您自己以外的意见留出空间，欢迎新的合作者和刚入门的合作者。
 
-     - **Be respectful** - Working in a collaborative environment means disagreements may happen. 但请记住，您的批评要对事不对人。 Share thoughtful, constructive criticism and be courteous to those you interact with. If you’re unable to engage respectfully, consider taking a step back or using some of our moderation tools to deescalate a tense situation.
+     - **尊重** - 在协作环境中工作意味着可能会发生分歧。 但请记住，您的批评要对事不对人。 分享深思熟虑的、建设性的批评，并对与您互动的人保持礼貌。 如果您无法恭敬地参与，请考虑退后一步或使用我们的一些审核工具来缓解紧张局势。
 
-     - **Be empathetic** - GitHub is a global community with people from a wide variety of backgrounds and perspectives, many of which may not be your own. Try to put yourself in others’ shoes and understand their feelings before you address them. Do your best to help make GitHub a community where others feel safe to make contributions, participate in discussions, and share different ideas.
+     - **富有同情心** - GitHub 是一个全球性社区，拥有来自不同背景和观点的人，其中很多可能与您不同。 试着设身处地为他人着想，在解决问题之前，先了解他们的感受。 尽最大努力帮助 GitHub 成为一个任何人都能安全地做出贡献、参与讨论和分享不同想法的社区。
 
 - 以积极和建设性的方式参与。
   - **改善讨论。**请始终努力以某种方式改善讨论（哪怕是极小的改善），帮助我们将论坛营造成讨论的绝佳场所。 如果您不确定自己的帖子会给对话带来什么影响，请斟酌您要表达的内容，三思而后行。
 
     论坛讨论的主题对我们非常重要，我们希望您也重视这些主题。 即使您不同意其中的某些内容，但请尊重主题和讨论主题的人。
-  - **Be clear and stay on topic.** The GitHub Community Forum is for collaboration, sharing ideas, and helping each other get stuff done. 脱离主题的评论对于完成工作和取得成效是一种干扰（有时可能受欢迎，但这种情况很少）。 紧扣主题有助于产生积极和富有成效的讨论。
+  - **明确并专注于主题。** GitHub 社区论坛用于协作、分享想法和帮助彼此完成工作。 脱离主题的评论对于完成工作和取得成效是一种干扰（有时可能受欢迎，但这种情况很少）。 紧扣主题有助于产生积极和富有成效的讨论。
 
     这也适用于分享链接。 在社区论坛中分享任何链接均应以提供相关和适当的信息为目的。 不能只是为某个站点吸引流量或关注而发布链接。 链接应始终附有对链接内容和目的的充分说明。 发布没有相关且有价值背景信息的链接，特别是未经请求提供这种链接，可能被当作发广告或带有更恶意的目的。
 
@@ -68,15 +68,15 @@ GitHub 社区的主要目的是协作处理软件项目。 我们致力于维持
 
 ### *不允许*
 
-GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), which are part of GitHub's [Terms of Service](/github/site-policy/github-terms-of-service/), set a baseline for what is not allowed on GitHub. In addition, these terms restrictions apply to the GitHub Community Forum in the following way:
+GitHub的 [可接受使用政策](/site-policy/acceptable-use-policies/github-acceptable-use-policies)是GitHub [服务条款](/github/site-policy/github-terms-of-service/)的一部分，为 GitHub 上不允许的内容设定了基线。 此外，这些条款限制通过以下方式应用于 GitHub 社区论坛：
 
 - **13 岁以下的任何人。**13 岁以下的孩子不得在 GitHub 社区论坛（或 GitHub）上拥有帐户。 GitHub 不会有意收集 13 岁以下孩子的信息，也没有专门为他们定制任何内容。 如果我们得知或有理由怀疑您是 13 岁以下的用户，很遗憾，我们不得不关闭您的 GitHub 社区论坛和 GitHub.com 帐户。 我们并不想阻止您学习代码，但这是规则。 有关帐户终止的信息，请参阅我们的[服务条款](/github/site-policy/github-terms-of-service/)。
 
-- **Creating new account after account restriction.** GitHub's [Terms of Service](/github/site-policy/github-terms-of-service/) state that "One person or legal entity may maintain no more than one free Account." Additional free accounts created to inquire about flagged or suspended accounts in the GitHub Community Forum will be removed.
+- **在帐户限制后创建新帐户。** GitHub 的 [服务条款](/github/site-policy/github-terms-of-service/) 规定，“一个人或法人实体最多只能维护一个免费帐户”。 为查询 GitHub 社区论坛中被标记或暂停的帐户而创建的其他免费帐户将被删除。
 
 - **在专业环境中被合理认为不适当的其他行为。**GitHub 社区论坛是一个专业环境，应按专业环境来对待它。
 
-- **Violation of Terms of Service.** If your GitHub.com account is identified in violation of [Terms of Service](/github/site-policy/github-terms-of-service/) we will have to close your GitHub Community Forum account as well.
+- **违反服务条款。** 如果您的 GitHub.com 帐户被识别为违反[服务条款](/github/site-policy/github-terms-of-service/)，我们将不得不关闭您的 GitHub 社区论坛帐户。
 
 ## 执行
 
