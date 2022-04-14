@@ -1,5 +1,5 @@
 ---
-title: Deploying GitHub Advanced Security in your enterprise
+title: Deploying GitHub Advanced Security in Your Enterprise
 intro: 'Learn how to plan, prepare, and implement a phased approach for rolling out {% data variables.product.prodname_GH_advanced_security %} (GHAS) in your enterprise.'
 product: '{% data reusables.gated-features.advanced-security %}'
 redirect_from:
