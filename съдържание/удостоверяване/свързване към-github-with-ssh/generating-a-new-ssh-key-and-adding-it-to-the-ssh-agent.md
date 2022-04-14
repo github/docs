@@ -15,7 +15,7 @@ versions:
 topics:
   - SSH
 shortTitle: Generate new SSH key
----
+---ls -al ~/.ssh102428667
 ## About SSH key generation
 
 If you don't already have an SSH key, you must generate a new SSH key to use for authentication. If you're unsure whether you already have an SSH key, you can check for existing keys. For more information, see "[Checking for existing SSH keys](/github/authenticating-to-github/checking-for-existing-ssh-keys)."
