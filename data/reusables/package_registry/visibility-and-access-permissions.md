@@ -3,7 +3,7 @@ If you have admin permissions to a container image, you can set the access permi
 
 As an admin, you can also grant access permissions for a container image that are separate from the permissions you've set at the organization and repository levels.
 
-For container images published and owned by a user account, you can give any person an access role. For container images published and owned by an organization, you can give any person or team in the organization an access role.
+For container images published and owned by a personal account, you can give any person an access role. For container images published and owned by an organization, you can give any person or team in the organization an access role.
 
 | Permission | Access description |
 |------------|--------------------|

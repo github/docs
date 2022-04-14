@@ -25,6 +25,8 @@ Invita a los TA y administradores a tu aula invitando a sus cuentas de usuario e
 
 Cuando termines de utilizar un aula, puedes archivarla y referirte a ella, a su registro de alumnos o a sus tareas posteriormente, o puedes borrarla si ya no la necesitas.
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## Acerca de los registros de alumnos de las aulas
 
 Cada aula tiene un registro de alumnos. Un registro de alumnos es una lista de identificadores para los alumnos que participan en tu curso.
@@ -45,7 +47,7 @@ Debes autorizar a la app de OAuth de {% data variables.product.prodname_classroo
 1. Da clic en **Aula nueva**. ![Botón de "Aula nueva"](/assets/images/help/classroom/click-new-classroom-button.png)
 {% data reusables.classroom.guide-create-new-classroom %}
 
-Después de que crees un aula, puedes comenzar a crear tareas para los alumnos. Para obtener más información, consulta las secciones "[Utilizar la tarea de inicio de Git y {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)", "[Crear una tarea individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" o "[Crear una tarea grupal](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
+Después de que crees un aula, puedes comenzar a crear tareas para los alumnos. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)," or "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
 ## Crear un registro de alumnos para tu aula
 

@@ -14,6 +14,8 @@ Você pode utilizar um repositório de modelo em {% data variables.product.produ
 
 Para usar o repositório de modelo para a sua atribuição, o repositório de modelo deve pertencer à sua organização, ou a visibilidade do repositório de modelos deverá ser pública.
 
+You can reuse an existing assignment, even if it uses a template repository, in any other classroom that you have admin access to, including classrooms in a different organization. For more information, see "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
+
 ## Leia mais
 
 - "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)"

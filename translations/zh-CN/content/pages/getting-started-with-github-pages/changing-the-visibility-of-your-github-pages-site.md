@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.private-pages %}'
 versions:
   fpt: '*'
   ghec: '*'
-permissions: 'People with admin permissions for a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
+permissions: 'People with admin access to a repository can change the visibility of a {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
 shortTitle: 更改站点可见性
@@ -14,6 +14,12 @@ shortTitle: 更改站点可见性
 ## 关于 {% data variables.product.prodname_pages %} 站点的访问控制
 
 如果对 {% data variables.product.prodname_pages %} 具有访问控制权限，您便可以通过私密发布站点来限制访问您的 {% data variables.product.prodname_pages %} 站点。 只有对发布站点的仓库具有读取权限的人才可访问私密发布的站点。 您可以使用私密发布的站点与企业成员分享您的内部文档或知识库。
+
+{% note %}
+
+**注意：** 若要私下发布 {% data variables.product.prodname_pages %} 网站，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
 
 如果您的企业使用 {% data variables.product.prodname_emus %}，则所有 {% data variables.product.prodname_pages %} 站点都是私密发布的。 有关 {% data variables.product.prodname_emus %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_emus %}](/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 

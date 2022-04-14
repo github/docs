@@ -59,6 +59,7 @@ jobs:
       IS_INTERNAL_BUILD: ${{ github.repository == 'github/docs-internal' }}
       # This may also run in forked repositories, not just 'github/docs'
       IS_PUBLIC_BUILD: ${{ github.repository != 'github/docs-internal' }}
+      NONPROD_REGISTRY_USERNAME: ${{ fromJSON('["ghdocs", "ghdocsinternal"]')[github.repository == 'github/docs-internal'] }}
 
     steps:
       - name: 'Az CLI login'
@@ -70,7 +71,7 @@ jobs:
         uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
-          username: ${{ secrets.NONPROD_REGISTRY_USERNAME }}
+          username: ${{ env.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
@@ -205,7 +206,7 @@ jobs:
           parameters: appName="${{ env.APP_NAME }}"
             containerImage="${{ env.DOCKER_IMAGE }}"
             dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
-            dockerRegistryUsername="${{ secrets.NONPROD_REGISTRY_USERNAME }}"
+            dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
             dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
           # this shows warnings in the github actions console, because the flag is passed through a validation run,
           # but it *is* functional during the actual execution

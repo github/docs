@@ -20,3 +20,4 @@ children:
 shortTitle: 管理 Git 权限
 ---
 
+{% data reusables.organizations.ssh-ca-ghec-only %}

@@ -180,7 +180,7 @@ Please note that the information available will vary from case to case. Some of 
 **With a court order *or* a search warrant** — We will not disclose account access logs unless compelled to do so by either
 (i) a court order issued under 18 U.S.C. Section 2703(d), upon a showing of specific and articulable facts showing that there are reasonable grounds to believe that the information sought is relevant and material to an ongoing criminal investigation; or
 (ii) a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures, upon a showing of probable cause.
-In addition to the non-public user account information listed above, we can provide account access logs in response to a court order or search warrant, which may include:
+In addition to the non-public account information listed above, we can provide account access logs in response to a court order or search warrant, which may include:
 
   - Any logs which would reveal a user's movements over a period of time
   - Account or private repository settings (for example, which users have certain permissions, etc.)
@@ -189,8 +189,8 @@ In addition to the non-public user account information listed above, we can prov
 
 - <a name="only-with-a-search-warrant"></a>
 **Only with a search warrant** —
-We will not disclose the private contents of any user account unless compelled to do so under a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures upon a showing of probable cause.
-In addition to the non-public user account information and account access logs mentioned above, we will also provide private user account contents in response to a search warrant, which may include:
+We will not disclose the private contents of any account unless compelled to do so under a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures upon a showing of probable cause.
+In addition to the non-public account information and account access logs mentioned above, we will also provide private account contents in response to a search warrant, which may include:
 
   - Contents of secret Gists
   - Source code or other content in private repositories
