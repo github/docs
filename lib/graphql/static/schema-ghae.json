@@ -53953,6 +53953,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lineCount",
+          "description": "<p>Number of lines in the file.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "mode",
           "description": "<p>Entry file mode.</p>",
           "type": "Int!",
@@ -70165,6 +70173,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "skipReleases",
+          "description": "<p>Whether to skip migrating releases for the repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "sourceId",
