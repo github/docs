@@ -447,6 +447,9 @@
 - /code-security/secret-security/managing-alerts-from-secret-scanning
 - /code-security/secret-scanning/managing-alerts-from-secret-scanning
 
+/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning
+- /code-security/secret-scanning/protecting-pushes-with-secret-scanning
+
 /enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators
 - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
 - /articles/setting-permissions-for-adding-outside-collaborators
@@ -463,3 +466,31 @@
 
 /enterprise-cloud@latest/code-security/security-overview/filtering-alerts-in-the-security-overview
 - /code-security/security-overview/filtering-alerts-in-the-security-overview
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories
+- /organizations/managing-git-access-to-your-organizations-repositories
+- /articles/managing-git-access-to-your-organizations-repositories-using-ssh-certificate-authorities
+- /articles/managing-git-access-to-your-organizations-repositories
+- /github/setting-up-and-managing-organizations-and-teams/managing-git-access-to-your-organizations-repositories
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities
+- /organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities
+- /articles/about-ssh-certificate-authorities
+- /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities
+- /organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities
+- /articles/managing-your-organizations-ssh-certificate-authorities
+- /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
+
+/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
+- /pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
+- /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
+
+/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /admin/advanced-security/viewing-your-github-advanced-security-usage
+- /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage

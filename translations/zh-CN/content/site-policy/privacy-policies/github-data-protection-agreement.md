@@ -1,5 +1,5 @@
 ---
-title: GitHub Data Protection Agreement
+title: GitHub 数据保护协议
 redirect_from:
   - /github/site-policy/github-data-protection-addendum
   - /github/site-policy-deprecated/github-data-protection-addendum
@@ -11,27 +11,27 @@ versions:
 
 ## 简介
 
-The parties agree that this GitHub Data Protection Agreement (“**DPA**”) sets forth their obligations with respect to the processing and security of Personal Data and, where explicitly stated in the DPA Terms, Customer Data in connection with the Online Services provided by GitHub, Inc. (“**GitHub**”). The DPA (including its Appendix and Attachments) is between GitHub and any customer receiving Online Services from GitHub based on the GitHub Customer Agreement (“**Customer**”), and is incorporated by reference into the GitHub Customer Agreement.
+双方同意，本《GitHub 数据保护协议》（“**DPA**”）规定了他们在个人数据的处理和安全方面的义务，并在 DPA 条款中明确规定的情况下，规定了与 GitHub, Inc.（“**GitHub**”）提供的在线服务相关的客户数据。 DPA（包括其附录和附件）是 GitHub 与根据 GitHub 客户协议从 GitHub 获取在线服务的任何客户（“**客户**”）之间的协议，并引用合并到 GitHub 客户协议。
 
-In the event of any conflict or inconsistency between the DPA Terms and any other terms in the GitHub Customer Agreement, the DPA Terms will prevail. The provisions of the DPA Terms supersede any conflicting provisions of the GitHub Privacy Statement that otherwise may apply to processing of Personal Data. For clarity, the Standard Contractual Clauses prevail over any other term of the DPA Terms.
+如果 DPA 条款与 GitHub 客户协议中的任何其他条款之间存在任何冲突或不一致，则以 DPA 条款为准。 DPA 条款的规定取代 GitHub 隐私声明中可能适用于个人数据处理的任何相互冲突的规定。 为清楚起见，标准合同条款优先于 DPA 条款的任何其他条款。
 
-### Applicable DPA Terms and Updates
+### 适用的 DPA 条款和更新
 
-#### Limits on Updates
+#### 更新限制
 
-When Customer renews or purchases a new subscription to an Online Service, the then-current DPA Terms will apply and will not change during the term of that new subscription for that Online Service.
+当客户续订或购买在线服务的新订阅时，届时现行的 DPA 条款将适用，并且在该在线服务的新订阅期限内不会更改。
 
-#### New Features, Supplements, or Related Software
+#### 新功能、补充或相关软件
 
-Notwithstanding the foregoing limits on updates, when GitHub introduces features, supplements or related software that are new (i.e., that were not previously included with the subscription), GitHub may provide terms or make updates to the DPA that apply to Customer’s use of those new features, supplements or related software. If those terms include any material adverse changes to the DPA Terms, GitHub will provide Customer a choice to use the new features, supplements, or related software, without loss of existing functionality of a generally available Online Service. If Customer does not use the new features, supplements, or related software, the corresponding new terms will not apply.
+尽管有上述更新限制，但当 GitHub 引入新功能、补充或相关软件（即以前未包含在订阅中的功能、补充或相关软件）时，GitHub 可能会向 DPA 提供适用于客户使用这些新功能、补充或相关软件的条款或更新。 如果这些条款包含对 DPA 条款的任何重大不利更改，GitHub 将为客户提供使用新功能、补充或相关软件的选择，而不会丢失正式发布的在线服务的现有功能。 如果客户不使用新功能、补充或相关软件，则相应的新条款将不适用。
 
-#### Government Regulation and Requirements
+#### 政府法规和要求
 
-Notwithstanding the foregoing limits on updates, GitHub may modify or terminate an Online Service in any country or jurisdiction where there is any current or future government requirement or obligation that (1) subjects GitHub to any regulation or requirement not generally applicable to businesses operating there, (2) presents a hardship for GitHub to continue operating the Online Service without modification, and/or (3) causes GitHub to believe the DPA Terms or the Online Service may conflict with any such requirement or obligation.
+尽管有上述更新限制，如果当前或将来有以下任何政府要求或义务，GitHub 可以在任何国家或司法管辖区修改或终止在线服务：(1) 使 GitHub 受到任何一般不适用于在该地运营的企业的法规或要求的约束，(2) GitHub 难以继续运营在线服务而不进行修改，和/或 (3) 导致 GitHub 认为 DPA 条款或在线服务可能与任何此类要求或义务相冲突。
 
-### Electronic Notices
+### 电子通知
 
-GitHub may provide Customer with information and notices about Online Services electronically, including via email, or through a web site that GitHub identifies. Notice is given as of the date it is made available by GitHub.
+GitHub 可能会以电子方式（包括通过电子邮件或 GitHub 识别的网站）向客户提供有关在线服务的信息和通知。 通知自 GitHub 提供之日起发出。
 
 ### Prior Versions
 

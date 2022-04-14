@@ -50,6 +50,9 @@ topics:
 {% ifversion fpt or ghec %}
 - [需要合并队列](#require-merge-queue)
 {% endif %}
+{%- if required-deployments %}
+- [要求部署在合并之前成功](#require-deployments-to-succeed-before-merging)
+{%- endif %}
 - [包括管理员](#include-administrators)
 - [限制谁可以推送到匹配的分支](#restrict-who-can-push-to-matching-branches)
 - [允许强制推送](#allow-force-pushes)
@@ -144,6 +147,11 @@ remote: error: Changes have been requested.
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
+
+### 要求部署在合并之前成功
+
+您可以要求先将更改成功部署到特定环境，然后才能合并分支。 例如，可以使用此规则确保在更改合并到默认分支之前，将更改成功部署到过渡环境。
+
 ### 包括管理员
 
 默认情况下，受保护分支规则不适用于对仓库具有管理员权限的人。 您可以启用此设置将管理员纳入受保护分支规则。

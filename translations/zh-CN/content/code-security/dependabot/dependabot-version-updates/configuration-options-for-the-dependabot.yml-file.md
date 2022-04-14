@@ -33,35 +33,37 @@ shortTitle: Configure dependabot.yml
 
 下次安全警报触发安全更新的拉取请求时将使用所有同时影响安全更新的选项。  更多信息请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)。”
 
-*dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 您可以选择性包括一个顶级`注册表`键。 该文件必须以 `version: 2` 开头。
+*dependabot.yml* 文件有两个必需的顶级密钥：`version` 和 `updates`。 You can, optionally, include a top-level `registries` key{% ifversion fpt or ghec or ghes > 3.4 %} and/or a `enable-beta-ecosystems` key{% endif %}. 该文件必须以 `version: 2` 开头。
 
 ## 更新的配置选项
 
 顶级 `updates` 密钥是必需的。 您使用它来配置 {% data variables.product.prodname_dependabot %} 如何更新版本或项目的依赖项。 每个条目都为特定的包管理器配置更新设置。 您可以使用以下选项。
 
-| 选项                                                                         |  必选   | 描述                                                          |
-|:-------------------------------------------------------------------------- |:-----:|:----------------------------------------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 要使用的包管理器                                                    |
-| [`目录`](#directory)                                                         | **X** | 包清单位置                                                       |
-| [`schedule.interval`](#scheduleinterval)                                   | **X** | 检查更新的频率                                                     |
-| [`allow`](#allow)                                                          |       | 自定义允许的更新                                                    |
-| [`assignees`](#assignees)                                                  |       | 要在拉取请求上设置的受让人                                               |
-| [`commit-message`](#commit-message)                                        |       | 提交消息首选项                                                     |
-| [`ignore`](#ignore)                                                        |       | 忽略某些依赖项或版本                                                  |
-| [`insecure-external-code-execution`](#insecure-external-code-execution)    |       | 允许或拒绝清单文件中的代码执行                                             |
-| [`labels`](#labels)                                                        |       | 要在拉取请求上设置的标签                                                |
-| [`里程碑`](#milestone)                                                        |       | 要在拉取请求上设置的里程碑                                               |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | 限制对版本更新打开的拉取请求数                                             |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | 更改拉取请求分支名称的分隔符                                              |
-| [`rebase-strategy`](#rebase-strategy)                                      |       | 禁用自动变基                                                      |
-| [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} 可以访问的私有注册表 |
-| [`reviewers`](#reviewers)                                                  |       | 要在拉取请求上设置的审查者                                               |
-| [`schedule.day`](#scheduleday)                                             |       | 检查更新的周日期                                                    |
-| [`schedule.time`](#scheduletime)                                           |       | 每天检查更新的时间 (hh:mm)                                           |
-| [`schedule.timezone`](#scheduletimezone)                                   |       | 一天中时间的时区（区域标识符）                                             |
-| [`target-branch`](#target-branch)                                          |       | 对其创建拉取请求的分支                                                 |
-| [`vendor`](#vendor)                                                        |       | 更新供应或缓存的依赖项                                                 |
-| [`versioning-strategy`](#versioning-strategy)                              |       | 如何更新清单版本要求                                                  |
+| 选项                                                                         |  必选   | 描述                                                                                     |
+|:-------------------------------------------------------------------------- |:-----:|:-------------------------------------------------------------------------------------- |
+| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 要使用的包管理器                                                                               |
+| [`目录`](#directory)                                                         | **X** | 包清单位置                                                                                  |
+| [`schedule.interval`](#scheduleinterval)                                   | **X** | 检查更新的频率                                                                                |
+| [`allow`](#allow)                                                          |       | 自定义允许的更新                                                                               |
+| [`assignees`](#assignees)                                                  |       | 要在拉取请求上设置的受让人                                                                          |
+| [`commit-message`](#commit-message)                                        |       | Commit message preferences                  |{% ifversion fpt or ghec or ghes > 3.4 %}
+| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |       | Enable ecosystems that have beta-level support 
+{% endif %}
+| [`ignore`](#ignore)                                                        |       | 忽略某些依赖项或版本                                                                             |
+| [`insecure-external-code-execution`](#insecure-external-code-execution)    |       | 允许或拒绝清单文件中的代码执行                                                                        |
+| [`labels`](#labels)                                                        |       | 要在拉取请求上设置的标签                                                                           |
+| [`里程碑`](#milestone)                                                        |       | 要在拉取请求上设置的里程碑                                                                          |
+| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | 限制对版本更新打开的拉取请求数                                                                        |
+| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | 更改拉取请求分支名称的分隔符                                                                         |
+| [`rebase-strategy`](#rebase-strategy)                                      |       | 禁用自动变基                                                                                 |
+| [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} 可以访问的私有注册表                            |
+| [`reviewers`](#reviewers)                                                  |       | 要在拉取请求上设置的审查者                                                                          |
+| [`schedule.day`](#scheduleday)                                             |       | 检查更新的周日期                                                                               |
+| [`schedule.time`](#scheduletime)                                           |       | 每天检查更新的时间 (hh:mm)                                                                      |
+| [`schedule.timezone`](#scheduletimezone)                                   |       | 一天中时间的时区（区域标识符）                                                                        |
+| [`target-branch`](#target-branch)                                          |       | 对其创建拉取请求的分支                                                                            |
+| [`vendor`](#vendor)                                                        |       | 更新供应或缓存的依赖项                                                                            |
+| [`versioning-strategy`](#versioning-strategy)                              |       | 如何更新清单版本要求                                                                             |
 
 这些选项大致分为以下类别。
 
@@ -302,7 +304,6 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -330,7 +331,7 @@ updates:
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# Use `ignore` to specify dependencies that should not be updated 
+# Use `ignore` to specify dependencies that should not be updated
 
 version: 2
 updates:
@@ -355,6 +356,15 @@ updates:
 
 
 {% endnote %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+{% note %}
+
+**Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
+
+{% endnote %}
+
+{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -504,7 +514,7 @@ updates:
 要允许 {% data variables.product.prodname_dependabot %} 使用 `bundler`、`mix` 和 `pip` 包管理器来更新私人注册表中的依赖项，您可以选择允许外部代码执行。 更多信息请参阅上面的 [`insecure-external-code-execution`](#insecure-external-code-execution)。
 
 ```yaml
-# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
+# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries
 # when updating dependency versions for this ecosystem
 
 {% raw %}
@@ -738,7 +748,7 @@ updates:
 
 version: 2
 registries:
-  dockerhub: # Define access for a private registry 
+  dockerhub: # Define access for a private registry
     type: docker-registry
     url: registry.hub.docker.com
     username: octocat
@@ -972,3 +982,23 @@ registries:
     token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+## Enabling support for beta-level ecosystems
+
+### `enable-beta-ecosystems`
+
+By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
+
+```yaml
+# Configure beta ecosystem
+
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+```
+{% endif %}

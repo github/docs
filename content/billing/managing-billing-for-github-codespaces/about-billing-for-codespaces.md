@@ -56,7 +56,9 @@ For information on managing and changing your account's spending limit, see "[Ma
 
 ## Limiting the choice of machine types
 
-The type of machine a user chooses when they create a codespace affects the per-minute charge for that codespace, as shown above. 
+By default the machine type with the lowest valid resources is used when a codespace is created. However, users may be able to choose a machine type with more resources. They can do this either when they create a codespace, or they can change the machine type of an existing codespace. For more information, see "[Creating a codespace"](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)" and "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+
+If a machine type that has more resources is chosen, this will affect the per-minute charge for that codespace, as shown above. 
 
 Organization owners can create a policy to restrict the machine types that are available to users. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 

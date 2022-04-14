@@ -17,7 +17,9 @@ topics:
 shortTitle: 筛选警报
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## 关于筛选安全性概述
 
@@ -121,10 +123,10 @@ shortTitle: 筛选警报
 
 在机密扫描警报视图中可用。
 
-| 限定符                            | 描述                                                                                                                                                                           |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `secret-type:SERVICE_PROVIDER` | 显示指定机密和提供程序的警报。 更多信息请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。                         |
-| `secret-type:CUSTOM-PATTERN`   | 显示与指定自定义模式匹配的机密的警报。 For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." |
+| 限定符                            | 描述                                                                                                                                                   |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret-type:SERVICE_PROVIDER` | 显示指定机密和提供程序的警报。 更多信息请参阅“[{% data variables.product.prodname_secret_scanning_caps %} 模式](/code-security/secret-scanning/secret-scanning-patterns)”。 |
+| `secret-type:CUSTOM-PATTERN`   | 显示与指定自定义模式匹配的机密的警报。 更多信息请参阅“[定义机密扫描的自定义模式](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)”。                            |
 
 ## 按提供商筛选
 

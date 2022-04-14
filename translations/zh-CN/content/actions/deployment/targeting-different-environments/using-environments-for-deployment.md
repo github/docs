@@ -71,6 +71,14 @@ Environments are used to describe a general deployment target like `production`,
 
 {% data reusables.actions.permissions-statement-environment %}
 
+{% ifversion fpt or ghec %}
+{% note %}
+
+**注意：**要在私有存储库中创建环境，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-environment %}
@@ -117,7 +125,7 @@ Environments are used to describe a general deployment target like `production`,
 1. 在要删除的环境旁边，单击 {% octicon "trash" aria-label="The trash icon" %}。
 2. 单击 **I understand, delete this environment（我了解，删除此环境）**。
 
-{% ifversion fpt or ghae or ghes > 3.1 or ghec %}您也可以通过 REST API 删除环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”。{% endif %}
+{% ifversion fpt or ghae or ghes > 3.1 or ghec %}您还可以通过 REST API 删除环境。 更多信息请参阅“[环境](/rest/reference/repos#environments)”。{% endif %}
 
 ## 环境与部署的关系
 

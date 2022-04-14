@@ -49,7 +49,7 @@ topics:
 
 您可以使用 `services` 关键字创建服务容器作为工作流程中作业的一部分。 更多信息请参阅 [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices)。
 
-本例在作业 `container-job` 中创建一个名为 `redis` 的服务。 本例中的 Docker 主机是 `node:10.18-jessie` 容器。
+本例在作业 `container-job` 中创建一个名为 `redis` 的服务。 本例中的 Docker 主机是 `node:16-bullseye` 容器。
 
 {% raw %}
 ```yaml{:copy}
@@ -62,7 +62,7 @@ jobs:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
-    container: node:10.18-jessie
+    container: node:16-bullseye
 
     # Service containers to run with `container-job`
     services:

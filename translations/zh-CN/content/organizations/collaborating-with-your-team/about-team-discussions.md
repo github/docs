@@ -42,6 +42,14 @@ topics:
 
 更多信息请参阅{% ifversion fpt or ghae or ghes or ghec %}“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}“[订阅和退订通知](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}”和“[嵌套的团队](/articles/about-teams/#nested-teams)”。
 
+{% ifversion fpt or ghec %}
+
+## Organization discussions
+
+You can also use organization discussions to facilitate conversations across your organization. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+
+{% endif %}
+
 ## 延伸阅读
 
 - "[{% data variables.product.prodname_dotcom %} 通信快速入门](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"
