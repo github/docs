@@ -1,8 +1,8 @@
 ---
-title: Testing dev container configuration changes on a prebuild-enabled branch
-shortTitle: Test dev container changes
+title: 在启用了预构建的分支上测试开发容器配置更改
+shortTitle: 测试开发容器更改
 allowTitleToDifferFromFilename: true
-intro: When you change the dev container configuration for a branch that's enabled for prebuilds you should test your changes in a codespace.
+intro: 更改为预构建启用的分支的开发容器配置时，应在代码空间中测试所做的更改。
 versions:
   fpt: '*'
   ghec: '*'
@@ -16,20 +16,20 @@ permissions: People with write permissions to a repository can create or edit th
 
 {% data reusables.codespaces.prebuilds-beta-note %}
 
-Any changes you make to the dev container configuration for a prebuild-enabled branch will result in an update to the codespace configuration and the associated prebuild template. It’s therefore important to test such changes in a codespace from a test branch before committing your changes to a branch of your repository that's actively used. This will ensure you’re not introducing breaking changes for your team.
+对启用了预构建的分支的开发容器配置所做任何更改，都将导致代码空间配置和关联的预构建模板更新。 因此，在将更改提交到当前使用的存储库分支之前，在代码空间中从测试分支测试此类更改非常重要。 这将确保您不会为团队引入破坏性更改。
 
 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project)”。
 
-## Testing changes to the dev container configuration
+## 测试对开发容器配置的更改
 
-1. Create a codespace from the prebuild-enabled branch whose dev container you want to change. For more information, see "[Creating a codespace ](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)."
-1. In the codespace, check out a test branch. For more information, see "[Using source control in your codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#creating-or-switching-branches)."
-1. Make the required changes to the dev container configuration.
-1. Apply the changes by rebuilding the container. 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)”。
-1. After everything looks good, we also recommend creating a new codespace from your test branch to ensure everything is working. You can then commit your changes to your repository's default branch, or an active feature branch, triggering an update of the prebuild template for that branch.
+1. 从要更改其开发容器的预构建启用分支创建代码空间。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
+1. 在代码空间中，检出测试分支。 更多信息请参阅“[在代码空间中使用源控制](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#creating-or-switching-branches)”。
+1. 对开发容器配置进行所需的更改。
+1. 通过重新构建容器来应用更改。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)”。
+1. 在一切正常之后，我们还建议从测试分支创建一个新的代码空间，以确保一切正常。 然后，您可以将更改提交到存储库的默认分支或活动功能分支，从而触发该分支的预构建模板的更新。
 
    {% note %}
 
-   **Note**: Creating this codespace will take longer than usual because it will not be created from a prebuild.
+   **注意**：创建此代码空间将花费比平时更长的时间，因为它不会从预构建中创建。
 
    {% endnote %}

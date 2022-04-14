@@ -39,11 +39,15 @@ shortTitle: 配置 Git LFS
   ```
   要与 {% data variables.large_files.product_name_short %} 关联的每个文件类型都需要添加 `git {% data variables.large_files.command_name %} track`。 此命令将修改仓库的 *.gitattributes* 文件，并将大文件与 {% data variables.large_files.product_name_short %} 相关联。
 
-  {% tip %}
+  {% note %}
 
-  **提示：**我们强烈建议您将本地 *.gitattributes* 文件提交到仓库中。 依赖与 {% data variables.large_files.product_name_short %} 关联的全局 *.gitattributes* 文件，可能会导致在参与其他 Git 项目时发生冲突。
+  **注意：**我们强烈建议您将本地 *.gitattributes* 文件提交到仓库中。
 
-  {% endtip %}
+    - 依赖与 {% data variables.large_files.product_name_short %} 关联的全局 *.gitattributes* 文件，可能会导致在参与其他 Git 项目时发生冲突。
+    - 在存储库中包含 *.gitattributes* 文件允许创建复刻或新克隆的人员使用 {% data variables.large_files.product_name_short %} 更轻松地进行协作。
+    - 在存储库中包含 *.gitattributes* 文件允许 {% data variables.large_files.product_name_short %} 对象选择性地包含在 ZIP 文件和压缩包存档中。
+
+  {% endnote %}
 
 4. 将文件添加到与关联的扩展名相匹配的仓库：
   ```shell

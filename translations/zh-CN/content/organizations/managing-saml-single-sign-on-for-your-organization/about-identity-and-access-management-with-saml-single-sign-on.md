@@ -18,6 +18,8 @@ shortTitle: 使用 SAML SSO 的 IAM
 
 {% data reusables.saml.dotcom-saml-explanation %}
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.saml-accounts %}
 
 组织所有者可以对单个组织强制实施 SAML SSO，企业所有者可以为企业帐户中的所有组织强制实施 SAML SSO。 更多信息请参阅“[配置企业的 SAML 单点登录](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)”。

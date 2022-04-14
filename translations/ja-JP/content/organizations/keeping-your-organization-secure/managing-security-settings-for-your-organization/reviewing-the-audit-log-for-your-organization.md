@@ -135,17 +135,16 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 You can interact with the audit log using the GraphQL API{% ifversion fpt or ghec %} or the REST API{% endif %}.
 
 {% ifversion fpt or ghec %}
-The audit log API requires {% data variables.product.prodname_ghe_cloud %}.{% ifversion fpt %} {% data reusables.enterprise.link-to-ghec-trial %}{% endif %}
+
+{% note %}
+
+**Note:** To use the audit log API, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
 
 ### Using the GraphQL API
 
 {% endif %}
-
-{% note %}
-
-**Note**: The audit log GraphQL API is available for organizations using {% data variables.product.prodname_enterprise %}. {% data reusables.gated-features.more-info-org-products %}
-
-{% endnote %}
 
 To ensure your intellectual property is secure, and you maintain compliance for your organization, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audit-log-api-info %}
@@ -161,12 +160,6 @@ For example, you can make a GraphQL request to see all the new organization memb
 {% ifversion fpt or ghec %}
 
 ### Using the REST API
-
-{% note %}
-
-**Note:** The audit log REST API is available for users of {% data variables.product.prodname_ghe_cloud %} only.
-
-{% endnote %}
 
 To ensure your intellectual property is secure, and you maintain compliance for your organization, you can use the audit log REST API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audited-data-list %}

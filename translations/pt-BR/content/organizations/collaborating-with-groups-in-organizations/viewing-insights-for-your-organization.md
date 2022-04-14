@@ -19,7 +19,7 @@ Você pode usar informações de atividade da organização para entender melhor
 
 {% note %}
 
-**Note:** To view organization insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Observação:** Para visualizar os insights da organização, sua organização deverá usar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 

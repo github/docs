@@ -1,56 +1,62 @@
+import slugger from 'github-slugger'
+
 import { RestOperationHeading } from './RestOperationHeading'
-import { RestHTTPMethod } from './RestHTTPMethod'
+import { CodeBlock } from './CodeBlock'
 import { RestParameterTable } from './RestParameterTable'
 import { RestCodeSamples } from './RestCodeSamples'
-import { RestResponse } from './RestResponse'
+import { RestStatusCodes } from './RestStatusCodes'
 import { Operation } from './types'
 import { RestNotes } from './RestNotes'
 import { RestPreviewNotice } from './RestPreviewNotice'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { RestStatusCodes } from './RestStatusCodes'
 
 type Props = {
   operation: Operation
-  index: number
 }
 
 export function RestOperation({ operation }: Props) {
   const { t } = useTranslation('products')
-  const previews = operation['x-github'].previews
-  const nonErrorResponses = operation.responses.filter(
-    (response) => parseInt(response.httpStatusCode) < 400
-  )
+
+  const slug = slugger.slug(operation.title)
+
+  const numPreviews = operation.previews.length
+  const hasStatusCodes = operation.statusCodes.length > 0
+  const hasCodeSamples = operation.codeExamples.length > 0
+  const hasParameters = operation.parameters.length > 0 || operation.bodyParameters.length > 0
 
   return (
     <div>
       <RestOperationHeading
-        slug={operation.slug}
-        summary={operation.summary}
+        slug={slug}
+        title={operation.title}
         descriptionHTML={operation.descriptionHTML}
       />
-      <RestHTTPMethod verb={operation.verb} requestPath={operation.requestPath} />
-      {operation.parameters && (
+
+      {operation.requestPath && (
+        <CodeBlock verb={operation.verb} codeBlock={operation.requestPath}></CodeBlock>
+      )}
+
+      {hasParameters && (
         <RestParameterTable
-          slug={operation.slug}
-          xGitHub={operation['x-github']}
+          slug={slug}
+          numPreviews={numPreviews}
           parameters={operation.parameters}
           bodyParameters={operation.bodyParameters}
         />
       )}
-      {operation['x-codeSamples'] && operation['x-codeSamples'].length > 0 && (
-        <RestCodeSamples slug={operation.slug} xCodeSamples={operation['x-codeSamples']} />
-      )}
-      <RestResponse responses={nonErrorResponses} />
-      {(operation.notes.length > 0 || operation['x-github'].enabledForGitHubApps) && (
-        <RestNotes
-          notes={operation.notes}
-          enabledForGitHubApps={operation['x-github'].enabledForGitHubApps}
+
+      {hasCodeSamples && <RestCodeSamples operation={operation} slug={slug} />}
+
+      {hasStatusCodes && (
+        <RestStatusCodes
+          heading={t('rest.reference.status_codes')}
+          statusCodes={operation.statusCodes}
         />
       )}
-      {previews && (
-        <RestPreviewNotice slug={operation.slug} previews={operation['x-github'].previews} />
-      )}
-      <RestStatusCodes heading={t('rest.reference.status_codes')} responses={operation.responses} />
+
+      {operation.enabledForGitHubApps && <RestNotes />}
+
+      {numPreviews > 0 && <RestPreviewNotice slug={slug} previews={operation.previews} />}
     </div>
   )
 }

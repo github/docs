@@ -25,3 +25,4 @@ children:
 shortTitle: SAMLシングルサインオンの管理
 ---
 
+{% data reusables.saml.ghec-only %}

@@ -256,10 +256,10 @@ This list describes the recommended approaches for accessing repository data wit
 3. **{% data variables.product.prodname_github_app %} tokens**
     - {% data variables.product.prodname_github_apps %} can be installed on select repositories, and even have granular permissions on the resources within them. You could create a {% data variables.product.prodname_github_app %} internal to your organization, install it on the repositories you need access to within your workflow, and authenticate as the installation within your workflow to access those repositories.
 4. **Personal access tokens**
-    - You should never use personal access tokens from your own account. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your user account. This indirectly grants broad access to all write-access users of the repository the workflow is in. In addition, if you later leave an organization, workflows using this token will immediately break, and debugging this issue can be challenging.
+    - You should never use personal access tokens from your own account. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. This indirectly grants broad access to all write-access users of the repository the workflow is in. In addition, if you later leave an organization, workflows using this token will immediately break, and debugging this issue can be challenging.
     - If a personal access token is used, it should be one that was generated for a new account that is only granted access to the specific repositories that are needed for the workflow. Note that this approach is not scalable and should be avoided in favor of alternatives, such as deploy keys.
-5. **SSH keys on a user account**
-    - Workflows should never use the SSH keys on a user account. Similar to personal access tokens, they grant read/write permissions to all of your personal repositories as well as all the repositories you have access to through organization membership.  This indirectly grants broad access to all write-access users of the repository the workflow is in. If you're intending to use an SSH key because you only need to perform repository clones or pushes, and do not need to interact with public APIs, then you should use individual deploy keys instead.
+5. **SSH keys on a personal account**
+    - Workflows should never use the SSH keys on a personal account. Similar to personal access tokens, they grant read/write permissions to all of your personal repositories as well as all the repositories you have access to through organization membership.  This indirectly grants broad access to all write-access users of the repository the workflow is in. If you're intending to use an SSH key because you only need to perform repository clones or pushes, and do not need to interact with public APIs, then you should use individual deploy keys instead.
 
 ## Hardening for self-hosted runners
 
@@ -300,7 +300,7 @@ If you are using {% data variables.product.prodname_actions %} to deploy to a cl
 
 ## Auditing {% data variables.product.prodname_actions %} events
 
-You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which user account performed the action.
+You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which personal account performed the action.
 
 For example, you can use the audit log to track the `org.update_actions_secret` event, which tracks changes to organization secrets:
   ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)

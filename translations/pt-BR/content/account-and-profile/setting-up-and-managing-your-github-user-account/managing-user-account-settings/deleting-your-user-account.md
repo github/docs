@@ -1,6 +1,6 @@
 ---
 title: Excluir sua conta de usuário
-intro: 'Você pode excluir sua conta de usuário do {% data variables.product.product_name %} a qualquer momento.'
+intro: 'You can delete your personal account on {% data variables.product.product_name %} at any time.'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
@@ -12,14 +12,14 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Excluir sua conta de usuário
+shortTitle: Delete your personal account
 ---
 
-A exclusão da conta de usuário remove todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas pertencentes à sua conta. {% ifversion fpt or ghec %} Os problemas e as pull requests que você criou e os comentários que você fez nos repositórios pertencentes a outros usuários não serão excluídos. Em vez disso, eles serão associados ao nosso [usuário fantasma](https://github.com/ghost).{% else %}Os problemas e as pull requests que você criou e os comentários que você fez nos repositórios pertencentes a outros usuários não serão excluídos.{% endif %}
+Deleting your personal account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %} Os problemas e as pull requests que você criou e os comentários que você fez nos repositórios pertencentes a outros usuários não serão excluídos. Em vez disso, eles serão associados ao nosso [usuário fantasma](https://github.com/ghost).{% else %}Os problemas e as pull requests que você criou e os comentários que você fez nos repositórios pertencentes a outros usuários não serão excluídos.{% endif %}
 
 {% ifversion fpt or ghec %} Ao excluir a sua conta, nós paramos de cobrar você. O endereço de e-mail associado à conta fica disponível para uso com uma conta diferente no {% data variables.product.product_location %}. Após 90 dias, o nome da conta também fica disponível para qualquer pessoa usar em uma nova conta. {% endif %}
 
-Se você for o único proprietário de uma organização, transfira a propriedade para outra pessoa ou exclua a organização para poder excluir sua conta de usuário. Caso haja outros proprietários na organização, remova a si mesmo da organização para poder excluir sua conta de usuário.
+If you’re the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
 
 Para obter mais informações, consulte:
 - "[Transferir a propriedade da organização](/articles/transferring-organization-ownership)"
@@ -28,19 +28,19 @@ Para obter mais informações, consulte:
 
 ## Fazer backup dos dados da conta
 
-Antes de excluir sua conta de usuário, faça uma cópia de todos os repositórios, bifurcações privadas, wikis, problemas e pull requests pertencentes à sua conta.
+Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account.
 
 {% warning %}
 
-**Aviso:** depois que sua conta de usuário tiver sido excluída, o GitHub não poderá restaurar o conteúdo dela.
+**Warning:** Once your personal account has been deleted, GitHub cannot restore your content.
 
 {% endwarning %}
 
-## Excluir sua conta de usuário
+## Delete your personal account
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-3. Na parte inferior da página Account Settings (Configurações da conta), em "Delete account" (Excluir conta), clique em **Delete your account** (Excluir sua conta). Para poder excluir sua conta de usuário:
+3. Na parte inferior da página Account Settings (Configurações da conta), em "Delete account" (Excluir conta), clique em **Delete your account** (Excluir sua conta). Before you can delete your personal account:
     - Se você for o único proprietário da organização, transfira a propriedade para outra pessoa ou exclua sua organização.
     - Caso haja outros proprietários na organização, remova a si mesmo da organização. ![Botão Account deletion (Exclusão de conta)](/assets/images/help/settings/settings-account-delete.png)
 4. Na caixa de diálogo "Make sure you want to do this" (Certifique-se de que você quer fazer isso), conclua as etapas descritas para confirmar que está ciente do que acontecerá quando sua conta for excluída: ![Caixa de diálogo de confirmação Delete account (Excluir conta)](/assets/images/help/settings/settings-account-deleteconfirm.png)
