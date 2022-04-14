@@ -72701,7 +72701,7 @@
               },
               "secret_scanning_push_protection": {
                 "type": "object",
-                "description": "<p>Use the <code>status</code> property to enable or disable secret scanning push protection for this repository. For more information, see \"<a href=\"/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning\">Protecting pushes with secret scanning</a>.\"</p>",
+                "description": "<p>Use the <code>status</code> property to enable or disable secret scanning push protection for this repository. For more information, see \"<a href=\"/code-security/secret-scanning/protecting-pushes-with-secret-scanning\">Protecting pushes with secret scanning</a>.\"</p>",
                 "properties": {
                   "status": {
                     "type": "string",
@@ -72716,7 +72716,7 @@
                 "name": "secret_scanning_push_protection",
                 "in": "body",
                 "rawType": "object",
-                "rawDescription": "Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see \"[Protecting pushes with secret scanning](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning).\"",
+                "rawDescription": "Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see \"[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).\"",
                 "childParamsGroups": [
                   {
                     "parentName": "secret_scanning_push_protection",
@@ -72826,7 +72826,7 @@
                   },
                   {
                     "type": "object",
-                    "description": "<p>Use the <code>status</code> property to enable or disable secret scanning push protection for this repository. For more information, see \"<a href=\"/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning\">Protecting pushes with secret scanning</a>.\"</p>",
+                    "description": "<p>Use the <code>status</code> property to enable or disable secret scanning push protection for this repository. For more information, see \"<a href=\"/code-security/secret-scanning/protecting-pushes-with-secret-scanning\">Protecting pushes with secret scanning</a>.\"</p>",
                     "properties": {
                       "status": {
                         "type": "string",
@@ -72841,7 +72841,7 @@
                     "name": "secret_scanning_push_protection",
                     "in": "body",
                     "rawType": "object",
-                    "rawDescription": "Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see \"[Protecting pushes with secret scanning](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning).\"",
+                    "rawDescription": "Use the `status` property to enable or disable secret scanning push protection for this repository. For more information, see \"[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).\"",
                     "childParamsGroups": [
                       {
                         "parentName": "secret_scanning_push_protection",
