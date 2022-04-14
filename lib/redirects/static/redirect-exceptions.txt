@@ -467,6 +467,22 @@
 /enterprise-cloud@latest/code-security/security-overview/filtering-alerts-in-the-security-overview
 - /code-security/security-overview/filtering-alerts-in-the-security-overview
 
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories
+- /organizations/managing-git-access-to-your-organizations-repositories
+- /articles/managing-git-access-to-your-organizations-repositories-using-ssh-certificate-authorities
+- /articles/managing-git-access-to-your-organizations-repositories
+- /github/setting-up-and-managing-organizations-and-teams/managing-git-access-to-your-organizations-repositories
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities
+- /organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities
+- /articles/about-ssh-certificate-authorities
+- /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities
+- /organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities
+- /articles/managing-your-organizations-ssh-certificate-authorities
+- /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
+
 /enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
 - /pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
 - /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
