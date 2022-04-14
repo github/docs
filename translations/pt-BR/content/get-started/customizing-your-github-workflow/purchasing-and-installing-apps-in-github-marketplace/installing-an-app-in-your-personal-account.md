@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: Instalar uma conta de usuário do aplicativo
+shortTitle: Install app personal account
 ---
 
 {% data reusables.marketplace.marketplace-apps-only %}

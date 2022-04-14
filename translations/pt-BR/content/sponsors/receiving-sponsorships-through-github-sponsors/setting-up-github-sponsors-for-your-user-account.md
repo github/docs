@@ -12,7 +12,7 @@ type: how_to
 topics:
   - User account
   - Sponsors profile
-shortTitle: Configurar conta de usuário
+shortTitle: Set up for personal account
 ---
 
 ## Ingressar no {% data variables.product.prodname_sponsors %}
@@ -22,7 +22,7 @@ shortTitle: Configurar conta de usuário
 Para aderir ao {% data variables.product.prodname_sponsors %} como organização, consulte "[Configurando o {% data variables.product.prodname_sponsors %} para sua organização](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
-2. Se você é o proprietário de uma organização, você tem mais de uma conta elegível. Clique em **Ver suas contas elegíveis**, depois na lista de contas, encontrar sua conta de usuário.
+2. Se você é o proprietário de uma organização, você tem mais de uma conta elegível. Click **View your eligible accounts**, then in the list of accounts, find your personal account.
 3. Clique em **Join the waitlist ** (Entrar para a lista de espera).
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}

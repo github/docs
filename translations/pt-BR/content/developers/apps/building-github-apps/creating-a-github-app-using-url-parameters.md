@@ -18,7 +18,7 @@ shortTitle: Parâmetros de consulta de criação de aplicativo
 
 Você pode adicionar parâmetros de consulta a essas URLs para pré-selecionar a configuração de um {% data variables.product.prodname_github_app %} em uma conta pessoal ou de organização:
 
-* **Conta de usuário:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **Personal account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
 * **Conta da organização:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 A pessoa que está criando o aplicativo pode editar os valores pré-selecionados a partir da página de registro do {% data variables.product.prodname_github_app %}, antes de enviar o aplicativo. Se você não incluir os parâmetros necessários na string de consulta da URL, como, por exemplo, o `nome`, a pessoa que criar o aplicativo deverá inserir um valor antes de enviar o aplicativo.

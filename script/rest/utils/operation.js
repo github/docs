@@ -142,7 +142,7 @@ export default class Operation {
   async renderParameterDescriptions() {
     return Promise.all(
       this.parameters.map(async (param) => {
-        param.descriptionHtml = await renderContent(param.description)
+        param.descriptionHTML = await renderContent(param.description)
         delete param.description
         return param
       })
