@@ -21,7 +21,7 @@ shortTitle: Delete files
 
 You can delete an individual file in your repository{% ifversion fpt or ghes or ghec %} or an entire directory, including all the files in the directory{% endif %}.
 
-If you try to delete a file{% ifversion fpt or ghes or ghec %} or directory{% endif %} in a repository that you don’t have write permissions to, we'll fork the project to your user account and help you send a pull request to the original repository after you commit your change. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
+If you try to delete a file{% ifversion fpt or ghes or ghec %} or directory{% endif %} in a repository that you don’t have write permissions to, we'll fork the project to your personal account and help you send a pull request to the original repository after you commit your change. For more information, see "[About pull requests](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 
 If the file{% ifversion fpt or ghes or ghec %} or directory{% endif %} you deleted contains sensitive data, the data will still be available in the repository's Git history. To completely remove the file from {% data variables.product.product_name %}, you must remove the file from your repository's history. For more information, see "[Removing sensitive data from a repository](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)."
 

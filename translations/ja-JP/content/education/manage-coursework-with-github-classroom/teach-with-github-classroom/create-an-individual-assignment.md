@@ -20,6 +20,8 @@ shortTitle: 個人課題
 
 個人課題作成の方法を説明する動画については、「[{% data variables.product.prodname_classroom %}の設定の基本](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)」を参照してください。
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## 必要な環境
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}

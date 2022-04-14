@@ -15,7 +15,7 @@ shortTitle: パブリッシャーの検証
 
 Organizationが検証済みになると、アプリケーションで有料プランを公開できます。 詳しい情報については、「[リストに対する価格プランの設定](/developers/github-marketplace/setting-pricing-plans-for-your-listing)」を参照してください。
 
-アプリケーションで有料プランを提供するには、アプリケーションがOrganizationの所有であり、あなたがそのOrganizationのオーナー権限を持っていなければなりません。 アプリケーションがユーザアカウントの所有である場合は、そのアプリケーションの所有権をOrganizationに移譲する必要があります。 詳しい情報については、「[GitHub Appの所有権の移譲](/developers/apps/transferring-ownership-of-a-github-app)」または「[OAuth Appの所有権の移譲](/developers/apps/transferring-ownership-of-an-oauth-app)」を参照してください。
+アプリケーションで有料プランを提供するには、アプリケーションがOrganizationの所有であり、あなたがそのOrganizationのオーナー権限を持っていなければなりません。 If your app is currently owned by a personal account, you'll need to transfer the ownership of the app to an organization. 詳しい情報については、「[GitHub Appの所有権の移譲](/developers/apps/transferring-ownership-of-a-github-app)」または「[OAuth Appの所有権の移譲](/developers/apps/transferring-ownership-of-an-oauth-app)」を参照してください。
 
 ## パブリッシャー検証をリクエストする
 

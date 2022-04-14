@@ -43,7 +43,7 @@ Organization activity insights を使えば、Issue やプルリクエストア�
 
 {% note %}
 
-**ノート:** 必ず[依存関係グラフ](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)を有効化しておいてください。
+**ノート:** 必ず[依存関係グラフ](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)を有効化しておいてください。
 
 {% endnote %}
 

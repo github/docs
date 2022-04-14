@@ -19,7 +19,7 @@ topics:
 
 ![ロックした会話について匿名化されたタイムラインイベント](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-会話がロックされている間も、[書き込みアクセスを持つユーザ](/articles/repository-permission-levels-for-an-organization/)と[リポジトリのオーナーおよびコラボレーター](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)はコメントを追加または削除したり、非表示にしたりできます。
+会話がロックされている間も、[書き込みアクセスを持つユーザ](/articles/repository-permission-levels-for-an-organization/)と[リポジトリのオーナーおよびコラボレーター](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account)はコメントを追加または削除したり、非表示にしたりできます。
 
 アーカイブされていないリポジトリでロックされた会話を検索するには、検索修飾子 `is:locked` および `archived:false` を使用できます。 会話はアーカイブされたリポジトリで自動的にロックされます。 詳細は「[Issue およびプルリクエストを検索する](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)」を参照してください。
 
