@@ -20,3 +20,4 @@ children:
 shortTitle: Gitアクセスの管理
 ---
 
+{% data reusables.organizations.ssh-ca-ghec-only %}

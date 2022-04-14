@@ -35,7 +35,7 @@ Se sua organização usar o {% data variables.product.prodname_ghe_cloud %}, voc
 
 Se a sua organização é gerenciada por uma conta corporativa, você poderá ver os proprietários da empresa que gerenciam as configurações de cobrança e políticas para todas as organizações da sua empresa. Para obter mais informações sobre contas corporativas, consulte "[Tipos de contas de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
-Também é possível ver se o proprietário da empresa tem uma função específica na organização. Enterprise owners can also be an organization member, any other organization role, or be un-affiliated with the organization.
+Também é possível ver se o proprietário da empresa tem uma função específica na organização. Os proprietários de empresas também podem ser integrantes da organização, ter qualquer outra função na organização ou ser não afiliados à organização.
 
 {% note %}
 
@@ -43,11 +43,11 @@ Também é possível ver se o proprietário da empresa tem uma função específ
 
 {% endnote %}
 
-| **Função corporativa**   | **Função da organização**                      | **Acesso à organização ou impacto**                                                                                                                    |
-| ------------------------ | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Proprietário corporativo | Un-affiliated or no official organization role | Não é possível acessar o conteúdo ou repositórios da organização, mas gerencia as configurações e políticas corporativas que afetam a sua organização. |
-| Proprietário corporativo | Proprietário da organização                    | Capaz de configurar as configurações da organização e gerenciar o acesso aos recursos da organização por meio de equipes, etc.                         |
-| Proprietário corporativo | Integrante da organização                      | Capaz de acessar recursos e conteúdos da organização, como repositórios, sem acesso às configurações da organização.                                   |
+| **Função corporativa**   | **Função da organização**                             | **Acesso à organização ou impacto**                                                                                                                    |
+| ------------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Proprietário corporativo | Não afiliado ou nenhuma função oficial da organização | Não é possível acessar o conteúdo ou repositórios da organização, mas gerencia as configurações e políticas corporativas que afetam a sua organização. |
+| Proprietário corporativo | Proprietário da organização                           | Capaz de configurar as configurações da organização e gerenciar o acesso aos recursos da organização por meio de equipes, etc.                         |
+| Proprietário corporativo | Integrante da organização                             | Capaz de acessar recursos e conteúdos da organização, como repositórios, sem acesso às configurações da organização.                                   |
 
 Para revisar todas as funções de uma organização, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)". {% ifversion ghec %} Um membro da organização também pode ter uma função personalizada para um repositório específico. Para obter mais informações, consulte "[Gerenciando funções de repositórios personalizados para uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".{% endif %}
 

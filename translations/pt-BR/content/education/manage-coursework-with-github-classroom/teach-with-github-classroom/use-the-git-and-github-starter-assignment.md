@@ -96,7 +96,7 @@ A atividade inicial do Git & {% data variables.product.company_short %} só est�
 
 ## Próximas etapas
 
-- Faça recomendações adicionais personalizadas para seu curso. Para obter mais informações, consulte "[Criar uma atividade individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" e "[Criar uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
+- Faça recomendações adicionais personalizadas para seu curso. For more information, see "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)," and "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
 ## Leia mais
 

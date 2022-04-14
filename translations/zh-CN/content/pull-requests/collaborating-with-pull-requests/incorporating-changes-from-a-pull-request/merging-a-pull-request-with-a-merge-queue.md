@@ -59,7 +59,7 @@ You can view the merge queue for a base branch in various places on {% data vari
 
   ![在“拉取请求”页面中查看合并队列](/assets/images/help/pull_requests/clock-icon-in-pull-request-list.png)
 
-- On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click **the merge queue** link.
+- On the pull request page when merge queue is required for merging, scroll to the bottom of the timeline and click the **merge queue** link.
 
   ![Merge queue link on pull request](/assets/images/help/pull_requests/merge-queue-link.png)
 

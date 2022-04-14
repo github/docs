@@ -83,6 +83,9 @@ Ao criar uma regra de branch, o branch que você especificar ainda não existe n
 
   {% endtip %}
 {%- endif %}
+{%- if required-deployments %}
+1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments. ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
+{%- endif %}
 1. Opcionalmente, selecione **Aplicar as regras acima aos administradores**. ![Aplicar as regras acima à caixa de seleção dos administradores](/assets/images/help/repository/include-admins-protected-branches.png)
 1. Opcionalmente, {% ifversion fpt or ghec %} se o repositório pertencer a uma organização que usa {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %},{% endif %} habilitar as restrições de branches.
    - Selecione **Restringir quem pode fazer push para os branches correspondentes**. ![Caixa de seleção Branch restriction (Restrição de branch)](/assets/images/help/repository/restrict-branch.png)

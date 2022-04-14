@@ -33,35 +33,37 @@ shortTitle: Configure dependabot.yml
 
 セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのためのプルリクエストをトリガーするときにも使用されます。  詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)」を参照してください。
 
-*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 必要に応じて、最上位に `registries` キーを含めることができます。 ファイルは、`version: 2` で始まる必要があります。
+*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 You can, optionally, include a top-level `registries` key{% ifversion fpt or ghec or ghes > 3.4 %} and/or a `enable-beta-ecosystems` key{% endif %}. ファイルは、`version: 2` で始まる必要があります。
 
 ## 更新の設定オプション
 
 最上位の `updates` キーは必須です。 これを使用することで、{% data variables.product.prodname_dependabot %} がバージョンやプロジェクトの依存性を更新する方法を設定できます。 各エントリは、特定のパッケージマネージャーの更新設定を行います。 次のオプションを使用できます。
 
-| オプション                                                                      |  必須   | 説明                                                                   |
-|:-------------------------------------------------------------------------- |:-----:|:-------------------------------------------------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 使用するパッケージマネージャー                                                      |
-| [`directory`](#directory)                                                  | **X** | パッケージマニフェストの場所                                                       |
-| [`schedule.interval`](#scheduleinterval)                                   | **X** | 更新を確認する頻度                                                            |
-| [`allow`](#allow)                                                          |       | 許可する更新をカスタマイズする                                                      |
-| [`assignees`](#assignees)                                                  |       | プルリクエストのアサイン担当者                                                      |
-| [`commit-message`](#commit-message)                                        |       | コミットメッセージの環境設定                                                       |
-| [`ignore`](#ignore)                                                        |       | 特定の依存関係またはバージョンを無視する                                                 |
-| [`insecure-external-code-execution`](#insecure-external-code-execution)    |       | マニフェストファイル内でコードの実行を許可または拒否する                                         |
-| [`labels`](#labels)                                                        |       | プルリクエストに設定するラベル                                                      |
-| [`マイルストーン`](#milestone)                                                    |       | プルリクエストに設定するマイルストーン                                                  |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | バージョン更新時のオープンなプルリクエスト数を制限する                                          |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する                                              |
-| [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                                                         |
-| [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} がアクセスできるプライベートリポジトリ |
-| [`レビュー担当者`](#reviewers)                                                    |       | プルリクエストのレビュー担当者                                                      |
-| [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                                                            |
-| [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)                                                    |
-| [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）                                                    |
-| [`target-branch`](#target-branch)                                          |       | プルリクエストを作成するブランチ                                                     |
-| [`vendor`](#vendor)                                                        |       | ベンダーまたはキャッシュされた依存関係を更新する                                             |
-| [`versioning-strategy`](#versioning-strategy)                              |       | マニフェストのバージョン要件の更新方法                                                  |
+| オプション                                                                      |  必須   | 説明                                                                                     |
+|:-------------------------------------------------------------------------- |:-----:|:-------------------------------------------------------------------------------------- |
+| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 使用するパッケージマネージャー                                                                        |
+| [`directory`](#directory)                                                  | **X** | パッケージマニフェストの場所                                                                         |
+| [`schedule.interval`](#scheduleinterval)                                   | **X** | 更新を確認する頻度                                                                              |
+| [`allow`](#allow)                                                          |       | 許可する更新をカスタマイズする                                                                        |
+| [`assignees`](#assignees)                                                  |       | プルリクエストのアサイン担当者                                                                        |
+| [`commit-message`](#commit-message)                                        |       | Commit message preferences                  |{% ifversion fpt or ghec or ghes > 3.4 %}
+| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |       | Enable ecosystems that have beta-level support 
+{% endif %}
+| [`ignore`](#ignore)                                                        |       | 特定の依存関係またはバージョンを無視する                                                                   |
+| [`insecure-external-code-execution`](#insecure-external-code-execution)    |       | マニフェストファイル内でコードの実行を許可または拒否する                                                           |
+| [`labels`](#labels)                                                        |       | プルリクエストに設定するラベル                                                                        |
+| [`マイルストーン`](#milestone)                                                    |       | プルリクエストに設定するマイルストーン                                                                    |
+| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | バージョン更新時のオープンなプルリクエスト数を制限する                                                            |
+| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する                                                                |
+| [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                                                                           |
+| [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} がアクセスできるプライベートリポジトリ                   |
+| [`レビュー担当者`](#reviewers)                                                    |       | プルリクエストのレビュー担当者                                                                        |
+| [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                                                                              |
+| [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)                                                                      |
+| [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）                                                                      |
+| [`target-branch`](#target-branch)                                          |       | プルリクエストを作成するブランチ                                                                       |
+| [`vendor`](#vendor)                                                        |       | ベンダーまたはキャッシュされた依存関係を更新する                                                               |
+| [`versioning-strategy`](#versioning-strategy)                              |       | マニフェストのバージョン要件の更新方法                                                                    |
 
 これらのオプションは、次のようなカテゴリに幅広く適合しています。
 
@@ -302,7 +304,6 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -330,7 +331,7 @@ updates:
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# `ignore`を使って更新されるべきではない依存関係を指定
+# Use `ignore` to specify dependencies that should not be updated
 
 version: 2
 updates:
@@ -340,11 +341,11 @@ updates:
       interval: "daily"
     ignore:
       - dependency-name: "express"
-        # Expressについてはバージョン4と5に対するすべての更新を無視
+        # For Express, ignore all updates for version 4 and 5
         versions: ["4.x", "5.x"]
-        # Lodashについてはすべての更新を無視
+        # For Lodash, ignore all updates
       - dependency-name: "lodash"
-        # AWS SDKについてはすべてのパッチアップデートを無視
+        # For AWS SDK, ignore all patch updates
       - dependency-name: "aws-sdk"
         update-types: ["version-update:semver-patch"]
 ```
@@ -355,6 +356,15 @@ updates:
 
 
 {% endnote %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+{% note %}
+
+**Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
+
+{% endnote %}
+
+{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -503,7 +513,7 @@ updates:
 {% data variables.product.prodname_dependabot %} が `bundler`、`mix`、および `pip` パッケージマネージャーを使用してプライベートレジストリの依存関係を更新できるようにするため、外部コードの実行を許可できます。 For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
 
 ```yaml
-# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
+# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries
 # when updating dependency versions for this ecosystem
 
 {% raw %}
@@ -733,11 +743,11 @@ updates:
 
 {% raw %}
 ```yaml
-# 1つのプライベートリポジトリ内の依存関係の更新のための最小設定
+# Minimal settings to update dependencies in one private registry
 
 version: 2
 registries:
-  dockerhub: # Define access for a private registry 
+  dockerhub: # Define access for a private registry
     type: docker-registry
     url: registry.hub.docker.com
     username: octocat
@@ -971,3 +981,23 @@ registries:
     token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+## Enabling support for beta-level ecosystems
+
+### `enable-beta-ecosystems`
+
+By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
+
+```yaml
+# Configure beta ecosystem
+
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+```
+{% endif %}

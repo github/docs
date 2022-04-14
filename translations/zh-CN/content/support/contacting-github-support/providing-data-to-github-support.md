@@ -89,7 +89,7 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 - `collectd/logs/collectd.log`：Collectd 日志
 - `mail-logs/mail.log`：SMTP 电子邮件交付日志
 
-更多信息请参阅“[审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)”。
+更多信息请参阅“[关于企业的审核日志](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)”。
 
 支持包包含过去两天的日志。 要获取过去七天的日志，您可以下载扩展支持包。 更多信息请参阅“[创建和共享扩展支持包](#creating-and-sharing-extended-support-bundles)”。
 

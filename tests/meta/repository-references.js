@@ -56,6 +56,7 @@ const PUBLIC_REPOS = new Set([
   'stack-graphs',
   'codespaces-precache',
   'advisory-database',
+  'browser-support',
 ])
 
 const ALLOW_DOCS_PATHS = [

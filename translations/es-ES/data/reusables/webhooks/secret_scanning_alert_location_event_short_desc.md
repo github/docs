@@ -1,1 +1,1 @@
-Activity related to secret scanning alert locations in a repository. El tipo de actividad se especifica en la propiedad de la acción del objeto de la carga útil. For more information, see the "[secret scanning](rest/reference/secret-scanning)" REST API.
+Activity related to secret scanning alert locations in a repository. El tipo de actividad se especifica en la propiedad de la acción del objeto de la carga útil. For more information, see the "[secret scanning](/rest/reference/secret-scanning)" REST API.

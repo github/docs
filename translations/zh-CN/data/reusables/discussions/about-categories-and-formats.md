@@ -1,1 +1,1 @@
-所有讨论都必须在类别中创建。 拥有维护或管理权限的人定义仓库的类别。 每个类别都有一个格式：开放式讨论、问答或公告。
+所有讨论都必须在类别中创建。 For repository discussions, people with maintain or admin permissions to the repository define the categories for discussions in that repository. For organization discussions, people with maintain or admin permissions to the source repository define the categories for discussions in that organization. 每个类别都有一个格式：开放式讨论、问答或公告。

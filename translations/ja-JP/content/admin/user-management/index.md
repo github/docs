@@ -1,6 +1,6 @@
 ---
 title: ユーザ、Organization、リポジトリデータを管理する
-shortTitle: ユーザ、Organization、リポジトリデータを管理する
+shortTitle: 'Manage users, organizations, and repositories'
 intro: このガイドでは、Enterprise にサインインするユーザの認証方式、リポジトリへのアクセスとコラボレーションのための Organization と Team を作成する方法、およびユーザセキュリティで推奨されるベストプラクティスについて説明します。
 redirect_from:
   - /enterprise/admin/categories/user-management
@@ -18,7 +18,6 @@ children:
   - /managing-users-in-your-enterprise
   - /managing-organizations-in-your-enterprise
   - /managing-repositories-in-your-enterprise
-  - /monitoring-activity-in-your-enterprise
   - /migrating-data-to-and-from-your-enterprise
 ---
 
