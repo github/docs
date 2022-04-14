@@ -1,2 +1,2 @@
 {% data reusables.audit_log.audit-log-api-info %}
-* Git 事件，如克隆、获取和推送
+{% ifversion fpt or ghec %}* Git events, such as cloning, fetching, and pushing{% endif %}

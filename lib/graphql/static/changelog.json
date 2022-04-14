@@ -4,6 +4,22 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Field `blocksCreations` was added to object type `BranchProtectionRule`",
+          "Input field `blocksCreations` was added to input object type `CreateBranchProtectionRuleInput`",
+          "Field `blocksCreations` was added to object type `RefUpdateRule`",
+          "Input field `blocksCreations` was added to input object type `UpdateBranchProtectionRuleInput`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-04-03"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `CreateSponsorsTierInput` was added",
           "Type `CreateSponsorsTierPayload` was added",
           "Type `DependabotUpdate` was added",

@@ -1,6 +1,6 @@
 ---
 title: 阻止用户访问组织
-intro: 组织所有者可阻止用户以解除该用户在组织仓库中进行协作的能力。
+intro: 组织所有者和版主可以阻止任何非组织成员的人协作处理组织的存储库。
 redirect_from:
   - /articles/blocking-a-user-from-your-organization
   - /github/building-a-strong-community/blocking-a-user-from-your-organization
@@ -12,7 +12,7 @@ topics:
 shortTitle: 阻止您的组织
 ---
 
-您可以从组织的设置中或从用户发表的特定评论中阻止用户。 在评论中阻止用户时，您可以选择向该用户发送通知，以告知他们已被阻止并说明原因。 否则，用户不会直接收到您已阻止他们的通知。 被阻止的用户仍然可以删除其现有内容。
+您可以从组织的设置中或从用户发表的特定评论中阻止非成员。 在评论中阻止用户时，您可以选择向该用户发送通知，以告知他们已被阻止并说明原因。 否则，用户不会直接收到您已阻止他们的通知。 被阻止的用户仍然可以删除其现有内容。
 
 阻止用户时，您可以选择无限期或在特定时间段内阻止他们。 如果在特定时间段内阻止某人，则所选时间结束后会自动解除对他们的阻止。 如果无限期阻止某人，您可以随时手动解除阻止。 更多信息请参阅“[解除阻止用户对组织的访问](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)”。
 

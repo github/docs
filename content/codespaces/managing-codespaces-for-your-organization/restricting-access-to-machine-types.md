@@ -20,7 +20,7 @@ As an organization owner, you may want to configure constraints on the types of 
 
 ### Behavior when you set a machine type constraint
 
-If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they time out. When the user attempts to resume the codespace they are shown a message telling them that the currenly selected machine type is no longer allowed for this organization and prompting them to choose an alternative machine type.
+If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they are stopped or time out. When the user attempts to resume the codespace they are shown a message telling them that the currenly selected machine type is no longer allowed for this organization and prompting them to choose an alternative machine type.
 
 If you remove higher specification machine types that are required by the {% data variables.product.prodname_codespaces %} configuration for an individual repository in your organization, then it won't be possible to create a codespace for that repository. When someone attempts to create a codespace they will see a message telling them that there are no valid machine types available that meet the requirements of the repository's {% data variables.product.prodname_codespaces %} configuration.
 

@@ -82,8 +82,6 @@ If you have a workflow that will be triggered by {% data variables.product.prodn
 
 To access a private container registry on AWS with a user name and password, a workflow must include a secret for `username` and `password`. In the example below, when {% data variables.product.prodname_dependabot %} triggers the workflow, the {% data variables.product.prodname_dependabot %} secrets with the names `READONLY_AWS_ACCESS_KEY_ID` and `READONLY_AWS_ACCESS_KEY` are used. If another actor triggers the workflow, the actions secrets with those names are used.
 
-{% raw %}
-
 ```yaml
 name: CI
 on:
@@ -95,20 +93,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       - name: Login to private container registry for dependencies
         uses: docker/login-action@v1
         with:
           registry: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
-          username: ${{ secrets.READONLY_AWS_ACCESS_KEY_ID }}
-          password: ${{ secrets.READONLY_AWS_ACCESS_KEY }}
+          username: {% raw %}${{ secrets.READONLY_AWS_ACCESS_KEY_ID }}{% endraw %}
+          password: {% raw %}${{ secrets.READONLY_AWS_ACCESS_KEY }}{% endraw %}
 
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 ```
-
-{% endraw %}
 
 {% endif %}
 
@@ -128,10 +124,8 @@ If the restrictions are removed, when a workflow is triggered by {% data variabl
 
 以下は、失敗する可能性がある`pull_request`ワークフローのシンプルな例です。
 
-{% raw %}
-
 ```yaml
-### このワークフローはシークレットを持たず、読み取りのみのトークンを持つ
+### This workflow now has no secrets and a read-only token
 name: Dependabot Workflow
 on:
   pull_request
@@ -139,13 +133,11 @@ on:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    # ワークフローがDependabot PR以外で失敗しないよう、アクターがDependabotか常にチェック
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    # Always check the actor is Dependabot to prevent your workflow from failing on non-Dependabot PRs
+    if: {% raw %}${{ github.actor == 'dependabot[bot]' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 ```
-
-{% endraw %}
 
 `pull_request`は`pull_request_target`で置き換えることができます。これはフォークからのPull Requestのために使われるもので、厳密にPull Requestの`HEAD`をチェックアウトします。
 
@@ -155,30 +147,26 @@ jobs:
 
 {% endwarning %}
 
-{% raw %}
-
 ```yaml
-### このワークフローはシークレットへのアクセスと読み書きできるトークンを持ちます
+### This workflow has access to secrets and a read-write token
 name: Dependabot Workflow
 on:
   pull_request_target
 
 permissions:
-  # 今度は読み書きできるトークンを持っているので、必要に応じてスコープを下げる
+  # Downscope as necessary, since you now have a read-write token
 
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: {% raw %}${{ github.actor == 'dependabot[bot]' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
         with:
-          # pull requestのHEADをチェックアウト
-          ref: ${{ github.event.pull_request.head.sha }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # Check out the pull request HEAD
+          ref: {% raw %}${{ github.event.pull_request.head.sha }}{% endraw %}
+          github-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
-
-{% endraw %}
 
 必要以上の権限を持つトークンの漏洩を避けるために、`GITHUB_TOKEN`に付与する権限のスコープを絞ることも強くおすすめします。 詳しい情報については「[`GITHUB_TOKEN`の権限](/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token)」を参照してください。
 

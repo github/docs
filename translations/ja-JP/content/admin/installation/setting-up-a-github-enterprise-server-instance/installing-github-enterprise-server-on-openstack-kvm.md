@@ -27,7 +27,6 @@ shortTitle: Install on OpenStack
 
 ## {% data variables.product.prodname_ghe_server %} イメージをダウンロードする
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
 4. {% data variables.product.prodname_dotcom %}オンプレミスを選択し、続いて**OpenStack KVM (QCOW2)**をクリックしてください。

@@ -35,7 +35,7 @@ shortTitle: Configure maintenance mode
 
 ![スケジューリングされたメンテナンスに関するエンドユーザ向けバナー](/assets/images/enterprise/maintenance/maintenance-scheduled.png)
 
-インスタンスがメンテナンスモードに入ると、通常のHTTP及びGitアクセスはすべて拒否されます。 Git fetch、clone、pushの操作も、サイトが一時的に利用できなくなっていることを示すエラーメッセージと共に拒否されます。 GitHub Actions jobs will not be executed. サイトにブラウザーでアクセスすると、メンテナンスページが表示されます。
+インスタンスがメンテナンスモードに入ると、通常のHTTP及びGitアクセスはすべて拒否されます。 Git fetch、clone、pushの操作も、サイトが一時的に利用できなくなっていることを示すエラーメッセージと共に拒否されます。 In high availability configurations, Git replication will be paused. GitHub Actions jobs will not be executed. サイトにブラウザーでアクセスすると、メンテナンスページが表示されます。
 
 ![メンテナンスモードのスプラッシュスクリーン](/assets/images/enterprise/maintenance/maintenance-mode-maintenance-page.png)
 

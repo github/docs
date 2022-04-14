@@ -94,20 +94,21 @@ You can write your own actions, or you can find actions to use in your workflows
 
 1. リポジトリに、ワークフローファイルを保存するための `.github/workflows/` ディレクトリを作成します。
 1. `.github/workflows/` ディレクトリに、`learn-github-actions.yml` という名前の新しいファイルを作成し、次のコードを追加します。
-    ```yaml
-    name: learn-github-actions
-    on: [push]
-    jobs:
-      check-bats-version:
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v2
-          - uses: actions/setup-node@v2
-            with:
-              node-version: '14'
-          - run: npm install -g bats
-          - run: bats -v
-    ```
+
+   ```yaml
+   name: learn-github-actions
+   on: [push]
+   jobs:
+     check-bats-version:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+         - uses: {% data reusables.actions.action-setup-node %}
+           with:
+             node-version: '14'
+         - run: npm install -g bats
+         - run: bats -v
+   ```
 1. これらの変更をコミットして、{% data variables.product.prodname_dotcom %} リポジトリにプッシュします。
 
 これで、新しい {% data variables.product.prodname_actions %} ワークフローファイルがリポジトリにインストールされ、別のユーザがリポジトリに変更をプッシュするたびに自動的に実行されます。 ジョブの実行履歴の詳細については、「[ワークフローのアクティビティを表示する](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)」を参照してください。
@@ -187,7 +188,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
 <td>
 
   ```yaml
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
   ```
 </td>
 <td>
@@ -198,13 +199,13 @@ The <code>uses</code> keyword specifies that this step will run <code>v2</code> 
 <td>
 
   ```yaml
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '14'
   ```
 </td>
 <td>
-  This step uses the <code>actions/setup-node@v2</code> action to install the specified version of the Node.js (this example uses v14). This puts both the <code>node</code> and <code>npm</code> commands in your <code>PATH</code>.
+  This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). This puts both the <code>node</code> and <code>npm</code> commands in your <code>PATH</code>.
 </td>
 </tr>
 <tr>

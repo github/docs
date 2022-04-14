@@ -27,7 +27,7 @@ versions:
 
 ## 查看 Gist 提交历史记录
 
-To view a gist's full commit history, click the "Revisions" tab at the top of the gist.
+要查看 Gist 的完整提交历史记录，请单击该 Gist 顶部的“Revisions（版本）”选项卡。
 
 ![Gist 版本选项卡](/assets/images/help/gist/gist_revisions_tab.png)
 

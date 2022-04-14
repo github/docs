@@ -25,3 +25,4 @@ children:
 shortTitle: Gerenciar logon único SAML
 ---
 
+{% data reusables.saml.ghec-only %}

@@ -1561,6 +1561,11 @@ type BranchProtectionRule implements Node {
   allowsForcePushes: Boolean!
 
   """
+  Is branch creation a protected operation.
+  """
+  blocksCreations: Boolean!
+
+  """
   A list of conflicts matching branches protection rule and other branch protection rules
   """
   branchProtectionRuleConflicts(
@@ -5326,6 +5331,11 @@ input CreateBranchProtectionRuleInput {
   Are force pushes allowed on this branch.
   """
   allowsForcePushes: Boolean
+
+  """
+  Is branch creation a protected operation.
+  """
+  blocksCreations: Boolean
 
   """
   A list of User or Team IDs allowed to bypass force push targeting matching branches.
@@ -28203,6 +28213,11 @@ type RefUpdateRule {
   allowsForcePushes: Boolean!
 
   """
+  Can matching branches be created.
+  """
+  blocksCreations: Boolean!
+
+  """
   Identifies the protection rule pattern.
   """
   pattern: String!
@@ -39046,6 +39061,11 @@ input UpdateBranchProtectionRuleInput {
   Are force pushes allowed on this branch.
   """
   allowsForcePushes: Boolean
+
+  """
+  Is branch creation a protected operation.
+  """
+  blocksCreations: Boolean
 
   """
   The global relay id of the branch protection rule to be updated.

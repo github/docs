@@ -15,7 +15,7 @@ topics:
 
 ## {% data variables.product.prodname_codespaces %}の価格
 
-{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
+{% data variables.product.prodname_codespaces %}の利用状況に対しては、{% data variables.product.prodname_team %}及び{% data variables.product.prodname_enterprise %}上のすべてのOrganization及びEnterpriseアカウントについて課金され、これには無料の分あるいはストレージは含まれません。 現在のところ、個人のアカウントは{% data variables.product.prodname_codespaces %}の利用に対して課金されません。
 
 {% data variables.product.prodname_codespaces %}の利用については、以下の表に示す計測単位に従って課金されます。
 

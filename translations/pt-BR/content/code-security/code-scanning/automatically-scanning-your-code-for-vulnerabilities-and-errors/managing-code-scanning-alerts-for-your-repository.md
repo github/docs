@@ -161,6 +161,14 @@ Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 {% data reusables.code-scanning.filter-non-default-branches %}
 {% endif %}
+
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% note %}
+
+**Observação:** Se você executar a digitalização de código usando várias configurações, às vezes, um alerta terá múltiplas origens da análise. A menos que você execute todas as configurações regularmente, você poderá ver alertas fixos em uma análise de origem, mas não em outra. Para obter mais informações, consulte[Sobre as origens da análise](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)".
+
+{% endnote %}
+{% endif %}
 ## Ignorar ou excluir alertas
 
 Há duas formas de fechar um alerta. Você pode corrigir o problema no código ou pode ignorar o alerta. Como alternativa, se você tiver permissões de administrador para o repositório, será possível excluir alertas. Excluir alertas é útil em situações em que você configurou uma ferramenta {% data variables.product.prodname_code_scanning %} e, em seguida, decidiu removê-la ou em situações em que você configurou a análise de {% data variables.product.prodname_codeql %} com um conjunto de consultas maior do que você deseja continuar usando, e, em seguida, você removeu algumas consultas da ferramenta. Em ambos os casos, excluir alertas permite limpar os seus resultados de {% data variables.product.prodname_code_scanning %}. Você pode excluir alertas da lista de resumo dentro da aba **Segurança**.

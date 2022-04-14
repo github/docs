@@ -48,7 +48,6 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 您也可以通过在仓库的 `.github/workflow` 目录中创建新文件来手动添加此工作流程。
 
-{% raw %}
 ```yaml{:copy}
 name: Java CI
 
@@ -59,16 +58,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Build with Maven
         run: mvn --batch-mode --update-snapshots verify
 ```
-{% endraw %}
 
 此工作流程执行以下步骤：
 
@@ -90,29 +88,26 @@ jobs:
 
 如果使用不同的命令来构建项目，或者想要使用不同的目标，则可以指定这些命令。 例如，您可能想要运行在 _pom-ci.xml_ 文件中配置的 `verify` 目标。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - name: Run the Maven verify phase
     run: mvn --batch-mode --update-snapshots verify
 ```
-{% endraw %}
 
 ## 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Maven 仓库将存储在 GitHub Actions 基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程 Maven 仓库下载依赖项。 您可以简单地使用 [`setup-java` 操作](https://github.com/marketplace/actions/setup-java-jdk)缓存依赖项，也可使用 [`cache` 操作](https://github.com/actions/cache)进行自定义和更高级的配置。
+使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Maven 仓库将存储在 GitHub 操作基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程 Maven 仓库下载依赖项。 您可以简单地使用 [`setup-java` 操作](https://github.com/marketplace/actions/setup-java-jdk)缓存依赖项，也可使用 [`cache` 操作](https://github.com/actions/cache)进行自定义和更高级的配置。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - name: Set up JDK 11
-    uses: actions/setup-java@v2
+    uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
@@ -120,7 +115,6 @@ steps:
   - name: Build with Maven
     run: mvn --batch-mode --update-snapshots verify
 ```
-{% endraw %}
 
 此工作流程将保存本地 Maven 存储库的内容，位于运行器主目录的 `.m2` 目录。 缓存密钥是 _pom.xml_ 的哈希内容，因此更改 _pom.xml_ 将使缓存失效。
 
@@ -130,19 +124,17 @@ steps:
 
 Maven 通常会在 `target` 目录中创建 JAR、EAR 或 WAR 等输出文件。 要将这些项目上传为构件，可以将它们复制到包含要上传的构件的新目录中。 例如，您可以创建一个名为 `staging` 的目录。 然后您可以使用 `upload-artifact` 操作上传该目录的内容。
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-java@v2
+  - uses: {% data reusables.actions.action-checkout %}
+  - uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '11'
       distribution: 'adopt'
   - run: mvn --batch-mode --update-snapshots verify
   - run: mkdir staging && cp target/*.jar staging
-  - uses: actions/upload-artifact@v3
+  - uses: {% data reusables.actions.action-upload-artifact %}
     with:
       name: Package
       path: staging
 ```
-{% endraw %}

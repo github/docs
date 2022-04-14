@@ -66,7 +66,7 @@ topics:
        runs-on: ubuntu-latest
 
        steps:
-         - uses: actions/checkout@v2
+         - uses: {% data reusables.actions.action-checkout %}
 
          - name: Run a one-line script
            run: echo Hello from Octo Organization

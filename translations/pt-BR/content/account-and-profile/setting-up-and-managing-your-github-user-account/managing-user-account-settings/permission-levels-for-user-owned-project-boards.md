@@ -1,6 +1,6 @@
 ---
 title: Níveis de permissão em quadros de projeto pertencentes a usuários
-intro: 'Um quadro de projeto pertencente a uma conta de usuário tem dois níveis de permissão: proprietário do quadro de projeto e colaboradores.'
+intro: 'A project board owned by a personal account has two permission levels: the project board owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-user-owned-project-boards
@@ -17,7 +17,7 @@ shortTitle: Permissão de seções de projetos do usuário
 
 ## Visão geral das permissões
 
-Só existe um único proprietário de quadro de projeto pertencente a um usuário. Essa permissão não pode ser compartilhada com outra conta de usuário. Além do proprietário, outras pessoas podem colaborar em quadros de projeto.
+There is only one owner of a user-owned project board; this permission cannot be shared with another personal account. Além do proprietário, outras pessoas podem colaborar em quadros de projeto.
 
 Existem três níveis de permissões para colaboradores de quadro de projeto:
 
@@ -61,4 +61,4 @@ Você pode alterar a visibilidade do painel do projeto de privado para {% ifvers
 
 ## Leia mais
 
-  - "[Gerenciar o acesso aos quadros de projetos de sua conta de usuário](/articles/managing-access-to-your-user-account-s-project-boards)"
+  - "[Managing access to your personal account's project boards](/articles/managing-access-to-your-user-account-s-project-boards)"

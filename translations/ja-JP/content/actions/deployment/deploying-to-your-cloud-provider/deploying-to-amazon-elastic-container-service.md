@@ -115,11 +115,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-    {% raw %}steps:
+    steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
-      - name: Configure AWS credentials
+      {% raw %}- name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@13d241b293754004c80624b5567555c4a39ffbe3
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}

@@ -37,7 +37,6 @@ shortTitle: 构建和测试 Swift
 
 要快速开始，请将入门工作流程添加到仓库的 `.github/workflows` 目录中。
 
-{% raw %}
 ```yaml{:copy}
 name: Swift
 
@@ -49,13 +48,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         run: swift build
       - name: Run tests
         run: swift test
 ```
-{% endraw %}
 
 ## 指定 Swift 版本
 
@@ -88,7 +86,7 @@ jobs:
       - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         run: swift build
       - name: Run tests
@@ -114,10 +112,9 @@ steps:
 
 您可以使用与本地相同的命令来使用 Swift 构建和测试代码。 此示例演示如何在作业中使用 `swift build` 和 `swift test`：
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
@@ -126,4 +123,3 @@ steps:
   - name: Run tests
     run: swift test
 ```
-{% endraw %}

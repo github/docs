@@ -1,7 +1,7 @@
 ---
-title: Accessing your enterprise account if your identity provider is unavailable
-shortTitle: Access your enterprise account
-intro: 'You can sign into {% data variables.product.product_name %} even if your identity provider is unavailable by bypassing SAML single sign-on (SSO) with a recovery code.'
+title: 身份提供程序不可用时访问企业帐户
+shortTitle: 访问您的企业帐户
+intro: '即使身份提供程序不可用，您也可以使用恢复代码绕过 SAML 单点登录 (SSO) 登录到 {% data variables.product.product_name %}。'
 versions:
   ghec: '*'
 type: how_to
@@ -13,15 +13,15 @@ topics:
 permissions: Enterprise owners can use a recovery code to access an enterprise account.
 ---
 
-You can use a recovery code to access your enterprise account when a SAML configuration error or an issue with your identity provider (IdP) prevents you from using SAML SSO.
+当 SAML 配置错误或身份提供程序 (IdP) 问题阻止您使用 SAML SSO 时，您可以使用恢复代码访问您的企业帐户。
 
-In order to access your enterprise account this way, you must have previously downloaded and stored the recovery codes for your enterprise. For more information, see "[Downloading your enterprise account's SAML single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes)."
+要以这种方式访问您的企业帐户，您必须以前下载并存储了企业的恢复代码。 更多信息请参阅“[下载企业帐户的单点登录恢复代码](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-saml-single-sign-on-recovery-codes)”。
 
 {% data reusables.saml.recovery-code-caveats %}
 
 {% note %}
 
-**Note:** If your enterprises uses {% data variables.product.prodname_emus %}, you must sign in as the setup user to use a recovery code.
+**注意：** 如果您的企业使用 {% data variables.product.prodname_emus %}，则必须以安装用户身份登录才能使用恢复代码。
 
 {% endnote %}
 

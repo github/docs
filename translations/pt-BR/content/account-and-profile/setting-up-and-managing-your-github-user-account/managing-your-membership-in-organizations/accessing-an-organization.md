@@ -1,6 +1,6 @@
 ---
 title: Acessar uma organização
-intro: 'Para acessar uma organização da qual você é integrante, é preciso entrar na sua conta de usuário pessoal.'
+intro: 'To access an organization that you''re a member of, you must sign in to your personal account.'
 redirect_from:
   - /articles/error-cannot-log-in-that-account-is-an-organization
   - /articles/cannot-log-in-that-account-is-an-organization

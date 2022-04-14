@@ -40,7 +40,7 @@ shortTitle: 代码迁移工具
 
 我们建议 [git-tfs](https://github.com/git-tfs/git-tfs) 用于在TFVC 和 Git 之间移动更改。
 
-For more information about moving from TFVC (a centralized version control system) to Git, see "[Plan your Migration to Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)" from the Microsoft docs site.
+有关从 TFVC（集中式版本控制系统）迁移到 Git 的详细信息，请参阅 Microsoft 文档站点中的“[计划迁移到 Git](https://docs.microsoft.com/devops/develop/git/centralized-to-git)”。
 
 {% tip %}
 

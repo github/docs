@@ -133,12 +133,13 @@ Para obter mais informações, consulte "[Gerenciar configurações de seguranç
 {% data variables.product.prodname_code_scanning_capc %} está configurado no nível do repositório. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)".
 
 ## Próximas etapas
-{% ifversion fpt or ghes > 3.1 or ghec %}Você pode visualizar, filtrar e organizar alertas de segurança em repositórios pertencentes à sua organização na visão geral de segurança. Para obter mais informações, consulte "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview)".{% endif %}
-
 Você pode visualizar e gerenciar alertas de funcionalidades de segurança para resolver dependências e vulnerabilidades no seu código. Para obter mais informações, consulte {% ifversion fpt or ghes or ghec %} "[Visualizando {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis](/code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository),{% endif %} {% ifversion fpt or ghec or ghes > 3.2 %}"[Gerenciando pull requests para atualizações de dependências](/code-security/supply-chain-security/managing-pull-requests-for-dependency-updates), {% endif %}"[Gerenciando {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository)" e "[Gerenciando alertas de {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/managing-alerts-from-secret-scanning)."
 
 {% ifversion fpt or ghec %}Se você tiver uma vulnerabilidade de segurança, você poderá criar uma consultoria de segurança para discutir em privado e corrigir a vulnerabilidade. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_security_advisories %}](/code-security/security-advisories/about-github-security-advisories)" e " "[Criar uma consultoria de segurança](/code-security/security-advisories/creating-a-security-advisory)".
 {% endif %}
+
+{% ifversion fpt or ghes > 3.1 or ghec or ghae-issue-4554 %}{% ifversion ghes > 3.1 or ghec or ghae-issue-4554 %}Você{% elsif fpt %}As organizações que usam {% data variables.product.prodname_ghe_cloud %}{% endif %} podem visualizar, filtrar e ordenar alertas de seguranla para repositórios pertencentes à {% ifversion ghes > 3.1 or ghec or ghae-issue-4554 %}sua{% elsif fpt %}their{% endif %} organização na visão geral de segurança. Para obter mais informações, consulte{% ifversion ghes or ghec or ghae-issue-4554 %} "[Sobre a visão geral de segurança](/code-security/security-overview/about-the-security-overview).{% elsif fpt %} "[Sobre a visão geral de segurança](/enterprise-cloud@latest/code-security/security-overview/about-the-security-overview)" na documentação de {% data variables.product.prodname_ghe_cloud %} .{% endif %}{% endif %}
+
 
 {% ifversion ghec %}
 ## Leia mais

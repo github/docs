@@ -38,13 +38,17 @@ redirect_from:
 
 {% data reusables.code-scanning.codeql-cli-context-for-third-party-tools %}
 
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% data reusables.code-scanning.about-analysis-origins-link %}
+{% endif %}
+
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
 ## {% data variables.product.prodname_codeql_cli %} について
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 
-以下の分析には{% data variables.product.prodname_codeql_cli %}を使ってください:
+{% data variables.product.prodname_codeql_cli %}を使って、以下の分析を行ってください:
 
 - たとえばJavaScriptやPythonのような動的言語。
 - たとえばC/C++、C#、Javaのようなコンパイル言語。

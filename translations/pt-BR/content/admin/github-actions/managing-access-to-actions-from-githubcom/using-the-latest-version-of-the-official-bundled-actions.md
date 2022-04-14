@@ -29,7 +29,7 @@ Para atualizar as ações agrupadas, você pode usar a ferramenta `actions-sync`
 
 Você pode usar {% data variables.product.prodname_github_connect %} para permitir que {% data variables.product.product_name %} use ações a partir do {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Habilitar o acesso automático às ações de {% data variables.product.prodname_dotcom_the_website %} usando o {% data variables.product.prodname_github_connect %}](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)".
 
-Uma vez configurado {% data variables.product.prodname_github_connect %}, você poderá usar a última versão de uma ação, excluindo seu repositório local nas `ações` da organização na sua instância. For example, if your enterprise instance is using `v1` of the `actions/checkout` action, and you need to use `{% data reusables.actions.action-checkout %}` which isn't available on your enterprise instance, perform the following steps to be able to use the latest `checkout` action from {% data variables.product.prodname_dotcom_the_website %}:
+Uma vez configurado {% data variables.product.prodname_github_connect %}, você poderá usar a última versão de uma ação, excluindo seu repositório local nas `ações` da organização na sua instância. Por exemplo, se sua instância corporativa estiver usando `v1` da ação `ações/checkout`, e você precisa usar `{% data reusables.actions.action-checkout %}`, que não está disponível na instância corporativa, execute as seguintes etapas para poder usar a última ação `checkout` de {% data variables.product.prodname_dotcom_the_website %}:
 
 1. Em uma conta de proprietário corporativo em {% data variables.product.product_name %}, acesse o repositório que você deseja excluir da organização *ações* (neste exemplo `checkout`).
 1. Por padrão, os administradores do site não são proprietários da organização de *ações* agrupadas. Para obter o acesso necessário para excluir o repositório de `checkout`, você deve usar as ferramentas de administrador do site. Clique em {% octicon "rocket" aria-label="The rocket ship" %} no canto superior direito de qualquer página do repositório. ![Ícone de foguete para acessar as configurações de administrador do site](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
@@ -39,8 +39,8 @@ Uma vez configurado {% data variables.product.prodname_github_connect %}, você 
 1. Agora que o repositório está desbloqueado, você pode sair das páginas de administrador do site e excluir o repositório dentro das `ações da organização`. Na parte superior da página, clique no nome do repositório, neste exemplo **check-out**, para retornar à página de resumo. ![Link para nome do repositório](/assets/images/enterprise/site-admin-settings/display-repository-admin-summary.png)
 1. Em "Informações do repositório", clique em **Ver código** para sair das páginas de administração do site e exibir o repositório `check-out`.
 1. Exclua o repositório do `check-out` dentro organização das `ações`. Para obter informações sobre como excluir um repositório, consulte "[Excluir um repositório](/github/administering-a-repository/deleting-a-repository)". ![Ver link de código](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
-1. Configure your workflow's YAML to use `{% data reusables.actions.action-checkout %}`.
-1. Each time your workflow runs, the runner will use the specified version of `actions/checkout` from {% data variables.product.prodname_dotcom_the_website %}.
+1. Configure o YAML do seu fluxo de trabalho para usar `{% data reusables.actions.action-checkout %}`.
+1. Cada vez que o seu fluxo de trabalho é executado, o executor usará a versão especificada `ações/checkout` de {% data variables.product.prodname_dotcom_the_website %}.
 
    {% ifversion ghes > 3.2 or ghae-issue-4815 %}
    {% note %}

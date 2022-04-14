@@ -65,7 +65,7 @@ O [actions/toolkit](https://github.com/actions/toolkit) inclui uma quantidade de
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-### Example: Setting a value
+### Exemplo: Definindo um valor
 
 Você pode usar o comando `set-output` no seu fluxo de trabalho para definir o mesmo valor:
 
@@ -129,7 +129,7 @@ Configura um parâmetro de saída da ação.
 
 Opcionalmente, você também pode declarar os parâmetros de saída no arquivo de metadados de uma ação. Para obter mais informações, consulte "[Sintaxe de metadados para o {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)".
 
-### Example: Setting an output parameter
+### Exemplo: Definindo um parâmetro de saída
 
 {% bash %}
 
@@ -155,7 +155,7 @@ Imprime uma mensagem de erro no log. Você deve criar um segredo nomeado `ACTION
 ::debug::{message}
 ```
 
-### Example: Setting a debug message
+### Exemplo: Definindo uma mensagem de depuração
 
 {% bash %}
 
@@ -185,7 +185,7 @@ Cria uma mensagem de aviso e a imprime no registro. {% data reusables.actions.me
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a notice message
+### Exemplo: Definindo uma mensagem de aviso
 
 {% bash %}
 
@@ -214,7 +214,7 @@ Cria uma mensagem de aviso e a imprime no log. {% data reusables.actions.message
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a warning message
+### Exemplo: Configurando uma mensagem de aviso
 
 {% bash %}
 
@@ -241,7 +241,7 @@ Cria uma mensagem de erro e a imprime no log. {% data reusables.actions.message-
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting an error message
+### Exemplo: Configurando uma mensagem de erro
 
 {% bash %}
 
@@ -268,7 +268,7 @@ Cria um grupo expansível no registro. Para criar um grupo, use o comando `grupo
 ::endgroup::
 ```
 
-### Example: Grouping log lines
+### Exemplo: Agrupamento de linhas de log
 
 {% bash %}
 
@@ -310,9 +310,9 @@ jobs:
 ::add-mask::{value}
 ```
 
-Mascarar um valor evita que uma string ou variável seja impressa no log. Cada palavra mascarada separada por espaço em branco é substituída pelo caractere `*`. Você pode usar uma variável de ambiente ou string para o `value` da máscara. When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
+Mascarar um valor evita que uma string ou variável seja impressa no log. Cada palavra mascarada separada por espaço em branco é substituída pelo caractere `*`. Você pode usar uma variável de ambiente ou string para o `value` da máscara. Quando você mascara um valor, ele é tratado como um segredo e será redatado no executor. Por exemplo, depois de você mascarar um valor, você nãopoderá configurar esse valor como uma saída.
 
-### Example: Masking a string
+### Exemplo: Mascarando uma string
 
 Quando você imprime `"Mona The Octocat"` no log, você verá `"***"`.
 
@@ -332,7 +332,7 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
-### Example: Masking an environment variable
+### Exemplo: Mascarando uma variável de ambiente
 
 Ao imprimir a variável `MY_NAME` ou o valor `"Mona The Octocat"` no log, você verá `"***"` em vez de `"Mona The Octocat"`.
 
@@ -386,7 +386,7 @@ Para parar o processamento de comandos de fluxo de trabalho, passe um token úni
 ::{endtoken}::
 ```
 
-### Example: Stopping and starting workflow commands
+### Exemplo: Interrompendo e iniciando comandos do fluxo de trabalho
 
 {% bash %}
 
@@ -447,7 +447,7 @@ Os comandos `add-mask`, `depurar`, `aviso` e `erro` não são compatíveis com o
 
 Você também pode habilitar o comando de eco globalmente ativando o registrode depuração da etapa usando o segredo `ACTIONS_STEP_DEBUG`. Para obter mais informações, consulte[Habilitando o log de depuração](/actions/managing-workflow-runs/enabling-debug-logging)". Em contraste, o comando do fluxo de trabalho `echo` permite que você habilite o comando de eco em um nível mais granular em vez de habilitá-lo para cada fluxo de trabalho em um repositório.
 
-### Example: Toggling command echoing
+### Exemplo: Alternando o comando echoing
 
 {% bash %}
 
@@ -485,7 +485,7 @@ jobs:
 
 {% endpowershell %}
 
-The example above prints the following lines to the log:
+O exemplo acima imprime as seguintes linhas no registro:
 
 ```{:copy}
 ::set-output name=action_echo::enabled
@@ -522,7 +522,7 @@ Durante a execução de um fluxo de trabalho, o executor gera arquivos temporár
 
 {% note %}
 
-**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. Por exemplo:
+**Observação:** As verões 5.1 e inferiores do PowerShell (`shell: powershell`) não usam UTF-8 por padrão. Portanto, você deve especificar a codificação UTF-8. Por exemplo:
 
 ```yaml{:copy}
 jobs:
@@ -534,7 +534,7 @@ jobs:
           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. Por exemplo:
+A versão 6 ou superior do PowerShell Core (`shell: pwsh`) usa UTF-8 por padrão. Por exemplo:
 
 ```yaml{:copy}
 jobs:
@@ -562,12 +562,12 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% powershell %}
 
-- Using PowerShell version 6 and higher:
+- Usando a versão 6 ou superior do PowerShell:
 ```pwsh{:copy}
 "{environment_variable_name}={value}" >> $env:GITHUB_ENV
 ```
 
-- Using PowerShell version 5.1 and below:
+- Usando a versão 5.1 ou inferior do PowerShell:
 ```powershell{:copy}
 "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 ```
@@ -626,7 +626,7 @@ Para strings linha múltipla, você pode usar um delimitador com a seguinte sint
 
 #### Exemplo
 
-This example uses `EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+Este exemplo usa `EOF` como um delimitador e define a variável de ambiente `JSON_RESPONSE` para o valor da resposta `curl`.
 
 {% bash %}
 
@@ -689,7 +689,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 {% endbash %}
 
 
-This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
+Este exemplo demonstra como adicionar o diretório do usuário `$env:HOMEPATH/.local/bin` a `PATH`:
 
 {% powershell %}
 

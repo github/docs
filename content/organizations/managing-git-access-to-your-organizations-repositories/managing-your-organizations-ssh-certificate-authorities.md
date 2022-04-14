@@ -14,11 +14,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: Manage SSH authorities
+permissions: Organization owners can manage an organization's SSH certificate authorities (CA).
 ---
 
-Organization owners can manage an organization's SSH certificate authorities (CA).
-
 You can allow members to access your organization's repositories using SSH certificates you provide by adding an SSH CA to your organization. {% data reusables.organizations.can-require-ssh-cert %} For more information, see "[About SSH certificate authorities](/articles/about-ssh-certificate-authorities)."
+
+{% data reusables.organizations.ssh-ca-ghec-only %}
 
 {% data reusables.organizations.add-extension-to-cert %}
 

@@ -1,6 +1,6 @@
 ---
 title: Níveis de permissão para um repositório de conta de usuário
-intro: 'Um repositório pertencente a uma conta de usuário tem dois níveis de permissão: o proprietário do repositório e colaboradores.'
+intro: 'A repository owned by a personal account has two permission levels: the repository owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository
@@ -15,19 +15,19 @@ topics:
 shortTitle: Repositórios de usuário de permissão
 ---
 
-## Sobre os níveis de permissões para um repositório de conta de usuário
+## About permissions levels for a personal account repository
 
-Repositórios pertencentes a contas de usuário têm um proprietário. As permissões de propriedade não podem ser compartilhadas com outra conta de usuário.
+Repositories owned by personal accounts have one owner. Ownership permissions can't be shared with another personal account.
 
 Você também pode {% ifversion fpt or ghec %}convidar{% else %}add{% endif %} usuários em {% data variables.product.product_name %} para o seu repositório como colaboradores. Para obter mais informações, consulte "[Convidar colaboradores para um repositório pessoal](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)".
 
 {% tip %}
 
-**Dica:** Se você precisar de mais acesso granular a um repositório pertencente à sua conta de usuário, considere transferir o repositório para uma organização. Para obter mais informações, consulte "[Transferir um repositório](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)".
+**Tip:** If you require more granular access to a repository owned by your personal account, consider transferring the repository to an organization. Para obter mais informações, consulte "[Transferir um repositório](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-personal-account)".
 
 {% endtip %}
 
-## Acesso de proprietário para um repositório de propriedade de uma conta de usuário
+## Owner access for a repository owned by a personal account
 
 O proprietário do repositório tem controle total do repositório. Além das ações que qualquer colaborador pode executar, o proprietário do repositório pode executar as ações a seguir.
 
@@ -58,13 +58,13 @@ O proprietário do repositório tem controle total do repositório. Além das a�
 {% endif %}
 | Permitir ou negar merge automático para pull requests                                                                                                            | "[Gerenciar merge automático para pull requests no seu repositório](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)"                                                                                                                                                |
 
-## Acesso de colaborador para um repositório pertencente a uma conta de usuário
+## Collaborator access for a repository owned by a personal account
 
 Os colaboradores em um repositório pessoal podem extrair (ler) os conteúdos do repositório e fazer push (gravação) das alterações no repositório.
 
 {% note %}
 
-**Observação:** Em um repositório privado, proprietários de repositórios podem conceder somente acesso de gravação aos colaboradores. Os colaboradores não podem ter acesso somente leitura a repositórios pertencentes a uma conta de usuário.
+**Observação:** Em um repositório privado, proprietários de repositórios podem conceder somente acesso de gravação aos colaboradores. Collaborators can't have read-only access to repositories owned by a personal account.
 
 {% endnote %}
 

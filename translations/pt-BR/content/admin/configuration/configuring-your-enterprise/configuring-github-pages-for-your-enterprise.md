@@ -61,22 +61,22 @@ Se o isolamento de subdomínio estiver desabilitado para sua empresa, você tamb
 
 {% ifversion ghes > 3.4 %}
 
-## Configuring {% data variables.product.prodname_pages %} response headers for your enterprise
+## Configurando cabeçalhos de resposta de {% data variables.product.prodname_pages %} para a sua empresa
 
-You can add or override response headers for {% data variables.product.prodname_pages %} sites hosted by {% data variables.product.product_location %}.
+Você pode adicionar ou substituir os cabeçalhos de resposta para sites de {% data variables.product.prodname_pages %} hospedados por {% data variables.product.product_location %}.
 
 {% warning %}
 
-**Warning:** Ensure that your response headers are properly configured before saving. Improper configurations may negatively impact the security of {% data variables.product.product_location %}.
+**Aviso:** Certifique-se de que seus cabeçalhos de resposta estão corretamente configurados antes de salvar. As configurações impróprias podem impactar negativamente a segurança de {% data variables.product.product_location %}.
 
 {% endwarning %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
-1. Type the headers settings, then click **Add headers**.
-   - In the **Http Header Name** field, type the header name. The length of header name should less than 128 characters.
-   - In the **Http Header Value** field, type the header value. The length of header value should less than 300 characters. ![The {% data variables.product.prodname_pages %} response header name and value fields in the {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/pages-override-header-section.png)
+1. Digite as configurações de cabeçalhos e, em seguida, clique em **Adicionar cabeçalhos**.
+   - No campo **Http Header Name**, digite o nome do cabeçalho. O comprimento do nome do cabeçalho deve ter menos de 128 caracteres.
+   - No campo **Http Header Value** , digite o valor do cabeçalho. O comprimento do balor do cabeçalho deve ter menos de 300 caracteres. ![O nome do cabeçalho de resposta de {% data variables.product.prodname_pages %} e os campos de valor em {% data variables.enterprise.management_console %}](/assets/images/enterprise/management-console/pages-override-header-section.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}

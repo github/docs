@@ -1,6 +1,6 @@
 ---
 title: Restringir o acesso aos dados da organização
-intro: 'As restrições de acesso ao {% data variables.product.prodname_oauth_app %} permitem que os proprietários da organização restrinjam o acesso de um app não confiável aos dados da organização. Os integrantes da organização podem usar {% data variables.product.prodname_oauth_apps %} para suas contas pessoais de usuário ao mesmo tempo em que mantêm os dados da organização seguros.'
+intro: 'As restrições de acesso ao {% data variables.product.prodname_oauth_app %} permitem que os proprietários da organização restrinjam o acesso de um app não confiável aos dados da organização. Organization members can then use {% data variables.product.prodname_oauth_apps %} for their personal accounts while keeping organization data safe.'
 redirect_from:
   - /articles/restricting-access-to-your-organization-s-data
   - /articles/restricting-access-to-your-organizations-data
