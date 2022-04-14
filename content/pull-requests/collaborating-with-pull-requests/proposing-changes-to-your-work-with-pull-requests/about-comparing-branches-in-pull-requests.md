@@ -78,7 +78,7 @@ For more information about Git commands to compare changes, see "[Git diff optio
 
 Since the three-dot comparison compares with the merge base, it is focusing on "what a pull request introduces". 
 
-By comparing the branches using the two-dot comparison, the diff changes without updating the topic branch when `main` is updated. Additionally, it shows changes made to `main` backwards, which means what you add is displayed as deletions and vice versa. Then what the topic branch introduces becomes ambiguous.
+When you use a two-dot comparison, the diff changes when the base branch is updated, even if you haven't made any changes to the topic branch. Additionally, a two-dot comparison focuses on the base branch. This means that anything you add is displayed as missing from the base branch, as if it was a deletion, and vice versa. As a result, the changes the topic branch introduces become ambiguous.
 
 On the other hand, by comparing the branches using the three-dot comparison, changes in the topic branch are always in the diff if `main` is updated because the diff shows changes since the branches diverged.
 
