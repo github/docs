@@ -1,4 +1,5 @@
----
+#other-authentication-methods.md
+@Christoc90
 title: Other authentication methods
 intro: You can use basic authentication for testing in a non-production environment.
 redirect_from:
