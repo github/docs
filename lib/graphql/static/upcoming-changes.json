@@ -1,5 +1,15 @@
 {
   "dotcom": {
+    "2022-10-01": [
+      {
+        "location": "UpdateProjectNextItemFieldInput.fieldWithSettingId",
+        "description": "<p><code>fieldWithSettingId</code> will be removed. Use <code>fieldConstraintId</code> instead</p>",
+        "reason": "<p>Renamed to fieldConstraintId to improve naming consistency.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "memex"
+      }
+    ],
     "2022-07-01": [
       {
         "location": "Query.sponsorables.dependencyEcosystem",
@@ -34,14 +44,6 @@
         "date": "2022-04-01",
         "criticality": "breaking",
         "owner": "colinshum"
-      },
-      {
-        "location": "PullRequest.viewerCanOverrideMergeQueue",
-        "description": "<p><code>viewerCanOverrideMergeQueue</code> will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.</p>",
-        "reason": "<p><code>viewer_can_override_merge_queue</code> will be removed</p>",
-        "date": "2022-04-01",
-        "criticality": "breaking",
-        "owner": "cbeaman"
       }
     ],
     "2021-10-01": [
@@ -182,6 +184,16 @@
     ]
   },
   "ghec": {
+    "2022-10-01": [
+      {
+        "location": "UpdateProjectNextItemFieldInput.fieldWithSettingId",
+        "description": "<p><code>fieldWithSettingId</code> will be removed. Use <code>fieldConstraintId</code> instead</p>",
+        "reason": "<p>Renamed to fieldConstraintId to improve naming consistency.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "memex"
+      }
+    ],
     "2022-07-01": [
       {
         "location": "Query.sponsorables.dependencyEcosystem",
@@ -216,14 +228,6 @@
         "date": "2022-04-01",
         "criticality": "breaking",
         "owner": "colinshum"
-      },
-      {
-        "location": "PullRequest.viewerCanOverrideMergeQueue",
-        "description": "<p><code>viewerCanOverrideMergeQueue</code> will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.</p>",
-        "reason": "<p><code>viewer_can_override_merge_queue</code> will be removed</p>",
-        "date": "2022-04-01",
-        "criticality": "breaking",
-        "owner": "cbeaman"
       }
     ],
     "2021-10-01": [
@@ -982,14 +986,6 @@
         "date": "2022-04-01",
         "criticality": "breaking",
         "owner": "colinshum"
-      },
-      {
-        "location": "PullRequest.viewerCanOverrideMergeQueue",
-        "description": "<p><code>viewerCanOverrideMergeQueue</code> will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.</p>",
-        "reason": "<p><code>viewer_can_override_merge_queue</code> will be removed</p>",
-        "date": "2022-04-01",
-        "criticality": "breaking",
-        "owner": "cbeaman"
       }
     ],
     "2021-10-01": [

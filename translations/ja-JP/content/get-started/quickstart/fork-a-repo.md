@@ -152,7 +152,7 @@ When you fork a project in order to propose changes to the original repository, 
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
-6. `git remote add upstream` と入力し、ステップ 2 でコピーした URL を貼り付けて **Enter** キーを押します。 次のようになります:
+6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. 次のようになります:
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```

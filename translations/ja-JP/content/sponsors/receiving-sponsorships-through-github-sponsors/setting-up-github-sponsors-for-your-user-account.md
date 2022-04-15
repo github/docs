@@ -12,7 +12,7 @@ type: how_to
 topics:
   - User account
   - Sponsors profile
-shortTitle: Set up for user account
+shortTitle: Set up for personal account
 ---
 
 ## {% data variables.product.prodname_sponsors %} に参加する
@@ -22,7 +22,7 @@ shortTitle: Set up for user account
 Organization として {% data variables.product.prodname_sponsors %} に参加するには「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照してください。
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
-2. Organization のオーナーの場合は、適格なアカウントが複数あります。 [**View your eligible accounts**] をクリックして、アカウントのリストからユーザ アカウントを見つけます。
+2. Organization のオーナーの場合は、適格なアカウントが複数あります。 Click **View your eligible accounts**, then in the list of accounts, find your personal account.
 3. [**Join the waitlist**] をクリックします。
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}

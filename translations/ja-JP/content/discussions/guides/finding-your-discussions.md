@@ -1,10 +1,12 @@
 ---
-title: 複数のリポジトリにわたってディスカッションを検索する
-intro: 複数のリポジトリ間で作成または参加したすべてのディスカッションに簡単にアクセスできます。
+title: Finding your discussions
+intro: You can easily access every discussion you've created or participated in.
 versions:
   fpt: '*'
   ghec: '*'
 shortTitle: Find discussions
+redirect_from:
+  - /discussions/guides/finding-discussions-across-multiple-repositories
 ---
 
 
