@@ -23804,6 +23804,11 @@
           "href": "/graphql/reference/interfaces#projectnextowner"
         },
         {
+          "name": "ProjectV2Owner",
+          "id": "projectv2owner",
+          "href": "/graphql/reference/interfaces#projectv2owner"
+        },
+        {
           "name": "Reactable",
           "id": "reactable",
           "href": "/graphql/reference/interfaces#reactable"
@@ -33819,6 +33824,11 @@
           "href": "/graphql/reference/interfaces#projectowner"
         },
         {
+          "name": "ProjectV2Owner",
+          "id": "projectv2owner",
+          "href": "/graphql/reference/interfaces#projectv2owner"
+        },
+        {
           "name": "RepositoryDiscussionAuthor",
           "id": "repositorydiscussionauthor",
           "href": "/graphql/reference/interfaces#repositorydiscussionauthor"
@@ -39353,7 +39363,7 @@
         },
         {
           "name": "title",
-          "description": "<p>The project's name.</p>",
+          "description": "<p>The project's name. Falls back to \"Untitled table\" if blank.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -40400,6 +40410,11 @@
           "name": "ProjectNextOwner",
           "id": "projectnextowner",
           "href": "/graphql/reference/interfaces#projectnextowner"
+        },
+        {
+          "name": "ProjectV2Owner",
+          "id": "projectv2owner",
+          "href": "/graphql/reference/interfaces#projectv2owner"
         },
         {
           "name": "Reactable",
@@ -61206,6 +61221,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lineCount",
+          "description": "<p>Number of lines in the file.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "mode",
           "description": "<p>Entry file mode.</p>",
           "type": "Int!",
@@ -61661,6 +61684,11 @@
           "name": "ProjectOwner",
           "id": "projectowner",
           "href": "/graphql/reference/interfaces#projectowner"
+        },
+        {
+          "name": "ProjectV2Owner",
+          "id": "projectv2owner",
+          "href": "/graphql/reference/interfaces#projectv2owner"
         },
         {
           "name": "RepositoryDiscussionAuthor",
@@ -66847,6 +66875,14 @@
           "href": "/graphql/reference/scalars#boolean"
         }
       ]
+    },
+    {
+      "name": "ProjectV2Owner",
+      "kind": "interfaces",
+      "id": "projectv2owner",
+      "href": "/graphql/reference/interfaces#projectv2owner",
+      "description": "<p>Represents an owner of a project (beta).</p>",
+      "fields": []
     },
     {
       "name": "Reactable",
@@ -81117,6 +81153,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "skipReleases",
+          "description": "<p>Whether to skip migrating releases for the repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "sourceId",

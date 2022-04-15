@@ -48,6 +48,12 @@ Para ayudar a prevenir la divulgación accidental, {% data variables.product.pro
 - **Considera requerir revisiones para el acceso a los secretos**
     - Puedes utilizar revisiones requeridas para proteger los secretos del ambiente. Un job del flujo de trabajo no podrá acceder a los secretos del ambiente hasta que el revisor otorgue la aprobación. Para obtener más información sobre cómo almacenar los secretos en los ambientes o cómo requerir las revisiones para estos, consulta las secciones "[Secretos cifrados](/actions/reference/encrypted-secrets)" y "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
 
+{% warning %}
+
+**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+
+{% endwarning %}
+
 ## Utilizar `CODEOWNERS` para monitorear cambios
 
 Puedes utilizar la característica de `CODEOWNERS` para controlar la forma en la que se realizan los cambios en tus archivos de flujo de trabajo. Por ejemplo, si todos tus archivos de flujo de trabajo se almacenan en `.github/workflows`, puedes agregar este directorio a la lista de propietarios de código para que cualquier cambio propuesto a dichos archivos requiera primero de una aprobación del un revisor designado.
@@ -298,7 +304,7 @@ Puedes utilizar la bitácora de auditoría para monitorear las tareas administra
 
 Por ejemplo, puedes utilizar la bitácora de auditoría para rastrear el evento `org.update_actions_secret`, el cual rastrea los cambios en los secretos de la organización: ![Entradas de la bitácora de auditoría](/assets/images/help/repository/audit-log-entries.png)
 
-Las siguientes tablas describen los eventos de {% data variables.product.prodname_actions %} que puedes encontrar en la bitácora de auditoría. Para obtener más información sobre cómo utilizar la bitácora de auditoría, consulta la sección "[Revisar la bitácora de auditoría de tu organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)".
+Las siguientes tablas describen los eventos de {% data variables.product.prodname_actions %} que puedes encontrar en la bitácora de auditoría. For more information on using the audit log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" and "[Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
 
 {% ifversion fpt or ghec %}
 ### Eventos para los ambientes
@@ -313,9 +319,10 @@ Las siguientes tablas describen los eventos de {% data variables.product.prodnam
 
 {% ifversion fpt or ghes or ghec %}
 ### Eventos para cambios de configuración
-| Acción                 | Descripción                                                                                                                                                                                                                                                                                                                           |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repo.actions_enabled` | Se activa cuando {% data variables.product.prodname_actions %} se habilita en un repositorio. Puede visualizarse utilizando la IU. Este evento no es visible cuando accedes a la bitácora de auditoría utilizando la API de REST. Para obtener más información, consulta la sección "[Utilizar la API de REST](#using-the-rest-api)". |
+| Acción                                | Descripción                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repo.actions_enabled`                | Se activa cuando {% data variables.product.prodname_actions %} se habilita en un repositorio. Puede visualizarse utilizando la IU. Este evento no es visible cuando accedes a la bitácora de auditoría utilizando la API de REST. Para obtener más información, consulta la sección "[Utilizar la API de REST](#using-the-rest-api)". |
+| `repo.update_actions_access_settings` | Triggered when the setting to control how your repository is used by {% data variables.product.prodname_actions %} workflows in other repositories is changed.                                                                                                                                                                        |
 {% endif %}
 
 ### Eventos para la administración de secretos

@@ -194,10 +194,13 @@ export const RestReferencePage = ({
         </div>
         <MarkdownContent>
           {subcategories.map((subcategory, index) => (
-            <div key={`restCategory-${index}`}>
+            <div key={`${subcategory}-${index}`}>
               <div dangerouslySetInnerHTML={{ __html: descriptions[subcategory] }} />
               {restOperations[subcategory].map((operation, index) => (
-                <RestOperation key={`restOperation-${index}`} operation={operation} index={index} />
+                <RestOperation
+                  key={`${subcategory}-${operation.title}-${index}`}
+                  operation={operation}
+                />
               ))}
             </div>
           ))}

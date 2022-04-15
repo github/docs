@@ -35,7 +35,7 @@ To install {% data variables.product.prodname_mobile %} for Android or iOS, see 
 
 ## Managing accounts
 
-You can be simultaneously signed into mobile with one user account on {% data variables.product.prodname_dotcom_the_website %} and one user account on {% data variables.product.prodname_ghe_server %}. For more information about our different products, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
+You can be simultaneously signed into mobile with one personal account on {% data variables.product.prodname_dotcom_the_website %} and one personal account on {% data variables.product.prodname_ghe_server %}. For more information about our different products, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products)."
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
@@ -47,15 +47,15 @@ You must install {% data variables.product.prodname_mobile %} 1.4 or later on yo
 
 To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}"[Release notes](/enterprise-server/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
 
-During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a user account on {% data variables.product.prodname_dotcom_the_website %}.
+During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 
 ### Adding, switching, or signing out of accounts
 
-You can sign into mobile with a user account on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap {% octicon "plus" aria-label="The plus icon" %} **Add Enterprise Account**. Follow the prompts to sign in.
+You can sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap {% octicon "plus" aria-label="The plus icon" %} **Add Enterprise Account**. Follow the prompts to sign in.
 
-After you sign into mobile with a user account on {% data variables.product.prodname_ghe_server %}, you can switch between the account and your account on {% data variables.product.prodname_dotcom_the_website %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap the account you want to switch to.
+After you sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}, you can switch between the account and your account on {% data variables.product.prodname_dotcom_the_website %}. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, then tap the account you want to switch to.
 
-If you no longer need to access data for your user account on {% data variables.product.prodname_ghe_server %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
+If you no longer need to access data for your personal account on {% data variables.product.prodname_ghe_server %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-label="The person icon" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
 
 ## Supported languages for {% data variables.product.prodname_mobile %}
 

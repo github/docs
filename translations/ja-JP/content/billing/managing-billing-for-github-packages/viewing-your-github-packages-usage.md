@@ -17,9 +17,9 @@ topics:
 shortTitle: 使用状況の表示
 ---
 
-## ユーザアカウントの {% data variables.product.prodname_registry %} の使用状況を表示する
+## Viewing {% data variables.product.prodname_registry %} usage for your personal account
 
-自身のユーザアカウントの {% data variables.product.prodname_registry %} の使用状況は、誰でも表示できます。
+Anyone can view {% data variables.product.prodname_registry %} usage for their own personal account.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

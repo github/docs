@@ -20,7 +20,7 @@ Como propietario de organización, podrías querer configurar restricciones en l
 
 ### Comportamiento cuando configuras una restricción de tipo de máquina
 
-Si hay codespaces existentes que ya no se ajusten a una política que definiste, estos seguirán operando hasta que venzan. Cuando el usuario intente reanudar el codespace, se le mostrará un mensaje que indica que el tipo de máquina que se seleccionó actualmente ya no está permitido en esta organización y se indicará elegir un tipo de máquina como alternativa.
+If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they are stopped or time out. Cuando el usuario intente reanudar el codespace, se le mostrará un mensaje que indica que el tipo de máquina que se seleccionó actualmente ya no está permitido en esta organización y se indicará elegir un tipo de máquina como alternativa.
 
 Si eliminas tipos de máquina con especificaciones más altas, los cuales requiera la configuración de {% data variables.product.prodname_codespaces %} para un repositorio individual de tu organización, entonces no se podrá crear un codespace en dicho repositorio. Cuando alguien intenta crear un codespace, verán un mensaje que les dice que no hay tipos de máquina válidos disponibles que cumplan con los requisitos de la configuración de {% data variables.product.prodname_codespaces %} del repositorio.
 

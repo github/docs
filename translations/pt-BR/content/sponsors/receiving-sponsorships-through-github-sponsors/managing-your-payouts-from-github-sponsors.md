@@ -16,7 +16,7 @@ shortTitle: Gerenciar pagamentos
 
 ## Sobre pagamentos do {% data variables.product.prodname_sponsors %}
 
-Só é possível gerenciar seus pagamentos {% data variables.product.prodname_sponsors %} se você for pago por meio do Stripe Connect. Se receber seus pagamentos na conta de usuário patrocinado por meio de transferência ACH ou eletrônica, você não verá a aba **Payouts** (Pagamentos) no painel de contribuidor de  código aberto. Organizações patrocinadas só podem usar o Stripe Connect para pagamentos. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_sponsors %} para contribuidores do código aberto](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)".
+Só é possível gerenciar seus pagamentos {% data variables.product.prodname_sponsors %} se você for pago por meio do Stripe Connect. If you are paid through ACH transfer or wire transfer for your sponsored personal account, you will not see the **Payouts** tab on your sponsored open source contributor dashboard. Organizações patrocinadas só podem usar o Stripe Connect para pagamentos. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_sponsors %} para contribuidores do código aberto](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors#sponsorship-payouts)".
 
 {% data reusables.sponsors.payout-info %}
 

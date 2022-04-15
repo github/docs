@@ -899,7 +899,7 @@ on:
 
 jobs:
   if_merged:
-    if: github.event.pull_request_target.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - run: |
@@ -1081,7 +1081,7 @@ on:
 
 {% note %}
 
-**Note:** The `event_type` value is limited to 100 characters.
+**注意：** `event_type` 值限制为 100 个字符。
 
 {% endnote %}
 

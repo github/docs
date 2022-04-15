@@ -1,15 +1,13 @@
 import cx from 'classnames'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
 import { Tooltip } from '@primer/react'
-
 import useClipboard from 'components/hooks/useClipboard'
-
 import styles from './CodeBlock.module.scss'
+import type { ReactNode } from 'react'
 
 type Props = {
   verb?: string
-  // Only Code samples should have a copy icon - if there's a headingLang it's a code sample
-  headingLang?: string
+  headingLang?: ReactNode | string
   codeBlock: string
   highlight?: string
 }
@@ -20,20 +18,12 @@ export function CodeBlock({ verb, headingLang, codeBlock, highlight }: Props) {
   })
 
   return (
-    <div className={headingLang && 'code-extra'}>
+    <div className={headingLang ? 'code-extra' : undefined}>
+      {/* Only Code samples should have a copy icon
+          If there's a headingLang it's a code sample */}
       {headingLang && (
         <header className="d-flex flex-justify-between flex-items-center p-2 text-small rounded-top-1 border">
-          {headingLang === 'JavaScript' ? (
-            <span>
-              {headingLang} (
-              <a className="text-underline" href="https://github.com/octokit/core.js#readme">
-                @octokit/core.js
-              </a>
-              )
-            </span>
-          ) : (
-            `${headingLang}`
-          )}
+          {headingLang}
           <Tooltip direction="w" aria-label={isCopied ? 'Copied!' : 'Copy to clipboard'}>
             <button className="js-btn-copy btn-octicon" onClick={() => setCopied()}>
               {isCopied ? <CheckIcon /> : <CopyIcon />}
@@ -44,10 +34,13 @@ export function CodeBlock({ verb, headingLang, codeBlock, highlight }: Props) {
       <pre className={cx(styles.codeBlock, 'rounded-1 border')} data-highlight={highlight}>
         <code>
           {verb && (
-            <span className="color-bg-accent-emphasis color-fg-on-emphasis rounded-1 text-uppercase p-1">
-              {verb}
-            </span>
-          )}{' '}
+            <>
+              <span className="color-bg-accent-emphasis color-fg-on-emphasis rounded-1 text-uppercase p-1">
+                {verb}
+              </span>
+              <> </>
+            </>
+          )}
           {codeBlock}
         </code>
       </pre>

@@ -18,7 +18,7 @@ shortTitle: アプリケーション作成のクエリパラメータ
 
 個人または Organization アカウントで、{% data variables.product.prodname_github_app %} の構成を事前設定する以下の URL をクエリパラメータに追加できます。
 
-* **ユーザアカウント:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **Personal account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
 * **Organization アカウント:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 アプリケーションを作成するユーザは、アプリケーションをサブミットする前に {% data variables.product.prodname_github_app %} 登録ページから事前設定する値を編集できます。 URL クエリ文字列に `name` などの必須の値を含めない場合、アプリケーションを作成するユーザが、アプリケーションをサブミットする前に値を入力する必要があります。

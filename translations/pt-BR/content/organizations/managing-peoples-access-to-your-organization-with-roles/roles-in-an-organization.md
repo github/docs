@@ -42,7 +42,7 @@ A função não administrativa por padrão para as pessoas de uma organização 
 
 {% ifversion fpt or ghec %}
 ### Organization moderators
-Moderators are organization members who, in addition to their permissions as members, are allowed to block and unblock non-member contributors, set interaction limits, and hide comments in public repositories owned by the organization. For more information, see "[Managing moderators in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)."
+Moderators are organization members who, in addition to their permissions as members, are allowed to block and unblock non-member contributors, set interaction limits, and hide comments in public repositories owned by the organization. Para obter mais informações, consulte "[Gerenciando os moderadores na sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)".
 
 ### Gerentes de cobrança
 Os gerentes de cobrança são usuários que podem gerenciar as configurações de cobrança para a sua organização, como informações de pagamento. Essa é uma opção útil se os integrantes da sua organização geralmente não têm acesso aos recursos de cobrança. Para obter mais informações, consulte "[Adicionar um gerente de cobrança à sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
