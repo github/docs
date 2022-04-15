@@ -7,6 +7,8 @@ import { allVersions } from '../../lib/all-versions.js'
 describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
 
+  // Checks that every version of the /rest/references/checks
+  // page has every operation defined in the openapi schema.
   test('loads schema data for all versions', async () => {
     for (const version in allVersions) {
       const checksRestOperations = getRest(version, 'checks')
@@ -21,6 +23,10 @@ describe('REST references docs', () => {
     }
   })
 
+  // Checks every version of the
+  // /rest/overview/endpoints-available-for-github-apps page
+  // and ensures that all sections in the openapi schema
+  // are present in the page.
   test('loads operations enabled for GitHub Apps', async () => {
     const enableForApps = await getEnabledForApps()
 

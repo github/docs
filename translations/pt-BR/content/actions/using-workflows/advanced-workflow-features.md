@@ -74,7 +74,6 @@ Para obter mais informações, consulte[Definindo trabalhos de pré-requisito](/
 
 Você pode usar uma matriz de criação se quiser que seu fluxo de trabalho execute testes em várias combinações de sistemas operacionais, plataformas e linguagens. A matriz de criação é criada usando a palavra-chave `estratégia`, que recebe as opções de compilação como um array. Por exemplo, essa matriz de criação irá executar o trabalho várias vezes, usando diferentes versões do Node.js:
 
-{% raw %}
 ```yaml
 jobs:
   build:
@@ -83,11 +82,10 @@ jobs:
       matrix:
         node: [6, 8, 10]
     steps:
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node }}
+          node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 Para obter mais informações, consulte "[Usando uma matriz de construção para seus trabalhos](/actions/using-jobs/using-a-build-matrix-for-your-jobs)".
 
@@ -98,22 +96,20 @@ Executores hospedados em {% data variables.product.prodname_dotcom %} são inici
 
 Este exemplo demonstra como armazenar em cache o diretório `~/.npm`:
 
-{% raw %}
 ```yaml
 jobs:
   example-job:
     steps:
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         env:
           cache-name: cache-node-modules
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}{% endraw %}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
+            {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
 ```
-{% endraw %}
 
 Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
 {% endif %}
@@ -132,7 +128,7 @@ jobs:
         image: postgres
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install dependencies
         run: npm ci
       - name: Connect to PostgreSQL

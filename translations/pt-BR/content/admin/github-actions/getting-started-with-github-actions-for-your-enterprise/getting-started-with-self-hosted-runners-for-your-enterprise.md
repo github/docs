@@ -28,7 +28,7 @@ Como alternativa, você pode usar máquinas de executores que {% data variables.
 
 Este guia mostra como aplicar uma abordagem de gerenciamento centralizada para os executores auto-hospedados para {% data variables.product.prodname_actions %} na sua empresa. No guia, você realizará as seguintes tarefas.
 
-1. Configure a limited policy to restrict the actions{% if actions-workflow-policy %} and reusable workflows{% endif %} that can run within your enterprise
+1. Configure uma política limitada para restringir as ações{% if actions-workflow-policy %} e fluxos de trabalho{% endif %} reutilizáveis que podem ser executados dentro da sua empresa
 1. Implantar um executor auto-hospedado para a sua empresa
 1. Criar um grupo para gerenciar o acesso aos executores disponíveis para sua empresa
 1. Opcionalmente, restringir ainda mais os repositórios que podem usar o executor
@@ -48,7 +48,7 @@ Depois de terminar o guia, {% ifversion ghec or ghae %}os integrantes da sua emp
 
 ## 1. Configurar políticas para {% data variables.product.prodname_actions %}
 
-First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% if actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec or ghae%}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.product.product_location %}{% endif %}. Opcionalmente, os proprietários da organização podem restringir ainda mais essas políticas para cada organização.
+Primeiro, habilite {% data variables.product.prodname_actions %} para todas as organizações e configure uma política para restringir as ações{% if actions-workflow-policy %} e os fluxos de trabalho reutilizáveis{% endif %} que podem executar {% ifversion ghec or ghae%}dentro da sua empresa em {% data variables.product.product_name %}{% elsif ghes %}em {% data variables.product.product_location %}{% endif %}. Opcionalmente, os proprietários da organização podem restringir ainda mais essas políticas para cada organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -56,7 +56,7 @@ First, enable {% data variables.product.prodname_actions %} for all organization
 1. Em "Políticas", selecione **Habilitar para todas as organizações**.
 
    ![Captura de tela da política "Habilitar para todas as organizações" para {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-enable-for-all-organizations.png)
-1. Select {% data reusables.actions.policy-label-for-select-actions-workflows %} and **Allow actions created by GitHub** to allow local actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, and actions created by {% data variables.product.company_short %}.
+1. Selecione {% data reusables.actions.policy-label-for-select-actions-workflows %} e **Permitir ações criadas pelo GitHub** para permitir ações locais{% if actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %}, e ações criadas por {% data variables.product.company_short %}.
 
    {% if actions-workflow-policy %}
    ![Captura de tela de "Permitir selecionar ações" e "Permitir ações criadas por {% data variables.product.company_short %}" para {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png)

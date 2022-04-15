@@ -1,6 +1,6 @@
 ---
 title: 退職のためのベストプラクティス
-intro: 転職は人生の現実です。 GitHub のアカウントを個人と仕事の*両方で*使っているなら、会社や組織を辞める際に念頭に置いておくべきことがあります。
+intro: 'If you use your account on {% data variables.product.product_name %} for both personal and work purposes, there are a few things to keep in mind when you leave your company or organization.'
 redirect_from:
   - /articles/best-practices-for-leaving-your-company
   - /github/setting-up-and-managing-your-github-user-account/best-practices-for-leaving-your-company
@@ -13,7 +13,7 @@ topics:
 shortTitle: Leaving your company
 ---
 
-会社を辞める前に、ユーザアカウントの以下の情報を必ず更新しておきましょう:
+Before you leave your company, make sure you update the following information in your personal account:
 
 - [メール設定から会社のメールアドレスを削除](/articles/changing-your-primary-email-address)して、会社のメールアドレスを検証済みではなくしてください。 その後、検証なしにアドレスを追加しなおして、関連するコミットをアカウントに関連付けされたままに保っておくことができます。
 - 会社のメールから個人のメールへ、[プライマリメールアドレスを変更](/articles/changing-your-primary-email-address)してください。
@@ -28,7 +28,7 @@ shortTitle: Leaving your company
 
 ## 個人リポジトリから職業上の関連を取り除く
 
-他の人の個人ユーザアカウントに属するリポジトリに職業として協力してきた場合は、それらのリポジトリから[自分をコラボレータから削除](/articles/removing-yourself-from-a-collaborator-s-repository)する必要があるでしょう。
+If you've been collaborating professionally with another person on repositories that belong to their personal account, you'll want to [remove yourself as a collaborator](/articles/removing-yourself-from-a-collaborator-s-repository) from those repositories.
 
 - 仕事に関連する[リポジトリの Watch の停止](https://github.com/watching)。 それらの通知も、もう受ける必要はありません。
 - 自分の退職後に他者が作業を続ける必要があるかもしれない[自分が所有するリポジトリを移譲](/articles/how-to-transfer-a-repository)してください。

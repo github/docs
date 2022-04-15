@@ -74,7 +74,6 @@ Para obtener más información, consulta la sección "[Definir los jobs de prerr
 
 Puedes utilizar una matriz de compilaciones si quieres que tu flujo de trabajo ejecute pruebas a través de varias combinaciones de sistemas operativos, plataformas y lenguajes. La matriz de compilaciones se crea utilizando la palabra clave `strategy`, la cual recibe las opciones de compilación como un arreglo. Por ejemplo, esta matriz de compilaciones ejecutará el job varias veces, utilizando diferentes versiones de Node.js:
 
-{% raw %}
 ```yaml
 jobs:
   build:
@@ -83,11 +82,10 @@ jobs:
       matrix:
         node: [6, 8, 10]
     steps:
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node }}
+          node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 Para obtener más información, consulte la sección "[Utilizar una matriz de compilación para tus jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)".
 
@@ -98,22 +96,20 @@ Los ejecutores hospedados en {% data variables.product.prodname_dotcom %} se ini
 
 Este ejemplo ilustra cómo almacenar el directorio `~/.npm` en el caché:
 
-{% raw %}
 ```yaml
 jobs:
   example-job:
     steps:
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         env:
           cache-name: cache-node-modules
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}{% endraw %}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
+            {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
 ```
-{% endraw %}
 
 Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
 {% endif %}
@@ -132,7 +128,7 @@ jobs:
         image: postgres
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install dependencies
         run: npm ci
       - name: Connect to PostgreSQL

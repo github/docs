@@ -50,7 +50,7 @@ Look! You can see my backticks.
 
 ## Syntax highlighting
 
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+<!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
 You can add an optional language identifier to enable syntax highlighting in your fenced code block.
 

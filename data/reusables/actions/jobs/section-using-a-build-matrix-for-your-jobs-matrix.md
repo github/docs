@@ -13,19 +13,17 @@ You can specify a matrix by supplying an array for the configuration options. Fo
 
 This example creates a matrix of three jobs by setting the `node` key to an array of three Node.js versions. To use the matrix, the example sets the `matrix.node` context property as the value of the `setup-node` action's input parameter `node-version`. As a result, three jobs will run, each using a different Node.js version.
 
-{% raw %}
 ```yaml
 strategy:
   matrix:
     node: [10, 12, 14]
 steps:
   # Configures the node version used on GitHub-hosted runners
-  - uses: actions/setup-node@v2
+  - uses: {% data reusables.actions.action-setup-node %}
     with:
       # The Node.js version to configure
-      node-version: ${{ matrix.node }}
+      node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 The `setup-node` action is the recommended way to configure a Node.js version when using {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see the [`setup-node`](https://github.com/actions/setup-node) action.
 
@@ -38,19 +36,17 @@ You can create a matrix to run workflows on more than one runner operating syste
 
 {% data reusables.repositories.actions-matrix-builds-os %}
 
-{% raw %}
 ```yaml
-runs-on: ${{ matrix.os }}
+runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 strategy:
   matrix:
     os: [ubuntu-18.04, ubuntu-20.04]
     node: [10, 12, 14]
 steps:
-  - uses: actions/setup-node@v2
+  - uses: {% data reusables.actions.action-setup-node %}
     with:
-      node-version: ${{ matrix.node }}
+      node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 {% ifversion ghae %}
 For more information about the configuration of self-hosted runners, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)."

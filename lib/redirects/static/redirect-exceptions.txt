@@ -1,5 +1,7 @@
-# Redirects are cached in 'lib/redirects/.redirects-cache_*.json'. If changes made here are not being reflected
-# on your local server, delete the cache files and restart your server.
+# Redirects are cached in 'lib/redirects/.redirects-cache.json'. If changes made here are not being reflected
+# on your local server, delete the cache file by running the following command, then restart your server.
+#
+#   rm lib/redirects/.redirects-cache.json
 
 # These urls went from being free-pro-team, but are now versioned for more than one enterprise version and enterprise-cloud
 # Shipped in pull #20947 on 10/15/21
@@ -424,6 +426,10 @@
 - /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 - /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise-server
 
+/enterprise-server@latest/support/learning-about-github-support/about-github-support
+- /admin/enterprise-support/about-support-for-advanced-security
+- /enterprise-server/admin/enterprise-support/about-support-for-advanced-security
+
 # FPT versioning for these files was removed as part of github/docs-content#5642
 
 /enterprise-cloud@latest/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
@@ -441,6 +447,9 @@
 - /code-security/secret-security/managing-alerts-from-secret-scanning
 - /code-security/secret-scanning/managing-alerts-from-secret-scanning
 
+/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning
+- /code-security/secret-scanning/protecting-pushes-with-secret-scanning
+
 /enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators
 - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
 - /articles/setting-permissions-for-adding-outside-collaborators
@@ -451,3 +460,37 @@
 - /github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization
 - /organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization
 - /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization
+
+/enterprise-cloud@latest/code-security/security-overview/viewing-the-security-overview
+- /code-security/security-overview/viewing-the-security-overview
+
+/enterprise-cloud@latest/code-security/security-overview/filtering-alerts-in-the-security-overview
+- /code-security/security-overview/filtering-alerts-in-the-security-overview
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories
+- /organizations/managing-git-access-to-your-organizations-repositories
+- /articles/managing-git-access-to-your-organizations-repositories-using-ssh-certificate-authorities
+- /articles/managing-git-access-to-your-organizations-repositories
+- /github/setting-up-and-managing-organizations-and-teams/managing-git-access-to-your-organizations-repositories
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities
+- /organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities
+- /articles/about-ssh-certificate-authorities
+- /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
+
+/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities
+- /organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities
+- /articles/managing-your-organizations-ssh-certificate-authorities
+- /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
+
+/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
+- /pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site
+- /github/working-with-github-pages/changing-the-visibility-of-your-github-pages-site
+
+/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /admin/advanced-security/viewing-your-github-advanced-security-usage
+- /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
+- /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
+- /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage

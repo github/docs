@@ -1241,6 +1241,29 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
+{% ifversion fpt or ghes > 3.4 or ghec or ghae-issue-6581 %}
+## secret_scanning_alert_location
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_short_desc %}
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- `secret_scanning_alerts:read` 権限のある {% data variables.product.prodname_github_apps %}
+
+### webhook ペイロードオブジェクト
+
+{% data reusables.webhooks.secret_scanning_alert_location_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.secret_scanning_alert_location.created }}
+{% endif %}
+
 {% ifversion fpt or ghes or ghec %}
 ## security_advisory
 

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
+permissions: Anyone can sponsor accounts on behalf of their own personal account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
@@ -23,7 +23,7 @@ shortTitle: Patrocinar um contribuidor
 
 {% data reusables.sponsors.sponsorship-details %}
 
-Você pode patrocinar uma conta em nome de sua conta de usuário para investir em projetos dos quais você se beneficia pessoalmente. Você pode patrocinar uma conta em nome de sua organização por muitas razões.
+You can sponsor an account on behalf of your personal account to invest in projects that you personally benefit from. Você pode patrocinar uma conta em nome de sua organização por muitas razões.
 - Sustentar bibliotecas específicas das quais o trabalho da sua organização depende
 - Investir no ecossistema com o qual você conta como uma organização (como a blockchain)
 - Desenvolver a conscientização da marca como uma organização que valoriza o código aberto
@@ -41,7 +41,7 @@ Você pode escolher se deseja mostrar seu patrocínio publicamente. Patrocínios
 
 Se a conta patrocinada for retirada, a sua camada permanecerá em vigor para você até que você escolha uma camada diferente ou cancele a sua assinatura. Para obter mais informações, consulte "[Atualizar um patrocínio](/articles/upgrading-a-sponsorship)" e "[Fazer downgrade de um patrocínio](/articles/downgrading-a-sponsorship)".
 
-Se a conta que você deseja patrocinar não tiver um perfil em {% data variables.product.prodname_sponsors %}, você pode incentivar que participe. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_sponsors %} para a sua conta de usuário](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)" e "[Configurando {% data variables.product.prodname_sponsors %} para sua organização](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+Se a conta que você deseja patrocinar não tiver um perfil em {% data variables.product.prodname_sponsors %}, você pode incentivar que participe. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 

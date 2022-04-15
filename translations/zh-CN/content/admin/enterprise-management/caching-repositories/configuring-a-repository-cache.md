@@ -69,11 +69,11 @@ topics:
 
 通过使用 `spokesctl cache-policy` 命令为存储库配置数据位置策略，可以控制数据局部性。 数据位置策略确定在哪些存储库缓存上复制哪些存储库网络。 默认情况下，在配置数据位置策略之前，不会在任何存储库缓存上复制任何存储库网络。
 
-Data location policies affect only Git content. Content in the database, such as issues and pull request comments, will be replicated to all nodes regardless of policy.
+数据位置策略仅影响 Git 内容。 数据库中的内容（如议题和拉取请求评论）将复制到所有节点，而不管策略如何。
 
 {% note %}
 
-**Note:** Data location policies are not the same as access control. You must use repository roles to control which users may access a repository. For more information about repository roles, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+**注意：** 数据位置策略与访问控制不同。 您必须使用存储库角色来控制哪些用户可以访问存储库。 有关仓库角色的更多信息，请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 {% endnote %}
 

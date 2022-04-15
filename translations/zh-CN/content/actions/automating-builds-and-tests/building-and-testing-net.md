@@ -34,8 +34,6 @@ shortTitle: 构建和测试 .NET
 
 要快速开始，请将入门工作流程添加到仓库的 `.github/workflows` 目录中。
 
-{% raw %}
-
 ```yaml
 name: dotnet package
 
@@ -50,11 +48,11 @@ jobs:
         dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v1.7.2
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Setup .NET Core SDK {% raw %}${{ matrix.dotnet-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-dotnet %}
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
       - name: Install dependencies
         run: dotnet restore
       - name: Build
@@ -62,8 +60,6 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
 ```
-
-{% endraw %}
 
 ## 指定 .NET 版本
 
@@ -73,7 +69,6 @@ jobs:
 
 ### 使用多个 .NET 版本
 
-{% raw %}
 ```yaml
 name: dotnet package
 
@@ -88,47 +83,42 @@ jobs:
         dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup dotnet ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v1
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Setup dotnet {% raw %}${{ matrix.dotnet-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-dotnet %}
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
       # You can test your matrix by printing the current dotnet version
       - name: Display dotnet version
         run: dotnet --version
 ```
-{% endraw %}
 
 ### 使用特定的 .NET 版本
 
 您可以将作业配置为使用 .NET 的特定版本，例如 3.1.3 `3.1.3`。 或者，您也可以使用语义版本语法来获得最新的次要版本。 此示例使用 .NET 3 最新的次要版本。
 
-{% raw %}
 ```yaml
     - name: Setup .NET 3.x
-      uses: actions/setup-dotnet@v1
+      uses: {% data reusables.actions.action-setup-dotnet %}
       with:
         # Semantic version range syntax or exact version of a dotnet version
         dotnet-version: '3.x'
 ```
-{% endraw %}
 
 ## 安装依赖项
 
 {% data variables.product.prodname_dotcom %} 托管的运行器安装了 NuGet 软件包管理器。 在构建和测试代码之前，您可以使用 dotnet CLI 从 NuGet 软件包注册表安装依赖项。 例如，下面的 YAML 安装 `Newtonsoft` 软件包。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1
+  uses: {% data reusables.actions.action-setup-dotnet %}
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
-{% endraw %}
 
 {% ifversion fpt or ghec %}
 
@@ -138,25 +128,23 @@ steps:
 
 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/guides/caching-dependencies-to-speed-up-workflows)”。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1
+  uses: {% data reusables.actions.action-setup-dotnet %}
   with:
     dotnet-version: '3.1.x'
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.nuget/packages
     # Look to see if there is a cache hit for the corresponding requirements file
-    key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+    key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
     restore-keys: |
-      ${{ runner.os }}-nuget
+      ${{ runner.os }}-nuget{% endraw %}
 - name: Install dependencies
   run: dotnet add package Newtonsoft.Json --version 12.0.1
 ```
-{% endraw %}
 
 {% note %}
 
@@ -170,12 +158,11 @@ steps:
 
 您可以使用与本地相同的命令来构建和测试代码。 此示例演示如何在作业中使用 `dotnet build` 和 `dotnet test`：
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Setup dotnet
-  uses: actions/setup-dotnet@v1
+  uses: {% data reusables.actions.action-setup-dotnet %}
   with:
     dotnet-version: '3.1.x'
 - name: Install dependencies
@@ -185,7 +172,6 @@ steps:
 - name: Test with the dotnet CLI
   run: dotnet test
 ```
-{% endraw %}
 
 ## 将工作流数据打包为构件
 
@@ -193,7 +179,7 @@ steps:
 
 更多信息请参阅“[使用构件持久化工作流程](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
 
-{% raw %}
+
 ```yaml
 name: dotnet package
 
@@ -208,24 +194,23 @@ jobs:
         dotnet-version: [ '3.0', '3.1.x', '5.0.x' ]
 
       steps:
-        - uses: actions/checkout@v2
+        - uses: {% data reusables.actions.action-checkout %}
         - name: Setup dotnet
-          uses: actions/setup-dotnet@v1
+          uses: {% data reusables.actions.action-setup-dotnet %}
           with:
-            dotnet-version: ${{ matrix.dotnet-version }}
+            dotnet-version: {% raw %}${{ matrix.dotnet-version }}{% endraw %}
         - name: Install dependencies
           run: dotnet restore
         - name: Test with dotnet
-          run: dotnet test --logger trx --results-directory "TestResults-${{ matrix.dotnet-version }}"
+          run: dotnet test --logger trx --results-directory {% raw %}"TestResults-${{ matrix.dotnet-version }}"{% endraw %}
         - name: Upload dotnet test results
-          uses: actions/upload-artifact@v3
+          uses: {% data reusables.actions.action-upload-artifact %}
           with:
-            name: dotnet-results-${{ matrix.dotnet-version }}
-            path: TestResults-${{ matrix.dotnet-version }}
+            name: {% raw %}dotnet-results-${{ matrix.dotnet-version }}{% endraw %}
+            path: {% raw %}TestResults-${{ matrix.dotnet-version }}{% endraw %}
           # Use always() to always run this step to publish test results when there are test failures
-          if: ${{ always() }}
+          if: {% raw %}${{ always() }}{% endraw %}
 ```
-{% endraw %}
 
 ## 发布到包注册表
 
@@ -245,8 +230,8 @@ jobs:
       packages: write
       contents: read{% endif %}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-dotnet %}
         with:
           dotnet-version: '3.1.x' # SDK Version to use.
           source-url: https://nuget.pkg.github.com/<owner>/index.json

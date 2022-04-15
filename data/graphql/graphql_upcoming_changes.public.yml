@@ -50,16 +50,6 @@ upcoming_changes:
     date: '2020-07-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon
-  - location: EnterpriseOwnerInfo.pendingCollaborators
-    description:
-      '`pendingCollaborators` will be removed. Use the `pendingCollaboratorInvitations`
-      field instead.'
-    reason:
-      Repository invitations can now be associated with an email, not only an
-      invitee.
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
   - location: Issue.timeline
     description: '`timeline` will be removed. Use Issue.timelineItems instead.'
     reason: '`timeline` will be removed'
@@ -72,14 +62,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: breaking
     owner: mikesea
-  - location: RepositoryInvitationOrderField.INVITEE_LOGIN
-    description: '`INVITEE_LOGIN` will be removed.'
-    reason:
-      '`INVITEE_LOGIN` is no longer a valid field value. Repository invitations
-      can now be associated with an email, not only an invitee.'
-    date: '2020-10-01T00:00:00+00:00'
-    criticality: breaking
-    owner: jdennes
   - location: Sponsorship.sponsor
     description: '`sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead.'
     reason: '`Sponsorship.sponsor` will be removed.'
@@ -95,12 +77,6 @@ upcoming_changes:
   - location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
     description: '`isUnlicensed` will be removed.'
     reason: All outside collaborators consume a license
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - location: EnterprisePendingCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` will be removed.'
-    reason: All pending collaborators consume a license
     date: '2021-01-01T00:00:00+00:00'
     criticality: breaking
     owner: BrentWheeldon
@@ -126,20 +102,28 @@ upcoming_changes:
     date: '2021-10-01T00:00:00+00:00'
     criticality: breaking
     owner: synthead
-  - location: PullRequest.viewerCanOverrideMergeQueue
-    description:
-      '`viewerCanOverrideMergeQueue` will be removed. Use PullRequest.viewerCanMergeAsAdmin
-      instead.'
-    reason: '`viewer_can_override_merge_queue` will be removed'
-    date: '2022-04-01'
-    criticality: breaking
-    owner: cbeaman
   - location: Repository.defaultMergeQueue
     description: '`defaultMergeQueue` will be removed. Use `Repository.mergeQueue` instead.'
     reason: '`defaultMergeQueue` will be removed.'
     date: '2022-04-01'
     criticality: breaking
     owner: colinshum
+  - location: AddPullRequestToMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      PRs are added to the merge queue for the base branch, the `branch` argument
+      is now a no-op
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - location: Enterprise.userAccounts
+    description:
+      '`userAccounts` will be removed. Use the `Enterprise.members` field
+      instead.'
+    reason: The `Enterprise.userAccounts` field is being removed.
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jdennes
   - location: Query.sponsorables.dependencyEcosystem
     description:
       '`dependencyEcosystem` will be removed. Use the ecosystem argument
@@ -148,3 +132,9 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: cheshire137
+  - location: UpdateProjectNextItemFieldInput.fieldWithSettingId
+    description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
+    reason: Renamed to fieldConstraintId to improve naming consistency.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: memex

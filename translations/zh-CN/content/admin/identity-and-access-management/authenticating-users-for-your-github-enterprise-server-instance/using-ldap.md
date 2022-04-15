@@ -107,7 +107,7 @@ topics:
 
 {% note %}
 
-**Note:** Teams using LDAP Sync are limited to a maximum 1499 members.
+**注意**：使用 LDAP 同步的团队限制为最多 1499 名成员。
 
 {% endnote %}
 
@@ -124,8 +124,8 @@ topics:
 - 如果存在 LDAP 映射但目录中相应的 LDAP 条目缺失，请挂起该用户并前进到下一个用户。
 - 如果相应的 LDAP 条目已被标记为禁用并且该用户尚未被挂起，请挂起该用户并前进到下一个用户。
 - 如果相应的 LDAP 条目未被标记为禁用，用户已被挂起，并且已在 Admin Center 中启用 _Reactivate suspended users_，请取消挂起该用户。
-- If one or more restricted user groups are configured on the instance and the corresponding LDAP entry is not in one of these groups, suspend the user.
-- If one or more restricted user groups are configured on the instance, the corresponding LDAP entry is in one of these groups, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
+- 如果在实例上配置了一个或多个受限制的用户组，并且相应的 LDAP 条目不在其中一个组中，请暂停该用户。
+- 如果在实例上配置了一个或多个受限用户组，则相应的 LDAP 条目位于其中一个组中，并且在管理中心中启用了 _Reactivate suspended users（重新激活挂起的用户）_ ，请取消暂停该用户。
 - 如果相应的 LDAP 条目包括 `name` 属性，请更新用户的个人资料姓名。
 - 如果相应的 LDAP 条目位于管理员组中，请将该用户升级为站点管理员。
 - 如果相应的 LDAP 条目不位于管理员组中，请将该用户降级为普通帐户。
@@ -135,14 +135,14 @@ topics:
 
 {% note %}
 
-**注**：只有您使用 Active Directory，`userAccountControl` 属性显示并使用 `ACCOUNTDISABLE` 标记时，才可以将 LDAP 条目标记为禁用。 Some variations of Active Directory, such as AD LDS and ADAM, don't support the `userAccountControl` attribute.
+**注**：只有您使用 Active Directory，`userAccountControl` 属性显示并使用 `ACCOUNTDISABLE` 标记时，才可以将 LDAP 条目标记为禁用。 Active Directory 的某些变体（如 AD LDS 和 ADAM）不支持 `userAccountControl` 属性。
 
 {% endnote %}
 
 某个同步作业也将以指定的时间间隔运行，在已经映射到 LDAP 组的每个团队上执行以下操作：
 
 - 如果已移除团队的相应 LDAP 组，请移除团队中的所有成员。
-- 如果已从 LDAP 组中移除 LDAP 成员条目，请从团队中移除相应的用户。 If the user is no longer a member of any team in the organization, remove the user from the organization. 如果用户因此失去了任何仓库的访问权限，请删除用户在这些仓库中的任何私有分叉。
+- 如果已从 LDAP 组中移除 LDAP 成员条目，请从团队中移除相应的用户。 如果用户不再是组织中任何团队的成员，请从组织中删除该用户。 如果用户因此失去了任何仓库的访问权限，请删除用户在这些仓库中的任何私有分叉。
 - 如果已向 LDAP 组中添加 LDAP 成员条目，请将相应的用户添加到团队中。 如果用户因此重新获得了任何仓库的访问权限，请恢复过去 90 天内因为用户失去访问权限而被删除的仓库中的任何私有分叉。
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}

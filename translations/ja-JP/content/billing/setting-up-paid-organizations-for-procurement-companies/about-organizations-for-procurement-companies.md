@@ -15,7 +15,7 @@ topics:
 shortTitle: Organizationについて
 ---
 
-Organizationにアクセスするためには、各メンバーは自身のパーソナルユーザアカウントにサインインしなければなりません
+To access an organization, each member must sign into their own personal account.
 
 Organizationのメンバーは、*オーナー*あるいは*支払いマネージャー*など、様々なロールを持ちます。
 

@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-permissions: Organization owners can limit interactions in an organization.
+permissions: Organization owners and moderators can limit interactions in an organization.
 topics:
   - Community
 shortTitle: 限制组织中的交互
@@ -26,14 +26,17 @@ shortTitle: 限制组织中的交互
 
 在整个组织范围内启用活动限制时，无法对个别仓库启用或禁用交互限制。 有关限制单个仓库活动的更多信息，请参阅“[限制仓库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”。
 
-组织所有者也可在特定的时间段内阻止用户。 在阻止到期后，该用户会自动解除阻止。 更多信息请参阅“[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”。
+组织所有者和版主也可在特定的时间段内阻止用户。 在阻止到期后，该用户会自动解除阻止。 更多信息请参阅“[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”。
 
 ## 限制组织中的交互
 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. 在侧边栏的“Access（访问）”部分中，选择 **{% octicon "report" aria-label="The report icon" %} 主持** 然后点击 **Interaction limits（互动限制）**。
+1. _对于组织所有者：_在侧边栏的“Access（访问）”部分中，选择 **{% octicon "report" aria-label="The report icon" %} 版主** 然后点击 **Interaction limits（互动限制）**。
+
+   _对于组织版主：_ 在边栏中，单击“**Interaction limits（交互限制）**”。
+
 {% data reusables.community.set-interaction-limit %}
   ![临时交互限制选项](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
@@ -42,3 +45,4 @@ shortTitle: 限制组织中的交互
 - "[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)"
 - "[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository)"
 - "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- “[管理组织中的版主](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)”

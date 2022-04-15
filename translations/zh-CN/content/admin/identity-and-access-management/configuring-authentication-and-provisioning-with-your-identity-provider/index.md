@@ -1,6 +1,6 @@
 ---
 title: 使用身份提供程序配置身份验证和预配
-intro: You can configure user authentication and provisioning by integrating with an identity provider (IdP) that supports SAML single sign-on (SSO) and SCIM.
+intro: 您可以通过与支持 SAML 单点登录 (SSO) 和 SCIM 的身份提供程序 (IdP) 集成来配置用户身份验证和预配。
 versions:
   ghae: '*'
 redirect_from:

@@ -1561,6 +1561,11 @@ type BranchProtectionRule implements Node {
   allowsForcePushes: Boolean!
 
   """
+  Is branch creation a protected operation.
+  """
+  blocksCreations: Boolean!
+
+  """
   A list of conflicts matching branches protection rule and other branch protection rules
   """
   branchProtectionRuleConflicts(
@@ -5328,6 +5333,11 @@ input CreateBranchProtectionRuleInput {
   allowsForcePushes: Boolean
 
   """
+  Is branch creation a protected operation.
+  """
+  blocksCreations: Boolean
+
+  """
   A list of User or Team IDs allowed to bypass force push targeting matching branches.
   """
   bypassForcePushActorIds: [ID!]
@@ -6045,7 +6055,7 @@ input CreateMigrationSourceInput {
   """
   The Octoshift migration source access token.
   """
-  accessToken: String!
+  accessToken: String
 
   """
   A unique identifier for the client performing the mutation.
@@ -7415,6 +7425,46 @@ type DemilestonedEvent implements Node {
   Object referenced by event.
   """
   subject: MilestoneItem!
+}
+
+"""
+A Dependabot Update for a dependency in a repository
+"""
+type DependabotUpdate implements RepositoryNode {
+  """
+  The error from a dependency update
+  """
+  error: DependabotUpdateError
+
+  """
+  The associated pull request
+  """
+  pullRequest: PullRequest
+
+  """
+  The repository associated with this node.
+  """
+  repository: Repository!
+}
+
+"""
+An error produced from a Dependabot Update
+"""
+type DependabotUpdateError {
+  """
+  The body of the error
+  """
+  body: String!
+
+  """
+  The error code
+  """
+  errorType: String!
+
+  """
+  The title of the error
+  """
+  title: String!
 }
 
 """
@@ -9476,6 +9526,9 @@ type Enterprise implements Node {
     """
     last: Int
   ): EnterpriseUserAccountConnection!
+    @deprecated(
+      reason: "The `Enterprise.userAccounts` field is being removed. Use the `Enterprise.members` field instead. Removal on 2022-07-01 UTC."
+    )
 
   """
   Is the current viewer an admin of this enterprise?
@@ -10797,44 +10850,6 @@ type EnterpriseOwnerInfo {
   ): RepositoryInvitationConnection!
 
   """
-  A list of pending collaborators across the repositories in the enterprise.
-  """
-  pendingCollaborators(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for pending repository collaborator invitations returned from the connection.
-    """
-    orderBy: RepositoryInvitationOrder = {field: CREATED_AT, direction: DESC}
-
-    """
-    The search string to look for.
-    """
-    query: String
-  ): EnterprisePendingCollaboratorConnection!
-    @deprecated(
-      reason: "Repository invitations can now be associated with an email, not only an invitee. Use the `pendingCollaboratorInvitations` field instead. Removal on 2020-10-01 UTC."
-    )
-
-  """
   A list of pending member invitations for organizations in the enterprise.
   """
   pendingMemberInvitations(
@@ -10905,7 +10920,8 @@ type EnterpriseOwnerInfo {
   ): OrganizationConnection!
 
   """
-  The SAML Identity Provider for the enterprise.
+  The SAML Identity Provider for the enterprise. When used by a GitHub App,
+  requires an installation token with read and write access to members.
   """
   samlIdentityProvider: EnterpriseIdentityProvider
 
@@ -11023,81 +11039,6 @@ type EnterpriseOwnerInfo {
     """
     value: Boolean!
   ): OrganizationConnection!
-}
-
-"""
-The connection type for User.
-"""
-type EnterprisePendingCollaboratorConnection {
-  """
-  A list of edges.
-  """
-  edges: [EnterprisePendingCollaboratorEdge]
-
-  """
-  A list of nodes.
-  """
-  nodes: [User]
-
-  """
-  Information to aid in pagination.
-  """
-  pageInfo: PageInfo!
-
-  """
-  Identifies the total count of items in the connection.
-  """
-  totalCount: Int!
-}
-
-"""
-A user with an invitation to be a collaborator on a repository owned by an organization in an enterprise.
-"""
-type EnterprisePendingCollaboratorEdge {
-  """
-  A cursor for use in pagination.
-  """
-  cursor: String!
-
-  """
-  Whether the invited collaborator does not have a license for the enterprise.
-  """
-  isUnlicensed: Boolean! @deprecated(reason: "All pending collaborators consume a license Removal on 2021-01-01 UTC.")
-
-  """
-  The item at the end of the edge.
-  """
-  node: User
-
-  """
-  The enterprise organization repositories this user is a member of.
-  """
-  repositories(
-    """
-    Returns the elements in the list that come after the specified cursor.
-    """
-    after: String
-
-    """
-    Returns the elements in the list that come before the specified cursor.
-    """
-    before: String
-
-    """
-    Returns the first _n_ elements from the list.
-    """
-    first: Int
-
-    """
-    Returns the last _n_ elements from the list.
-    """
-    last: Int
-
-    """
-    Ordering options for repositories.
-    """
-    orderBy: RepositoryOrder = {field: NAME, direction: ASC}
-  ): EnterpriseRepositoryInfoConnection!
 }
 
 """
@@ -28272,6 +28213,11 @@ type RefUpdateRule {
   allowsForcePushes: Boolean!
 
   """
+  Can matching branches be created.
+  """
+  blocksCreations: Boolean!
+
+  """
   Identifies the protection rule pattern.
   """
   pattern: String!
@@ -33380,7 +33326,7 @@ type RepositoryInvitation implements Node {
 }
 
 """
-The connection type for RepositoryInvitation.
+A list of repository invitations.
 """
 type RepositoryInvitationConnection {
   """
@@ -33442,14 +33388,6 @@ enum RepositoryInvitationOrderField {
   Order repository invitations by creation time
   """
   CREATED_AT
-
-  """
-  Order repository invitations by invitee login
-  """
-  INVITEE_LOGIN
-    @deprecated(
-      reason: "`INVITEE_LOGIN` is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee. Removal on 2020-10-01 UTC."
-    )
 }
 
 """
@@ -34101,6 +34039,11 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   When was the alert created?
   """
   createdAt: DateTime!
+
+  """
+  The associated Dependabot update
+  """
+  dependabotUpdate: DependabotUpdate
 
   """
   The reason the alert was dismissed
@@ -35715,6 +35658,11 @@ input StartRepositoryMigrationInput {
   The name of the imported repository.
   """
   repositoryName: String!
+
+  """
+  Whether to skip migrating releases for the repository.
+  """
+  skipReleases: Boolean
 
   """
   The ID of the Octoshift migration source.
@@ -38503,6 +38451,11 @@ type TreeEntry {
   isGenerated: Boolean!
 
   """
+  Number of lines in the file.
+  """
+  lineCount: Int
+
+  """
   Entry file mode.
   """
   mode: Int!
@@ -39118,6 +39071,11 @@ input UpdateBranchProtectionRuleInput {
   Are force pushes allowed on this branch.
   """
   allowsForcePushes: Boolean
+
+  """
+  Is branch creation a protected operation.
+  """
+  blocksCreations: Boolean
 
   """
   The global relay id of the branch protection rule to be updated.

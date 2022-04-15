@@ -31,10 +31,9 @@ shortTitle: Instalar em VMware
 
 ## Baixar a imagem do {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_installation.enterprise-download-procedural %}
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Selecione {% data variables.product.prodname_dotcom %} On-premises e clique em **VMware ESXi/vSphere (OVA)**.
+4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **VMware ESXi/vSphere (OVA)**.
 5. Clique em **Download for VMware ESXi/vSphere (OVA)** (Baixar para VMware ESXi/vSphere [OVA]).
 
 ## Criar a instância do {% data variables.product.prodname_ghe_server %}

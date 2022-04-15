@@ -25,9 +25,9 @@ For more information on exactly how {% data variables.product.prodname_codespace
 
 1. Navigate to the [template repository](https://github.com/2percentsilk/haikus-for-codespaces) and select **Use this template**. 
 
-2. Name your repository, select your preferred privacy setting, and click **Create repository from this template**.
+2. Name your repository, select your preferred privacy setting, and click **Create repository from template**.
 
-3. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+3. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
   ![New codespace button](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -41,7 +41,7 @@ Once your codespace is created, your repository will be automatically cloned int
 
     If you're following along with a different application type, enter the corresponding start command for that project.
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to forward that port so you can connect to it. 
+2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded. 
 
   ![Port forwarding toast](/assets/images/help/codespaces/quickstart-port-toast.png)
 

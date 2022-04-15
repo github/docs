@@ -74,7 +74,6 @@ jobs:
 
 如果您希望工作流程跨操作系统、平台和语言的多个组合运行测试，可以使用构建矩阵。 构建矩阵是使用 `strategy` 关键字创建的，它接收构建选项作为数组。 例如，此构建矩阵将使用不同版本的 Node.js 多次运行作业：
 
-{% raw %}
 ```yaml
 jobs:
   build:
@@ -83,11 +82,10 @@ jobs:
       matrix:
         node: [6, 8, 10]
     steps:
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node }}
+          node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 更多信息请参阅“[对作业使用构建矩阵](/actions/using-jobs/using-a-build-matrix-for-your-jobs)”。
 
@@ -98,22 +96,20 @@ jobs:
 
 此示例演示如何缓存 `~/.npm` 目录：
 
-{% raw %}
 ```yaml
 jobs:
   example-job:
     steps:
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         env:
           cache-name: cache-node-modules
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}{% endraw %}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
+            {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
 ```
-{% endraw %}
 
 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 {% endif %}
@@ -132,7 +128,7 @@ jobs:
         image: postgres
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install dependencies
         run: npm ci
       - name: Connect to PostgreSQL

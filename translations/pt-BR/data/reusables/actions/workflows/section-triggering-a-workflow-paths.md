@@ -18,6 +18,12 @@ on:
       - '**.js'
 ```
 
+{% note %}
+
+**Note:** If a workflow is skipped due to path filtering, but the workflow is set as a required check, then the check will remain as "Pending". To work around this, you can create a corresponding workflow with the same name that always passes whenever the original workflow is skipped because of path filtering. For more information, see "[Handling skipped but required checks](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks)."
+
+{% endnote %}
+
 #### Exemplo: Excluindo caminhos
 
 Quando todos os caminhos de nome correspondem a padrões em `paths-ignore`, o fluxo de trabalho não será executado. Se qualquer nome de caminho não corresponder a padrões em `paths-ignore`, mesmo que alguns nomes de caminhos correspondam aos padrões, o fluxo de trabalho será executado.

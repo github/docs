@@ -310,7 +310,7 @@ jobs:
 ::add-mask::{value}
 ```
 
-屏蔽值可阻止在日志中打印字符串或变量。 用空格分隔的每个屏蔽的词均替换为 `*` 字符。 您可以使用环境变量或字符串作为屏蔽的 `value`。 When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
+屏蔽值可阻止在日志中打印字符串或变量。 用空格分隔的每个屏蔽的词均替换为 `*` 字符。 您可以使用环境变量或字符串作为屏蔽的 `value`。 当您屏蔽某个值时，该值将被视为机密，并将在运行器上进行编辑。 例如，屏蔽某个值后，便无法将该值设置为输出。
 
 ### 示例：屏蔽字符串
 

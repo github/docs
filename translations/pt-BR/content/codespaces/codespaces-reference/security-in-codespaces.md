@@ -56,6 +56,8 @@ Se você precisar permitir acesso externo a serviços em execução em um codesp
 
 Se você precisar conectar-se a um serviço (como um servidor web de desenvolvimento) em execução no seu codespace, você poderá configurar o encaminhamento de portas para tornar o serviço disponível na internet.
 
+Os proprietários da organização podem restringir a capacidade de tornar portas encaminhadas disponíveis publicamente ou dentro da organização. Para obter mais informações, consulte "[Restringindo a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports). "
+
 **Portas encaminhadas em particular**: Podem ser acessadas na internet, mas somente o criador do codespace pode acessá-las, após efetuar a autenticação em {% data variables.product.product_name %}.
 
 **Portas encaminhadas publicamente dentro da sua organização**: podem ser acessdas na internet mas apenas por integrantes da mesma organização como o espaço, depois de efetuar a autenticação em {% data variables.product.product_name %}.
@@ -97,7 +99,9 @@ Há algumas práticas recomendadas e riscos adicionais dos quais você deve esta
 
 #### Compreendendo o arquivo devcontainer.json de um repositório
 
-Ao criar um codespace, o [devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) é analisado e aplicado a partir do repositório de origem, se houver.  O devcontainer contém funcionalidades poderosas como, por exemplo, instalar extensões de terceiros e executar código arbitrário por meio de um `postCreateCommand` fornecido.
+When you create a codespace, if a `devcontainer.json` file is found for your repository, it is parsed and used to configure your codespace. The `devcontainer.json` file can contain powerful features, such as installing third-party extensions and running arbitrary code supplied in a `postCreateCommand`.
+
+Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
 #### Conceder acesso por meio de funcionalidades
 

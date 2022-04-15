@@ -242,9 +242,9 @@ const article: PlaygroundArticleT = {
                 node-version: [10.x, 12.x, 14.x, 15.x]
 
             steps:
-              - uses: actions/checkout@v2
+              - uses: actions/checkout@v3
               - name: Use Node.js \${{ matrix.node-version }}
-                uses: actions/setup-node@v2
+                uses: actions/setup-node@v3
                 with:
                   node-version: \${{ matrix.node-version }}
               - name: Install dependencies
@@ -275,9 +275,9 @@ const article: PlaygroundArticleT = {
                 node-version: [8.16.2, 10.17.0]
 
             steps:
-              - uses: actions/checkout@v2
+              - uses: actions/checkout@v3
               - name: Use Node.js \${{ matrix.node-version }}
-                uses: actions/setup-node@v2
+                uses: actions/setup-node@v3
                 with:
                   node-version: \${{ matrix.node-version }}
               - name: Install dependencies
@@ -304,9 +304,9 @@ const article: PlaygroundArticleT = {
           runs-on: ubuntu-latest
       
           steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Use Node.js
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v3
               with:
                 node-version: '12.x'
             - name: Install dependencies
@@ -333,9 +333,9 @@ const article: PlaygroundArticleT = {
           runs-on: ubuntu-latest
       
           steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Use Node.js
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v3
               with:
                 node-version: '12.x'
             - name: Install dependencies
@@ -362,9 +362,9 @@ const article: PlaygroundArticleT = {
           runs-on: ubuntu-latest
       
           steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Use Node.js
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v3
               with:
                 node-version: '12.x'
             - name: Install dependencies
@@ -391,9 +391,9 @@ const article: PlaygroundArticleT = {
           runs-on: ubuntu-latest
       
           steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Use Node.js
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v3
               with:
                 node-version: '12.x'
             - name: Install dependencies
@@ -420,9 +420,9 @@ const article: PlaygroundArticleT = {
           runs-on: ubuntu-latest
       
           steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Use Node.js
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v3
               with:
                 node-version: '12.x'
             - name: Install dependencies
@@ -450,9 +450,9 @@ const article: PlaygroundArticleT = {
           runs-on: ubuntu-latest
 
           steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Use Node.js
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v3
               with:
                 always-auth: true
                 node-version: '12.x'
@@ -492,9 +492,9 @@ const article: PlaygroundArticleT = {
           runs-on: ubuntu-latest
 
           steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Use Node.js
-              uses: actions/setup-node@v1
+              uses: actions/setup-node@v3
               with:
                 node-version: '12.x'
                 cache: 'npm'
@@ -520,9 +520,9 @@ const article: PlaygroundArticleT = {
               runs-on: ubuntu-latest
 
               steps:
-                - uses: actions/checkout@v2
+                - uses: actions/checkout@v3
                 - name: Use Node.js
-                  uses: actions/setup-node@v1
+                  uses: actions/setup-node@v3
                   with:
                     node-version: '12.x'
                 - run: npm install

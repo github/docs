@@ -20,7 +20,7 @@ This article explains how billing works for your codespaces, and explains how yo
 
 ## Getting access to {% data variables.product.prodname_codespaces %}
 
-Your organization's administrator might limit {% data variables.product.prodname_codespaces %} usage to only specific user accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access and security for your codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)."
+Your organization's administrator might limit {% data variables.product.prodname_codespaces %} usage to only specific personal accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access and security for your codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)."
 
 ## How much it costs to use {% data variables.product.prodname_codespaces %}
 

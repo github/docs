@@ -1,6 +1,6 @@
 ---
 title: 自分のユーザアカウントの削除
-intro: 'いつでも自分の {% data variables.product.product_name %}ユーザアカウントを削除できます。'
+intro: 'You can delete your personal account on {% data variables.product.product_name %} at any time.'
 redirect_from:
   - /articles/deleting-a-user-account
   - /articles/deleting-your-user-account
@@ -12,14 +12,14 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: ユーザアカウントを削除
+shortTitle: Delete your personal account
 ---
 
-自分のユーザアカウントを削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、また自分のアカウントが所有しているページもすべて削除されます。 {% ifversion fpt or ghec %} 他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはなく、代わりに [ゴーストユーザ](https://github.com/ghost)に関連付けられます。{% else %}他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはありません。{% endif %}
+Deleting your personal account removes all repositories, forks of private repositories, wikis, issues, pull requests, and pages owned by your account. {% ifversion fpt or ghec %} 他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはなく、代わりに [ゴーストユーザ](https://github.com/ghost)に関連付けられます。{% else %}他のユーザが所有するリポジトリでこれまで作成した Issue とプルリクエスト、また行ったコメントが削除されることはありません。{% endif %}
 
 {% ifversion fpt or ghec %} When you delete your account we stop billing you. The email address associated with the account becomes available for use with a different account on {% data variables.product.product_location %}. After 90 days, the account name also becomes available to anyone else to use on a new account. {% endif %}
 
-あなたが Organization のただ一人のオーナーの場合は、ユーザアカウントを削除する前に、所有権を他の人に移譲するか、Organization を削除する必要があります。 Organization に別のオーナーがいる場合は、自分のユーザアカウントを削除する前に、Organization から自分を削除する必要があります。
+If you’re the only owner of an organization, you must transfer ownership to another person or delete the organization before you can delete your personal account. If there are other owners in the organization, you must remove yourself from the organization before you can delete your personal account.
 
 詳しい情報については、以下を参照してください。
 - "[Organization の所有権の移譲](/articles/transferring-organization-ownership)"
@@ -28,19 +28,19 @@ shortTitle: ユーザアカウントを削除
 
 ## アカウントデータのバックアップ
 
-自分のユーザアカウントを削除する前に、リポジトリ、プライベートフォーク、ウィキ、Issue、また自分のアカウントが所有しているプルリクエストすべてのコピーを作成します。
+Before you delete your personal account, make a copy of all repositories, private forks, wikis, issues, and pull requests owned by your account.
 
 {% warning %}
 
-**警告:** 一度ユーザアカウントを削除すると、GitHub はそのコンテンツを復元できません。
+**Warning:** Once your personal account has been deleted, GitHub cannot restore your content.
 
 {% endwarning %}
 
-## ユーザアカウントを削除
+## Delete your personal account
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-3. アカウント設定ページの下部にある [Delete account] の下で [**Delete your account**] をクリックします。 自分のユーザアカウントを削除する前にすべきことは次のとおりです:
+3. アカウント設定ページの下部にある [Delete account] の下で [**Delete your account**] をクリックします。 Before you can delete your personal account:
     - 自分が Organization で唯一のオーナーの場合、Organization を削除する前に所有権を別の人に移譲する必要があります。
     - Organization に別のオーナーがいる場合は、自分自身を Organization から削除する必要があります。 ![アカウント削除ボタン](/assets/images/help/settings/settings-account-delete.png)
 4. [Make sure you want to do this] ダイアログボックスで、アカウントを削除すると何が起こるか理解したことを確認する手順を完了させます: ![アカウント削除の確認ダイアログ](/assets/images/help/settings/settings-account-deleteconfirm.png)

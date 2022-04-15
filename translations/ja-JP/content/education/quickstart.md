@@ -21,12 +21,12 @@ shortTitle: クイックスタート
 
 ## {% data variables.product.product_name %}でアカウントを作成する
 
-まず、{% data variables.product.product_name %}で無料ユーザアカウントを作成する必要があります。
+First, you'll need to create a free personal account on {% data variables.product.product_name %}.
 
 {% data reusables.accounts.create-account %}
-1. プロンプトに従って、無料ユーザアカウントを作成します。
+1. Follow the prompts to create your free personal account.
 
-ユーザアカウントを作成した後は、無料Organizationアカウントを作成します。 {% data variables.product.prodname_classroom %}でクラスルームを作成および管理するには、Organizationアカウントを使用します。
+After you create your personal account, create a free organization account. {% data variables.product.prodname_classroom %}でクラスルームを作成および管理するには、Organizationアカウントを使用します。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
@@ -55,10 +55,10 @@ shortTitle: クイックスタート
 
 ## {% data variables.product.prodname_classroom %}をセットアップする
 
-ユーザアカウントとOrganizationアカウントがあれば、{% data variables.product.prodname_classroom %}に取りかかる準備が整っています。 {% data variables.product.prodname_classroom %}の使用は無料です。 課題の追跡および管理、課題の自動採点、および学生へのフィードバックを行うことができます。
+With your personal account and organization account, you're ready to get started with {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %}の使用は無料です。 課題の追跡および管理、課題の自動採点、および学生へのフィードバックを行うことができます。
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. {% data variables.product.prodname_classroom %}を認可して{% data variables.product.prodname_dotcom %}のユーザアカウントにアクセスするには、表示されている情報を確認してから、[**Authorize {% data variables.product.prodname_classroom %}**] をクリックします。 ![ユーザアカウント用の [Authorize {% data variables.product.prodname_classroom %}] ボタン](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
+1. To authorize {% data variables.product.prodname_classroom %} to access your personal account on {% data variables.product.prodname_dotcom %}, review the information, then click **Authorize {% data variables.product.prodname_classroom %}**. !["Authorize {% data variables.product.prodname_classroom %}" button for personal account](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
 1. 情報を確認します。 {% data variables.product.prodname_classroom %}を認可して{% data variables.product.prodname_dotcom %}のOrganizationアカウントにアクセスするには、[**Allow**] をクリックします。 ![Organization用の [Grant] ボタン](/assets/images/help/classroom/setup-click-grant.png)
 
   {% tip %}
