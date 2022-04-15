@@ -64,28 +64,41 @@ You can apply Git rate limits per repository network or per user ID. Git rate li
 
 {% ifversion ghes > 3.4 %}
 
-## Enabling Actions rate limits
+## Configuring rate limits for {% data variables.product.prodname_actions %}
 
-You can apply a rate limit to GitHub Actions workflow runs. The Actions rate limit is expressed in runs per minute. It is for the sum total of all Actions runs across the entire GHES instance.
+You can apply a rate limit to workflow runs for {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %}, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
-By default, the rate limit is disabled. When workflow jobs cannot immediately be assigned to an available runner, they will wait in a queue until a runner is available. However, if Actions experiences a sustained high load, the queue can back up faster than it can drain and the performance of the GHES instance may degrade.
+### About rate limits for {% data variables.product.prodname_actions %}
 
-To avoid this, an administrator can configure a rate limit. From the [administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/), run the following commands:
+Your {% data variables.product.product_name %} instance assigns each workflow job for {% data variables.product.prodname_actions %} to a runner. If your instance cannot immediately assign a job to an available runner, the job will wait in a queue until a runner is available. If {% data variables.product.prodname_actions %} experiences sustained high load, the queue can back up, and the performance of {% data variables.product.product_location %} may degrade.
 
-```
-actions-rate-limiting.enabled true
-actions-rate-limiting.queue-runs-per-minute 200
-ghe-config-apply
-```
+To avoid this performance degradation, you can configure a rate limit for {% data variables.product.prodname_actions %}. This rate limit is expressed in job runs per minute. {% data variables.product.product_name %} calculates and applies the rate limit for the sum total of all job runs on the instance. If runs exceed the rate limit, additional runs will fail instead of entering the queue.
 
- When the rate limit is exceeded, additional workflow runs will fail immediately rather than being put in the queue:
+![Screenshot of a rate-limited workflow run](/assets/images/enterprise/actions/actions-rate-limited.png)
 
-![screenshot of a rate-limited run](/assets/images/enterprise/actions/actions-rate-limited.png)
+An appropriate rate limit protects {% data variables.product.product_location %} from abnormal usage of {% data variables.product.prodname_actions %} without interfering with day-to-day operations. The exact threshold depends on your instance's available resources and overall load profile. For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
 
-### Determining an appropriate rate limit
+By default, the rate limit for {% data variables.product.prodname_actions %} is disabled. Because {% data variables.product.product_name %} can handle temporary spikes in usage without performance degradation, this rate limit is intended to protect against sustained high load. We recommend leaving the rate limit disabled unless you are experiencing performance problems. In some cases, {% data variables.contact.github_support %} may recommend that you enable a rate limit for {% data variables.product.prodname_actions %}. 
 
-An appropriate rate limit protects your instance from abnormal Actions usage without interfering with day-to-day operations. The exact threshold depends on your GHES instance's available resources and overall load profile.
+### Enabling or disabling rate limits for {% data variables.product.prodname_actions %}
 
-Because even temporary spikes in usage can be handled without degrading your instance if they subside quickly, the rate limit is intended to protect against sustained high load. Therefore, we recommend leaving the rate limit disabled unless you are experiencing performance problems or you are instructed to do so by customer support.
+{% data reusables.enterprise_installation.ssh-into-instance %}
+1. To enable and configure the rate limit, run the following two commands, replacing **RUNS-PER-MINUTE** with the value of your choice.
+
+   ```shell
+   $ ghe-config actions-rate-limiting.enabled true
+   $ ghe-config actions-rate-limiting.queue-runs-per-minute <em>RUNS-PER-MINUTE</em>
+   ```
+1. Optionally, to disable the rate limit, run the following command.
+
+   ```
+   ghe-config actions-rate-limiting.enabled false
+   ```
+1. To apply the configuration, run the following command.
+
+   ```
+   ghe-config-apply
+   ```
+1. Wait for the configuration run to complete.
 
 {% endif %}

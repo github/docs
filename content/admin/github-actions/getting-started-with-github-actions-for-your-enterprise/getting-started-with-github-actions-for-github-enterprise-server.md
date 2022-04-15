@@ -96,7 +96,7 @@ For more information about minimum hardware requirements for {% data variables.p
 
 {% ifversion ghes > 3.4 %}
 
-You can optionally configure a global rate limit for GitHub Actions to prevent excessive resource consumption. See "[Enabling rate limits for {% data variables.product.prodname_enterprise_api %}](/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md#enabling-actions-rate-limits)".
+Optionally, you can limit resource consumption on {% data variables.product.product_location %} by configuring a rate limit for {% data variables.product.prodname_actions %}. For more information, see "[Configuring rate limits](/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md#configuring-rate-limits-for-github-actions)."
 
 {% endif %}
 
