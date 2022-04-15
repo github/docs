@@ -37,8 +37,8 @@ Your `hello-world` repository can be a place where you store ideas, resources, o
 {% data reusables.repositories.create_new %}
 1. In the **Repository name** box, enter `hello-world`.
 2. In the **Description** box, write a short description.
-3. Select **Add a README file**.
-4. Select whether your repository will be **Public** or **Private**.
+3. Select whether your repository will be **Public** or **Private**.
+4. Select **Add a README file**.
 5. Click **Create repository**.
 
    ![Create a hello world repository](/assets/images/help/repository/hello-world-repo.png)
