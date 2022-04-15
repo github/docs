@@ -6,6 +6,7 @@ intro: 'Primeiros passos com o seu projeto do Node.js, Python, .NET ou Java em {
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
+  ghec: '*'
 type: tutorial
 topics:
   - Codespaces
