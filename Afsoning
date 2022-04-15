@@ -12,7 +12,7 @@
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"cSpell.language": ",en"
+		"cSpell.language": "fa,en" 
 	},
 
 	// Install features. Type 'feature' in the VS Code command palette for a full list.
