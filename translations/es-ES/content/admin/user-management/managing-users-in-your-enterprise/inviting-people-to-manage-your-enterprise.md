@@ -45,6 +45,10 @@ Si tu empresa utiliza {% data variables.product.prodname_emus %}, solo se pueden
 
 {% ifversion ghec %}Después de que invites a alguien para que se una a la cuenta empresarial, esta persona debe aceptar la invitación que le llegó por correo electrónico antes de que pueda acceder a la cuenta empresarial. Las invitaciones pendientes vencerán después de 7 días.{% endif %}
 
+{% if enterprise-membership-view-improvements %}
+You can see all pending invitations to become an administrator of your enterprise account. Para obtener más información, consulta la sección "[Visualizar a las personas en tu empresa](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)".
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
@@ -63,10 +67,14 @@ Si tu empresa utiliza {% data variables.product.prodname_emus %}, solo se pueden
 
 Solo los propietarios de empresa pueden eliminar a otros administradores de empresa de la cuenta de empresa.
 
+{% ifversion ghec %}
+If the administrator you want to remove is a member of any organizations owned by the enterprise, you can choose **Convert to member**, which will remove their administrative role but retain their organization memberships, or **Remove from enterprise**, which will remove both their administrative role and organization memberships.
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-1. Junto al nombre de usuario de la persona que te gustaría eliminar, haz clic en {% octicon "gear" aria-label="The Settings gear" %} y luego en {% ifversion ghes %}**Eliminar propietario**{% elsif ghec %}**Convertir en miembro**{% endif %}.
+1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Convert to member** or **Remove from enterprise**.{% endif %}.
   {% ifversion ghec %}
   ![Parámetros con opción del menú para eliminar un administrador de empresa](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}

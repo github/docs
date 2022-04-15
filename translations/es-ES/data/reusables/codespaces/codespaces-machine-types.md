@@ -1,1 +1,3 @@
-Puedes ejecutar tu codespace en la máquina remota de tu elección, desde 2 hasta 32 núcleos. Cada una de estas tiene un nivel de recursos y de facturación diferentes. Para obtener más información, consulta la sección "[Acerca de la facturación para los Codespaces](/github/developing-online-with-codespaces/about-billing-for-codespaces)".
+Typically, you can run your codespace on a choice of remote machine, from 2 cores to 32 cores. Cada una de estas tiene un nivel de recursos y de facturación diferentes. Para obtener más información, consulta la sección "[Acerca de la facturación para los Codespaces](/github/developing-online-with-codespaces/about-billing-for-codespaces)".
+
+By default the machine type with the lowest valid resources is used when you create a codespace. 
