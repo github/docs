@@ -50,8 +50,6 @@ Setting secondary rate limits protects the overall level of service on {% data v
 3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion ghes > 3.4 %}
-
 ## Enabling Git rate limits
 
 You can apply Git rate limits per repository network or per user ID. Git rate limits are expressed in concurrent operations per minute, and are adaptive based on the current CPU load.
@@ -63,6 +61,8 @@ You can apply Git rate limits per repository network or per user ID. Git rate li
 3. Type limits for each repository network or user ID.
   ![Fields for repository network and user ID limits](/assets/images/enterprise/management-console/example-git-rate-limits.png)
 {% data reusables.enterprise_management_console.save-settings %}
+
+{% ifversion ghes > 3.4 %}
 
 ## Enabling Actions rate limits
 
