@@ -97,7 +97,7 @@ Te recomendamos dejar abierta esta ventana de terminal y mantener a Smee conecta
 
 Si aún no tienes una cuenta de GitHub, ahora es un [buen momento para unirte](https://github.com/join). ¡No te olvides de verificar tu dirección de correo electrónico antes de continuar! Para registrar una app nueva, visita la [página de configuración de la app](https://github.com/settings/apps) en tu perfil de GitHub, y da clic en **GitHub App nueva**.
 
-![El sitio web de Github, mostrando la **App Nueva**](/assets/images/new-app.png)
+![El sitio web de GitHub, mostrando la **App Nueva**](/assets/images/new-app.png)
 
 Verás un formato en el cual puedes ingresar detalles sobre tu app. Consulta la sección "[Crear una GitHub App](/apps/building-github-apps/creating-a-github-app/)" para obtener información general acerca de los campos de esta página. Para los fines de esta guía, necesitaras ingresar datos específicos en unos cuantos campos:
 

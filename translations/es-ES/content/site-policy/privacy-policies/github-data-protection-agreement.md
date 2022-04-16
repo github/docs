@@ -59,7 +59,7 @@ Los términos capitalizados que se utilizan pero no se definen en este DPA tendr
 
 “**Afiliado de GitHub**” significa cualquier entidad que controle directa o indirectamente, se le controle mediante, o esté bajo control común con GitHub.
 
-“**Acuerdo de Cliente de GitHub**” significa el servicio u otro(s) acuerdo(s) que ingrese el Cliente con Github para Obtener Servicios en Línea.
+“**Acuerdo de Cliente de GitHub**” significa el servicio u otro(s) acuerdo(s) que ingrese el Cliente con GitHub para Obtener Servicios en Línea.
 
 “**Declaración de Privacidad de GitHub**” significa la declaración de privacidad de GitHub que se encuentra en https://docs.github.com/en/github/site-policy/github-privacy-statement.
 
@@ -179,7 +179,7 @@ Las partes reconocen y concuerdan en que:
 
 #### Derechos de los Titulares de los Datos; Asistencia con las Solicitudes
 
-GitHub pondrá a disposición del Cliente, de forma consistente con la funcionalidad del Servicio en Línea y del rol de GitHub como procesador de Datos Personales de los titulares de estos, la capacidad de cumplir con las solicitudes de los titulares de datos para ejecutar sus derechos bajo la GDPR. Si GitHub recibe un formato de solicitud del titular de los datos del Cliente para ejecutar uno más de sus derechos bajo la GDPR en conexión con un Servicio en Línea por el cual GitHub es un procesador o subprocesador, GitHub redireccionará al titular de los datos para que haga su solicitud directamente con el Cliente. El cliente será responsable de responder a cualquier solicitud de este tipo, incluyendo, cuando sea necesario, utilizando la funcionalidad del Servicio en Línea. Github deberá cumplir con las soclitudes razonables que haga el Cliente para asistir la respuesta del mismo a dichas solicitudes de un sujeto de datos.
+GitHub pondrá a disposición del Cliente, de forma consistente con la funcionalidad del Servicio en Línea y del rol de GitHub como procesador de Datos Personales de los titulares de estos, la capacidad de cumplir con las solicitudes de los titulares de datos para ejecutar sus derechos bajo la GDPR. Si GitHub recibe un formato de solicitud del titular de los datos del Cliente para ejecutar uno más de sus derechos bajo la GDPR en conexión con un Servicio en Línea por el cual GitHub es un procesador o subprocesador, GitHub redireccionará al titular de los datos para que haga su solicitud directamente con el Cliente. El cliente será responsable de responder a cualquier solicitud de este tipo, incluyendo, cuando sea necesario, utilizando la funcionalidad del Servicio en Línea. GitHub deberá cumplir con las soclitudes razonables que haga el Cliente para asistir la respuesta del mismo a dichas solicitudes de un sujeto de datos.
 
 #### Registros de Actividades de Procesamiento
 
@@ -943,7 +943,7 @@ Para efectos de los presentes Términos relacionados con el GDPR, el Cliente y G
     <li>GitHub no deberá contratar a otro procesador sin previa autorización por escrito, general o específica, del Cliente. En el caso de una autorización por escrito, GitHub deberá informar al Cliente de cualquier cambio previsto con respecto a la adición o reemplazo de otros procesadores, dando así al Cliente la oportunidad de refutar dichos cambios. (Artículo 28(2))</li>
     <li>El procesamiento por parte de GitHub deberá regirse por estos Términos relacionados con el GDPR bajo la legislación de la Unión Europea (en lo subsecuente "Unión") o del Estado Miembro y vinculan a GitHub con respecto al Cliente. El objeto, duración, naturaleza y propósito del procesamiento, el tipo de Datos Personales, las categorías de los sujetos de datos y las obligaciones y derechos del Cliente se establecen en el acuerdo de licencia del Cliente, incluyendo estos Términos relacionados con el GDPR. En particular, GitHub deberá:</li>
     <ol style="list-style-type:lower-alpha" class="no-styling">
-        <li>procesar los Datos Personales únicamente en las instrucciones que documente el Cliente, incluyendo con respecto a las transferencias de los Datos Personales a un país tercero o a una organización internacional, a menos de que así lo requiera la legislación de la Unión o del Estado Miembro a la cual se someta Github; en cuyo caso, GitHub deberá informar al Cliente sobre dicho requisito legal antes del procesamiento, a menos de que dicha legislación prohíba tal información con bases de interés público importantes;</li>
+        <li>procesar los Datos Personales únicamente en las instrucciones que documente el Cliente, incluyendo con respecto a las transferencias de los Datos Personales a un país tercero o a una organización internacional, a menos de que así lo requiera la legislación de la Unión o del Estado Miembro a la cual se someta GitHub; en cuyo caso, GitHub deberá informar al Cliente sobre dicho requisito legal antes del procesamiento, a menos de que dicha legislación prohíba tal información con bases de interés público importantes;</li>
         <li>	
 garantizará que las personas autorizadas para tratar datos personales se hayan comprometido a respetar la confidencialidad o estén sujetas a una obligación de confidencialidad de naturaleza estatutaria;</li>
         <li>tomar todas las medidas requeridas de acuerdo con el artículo 32 del GDPR;</li>

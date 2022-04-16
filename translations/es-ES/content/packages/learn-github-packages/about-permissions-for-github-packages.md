@@ -69,7 +69,7 @@ Para obtener más información, consulta:{% ifversion fpt or ghec %}
 
 Para garantizar que tus flujos de trabajo mantendrán el acceso a tus paquetes, asegúrate de que estás utilizando el token de acceso correcto en tu flujo de trabajo y de haber habilitado el acceso a las {% data variables.product.prodname_actions %} para tu paquete.
 
-Para ver un antecedente más conceptual en {% data variables.product.prodname_actions %} o encontrar ejemplos de uso de paquetes en los flujos de trabajo, consulta la sección "[Administrar los Paquetes de GitHub utilizando flujos de trabajo de Github Actions](/packages/managing-github-packages-using-github-actions-workflows)".
+Para ver un antecedente más conceptual en {% data variables.product.prodname_actions %} o encontrar ejemplos de uso de paquetes en los flujos de trabajo, consulta la sección "[Administrar los Paquetes de GitHub utilizando flujos de trabajo de GitHub Actions](/packages/managing-github-packages-using-github-actions-workflows)".
 
 ### Tokens de acceso
 

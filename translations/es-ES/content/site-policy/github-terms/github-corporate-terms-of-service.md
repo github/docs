@@ -117,7 +117,7 @@ En algunas situaciones, pueden aplicarse términos de terceros al uso del Client
 Si el cliente es una entidad gubernamental de los EE.UU. o accede o utiliza de otra manera el servicio en calidad de gobierno, aplicará la [Enmienda del Gobierno Federal de los EE.UU., ](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users)y el cliente acordará con estas disposiciones.
 
 ### 6. Acuerdo sobre los Niveles de Servicio de Enterprise Cloud
-El compromiso de tiempo activo trimestral de Github para Github Enterprise Cloud se proporciona en el [Acuerdo de Nivel de Servicio Empresarial](/github/site-policy/github-enterprise-service-level-agreement). Si el cliente se registra para GitHub Enterprise Cloud, entonces éste será acreedor a un crédito de servicio en caso de que GitHub no cumpla con sus niveles de servicio.
+El compromiso de tiempo activo trimestral de GitHub para GitHub Enterprise Cloud se proporciona en el [Acuerdo de Nivel de Servicio Empresarial](/github/site-policy/github-enterprise-service-level-agreement). Si el cliente se registra para GitHub Enterprise Cloud, entonces éste será acreedor a un crédito de servicio en caso de que GitHub no cumpla con sus niveles de servicio.
 
 ## C. Cumplimiento con las leyes; Uso aceptable; Privacidad
 

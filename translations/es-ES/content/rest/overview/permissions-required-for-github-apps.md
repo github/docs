@@ -1,5 +1,5 @@
 ---
-title: Permisos que requieren las Github Apps
+title: Permisos que requieren las GitHub Apps
 intro: 'Puedes encontrar los permisos que requiere cada terminal compatible con {% data variables.product.prodname_github_app %}.'
 redirect_from:
   - /v3/apps/permissions

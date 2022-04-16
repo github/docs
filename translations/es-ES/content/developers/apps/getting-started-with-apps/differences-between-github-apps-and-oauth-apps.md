@@ -1,6 +1,6 @@
 ---
 title: Diferencias entre GitHub Apps y Apps de OAuth
-intro: 'El entender las diferencias entre las {% data variables.product.prodname_github_apps %} y las {% data variables.product.prodname_oauth_apps %} te ayudará a decidir qué app quieres crear. Una {% data variables.product.prodname_oauth_app %} actúa como un usuario de Github, mientras que una {% data variables.product.prodname_github_app %} utiliza su propia identidad cuando se instala en una organización o en repositorios dentro de una organización.'
+intro: 'El entender las diferencias entre las {% data variables.product.prodname_github_apps %} y las {% data variables.product.prodname_oauth_apps %} te ayudará a decidir qué app quieres crear. Una {% data variables.product.prodname_oauth_app %} actúa como un usuario de GitHub, mientras que una {% data variables.product.prodname_github_app %} utiliza su propia identidad cuando se instala en una organización o en repositorios dentro de una organización.'
 redirect_from:
   - /early-access/integrations/integrations-vs-oauth-applications
   - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type
@@ -85,7 +85,7 @@ A diferencia de las apps de OAuth, las GitHub Apps tiene permisos específicos q
 | GitHub Apps                                                                                                                   | OAuth Apps                                                                                                                                                                     |
 | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Las GitHub Apps pueden ver a `/installation/repositories` para encontrar repositorios a los que puede acceder la instalación. | Las Apps de OAuth pueden ver a `/user/repos` para tener una vista de tipo usuario o a `/orgs/:org/repos` para tener una de tipo organización para los repositorios accesibles. |
-| Las Github Apps reciben webhooks cuando los repositorios se agregan o eliminan de la instalación.                             | Las Apps de OAuth crean webhooks de organización para las notificaciones cuando se crea un repositorio nuevo dentro de una organización.                                       |
+| Las GitHub Apps reciben webhooks cuando los repositorios se agregan o eliminan de la instalación.                             | Las Apps de OAuth crean webhooks de organización para las notificaciones cuando se crea un repositorio nuevo dentro de una organización.                                       |
 
 ## Webhooks
 

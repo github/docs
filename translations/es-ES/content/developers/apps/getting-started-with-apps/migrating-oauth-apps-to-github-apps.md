@@ -34,7 +34,7 @@ Las [GitHub Apps](/apps/) son la forma recomendada de integrarse con GitHub, ya 
 
 Estos lineamientos asumen que has registrado una App de OAuth{% ifversion fpt or ghec %} que puede o no estar listada en GitHub Marketplace{% endif %}. A nivel superior, necesitarás llevar a cabo los siguientes pasos:
 
-1. [Revisar las terminales de la API disponibles para las Github Apps](#review-the-available-api-endpoints-for-github-apps)
+1. [Revisar las terminales de la API disponibles para las GitHub Apps](#review-the-available-api-endpoints-for-github-apps)
 1. [Diseñar con apego a los límites de tasa de la API](#design-to-stay-within-api-rate-limits)
 1. [Registrar una GitHub App nueva](#register-a-new-github-app)
 1. [Determinar los permisos que necesitará tu app](#determine-the-permissions-your-app-requires)
@@ -45,7 +45,7 @@ Estos lineamientos asumen que has registrado una App de OAuth{% ifversion fpt or
 1. [Anima a los usuarios para revocar el acceso a tu App de OAuth](#encourage-users-to-revoke-access-to-your-oauth-app)
 1. [Borra la App de OAuth](#delete-the-oauth-app)
 
-### Revisar las terminales de la API disponibles para las Github Apps
+### Revisar las terminales de la API disponibles para las GitHub Apps
 
 Mientras que la mayoría de las terminales de la [API de REST](/rest) y de las consultas de [GraphQL]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql) están disponibles hoy en día para las GitHub Apps, aún estamos en el proceso de habilitar algunas de ellas. Revisa las [terminales disponibles de REST](/rest/overview/endpoints-available-for-github-apps) para garantizar que las terminales que necesitas sean compatibles con las GitHub Apps. Nota que algunas de las terminales de la API que están habilitadas para las GtiHub Apps permiten que éstas interactúen en nombre del usuario. Consulta la sección "[Solicitudes de usuario a servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para encontrar una lista de terminales disponibles para que una GitHub App se autentique como un usuario.
 

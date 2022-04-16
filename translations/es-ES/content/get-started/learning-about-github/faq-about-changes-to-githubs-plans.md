@@ -18,7 +18,7 @@ GitHub anunció los siguientes cambios en sus planes y precios:
 
 - GitHub Free para organizaciones se encuentra inmediatamente disponible e incluye repositorios privados para usuarios ilimitados
 - Todas las organizaciones que estaban utilizando Team para Código Abierto previamente tendrán ahora GitHub Free
-- Github Free para desarrolladores individuales incluye ahora colaboradores ilimitados
+- GitHub Free para desarrolladores individuales incluye ahora colaboradores ilimitados
 - Las organizaciones e individuos que utilicen GitHub Free recibirán el Soporte de la Comunidad de GitHub
 - GitHub Pro incluirá ahora 2GB de almacenamiento de paquetes y 10GB de transferencia de datos
 - GitHub Pro ahora redujo su precio mensual a $4
@@ -80,7 +80,7 @@ Si tu cuenta de organización utiliza el plan de GitHub Team para código abiert
 
 ## ¿Qué es el Soporte de la Comunidad de GitHub?
 
-El Soporte de la Comunidad de GitHub incluye soporte a través de nuestro [Foro de la Comunidad](https://github.community/), en donde puedes buscar soluciones de la comunidad de GitHub, hacer preguntas nuevas, y compartir ideas. Los Ingenieros de Soporte de GitHub Team son quienes atienden la parte de Soporte de la Comunidad de Github, y quienes moderan el Foro de la Comunidad en conjunto con nuestros miembros más activos en la misma. Si necesitas reportar spam, algún tipo de abuso, o si tienes problemas con el acceso a tu cuenta, puedes enviar un mensaje a nuestro Equipo de Soporte en https://support.github.com/..
+El Soporte de la Comunidad de GitHub incluye soporte a través de nuestro [Foro de la Comunidad](https://github.community/), en donde puedes buscar soluciones de la comunidad de GitHub, hacer preguntas nuevas, y compartir ideas. Los Ingenieros de Soporte de GitHub Team son quienes atienden la parte de Soporte de la Comunidad de GitHub, y quienes moderan el Foro de la Comunidad en conjunto con nuestros miembros más activos en la misma. Si necesitas reportar spam, algún tipo de abuso, o si tienes problemas con el acceso a tu cuenta, puedes enviar un mensaje a nuestro Equipo de Soporte en https://support.github.com/..
 
 ## ¿Cómo afecta este cambio a los beneficios educacionales?
 

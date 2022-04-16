@@ -256,7 +256,7 @@ jobs:
 
 Puedes configurar tu flujo de trabajo para publicar tu paquete de Ruby en cualquier registro de paquetes que quieras cuando pasen tus pruebas de IC.
 
-Puedes almacenar todos los tokens de acceso o credenciales necesarios para publicar tu paquete utilizando secretos del repositorio. Elsiguiente ejemplo crea y publica un paquete en el `Registro de Paquetes de Github` y en `RubyGems`.
+Puedes almacenar todos los tokens de acceso o credenciales necesarios para publicar tu paquete utilizando secretos del repositorio. Elsiguiente ejemplo crea y publica un paquete en el `Registro de Paquetes de GitHub` y en `RubyGems`.
 
 ```yaml
 {% data reusables.actions.actions-not-certified-by-github-comment %}

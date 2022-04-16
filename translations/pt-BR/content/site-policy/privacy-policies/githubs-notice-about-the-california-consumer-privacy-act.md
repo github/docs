@@ -19,7 +19,7 @@ A [Lei de Privacidade do Consumidor da Califórnia](https://leginfo.legislature.
 
 De acordo com a CCPA, um negócio que consiste na venda de informações pessoais de residentes da Califórnia para outros: 1) deve avisar os residentes da Califórnia antes de vender suas informações pessoais para outros; e 2) deve fornecer o direito de opt-out (autoexclusão) pela venda de suas informações pessoais.
 
-O Github _não_ vende informações pessoais, incluindo informações pessoais de menores de 16 anos. Assim, esses requisitos de notificação e opt-out não se aplicam ao GitHub.
+O GitHub _não_ vende informações pessoais, incluindo informações pessoais de menores de 16 anos. Assim, esses requisitos de notificação e opt-out não se aplicam ao GitHub.
 
 ## Seus direitos sob a CCPA
 

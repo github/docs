@@ -1,5 +1,5 @@
 ---
-title: Acerca de los Paquetes de Github y de Github Actions
+title: Acerca de los Paquetes de GitHub y de GitHub Actions
 intro: 'Aprende lo básico de administrar paquetes mediante tus flujos de trabajo de {% data variables.product.prodname_actions %}.'
 versions:
   fpt: '*'

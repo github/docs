@@ -28,14 +28,14 @@ shortTitle: 创建议题或 PR
 
 {% mac %}
 
-1. 在菜单栏中，使用 **Repository（仓库）**下拉菜单，然后单击 ** **Create Issue on {% data variables.product.prodname_dotcom %}（在 Github 上创建议题）**。 ![分支菜单中的仓库值](/assets/images/help/desktop/create-issue-mac.png)</li>
+1. 在菜单栏中，使用 **Repository（仓库）**下拉菜单，然后单击 ** **Create Issue on {% data variables.product.prodname_dotcom %}（在 GitHub 上创建议题）**。 ![分支菜单中的仓库值](/assets/images/help/desktop/create-issue-mac.png)</li>
 2 在 {% data variables.product.prodname_dotcom %} 上，单击 **Get started（开始使用）**打开议题模板，或单击 **Open a blank issue（打开空白议题）**。 ![创建新议题选项](/assets/images/help/desktop/create-new-issue.png)</ol>
 
 {% endmac %}
 
 {% windows %}
 
-1. 在菜单栏中，使用 **Repository（仓库）**下拉菜单，然后单击 ** **Create issue on {% data variables.product.prodname_dotcom %}（在 Github 上创建议题）**。 ![分支菜单中的仓库值](/assets/images/help/desktop/create-issue-windows.png)</li>
+1. 在菜单栏中，使用 **Repository（仓库）**下拉菜单，然后单击 ** **Create issue on {% data variables.product.prodname_dotcom %}（在 GitHub 上创建议题）**。 ![分支菜单中的仓库值](/assets/images/help/desktop/create-issue-windows.png)</li>
 2 在 {% data variables.product.prodname_dotcom %} 上，单击 **Get started（开始使用）**打开议题模板，或单击 **Open a blank issue（打开空白议题）**。 ![创建新议题选项](/assets/images/help/desktop/create-new-issue.png)</ol>
 
 {% endwindows %}

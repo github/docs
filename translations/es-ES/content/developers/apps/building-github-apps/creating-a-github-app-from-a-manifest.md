@@ -155,7 +155,7 @@ Este ejemplo utiliza un formato en una página web con un botón que activa la s
 
 ### 2. GitHub redirige a las personas de vuelta a tu sitio
 
-Cuando la persona dé clic en **Crear GitHub App**, Github lo redirigirá a la `redirect_url` con un `code` temporal en un parámetro de código. Por ejemplo:
+Cuando la persona dé clic en **Crear GitHub App**, GitHub lo redirigirá a la `redirect_url` con un `code` temporal en un parámetro de código. Por ejemplo:
 
     https://example.com/redirect?code=a180b1a3d263c81bc6441d7b990bae27d4c10679
 
@@ -165,7 +165,7 @@ Si proporcionaste un parámetro de `state`, también verás este parámetro en l
 
 ### 3. Intercambias el código temporal para recuperar la configuración de la app
 
-Para completar el intercambio, envía el `code` temporal en una solicitud de tipo `POST` a la terminal [Crear una Github App a partir de un manifiesto](/rest/reference/apps#create-a-github-app-from-a-manifest). La respuesta incluirá la `id` (GitHub App ID), la `pem` (llave privada), y el `webhook_secret`. GitHub crea un secreto de webhook para la app de forma automática. Puedes almacenar estos valores en variables de ambiente dentro del servidor de la app. Por ejemplo, si tu app utiliza [dotenv](https://github.com/bkeepers/dotenv) para almacenar las variables de ambiente, almacenarías las variables en el archivo `.env` de tu app.
+Para completar el intercambio, envía el `code` temporal en una solicitud de tipo `POST` a la terminal [Crear una GitHub App a partir de un manifiesto](/rest/reference/apps#create-a-github-app-from-a-manifest). La respuesta incluirá la `id` (GitHub App ID), la `pem` (llave privada), y el `webhook_secret`. GitHub crea un secreto de webhook para la app de forma automática. Puedes almacenar estos valores en variables de ambiente dentro del servidor de la app. Por ejemplo, si tu app utiliza [dotenv](https://github.com/bkeepers/dotenv) para almacenar las variables de ambiente, almacenarías las variables en el archivo `.env` de tu app.
 
 Tienes solo una hora para completar este paso en el flujo del Manifiesto de la GitHub App.
 

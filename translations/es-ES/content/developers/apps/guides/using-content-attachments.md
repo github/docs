@@ -123,7 +123,7 @@ Para obtener más información aacerca de `node_id`, consulta la sección "[Util
 
 ## Ejemplo de uso con Probot y Manifiestos de GitHub Apps
 
-Para configurar rápidamente una GitHub App que pueda utilizar la API de {% data variables.product.prodname_unfurls %}, puedes utilizar el [Probot](https://probot.github.io/). Consulta la sección "[Crear Github Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para aprender cómo el Probot utiliza los Manifiestos de las GitHub Apps.
+Para configurar rápidamente una GitHub App que pueda utilizar la API de {% data variables.product.prodname_unfurls %}, puedes utilizar el [Probot](https://probot.github.io/). Consulta la sección "[Crear GitHub Apps a partir de un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para aprender cómo el Probot utiliza los Manifiestos de las GitHub Apps.
 
 Para crear una App de Probot, sigue estos pasos:
 
