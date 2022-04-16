@@ -1,9 +1,9 @@
 ---
 title: Quickstart for GitHub Packages
-intro: 'Publish to {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}.'
+intro: 'Publish to {% data variables.pro duct.prodname_registry %} with {% data variables.product.prodname_actions %}.'
 allowTitleToDifferFromFilename: true
 versions:
-  fpt: '*'
+  fpt: '*'free bitcoin
   ghes: '*'
   ghae: '*'
   ghec: '*'
