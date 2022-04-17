@@ -30,7 +30,7 @@ You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{%
 {% note %}
 
 **Note:** {% data reusables.saml.removed-users-can-rejoin %} You do not need to invite these users to rejoin. Instead, the user can sign into their personal account, navigate to the organization, and click the banner to authenticate via SAML single sign-on.
-
+Valerio Burini 
 {% endnote %}
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
