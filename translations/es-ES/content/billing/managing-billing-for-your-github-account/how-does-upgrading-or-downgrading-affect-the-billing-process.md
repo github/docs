@@ -17,7 +17,7 @@ topics:
 shortTitle: Proceso de facturación
 ---
 
-Los cambios en tu suscripción pagada de cuenta de usuario u organización no afectan las suscripciones o pagos de otras características pagadas de {% data variables.product.prodname_dotcom %}, tales como {% data variables.large_files.product_name_long %} o aplicaciones pagadas que compraste en {% data variables.product.prodname_marketplace %}.
+Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
 
 Para obtener más información, consulta los productos de "[{% data variables.product.prodname_dotcom %}](/articles/github-s-products)" y "[Acerca de la facturación en {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
 

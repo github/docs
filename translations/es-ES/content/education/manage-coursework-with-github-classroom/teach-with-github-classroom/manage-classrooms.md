@@ -21,7 +21,7 @@ redirect_from:
 
 Después de crear un aula, {% data variables.product.prodname_classroom %} te pedirá que invites a los asistentes del maestro (TA) y a los administradores a formar parte de ella. Cada aula puede tener uno o más administradores. Los administradores pueden ser maestros, TA o cualquier otro administrador de curso que quieras tenga control sobre las aulas de {% data variables.product.prodname_classroom %}.
 
-Invita a los TA y administradores a tu aula invitando a sus cuentas de usuario en {% data variables.product.product_name %} para que formen parte de tu organización como propietarios de la misma y compartiendo la URL de tu aula. Los propietarios de la organización pueden administrar cualquier aula en ésta. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" y "[Invitar usuarios para que se unan a tu organización](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
+Invite TAs and admins to your classroom by inviting the personal accounts on {% data variables.product.product_name %} to your organization as organization owners and sharing the URL for your classroom. Los propietarios de la organización pueden administrar cualquier aula en ésta. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" y "[Invitar usuarios para que se unan a tu organización](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
 
 Cuando termines de utilizar un aula, puedes archivarla y referirte a ella, a su registro de alumnos o a sus tareas posteriormente, o puedes borrarla si ya no la necesitas.
 
@@ -31,7 +31,7 @@ Cuando termines de utilizar un aula, puedes archivarla y referirte a ella, a su 
 
 Cada aula tiene un registro de alumnos. Un registro de alumnos es una lista de identificadores para los alumnos que participan en tu curso.
 
-Cuando compartes la URL de una tarea con un alumno por primera vez, dicho alumno debe ingresar en {% data variables.product.product_name %} con una cuenta de usuario para vincularla con un identificador para el aula. Después de que el alumno vinculasu cuenta de usuario, puedes ver la cuenta de usuario asociada en el registro dealumnos. También puedes ver cuando el alumno acepta o emite una tarea.
+When you first share the URL for an assignment with a student, the student must sign into {% data variables.product.product_name %} with a personal account to link the personal account to an identifier for the classroom. After the student links a personal account, you can see the associated personal account in the roster. También puedes ver cuando el alumno acepta o emite una tarea.
 
 ![Registro de alumnos de un aula](/assets/images/help/classroom/roster-hero.png)
 

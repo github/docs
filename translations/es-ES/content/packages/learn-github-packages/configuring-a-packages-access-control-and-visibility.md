@@ -23,12 +23,12 @@ Para obtener más información sobre los permisos de los paquetes con alcance de
 
 ## Configurar el acceso a las imágenes de contenedor para tu cuenta personal
 
-Si tienes permisos administrativos en una imagen de contenedor que pertenece a una cuenta de usuario, puedes asignar roles de lectura, escritura o administrador a otros usuarios. Para obtener más información acerca de estos roles de permisos, consulta la sección "[Permisos de visibilidad y acceso para las imágenes de contenedor](#visibility-and-access-permissions-for-container-images)".
+If you have admin permissions to a container image that's owned by a personal account, you can assign read, write, or admin roles to other users. Para obtener más información acerca de estos roles de permisos, consulta la sección "[Permisos de visibilidad y acceso para las imágenes de contenedor](#visibility-and-access-permissions-for-container-images)".
 
 Si tu paquete es privado o interno y le pertenece a una organización, entonces solo puedes darles acceso a otros miembros o equipos de la misma.
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-1. En la página de configuración del paquete, da clic en **Invitar equipos o personas** e ingresa el nombre real, nombre de usuario, o dirección de correo electrónico de la persona a la que quieras dar acceso. No se puede otorgar acceso a los equipos para aquellas imágenes de contenedor que pertenezcan a una cuenta de usuario. ![Botón de invitación para el acceso al contenedor](/assets/images/help/package-registry/container-access-invite.png)
+1. En la página de configuración del paquete, da clic en **Invitar equipos o personas** e ingresa el nombre real, nombre de usuario, o dirección de correo electrónico de la persona a la que quieras dar acceso. Teams cannot be given access to a container image owned by a personal account. ![Botón de invitación para el acceso al contenedor](/assets/images/help/package-registry/container-access-invite.png)
 1. Junto al equipo o nombre de usuario, utiliza el menú desplegable de "Rol" para seleccionar un nivel de permisos que desees. ![Opciones de acceso al contenedor](/assets/images/help/package-registry/container-access-control-options.png)
 
 Se otorgará acceso automáticamente a los usuarios seleccionados y no necesitarán aceptar una invitación previamente.

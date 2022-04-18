@@ -29,7 +29,7 @@ Los archivos predeterminados no están incluidos en los clones, paquetes ni desc
 
 ## Tipos de archivos admitidos
 
-Puedes crear versiones predeterminadas en tu organización{% ifversion fpt or ghes or ghec %} o cuenta de usuario{% endif %} para los siguientes archivos de salud de la comunidad:
+You can create defaults in your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} for the following community health files:
 
 | Archivo de salud de la comunidad                                                                                            | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}
@@ -45,7 +45,7 @@ No puedes crear un archivo de licencia predeterminado. Los archivos de licencia 
 ## Crear un repositorio para archivos predeterminados
 
 {% data reusables.repositories.create_new %}
-2. Utiliza el menú desplegable en **Propietario**, y selecciona la organización{% ifversion fpt or ghes or ghec %} o cuenta de usuario{% endif %} para la cual quieres crear los archivos predeterminados. ![Menú desplegable Propietario](/assets/images/help/repository/create-repository-owner.png)
+2. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} you want to create default files for. ![Menú desplegable Propietario](/assets/images/help/repository/create-repository-owner.png)
 3. Escribe **.github** como nombre para tu repositorio y escribe una descripción opcional. ![Crear un campo de repositorio](/assets/images/help/repository/default-file-repository-name.png)
 4. Asegúrate de que el estado del repositorio se encuentre configurado en **Público** (los repositorios para los archivos predeterminados no pueden ser privados). ![Botones de selección para seleccionar el estado público o privado](/assets/images/help/repository/create-repository-public-private.png)
 {% data reusables.repositories.initialize-with-readme %}

@@ -49,6 +49,7 @@
 | Hubspot                   | Clave de API de Hubspot                                     |
 | Ionic                     | Token de Acceso Personal de Ionic                           |
 | Ionic                     | Token de Actualización de Ionic                             |
+| JD Cloud                  | JD Cloud Access Key                                         |
 | Linear                    | Llave de la API de Linear                                   |
 | Linear                    | Token de Acceso Oauth de Linear                             |
 | Mailchimp                 | Clave de API de Mailchimp                                   |

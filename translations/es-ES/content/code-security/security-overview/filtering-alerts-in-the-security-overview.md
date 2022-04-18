@@ -117,6 +117,17 @@ Disponible en las vistas de alertas del escaneo de código. Todas las alertas de
 | `severity:warning`  | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como advertencias. |
 | `severity:note`     | Muestra alertas del {% data variables.product.prodname_code_scanning %} categorizadas como notas.        |
 
+{% if dependabot-alerts-vulnerable-calls %}
+## Filter by {% data variables.product.prodname_dependabot %} alert type
+
+Available in the {% data variables.product.prodname_dependabot %} alert views. You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.
+
+| Qualifier              | Descripción                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `has:patch`            | Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.                                                                                                                                                                                                                                 |
+| `has:vulnerable-calls` | Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[Viewing and updating Dependabot alerts](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)." |
+{% endif %}
+
 {% endif %}
 
 ## Filtrar por tipos de secreto
