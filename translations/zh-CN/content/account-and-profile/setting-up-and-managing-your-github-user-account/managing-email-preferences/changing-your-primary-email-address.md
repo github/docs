@@ -1,6 +1,6 @@
 ---
 title: 更改主电子邮件地址
-intro: 您可以随时更改与您的用户帐户相关联的电子邮件地址。
+intro: 您可以随时更改与您的个人帐户相关联的电子邮件地址。
 redirect_from:
   - /articles/changing-your-primary-email-address
   - /github/setting-up-and-managing-your-github-user-account/changing-your-primary-email-address

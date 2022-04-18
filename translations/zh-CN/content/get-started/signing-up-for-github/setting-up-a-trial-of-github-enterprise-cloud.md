@@ -45,7 +45,7 @@ For more information, see "[About identity and access management with SAML singl
 
 ## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
 
-Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a user account. If you don't already have a user account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "<a href="/articles/signing-up-for-a-new-github-account" class="dotcom-only">Signing up for a new {% data variables.product.prodname_dotcom %} account</a>."
+Before you can try {% data variables.product.prodname_ghe_cloud %}, you must be signed into a personal account. If you don't already have a personal account on {% data variables.product.prodname_dotcom_the_website %}, you must create one. For more information, see "<a href="/articles/signing-up-for-a-new-github-account" class="dotcom-only">Signing up for a new {% data variables.product.prodname_dotcom %} account</a>."
 
 1. Navigate to [{% data variables.product.prodname_dotcom %} for enterprises](https://github.com/enterprise).
 1. Click **Start a free trial**.

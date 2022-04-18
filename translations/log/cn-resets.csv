@@ -96,6 +96,7 @@ translations/zh-CN/content/admin/user-management/managing-repositories-in-your-e
 translations/zh-CN/content/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise.md,rendering error
 translations/zh-CN/content/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users.md,broken liquid tags
+translations/zh-CN/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom.md,broken liquid tags
 translations/zh-CN/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on.md,broken liquid tags
@@ -110,7 +111,7 @@ translations/zh-CN/content/authentication/keeping-your-account-and-data-secure/r
 translations/zh-CN/content/authentication/managing-commit-signature-verification/about-commit-signature-verification.md,broken liquid tags
 translations/zh-CN/content/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication.md,broken liquid tags
 translations/zh-CN/content/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication.md,broken liquid tags
-translations/zh-CN/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,rendering error
+translations/zh-CN/content/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-github-packages/about-billing-for-github-packages.md,broken liquid tags
 translations/zh-CN/content/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise.md,broken liquid tags
@@ -249,6 +250,7 @@ translations/zh-CN/content/pages/setting-up-a-github-pages-site-with-jekyll/sett
 translations/zh-CN/content/pages/setting-up-a-github-pages-site-with-jekyll/troubleshooting-jekyll-build-errors-for-github-pages-sites.md,broken liquid tags
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches.md,broken liquid tags
 translations/zh-CN/content/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks.md,broken liquid tags
+translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners.md,broken liquid tags
 translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository.md,broken liquid tags
 translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository.md,broken liquid tags
 translations/zh-CN/content/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository.md,broken liquid tags

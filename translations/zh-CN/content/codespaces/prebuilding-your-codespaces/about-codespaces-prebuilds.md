@@ -16,11 +16,17 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 预构建代码空间可让您提高工作效率并更快地访问代码空间，而不管项目的大小和复杂性如何。 这是因为在为项目创建代码空间之前，任何源代码、编辑器扩展、项目依赖项、命令和配置都已下载、安装和应用。 将预构建视为代码空间的“准备就绪”模板。
 
-每当您将更改推送到存储库时，{% data variables.product.prodname_codespaces %} 都会使用 {% data variables.product.prodname_actions %} 自动更新您的预构建。
+默认情况下，每当您将更改推送到存储库时，{% data variables.product.prodname_codespaces %} 都会使用 {% data variables.product.prodname_actions %} 自动更新您的预构建。
 
-当预构建可用于存储库的特定分支以及您所在的地区时，您将在计算机类型对话框中看到“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签，该标签在您创建代码空间并且多种计算机类型可用时显示。
+当预构建可用于存储库的特定分支以及您所在的地区时，则创建代码空间时在计算机类型选项列表中会看到“{% octicon "zap" aria-label="The zap icon" %} 预构建就绪”标签。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
 
 ![用于选择计算机类型的对话框](/assets/images/help/codespaces/choose-custom-machine-type.png)
+
+{% note %}
+
+{% data reusables.codespaces.prebuilds-not-available %}
+
+{% endnote %}
 
 ## 关于 {% data variables.product.prodname_codespaces %} 预构建的计费
 
@@ -30,9 +36,9 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 ## 关于将更改推送到启用了预构建的分支
 
-每次推送到具有预构建配置的分支都会导致运行 {% data variables.product.prodname_dotcom %} 管理的 Actions 工作流程来更新预构建模板。 对于给定的预构建配置，预构建工作流程的并发限制为一次运行一个工作流程，除非所做的更改会影响关联存储库的开发容器配置。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project)”。 如果运行已在进行中，则最近排队的工作流程运行将在当前运行完成后运行。
+默认情况下，每次推送到具有预构建配置的分支都会导致运行 {% data variables.product.prodname_dotcom %} 管理的 Actions 工作流程来更新预构建模板。 对于给定的预构建配置，预构建工作流程的并发限制为一次运行一个工作流程，除非所做的更改会影响关联存储库的开发容器配置。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)”。 如果运行已在进行中，则最近排队的工作流程运行将在当前运行完成后运行。
 
-这意味着，如果非常频繁地推送到存储库，则预构建创建将至少与运行预构建工作流程所需的频率一样。 也就是说，如果工作流程运行通常需要一个小时才能完成，当运行成功时，大约每小时为存储库创建预构建，当有更改分支上开发容器的推送时，则创建更为频繁。
+如果预构建模板设置为在每次推送时进行更新，这意味着当推送到存储库的频率很高时，预构建模板更新频率至少与运行预构建工作流程的频率相同。 也就是说，如果工作流程运行通常需要一个小时才能完成，当运行成功时，大约每小时为存储库创建预构建，当有更改分支上开发容器配置的推送时，则创建更为频繁。
 
 例如，假设对具有预构建配置的分支快速连续进行 5 次推送。 在此情况下：
 

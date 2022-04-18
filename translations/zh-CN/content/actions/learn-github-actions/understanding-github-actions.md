@@ -192,7 +192,7 @@ _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应�
   ```
 </td>
 <td>
-The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action.  这是一个将存储库签出到运行器上的操作，允许您对代码（如生成和测试工具）运行脚本或其他操作。 每当工作流程将针对存储库的代码运行时，都应使用签出操作。
+<code>uses</code> 关键字指定此步骤将运行 <code>actions/checkout</code> 操作的 <code>v3</code>。  这是一个将存储库签出到运行器上的操作，允许您对代码（如生成和测试工具）运行脚本或其他操作。 每当工作流程将针对存储库的代码运行时，都应使用签出操作。
 </td>
 </tr>
 <tr>

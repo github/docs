@@ -17,9 +17,9 @@ topics:
 shortTitle: 查看使用情况
 ---
 
-## 查看用户帐户的 {% data variables.product.prodname_registry %} 使用情况
+## 查看个人帐户的 {% data variables.product.prodname_registry %} 使用情况
 
-任何人都可以查看自己用户帐户的 {% data variables.product.prodname_registry %} 使用情况。
+任何人都可以查看自己个人帐户的 {% data variables.product.prodname_registry %} 使用情况。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

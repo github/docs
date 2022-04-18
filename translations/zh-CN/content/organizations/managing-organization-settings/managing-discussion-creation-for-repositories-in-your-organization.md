@@ -10,7 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Manage repository discussions
+shortTitle: 管理存储库讨论
 ---
 
 
@@ -28,4 +28,4 @@ shortTitle: Manage repository discussions
 
 - "[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[管理社区的讨论](/discussions/managing-discussions-for-your-community)"
-- "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)"
+- “[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”

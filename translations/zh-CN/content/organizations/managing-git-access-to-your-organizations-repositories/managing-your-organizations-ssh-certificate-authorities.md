@@ -1,12 +1,10 @@
 ---
 title: 管理组织的 SSH 认证中心
 intro: 可在组织中添加或删除 SSH 认证中心。
-product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/managing-your-organizations-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

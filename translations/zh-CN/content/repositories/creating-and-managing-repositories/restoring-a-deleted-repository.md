@@ -16,7 +16,7 @@ shortTitle: 恢复已删除的仓库
 ---
 
 {% ifversion fpt or ghec %}
-任何人都可以恢复其用户帐户拥有的已删除仓库。 组织所有者可以恢复该组织所拥有的已删除仓库。
+任何人都可以恢复其个人帐户拥有的已删除仓库。 组织所有者可以恢复该组织所拥有的已删除仓库。
 
 ## 关于仓库恢复
 
@@ -28,7 +28,7 @@ shortTitle: 恢复已删除的仓库
 
 恢复仓库不会恢复发行版附件或团队权限。 已恢复的议题不会被标记。
 
-## 恢复用户帐户所拥有的已删除仓库
+## 恢复个人帐户所拥有的已删除仓库
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.repo-tab %}
