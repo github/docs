@@ -26,10 +26,12 @@ To maintain account security, you can regularly review your SSH keys list and re
 SSH キーを 1 年間使っていない場合、セキュリティ上の理由により {% data variables.product.prodname_dotcom %} は使われていない SSH キーを自動的に削除します。 詳細は「[削除されたか存在しない SSH キー](/articles/deleted-or-missing-ssh-keys)」を参照してください。
 {% endif %}
 
-If you're a member of an organization that provides SSH certificates, you can use your certificate to access that organization's repositories without adding the certificate to your account on {% data variables.product.product_name %}. You cannot use your certificate to access forks of the organization's repositories that are owned by your user account. 詳しい情報については、「[SSH 認証局について](/articles/about-ssh-certificate-authorities)」を参照してください。
+{% ifversion fpt %}
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can provide SSH certificates, which members can use to access that organization's repositories without adding the certificate to their account on {% data variables.product.product_name %}. If you're using an SSH certificate, you cannot use the certificate to access forks of the organization's repositories, if the fork is owned by your personal account. For more information, see "[About SSH certificate authorities](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% else ghec or ghes or ghae %}
+If you're a member of an organization that provides SSH certificates, you can use your certificate to access that organization's repositories without adding the certificate to your account on {% data variables.product.product_name %}. You cannot use your certificate to access forks of the organization's repositories, if the forks is owned by your personal account. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+{% endif %}
 
 ## 参考リンク
 
-- [既存の SSH キーのチェック](/articles/checking-for-existing-ssh-keys)
-- [SSH コネクションのテスト](/articles/testing-your-ssh-connection)
 - [SSH のトラブルシューティング](/articles/troubleshooting-ssh)

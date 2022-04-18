@@ -15,7 +15,7 @@ topics:
 
 ## Precios de {% data variables.product.prodname_codespaces %}
 
-El uso de {% data variables.product.prodname_codespaces %} se factura para todas las cuentas en los planes de equipo y empresa y no incluye ningún derecho. El uso de {% data variables.product.prodname_codespaces %} no se cobra actualmente para las cuentas individuales.
+{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
 
 El uso de {% data variables.product.prodname_codespaces %} se cobra de acuerdo con las unidades de medida en la siguiente tabla:
 
@@ -38,7 +38,7 @@ Tu uso de {% data variables.product.prodname_codespaces %} comparte la fecha de 
 Si compraste {% data variables.product.prodname_enterprise %} mediante un Acuerdo de Microsoft Enterprise, puedes conectar tu ID de Suscripción de Azure a tu cuenta empresarial para habilitar y pagar por el uso de {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta la sección "[Conectar una suscripción de Azure a tu empresa](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)".
 {% endif %}
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_codespaces %}
 
 ### Facturación para las precompilaciones de los {% data variables.product.prodname_codespaces %}
 
@@ -56,7 +56,9 @@ Para obtener más información sobre cómo administrar y cambiar el límite de g
 
 ## Limitar la elección de tipos de máquina
 
-El tipo de máquina que elija un usuario cuando crea un codespace afectará la carga por minuto del mismo, como se muestra anteriormente.
+By default the machine type with the lowest valid resources is used when a codespace is created. However, users may be able to choose a machine type with more resources. They can do this either when they create a codespace, or they can change the machine type of an existing codespace. For more information, see "[Creating a codespace"](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)" and "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+
+If a machine type that has more resources is chosen, this will affect the per-minute charge for that codespace, as shown above.
 
 Los propietarios de las organizaciones pueden crear una política para restringir los tipos de máquina que están disponibles para los usuarios. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
 

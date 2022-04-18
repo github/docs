@@ -15,9 +15,9 @@ topics:
 shortTitle: Permission denied (publickey)
 ---
 
-## Should the `sudo` command or elevated privileges be used with Git?
+## `sudo` 命令或提升权限应该与 Git 一起使用吗？
 
-You should not be using the `sudo` command or elevated privileges, such as administrator permissions, with Git. 如果有*很好的原因*必须使用 `sudo`，请确保对每个命令使用它（可能使用 `su` 获取 shell 作为该点的根更好）。 如果[生成 SSH 密钥](/articles/generating-an-ssh-key)而不使用 `sudo`，则尝试使用 `sudo git push` 而不使用生成的相同密钥。
+您不应将 `sudo` 命令或提升的权限（如管理员权限）与 Git 一起使用。 如果有*很好的原因*必须使用 `sudo`，请确保对每个命令使用它（可能使用 `su` 获取 shell 作为该点的根更好）。 如果[生成 SSH 密钥](/articles/generating-an-ssh-key)而不使用 `sudo`，则尝试使用 `sudo git push` 而不使用生成的相同密钥。
 
 ## 检查是否连接到正确的服务器
 
@@ -100,7 +100,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
 {% tip %}
 
-**Tip**: On most systems the default private keys (`~/.ssh/id_rsa` and `~/.ssh/identity`) are automatically added to the SSH authentication agent. 应无需运行 `ssh-add path/to/key`，除非在生成密钥时覆盖文件名。
+**提示**：在大多数系统中，默认私钥（`~/.ssh/id_rsa` 和 `~/.ssh/identity`）会自动添加到 SSH 身份验证代理中。 应无需运行 `ssh-add path/to/key`，除非在生成密钥时覆盖文件名。
 
 {% endtip %}
 

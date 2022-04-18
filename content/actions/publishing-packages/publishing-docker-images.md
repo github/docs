@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -131,7 +131,7 @@ The `build-push-action` options required for {% data variables.product.prodname_
 {% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
-The above workflow if triggered by a push to the "release" branch. It checks out the GitHub repository, and uses the `login-action` to log in to the {% data variables.product.prodname_container_registry %}. It then extracts labels and tags for the Docker image. Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
+The above workflow is triggered by a push to the "release" branch. It checks out the GitHub repository, and uses the `login-action` to log in to the {% data variables.product.prodname_container_registry %}. It then extracts labels and tags for the Docker image. Finally, it uses the `build-push-action` action to build the image and publish it on the {% data variables.product.prodname_container_registry %}.
 
 {% else %}
 ```yaml{:copy}
@@ -151,7 +151,7 @@ jobs:
       contents: read{% endif %}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -197,7 +197,7 @@ jobs:
       contents: read{% endif %}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9

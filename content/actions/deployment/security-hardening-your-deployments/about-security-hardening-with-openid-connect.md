@@ -114,7 +114,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 
 |    Claim    | Description            |
 | ----------- | ---------------------- |
-| `actor`| The user account that initiated the workflow run.                   | 
+| `actor`| The personal account that initiated the workflow run.                   | 
 | `base_ref`| The target branch of the pull request in a workflow run.                   | 
 | `environment`| The name of the environment used by the job.                    | 
 | `event_name`| The name of the event that triggered the workflow run.                    | 

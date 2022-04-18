@@ -1,6 +1,6 @@
 ---
 title: リポジトリ
-intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} repositories.'
+intro: 'Repos APIを使うと、パブリック及びプライベートの{% data variables.product.product_name %}リポジトリのワークフローの作成、管理、制御ができます。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos

@@ -124,8 +124,8 @@ Una vez que actives la sincronización LDAP, se ejecutará un trabajo de sincron
 - Si hay una asignación LDAP y falta la entrada LDAP correspondiente en el directorio, suspende el usuario y pasa al siguiente usuario.
 - Si la entrada LDAP correspondiente se marcó como desactivada, y el usuario aún no se suspendió, suspéndelo y pasa al siguiente usuario.
 - Si la entrada LDAP correspondiente no se marcó como desactivada, el usuario está suspendido y _Reactivate suspended users_ (Reactivar usuarios suspendidos) está activado en el centro de administración, anula la suspensión del usuario.
-- If one or more restricted user groups are configured on the instance and the corresponding LDAP entry is not in one of these groups, suspend the user.
-- If one or more restricted user groups are configured on the instance, the corresponding LDAP entry is in one of these groups, and _Reactivate suspended users_ is enabled in the Admin Center, unsuspend the user.
+- Si uno o más grupos de usuarios restringidos se configuran en la instancia y la entrada de LDAP correspondiente no está en uno de estos grupos, suspende al usuario.
+- Si se configuran uno o más grupos de usuarios restringidos en la instancia, la entrada de LDAP correspondiente se encuentra en alguno de estos grupos y _Reactivar usuarios suspendidos_ se encuentra habilitado en el Centro de Administración, deja de suspender al usuario.
 - Si la entrada LDAP correspondiente incluye un atributo `name`, actualiza el nombre de perfil del usuario.
 - Si la entrada LDAP correspondiente está en el grupo de administradores, promueve al usuario a administrador del sitio.
 - Si la entrada LDAP correspondiente no está en el grupo de administradores, degrada al usuario a una cuenta normal.

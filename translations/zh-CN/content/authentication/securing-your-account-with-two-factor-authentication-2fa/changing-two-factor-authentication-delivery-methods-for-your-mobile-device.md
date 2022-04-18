@@ -16,7 +16,7 @@ shortTitle: 更改 2FA 递送方式
 
 {% note %}
 
-**Note:** Changing your primary method for two-factor authentication invalidates your current two-factor authentication setup, including your recovery codes. Keep your new set of recovery codes safe. Changing your primary method for two-factor authentication does not affect your fallback SMS configuration, if configured. For more information, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)."
+**注意：** 更改双重身份验证的主要方法会使您当前的双重身份验证设置（包括恢复代码）失效。 确保新恢复代码集的安全。 更改双重身份验证的主要方法不会影响回退 SMS 配置（如果已配置）。 更多信息请参阅“[配置双重身份验证恢复方法](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)”。
 
 {% endnote %}
 

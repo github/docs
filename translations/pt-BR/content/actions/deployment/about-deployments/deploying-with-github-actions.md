@@ -132,6 +132,8 @@ jobs:
         # ...deployment-specific steps
 ```
 
+Para orientação sobre a escrita de etapas específicas de implantação, consulte "[Encontrando exemplos de implantação](#finding-deployment-examples)".
+
 ## Visualizar histórico de implantação
 
 Quando um fluxo de trabalho de {% data variables.product.prodname_actions %} é implantado em um ambiente, o ambiente é exibido na página principal do repositório. Para obter mais informações sobre a visualização de implantações em ambientes, consulte "[Visualizando histórico de implantação](/developers/overview/viewing-deployment-history)".
@@ -164,7 +166,7 @@ Você pode usar um selo de status para exibir o status do seu fluxo de trabalho 
 
 Para obter mais informações, consulte "[Adicionando um selo de status do fluxo de trabalho](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
-## Próximas etapas
+## Procurando exemplos de implantação
 
 Este artigo mostrou as funcionalidades de {% data variables.product.prodname_actions %} que você pode adicionar aos seus fluxos de trabalho de implantação.
 

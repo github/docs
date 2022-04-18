@@ -54,7 +54,7 @@ If your IdP supports encrypted assertions, you can configure encrypted assertion
 
 {% note %}
 
-**注釈**: ユーザの `NameID` が IdP で変更された場合、ユーザが {% data variables.product.prodname_ghe_server %} インスタンスにサインインしようとすると、エラーメッセージが表示されます。 {% ifversion ghes %}To restore the user's access, you'll need to update the user account's `NameID` mapping. 詳しい情報については、「[ユーザの SAML `NameID` を更新する](#updating-a-users-saml-nameid)」を参照してください。{% else %} 詳しい情報については、「[エラー: '別のユーザーがすでにアカウントを所有しています'](#error-another-user-already-owns-the-account)」を参照してください。{% endif %}
+**Note**: If the `NameID` for a user does change on the IdP, the user will see an error message when they try to sign into {% data variables.product.product_location %}. To restore the user's access, you'll need to update the user account's `NameID` mapping. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."
 
 {% endnote %}
 
@@ -96,6 +96,14 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
 ## SAMLの設定
 
+You can enable or disable SAML authentication for {% data variables.product.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings for {% data variables.product.product_name %} in the {% data variables.enterprise.management_console %}. For more information, see "[Accessing the management console](/admin/configuration/configuring-your-enterprise/accessing-the-management-console)."
+
+{% note %}
+
+**Note**: {% data reusables.enterprise.test-in-staging %}
+
+{% endnote %}
+
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
@@ -118,19 +126,11 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 1. {% data variables.product.product_location %} 上のユーザの管理者権限を SAML プロバイダに決めさせたく**ない**場合、[**Disable administrator demotion/promotion**] を選択します。
 
    ![Screenshot of option to enable option to respect the "administrator" attribute from the IdP to enable or disable administrative rights](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-1. Optionally, to allow {% data variables.product.product_location %} to send and receive encrypted assertions to and from your SAML IdP, select **Require encrypted assertions**. For more information, see "[Enabling encrypted assertions](#enabling-encrypted-assertions)."
+{%- ifversion ghes > 3.3 %}
+1. Optionally, to allow {% data variables.product.product_location %} to receive encrypted assertions from your SAML IdP, select **Require encrypted assertions**. You must ensure that your IdP supports encrypted assertions and that the encryption and key transport methods in the management console match the values configured on your IdP. You must also provide {% data variables.product.product_location %}'s public certificate to your IdP. For more information, see "[Enabling encrypted assertions](#enabling-encrypted-assertions)."
 
    ![Screenshot of "Enable encrypted assertions" checkbox within management console's "Authentication" section](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
-
-   {% warning %}
-
-   **Warning**: Incorrectly configuring encrypted assertions can cause all authentication to {% data variables.product.product_location %} to fail.
-
-   - You must ensure that your IdP supports encrypted assertions and that the encryption and key transport methods in the management console match the values configured on your IdP. You must also provide {% data variables.product.product_location %}'s public certificate to your IdP. For more information, see "[Enabling encrypted assertions](#enabling-encrypted-assertions)."
-
-   - Before enabling encrypted assertions, {% data variables.product.company_short %} recommends testing encrypted assertions in a staging environment, and confirming that SAML authentication functions as you expect. 詳しい情報については "[ステージングインスタンスのセットアップ](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)"を参照してください。
-
-   {% endwarning %}
+{%- endif %}
 1. In the **Single sign-on URL** field, type the HTTP or HTTPS endpoint on your IdP for single sign-on requests. この値はIdpの設定によって決まります。 If the host is only available from your internal network, you may need to [configure {% data variables.product.product_location %} to use internal nameservers](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/).
 
    ![Screenshot of text field for single sign-on URL](/assets/images/enterprise/management-console/saml-single-sign-url.png)
@@ -153,36 +153,37 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
 
 To enable encrypted assertions, your SAML IdP must also support encrypted assertions. You must provide {% data variables.product.product_location %}'s public certificate to your IdP, and configure encryption settings that match your IdP.
 
-{% warning %}
+{% note %}
 
-**Warning**: Incorrectly configuring encrypted assertions can cause all authentication to {% data variables.product.product_location %} to fail. {% data variables.product.company_short %} strongly recommends testing your SAML configuration in a staging environment. For more information about staging instances, see "[Setting up a staging instance](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+**Note**: {% data reusables.enterprise.test-in-staging %}
 
-{% endwarning %}
+{% endnote %}
 
-1. Configure SAML for {% data variables.product.product_location %}. For more information, see "[Configuring SAML settings](#configuring-saml-settings)."
-{% data reusables.enterprise_installation.ssh-into-instance %}
-1. Run the following command to output {% data variables.product.product_location %}'s public certificate.
-   
-        openssl pkcs12 -in /data/user/common/saml-sp.p12 -nokeys -passin pass:
-1. In the output, copy the text beginning with `-----BEGIN CERTIFICATE-----` and ending with `-----END CERTIFICATE-----`, and paste the output into a plaintext file.
-1. Sign into your SAML IdP as an administrator.
-1. In the application for {% data variables.product.product_location %}, enable encrypted assertions.
-   - Note the encryption method and key transport method.
-   - Provide the public certificate from step 3.
+1. Optionally, enable SAML debugging. SAML debugging records verbose entries in {% data variables.product.product_name %}'s authentication log, and may help you troubleshoot failed authentication attempts. For more information, see "[Configuring SAML debugging](#configuring-saml-debugging)."
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
 1. Select **Require encrypted assertions**.
 
    ![Screenshot of "Enable encrypted assertions" checkbox within management console's "Authentication" section](/assets/images/help/saml/management-console-enable-encrypted-assertions.png)
-1. To the right of "Encryption Method", select the encryption method for your IdP from step 5.
+1. To the right of "Encryption Certificate", click **Download** to save a copy of {% data variables.product.product_location %}'s public certificate on your local machine.
+
+   ![Screenshot of "Download" button for public certificate for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-download-certificate.png)
+1. Sign into your SAML IdP as an administrator.
+1. In the application for {% data variables.product.product_location %}, enable encrypted assertions.
+   - Note the encryption method and key transport method.
+   - Provide the public certificate you downloaded in step 7.
+1. Return to the management console on {% data variables.product.product_location %}.
+1. To the right of "Encryption Method", select the encryption method for your IdP from step 9.
 
    ![Screenshot of "Encryption Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-encryption-method.png)
-1. To the right of "Key Transport Method", select the key transport method for your IdP from step 5.
+1. To the right of "Key Transport Method", select the key transport method for your IdP from step 9.
 
    ![Screenshot of "Key Transport Method" for encrypted assertions](/assets/images/help/saml/management-console-encrypted-assertions-key-transport-method.png)
 1. **Save settings（設定の保存）**をクリックしてください。
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
+
+If you enabled SAML debugging to test authentication with encrypted assertions, disable SAML debugging when you're done testing. For more information, see "[Configuring SAML debugging](#configuring-saml-debugging)."
 
 {% endif %}
 
@@ -240,11 +241,11 @@ To enable encrypted assertions, your SAML IdP must also support encrypted assert
 
 > 別のユーザが既にアカウントを所有しています。 管理者に認証ログを確認するようご依頼ください。
 
-このメッセージは通常、その人のユーザ名またはメールアドレスが IdP で変更されたということを示します。 {% ifversion ghes %}Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. 詳しい情報については、「[ユーザの SAML `NameID` の更新](#updating-a-users-saml-nameid)」を参照してください。{% else %} `NameID` マッピングの更新については、{% data variables.contact.contact_ent_support %} にお問い合わせください。{% endif %}
+このメッセージは通常、その人のユーザ名またはメールアドレスが IdP で変更されたということを示します。 Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[Updating a user's SAML `NameID`](#updating-a-users-saml-nameid)."
 
 ### SAMLレスポンスが署名されていなかった場合、あるいは署名が内容とマッチしなかった場合、authログに以下のエラーメッセージが残されます。
 
-If the `Recipient` does not match the ACS URL for your {% data variables.product.prodname_ghe_server %} instance, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
+If the `Recipient` does not match the ACS URL for {% data variables.product.product_location %}, one of the following two error messages will appear in the authentication log when a user attempts to authenticate.
 
 ```
 Recipient in the SAML response must not be blank.
@@ -254,7 +255,7 @@ Recipient in the SAML response must not be blank.
 Recipient in the SAML response was not valid.
 ```
 
-IdP の `Recipient` の値を、{% data variables.product.prodname_ghe_server %} インスタンスの完全な ACS URL に設定してください。 For example, `https://ghe.corp.example.com/saml/consume`.
+Ensure that you set the value for `Recipient` on your IdP to the full ACS URL for {% data variables.product.product_location %}. For example, `https://ghe.corp.example.com/saml/consume`.
 
 ### エラー:「SAML レスポンスが署名されていないか、変更されています」
 
@@ -274,4 +275,40 @@ IdP のレスポンスに `Audience` の値がないか、または正しくな�
 Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
 ```
 
-IdP の `Audience` の値を、{% data variables.product.prodname_ghe_server %} インスタンスの `EntityId` に設定してください。これは、{% data variables.product.prodname_ghe_server %} インスタンスへの完全な URL です。 For example, `https://ghe.corp.example.com`.
+Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.product.product_location %}, which is the full URL to {% data variables.product.product_location %}. For example, `https://ghe.corp.example.com`.
+
+### Configuring SAML debugging
+
+You can configure {% data variables.product.product_name %} to write verbose debug logs to _/var/log/github/auth.log_ for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
+
+{% warning %}
+
+**警告**:
+
+- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of your log may increase much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
+- Test new authentication settings for {% data variables.product.product_location %} in a staging environment before you apply the settings in your production environment. 詳しい情報については "[ステージングインスタンスのセットアップ](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)"を参照してください。
+
+{% endwarning %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
+1. Under "SAML debugging", select the drop-down and click **Enabled**.
+
+   ![Screenshot of drop-down to enable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-enabled.png)
+
+1. Attempt to sign into {% data variables.product.product_location %} through your SAML IdP.
+
+1. Review the debug output in _/var/log/github/auth.log_ on {% data variables.product.product_location %}.
+
+1. When you're done troubleshooting, select the drop-down and click **Disabled**.
+
+   ![Screenshot of drop-down to disable SAML debugging](/assets/images/enterprise/site-admin-settings/site-admin-saml-debugging-disabled.png)
+
+### Decoding responses in _auth.log_
+
+Some output in _auth.log_ may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.product.product_location %} to decode these responses. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+
+```shell
+$ base64 --decode <em>ENCODED OUTPUT</em>
+```

@@ -50,7 +50,7 @@ Para obter mais informações sobre o gerenciamento de políticas para a conta c
 
 {% ifversion ghes or ghae %}
 
-From your enterprise account on {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}, administrators can view{% if remove-enterprise-members %} and manage{% endif %} enterprise membership{% if enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the {% ifversion ghes %}{% data variables.product.prodname_ghe_server %} instance{% elsif ghae %}enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %}.
+Na sua conta corporativa em {% ifversion ghae %}{% data variables.product.product_name %}{% elsif ghes %}uma instância de {% data variables.product.prodname_ghe_server %}{% endif %}, os administradores podem visualizar{% if remove-enterprise-members %} e gerenciar{% endif %} membros corporativos{% if enterprise-owner-join-org %}, gerenciar seus próprios integrantes em organizações pertencentes à empresa,{% endif %} e gerenciar o seguinte para a instância da {% ifversion ghes %}{% data variables.product.prodname_ghe_server %}{% elsif ghae %}empresa em {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
 {% ifversion ghes %}
 - Uso da licença{% endif %}
@@ -65,7 +65,7 @@ From your enterprise account on {% ifversion ghae %}{% data variables.product.pr
 
 {% endif %}
 
-{% ifversion ghec or ghes %}Ao experimentar ou comprar {% data variables.product.prodname_enterprise %}, você também pode{% ifversion ghes %}{% endif %} criar uma conta corporativa para {% data variables.product.prodname_ghe_cloud %} em {% data variables.product.prodname_dotcom_the_website %}. Administrators for the enterprise account on {% data variables.product.prodname_dotcom_the_website %} can view {% if remove-enterprise-members %} and manage{% endif %} enterprise membership{% if enterprise-owner-join-org %}, manage their own membership in organizations owned by the enterprise,{% endif %} and manage the following for the enterprise account{% ifversion ghes %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+{% ifversion ghec or ghes %}Ao experimentar ou comprar {% data variables.product.prodname_enterprise %}, você também pode{% ifversion ghes %}{% endif %} criar uma conta corporativa para {% data variables.product.prodname_ghe_cloud %} em {% data variables.product.prodname_dotcom_the_website %}. Os administradores da conta corporativa em {% data variables.product.prodname_dotcom_the_website %} podem ver {% if remove-enterprise-members %} e gerenciar{% endif %} a assoviação corporativa{% if enterprise-owner-join-org %}, gerenciar seus próprios integrantes em organizações pertencentes à empresa,{% endif %} e gerenciae o seguinte para a conta corporativa{% ifversion ghes %} em {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
 - Cobrança e uso (serviços em {% data variables.product.prodname_dotcom_the_website %}, {% data variables.product.prodname_GH_advanced_security %}, licenças de usuários)
 - Segurança (logon único, listas de permissão de IP, autoridades de certificação SSH, autenticação de dois fatores)

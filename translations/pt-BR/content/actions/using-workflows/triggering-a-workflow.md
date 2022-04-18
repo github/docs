@@ -41,7 +41,7 @@ As etapas a seguir ocorrem para acionar a execução de um fluxo de trabalho:
 
 ### Acionando um fluxo de trabalho a partir de um fluxo de trabalho
 
-{% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see "[Authenticating with the GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
+{% data reusables.actions.actions-do-not-trigger-workflows %} Para obter mais informações, consulte "[Efetuando a autenticação com o GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
 Se você deseja acionar um fluxo de trabalho de dentro de uma execução de fluxo de trabalho, você pode usar um token de acesso pessoal em vez de `GITHUB_TOKEN` para acionar eventos que exigem um token. Você deverá criar um token de acesso pessoal e armazená-lo como um segredo. Para minimizar seus custos de uso {% data variables.product.prodname_actions %}, certifique-se de que você não cria execução de fluxo de trabalho recursivo ou não intencional. Para obter mais informações sobre a criação de um token de acesso pessoal, consulte[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." Para mais informações sobre como armazenar um token de acesso pessoal como segredo, consulte "[Criar e armazenar segredos criptografados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
 
@@ -87,15 +87,15 @@ jobs:
 
 Use a chave `on` para especificar quais eventos acionam o seu fluxo de trabalho. Para obter mais informações sobre eventos que você pode usar, consulte "[Eventos que acionam fluxos de trabalho](/actions/using-workflows/events-that-trigger-workflows)."
 
-### Using a single event
+### Usando um evento único
 
 {% data reusables.actions.on-single-example %}
 
-### Using multiple events
+### Usando eventos múltiplos
 
 {% data reusables.actions.on-multiple-example %}
 
-### Using activity types and filters with multiple events
+### Usando tipos de atividade e filtros com vários eventos
 
 É possível usar tipos de atividade e filtros para controlar ainda mais quando o fluxo de trabalho será executado. Para obter mais informações, consulte [Usando tipos de atividade do evento](#using-event-activity-types) e [Usando filtros](#using-filters). {% data reusables.actions.actions-multiple-types %}
 
@@ -103,7 +103,7 @@ Use a chave `on` para especificar quais eventos acionam o seu fluxo de trabalho.
 
 {% data reusables.actions.actions-activity-types %}
 
-## Using filters
+## Usando filtros
 
 {% data reusables.actions.actions-filters %}
 
@@ -197,7 +197,7 @@ Se você quiser mais controle granular do que os eventos, tipos de atividade do 
 
 Você pode usar condicionais para controlar ainda mais se os trabalhos ou etapas no seu fluxo de trabalho serão executados.
 
-#### Example using a value in the event payload
+#### Exemplo de uso de um valor na carga do evento
 
 Se você quiser, por exemplo, que o fluxo de trabalho seja executado quando uma etiqueta específica for adicionada a um problema, você poderá acionar o tipo de atividade do evento `issues labeled` e usar uma condicional para verificar qual etiqueta acionou o fluxo de trabalho. O fluxo de trabalho a seguir será executado quando qualquer etiqueta for adicionada a um problema no repositório do fluxo de trabalho, mas a o trabalho `run_if_label_matches` só será executado se a etiqueta tiver o nome de `bug`.
 
@@ -215,9 +215,9 @@ jobs:
       - run: echo 'The label was bug'
 ```
 
-#### Example using event type
+#### Exemplo de uso do tipo de evento
 
-For example, if you want to run different jobs or steps depending on what event triggered the workflow, you can use a conditional to check whether a specific event type exists in the event context. The following workflow will run whenever an issue or pull request is closed. If the workflow ran because an issue was closed, the `github.event` context will contain a value for `issue` but not for `pull_request`. Therefore, the `if_issue` step will run but the `if_pr` step will not run. Conversely, if the workflow ran because a pull request was closed, the `if_pr` step will run but the `if_issue` step will not run.
+Por exemplo, se você deseja executar diferentes tarefas ou etapas, dependendo de qual evento acionou o fluxo de trabalho, você poderá usar uma condicional para verificar se um tipo de evento específico existe no contexto do evento. O fluxo de trabalho seguinte será executado sempre que um problema ou pull request for fechado. Se o fluxo de trabalho foi executado porque um problema foi fechado, o `github.event` conterá um valor para `problema` mas não para `pull_request`. Portanto, a etapa `if_issue` será executada mas oa etapa `if_pr` não será executada. Por outro lado, se o fluxo de trabalho foi executado porque um pull request foi fechado, a etapa `if_pr` será executada mas a etapa `if_issue` não será executada.
 
 ```yaml
 on:
@@ -242,7 +242,7 @@ jobs:
         echo A pull request was closed
 ```
 
-For more information about what information is available in the event context, see "[Using event information](#using-event-information)." For more information about how to use conditionals, see "[Expressions](/actions/learn-github-actions/expressions)."
+Para obter mais informações sobre quais informações estão disponíveis no contexto do evento, consulte "[Usando informações do evento](#using-event-information)". Para obter mais informações sobre como usar condicionais, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
 {% ifversion fpt or ghae or ghes > 3.1 or ghec %}
 

@@ -24,13 +24,15 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: 需要帮助？
-  placeholder: 搜索主题、产品......
+  placeholder: Search GitHub Docs
   loading: 正在加载
   no_results: 未找到结果
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: 按产品浏览
   version_picker: 版本
@@ -80,6 +82,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: 字段
       arguments: 参数
       name: 名称
@@ -102,6 +105,8 @@ products:
       notes: 注：
       parameters: 参数
       response: 响应
+      status_codes: Status codes
+      http_status_code: HTTP Status Code
       code_sample: 代码示例
       code_samples: 代码示例
       preview_notice: 预览通知

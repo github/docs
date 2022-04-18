@@ -1,39 +1,39 @@
 ---
-title: Removing a member from your enterprise
-intro: 'You can remove a member from all organizations owned by your enterprise.'
+title: Removendo um integrante da sua empresa
+intro: Você pode remover um integrante de todas as organizações pertencentes à sua empresa.
 permissions: Enterprise owners can remove an enterprise member from the enterprise.
 versions:
-  feature: 'remove-enterprise-members'
+  feature: remove-enterprise-members
 type: how_to
 topics:
   - Enterprise
-shortTitle: Remove member
+shortTitle: Remover integrante
 ---
 
 {% note %}
 
-**Note:** The ability to remove enterprise members is in beta and subject to change.
+**Nota:** A capacidade de remover integrantes da empresa encontra-se em versão beta e está sujeita a alterações.
 
 {% endnote %}
 
-## About removal of enterprise members
+## Sobre a remoção de integrantes da empresa
 
-When you remove an enterprise member from your enterprise, the member is removed from all organizations owned by your enterprise.
+Ao remover um integrante da sua empresa, o integrante será removido de todas as organizações pertencentes à sua empresa.
 
-If the enterprise member you're removing is the last owner of an organization owned by your enterprise, you will become an owner of that organization.
+Se o integrante da empresa que você está removendo for o último proprietário de uma organização que pertence à sua empresa, você irá tornar-se o priprietário dessa organização.
 
-If your enterprise or any of the organizations owned by your enterprise uses an identity provider (IdP) to manage organization membership, the member may be added back to the organization by the IdP. Make sure to also make any necessary changes in your IdP.
+Se sua empresa ou qualquer uma das organizações pertencentes à sua empresa usar um provedor de identidade (IdP) para gerenciar a associação à organização, o integrante poderá ser adicionado de volta à organização pelo IdP. Certifique-se também de fazer as alterações necessárias no seu IdP.
 
-## Removing a member from your enterprise
+## Removendo um integrante da sua empresa
 
 {% note %}
 
-**Note:** If an enterprise member uses only {% data variables.product.prodname_ghe_server %}, and not {% data variables.product.prodname_ghe_cloud %}, you cannot remove the enterprise member this way.
+**Nota:** Se um integrante da empresa usar apenas {% data variables.product.prodname_ghe_server %} e não {% data variables.product.prodname_ghe_cloud %}, você não poderá remover o integrante da empresa desta maneira.
 
 {% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. To the right of the person you want to remove, select the {% octicon "gear" aria-label="The gear icon" %} dropdown menu and click **Remove from enterprise**.
+1. À direita da pessoa que você deseja remover, selecione o menu suspenso {% octicon "gear" aria-label="The gear icon" %} e clique em **Remover da empresa**.
 
-   ![Screenshot of the "Remove from enterprise" option for an enterprise member](/assets/images/help/business-accounts/remove-member.png)
+   ![Captura de tela da opção "Remover da empresade" para um integrante corporativo](/assets/images/help/business-accounts/remove-member.png)

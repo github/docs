@@ -17,9 +17,9 @@ topics:
 shortTitle: Ver tu uso
 ---
 
-## Visualizar el uso de {% data variables.product.prodname_registry %} para tu cuenta de usuario
+## Viewing {% data variables.product.prodname_registry %} usage for your personal account
 
-Cualquiera puede ver el uso de {% data variables.product.prodname_registry %} para su cuenta de usuario personal.
+Anyone can view {% data variables.product.prodname_registry %} usage for their own personal account.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -34,7 +34,7 @@ Los propietarios de la organización y gerentes de facturación pueden ver el us
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Visualizar el uso de {% data variables.product.prodname_registry %} para tu cuenta empresarial
 

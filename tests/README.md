@@ -76,3 +76,28 @@ run the linter:
 ```sh
 npm run lint
 ```
+
+### Keeping the server running
+
+When you run `jest` tests, that depend on making real HTTP requests
+to `localhost:4000`, the `jest` tests have a hook that starts the
+server before running all/any tests, and stops the server when it's done.
+
+You can disable that, which might make it easier when debugging tests
+since the server won't need to start and stop every time you run tests.
+
+In one terminal type:
+
+```sh
+NODE_ENV=test PORT=4000 node server.mjs
+```
+
+and then, in another terminal type:
+
+```sh
+START_JEST_SERVER=false jest tests/rendering/foo/bar.js
+```
+
+Or whatever the testing command you use. Note the `START_JEST_SERVER=false`
+environment variable that needs to be set or else, `jest` will try to start
+a server on `:4000` too.

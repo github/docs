@@ -130,24 +130,54 @@
     "originalUrl": "/rest/reference/repos#delete-a-repository-invitation"
   },
   "repos/list-deploy-keys": {
-    "category": "deployments",
-    "subcategory": "keys",
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
     "originalUrl": "/rest/reference/repos#list-deploy-keys"
   },
   "repos/create-deploy-key": {
-    "category": "deployments",
-    "subcategory": "keys",
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
     "originalUrl": "/rest/reference/repos#create-a-deploy-key"
   },
   "repos/get-deploy-key": {
-    "category": "deployments",
-    "subcategory": "keys",
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
     "originalUrl": "/rest/reference/repos#get-a-deploy-key"
   },
   "repos/delete-deploy-key": {
-    "category": "deployments",
-    "subcategory": "keys",
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
     "originalUrl": "/rest/reference/repos#delete-a-deploy-key"
+  },
+  "repos#deploy-keys": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/repos#deploy-keys"
+  },
+  "deployments/list-deploy-keys": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/deployments#list-deploy-keys"
+  },
+  "deployments/create-deploy-key": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/deployments#create-a-deploy-key"
+  },
+  "deployments/get-deploy-key": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/deployments#get-a-deploy-key"
+  },
+  "deployments/delete-deploy-key": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/deployments#delete-a-deploy-key"
+  },
+  "deployments#deploy-keys": {
+    "category": "deploy_keys",
+    "subcategory": "deploy_keys",
+    "originalUrl": "/rest/reference/deployments#deploy-keys"
   },
   "repos/get-pages": {
     "category": "pages",

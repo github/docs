@@ -69,4 +69,4 @@ shortTitle: 添加文件
 
 ## 延伸阅读
 
-- "[使用命令行添加现有项目到 GitHub](/articles/adding-an-existing-project-to-github-using-the-command-line)"
+- "[将本地托管的代码添加到 {% data variables.product.product_name %}](/get-started/importing-your-projects-to-github/importing-source-code-to-github//adding-locally-hosted-code-to-github)"

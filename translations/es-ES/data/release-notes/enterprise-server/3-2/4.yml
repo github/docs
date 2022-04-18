@@ -8,14 +8,14 @@ sections:
     - El ejecutar `ghe-repl-start` o `ghe-repl-status` algunas veces devolvió errores para conectarse a la base de datos cuando se habilitó GitHub Actions.
     - Los ganchos de pre-recepción fallaron debido a un `PATH` sin definir.
     - 'El ejecutar `ghe-repl-setup` devolvió un error de tipo: `cannot create directory /data/user/elasticsearch: File exists` si la instancia se había configurado anteriormente como una réplica.'
-    - 'Running `ghe-support-bundle` returned an error: `integer expression expected`.'
+    - 'El ejecutrar `ghe-support-bundle` devolvió un error de tipo: `integer expression expected`.'
     - 'Después de configurar una réplica de disponibilidad alta, `ghe-repl-status` incluyó un error en la salida: `unexpected unclosed action in command`.'
     - En ambientes de clúster grandes, el backend de autenticación podría no estar disponible en un subconjunto de nodos de frontend.
     - Algunos servicios críticos pudieron no haber estado disponibles en los nodos del backend en el Clúster de GHES.
-    - The repository permissions to the user returned by the `/repos` API would not return the full list.
-    - The `childTeams` connection on the `Team` object in the GraphQL schema produced incorrect results under some circumstances.
-    - In a high availability configuration, repository maintenance always showed up as failed in stafftools, even when it succeeded.
-    - User defined patterns would not detect secrets in files like `package.json` or `yarn.lock`.
+    - Los permisos de repositorio para el usuario que devolvió la API de `/repos` no devolvieron la lista completa.
+    - La conexión de `childTeams` en el objeto `Team` en el modelo de GraphQL produjo resultados incorrectos bajo algunas de las circunstancias.
+    - En una configuración de disponibilidad alta, el mantenimiento de repositorio siempre se mostró como fallido en las stafftools, incluso cuando tuvo éxito.
+    - Los patrones definidos por el usuario no detectaron secretos en archivos como `package.json` o `yarn.lock`.
   changes:
     - Una capa externa adicional de la compresión de `gzip`, al crear un paquete de soporte de clúster con `ghe-cluster-suport-bundle`, ahora se encuentra apagada predeterminadamente. Esta compresión externa puede aplicarse opcionalmente con la opción de línea de comandos `ghe-cluster-suport-bundle -c`.
     - Agregamos texto extra a la consola de administración para recordarles a los usuarios sobre la recolección de datos de las apps móviles para propósitos de mejora de la experiencia.

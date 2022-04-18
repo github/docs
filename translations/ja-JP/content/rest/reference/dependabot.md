@@ -1,6 +1,6 @@
 ---
 title: Dependabot
-intro: 'With the {% data variables.product.prodname_dependabot %} Secrets API, you can manage and control {% data variables.product.prodname_dependabot %} secrets for an organization or repository.'
+intro: '{% data variables.product.prodname_dependabot %} Secrets APIを使うと、Organizationあるいはリポジトリの{% data variables.product.prodname_dependabot %}sjシークレットを管理し、制御できます。'
 versions:
   fpt: '*'
   ghes: '>=3.4'

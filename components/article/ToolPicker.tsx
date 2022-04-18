@@ -20,6 +20,8 @@ const supportedTools = [
   'vscode',
   'importer_cli',
   'graphql',
+  'powershell',
+  'bash',
 ]
 const toolTitles = {
   webui: 'Web browser',
@@ -30,6 +32,8 @@ const toolTitles = {
   vscode: 'Visual Studio Code',
   importer_cli: 'GitHub Enterprise Importer CLI',
   graphql: 'GraphQL API',
+  powershell: 'PowerShell',
+  bash: 'Bash',
 } as Record<string, string>
 
 // Imperatively modify article content to show only the selected tool

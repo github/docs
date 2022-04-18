@@ -73,7 +73,7 @@ A tabela a seguir indica onde cada contexto e função especial pode ser utiliza
 | <code>concorrência</code>  | <code>github, entradas</code>  |                            |
 | <code>env</code>  | <code>github, segredos, entradas</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.concurrency</code>  | <code>github, necessidades, estratégia, matriz, entradas</code>  |                            |
-| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, necessidades, estratégia, matriz, segredos, entradas</code>  |                            |
+| <code>jobs.&lt;job_id&gt;.container</code>  | <code>github, necessidades, estratégia, matrix, env, segredos, entradas</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container.credentials</code>  | <code>github, necessidades, estratégia, matrix, env, segredos, entradas</code>  |                            |
 | <code>jobs.&lt;job_id&gt;.container.env.&lt;env_id&gt;</code> | <code>github, necessidades, estratégia, matrix, trabalho, executor, env, segredos, entradas</code> |                            |
 | <code>jobs.&lt;job_id&gt;.continue-on-error</code> | <code>github, necessidades, estratégia, matriz, entradas</code> |                            |
@@ -180,6 +180,7 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 | `github.action_path`       | `string` | O caminho onde uma ação está localizada. Esta propriedade só é compatível com ações compostas. Você pode usar este caminho para acessar arquivos localizados no mesmo repositório da ação.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | `github.action_ref`        | `string` | Para uma etapa executando uma ação, este é o ref da ação que está sendo executada. Por exemplo, `v2`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `github.action_repository` | `string` | Para uma etpa que executa uma ação, este é o nome do proprietário e do repositório da ação. Por exemplo, `actions/checkout`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `github.action_status`     | `string` | Para uma ação composta, o resultado atual da ação composta.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `github.actor`             | `string` | O nome de usuário que iniciou a execução do fluxo de trabalho.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `github.api_url`           | `string` | A URL da API REST de {% data variables.product.prodname_dotcom %}.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `github.base_ref`          | `string` | `base_ref` ou branch alvo da pull request em uma execução de fluxo de trabalho. Esta propriedade só está disponível quando o evento que aciona a execução de um fluxo de trabalho for `pull_request` ou `pull_request_target`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -198,7 +199,7 @@ O contexto `github` context contém informações sobre a execução do fluxo de
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae-issue-4722 %}
 | `github.run_attempt` | `string` | Um número exclusivo para cada tentativa de execução de um fluxo de trabalho específico em um repositório. Este número começa em 1 para a primeira tentativa de execução do fluxo de trabalho e aumenta a cada nova execução. |
 {%- endif %}
-| `github.server_url` | `string` | The URL of the GitHub server. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)". | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
+| `github.server_url` | `string` | A URL do servidor do GitHub. Por exemplo: `https://github.com`. | | `github.sha` | `string` | O SHA do commit que acionou a execução do fluxo de trabalho. | | `github.token` | `string` | Um token para efetuar a autenticação em nome do aplicativo instalado no seu repositório. Isso é funcionalmente equivalente ao segredo `GITHUB_TOKEN`. Para obter mais informações, consulte "[Autenticação automática de tokens](/actions/security-guides/automatic-token-authentication)". | | `github.workflow` | `string` | O nome do fluxo de trabalho. Se o fluxo de trabalho não determina um `name` (nome), o valor desta propriedade é o caminho completo do arquivo do fluxo de trabalho no repositório. | | `github.workspace` | `string` | O diretório de trabalho padrão no executor para as etapas e a localidade padrão do seu repositório ao usar a ação [`checkout`](https://github.com/actions/checkout). |
 
 ### Exemplo de conteúdo do contexto `github`
 
@@ -256,7 +257,7 @@ jobs:
   normal_ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run normal CI
         run: ./run-tests
 
@@ -264,7 +265,7 @@ jobs:
     runs-on: ubuntu-latest
     if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run PR CI
         run: ./run-additional-pr-ci
 ```
@@ -366,7 +367,6 @@ Este exemplo `contexto do job` usa um contêiner de serviço do PostgreSQL com p
 
 Este exemplo de fluxo de trabalho configura um contêiner de serviço do PostgreSQL e mapeia automaticamente a porta 5432 do recipiente de serviço com uma porta disponível escolhida aleatoriamente no host. O contexto `job` é usado para acessar o número da porta atribuída no host.
 
-{% raw %}
 ```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
@@ -384,11 +384,10 @@ jobs:
           - 5432
 
     steps:
-      - uses: actions/checkout@v2
-      - run: pg_isready -h localhost -p ${{ job.services.postgres.ports[5432] }}
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: ./run-tests
 ```
-{% endraw %}
 
 ## Contexto `etapas`
 
@@ -427,7 +426,6 @@ Este exemplo `passo` contexto mostra duas etapas anteriores que tinham um [`id`]
 
 Este exemplo de fluxo de trabalho gera um número aleatório como saída em uma etapa e uma etapa posterior usa o contexto `etapas` para ler o valor dessa saída.
 
-{% raw %}
 ```yaml{:copy}
 name: Generate random failure
 on: push
@@ -436,15 +434,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Generate 0 or 1
         id: generate_number
         run:  echo "::set-output name=random_number::$(($RANDOM % 2))"
       - name: Pass or fail
         run: |
-          if [[ ${{ steps.generate_number.outputs.random_number }} == 0 ]]; then exit 0; else exit 1; fi
+          if [[ {% raw %}${{ steps.generate_number.outputs.random_number }}{% endraw %} == 0 ]]; then exit 0; else exit 1; fi
 ```
-{% endraw %}
 
 ## Contexto do `executor`
 
@@ -485,7 +482,6 @@ O contexto de exemplo a seguir é de um executor do Linux hospedado em {% data v
 
 Este exemplo de fluxo de trabalho usa o contexto `executor` para definir o caminho para o diretório temporário e gravar registros e se, o fluxo de trabalho falhar, ele irá fazer o uplad dos registros como artefatos.
 
-{% raw %}
 ```yaml{:copy}
 name: Build
 on: push
@@ -494,19 +490,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build with logs
         run: |
-          mkdir ${{ runner.temp }}/build_logs
-          ./build.sh --log-path ${{ runner.temp }}/build_logs
+          mkdir {% raw %}${{ runner.temp }}{% endraw %}/build_logs
+          ./build.sh --log-path {% raw %}${{ runner.temp }}{% endraw %}/build_logs
       - name: Upload logs on fail
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v3
+        if: {% raw %}${{ failure() }}{% endraw %}
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: Build failure logs
-          path: ${{ runner.temp }}/build_logs
+          path: {% raw %}${{ runner.temp }}{% endraw %}/build_logs
 ```
-{% endraw %}
 
 ## contexto `segredos`
 
@@ -567,7 +562,6 @@ O conteúdo de exemplo a seguir do contexto `estratégia` é de uma matriz de co
 
 Esse exemplo de fluxo de trabalho usa a propriedade `strategy.job-index` para definir um nome exclusivo para um arquivo de registro para cada trabalho em uma matriz de criação.
 
-{% raw %}
 ```yaml{:copy}
 name: Test matrix
 on: push
@@ -580,15 +574,14 @@ jobs:
         test-group: [1, 2]
         node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - run: npm test > test-job-${{ strategy.job-index }}.txt
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: npm test > test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
       - name: Upload logs
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
-          name: Build log for job ${{ strategy.job-index }}
-          path: test-job-${{ strategy.job-index }}.txt
+          name: Build log for job {% raw %}${{ strategy.job-index }}{% endraw %}
+          path: test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
 ```
-{% endraw %}
 
 ## Contexto `matriz`
 
@@ -616,29 +609,27 @@ O exemplo a seguir do contexto `matriz` é de um trabalho em uma matriz de const
 
 Este exemplo de fluxo de trabalho cria uma matriz de compilação com as chaves `os` e `nós`. Ele usa a propriedade `matriz.os` para definir o tipo de executor para cada trabalho e usa a propriedade `matrix.node` para definir a versão do Node.js para cada trabalho.
 
-{% raw %}
 ```yaml{:copy}
 name: Test matrix
 on: push
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node }}
+          node-version: {% raw %}${{ matrix.node }}{% endraw %}
       - name: Install dependencies
         run: npm ci
       - name: Run tests
         run: npm test
 ```
-{% endraw %}
 
 ## Contexto `needs`
 
@@ -675,7 +666,6 @@ O conteúdo de exemplo a seguir do contexto `needs` mostra informações para do
 
 Esse exemplo do fluxo de trabalho tem três trabalhos: um trabalho de `criação` que faz a criação, um trabalho de `implantação` que exige o trabalho de `criação` e um trabalho de `depuração` que exige os trabalhos de `criação` e `implantação` e que é executado apenas se houver uma falha no fluxo de trabalho. O trabalho de `implantação` também usa o contexto `needs` para acessar uma saída do trabalho de `criação`.
 
-{% raw %}
 ```yaml{:copy}
 name: Build and deploy
 on: push
@@ -684,9 +674,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      build_id: ${{ steps.build_step.outputs.build_id }}
+      build_id: {% raw %}${{ steps.build_step.outputs.build_id }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         id: build_step
         run: |
@@ -696,17 +686,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: ./deploy --build ${{ needs.build.outputs.build_id }}
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: ./deploy --build {% raw %}${{ needs.build.outputs.build_id }}{% endraw %}
   debug:
     needs: [build, deploy]
     runs-on: ubuntu-latest
-    if: ${{ failure() }}
+    if: {% raw %}${{ failure() }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - run: ./debug
 ```
-{% endraw %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## Contexto `entradas`
@@ -751,10 +740,14 @@ on:
       deploy_target:
         required: true
         type: string
+      perform_deploy:
+        required: true
+        type: boolean
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ inputs.perform_deploy == 'true' }}
     steps:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}

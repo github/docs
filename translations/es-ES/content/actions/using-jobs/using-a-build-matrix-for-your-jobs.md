@@ -1,7 +1,7 @@
 ---
-title: Using a build matrix for your jobs
+title: Utilizar una matriz de compilación para tus jobs
 shortTitle: Utilizar una matriz de compilación para tus jobs
-intro: Create a build matrix and define variations for each job.
+intro: Crear una matriz de compilación y definir las variaciones para cada job.
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,14 +17,14 @@ miniTocMaxHeadingLevel: 4
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-strategy %}
 
-## Creating a matrix of different job configurations
+## Crear una matriz de varias configuraciones de job diferentes
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-matrix %}
 
-## Canceling remaining jobs if a `matrix` job fails
+## Cncelar los jobs restantes si falla un job de `matrix`
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-failfast %}
 
-## Defining the maximum number of concurrent jobs in a `matrix`
+## Definir la cantidad máxima de jobs simultáneos en una `matrix`
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-max-parallel %}

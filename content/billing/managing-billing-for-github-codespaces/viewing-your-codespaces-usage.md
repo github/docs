@@ -19,7 +19,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.codespaces-minutes %}
-{% data reusables.dotcom_billing.codespaces-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
 
@@ -29,3 +29,5 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 1. Under "{% data variables.product.prodname_codespaces %}", view the usage details of each organization in your enterprise account.
+{% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+

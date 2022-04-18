@@ -27,7 +27,7 @@ redirect_from:
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} Para obtener más información, consulta la sección "[Configurar el inicio de sesión único de SAML en tu empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
-{% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
+{% data reusables.enterprise-accounts.about-recovery-codes %}Para obtener más información, consulta la sección "[Administrar los códigos de recuperación para tu empresa](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)".
 
 Después de que habilites el SSO de SAML, dependiendo del IdP que utilizas, debes poder habilitar las características de administración de acceso y de identidad adicionales. {% data reusables.scim.enterprise-account-scim %}
 

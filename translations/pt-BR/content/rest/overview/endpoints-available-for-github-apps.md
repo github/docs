@@ -14,4 +14,4 @@ topics:
 shortTitle: Pontos de extremidade habilitados pelo aplicativo GitHub
 ---
 
-**The content of this page is rendered as a NextJS page component.**
+**O conteúdo desta página é processado como um componente da página do NextJS.**

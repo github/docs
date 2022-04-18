@@ -70,7 +70,7 @@ O número de trabalhos que você pode executar simultaneamente em todos os repos
 
 ## Calculando minutos e gastos de armazenamento
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_actions %}
 
 No final do mês, {% data variables.product.prodname_dotcom %} calcula o custo de minutos e armazenamento usado sobre o valor incluído em sua conta.
 

@@ -22,9 +22,9 @@ shortTitle: 更新访问凭据
 ## 请求新密码
 
 1. 要请求新密码，请访问 {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}。
-2. Enter the email address associated with your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}, then click **Send password reset email.** The email will be sent to the backup email address if you have one configured. ![密码重置电子邮件请求对话框](/assets/images/help/settings/password-recovery-email-request.png)
+2. 输入与您在 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上的帐户关联的电子邮件地址，然后单击“**Send password reset email（发送密码重置电子邮件）**。如果您配置了备份电子邮件地址，则电子邮件将发送到备份电子邮件地址。 ![密码重置电子邮件请求对话框](/assets/images/help/settings/password-recovery-email-request.png)
 3. 我们将向您发送一封电子邮件，其中含有可让您重置密码的链接。 您必须在收到电子邮件后的 3 小时内单击此链接。 如果您没有收到来自我们的电子邮件，请确保检查垃圾邮件文件夹。
-4. 如果您启用了双重身份验证，将提示您获得 2FA 凭据。 Type your authentication code or one of your recovery codes and click **Verify**. If you have added a security key to your account, you can insert the key and click **Use security key** instead of typing an authentication code. ![双重身份验证提示](/assets/images/help/2fa/2fa-password-reset.png)
+4. 如果您启用了双重身份验证，将提示您获得 2FA 凭据。 键入您的身份验证代码或恢复代码之一，然后单击 **Verify（验证）**。 如果您已向帐户添加了安全密钥，则可以插入该密钥，然后单击 **Use security key（使用安全密钥）**，而无需键入身份验证码。 ![双重身份验证提示](/assets/images/help/2fa/2fa-password-reset.png)
 5. 键入新密码，确认新密码，然后单击 **Change password（更改密码）**。 有关创建强密码的帮助，请参阅“[创建强密码](/articles/creating-a-strong-password)”
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![密码恢复框](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
@@ -57,7 +57,7 @@ shortTitle: 更新访问凭据
 
 {% ifversion not ghae %}
 
-If you have reset your account password and would also like to trigger a sign-out from the GitHub Mobile app, you can revoke your authorization of the "GitHub iOS" or "GitHub Android" OAuth App. For additional information, see "[Reviewing your authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)."
+如果您已重置帐户密码，并且还希望触发从 GitHub Mobile 应用注销，则可以撤销对“GitHub iOS”或“GitHub Android”OAuth 应用的授权。 有关其他信息，请参阅“[>审查授权的集成](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)”。
 
 {% endif %}
 

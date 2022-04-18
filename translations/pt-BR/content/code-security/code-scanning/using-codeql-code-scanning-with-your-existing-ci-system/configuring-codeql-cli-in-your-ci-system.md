@@ -508,7 +508,7 @@ Quando você decidir o método mais seguro e confiável para o seu servidor de C
     </td>
     
     <td>
-      Especifique o nome do <code>ref</code> que você verificou e analisou para que os resultados possam ser correspondidos ao código correto. For a branch use: <code>refs/heads/BRANCH-NAME</code>, for the head commit of a pull request use <code>refs/pull/NUMBER/head</code>, or for the {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request use <code>refs/pull/NUMBER/merge</code>.
+      Especifique o nome do <code>ref</code> que você verificou e analisou para que os resultados possam ser correspondidos ao código correto. Para o uso de um branch: <code>refs/heads/BRANCH-NAME</code>, para o commit principal de um pull request, use <code>refs/pull/NUMBER/head</code> ou para o commit de merge gerado por {% data variables.product.prodname_dotcom %} do uso de um pull request <code>refs/pull/NUMBER/merge</code>.
     </td>
   </tr>
   

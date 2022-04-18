@@ -1,5 +1,6 @@
-import { head } from '../helpers/supertest.js'
 import { jest } from '@jest/globals'
+
+import { head } from '../helpers/e2etest.js'
 
 jest.useFakeTimers('legacy')
 

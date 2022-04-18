@@ -70,7 +70,7 @@ La cantidad de jobs que puedes ejecutar simultáneamente a través de todos los 
 
 ## Calcular los gastos por minuto y por almacenamiento
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_actions %}
 
 Al final de cada mes, {% data variables.product.prodname_dotcom %} calcula el costo de los minutos y almacenamiento utilizados en comparación con lo que se incluye en tu cuenta.
 

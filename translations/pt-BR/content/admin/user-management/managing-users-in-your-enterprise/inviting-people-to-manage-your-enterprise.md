@@ -45,9 +45,13 @@ Se sua empresa usa {% data variables.product.prodname_emus %}, os proprietários
 
 {% ifversion ghec %}Depois de convidar alguém para juntar-se à conta corporativa, a pessoa deverá aceitar o convite por e-mail antes que possa acessar a conta corporativa. Convites pendentes vencem após 7 dias.{% endif %}
 
+{% if enterprise-membership-view-improvements %}
+You can see all pending invitations to become an administrator of your enterprise account. Para obter mais informações, consulte "[Visualizar pessoas na sua empresa](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)".
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Na barra lateral esquerda, clique em **Administrators** (Administradores). ![Aba Administrators (Administradores) na barra lateral esquerda](/assets/images/help/business-accounts/administrators-tab.png)
+{% data reusables.enterprise-accounts.administrators-tab %}
 1. Acima da lista de administradores, clique em {% ifversion ghec %}**Convidar administrador**{% elsif ghes %}**Add proprietário**{% endif %}.
   {% ifversion ghec %}
   ![Botão "Convidar administrador" acima da lista de proprietários corporativos](/assets/images/help/business-accounts/invite-admin-button.png)
@@ -63,12 +67,17 @@ Se sua empresa usa {% data variables.product.prodname_emus %}, os proprietários
 
 Somente proprietários corporativos podem remover outros administradores corporativos da conta corporativa.
 
+{% ifversion ghec %}
+If the administrator you want to remove is a member of any organizations owned by the enterprise, you can choose **Convert to member**, which will remove their administrative role but retain their organization memberships, or **Remove from enterprise**, which will remove both their administrative role and organization memberships.
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Ao lado do nome de usuário da pessoa que você deseja remover, clique em {% octicon "gear" aria-label="The Settings gear" %} e, em seguida, clique em **Remover proprietário**{% ifversion ghec %} ou **Remover gerente de cobrança**{% endif %}.
+{% data reusables.enterprise-accounts.administrators-tab %}
+1. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click {% ifversion ghes %}**Remove owner**{% elsif ghec %}**Convert to member** or **Remove from enterprise**.{% endif %}.
   {% ifversion ghec %}
   ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}
   ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/ghes-remove-owner.png)
   {% endif %}
-1. Leia a confirmação, clique **Remover proprietário**{% ifversion ghec %} ou **Remover gerente de cobrança**{% endif %}.
+1. Leia a confirmação e, em seguida, clique em {% ifversion ghes %}**Remover o proprietário**{% elsif ghec %}**Sim, converter nome de usuário em integrante**{% endif %}.

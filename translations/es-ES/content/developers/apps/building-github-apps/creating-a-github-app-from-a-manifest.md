@@ -46,7 +46,7 @@ Sigue estos pasos par aimplementar el flujo del Manifiesto de la GitHub App:
 
 ### 1. Redireccionas a las personas a GitHub para crear una GitHub App Nueva
 
-Para redireccionar a las personas a crear una GitHub App nueva, [proporciona un enlace](#examples) para que ellos den clic y envíen una solicitud de `POST` a `https://github.com/settings/apps/new` para una cuenta de usuario o a `https://github.com/organizations/ORGANIZATION/settings/apps/new` para una cuenta de organización, reemplazando `ORGANIZATION` con el nombre de la cuenta de organización en donde se creará la app.
+To redirect people to create a new GitHub App, [provide a link](#examples) for them to click that sends a `POST` request to `https://github.com/settings/apps/new` for a personal account or `https://github.com/organizations/ORGANIZATION/settings/apps/new` for an organization account, replacing `ORGANIZATION` with the name of the organization account where the app will be created.
 
 Debes incluir los [Parámetros del Manifiesto de la GitHub App](#github-app-manifest-parameters) como una secuencia cifrada con JSON en un parámetro que se llame `manifest`. También puedes incluir un [parámetro](#parameters) de `state` para agregar seguridad adicional.
 
@@ -61,7 +61,7 @@ Se redirigirá al creador de la app a una página de GitHub en donde encontrará
  | `name (nombre)`       | `secuencia`              | El nombre dela GitHub App.                                                                                                                                                                                                                                      |
  | `url`                 | `secuencia`              | **Requerido.** La página principal de tu GitHub App.                                                                                                                                                                                                            |
  | `hook_attributes`     | `objeto`                 | La configuración del webhook de la GitHub App.                                                                                                                                                                                                                  |
- | `redirect_url`        | `secuencia`              | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.                                                                                                                                                                |
+ | `redirect_url`        | `secuencia`              | La URL completa a la cual redireccionar después de que un usuario inicie la creación de una GitHub App desde un manifiesto.                                                                                                                                     |
  | `callback_urls`       | `conjunto de secuencias` | Una URL completa a la cual redirigir cuando alguien autorice una instalación. Puedes proporcionar hasta 10 URL de rellamado.                                                                                                                                    |
  | `descripción`         | `secuencia`              | Una descripción de la GitHub App.                                                                                                                                                                                                                               |
  | `public`              | `boolean`                | Configúralo como `true` cuando tu GitHub App esté disponible al público o como `false` si solo puede acceder el propietario de la misma.                                                                                                                        |
@@ -83,7 +83,7 @@ El objeto `hook_attributes` tiene la siguiente clave:
 
 #### Ejemplos
 
-Este ejemplo utiliza un formato en una página web con un botón que activa la solicitud de tipo `POST` para una cuenta de usuario:
+This example uses a form on a web page with a button that triggers the `POST` request for a personal account:
 
 ```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">

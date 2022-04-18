@@ -1,13 +1,13 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import { isPlainObject } from 'lodash-es'
-import supertest from 'supertest'
-import createApp from '../../lib/app.js'
+import { jest } from '@jest/globals'
+
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import Page from '../../lib/page.js'
-import { get } from '../helpers/supertest.js'
+import { get, head } from '../helpers/e2etest.js'
 import versionSatisfiesRange from '../../lib/version-satisfies-range.js'
-import { jest } from '@jest/globals'
+import { PREFERRED_LOCALE_COOKIE_NAME } from '../../middleware/detect-language.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -112,7 +112,7 @@ describe('redirects', () => {
     })
 
     test('are redirected for HEAD requests (not just GET requests)', async () => {
-      const res = await supertest(createApp()).head('/articles/closing-issues-via-commit-messages/')
+      const res = await head('/articles/closing-issues-via-commit-messages/')
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe('/articles/closing-issues-via-commit-messages')
     })
@@ -128,6 +128,28 @@ describe('redirects', () => {
 
     test('homepage redirects to preferred language', async () => {
       const res = await get('/', { headers: { 'Accept-Language': 'ja' } })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/ja')
+      expect(res.headers['cache-control']).toBe('private, no-store')
+    })
+    test('homepage redirects to preferred language by cookie', async () => {
+      const res = await get('/', {
+        headers: {
+          Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
+          'Accept-Language': 'es', // note how this is going to be ignored
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      expect(res.headers.location).toBe('/ja')
+      expect(res.headers['cache-control']).toBe('private, no-store')
+    })
+    test('homepage redirects to preferred language by cookie if valid', async () => {
+      const res = await get('/', {
+        headers: {
+          Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=xy`,
+          'Accept-Language': 'ja', // note how this is going to be ignored
+        },
+      })
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe('/ja')
       expect(res.headers['cache-control']).toBe('private, no-store')
@@ -149,14 +171,68 @@ describe('redirects', () => {
   })
 
   describe('localized redirects', () => {
+    const redirectFrom =
+      '/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop'
+    const redirectTo =
+      '/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop'
+
     test('redirect_from for renamed pages', async () => {
-      const { res } = await get(
-        '/ja/desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop'
-      )
+      const res = await get(`/ja${redirectFrom}`)
       expect(res.statusCode).toBe(301)
-      const expected =
-        '/ja/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop'
+      const expected = `/ja${redirectTo}`
       expect(res.headers.location).toBe(expected)
+    })
+
+    test('redirect_from for renamed pages by Accept-Language header', async () => {
+      const res = await get(redirectFrom, {
+        headers: {
+          'Accept-Language': 'ja',
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      const expected = `/ja${redirectTo}`
+      expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
+    })
+
+    test('redirect_from for renamed pages but ignore Accept-Language header if not recognized', async () => {
+      const res = await get(redirectFrom, {
+        headers: {
+          // None of these are recognized
+          'Accept-Language': 'sv,fr,gr',
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      const expected = `/en${redirectTo}`
+      expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
+    })
+
+    test('redirect_from for renamed pages but ignore unrecognized Accept-Language header values', async () => {
+      const res = await get(redirectFrom, {
+        headers: {
+          // Only the last one is recognized
+          'Accept-Language': 'sv,ja',
+        },
+      })
+      expect(res.statusCode).toBe(302)
+      const expected = `/ja${redirectTo}`
+      expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
+    })
+
+    test('will inject the preferred language from cookie', async () => {
+      const res = await get(redirectFrom, {
+        headers: {
+          Cookie: `${PREFERRED_LOCALE_COOKIE_NAME}=ja`,
+          'Accept-Language': 'es', // note how this is going to be ignored
+        },
+      })
+      // 302 because the redirect depended on cookie
+      expect(res.statusCode).toBe(302)
+      const expected = `/ja${redirectTo}`
+      expect(res.headers.location).toBe(expected)
+      expect(res.headers['cache-control']).toBe('private, no-store')
     })
   })
 

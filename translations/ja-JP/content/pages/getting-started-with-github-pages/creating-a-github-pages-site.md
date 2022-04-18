@@ -45,13 +45,13 @@ shortTitle: GitHub Pagesのサイトの作成
 
   {% tip %}
 
-  **Tip:** If `index.html` is present, this will be used instead of `index.md`. If neither `index.html` nor `index.md` are present, `README.md` will be used.
+  **参考:** `index.html`があるなら、`index.md`の代わりに利用されます。 `index.html`も`index.md`もないなら、`README.md`が使われます。
 
   {% endtip %}
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.pages.sidebar-pages %}{% ifversion fpt or ghec %}
-{% data reusables.pages.choose-visibility %}{% endif %}
+{% data reusables.pages.sidebar-pages %}
+{% data reusables.pages.choose-visibility %}
 {% data reusables.pages.visit-site %}
 {% data reusables.pages.check-workflow-run %}
 

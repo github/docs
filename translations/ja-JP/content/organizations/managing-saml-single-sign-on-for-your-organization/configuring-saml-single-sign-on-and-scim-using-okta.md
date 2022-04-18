@@ -16,6 +16,8 @@ shortTitle: OktaでSAMLとSCIMを設定する
 
 {% data variables.product.product_location %}上のOrganizationやその他のWebアプリケーションへのアクセスは、SAML SSO及びSCIMをアイデンティティプロバイダ（IdP）であるOktaとともに使うようOrganizationを設定することで、1つの集中インターフェースから制御できます。
 
+{% data reusables.saml.ghec-only %}
+
 SAML SSO は、リポジトリや Issue、Pull Requestといった Organization のリソースに対するアクセスを制御し、保護します。 SCIMは、Oktaで変更があった場合に{% data variables.product.product_location %}上のOrganizationへのメンバーアクセスを自動的に追加、管理、削除します。 詳しい情報については、「[SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)」と「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)」を参照してください。
 
 SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_cloud %} アプリケーションを割り当てる任意のユーザが次のプロビジョニング機能を使えるようになります。
@@ -41,7 +43,7 @@ SCIM を有効にすると、Okta で {% data variables.product.prodname_ghe_clo
 {% data reusables.saml.okta-provisioning-tab %}
 {% data reusables.saml.okta-configure-api-integration %}
 {% data reusables.saml.okta-enable-api-integration %}
-1. [**Authenticate with Github Enterprise Cloud - Organization**] をクリックします。
+1. **Authenticate with {% data variables.product.prodname_ghe_cloud %} - Organization**をクリックしてください。
 1. Organization 名の右にある [**Grant**] をクリックします。
 
   ![Organization にアクセスできるよう Okta SCIM インテグレーションを認証する [Grant] ボタン](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)

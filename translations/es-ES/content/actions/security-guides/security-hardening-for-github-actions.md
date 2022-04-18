@@ -25,7 +25,7 @@ Esta guía explica cómo configurar el fortalecimiento de seguridad para ciertas
 
 ## Utilizar secretos
 
-Los valores sensibles jamás deben almacenarse como texto simple e archivos de flujo de trabajo, sino más bien como secretos. [Secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) can be configured at the organization, repository, or environment level, and allow you to store sensitive information in {% data variables.product.product_name %}.
+Los valores sensibles jamás deben almacenarse como texto simple e archivos de flujo de trabajo, sino más bien como secretos. Los [secretos](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) pueden configurarse a nivel de organización, repositorio o ambiente y te permiten almacenar información sensible en {% data variables.product.product_name %}.
 
 Los secretos utilizan [Cajas selladas de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) de manera que se cifran antes de llegar a {% data variables.product.product_name %}. Esto ocurre cuando el secreto se emite [utilizando la IU](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets#creating-encrypted-secrets-for-a-repository) o a través de la [API de REST](/rest/reference/actions#secrets). Este cifrado del lado del cliente ayuda a minimizar los riesgos relacionados con el registro accidental (por ejemplo, bitácoras de excepción y de solicitud, entre otras) dentro de la infraestructura de {% data variables.product.product_name %}. Una vez que se carga el secreto, {% data variables.product.product_name %} puede entonces descifrarlo para que se pueda inyectar en el tiempo de ejecución del flujo de trabajo.
 
@@ -47,6 +47,12 @@ Para ayudar a prevenir la divulgación accidental, {% data variables.product.pro
     - Rota los secretos con frecuencia para reducir la ventana de tiempo en la que un secreto puesto en riesgo es aún válido.
 - **Considera requerir revisiones para el acceso a los secretos**
     - Puedes utilizar revisiones requeridas para proteger los secretos del ambiente. Un job del flujo de trabajo no podrá acceder a los secretos del ambiente hasta que el revisor otorgue la aprobación. Para obtener más información sobre cómo almacenar los secretos en los ambientes o cómo requerir las revisiones para estos, consulta las secciones "[Secretos cifrados](/actions/reference/encrypted-secrets)" y "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
+
+{% warning %}
+
+**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+
+{% endwarning %}
 
 ## Utilizar `CODEOWNERS` para monitorear cambios
 
@@ -250,10 +256,10 @@ Esta lista describe los acercamientos recomendatos para acceder alos datos de un
 3. **Tokens de {% data variables.product.prodname_github_app %}**
     - Las {% data variables.product.prodname_github_apps %} pueden instalarse en los repositorios seleccionados, e incluso tienen permisos granulares en los recursos dentro de ellos. Puedes crear una {% data variables.product.prodname_github_app %} interna a tu organización, instalarla en los repositorios a los que necesites tener acceso dentro de tu flujo de trabajo, y autenticarte como la instalación dentro del flujo de trabajo para acceder a esos repositorios.
 4. **Tokens de acceso personal**
-    - Jamás debes utilizar tokens de acceso personal desde tu propia cuenta. Estos tokens otorgan acceso a todos los repositorios dentro de las organizaciones a las cuales tienes acceso, así como a los repositorios en tu cuenta de usuario. Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Adicionalmente, si sales de una organización más adelante, los flujos de trabajo que utilicen este token fallarán inmediatamente, y depurar este problema puede ser difícil.
+    - Jamás debes utilizar tokens de acceso personal desde tu propia cuenta. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Adicionalmente, si sales de una organización más adelante, los flujos de trabajo que utilicen este token fallarán inmediatamente, y depurar este problema puede ser difícil.
     - Si se utiliza un token de acceso personal, debe ser uno que se haya generado para una cuenta nueva a la que solo se le haya otorgado acceso para los repositorios específicos que se requieren para el flujo de trabajo. Nota que este acercamiento no es escalable y debe evitarse para favorecer otras alternativas, tales como las llaves de despliegue.
-5. **Llaves SSH en una cuenta de usuario**
-    - Los flujos de trabajo nunca deben utilizar las llaves SSH en una cuenta de usuario. De forma similar a los tokens de acceso personal, estas otorgan permisos de lectura/escritura a todos tus repositorios personales así como a todos los repositorios a los que tengas acceso mediante la membercía de organización.  Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Si pretendes utilizar una llave SSH porque solo necesitas llevar a cabo clonados de repositorio o subidas a éste, y no necesitas interactuar con una API pública, entonces mejor deberías utilizar llaves de despliegue individuales.
+5. **SSH keys on a personal account**
+    - Workflows should never use the SSH keys on a personal account. De forma similar a los tokens de acceso personal, estas otorgan permisos de lectura/escritura a todos tus repositorios personales así como a todos los repositorios a los que tengas acceso mediante la membercía de organización.  Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Si pretendes utilizar una llave SSH porque solo necesitas llevar a cabo clonados de repositorio o subidas a éste, y no necesitas interactuar con una API pública, entonces mejor deberías utilizar llaves de despliegue individuales.
 
 ## Fortalecimiento para los ejecutores auto-hospedados
 
@@ -261,11 +267,11 @@ Esta lista describe los acercamientos recomendatos para acceder alos datos de un
 Los ejecutores **hospedados en {% data variables.product.prodname_dotcom %}** ejecutan código dentro de máquinas virtuales aisladas, limpias y efímeras, lo cual significa que no hay forma de poner este ambiente en riesgo de forma persistente, o de obtener acceso de otra forma a más información de la que se colocó en este ambiente durante el proceso de arranque.
 {% endif %}
 
-{% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
+{% ifversion fpt or ghec %}Los ejecutores **auto-hospedados**{% elsif ghes or ghae %}Los ejecutores auto-hospedados{% endif %} para {% data variables.product.product_name %} no tienen garantías sobre ejecutar en máquinas virtuales limpias y efímeras y pueden ponerse en riesgo persistentemente mediante el código no confiable en un flujo de trabajo.
 
-{% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which{% ifversion fpt or ghes > 3.1 or ghae or ghec %}, depending on its settings, can grant {% else %} grants {% endif %}write access to the repository. Aunque los flujos de trabajo pueden controlar el acceso a los secretos de ambiente utilizando ambientes y revisiones requeridas, estos flujos de trabajo no se encuentran en un ambiente aislado y aún son susceptibles a los mismos riesgos cuando se ejecutan en un ejecutor auto-hospedado.
+{% ifversion fpt or ghec %}Como resultado, los ejecutores auto-hospedados no deberán [utilizarse casi nunca para repositorios públicos](/actions/hosting-your-own-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories) en {% data variables.product.product_name %}, ya que cualquier usuario puede abrir solicitudes de extracción contra este repositorio y poner en riesgo el ambiente. De forma similar, ten{% elsif ghes or ghae %}Ten{% endif %} cuidado al utilizar ejecutores auto-hospedados en repositorios privados o internos, ya que cualquiera que pueda bifurcar el repositorio y abrir una solicitud de cambios (habitualmente, aquellos con acceso de lectura al mismo) pueden poner en riesgo el ambiente del ejecutor auto-hospedado, incluyendo el obtener acceso a los secretos y al `GITHUB_TOKEN` que,{% ifversion fpt or ghes > 3.1 or ghae or ghec %} dependiendo de su configuración, puede otorgar{% else %} otorga{% endif %}acceso de escritura al repositorio. Aunque los flujos de trabajo pueden controlar el acceso a los secretos de ambiente utilizando ambientes y revisiones requeridas, estos flujos de trabajo no se encuentran en un ambiente aislado y aún son susceptibles a los mismos riesgos cuando se ejecutan en un ejecutor auto-hospedado.
 
-Cuando se define un ejecutor auto-hospedado a nivel de organización o de empresa, {% data variables.product.product_name %} puede programar flujos de trabajo de repositorios múltiples en el mismo ejecutor. Como consecuencia, si se pone en riesgo la seguridad de estos ambientes, se puede ocasionar un impacto amplio. Para ayudar a reducir el alcance de esta vulneración, puedes crear límites si organizas tus ejecutores auto-hospedados en grupos separados. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
+Cuando se define un ejecutor auto-hospedado a nivel de organización o de empresa, {% data variables.product.product_name %} puede programar flujos de trabajo de repositorios múltiples en el mismo ejecutor. Como consecuencia, si se pone en riesgo la seguridad de estos ambientes, se puede ocasionar un impacto amplio. Para ayudar a reducir el alcance de esta vulneración, puedes crear límites si organizas tus ejecutores auto-hospedados en grupos separados. Puedes restringir qué {% if restrict-groups-to-workflows %}flujios de trabajo, {% endif %}organizaciones y repositorios pueden acceder a los grupos de ejecutores. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
 También deberás considerar el ambiente de las máquinas del ejecutor auto-hospedado:
 - ¿Qué información sensible reside en la máquina configurada como el ejecutor auto-hospedado? Por ejemplo, llaves SSH privadas, tokens de acceso a la API, entre otros.
@@ -277,12 +283,12 @@ Algunos clientes podrían intentar mitigar estos riesgos parcialmente implementa
 
 Un ejecutor auto-hospedado puede agregarse a varios niveles en tu jerarquía de {% data variables.product.prodname_dotcom %}: el nivel de empresa, organización o repositorio. Esta colocación determina quién podrá administrar el ejecutor:
 
-**Centralized management:**
+**Administración centralizada:**
   - Si planeas que un equipo centralizado sea el propietario de los ejecutores auto-hospedados, entonces la recomendación es agregar tus ejecutores en el nivel de empresa u organización mutua más alto. Esto otorga a tu equipo una ubicación única para ver y administrar tus ejecutores.
   - Si solo tienes una organización sencilla, entonces el agregar tus ejecutores a nivel organizacional es efectivamente el mismo acercamiento, pero puede que encuentres dificultades si agregas otra organización en el futuro.
 
-**Decentralized management:**
-  - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. Por ejemplo, si cada equipo es dueño de su propia organización, entonces será más simple si los ejecutores se agregan a nivel de organización también.
+**Administración descentralizada:**
+  - Si cada equipo administrará sus propios ejecutores auto-hospedados, entonces se recomienda agregarlos en el nivel más alto de propiedad del equipo. Por ejemplo, si cada equipo es dueño de su propia organización, entonces será más simple si los ejecutores se agregan a nivel de organización también.
   - También podrías agregar ejecutores a nivel de repositorio, pero esto agregará una sobrecarga de administración y también incrementará la cantidad de ejecutores que necesitas, ya que no puedes compartir ejecutores entre repositorios.
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
@@ -294,11 +300,11 @@ Si estás utilizando las {% data variables.product.prodname_actions %} para desp
 
 ## Auditar eventos de {% data variables.product.prodname_actions %}
 
-Puedes utilizar la bitácora de auditoría para monitorear las tareas administrativas en una organización. La bitácora de auditoría registra el tipo de acción, cuándo se ejecutó, y qué cuenta de usuario la realizó.
+Puedes utilizar la bitácora de auditoría para monitorear las tareas administrativas en una organización. The audit log records the type of action, when it was run, and which personal account performed the action.
 
 Por ejemplo, puedes utilizar la bitácora de auditoría para rastrear el evento `org.update_actions_secret`, el cual rastrea los cambios en los secretos de la organización: ![Entradas de la bitácora de auditoría](/assets/images/help/repository/audit-log-entries.png)
 
-Las siguientes tablas describen los eventos de {% data variables.product.prodname_actions %} que puedes encontrar en la bitácora de auditoría. Para obtener más información sobre cómo utilizar la bitácora de auditoría, consulta la sección "[Revisar la bitácora de auditoría de tu organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)".
+Las siguientes tablas describen los eventos de {% data variables.product.prodname_actions %} que puedes encontrar en la bitácora de auditoría. For more information on using the audit log, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" and "[Reviewing audit logs for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
 
 {% ifversion fpt or ghec %}
 ### Eventos para los ambientes
@@ -313,9 +319,10 @@ Las siguientes tablas describen los eventos de {% data variables.product.prodnam
 
 {% ifversion fpt or ghes or ghec %}
 ### Eventos para cambios de configuración
-| Acción                 | Descripción                                                                                                                                                                                                                                                                                                                           |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repo.actions_enabled` | Se activa cuando {% data variables.product.prodname_actions %} se habilita en un repositorio. Puede visualizarse utilizando la IU. Este evento no es visible cuando accedes a la bitácora de auditoría utilizando la API de REST. Para obtener más información, consulta la sección "[Utilizar la API de REST](#using-the-rest-api)". |
+| Acción                                | Descripción                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repo.actions_enabled`                | Se activa cuando {% data variables.product.prodname_actions %} se habilita en un repositorio. Puede visualizarse utilizando la IU. Este evento no es visible cuando accedes a la bitácora de auditoría utilizando la API de REST. Para obtener más información, consulta la sección "[Utilizar la API de REST](#using-the-rest-api)". |
+| `repo.update_actions_access_settings` | Triggered when the setting to control how your repository is used by {% data variables.product.prodname_actions %} workflows in other repositories is changed.                                                                                                                                                                        |
 {% endif %}
 
 ### Eventos para la administración de secretos

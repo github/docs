@@ -19,7 +19,7 @@ shortTitle: 管理安全和分析
 
 您仍然可以管理单个仓库的安全和分析功能。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。
 
-您还可以查看用户帐户上所有活动的安全日志。 更多信息请参阅“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)”。
+您还可以查看个人帐户上所有活动的安全日志。 更多信息请参阅“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)”。
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 
@@ -50,5 +50,5 @@ shortTitle: 管理安全和分析
 ## 延伸阅读
 
 - “[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”
-- "[管理项目依赖项中的漏洞](/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies)"
+- "[关于 {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
 - "[自动更新依赖项](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically)"

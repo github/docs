@@ -27,7 +27,7 @@ topics:
 Existem duas maneiras principais de usar {% data variables.product.prodname_codeql %} análise para {% data variables.product.prodname_code_scanning %}:
 
 - Adicione o fluxo de trabalho de {% data variables.product.prodname_codeql %} ao seu repositório. Isto usa o [github/codeql-action](https://github.com/github/codeql-action/) para executar o {% data variables.product.prodname_codeql_cli %}. Para obter mais informações, consulte "[Configurar {% data variables.product.prodname_code_scanning %} para um repositório](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/setting-up-code-scanning-for-a-repository#setting-up-code-scanning-using-actions)".
-- Run the {% data variables.product.prodname_codeql %} CLI directly in an external CI system and upload the results to {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre a digitalização de código {% data variables.product.prodname_codeql %} no seu sistema de CI ](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
+- Execute a CLI de {% data variables.product.prodname_codeql %} diretamente em um sistema dew CI externo e faça o upload dos resultados para {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre a digitalização de código {% data variables.product.prodname_codeql %} no seu sistema de CI ](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
 
 ## Sobre o {% data variables.product.prodname_codeql %}
 

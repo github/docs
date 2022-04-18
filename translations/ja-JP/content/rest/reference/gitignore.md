@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.
+intro: Gitignore APIは、ファイルやディレクトリを無視するために利用できる`.gitignore`テンプレートをフェッチします。
 redirect_from:
   - /v3/gitignore
 versions:

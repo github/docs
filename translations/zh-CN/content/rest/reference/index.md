@@ -22,6 +22,8 @@ children:
   - /collaborators
   - /commits
   - /dependabot
+  - /dependency-graph
+  - /deploy_keys
   - /deployments
   - /emojis
   - /enterprise-admin

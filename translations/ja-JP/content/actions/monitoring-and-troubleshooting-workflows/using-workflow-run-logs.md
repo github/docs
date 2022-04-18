@@ -62,6 +62,16 @@ versions:
   ![[Download logs] ドロップダウンメニュー](/assets/images/help/repository/download-logs-drop-down-updated-2.png)
 
 
+  {% if re-run-jobs %}
+
+  {% note %}
+
+  **Note**: When you download the log archive for a workflow that was partially re-run, the archive only includes the jobs that were re-run. To get a complete set of logs for jobs that were run from a workflow, you must download the log archives for the previous run attempts that ran the other jobs.
+
+  {% endnote %}
+
+  {% endif %}
+
 ## ログの削除
 
 ワークフローの実行からログファイルを削除できます。 {% data reusables.repositories.permissions-statement-write %}

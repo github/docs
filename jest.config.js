@@ -41,4 +41,6 @@ module.exports = {
   ],
   testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions,
+  globalSetup: './script/start-server-for-jest.mjs',
+  globalTeardown: './script/kill-server-for-jest.mjs',
 }

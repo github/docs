@@ -1,1 +1,1 @@
-如果您想销售用户帐户拥有的应用，需要先将应用转移到组织，然后请求验证组织创建的列表。
+If you want to sell an app that's owned by your personal account, first you'll need to transfer the app to an organization, and then request verification for a listing created by the organization.

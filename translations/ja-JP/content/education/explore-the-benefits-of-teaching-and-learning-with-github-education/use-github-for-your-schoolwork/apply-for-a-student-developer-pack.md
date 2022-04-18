@@ -18,7 +18,7 @@ shortTitle: Apply for a student pack
 {% data variables.product.prodname_student_pack %} に適格であるには、以下を満たしていなければなりません:
 - 高等学校、中等学校、大学、ホームスクールまたはそれに類似した教育機関で、学位を取得できるコースに現在在籍している
 - 学校が発行した検証可能なメールアドレスを持っているか、現在の在学状況を証明するドキュメントをアップロードしている
-- [{% data variables.product.prodname_dotcom %} のユーザアカウント](/articles/signing-up-for-a-new-github-account)を持っている
+- Have a [{% data variables.product.prodname_dotcom %} personal account](/articles/signing-up-for-a-new-github-account)
 - 最低でも 13 歳以上であること
 
 在学状況を証明する書類には、入学日が記載された学生証、授業計画、成績証明書、所属または登録を証明する書類などのコピーがあげられます。
@@ -27,7 +27,7 @@ shortTitle: Apply for a student pack
 
 {% note %}
 
-**メモ:** アカデミック割引をアカウント間で移譲することはできません。 割引を適用したいアカウントを複数持っているなら、ユーザアカウントを[マージ](/articles/merging-multiple-user-accounts)し、もしそうしたいなら残すアカウントの[名前を変更する](/articles/changing-your-github-username)ことを検討してください。
+**メモ:** アカデミック割引をアカウント間で移譲することはできません。 If you have more than one account you want to apply the discount to, consider [merging](/articles/merging-multiple-user-accounts) your personal accounts and [renaming](/articles/changing-your-github-username) the retained account if desired.
 
 {% endnote %}
 

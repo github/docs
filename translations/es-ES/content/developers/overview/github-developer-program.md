@@ -12,10 +12,6 @@ topics:
 
 ¿Estás creando una aplicación que se integra con GitHub? ¡Regístrate para nuestro Programa de Desarrollador! Las posibilidades son infinitas, y disfrutarás del reconocimiento de la comunidad. [Regístrate ahora](https://github.com/developer/register)
 
-## Permanece informado
-
-Sé el primero en saber acerca de los cambios a la API y prueba características nuevas antes de que se lanzen en el [Blod del desarrollador](https://developer.github.com/changes/).
-
 ## Quítate la tentación
 
 Crea tus propias herramientas que se integren de manera continua con el lugar en donde cargas código todos los días.
@@ -24,10 +20,9 @@ Crea tus propias herramientas que se integren de manera continua con el lugar en
 
 Contacta por correo electrónico a <a href="mailto:partnerships@github.com">partnerships@github.com</a> para solicitar licencias de desarrollador para compilar y probar tu aplicación contra {% data variables.product.prodname_ghe_server %}.
 
-
 ## ¿Tienes una integración que opera con GitHub?
 
-¡Genial! Nos gustaría que fueras parte del programa. Aquí te mostramos como puedes correr la voz:</p>
+¡Impresionante! Nos gustaría que fueras parte del programa. Aquí te mostramos como puedes correr la voz:</p>
 * [Infórmanos sobre tu integración](https://support.github.com/contact?tags=rr-general-technical&form[subject]=New+GitHub+Integration)
 * Utiliza el [Logo de Octocat o de GitHub](https://github.com/logos) para denotar que tu producto se integra con GitHub
 * Publica un video o un blog en tu sitio web que explique esta integración

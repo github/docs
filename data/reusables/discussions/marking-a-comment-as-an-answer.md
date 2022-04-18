@@ -6,7 +6,7 @@ When you mark a question as an answer, {% data variables.product.product_name %}
 
 You can't mark a threaded comment in response to a comment as the answer to a discussion. You also can't mark a minimized comment as the answer to a discussion.
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. In the list of discussions, click the unanswered discussion you want to mark as answered.
   ![Unanswered discussion](/assets/images/help/discussions/unanswered-discussion.png)

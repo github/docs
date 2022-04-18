@@ -45,8 +45,8 @@ Para atualizar seus fluxos de trabalho para o OIDC, você deverá fazer duas alt
 
 Para adicionar a integração do OIDC a seus fluxos de trabalho que lhes permitem acessar os segredos no Vault, você deverá adicionar as seguintes alterações de código:
 
-- Grant permission to fetch the token from the {% data variables.product.prodname_dotcom %} OIDC provider:
-  - O fluxo de trabalho precisa de configurações de `permissions:` com o valor `id-token` definido como `write`. This lets you fetch the OIDC token from every job in the workflow.
+- Conceder permissão para obter o token do provedor do OIDC de {% data variables.product.prodname_dotcom %}:
+  - O fluxo de trabalho precisa de configurações de `permissions:` com o valor `id-token` definido como `write`. Isso permite obter o token do OIDC de cada trabalho do fluxo de trabalho.
 - Solicite o JWT do provedor do OIDC {% data variables.product.prodname_dotcom %} e apresente-o ao HashiCorp Vault para receber um token de acesso:
   - Você pode usar o kit de ferramentas [Actions](https://github.com/actions/toolkit/) para buscar os tokens para o seu trabalho, ou você pode usar a ação [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) para buscar o JWT e receber o token de acesso do Vault.
 

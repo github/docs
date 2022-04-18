@@ -49,6 +49,7 @@
 | Hubspot                   | Chave da API de Hubspot                                   |
 | Ionic                     | Ionic Personal Access Token                               |
 | Ionic                     | Ionic Refresh Token                                       |
+| JD Cloud                  | JD Cloud Access Key                                       |
 | Linear                    | Linear API Key                                            |
 | Linear                    | Linear OAuth Access Token                                 |
 | Mailchimp                 | Chave da API de Mailchimp                                 |
@@ -58,6 +59,7 @@
 | Meta                      | Facebook Access Token                                     |
 | npm                       | Token de acesso de npm                                    |
 | NuGet                     | Chave de API de NuGet                                     |
+| Octopus Deploy            | Octopus Deploy API Key                                    |
 | OpenAI                    | OpenAI API Key                                            |
 | Palantir                  | Token web de JSON de Palantir                             |
 | PlanetScale               | PlanetScale Database Password                             |
@@ -90,6 +92,7 @@
 | Stripe                    | Chave secreta da API de Teste de Stripe                   |
 | Stripe                    | Chave restrita da API de Stripe Live                      |
 | Stripe                    | Chave restrita da API de testes de Stripe                 |
+| Supabase                  | Supabase Service Key                                      |
 | Tencent Cloud             | ID de segredot de Tencent Cloud                           |
 | Twilio                    | Identificador de string de conta de Twilio                |
 | Twilio                    | Chave da API de Twilio                                    |

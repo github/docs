@@ -1,6 +1,6 @@
 ---
 title: Git データベース
-intro: 'The Git Database API enables you to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update Git references (branch heads and tags).'
+intro: 'Git Database APIを使うと、{% data variables.product.product_name %}上のGitデータベースに対してRaw形式のGitオブジェクトを読み書きしたり、リファレンス (ブランチheadやタグ) をリストおよび更新したりできます。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/git

@@ -37,7 +37,8 @@ prodname_unified_search: '统一搜索'
 #GitHub Education
 prodname_education: 'GitHub Education'
 prodname_education_community: '教育社区'
-prodname_education_community_with_url: '[GitHub Education 社区](https://education.github.community)'
+prodname_education_community_with_url: '[GitHub Education 社区](https://github.com/orgs/github-community/discussions/categories/github-education)'
+prodname_education_forum_link: 'https://github.com/orgs/github-community/discussions/categories/github-education'
 prodname_classroom: 'GitHub 课堂'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'GitHub 校园计划'
@@ -100,7 +101,7 @@ prodname_advanced_security: 'Advanced Security'
 #Codespaces
 prodname_codespaces: 'Codespaces'
 prodname_github_codespaces: 'GitHub Codespaces'
-prodname_serverless: 'web-based editor'
+prodname_serverless: '基于 Web 的编辑器'
 #GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'GitHub Community Support'
 prodname_blog: 'GitHub 博客'
@@ -142,13 +143,13 @@ prodname_vs: 'Visual Studio'
 prodname_vscode: 'Visual Studio Code'
 prodname_vss_ghe: 'Visual Studio subscriptions with GitHub Enterprise'
 prodname_vss_admin_portal_with_url: '[Visual Studio 订阅的管理员门户](https://visualstudio.microsoft.com/subscriptions-administration/)'
-prodname_vscode_command_palette: 'VS Code Command Palette'
+prodname_vscode_command_palette: 'VS 代码命令面板'
 #GitHub Dependabot
 prodname_dependabot: 'Dependabot'
 prodname_dependabot_alerts: 'Dependabot 警报'
 prodname_dependabot_security_updates: 'Dependabot 安全更新'
 prodname_dependabot_version_updates: 'Dependabot 版本更新'
-prodname_dependabot_updates: 'Dependabot updates'
+prodname_dependabot_updates: 'Dependabot 更新'
 #GitHub Archive Program
 prodname_archive: 'GitHub 存档计划'
 prodname_arctic_vault: 'Arctic 代码库'
@@ -156,7 +157,7 @@ prodname_arctic_vault: 'Arctic 代码库'
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
 #Command Palette
-prodname_command_palette: 'GitHub Command Palette'
+prodname_command_palette: 'GitHub 命令面板'
 #Links
 product_url: >-
   {% ifversion fpt or ghec %}github.com{% else %}[hostname]{% endif %}

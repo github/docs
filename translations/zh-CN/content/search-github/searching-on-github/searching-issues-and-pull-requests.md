@@ -79,7 +79,7 @@ shortTitle: 搜索议题和 PR
 
 您可以使用 `is` 限定符，按包含议题和拉取请求的仓库的可见性进行过滤。 更多信息请参阅“[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)”。
 
-| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
+| 限定符  | 示例 | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) 匹配公共仓库中的议题和拉取请求。{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) 匹配内部仓库中的议题和拉取请求。{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) 匹配您可以访问的仓库中包含单词 "cupcake" 的议题和拉取请求。
 
 ## 按作者搜索
 
@@ -103,18 +103,18 @@ shortTitle: 搜索议题和 PR
 
 `mentions` 限定符查找提及特定用户的议题。 更多信息请参阅“[提及人员和团队](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)”。
 
-| 限定符                       | 示例                                                                                                                                                              |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>mentions:<em>USERNAME</em></code> | [**`resque mentions:defunkt`**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt. |
+| 限定符                       | 示例                                                                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| <code>mentions:<em>USERNAME</em></code> | [**`resque mentions:defunkt`**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) 匹配含有 "resque" 字样、提及 @defunkt 的议题。 |
 
 ## 按团队提及搜索
 
 对于您所属的组织和团队，您可以使用 `team` 限定符查找提及该组织内特定团队的议题或拉取请求。 将这些示例名称替换为您的组织和团队的名称以执行搜索。
 
-| 限定符                       | 示例                                                                                    |
-| ------------------------- | ------------------------------------------------------------------------------------- |
-| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **`team:jekyll/owners`** matches issues where the `@jekyll/owners` team is mentioned. |
-|                           | **team:myorg/ops is:open is:pr** 匹配提及 `@myorg/ops` 团队的打开拉取请求。                         |
+| 限定符                       | 示例                                                            |
+| ------------------------- | ------------------------------------------------------------- |
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **`team:jekyll/owners`** 匹配提及 `@jekyll/owners` 团队的议题。         |
+|                           | **team:myorg/ops is:open is:pr** 匹配提及 `@myorg/ops` 团队的打开拉取请求。 |
 
 ## 按评论者搜索
 
@@ -149,11 +149,11 @@ shortTitle: 搜索议题和 PR
 
 您可以使用 `label` 限定符按标签缩小结果范围。 由于议题可有多个标签，因此您可为每个议题列出单独的限定符。
 
-| 限定符                        | 示例                                                                                                                                                                                                            |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) 匹配标签为 "help wanted"、位于 Ruby 仓库中的议题。                                 |
-|                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) 匹配正文中含有 "broken" 字样、没有 "bug" 标签但*有* "priority" 标签的议题。                  |
-|                            | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) matches issues with the labels "bug" and "resolved."{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
+| 限定符                        | 示例                                                                                                                                                                                           |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>label:<em>LABEL</em></code> | [**label:"help wanted" language:ruby**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22help+wanted%22+language%3Aruby&type=Issues) 匹配标签为 "help wanted"、位于 Ruby 仓库中的议题。                |
+|                            | [**broken in:body -label:bug label:priority**](https://github.com/search?q=broken+in%3Abody+-label%3Abug+label%3Apriority&type=Issues) 匹配正文中含有 "broken" 字样、没有 "bug" 标签但*有* "priority" 标签的议题。 |
+|                            | [**label:bug label:resolved**](https://github.com/search?l=&q=label%3Abug+label%3Aresolved&type=Issues) 匹配含有 "bug" 和 "resolved" 标签的议题。{% ifversion fpt or ghes > 3.2 or ghae or ghec %}
 |                            | [**label:bug label:resolved**](https://github.com/search?q=label%3Abug%2Cresolved&type=Issues) 匹配含有 "bug" 或 "resolved" 标签的议题。{% endif %}
 
 ## 按里程碑搜索
@@ -176,7 +176,7 @@ shortTitle: 搜索议题和 PR
 
 ## 按提交状态搜索
 
-您可以基于提交的状态过滤拉取请求。 This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
+您可以基于提交的状态过滤拉取请求。 这在使用 [Status API](/rest/reference/commits#commit-statuses) 或 CI 服务时特别有用。
 
 | 限定符              | 示例                                                                                                                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -246,16 +246,16 @@ shortTitle: 搜索议题和 PR
 
 您可以基于拉取请求的[审查状态](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)（_无_、_必需_、_批准_或_请求更改_）、按审查者和请求的审查者过滤拉取请求。
 
-| 限定符                        | 示例                                                                                                                                                                                                                                                                                                                                                                                            |
-| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `review:none`              | [**type:pr review:none**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Anone&type=Issues) 匹配尚未审查的拉取请求。                                                                                                                                                                                                                                                                        |
-| `review:required`          | [**type:pr review:required**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Arequired&type=Issues) 匹配需要审查然后才能合并的拉取请求。                                                                                                                                                                                                                                                          |
-| `review:approved`          | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) 匹配审查者已批准的拉取请求。                                                                                                                                                                                                                                                              |
-| `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) 匹配审查者已请求更改的拉取请求。                                                                                                                                                                                                                                          |
-| <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) 匹配特定人员审查的拉取请求。                                                                                                                                                                                                                                                |
-| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) 匹配特定人员申请审查的拉取请求。 申请的审查者在其审查拉取请求后不再在搜索结果中列出。 If the requested person is on a team that is requested for review, then review requests for that team will also appear in the search results.{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
-| <code>user-review-requested:@me</code> | [**type:pr user-review-requested:@me**](https://github.com/search?q=is%3Apr+user-review-requested%3A%40me+) matches pull requests that you have directly been asked to review.{% endif %}
-| <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) 匹配已审查团队 `atom/design` 请求的拉取请求。 申请的审查者在其审查拉取请求后不再在搜索结果中列出。                                                                                                                                                                                            |
+| 限定符                        | 示例                                                                                                                                                                                                                                                                                    |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `review:none`              | [**type:pr review:none**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Anone&type=Issues) 匹配尚未审查的拉取请求。                                                                                                                                                                |
+| `review:required`          | [**type:pr review:required**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Arequired&type=Issues) 匹配需要审查然后才能合并的拉取请求。                                                                                                                                                  |
+| `review:approved`          | [**type:pr review:approved**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Aapproved&type=Issues) 匹配审查者已批准的拉取请求。                                                                                                                                                      |
+| `review:changes_requested` | [**type:pr review:changes_requested**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review%3Achanges_requested&type=Issues) 匹配审查者已请求更改的拉取请求。                                                                                                                                  |
+| <code>reviewed-by:<em>USERNAME</em></code> | [**type:pr reviewed-by:gjtorikian**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+reviewed-by%3Agjtorikian&type=Issues) 匹配特定人员审查的拉取请求。                                                                                                                                        |
+| <code>review-requested:<em>USERNAME</em></code> | [**type:pr review-requested:benbalter**](https://github.com/search?utf8=%E2%9C%93&q=type%3Apr+review-requested%3Abenbalter&type=Issues) 匹配特定人员申请审查的拉取请求。 申请的审查者在其审查拉取请求后不再在搜索结果中列出。 如果请求的人员属于请求审核的团队，则该团队的审核请求也会显示在搜索结果中。{% ifversion fpt or ghae-issue-5181 or ghes > 3.2 or ghec %}
+| <code>user-review-requested:@me</code> | [**type:pr user-review-requested:@me**](https://github.com/search?q=is%3Apr+user-review-requested%3A%40me+) 匹配直接要求您审核的拉取请求。{% endif %}
+| <code>team-review-requested:<em>TEAMNAME</em></code> | [**type:pr team-review-requested:atom/design**](https://github.com/search?q=type%3Apr+team-review-requested%3Aatom%2Fdesign&type=Issues) 匹配已审查团队 `atom/design` 请求的拉取请求。 申请的审查者在其审查拉取请求后不再在搜索结果中列出。                                                                                    |
 
 ## 按议题或拉取请求创建或上次更新的时间搜索
 
@@ -291,19 +291,19 @@ shortTitle: 搜索议题和 PR
 
 {% data reusables.search.date_gt_lt %}
 
-| 限定符                        | 示例                                                                                                                                                                                                                      |
-| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>merged:<em>YYYY-MM-DD</em></code> | [**`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011. |
-|                            | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) 匹配 2014 年 5 月之后合并、标题中含有 "fast" 字样、以 Ruby 编写的拉取请求。             |
+| 限定符                        | 示例                                                                                                                                                                                                          |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>merged:<em>YYYY-MM-DD</em></code> | [**`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) 匹配 2011 年以前合并的 JavaScript 仓库中的拉取请求。                                |
+|                            | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) 匹配 2014 年 5 月之后合并、标题中含有 "fast" 字样、以 Ruby 编写的拉取请求。 |
 
 ## 基于拉取请求是否已合并搜索
 
 您可以使用 `is` 限定符基于拉取请求已合并还是未合并进行过滤。
 
-| 限定符           | 示例                                                                                                                                                       |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) matches merged pull requests with the word "bug." |
-| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) 匹配含有 "error" 字样的已关闭议题和拉取请求。                                |
+| 限定符           | 示例                                                                                                                            |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) 匹配含有 "bug" 字样的已合并拉取请求。 |
+| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) 匹配含有 "error" 字样的已关闭议题和拉取请求。     |
 
 ## 基于仓库是否已存档搜索
 

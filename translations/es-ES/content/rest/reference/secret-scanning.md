@@ -1,6 +1,6 @@
 ---
 title: Escaneo de secretos
-intro: Use the secret scanning API to retrieve and update secret alerts from a repository.
+intro: Utiliza la API de escaneo de secretos para recuperar y actualizar las alertas secretas de un repositorio.
 versions:
   fpt: '*'
   ghes: '*'

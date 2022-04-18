@@ -25,6 +25,12 @@ Quando uma aplicação em execução dentro de um codespace imprime a saída par
 
 Você também pode encaminhar uma porta manualmente, etiquetar portas encaminhadas, compartilhar portas encaminhadas com integrantes da sua organização, compartilhar as portas encaminhadas publicamente e adicione as portas encaminhadas à configuração do codespace.
 
+{% note %}
+
+**Observação**: {% data reusables.codespaces.restrict-port-visibility %}
+
+{% endnote %}
+
 ## Encaminhar uma porta
 
 Você pode encaminhar manualmente uma porta que não foi encaminhada automaticamente.
@@ -84,11 +90,17 @@ Para ver os detalhes das portas encaminhadas, digite `gh codespace ports` e, em 
 
 {% note %}
 
-**Observação:** Você só pode tornar uma porta privada para uma organização se a sua organização usar {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}. Este recurso não está disponível atualmente na versão beta do {% data variables.product.prodname_codespaces %}.
+**Observação:** Você só pode tornar uma porta privada para uma organização se a sua organização usar {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}.
 
 {% endnote %}
 
 Se você quiser compartilhar uma porta encaminhada com outras pessoas, você pode tornar a porta privada da sua organização ou tornar a porta pública. Após tornar uma porta privada para a sua organização, qualquer pessoa na organização com a URL da porta poderá ver o aplicativo em execução. Após você tornar uma porta pública, qualquer pessoa que conheça a URL e o número da porta poderá ver o aplicativo em execução sem precisar efetuar a autenticação.
+
+{% note %}
+
+**Observação:** A sua escolha das opções de visibilidade da porta pode ser limitada por uma política configurada para a sua organização. Para obter mais informações, consulte "[Restringindo a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports). "
+
+{% endnote %}
 
 {% webui %}
 
@@ -102,7 +114,7 @@ Se você quiser compartilhar uma porta encaminhada com outras pessoas, você pod
 {% vscode %}
 
 {% data reusables.codespaces.navigate-to-ports-tab %}
-1. Clique com o botão direito na porta que você deseja compartilhar e clique em **Tornar pública**. ![Opção para tornar a porta pública no menu com o clique com o botão direito](/assets/images/help/codespaces/make-public-option.png)
+1. Clique com o botão direito na porta que você deseja compartilhar, selecione o menu "Visibilidade da Porta" e, em seguida, clique em **Privado para a Organização** ou **Público**. ![Opção para tornar a porta pública no menu com o clique com o botão direito](/assets/images/help/codespaces/make-public-option.png)
 1. À direita do endereço local para a porta, clique no ícone copiar. ![Copiar ícone para o URL de porta](/assets/images/help/codespaces/copy-icon-port-url.png)
 1. Envie a URL copiada para a pessoa com quem você deseja compartilhar a porta.
 

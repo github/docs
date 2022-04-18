@@ -18,9 +18,9 @@ shortTitle: 查看 Actions 使用情况
 
 还可以查看单个工作流程运行的计费作业执行分钟数。 更多信息请参阅“[查看作业执行时间](/actions/managing-workflow-runs/viewing-job-execution-time)”。
 
-## 查看用户帐户的 {% data variables.product.prodname_actions %} 使用情况
+## 查看个人帐户的 {% data variables.product.prodname_actions %} 使用情况
 
-任何人都可以查看自己用户帐户的 {% data variables.product.prodname_actions %} 使用情况。
+任何人都可以查看自己个人帐户的 {% data variables.product.prodname_actions %} 使用情况。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -35,7 +35,7 @@ shortTitle: 查看 Actions 使用情况
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.actions-minutes %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## 查看企业帐户的 {% data variables.product.prodname_actions %} 使用情况
 

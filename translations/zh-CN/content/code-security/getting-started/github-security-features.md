@@ -37,7 +37,7 @@ Privately discuss and fix security vulnerabilities in your repository's code. Yo
 
 ### {% data variables.product.prodname_dependabot_alerts %} and security updates
 
-View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
+View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)"
 and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 {% endif %}
 
@@ -46,7 +46,7 @@ and "[About {% data variables.product.prodname_dependabot_security_updates %}](/
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
+View alerts about dependencies that are known to contain security vulnerabilities, and manage these alerts. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}

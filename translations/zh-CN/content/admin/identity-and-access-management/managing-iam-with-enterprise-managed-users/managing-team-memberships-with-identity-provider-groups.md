@@ -18,7 +18,7 @@ topics:
 
 ## About team management with {% data variables.product.prodname_emus %}
 
-With {% data variables.product.prodname_emus %}, you can manage team membership within your enterprise through your IdP. When you connect a team in one of your enterprise's organizations to an IdP group, changes to membership from the IdP group are reflected in your enterprise automatically, reducing the need for manual updates and custom scripts.
+With {% data variables.product.prodname_emus %}, you can manage team membership within your enterprise through your IdP. When you connect a team in one of your enterprise's organizations to an IdP group, changes to membership from the IdP group are reflected in your enterprise automatically, reducing the need for manual updates and custom scripts. 
 
 When a change to an IdP group or a new team connection results in a {% data variables.product.prodname_managed_user %} joining a team in an organization they were not already a member of, the {% data variables.product.prodname_managed_user %} will automatically be added to the organization. Organization owners can also manage organization membership manually. When you disconnect a group from a team, users who became members of the organization via team membership are removed from the organization if they are not assigned membership in the organization by any other means.
 
@@ -34,14 +34,15 @@ To manage repository access for any team in your enterprise, including teams con
 
 ## Creating a new team connected to an IdP group
 
-Any member of an organization can create a new team and connect the team to an IdP group.
+Any member of an organization can create a new team and connect the team to an IdP group. 
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
-1. To connect a team, select the "Identity Provider Groups" drop-down menu and click the team you want to connect. ![用于选择身份提供程序组的下拉菜单](/assets/images/help/teams/choose-an-idp-group.png)
+1. To connect a team, select the "Identity Provider Groups" drop-down menu and click the team you want to connect.
+    ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png)
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
 
@@ -60,15 +61,20 @@ Organization owners and team maintainers can manage the existing connection betw
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-1. Optionally, under "Identity Provider Group", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}. ![从 GitHub 团队取消选择已连接的 IdP 组](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png)
-1. To connect an IdP group, under "Identity Provider Group", select the drop-down menu, and click an identity provider group from the list. ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
-1. 单击 **Save changes（保存更改）**。
+1. Optionally, under "Identity Provider Group", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}. 
+    ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png)
+1. To connect an IdP group, under "Identity Provider Group", select the drop-down menu, and click an identity provider group from the list.
+    ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
+1. Click **Save changes**.
 
 ## Viewing IdP groups, group membership, and connected teams
 
 You can review a list of IdP groups, see any teams connected to an IdP group, and see the membership of each IdP group on {% data variables.product.product_name %}. You must edit the membership for a group on your IdP.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. To review a list of IdP groups, in the left sidebar, click {% octicon "key" aria-label="The key icon" %} **Identity provider**. ![Screenshot showing "Identity provider" tab in enterprise sidebar](/assets/images/help/enterprises/enterprise-account-identity-provider-tab.png)
-2. To see the members and teams connected to an IdP group, click the group's name. ![Screenshot showing list of IdP groups, the group name is highlighted](/assets/images/help/enterprises/select-idp-group.png)
-4. To view the teams connected to the IdP group, click **Teams**. ![Screenshot showing the "Teams" button](/assets/images/help/enterprises/idp-groups-team-switcher.png)
+1. To review a list of IdP groups, in the left sidebar, click {% octicon "key" aria-label="The key icon" %} **Identity provider**.
+    ![Screenshot showing "Identity provider" tab in enterprise sidebar](/assets/images/help/enterprises/enterprise-account-identity-provider-tab.png)
+2. To see the members and teams connected to an IdP group, click the group's name.
+    ![Screenshot showing list of IdP groups, the group name is highlighted](/assets/images/help/enterprises/select-idp-group.png)
+4. To view the teams connected to the IdP group, click **Teams**. 
+    ![Screenshot showing the "Teams" button](/assets/images/help/enterprises/idp-groups-team-switcher.png)

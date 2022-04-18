@@ -24,13 +24,15 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: Precisa de ajuda?
-  placeholder: Pesquisar tópicos, produtos...
+  placeholder: Search GitHub Docs
   loading: Carregando
   no_results: Nenhum resultado encontrado
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: Explorar por produto
   version_picker: Versão
@@ -80,6 +82,7 @@ contribution_cta:
 products:
   graphql:
     reference:
+      implements: Implements
       fields: Campos
       arguments: Argumentos
       name: Nome
@@ -102,6 +105,8 @@ products:
       notes: Observações
       parameters: Parâmetros
       response: Resposta
+      status_codes: Status codes
+      http_status_code: HTTP Status Code
       code_sample: Amostra de código
       code_samples: Amostras de código
       preview_notice: Aviso de pré-visualização

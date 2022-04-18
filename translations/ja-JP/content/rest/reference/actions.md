@@ -1,6 +1,6 @@
 ---
 title: アクション
-intro: 'With the Actions API, you can manage and control {% data variables.product.prodname_actions %} for an organization or repository.'
+intro: 'Actions APIを使うと、Organizationやリポジトリの{% data variables.product.prodname_actions %}を管理し、制御できます。'
 redirect_from:
   - /v3/actions
 versions:

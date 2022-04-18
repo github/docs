@@ -66,6 +66,10 @@ export default function ClientSideHighlightJS() {
         intersectionObserver.observe(element)
       }
     }
+
+    return () => {
+      intersectionObserver.disconnect()
+    }
   }, [asPath])
 
   return null

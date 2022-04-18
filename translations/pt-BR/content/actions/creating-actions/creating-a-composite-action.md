@@ -117,7 +117,6 @@ O código de fluxo de trabalho a seguir usa a ação hello world completa que vo
 
 Copie o código do fluxo de trabalho em um arquivo `.github/workflows/main.yml` em outro repositório, mas substitua `actions/hello-world-composite-action@v1` pelo repositório e pela tag que você criou. Você também pode substituir a entrada `who-to-greet` pelo seu nome.
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml
 on: [push]
@@ -127,14 +126,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - id: foo
         uses: actions/hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+      - run: echo random-number {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
         shell: bash
 ```
-{% endraw %}
 
 No seu repositório, clique na aba **Ações** e selecione a última execução do fluxo de trabalho. A saída deve incluir: "Hello Mona the Octocat", o resultado do script "Goodbye" e um número aleatório.

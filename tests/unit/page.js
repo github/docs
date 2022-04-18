@@ -609,6 +609,21 @@ describe('Page class', () => {
     })
   })
 
+  describe('introLinks', () => {
+    it('includes the links specified in the introLinks frontmatter', async () => {
+      const page = await Page.init({
+        relativePath: 'article-with-introLinks.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      })
+
+      expect(page.introLinks).toStrictEqual({
+        overview: 'https://github.com',
+        'custom link!': 'https://github.com/features',
+      })
+    })
+  })
+
   describe('Page.parseFrontmatter()', () => {
     it('throws an error on bad input', () => {
       const markdown = null

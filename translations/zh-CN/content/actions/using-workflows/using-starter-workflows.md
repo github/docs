@@ -1,6 +1,6 @@
 ---
-title: Using starter workflows
-intro: '{% data variables.product.product_name %} provides starter workflows for a variety of languages and tooling.'
+title: 使用入门工作流程
+intro: '{% data variables.product.product_name %} 为各种语言和工具提供入门工作流程。'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
   - /github/automating-your-workflow-with-github-actions/setting-up-continuous-integration-using-github-actions
@@ -24,33 +24,33 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About starter workflows
+## 关于入门工作流程
 
-{% data variables.product.product_name %} offers starter workflows for a variety of languages and tooling. When you set up workflows in your repository, {% data variables.product.product_name %} analyzes the code in your repository and recommends workflows based on the language and framework in your repository. For example, if you use [Node.js](https://nodejs.org/en/), {% data variables.product.product_name %} will suggest a starter workflow file that installs your Node.js packages and runs your tests.{% if actions-starter-template-ui %} You can search and filter to find relevant starter workflows.{% endif %}
+{% data variables.product.product_name %} 为各种语言和工具提供入门工作流程。 在存储库中设置工作流程时，{% data variables.product.product_name %} 会分析存储库中的代码，并根据存储库中的语言和框架推荐工作流程。 例如，如果您使用 [Node.js](https://nodejs.org/en/)，{% data variables.product.product_name %} 将提议使用入门工作流程来安装 Node.js 包和运行测试。{% if actions-starter-template-ui %}您可以搜索并筛选来查找相关的入门工作流程。{% endif %}
 
 {% data reusables.actions.starter-workflow-categories %}
 
-You can also create your own starter workflow to share with your organization. These starter workflows will appear alongside the {% data variables.product.product_name %}-provided starter workflows. For more information, see "[Creating starter workflows for your organization](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)."
+您还可以创建自己的入门工作流程以与您的组织共享。 这些入门工作流程将显示在 {% data variables.product.product_name %} 提供的入门工作流程旁边。 更多信息请参阅“[为组织创建入门工作流程](/actions/learn-github-actions/creating-starter-workflows-for-your-organization)”。
 
-## Using starter workflows
+## 使用入门工作流程
 
-Anyone with write permission to a repository can set up {% data variables.product.prodname_actions %} starter workflows for CI/CD or other automation.
+对存储库具有写入权限的任何人都可以为 CI/CD 或其他自动化设置 {% data variables.product.prodname_actions %} 入门工作流程。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. If you already have a workflow in your repository, click **New workflow**.
-1. Find the starter workflow that you want to use, then click **Set up this workflow**.{% if actions-starter-template-ui %} To help you find the starter workflow that you want, you can search for keywords or filter by category.{% endif %}
-1. If the starter workflow contains comments detailing additional setup steps, follow these steps. Many of the starter workflow have corresponding guides. For more information, see [the {% data variables.product.prodname_actions %} guides](/actions/guides)."
-1. Some starter workflows use secrets. For example, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. If the starter workflow uses a secret, store the value described in the secret name as a secret in your repository. 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
-1. Optionally, make additional changes. For example, you might want to change the value of `on` to change when the workflow runs.
+1. 如果存储库中已有工作流程，请单击 **New workflow（新建工作流程）**。
+1. 找到要使用的入门工作流程，然后单击 **Set up this workflow（设置此工作流程）**。{% if actions-starter-template-ui %} 为帮助您找到所需的入门工作流程，您可以搜索关键字或按类别进行筛选。{% endif %}
+1. 如果入门工作流程包含详细说明其他设置步骤的注释，请按照下列步骤操作。 许多入门工作流程都有相应的指南。 更多信息请参阅“[{% data variables.product.prodname_actions %} 指南](/actions/guides)”。
+1. 某些入门工作流程使用机密。 例如 {% raw %}`${{ secrets.npm_token }}`{% endraw %}。 如果入门工作流使用机密，请将机密名称中描述的值作为机密存储在存储库中。 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
+1. （可选）进行其他更改。 例如，您可能希望更改 `on` 的值，以便在工作流程运行时进行更改。
 1. 单击 **Start commit（开始提交）**。
-1. Write a commit message and decide whether to commit directly to the default branch or to open a pull request.
+1. 编写提交消息并决定是直接提交到默认分支还是打开拉取请求。
 
 ## 延伸阅读
 
 - "[关于持续集成](/articles/about-continuous-integration)"
-- "[Managing workflow runs](/actions/managing-workflow-runs)"
-- "[About monitoring and troubleshooting](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
+- "[管理工作流程运行](/actions/managing-workflow-runs)"
+- "[关于监控和故障排除](/actions/monitoring-and-troubleshooting-workflows/about-monitoring-and-troubleshooting)"
 - "[了解 {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
 {% ifversion fpt or ghec %}
 - "[管理 {% data variables.product.prodname_actions %} 的计费](/billing/managing-billing-for-github-actions)"

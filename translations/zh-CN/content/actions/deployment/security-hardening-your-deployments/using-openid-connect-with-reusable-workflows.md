@@ -1,7 +1,7 @@
 ---
-title: Using OpenID Connect with reusable workflows
-shortTitle: Using OpenID Connect with reusable workflows
-intro: You can use reusable workflows with OIDC to standardize and security harden your deployment steps.
+title: 将 OpenID Connect 与可重用的工作流程结合使用
+shortTitle: 将 OpenID Connect 与可重用的工作流程结合使用
+intro: 您可以将可重用的工作流程与 OIDC 结合使用，以标准化您的部署步骤并加强其安全性。
 miniTocMaxHeadingLevel: 3
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/using-oidc-with-your-reusable-workflows
@@ -19,21 +19,21 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About reusable workflows
+## 关于可重用工作流程
 
-Rather than copying and pasting deployment jobs from one workflow to another, you can create a reusable workflow that performs the deployment steps. A reusable workflow can be used by another workflow if it meets one of the access requirements described in "[Reusing workflows](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)."
+您可以创建一个可重用的工作流程来执行部署步骤，而不是将部署作业从一个工作流程复制并粘贴到另一个工作流程。 如果可重用工作流程满足“[重用工作流](/actions/learn-github-actions/reusing-workflows#access-to-reusable-workflows)”中所述的访问要求之一，则可以由另一个工作流程使用。
 
-When combined with OpenID Connect (OIDC), reusable workflows let you enforce consistent deployments across your repository, organization, or enterprise. You can do this by defining trust conditions on cloud roles based on reusable workflows.
+与 OpenID Connect (OIDC) 结合使用时，可重用工作流程可让您在存储库、组织或企业中实施一致的部署。 为此，可以基于可重用工作流程在云角色上定义信任条件。
 
-In order to create trust conditions based on reusable workflows, your cloud provider must support custom claims for `job_workflow_ref`. This allows your cloud provider to identify which repository the job originally came from. If your cloud provider only supports the standard claims (_audience_ and _subject_), it will not be able to determine that the job originated from the reusable workflow repository. Cloud providers that support `job_workflow_ref` include Google Cloud Platform and HashiCorp Vault.
+为了创建基于可重用工作流程的信任条件，云提供商必须支持 `job_workflow_ref` 的自定义声明。 这允许您的云提供商确定作业最初来自哪个存储库。 如果您的云提供商仅支持标准声明（_受众_和_主题_），则无法确定作业是否源自可重用工作流程存储库。 支持 `job_workflow_ref` 的云提供商包括 Google Cloud Platform 和 HashiCorp Vault。
 
-Before proceeding, you should be familiar with the concepts of [reusable workflows](/actions/learn-github-actions/reusing-workflows) and [OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect).
+在继续之前，您应该熟悉[可重用工作流程](/actions/learn-github-actions/reusing-workflows) 和 [OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) 的概念。
 
-## How the token works with reusable workflows
+## 令牌如何与可重用工作流程配合使用
 
-During a workflow run, {% data variables.product.prodname_dotcom %}'s OIDC provider presents a OIDC token to the cloud provider which contains information about the job. If that job is part of a reusable workflow, the token will include the standard claims that contain information about the calling workflow, and will also include a custom claim called `job_workflow_ref` that contains information about the called workflow.
+在工作流程运行期间，{% data variables.product.prodname_dotcom %} 的 OIDC 提供商会向云提供商提供一个 OIDC 令牌，其中包含有关作业的信息。 如果该作业是可重用工作流程的一部分，则令牌将包括包含有关调用工作流程的信息的标准声明，并且还将包括一个名为 `job_workflow_ref` 的自定义声明，其中包含有关被调用工作流程的信息。
 
-For example, the following OIDC token is for a job that was part of a called workflow. The `workflow`, `ref`, and other attributes describe the caller workflow, while `job_workflow_ref` refers to the called workflow:
+例如，以下 OIDC 令牌适用于作为被调用工作流程一部分的作业。 `workflow`、`ref` 及其他属性描述调用方工作流程，而 `job_workflow_ref` 则引用被调用的工作流程：
 
 ```yaml{:copy}
 {
@@ -67,30 +67,30 @@ For example, the following OIDC token is for a job that was part of a called wor
 }
 ```
 
-If your reusable workflow performs deployment steps, then it will typically need access to a specific cloud role, and you might want to allow any repository in your organization to call that reusable workflow. To permit this, you'll create the trust condition that allows any repository and any caller workflow, and then filter on the organization and the called workflow. See the next section for some examples.
+如果可重用工作流程执行部署步骤，则它通常需要访问特定的云角色，并且您可能希望允许组织中的任何存储库调用该可重用工作流程。 若要允许这样做，您将创建允许任何存储库和任何调用方工作流程的信任条件，然后筛选组织和被调用的工作流程。 有关一些示例，请参阅下一节。
 
 ## 示例
 
-**Filtering for reusable workflows within a specific repository**
+**筛选特定存储库中的可重用工作流程**
 
-You can configure a custom claim that filters for any reusable workflow in a specific repository. In this example, the workflow run must have originated from a job defined in a reusable workflow in the `octo-org/octo-automation` repository, and in any repository that is owned by the `octo-org` organization.
+您可以配置自定义声明，以筛选特定存储库中的任何可重用工作流程。 在此示例中，工作流程运行必须源自在 `octo-org/octo-automation` 存储库的可重用工作流程中定义的作业，以及由 `octo-org` 组织拥有的任何存储库中定义的作业。
 
-- **Subject**:
-  - Syntax: `repo:ORG_NAME/*`
-  - Example: `repo:octo-org/*`
+- **主题**：
+  - 语法：`repo:ORG_NAME/*`
+  - 示例：`repo:octo-org/*`
 
-- **Custom claim**:
-  - Syntax: `job_workflow_ref:ORG_NAME/REPO_NAME`
-  - Example: `job_workflow_ref:octo-org/octo-automation@*`
+- **自定义声明**：
+  - 语法：`job_workflow_ref:ORG_NAME/REPO_NAME`
+  - 示例：`job_workflow_ref:octo-org/octo-automation@*`
 
-**Filtering for a specific reusable workflow at a specific ref**
+**在特定引用处筛选特定的可重用工作流程**
 
-You can configure a custom claim that filters for a specific reusable workflow. In this example, the workflow run must have originated from a job defined in the reusable workflow `octo-org/octo-automation/.github/workflows/deployment.yml`, and in any repository that is owned by the `octo-org` organization.
+您可以配置自定义声明，以筛选特定的可重用工作流程。 在此示例中，工作流程运行必须源自可重用工作流程 `octo-org/octo-automation/.github/workflows/deployment.yml` 中定义的作业，以及由 `octo-org` 组织拥有的任何存储库中。
 
-- **Subject**:
-  - Syntax: `repo:ORG_NAME/*`
-  - Example: `repo:octo-org/*`
+- **主题**：
+  - 语法：`repo:ORG_NAME/*`
+  - 示例：`repo:octo-org/*`
 
-- **Custom claim**:
-  - Syntax: `job_workflow_ref:ORG_NAME/REPO_NAME/.github/workflows/WORKFLOW_FILE@ref`
-  - Example: `job_workflow_ref:octo-org/octo-automation/.github/workflows/deployment.yml@ 10040c56a8c0253d69db7c1f26a0d227275512e2`
+- **自定义声明**：
+  - 语法：`job_workflow_ref:ORG_NAME/REPO_NAME/.github/workflows/WORKFLOW_FILE@ref`
+  - 示例：`job_workflow_ref:octo-org/octo-automation/.github/workflows/deployment.yml@ 10040c56a8c0253d69db7c1f26a0d227275512e2`

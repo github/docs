@@ -1,5 +1,5 @@
 ---
-title: Guides for GitHub Actions
+title: GitHub Actions 指南
 intro: '{% data variables.product.prodname_actions %} 的这些指南包含具体的使用案例和示例来帮助您配置工作流程。'
 allowTitleToDifferFromFilename: true
 layout: product-guides

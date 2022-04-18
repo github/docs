@@ -1,6 +1,6 @@
 ---
 title: 在 GitHub 上搜索信息
-intro: 'Learn how to use the search functions available on GitHub to find different types of information, like projects, people, and code.'
+intro: 了解如何使用 GitHub 上提供的搜索功能来查找不同类型的信息，如项目、人员和代码。
 introLinks:
   overview: /search-github/getting-started-with-searching-on-github/about-searching-on-github
 featuredLinks:

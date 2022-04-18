@@ -1,6 +1,6 @@
 ---
 title: Pages
-intro: The GitHub Pages API allows you to interact with GitHub Pages sites and build information.
+intro: GitHub Pages APIを使うと、GitHub Pagesのサイトとビルド情報の操作ができます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

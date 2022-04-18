@@ -17,7 +17,7 @@ shortTitle: App creation query parameters
 
 You can add query parameters to these URLs to preselect the configuration of a {% data variables.product.prodname_github_app %} on a personal or organization account:
 
-* **User account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **Personal account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
 * **Organization account:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 The person creating the app can edit the preselected values from the {% data variables.product.prodname_github_app %} registration page, before submitting the app. If you do not include required parameters in the URL query string, like `name`, the person creating the app will need to input a value before submitting the app.
@@ -89,7 +89,7 @@ Permission | Description
 [`starring`](/rest/reference/permissions-required-for-github-apps/#permission-on-starring) | Grants access to the [Starring API](/rest/reference/activity#starring). Can be one of: `none`, `read`, or `write`.
 [`statuses`](/rest/reference/permissions-required-for-github-apps/#permission-on-statuses) | Grants access to the [Statuses API](/rest/reference/commits#commit-statuses). Can be one of: `none`, `read`, or `write`.
 [`team_discussions`](/rest/reference/permissions-required-for-github-apps/#permission-on-team-discussions) | Grants access to the [Team Discussions API](/rest/reference/teams#discussions) and the [Team Discussion Comments API](/rest/reference/teams#discussion-comments). Can be one of: `none`, `read`, or `write`.{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
-`vulnerability_alerts`| Grants access to receive security alerts for vulnerable dependencies in a repository. See "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)" to learn more. Can be one of: `none` or `read`.{% endif %}
+`vulnerability_alerts`| Grants access to receive {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies in a repository. See "[About {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/)" to learn more. Can be one of: `none` or `read`.{% endif %}
 `watching` | Grants access to list and change repositories a user is subscribed to. Can be one of: `none`, `read`, or `write`.
 
 ## {% data variables.product.prodname_github_app %} webhook events

@@ -1,6 +1,6 @@
 ---
 title: Dependabot
-intro: 'With the {% data variables.product.prodname_dependabot %} Secrets API, you can manage and control {% data variables.product.prodname_dependabot %} secrets for an organization or repository.'
+intro: '使用 {% data variables.product.prodname_dependabot %} 机密 API，您可以管理和控制组织或存储库的 {% data variables.product.prodname_dependabot %} 机密。'
 versions:
   fpt: '*'
   ghes: '>=3.4'

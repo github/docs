@@ -9,6 +9,7 @@ on:
   push:
     branches:
       - main
+      - gh-readonly-queue/main/**
   pull_request:
 
 permissions:

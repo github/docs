@@ -6,7 +6,7 @@
 1. Clique em **Novo executor**.
 {% data reusables.actions.self-hosted-runner-configure %}
 {%- elsif ghae or ghes < 3.4 %}
-To add a self-hosted runner to an enterprise, you must be an enterprise owner.
+Para adicionar um executor auto-hospedado a uma empresa, você deve ser um proprietário corporativo.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}

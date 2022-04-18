@@ -1,6 +1,6 @@
 ---
 title: インタラクション
-intro: 'With the Interactions API, people with owner or admin access can set the interaction limit for the users in their organizations and repositories.'
+intro: Interactions APIを使うと、オーナーもしくは管理アクセスを持つ人が、Organizationやリポジトリ内のユーザの操作制限を設定できます。
 redirect_from:
   - /v3/interactions
 versions:

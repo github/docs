@@ -59,7 +59,7 @@ Você pode habilitar ou desabilitar a expiração de tokens de autorização usu
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. Clique em **Editar** próximo à sua escolha {% data variables.product.prodname_github_app %}. ![Configurações para edição de um aplicativo GitHub](/assets/images/github-apps/edit-test-app.png)
-5. In the left sidebar, click **Optional Features**. ![Optional features tab](/assets/images/github-apps/optional-features-option.png)
+5. Na barra lateral esquerda, clique em **Funcionalidades opcionais**. ![Aba de funcionalidades opcionais](/assets/images/github-apps/optional-features-option.png)
 6. Ao lado de "Expiração do token do usuário para o servidor", clique em **Participar** ou **Não participar**. Esta configuração pode levar alguns segundos para ser aplicada.
 
 ## Não participar dos tokens expirados para novos aplicativos do GitHub

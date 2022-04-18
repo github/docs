@@ -117,7 +117,6 @@ shortTitle: 组合操作
 
 将工作流程代码复制到另一个仓库中的 `.github/workflows/main.yml` 文件，但用您创建的仓库和标记替换 `actions/hello-world-composite-action@v1`。 您还可以将 `who-to-greet` 输入替换为您的名称。
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml
 on: [push]
@@ -127,14 +126,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - id: foo
         uses: actions/hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+      - run: echo random-number {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
         shell: bash
 ```
-{% endraw %}
 
 从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 输出应包括："Hello Mona the Octocat"、"Goodbye" 脚本的结果以及随机数字。

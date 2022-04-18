@@ -33,8 +33,6 @@ redirect_from:
 
 {% data reusables.saml.about-saml-access-enterprise-account %} For more information, see "[Viewing and managing a user's SAML access to your enterprise account](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
 
-{% data reusables.saml.cannot-update-existing-saml-settings %}
-
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
 
 {% data reusables.scim.enterprise-account-scim %}

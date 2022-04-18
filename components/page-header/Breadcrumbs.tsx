@@ -6,7 +6,6 @@ import styles from './Breadcrumbs.module.scss'
 
 export type BreadcrumbT = {
   title: string
-  documentType?: string
   href?: string
 }
 

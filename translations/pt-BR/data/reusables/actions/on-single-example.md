@@ -1,4 +1,4 @@
-For example, a workflow with the following `on` value will run when a push is made to any branch in the workflow's repository:
+Por exemplo, um fluxo de trabalho com o valor `on` a seguir será executado quando um push for feito para qualquer branch do repositório do fluxo de trabalho:
 
 ```yaml
 on: push

@@ -25,7 +25,7 @@ shortTitle: Check for existing SSH key
   # .ssh ディレクトリ内のファイルを一覧表示する（存在する場合）
   ```
 
-3. ディレクトリの一覧から、公開 SSH キーをすでに持っているか確認します。 By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is *id_rsa.pub*.{% elsif fpt or ghes %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
+3. ディレクトリの一覧から、公開 SSH キーをすでに持っているか確認します。 By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is *id_rsa.pub*.{% else %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
     - *id_rsa.pub*
     - *id_ecdsa.pub*
     - *id_ed25519.pub*{% endif %}

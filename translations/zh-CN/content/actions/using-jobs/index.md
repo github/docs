@@ -1,7 +1,7 @@
 ---
-title: Using jobs
-shortTitle: Using jobs
-intro: 'Creating and managing {% data variables.product.prodname_actions %} jobs.'
+title: 使用作业
+shortTitle: 使用作业
+intro: '创建和管理 {% data variables.product.prodname_actions %} 作业。'
 redirect_from:
   - /actions/jobs
 versions:

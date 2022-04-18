@@ -40,7 +40,7 @@ Cuando mejoras las suscripción de una cuenta, esta mejora cambia las caracterí
 
 ## Subir de categoría la suscripción de tu cuenta personal
 
-Puedes mejorar tu cuenta personal desde {% data variables.product.prodname_free_user %} a {% data variables.product.prodname_pro %} para obtener herramientas avanzadas de revisión de código en repositorios privados que pertenezcan a tu cuenta de usuario. El mejorar tu cuenta personal no afecta a las organizaciones que pudieras administrar ni a los repositorios que pertenezcan a dichas organizaciones. {% data reusables.gated-features.more-info %}
+You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories owned by your personal account. El mejorar tu cuenta personal no afecta a las organizaciones que pudieras administrar ni a los repositorios que pertenezcan a dichas organizaciones. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

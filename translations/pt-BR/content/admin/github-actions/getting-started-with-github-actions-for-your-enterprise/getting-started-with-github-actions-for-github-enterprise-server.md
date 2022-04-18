@@ -26,7 +26,7 @@ Este artigo explica como os administradores do site podem configurar {% data var
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
-{% data reusables.actions.ghes-actions-not-enabled-by-default %} You'll need to determine whether your instance has adequate CPU and memory resources to handle the load from {% data variables.product.prodname_actions %} without causing performance loss, and possibly increase those resources. Você também deverá decidir qual provedor de armazenamento você usará para o armazenamento do blob necessário para armazenar os artefatos gerados pela execução do fluxo de trabalho. Em seguida, você irá habilitar {% data variables.product.prodname_actions %} para a sua empresa, gerenciar permissões de acesso e adicionar executores auto-hospedados para executar fluxos de trabalho.
+{% data reusables.actions.ghes-actions-not-enabled-by-default %} Você deberá determinar se a sua instância possui recursos adequados de CPU e memória para lidar com a carga do {% data variables.product.prodname_actions %} sem causar perda de desempenho e possivelmente aumentar esses recursos. Você também deverá decidir qual provedor de armazenamento você usará para o armazenamento do blob necessário para armazenar os artefatos gerados pela execução do fluxo de trabalho. Em seguida, você irá habilitar {% data variables.product.prodname_actions %} para a sua empresa, gerenciar permissões de acesso e adicionar executores auto-hospedados para executar fluxos de trabalho.
 
 {% data reusables.actions.introducing-enterprise %}
 
@@ -149,6 +149,6 @@ Para obter mais informações, consulte "[Sobre o uso de ações na sua empresa]
 
 {% endif %}
 
-## Reserved names
+## Nomes reservados
 
 Ao habilitar {% data variables.product.prodname_actions %} para a sua empresa, serão criadas duas organizações: `github` e `actions`. Se sua empresa já usa o nome da organização `github`, `github-org` (ou `github-github-org` se `github-org` também estiver em uso) será usado. Se sua empresa já usa o nome da organização `actions`, `github-actions` (ou `github-actions-org` se `github-actions` também estiver em uso) será usado. Uma vez que as ações são habilitadas, você não poderá usar mais esses nomes.

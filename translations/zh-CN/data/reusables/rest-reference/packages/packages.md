@@ -1,4 +1,4 @@
-The {% data variables.product.prodname_registry %} API enables you to manage packages using the REST API. To learn more about restoring or deleting packages, see "[Restoring and deleting packages](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+The {% data variables.product.prodname_registry %} API enables you to manage packages using the REST API.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} To learn more about restoring or deleting packages, see "[Restoring and deleting packages](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
 To use this API, you must authenticate using a personal access token. 
   - To access package metadata, your token must include the `read:packages` scope.

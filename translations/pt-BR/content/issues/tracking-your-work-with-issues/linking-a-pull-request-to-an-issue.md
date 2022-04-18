@@ -73,7 +73,7 @@ Você pode vincular manualmente até dez problemas para cada pull request. O pro
 {% data reusables.repositories.sidebar-pr %}
 3. Na lista de pull requests, clique na pull request que você gostaria de vincular a um problema.
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6234 %}
-4. In the right sidebar, in the "Development" section click {% octicon "gear" aria-label="The Gear icon" %}.
+4. Na barra lateral direita, na seção "Desenvolvimento" clique em {% octicon "gear" aria-label="The Gear icon" %}.
 {% else %}
 4. Na barra lateral direita, clique em **Linked issues** (Problemas vinculados) ![Problemas vinculados na barra lateral direita](/assets/images/help/pull_requests/linked-issues.png)
 {% endif %}

@@ -1,6 +1,6 @@
 import cx from 'classnames'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { BodyParameter, Parameter, xGitHub } from './types'
+import { BodyParameter, Parameter } from './types'
 import styles from './RestParameterTable.module.scss'
 import { PreviewsRow } from './PreviewsRow'
 import { ParameterRows } from './ParameterRows'
@@ -8,19 +8,12 @@ import { BodyParameterRows } from './BodyParametersRows'
 
 type Props = {
   slug: string
-  hasRequiredPreviews: boolean
-  xGitHub: xGitHub
+  numPreviews: number
   parameters: Array<Parameter>
   bodyParameters: Array<BodyParameter>
 }
 
-export function RestParameterTable({
-  slug,
-  hasRequiredPreviews,
-  xGitHub,
-  parameters,
-  bodyParameters,
-}: Props) {
+export function RestParameterTable({ slug, numPreviews, parameters, bodyParameters }: Props) {
   const { t } = useTranslation('products')
 
   return (
@@ -38,7 +31,7 @@ export function RestParameterTable({
           </tr>
         </thead>
         <tbody>
-          <PreviewsRow slug={slug} hasRequiredPreviews={hasRequiredPreviews} xGitHub={xGitHub} />
+          <PreviewsRow slug={slug} numPreviews={numPreviews} />
           <ParameterRows parameters={parameters} />
           <BodyParameterRows slug={slug} bodyParameters={bodyParameters} />
         </tbody>

@@ -70,7 +70,7 @@ shortTitle: GitHub Actions 的计费
 
 ## 计算分钟和存储支出
 
-{% data reusables.dotcom_billing.pricing_cal %}
+{% data reusables.dotcom_billing.pricing_calculator.pricing_cal_actions %}
 
 在月末，{% data variables.product.prodname_dotcom %} 会计算您使用的超过帐户自带限额的分钟数和存储空间费用。
 

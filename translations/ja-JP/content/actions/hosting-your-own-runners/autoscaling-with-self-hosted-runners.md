@@ -58,10 +58,10 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 
 By default, self-hosted runners will automatically perform a software update whenever a new version of the runner software is available.  If you use ephemeral runners in containers then this can lead to repeated software updates when a new runner version is released.  Turning off automatic updates allows you to update the runner version on the container image directly on your own schedule.
 
-If you want to turn off automatic software updates and install software updates yourself, you can specify the `--disableupdate` parameter when starting the runner.  例:
+To turn off automatic software updates and install software updates yourself, specify the `--disableupdate` flag when registering your runner using `config.sh`. 例:
 
 ```shell
-./run.sh --disableupdate
+./config.sh --url <em>https://github.com/octo-org</em> --token <em>example-token</em> --disableupdate
 ```
 
 If you disable automatic updates, you must still update your runner version regularly.  New functionality in {% data variables.product.prodname_actions %} requires changes in both the {% data variables.product.prodname_actions %} service _and_ the runner software.  The runner may not be able to correctly process jobs that take advantage of new features in {% data variables.product.prodname_actions %} without a software update.
@@ -91,6 +91,7 @@ Your access token will require the following scope:
 
 - For private repositories, use an access token with the [`repo` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 - For public repositories, use an access token with the [`public_repo` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
+- For organizations, use an access token with the [`admin:org` scope](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes).
 
 To  authenticate using a {% data variables.product.prodname_dotcom %} App, it must be assigned the following permissions:
 - For repositories, assign the `administration` permission.

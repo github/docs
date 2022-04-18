@@ -17,9 +17,9 @@ topics:
 shortTitle: 使用状況の表示
 ---
 
-## ユーザアカウントの {% data variables.product.prodname_registry %} の使用状況を表示する
+## 個人アカウントの {% data variables.product.prodname_registry %} の使用状況を表示する
 
-自身のユーザアカウントの {% data variables.product.prodname_registry %} の使用状況は、誰でも表示できます。
+自身の個人アカウントの {% data variables.product.prodname_registry %} の使用状況は、誰でも表示できます。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -34,7 +34,7 @@ Organization については、Organization のオーナーと支払いマネー
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.packages-data %}
 {% data reusables.dotcom_billing.actions-packages-storage %}
-{% data reusables.dotcom_billing.actions-packages-report-download %}
+{% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 ## Enterprise アカウントの {% data variables.product.prodname_registry %} の使用状況を表示する
 

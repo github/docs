@@ -1,5 +1,5 @@
 ---
-title: Productos de GitHub
+title: GitHub’s products
 intro: 'Un resumen de los productos de {% data variables.product.prodname_dotcom %} y de los planes de precios.'
 redirect_from:
   - /articles/github-s-products
@@ -21,17 +21,17 @@ topics:
 
 ## Acerca de los productos de {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.prodname_dotcom %} ofrece productos gratuitos y de pago para clasificar y colaborar con código. Algunos productos aplican solo para cuentas de usuario, mientras que otros planes aplican solo a cuentas empresariales u organizacionales. Para obtener más información sobre las cuentas, consulta la sección "[Tipos de cuenta de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
+{% data variables.product.prodname_dotcom %} ofrece productos gratuitos y de pago para clasificar y colaborar con código. Some products apply only to personal accounts, while other plans apply only to organization and enterprise accounts. Para obtener más información sobre las cuentas, consulta la sección "[Tipos de cuenta de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
 Puedes ver los precios y una lista completa de las funciones de cada producto en <{% data variables.product.pricing_url %}>. {% data reusables.products.product-roadmap %}
 
 Cuando leas los {% data variables.product.prodname_docs %}, asegúrate de seleccionar la versión que refleja tu producto. Para obtener más información, consulta la sección "[Acerca de las versiones de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
 
-## {% data variables.product.prodname_free_user %} for user accounts
+## {% data variables.product.prodname_free_user %} for personal accounts
 
-Con {% data variables.product.prodname_free_team %} para cuentas de usuario, puedes trabajar con colaboradores ilimitados en repositorios públicos ilimitados con un juego completo de características, y en repositorios privados ilimitados con un conjunto limitado de características.
+With {% data variables.product.prodname_free_team %} for personal accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
 
-Con {% data variables.product.prodname_free_user %}, tu cuenta de usuario incluye:
+With {% data variables.product.prodname_free_user %}, your personal account includes:
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
 - Aplicación de la autenticación de dos factores
@@ -40,7 +40,7 @@ Con {% data variables.product.prodname_free_user %}, tu cuenta de usuario incluy
 
 ## {% data variables.product.prodname_pro %}
 
-Adicionalmente a las características disponibles con {% data variables.product.prodname_free_user %} para cuentas de usuario, {% data variables.product.prodname_pro %} incluye:
+In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_pro %} includes:
 - {% data variables.contact.github_support %} por correo electrónico
 - 3,000 minutos de {% data variables.product.prodname_actions %}
 - 2GB de almacenamiento de {% data variables.product.prodname_registry %}
@@ -58,7 +58,7 @@ Adicionalmente a las características disponibles con {% data variables.product.
 
 Con {% data variables.product.prodname_free_team %} para organizaciones, puedes trabajar con colaboradores ilimitados en repositorios públicos ilimitados con un juego completo de características, o en repositorios privados ilimitados con un conjunto limitado de características.
 
-Adicionalmente a las características disponibles con {% data variables.product.prodname_free_user %} para cuentas de usuario, {% data variables.product.prodname_free_team %} para organizaciones incluye:
+In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
 - {% data variables.product.prodname_gcf %}
 - Debates de equipo
 - Controles de acceso del equipo para administrar grupos

@@ -12,11 +12,16 @@ topics:
   - Organizations
   - Teams
 shortTitle: View organization insights
+permissions: Organization members can view organization insights.
 ---
 
-All members of an organization can view organization insights. For more information, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
-
 You can use organization activity insights to help you better understand how members of your organization are using {% data variables.product.product_name %} to collaborate and work on code. Dependency insights can help you track, report, and act on your organization's open source usage.
+
+{% note %}
+
+**Note:** To view organization insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
 
 ## Viewing organization activity insights
 
@@ -41,7 +46,7 @@ With organization activity insights you can view weekly, monthly, and yearly dat
 
 {% note %}
 
-**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph). 
+**Note:** Please make sure you have enabled the [Dependency Graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph). 
 
 {% endnote %}
 

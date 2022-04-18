@@ -140,10 +140,15 @@ async function updateRedirectOverrides() {
 
   const redirects = {}
   console.log('\n➡️  Updating REST API redirect exception list.\n')
-  for (const value of Object.values(overrides)) {
+  for (const [key, value] of Object.entries(overrides)) {
     const oldUrl = value.originalUrl
     const anchor = oldUrl.replace('/rest/reference', '').split('#')[1]
-    redirects[oldUrl] = `/rest/reference/${value.category}#${anchor}`
+    if (key.includes('#')) {
+      // We are updating a subcategory into a category
+      redirects[oldUrl] = `/rest/reference/${value.category}`
+    } else {
+      redirects[oldUrl] = `/rest/reference/${value.category}#${anchor}`
+    }
   }
   await writeFile(
     'lib/redirects/static/client-side-rest-api-redirects.json',
@@ -168,25 +173,7 @@ async function decorate() {
       const operations = await getOperations(schema)
       // process each operation, asynchronously rendering markdown and stuff
       await Promise.all(operations.map((operation) => operation.process()))
-
-      // Remove any keys not needed in the decorated files
-      const decoratedOperations = operations.map(
-        ({
-          tags,
-          description,
-          serverUrl,
-          operationId,
-          categoryLabel,
-          subcategoryLabel,
-          contentType,
-          externalDocs,
-          ...props
-        }) => props
-      )
-
-      const categories = [
-        ...new Set(decoratedOperations.map((operation) => operation.category)),
-      ].sort()
+      const categories = [...new Set(operations.map((operation) => operation.category))].sort()
 
       // Orders the operations by their category and subcategories.
       // All operations must have a category, but operations don't need
@@ -210,9 +197,7 @@ async function decorate() {
       const operationsByCategory = {}
       categories.forEach((category) => {
         operationsByCategory[category] = {}
-        const categoryOperations = decoratedOperations.filter(
-          (operation) => operation.category === category
-        )
+        const categoryOperations = operations.filter((operation) => operation.category === category)
         categoryOperations
           .filter((operation) => !operation.subcategory)
           .map((operation) => (operation.subcategory = operation.category))
@@ -253,7 +238,7 @@ async function decorate() {
         // This is a collection of operations that have `enabledForGitHubApps = true`
         // It's grouped by resource title to make rendering easier
         operationsEnabledForGitHubApps[schemaName][category] = categoryOperations
-          .filter((operation) => operation['x-github'].enabledForGitHubApps)
+          .filter((operation) => operation.enabledForGitHubApps)
           .map((operation) => ({
             slug: operation.slug,
             verb: operation.verb,

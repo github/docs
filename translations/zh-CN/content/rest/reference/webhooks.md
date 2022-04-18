@@ -1,6 +1,6 @@
 ---
 title: Web 挂钩
-intro: The webhooks API allows you to create and manage webhooks for your repositories.
+intro: Web 挂钩 API 允许您为存储库创建和管理 web 挂钩。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

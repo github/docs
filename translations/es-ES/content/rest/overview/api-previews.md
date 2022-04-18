@@ -4,10 +4,8 @@ intro: Puedes utilizar las vistas previas de la API para probar características
 redirect_from:
   - /v3/previews
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
 topics:
   - API
 ---
@@ -118,16 +116,6 @@ Ahora puedes [requerir múltiples revisiones de aprobación](/rest/reference/rep
 
 {% endif %}
 
-
-{% ifversion ghes %}
-
-## Acceso anónimo de Git a los repositorios
-
-Cuando una instancia de {% data variables.product.prodname_ghe_server %} está en modo privado, los administradores de sitio y de repositorio pueden habilitar el acceso anónimo de Git para los repositorios públicos.
-
-**Tipo de medios personalizados:** `x-ray-preview` **Anunciado en:**[2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
-
-{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Detalles de la tarjeta de proyecto
@@ -135,15 +123,6 @@ Cuando una instancia de {% data variables.product.prodname_ghe_server %} está e
 Las respuestas de la API de REST para los [eventos de los informes de problemas](/rest/reference/issues#events) y para [los eventos de la línea de tiempo de los informes de problemas](/rest/reference/issues#timeline) ahora devuelven el campo `project_card` para los eventos relacionados con los proyectos.
 
 **Tipo de medios personalizados:** `starfox-preview` **Anunciado en:**[2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
-
-{% endif %}
-{% ifversion fpt or ghec %}
-
-## Manifiestos de las GitHub Apps
-
-Los Manifiestos de las GitHub Apps permiten a las personas crear GitHub Apps preconfiguradas. Consulta la sección "[Crear GitHub Apps desde un manifiesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para obtener más detalles.
-
-**Tipo de medios personalizado:** `fury-preview`
 
 {% endif %}
 

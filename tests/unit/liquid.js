@@ -191,11 +191,7 @@ describe('liquid template parser', () => {
     // Create a fake req so we can test the feature versions middleware
     const req = { language: 'en', query: {} }
 
-    let siteData
-    beforeAll(async () => {
-      const allSiteData = await loadSiteData()
-      siteData = allSiteData.en.site
-    })
+    const siteData = loadSiteData().en.site
 
     test('does not render in FPT because feature is not available in FPT', async () => {
       req.context = {

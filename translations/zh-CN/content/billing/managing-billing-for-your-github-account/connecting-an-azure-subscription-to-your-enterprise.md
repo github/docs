@@ -31,7 +31,7 @@ shortTitle: 连接 Azure 订阅
 
    {% note %}
 
-   **Note:** {% data variables.product.company_short %}'s Subscription Permission Validation requests read-only access to display the list of available subscriptions. To select an Azure subscription, you must have owner permissions to the subscription. If the default tenant does not have the right permissions, you may need to specify a different tenant ID. For more information, see [Microsoft identity platform and OAuth 2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) in Microsoft Docs.
+   **注意：**{% data variables.product.company_short %}的订阅权限验证请求只读访问权限以显示可用订阅的列表。 要选择 Azure 订阅，必须对订阅拥有所有者权限。 如果默认租户没有正确的权限，则可能需要指定其他租户 ID。 更多信息请参阅 Microsoft 文档中的 [Microsoft 身份平台和 OAuth 2.0 授权代码流](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code)。
 
    {% endnote %}
 1. 单击 **Connect（连接）**。

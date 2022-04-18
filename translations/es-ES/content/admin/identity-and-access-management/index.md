@@ -1,5 +1,5 @@
 ---
-title: Identity and access management
+title: Administración de accesos y de identidad
 intro: Puedes configurar cómo los usuarios acceden a tu empersa.
 redirect_from:
   - /enterprise/admin/authentication

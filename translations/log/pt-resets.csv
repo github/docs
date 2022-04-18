@@ -21,13 +21,14 @@ translations/pt-BR/content/code-security/code-scanning/automatically-scanning-yo
 translations/pt-BR/content/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github.md,broken liquid tags
 translations/pt-BR/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system.md,broken liquid tags
+translations/pt-BR/content/code-security/secret-scanning/about-secret-scanning.md,broken liquid tags
 translations/pt-BR/content/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema.md,broken liquid tags
 translations/pt-BR/content/desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop.md,broken liquid tags
 translations/pt-BR/content/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/why-wasnt-my-application-for-a-student-developer-pack-approved.md,broken liquid tags
 translations/pt-BR/content/get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations.md,broken liquid tags
 translations/pt-BR/content/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud.md,broken liquid tags
 translations/pt-BR/content/github/index.md,Listed in localization-support#489
-translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,parsing error
+translations/pt-BR/content/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization.md,rendering error
 translations/pt-BR/content/organizations/organizing-members-into-teams/about-teams.md,broken liquid tags
 translations/pt-BR/content/packages/learn-github-packages/introduction-to-github-packages.md,broken liquid tags
 translations/pt-BR/content/packages/learn-github-packages/publishing-a-package.md,broken liquid tags
@@ -38,7 +39,7 @@ translations/pt-BR/content/packages/working-with-a-github-packages-registry/work
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry.md,Listed in localization-support#489
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry.md,broken liquid tags
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry.md,broken liquid tags
-translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,parsing error
+translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,broken liquid tags
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository.md,broken liquid tags
 translations/pt-BR/content/rest/reference/enterprise-admin.md,Listed in localization-support#489
 translations/pt-BR/content/rest/reference/enterprise-admin.md,broken liquid tags

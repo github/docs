@@ -74,7 +74,6 @@ For more information, see "[Defining prerequisite jobs](/actions/using-jobs/usin
 
 ワークフローでオペレーティングシステム、プラットフォーム、および言語の複数の組み合わせにわたってテストを実行する場合は、ビルドマトリックスを使用できます。 ビルドマトリックスは、ビルドオプションを配列として受け取る `strategy` キーワードを使用して作成されます。 たとえば、このビルドマトリックスは、異なるバージョンの Node.js を使用して、ジョブを複数回実行します。
 
-{% raw %}
 ```yaml
 jobs:
   build:
@@ -83,11 +82,10 @@ jobs:
       matrix:
         node: [6, 8, 10]
     steps:
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node }}
+          node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
-{% endraw %}
 
 For more information, see "[Using a build matrix for your jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)."
 
@@ -98,22 +96,20 @@ For more information, see "[Using a build matrix for your jobs](/actions/using-j
 
 この例は、`~/.npm` ディレクトリをキャッシュする方法を示しています。
 
-{% raw %}
 ```yaml
 jobs:
   example-job:
     steps:
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         env:
           cache-name: cache-node-modules
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}{% endraw %}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
+            {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
 ```
-{% endraw %}
 
 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
 {% endif %}
@@ -132,7 +128,7 @@ jobs:
         image: postgres
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install dependencies
         run: npm ci
       - name: Connect to PostgreSQL

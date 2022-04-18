@@ -1,7 +1,7 @@
 ---
 title: 构建并测试 Node.js 或 Python
-shortTitle: Build & test Node.js or Python
-intro: You can create a continuous integration (CI) workflow to build and test your project. Use the language selector to show examples for your language of choice.
+shortTitle: 构建和测试 Node.js 或 Python
+intro: 您可以创建持续集成 (CI) 工作流程来构建和测试您的项目。 使用语言选择器显示所选语言的示例。
 redirect_from:
   - /actions/guides/building-and-testing-nodejs-or-python
 versions:

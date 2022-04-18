@@ -1,6 +1,6 @@
 ---
 title: 页面
-intro: The GitHub Pages API allows you to interact with GitHub Pages sites and build information.
+intro: GitHub Pages API 允许您与 GitHub Pages 站点交互并构建信息。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
