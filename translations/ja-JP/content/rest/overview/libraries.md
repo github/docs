@@ -26,7 +26,7 @@ topics:
 
 {% warning %}
 
-警告: 2021年の10月下旬の時点では、公式のOctokitライブラリはメンテナンスされていません。
+警告: 2021年の10月下旬の時点では、公式のOctokitライブラリはメンテナンスされていません。 For more information, see [this discussion in the octokit.js repository](https://github.com/octokit/octokit.js/discussions/620).
 
 {% endwarning %}
 
