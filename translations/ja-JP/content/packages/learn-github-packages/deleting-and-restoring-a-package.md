@@ -181,7 +181,7 @@ GraphQLを使用してパッケージ全体を直接削除することはでき�
 {% ifversion fpt or ghec %}
 削除されたパッケージを復元するには、以下の権限の要求のいずれかを満たす必要もあります。
   - リポジトリをスコープとするパッケージ: 削除されたパッケージを所有するリポジトリの管理権限を持っている。{% ifversion fpt or ghec %}
-  - For user-account scoped packages: Your personal account owns the deleted package.
+  - ユーザアカウントのスコープが付いたパッケージ: 個人アカウントが削除したパッケージを所有している。
   - Organizationをスコープとするパッケージ: パッケージを所有するOrganization中で削除されたパッケージに対する管理権限を持っている。{% endif %}
 {% endif %}
 
@@ -209,7 +209,7 @@ Organizationでパッケージを復元できるユーザを確認するには�
 
 ### ユーザアカウントのスコープが付いたパッケージを復元する
 
-You can restore a deleted package through your personal account settings, if the package was in one of your repositories or scoped to your personal account. 詳しい情報については、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
+パッケージが所有するリポジトリにあったか、個人アカウントのスコープが付いていた場合、削除されたパッケージを個人アカウント設定から復元できます。 詳しい情報については、「[必要な権限](#required-permissions-to-delete-or-restore-a-package)」を参照してください。
 
 {% data reusables.user-settings.access_settings %}
 2. 左側にある [**Packages**] をクリックします。
