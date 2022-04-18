@@ -26548,9 +26548,12 @@
                   "site_admin": false,
                   "permissions": {
                     "pull": true,
+                    "triage": true,
                     "push": true,
+                    "maintain": false,
                     "admin": false
-                  }
+                  },
+                  "role_name": "write"
                 }
               ]
             }
@@ -26984,6 +26987,7 @@
               "description": "if user has admin permissions",
               "example": {
                 "permission": "admin",
+                "role_name": "admin",
                 "user": {
                   "login": "octocat",
                   "id": 1,
@@ -76020,6 +76024,7 @@
                 "hooks_url": "https://api.github.com/repos/octocat/Hello-World/hooks",
                 "svn_url": "https://svn.github.com/octocat/Hello-World",
                 "homepage": "https://github.com",
+                "language": null,
                 "forks_count": 9,
                 "stargazers_count": 80,
                 "watchers_count": 80,
@@ -76051,6 +76056,7 @@
                   "triage": false,
                   "pull": true
                 },
+                "role_name": "read",
                 "allow_rebase_merge": true,
                 "template_repository": {
                   "id": 1296269,
@@ -77539,6 +77545,7 @@
                 "hooks_url": "https://api.github.com/repos/octocat/Hello-World/hooks",
                 "svn_url": "https://svn.github.com/octocat/Hello-World",
                 "homepage": "https://github.com",
+                "language": null,
                 "forks_count": 9,
                 "stargazers_count": 80,
                 "watchers_count": 80,
@@ -77570,6 +77577,7 @@
                   "triage": false,
                   "pull": true
                 },
+                "role_name": "read",
                 "allow_rebase_merge": true,
                 "template_repository": {
                   "id": 1296269,
