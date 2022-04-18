@@ -89,7 +89,7 @@ By default, the rate limit for {% data variables.product.prodname_actions %} is 
    ghe-config actions-rate-limiting.enabled true
    ghe-config actions-rate-limiting.queue-runs-per-minute <em>RUNS-PER-MINUTE</em>
    ```
-1. Or, to disable the rate limit once it's been enabled, run the following command.
+1. To disable the rate limit after it's been enabled, run the following command.
 
    ```
    ghe-config actions-rate-limiting.enabled false
