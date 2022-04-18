@@ -18,6 +18,12 @@ redirect_from:
   - /codespaces/working-with-your-codespace/managing-access-and-security-for-codespaces
 ---
 
+{% warning %}
+
+**Deprecation note**: The access and security setting is now deprecated. To enable expanded access to other repositories, add the requested permissions to your dev container definition. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
+
+{% endwarning %}
+
 Por padrão, um codespace só pode acessar o repositório onde foi criado. Ao habilitar o acesso e a segurança de um repositório pertencente à sua organização, todos os codespaces que forem criados para esse repositório também terão permissões de leitura para todos os outros repositórios que a organização possui e o criador de codespace terá permissões para acessar. Se você deseja restringir os repositórios que um codespace pode acessar, você pode limitá-lo ao repositório em que o codespace foi criado ou a repositórios específicos. Você só deve habilitar o acesso e a segurança para repositórios nos quais confia.
 
 Para gerenciar quais usuários na sua organização podem usar {% data variables.product.prodname_codespaces %}, consulte "[Gerenciar permissões de usuário para a sua organização](/codespaces/managing-codespaces-for-your-organization/managing-user-permissions-for-your-organization)".

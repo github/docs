@@ -49,9 +49,9 @@ If you enable _security updates_, {% data variables.product.prodname_dependabot 
 セキュリティアップデートを有効にした場合、セキュリティアップデートの追加に対するプルリクエストが表示されることがあります。 これらは、デフォルトブランチへの依存関係に対する {% data variables.product.prodname_dependabot %} アラートによってトリガーされます。 {% data variables.product.prodname_dependabot %} はプルリクエストを自動的に生成し、脆弱性のある依存関係を更新します。
 
 ## サポートされているリポジトリとエコシステム
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported repositories or ecosystems. -->
+<!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
-サポートされているパッケージマネージャーのいずれかの依存関係マニフェストまたはロックファイルを含むリポジトリのバージョン更新を設定できます。 一部のパッケージマネージャーでは、依存関係のベンダを設定することもできます。 For more information, see "[Configuration options for the dependabot.yml file](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#vendor)."
+サポートされているパッケージマネージャーのいずれかの依存関係マニフェストまたはロックファイルを含むリポジトリのバージョン更新を設定できます。 一部のパッケージマネージャーでは、依存関係のベンダを設定することもできます。 詳しい情報については「[dependabot.ymlファイルの設定オプション](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates#vendor)」を参照してください。
 {% note %}
 
 {% data reusables.dependabot.private-dependencies-note %}

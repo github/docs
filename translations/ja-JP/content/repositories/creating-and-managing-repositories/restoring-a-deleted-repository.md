@@ -16,7 +16,7 @@ shortTitle: Restore deleted repository
 ---
 
 {% ifversion fpt or ghec %}
-自分自身のアカウントで所有していて削除したリポジトリは、誰でも復元できます。 Organizationのオーナーは、そのOrganizationが所有していて削除したリポジトリを復元できます。
+Anyone can restore deleted repositories that were owned by their own personal account. Organizationのオーナーは、そのOrganizationが所有していて削除したリポジトリを復元できます。
 
 ## リポジトリの復元について
 
@@ -28,7 +28,7 @@ shortTitle: Restore deleted repository
 
 リポジトリを復元しても、リリース添付ファイルやチーム権限は復元されません。 復元された Issue はラベル付けされません。
 
-## ユーザアカウントが所有していて削除したリポジトリを復元する
+## Restoring a deleted repository that was owned by a personal account
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.repo-tab %}

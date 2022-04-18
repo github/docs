@@ -18,7 +18,7 @@ shortTitle: テンプレートについて
 
 {% ifversion fpt or ghes or ghec %}
 
-Organization またはユーザアカウントのデフォルトの Issue とプルリクエストテンプレートを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
+You can create default issue and pull request templates for your organization or personal account. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 
 {% endif %}
 

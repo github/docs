@@ -14,6 +14,8 @@ if (!process.env.GITHUB_TOKEN) {
   process.exit(1)
 }
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
 main()
 
 async function main() {
@@ -91,16 +93,23 @@ async function main() {
       }
     }
   }
+
   const brokenLinks = []
-  await Promise.all(
-    docsLinksFiles.map(async (file) => {
-      try {
-        await got(file[0])
-      } catch {
-        brokenLinks.push(file)
-      }
-    })
-  )
+  // Done serially with delay to avoid hitting the rate limiter
+  for (const file of docsLinksFiles) {
+    try {
+      await got(file[0], {
+        headers: {
+          'X-WAF-TOKEN': process.env.WAF_TOKEN,
+        },
+      })
+    } catch (e) {
+      brokenLinks.push(file)
+    } finally {
+      await sleep(300)
+    }
+  }
+
   if (!brokenLinks.length) {
     console.log('All links are good!')
     process.exit(0)

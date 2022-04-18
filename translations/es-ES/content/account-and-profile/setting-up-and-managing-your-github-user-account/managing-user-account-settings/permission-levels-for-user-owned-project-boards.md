@@ -1,6 +1,6 @@
 ---
 title: Niveles de permiso para tableros de proyecto propiedad del usuario
-intro: 'Un tablero de proyecto propiedad de una cuenta de usuario tiene dos niveles de permiso: el del propietario del tablero de proyecto y el de los colaboradores.'
+intro: 'A project board owned by a personal account has two permission levels: the project board owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-user-owned-project-boards
@@ -17,7 +17,7 @@ shortTitle: Permiso para utilizar tableros de proyecto
 
 ## Resumen de permisos
 
-Solamente hay un único propietario de un tablero de proyecto propiedad de un usuario; este permiso no puede compartirse con otra cuenta de usuario. Además del propietario, otras personas pueden colaborar en tableros de proyecto.
+There is only one owner of a user-owned project board; this permission cannot be shared with another personal account. Además del propietario, otras personas pueden colaborar en tableros de proyecto.
 
 Hay tres niveles de permisos para los colaboradores de un tablero de proyecto:
 
@@ -61,4 +61,4 @@ Puedes cambiar la visibilidad del tablero de proyecto de privada a {% ifversion 
 
 ## Leer más
 
-  - "[Administrar el acceso a los tableros de proyectos de tu cuenta de usuario](/articles/managing-access-to-your-user-account-s-project-boards)"
+  - "[Managing access to your personal account's project boards](/articles/managing-access-to-your-user-account-s-project-boards)"

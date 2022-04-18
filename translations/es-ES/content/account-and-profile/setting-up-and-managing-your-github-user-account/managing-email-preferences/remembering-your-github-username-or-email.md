@@ -1,6 +1,6 @@
 ---
 title: Recordar tu nombre de usuario o correo electrónico de GitHub
-intro: '¿Vas a iniciar sesión en {% data variables.product.product_location %} por primera vez después de un tiempo? Si es así, ¡bienvenido de nuevo! Si no puedes recordar tu {% data variables.product.product_name %} nombre de la cuenta de usuario, puedes intentar estos métodos para hacerlo.'
+intro: '¿Vas a iniciar sesión en {% data variables.product.product_location %} por primera vez después de un tiempo? Si es así, ¡bienvenido de nuevo! If you can''t remember the username for your personal account on {% data variables.product.product_name %}, you can try these methods for remembering it.'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email
