@@ -17,9 +17,11 @@ shortTitle: Segurança Avançada GitHub
 
 ## Sobre o {% data variables.product.prodname_GH_advanced_security %}
 
-{% data variables.product.prodname_dotcom %} tem muitas funcionalidades que ajudam você a melhorar e manter a qualidade do seu código. Alguns deles são incluídos em todos os planos{% ifversion not ghae %}, como o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Outras funcionalidades de segurança exigem que {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} seja executado em repositórios, além de repositórios públicos em {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+{% data variables.product.prodname_dotcom %} tem muitas funcionalidades que ajudam você a melhorar e manter a qualidade do seu código. Alguns deles são incluídos em todos os planos{% ifversion not ghae %}, como o gráfico de dependências e {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Other security features require a {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} license to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.{% ifversion fpt %} For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/about-github-advanced-security).{% endif %}
 
 {% ifversion ghes or ghec %}Para obter minformações sobre a compra de uma licença para {% data variables.product.prodname_GH_advanced_security %}, consulte "[Sobre a cobrança para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghae %}Não há cobrança para {% data variables.product.prodname_GH_advanced_security %} em {% data variables.product.prodname_ghe_managed %} na versão beta.{% elsif fpt %}para comprar uma licença de {% data variables.product.prodname_GH_advanced_security %}, você deverá usar {% data variables.product.prodname_enterprise %}. Para obter informações sobre a atualização para {% data variables.product.prodname_enterprise %} com {% data variables.product.prodname_GH_advanced_security %}, consulte "[produtos GitHub](/get-started/learning-about-github/githubs-products)" e "[Sobre cobrança para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).{% endif %}
+
+{% ifversion not fpt %}
 
 ## Sobre as funcionalidades de {% data variables.product.prodname_advanced_security %}
 
@@ -109,4 +111,5 @@ Para mais informações sobre fluxos de trabalho iniciais, consulte "[Configuran
 
 - "[Aplicar políticas para {% data variables.product.prodname_advanced_security %} na sua conta corporativa](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)"
 
+{% endif %}
 {% endif %}

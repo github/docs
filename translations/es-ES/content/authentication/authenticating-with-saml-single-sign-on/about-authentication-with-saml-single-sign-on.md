@@ -27,7 +27,7 @@ Si nopuedes acceder a {% data variables.product.product_name %}, contacta al pro
 
 {% ifversion fpt or ghec %}
 
-{% data reusables.saml.dotcom-saml-explanation %} Los propietarios de la organización pueden invitar a tu cuenta de usuario en {% data variables.product.prodname_dotcom %} para unirse a la organización que utiliza SAML SSO, lo cual te permite contribuir con ella y mantener tu identidad actual y las contribuciones con {% data variables.product.prodname_dotcom %}.
+{% data reusables.saml.dotcom-saml-explanation %} Organization owners can invite your personal account on {% data variables.product.prodname_dotcom %} to join their organization that uses SAML SSO, which allows you to contribute to the organization and retain your existing identity and contributions on {% data variables.product.prodname_dotcom %}.
 
 Si eres miembro de una {% data variables.product.prodname_emu_enterprise %}, utilizarás una cuenta nueva que se aprovisionará para ti. {% data reusables.enterprise-accounts.emu-more-info-account %}
 

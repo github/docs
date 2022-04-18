@@ -50041,6 +50041,7 @@
             "name": "scopes",
             "in": "body",
             "rawType": [
+              "array",
               "null"
             ],
             "rawDescription": "A list of scopes that this authorization is in.",
@@ -50209,6 +50210,7 @@
             "name": "scopes",
             "in": "body",
             "rawType": [
+              "array",
               "null"
             ],
             "rawDescription": "A list of scopes that this authorization is in.",
@@ -50405,6 +50407,7 @@
             "name": "scopes",
             "in": "body",
             "rawType": [
+              "array",
               "null"
             ],
             "rawDescription": "A list of scopes that this authorization is in.",
@@ -50636,6 +50639,7 @@
             "name": "scopes",
             "in": "body",
             "rawType": [
+              "array",
               "null"
             ],
             "rawDescription": "A list of scopes that this authorization is in.",

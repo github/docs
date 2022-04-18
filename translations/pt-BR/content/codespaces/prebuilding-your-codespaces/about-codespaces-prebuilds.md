@@ -18,9 +18,15 @@ A pré-construção de seus codespaces permite que você seja mais produtivo e t
 
 By default, whenever you push changes to your repository, {% data variables.product.prodname_codespaces %} uses {% data variables.product.prodname_actions %} to automatically update your prebuilds.
 
-Quando as pré-criações estiverem disponíveis para um branch específic de um repositório e para sua região, você verá o a etiqueta "Pré-criação pronta de {% octicon "zap" aria-label="The zap icon" %}" na caixa de diálogo de tipo de máquina que é exibida quando você cria um codespace e vários tipos de máquina estão disponíveis.
+When prebuilds are available for a particular branch of a repository, and for your region, you'll see the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label in the list of machine type options when you create a codespace. Para obter mais informações, consulte "[Criar um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)".
 
 ![A caixa de diálogo para escolher um tipo de máquina](/assets/images/help/codespaces/choose-custom-machine-type.png)
+
+{% note %}
+
+{% data reusables.codespaces.prebuilds-not-available %}
+
+{% endnote %}
 
 ## Sobre a cobrança para pré-criações de {% data variables.product.prodname_codespaces %}
 
@@ -30,7 +36,7 @@ O uso de codespaces criados usando pré-criações é cobrado na mesma frequênc
 
 ## Sobre fazer push de alterações em branches com pré-criação
 
-By default, each push to a branch that has a prebuild configuration results in a {% data variables.product.prodname_dotcom %}-managed Actions workflow run to update the prebuild template. O fluxo de trabalho da pré-criação tem um limite de concorrência de uma execução de fluxo de trabalho de cada vez para uma determinada configuração de pré-compilação, a não ser que tenham sido feitas alterações que afetem a configuração do contêiner de desenvolvimento do repositório associado. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project)". Se uma execução já estiver em andamento, a execução do fluxo de trabalho que foi enfileirada mais recentemente será executada a seguir, depois que a execução atual for concluída.
+By default, each push to a branch that has a prebuild configuration results in a {% data variables.product.prodname_dotcom %}-managed Actions workflow run to update the prebuild template. O fluxo de trabalho da pré-criação tem um limite de concorrência de uma execução de fluxo de trabalho de cada vez para uma determinada configuração de pré-compilação, a não ser que tenham sido feitas alterações que afetem a configuração do contêiner de desenvolvimento do repositório associado. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)". Se uma execução já estiver em andamento, a execução do fluxo de trabalho que foi enfileirada mais recentemente será executada a seguir, depois que a execução atual for concluída.
 
 With the prebuild template set to be updated on each push, it means that if there are very frequent pushes to your repository, prebuild template updates will occur at least as often as it takes to run the prebuild workflow. That is, if your workflow run typically takes one hour to complete, prebuilds will be created for your repository roughly hourly, if the run succeeds, or more often if there were pushes that change the dev container configuration on the branch.
 

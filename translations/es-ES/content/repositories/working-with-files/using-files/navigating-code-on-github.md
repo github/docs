@@ -12,7 +12,7 @@ topics:
   - Repositories
 ---
 
-<!-- If you make changes to this feature, update /getting-started-with-github/github-language-support to reflect any changes to supported languages. -->
+<!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
 ## Acerca de la navegación de código en {% data variables.product.prodname_dotcom %}
 
@@ -22,24 +22,25 @@ La navegación de código te ayuda a leer, navegar y entender el código al most
 
 La navegación de código utiliza la librería de código abierto [`tree-sitter`](https://github.com/tree-sitter/tree-sitter). Los siguientes lenguajes y estrategias de navegación son compatibles:
 
-|  Lenguaje  | navegación de código basada en la búsqueda | navegación de código precisa |
-|:----------:|:------------------------------------------:|:----------------------------:|
-|     C#     |                     ✅                      |                              |
-|   CodeQL   |                     ✅                      |                              |
-|     Go     |                     ✅                      |                              |
-|    Java    |                     ✅                      |                              |
-| JavaScript |                     ✅                      |                              |
-|    PHP     |                     ✅                      |                              |
-|   Python   |                     ✅                      |              ✅               |
-|    Ruby    |                     ✅                      |                              |
-| TypeScript |                     ✅                      |                              |
+|  Lenguaje  | Search-based code navigation | Precise code navigation |
+|:----------:|:----------------------------:|:-----------------------:|
+|     C#     |              ✅               |                         |
+|   CodeQL   |              ✅               |                         |
+|   Elixir   |              ✅               |                         |
+|     Go     |              ✅               |                         |
+|    Java    |              ✅               |                         |
+| JavaScript |              ✅               |                         |
+|    PHP     |              ✅               |                         |
+|   Python   |              ✅               |            ✅            |
+|    Ruby    |              ✅               |                         |
+| TypeScript |              ✅               |                         |
 
 
 No necesitas configurar nada en tu repositorio para habilitar la navegación de código. Extraeremos información de navegación de código precisa y basada en búsquedas automáticamente para estos lenguajes compatibles en todos los repositorios y puedes cambiar entre estos dos acercamientos compatibles de navegación de código si tu lenguaje de programación es compatible con ambos.
 
 {% data variables.product.prodname_dotcom %} ha desarrollado dos acercamientos de navegación de código con base en las librerías de código abierto [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) y [`stack-graphs`](https://github.com/github/stack-graphs):
- - basado en búsquedas - busca todas las definiciones y referencias a lo largo de un repositorio para encontrar las entidades con un nombre específico
- - preciso - resuelve las definiciones y referencias con base en el conjunto de clases, funciones y definiciones importadas en algún punto específico de tu código
+ - Search-based - searches all definitions and references across a repository to find entities with a given name
+ - Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
 
 Para aprender más sobre estos acercamientos, consulta la sección "[Navegación precisa y basada en búsquedas](#precise-and-search-based-navigation)".
 

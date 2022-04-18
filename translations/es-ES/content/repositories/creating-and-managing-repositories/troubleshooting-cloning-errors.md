@@ -117,7 +117,7 @@ Verifica si tienes acceso al repositorio de alguna de las siguientes maneras:
 
 En muy raros casos, es posible que no tengas el acceso SSH correcto al repositorio.
 
-Debes asegurarte de que la clave SSH que estás usando se encuentre conectada con tu usuario de {% data variables.product.product_name %}. Para comprobarlo, escribe lo siguiente en la línea de comando:
+You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. Para comprobarlo, escribe lo siguiente en la línea de comando:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
