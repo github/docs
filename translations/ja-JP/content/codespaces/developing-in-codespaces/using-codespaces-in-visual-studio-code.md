@@ -75,9 +75,7 @@ Use the {% data variables.product.prodname_vs %} Marketplace to install the [{% 
 
 ## Changing the machine type in {% data variables.product.prodname_vscode %}
 
-{% data reusables.codespaces.codespaces-machine-types %}
-
-You can change the machine type of your codespace at any time.
+{% data reusables.codespaces.codespaces-machine-types %} You can change the machine type of your codespace at any time.
 
 1. In {% data variables.product.prodname_vscode %}, open the Command Palette (`shift command P` / `shift control P`).
 1. Search for and select "Codespaces: Change Machine Type."
@@ -90,7 +88,11 @@ You can change the machine type of your codespace at any time.
 
 1. Choose the machine type you want to use. 
 
-   {% data reusables.codespaces.codespaces-machine-type-availability %}
+   {% note %}
+
+   **Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+
+   {% endnote %}
 
 1. If the codespace is currently running, a message is displayed asking if you would like to restart and reconnect to your codespace now.
 
@@ -100,7 +102,6 @@ You can change the machine type of your codespace at any time.
 
 ## Deleting a codespace in {% data variables.product.prodname_vscode %}
 
-{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
 
 ## Switching to the Insiders build of {% data variables.product.prodname_vscode %}

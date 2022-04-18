@@ -19,7 +19,7 @@ shortTitle: セキュリティと分析の管理
 
 個々のリポジトリのセキュリティおよび分析機能は引き続き管理できます。 詳しい情報については「[リポジトリのセキュリティ及び分析の設定の管理](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)」を参照してください。
 
-You can also review the security log for all activity on your user account. 詳細は「[セキュリティログをレビューする](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)」を参照してください。
+You can also review the security log for all activity on your personal account. 詳細は「[セキュリティログをレビューする](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)」を参照してください。
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 

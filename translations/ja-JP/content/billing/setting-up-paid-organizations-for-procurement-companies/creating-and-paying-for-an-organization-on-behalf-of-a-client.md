@@ -29,7 +29,7 @@ shortTitle: クライアントの代理
 
 自分の個人アカウントを使用して Organization をセットアップします。 また、将来クライアントのプランを更新または変更するにも、このアカウントにサインインする必要があります。
 
-すでに個人 {% data variables.product.prodname_dotcom %}ユーザアカウントをお持ちの場合は、[ステップ 2](#step-2-create-the-organization) にお進みください。
+If you already have a personal account on {% data variables.product.prodname_dotcom %}, skip to [step 2](#step-2-create-the-organization).
 
 1. [Join GitHub](https://github.com/join) ページに移動します。
 2. [Create your personal account] の下で、ユーザ名、メールアドレス、パスワードを入力し、[**Create an account**] をクリックします。 ![個人アカウントエントリフォームの作成](/assets/images/help/billing/billing_create_your_personal_account_form.png)

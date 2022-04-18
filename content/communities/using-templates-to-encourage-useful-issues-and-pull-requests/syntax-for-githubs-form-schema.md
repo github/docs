@@ -101,7 +101,8 @@ For multi-line text, you can use the pipe operator.
 ```YAML{:copy}
 body:
 - type: markdown
-  value: "## Thank you for contributing to our project!"
+  attributes:
+    value: "## Thank you for contributing to our project!"
 - type: markdown
   attributes:
     value: |

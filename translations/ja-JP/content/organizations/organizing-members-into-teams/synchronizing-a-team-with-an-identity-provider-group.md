@@ -46,7 +46,7 @@ IdP グループに接続された Team を含めて {% data variables.product.p
 
 チームを IdP グループに接続した後、Team 同期により、次の場合にのみ IdP グループの各メンバーが {% data variables.product.product_name %} 上の対応するチームに追加されます。
 - そのユーザが {% data variables.product.product_name %} の Organization のメンバーの場合。
-- そのユーザがすでに {% data variables.product.product_name %} のユーザアカウントでログインしており、少なくとも 1 回は SAML シングルサインオンを介して Organization または Enterprise アカウントに認証されている場合。
+- そのユーザがすでに {% data variables.product.product_name %} の個人アカウントでログインしており、少なくとも 1 回は SAML シングルサインオンを介して Organization または Enterprise アカウントに認証されている場合。
 - そのユーザの SSO ID が IdP グループのメンバーである場合。
 
 これらの条件を満たしていない既存の Team またはグループメンバーは、{% data variables.product.product_name %} の Team から自動的に削除され、リポジトリにアクセスできなくなります。 ユーザのリンクされた ID を取り消すと、IdP グループにマップされている Team からユーザが削除されます。 詳しい情報については「[OrganizationへのメンバーのSAMLアクセスの表示と管理](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)」及び「[EnterpriseへのユーザのSAMLアクセスの表示と管理](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)」を参照してください。
