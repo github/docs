@@ -111,7 +111,7 @@ Você pode criar um exemplo de fluxo de trabalho no repositório que aciona auto
    ```
 1. Faça commit dessas alterações e faça push para o seu repositório do {% data variables.product.prodname_dotcom %}.
 
-Seu novo arquivo de fluxo de trabalho de {% data variables.product.prodname_actions %} agora está instalado no seu repositório e será executado automaticamente toda vez que alguém fizer push de uma alteração no repositório. Para obter detalhes sobre o histórico de execução de um trabalho, consulte "[Visualizar a atividade do fluxo de trabalho](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)".
+Seu novo arquivo de fluxo de trabalho de {% data variables.product.prodname_actions %} agora está instalado no seu repositório e será executado automaticamente toda vez que alguém fizer push de uma alteração no repositório. For details about a workflow's execution history, see "[Viewing the workflow's activity](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-workflows-activity)."
 
 ## Entender o arquivo de fluxo de trabalho
 
