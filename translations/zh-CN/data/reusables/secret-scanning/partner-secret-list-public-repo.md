@@ -49,6 +49,7 @@
 | Hubspot                   | Hubspot API 密钥                      |
 | Ionic                     | Ionic 个人访问令牌                        |
 | Ionic                     | Ionic 刷新令牌                          |
+| JD Cloud                  | JD Cloud Access Key                 |
 | 线性                        | 线性 API 密钥                           |
 | 线性                        | 线性 OAuth 访问令牌                       |
 | Mailchimp                 | Mailchimp API 密钥                    |

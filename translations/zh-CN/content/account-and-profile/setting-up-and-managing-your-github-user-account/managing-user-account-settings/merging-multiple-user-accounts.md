@@ -12,18 +12,18 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: 合并多个用户帐户
+shortTitle: 合并多个个人帐户
 ---
 
 {% tip %}
 
 {% ifversion ghec %}
 
-**提示：** {% data variables.product.prodname_emus %} 允许企业通过身份提供商 (IdP) 为其成员配置唯一的用户帐户。 更多信息请参阅“[关于企业管理用户](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)”。 对于其他用例，我们建议仅使用一个用户帐户来管理个人和专业存储库。
+**提示：** {% data variables.product.prodname_emus %} 允许企业通过身份提供商 (IdP) 为其成员配置唯一的个人帐户。 更多信息请参阅“[关于企业管理用户](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)”。 对于其他用例，我们建议仅使用一个个人帐户来管理个人和专业存储库。
 
 {% else %}
 
-**提示：**建议只使用一个用户帐户来管理个人和专业仓库。
+**提示：**建议只使用一个个人帐户来管理个人和专业仓库。
 
 {% endif %}
 

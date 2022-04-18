@@ -19,7 +19,7 @@ shortTitle: 管理安全和分析
 
 您仍然可以管理单个仓库的安全和分析功能。 更多信息请参阅“[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)”。
 
-您还可以查看用户帐户上所有活动的安全日志。 更多信息请参阅“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)”。
+您还可以查看个人帐户上所有活动的安全日志。 更多信息请参阅“[查看安全日志](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)”。
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 

@@ -68,7 +68,7 @@ topics:
 | <code>language:<em>LANGUAGE</em></code> | [**language:javascript location:russia**](https://github.com/search?q=language%3Ajavascript+location%3Arussia&type=Users) 匹配其大多数仓库均以 JavaScript 编写的俄罗斯用户。             |
 |                           | [**jenny language:javascript in:fullname**](https://github.com/search?q=jenny+language%3Ajavascript+in%3Afullname&type=Users) 匹配其全名含有 "jenny" 字样、具有 JavaScript 仓库的用户。 |
 
-## 按用户帐户创建时间搜索
+## 按个人帐户创建时间搜索
 
 您可以使用 `created` 限定符基于用户加入 {% data variables.product.product_name %} 的时间过滤用户。 这将采用日期作为其参数。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 

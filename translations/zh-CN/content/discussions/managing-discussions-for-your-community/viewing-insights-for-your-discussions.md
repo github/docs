@@ -12,7 +12,7 @@ shortTitle: 查看讨论见解
 
 ## 关于讨论见解仪表板
 
-You can use discussions insights to help understand the contribution activity, page views, and growth of your discussions community.
+您可以使用讨论见解来帮助了解讨论社区的贡献活动、页面浏览量和增长情况。
 - **贡献活动**显示对讨论、问题和拉取请求的贡献总数。
 - **讨论页面浏览量**显示讨论的总页面浏览量，按登录查看者与匿名查看者进行细分。
 - **讨论每日贡献者**显示每日在选定时间段内做出反应、投票、标记答案、评论或发布的唯一身份用户的每日计数。
@@ -28,7 +28,7 @@ You can use discussions insights to help understand the contribution activity, p
 
 ## 查看讨论见解
 
-{% data reusables.repositories.navigate-to-repo %} For organization discussions, navigate to the main page of the source repository.
+{% data reusables.repositories.navigate-to-repo %} 对于组织讨论，请导航到源存储库的主页面。
 {% data reusables.repositories.accessing-repository-graphs %}
 3. 在左侧栏中，单击 **Community（社区）**。 ![左侧边栏中"社区" 选项卡的屏幕截图](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
 1. （可选）在页面右上角，选择 **Period（期间）**下拉菜单，然后单击要查看数据的时间段： **30 天**、**3 个月**或 **1 年**。 ![讨论见解的日期范围选择器屏幕截图](/assets/images/help/discussions/discussions-dashboard-date-selctor.png)

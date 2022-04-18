@@ -16,7 +16,7 @@ topics:
 
 在 {% data variables.product.product_name %} 上创建文件时，请注意以下几点：
 
-- 如果您尝试为没有访问权限的仓库创建新文件，我们会将项目复刻到您的用户帐户，并在您提交更改后帮助您发送[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)到原始仓库。
+- 如果您尝试在没有访问权限的仓库中新建文件，我们会将项目复刻到您的个人帐户，并在您提交更改后帮助您发送[拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)到原始仓库。
 - 通过 Web 界面创建的文件名只能包含字母数字字符和连字符 (`-`)。 要使用其他字符，[请在本地创建和提交文件，然后将它们推送到 {% data variables.product.product_name %} 上的仓库](/articles/adding-a-file-to-a-repository-using-the-command-line)。
 
 {% data reusables.repositories.sensitive-info-warning %}

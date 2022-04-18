@@ -43,7 +43,7 @@ shortTitle: 権限について
 
 ## パッケージの管理
 
-To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your personal account must have appropriate permissions.
+パッケージレジストリでホストされているパッケージを使用もしくは管理するためには、適切なスコープを持つトークンを使わなければならず、個人アカウントが適切な権限を持っていなければなりません。
 
 例:
 -  リポジトリからパッケージをダウンロードしてインストールするには、トークンは`read:packages`スコープを持っていなければならず、ユーザアカウントは読み取り権限を持っていなければなりません。

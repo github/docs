@@ -281,6 +281,11 @@ _流量_
 - [`GET /repos/:owner/:repo/commits/:sha/check-runs`](/rest/reference/checks#list-check-runs-for-a-git-reference) (:read)
 - [`GET /repos/:owner/:repo/commits/:sha/check-suites`](/rest/reference/checks#list-check-suites-for-a-git-reference) (:read)
 
+{% ifversion fpt %}
+### 对“代码空间”的权限
+
+- [`GET /repos/:owner/:repo/codespaces/machines`](/rest/reference/codespaces#list-available-machine-types-for-a-repository)
+{% endif %}
 ### 有关“内容”的权限
 
 - [`GET /repos/:owner/:repo/:archive_format/:ref`](/rest/reference/repos#download-a-repository-archive) (:read)
