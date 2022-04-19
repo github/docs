@@ -18,9 +18,9 @@ shortTitle: Visualizar o uso das suas ações
 
 Você também pode visualizar os minutos de execução do trabalho faturáveis para uma execução de fluxo de trabalho individual. Para obter mais informações, consulte "[Visualizar o tempo de execução do trabalho](/actions/managing-workflow-runs/viewing-job-execution-time)".
 
-## Viewing {% data variables.product.prodname_actions %} usage for your personal account
+## Visualizando o uso de {% data variables.product.prodname_actions %} para a sua conta pessoal
 
-Anyone can view {% data variables.product.prodname_actions %} usage for their own personal account.
+Qualquer um pode ver o uso de {% data variables.product.prodname_actions %} para sua própria conta pessoal.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

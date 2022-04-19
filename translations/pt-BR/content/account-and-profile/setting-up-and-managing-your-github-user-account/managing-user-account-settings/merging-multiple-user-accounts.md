@@ -12,18 +12,18 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Merge multiple personal accounts
+shortTitle: Fazer merge de várias contas pessoais
 ---
 
 {% tip %}
 
 {% ifversion ghec %}
 
-**Tip:** {% data variables.product.prodname_emus %} allow an enterprise to provision unique personal accounts for its members through an identity provider (IdP). Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)". For other use cases, we recommend using only one personal account to manage both personal and professional repositories.
+**Dica:** {% data variables.product.prodname_emus %} permite que uma empresa forneça contas pessoais únicas para seus integrantes por meio de um provedor de identidade (IdP). Para obter mais informações, consulte[Sobre usuários gerenciados pela empresa](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)". Para outros casos de uso, recomendamos usar apenas uma conta pessoal para gerenciar repositórios pessoais e profissionais.
 
 {% else %}
 
-**Tip:** We recommend using only one personal account to manage both personal and professional repositories.
+**Dica:** Recomendamos usar apenas uma conta pessoal para gerenciar repositórios pessoais e profissionais.
 
 {% endif %}
 
