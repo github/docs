@@ -1,22 +1,22 @@
 ---
-title: Deploying GitHub AE
-intro: 'You can deploy {% data variables.product.product_name %} to an available Azure region.'
+title: 部署 GitHub AE
+intro: '可以将 {% data variables.product.product_name %} 部署到可用的 Azure 区域。'
 versions:
   ghae: '*'
 topics:
   - Accounts
   - Enterprise
 type: how_to
-shortTitle: Deploy GitHub AE
+shortTitle: 部署 GitHub AE
 redirect_from:
   - /get-started/signing-up-for-github/setting-up-a-trial-of-github-ae
 ---
 
-## About deployment of {% data variables.product.product_name %}
+## 关于 {% data variables.product.product_name %} 的部署
 
 {% data reusables.github-ae.github-ae-enables-you %} 更多信息请参阅“[关于 {% data variables.product.prodname_ghe_managed %}](/admin/overview/about-github-ae)”。
 
-After you purchase or start a trial of {% data variables.product.product_name %}, you can deploy {% data variables.product.product_name %} to an available Azure region. This guide refers to the Azure resource that contains the deployment of {% data variables.product.product_name %} as the {% data variables.product.product_name %} account. You'll use the Azure portal at [https://portal.azure.com](https://portal.azure.com) to deploy the {% data variables.product.product_name %} account.
+购买或开始试用 {% data variables.product.product_name %} 后，可以将 {% data variables.product.product_name %} 部署到可用的 Azure 区域。 This guide refers to the Azure resource that contains the deployment of {% data variables.product.product_name %} as the {% data variables.product.product_name %} account. You'll use the Azure portal at [https://portal.azure.com](https://portal.azure.com) to deploy the {% data variables.product.product_name %} account.
 
 ## 基本要求
 

@@ -24,11 +24,11 @@ miniTocMaxHeadingLevel: 3
 
 Você pode habilitar o {% data variables.product.prodname_actions %} para todos os repositórios da sua organização. {% data reusables.actions.enabled-actions-description %} Você pode desabilitar {% data variables.product.prodname_actions %} para todos os repositórios da sua organização. {% data reusables.actions.disabled-actions-description %}
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} for all repositories in your organization but limit the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
+Como alternativa, você pode habilitar {% data variables.product.prodname_actions %} para todos os repositórios na sua organização, mas limitar as ações {% if actions-workflow-policy %}e os fluxos de trabalho reutilizáveis{% endif %}, que um fluxo de trabalho pode ser executado.
 
 ## Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua organização
 
-You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes or ghae %}enterprise{% else %}organization{% endif %}.
+É possível desabilitar {% data variables.product.prodname_actions %} em todos os repositórios na organização ou apenas permitir repositórios específicos. Você também pode limitar o uso de ações públicas{% if actions-workflow-policy %} e fluxos de trabalho reutilizáveis{% endif %}, para que as pessoas só possam usar ações locais {% if actions-workflow-policy %}e fluxos de trabalho reutilizáveis{% endif %} que existem na sua {% ifversion ghec or ghes or ghae %}empresa{% else %}organização{% endif %}.
 
 {% note %}
 

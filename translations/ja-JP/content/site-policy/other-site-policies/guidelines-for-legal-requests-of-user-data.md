@@ -130,7 +130,7 @@ Organization アカウントの場合、当社はアカウントオーナーの�
 なお、対象となる情報はケースバイケースで異なりますのでご注意ください。 ユーザの任意で提供される情報もあります。 また、当社が情報を収集または保持していない場合もあります。
 
 - <a name="with-a-court-order-or-a-search-warrant"></a>
-**裁判所命令*または*捜査令状**がある場合 — 当社は、(i) 求められている情報が進行中の犯罪捜査に関連し、重要であると信じる合理的な根拠があることを示す具体的かつ明確な事実を示した、合衆国法律集第 18 編 第 2703 条 (d) に基づいて発行された裁判所命令、または (ii) 連邦刑事訴訟規則または同等の州令状手続きに記載されている手続きの下で発行された、推定原因を示す捜査令状のいずれかで強制されない限り、アカウントアクセスログを開示しません。 上記の非公開ユーザアカウント情報に加えて、当社は裁判所命令または捜査令状に応じてアカウントアクセスログを提供する場合があります。これには以下が含まれます。
+**裁判所命令*または*捜査令状**がある場合 — 当社は、(i) 求められている情報が進行中の犯罪捜査に関連し、重要であると信じる合理的な根拠があることを示す具体的かつ明確な事実を示した、合衆国法律集第 18 編 第 2703 条 (d) に基づいて発行された裁判所命令、または (ii) 連邦刑事訴訟規則または同等の州令状手続きに記載されている手続きの下で発行された、推定原因を示す捜査令状のいずれかで強制されない限り、アカウントアクセスログを開示しません。 In addition to the non-public account information listed above, we can provide account access logs in response to a court order or search warrant, which may include:
 
   - 一定期間にわたるユーザの動きを明らかにするあらゆるログ
   - アカウントまたはプライベートリポジトリの設定（たとえば、どのユーザが特定の権限を持つかなど）
@@ -138,7 +138,7 @@ Organization アカウントの場合、当社はアカウントオーナーの�
   - アカウント作成以外または特定の日時のセキュリティアクセスログ
 
 - <a name="only-with-a-search-warrant"></a>
-**捜索令状がある場合のみ** — 連邦刑事訴訟規則または同等の州令状手続きに記載されている手続きの下で発行された、推定原因を示す捜査令状に基づいて強制されない限り、当社はユーザアカウントの個人的なコンテンツを開示しません。 上記の非公開ユーザアカウント情報とアカウントアクセスログに加えて、当社は検索令状に応じて個人的なユーザアカウントのコンテンツも提供します。これには以下が含まれます。
+**Only with a search warrant** — We will not disclose the private contents of any account unless compelled to do so under a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures upon a showing of probable cause. In addition to the non-public account information and account access logs mentioned above, we will also provide private account contents in response to a search warrant, which may include:
 
   - シークレット Gist のコンテンツ
   - プライベートリポジトリのソースコードまたはその他のコンテンツ

@@ -20,7 +20,7 @@ Puedes crear un subdirectorio *PULL_REQUEST_TEMPLATE/* en alguna de las carpetas
 
 {% ifversion fpt or ghes or ghec %}
 
-Puedes crear plantillas de solicitud de extracción predeterminadas para tu organización{% ifversion fpt or ghes or ghec %} o cuenta de usuario{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default pull request templates for your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %}. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

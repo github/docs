@@ -71,7 +71,7 @@ topics:
 - 7\. 允许未经授权下载流内容或媒体；
 - 8\. 显示或链接到非法内容；
 - 9\. 骚扰、辱骂、威胁或煽动暴力对待任何个人或团体，包括 GitHub 员工、高管和代理或任何最终用户；
-- 10\. Is or contains sexually obscene content;
+- 10\. 属于或包含淫秽内容；
 - 11\. 歧视或辱骂任何个人或团体；
 - 12\. 将最终用户转到模仿 Marketplace 或冒充 Marketplace 的任何其他网站，或者提供跳转到该等网站的链接。
 
@@ -89,13 +89,13 @@ topics:
 
 **3.7** 如果 GitHub 确定开发者违反了本节（第 3 节）中的任何要求或义务，则 GitHub 有权立即终止本协议。
 
-**3.8** Nothing in this Agreement shall prevent either party from developing and/or publishing applications that are similar or otherwise compete with the other party's applications.
+**3.8** 本协议的任何规定均不得阻止任何一方开发和/或发布与另一方的应用程序相似或竞争的应用程序。
 
 ## 4.   下架
 
 **4.1** 您自行下架。 在下一个日历月第一日之前三十 (30) 天向 GitHub 发出书面通知后，您可以从 Marketplace 未来分发中删除您的产品推介，但必须遵守本协议关于 Marketplace 已分发产品的规定，包括但不限于退款要求。 从 Marketplace 未来分发中删除产品推介，不会：(a) 影响先前已购买或安装该产品的最终用户的许可权；或 (b) 改变您对于用户先前已购买或安装的产品提供交付或支持服务的义务。
 
-Notwithstanding the foregoing, in no event will GitHub maintain on any portion of Marketplace any Listing that you have removed from Marketplace and provided written notice to GitHub that such removal was due to:
+尽管有上述规定，但在任何情况下，GitHub 都不会在 Marketplace 的任何部分保留由于以下原因（通过书面通知获悉）从 Marketplace 中删除的任何产品推介：:
 
 - (i) 被指控侵犯或确实侵犯任何人的任何版权、商标、商业秘密、商业外观、专利或其他知识产权；
 - (ii) 被指控诽谤或确实诽谤；
@@ -147,7 +147,7 @@ GitHub 可能：阻止该产品推介在 Marketplace 上展示；从 Marketplace
 
 **6.1** GitHub 是最终用户通过 Marketplace 购买开发者产品的记录商。
 
-**6.2** 开发者应用程序在 Marketplace 清单上的价格应设置为美元 (USD)。 开发者对于每个上架产品的定价设置有完全控制权，但一旦设定，就无法更改。 您可以撤销现有上架产品的定价计划，然后为其添加新的定价计划，前提是新的定价计划对现有最终客户没有不利影响。 您为开发者产品设置的价格将决定您将收到的付款金额。 GitHub will remit 95% of the sale price in USD without reduction for Taxes except for any withholding taxes that are required under applicable law. The remaining 5% of the sales price will be allotted to and retained by GitHub.  每个月底，在达到最低值 500 美元后，GitHub 将汇出您的应得款项。
+**6.2** 开发者应用程序在 Marketplace 清单上的价格应设置为美元 (USD)。 开发者对于每个上架产品的定价设置有完全控制权，但一旦设定，就无法更改。 您可以撤销现有上架产品的定价计划，然后为其添加新的定价计划，前提是新的定价计划对现有最终客户没有不利影响。 您为开发者产品设置的价格将决定您将收到的付款金额。 GitHub 将以美元汇出 95% 的销售价格，不扣除税款，但适用法律要求的任何预扣税款除外。 其余 5% 的销售价格将分配给 GitHub 并由 GitHub 保留。  每个月底，在达到最低值 500 美元后，GitHub 将汇出您的应得款项。
 
 **6.3** 退款要求。 您将负责制定关于向最终客户退款的条款和条件。 在任何情况下，GitHub 都不负责为退款提供任何支持，GitHub 也没有义务支付任何退款。
 

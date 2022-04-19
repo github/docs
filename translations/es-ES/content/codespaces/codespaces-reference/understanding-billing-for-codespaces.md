@@ -20,7 +20,7 @@ Este artículo te explica cómo funciona la facturación para tus codespaces y c
 
 ## Obtener acceso a {% data variables.product.prodname_codespaces %}
 
-Tu administrador de organización podría limitar el uso de los {% data variables.product.prodname_codespaces %} a solo algunas cuentas de usuario específicas. Para obtener acceso, necesitarás contactar a tu gerente de facturación. Para obtener más información, consulta la sección "[Administrar el acceso y la seguridad para tus codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)".
+Your organization's administrator might limit {% data variables.product.prodname_codespaces %} usage to only specific personal accounts. Para obtener acceso, necesitarás contactar a tu gerente de facturación. Para obtener más información, consulta la sección "[Administrar el acceso y la seguridad para tus codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)".
 
 ## Cuánto cuesta utilizar {% data variables.product.prodname_codespaces %}
 

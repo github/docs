@@ -23,6 +23,8 @@ Você pode decidir quantas equipes uma atividade pode ter e quantos integrantes 
 
 Para uma demonstração de vídeo da criação de uma atividade de grupo, consulte "[Fundamentos de configuração de {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)".
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## Pré-requisitos
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}

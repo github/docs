@@ -17,9 +17,11 @@ permissions: People with admin access to a repository can configure prebuilds fo
 
 É possível definir uma configuração de pré-criação para um branch específico do repositório.
 
-Qualquer branch criado a partir de um branchde base pré-compilado normalmente também receberá uma pré-compilação durante a criação do codespace. Isso é verdade se o contêiner de desenvolvimento no branch for o mesmo que no branch de base. Isso ocorre porque a maioria da configuração de pré-compilação para branches com a mesma configuração de contêiner de desenvolvimento são idênticos, para que os desenvolvedores possam se beneficiar de horários de criação de codespaces mais rápidos também nesses branches. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project)".
+Qualquer branch criado a partir de um branchde base pré-compilado normalmente também receberá uma pré-compilação durante a criação do codespace. Isso é verdade se o contêiner de desenvolvimento no branch for o mesmo que no branch de base. Isso ocorre porque a maioria da configuração de pré-compilação para branches com a mesma configuração de contêiner de desenvolvimento são idênticos, para que os desenvolvedores possam se beneficiar de horários de criação de codespaces mais rápidos também nesses branches. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
 Normalmente, ao configurar pré-compilações para um branch, as pré-compilações estarão disponíveis para tipos de máquinas de {% data variables.product.prodname_codespaces %} para esse branch. No entanto, se seu repositório tiver um tamanho superior a 32 GB, as pré-compilações não estarão disponíveis para tipos de máquina 2-core e 4-core, uma vez que o armazenamento previsto é limitado a 32 GB.
+
+{% data reusables.codespaces.prebuilds-not-available %}
 
 ## Pré-requisitos
 
@@ -57,6 +59,14 @@ Antes de configurar as pré-compilações para seu projeto, os pontos a seguir d
    * Os desenvolvedores podem definir sua região padrão para {% data variables.product.prodname_codespaces %}, que pode permitir que você habilite pré-compilações para menos regiões. Para obter mais informações, consulte "[Definindo a sua região padrão para {% data variables.product.prodname_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-region-for-codespaces)".
 
    {% endnote %}
+
+1. Choose how you want to automatically trigger updates of the prebuild template.
+
+   * **Every push** (the default setting) - With this setting, prebuild configurations will be updated on every push made to the given branch. This will ensure that codespaces generated from a prebuild template always contain the latest codespace configuration, including any recently added or updated dependencies.
+   * **On configuration change** - With this setting, prebuild configurations will be updated every time associated configuration files for a given repo and branch are updated. This ensures that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild template. The Actions workflow that updates the prebuild template will run less often, so this option will use fewer Actions minutes. However, this option will not guarantee that codespaces always include recently added or updated dependencies, so these may have to be added or updated manually after a codespace has been created.
+   * **Scheduled** - With this setting, you can have your prebuild configurations update on a custom schedule that's defined by you. This can reduce consumption of Actions minutes, and reduce the amount of time during which prebuilds are unavailable because they are being updated. However, with this option, codespaces may be created that do not use the latest dev container configuration changes.
+
+   ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
 
 1. Clique em **Criar**.
 

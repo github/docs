@@ -2,10 +2,9 @@ import fs from 'fs/promises'
 import { fileURLToPath } from 'url'
 import path from 'path'
 
-import dedent from 'dedent'
 import { describe } from '@jest/globals'
 import walk from 'walk-sync'
-import { get, isPlainObject, difference } from 'lodash-es'
+import { isPlainObject, difference } from 'lodash-es'
 
 import { allVersions } from '../../lib/all-versions.js'
 import getRest from '../../lib/rest/index.js'
@@ -77,7 +76,6 @@ describe('OpenAPI schema validation', () => {
       })
   })
 
-  // remove?
   test('operations object structure organized by version, category, and subcategory', async () => {
     for (const version in allVersions) {
       const operations = await getFlatListOfOperations(version)
@@ -103,151 +101,26 @@ async function findOperation(version, method, path) {
   })
 }
 
-describe('x-codeSamples for curl', () => {
+describe('code examples are defined', () => {
   test('GET', async () => {
     for (const version in allVersions) {
+      if (version === 'enterprise-server@3.2' || version === 'enterprise-server@3.1') continue
+
       let domain = 'https://api.github.com'
       if (version.includes('enterprise-server')) {
-        domain = 'http(s)://{hostname}/api/v3'
+        domain = 'http(s)://HOSTNAME/api/v3'
       } else if (version === 'github-ae@latest') {
-        domain = 'https://{hostname}/api/v3'
+        domain = 'https://HOSTNAME/api/v3'
       }
+
       const operation = await findOperation(version, 'GET', '/repos/{owner}/{repo}')
+      expect(operation.serverUrl).toBe(domain)
       expect(isPlainObject(operation)).toBe(true)
-      const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'Shell')
-      const expected =
-        'curl \\\n' +
-        '  -H "Accept: application/vnd.github.v3+json" \\\n' +
-        `  ${domain}/repos/octocat/hello-world`
-      expect(source).toEqual(expected)
-    }
-  })
-
-  test('operations with required preview headers match Shell examples', async () => {
-    for (const version in allVersions) {
-      const allOperations = await getFlatListOfOperations(version)
-      const operationsWithRequiredPreviewHeaders = allOperations.filter((operation) => {
-        const previews = get(operation, 'x-github.previews', [])
-        return previews.some((preview) => preview.required)
+      expect(operation.codeExamples).toBeDefined()
+      operation.codeExamples.forEach((example) => {
+        expect(isPlainObject(example.request)).toBe(true)
+        expect(isPlainObject(example.response)).toBe(true)
       })
-
-      const operationsWithHeadersInCodeSample = operationsWithRequiredPreviewHeaders.filter(
-        (operation) => {
-          const { source: codeSample } = operation['x-codeSamples'].find(
-            (sample) => sample.lang === 'Shell'
-          )
-          return (
-            codeSample.includes('-H "Accept: application/vnd.github') &&
-            !codeSample.includes('application/vnd.github.v3+json')
-          )
-        }
-      )
-      expect(operationsWithRequiredPreviewHeaders.length).toEqual(
-        operationsWithHeadersInCodeSample.length
-      )
-    }
-  })
-})
-
-describe('x-codeSamples for @octokit/core.js', () => {
-  test('GET', async () => {
-    for (const version in allVersions) {
-      const operation = await findOperation(version, 'GET', '/repos/{owner}/{repo}')
-      expect(isPlainObject(operation)).toBe(true)
-      const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
-      const plainText = source.replace(/<[^>]+>/g, '').trim()
-      const expected = dedent`await octokit.request('GET /repos/{owner}/{repo}', {
-        owner: 'octocat',
-        repo: 'hello-world'
-      })`
-      expect(plainText).toEqual(expected)
-    }
-  })
-
-  test('POST', async () => {
-    for (const version in allVersions) {
-      const operation = await findOperation(version, 'POST', '/repos/{owner}/{repo}/git/trees')
-      expect(isPlainObject(operation)).toBe(true)
-      const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
-      const plainText = source.replace(/<[^>]+>/g, '').trim()
-      const expected = dedent`await octokit.request('POST /repos/{owner}/{repo}/git/trees', {
-        owner: 'octocat',
-        repo: 'hello-world',
-        tree: [
-          {
-            path: 'path',
-            mode: 'mode',
-            type: 'type',
-            sha: 'sha',
-            content: 'content'
-          }
-        ]
-      })`
-      expect(plainText).toEqual(expected)
-    }
-  })
-
-  test('PUT', async () => {
-    const operation = await findOperation(
-      'free-pro-team@latest',
-      'PUT',
-      '/authorizations/clients/{client_id}/{fingerprint}'
-    )
-    expect(isPlainObject(operation)).toBe(true)
-    const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
-    const plainText = source.replace(/<[^>]+>/g, '').trim()
-    const expected = dedent`await octokit.request('PUT /authorizations/clients/{client_id}/{fingerprint}', {
-      client_id: 'client_id',
-      fingerprint: 'fingerprint',
-      client_secret: 'client_secret'
-    })`
-    expect(plainText).toEqual(expected)
-  })
-
-  test('operations with required preview headers match JavaScript examples', async () => {
-    for (const version in allVersions) {
-      const allOperations = await getFlatListOfOperations(version)
-      const operationsWithRequiredPreviewHeaders = allOperations.filter((operation) => {
-        const previews = get(operation, 'x-github.previews', [])
-        return previews.some((preview) => preview.required)
-      })
-
-      // Find something that looks like the following in each code sample:
-      /*
-        mediaType: {
-          previews: [
-            'machine-man'
-          ]
-        }
-      */
-      const operationsWithHeadersInCodeSample = operationsWithRequiredPreviewHeaders.filter(
-        (operation) => {
-          const { source: codeSample } = operation['x-codeSamples'].find(
-            (sample) => sample.lang === 'JavaScript'
-          )
-          return codeSample.match(/mediaType: \{\s+previews: /g)
-        }
-      )
-      expect(operationsWithRequiredPreviewHeaders.length).toEqual(
-        operationsWithHeadersInCodeSample.length
-      )
-    }
-  })
-
-  // skipped because the definition is current missing the `content-type` parameter
-  // GitHub GitHub issue: 155943
-  test.skip('operation with content-type parameter', async () => {
-    for (const version in allVersions) {
-      const operation = await findOperation(version, 'POST', '/markdown/raw')
-      expect(isPlainObject(operation)).toBe(true)
-      const { source } = operation['x-codeSamples'].find((sample) => sample.lang === 'JavaScript')
-      const expected = dedent`await octokit.request('POST /markdown/raw', {
-        data: 'data',
-        headers: {
-          'content-type': 'text/plain; charset=utf-8'
-        }
-      })`
-      expect(source).toEqual(expected)
     }
   })
 })

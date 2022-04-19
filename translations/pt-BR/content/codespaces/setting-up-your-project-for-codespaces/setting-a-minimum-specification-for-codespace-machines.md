@@ -15,9 +15,9 @@ product: '{% data reusables.gated-features.codespaces %}'
 
 ## Visão Geral
 
-Ao criar um codespace para um repositório, geralmente você tem uma escolha de tipos de máquina disponíveis. Cada tipo de máquina tem um nível diferente de recursos. Para obter mais informações, consulte "["Mudar o tipo de máquina para seu codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+Each codespace that you create is hosted on a separate virtual machine, and you can usually choose from different types of virtual machines. Each machine type has different resources (CPUs, memory, storage) and, by default, the machine type with the least resources is used. Para obter mais informações, consulte "["Mudar o tipo de máquina para seu codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
 
-Se o seu projeto precisar de um certo nível de poder de computação, você poderá configurar {% data variables.product.prodname_github_codespaces %} para que apenas os tipos de máquina que atendem a esses requisitos estejam disponíveis para que as pessoas selecionem. Você pode configurar isso no arquivo `devcontainer.json`.
+If your project needs a certain level of compute power, you can configure {% data variables.product.prodname_github_codespaces %} so that only machine types that meet these requirements can be used by default, or selected by users. You configure this in a `devcontainer.json` file.
 
 {% note %}
 
@@ -27,7 +27,7 @@ Se o seu projeto precisar de um certo nível de poder de computação, você pod
 
 ## Definindo uma especificação mínima de máquina
 
-1. {% data variables.product.prodname_codespaces %} para o seu repositório está configurado no arquivo `devcontainer.json`. Se o seu repositório ainda não contiver um arquivo `devcontainer.json`, adicione um agora. Consulte "[Adicionar um contêiner de desenvolvimento ao seu projeto](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)".
+1. {% data variables.product.prodname_codespaces %} for your repository are configured in a `devcontainer.json` file. Se o seu repositório ainda não contiver um arquivo `devcontainer.json`, adicione um agora. See "[Add a dev container configuration to your repository](/free-pro-team@latest/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
 1. Edite o arquivo `devcontainer.json`, adicionando a propriedade `hostRequirements` como esta:
 
    ```json{:copy}
@@ -44,10 +44,10 @@ Se o seu projeto precisar de um certo nível de poder de computação, você pod
 
 1. Salve o arquivo e faça commit as alterações no branch necessário do repositório.
 
-   Agora, quando você criar um codespace para esse branch do repositório, você só será capaz de selecionar os tipos de máquina que correspondem ou excedem os recursos que você especificou.
+   Now when you create a codespace for that branch of the repository, and you go to the creation configuration options, you will only be able to select machine types that match or exceed the resources you've specified.
 
    ![Caixa de diálogo que mostra uma escolha limitada de tipos de máquina](/assets/images/help/codespaces/machine-types-limited-choice.png)
 
 ## Leia mais
 
-- "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/configuring-codespaces-for-your-project)"
+- "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)"

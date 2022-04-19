@@ -17,7 +17,7 @@ shortTitle: Use GitHub Importer
 
 {% endtip %}
 
-If you'd like to match the commits in your repository to the authors' GitHub user accounts during the import, make sure every contributor to your repository has a GitHub account before you begin the import.
+If you'd like to match the commits in your repository to the authors' GitHub personal accounts during the import, make sure every contributor to your repository has a GitHub account before you begin the import.
 
 {% data reusables.repositories.repo-size-limit %}
 
@@ -25,7 +25,7 @@ If you'd like to match the commits in your repository to the authors' GitHub use
 ![Import repository option in new repository menu](/assets/images/help/importer/import-repository.png)
 2. Under "Your old repository's clone URL", type the URL of the project you want to import.
 ![Text field for URL of imported repository](/assets/images/help/importer/import-url.png)
-3. Choose your user account or an organization to own the repository, then type a name for the repository on GitHub.
+3. Choose your personal account or an organization to own the repository, then type a name for the repository on GitHub.
 ![Repository owner menu and repository name field](/assets/images/help/importer/import-repo-owner-name.png)
 4. Specify whether the new repository should be *public* or *private*. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
 ![Public or private repository radio buttons](/assets/images/help/importer/import-public-or-private.png)

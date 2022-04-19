@@ -36,7 +36,7 @@ topics:
 | `actor.avatar_url`    | 执行者个人资料图像的 URL。                                                                     |
 | `repo`                | 发生事件的仓库对象。                                                                          |
 | `repo.id`             | 仓库的唯一标识符。                                                                           |
-| `repo.name`           | 仓库名称，包括所有者和仓库的名称。 例如，`octocat/hello-world` 是 `octocat` 用户帐户拥有的 `hello-world` 仓库的名称。 |
+| `repo.name`           | 仓库名称，包括所有者和仓库的名称。 例如，`octocat/hello-world` 是 `octocat` 个人帐户拥有的 `hello-world` 仓库的名称。 |
 | `repo.url`            | 用于检索仓库对象的 REST API URL，其中包括更多仓库信息。                                                  |
 | `payload`             | 事件有效负载对象对于事件类型是唯一的。 关于事件 API `payload` 对象，请参阅下面的事件类型。                               |
 

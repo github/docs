@@ -1,6 +1,6 @@
 ---
 title: 機能プレビューで早期アクセスリリースに触れる
-intro: 機能プレビューを使用して、ベータ版で利用可能な製品または機能を確認し、ユーザアカウントの各機能を有効または無効にすることができます。
+intro: You can use feature preview to see products or features that are available in beta and to enable or disable each feature for your personal account.
 redirect_from:
   - /articles/exploring-early-access-releases-with-feature-preview
   - /github/getting-started-with-github/exploring-early-access-releases-with-feature-preview

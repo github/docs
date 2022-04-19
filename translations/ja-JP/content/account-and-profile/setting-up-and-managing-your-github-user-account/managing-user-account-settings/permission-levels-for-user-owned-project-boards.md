@@ -1,6 +1,6 @@
 ---
 title: ユーザー所有のプロジェクトボードの権限レベル
-intro: ユーザーアカウントが所有するプロジェクトボードには、プロジェクトボードオーナーとコラボレーターの 2 つの権限レベルがあります。
+intro: 'A project board owned by a personal account has two permission levels: the project board owner and collaborators.'
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-user-owned-project-boards
@@ -17,7 +17,7 @@ shortTitle: Permission user project boards
 
 ## 権限の概要
 
-ユーザー所有のプロジェクトボードの所有者は 1 人だけです。この権限を他のユーザアカウントと共有することはできません。 オーナーに加えて、他のユーザはプロジェクトボードで共同作業をすることができます。
+There is only one owner of a user-owned project board; this permission cannot be shared with another personal account. オーナーに加えて、他のユーザはプロジェクトボードで共同作業をすることができます。
 
 プロジェクトボードのコラボレーターには 3 つのレベルの権限があります。
 
@@ -61,4 +61,4 @@ shortTitle: Permission user project boards
 
 ## 参考リンク
 
-  - [ユーザ アカウントのプロジェクトボードに対するアクセスを管理する](/articles/managing-access-to-your-user-account-s-project-boards)
+  - "[Managing access to your personal account's project boards](/articles/managing-access-to-your-user-account-s-project-boards)"
