@@ -133,9 +133,15 @@ Al utilizar el calificador `country`, puedes filtrar los eventos en la bitácora
 
 ## Utilizar la API de bitácoras de auditoría
 
+{% ifversion fpt %}
+
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can interact with the audit log using the GraphQL API and REST API. Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api).
+
+{% else %}
+
 Puedes interactuar con la bitácora de audotaría si utilizas la API de GraphQL{% ifversion fpt or ghec %} o la API de REST{% endif %}.
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 {% note %}
 
@@ -150,7 +156,7 @@ Puedes interactuar con la bitácora de audotaría si utilizas la API de GraphQL{
 Para garantizar que tu propiedad intelectual está segura y que mantienes el cumplimiento para tu organización, puedes utilizar la API de GraphQL para bitácoras de auditoría para mantener copias de tus datos de bitácoras de auditoría y monitorear:
 {% data reusables.audit_log.audit-log-api-info %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 Ten en cuenta que no puedes recuperar los eventos de Git utilizando la API de GraphQL. Para recuperar eventos de Git, utiliza mejor la API de REST. Para obtener más información, consulta las "[acciones de la categoría `git`](#git-category-actions)".
 {% endif %}
 
@@ -158,7 +164,7 @@ La respuesta de GraphQL puede incluir datos de hasta 90 a 120 días.
 
 Por ejemplo, puedes hacer una solicitud de GraphQL para ver todos los miembros nuevos de la organización agregados a tu organización. Para obtener más información, consulta la "[Bitácora de Auditoría de la API de GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#auditentry/)".
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 ### Utilizar la API de REST
 
@@ -171,6 +177,7 @@ By default, only events from the past three months are returned. To include olde
 
 Para obtener más información sobre la API de REST del log de auditoría, consulta la sección "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization)".
 
+{% endif %}
 {% endif %}
 
 ## Acciones de la bitácora de auditoría

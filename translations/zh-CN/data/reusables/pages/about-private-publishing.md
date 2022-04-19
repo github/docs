@@ -1,1 +1,7 @@
-如果您的项目站点是从使用 {% data variables.product.prodname_ghe_cloud %} 的组织拥有的私有或内部仓库发布的，您可以管理站点的访问控制。 In an {% data variables.product.prodname_emu_enterprise %}, all {% data variables.product.prodname_pages %} sites are privately published.
+{% ifversion fpt %}
+You can create
+{% data variables.product.prodname_pages %} sites that are publicly available on the internet. Organizations that use {% data variables.product.prodname_ghe_cloud %} can also publish sites privately by managing access control for the site.
+{% elsif ghec %}
+Unless your enterprise uses
+{% data variables.product.prodname_emus %}, you can choose to publish sites publicly or privately by managing access control for the site.
+{% endif %}

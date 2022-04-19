@@ -15,7 +15,7 @@ shortTitle: 发布者验证
 
 一旦您的组织通过验证，您就可以为应用程序发布付费计划。 更多信息请参阅“[为上架产品设置定价计划](/developers/github-marketplace/setting-pricing-plans-for-your-listing)”。
 
-要为应用程序提供付费计划，该应用程序必须为组织所有，并且您必须拥有该组织的所有者权限。 如果您的应用程序目前由用户帐户所有，您需要将该应用程序的所有权转让给组织。 更多信息请参阅“[转让 GitHub 应用程序的所有权](/developers/apps/transferring-ownership-of-a-github-app)”或“[转让 OAuth 应用程序的所有权](/developers/apps/transferring-ownership-of-an-oauth-app)”。
+要为应用程序提供付费计划，该应用程序必须为组织所有，并且您必须拥有该组织的所有者权限。 如果您的应用程序目前由个人帐户所有，您需要将该应用程序的所有权转让给组织。 更多信息请参阅“[转让 GitHub 应用程序的所有权](/developers/apps/transferring-ownership-of-a-github-app)”或“[转让 OAuth 应用程序的所有权](/developers/apps/transferring-ownership-of-an-oauth-app)”。
 
 ## 请求发布者验证
 

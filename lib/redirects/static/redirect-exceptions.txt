@@ -467,6 +467,21 @@
 /enterprise-cloud@latest/code-security/security-overview/filtering-alerts-in-the-security-overview
 - /code-security/security-overview/filtering-alerts-in-the-security-overview
 
+/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization
+- /organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization
+- /articles/verifying-your-organization-s-domain
+- /articles/verifying-your-organizations-domain
+- /github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain
+- /organizations/managing-organization-settings/verifying-your-organizations-domain
+
+/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization
+- /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization
+- /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
+- /articles/restricting-email-notifications-to-an-approved-domain
+- /github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain
+- /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
+- /organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization
+
 /enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories
 - /organizations/managing-git-access-to-your-organizations-repositories
 - /articles/managing-git-access-to-your-organizations-repositories-using-ssh-certificate-authorities

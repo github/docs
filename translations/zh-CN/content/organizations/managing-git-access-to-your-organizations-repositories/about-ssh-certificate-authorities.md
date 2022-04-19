@@ -1,12 +1,10 @@
 ---
 title: 关于 SSH 认证中心
 intro: 通过 SSH 认证中心，组织或企业帐户可提供 SSH 证书，供成员用来通过 Git 访问您的资源。
-product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/about-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/about-ssh-certificate-authorities
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -26,7 +24,7 @@ SSH 证书是一种机制：一个 SSH 密钥对另一个 SSH 密钥签名。 �
 
 例如，您可以构建内部系统，每天早上向开发者颁发新证书。 每个开发者可以使用其每日证书处理组织在 {% data variables.product.product_name %} 上的仓库。 在一天结束时，证书会自动到期，以保护仓库，避免证书以后被窃取。
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 即使您实施了 SAML 单点登录，组织成员也可使用其签名的证书进行身份验证。 除非您将 SSH 证书设为要求，组织成员可继续使用其他验证方式通过 Git 访问组织的资源，包括他们的用户名和密码、个人访问令牌及其自己的 SSH 密钥。
 {% endif %}
 

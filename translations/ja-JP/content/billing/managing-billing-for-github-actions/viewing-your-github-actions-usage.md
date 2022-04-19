@@ -18,9 +18,9 @@ shortTitle: Actionsの使用状況の表示
 
 個々のワークフロー実行について、請求可能なジョブ実行の時間（分）を確認することもできます。 詳しい情報については、「[ジョブの実行時間を表示する](/actions/managing-workflow-runs/viewing-job-execution-time)」を参照してください。
 
-## Viewing {% data variables.product.prodname_actions %} usage for your personal account
+## 個人アカウントの {% data variables.product.prodname_actions %} の使用状況を表示する
 
-Anyone can view {% data variables.product.prodname_actions %} usage for their own personal account.
+自身の個人アカウントの {% data variables.product.prodname_actions %} の使用状況は、誰でも表示できます。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

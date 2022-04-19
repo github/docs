@@ -132,9 +132,15 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 
 ## Using the audit log API
 
+{% ifversion fpt %}
+
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can interact with the audit log using the GraphQL API and REST API. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api).
+
+{% else %}
+
 You can interact with the audit log using the GraphQL API{% ifversion fpt or ghec %} or the REST API{% endif %}.
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 {% note %}
 
@@ -149,7 +155,7 @@ You can interact with the audit log using the GraphQL API{% ifversion fpt or ghe
 To ensure your intellectual property is secure, and you maintain compliance for your organization, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audit-log-api-info %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 Note that you can't retrieve Git events using the GraphQL API. To retrieve Git events, use the REST API instead. For more information, see "[`git` category actions](#git-category-actions)."
 {% endif %}
 
@@ -157,7 +163,7 @@ The GraphQL response can include data for up to 90 to 120 days.
 
 For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#auditentry/)."
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 ### Using the REST API
 
@@ -170,6 +176,7 @@ By default, only events from the past three months are returned. To include olde
 
 For more information about the audit log REST API, see "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization)."
 
+{% endif %}
 {% endif %}
 
 ## Audit log actions

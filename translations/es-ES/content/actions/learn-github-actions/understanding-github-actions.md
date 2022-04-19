@@ -111,7 +111,7 @@ Puedes crear un flujo de trabajo de ejemplo en tu repositorio que active automá
    ```
 1. Confirma estos cambios y cárgalos a tu repositorio de {% data variables.product.prodname_dotcom %}.
 
-Tu archivo de flujo de trabajo de {% data variables.product.prodname_actions %} nuevo estará ahora instalado en tu repositorio y se ejecutará automáticamente cada que alguien suba un cambio a éste. Para encontrar los detalles sobre el historial de ejecución un job, consulta la sección "[Visualizar la actividad del flujo de trabajo](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)".
+Tu archivo de flujo de trabajo de {% data variables.product.prodname_actions %} nuevo estará ahora instalado en tu repositorio y se ejecutará automáticamente cada que alguien suba un cambio a éste. For details about a workflow's execution history, see "[Viewing the workflow's activity](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-workflows-activity)."
 
 ## Entender el archivo de flujo de trabajo
 

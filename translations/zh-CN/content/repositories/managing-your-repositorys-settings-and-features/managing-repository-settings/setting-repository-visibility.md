@@ -24,7 +24,7 @@ shortTitle: 仓库可见性
 
 {% ifversion ghec %}
 
-{% data variables.product.prodname_emu_enterprise %} 的成员只能将其用户帐户拥有的存储库的可见性设置为私有，并且其企业组织中的存储库只能是私有的或内部的。 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
+{% data variables.product.prodname_emu_enterprise %} 的成员只能将其个人帐户拥有的存储库的可见性设置为私有，并且其企业组织中的存储库只能是私有的或内部的。 更多信息请参阅“[关于 {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)”。
 
 {% endif %}
 
@@ -52,7 +52,7 @@ shortTitle: 仓库可见性
 {%- endif %}
 
 {%- ifversion fpt %}
-* 如果对用户帐户或组织使用 {% data variables.product.prodname_free_user %}，有些功能在您将可见性更改为私有后不可用于仓库。 任何已发布的 {% data variables.product.prodname_pages %} 站点都将自动取消发布。 如果您将自定义域添加到 {% data variables.product.prodname_pages %} 站点，应在将仓库设为私有之前删除或更新 DNS 记录，以避免域接管的风险。 更多信息请参阅“[{% data variables.product.company_short %} 的产品](/get-started/learning-about-github/githubs-products)”和“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。
+* 如果对个人帐户或组织使用 {% data variables.product.prodname_free_user %}，有些功能在您将可见性更改为私有后不可用于仓库。 任何已发布的 {% data variables.product.prodname_pages %} 站点都将自动取消发布。 如果您将自定义域添加到 {% data variables.product.prodname_pages %} 站点，应在将仓库设为私有之前删除或更新 DNS 记录，以避免域接管的风险。 更多信息请参阅“[{% data variables.product.company_short %} 的产品](/get-started/learning-about-github/githubs-products)”和“[管理 {% data variables.product.prodname_pages %} 站点的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)”。
 {%- endif %}
 
 {%- ifversion fpt or ghec %}

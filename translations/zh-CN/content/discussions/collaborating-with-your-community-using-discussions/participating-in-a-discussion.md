@@ -13,24 +13,24 @@ shortTitle: 参与讨论
 
 {% data reusables.discussions.about-discussions %} 更多信息请参阅“[关于讨论](/discussions/collaborating-with-your-community-using-discussions/about-discussions)”。
 
-In addition to starting or viewing discussions and polls, you can comment in response to the original comment from the author of the discussion. 您还可以通过回复其他社区成员在讨论中进行的个人评论，以及使用表情符号对评论做出反应来创建评论线程。
+除了开始或查看讨论和投票之外，您还可以根据讨论作者的原始评论发表评论。 您还可以通过回复其他社区成员在讨论中进行的个人评论，以及使用表情符号对评论做出反应来创建评论线程。
 
 您可以阻止用户并报告破坏性内容，以便自己在 {% data variables.product.product_name %} 上保持一个安全愉快的环境。 更多信息请参阅“[保持您在 {% data variables.product.prodname_dotcom %} 上的安全](/communities/maintaining-your-safety-on-github)”。
 
 ## 基本要求
 
-{% data variables.product.prodname_discussions %} must be enabled for the repository or organization for you to participate in a discussion in the repository or organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)" and "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+必须为存储库或组织启用 {% data variables.product.prodname_discussions %}，才能参与存储库或组织中的讨论。 更多信息请参阅“[为存储库启用或禁用 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”和“[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
 
 ## 创建讨论
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Creating a poll
+## 创建投票
 
 {% data reusables.discussions.starting-a-poll %}
 
 ## 将评论标记为答案
 
-对于仓库具有分类角色或更高角色的讨论作者和用户可以将评论标记为仓库中讨论的答案。 Similarly, discussion authors and users with the triage role or greater for the source repository for organization discussions can mark a comment as the answer to a discussion in the organization.
+对于仓库具有分类角色或更高角色的讨论作者和用户可以将评论标记为仓库中讨论的答案。 同样，对于组织讨论的源存储库，具有分类角色或更高级别的讨论作者和用户可以将评论标记为组织中讨论的答案。
 
 {% data reusables.discussions.marking-a-comment-as-an-answer %}

@@ -24,7 +24,7 @@ topics:
 
 如果需要测试某些内容，则代码空间可以是短暂的，或者可以返回到同一代码空间来处理长时间运行的功能工作。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace)”。
 
-选择创建新代码空间的选项并为代码空间选择计算机类型后，在代码空间可供您使用之前，某些步骤将在后台进行。
+在选择创建新代码空间的选项，并选择性地从代码空间的各种配置选项中进行选择后，在代码空间可供您使用之前，某些步骤将在后台进行。
 
 ![使用 Codespaces 打开按钮](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -97,7 +97,7 @@ topics:
 
 ![在代码空间终端中运行 git 状态](/assets/images/help/codespaces/git-status.png)
 
-您可以从项目中的任何分支、提交或拉取请求创建代码空间，也可以从活动代码空间中切换到新的或现有的分支。 由于 {% data variables.product.prodname_codespaces %} 设计为临时的，因此您可以将其用作隔离环境来试验、检查团队成员的拉取请求或修复合并冲突。 每个仓库甚至每个分支可创建多个代码空间。 However, each user account has a limit of 10 codespaces. 如果您已达到上限，想要创建一个新的代码空间，必须先删除一个旧代码空间。
+您可以从项目中的任何分支、提交或拉取请求创建代码空间，也可以从活动代码空间中切换到新的或现有的分支。 由于 {% data variables.product.prodname_codespaces %} 设计为临时的，因此您可以将其用作隔离环境来试验、检查团队成员的拉取请求或修复合并冲突。 每个仓库甚至每个分支可创建多个代码空间。 但是，每个个人帐户都有 10 个代码空间的限制。 如果您已达到上限，想要创建一个新的代码空间，必须先删除一个旧代码空间。
 
 {% note %}
 

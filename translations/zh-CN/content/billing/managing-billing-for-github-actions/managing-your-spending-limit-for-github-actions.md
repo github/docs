@@ -33,9 +33,9 @@ shortTitle: Actions 支出限制
 
 由于您尚未启用超额，因此下次尝试创建工作流程构件将失败。 您不会收到该月 0.1GB 超额费用的帐单。 但是，如果您启用了超额，您的第一个帐单将包括当前结算周期中 0.1GB 的现有超额以及您累积的任何其他超额。
 
-## 管理您用户帐户的 {% data variables.product.prodname_actions %} 支出限额
+## 管理您个人帐户的 {% data variables.product.prodname_actions %} 支出限额
 
-任何人都可管理其用户帐户的 {% data variables.product.prodname_actions %} 支出限额。
+任何人都可管理其个人帐户的 {% data variables.product.prodname_actions %} 支出限额。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

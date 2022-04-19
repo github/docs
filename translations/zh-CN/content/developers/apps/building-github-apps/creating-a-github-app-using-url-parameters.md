@@ -18,7 +18,7 @@ shortTitle: 应用程序创建查询参数
 
 您可以将查询参数添加到这些 URL 中，以便在个人或组织帐户上预选 {% data variables.product.prodname_github_app %} 的配置：
 
-* **用户帐户：** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **个人帐户：** `{% data variables.product.oauth_host_code %}/settings/apps/new`
 * **组织帐户：** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 创建应用程序的人在提交应用程序之前，可以从 {% data variables.product.prodname_github_app %} 注册页面编辑预选值。 如果您没有在 URL 查询字符串中包含必需的参数，例如 `name`，则创建应用程序的人在提交该应用程序之前需要输入值。

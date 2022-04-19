@@ -46,7 +46,7 @@ topics:
 
 ## Organization discussions
 
-You can also use organization discussions to facilitate conversations across your organization. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+您还可以使用组织讨论来促进整个组织的对话。 更多信息请参阅“[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
 
 {% endif %}
 

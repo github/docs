@@ -46,7 +46,7 @@ GitHub 在如何使用您的数据、如何收集您的数据以及与谁分享�
 
 ## GitHub 上的 Cookie
 
-GitHub 使用 Cookie 来提供和保护我们的网站，并分析我们网站的使用情况，以便为您提供出色的用户体验。 Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them.
+GitHub 使用 Cookie 来提供和保护我们的网站，并分析我们网站的使用情况，以便为您提供出色的用户体验。 如果您想了解有关 Cookie 的更多信息，请查看我们的[隐私声明](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking)，了解我们如何以及为什么使用它们。
 
 由于 Cookie 的数量和名称可能会发生变化，下表可能会不时更新。
 
@@ -76,6 +76,6 @@ GitHub 使用 Cookie 来提供和保护我们的网站，并分析我们网站�
 | GitHub    | `tz`                                 | 此 Cookie 允许我们根据您的时区自定义时间戳。                              | 会话                 |
 | GitHub    | `user_session`                       | 此 cookie 用于您的登录。                                        | 两周                 |
 
-_*_ The **expiration** dates for the cookies listed below generally apply on a rolling basis.
+_*_ 下面列出的 Cookie 的**到期**日期通常以滚动方式适用。
 
 (!) 请注意，虽然我们将第三方 Cookie 的使用限制在呈现外部内容时提供外部功能的需要，但我们网站上的某些页面可能会设置其他第三方 Cookie。 例如，我们可能会嵌入来自其他网站的内容（例如视频），而该网站可能放置 cookie。 虽然我们尽可能减少这些第三方 cookie，但我们无法始终控制这些第三方内容放置哪些 cookie。

@@ -21,12 +21,12 @@ shortTitle: 快速入门
 
 ## 在 {% data variables.product.product_name %} 上创建帐户
 
-首先，您需要在 {% data variables.product.product_name %} 上创建免费用户帐户。
+首先，您需要在 {% data variables.product.product_name %} 上创建免费个人帐户。
 
 {% data reusables.accounts.create-account %}
-1. 按照提示创建免费用户帐户。
+1. 按照提示创建免费个人帐户。
 
-创建用户帐户后，创建一个免费的组织帐户。 您将使用此组织帐户创建和管理教室 {% data variables.product.prodname_classroom %}。
+创建个人帐户后，创建一个免费的组织帐户。 您将使用此组织帐户创建和管理教室 {% data variables.product.prodname_classroom %}。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
@@ -55,10 +55,10 @@ shortTitle: 快速入门
 
 ## 设置 {% data variables.product.prodname_classroom %}
 
-通过用户帐户和组织帐户便可开始使用 {% data variables.product.prodname_classroom %}。 {% data variables.product.prodname_classroom %} 免费使用。 您可以跟踪和管理作业，自动对工作进行评分，并为学生提供反馈。
+通过个人帐户和组织帐户便可开始使用 {% data variables.product.prodname_classroom %}。 {% data variables.product.prodname_classroom %} 免费使用。 您可以跟踪和管理作业，自动对工作进行评分，并为学生提供反馈。
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. 要授权 {% data variables.product.prodname_classroom %} 访问您在 {% data variables.product.prodname_dotcom %} 上的用户帐户，请查阅信息，然后单击**授权 {% data variables.product.prodname_classroom %}**。 ![用户帐户的"授权 {% data variables.product.prodname_classroom %}"按钮](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
+1. 要授权 {% data variables.product.prodname_classroom %} 访问您在 {% data variables.product.prodname_dotcom %} 上的个人帐户，请查阅信息，然后单击**授权 {% data variables.product.prodname_classroom %}**。 ![个人帐户的"授权 {% data variables.product.prodname_classroom %}"按钮](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
 1. 查看信息。 要授权 {% data variables.product.prodname_classroom %} 访问您在 {% data variables.product.prodname_dotcom %} 上的组织帐户，请单击 **Grant（授予）**。 ![组织的"授予"按钮](/assets/images/help/classroom/setup-click-grant.png)
 
   {% tip %}

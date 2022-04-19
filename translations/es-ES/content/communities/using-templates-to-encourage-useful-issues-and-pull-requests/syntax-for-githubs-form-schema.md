@@ -101,7 +101,8 @@ Para el texto de línea múltiple, puedes utilizar el operador de pipa.
 ```YAML{:copy}
 body:
 - type: markdown
-  value: "## Thank you for contributing to our project!"
+  attributes:
+    value: "## Thank you for contributing to our project!"
 - type: markdown
   attributes:
     value: |

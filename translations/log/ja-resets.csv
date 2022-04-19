@@ -85,6 +85,7 @@ translations/ja-JP/content/billing/managing-billing-for-github-advanced-security
 translations/ja-JP/content/billing/managing-billing-for-github-packages/about-billing-for-github-packages.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/about-per-user-pricing.md,broken liquid tags
+translations/ja-JP/content/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process.md,broken liquid tags
 translations/ja-JP/content/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account.md,broken liquid tags
 translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/about-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
 translations/ja-JP/content/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise.md,broken liquid tags
@@ -107,9 +108,11 @@ translations/ja-JP/content/code-security/code-scanning/automatically-scanning-yo
 translations/ja-JP/content/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github.md,broken liquid tags
+translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-runner-in-your-ci-system.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system.md,broken liquid tags
+translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli.md,broken liquid tags
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-alerts/about-dependabot-alerts.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
@@ -254,9 +257,9 @@ translations/ja-JP/data/reusables/dotcom_billing/lfs-remove-data.md,broken liqui
 translations/ja-JP/data/reusables/education/apply-for-team.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/actions-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-accounts/hooks-tab.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,Listed in localization-support#489
-translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,broken liquid tags
+translations/ja-JP/data/reusables/enterprise-accounts/messages-tab.md,rendering error
 translations/ja-JP/data/reusables/enterprise-accounts/pages-tab.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/hardware-considerations-all-platforms.md,broken liquid tags
 translations/ja-JP/data/reusables/enterprise_installation/upgrade-hardware-requirements.md,broken liquid tags
