@@ -98,7 +98,7 @@ Se você quiser compartilhar uma porta encaminhada com outras pessoas, você pod
 
 {% note %}
 
-**Note:** Your choice of port visibility options may be limited by a policy configured for your organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+**Observação:** A sua escolha das opções de visibilidade da porta pode ser limitada por uma política configurada para a sua organização. Para obter mais informações, consulte "[Restringindo a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports). "
 
 {% endnote %}
 

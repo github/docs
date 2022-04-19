@@ -97,6 +97,10 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 
   {% endtip %}
 {%- endif %}
+{%- if required-deployments %}
+1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
+   ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
+{%- endif %}
 1. Optionally, select **Apply the rules above to administrators**.
 ![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
 1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.

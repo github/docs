@@ -20,7 +20,7 @@ This article explains how billing works for your codespaces, and explains how yo
 
 ## Getting access to {% data variables.product.prodname_codespaces %}
 
-Your organization's administrator might limit {% data variables.product.prodname_codespaces %} usage to only specific user accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access and security for your codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)."
+Your organization's administrator might limit {% data variables.product.prodname_codespaces %} usage to only specific personal accounts. To get access, you will need to contact your billing manager. For more information, see "[Managing access and security for your codespaces](/codespaces/managing-your-codespaces/managing-access-and-security-for-your-codespaces)."
 
 ## How much it costs to use {% data variables.product.prodname_codespaces %}
 
@@ -42,7 +42,7 @@ For {% data variables.product.prodname_codespaces %}, storage is defined to incl
 
 Before your organization can use {% data variables.product.prodname_codespaces %}, your billing manager will need to set a spending limit. For more information, see "[Managing spending limits for {% data variables.product.prodname_codespaces %}](/billing/managing-billing-for-github-codespaces/managing-spending-limits-for-codespaces)."
 
-## Exporting changes when you have reached your spending limit
+## 利用上限に達した際の変更のエクスポート
 
 {% data reusables.codespaces.exporting-changes %}
 
@@ -59,4 +59,4 @@ You can manually delete your codespaces in https://github.com/codespaces and fro
 
 ## 参考リンク
 
-- "[Managing billing for Codespaces in your organization](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)"
+- 「[Organization内のCodespacesの支払いの管理](/codespaces/managing-codespaces-for-your-organization/managing-billing-for-codespaces-in-your-organization)」

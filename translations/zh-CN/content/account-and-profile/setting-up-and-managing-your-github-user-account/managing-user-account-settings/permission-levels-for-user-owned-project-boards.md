@@ -1,6 +1,6 @@
 ---
 title: 用户拥有的项目板的权限级别
-intro: 用户帐户拥有的项目板有两种权限级别：项目板所有者和协作者。
+intro: 个人帐户拥有的项目板有两种权限级别：项目板所有者和协作者。
 redirect_from:
   - /articles/permission-levels-for-user-owned-project-boards
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-user-owned-project-boards
@@ -17,7 +17,7 @@ shortTitle: 权限用户项目板
 
 ## 权限概述
 
-用户拥有的项目板只有一个所有者，此权限无法与其他用户帐户共享。 除了所有者之外，其他人可以在项目板上协作。
+用户拥有的项目板只有一个所有者，此权限无法与其他个人帐户共享。 除了所有者之外，其他人可以在项目板上协作。
 
 项目板协作者有三种权限级别：
 
@@ -61,4 +61,4 @@ shortTitle: 权限用户项目板
 
 ## 延伸阅读
 
-  - "[管理对用户帐户项目板的访问](/articles/managing-access-to-your-user-account-s-project-boards)"
+  - "[管理对个人帐户项目板的访问](/articles/managing-access-to-your-user-account-s-project-boards)"

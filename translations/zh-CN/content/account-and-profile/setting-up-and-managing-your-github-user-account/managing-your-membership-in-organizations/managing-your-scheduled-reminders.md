@@ -22,7 +22,7 @@ shortTitle: 管理预定提醒
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-## 为您的用户帐户创建预定提醒
+## 为您的个人帐户创建预定提醒
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -37,14 +37,14 @@ shortTitle: 管理预定提醒
 ![启用实时警报复选框](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
 {% data reusables.reminders.create-reminder %}
 
-## 管理用户帐户的预定提醒
+## 管理个人帐户的预定提醒
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. 在要编辑预定提醒的组织旁边，单击 **Edit（编辑）**。 ![预定提醒编辑按钮](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-## 删除用户帐户的预定提醒
+## 删除个人帐户的预定提醒
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. 在要删除提醒的组织旁边，单击 **Edit（编辑）**。 ![预定提醒编辑按钮](/assets/images/help/settings/scheduled-reminders-org-choice.png)

@@ -34,13 +34,15 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: Need help?
-  placeholder: Search topics, products...
+  placeholder: Search GitHub Docs
   loading: Loading
   no_results: No results found
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: Explore by product
   version_picker: Version

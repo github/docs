@@ -22,7 +22,7 @@ Te recomendamos utilizar el [Importador de GitHub](/articles/about-github-import
 
 ## Importar desde Subversion
 
-En un entorno normal de Subversion, se almacenan varios proyectos en un único repositorio raíz. En GitHub, cada uno de estos proyectos generalmente se mapeará a un repositorio de Git separado para una cuenta de usuario o de organización. Sugerimos importar cada parte de tu repositorio de Subversion a un repositorio de GitHub separado si:
+En un entorno normal de Subversion, se almacenan varios proyectos en un único repositorio raíz. On GitHub, each of these projects will usually map to a separate Git repository for a personal account or organization. Sugerimos importar cada parte de tu repositorio de Subversion a un repositorio de GitHub separado si:
 
 * Los colaboradores necesitan revisar o confirmar esa parte del proyecto de forma separada desde las otras partes
 * Deseas que distintas partes tengan sus propios permisos de acceso

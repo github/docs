@@ -27,19 +27,11 @@ redirect_from:
 
 如果拉取请求针对仓库的默认分支并且包含对包清单或锁定文件的更改，您可以显示依赖项审查以查看更改的内容。 依赖项审查包括对锁定文件中间接依赖项的更改详情，并告诉您任何已添加或更新的依赖项是否包含已知漏洞。
 
-{% ifversion fpt %}
-依赖项审查在所有产品的所有公共存储库中都可用，并且无法禁用。 依赖项审查在使用 GitHub Enterprise Cloud 并拥有 {% data variables.product.prodname_GH_advanced_security %} 许可证的组织拥有的私有存储库中可用。 更多信息请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)。
-
-{% elsif ghec %}
-依赖项审查包含在公共存储库的 {% data variables.product.product_name %} 中。 要在组织拥有的私有存储库中使用依赖项审查，您必须具有 {% data variables.product.prodname_GH_advanced_security %} 许可证并启用依赖关系图。 更多信息请参阅“[探索仓库的依赖项](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)”。
-
-{% elsif ghes or ghae %}
-为 {% data variables.product.product_location %} 启用依赖关系图并为组织或仓库启用{% data variables.product.prodname_advanced_security %} 时，依赖项审查可用。
-{% endif %}
-
 有时，您可能只想更新清单中一个依赖项的版本并生成拉取请求。 但是，如果此直接依赖项的更新版本也更新了依赖项，则拉取请求的更改可能超过您的预期。 每个清单和锁定文件的依赖项审查提供了一种简单的方法来查看更改的内容，以及任何新的依赖项版本是否包含已知的漏洞。
 
 通过检查拉取请求中的依赖项审查并更改被标记为有漏洞的任何依赖项，可以避免将漏洞添加到项目中。 有关依赖项审查工作的更多信息，请参阅“[审查拉取请求中的依赖项更改](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)”。
+
+有关配置依赖项评审的详细信息，请参阅“[配置依赖项审查](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-dependency-review)”。
 
 {% data variables.product.prodname_dependabot_alerts %} 将会查找依赖项中存在的漏洞，但避免引入潜在问题比在以后修复它们要好得多。 有关 {% data variables.product.prodname_dependabot_alerts %} 的更多信息，请参阅“[关于 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#dependabot-alerts-for-vulnerable-dependencies)”。
 
@@ -49,4 +41,18 @@ redirect_from:
 ## 启用依赖项审查
 
 启用依赖关系图时，依赖项审查功能可用。 更多信息请参阅“{% ifversion ghec %}[启用依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[为企业启用依赖关系图](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}”。
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.5 or ghae-issue-6396 %}
+## 依赖项审查实施
+
+{% data reusables.dependency-review.dependency-review-action-beta-note %}
+
+可以使用存储库中的依赖项审查 GitHub 操作对拉取请求强制执行依赖项审查。 该操作将扫描由拉取请求中的包版本更改是否引入有漏洞的依赖项版本，并向您示警相关的安全漏洞。 这便于您更好地了解拉取请求中发生的变化，并有助于防止将漏洞添加到存储库中。 更多信息请参阅 [`dependency-review-action`](https://github.com/actions/dependency-review-action)。
+
+![依赖项审查操作示例](/assets/images/help/graphs/dependency-review-action.png)
+
+依赖项审查 GitHub 操作检查在发现任何易受攻击的包时会失败，但只有在存储库所有者要求在合并之前通过检查时，才会阻止合并拉取请求。 更多信息请参阅“[关于受保护分支](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)”。
+
+该操作使用依赖项审查 REST API 来获取基本提交和头部提交之间的依赖项更改差异。 您可以使用依赖项审查 API 来获取存储库上任意两个提交之间的依赖项更改差异（包括漏洞数据）。 更多信息请参阅“[依赖项审查](/rest/reference/dependency-graph#dependency-review)”。
 {% endif %}

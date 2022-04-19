@@ -58,7 +58,7 @@ O serviço {% data variables.product.prodname_actions %} irá cancelar o resgist
 
 Por padrão, os executores auto-hospedados realizarão automaticamente uma atualização de software sempre que uma nova versão do executor estiver disponível.  Se você usar executoresefêmeros em contêineres, isso pode gerar a atualizações de software repetidas quando uma nova versão do executor for lançada.  A desabilitação das atualizações automáticas permite que você atualize a versão do executor na imagem do contêiner diretamente no seu próprio agendamento.
 
-To turn off automatic software updates and install software updates yourself, specify the `--disableupdate` flag when registering your runner using `config.sh`. Por exemplo:
+Para desabilitar a atualização automática de software e instalar atualizações, especifique o sinalizador `--disableupdate` quando registrar seu executor usando a configuração `config.sh`. Por exemplo:
 
 ```shell
 ./config.sh --url <em>https://github.com/octo-org</em> --token <em>example-token</em> --disableupdate

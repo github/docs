@@ -46,7 +46,7 @@ Para gerenciar o acesso ao repositório de qualquer equipe do {% data variables.
 
 Após conectar uma equipe a um grupo de IdP, a sincronização da equipe adicionará cada integrante do grupo IdP à equipe correspondente em {% data variables.product.product_name %} apenas se:
 - A pessoa for integrante da organização em {% data variables.product.product_name %}.
-- A pessoa já efetuou o login com sua conta de usuário em {% data variables.product.product_name %} e efetuou a autenticação na conta corporativa ou corporativa via logon único SAML pelo menos uma vez.
+- The person has already logged in with their personal account on {% data variables.product.product_name %} and authenticated to the organization or enterprise account via SAML single sign-on at least once.
 - A identidade SSO da pessoa é um integrante do grupo IdP.
 
 As equipes ou integrantes de grupo que não atenderem a esses critérios serão automaticamente removidos da equipe em {% data variables.product.product_name %} e perderão o acesso aos repositórios. Revogar a identidade vinculada a um usuário também removerá o usuário de quaisquer equipes mapeadas com os grupos de IdP. Para obter mais informações, consulte "[Visualizando e gerenciando o acesso do SAML de um membro da sua organização](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)" e "[Visualizando e gerenciando o acesso do SAML de um usuário da sua organização](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)."

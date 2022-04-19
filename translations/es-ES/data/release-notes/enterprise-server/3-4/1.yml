@@ -1,0 +1,77 @@
+date: '2022-04-04'
+sections:
+  security_fixes:
+    - 'MEDIUM: A path traversal vulnerability was identified in {% data variables.product.prodname_ghe_server %} Management Console that allowed the bypass of CSRF protections. This vulnerability affected all versions of {% data variables.product.prodname_ghe_server %} prior to 3.5 and was fixed in versions 3.1.19, 3.2.11, 3.3.6, 3.4.1. This vulnerability was reported via the {% data variables.product.prodname_dotcom %} Bug Bounty program and has been assigned CVE-2022-23732.'
+    - 'MEDIUM: An integer overflow vulnerability was identified in the 1.x branch and the 2.x branch of `yajil` which leads to subsequent heap memory corruption when dealing with large (~2GB) inputs. This vulnerability was reported internally and has been assigned CVE-2022-24795. '
+    - 'Support bundles could include sensitive files if {% data variables.product.prodname_actions %} was enabled.'
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'A workflow run may not complete if it uses composite-actions.'
+    - 'When enabling {% data variables.product.prodname_dependabot %}, an error caused some security advisories to temporarily read as no-longer applicable.'
+    - 'Minio processes would have high CPU usage if an old configuration option was present after upgrading {% data variables.product.prodname_ghe_server %}.'
+    - 'The options to enable `TLS 1.0` and `TLS 1.1` in the Privacy settings of the Management Console were shown, although removal of those protocol versions occurred in an earlier release.'
+    - 'In a HA environment, configuring MSSQL replication could require additional manual steps after enabling {% data variables.product.prodname_actions %} for the first time.'
+    - 'A subset of internal configuration files are more reliably updated after a hotpatch.'
+    - 'The `ghe-run-migrations` script would sometimes fail to generate temporary certificate names correctly.'
+    - 'Pre-receive hooks that used `gpg --import` timed out due to insufficient `syscall` privileges.'
+    - 'In some cluster topologies, webhook delivery information was not available.'
+    - 'The {% data variables.product.prodname_actions %} deployment graph would display an error when rendering a pending job.'
+    - 'Elasticsearch health checks would not allow a yellow cluster status when running migrations.'
+    - 'When using the [Migrations API](/rest/reference/migrations), queued export jobs were not processed.'
+    - 'Repositories would display a non-functional Discussions tab in the web UI.'
+    - 'Organizations created as a result of a user transforming their user account into an organization were not added to the global enterprise account.'
+    - 'LDAP user sync jobs would fail when trying to sync GPG keys that had been synced previously.'
+    - 'Links to inaccessible pages were removed.'
+    - 'Some instances experienced high CPU usage due to large amounts unnecessary background jobs being queued.'
+    - 'Empty repositories didnt sync correctly to cache servers.'
+    - 'Adding a team as a reviewer to a pull request would sometimes show the incorrect number of members on that team.'
+    - 'The remove team membership API endpoint would respond with an error when attempting to remove member externally managed via a SCIM Group.'
+    - 'A large number of dormant users could cause a {% data variables.product.prodname_github_connect %} configuration to fail.'
+    - 'The "Feature & beta enrollments" page in the Site admin web UI was incorrectly available.'
+    - 'The "Site admin mode" link in the site footer did not change state when clicked.'
+  changes:
+    - 'Memcached connection limits were increased to better accommodate large cluster topologies.'
+    - 'The Dependency Graph API previously ran with a statically defined port.'
+    - 'The default shard counts for cluster-related Elasticsearch shard settings have been updated.'
+    - 'The [Migrations API](/rest/reference/migrations) now generates exports of repositories.'
+    - 'When filtering enterprise members by organization role on the "People" page, the text for the dropdown menu items has been improved.'
+    - 'The “Triage” and “Maintain” team roles are preserved during repository migrations.'
+    - 'Using ghe-migrator or exporting from GitHub.com, an export would not include Pull Request attachments.'
+    - 'Performance has been improved for web requests made by enterprise owners.'
+  known_issues:
+    - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.'
+    - 'El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'
+    - 'Actions services need to be restarted after restoring appliance from backup taken on a different host.'
+    - "When using SAML encrypted assertions with {% data variables.product.prodname_ghe_server %} 3.4.0 and 3.4.1, a new XML attribute `WantAssertionsEncrypted` in the `SPSSODescriptor` contains an invalid attribute for SAML metadata. IdPs that consume this SAML metadata endpoint may encounter errors when validating the SAML metadata XML schema. A fix will be available in the next patch release. [Updated: 2022-04-11]\n\nTo work around this problem, you can take one of the two following actions.\n- Reconfigure the IdP by uploading a static copy of the SAML metadata without the `WantAssertionsEncrypted` attribute.\n- Copy the SAML metadata, remove `WantAssertionsEncrypted` attribute, host it on a web server, and reconfigure the IdP to point to that URL.\n"
+  deprecations:
+    - heading: 'Obsoletización de GitHub Enterprise Server 3.0'
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.0 se descontinuó el 16 de febrero de 2022**. Esto significa que no se harán lanzamientos de parche, aún para los problemas de seguridad críticos, después de esta fecha. Para obtener un rendimiento mejor, una seguridad mejorada y características nuevas, [actualiza a la última versión de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) tan pronto te sea posible.'
+    - heading: 'Deprecation of GitHub Enterprise Server 3.1'
+      notes:
+        - '**{% data variables.product.prodname_ghe_server %} 3.1 se descontinuará el 3 de junio de 2022**. Eso significa que no se harán lanzamientos de parche, aún para los problemas de seguridad críticos, después de esta fecha. Para obtener un rendimiento mejor, una seguridad mejorada y características nuevas, [actualiza a la última versión de {% data variables.product.prodname_ghe_server %}](/enterprise-server@3.4/admin/enterprise-management/upgrading-github-enterprise-server) tan pronto te sea posible.'
+    - heading: 'Obsoletización del soporte para XenServer Hypervisor'
+      notes:
+        - 'Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.'
+    - heading: 'Deprecation of the Content Attachments API preview'
+      notes:
+        - 'Debido a su poco uso, la vista previa de la API de referencias de contenido se hizo obsoleta en {% data variables.product.prodname_ghe_server %} 3.4. Anteriormente, se podía acceder a la API con el encabezado `corsair-preview`. Los usuarios pueden seguir navegando hacia URL externas sin esta API. Cualquier uso registrado de la API de referencias de contenido ya no recibirá una notificación de webhook para las URL de tus dominios registrados y ya no devolveremos códigos de respuesta válidos para los intentos de actualización a los adjuntos de contenido existentes.'
+    - heading: 'Deprecation of the Codes of Conduct API preview'
+      notes:
+        - 'La vista previa de la API de códigos de conducta, a la cual se podía acceder con el encabezado `scarlet-witch-preview`, es obsoleta y ya no se puede acceder a ella en {% data variables.product.prodname_ghe_server %} 3.4. En vez de esto, te recomendamos utilizar la terminal de "[Obtén métricas de perfil comunitario](/rest/reference/repos#get-community-profile-metrics)" para recuperar información sobre un código de conducta de un repositorio. Para obtener más información, consulta el "[Aviso de obsolescencia: Vista previa de la API de códigos de conducta](https://github.blog/changelog/2021-10-06-deprecation-notice-codes-of-conduct-api-preview/)" en la bitácora de cambios de {% data variables.product.prodname_dotcom %}.'
+    - heading: 'Obsoletización de las terminales de la API de Aplicaciones OAuth y autenticación de la API a través de parámetros de consulta'
+      notes:
+        - "A partir de {% data variables.product.prodname_ghe_server %} 3.4, se retiró la [versión obsoleta de las terminales de la API de aplicación OAuth](https://developer.github.com/changes/2020-02-14-deprecating-oauth-app-endpoint/#endpoints-affected). Si te encuentras con errores 404 en estas terminales, convierte tu código a las versiones de la API de Aplicación OAuth que no tienen `access_tokens` en la URL. También inhabilitamos el uso de la autenticación de API utilizando parámetros de consulta. En vez de esto, te recomendamos utilizar [Autenticación de API en el encabezado de solicitud](https://developer.github.com/changes/2020-02-10-deprecating-auth-through-query-param/#changes-to-make).\n"
+    - heading: 'Obsoletización del ejecutor de CodeQL'
+      notes:
+        - 'EL ejecutor de {% data variables.product.prodname_codeql %} ya es obsoleto en {% data variables.product.prodname_ghe_server %} 3.4 y ya no hay compatibilidad con este. Esta obsolescencia solo afecta a los usuarios que utilizan el escaneo de código de {% data variables.product.prodname_codeql %} en un sistema de IC/DC de terceros; los usuarios de {% data variables.product.prodname_actions %} no se ven afectados. Recomendamos fuertemente que los clientes se migren al CLI de {% data variables.product.prodname_codeql %}, el cual es un reemplazo con todas las características del ejecutor de {% data variables.product.prodname_codeql %}. Para obtener más información, consulta la [Bitácora de cambios de {% data variables.product.prodname_dotcom %}](https://github.blog/changelog/2021-09-21-codeql-runner-deprecation/).'
+    - heading: 'Obsoletización de extensiones de bit-caché personalizadas'
+      notes:
+        - "Desde {% data variables.product.prodname_ghe_server %} 3.1, el soporte de las extensiones bit-cache propietarias de {% data variables.product.company_short %} se comenzó a eliminar paulatinamente. Estas extensiones son obsoletas en {% data variables.product.prodname_ghe_server %} 3.3 en adelante.\n\nCualquier repositorio que ya haya estado presente y activo en {% data variables.product.product_location %} ejecutando la versión 3.1 o 3.2 ya se actualizó automáticamente.\n\nLos repositorios que no estuvieron presentes y activos antes de mejorar a {% data variables.product.prodname_ghe_server %} 3.3 podrían no funcionar de forma óptima sino hasta que se ejecute una tarea de mantenimiento de repositorio y esta se complete exitosamente.\n\nPara iniciar una tarea de mantenimiento de repositorio manualmente, dirígete a `https://<hostname>/stafftools/repositories/<owner>/<repository>/network` en cada repositorio afectado y haz clic en el botón **Schedule**.\n"
+  backups:
+    - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'

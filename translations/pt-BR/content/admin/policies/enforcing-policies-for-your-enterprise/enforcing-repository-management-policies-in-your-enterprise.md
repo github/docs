@@ -115,7 +115,7 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
 
 ## Aplicando uma política para convidar{% ifversion ghec %} colaboradores{% endif %} externos para repositórios
 
-Em todas as organizações pertencentes à sua empresa, você pode permitir que os integrantes convidem{% ifversion ghec %} colaboradores externos{% endif %} para repositórios, restringir convites para {% ifversion ghec %}colaboradores externos {% endif %}para proprietários da organização, ou permitir que os proprietários administrem a configuração no nível da organização.
+Em todas as organizações pertencentes à sua empresa, você pode permitir que os integrantes convidem{% ifversion ghec %} colaboradores externos{% endif %} para os repositórios, restringir {% ifversion ghec %}colaboradores externos {% endif %}convites para proprietários da organização, {% if prevent-org-admin-add-outside-collaborator %}restringir {% ifversion ghec %}colaboradores externos {% endif %}convites para proprietários corporativos, {% endif %}ou permitir que os proprietários da organização administrem a configuração no nível da organização.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

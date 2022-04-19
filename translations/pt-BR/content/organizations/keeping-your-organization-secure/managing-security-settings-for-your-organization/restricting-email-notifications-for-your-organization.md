@@ -33,7 +33,7 @@ Quando as notificações de e-mail restritas são habilitadas em uma organizaç�
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** To restrict email notifications, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Observação:** Para restringir notificações por e-mail, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}

@@ -1,5 +1,5 @@
 ---
-title: Adding a collaborator to a repository security advisory
+title: 将协作者添加到仓库安全通告
 intro: 您可以添加其他用户或团队与您协作处理安全通告。
 redirect_from:
   - /articles/adding-a-collaborator-to-a-maintainer-security-advisory
@@ -14,7 +14,7 @@ topics:
   - Security advisories
   - Vulnerabilities
   - Collaboration
-shortTitle: Add collaborators
+shortTitle: 添加协作者
 ---
 
 对安全通告具有管理员权限的人员可向安全通告添加协作者。
@@ -23,11 +23,11 @@ shortTitle: Add collaborators
 
 ## 添加协作者到安全通告
 
-协作者对安全通告具有写入权限。 For more information, see "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)."
+协作者对安全通告具有写入权限。 更多信息请参阅“[仓库安全通告的权限级别](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)”。
 
 {% note %}
 
-{% data reusables.repositories.security-advisory-collaborators-public-repositories %} For more information about removing a collaborator on a security advisory, see "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."
+{% data reusables.repositories.security-advisory-collaborators-public-repositories %} 有关删除安全通告协作者的更多信息，请参阅“[从仓库安全通告删除协作者](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)”。
 
 {% endnote %}
 
@@ -40,6 +40,6 @@ shortTitle: Add collaborators
 
 ## 延伸阅读
 
-- "[Permission levels for repository security advisories](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
-- "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
-- "[Removing a collaborator from a repository security advisory](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)."
+- "[仓库安全通告的权限级别](/code-security/repository-security-advisories/permission-levels-for-repository-security-advisories)"
+- "[在临时私有复刻中协作以解决仓库安全漏洞](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)"
+- “[从仓库安全通告中删除协作者](/code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory)”。
