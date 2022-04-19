@@ -1,6 +1,6 @@
 ---
 title: Creating a personal access token
-intro: You should create a personal access token to use in place of a password with the command line or with the API.
+intro: You can create a personal access token to use in place of a password with the command line or with the API.
 redirect_from:
   - /articles/creating-an-oauth-token-for-command-line-use
   - /articles/creating-an-access-token-for-command-line-use
@@ -19,10 +19,12 @@ topics:
   - Access management
 shortTitle: Create a PAT
 ---
-
 {% note %}
 
-**Note:** If you use {% data variables.product.prodname_cli %} to authenticate to {% data variables.product.product_name %} on the command line, you can skip generating a personal access token and authenticate via the web browser instead. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+**Notes:**
+
+- If you use {% data variables.product.prodname_cli %} to authenticate to {% data variables.product.product_name %} on the command line, you can skip generating a personal access token and authenticate via the web browser instead. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
+-  [Git Credential Manager](https://aka.ms/gcm) is a secure, cross-platform alternative to using personal access tokens. Git Credential Manager is [simple to set up](https://aka.ms/gcm/installdocs) and eliminates the need to manage personal access token scope and expiration.
 
 {% endnote %}
 
