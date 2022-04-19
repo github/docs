@@ -25,9 +25,9 @@ redirect_from:
 
 1. 导航到 [template repository（模板存储库）](https://github.com/2percentsilk/haikus-for-codespaces) 并选择 **Use this template（使用此模板）**。
 
-2. 命名存储库，选择首选隐私设置，然后单击 **Create repository from this template（从此模板创建存储库）**。
+2. 命名存储库，选择首选隐私设置，然后单击 **Create repository from template（从模板创建存储库）**。
 
-3. 导航到新创建的存储库的主页。 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 {% octicon "plus" aria-label="The plus icon" %} **New codespace（新建代码空间）**。
+3. 导航到新创建的存储库的主页。 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 **Create codespace on main（在主分支上创建代码空间）**。
 
   ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 

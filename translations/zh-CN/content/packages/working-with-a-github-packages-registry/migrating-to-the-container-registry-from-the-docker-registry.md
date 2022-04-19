@@ -30,7 +30,7 @@ shortTitle: 迁移到容器注册表
 {% data variables.product.prodname_container_registry %} 进行了优化，以支持容器的一些独特需求。
 
 通过 {% data variables.product.prodname_container_registry %}，您可以：
-- 将容器映像存储在组织和用户帐户中，或连接到仓库。
+- 将容器映像存储在组织和个人帐户中，或连接到仓库。
 - 选择是从仓库继承权限，还是独立于仓库设置粒度权限。
 - 匿名访问公共容器映像。
 

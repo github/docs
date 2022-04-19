@@ -25,9 +25,9 @@ For more information on exactly how {% data variables.product.prodname_codespace
 
 1. Navigate to the [template repository](https://github.com/2percentsilk/haikus-for-codespaces) and select **Use this template**.
 
-2. Name your repository, select your preferred privacy setting, and click **Create repository from this template**.
+2. Name your repository, select your preferred privacy setting, and click **Create repository from template**.
 
-3. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+3. Navigate to the main page of the newly created repository. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
   ![[New codespace] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
 

@@ -1,1 +1,1 @@
-Para crear secretos para un repositorio de una cuenta de usuario, deberás ser el propietario de éste. Para crear secretos para un repositorio de una organización, deberás tener acceso de `administrador`.
+To create secrets for a personal account repository, you must be the repository owner. Para crear secretos para un repositorio de una organización, deberás tener acceso de `administrador`.

@@ -1,6 +1,6 @@
 ---
 title: Getting started with your GitHub account
-intro: 'With a user account on {% data variables.product.prodname_dotcom %}, you can import or create repositories, collaborate with others, and connect with the {% data variables.product.prodname_dotcom %} community.'
+intro: 'With a personal account on {% data variables.product.prodname_dotcom %}, you can import or create repositories, collaborate with others, and connect with the {% data variables.product.prodname_dotcom %} community.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,7 +20,7 @@ The first steps in starting with {% data variables.product.product_name %} are t
 The first steps in starting with {% data variables.product.product_name %} are to access your account and view your profile.
 {% endif %}
 
-{% ifversion fpt or ghec %}There are several types of accounts on {% data variables.product.prodname_dotcom %}. {% endif %} Every person who uses {% data variables.product.product_name %} has their own user account, which can be part of multiple organizations and teams. Your user account is your identity on {% data variables.product.product_location %} and represents you as an individual.
+{% ifversion fpt or ghec %}There are several types of accounts on {% data variables.product.prodname_dotcom %}. {% endif %} Every person who uses {% data variables.product.product_name %} has their own personal account, which can be part of multiple organizations and teams. Your personal account is your identity on {% data variables.product.product_location %} and represents you as an individual.
 
 {% ifversion fpt or ghec %}
 ### 1. アカウントを作成する
@@ -97,7 +97,7 @@ Any number of people can work together in repositories across {% data variables.
 ### 1. Working with repositories
 
 #### リポジトリを作成する
-リポジトリは、プロジェクトのフォルダーのようなものです。 You can have any number of public and private repositories in your user account. Repositories can contain folders and files, images, videos, spreadsheets, and data sets, as well as the revision history for all files in the repository. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/about-repositories)."
+リポジトリは、プロジェクトのフォルダーのようなものです。 You can have any number of public and private repositories in your personal account. Repositories can contain folders and files, images, videos, spreadsheets, and data sets, as well as the revision history for all files in the repository. For more information, see "[About repositories](/github/creating-cloning-and-archiving-repositories/about-repositories)."
 
 When you create a new repository, you should initialize the repository with a README file to let people know about your project. 詳しい情報については「[新しいリポジトリの作成](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)」を参照してください。
 
@@ -112,7 +112,7 @@ If you have existing projects you'd like to move over to {% data variables.produ
 ### 3. Managing collaborators and permissions
 リポジトリの Issue、プルリクエスト、プロジェクトボードを使ってプロジェクトで他者とコラボレーションできます。 You can invite other people to your repository as collaborators from the **Collaborators** tab in the repository settings. 詳しい情報については、「[コラボレータを個人リポジトリに招待する](/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)」を参照してください。
 
-You are the owner of any repository you create in your user account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. 詳しい情報については[ユーザアカウントのリポジトリ権限レベル](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository)を参照してください。
+You are the owner of any repository you create in your personal account and have full control of the repository. Collaborators have write access to your repository, limiting what they have permission to do. For more information, see "[Permission levels for a personal account repository](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository)."
 
 ### 4. リポジトリ設定を管理する
 As the owner of a repository you can configure several settings, including the repository's visibility, topics, and social media preview. 詳しい情報については、「[リポジトリ設定を管理する](/github/administering-a-repository/managing-repository-settings)」を参照してください。

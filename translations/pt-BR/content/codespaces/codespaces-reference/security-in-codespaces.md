@@ -99,7 +99,9 @@ Há algumas práticas recomendadas e riscos adicionais dos quais você deve esta
 
 #### Compreendendo o arquivo devcontainer.json de um repositório
 
-Ao criar um codespace, o [devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) é analisado e aplicado a partir do repositório de origem, se houver.  O devcontainer contém funcionalidades poderosas como, por exemplo, instalar extensões de terceiros e executar código arbitrário por meio de um `postCreateCommand` fornecido.
+When you create a codespace, if a `devcontainer.json` file is found for your repository, it is parsed and used to configure your codespace. The `devcontainer.json` file can contain powerful features, such as installing third-party extensions and running arbitrary code supplied in a `postCreateCommand`.
+
+Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 
 #### Conceder acesso por meio de funcionalidades
 

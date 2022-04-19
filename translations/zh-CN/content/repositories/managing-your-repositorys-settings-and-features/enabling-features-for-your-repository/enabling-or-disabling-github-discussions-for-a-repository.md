@@ -19,7 +19,7 @@ shortTitle: Discussions
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
 1. 要禁用讨论，请在“Features（功能）”下，取消选择 **Discussions（讨论）**。
 
-You can also use organization discussions to facilitate conversations that span multiple repositories in your organization. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+您还可以使用组织讨论来促进跨越组织中多个存储库的对话。 更多信息请参阅“[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
 
 ## 延伸阅读
 

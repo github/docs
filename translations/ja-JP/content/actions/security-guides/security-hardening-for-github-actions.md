@@ -256,10 +256,10 @@ The attacker server can use the {% ifversion fpt or ghec %}{% data variables.pro
 3. **{% data variables.product.prodname_github_app %} トークン**
     - {% data variables.product.prodname_github_apps %} は、選択したリポジトリにインストールでき、リポジトリ内のリソースに対する詳細な権限を持つこともできます。 Organization の内部で {% data variables.product.prodname_github_app %} を作成し、ワークフロー内でアクセスする必要があるリポジトリにインストールして、それらのリポジトリにアクセスするためのワークフロー内のインストールとして認証できます。
 4. **個人アクセストークン**
-    - 自分のアカウントから個人アクセストークンを使用しないでください。 これらのトークンは、アクセスできる Organization 内のすべてのリポジトリ、およびユーザアカウントのすべての個人リポジトリへのアクセスを許可します。 これにより、ワークフローが含まれているリポジトリのすべての書き込みアクセスユーザに間接的に広範なアクセス権が付与されます。 さらに、後で Organization を離れると、このトークンを使用するワークフローはすぐに中断され、この問題のデバッグが困難になる場合があります。
+    - 自分のアカウントから個人アクセストークンを使用しないでください。 These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. これにより、ワークフローが含まれているリポジトリのすべての書き込みアクセスユーザに間接的に広範なアクセス権が付与されます。 さらに、後で Organization を離れると、このトークンを使用するワークフローはすぐに中断され、この問題のデバッグが困難になる場合があります。
     - 個人アクセストークンを使用する場合は、ワークフローに必要な特定のリポジトリへのアクセスのみが許可される新しいアカウント用に生成されたものを使用してください。 このアプローチはスケーラブルではないため、デプロイキーなどの代替案を優先して避ける必要があります。
-5. **ユーザアカウントの SSH キー**
-    - ワークフローでは、ユーザアカウントの SSH キーを使用しないでください。 これらは、個人アクセストークンと同様に、すべての個人リポジトリと、Organization のメンバーシップを通じてアクセスできるすべてのリポジトリに読み取り/書き込み権限を付与します。  これにより、ワークフローが含まれているリポジトリのすべての書き込みアクセスユーザに間接的に広範なアクセス権が付与されます。 リポジトリのクローンまたはプッシュのみを実行する必要があり、パブリック API とやり取りする必要がないため、SSH キーを使用する場合は、代わりに個別のデプロイキーを使用する必要があります。
+5. **SSH keys on a personal account**
+    - Workflows should never use the SSH keys on a personal account. これらは、個人アクセストークンと同様に、すべての個人リポジトリと、Organization のメンバーシップを通じてアクセスできるすべてのリポジトリに読み取り/書き込み権限を付与します。  これにより、ワークフローが含まれているリポジトリのすべての書き込みアクセスユーザに間接的に広範なアクセス権が付与されます。 リポジトリのクローンまたはプッシュのみを実行する必要があり、パブリック API とやり取りする必要がないため、SSH キーを使用する場合は、代わりに個別のデプロイキーを使用する必要があります。
 
 ## セルフホストランナーを強化する
 
@@ -300,7 +300,7 @@ If you are using {% data variables.product.prodname_actions %} to deploy to a cl
 
 ## {% data variables.product.prodname_actions %}イベントの監査
 
-Organizationの管理タスクをモニタするために、監査ログを使用できます。 監査ログは、アクションの種類、実行された時刻、実行したユーザアカウントを記録します。
+Organizationの管理タスクをモニタするために、監査ログを使用できます。 The audit log records the type of action, when it was run, and which personal account performed the action.
 
 たとえば、監査ログを使用して、Organization のシークレットへの変更を追跡する `org.update_actions_secret` イベントを追跡できます。 ![監査ログのエントリ](/assets/images/help/repository/audit-log-entries.png)
 

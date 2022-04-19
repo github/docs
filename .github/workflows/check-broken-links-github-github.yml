@@ -51,6 +51,8 @@ jobs:
         run: npm ci
 
       - name: Run broken github/github link check
+        env:
+          WAF_TOKEN: ${{ secrets.WAF_TOKEN }}
         run: |
           script/check-github-github-links.js > broken_github_github_links.md
 
