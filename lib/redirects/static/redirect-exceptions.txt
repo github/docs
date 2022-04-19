@@ -514,3 +514,8 @@
 
 /enterprise-cloud@latest/rest/reference/secret-scanning
 - /rest/reference/secret-scanning
+
+# FPT versioning was removed as part of github/docs-content#5166
+
+/rest/overview/resources-in-the-rest-api
+- /rest/overview/api-previews
