@@ -69,7 +69,7 @@ If you add an organization-wide policy with a timeout constraint, you should set
 
       ![Select repositories for this policy](/assets/images/help/codespaces/policy-select-repos.png)
 
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](http://localhost:4000/en/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" and "[Restricting the visibility of forwarded ports](http://localhost:4000/en/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" and "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
 1. After you have finished adding constraints to your policy, click **Save**.
 
 The policy will be applied to all new codespaces and to existing codespaces the next time they are started.
