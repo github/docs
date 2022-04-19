@@ -72,9 +72,9 @@ You can apply a rate limit to {% data variables.product.prodname_actions %} work
 
 Your {% data variables.product.product_name %} instance assigns each {% data variables.product.prodname_actions %} workflow job to a runner. If your instance cannot immediately assign a job to an available runner, the job will wait in a queue until a runner is available. If {% data variables.product.prodname_actions %} experiences sustained high load, the queue can back up, and the performance of {% data variables.product.product_location %} may degrade.
 
-To avoid this performance degradation, you can configure a rate limit for {% data variables.product.prodname_actions %}. This rate limit is expressed in job runs per minute. {% data variables.product.product_name %} calculates and applies the rate limit for the sum total of all job runs on the instance. If runs exceed the rate limit, additional runs will fail instead of entering the queue.
+To avoid this performance degradation, you can configure a rate limit for {% data variables.product.prodname_actions %}. This rate limit is expressed in job runs per minute. {% data variables.product.product_name %} calculates and applies the rate limit for the sum total of all job runs on the instance. If runs exceed the rate limit, additional runs will fail instead of entering the queue. The following error will appear in the run's annotations.
 
-![Screenshot of a rate-limited workflow run](/assets/images/enterprise/actions/actions-rate-limited.png)
+> You've exceeded the rate limit for workflow run requests. Please wait before retrying the run.
 
 An appropriate rate limit protects {% data variables.product.product_location %} from abnormal usage of {% data variables.product.prodname_actions %} without interfering with day-to-day operations. The exact threshold depends on your instance's available resources and overall load profile. For more information about the hardware requirements for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#review-hardware-requirements)."
 
@@ -85,7 +85,7 @@ By default, the rate limit for {% data variables.product.prodname_actions %} is 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. To enable and configure the rate limit, run the following two commands, replacing **RUNS-PER-MINUTE** with the value of your choice.
 
-   ```
+   ```shell
    ghe-config actions-rate-limiting.enabled true
    ghe-config actions-rate-limiting.queue-runs-per-minute <em>RUNS-PER-MINUTE</em>
    ```
