@@ -2,7 +2,6 @@
 title: Secret scanning
 intro: 'Use the secret scanning API to retrieve and update secret alerts from a repository.'
 versions:
-  fpt: '*'
   ghes: '*'
   ghec: '*'
   ghae: '*'
