@@ -17,6 +17,8 @@ shortTitle: Set profile to private
 
 To hide parts of your profile page, you can make your profile private. This also hides your activity in various social features on {% data variables.product.prodname_dotcom_the_website %}. A private profile hides information from all users, and there is currently no option to allow specified users to see your activity.
 
+After making your profile private, you can still view all your information when you visit your own profile.
+
 Private profiles cannot receive sponsorships under [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors). To be eligible for {% data variables.product.prodname_sponsors %}, your profile cannot be private.
 
 ## Differences between private and public profiles
