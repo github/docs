@@ -24,7 +24,10 @@ export type CodeExample = {
   description: string
   languages: string // single comma separated string
   href: string
-  tags: Array<string>
+  tags: Array<{
+    name: string
+    color: string
+  }>
 }
 export type Product = {
   title: string

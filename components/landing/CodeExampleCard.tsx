@@ -20,72 +20,12 @@ export const CodeExampleCard = ({ example }: Props) => {
           dangerouslySetInnerHTML={{ __html: example.description }}
         />
         <div className="d-flex flex-wrap">
-          {example.tags.map((tag) => {
-            // start if statement here. if label equals one of the tags, bg: 'somecolor.emphasis"
-            // make a new label return per tag
-
-            console.log('tag', tag)
-            if (tag === 'CodeQL') {
-              return (
-                <Label key={tag} variant="small" sx={{ bg: 'success.emphasis', mb: 1, mr: 2 }}>
-                  {tag}
-                </Label>
-              )
-            } else if (tag === 'Code scanning') {
-              return (
-                <Label key={tag} variant="small" sx={{ bg: '#00a6d2', mb: 1, mr: 2 }}>
-                  {tag}
-                </Label>
-              )
-            } else if (tag === 'GitHub Actions') {
-              return (
-                <Label key={tag} variant="small" sx={{ bg: 'sponsors.emphasis', mb: 1, mr: 2 }}>
-                  {tag}
-                </Label>
-              )
-            } else if (tag === 'Security policy') {
-              return (
-                <Label key={tag} variant="small" sx={{ bg: 'accent.emphasis', mb: 1, mr: 2 }}>
-                  {tag}
-                </Label>
-              )
-            } else if (tag === 'Security advisory') {
-              return (
-                <Label key={tag} variant="small" sx={{ bg: 'danger.emphasis', mb: 1, mr: 2 }}>
-                  {tag}
-                </Label>
-              )
-            } else if (tag === 'Dependabot') {
-              return (
-                <Label key={tag} variant="small" sx={{ bg: '#e39d00', mb: 1, mr: 2 }}>
-                  {tag}
-                </Label>
-              )
-            } else if (tag === 'Alerts') {
-              return (
-                <Label key={tag} variant="small" sx={{ bg: 'severe.emphasis', mb: 1, mr: 2 }}>
-                  {tag}
-                </Label>
-              )
-            } else if (tag === 'Security updates') {
-              return (
-                <Label key={tag} variant="small" sx={{ bg: 'done.emphasis', mb: 1, mr: 2 }}>
-                  {tag}
-                </Label>
-              )
-            } else if (tag === 'Organization') {
-              return (
-                <Label key={tag} variant="small" sx={{ bg: '#5b616b', mb: 1, mr: 2 }}>
-                  {tag}
-                </Label>
-              )
-            } else if (tag === 'Scripts') {
-              return (
-                <Label key={tag} variant="small" sx={{ bg: '#046b99', mb: 1, mr: 2 }}>
-                  {tag}
-                </Label>
-              )
-            } else return null
+          {example.tags.map((tag, id) => {
+            return (
+              <Label key={id} variant="small" sx={{ bg: `${tag.color}`, mb: 1, mr: 2 }}>
+                {tag.name}
+              </Label>
+            )
           })}
         </div>
       </div>

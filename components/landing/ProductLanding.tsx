@@ -35,7 +35,6 @@ export const ProductLanding = () => {
       <LandingSection>
         <FeaturedArticles />
       </LandingSection>
-
       {productCodeExamples.length > 0 && (
         <LandingSection
           title={t('code_examples')}

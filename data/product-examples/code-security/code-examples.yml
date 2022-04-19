@@ -5,48 +5,62 @@
   languages:
     - javascript
   tags:
-    - CodeQL
-    - Code scanning
-    - GitHub Actions
+    - name: CodeQL
+      color: success.emphasis
+    - name: Code scanning
+      color: '#00a6d2'
+    - name: GitHub Actions
+      color: sponsors.emphasis
 - title: Adversarial Robustness Toolbox (ART) CodeQL code scanning
   description: Example code scanning workflow for the CodeQL action from the Trusted AI repository.
   href: /Trusted-AI/adversarial-robustness-toolbox/blob/main/.github/workflows/codeql-analysis.yml
   languages:
     - python
   tags:
-    - CodeQL
-    - Code scanning
-    - GitHub Actions
+    - name: CodeQL
+      color: success.emphasis
+    - name: Code scanning
+      color: '#00a6d2'
+    - name: GitHub Actions
+      color: sponsors.emphasis
 
 # Security policies
 - title: Microsoft security policy template
   description: Example security policy
   href: /microsoft/repo-templates/blob/main/shared/SECURITY.md
   tags:
-    - Security policy
+    - name: Security policy
+      color: accent.emphasis
 - title: Electron security policy
   description: Example security policy
   href: /electron/electron/blob/master/SECURITY.md
   tags:
-    - Security policy
+    - name: Security policy
+      color: accent.emphasis
 
 # Example of security advisory in a major product
 - title: Security advisory for Rails
   description: Security advisory published by Rails for CVE-2020-15169.
   href: /rails/rails/security/advisories/GHSA-cfjv-5498-mph5
   tags:
-    - Security advisory
+    - name: Security advisory
+      color: danger.emphasis
 
 # Sample scripts for enabling Dependabot alerts and security updates across a whole organization
 - title: Enable Dependabot alerts and security updates automatically
   description: Sample scripts for enabling Dependabot alerts and security updates across an entire organization.
   href: /github/enable-security-alerts-sample
   tags:
-    - Dependabot
-    - Alerts
-    - Security updates
-    - Organization
-    - Scripts
+    - name: Dependabot
+      color: '#e39d00'
+    - name: Alerts
+      color: severe.emphasis
+    - name: Security updates
+      color: done.emphasis
+    - name: Organization
+      color: '#5b616b'
+    - name: Scripts
+      color: '#046b99'
   versions:
     fpt: '*'
     ghec: '*'
