@@ -4,7 +4,7 @@ You should always review your own PR first.
 
 For content changes, make sure that you:
 
-- [ ] Confirm that the changes meet the user experience and goals outlined in the content design plan (if there is one).
+- [ ]and  Confirm that the changes meet the user experience and goals outlined in the content design plan (if there is one).
 - [ ] Compare your pull request's source changes to staging to confirm that the output matches the source and that everything is rendering as expected. This helps spot issues like typos, content that doesn't follow the style guide, or content that isn't rendering due to versioning problems. Remember that lists and tables can be tricky.
 - [ ] Review the content for technical accuracy.
 - [ ] Review the entire pull request using the [localization checklist](localization-checklist.md).
