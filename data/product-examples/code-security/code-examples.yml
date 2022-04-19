@@ -78,9 +78,12 @@
     - docker
     - pip
   tags:
-    - Dependabot
-    - Version updates
-    - Configuration
+    - name: Dependabot
+      color: '#e39d00'
+    - name: Version updates
+      color: '#06727a'
+    - name: Configuration
+      color: '#708ab2'
   versions:
     fpt: '*'
     ghec: '*'
@@ -91,9 +94,12 @@
   href: /github/super-linter/pull/1398
   languages:
   tags:
-    - Dependabot
-    - Version updates
-    - Pull requests
+    - name: Dependabot
+      color: '#e39d00'
+    - name: Version updates
+      color: '#06727a'
+    - name: Pull requests
+      color: '#744a02'
   versions:
     fpt: '*'
     ghec: '*'
