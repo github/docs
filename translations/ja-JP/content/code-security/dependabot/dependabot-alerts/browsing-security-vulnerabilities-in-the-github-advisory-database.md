@@ -27,23 +27,23 @@ topics:
 
 ## {% data variables.product.prodname_advisory_database %} について
 
-The {% data variables.product.prodname_advisory_database %} contains a list of known security vulnerabilities, grouped in two categories: {% data variables.product.company_short %}-reviewed advisories and unreviewed advisories.
+{% data variables.product.prodname_advisory_database %}には既知のセキュリティ脆弱性のリストが含まれており、これは{% data variables.product.company_short %}がレビューしたアドバイザリと、レビューされていないアドバイザリという2つの分類にグループ化されています。
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-### About {% data variables.product.company_short %}-reviewed advisories
+### {% data variables.product.company_short %}がレビューしたアドバイザリについて
 
-{% data variables.product.company_short %}-reviewed advisories are security vulnerabilities that have been mapped to packages tracked by the {% data variables.product.company_short %} dependency graph.
+{% data variables.product.company_short %}あレビューしたアドバイザリは、{% data variables.product.company_short %}の依存関係グラフが追跡したパッケージにマップされたセキュリティ脆弱性です。
 
-We carefully review each advisory for validity. Each {% data variables.product.company_short %}-reviewed advisory has a full description, and contains both ecosystem and package information.
+各アドバイザリの妥当性は慎重にレビューされています。 {% data variables.product.company_short %}がレビューした各アドバイザリには完全な説明があり、エコシステムとパッケージ情報が含まれます。
 
-If you enable {% data variables.product.prodname_dependabot_alerts %} for your repositories, you are automatically notified when a new {% data variables.product.company_short %}-reviewed advisory affects packages you depend on. 詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
+リポジトリで{% data variables.product.prodname_dependabot_alerts %}を有効化すると、新しい{% data variables.product.company_short %}がレビューしたアドバイザリが依存対象のパッケージに影響する場合、自動的に通知されます。 詳しい情報については「[{% data variables.product.prodname_dependabot_alerts %}について](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
-### About unreviewed advisories
+### レビューされていないアドバイザリについて
 
-Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed.
+レビューされていないアドバイザリは、自動的にNational Vulnerability Databaseフィードから直接{% data variables.product.prodname_advisory_database %}へ展開されたセキュリティ脆弱性です。
 
-{% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
+この種のアドバイザリは妥当性あるいは完全性がチェックされていないので、レビューされていないアドバイザリに対して{% data variables.product.prodname_dependabot %}は{% data variables.product.prodname_dependabot_alerts %}を生成しません。
 
 ## About security advisories
 
