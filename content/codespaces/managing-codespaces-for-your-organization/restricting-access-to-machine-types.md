@@ -70,7 +70,7 @@ If you add an organization-wide policy, you should set it to the largest choice 
 
       ![Select repositories for this policy](/assets/images/help/codespaces/policy-select-repos.png)
 
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting the visibility of forwarded ports](http://localhost:4000/en/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" and "[Restricting the idle timeout period](http://localhost:4000/en/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
 1. After you have finished adding constraints to your policy, click **Save**.
 ## Editing a policy
 
