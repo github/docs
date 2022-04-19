@@ -50,9 +50,20 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
-      - name: Run broken github/github link check
+      - name: Build server
+        run: npm run build
+
+      - name: Start server in the background
         env:
-          WAF_TOKEN: ${{ secrets.WAF_TOKEN }}
+          NODE_ENV: production
+          PORT: 4000
+        run: |
+
+          node server.mjs &
+          sleep 5
+          curl --retry-connrefused --retry 3 -I http://localhost:4000/
+
+      - name: Run broken github/github link check
         run: |
           script/check-github-github-links.js > broken_github_github_links.md
 
