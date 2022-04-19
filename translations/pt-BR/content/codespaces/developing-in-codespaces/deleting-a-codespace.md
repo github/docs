@@ -55,13 +55,13 @@ Para excluir um codespace, use o comando `gh codespace delete` e, em seguida, es
 gh codespace delete
 ```
 
-Se você tiver alterações não salvas, será solicitado que você confirme a exclusão. You can use the `--force` flag to force deletion, avoiding this prompt.
+Se você tiver alterações não salvas, será solicitado que você confirme a exclusão. Você pode usar o sinalizador `--force` para forçar a exclusão, evitando a instrução.
 
 Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_delete).
 
 {% endcli %}
 
-## Bulk deleting codespaces
+## Exclusão de codespaces em massa
 
 {% webui %}
 

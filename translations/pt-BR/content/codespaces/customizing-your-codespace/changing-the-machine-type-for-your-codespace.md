@@ -20,7 +20,7 @@ topics:
 
 {% endnote %}
 
-{% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace.
+{% data reusables.codespaces.codespaces-machine-types %} Você pode escolher um tipo alternativo ao criar um codespace ou a qualquer momento após criar um codespace.
 
 Para obter informações sobre como escolher um tipo de máquina ao criar um codespace, consulte "[Criando um codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)". Para informações sobre como mudar o tipo de máquina em {% data variables.product.prodname_vscode %}, consulte "[Usando {% data variables.product.prodname_codespaces %} em {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#changing-the-machine-type-in-visual-studio-code)."
 

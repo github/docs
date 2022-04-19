@@ -25,7 +25,7 @@ Para obter mais informações sobre exatamente como {% data variables.product.pr
 
 1. Acesse o r[repositório do modelo](https://github.com/2percentsilk/haikus-for-codespaces) e selecione **Usar este modelo**.
 
-2. Name your repository, select your preferred privacy setting, and click **Create repository from template**.
+2. Nomeie seu repositório, selecione sua configuração de privacidade preferida e clique em **Criar repositório a partir do modelo**.
 
 3. Acesse a página principal do repositório recém-criado. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
