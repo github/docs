@@ -2,7 +2,6 @@
 title: Secret scanning
 intro: Secret scanning APIを使うと、リポジトリのシークレットアラートの取得と更新ができます。
 versions:
-  fpt: '*'
   ghes: '*'
   ghec: '*'
   ghae: '*'
