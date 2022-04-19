@@ -14,7 +14,7 @@ shortTitle: 强制 SAML 单点登录
 
 ## 关于对组织实施 SAML SSO
 
-启用 SAML SSO 时，{% data variables.product.prodname_dotcom %} 将提示访问 {% data variables.product.prodname_dotcom_the_website %} 上组织资源的成员使用 IdP 进行身份验证，IdP 会将成员的用户帐户链接到 IdP 上的身份。 成员在使用 IdP 进行身份验证之前仍然可以访问组织的资源。
+启用 SAML SSO 时，{% data variables.product.prodname_dotcom %} 将提示访问 {% data variables.product.prodname_dotcom_the_website %} 上组织资源的成员使用 IdP 进行身份验证，IdP 会将成员的个人帐户链接到 IdP 上的身份。 成员在使用 IdP 进行身份验证之前仍然可以访问组织的资源。
 
 ![提示通过 SAML SSO 进行身份验证以访问组织的横幅](/assets/images/help/saml/sso-has-been-enabled.png)
 

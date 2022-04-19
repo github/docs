@@ -111,7 +111,7 @@ You can write your own actions, or you can find actions to use in your workflows
    ```
 1. これらの変更をコミットして、{% data variables.product.prodname_dotcom %} リポジトリにプッシュします。
 
-これで、新しい {% data variables.product.prodname_actions %} ワークフローファイルがリポジトリにインストールされ、別のユーザがリポジトリに変更をプッシュするたびに自動的に実行されます。 ジョブの実行履歴の詳細については、「[ワークフローのアクティビティを表示する](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)」を参照してください。
+これで、新しい {% data variables.product.prodname_actions %} ワークフローファイルがリポジトリにインストールされ、別のユーザがリポジトリに変更をプッシュするたびに自動的に実行されます。 For details about a workflow's execution history, see "[Viewing the workflow's activity](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-workflows-activity)."
 
 ## ワークフローファイルを理解する
 

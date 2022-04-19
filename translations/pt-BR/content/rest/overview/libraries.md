@@ -26,7 +26,7 @@ topics:
 
 {% warning %}
 
-Warning: As of late October 2021, the offical Octokit libraries are not currently maintained.
+Warning: As of late October 2021, the offical Octokit libraries are not currently maintained. For more information, see [this discussion in the octokit.js repository](https://github.com/octokit/octokit.js/discussions/620).
 
 {% endwarning %}
 

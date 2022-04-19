@@ -18,7 +18,11 @@ shortTitle: Perfil da organização
 
 Opcionalmente, é possível escolher adicionar uma descrição, localização, site e endereço de e-mail da sua organização e fixar repositórios importantes.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4749 %} Você pode personalizar o perfil da sua organização adicionando um arquivo README.md. Para obter mais informações, consulte "[Personalizando o perfil da sua organização](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."{% endif %}
 
-{% ifversion fpt or ghec %}Para confirmar a identidade da organização e exibir um selo "Verificado" na página do perfil da organização, você deve verificar os domínios da organização com o {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".{% endif %}
+{% ifversion fpt %}
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can confirm their organization's identity and display a "Verified" badge on their organization's profile page by verifying the organization's domains with {% data variables.product.product_name %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" in the {% data variables.product.prodname_ghe_cloud %} documenatation.
+{% elsif ghec or ghes > 3.1 %}
+To confirm your organization's identity and display a "Verified" badge on your organization profile page, you can verify your organization's domains with {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Verificar ou aprovar um domínio para a sua organização](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".
+{% endif %}
 
 {% ifversion fpt or ghes > 3.2 or ghec %}
 ![Exemplo de página de perfil da organização](/assets/images/help/organizations/org_profile_with_overview.png)

@@ -26548,9 +26548,12 @@
                   "site_admin": false,
                   "permissions": {
                     "pull": true,
+                    "triage": true,
                     "push": true,
+                    "maintain": false,
                     "admin": false
-                  }
+                  },
+                  "role_name": "write"
                 }
               ]
             }
@@ -26984,6 +26987,7 @@
               "description": "if user has admin permissions",
               "example": {
                 "permission": "admin",
+                "role_name": "admin",
                 "user": {
                   "login": "octocat",
                   "id": 1,
@@ -31630,31 +31634,78 @@
               "properties": {
                 "type": {
                   "type": "string",
-                  "description": "The type of reviewer. Must be one of: `User` or `Team`",
+                  "description": "<p>The type of reviewer. Must be one of: <code>User</code> or <code>Team</code></p>",
                   "enum": [
                     "User",
                     "Team"
                   ],
                   "examples": [
                     "User"
-                  ]
+                  ],
+                  "name": "type",
+                  "in": "body",
+                  "rawType": "string",
+                  "rawDescription": "The type of reviewer. Must be one of: `User` or `Team`",
+                  "childParamsGroups": []
                 },
                 "id": {
                   "type": "integer",
-                  "description": "The id of the user or team who can review the deployment",
+                  "description": "<p>The id of the user or team who can review the deployment</p>",
                   "examples": [
                     4532992
-                  ]
+                  ],
+                  "name": "id",
+                  "in": "body",
+                  "rawType": "integer",
+                  "rawDescription": "The id of the user or team who can review the deployment",
+                  "childParamsGroups": []
                 }
               }
             },
             "name": "reviewers",
             "in": "body",
             "rawType": [
+              "array",
               "null"
             ],
             "rawDescription": "The people or teams that may review jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.",
-            "childParamsGroups": []
+            "childParamsGroups": [
+              {
+                "parentName": "reviewers",
+                "parentType": "items",
+                "id": "reviewers-items",
+                "params": [
+                  {
+                    "type": "string",
+                    "description": "<p>The type of reviewer. Must be one of: <code>User</code> or <code>Team</code></p>",
+                    "enum": [
+                      "User",
+                      "Team"
+                    ],
+                    "examples": [
+                      "User"
+                    ],
+                    "name": "type",
+                    "in": "body",
+                    "rawType": "string",
+                    "rawDescription": "The type of reviewer. Must be one of: `User` or `Team`",
+                    "childParamsGroups": []
+                  },
+                  {
+                    "type": "integer",
+                    "description": "<p>The id of the user or team who can review the deployment</p>",
+                    "examples": [
+                      4532992
+                    ],
+                    "name": "id",
+                    "in": "body",
+                    "rawType": "integer",
+                    "rawDescription": "The id of the user or team who can review the deployment",
+                    "childParamsGroups": []
+                  }
+                ]
+              }
+            ]
           },
           {
             "type": "object or null",
@@ -75973,6 +76024,7 @@
                 "hooks_url": "https://api.github.com/repos/octocat/Hello-World/hooks",
                 "svn_url": "https://svn.github.com/octocat/Hello-World",
                 "homepage": "https://github.com",
+                "language": null,
                 "forks_count": 9,
                 "stargazers_count": 80,
                 "watchers_count": 80,
@@ -76004,6 +76056,7 @@
                   "triage": false,
                   "pull": true
                 },
+                "role_name": "read",
                 "allow_rebase_merge": true,
                 "template_repository": {
                   "id": 1296269,
@@ -77492,6 +77545,7 @@
                 "hooks_url": "https://api.github.com/repos/octocat/Hello-World/hooks",
                 "svn_url": "https://svn.github.com/octocat/Hello-World",
                 "homepage": "https://github.com",
+                "language": null,
                 "forks_count": 9,
                 "stargazers_count": 80,
                 "watchers_count": 80,
@@ -77523,6 +77577,7 @@
                   "triage": false,
                   "pull": true
                 },
+                "role_name": "read",
                 "allow_rebase_merge": true,
                 "template_repository": {
                   "id": 1296269,

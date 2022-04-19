@@ -24,7 +24,7 @@ There are a number of entry points to create a codespace.
   
 Your codespace can be ephemeral if you need to test something or you can return to the same codespace to work on long-running feature work. For more information, see "[Creating a codespace](/codespaces/developing-in-codespaces/creating-a-codespace)."
 
-Once you've selected the option to create a new codespace, and chosen a machine type for your codespace, some steps happen in the background before the codespace is available to you.
+Once you've selected the option to create a new codespace, and optionally selected from the various configuration options for your codespace, some steps happen in the background before the codespace is available to you.
 
 ![Open with Codespaces button](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -97,7 +97,7 @@ Git is available by default in your codespace and so you can rely on your existi
 
 ![Running git status in Codespaces Terminal](/assets/images/help/codespaces/git-status.png)
 
-You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. You can create more than one codespace per repository or even per branch. However, each user account has a limit of 10 codespaces. If you've reached the limit and want to create a new codespace, you must delete a codespace first.
+You can create a codespace from any branch, commit, or pull request in your project, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts. You can create more than one codespace per repository or even per branch. However, each personal account has a limit of 10 codespaces. If you've reached the limit and want to create a new codespace, you must delete a codespace first.
 
 {% note %}
 

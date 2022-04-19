@@ -17,7 +17,7 @@ topics:
 
 Tus patrocinadores pueden elegir si desean recibir actualizaciones por correo electrónico sobre tu trabajo. Para obtener más información, consulta "[Administar tu patrocinio](/sponsors/sponsoring-open-source-contributors/managing-your-sponsorship)".
 
-Para las cuentas de desarrollador patrocinado, la actualización vendrá de la cuenta de correo electrónico primaria de tu cuenta de usuario. Si habilitaste la privacidad de direcciones de correo electrónico en tu cuenta de usuario, la actualización vendrá entonces de `noreply@github.com`. Para las organizaciones patrocinadas, la actualización vendrá de la dirección de correo electrónico de tipo `noreply@github.com` de la organización. Para obtener más información, consulta "[Establecer tu dirección de correo electrónico de confirmación](/articles/setting-your-commit-email-address)".
+For sponsored developer accounts, the update will come from your personal account's primary email address. If you've enabled email address privacy on your personal account, the update will come from `noreply@github.com` instead. Para las organizaciones patrocinadas, la actualización vendrá de la dirección de correo electrónico de tipo `noreply@github.com` de la organización. Para obtener más información, consulta "[Establecer tu dirección de correo electrónico de confirmación](/articles/setting-your-commit-email-address)".
 
 ## Comunicarse con tus patrocinadores
 

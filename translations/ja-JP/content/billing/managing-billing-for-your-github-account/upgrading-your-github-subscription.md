@@ -40,7 +40,7 @@ shortTitle: サブスクリプションのアップグレード
 
 ## 個人アカウントのプランをアップグレードする
 
-You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories owned by your personal account. 個人アカウントをアップグレードしても、管理するOrganizationや、それらのOrganizationが所有するリポジトリには影響しません。 {% data reusables.gated-features.more-info %}
+個人アカウントを{% data variables.product.prodname_free_user %}から{% data variables.product.prodname_pro %}にアップグレードして、個人アカウントが所有するプライベートリポジトリで高度なコードレビューツールを使えるようにすることができます。 個人アカウントをアップグレードしても、管理するOrganizationや、それらのOrganizationが所有するリポジトリには影響しません。 {% data reusables.gated-features.more-info %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

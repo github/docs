@@ -24,7 +24,7 @@ shortTitle: 团队和人员
 
 {% data reusables.organizations.mixed-roles-warning %}
 
-有关存储库角色的详细信息，请参阅“[用户帐户存储库的权限级别](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)”和“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
+有关存储库角色的详细信息，请参阅“[个人帐户存储库的权限级别](/github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository)”和“[组织的存储库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 ![访问权限管理概览](/assets/images/help/repository/manage-access-overview.png)
 

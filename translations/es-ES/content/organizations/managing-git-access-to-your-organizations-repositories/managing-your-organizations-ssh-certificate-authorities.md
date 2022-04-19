@@ -1,12 +1,10 @@
 ---
 title: Administrar las autoridades de certificación SSH de tu organización
 intro: Puedes agregar o eliminar autoridades de certificación SSH desde tu organización.
-product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/managing-your-organizations-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

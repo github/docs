@@ -149,7 +149,7 @@ Si un usuario revoca su autorización de una GitHub App, dicha app recibirá el 
 
 ## Permisos a nivel de usuario
 
-Puedes agregar permisos a nivel de usuario a tu GitHub App para acceder a los recursos del usuario, tales como correos electrónicos del usuario, los cuales otorgan los usuarios independientes como parte del [flujo de autorización del usuario](#identifying-users-on-your-site). Los permisos a nivel de usuario difieren de los [permisos a nivel de organización y de repositorio](/rest/reference/permissions-required-for-github-apps), los cuales se otorgan en el momento de la instalación en una cuenta de usuario o de organización.
+Puedes agregar permisos a nivel de usuario a tu GitHub App para acceder a los recursos del usuario, tales como correos electrónicos del usuario, los cuales otorgan los usuarios independientes como parte del [flujo de autorización del usuario](#identifying-users-on-your-site). User-level permissions differ from [repository and organization-level permissions](/rest/reference/permissions-required-for-github-apps), which are granted at the time of installation on an organization or personal account.
 
 Puedes seleccionar los permisos a nivel de usuario desde dentro de la configuración de tu GitHub App en la sección de **Permisos de usuario** de la página de **Permisos & webhooks**. Para obtener más información sobre seleccionar permisos, consulta la sección [Editar los permisos de una GitHub App](/apps/managing-github-apps/editing-a-github-app-s-permissions/)".
 
