@@ -24,18 +24,7 @@ export const CodeExampleCard = ({ example }: Props) => {
             // start if statement here. if label equals one of the tags, bg: 'somecolor.emphasis"
             // make a new label return per tag
 
-            // console.log(tag)
-
-            // Bugs ____________
-            // (Fixed) Bug - CodeQL is showing multiple times in the same card, once with the correct color assigned, once with the previous default color.
-            // Possible solutions?
-            // - Restart the local server?
-            //  ^^ Fixed it!
-            // Need more color options for the Organization and Scripts color codes. Only 7 colors available and 9 labels in this one
-            // added more colors from an accessibility site - http://web-accessibility.carnegiemuseums.org/design/color/
-
-            // **!! Current Bug - none
-
+            console.log('tag', tag)
             if (tag === 'CodeQL') {
               return (
                 <Label key={tag} variant="small" sx={{ bg: 'success.emphasis', mb: 1, mr: 2 }}>
