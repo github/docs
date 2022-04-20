@@ -45,11 +45,11 @@ Click **Watch** at the top of a repository to watch it.
 
 ## Communicating on {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+{% data variables.product.product_name %} provides built-in collaborative communication tools, allowing you to interact closely with your community when building great software. For example, you can contribute to another user's project by creating a pull request, or use issues to track bugs or suggest ideas in a repository. You can also brainstorm new ideas with your team with discussions. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)." To learn more about discussions, see "[{% data variables.product.prodname_dotcom %} Discussions](/discussions)].]"
 
 ## Doing even more
 
-### Creating pull requests
+<!-- ### Creating pull requests
 
  You may want to contribute to another person's project, whether to add features or to fix bugs. After making changes, let the original author know by sending a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 
@@ -59,7 +59,7 @@ Click **Watch** at the top of a repository to watch it.
 
 When collaborating on a repository, use issues to track ideas, enhancements, tasks, or bugs. For more information, see '[About issues](/articles/about-issues/)."
 
-![Issues button](/assets/images/help/repository/repo-tabs-issues.png)
+![Issues button](/assets/images/help/repository/repo-tabs-issues.png) -->
 
 ### Participating in organizations
 
