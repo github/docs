@@ -67,7 +67,7 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 | Gerenciador de pacotes | Linguagem                        | Formatos recomendados                                  | Todos os formatos compatíveis                                             |
 | ---------------------- | -------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------- |
 | Composer               | PHP                              | `composer.lock`                                        | `composer.json`, `composer.lock`                                          |
-| `dotnet` CLI           | .NET languages (C#, C++, F#, VB) | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
+| NuGet                  | .NET languages (C#, F#, VB), C++ | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 
 {%- if github-actions-in-dependency-graph %}
 | Fluxos de trabalho de {% data variables.product.prodname_actions %}

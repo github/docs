@@ -28,6 +28,14 @@ You can add self-hosted runners at various levels in the management hierarchy:
 
 {% data reusables.actions.self-hosted-runner-architecture %} {% data reusables.actions.runner-app-open-source %} When a new version is released, the runner application automatically updates itself when a job is assigned to the runner, or within a week of release if the runner hasn't been assigned any jobs.
 
+{% ifversion ghes %} 
+{% note %}
+
+**Note:** {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.actions.self-hosted-runner-auto-removal %}
 
 For more information about installing and using self-hosted runners, see "[Adding self-hosted runners](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."

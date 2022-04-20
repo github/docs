@@ -27,7 +27,7 @@ Para obter mais informações sobre exatamente como {% data variables.product.pr
 
 2. Nomeie seu repositório, selecione sua configuração de privacidade preferida e clique em **Criar repositório a partir do modelo**.
 
-3. Acesse a página principal do repositório recém-criado. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+3. Acesse a página principal do repositório recém-criado. No nome do repositório, use o menu suspenso **Código de {% octicon "code" aria-label="The code icon" %}** e na guia **Codespaces**, clique em **Criar codespace no principal**.
 
   ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
 
