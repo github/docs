@@ -40,9 +40,7 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policies**.
-1. On the "Codespace policies" page, click **Create Policy**.
-1. Enter a name for your new policy.
+{% data reusables.profile.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Port visibility**.
 
    ![Add a constraint for port visibility](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
@@ -55,18 +53,7 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 
    ![Choose the port visibility options](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
-1. In the "Change policy target" area, click the dropdown button.
-1. Choose either **All repositories** or **Selected repositories** to determine which repositories this policy will apply to.
-1. If you chose **Selected repositories**:
-   1. Click {% octicon "gear" aria-label="The settings icon" %}.
-
-      ![Edit the settings for the policy](/assets/images/help/codespaces/policy-edit.png)
-
-   2. Select the repositories you want this policy to apply to.
-   3. At the bottom of the repository list, click **Select repositories**.
-
-      ![Select repositories for this policy](/assets/images/help/codespaces/policy-select-repos.png)
-
+{% data reusables.profile.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
 1. After you have finished adding constraints to your policy, click **Save**.
 ## Editing a policy

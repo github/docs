@@ -42,9 +42,7 @@ If you add an organization-wide policy with a timeout constraint, you should set
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policies**.
-1. On the "Codespace policies" page, click **Create Policy**.
-1. Enter a name for your new policy.
+{% data reusables.profile.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Maximum idle timeout**.
 
    ![Add a constraint for idle timeout](/assets/images/help/codespaces/add-constraint-dropdown-timeout.png)
@@ -57,18 +55,7 @@ If you add an organization-wide policy with a timeout constraint, you should set
 
    ![Choose the port visibility options](/assets/images/help/codespaces/maximum-minutes-timeout.png)
 
-1. In the "Change policy target" area, click the dropdown button.
-1. Choose either **All repositories** or **Selected repositories** to determine which repositories this policy will apply to.
-1. If you chose **Selected repositories**:
-   1. Click {% octicon "gear" aria-label="The settings icon" %}.
-
-      ![Edit the settings for the policy](/assets/images/help/codespaces/policy-edit.png)
-
-   2. Select the repositories you want this policy to apply to.
-   3. At the bottom of the repository list, click **Select repositories**.
-
-      ![Select repositories for this policy](/assets/images/help/codespaces/policy-select-repos.png)
-
+{% data reusables.profile.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" and "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
 1. After you have finished adding constraints to your policy, click **Save**.
 
