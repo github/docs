@@ -47,7 +47,7 @@ If you add an organization-wide policy, you should set it to the largest choice 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.profile.codespaces-org-policies %}
+{% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Machine types**.
 
    ![Add a constraint for machine types](/assets/images/help/codespaces/add-constraint-dropdown.png)
@@ -56,7 +56,7 @@ If you add an organization-wide policy, you should set it to the largest choice 
 
    ![Edit the machine type constraint](/assets/images/help/codespaces/edit-machine-constraint.png)
 
-{% data reusables.profile.codespaces-policy-targets %}
+{% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
 1. After you have finished adding constraints to your policy, click **Save**.
 ## Editing a policy
