@@ -63852,11 +63852,15 @@
           },
           {
             "type": "integer",
-            "description": "<p>The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.</p>",
+            "description": "<p><strong>This paramter is deprecated. Use <code>line</code> instead</strong>. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.</p>",
+            "deprecated": true,
+            "x-github": {
+              "deprecationDate": "2022-11-01"
+            },
             "name": "position",
             "in": "body",
             "rawType": "integer",
-            "rawDescription": "The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.",
+            "rawDescription": "**This paramter is deprecated. Use `line` instead**. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.",
             "childParamsGroups": []
           },
           {
@@ -64004,7 +64008,7 @@
           }
         ],
         "previews": [],
-        "descriptionHTML": "<p>Creates a review comment in the pull request diff. To add a regular comment to a pull request timeline, see \"<a href=\"https://docs.github.com/enterprise-server@3.3/rest/reference/issues#create-an-issue-comment\">Create an issue comment</a>.\" We recommend creating a review comment using <code>line</code>, <code>side</code>, and optionally <code>start_line</code> and <code>start_side</code> if your comment applies to more than one line in the pull request diff.</p>\n<p>You can still create a review comment using the <code>position</code> parameter. When you use <code>position</code>, the <code>line</code>, <code>side</code>, <code>start_line</code>, and <code>start_side</code> parameters are not required.</p>\n<p><strong>Note:</strong> The position value equals the number of lines down from the first \"@@\" hunk header in the file you want to add a comment. The line just below the \"@@\" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. See \"<a href=\"https://docs.github.com/enterprise-server@3.3/rest/overview/resources-in-the-rest-api#secondary-rate-limits\">Secondary rate limits</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.3/rest/guides/best-practices-for-integrators#dealing-with-secondary-rate-limits\">Dealing with secondary rate limits</a>\" for details.</p>",
+        "descriptionHTML": "<p>Creates a review comment in the pull request diff. To add a regular comment to a pull request timeline, see \"<a href=\"https://docs.github.com/enterprise-server@3.3/rest/reference/issues#create-an-issue-comment\">Create an issue comment</a>.\" We recommend creating a review comment using <code>line</code>, <code>side</code>, and optionally <code>start_line</code> and <code>start_side</code> if your comment applies to more than one line in the pull request diff.</p>\n<p>The <code>position</code> parameter is deprecated. If you use <code>position</code>, the <code>line</code>, <code>side</code>, <code>start_line</code>, and <code>start_side</code> parameters are not required.</p>\n<p><strong>Note:</strong> The position value equals the number of lines down from the first \"@@\" hunk header in the file you want to add a comment. The line just below the \"@@\" line is position 1, the next line is position 2, and so on. The position in the diff continues to increase through lines of whitespace and additional hunks until the beginning of a new file.</p>\n<p>This endpoint triggers <a href=\"https://docs.github.com/en/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. See \"<a href=\"https://docs.github.com/enterprise-server@3.3/rest/overview/resources-in-the-rest-api#secondary-rate-limits\">Secondary rate limits</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.3/rest/guides/best-practices-for-integrators#dealing-with-secondary-rate-limits\">Dealing with secondary rate limits</a>\" for details.</p>",
         "statusCodes": [
           {
             "httpStatusCode": "201",

@@ -63434,6 +63434,10 @@
           {
             "type": "integer",
             "description": "<p><strong>Required without <code>comfort-fade</code> preview</strong>. The position in the diff where you want to add a review comment. Note this value is not the same as the line number in the file. For help finding the position value, read the note above.</p>",
+            "deprecated": true,
+            "x-github": {
+              "deprecationDate": "2022-11-01"
+            },
             "name": "position",
             "in": "body",
             "rawType": "integer",
