@@ -1,5 +1,5 @@
 # Tracking removing ability to delete code scanning alerts: ghae-issue-6776
-# https://github.com/github/docs-content/issues/6776
+# https://github.com/github/releases/issues/2223
 
 versions:
   ghae: '*'
