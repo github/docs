@@ -98,6 +98,7 @@ export default class Operation {
       this.renderStatusCodes(),
       this.renderParameterDescriptions(),
       this.renderBodyParameterDescriptions(),
+      this.renderExampleRequestResponseDescriptions(),
       this.renderPreviewNotes(),
     ])
 
@@ -116,6 +117,17 @@ export default class Operation {
   async renderDescription() {
     this.descriptionHTML = await renderContent(this.#operation.description)
     return this
+  }
+
+  async renderExampleRequestResponseDescriptions() {
+    return Promise.all(
+      this.codeExamples.map(async (codeExample) => {
+        codeExample.response.description = await renderContent(codeExample.response.description)
+        codeExample.request.description = await renderContent(codeExample.request.description)
+
+        return codeExample
+      })
+    )
   }
 
   async renderStatusCodes() {
