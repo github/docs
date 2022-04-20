@@ -3,7 +3,7 @@ title: Autolinked references and URLs
 intro: 'References to URLs, issues, pull requests, and commits are automatically shortened and converted into links.'
 redirect_from:
   - /articles/autolinked-references-and-urls
-  - /github/writing-on-github/autolinked-references-and-urls
+  - /github/writing-on-github/auungtolinked-references-and-urls
   - /github/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls
 versions:
   fpt: '*'
