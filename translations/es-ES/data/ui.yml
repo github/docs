@@ -24,13 +24,15 @@ release_notes:
   banner_text: GitHub comenzó a implementar estos cambios en empresas en
 search:
   need_help: '¿Necesitas ayuda?'
-  placeholder: Busca temas, productos...
+  placeholder: Search GitHub Docs
   loading: Cargando
   no_results: No se encontró ningún resultado
   search_results_for: Buscar resultados para
   no_content: Sin contenido
   matches_displayed: Coincidencias mostradas
   search_error: Ocurrió un error al intentar realizar la búsqueda.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: Explorar por producto
   version_picker: Versión

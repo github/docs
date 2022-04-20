@@ -14,7 +14,7 @@ Você pode navegar, pesquisar e executar comandos em {% data variables.product.p
 
 ### Navegação rápida
 
-Ao abrira paleta de comando, as sugestões são otimizadas para facilitar o acesso a partir de qualquer lugar em um repositório, conta de usuário, ou organização para páginas de nível superior, como a página de problemas. Se o local que você deseja não estiver listado, comece a digitar o nome ou número para a localização refinar as sugestões.
+When you open the command palette, the suggestions are optimized to give you easy access from anywhere in a repository, personal account, or organization to top-level pages like the Issues page. Se o local que você deseja não estiver listado, comece a digitar o nome ou número para a localização refinar as sugestões.
 
 ![Sugestões da paleta de comandos](/assets/images/help/command-palette/command-palette-navigation-repo-default.png)
 

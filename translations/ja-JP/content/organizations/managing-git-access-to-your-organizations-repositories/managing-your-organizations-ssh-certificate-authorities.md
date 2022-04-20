@@ -1,12 +1,10 @@
 ---
 title: OrganizationのSSH認証局を管理する
 intro: Organizationから、SSH認証局を追加または削除することができます。
-product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/managing-your-organizations-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'

@@ -1,1 +1,1 @@
-{% data variables.product.prodname_discussions %} 是在 {% data variables.product.product_name %} 上供项目的维护者和社区之间进行对话的开放论坛。
+{% data variables.product.prodname_discussions %} is an open forum for conversation among maintainers and the community for a repository or organization on {% data variables.product.product_name %}.

@@ -58,7 +58,7 @@ topics:
 {% data reusables.cli.cli-learn-more %}
 
 1. 在命令行中，导航到要在其中创建新项目的本地克隆的目录。
-2. 要为项目创建存储库，请使用 `gh repo create` 子命令。 出现提示时，选择**从头开始在 GitHub 上创建新存储库** ，然后输入新项目的名称。 如果希望项目属于某个组织而不是您的用户帐户，请使用 `organization-name/project-name` 指定组织名称和项目名称。
+2. 要为项目创建存储库，请使用 `gh repo create` 子命令。 出现提示时，选择**从头开始在 GitHub 上创建新存储库** ，然后输入新项目的名称。 如果希望项目属于某个组织而不是您的个人帐户，请使用 `organization-name/project-name` 指定组织名称和项目名称。
 3. 按照交互式提示进行操作。 要在本地克隆存储库，请在询问您是否要克隆远程项目目录时确认是。
 4. 或者，要跳过提示，请提供存储库名称和可见性标志（`--public`、`--private` 或 `--internal`）。 例如 `gh repo create project-name --public`。 要在本地克隆存储库，请传递 `--clone` 标志。  有关可能的参数的详细信息，请参阅 [GitHub CLI 手册](https://cli.github.com/manual/gh_repo_create)。
 

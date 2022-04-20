@@ -11,7 +11,6 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
 versions:
   ghes: '*'
-  fpt: '*'
   ghec: '*'
   ghae: issue-5378
 miniTocMaxHeadingLevel: 3

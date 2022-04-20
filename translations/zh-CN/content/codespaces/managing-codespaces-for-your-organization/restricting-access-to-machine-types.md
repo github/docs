@@ -20,7 +20,7 @@ topics:
 
 ### 设置计算机类型约束时的行为
 
-如果存在不再符合已定义的策略的现有代码空间，则这些代码空间将继续运行，直到超时。 当用户尝试恢复代码空间时，将显示一条消息，告知他们此组织不再允许当前选择的计算机类型，并提示他们选择备用计算机类型。
+If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they are stopped or time out. 当用户尝试恢复代码空间时，将显示一条消息，告知他们此组织不再允许当前选择的计算机类型，并提示他们选择备用计算机类型。
 
 如果删除组织中单个存储库的 {% data variables.product.prodname_codespaces %} 配置所需的更高规范的计算机类型，则无法为该存储库创建代码空间。 当有人尝试创建代码空间时，他们将看到一条消息，告诉他们没有有效的计算机类型可以满足存储库 {% data variables.product.prodname_codespaces %} 配置的要求。
 

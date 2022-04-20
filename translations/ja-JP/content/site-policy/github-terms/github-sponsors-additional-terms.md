@@ -60,7 +60,7 @@ GitHub Sponsors Matching Fund は、「スポンサード開発者アカウン�
 #### 2.2.1. マッチング資金利用規約
 GitHub Sponsors Matching Fund への参加資格は個別に判断され、以下の制約があります。
 
-* GitHub アカウントを所有し、本プログラムに個人として参加し、OSS に積極的に貢献している必要があります。 無料ユーザアカウントを複数運用することを、GitHub が許可していないことにご注意ください。 そのため、マッチングを利用できるのは個別単位であり、複数のアカウントにまたがって承認されることはありません。
+* GitHub アカウントを所有し、本プログラムに個人として参加し、OSS に積極的に貢献している必要があります。 Please note, GitHub does not allow operating more than one free personal account. そのため、マッチングを利用できるのは個別単位であり、複数のアカウントにまたがって承認されることはありません。
 
 * GitHub および「スポンサード開発者アカウント」の利用は、[GitHub コミュニティガイドライン](/github/site-policy/github-community-guidelines)を支えるオープンソースに貢献する機会を拡大するという GitHub Sponsors のミッションに従う必要があります。この判断の基準は、当社の独断によります。
 
