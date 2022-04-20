@@ -175,9 +175,9 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
   ```xml
   <dependencies>
     <dependency>
-      <groupId>com.example</groupId>
-      <artifactId>test</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <groupId>com.gsur</groupId>
+      <artifactId>GsurSon</artifactId>
+      <version>1.0.0</version>
     </dependency>
   </dependencies>
   ```
