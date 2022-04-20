@@ -123,6 +123,7 @@ Você pode selecionar permissões em uma string de consultas usando o nome da pe
 | [`pull_request`](/webhooks/event-payloads/#pull_request)                               | `pull_requests`                                  | {% data reusables.webhooks.pull_request_short_desc %}
 | [`pull_request_review`](/webhooks/event-payloads/#pull_request_review)                 | `pull_request`                                   | {% data reusables.webhooks.pull_request_review_short_desc %}
 | [`pull_request_review_comment`](/webhooks/event-payloads/#pull_request_review_comment) | `pull_request`                                   | {% data reusables.webhooks.pull_request_review_comment_short_desc %}
+| [`pull_request_review_thread`](/webhooks/event-payloads/#pull_request_review_thread)   | `pull_request`                                   | {% data reusables.webhooks.pull_request_review_thread_short_desc %}
 | [`push`](/webhooks/event-payloads/#push)                                               | `Conteúdo`                                       | {% data reusables.webhooks.push_short_desc %}
 | [`versão`](/webhooks/event-payloads/#release)                                          | `Conteúdo`                                       | {% data reusables.webhooks.release_short_desc %}
 | [`repositório`](/webhooks/event-payloads/#repository)                                  | `metadados`                                      | {% data reusables.webhooks.repository_short_desc %}{% ifversion fpt or ghec %}
