@@ -26,7 +26,7 @@ shortTitle: 管理应用可见性
 
 ## 私有安装流程
 
-私有安装流程只允许 GitHub 应用程序的所有者安装它。 有关 GitHub 应用程序的有限信息仍将存在于公共页面，但 **Install（安装）**按钮仅对组织管理员或用户帐户（如果 GitHub 应用程序由个人帐户所有）可用。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}私有{% else %}私有（也称为内部）{% endif %} GitHub 应用程序只能安装在所有者的用户或组织帐户上。
+私有安装流程只允许 GitHub 应用程序的所有者安装它。 有关 GitHub 应用程序的有限信息仍将存在于公共页面，但 **Install（安装）**按钮仅对组织管理员或个人帐户（如果 GitHub 应用程序由个人帐户所有）可用。 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}私有{% else %}私有（也称为内部）{% endif %} GitHub 应用程序只能安装在所有者的用户或组织帐户上。
 
 ## 更改 GitHub 应用程序的安装权限
 

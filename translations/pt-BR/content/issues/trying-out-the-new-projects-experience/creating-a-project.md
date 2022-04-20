@@ -63,14 +63,14 @@ Os problemas do rascunho podem ter um título, texto, responsável e quaisquer c
 3. Selecione o repositório onde está localizado o pull request ou problema. Você pode digitar parte do nome do repositório para restringir suas opções.
 4. Selecione o problema ou pull request. Você pode digitar parte do título para restringir suas opções.
 
-#### Adding multiple issues or pull requests from a repository
+#### Adicionando vários problemas ou pull requests de um repositório
 
-1. On {% data variables.product.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+1. No {% data variables.product.product_location %}, acesse o repositório que contém os problemas ou pull requests que você deseja adicionar ao projeto.
 {% data reusables.repositories.sidebar-issue-pr %}
-1. To the left of each issue title, select the issues that you want to add to your project. ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)
-1. Optionally, to select every issue or pull request on the page, at the top of the list of issues or pull requests, select all. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/select-all-checkbox.png)
-1. Above the list of issues or pull requests, click **Projects (beta)**. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/projects-beta-assign-button.png)
-1. Click the projects you want to add the selected issues or pull requests to. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/projects-beta-assign-dropdown.png)
+1. À esquerda de cada título do problema, selecione os problemas que você deseja adicionar ao seu projeto. ![Captura de tela que mostra caixa de seleção para selecionar problema ou pull request](/assets/images/help/issues/select-issue-checkbox.png)
+1. Opcionalmente, para selecionar cada problema ou pull request na página, na parte superior da lista de problemas ou pull requests, selecione tudo. ![Captura de tela que mostra caixa de seleção para selecionar todos na tela](/assets/images/help/issues/select-all-checkbox.png)
+1. Acima da lista de problemas ou pull requests, clique em **Projetos (beta)**. ![Captura de tela que mostra caixa de seleção para selecionar todos na tela](/assets/images/help/issues/projects-beta-assign-button.png)
+1. Clique nos projetos aos quais você deseja adicionar os problemas selecionados ou pull requests. ![Captura de tela que mostra caixa de seleção para selecionar todos na tela](/assets/images/help/issues/projects-beta-assign-dropdown.png)
 
 #### Atribuindo um projeto de dentro de um problema ou pull request
 
@@ -112,19 +112,19 @@ Você pode restaurar itens arquivados, mas não itens excluídos. Para obter mai
 ## Restaurando itens arquivados
 
 1. Navigate to your project.
-1. In the top-right, click {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
-1. In the menu, click **Archived items**.
-1. Optionally, to filter the archived items displayed, type your filter into the text box above the list of items. For more information about the available filters, see "[Filtering projects (beta)](/issues/trying-out-the-new-projects-experience/filtering-projects)."
+1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
+1. No menu, clique em **Itens arquivados**.
+1. Opcionalmente, para filtrar os itens arquivados exibidos, digite seu filtro na caixa de texto acima da lista de itens. Para obter mais informações sobre os filtros disponíveis, consulte "[Filtrando projetos (beta)](/issues/trying-out-the-new-projects-experience/filtering-projects)".
 
-   ![Screenshot showing field for filtering archived items](/assets/images/help/issues/filter-archived-items.png)
+   ![Captura de tela que mostra o campo para filtrar itens arquivados](/assets/images/help/issues/filter-archived-items.png)
 
-1. To the left of each item title, select the items you would like to restore.
+1. À esquerda de cada item de título, selecione os itens que deseja restaurar.
 
-   ![Screenshot showing checkboxes next to archived items](/assets/images/help/issues/select-archived-item.png)
+   ![Captura de tela que mostra as caixas de seleção próximas aos itens arquivados](/assets/images/help/issues/select-archived-item.png)
 
-1. To restore the selected items, above the list of items, click **Restore**.
+1. Para restaurar os itens selecionados, acima da lista de itens, clique em **Restaurar**.
 
-   ![Screenshot showing the "Restore" button](/assets/images/help/issues/restore-archived-item-button.png)
+   ![Captura de tela que mostra o botão "Restaurar"](/assets/images/help/issues/restore-archived-item-button.png)
 
 ## Adicionando campos
 

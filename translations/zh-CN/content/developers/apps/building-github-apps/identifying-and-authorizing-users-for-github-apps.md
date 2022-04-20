@@ -149,7 +149,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ## 用户级别的权限
 
-您可以向 GitHub 应用程序添加用户级别的权限，以访问用户电子邮件等用户资源，这些权限是单个用户在[用户授权流程](#identifying-users-on-your-site)中授予的。 用户级别的权限不同于[仓库和组织级别的权限](/rest/reference/permissions-required-for-github-apps)，后者是在组织或用户帐户上安装时授予的。
+您可以向 GitHub 应用程序添加用户级别的权限，以访问用户电子邮件等用户资源，这些权限是单个用户在[用户授权流程](#identifying-users-on-your-site)中授予的。 用户级别的权限不同于[仓库和组织级别的权限](/rest/reference/permissions-required-for-github-apps)，后者是在组织或个人帐户上安装时授予的。
 
 您可以在 **Permissions & webhooks（权限和 web 挂钩）**页面 **User permissions（用户权限）**部分的 GitHub 应用程序设置中选择用户级别的权限。 有关选择权限的更多信息，请参阅“[编辑 GitHub 应用程序的权限](/apps/managing-github-apps/editing-a-github-app-s-permissions/)”。
 

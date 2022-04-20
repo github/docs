@@ -91,9 +91,9 @@ Some of the features listed below are limited to organizations using {% data var
 | Set scheduled reminders (see "[Managing scheduled reminders for pull requests](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)") | **X** |  |  |  |  |
 | Add collaborators to **all repositories** | **X** |  |  |  |  |
 | Access the organization audit log | **X** |  |  |  |  |
-| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |  |  |
+| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |  |  |{% ifversion ghec %}
 | Verify the organization's domains (see "[Verifying your organization's domain](/articles/verifying-your-organization-s-domain)") | **X** |  |  |  |  |
-| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |  |  |  |
+| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |  |  |  |{% endif %}
 | Delete **all teams** | **X** |  |  |  |  |
 | Delete the organization account, including all repositories | **X** |  |  |  |  |
 | Create teams (see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)") | **X** | **X** | **X** |  | **X**  |

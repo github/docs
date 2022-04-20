@@ -25,3 +25,4 @@ children:
 shortTitle: 管理 SAML 单点登录
 ---
 
+{% data reusables.saml.ghec-only %}

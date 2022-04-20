@@ -190,6 +190,12 @@ Para crear una lista anidada mediante el editor web en {% data variables.product
      - Segundo elemento de la lista anidado
 ```
 
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
+
 ![Lista anidada con alineación resaltada](/assets/images/help/writing/nested-list-alignment.png)
 
 ![Lista con dos niveles de elementos anidados](/assets/images/help/writing/nested-list-example-1.png)

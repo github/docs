@@ -48,9 +48,21 @@ diff の見方には複数の選択肢があります。
 
   ![ファイルフィルタのドロップダウンメニュー](/assets/images/help/pull_requests/file-filter-menu.png)
 
+## diffが表示されない理由
+- ファイルあるいは特定のファイルタイプの合計での制限を超えた。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
+- ファイルが、デフォルトで表示をブロックするリポジトリの*.gitattributes*ファイルのルールにマッチした。 詳しい情報については[GitHubでの変更されたファイルの表示方法のカスタマイズ](/articles/customizing-how-changed-files-appear-on-github)を参照してください。
+
 ## スリードットおよびツードット Git diff での比較
 
-デフォルトでは、{% data variables.product.prodname_dotcom %} のプルリクエストはスリードットdiff、すなわちトピックブランチの最新バージョンと、トピックブランチが最後に base ブランチと同期されたコミットとの比較を表示します。
+There are two comparison methods for the `git diff` command; two-dot (`git diff A..B`) and three-dot (`git diff A...B`). By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff.
+
+### Three-dot Git diff comparison
+
+The three-dot comparison shows the difference between the latest common commit of both branches (merge base) and the most recent version of the topic branch.
+
+### Two-dot Git diff comparison
+
+The two-dot comparison shows the difference between the latest state of the base branch (for example, `main`) and the most recent version of the topic branch.
 
 {% data variables.product.prodname_dotcom %} 上で、ツードット diff を比較する際に 2 つの committish のリファレンスを見たい場合には、リポジトリの [Comparing changes] ページの URL を編集できます。 詳しい情報については _Pro Git_ ブックサイトの [Git 用語集の "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) を参照してください。
 
@@ -62,9 +74,17 @@ diff の見方には複数の選択肢があります。
 
 変更を比較するための Git コマンドに関する詳しい情報については、_Pro Git_ ブックサイトの「[Git diff のオプション](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)」を参照してください。
 
-## diffが表示されない理由
-- ファイルあるいは特定のファイルタイプの合計での制限を超えた。 For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
-- ファイルが、デフォルトで表示をブロックするリポジトリの*.gitattributes*ファイルのルールにマッチした。 詳しい情報については[GitHubでの変更されたファイルの表示方法のカスタマイズ](/articles/customizing-how-changed-files-appear-on-github)を参照してください。
+## About three-dot comparison on {% data variables.product.prodname_dotcom %}
+
+Since the three-dot comparison compares with the merge base, it is focusing on "what a pull request introduces".
+
+When you use a two-dot comparison, the diff changes when the base branch is updated, even if you haven't made any changes to the topic branch. Additionally, a two-dot comparison focuses on the base branch. This means that anything you add is displayed as missing from the base branch, as if it was a deletion, and vice versa. As a result, the changes the topic branch introduces become ambiguous.
+
+In contrast, by comparing the branches using the three-dot comparison, changes in the topic branch are always in the diff if the base branch is updated, because the diff shows all of the changes since the branches diverged.
+
+### Merging often
+
+To avoid getting confused, merge the base branch (for example, `main`) into your topic branch frequently. By merging the base branch, the diffs shown by two-dot and three-dot comparisons are the same. We recommend merging a pull request as soon as possible. This encourages contributors to make pull requests smaller, which is recommended in general.
 
 ## 参考リンク
 

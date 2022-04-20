@@ -96,7 +96,7 @@ Git 和 {% data variables.product.company_short %} 起始作业只适用于个�
 
 ## 后续步骤
 
-- 根据课程定制其他作业。 更多信息请参阅“[创建个人作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”和“[创建小组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”。
+- 根据课程定制其他作业。 更多信息请参阅“[创建单个作业](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)”、“[创建组作业](/education/manage-coursework-with-github-classroom/create-a-group-assignment)”和“[重复使用作业](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)”。
 
 ## 延伸阅读
 

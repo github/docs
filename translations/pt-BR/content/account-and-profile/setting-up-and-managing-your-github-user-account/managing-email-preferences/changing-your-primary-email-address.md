@@ -1,6 +1,6 @@
 ---
 title: Alterar endereço de e-mail principal
-intro: Você pode alterar o endereço de e-mail associado à sua conta de usuário a qualquer momento.
+intro: Você pode alterar o endereço de e-mail associado à sua conta pessoal a qualquer momento.
 redirect_from:
   - /articles/changing-your-primary-email-address
   - /github/setting-up-and-managing-your-github-user-account/changing-your-primary-email-address

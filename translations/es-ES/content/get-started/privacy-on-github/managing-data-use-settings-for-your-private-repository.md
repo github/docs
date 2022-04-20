@@ -37,7 +37,7 @@ Cuando habilitas el uso de datos para tu repositorio privado, podrás acceder a 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-security-and-analysis %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
 4. Debajo de "Análisis y seguridad de código", a la derecha de la característica, haz clic en **Inhabilitar** o **Habilitar**.{% ifversion fpt %}!["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png){% elsif ghec %}
 !["Enable" or "Disable" button for "Configure security and analysis" features](/assets/images/help/repository/security-and-analysis-disable-or-enable-ghec-private.png){% endif %}
 

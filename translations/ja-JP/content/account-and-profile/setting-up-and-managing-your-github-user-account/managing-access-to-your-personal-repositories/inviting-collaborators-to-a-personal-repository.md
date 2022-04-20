@@ -55,7 +55,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 ## 参考リンク
 
-- "[ユーザ アカウントリポジトリの権限レベル](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
+- "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account)"
 - [個人リポジトリからコラボレーターを削除する](/articles/removing-a-collaborator-from-a-personal-repository)
 - [コラボレーターのリポジトリから自分を削除する](/articles/removing-yourself-from-a-collaborator-s-repository)
 - [メンバーを Team に編成する](/organizations/organizing-members-into-teams)

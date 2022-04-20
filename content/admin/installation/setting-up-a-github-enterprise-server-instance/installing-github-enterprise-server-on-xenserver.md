@@ -36,7 +36,7 @@ shortTitle: Install on XenServer
 
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Select {% data variables.product.prodname_dotcom %} On-premises, then click **XenServer (VHD)**.
+4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **XenServer (VHD)**.
 5. To download your license file, click **Download license**.
 
 ## Creating the {% data variables.product.prodname_ghe_server %} instance
