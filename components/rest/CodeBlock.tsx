@@ -31,7 +31,7 @@ export function CodeBlock({ verb, headingLang, codeBlock, highlight }: Props) {
           </Tooltip>
         </header>
       )}
-      <pre className={cx(styles.codeBlock, 'rounded-1 border')} data-highlight={highlight}>
+      <div className={cx(styles.codeBlock, 'rounded-1 border')} data-highlight={highlight}>
         <code>
           {verb && (
             <>
@@ -43,7 +43,7 @@ export function CodeBlock({ verb, headingLang, codeBlock, highlight }: Props) {
           )}
           {codeBlock}
         </code>
-      </pre>
+      </div>
     </div>
   )
 }

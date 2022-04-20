@@ -32,7 +32,7 @@ Ao criar um pull request que contém alterações para dependências direcionada
 
 ## Disponibilidade do gráfico de dependências
 
-{% ifversion fpt or ghec %}O gráfico de dependências está disponível para cada repositório público que define as dependências em um ecossistema de pacote compatível usando um formato de arquivo compatível. Repository administrators can also set up the dependency graph for private repositories. For more information, see "[Configuring the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)."{% endif %}
+{% ifversion fpt or ghec %}O gráfico de dependências está disponível para cada repositório público que define as dependências em um ecossistema de pacote compatível usando um formato de arquivo compatível. Os administradores de repositórios também podem configurar o gráfico de dependências para repositórios privados. Para obter mais informações, consulte "[Configurando o gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).{% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
@@ -67,7 +67,7 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 | Gerenciador de pacotes | Linguagem                        | Formatos recomendados                                  | Todos os formatos compatíveis                                             |
 | ---------------------- | -------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------- |
 | Composer               | PHP                              | `composer.lock`                                        | `composer.json`, `composer.lock`                                          |
-| `dotnet` CLI           | .NET languages (C#, C++, F#, VB) | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
+| NuGet                  | .NET languages (C#, F#, VB), C++ | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` | `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 
 {%- if github-actions-in-dependency-graph %}
 | Fluxos de trabalho de {% data variables.product.prodname_actions %}
@@ -84,7 +84,7 @@ Os formatos recomendados definem explicitamente quais versões são usadas para 
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |{% endif %} | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` | | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% if github-actions-in-dependency-graph %}
-[1] Observe que os fluxos de trabalho de {% data variables.product.prodname_actions %} devem estar localizados no diretório `.github/workflows/` de um repositório para serem reconhecidos como manifestos. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions)."
+[1] Observe que os fluxos de trabalho de {% data variables.product.prodname_actions %} devem estar localizados no diretório `.github/workflows/` de um repositório para serem reconhecidos como manifestos. Todas as ações ou fluxos de trabalho referenciados que usam a sintaxe `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` serão analisados como dependências. Para obter mais informações, consulte " Sintaxe de fluxo de trabalho[para o GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions)".
 
 [2] Se você listar suas dependências do Python nas no arquivo `setup.py`, é possível que não possamos analisar e listar todas as dependências do seu projeto.
 

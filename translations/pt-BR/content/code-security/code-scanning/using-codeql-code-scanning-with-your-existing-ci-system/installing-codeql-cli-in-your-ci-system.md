@@ -65,7 +65,7 @@ Você precisa disponibilizar todo o conteúdo do pacote {% data variables.produc
 
 ```shell
 $ wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
-$ tar -xvzf ../codeql-bundle-linux64.tar.gz
+$ tar -xvzf ./codeql-bundle-linux64.tar.gz
 ```
 
 Depois de extrair o pacote do {% data variables.product.prodname_codeql_cli %}, você poderá executar o executável `codeql` no servidor:

@@ -1,6 +1,6 @@
 ---
-title: Editing security advisories in the GitHub Advisory Database
-intro: 'You can submit improvements to any advisory published in the {% data variables.product.prodname_advisory_database %}.'
+title: 在 GitHub Advisory 数据库中编辑安全通告
+intro: '您可以对 {% data variables.product.prodname_advisory_database %} 中发布的任何公告提出改进建议。'
 redirect_from:
   - /code-security/security-advisories/editing-security-advisories-in-the-github-advisory-database
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database
@@ -14,14 +14,14 @@ topics:
   - Dependabot
   - Vulnerabilities
   - CVEs
-shortTitle: Edit Advisory Database
+shortTitle: 编辑公告数据库
 ---
 
-## About editing advisories in the {% data variables.product.prodname_advisory_database %}
-Security advisories in the {% data variables.product.prodname_advisory_database %} at [github.com/advisories](https://github.com/advisories) are considered global advisories. Anyone can suggest improvements on any global security advisory in the {% data variables.product.prodname_advisory_database %}. You can edit or add any detail, including additionally affected ecosystems, severity level or description of who is impacted. The {% data variables.product.prodname_security %} curation team will review the submitted improvements and publish them onto the {% data variables.product.prodname_advisory_database %} if accepted.
+## 关于在 {% data variables.product.prodname_advisory_database %} 中编辑公告
+[github.com/advisories](https://github.com/advisories) {% data variables.product.prodname_advisory_database %} 中的安全公告被视为全局公告。 任何人都可以在 {% data variables.product.prodname_advisory_database %} 中对任何全局安全公告提出改进建议。 您可以编辑或添加任何详细信息，包括其他受影响的生态系统、严重性级别或受影响者的描述。 {% data variables.product.prodname_security %} 管理团队将审查提交的改进，并在接受时将其发布到 {% data variables.product.prodname_advisory_database %} 上。
 
-Only repository owners and administrators can edit repository-level security advisories. For more information, see "[Editing a repository security advisory](/code-security/security-advisories/editing-a-security-advisory)."
-## Editing advisories in the GitHub Advisory Database
+只有存储库所有者和管理员才能编辑存储库级别的安全公告。 更多信息请参阅“[编辑存储库安全通告](/code-security/security-advisories/editing-a-security-advisory)”。
+## 在 GitHub Advisory 数据库中编辑通告
 
 1. 导航到 https://github.com/advisories。
 2. Select the security advisory you would like to contribute to.
