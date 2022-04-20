@@ -30,9 +30,7 @@ jobs:
     if: github.repository == 'github/docs-internal' && github.event.pull_request.user.login != 'Octomerger'
     runs-on: ubuntu-latest
     outputs:
-      notAllowed: ${{ steps.filter.outputs.notAllowed }}
       notAllowedSearchSyncLabel: ${{ steps.filter.outputs.notAllowedSearchSyncLabel }}
-      count: 0
     steps:
       - name: Get files changed
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
