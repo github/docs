@@ -17,7 +17,7 @@ topics:
 shortTitle: Processo de cobrança
 ---
 
-Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
+As alterações na sua conta pessoal paga ou assinatura da organização não afetam as assinaturas ou pagamentos para outras funcionalidades pagas de {% data variables.product.prodname_dotcom %}, como {% data variables.large_files.product_name_long %} ou aplicativos pagos comprados em {% data variables.product.prodname_marketplace %}.
 
 Para obter mais informações, consulte "produtos do [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)" e "[Sobre cobrança em {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)".
 

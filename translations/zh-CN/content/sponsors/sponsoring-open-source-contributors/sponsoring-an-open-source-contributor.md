@@ -35,6 +35,8 @@ shortTitle: 赞助贡献者
 
 使用信用卡赞助帐户后，更改将立即生效。 {% data reusables.sponsors.prorated-sponsorship %}
 
+We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
+
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
 您可以选择是否公开显示您的赞助。 一次性赞助在一个月内保持可见。
@@ -50,6 +52,17 @@ shortTitle: 赞助贡献者
 **注：**{% data variables.product.prodname_dotcom %} 对开发者如何介绍自己概不负责，{% data variables.product.prodname_dotcom %} 也不为任何被赞助的开源项目背书。 索赔由接受资助的开发者自行负责。 请确保在建立信任之后提供赞助。 更多信息请参阅 [{% data variables.product.prodname_sponsors %} 附加条款](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)。
 
 {% endnote %}
+
+## 税务信息
+
+As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:
+
+- Transaction date
+- Amount paid
+- The country, state, and province from where payment was made
+- Whether payment was made by a business or individual
+
+This information is necessary to enable payment and reporting of any taxes arising from such sponsorship payments.
 
 ## 赞助帐户
 

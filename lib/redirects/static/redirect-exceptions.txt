@@ -231,7 +231,7 @@
 - /github/setting-up-and-managing-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
 - /admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise
 
-/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
+/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 
@@ -509,3 +509,13 @@
 - /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
 - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
+
+# FPT versioning for this file was removed as part of github/docs-content#6637
+
+/enterprise-cloud@latest/rest/reference/secret-scanning
+- /rest/reference/secret-scanning
+
+# FPT versioning was removed as part of github/docs-content#5166
+
+/rest/overview/resources-in-the-rest-api
+- /rest/overview/api-previews

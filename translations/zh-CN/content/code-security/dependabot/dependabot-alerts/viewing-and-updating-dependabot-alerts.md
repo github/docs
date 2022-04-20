@@ -1,5 +1,5 @@
 ---
-title: Viewing and updating Dependabot alerts
+title: 查看和更新 Dependabot 警报
 intro: '如果 {% data variables.product.product_name %} 发现项目中存在有漏洞的依赖项，您可以在仓库的 Dependabot 警报选项卡中查看它们。 然后，您可以更新项目以解决或忽略漏洞。'
 redirect_from:
   - /articles/viewing-and-updating-vulnerable-dependencies-in-your-repository
@@ -7,7 +7,7 @@ redirect_from:
   - /code-security/supply-chain-security/viewing-and-updating-vulnerable-dependencies-in-your-repository
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/viewing-and-updating-vulnerable-dependencies-in-your-repository
 permissions: 'Repository administrators and organization owners can view and update dependencies, as well as users and teams with explicit access.'
-shortTitle: View Dependabot alerts
+shortTitle: 查看 Dependabot 警报
 versions:
   fpt: '*'
   ghes: '*'
@@ -45,36 +45,36 @@ topics:
 {% endif %}
 
 {% if dependabot-alerts-vulnerable-calls %}
-## About the detection of calls to vulnerable functions
+## 关于检测对有漏洞函数的调用
 
 {% data reusables.dependabot.vulnerable-calls-beta %}
 
-When {% data variables.product.prodname_dependabot %} tells you that your repository uses a vulnerable dependency, you need to determine what the vulnerable functions are and check whether you are using them. Once you have this information, then you can determine how urgently you need to upgrade to a secure version of the dependency.
+当 {% data variables.product.prodname_dependabot %} 告诉您存储库使用有漏洞的依赖项时，您需要确定有漏洞的功能是什么，并检查是否正在使用它们。 获得此信息后，可以确定升级到依赖项的安全版本的迫切程度。
 
-For supported languages, {% data variables.product.prodname_dependabot %} automatically detects whether you use a vulnerable function and adds the label "Vulnerable call" to affected alerts. You can use this information in the {% data variables.product.prodname_dependabot_alerts %} view to triage and prioritize remediation work more effectively.
+对于支持的语言，{% data variables.product.prodname_dependabot %} 会自动检测您是否使用有漏洞的函数，并为受影响的警报添加“有漏洞的调用”标签。 您可以在 {% data variables.product.prodname_dependabot_alerts %} 视图中使用此信息来更有效地分流修正工作并确定其优先级。
 
 {% note %}
 
-**Note:** During the beta release, this feature is available only for new Python advisories created *after* April 14, 2022, and for a subset of historical Python advisories. GitHub is working to backfill data across additional historical Python advisories, which are added on a rolling basis. Vulnerable calls are highlighted only on the {% data variables.product.prodname_dependabot_alerts %} pages.
+**注意：** 在测试版期间，此功能仅适用于在 2022 年 4 月 14 日*之后*创建的新 Python 公告，以及历史 Python 公告的子集。 GitHub 正在努力回填其他历史 Python 公告的数据，这些公告是滚动添加的。 有漏洞的调用仅在 {% data variables.product.prodname_dependabot_alerts %} 页面上突出显示。
 
 {% endnote %}
 
-![Screenshot showing an alert with the "Vulnerable call" label](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
+![显示带有"有漏洞的调用"标签的警报屏幕截图](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
 
-You can filter the view to show only alerts where {% data variables.product.prodname_dependabot %} detected at least one call to a vulnerable function using the `has:vulnerable-calls` filter in the search field.
+您可以在搜索字段中使用 `has:vulnerable-calls` 筛选视图，仅显示 {% data variables.product.prodname_dependabot %} 检测到至少一次调用有漏洞函数的警报。
 
-For alerts where vulnerable calls are detected, the alert details page shows additional information:
+对于检测到有漏洞的调用的警报，警报详细信息页面将显示其他信息：
 
-- A code block showing where the function is used or, where there are multiple calls, the first call to the function.
-- An annotation listing the function itself, with a link to the line where the function is called.
+- 显示函数使用位置或者在有多个调用时显示对函数的第一次调用的代码块。
+- 列出函数本身以及指向调用函数的行的链接的注释。
 
-![Screenshot showing the alert details page for an alert with a "Vulnerable call" label](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
+![显示警报的并带有"有漏洞的调用"标签的警报详细信息页面屏幕截图](/assets/images/help/repository/review-calls-to-vulnerable-functions.png)
 
-For more information, see "[Reviewing and fixing vulnerable dependencies](#reviewing-and-fixing-vulnerable-dependencies)" below.
+更多信息请参阅下面的“[查看和修复有漏洞的依赖项](#reviewing-and-fixing-vulnerable-dependencies)”。
 
 {% endif %}
 
-## Viewing vulnerable dependencies
+## 查看有漏洞的依赖项
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5638 %}
 {% data reusables.repositories.navigate-to-repo %}
@@ -90,28 +90,28 @@ For more information, see "[Reviewing and fixing vulnerable dependencies](#revie
 1. 单击您想要查看的警报。 ![在警报列表中选择的警报](/assets/images/help/graphs/click-alert-in-alerts-list.png)
 {% endif %}
 
-## Reviewing and fixing vulnerable dependencies
+## 查看和修复有漏洞的依赖项
 
-It’s important to ensure that all of your dependencies are clean of any security weaknesses. When {% data variables.product.prodname_dependabot %} discovers vulnerabilities in your dependencies, you should assess your project’s level of exposure and determine what remediation steps to take to secure your application.
+请务必确保所有依赖项都没有任何安全漏洞。 当 {% data variables.product.prodname_dependabot %} 发现依赖项中的漏洞时，应评估项目的暴露水平，并确定要采取哪些补救措施来保护应用程序。
 
-If a patched version is available, you can generate a {% data variables.product.prodname_dependabot %} pull request to update this dependency directly from a {% data variables.product.prodname_dependabot %} alert. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, the pull request may be linked will in the Dependabot alert.
+如果有修补的版本可用，则可以生成 {% data variables.product.prodname_dependabot %} 请求，以直接从 {% data variables.product.prodname_dependabot %} 警报更新此依赖项。 如果您启用了 {% data variables.product.prodname_dependabot_security_updates %}，则拉取请求可能会在 Dependabot 警报中链接。
 
-In cases where a patched version is not available, or you can’t update to the secure version, {% data variables.product.prodname_dependabot %} shares additional information to help you determine next steps. When you click through to view a {% data variables.product.prodname_dependabot %} alert, you can see the full details of the security advisory for the dependency including the affected functions. You can then check whether your code calls the impacted functions. This information can help you further assess your risk level, and determine workarounds or if you’re able to accept the risk represented by the security vulnerability.
+如果修补的版本不可用，或者您无法更新到安全版本，{% data variables.product.prodname_dependabot %} 会共享其他信息，以帮助您确定后续步骤。 单击以查看 {% data variables.product.prodname_dependabot %} 警报时，可以看到依赖项的安全通告的完整详细信息，包括受影响的功能。 然后，可以检查代码是否调用受影响的函数。 此信息可以帮助您进一步评估风险级别，并确定解决方法或是否能够接受安全漏洞所代表的风险。
 
 {% if dependabot-alerts-vulnerable-calls %}
 
-For supported languages, {% data variables.product.prodname_dependabot %} detects calls to vulnerable functions for you. When you view an alert labeled as "Vulnerable call", the details include the name of the function and a link to the code that calls it. Often you will be able to take decisions based on this information, without exploring further.
+对于支持的语言，{% data variables.product.prodname_dependabot %} 为您检测对有漏洞函数的调用。 当您查看标记为“有漏洞的调用”的警报时，详细信息包括函数的名称以及指向调用该函数的代码的链接。 通常，您将能够根据此信息做出决策，而无需进一步探索。
 
 {% endif %}
 
-### Fixing vulnerable dependencies
+### 修复有漏洞的依赖项
 
-1. View the details for an alert. For more information, see "[Viewing vulnerable dependencies](#viewing-vulnerable-dependencies)" (above).
+1. 查看警报的详细信息。 更多信息请参阅“[查看有漏洞的依赖项](#viewing-vulnerable-dependencies)”（上文）。
 {% ifversion fpt or ghec or ghes > 3.2 %}
-1. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, there may be a link to a pull request that will fix the dependency. Alternatively, you can click **Create {% data variables.product.prodname_dependabot %} security update** at the top of the alert details page to create a pull request. ![创建 {% data variables.product.prodname_dependabot %} 安全更新按钮](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
-1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
+1. 如果启用了 {% data variables.product.prodname_dependabot_security_updates %} ，则可能存在指向将修复依赖项的拉取请求的链接。 或者，可以单击警报详细信息页面顶部的 **创建 {% data variables.product.prodname_dependabot %} 安全更新**以创建拉取请求。 ![创建 {% data variables.product.prodname_dependabot %} 安全更新按钮](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+1. （可选）如果不使用 {% data variables.product.prodname_dependabot_security_updates %}，则可以使用页面上的信息来决定要升级到的依赖项版本，并创建拉取请求以将依赖项更新到安全版本。
 {% elsif ghes < 3.3 or ghae %}
-1. You can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to the manifest or lock file to a secure version.
+1. 可以使用页面上的信息来决定要升级到的依赖项版本，并创建对清单的拉取请求或将文件锁定到安全版本。
 {% endif %}
 1. 当您准备好更新依赖项并解决漏洞时，合并拉取请求。
 
@@ -119,12 +119,12 @@ For supported languages, {% data variables.product.prodname_dependabot %} detect
    {% data variables.product.prodname_dependabot %} 提出的每个拉取请求都包含可用于控制 {% data variables.product.prodname_dependabot %} 的命令的相关信息。 更多信息请参阅“[管理依赖项更新的拉取请求](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)”。
 {% endif %}
 
-### Dismissing {% data variables.product.prodname_dependabot_alerts %}
+### 忽略 {% data variables.product.prodname_dependabot_alerts %}
 
-If you schedule extensive work to upgrade a dependency, or decide that an alert does not need to be fixed, you can dismiss the alert. Dismissing alerts that you have already assessed makes it easier to triage new alerts as they appear.
+如果计划大量工作来升级依赖项，或者决定不需要修复警报，则可以忽略警报。 通过忽略已评估的警报，可以更轻松地在新警报出现时对其进行分类。
 
-1. View the details for an alert. For more information, see "[Viewing vulnerable dependencies](#viewing-vulnerable-dependencies)" (above).
-1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% if reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %} ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
+1. 查看警报的详细信息。 更多信息请参阅“[查看有漏洞的依赖项](#viewing-vulnerable-dependencies)”（上文）。
+1. 选择“Dismiss（忽略）”下拉列表，然后单击忽略警报的原因。{% if reopen-dependabot-alerts %} 未修复的已忽略警报可以稍后重新打开。{% endif %} ![选择通过 "Dismiss（忽略）"下拉菜单忽略警报的原因](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 
 {% if reopen-dependabot-alerts %}
 

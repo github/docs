@@ -45,6 +45,7 @@ translations/zh-CN/content/admin/configuration/configuring-your-enterprise/confi
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-github-pages-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/configuring-the-referrer-policy-for-your-enterprise.md,broken liquid tags
+translations/zh-CN/content/admin/configuration/configuring-your-enterprise/deploying-github-ae.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise.md,broken liquid tags
 translations/zh-CN/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
 translations/zh-CN/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,broken liquid tags
@@ -148,6 +149,7 @@ translations/zh-CN/content/code-security/dependabot/dependabot-alerts/about-depe
 translations/zh-CN/content/code-security/dependabot/dependabot-alerts/browsing-security-vulnerabilities-in-the-github-advisory-database.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
+translations/zh-CN/content/code-security/dependabot/index.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot.md,broken liquid tags
 translations/zh-CN/content/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies.md,broken liquid tags
@@ -309,7 +311,7 @@ translations/zh-CN/data/reusables/rest-reference/activity/events.md,broken liqui
 translations/zh-CN/data/reusables/rest-reference/apps/marketplace.md,broken liquid tags
 translations/zh-CN/data/reusables/rest-reference/packages/packages.md,broken liquid tags
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,Listed in localization-support#489
-translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
 translations/zh-CN/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/sponsors/feedback.md,broken liquid tags
