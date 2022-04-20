@@ -51,7 +51,7 @@ Click **Watch** at the top of a repository to watch it.
 
 Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can establish teams with special permissions, have a public organization profile, and keep track of activity within the organization. For more information, see "[About organizations](/articles/about-organizations/)."
 
-From your dashboard, click the drop down menu under your profile on the left side of your dashboard. Here, you can view organizations that you are a part of and easily switch between them.
+From your dashboard, click the drop down menu of your username on the left side of your dashboard. Here, you can view organizations that you are a part of and easily switch between them.
 
 ![Switch account context dropdown](/assets/images/help/overview/dashboard-contextswitcher.png)
 
