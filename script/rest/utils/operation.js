@@ -1,15 +1,16 @@
 #!/usr/bin/env node
-import { readFile } from 'fs/promises'
-import { get, flatten, isPlainObject } from 'lodash-es'
+import Ajv from 'ajv'
 import GitHubSlugger from 'github-slugger'
 import httpStatusCodes from 'http-status-code'
-import renderContent from '../../../lib/render-content/index.js'
-import getCodeSamples from './create-rest-examples.js'
-import Ajv from 'ajv'
-import operationSchema from './operation-schema.js'
+import { readFile } from 'fs/promises'
+import { get, flatten, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
 
-const overrideOperations = JSON.parse(
+import renderContent from '../../../lib/render-content/index.js'
+import getCodeSamples from './create-rest-examples.js'
+import operationSchema from './operation-schema.js'
+
+const { operationUrls } = JSON.parse(
   await readFile('script/rest/utils/rest-api-overrides.json', 'utf8')
 )
 const slugger = new GitHubSlugger()
@@ -62,8 +63,8 @@ export default class Operation {
     // the openapi schema. Without it, we'd have to update several
     // @documentation_urls in the api code every time we move
     // an endpoint to a new page.
-    this.category = overrideOperations[operationId]
-      ? overrideOperations[operationId].category
+    this.category = operationUrls[operationId]
+      ? operationUrls[operationId].category
       : xGithub.category
 
     // Set subcategory
@@ -71,9 +72,9 @@ export default class Operation {
     // defined in the openapi schema. Without it, we'd have to update several
     // @documentation_urls in the api code every time we move
     // an endpoint to a new page.
-    if (overrideOperations[operationId]) {
-      if (overrideOperations[operationId].subcategory) {
-        this.subcategory = overrideOperations[operationId].subcategory
+    if (operationUrls[operationId]) {
+      if (operationUrls[operationId].subcategory) {
+        this.subcategory = operationUrls[operationId].subcategory
       }
     } else if (xGithub.subcategory) {
       this.subcategory = xGithub.subcategory
@@ -106,6 +107,10 @@ export default class Operation {
       console.error(JSON.stringify(ajv.errors, null, 2))
       throw new Error('Invalid OpenAPI operation found')
     }
+  }
+
+  getExternalDocs() {
+    return this.#operation.externalDocs
   }
 
   async renderDescription() {

@@ -1,7 +1,7 @@
 ---
-title: GitHubのREST API
+title: GitHub REST API
 shortTitle: REST API
-intro: 'インテグレーションを作成し、データを取り出し、ワークフローを自動化するために、{% data variables.product.prodname_dotcom %}のREST APIで構築してください。'
+intro: 'To create integrations, retrieve data, and automate your workflows, build with the {% data variables.product.prodname_dotcom %} REST API.'
 introLinks:
   quickstart: /rest/guides/getting-started-with-the-rest-api
 featuredLinks:
@@ -31,7 +31,49 @@ versions:
   ghec: '*'
 children:
   - /overview
-  - /reference
   - /guides
+  - /actions
+  - /activity
+  - /apps
+  - /billing
+  - /branches
+  - /checks
+  - /codes-of-conduct
+  - /code-scanning
+  - /codespaces
+  - /collaborators
+  - /commits
+  - /dependabot
+  - /dependency-graph
+  - /deploy-keys
+  - /deployments
+  - /emojis
+  - /enterprise-admin
+  - /gists
+  - /git
+  - /gitignore
+  - /interactions
+  - /issues
+  - /licenses
+  - /markdown
+  - /meta
+  - /metrics
+  - /migrations
+  - /oauth-authorizations
+  - /orgs
+  - /packages
+  - /pages
+  - /projects
+  - /pulls
+  - /rate-limit
+  - /reactions
+  - /releases
+  - /repos
+  - /scim
+  - /search
+  - /secret-scanning
+  - /teams
+  - /users
+  - /webhooks
 ---
 

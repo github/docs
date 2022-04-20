@@ -88,10 +88,7 @@ export const DefaultLayout = (props: Props) => {
       <SidebarNav />
       {/* Need to set an explicit height for sticky elements since we also
           set overflow to auto */}
-      <div
-        className="flex-column flex-1 overflow-auto print-overflow-visible"
-        style={{ height: '100vh' }}
-      >
+      <div className="flex-column flex-1">
         <Header />
         <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
           <DeprecationBanner />

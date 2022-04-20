@@ -16989,6 +16989,7 @@
         "requestPath": "/repos/{owner}/{repo}/branches",
         "title": "List branches",
         "category": "branches",
+        "subcategory": "branches",
         "parameters": [
           {
             "name": "owner",
@@ -17087,8 +17088,7 @@
             "httpStatusCode": "404",
             "description": "<p>Resource not found</p>"
           }
-        ],
-        "subcategory": "branches"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -17096,6 +17096,7 @@
         "requestPath": "/repos/{owner}/{repo}/branches/{branch}",
         "title": "Get a branch",
         "category": "branches",
+        "subcategory": "branches",
         "parameters": [
           {
             "name": "owner",
@@ -17161,8 +17162,7 @@
             "httpStatusCode": "404",
             "description": "<p>Resource not found</p>"
           }
-        ],
-        "subcategory": "branches"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -17170,6 +17170,7 @@
         "requestPath": "/repos/{owner}/{repo}/branches/{branch}/rename",
         "title": "Rename a branch",
         "category": "branches",
+        "subcategory": "branches",
         "parameters": [
           {
             "name": "owner",
@@ -17354,8 +17355,7 @@
             "httpStatusCode": "422",
             "description": "<p>Validation failed</p>"
           }
-        ],
-        "subcategory": "branches"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -17363,6 +17363,7 @@
         "requestPath": "/repos/{owner}/{repo}/merges",
         "title": "Merge a branch",
         "category": "branches",
+        "subcategory": "branches",
         "parameters": [
           {
             "name": "owner",
@@ -17559,8 +17560,7 @@
             "httpStatusCode": "422",
             "description": "<p>Validation failed</p>"
           }
-        ],
-        "subcategory": "branches"
+        ]
       }
     ],
     "branch-protection": [
@@ -27937,6 +27937,7 @@
         "requestPath": "/repos/{owner}/{repo}/collaborators",
         "title": "List repository collaborators",
         "category": "collaborators",
+        "subcategory": "collaborators",
         "parameters": [
           {
             "name": "owner",
@@ -28048,8 +28049,7 @@
             "httpStatusCode": "404",
             "description": "<p>Resource not found</p>"
           }
-        ],
-        "subcategory": "collaborators"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -28057,6 +28057,7 @@
         "requestPath": "/repos/{owner}/{repo}/collaborators/{username}",
         "title": "Check if a user is a repository collaborator",
         "category": "collaborators",
+        "subcategory": "collaborators",
         "parameters": [
           {
             "name": "owner",
@@ -28117,8 +28118,7 @@
             "httpStatusCode": "404",
             "description": "<p>Not Found if user is not a collaborator</p>"
           }
-        ],
-        "subcategory": "collaborators"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -28126,6 +28126,7 @@
         "requestPath": "/repos/{owner}/{repo}/collaborators/{username}",
         "title": "Add a repository collaborator",
         "category": "collaborators",
+        "subcategory": "collaborators",
         "parameters": [
           {
             "name": "owner",
@@ -28342,8 +28343,7 @@
             "description": "<p>Validation failed</p>"
           }
         ],
-        "descriptionHTML": "<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-server@3.1/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. See \"<a href=\"https://docs.github.com/enterprise-server@3.1/rest/overview/resources-in-the-rest-api#secondary-rate-limits\">Secondary rate limits</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.1/rest/guides/best-practices-for-integrators#dealing-with-secondary-rate-limits\">Dealing with secondary rate limits</a>\" for details.</p>\n<p>For more information on permission levels, see \"<a href=\"https://docs.github.com/enterprise-server@3.1/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization\">Repository permission levels for an organization</a>\". There are restrictions on which permissions can be granted to organization members when an organization base role is in place. In this case, the permission being given must be equal to or higher than the org base permission. Otherwise, the request will fail with:</p>\n<pre><code>Cannot assign {member} permission of {role name}\n</code></pre>\n<p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.1/rest/overview/resources-in-the-rest-api#http-verbs\">HTTP verbs</a>.\"</p>\n<p>The invitee will receive a notification that they have been invited to the repository, which they must accept or decline. They may do this via the notifications page, the email they receive, or by using the <a href=\"https://docs.github.com/enterprise-server@3.1/rest/reference/repos#invitations\">repository invitations API endpoints</a>.</p>\n<p><strong>Rate limits</strong></p>\n<p>You are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository.</p>",
-        "subcategory": "collaborators"
+        "descriptionHTML": "<p>This endpoint triggers <a href=\"https://docs.github.com/enterprise-server@3.1/github/managing-subscriptions-and-notifications-on-github/about-notifications\">notifications</a>. Creating content too quickly using this endpoint may result in secondary rate limiting. See \"<a href=\"https://docs.github.com/enterprise-server@3.1/rest/overview/resources-in-the-rest-api#secondary-rate-limits\">Secondary rate limits</a>\" and \"<a href=\"https://docs.github.com/enterprise-server@3.1/rest/guides/best-practices-for-integrators#dealing-with-secondary-rate-limits\">Dealing with secondary rate limits</a>\" for details.</p>\n<p>For more information on permission levels, see \"<a href=\"https://docs.github.com/enterprise-server@3.1/github/setting-up-and-managing-organizations-and-teams/repository-permission-levels-for-an-organization#permission-levels-for-repositories-owned-by-an-organization\">Repository permission levels for an organization</a>\". There are restrictions on which permissions can be granted to organization members when an organization base role is in place. In this case, the permission being given must be equal to or higher than the org base permission. Otherwise, the request will fail with:</p>\n<pre><code>Cannot assign {member} permission of {role name}\n</code></pre>\n<p>Note that, if you choose not to pass any parameters, you'll need to set <code>Content-Length</code> to zero when calling out to this endpoint. For more information, see \"<a href=\"https://docs.github.com/enterprise-server@3.1/rest/overview/resources-in-the-rest-api#http-verbs\">HTTP verbs</a>.\"</p>\n<p>The invitee will receive a notification that they have been invited to the repository, which they must accept or decline. They may do this via the notifications page, the email they receive, or by using the <a href=\"https://docs.github.com/enterprise-server@3.1/rest/reference/repos#invitations\">repository invitations API endpoints</a>.</p>\n<p><strong>Rate limits</strong></p>\n<p>You are limited to sending 50 invitations to a repository per 24 hour period. Note there is no limit if you are inviting organization members to an organization repository.</p>"
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -28351,6 +28351,7 @@
         "requestPath": "/repos/{owner}/{repo}/collaborators/{username}",
         "title": "Remove a repository collaborator",
         "category": "collaborators",
+        "subcategory": "collaborators",
         "parameters": [
           {
             "name": "owner",
@@ -28407,8 +28408,7 @@
             "httpStatusCode": "204",
             "description": "<p>No Content</p>"
           }
-        ],
-        "subcategory": "collaborators"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -28416,6 +28416,7 @@
         "requestPath": "/repos/{owner}/{repo}/collaborators/{username}/permission",
         "title": "Get repository permissions for a user",
         "category": "collaborators",
+        "subcategory": "collaborators",
         "parameters": [
           {
             "name": "owner",
@@ -28500,8 +28501,7 @@
             "httpStatusCode": "404",
             "description": "<p>Resource not found</p>"
           }
-        ],
-        "subcategory": "collaborators"
+        ]
       }
     ],
     "invitations": [
@@ -29284,6 +29284,7 @@
         "requestPath": "/repos/{owner}/{repo}/commits",
         "title": "List commits",
         "category": "commits",
+        "subcategory": "commits",
         "parameters": [
           {
             "name": "owner",
@@ -29492,8 +29493,7 @@
             "httpStatusCode": "500",
             "description": "<p>Internal Error</p>"
           }
-        ],
-        "subcategory": "commits"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -29501,6 +29501,7 @@
         "requestPath": "/repos/{owner}/{repo}/commits/{commit_sha}/branches-where-head",
         "title": "List branches for HEAD commit",
         "category": "commits",
+        "subcategory": "commits",
         "parameters": [
           {
             "name": "owner",
@@ -29575,8 +29576,7 @@
         ],
         "previews": [
           "<p>Listing branches or pull requests for a commit in the Commits API is currently available for developers to preview. See the <a href=\"https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/\">blog post</a> for more details. To access the new endpoints during the preview period, you must provide a custom <a href=\"https://docs.github.com/enterprise-server@3.1/rest/overview/media-types\">media type</a> in the <code>Accept</code> header:</p>\n<pre><code class=\"hljs language-shell\">application/vnd.github.groot-preview+json</code></pre>"
-        ],
-        "subcategory": "commits"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -29584,6 +29584,7 @@
         "requestPath": "/repos/{owner}/{repo}/commits/{commit_sha}/pulls",
         "title": "List pull requests associated with a commit",
         "category": "commits",
+        "subcategory": "commits",
         "parameters": [
           {
             "name": "owner",
@@ -30180,8 +30181,7 @@
         ],
         "previews": [
           "<p>Listing branches or pull requests for a commit in the Commits API is currently available for developers to preview. See the <a href=\"https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/\">blog post</a> for more details. To access the new endpoints during the preview period, you must provide a custom <a href=\"https://docs.github.com/enterprise-server@3.1/rest/overview/media-types\">media type</a> in the <code>Accept</code> header:</p>\n<pre><code class=\"hljs language-shell\">application/vnd.github.groot-preview+json</code></pre>"
-        ],
-        "subcategory": "commits"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -30189,6 +30189,7 @@
         "requestPath": "/repos/{owner}/{repo}/commits/{ref}",
         "title": "Get a commit",
         "category": "commits",
+        "subcategory": "commits",
         "parameters": [
           {
             "name": "owner",
@@ -30372,8 +30373,7 @@
             "httpStatusCode": "500",
             "description": "<p>Internal Error</p>"
           }
-        ],
-        "subcategory": "commits"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -30381,6 +30381,7 @@
         "requestPath": "/repos/{owner}/{repo}/compare/{basehead}",
         "title": "Compare two commits",
         "category": "commits",
+        "subcategory": "commits",
         "parameters": [
           {
             "name": "owner",
@@ -30707,8 +30708,7 @@
             "httpStatusCode": "500",
             "description": "<p>Internal Error</p>"
           }
-        ],
-        "subcategory": "commits"
+        ]
       }
     ],
     "comments": [
@@ -31861,15 +31861,14 @@
       }
     ]
   },
-  "deploy_keys": {
-    "deploy_keys": [
+  "deploy-keys": {
+    "deploy-keys": [
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/keys",
         "title": "List deploy keys",
-        "category": "deploy_keys",
-        "subcategory": "deploy_keys",
+        "category": "deploy-keys",
         "parameters": [
           {
             "name": "owner",
@@ -31946,15 +31945,15 @@
             "httpStatusCode": "200",
             "description": "<p>OK</p>"
           }
-        ]
+        ],
+        "subcategory": "deploy-keys"
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/keys",
         "title": "Create a deploy key",
-        "category": "deploy_keys",
-        "subcategory": "deploy_keys",
+        "category": "deploy-keys",
         "parameters": [
           {
             "name": "owner",
@@ -32049,15 +32048,15 @@
             "httpStatusCode": "422",
             "description": "<p>Validation failed</p>"
           }
-        ]
+        ],
+        "subcategory": "deploy-keys"
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/keys/{key_id}",
         "title": "Get a deploy key",
-        "category": "deploy_keys",
-        "subcategory": "deploy_keys",
+        "category": "deploy-keys",
         "parameters": [
           {
             "name": "owner",
@@ -32128,15 +32127,15 @@
             "httpStatusCode": "404",
             "description": "<p>Resource not found</p>"
           }
-        ]
+        ],
+        "subcategory": "deploy-keys"
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/keys/{key_id}",
         "title": "Delete a deploy key",
-        "category": "deploy_keys",
-        "subcategory": "deploy_keys",
+        "category": "deploy-keys",
         "parameters": [
           {
             "name": "owner",
@@ -32193,7 +32192,8 @@
             "httpStatusCode": "204",
             "description": "<p>No Content</p>"
           }
-        ]
+        ],
+        "subcategory": "deploy-keys"
       }
     ]
   },
@@ -32205,6 +32205,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments",
         "title": "List deployments",
         "category": "deployments",
+        "subcategory": "deployments",
         "parameters": [
           {
             "name": "owner",
@@ -32355,8 +32356,7 @@
         ],
         "previews": [
           "<p>The <code>inactive</code> state and the <code>log_url</code>, <code>environment_url</code>, and <code>auto_inactive</code> parameters are currently available for developers to preview. Please see the <a href=\"https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements\">blog post</a> for full details.</p>\n<p>To access the API during the preview period, you must provide a custom <a href=\"https://docs.github.com/enterprise-server@3.1/rest/overview/media-types\">media type</a> in the <code>Accept</code> header:</p>\n<pre><code class=\"hljs language-shell\">application/vnd.github.ant-man-preview+json</code></pre>"
-        ],
-        "subcategory": "deployments"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -32364,6 +32364,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments",
         "title": "Create a deployment",
         "category": "deployments",
+        "subcategory": "deployments",
         "parameters": [
           {
             "name": "owner",
@@ -32571,8 +32572,7 @@
         ],
         "previews": [
           "<p>The <code>inactive</code> state and the <code>log_url</code>, <code>environment_url</code>, and <code>auto_inactive</code> parameters are currently available for developers to preview. Please see the <a href=\"https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements\">blog post</a> for full details.</p>\n<p>To access the API during the preview period, you must provide a custom <a href=\"https://docs.github.com/enterprise-server@3.1/rest/overview/media-types\">media type</a> in the <code>Accept</code> header:</p>\n<pre><code class=\"hljs language-shell\">application/vnd.github.ant-man-preview+json</code></pre>"
-        ],
-        "subcategory": "deployments"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -32580,6 +32580,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}",
         "title": "Get a deployment",
         "category": "deployments",
+        "subcategory": "deployments",
         "parameters": [
           {
             "name": "owner",
@@ -32682,8 +32683,7 @@
         "previews": [
           "<p>New features in the Deployments API on GitHub are currently available during a public beta. Please see the <a href=\"https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/\">blog post</a> for full details.</p>\n<p>To access the new <code>environment</code> parameter, the two new values for the <code>state</code> parameter (<code>in_progress</code> and <code>queued</code>), and use <code>auto_inactive</code> on production deployments during the public beta period, you must provide the following custom <a href=\"https://docs.github.com/enterprise-server@3.1/rest/overview/media-types\">media type</a> in the <code>Accept</code> header:</p>\n<pre><code class=\"hljs language-shell\">application/vnd.github.flash-preview+json</code></pre>",
           "<p>The <code>inactive</code> state and the <code>log_url</code>, <code>environment_url</code>, and <code>auto_inactive</code> parameters are currently available for developers to preview. Please see the <a href=\"https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements\">blog post</a> for full details.</p>\n<p>To access the API during the preview period, you must provide a custom <a href=\"https://docs.github.com/enterprise-server@3.1/rest/overview/media-types\">media type</a> in the <code>Accept</code> header:</p>\n<pre><code class=\"hljs language-shell\">application/vnd.github.ant-man-preview+json</code></pre>"
-        ],
-        "subcategory": "deployments"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -32691,6 +32691,7 @@
         "requestPath": "/repos/{owner}/{repo}/deployments/{deployment_id}",
         "title": "Delete a deployment",
         "category": "deployments",
+        "subcategory": "deployments",
         "parameters": [
           {
             "name": "owner",
@@ -32755,8 +32756,7 @@
             "httpStatusCode": "422",
             "description": "<p>Validation failed</p>"
           }
-        ],
-        "subcategory": "deployments"
+        ]
       }
     ],
     "statuses": [
@@ -66846,6 +66846,7 @@
         "requestPath": "/repos/{owner}/{repo}/releases",
         "title": "List releases",
         "category": "releases",
+        "subcategory": "releases",
         "parameters": [
           {
             "name": "owner",
@@ -66991,8 +66992,7 @@
             "httpStatusCode": "404",
             "description": "<p>Resource not found</p>"
           }
-        ],
-        "subcategory": "releases"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -67000,6 +67000,7 @@
         "requestPath": "/repos/{owner}/{repo}/releases",
         "title": "Create a release",
         "category": "releases",
+        "subcategory": "releases",
         "parameters": [
           {
             "name": "owner",
@@ -67192,8 +67193,7 @@
             "httpStatusCode": "422",
             "description": "<p>Validation failed</p>"
           }
-        ],
-        "subcategory": "releases"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -67201,6 +67201,7 @@
         "requestPath": "/repos/{owner}/{repo}/releases/latest",
         "title": "Get the latest release",
         "category": "releases",
+        "subcategory": "releases",
         "parameters": [
           {
             "name": "owner",
@@ -67323,8 +67324,7 @@
             "httpStatusCode": "200",
             "description": "<p>OK</p>"
           }
-        ],
-        "subcategory": "releases"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -67332,6 +67332,7 @@
         "requestPath": "/repos/{owner}/{repo}/releases/tags/{tag}",
         "title": "Get a release by tag name",
         "category": "releases",
+        "subcategory": "releases",
         "parameters": [
           {
             "name": "owner",
@@ -67469,8 +67470,7 @@
             "httpStatusCode": "404",
             "description": "<p>Resource not found</p>"
           }
-        ],
-        "subcategory": "releases"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -67478,6 +67478,7 @@
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
         "title": "Get a release",
         "category": "releases",
+        "subcategory": "releases",
         "parameters": [
           {
             "name": "owner",
@@ -67614,8 +67615,7 @@
             "httpStatusCode": "404",
             "description": "<p>Resource not found</p>"
           }
-        ],
-        "subcategory": "releases"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -67623,6 +67623,7 @@
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
         "title": "Update a release",
         "category": "releases",
+        "subcategory": "releases",
         "parameters": [
           {
             "name": "owner",
@@ -67819,8 +67820,7 @@
             "httpStatusCode": "200",
             "description": "<p>OK</p>"
           }
-        ],
-        "subcategory": "releases"
+        ]
       },
       {
         "serverUrl": "http(s)://HOSTNAME/api/v3",
@@ -67828,6 +67828,7 @@
         "requestPath": "/repos/{owner}/{repo}/releases/{release_id}",
         "title": "Delete a release",
         "category": "releases",
+        "subcategory": "releases",
         "parameters": [
           {
             "name": "owner",
@@ -67884,8 +67885,7 @@
             "httpStatusCode": "204",
             "description": "<p>No Content</p>"
           }
-        ],
-        "subcategory": "releases"
+        ]
       }
     ],
     "assets": [
