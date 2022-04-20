@@ -1,0 +1,3 @@
+- [管理 {% data variables.product.prodname_codespaces %} 的加密密码](/codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces)
+- [管理 {% data variables.product.prodname_codespaces %} 的 GPG 验证](/codespaces/working-with-your-codespace/managing-gpg-verification-for-codespaces)
+- [代码空间中的转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)

@@ -56,7 +56,9 @@ topics:
 
 ## 限制机器类型的选择
 
-用户在创建代码空间时选择的计算机类型会影响该代码空间的每分钟费用，如上所示。
+默认情况下，在创建代码空间时，将使用具有最低有效资源的计算机类型。 但是，用户可能能够选择具有更多资源的计算机类型。 他们可以在创建代码空间时执行此操作，也可以更改现有代码空间的计算机类型。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”和“[更改代码空间的计算机类型](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)”。
+
+如果选择了具有更多资源的计算机类型，这将影响该代码空间的每分钟费用，如上所示。
 
 组织所有者可以创建策略来限制用户可用的计算机类型。 更多信息请参阅“[限制对机器类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”。
 

@@ -21,12 +21,12 @@ In this guide, you'll get started with {% data variables.product.product_name %}
 
 ## Creating accounts on {% data variables.product.product_name %}
 
-First, you'll need to create a free user account on {% data variables.product.product_name %}.
+First, you'll need to create a free personal account on {% data variables.product.product_name %}.
 
 {% data reusables.accounts.create-account %}
-1. Follow the prompts to create your free user account.
+1. Follow the prompts to create your free personal account.
 
-After you create your user account, create a free organization account. You'll use this organization account to create and manage classrooms {% data variables.product.prodname_classroom %}.
+After you create your personal account, create a free organization account. You'll use this organization account to create and manage classrooms {% data variables.product.prodname_classroom %}.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
@@ -55,11 +55,11 @@ Next, you'll sign up for discounts on services from {% data variables.product.co
 
 ## Set up {% data variables.product.prodname_classroom %}
 
-With your user account and organization account, you're ready to get started with {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %} is free to use. You can track and manage assignments, grade work automatically, and provide feedback to your students.
+With your personal account and organization account, you're ready to get started with {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %} is free to use. You can track and manage assignments, grade work automatically, and provide feedback to your students.
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. To authorize {% data variables.product.prodname_classroom %} to access your user account on {% data variables.product.prodname_dotcom %}, review the information, then click **Authorize {% data variables.product.prodname_classroom %}**.
-  !["Authorize {% data variables.product.prodname_classroom %}" button for user account](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
+1. To authorize {% data variables.product.prodname_classroom %} to access your personal account on {% data variables.product.prodname_dotcom %}, review the information, then click **Authorize {% data variables.product.prodname_classroom %}**.
+  !["Authorize {% data variables.product.prodname_classroom %}" button for personal account](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
 1. Review the information. To authorize {% data variables.product.prodname_classroom %} to access your organization account on {% data variables.product.prodname_dotcom %}, click **Grant**.
   !["Grant" button for organization](/assets/images/help/classroom/setup-click-grant.png)
   

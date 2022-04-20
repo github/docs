@@ -8,7 +8,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-shortTitle: 安装应用程序用户帐户
+shortTitle: 安装应用程序个人帐户
 ---
 
 {% data reusables.marketplace.marketplace-apps-only %}

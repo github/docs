@@ -1,6 +1,6 @@
 ---
 title: 自分の GitHub ユーザ名またはメールアドレスを忘れた場合は
-intro: '{% data variables.product.product_location %} へのサインインは久しぶりでしょうか? そうであれば、改めてようこそ。 自分の {% data variables.product.product_name %}ユーザアカウント名を思い出せない場合は、次の方法を試してみてください。'
+intro: '{% data variables.product.product_location %} へのサインインは久しぶりでしょうか? そうであれば、改めてようこそ。 If you can''t remember the username for your personal account on {% data variables.product.product_name %}, you can try these methods for remembering it.'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email

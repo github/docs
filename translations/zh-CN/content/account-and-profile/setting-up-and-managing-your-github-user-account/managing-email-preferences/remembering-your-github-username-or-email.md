@@ -1,6 +1,6 @@
 ---
 title: 记住您的 GitHub 用户名或电子邮件
-intro: '是否距离您第一次登录 {% data variables.product.product_location %} 已经有一段时间？ 如果是这样，欢迎回来！ 如果无法记住您的 {% data variables.product.product_name %} 用户帐户名，您可以尝试以下方法来记住它。'
+intro: '是否距离您第一次登录 {% data variables.product.product_location %} 已经有一段时间？ 如果是这样，欢迎回来！ 如果您忘记了 {% data variables.product.product_name %} 上个人帐户的用户名，则可以尝试使用这些方法来记住它。'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email

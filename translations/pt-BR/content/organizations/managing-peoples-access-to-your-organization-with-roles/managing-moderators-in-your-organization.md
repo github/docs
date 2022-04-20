@@ -1,6 +1,6 @@
 ---
-title: Managing moderators in your organization
-intro: 'You can give an individual or team in your organization the ability to block and limit access, by assigning them to the moderator role.'
+title: Gerenciando moderadores da sua organização
+intro: 'Você pode dar a um indivíduo ou equipe da sua organização a capacidade de bloquear e limitar o acesso, atribuindo-lhes a função de moderador.'
 permissions: Organization owners can assign the moderator role.
 versions:
   fpt: '*'
@@ -9,30 +9,30 @@ topics:
   - Organizations
   - Teams
   - Community
-shortTitle: Managing moderators
+shortTitle: Gerenciando moderadores
 ---
 
-## About organization moderators
+## Sobre moderadores da organização
 
-Sometimes it's necessary to block a contributor, or to set up interaction limits for your organization, or for individual repositories. As an organization owner, you can perform these tasks, but you may want to delegate these tasks to other members of your organization. You can do this by assigning an organization member, or a team, to the moderator role.
+Às vezes, é necessário bloquear um contribuidor ou definir limites de interação para a organização ou para repositórios individuais. Como proprietário da organização, você pode executar essas tarefas, mas você deverá delegar essas tarefas para outros integrantes da sua organização. Você pode fazer isso atribuindo um integrante da organização ou uma equipe, à função de moderador.
 
-Organization moderators can:
-* Block and unblock users from the organization. Para obter mais informações, consulte "[Bloquear um usuário em sua organização](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)".
-* Manage organization interaction limits. Para obter mais informações, consulte "[Restringir interações na organização](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
-* Manage repository interaction limits. Para obter mais informações, consulte "[Restringir interações no seu repositório](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
-* Hide comments in all public repositories owned by the organization. For more information, see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)."
+Os moderadores da organização podem:
+* Bloquear e desbloquear usuários da organização. Para obter mais informações, consulte "[Bloquear um usuário em sua organização](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)".
+* Gerenciar limites de interação da organização. Para obter mais informações, consulte "[Restringir interações na organização](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
+* Gerenciar limites de interação do repositório. Para obter mais informações, consulte "[Restringir interações no seu repositório](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)".
+* Ocultar comentários em todos os repositórios públicos pertencentes à organização. Para obter mais informações, consulte[Gerenciando comentários disruptivos](/communities/moderating-comments-and-conversations/managing-disruptive-comments)".
 
-Making someone an organization moderator does not give them additional abilities other than those listed above. For example, someone who only has read access to a repository will not gain write access by being made a moderator.
+Tornar alguém moderador da organização não dá a elas habilidades adicionais diferentes das listadas acima. Por exemplo, alguém que só tem acesso de leitura a um repositório não obterá acesso de gravação sendo moderador.
 
-You can add up to 10 individual people, or teams, as moderators. If you've already assigned 10 individuals and/or teams as users and you want to add more, you can group people in a moderators team and then use this to replace one or more of the existing assignments. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
+Você pode adicionar até 10 pessoas ou equipes, como moderadores. Se você já atribuiu 10 indivíduos e/ou equipes como usuários e você deseja adicionar mais, você poderá agrupar pessoas numa equipe de moderadores e, em seguida, usá-las para substituir uma ou mais das atribuições existentes. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
 
-## Adding an organization moderator
+## Adicionar um moderador de organização
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Moderators**.
-1. Under **Moderators**, search for and select the person or team you want to assign the moderator role. Each person or team you select will appear in a list below the search bar. ![The Moderators search field and list](/assets/images/help/organizations/add-moderators.png)
+1. Na seção "Acesso" da barra lateral, selecione **Moderação de {% octicon "report" aria-label="The report icon" %}** e, em seguida, clique em **Moderadores**.
+1. Em **moderadores**, pesquise e selecione a pessoa ou equipe à qual você deseja atribuir o papel de moderador. Each person or team you select will appear in a list below the search bar. ![The Moderators search field and list](/assets/images/help/organizations/add-moderators.png)
 
 
 ## Removing an organization moderator

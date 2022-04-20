@@ -65,7 +65,7 @@ shortTitle: 协调披露
 
  如果您是维护者， 您可以在管道开始时通过为您的仓库设置安全策略来掌控这一过程，或者以其他方式使安全报告说明清楚可用，例如在项目的 README 文件中。 有关添加安全策略的更多信息，请参阅“[关于安全策略](/code-security/getting-started/adding-a-security-policy-to-your-repository#about-security-policies)”。 如果没有安全策略，漏洞报告者可能会尝试向您发送电子邮件或以其他方式私下与您联系。 或者，有人可能会开一个（公共）议题讨论安全问题的细节。
 
- 作为维护者，要在您的代码中披露漏洞，请先在 {% data variables.product.prodname_dotcom %} 中软件包的仓库内创建安全通告。 {% data reusables.security-advisory.security-advisory-overview %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)."
+ 作为维护者，要在您的代码中披露漏洞，请先在 {% data variables.product.prodname_dotcom %} 中软件包的仓库内创建安全通告。 {% data reusables.security-advisory.security-advisory-overview %} 更多信息请参阅“[关于存储库的 {% data variables.product.prodname_security_advisories %}](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)”。
 
 
- To get started, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
+ 要开始，请参阅“[创建仓库安全通告](/code-security/repository-security-advisories/creating-a-repository-security-advisory)”。

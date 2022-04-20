@@ -19,6 +19,8 @@ Before adding a new GPG key to your account on {% ifversion ghae %}{% data varia
 - [Checked for existing GPG keys](/articles/checking-for-existing-gpg-keys)
 - [Generated and copied a new GPG key](/articles/generating-a-new-gpg-key)
 
+You can add multiple public keys to your GitHub account. Commits signed by any of the corresponding private keys will show as verified. If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.
+
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
 When verifying a signature, we extract the signature and attempt to parse its key-id. We match the key-id with keys uploaded to {% data variables.product.product_name %}. Until you upload your GPG key to {% data variables.product.product_name %}, we cannot verify your signatures.

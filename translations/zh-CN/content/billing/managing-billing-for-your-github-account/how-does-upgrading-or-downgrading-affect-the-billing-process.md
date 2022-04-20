@@ -17,7 +17,7 @@ topics:
 shortTitle: 计费流程
 ---
 
-对付费用户帐户或组织订阅的更改不影响其他付费 {% data variables.product.prodname_dotcom %} 功能的订阅或付款，例如 {% data variables.large_files.product_name_long %} 或在 {% data variables.product.prodname_marketplace %} 中购买的付费应用程序。
+对付费个人帐户或组织订阅的更改不影响其他付费 {% data variables.product.prodname_dotcom %} 功能的订阅或付款，例如 {% data variables.large_files.product_name_long %} 或在 {% data variables.product.prodname_marketplace %} 中购买的付费应用程序。
 
 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”和“[关于 {% data variables.product.prodname_dotcom %} 的计费](/articles/about-billing-on-github)”。
 

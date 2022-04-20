@@ -26,7 +26,7 @@ If you can't access {% data variables.product.product_name %}, contact your loca
 
 {% ifversion fpt or ghec %}
 
-{% data reusables.saml.dotcom-saml-explanation %} Organization owners can invite your user account on {% data variables.product.prodname_dotcom %} to join their organization that uses SAML SSO, which allows you to contribute to the organization and retain your existing identity and contributions on {% data variables.product.prodname_dotcom %}.
+{% data reusables.saml.dotcom-saml-explanation %} Organization owners can invite your personal account on {% data variables.product.prodname_dotcom %} to join their organization that uses SAML SSO, which allows you to contribute to the organization and retain your existing identity and contributions on {% data variables.product.prodname_dotcom %}.
 
 If you're a member of an {% data variables.product.prodname_emu_enterprise %}, you will use a new account that is provisioned for you. {% data reusables.enterprise-accounts.emu-more-info-account %}
 

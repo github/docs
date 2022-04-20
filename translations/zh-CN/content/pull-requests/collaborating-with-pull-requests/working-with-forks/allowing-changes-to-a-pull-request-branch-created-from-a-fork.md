@@ -1,12 +1,12 @@
 ---
 title: 允许更改从复刻创建的拉取请求分支
-intro: 为增强协作，您可以允许在您从自己用户帐户拥有的复刻所创建的分支上提交。
+intro: 为增强协作，您可以允许在您从自己个人帐户拥有的复刻所创建的分支上提交。
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork
   - /github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork
   - /github/collaborating-with-pull-requests/working-with-forks/allowing-changes-to-a-pull-request-branch-created-from-a-fork
-permissions: People with push access to the upstream repository of a fork owned by a user account can commit to the forked branches.
+permissions: People with push access to the upstream repository of a fork owned by a personal account can commit to the forked branches.
 versions:
   fpt: '*'
   ghes: '*'

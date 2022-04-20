@@ -50,6 +50,9 @@ topics:
 {% ifversion fpt or ghec %}
 - [需要合并队列](#require-merge-queue)
 {% endif %}
+{%- if required-deployments %}
+- [要求部署在合并之前成功](#require-deployments-to-succeed-before-merging)
+{%- endif %}
 - [包括管理员](#include-administrators)
 - [限制谁可以推送到匹配的分支](#restrict-who-can-push-to-matching-branches)
 - [允许强制推送](#allow-force-pushes)
@@ -144,6 +147,11 @@ remote: error: Changes have been requested.
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
+
+### 要求部署在合并之前成功
+
+您可以要求先将更改成功部署到特定环境，然后才能合并分支。 例如，可以使用此规则确保在更改合并到默认分支之前，将更改成功部署到过渡环境。
+
 ### 包括管理员
 
 默认情况下，受保护分支规则不适用于对仓库具有管理员权限的人。 您可以启用此设置将管理员纳入受保护分支规则。
@@ -174,7 +182,7 @@ remote: error: Changes have been requested.
 
 启用强制推送不会覆盖任何其他分支保护规则。 例如，如果分支需要线性提交历史记录，则无法强制推送合并提交到该分支。
 
-{% ifversion ghes or ghae %}如果站点管理员阻止了强制推送到仓库中的所有分支，则无法对受保护分支启用强制推送。 更多信息请参阅“[阻止强制推送到用户帐户或组织拥有的仓库](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
+{% ifversion ghes or ghae %}如果站点管理员阻止了强制推送到仓库中的所有分支，则无法对受保护分支启用强制推送。 更多信息请参阅“[阻止强制推送到个人帐户或组织拥有的仓库](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)”。
 
 如果站点管理员只阻止强制推送到默认分支，您仍然可以为任何其他受保护分支启用强制推送。{% endif %}
 

@@ -19,6 +19,8 @@ shortTitle: Individual assignment
 
 For a video demonstration of the creation of an individual assignment, see "[Basics of setting up {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/basics-of-setting-up-github-classroom)."
 
+{% data reusables.classroom.reuse-assignment-link %}
+
 ## Prerequisites
 
 {% data reusables.classroom.assignments-classroom-prerequisite %}

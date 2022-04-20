@@ -20,9 +20,7 @@ topics:
 
 {% endnote %}
 
-{% data reusables.codespaces.codespaces-machine-types %}
-
-Puedes elegir un tipo de máquina, ya sea cuando creas un codespace o puedes cambiar el tipo de máquina en cualquier momento después de que lo hayas creado.
+{% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace.
 
 Para obtener más información sobre cómo elegir un tio de máquina cuando creas un codespace, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)". Para obtener más información sobre cómo cambiar el tipo de máquina dentro de {% data variables.product.prodname_vscode %}, consulta la sección "[Utilizar los {% data variables.product.prodname_codespaces %} en {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-codespaces-in-visual-studio-code#changing-the-machine-type-in-visual-studio-code)".
 
@@ -43,7 +41,11 @@ Para obtener más información sobre cómo elegir un tio de máquina cuando crea
 
    ![La caja de diálogo que muestra los tipos de máquina disponibles para elegir](/assets/images/help/codespaces/change-machine-type-choice.png)
 
-   {% data reusables.codespaces.codespaces-machine-type-availability %}
+   {% note %}
+
+   **Nota**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+
+   {% endnote %}
 
 2. Haz clic en **Actualizar codespace**.
 

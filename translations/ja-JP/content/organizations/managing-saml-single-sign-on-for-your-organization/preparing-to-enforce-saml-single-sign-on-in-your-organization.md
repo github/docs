@@ -12,6 +12,8 @@ topics:
 shortTitle: SAML SSOの強制の準備
 ---
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.when-you-enforce %} OrganizationでSAML SSOを施行する前に、Organizationのメンバーシップをレビューし、SAML SSOを有効化子、OrganizationメンバーのSAMLアクセスをレビューすべきです。 詳しい情報については、以下を参照してください。
 
 | タスク                                     | 詳細情報                      |
