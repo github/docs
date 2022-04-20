@@ -45,25 +45,13 @@ Click **Watch** at the top of a repository to watch it.
 
 ## Communicating on {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, allowing you to interact closely with your community when building great software. For example, you can contribute to another user's project by creating a pull request, or use issues to track bugs or suggest ideas in a repository. You can also brainstorm new ideas with your team with discussions. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)." To learn more about discussions, see "[{% data variables.product.prodname_dotcom %} Discussions](/discussions)].]"
+{% data variables.product.product_name %} provides built-in collaborative communication tools, allowing you to interact closely with your community when building great software. For example, you can contribute to another user's project by creating a pull request, or use issues to track bugs or suggest ideas in a repository. You can also brainstorm new ideas with your team with discussions. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)." To learn more about discussions, see "[{% data variables.product.prodname_dotcom %} Discussions](/discussions)."
 
-## Doing even more
-
-<!-- ### Creating pull requests
-
- You may want to contribute to another person's project, whether to add features or to fix bugs. After making changes, let the original author know by sending a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-
- ![Pull request button](/assets/images/help/repository/repo-actions-pullrequest.png)
-
-### Using issues
-
-When collaborating on a repository, use issues to track ideas, enhancements, tasks, or bugs. For more information, see '[About issues](/articles/about-issues/)."
-
-![Issues button](/assets/images/help/repository/repo-tabs-issues.png) -->
-
-### Participating in organizations
+## Participating in organizations
 
 Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can establish teams with special permissions, have a public organization profile, and keep track of activity within the organization. For more information, see "[About organizations](/articles/about-organizations/)."
+
+From your dashboard, click the drop down menu under your profile on the left side of your dashboard. Here, you can view organizations that you are a part of and easily switch between them.
 
 ![Switch account context dropdown](/assets/images/help/overview/dashboard-contextswitcher.png)
 
