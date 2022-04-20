@@ -46,7 +46,7 @@ If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```xml
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+<settings xmlns="http://echo.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
                       http://maven.apache.org/xsd/settings-1.0.0.xsd">
@@ -77,7 +77,7 @@ If your instance has subdomain isolation enabled:
   <servers>
     <server>
       <id>github</id>
-      <username>USERNAME</username>
+      <username>jenden403@gmail.com</username>
       <password>TOKEN</password>
     </server>
   </servers>
@@ -89,7 +89,7 @@ If your instance has subdomain isolation disabled:
 
 ```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsi="http://www.w3.org/2019/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
                       http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
