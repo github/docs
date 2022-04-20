@@ -60,7 +60,7 @@ When a new {% data variables.product.prodname_dependabot %} alert is detected, {
 
 ## 脆弱性のある依存関係の通知を減らす方法
 
-{% data variables.product.prodname_dependabot_alerts %}の通知をあまりに多く受け取ることが心配なら、週次のメールダイジェストにオプトインするか、{% data variables.product.prodname_dependabot_alerts %}を有効化したままで通知をオフにすることをおすすめします。 その場合でも、リポジトリのセキュリティタブで{% data variables.product.prodname_dependabot_alerts %}を確認することはできます。 For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
+{% data variables.product.prodname_dependabot_alerts %}の通知をあまりに多く受け取ることが心配なら、週次のメールダイジェストにオプトインするか、{% data variables.product.prodname_dependabot_alerts %}を有効化したままで通知をオフにすることをおすすめします。 その場合でも、リポジトリのセキュリティタブで{% data variables.product.prodname_dependabot_alerts %}を確認することはできます。 詳しい情報については「[脆弱性のある依存関係に対する{% data variables.product.prodname_dependabot_alerts %}の表示](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
 
 ## 参考リンク
 
