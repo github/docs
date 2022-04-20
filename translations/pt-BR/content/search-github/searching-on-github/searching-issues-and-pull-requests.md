@@ -79,7 +79,11 @@ Você pode filtrar somente problemas e pull requests abertos ou fechados usando 
 
 É possível filtrar pela visibilidade do repositório que contém os problemas e pull requests usando o qualificador `is`. Para obter mais informações, consulte "[Sobre repositórios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
 
-| Qualifier  | Example | ------------- | ------------- |{% ifversion fpt or ghes or ghec %} | `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) corresponde problemas e pull requests em repositórios públicos.{% endif %}{% ifversion ghes or ghec or ghae %} | `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) corresponde problemas e pull requests em repositórios internos.{% endif %} | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) corresponde problemas e pull requests que contêm a palavra "cupcake" nos repositórios privados que você pode acessar.
+| Qualifier  | Exemplo
+| ------------- | ------------- |{% ifversion fpt or ghes or ghec %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) corresponde a problemas e pull requests em repositórios públicos.{% endif %}{% ifversion ghes or ghec or ghae %}
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) corresponde a problemas e pull requests em repositórios internos.{% endif %}
+| `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) corresponde a problemas e pull requests que contêm a palavra "cupcake" nos repositórios privados que você pode acessar.
 
 ## Pesquisar por autor
 
@@ -240,7 +244,11 @@ Você pode filtrar problemas e pull requests pelo número de reações usando o 
 ## Pesquisar por pull requests de rascunho
 Você pode filtrar por pull requests de rascunho. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests#draft-pull-requests)".
 
-| Qualificador        | Exemplo | ------------- | -------------{% ifversion fpt or ghes or ghae or ghec %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) corresponde pull requests em rascunho. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) corresponde a pull requests prontos para revisão.{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) corresponde a rascunhos de pull requests.{% endif %}
+| Qualifier        | Exemplo
+| ------------- | -------------{% ifversion fpt or ghes or ghae or ghec %}
+| `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) corresponde pull requests em rascunho.
+| `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) corresponde a pull requests prontos para revisão.{% else %}
+| `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) corresponde a rascunhos de pull requests.{% endif %}
 
 ## Pesquisar por status de revisão e revisor da pull request
 
