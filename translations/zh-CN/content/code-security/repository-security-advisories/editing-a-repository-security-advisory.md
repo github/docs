@@ -1,6 +1,6 @@
 ---
-title: Editing a repository security advisory
-intro: You can edit the metadata and description for a repository security advisory if you need to update details or correct errors.
+title: 编辑仓库安全通告
+intro: 如果需要更新详细信息或更正错误，可以编辑仓库安全通告的元数据和说明。
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
   - /code-security/security-advisories/editing-a-security-advisory
@@ -11,10 +11,10 @@ type: how_to
 topics:
   - Security advisories
   - Vulnerabilities
-shortTitle: Edit repository advisories
+shortTitle: 编辑仓库通告
 ---
 
-People with admin permissions to a repository security advisory can edit the security advisory.
+对仓库安全通告具有管理员权限的人员可以编辑安全通告。
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
 
@@ -43,4 +43,4 @@ People with admin permissions to a repository security advisory can edit the sec
 
 ## 延伸阅读
 
-- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- "[撤销存储库安全通告](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"

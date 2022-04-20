@@ -22,7 +22,7 @@ shortTitle: Borrar archivos
 
 Puedes borrar un archivo individual en tu repositorio{% ifversion fpt or ghes or ghec %} o un directorio completo, incluyendo los archivos de dicho directorio{% endif %}.
 
-Si borras un archivo{% ifversion fpt or ghes or ghec %} o directorio{% endif %} en un repositorio en el que no tengas permisos de escritura, bifurcaremos el proyecto a tu cuenta de usuario y te ayudaremos a enviar una solicitud de cambios al repositorio original después de que confirmas tu cambio. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
+If you try to delete a file{% ifversion fpt or ghes or ghec %} or directory{% endif %} in a repository that you don’t have write permissions to, we'll fork the project to your personal account and help you send a pull request to the original repository after you commit your change. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-requests)."
 
 Si el archivo{% ifversion fpt or ghes or ghec %} o directorio{% endif %} que borraste contiene datos sensibles, éstos aún estarán disponibles en el historial de Git del repositorio. Para eliminar el archivo por completo de {% data variables.product.product_name %}, debes eliminar el archivo del historial de tu repositorio. Para obtener más información, consulta "[Eliminar datos confidenciales de un repositorio](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)".
 

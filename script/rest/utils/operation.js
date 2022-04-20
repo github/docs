@@ -142,7 +142,7 @@ export default class Operation {
   async renderParameterDescriptions() {
     return Promise.all(
       this.parameters.map(async (param) => {
-        param.descriptionHtml = await renderContent(param.description)
+        param.descriptionHTML = await renderContent(param.description)
         delete param.description
         return param
       })
@@ -281,7 +281,7 @@ async function getBodyParams(paramsObject, requiredParams) {
         }
         // push the remaining types in the param.type array
         // that aren't type array
-        const remainingItems = param.type
+        const remainingItems = [...param.type]
         const indexOfArrayType = remainingItems.indexOf('array')
         remainingItems.splice(indexOfArrayType, 1)
         paramArray.push(...remainingItems)
@@ -347,8 +347,14 @@ async function getChildParamsGroup(param) {
     return
   if (param.items && param.items.type !== 'object') return
 
-  const childParamsObject = param.rawType === 'array' ? param.items.properties : param.properties
-  const requiredParams = param.rawType === 'array' ? param.items.required : param.required
+  const childParamsObject =
+    param.rawType === 'array' || (Array.isArray(param.rawType) && param.rawType.includes('array'))
+      ? param.items.properties
+      : param.properties
+  const requiredParams =
+    param.rawType === 'array' || (Array.isArray(param.rawType) && param.rawType.includes('array'))
+      ? param.items.required
+      : param.required
   const childParams = await getBodyParams(childParamsObject, requiredParams)
 
   // adjust the type for easier readability in the child table

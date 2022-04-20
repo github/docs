@@ -34,9 +34,9 @@ Tan pronto como configures un límite de gastos diferente a $0, serás responsab
 
 Ya que no has habilitado los excedentes, tu siguiente intento de publicar una versión del paquete no será exitosa. No recibirás una cuenta por esos 0.1GB extras en ese mes. Sin embargo, si habilitas los excedentes, tu primer factura incluirá el excedente de 0.1GB del ciclo de facturación actual, así como cualquier otro excedente que acumules.
 
-## Administrar el límite de gastos de {% data variables.product.prodname_registry %} para tu cuenta de usuario
+## Managing the spending limit for {% data variables.product.prodname_registry %} for your personal account
 
-Cualquiera puede administrar el límite de gastos de {% data variables.product.prodname_registry %} para su propia cuenta de usuario.
+Anyone can manage the spending limit for {% data variables.product.prodname_registry %} for their own personal account.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

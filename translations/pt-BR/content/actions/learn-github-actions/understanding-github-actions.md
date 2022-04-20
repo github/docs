@@ -111,7 +111,7 @@ Você pode criar um exemplo de fluxo de trabalho no repositório que aciona auto
    ```
 1. Faça commit dessas alterações e faça push para o seu repositório do {% data variables.product.prodname_dotcom %}.
 
-Seu novo arquivo de fluxo de trabalho de {% data variables.product.prodname_actions %} agora está instalado no seu repositório e será executado automaticamente toda vez que alguém fizer push de uma alteração no repositório. Para obter detalhes sobre o histórico de execução de um trabalho, consulte "[Visualizar a atividade do fluxo de trabalho](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)".
+Seu novo arquivo de fluxo de trabalho de {% data variables.product.prodname_actions %} agora está instalado no seu repositório e será executado automaticamente toda vez que alguém fizer push de uma alteração no repositório. Para obter detalhes sobre o histórico de execução de um fluxo de trabalho, consulte "[Visualizando a atividade do fluxo de trabalho](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-workflows-activity)".
 
 ## Entender o arquivo de fluxo de trabalho
 
@@ -192,7 +192,7 @@ Define uma tarefa chamada <code>check-bats-version</code>. As chaves secundaári
   ```
 </td>
 <td>
-The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action.  Esta é uma ação que faz o check-out do seu repositório para o executor, permitindo que você execute scripts ou outras ações com base no seu código (como ferramentas de compilação e teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório.
+A palavra-chave <code>usa</code> especifica que esta etapa irá executar <code>v3</code> da ação <code>actions/checkout</code>.  Esta é uma ação que faz o check-out do seu repositório para o executor, permitindo que você execute scripts ou outras ações com base no seu código (como ferramentas de compilação e teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório.
 </td>
 </tr>
 <tr>
