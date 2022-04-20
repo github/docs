@@ -23,11 +23,13 @@ To learn about accessing your personal dashboard, see "[About your personal dash
 
 ## Following people
 
-When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+When you follow someone on {% data variables.product.prodname_dotcom %}, you will get notifications on your personal dashboard about their public activity. If someone you follow creates a new repository, stars a repository, or follows another user, the activity will display in your dashboard. 
 
 Click **Follow** on a person's profile page to follow them.
 
 ![Follow user button](/assets/images/help/profile/follow-user-button.png)
+
+For more information, see "[Following people](/get-started/exploring-projects-on-github/following-people)."
 
 ## Watching a repository
 
