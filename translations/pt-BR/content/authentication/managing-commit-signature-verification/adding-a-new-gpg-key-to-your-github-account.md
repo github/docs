@@ -20,7 +20,7 @@ Antes de adicionar uma nova chave GPG à sua conta em {% ifversion ghae %}{% dat
 - [Verificado a existência de chaves GPG](/articles/checking-for-existing-gpg-keys)
 - [Gerado e copiado uma nova chave GPG](/articles/generating-a-new-gpg-key)
 
-You can add multiple public keys to your GitHub account. Commits signed by any of the corresponding private keys will show as verified. If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.
+Você pode adicionar várias chaves públicas à sua conta do GitHub. Os commits assinados por qualquer uma das chaves privadas correspondentes serão exibidos como verificado. Se você remover uma chave pública, todos os commits assinados pela chave privada correspondente não serão mais mostrados como verificados.
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 

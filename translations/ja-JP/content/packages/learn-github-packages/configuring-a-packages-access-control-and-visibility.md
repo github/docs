@@ -23,17 +23,17 @@ shortTitle: アクセスコントロールと可視性
 
 ## 個人アカウントにコンテナイメージへのアクセス権限を設定する
 
-If you have admin permissions to a container image that's owned by a personal account, you can assign read, write, or admin roles to other users. これらの権限ロールに関する詳しい情報については、[コンテナイメージの可視性とアクセス権限](#visibility-and-access-permissions-for-container-images)」を参照してください。
+個人アカウントが所有するコンテナイメージに対する管理者権限がある場合には、他のユーザに読み取り、書き込み、管理者ロールを割り当てることができます。 これらの権限ロールに関する詳しい情報については、[コンテナイメージの可視性とアクセス権限](#visibility-and-access-permissions-for-container-images)」を参照してください。
 
 パッケージがプライベートもしくはインターナルで、Organizationによって所有されているなら、あなたにできることは他のOrganizationメンバーやTeamにアクセス権を与えることだけです。
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-1. パッケージ設定ページで [**Invite teams or people**] をクリックして、アクセス権を付与するユーザの名前、ユーザ名、またはメールアドレスを入力します。 Teams cannot be given access to a container image owned by a personal account. ![コンテナアクセス権の招待ボタン](/assets/images/help/package-registry/container-access-invite.png)
+1. パッケージ設定ページで [**Invite teams or people**] をクリックして、アクセス権を付与するユーザの名前、ユーザ名、またはメールアドレスを入力します。 Team には、個人アカウントが所持するコンテナイメージのアクセス権限を与えることができません。 ![コンテナアクセス権の招待ボタン](/assets/images/help/package-registry/container-access-invite.png)
 1. ユーザ名または Team 名の隣にある [Role] のドロップダウンメニューで、付与する権限レベルを選択します。 ![コンテナアクセス権のオプション](/assets/images/help/package-registry/container-access-control-options.png)
 
 選択したユーザには自動的にアクセス権限が与えられ、招待を承諾する必要はありません。
 
-## Organization にコンテナイメージへのアクセス権限を設定する
+## Organization のコンテナイメージへのアクセス権限を設定する
 
 Organization が所有するコンテナイメージに対する管理者権限がある場合には、他のユーザや Team に読み取り、書き込み、管理者ロールを割り当てることができます。 これらの権限ロールに関する詳しい情報については、[コンテナイメージの可視性とアクセス権限](#visibility-and-access-permissions-for-container-images)」を参照してください。
 

@@ -26956,7 +26956,8 @@
               "acceptHeader": "application/vnd.github.v3+json",
               "bodyParameters": {
                 "state": "dismissed",
-                "dismissed_reason": "false positive"
+                "dismissed_reason": "false positive",
+                "dismissed_note": "This alert is not actually correct, because there's a sanitizer included in the library."
               },
               "parameters": {
                 "owner": "OWNER",
@@ -50041,6 +50042,7 @@
             "name": "scopes",
             "in": "body",
             "rawType": [
+              "array",
               "null"
             ],
             "rawDescription": "A list of scopes that this authorization is in.",
@@ -50209,6 +50211,7 @@
             "name": "scopes",
             "in": "body",
             "rawType": [
+              "array",
               "null"
             ],
             "rawDescription": "A list of scopes that this authorization is in.",
@@ -50405,6 +50408,7 @@
             "name": "scopes",
             "in": "body",
             "rawType": [
+              "array",
               "null"
             ],
             "rawDescription": "A list of scopes that this authorization is in.",
@@ -50636,6 +50640,7 @@
             "name": "scopes",
             "in": "body",
             "rawType": [
+              "array",
               "null"
             ],
             "rawDescription": "A list of scopes that this authorization is in.",

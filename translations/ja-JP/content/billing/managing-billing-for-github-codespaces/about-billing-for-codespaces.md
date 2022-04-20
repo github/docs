@@ -56,9 +56,9 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 ## マシンタイプの選択の制限
 
-By default the machine type with the lowest valid resources is used when a codespace is created. However, users may be able to choose a machine type with more resources. They can do this either when they create a codespace, or they can change the machine type of an existing codespace. For more information, see "[Creating a codespace"](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)" and "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+デフォルトでは、もっとも少ない有効リソースのマシンタイプがcodespace作成時に使われます。 しかし、ユーザはもっとリソースの多いマシンタイプを選択できます。 これはcodespaceの作成時に行えますが、既存のcodespaceのマシンタイプを変更することもできます。 詳しい情報については「[codespaceの作成](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」及び「[codespaceのマシンタイプの変更](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)」を参照してください。
 
-If a machine type that has more resources is chosen, this will affect the per-minute charge for that codespace, as shown above.
+もっとリソースの多いマシンタイプが選択されると、上に示したcodespaceの分あたりの料金に影響します。
 
 Organizationオーナーは、ユーザが利用できるマシンタイプを制限するポリシーを作成できます。 詳しい情報については「[マシンタイプへのアクセス制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」を参照してください。
 

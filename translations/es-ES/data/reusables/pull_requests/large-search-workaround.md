@@ -1,1 +1,1 @@
-Si tienes acceso a las solicitudes de cambio en más de 10,000 repositorios, necesitarás limitar tu búsqueda a una organización, cuenta de usuario o repositorio específicos para poder ver los resultados.
+If you have access to pull requests in more than 10,000 repositories, you will need to limit your search to a specific organization, personal account, or repository to see results.

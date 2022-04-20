@@ -35,6 +35,8 @@ You can sponsor an account on behalf of your personal account to invest in proje
 
 クレジットカードを使用してアカウントをスポンサーすると、その変更は直ちに有効になります。 {% data reusables.sponsors.prorated-sponsorship %}
 
+We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
+
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
 You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
@@ -50,6 +52,17 @@ You can choose whether to display your sponsorship publicly. One-time sponsorshi
 **注釈:** {% data variables.product.prodname_dotcom %} は、開発者の発言について責任を負いません。また、{% data variables.product.prodname_dotcom %} はスポンサードオープンソースプロジェクトについて何の保証もしません。 請求の責任は、資金を受ける開発者のみにあります。 スポンサーシップを提供する前に、信頼できる人かどうか確認してください。 詳細は、「[{% data variables.product.prodname_sponsors %} に関する追加条項](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)」を参照してください。
 
 {% endnote %}
+
+## Tax information
+
+As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:
+
+- Transaction date
+- Amount paid
+- The country, state, and province from where payment was made
+- Whether payment was made by a business or individual
+
+This information is necessary to enable payment and reporting of any taxes arising from such sponsorship payments.
 
 ## アカウントをスポンサーする
 

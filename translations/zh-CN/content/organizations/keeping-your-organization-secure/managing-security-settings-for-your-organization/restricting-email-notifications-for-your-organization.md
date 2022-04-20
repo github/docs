@@ -1,7 +1,6 @@
 ---
 title: 限制组织的电子邮件通知
 intro: 为防止组织信息泄露到个人电子邮件帐户，您可以限制成员可以接收有关组织活动的电子邮件通知的域。
-product: '{% data reusables.gated-features.restrict-email-domain %}'
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
@@ -10,7 +9,6 @@ redirect_from:
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization
 versions:
-  fpt: '*'
   ghes: '>=3.2'
   ghec: '*'
 type: how_to
@@ -26,17 +24,15 @@ shortTitle: 限制电子邮件通知
 
 当在组织中启用受限制的电子邮件通知时，成员只能使用与已验证或批准的域关联的电子邮件地址接收有关组织活动的电子邮件通知。 更多信息请参阅“[验证或批准组织的域](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)”。
 
-{% data reusables.enterprise-accounts.approved-domains-beta-note %}
-
-{% data reusables.notifications.email-restrictions-verification %}
-
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 {% note %}
 
 **注意：** 若要限制电子邮件通知，您的组织必须使用 {% data variables.product.prodname_ghe_cloud %}。 {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
+
+{% data reusables.notifications.email-restrictions-verification %}
 
 外部协作者不受限于已验证或批准域的电子邮件通知。 有关外部协作者的更多信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators)”。
 
