@@ -63,7 +63,7 @@ Have you ever saved different versions of a file? Something like:
 
 * `story.txt`
 * `story-edit.txt`
-* `story-edit-reviewed.txt`
+* `story-edit2.txt`
 
 Branches accomplish similar goals in {% data variables.product.product_name %} repositories.
 
@@ -136,7 +136,7 @@ In this walk-through, you should not have any conflicts, so you are ready to mer
 2. Click **Confirm merge**. You will receive a message that the request was successfully merged and the request was closed.
 3. Click **Delete branch**. Now that your pull request is merged and your changes are on `main`, you can safely delete the `readme-edits` branch. If you want to make more changes to your project, you can always create a new branch and repeat this process.
 
-## Next steps
+### Next steps
 
 By completing this tutorial, you've learned to create a project and make a pull request on {% data variables.product.product_name %}.
 
