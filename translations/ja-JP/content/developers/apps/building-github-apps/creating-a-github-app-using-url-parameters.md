@@ -123,6 +123,7 @@ webhook を保護するためにシークレットが必要なアプリケーシ
 | [`pull_request`](/webhooks/event-payloads/#pull_request)                               | `pull_requests`                                   | {% data reusables.webhooks.pull_request_short_desc %}
 | [`pull_request_review`](/webhooks/event-payloads/#pull_request_review)                 | `pull_request`                                    | {% data reusables.webhooks.pull_request_review_short_desc %}
 | [`pull_request_review_comment`](/webhooks/event-payloads/#pull_request_review_comment) | `pull_request`                                    | {% data reusables.webhooks.pull_request_review_comment_short_desc %}
+| [`pull_request_review_thread`](/webhooks/event-payloads/#pull_request_review_thread)   | `pull_request`                                    | {% data reusables.webhooks.pull_request_review_thread_short_desc %}
 | [`プッシュ`](/webhooks/event-payloads/#push)                                               | `contents`                                        | {% data reusables.webhooks.push_short_desc %}
 | [`リリース`](/webhooks/event-payloads/#release)                                            | `contents`                                        | {% data reusables.webhooks.release_short_desc %}
 | [`リポジトリ`](/webhooks/event-payloads/#repository)                                        | `メタデータ`                                           | {% data reusables.webhooks.repository_short_desc %}{% ifversion fpt or ghec %}

@@ -25,7 +25,7 @@ Este guia mostra como configurar seu projeto Java em {% data variables.product.p
 
 ## Etapa 1: Abra o seu projeto em um codespace
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+1. No nome do repositório, use o menu suspenso **Código de {% octicon "code" aria-label="The code icon" %}** e na guia **Codespaces**, clique em **Criar codespace no principal**.
 
   ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -35,9 +35,9 @@ Ao criar um código, seu projeto será criado em uma VM remota dedicada a você.
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 
-## Step 2: Add a dev container configuration to your repository from a template
+## Etapa 2: Adicionar uma configuração de contêiner de desenvolvimento ao repositório a partir de um modelo
 
-The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} comes with the latest Java version, package managers (Maven, Gradle), and other common tools preinstalled. However, we recommend that you configure your own dev container to include all of the tools and scripts that your project needs. Isso garantirá um ambiente reprodutível para todos os usuários de {% data variables.product.prodname_github_codespaces %} do seu repositório.
+O contêiner de desenvolvimento padrão, ou "contêiner de dev", para {% data variables.product.prodname_github_codespaces %}, vem com a versão mais recente do Java, gerenciadores de pacotes (Maven, Gradle) e outras ferramentas comuns pré-instaladas. No entanto, recomendamos que você configure seu próprio contêiner de desenvolvimento para incluir todas as ferramentas e scripts de que seu projeto precisa. Isso garantirá um ambiente reprodutível para todos os usuários de {% data variables.product.prodname_github_codespaces %} do seu repositório.
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
@@ -48,7 +48,7 @@ The default development container, or "dev container," for {% data variables.pro
 
 ### Anatomia do seu contêiner de desenvolvimento
 
-Adding the Java dev container template adds a `.devcontainer` directory to the root of your project's repository with the following files:
+A adição do modelo de contêiner de desenvolvimento do Java adiciona um diretório `.devcontainer` à raiz do repositório do seu projeto com os seguintes arquivos:
 
 - `devcontainer.json`
 - arquivo Docker
@@ -98,17 +98,17 @@ O arquivo recém-adicionado `devcontainer.json` define algumas propriedades que 
 }
 ```
 
-- **name** - You can name your dev container anything, this is just the default.
+- **nome** - Você pode dar qualquer nome ao seu contêiner de desenvolvimento. Este é apenas o padrão.
 - **build** - As propriedades de compilação.
-  - **dockerfile** - In the `build` object, `dockerfile` contains the path to the Dockerfile that was also added from the template.
+  - **Arquivo Docker** - No objeto `construir`, `Arquivo Docker` contém o caminho para o arquivo Dockerfile que também foi adicionado a partir do modelo.
   - **args**
-    - **variant**: This file only contains one build argument, which is the Java version that is passed into the Dockerfile.
-- **settings** - These are {% data variables.product.prodname_vscode %} settings that you can set.
-  - **terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
+    - **variante**: Este arquivo contém apenas um argumento de compilação, que é a versão de Java que é passada para o arquivo Docker.
+- **configurações** - Estas são configurações de {% data variables.product.prodname_vscode %} que você pode definir.
+  - **terminal.integrated.shell.linux** - Embora o bash seja o padrão, você pode usar outros shells do terminal, fazendo a modificação.
 - **extensões** - Estas são extensões incluídas por padrão.
-  - **vscjava.vscode-java-pack** - The Java Extension Pack provides popular extensions for Java development to get you started.
+  - **vscjava.vscode-java-pack** - O pacote de extensão Java fornece extensões populares para o desenvolvimento do Java para você começar.
 - **forwardPorts** - Todas as portas listadas aqui serão encaminhadas automaticamente. Para obter mais informações, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
-- **postCreateCommand** - Use this to run commands that aren't defined in the Dockerfile, after your codespace is created.
+- **postCreateCommand** - Use isto para executar comandos que não estão definidos no arquivo Docker depois que seu codespace for criado.
 - **remoteUser** - Por padrão, você está executando como usuário do `vscode`, mas, opcionalmente, você pode definir isso como `root`.
 
 #### arquivo Docker
@@ -139,11 +139,11 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "source /usr/local/shar
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 ```
 
-You can use the Dockerfile to add additional container layers to specify OS packages, Java versions, or global packages we want included in our container.
+Você pode usar o arquivo Docker para adicionar camadas adicionais de contêiner para especificar os pacotes do OS, versões do Java ou pacotes globais que queremos que sejam incluídos no nosso contêiner.
 
 ## Etapa 3: Modifique seu arquivo devcontainer.json
 
-With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. Neste exemplo, você irá adicionar propriedades para instalar extensões e dependências do seu projeto quando seu codespace for iniciado.
+Com a configuração do contêiner de desenvolvimento adicionada e um entendimento básico do que tudo faz, agora você pode fazer alterações para personalizar ainda mais seu ambiente. Neste exemplo, você irá adicionar propriedades para instalar extensões e dependências do seu projeto quando seu codespace for iniciado.
 
 1. No Explorer, selecione o arquivo `devcontainer.json` a partir da árvore para abri-lo. Você pode ter que expandir a pasta `.devcontainer` para vê-la.
 
