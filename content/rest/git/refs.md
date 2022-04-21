@@ -7,7 +7,9 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - API
+  - API- name: Checkout
+  uses: actions/checkout@v3.0.1
+
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
