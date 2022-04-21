@@ -34,7 +34,7 @@ If someone sets the default idle timeout to 90 minutes in their personal setting
 
 ### Setting organization-wide and repository-specific policies
 
-When you create a policy you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a timeout constraint, then the timeout constraints in any policies that are targeted at specific repositories must fall within the restriction configured for the entire organization. The shortest timeout period - in an organization-wide policy, a policy targeted at specified repositories, or in someone's personal settings - is applied.
+When you create a policy, you choose whether it applies to all repositories in your organization, or only to specified repositories. If you create an organization-wide policy with a timeout constraint, then the timeout constraints in any policies that are targeted at specific repositories must fall within the restriction configured for the entire organization. The shortest timeout period - in an organization-wide policy, a policy targeted at specified repositories, or in someone's personal settings - is applied.
 
 If you add an organization-wide policy with a timeout constraint, you should set the timeout to the longest acceptable period. You can then add repository-specific policies that set the maximum timeout to a shorter period.
 
