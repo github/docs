@@ -24,6 +24,7 @@ changelog:
 layout: product-landing
 redirect_from:
   - /v3
+  - /rest/reference
 versions:
   fpt: '*'
   ghes: '*'
