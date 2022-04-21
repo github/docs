@@ -52,9 +52,9 @@ For more information on using {% data variables.product.prodname_vscode %}, see 
 
 {% data reusables.codespaces.committing-link-to-procedure %} 
 
-### Using the {% data variables.product.prodname_vscode_command_palette %}
+### Using the {% data variables.product.prodname_vs_command_palette %}
 
-The {% data variables.product.prodname_vscode_command_palette %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see "[Using the {% data variables.product.prodname_vscode_command_palette %} in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
+The {% data variables.product.prodname_vs_command_palette_shortname %} allows you to access and manage many features for {% data variables.product.prodname_codespaces %} and {% data variables.product.prodname_vscode %}. For more information, see "[Using the {% data variables.product.prodname_vs_command_palette_shortname %} in {% data variables.product.prodname_codespaces %}](/codespaces/codespaces-reference/using-the-vs-code-command-palette-in-codespaces)."
 
 ## Navigating to an existing codespace
 
