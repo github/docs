@@ -1,6 +1,6 @@
 ---
-title: Contents
-intro: 'These API endpoints let you create, modify, and delete Base64 encoded content in a repository.'
+title: コンテンツ
+intro: これらの API エンドポイントを使用すると、リポジトリ内の Base64 でエンコードされたコンテンツを作成、変更、削除できます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,24 +11,23 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-To request the raw format or rendered HTML (when supported), use custom media types for repository contents.
+Raw 形式またはレンダリングされた HTML (サポートされている場合) をリクエストするには、リポジトリのコンテンツにカスタムメディアタイプを使用します。
 
-### Custom media types for repository contents
+### リポジトリコンテンツのカスタムメディアタイプ
 
-[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
+[README](/rest/reference/repos#get-a-repository-readme)、[ファイル](/rest/reference/repos#get-repository-content)、[シンボリックリンク](/rest/reference/repos#get-repository-content)は以下のカスタムメディアタイプをサポートしています。
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
 
-Use the `.raw` media type to retrieve the contents of the file.
+ファイルのコンテンツを取得するには、`.raw` メディアタイプを使ってください。
 
-For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
+Markdown や AsciiDoc などのマークアップファイルでは、`.html` メディアタイプを使用して、レンダリングされた HTML を取得できます。 マークアップ言語は、オープンソースの[マークアップライブラリ](https://github.com/github/markup)を使用して HTML にレンダリングされます。
 
-[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
+[すべてのオブジェクト](/rest/reference/repos#get-repository-content)は、以下のカスタムメディアタイプをサポートしています。
 
     application/vnd.github.VERSION.object
 
-Use the `object` media type parameter to retrieve the contents in a consistent object format regardless of the content type. For example, instead of an array of objects
-for a directory, the response will be an object with an `entries` attribute containing the array of objects.
+コンテンツのタイプに関係なく、一貫したオブジェクトフォーマットを取得するには、`object` メディアタイプパラメータを使用します。 たとえば、レスポンスはディレクトリに対するオブジェクトの配列ではなく、オブジェクトの配列を含む `entries` 属性のオブジェクトになります。
 
-You can read more about the use of media types in the API [here](/rest/overview/media-types).
+API でのメディアタイプの使用について詳しくは、[こちら](/rest/overview/media-types)をご覧ください。

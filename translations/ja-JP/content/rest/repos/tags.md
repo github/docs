@@ -1,5 +1,5 @@
 ---
-title: Tags
+title: タグ
 intro: ''
 versions:
   fpt: '*'
@@ -8,3 +8,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

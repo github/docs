@@ -1,6 +1,6 @@
 ---
-title: Rate limit
-intro: 'With the Rate Limit API, you can check the current rate limit status of various REST APIs.'
+title: レート制限
+intro: Rate Limit APIを使うと、様々なREST APIの現在のレート制限のステータスをチェックできます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,21 +13,20 @@ redirect_from:
   - /rest/reference/rate-limit
 ---
 
-The REST API overview documentation describes the [rate limit rules](/rest/overview/resources-in-the-rest-api#rate-limiting). You can check your current rate limit status at any time using the Rate Limit API described below.
+REST API 概要ドキュメンテーションでは、[レート制限のルール](/rest/overview/resources-in-the-rest-api#rate-limiting)について説明しています。 以下で説明する Rate Limit API を使用して、現在のレート制限ステータスをいつでも確認できます。
 
-### Understanding your rate limit status
+### レート制限のステータスを理解する
 
-The Search API has a [custom rate limit](/rest/reference/search#rate-limit), separate from the rate limit governing the rest of the REST API. The GraphQL API also has a [custom rate limit]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations#rate-limit) that is separate from and calculated differently than rate limits in the REST API.
+Search APIは[カスタムのレート制限](/rest/reference/search#rate-limit)を持ち、他のREST APIを管理するレート制限とは分離されています。 GraphQL APIも[カスタムのレート制限]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations#rate-limit)を持ち、REST APIのレート制限とは分離されて別に計算されます。
 
-For these reasons, the Rate Limit API response categorizes your rate limit. Under `resources`, you'll see four
-objects:
+そのため、Rate Limit APIのレスポンスは、レート制限を分類します。 `resources` の下には、4 つのオブジェクトがあります。
 
-* The `core` object provides your rate limit status for all non-search-related resources in the REST API.
+* `core`オブジェクトは、REST API中の検索に関連しないすべてのリソースに関するレート制限のステータスを提供します。
 
-* The `search` object provides your rate limit status for the [Search API](/rest/reference/search).
+* `search`オブジェクトは、[Search API](/rest/reference/search)に対するレート制限のステータスを提供します。
 
-* The `graphql` object provides your rate limit status for the [GraphQL API]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql).
+* `graphql`オブジェクトは、[GraphQL API]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql)に対するレート制限のステータスを提供します。
 
-* The `integration_manifest` object provides your rate limit status for the [GitHub App Manifest code conversion](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration) endpoint.
+* `integration_manifest`オブジェクトは、[GitHub App Manifest コード変換](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration)エンドポイントに対するレート制限のステータスを提供します。
 
 For more information on the headers and values in the rate limit response, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."

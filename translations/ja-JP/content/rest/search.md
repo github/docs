@@ -1,6 +1,6 @@
 ---
-title: Search
-intro: 'The GitHub Search API lets you to search for the specific item efficiently.'
+title: 検索
+intro: The GitHub Search API lets you to search for the specific item efficiently.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,122 +13,106 @@ redirect_from:
   - /rest/reference/search
 ---
 
-The Search API helps you search for the specific item you want to find. For example, you can find a user or a specific file in a repository. Think of it the way you think of performing a search on Google. It's designed to help you find the one result you're looking for (or maybe the few results you're looking for). Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs. To satisfy that need, the {% data variables.product.product_name %} Search API provides **up to 1,000 results for each search**.
+Search API は、見つけたい特定の項目を検索するために役立ちます。 たとえば、リポジトリ内のユーザや特定のファイルを見つけることができます。 Google で検索を実行するのと同じように考えてください。 Search API は、探している 1 つの結果 (または探しているいくつかの結果) を見つけるために役立つよう設計されています。 Google で検索する場合と同じように、ニーズに最も合う項目を見つけるため、検索結果を数ページ表示したい場合もあるでしょう。 こうしたニーズを満たすため、{% data variables.product.product_name %} Search API では**各検索につき 最大 1,000 件の結果**を提供します。
 
-You can narrow your search using queries. To learn more about the search query syntax, see "[Constructing a search query](/rest/reference/search#constructing-a-search-query)."
+クエリを使って、検索を絞り込めます。 検索クエリ構文の詳細については、「[検索クエリの構築](/rest/reference/search#constructing-a-search-query)」を参照してください。
 
-### Ranking search results
+### 検索結果を順番づける
 
-Unless another sort option is provided as a query parameter, results are sorted by best match in descending order. Multiple factors are combined to boost the most relevant item to the top of the result list.
+クエリパラメータとして別のソートオプションが指定されない限り、結果は最も一致するものから降順にソートされます。 最も関連性の高い項目を検索結果の最上位に押し上げるように、複数の要素が組み合わされます。
 
-### Rate limit
+### レート制限
 
 {% data reusables.enterprise.rate_limit %}
 
-The Search API has a custom rate limit. For requests using [Basic
-Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client
-ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to
-30 requests per minute. For unauthenticated requests, the rate limit allows you
-to make up to 10 requests per minute.
+Search API にはカスタムレート制限があります。 リクエストに[基本認証](/rest#authentication)、[OAuth](/rest#authentication)、または[クライアント ID とシークレット](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications)を使用する場合は、1 分間に最大 30 件のリクエストが行えます。 認証されていないリクエストでは、レート制限により 1 分間あたり最大 10 件のリクエストが行えます。
 
-See the [rate limit documentation](/rest/reference/rate-limit) for details on
-determining your current rate limit status.
+現在のレート制限状態を確認する方法の詳細については、[レート制限ドキュメンテーション](/rest/reference/rate-limit)を参照してください。
 
-### Constructing a search query
+### 検索クエリの構築
 
-Each endpoint in the Search API uses [query parameters](https://en.wikipedia.org/wiki/Query_string) to perform searches on {% data variables.product.product_name %}. See the individual endpoint in the Search API for an example that includes the endpoint and query parameters.
+Search API の各エンドポイントでは、{% data variables.product.product_name %} で検索を行うために[クエリパラメータ](https://en.wikipedia.org/wiki/Query_string)を使用します。 エンドポイントとクエリパラメータを含める例については、Search API の個々のエンドポイントを参照してください。
 
-A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. The format of the search query is:
+クエリには、{% data variables.product.product_name %} でサポートされている検索修飾子を任意に組み合わせて使用できます。 検索クエリの形式は次のとおりです。
 
 ```
 SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
-For example, if you wanted to search for all _repositories_ owned by `defunkt` that
-contained the word `GitHub` and `Octocat` in the README file, you would use the
-following query with the _search repositories_ endpoint:
+たとえば、README ファイルに `GitHub` と `Octocat` という言葉が含まれている、`defunkt` が所有する_リポジトリ_をすべて検索する場合、_検索リポジトリ_エンドポイントに次のクエリを使用します。
 
 ```
 GitHub Octocat in:readme user:defunkt
 ```
 
-**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. For example:
+**ノート:** クエリ文字列の構築には、使用する言語の優先 HTML エンコーダを必ず使用してしてください。 例:
 ```javascript
 // JavaScript
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-See "[Searching on GitHub](/search-github/searching-on-github)"
-for a complete list of available qualifiers, their format, and an example of
-how to use them. For information about how to use operators to match specific
-quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
+使用可能な修飾子の完全な一覧、フォーマット、使用例については、「[GitHub での検索](/search-github/searching-on-github)」を参照してください。 特定の数量、日付に一致させたり、検索結果から除外したりするために演算子を使う方法の詳細については、「[検索構文を理解する](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)」を参照してください。
 
-### Limitations on query length
+### クエリの長さの制限
 
-The Search API does not support queries that:
-- are longer than 256 characters (not including operators or qualifiers).
-- have more than five `AND`, `OR`, or `NOT` operators.
+Search API は、以下のクエリをサポートしていません。
+- 256 文字超 (演算子や修飾子は除く)。
+- `AND`、`OR`、`NOT` の演算子が 6 つ以上ある。
 
-These search queries will return a "Validation failed" error message.
+こうした検索クエリを使用すると、「Validation failed」というエラーメッセージが返されます。
 
-### Timeouts and incomplete results
+### タイムアウトと不完全な結果
 
-To keep the Search API fast for everyone, we limit how long any individual query
-can run. For queries that [exceed the time limit](https://developer.github.com/changes/2014-04-07-understanding-search-results-and-potential-timeouts/),
-the API returns the matches that were already found prior to the timeout, and
-the response has the `incomplete_results` property set to `true`.
+皆さんが Search API を迅速に使用できるよう、個別のクエリを実行する時間について制限を設けています。 [時間制限を超えた](https://developer.github.com/changes/2014-04-07-understanding-search-results-and-potential-timeouts/)クエリに対しては、API はタイムアウト前に見つかった一致を返し、レスポンスの `incomplete_results` プロパティが `true` に設定されます。
 
-Reaching a timeout does not necessarily mean that search results are incomplete.
-More results might have been found, but also might not.
+タイムアウトになったことは、必ずしも検索結果が未完了であるということではありません。 もっと多くの検索結果が出たかもしれませんし、出ていないかもしれません。
 
-### Access errors or missing search results
+### アクセスエラーまたは検索結果の欠落
 
-You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. For example, your search will fail if your query includes `repo:`, `user:`, or `org:` qualifiers that request resources that you don't have access to when you sign in on {% data variables.product.prodname_dotcom %}.
+You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
 
-When your search query requests multiple resources, the response will only contain the resources that you have access to and will **not** provide an error message listing the resources that were not returned.
+検索クエリで複数のリソースをリクエストする場合、レスポンスにはあなたがアクセスできるリソースのみが含まれ、返されないリソースを一覧表示するようなエラーメッセージは**表示されません**。
 
-For example, if your search query searches for the `octocat/test` and `codertocat/test` repositories, but you only have access to `octocat/test`, your response will show search results for `octocat/test` and nothing for `codertocat/test`. This behavior mimics how search works on {% data variables.product.prodname_dotcom %}.
+たとえば、検索クエリで `octocat/test` リポジトリと `codertocat/test` リポジトリを検索し、`octocat/test` へのアクセス権しか持っていない場合、`octocat/test` の検索結果が表示され、`codertocat/test` の検索結果は全く表示されません。 この振る舞いは、{% data variables.product.prodname_dotcom %} における検索の仕組みと同じです。
 
-### Text match metadata
+### テキスト一致メタデータ
 
-On GitHub, you can use the context provided by code snippets and highlights in search results. The Search API offers additional metadata that allows you to highlight the matching search terms when displaying search results.
+GitHub では、コードスニペットが提供するコンテキストとと、検索結果のハイライトが使用できます。 Search API では、検索結果を表示するときに、検索と一致した言葉をハイライトできる付加的なメタデータを用意しています。
 
 ![code-snippet-highlighting](/assets/images/text-match-search-api.png)
 
-Requests can opt to receive those text fragments in the response, and every fragment is accompanied by numeric offsets identifying the exact location of each matching search term.
+リクエストでは、レスポンスに含まれるテキストフラグメントを受け取ることを選べます。各フラグメントには、一致した各検索用語の正確な場所を特定する数値オフセットが付属しています。
 
-To get this metadata in your search results, specify the `text-match` media type in your `Accept` header.
+検索結果でこのメタデータを取得するには、`Accept` ヘッダで `text-match` メディアタイプを指定します。
 
 ```shell
 application/vnd.github.v3.text-match+json
 ```
 
-When you provide the `text-match` media type, you will receive an extra key in the JSON payload called `text_matches` that provides information about the position of your search terms within the text and the `property` that includes the search term. Inside the `text_matches` array, each object includes
-the following attributes:
+`text-match` メディアタイプを指定すると、JSON ペイロード内にある `text_matches` と呼ばれる追加の鍵を受け取ります。この鍵は、テキスト内の検索用語の位置と、検索用語を含む `property` についての情報を提供します。 `text_matches` 配列内の各オブジェクトには、以下の属性が含まれています。
 
-Name | Description
------|-----------|
-`object_url` | The URL for the resource that contains a string property matching one of the search terms.
-`object_type` | The name for the type of resource that exists at the given `object_url`.
-`property` | The name of a property of the resource that exists at `object_url`. That property is a string that matches one of the search terms. (In the JSON returned from `object_url`, the full content for the `fragment` will be found in the property with this name.)
-`fragment` | A subset of the value of `property`. This is the text fragment that matches one or more of the search terms.
-`matches` | An array of one or more search terms that are present in `fragment`. The indices (i.e., "offsets") are relative to the fragment. (They are not relative to the _full_ content of `property`.)
+| 名前            | 説明                                                                                                                                  |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `object_url`  | 検索用語のいずれかに一致する文字列プロパティを含むリソースの URL。                                                                                                 |
+| `object_type` | 指定された `object_url` に存在するリソースのタイプの名前。                                                                                                |
+| `属性`          | `object_url` に存在するリソースのプロパティの名前。 このプロパティは、検索用語のいずれかに一致する文字列です。 (`object_url` から返される JSON では、`fragment` の完全な内容を、この名前でプロパティから検索できます。) |
+| `フラグメント`      | `property` の値のサブセット。 これは、1 つ以上の検索用語に一致するテキストフラグメントです。                                                                               |
+| `matches`     | `fragment` に存在する 1 つ以上の検索用語の配列。 インデックス (すなわち「オフセット」) は、フラグメントと関連しています。 (`property` の_完全な_内容とは関係していません。)                             |
 
-#### Example
+#### サンプル
 
-Using cURL, and the [example issue search](#search-issues-and-pull-requests) above, our API
-request would look like this:
+cURL と、上記の [Issue 検索例](#search-issues-and-pull-requests) を使用すると、API リクエストは次のようになります。
 
 ``` shell
 curl -H 'Accept: application/vnd.github.v3.text-match+json' \
 '{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
 ```
 
-The response will include a `text_matches` array for each search result. In the JSON below, we have two objects in the `text_matches` array.
+レスポンスには、検索結果ごとに `text_matches` 配列が含まれます。 以下の JSON では、`text_matches` 配列に 2 つのオブジェクトがあります。
 
-The first text match occurred in the `body` property of the issue. We see a fragment of text from the issue body. The search term (`windows`) appears twice within that fragment, and we have the indices for each occurrence.
+最初のテキスト一致は、Issue の `body` プロパティで発生しました 。 Issue 本文から、テキストのフラグメントが表示されています。 検索用語 (`windows`) はフラグメント内に 2 回出現し、それぞれにインデックスがあります。
 
-The second text match occurred in the `body` property of one of the issue's comments. We have the URL for the issue comment. And of course, we see a fragment of text from the comment body. The search term (`windows`) appears once within that fragment.
+2 番目のテキスト一致は、Issue のコメントのうちの 1 つの `body` プロパティで発生しました。 Issue コメントの URL があります。 そしてもちろん、コメント本文から、テキストのフラグメントが表示されています。 検索用語 (`windows`) は、フラグメント内で 1 回出現しています。
 
 ```json
 {

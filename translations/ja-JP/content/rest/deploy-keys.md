@@ -1,5 +1,5 @@
 ---
-title: Deploy Keys
+title: デプロイキー
 intro: ''
 versions:
   fpt: '*'
@@ -16,4 +16,4 @@ redirect_from:
 
 {% data reusables.repositories.deploy-keys %}
 
-Deploy keys can either be setup using the following API endpoints, or by using GitHub. To learn how to set deploy keys up in GitHub, see "[Managing deploy keys](/developers/overview/managing-deploy-keys)."
+デプロイキーは、以下の API エンドポイントを使用するか、GitHub を使用することでセットアップできます。 GitHub でデプロイキーを設定する方法については、「[デプロイキーを管理する](/developers/overview/managing-deploy-keys)」を参照してください。

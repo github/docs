@@ -21,14 +21,14 @@ shortTitle: ドメインの検証もしくは承認
 
 ## ドメイン検証について
 
-Organization のドメインの所有権を検証したあと、「検証済み」バッジが Organization のプロフィールに表示されます。 {% ifversion ghec %}If your organization has agreed to the Corporate Terms of Service, organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain. 詳しい情報については「[Organizationのプロフィールページについて](/articles/about-your-organization-s-profile/)」および「<a href="/articles/upgrading-to-the-corporate-terms-of-service" class="dotcom-only">企業利用規約にアップグレードする</a>」を参照してください。{% endif %}
+Organization のドメインの所有権を検証したあと、「検証済み」バッジが Organization のプロフィールに表示されます。 {% ifversion ghec %}Organizationが企業向け利用規約に同意した場合、Organizationのオーナーは、検証済みドメインにある各メンバーのメールアドレスを見て、Organizationメンバーの身元を検証できるようになります。 詳しい情報については「[Organizationのプロフィールページについて](/articles/about-your-organization-s-profile/)」および「<a href="/articles/upgrading-to-the-corporate-terms-of-service" class="dotcom-only">企業利用規約にアップグレードする</a>」を参照してください。{% endif %}
 
 {% ifversion ghec %}Enterprise アカウントがオーナーの Organization の場合、{% elsif ghes %}{% endif %}Organization による検証済みのドメインに加えて、Enterprise アカウントで検証されたドメインの「検証済み」バッジが Organization のプロフィールに表示されます。 Organizationのオーナーは、Enterpriseのオーナーが検証もしくは承認したドメインをすべて見ることができ、OrganizationオーナーがEnterpriseオーナーでもある場合は、それらのドメインを編集できます。 詳しい情報については「[Enterpriseのためのドメインの検証あるいは承認](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)」を参照してください。
 
 {% ifversion ghec %}
 {% note %}
 
-**Note:** To verify or approve domains, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**ノート:** ドメインを検証あるいは承認するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。 {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 {% endif %}
@@ -36,7 +36,7 @@ Organization のドメインの所有権を検証したあと、「検証済み�
 {% data reusables.organizations.verified-domains-details %}
 
 {% ifversion ghec or ghes > 3.1 %}
-After verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. 詳しい情報については「[Organizationのメール通知の制限](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)」を参照してください。
+Organization のドメインの所有権を検証したあと、その Organizationへのメール通知を制限することができます。 詳しい情報については「[Organizationのメール通知の制限](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)」を参照してください。
 {% endif %}
 
 {% ifversion ghec %}{% data variables.product.prodname_pages %}で使われているカスタムドメインを検証して、カスタムドメインが設定されたままになっていながら{% data variables.product.prodname_pages %}のサイドが無効化された、あるいはそのドメインを使用していない状態になっている場合のドメイン乗っ取りを回避することもできます。 詳しい情報については「[{% data variables.product.prodname_pages %}のカスタムドメインの検証](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)」を参照してください。{% endif %}

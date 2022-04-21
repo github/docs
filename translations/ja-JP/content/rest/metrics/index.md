@@ -1,6 +1,6 @@
 ---
-title: Metrics
-intro: 'The repository metrics API allows you to retrieve community profile, statistics, and traffic for your repository.'
+title: メトリクス
+intro: リポジトリメトリクスAPIを使うと、リポジトリのコミュニティプロフィール、統計、トラフィックを取得できます。
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /rest/reference/repository-metrics
@@ -18,3 +18,4 @@ children:
   - /statistics
   - /traffic
 ---
+

@@ -1,6 +1,6 @@
 ---
-title: Issues
-intro: 'The Issues API enables you to view and manage issues, including issue assignees, comments, labels, and milestones.'
+title: Issue
+intro: Issues APIを使うと、Issueにアサインされた人、コメント、ラベル、マイルストーンを含め、Issueの表示と管理ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,13 +11,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Custom media types for issues
+### Issue のカスタムメディアタイプ
 
-These are the supported media types for issues.
+Issue についてサポートされているメディアタイプは次のとおりです。
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
     application/vnd.github.VERSION.html+json
     application/vnd.github.VERSION.full+json
 
-For more information about media types, see "[Custom media types](/rest/overview/media-types)."
+メディアタイプの詳しい情報については、「[カスタムメディアタイプ](/rest/overview/media-types)」を参照してください。

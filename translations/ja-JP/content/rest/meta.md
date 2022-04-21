@@ -1,6 +1,6 @@
 ---
-title: Meta
-intro: 'The Meta API returns meta information about {% data variables.product.product_name %} including the IP addresses of {% data variables.product.product_name %} services.'
+title: メタ情報
+intro: 'Meta APIは、{% data variables.product.product_name %}サービスのIPアドレスを含む{% data variables.product.product_name %}に関するメタ情報を返します。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,3 +12,4 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/meta
 ---
+

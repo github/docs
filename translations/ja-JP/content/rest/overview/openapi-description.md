@@ -27,4 +27,4 @@ OpenAPI の記述にはいろいろな使い方があります。 たとえば�
 * {% data variables.product.company_short %} REST API の記述を検証してテストする。
 * Insomnia や Postman といったサードパーティツールを使用して、{% data variables.product.product_name %} REST API を調べ、操作する。
 
-たとえば、{% data variables.product.company_short %} は REST OpenAPI の記述を使用して {% data variables.product.product_name %} [REST API リファレンスドキュメント](/rest/reference)を生成します。
+たとえば、{% data variables.product.company_short %} は REST OpenAPI の記述を使用して {% data variables.product.product_name %} [REST API リファレンスドキュメント](/rest)を生成します。

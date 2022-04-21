@@ -1,6 +1,6 @@
 ---
-title: Commits
-intro: 'The Commits API allows you to list, view, and compare commits in a repository. You can also interact with commit comments and commit statuses.'
+title: コミット
+intro: 'The Commits API allows you to list, view, and compare commits in a repository. コミットコメントやコミットのステータスの操作もできます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,3 +10,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

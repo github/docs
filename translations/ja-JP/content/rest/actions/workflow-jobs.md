@@ -1,6 +1,6 @@
 ---
-title: Workflow jobs
-intro: 'The Workflow Jobs API allows you to view logs and workflow jobs.'
+title: ワークフロージョブ
+intro: ワークフロージョブ API では、ログとワークフロージョブを表示できます。
 topics:
   - API
 versions:
@@ -10,6 +10,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.about-workflow-jobs %} For more information, see "[Workflow syntax for GitHub Actions](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
+{% data reusables.actions.about-workflow-jobs %}詳しい情報については、「[GitHub Actions のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)」を参照してください。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}

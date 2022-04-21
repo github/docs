@@ -160,7 +160,7 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 成果物には、{% data variables.product.prodname_codeql %}によってスキャンされたソースのアーカイブされたコピーが_src.zip_という名前で含まれます。 リポジトリ中のソースコードファイルと_src.zip_中のファイルを比較すれば、どういった種類のファイルが欠けているかが分かります。 分析されなかったファイルの種類が分かれば、{% data variables.product.prodname_codeql %}分析のためのワークフローをどのように変更しなければならないかは簡単に理解できるようになります。
 
-## Alerts found in generated code
+## 生成されたコードで見つかったアラート
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 

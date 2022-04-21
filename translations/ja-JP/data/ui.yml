@@ -116,6 +116,7 @@ products:
       preview_header_is_required: このヘッダは<strong>必須</strong>です
       preview_notice_to_change: This API is under preview and subject to change
       works_with_github_apps: Works with GitHub Apps
+      api_reference: REST API reference
 footer:
   all_rights_reserved: All rights reserved
   terms: 規約
