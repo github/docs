@@ -104,7 +104,7 @@ jobs:
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
 
-The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image.
+The above workflow checks out the {% data variables.product.prodname_dotcom %} repository, uses the `login-action` to log in to the registry, and then uses the `build-push-action` action to: build a Docker image based on your repository's `Dockerfile`; push the image to Docker Hub, and apply a tag to the image. Note such action will be triggered when you make a release, you can learn more about it in the [workflow on part](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on) to specify which behavior should trigger the action.
 
 ## Publishing images to {% data variables.product.prodname_registry %}
 
