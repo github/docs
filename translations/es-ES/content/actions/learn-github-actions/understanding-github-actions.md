@@ -72,7 +72,7 @@ Puedes configurar las dependencias de un job con otros jobs; predeterminadamente
 
 Para obtener más información sobre los jobs, consulta la sección "[Utilizar jobs](/actions/using-jobs)".
 
-### Acciones
+### Actions
 
 Una _acción_ es una aplicación personalizada para la plataforma de {% data variables.product.prodname_actions %} que realiza una tarea compleja pero que se repite frecuentemente.  Utiliza una acción para ayudarte a reducir la cantidad de código repetitivo que escribes en tus archivos de flujo de trabajo.  Una acción puede extraer tu repositorio de git desde {% data variables.product.prodname_dotcom %}, configurar la cadena de herramientas correcta para tu ambiente de compilación o configurar la autenticación en tu proveedor de servicios en la nube.
 

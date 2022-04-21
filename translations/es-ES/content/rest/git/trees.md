@@ -1,6 +1,6 @@
 ---
-title: Trees
-intro: 'A Git tree object creates the hierarchy between files in a Git repository. '
+title: Árboles
+intro: Un objeto de árbol de Git crea la jerarquía entre archivos para un repositorio de Git.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-You can use the Git tree object to create the relationship between directories and the files they contain. These endpoints allow you to read and write [tree objects](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Tree-Objects) to your Git database on {% data variables.product.product_name %}.
+Puedes utilizar el objeto de árbol de Git para crear una relación entre directorios y entre los archivos que contienen. Estas terminales te permiten leer y escribir [objetos de árbol](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Tree-Objects)en tu base de datos de Git en {% data variables.product.product_name %}.

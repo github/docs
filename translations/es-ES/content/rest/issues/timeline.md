@@ -1,6 +1,6 @@
 ---
-title: Timeline
-intro: 'The Timeline Events API can return different types of events triggered by timeline activity in issues and pull requests.'
+title: Línea de tiempo
+intro: La API de eventos para la línea de tiempo puede devolver diferentes tipos de eventos que se activan de acuerdo a la actividad de la línea de tiempo en los informes de problemas y solicitudes de extracción.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." An events API for GitHub activity outside of issues and pull requests is also available. For more information, see the "[GitHub Events API](/developers/webhooks-and-events/github-event-types)."
+For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." Para obtener más información acerca de los eventos específicos que puedes recibir de la API de Eventos para Solicitudes de Extracción, consulta la sección "[Tipos de evento de las Solicitudes de Extracción](/developers/webhooks-and-events/issue-event-types)". Para obtener más información, consulta la "[API de Eventos de GitHub](/developers/webhooks-and-events/github-event-types)".
 
-You can use this API to display information about issues and pull request or determine who should be notified of issue comments.
+Puedes utilizar esta API para mostrar información sobre los informes de problemas y solicitudes de extracción o para determinar a quién debería notificársele sobre los comentarios en los informes de problemas.

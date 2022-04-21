@@ -1,6 +1,6 @@
 ---
-title: Workflows
-intro: 'The Workflows API allows you to view workflows for a repository.'
+title: Flujos de trabajo
+intro: La API de flujos de trabajo te permite ver los flujos de trabajo de un repositorio.
 topics:
   - API
 versions:
@@ -10,6 +10,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.about-workflows %} For more information, see "[Automating your workflow with GitHub Actions](/actions/automating-your-workflow-with-github-actions)."
+{% data reusables.actions.about-workflows %} Para obtener más información, consulta la sección "[Automatizar tu flujo de trabajo con GitHub Actions](/actions/automating-your-workflow-with-github-actions)".
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}

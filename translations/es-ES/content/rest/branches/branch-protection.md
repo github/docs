@@ -1,5 +1,5 @@
 ---
-title: Protected branches
+title: Ramas protegidas
 intro: ''
 versions:
   fpt: '*'
@@ -11,3 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+
