@@ -1,0 +1,73 @@
+date: '2022-05-10'
+release_candidate: true
+deprecated: false
+intro: |
+  {% note %}
+
+  **Note:** If {% data variables.product.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend only running release candidates on test environments.
+
+  {% endnote %}
+
+  For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+sections:
+  features:
+    - heading: Custom repository roles are generally available
+      notes:
+        # https://github.com/github/releases/issues/1945
+        - |
+          With custom repository roles, organizations now have more granular control over the repository access permissions they can grant to users. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+
+          A custom repository role is created by an organization owner, and is available across all repositories in that organization. Each role can be given a custom name, and a description. It can be configured from a set of over 40 fine grained permissions. Once created, repository admins can assign a custom role to any user, team or outside collaborator in their repository.
+
+          Custom repository roles can be created, viewed, edited and deleted via the new **Repository roles** tab in an organization's settings.
+
+          Custom repository roles are also fully supported in the GitHub Enterprise Server REST APIs. The Organizations API can be used to list all custom repository roles in an organization, and the existing APIs for granting repository access to individuals and teams have been extended to support custom repository roles. For more information, see "[Organizations](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)" in the REST API documentation.
+
+  bugs:
+    # https://github.com/github/releases/issues/1934
+    - |
+      It is now possible to upload release assets for GitHub apps.
+
+  changes:
+    - heading: Changes to gists
+      notes:
+        # https://github.com/github/releases/issues/2054
+        - |
+          New gists are now created with a default branch name of either `main` or the alternative default branch name you've defined in your user settings. This matches how other repositories are created on GitHub Enterprise Server. For more information, see "[About branches](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)" and "[Managing the default branch name for your repositories](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-the-default-branch-name-for-your-repositories).
+
+        # https://github.com/github/releases/issues/2028
+        - |
+          Gists now only show the 30 most recent comments when first displayed. You can click **Load earlier comments...** to view more. This allows gists that have many comments to appear more quickly. For more information, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+
+    - heading: Image previews now shown by default when comparing differences
+      notes:
+        # https://github.com/github/releases/issues/1947
+        - |
+          GitHub Enterprise Server can display several common image formats, including PNG, JPG, GIF, PSD, and SVG, and provides several ways to compare differences between versions. Now when reviewing added or changed images in a pull request, previews of those images are shown by default. Previously, you would see a message indicating that binary files could not be shown and you would need to toggle the "Display rich diff" option. For more information, see  "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files)."
+
+    - heading: Additional filter for lists of repositories
+      notes:
+        # https://github.com/github/releases/issues/2071
+        - |
+          Lists of repositories owned by a user or organization now have an additional filter option, "Templates", making it easier to find template repositories.
+
+    - heading: Tooltips for label descriptions
+      notes:
+        # https://github.com/github/releases/issues/2129
+        - |
+          Focusing or hovering over a label now displays the label description in a tooltip.
+
+  deprecations:
+    - heading: Change to the format of authentication tokens
+      notes:
+        # https://github.com/github/releases/issues/1235
+        - |
+          The format of GitHub authentication tokens has changed. For more information, see the [GitHub changelog](https://github.blog/changelog/2021-03-31-authentication-token-format-updates-are-generally-available/). 
+
+          After June 3rd, with the deprecation of GitHub Enterprise Server 3.1, instances running GitHub Enterprise Server 3.1 or older will no longer be able to create new connections to GitHub.com via GitHub Connect.
+  known_issues:
+    - heading: PLACEHOLDER
+      notes:
+        # PLACEHOLDER
+        - |
+          PLACEHOLDER
