@@ -21,11 +21,11 @@ The GitHub Classroom integration with {% data variables.product.prodname_vscode_
 ### How to launch the assignment in {% data variables.product.prodname_vscode_shortname %}
 When creating an assignment, {% data variables.product.prodname_vscode_shortname %} can be added as the preferred editor for an assignment. For more details, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
-This will include an "Open in {% data variables.product.prodname_vscode %}" badge in all student repositories. This badge handles installing {% data variables.product.prodname_vscode_shortname %}, the Classroom extension pack, and opening to the active assignment with one click.
+This will include an "Open in {% data variables.product.prodname_vscode_shortname %}" badge in all student repositories. This badge handles installing {% data variables.product.prodname_vscode_shortname %}, the Classroom extension pack, and opening to the active assignment with one click.
 
 {% note %}
 
-**Note:** The student must have Git installed on their computer to push code from {% data variables.product.prodname_vscode_shortname %} to their repository. This is not automatically installed when clicking the **Open in Visual Studio Code** button. The student can download Git from [here](https://git-scm.com/downloads).
+**Note:** The student must have Git installed on their computer to push code from {% data variables.product.prodname_vscode_shortname %} to their repository. This is not automatically installed when clicking the **Open in {% data variables.product.prodname_vscode_shortname %}** button. The student can download Git from [here](https://git-scm.com/downloads).
 
 {% endnote %}
 
