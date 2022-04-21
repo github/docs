@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           # Using a PAT is necessary so that the new commit will trigger the
           # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)

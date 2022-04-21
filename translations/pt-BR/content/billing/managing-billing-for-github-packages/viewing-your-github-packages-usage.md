@@ -17,9 +17,9 @@ topics:
 shortTitle: Visualizar o seu uso
 ---
 
-## Visualizando o uso de {% data variables.product.prodname_registry %} para sua conta de usuário
+## Visualizando o uso de {% data variables.product.prodname_registry %} para a sua conta pessoal
 
-Qualquer pessoa pode visualizar o uso de {% data variables.product.prodname_registry %} para sua própria conta de usuário.
+Qualquer pessoa pode ver o uso de {% data variables.product.prodname_registry %} para sua própria conta pessoal.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}

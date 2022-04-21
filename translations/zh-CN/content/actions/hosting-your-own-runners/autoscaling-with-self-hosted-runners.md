@@ -54,14 +54,16 @@ type: overview
 
 {% endnote %}
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6143 %}
+
 ## 控制自托管运行器上的运行器软件更新
 
 默认情况下，每当有新版本的运行器软件可用时，自托管运行器将自动执行软件更新。  如果在容器中使用临时运行器，则当发布新的运行器版本时，这可能会导致重复的软件更新。  关闭自动更新允许你按照自己的计划直接更新容器映像上的运行器版本。
 
-如果要关闭自动软件更新并自行安装软件更新，可以在启动运行器时指定 `--disableupdate` 参数。  例如：
+要关闭自动软件更新并自行安装软件更新，请在使用 `config.sh`注册运行器时指定 `--disableupdate` 标志。 例如：
 
 ```shell
-./run.sh --disableupdate
+./config.sh --url <em>https://github.com/octo-org</em> --token <em>example-token</em> --disableupdate
 ```
 
 如果禁用自动更新，您仍必须定期更新运行器版本。  {% data variables.product.prodname_actions %} 中的新功能需要更改 {% data variables.product.prodname_actions %} 服务_和_运行器软件 。  在没有软件更新的情况下，运行器可能无法正确处理利用 {% data variables.product.prodname_actions %} 新功能的作业。
@@ -75,6 +77,8 @@ type: overview
 **注意：**如果您在 30 天内未执行软件更新，{% data variables.product.prodname_actions %} 服务将不会将作业排队到您的运行器。  此外，如果需要关键安全更新，{% data variables.product.prodname_actions %} 服务在更新之前不会将作业排队到运行器。
 
 {% endnote %}
+
+{% endif %}
 
 ## 使用 web 挂钩进行自动缩放
 

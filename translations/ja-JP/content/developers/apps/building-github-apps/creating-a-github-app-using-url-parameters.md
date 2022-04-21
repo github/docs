@@ -18,7 +18,7 @@ shortTitle: アプリケーション作成のクエリパラメータ
 
 個人または Organization アカウントで、{% data variables.product.prodname_github_app %} の構成を事前設定する以下の URL をクエリパラメータに追加できます。
 
-* **ユーザアカウント:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **Personal account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
 * **Organization アカウント:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 アプリケーションを作成するユーザは、アプリケーションをサブミットする前に {% data variables.product.prodname_github_app %} 登録ページから事前設定する値を編集できます。 URL クエリ文字列に `name` などの必須の値を含めない場合、アプリケーションを作成するユーザが、アプリケーションをサブミットする前に値を入力する必要があります。
@@ -83,7 +83,7 @@ webhook を保護するためにシークレットが必要なアプリケーシ
 | `plan`                                                                                                                           | 「[ユーザの取得](/rest/reference/users#get-a-user)」エンドポイントを使用してユーザの GitHub プランについての情報を取得するためのアクセス権を付与します。 `none`、`read` のいずれかです。                                                                                                                                                                                                                     |
 | [`pull_requests`](/rest/reference/permissions-required-for-github-apps/#permission-on-pull-requests)                             | さまざまなプルリクエストエンドポイントへのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                                                                                                              |
 | [`repository_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-hooks)                       | [Repository Webhooks API](/rest/reference/repos#hooks) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                                                                          |
-| [`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects)                 | [Projects API](/rest/reference/projects) へのアクセス権を付与します。 `none`、`read`、`write`、`admin` のいずれかです。{% ifversion fpt or ghes or ghec %}
+| [`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects)                 | [Projects API](/rest/reference/projects) へのアクセス権を付与します。 `none`、`read`、`write`、`admin` のいずれかです。{% ifversion ghes or ghec %}
 | [`secret_scanning_alerts`](/rest/reference/permissions-required-for-github-apps/#permission-on-secret-scanning-alerts)           | [Secret scanning API](/rest/reference/secret-scanning) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}{% ifversion fpt or ghes or ghec %}
 | [`security_events`](/rest/reference/permissions-required-for-github-apps/#permission-on-security-events)                         | [Code scanning API](/rest/reference/code-scanning/) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。{% endif %}
 | [`single_file`](/rest/reference/permissions-required-for-github-apps/#permission-on-single-file)                                 | [Contents API](/rest/reference/repos#contents) へのアクセス権を付与します。 `none`、`read`、`write` のいずれかです。                                                                                                                                                                                                                                                  |
@@ -123,6 +123,7 @@ webhook を保護するためにシークレットが必要なアプリケーシ
 | [`pull_request`](/webhooks/event-payloads/#pull_request)                               | `pull_requests`                                   | {% data reusables.webhooks.pull_request_short_desc %}
 | [`pull_request_review`](/webhooks/event-payloads/#pull_request_review)                 | `pull_request`                                    | {% data reusables.webhooks.pull_request_review_short_desc %}
 | [`pull_request_review_comment`](/webhooks/event-payloads/#pull_request_review_comment) | `pull_request`                                    | {% data reusables.webhooks.pull_request_review_comment_short_desc %}
+| [`pull_request_review_thread`](/webhooks/event-payloads/#pull_request_review_thread)   | `pull_request`                                    | {% data reusables.webhooks.pull_request_review_thread_short_desc %}
 | [`プッシュ`](/webhooks/event-payloads/#push)                                               | `contents`                                        | {% data reusables.webhooks.push_short_desc %}
 | [`リリース`](/webhooks/event-payloads/#release)                                            | `contents`                                        | {% data reusables.webhooks.release_short_desc %}
 | [`リポジトリ`](/webhooks/event-payloads/#repository)                                        | `メタデータ`                                           | {% data reusables.webhooks.repository_short_desc %}{% ifversion fpt or ghec %}

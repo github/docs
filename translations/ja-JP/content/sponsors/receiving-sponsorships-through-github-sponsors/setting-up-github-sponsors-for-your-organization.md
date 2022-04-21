@@ -23,7 +23,7 @@ shortTitle: Set up for organization
 
 Organizationとして{% data variables.product.prodname_sponsors %} 参加する招待を受け取ったら、以下のステップを実行すればスポンサードOrganizationになることができます。
 
-Organization 外の個人コントリビューターとして {% data variables.product.prodname_sponsors %} に参加するには、「[ユーザーアカウントに {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」を参照してください。
+To join {% data variables.product.prodname_sponsors %} as an individual contributor outside an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 {% data reusables.sponsors.view-eligible-accounts %}

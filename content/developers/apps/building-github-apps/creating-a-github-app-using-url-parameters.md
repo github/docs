@@ -17,7 +17,7 @@ shortTitle: App creation query parameters
 
 You can add query parameters to these URLs to preselect the configuration of a {% data variables.product.prodname_github_app %} on a personal or organization account:
 
-* **User account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **Personal account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
 * **Organization account:** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 The person creating the app can edit the preselected values from the {% data variables.product.prodname_github_app %} registration page, before submitting the app. If you do not include required parameters in the URL query string, like `name`, the person creating the app will need to input a value before submitting the app.
@@ -82,7 +82,7 @@ Permission | Description
 `plan` | Grants access to get information about a user's GitHub plan using the "[Get a user](/rest/reference/users#get-a-user)" endpoint. Can be one of: `none` or `read`.
 [`pull_requests`](/rest/reference/permissions-required-for-github-apps/#permission-on-pull-requests) | Grants access to various pull request endpoints. Can be one of: `none`, `read`, or `write`.
 [`repository_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-hooks) | Grants access to the [Repository Webhooks API](/rest/reference/repos#hooks). Can be one of: `none`, `read`, or `write`.
-[`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects) |  Grants access to the [Projects API](/rest/reference/projects). Can be one of: `none`, `read`, `write`, or `admin`.{% ifversion fpt or ghes or ghec %}
+[`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects) |  Grants access to the [Projects API](/rest/reference/projects). Can be one of: `none`, `read`, `write`, or `admin`.{% ifversion ghes or ghec %}
 [`secret_scanning_alerts`](/rest/reference/permissions-required-for-github-apps/#permission-on-secret-scanning-alerts) |  Grants access to the [Secret scanning API](/rest/reference/secret-scanning). Can be one of: `none`, `read`, or `write`.{% endif %}{% ifversion fpt or ghes or ghec %}
 [`security_events`](/rest/reference/permissions-required-for-github-apps/#permission-on-security-events) |  Grants access to the [Code scanning API](/rest/reference/code-scanning/). Can be one of: `none`, `read`, or `write`.{% endif %}
 [`single_file`](/rest/reference/permissions-required-for-github-apps/#permission-on-single-file) | Grants access to the [Contents API](/rest/reference/repos#contents). Can be one of: `none`, `read`, or `write`.
@@ -122,6 +122,7 @@ Webhook event name | Required permission | Description
 [`pull_request`](/webhooks/event-payloads/#pull_request) | `pull_requests` | {% data reusables.webhooks.pull_request_short_desc %}
 [`pull_request_review`](/webhooks/event-payloads/#pull_request_review) | `pull_request` | {% data reusables.webhooks.pull_request_review_short_desc %}
 [`pull_request_review_comment`](/webhooks/event-payloads/#pull_request_review_comment) | `pull_request` | {% data reusables.webhooks.pull_request_review_comment_short_desc %}
+[`pull_request_review_thread`](/webhooks/event-payloads/#pull_request_review_thread) | `pull_request` | {% data reusables.webhooks.pull_request_review_thread_short_desc %}
 [`push`](/webhooks/event-payloads/#push) | `contents` | {% data reusables.webhooks.push_short_desc %}
 [`release`](/webhooks/event-payloads/#release) | `contents` | {% data reusables.webhooks.release_short_desc %}
 [`repository`](/webhooks/event-payloads/#repository) |`metadata` | {% data reusables.webhooks.repository_short_desc %}{% ifversion fpt or ghec %}

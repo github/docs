@@ -78,7 +78,7 @@ Cuando las {% data variables.product.prodname_oauth_apps %} solicitan permisos d
 
 ## {% data variables.product.prodname_oauth_apps %} y organizaciones
 
-Cuando autorizas una {% data variables.product.prodname_oauth_app %} para tu cuenta de usuario personal, verás cómo la autorización afectará a cada organización de la que eres miembro.
+When you authorize an {% data variables.product.prodname_oauth_app %} for your personal account, you'll also see how the authorization will affect each organization you're a member of.
 
 - **Para organizaciones *con restricciones de acceso a * {% data variables.product.prodname_oauth_app %}, puedes solicitar que los administradores de la organización aprueben la aplicación para usar en esa organización.** Si la organización no aprueba la aplicación, la aplicación solo podrá acceder a los recursos públicos de la organización. Si eres administrador de una organización, puedes [aprobar la aplicación](/articles/approving-oauth-apps-for-your-organization) por tu cuenta.
 

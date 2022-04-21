@@ -17,6 +17,13 @@ Organizationの設定から、{% data variables.product.company_short %}のコ�
 
 {% data reusables.security.compliance-report-list %}
 
+
+{% note %}
+
+**ノート:** コンプライアンスレポートを表示するには、Organizationは{% data variables.product.prodname_ghe_cloud %}を使っていなければなりません。 {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+
 ## Organizationのコンプライアンスレポートへのアクセス
 
 {% data reusables.profile.access_org %}

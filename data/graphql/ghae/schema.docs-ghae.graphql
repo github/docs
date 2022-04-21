@@ -35660,6 +35660,11 @@ input StartRepositoryMigrationInput {
   repositoryName: String!
 
   """
+  Whether to skip migrating releases for the repository.
+  """
+  skipReleases: Boolean
+
+  """
   The ID of the Octoshift migration source.
   """
   sourceId: ID! @possibleTypes(concreteTypes: ["MigrationSource"])
@@ -38444,6 +38449,11 @@ type TreeEntry {
   Whether or not this tree entry is generated
   """
   isGenerated: Boolean!
+
+  """
+  Number of lines in the file.
+  """
+  lineCount: Int
 
   """
   Entry file mode.

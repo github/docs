@@ -26,10 +26,12 @@ Para mantener la seguridad de cuenta, puedes revisar tu lista de llaves SSH frec
 Si no has usado tu clave SSH por un año, entonces {% data variables.product.prodname_dotcom %} automáticamente eliminará tu clave SSH inactiva, como medida de seguridad. Para obtener más información, consulta "[Claves SSH eliminadas o faltantes](/articles/deleted-or-missing-ssh-keys)".
 {% endif %}
 
-Si eres miembro de una organización que provee certificados SSH, puedes usar tu certificado para acceder a los repositorios de esa organización sin agregar el certificado a tu cuenta de {% data variables.product.product_name %}. No puedes utilizar tu certificado para acceder a bifurcaciones de los repositorios de la organización que le pertenezcan a tu cuenta de usuario. Para obtener más información, consulta [Acerca de las autoridades de certificación de SSH](/articles/about-ssh-certificate-authorities)".
+{% ifversion fpt %}
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can provide SSH certificates, which members can use to access that organization's repositories without adding the certificate to their account on {% data variables.product.product_name %}. If you're using an SSH certificate, you cannot use the certificate to access forks of the organization's repositories, if the fork is owned by your personal account. For more information, see "[About SSH certificate authorities](/enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+{% else ghec or ghes or ghae %}
+Si eres miembro de una organización que provee certificados SSH, puedes usar tu certificado para acceder a los repositorios de esa organización sin agregar el certificado a tu cuenta de {% data variables.product.product_name %}. You cannot use your certificate to access forks of the organization's repositories, if the forks is owned by your personal account. For more information, see "[About SSH certificate authorities](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+{% endif %}
 
 ## Leer más
 
-- "[Comprobar claves SSH existentes](/articles/checking-for-existing-ssh-keys)"
-- "[Probar tu conexión SSH](/articles/testing-your-ssh-connection)"
 - "[Solucionar problemas de SSH](/articles/troubleshooting-ssh)"

@@ -22,7 +22,7 @@ shortTitle: Secretos cifrados
 
 ## Acerca de los secretos cifrados para los {% data variables.product.prodname_codespaces %}
 
-Puedes agregar a tu cuenta de usuario los secretos cifrados que quieras utilizar en tus codespaces. Por ejemplo, puede que quieras almacenar y acceder a la siguiente información sensible en forma de un secreto cifrado.
+You can add encrypted secrets to your personal account that you want to use in your codespaces. Por ejemplo, puede que quieras almacenar y acceder a la siguiente información sensible en forma de un secreto cifrado.
 
 - Tokens de acceso personal para los servicios en la nube
 - Entidades de servicio

@@ -1,10 +1,10 @@
 ---
 title: Limiting interactions for your user account
-intro: You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your user account.
+intro: You can temporarily enforce a period of limited activity for certain users in all public repositories owned by your personal account.
 versions:
   fpt: '*'
   ghec: '*'
-permissions: Anyone can limit interactions for their own user account.
+permissions: Anyone can limit interactions for their own personal account.
 redirect_from:
   - /github/building-a-strong-community/limiting-interactions-for-your-user-account
 topics:
@@ -14,7 +14,7 @@ shortTitle: Limit interactions in account
 
 ## About temporary interaction limits
 
-Limiting interactions for your user account enables temporary interaction limits for all public repositories owned by your user account. {% data reusables.community.interaction-limits-restrictions %}
+Limiting interactions for your personal account enables temporary interaction limits for all public repositories owned by your personal account. {% data reusables.community.interaction-limits-restrictions %}
 
 {% data reusables.community.interaction-limits-duration %} After the duration of your limit passes, users can resume normal activity in your public repositories.
 
@@ -24,7 +24,7 @@ When you enable user-wide activity limitations, you can't enable or disable inte
 
 You can also block users. For more information, see "[Blocking a user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)." 
 
-## Limiting interactions for your user account
+## Limiting interactions for your personal account
 
 {% data reusables.user-settings.access_settings %}
 1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Interaction limits**.

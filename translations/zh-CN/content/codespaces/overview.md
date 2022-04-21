@@ -30,9 +30,9 @@ topics:
 
 您可以从存储库中的任何分支或提交创建代码空间，并使用基于云的计算资源开始开发。 {% data reusables.codespaces.links-to-get-started %}
 
-要自定义代码空间中的运行时和工具，可以创建自定义配置来定义特定于存储库的环境（或_开发容器_）。 使用开发容器，可以使用定义明确的工具和运行时堆栈指定 Docker 环境进行开发，这些工具和运行时堆栈可以引用映像、Dockerfile 或 docker-compose。 这意味着使用存储库的任何人在创建代码空间时都将拥有相同的工具。
+要自定义代码空间中的运行时和工具，可以为存储库创建一个或多个开发容器配置。 通过将开发容器配置添加到存储库，可以定义适合用户将在存储库中执行的工作的不同开发环境选择。
 
-如果不执行任何自定义配置，{% data variables.product.prodname_codespaces %} 会将存储库克隆到具有默认代码空间映像的环境中，该映像包含许多工具、语言和运行时环境。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
+如果不添加开发容器配置， {% data variables.product.prodname_codespaces %} 会将存储库克隆到具有默认代码空间映像的环境中，该映像包含许多工具、语言和运行时环境。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)”。
 
 您还可以通过使用公共 [dotfiles](https://dotfiles.github.io/tutorials/) 存储库和[设置同步](https://code.visualstudio.com/docs/editor/settings-sync)来个性化代码空间环境的各个方面。 个性化设置可以包括 shell 首选项、其他工具、编辑器设置和 VS Code 扩展。 更多信息请参阅“[自定义代码空间](/codespaces/customizing-your-codespace)”。
 
