@@ -1,6 +1,6 @@
 ---
-title: Git database
-intro: 'The Git Database API enables you to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update Git references (branch heads and tags).'
+title: Git 数据库
+intro: 'Git 数据库 API 使您能够在 {% data variables.product.product_name %} 上的 Git 数据库中读取和写入原始 Git 对象，并列出和更新 Git 引用（分支头部和标记）。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/git
@@ -21,4 +21,4 @@ children:
   - /trees
 ---
 
-The Git Database API gives you access to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update your references (branch heads and tags). For more information about using the Git Database API, see "[Getting started with the Git data API](/rest/guides/getting-started-with-the-git-database-api)."
+Git 数据库 API 使您能够在 {% data variables.product.product_name %} 上的 Git 数据库中读取和写入原始 Git 对象，并列出和更新您的引用（分支头部和标记）。 有关使用 Git 数据库 API 的更多信息，请参阅“[Git 数据库 API 入门指南](/rest/guides/getting-started-with-the-git-database-api)”。

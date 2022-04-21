@@ -1,6 +1,6 @@
 ---
-title: Organization
-intro: "The Organization Interactions API allows organization owners to temporarily restrict which type of user can comment, open issues, or create pull requests in the organization's public repositories."
+title: 组织
+intro: 组织交互 API 允许组织所有者临时限制哪类用户可以在组织的公共仓库中发表评论、开设议题或创建拉取请求。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,10 +10,10 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.interactions.interactions-detail %} Here's more about the types of {% data variables.product.product_name %} users:
+{% data reusables.interactions.interactions-detail %} 以下是有关 {% data variables.product.product_name %} 用户类型的更多信息：
 
-* {% data reusables.interactions.existing-user-limit-definition %} in the organization.
-* {% data reusables.interactions.contributor-user-limit-definition %} in the organization.
-* {% data reusables.interactions.collaborator-user-limit-definition %} in the organization.
+* 组织中的 {% data reusables.interactions.existing-user-limit-definition %}。
+* 组织中的 {% data reusables.interactions.contributor-user-limit-definition %}。
+* 组织中的 {% data reusables.interactions.collaborator-user-limit-definition %}。
 
-Setting the interaction limit at the organization level will overwrite any interaction limits that are set for individual repositories owned by the organization. To set different interaction limits for individual repositories owned by the organization, use the [Repository](#repository) interactions endpoints instead.
+在组织级别设置交互限制将覆盖为组织拥有的各个仓库设置的任何交互限制。 要为组织拥有的各个仓库设置不同的交互限制，请改用[仓库](#repository)交互端点。

@@ -257,13 +257,16 @@ translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-f
 translations/zh-CN/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository.md,broken liquid tags
 translations/zh-CN/content/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository.md,broken liquid tags
 translations/zh-CN/content/repositories/working-with-files/managing-files/deleting-files-in-a-repository.md,broken liquid tags
+translations/zh-CN/content/rest/activity/events.md,broken liquid tags
+translations/zh-CN/content/rest/apps/marketplace.md,broken liquid tags
+translations/zh-CN/content/rest/enterprise-admin/index.md,broken liquid tags
 translations/zh-CN/content/rest/guides/basics-of-authentication.md,Listed in localization-support#489
 translations/zh-CN/content/rest/guides/getting-started-with-the-checks-api.md,broken liquid tags
 translations/zh-CN/content/rest/guides/getting-started-with-the-rest-api.md,broken liquid tags
 translations/zh-CN/content/rest/overview/other-authentication-methods.md,Listed in localization-support#489
 translations/zh-CN/content/rest/overview/other-authentication-methods.md,broken liquid tags
 translations/zh-CN/content/rest/overview/resources-in-the-rest-api.md,Listed in localization-support#489
-translations/zh-CN/content/rest/reference/enterprise-admin.md,broken liquid tags
+translations/zh-CN/content/rest/packages.md,broken liquid tags
 translations/zh-CN/content/search-github/getting-started-with-searching-on-github/about-searching-on-github.md,broken liquid tags
 translations/zh-CN/content/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment.md,rendering error
 translations/zh-CN/content/sponsors/getting-started-with-github-sponsors/about-github-sponsors.md,broken liquid tags
@@ -307,11 +310,8 @@ translations/zh-CN/data/reusables/package_registry/next-steps-for-packages-enter
 translations/zh-CN/data/reusables/package_registry/packages-cluster-support.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/deleted_forks_from_private_repositories_warning.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/github-reviews-security-advisories.md,broken liquid tags
-translations/zh-CN/data/reusables/rest-reference/activity/events.md,broken liquid tags
-translations/zh-CN/data/reusables/rest-reference/apps/marketplace.md,broken liquid tags
-translations/zh-CN/data/reusables/rest-reference/packages/packages.md,broken liquid tags
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,Listed in localization-support#489
-translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
+translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
 translations/zh-CN/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/sponsors/feedback.md,broken liquid tags

@@ -1,6 +1,6 @@
 ---
-title: Rate limit
-intro: 'With the Rate Limit API, you can check the current rate limit status of various REST APIs.'
+title: 速率限制
+intro: 使用速率限制 API，您可以检查各种 REST API 的当前速率限制状态。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,21 +13,20 @@ redirect_from:
   - /rest/reference/rate-limit
 ---
 
-The REST API overview documentation describes the [rate limit rules](/rest/overview/resources-in-the-rest-api#rate-limiting). You can check your current rate limit status at any time using the Rate Limit API described below.
+REST API 概述文档描述了[速率限制规则](/rest/overview/resources-in-the-rest-api#rate-limiting)。 您可以随时使用下面描述的速率限制 API 来检查您当前的速率限制状态。
 
-### Understanding your rate limit status
+### 了解您的速率限制状态
 
-The Search API has a [custom rate limit](/rest/reference/search#rate-limit), separate from the rate limit governing the rest of the REST API. The GraphQL API also has a [custom rate limit]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations#rate-limit) that is separate from and calculated differently than rate limits in the REST API.
+搜索 API 具有[自定义速率限制](/rest/reference/search#rate-limit)，与管理 REST API 其余部分的速率限制不同。 GraphQL API 也有[自定义速率限制]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations#rate-limit)，它与 REST API 中的速率限制不同且分开计算。
 
-For these reasons, the Rate Limit API response categorizes your rate limit. Under `resources`, you'll see four
-objects:
+出于这些原因，速率限制 API 响应对速率限制进行分类。 在`资源`下，您会看到四个 对象：
 
-* The `core` object provides your rate limit status for all non-search-related resources in the REST API.
+* `核心`对象提供 REST API 中所有非搜索相关资源的速率限制状态。
 
-* The `search` object provides your rate limit status for the [Search API](/rest/reference/search).
+* `搜索`对象提供[搜索 API](/rest/reference/search) 的速率限制状态。
 
-* The `graphql` object provides your rate limit status for the [GraphQL API]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql).
+* `graphql`对象提供 [GraphQL API]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql) 的速率限制状态。
 
-* The `integration_manifest` object provides your rate limit status for the [GitHub App Manifest code conversion](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration) endpoint.
+* `integration_manifest` 对象提供 [GitHub 应用程序清单代码转换](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration)端点的速率限制状态。
 
-For more information on the headers and values in the rate limit response, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
+有关速率限制响应中标头和值的更多信息，请参阅“[REST API 中的资源](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)”。

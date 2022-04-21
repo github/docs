@@ -1,5 +1,5 @@
 ---
-title: Blocking users
+title: 阻止用户
 intro: ''
 versions:
   fpt: '*'
@@ -10,4 +10,4 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-The token used to authenticate the call must have the `admin:org` scope in order to make any blocking calls for an organization. Otherwise, the response returns `HTTP 404`.
+用于对调用进行身份验证的令牌必须具有 `admin:org` 作用域才可对组织进行任何阻止调用。 否则，响应将返回 `HTTP 404`。

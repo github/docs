@@ -1062,6 +1062,28 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_comment.created }}
 
+## pull_request_review_thread
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+### 可用性
+
+- 仓库 web 挂钩
+- 组织 web 挂钩
+- 具有 `pull_requests` 权限的 {% data variables.product.prodname_github_apps %}
+
+### Web 挂钩有效负载对象
+
+{% data reusables.webhooks.pull_request_thread_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Web 挂钩有效负载示例
+
+{{ webhookPayloadsForCurrentVersion.pull_request_review_thread.resolved }}
+
 ## 推送
 
 {% data reusables.webhooks.push_short_desc %}
@@ -1163,7 +1185,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 | 键        | 类型    | 描述                                           |
 | -------- | ----- | -------------------------------------------- |
-| `action` | `字符串` | 执行的操作内容. 可以是以下选项之一：<ul><li>`created` - 创建了仓库。</li><li>`deleted` - 仓库被删除。</li><li>`archived` - 仓库被存档。</li><li>`unarchived` - 仓库被取消存档。</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - 仓库被[启用匿名 Git 访问](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - 仓库被[禁用匿名 Git 访问](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - 仓库的信息被编辑。</li><li>`renamed` - 仓库被重命名。</li><li>`transferred` - 仓库被转让。</li><li>`publicized` - 仓库被设为公共。</li><li> `privatized` - 仓库被设为私有。</li></ul> |
+| `action` | `字符串` | 执行的操作内容. 可以是以下选项之一：<ul><li>`created` - 创建了仓库。</li><li>`deleted` - 仓库被删除。</li><li>`archived` - 仓库被存档。</li><li>`unarchived` - 仓库被取消存档。</li>{% ifversion ghes or ghae %}<li>“anonymous_access_enabled” - 存储库 [已启用匿名 Git 访问](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise), `anonymous_access_disabled` - 存储库 [已禁用匿名 Git 访问] (/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)</li>{% endif %}<li>`edited` - 仓库的信息被编辑。</li><li>`renamed` - 仓库被重命名。</li><li>`transferred` - 仓库被转让。</li><li>`publicized` - 仓库被设为公共。</li><li> `privatized` - 仓库被设为私有。</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}

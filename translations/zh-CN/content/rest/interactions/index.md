@@ -1,6 +1,6 @@
 ---
-title: Interactions
-intro: 'With the Interactions API, people with owner or admin access can set the interaction limit for the users in their organizations and repositories.'
+title: 互动
+intro: 通过 Interactions API，拥有所有者或管理员访问权限的人可以为其组织和仓库中的用户设置互动限制。
 redirect_from:
   - /v3/interactions
   - /rest/reference/interactions
@@ -16,4 +16,4 @@ children:
   - /user
 ---
 
-Users interact with repositories by commenting, opening issues, and creating pull requests. The Interactions APIs allow people with owner or admin access to temporarily restrict interaction with public repositories to a certain type of user.
+用户通过评论、开设议题和创建拉取请求与仓库进行交互。 交互 API 允许具有公共仓库所有者或具有管理员访问权限的用户临时将与公共仓库的交互限于特定类型的用户。
