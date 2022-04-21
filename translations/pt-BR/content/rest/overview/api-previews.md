@@ -4,7 +4,7 @@ intro: Você pode usar pré-visualizações da API para testar novos recursos e 
 redirect_from:
   - /v3/previews
 versions:
-  ghes: '*'
+  ghes: <3.4
   ghae: '*'
 topics:
   - API
@@ -47,14 +47,6 @@ Obter uma [lista de eventos](/rest/reference/issues#timeline) para um problema o
 
 {% endif %}
 
-{% ifversion ghes %}
-## Ambientes pre-receive
-
-Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
-
-**Tipo de mídia personalizada:** `eye-scream-preview` **Anunciado em:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## Projetos
 
@@ -88,7 +80,7 @@ Veja todos os [códigos de conduta](/rest/reference/codes-of-conduct) ou obtenha
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## Webhooks globais
 
