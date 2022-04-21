@@ -1,0 +1,1 @@
+For more information on how to synchronize your GitHub projects with your computer, see “[Set up Git](/get-started/quickstart/set-up-git).”
