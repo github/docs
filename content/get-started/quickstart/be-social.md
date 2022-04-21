@@ -67,4 +67,5 @@ You are now connected to the {% data variables.product.product_name %} community
 {% data reusables.get-started.set-up-git %}
 {% data reusables.get-started.create-a-repository %}
 {% data reusables.get-started.fork-a-repository %}
+{% data reusables.get-started.contributing-to-projects  %}
 {% data reusables.support.connect-in-the-forum-bootcamp %}

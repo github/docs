@@ -1,0 +1,1 @@
+GitHub connects users and allows you to interact with other projects. To learn more about contributing to someone else's project, see "[Contributing to projects](/get-started/quickstart/contributing-to-projects)."
