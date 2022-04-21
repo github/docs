@@ -1,6 +1,6 @@
 ---
-title: Installations
-intro: 'The Installations API enables you to get information about installations of your GitHub App and perform actions within those installations.'
+title: インストール
+intro: Installations API を使用すると、GitHub App のインストールに関する情報を取得して、それらのインストール内でアクションを実行できます。
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -11,6 +11,6 @@ versions:
   ghec: '*'
 ---
 
-An _installation_ refers to any user or organization account that has installed the app. For information on how to authenticate as an installation and limit access to specific repositories, see "[Authenticating as an installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
+_インストール_とは、アプリケーションをインストールしたユーザまたは Organization のアカウントを指します。 インストレーションとして認証し、特定のリポジトリへのアクセスを制限する方法については、「[インストレーションとして認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)」を参照してください。
 
-To list all GitHub App installations for an organization, see "[List app installations for an organization](/rest/reference/orgs#list-app-installations-for-an-organization)."
+Organization のすべての GitHub App インストレーションを一覧表示するには、「[Organization のアプリケーションインストールの一覧表示](/rest/reference/orgs#list-app-installations-for-an-organization)」を参照してください。

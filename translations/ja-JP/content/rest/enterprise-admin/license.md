@@ -1,6 +1,6 @@
 ---
-title: License
-intro: 'The License API provides information on your Enterprise license.'
+title: ライセンス
+intro: ライセンス API は、Enterprise ライセンスに関する情報を提供します。
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,4 +9,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+*[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。

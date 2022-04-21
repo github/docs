@@ -1,6 +1,6 @@
 ---
-title: Reactions
-intro: 'The Reactions API enables you to create, list and delete the reactions on comments.'
+title: リアクション
+intro: Reactions APIを使うと、コメントのリアクションの作成、リスト、削除が行えます。
 versions:
   fpt: '*'
   ghes: '*'

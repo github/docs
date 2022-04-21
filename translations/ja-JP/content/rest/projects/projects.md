@@ -1,6 +1,6 @@
 ---
-title: Projects
-intro: 'The Projects API lets you create, list, update, delete and customize projects in a repository.'
+title: プロジェクト
+intro: Projects APIを使うと、リポジトリ内のプロジェクトの作成、リスト、更新、削除、カスタマイズができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,3 +10,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

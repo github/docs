@@ -1,6 +1,6 @@
 ---
-title: Users
-intro: 'The Users migrations API is only available to authenticated account owners.'
+title: ユーザ
+intro: The Users migrations API is only available to authenticated account owners.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,10 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information, see "[Other authentication methods](/rest/overview/other-authentication-methods)."
+詳細は、「[その他の認証方式](/rest/overview/other-authentication-methods)」を参照してください。
 
-{% data variables.migrations.user_migrations_intro %} For a list of migration data that you can download, see "[Download a user migration archive](#download-a-user-migration-archive)."
+{% data variables.migrations.user_migrations_intro %}ダウンロードできる移行データのリストは、「[ユーザー移行アーカイブをダウンロードする](#download-a-user-migration-archive)」を参照してください。
 
-To download an archive, you'll need to start a user migration first. Once the status of the migration is `exported`, you can download the migration.
+アーカイブをダウンロードするには、先にユーザ移行を開始する必要があります。 移行のステータスが `exported` になると、移行をダウンロードできます。
 
-Once you've created a migration archive, it will be available to download for seven days. But, you can delete the user migration archive sooner if you'd like. You can unlock your repository when the migration is `exported` to begin using your repository again or delete the repository if you no longer need the source data.
+移行アーカイブを作成すると、7 日間ダウンロードできるようになります。 ただし、必要があればユーザ移行アーカイブはそれより以前に削除できます。 移行が `exported` になってからリポジトリのロックを解除すると、リポジトリの使用を再開でき、ソースデータが不要な場合にはリポジトリを削除することもできます。

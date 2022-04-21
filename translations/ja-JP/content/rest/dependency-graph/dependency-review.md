@@ -5,14 +5,14 @@ versions:
   fpt: '*'
   ghes: '>=3.6'
   ghec: '*'
-  ghae: 'issue-6396'
+  ghae: issue-6396
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## Dependency review
+## 依存関係のレビュー
 
 {% data reusables.dependency-review.dependency-review-api-beta-note %}
 

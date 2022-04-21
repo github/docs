@@ -1,6 +1,6 @@
 ---
-title: Secrets
-intro: 'The Secrets API lets you create, update, delete, and retrieve information about encrypted secrets. '
+title: シークレット
+intro: シークレット API では、暗号化されたシークレットに関する情報を作成、更新、削除、および取得できます。
 topics:
   - API
 versions:
@@ -10,6 +10,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.about-secrets %} For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+{% data reusables.actions.about-secrets %} 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `secrets` permission to use this API. Authenticated users must have collaborator access to a repository to create, update, or read secrets.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `secrets` permission to use this API. 認証されたユーザは、シークレットを作成、更新、または読み取るために、リポジトリへのコラボレータアクセス権を持っている必要があります。

@@ -1,6 +1,6 @@
 ---
-title: Releases
-intro: 'The releases API allows you to create, modify, and delete releases and release assets.'
+title: リリース
+intro: リリースAPIを使うと、リリースとリリースアセットの作成、変更、削除ができます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,3 +16,4 @@ children:
 redirect_from:
   - /rest/reference/releases
 ---
+
