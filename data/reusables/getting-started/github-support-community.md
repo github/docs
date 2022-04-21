@@ -1,1 +1,0 @@
-GitHub has a great support community where you can ask for help and talk to people from around the world. To join the conversation, visit “[GitHub Support Community](https://github.community/).”
