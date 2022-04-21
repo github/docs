@@ -5,7 +5,7 @@ redirect_from:
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
-intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they''re connecting with from your personal dashboard.'
+intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they are connecting with from your personal dashboard.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
@@ -33,7 +33,7 @@ For more information, see "[Following people](/get-started/exploring-projects-on
 
 ## Watching a repository
 
-You can subscribe to watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
+You can subscribe to watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you will see the changes in your personal dashboard. For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
 
 Click **Watch** at the top of a repository to watch it.
 
@@ -45,7 +45,9 @@ Click **Watch** at the top of a repository to watch it.
 
 ## Communicating on {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, allowing you to interact closely with your community when building great software. For example, you can contribute to another user's project by creating a pull request, or use issues to track bugs or suggest ideas in a repository. You can also brainstorm new ideas with your team with discussions. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)." To learn more about discussions, see "[{% data variables.product.prodname_dotcom %} Discussions](/discussions)."
+{% data variables.product.product_name %} provides built-in collaborative communication tools, allowing you to interact closely with your community when building great software. For example, you can contribute to another user's project by creating a pull request, or use issues to track bugs or suggest ideas in a repository. You can also brainstorm new ideas with your team with discussions. 
+
+For an overview of these tools and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)." To learn more about discussions, see "[{% data variables.product.prodname_dotcom %} Discussions](/discussions)."
 
 ## Participating in organizations
 
@@ -64,8 +66,12 @@ To explore more projects, see "{% data variables.explore.explore_github %}".
 ## Next steps
 You are now connected to the {% data variables.product.product_name %} community. There are other ways to interact and build within {% data variables.product.product_name %}.
 
-{% data reusables.getting-started.set-up-git %}
-{% data reusables.getting-started.create-a-repository %}
-{% data reusables.getting-started.fork-a-repository %}
-{% data reusables.getting-started.contributing-to-projects  %}
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.getting-started.set-up-git %}
+
+* {% data reusables.getting-started.create-a-repository %}
+
+* {% data reusables.getting-started.fork-a-repository %}
+
+* {% data reusables.getting-started.contributing-to-projects  %}
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}
