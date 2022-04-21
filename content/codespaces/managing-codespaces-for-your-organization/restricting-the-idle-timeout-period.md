@@ -20,7 +20,7 @@ As an organization owner, you may want to configure constraints on the maximum i
 
 {% note %}
 
-**Note**: Maximum idle timeout constraints only apply to codespaces that are owned by your organization. They do not apply to codespaces for which the organization is not the billable owner.
+**Note**: Maximum idle timeout constraints only apply to codespaces that are owned by your organization.
 
 {% endnote %}
 
