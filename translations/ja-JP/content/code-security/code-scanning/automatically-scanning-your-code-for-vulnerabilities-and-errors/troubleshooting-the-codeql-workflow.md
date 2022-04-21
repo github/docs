@@ -160,6 +160,11 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 成果物には、{% data variables.product.prodname_codeql %}によってスキャンされたソースのアーカイブされたコピーが_src.zip_という名前で含まれます。 リポジトリ中のソースコードファイルと_src.zip_中のファイルを比較すれば、どういった種類のファイルが欠けているかが分かります。 分析されなかったファイルの種類が分かれば、{% data variables.product.prodname_codeql %}分析のためのワークフローをどのように変更しなければならないかは簡単に理解できるようになります。
 
+## Alerts found in generated code
+
+{% data reusables.code-scanning.alerts-found-in-generated-code %}
+
+
 ## データベース中の抽出エラー
 
 {% data variables.product.prodname_codeql %}チームは、すべてのそー祖ファイルが確実にスキャンできるようにするため、重要な抽出エラーに取り組んでいます。 とはいえ、{% data variables.product.prodname_codeql %}の抽出部は、データベースの生成時にエラーを生成する事があります。 {% data variables.product.prodname_codeql %}は、データベースの生成の間に生成された抽出エラーと警告に関する情報を、ログファイル中に提供します。 抽出の診断情報は、全体的なデータベースの健全性を示します。 ほとんどの抽出部のエラーは、分析に大きな影響を与えません。 少数の抽出部のエラーは健全なもので、通常は良好な分析状況を示します。
@@ -189,9 +194,7 @@ C/C++、C#、Go、Javaなどのコンパイル言語については、{% data va
 
 一般的に、分析時間は分析されるコードの量に比例します。 たとえば、テストコードを除外したり、一度にコードのサブセットのみを分析する複数のワークフローに分析を分割したりするなど、一度に分析されるコードの量を減らすことで、分析時間を短縮できます。
 
-Java、C、C++、C# などのコンパイルされた言語の場合、{% data variables.product.prodname_codeql %} はワークフローの実行中に作成されたすべてのコードを分析します。 分析するコードの量を制限するには、`run` ブロックで独自のビルドステップを指定して、分析するコードのみをビルドします。 独自のビルドステップの指定と、`pull_request` および `push` イベントの `paths` または `paths-ignore` フィルタの使用を組み合わせて、特定のコードが変更されたときにのみワークフローが実行されるようにすることができます。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)」を参照してください。
-
-ソースコードをコンパイルすることなく {% data variables.product.prodname_codeql %} が分析する Go、JavaScript、Python、TypeScript などの言語の場合、追加の設定オプションを指定して分析するコードの量を制限できます。 詳しい情報については、「[スキャンするディレクトリを指定する](/code-security/secure-coding/configuring-code-scanning#specifying-directories-to-scan)」を参照してください。
+{% data reusables.code-scanning.alerts-found-in-generated-code %}
 
 上記のように分析を複数のワークフローに分割する場合でも、リポジトリ内のすべてのコードを分析する `schedule` で実行されるワークフローを少なくとも 1 つ用意することをお勧めします。 {% data variables.product.prodname_codeql %} はコンポーネント間のデータフローを分析するため、一部の複雑なセキュリティ動作は完全なビルドでのみ検出される場合があります。
 
