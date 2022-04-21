@@ -140,7 +140,7 @@ You can add a predefined dev container configuration either while working in a c
 
 1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-changes-to-your-configuration)."
 
-   !["Codespaces: Rebuild Container" in the {% data variables.product.prodname_vs_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
+   !["Codespaces: Rebuild Container" in the {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
 
 ### Adding additional features to your `devcontainer.json` file
 
