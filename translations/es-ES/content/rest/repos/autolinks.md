@@ -1,6 +1,6 @@
 ---
-title: Autolinks
-intro: 'To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets.'
+title: Autoenlaces
+intro: 'Para ayudar a optimizar tu flujo de trabajo, puedes utilizar la API para agregar autoenlaces a los recursos externos como propuestas de JIRA y tickets de Zendesk.'
 versions:
   fpt: '*'
   ghes: '>=3.3'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+Para obtener más información, consulta la sección "[Configurar los autoenlaces para referenciar recursos externos](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)".
 
-{% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
+Las {% data variables.product.prodname_github_apps %} requieren permisos de administración de repositorios con acceso de lectura o escritura para utilizar la API de Autoenlaces.

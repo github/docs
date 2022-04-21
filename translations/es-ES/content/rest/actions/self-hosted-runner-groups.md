@@ -1,6 +1,6 @@
 ---
-title: Self-hosted runner groups
-intro: 'The Self-hosted Runners Groups API allows you manage groups of self-hosted runners.'
+title: Grupos de ejecutores auto-hospedados
+intro: La API de Grupos de Ejecutores Auto-Hospedados te permite administrar grupos para los ejecutores auto-hospedados.
 topics:
   - API
 versions:
@@ -8,10 +8,11 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
---- 
+---
+ 
 
-## Self-hosted runner groups
+## Grupos de ejecutores auto-hospedados
 
-The Self-hosted Runners Groups API allows you manage groups of self-hosted runners. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+La API de Grupos de Ejecutores Auto-Hospedados te permite administrar grupos para los ejecutores auto-hospedados. Para obtener más información, consulta la sección "[Administrar el acceso a los ejecutores auto-hospedados](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises to use this API.
+La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_apps %} debe contar con el permiso de `administration` para los repositorios o aquél de `organization_self_hosted_runners` para las organizaciones. Los usuarios autenticados deben contar con acceso administrativo a los repositorios u organizaciones o con el alcance de `manage_runners:enterprise` para empresas si quieren utilizar esta API.

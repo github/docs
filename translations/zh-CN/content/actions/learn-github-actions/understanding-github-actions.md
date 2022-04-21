@@ -72,7 +72,7 @@ topics:
 
 有关作业的详细信息，请参阅“[使用作业](/actions/using-jobs)”。
 
-### 操作
+### Actions
 
 _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应用程序，用于执行复杂但经常重复的任务。  使用操作可帮助减少在工作流程文件中编写的重复代码量。  操作可以从 {% data variables.product.prodname_dotcom %} 拉取 git 存储库，为您的构建环境设置正确的工具链，或设置对云提供商的身份验证。
 

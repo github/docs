@@ -1,6 +1,6 @@
 ---
-title: Organizations
-intro: 'The Organizations API gives you access to control and manage all your {% data variables.product.product_name %} organizations.'
+title: Organizaciones
+intro: 'La API de Organizaciones te da acceso para controlar y administrar todas tus organizaciones de {% data variables.product.product_name %}.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
@@ -21,3 +21,4 @@ children:
   - /outside-collaborators
   - /webhooks
 ---
+

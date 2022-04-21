@@ -1,6 +1,6 @@
 ---
-title: Deployments
-intro: 'The Deployments API allows you to create and delete deployments and deployment environments.'
+title: 部署
+intro: The Deployments API allows you to create and delete deployments and deployment environments.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,16 +11,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Deployments are requests to deploy a specific ref (branch, SHA, tag). GitHub dispatches a [`deployment` event](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) that external services can listen for and act on when new deployments are created. Deployments enable developers and organizations to build loosely coupled tooling around deployments, without having to worry about the implementation details of delivering different types of applications (e.g., web, native).
+部署是部署特定引用（分支、SHA、标记）的请求。 GitHub 分发一个 [`deployment` 事件](/developers/webhooks-and-events/webhook-events-and-payloads#deployment)，使外部服务可以在创建新部署时侦听并采取行动。 部署使开发者和组织能够围绕部署构建松散耦合的工具，而不必担心交付不同类型的应用程序（例如 Web 和本地应用程序）的实现细节。
 
-Deployment statuses allow external services to mark deployments with an `error`, `failure`, `pending`, `in_progress`, `queued`, or `success` state that systems listening to [`deployment_status` events](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status) can consume.
+部署状态允许外部服务将部署标记为 `error`、`failure`、`pending`、`in_progress`、`queued` 或 `success` 状态，以供侦听 [`deployment_status` 事件](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status)的系统使用。
 
-Deployment statuses can also include an optional `description` and `log_url`, which are highly recommended because they make deployment statuses more useful. The `log_url` is the full URL to the deployment output, and
-the `description` is a high-level summary of what happened with the deployment.
+部署状态还可以包含可选的 `description` 和 `log_url`，强烈建议使用它们，因为它们使部署状态更有用。 `log_url` 是部署输出的完整 URL，`description` 是关于部署过程中所发生情况的高级摘要。
 
-GitHub dispatches `deployment` and `deployment_status` events when new deployments and deployment statuses are created. These events allows third-party integrations to receive respond to deployment requests and update the status of a deployment as progress is made.
+在创建新的部署和部署状态时，GitHub 将分发 `deployment` 和 `deployment_status` 事件。 这些事件允许第三方集成接收对部署请求的响应，并在取得进展时更新部署的状态。
 
-Below is a simple sequence diagram for how these interactions would work.
+下面是一个说明这些交互的工作方式的简单序列图。
 
 ```
 +---------+             +--------+            +-----------+        +-------------+
@@ -49,12 +48,12 @@ Below is a simple sequence diagram for how these interactions would work.
      |                      |                       |                     |
 ```
 
-Keep in mind that GitHub is never actually accessing your servers. It's up to your third-party integration to interact with deployment events. Multiple systems can listen for deployment events, and it's up to each of those systems to decide whether they're responsible for pushing the code out to your servers, building native code, etc.
+请记住，GitHub 从未真正访问过您的服务器。 与部署事件的交互取决于第三方集成。 多个系统可以侦听部署事件，由其中每个系统来决定它们是否负责将代码推送到服务器、构建本地代码等。
 
-Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% ifversion not ghae %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+请注意，`repo_deployment` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps)授予对部署和部署状态的定向访问权限，但**不**授予对仓库代码的访问权限，而 {% ifversion not ghae %}`public_repo` 和{% endif %}`repo` 作用域还授予对代码的权限。
 
-### Inactive deployments
+### 非活动部署
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
+当您将部署状态设置为 `success` 时，同一仓库中所有先前的非瞬态、非生产环境部署将变成 `inactive`。 为避免这种情况，您可以在创建部署状态时将 `auto_inactive` 设置为 `false`。
 
-You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
+您可以通过将 `state` 设为 `inactive` 来表示某个瞬态环境不再存在。  将 `state` 设为 `inactive`，表示部署在 {% data variables.product.prodname_dotcom %} 中 `destroyed` 并删除对它的访问权限。

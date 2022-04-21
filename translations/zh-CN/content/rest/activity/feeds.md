@@ -1,5 +1,5 @@
 ---
-title: Feeds
+title: 馈送
 intro: ''
 versions:
   fpt: '*'
@@ -17,7 +17,7 @@ To get a feed in Atom format, you must specify the `application/atom+xml` type i
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 
-#### Response
+#### 响应
 
 ```shell
 HTTP/2 200

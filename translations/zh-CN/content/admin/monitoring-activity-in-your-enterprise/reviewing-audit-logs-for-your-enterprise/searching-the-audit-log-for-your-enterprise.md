@@ -1,7 +1,7 @@
 ---
-title: Searching the audit log for your enterprise
-intro: You can search an extensive list of audited actions in your enterprise.
-shortTitle: Search audit logs
+title: 搜索企业的审核日志
+intro: 您可以搜索企业中已审核操作的广泛列表。
+shortTitle: 搜索审核日志
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can search the audit log.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log
@@ -21,7 +21,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About search for the enterprise audit log
+## 关于搜索企业审核日志
 
 You can search your enterprise audit log directly from the user interface by using the **Filters** dropdown, or by typing a search query.
 
@@ -29,7 +29,7 @@ You can search your enterprise audit log directly from the user interface by usi
 
 For more information about viewing your enterprise audit log, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
 
-You can also use the API to retrieve audit log events. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
+You can also use the API to retrieve audit log events. 更多信息请参阅“[使用企业的审核日志 API](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)”。
 
 请注意，无法使用文本搜索条目。 但是，您可以使用各种过滤器构建搜索查询。 查询日志时使用的许多运算符，如 `-`、`>` 或 `<`，与在 {% data variables.product.product_name %} 上搜索时的格式相同。 更多信息请参阅“[在 {% data variables.product.prodname_dotcom %} 上搜索](/search-github/getting-started-with-searching-on-github/about-searching-on-github)”。
 

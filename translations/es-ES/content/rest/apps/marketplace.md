@@ -9,14 +9,14 @@ versions:
   ghec: '*'
 ---
 
-For more information about {% data variables.product.prodname_marketplace %}, see "[GitHub Marketplace](/marketplace/)."
+Para obtener más información acerca de {% data variables.product.prodname_marketplace %}, consulta "[GitHub Marketplace](/marketplace/)".
 
-The {% data variables.product.prodname_marketplace %} API allows you to see which customers are using a pricing plan, see a customer's purchases, and see if an account has an active subscription.
+La API de {% data variables.product.prodname_marketplace %} te permite ver qué clientes están utilizando un plan de precios, ver sus compras y también ver si una cuenta tiene una suscripción activa.
 
-### Testing with stubbed endpoints
+### Hacer pruebas con terminales de muestra
 
-This API includes endpoints that allow you to [test your {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) with **stubbed data**. Stubbed data is hard-coded, fake data that will not change based on actual subscriptions.
+Esta API incluye terminales que te permiten [probar tu {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) con **datos de muestra**. Los datos de muestra son datos falsos y preprogramados que no cambiarán con base en las suscripciones reales.
 
-To test with stubbed data, use a stubbed endpoint in place of its production counterpart. This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
+Para hacer pruebas con estos datos, utiliza una terminal de muestra en vez de su contraparte productiva. Esto te permite probar si la lógica de la API tendrá éxito antes de listar tus {% data variables.product.prodname_github_apps %} en {% data variables.product.prodname_marketplace %}.
 
-Be sure to replace stubbed endpoints with production endpoints before deploying your {% data variables.product.prodname_github_app %}.
+Asegúrate de reemplazar tus terminales de muestra con aquellas productivas antes de desplegar tu {% data variables.product.prodname_github_app %}.
