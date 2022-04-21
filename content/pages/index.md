@@ -1,7 +1,7 @@
 ---
 title: GitHub Pages Documentation
 shortTitle: GitHub Pages
-intro: 'Learn how to create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
+intro: 'Learn how to create a website directly from a repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}. Explore website building tools like Jekyll and troubleshoot issues with your {% data variables.product.prodname_pages %} site.'
 introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages
@@ -17,7 +17,7 @@ featuredLinks:
   popular:
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages{% endif %}'
     - /pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)
-    - /pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages)
+    - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages{% endif %}'
     - '{% ifversion fpt or ghec %}/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll{% endif %}'
