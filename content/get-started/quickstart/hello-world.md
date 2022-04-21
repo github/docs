@@ -1,3 +1,4 @@
+![repository-open-graph-template](https://user-images.githubusercontent.com/89915467/164448273-022b3c61-51bc-41c5-9caa-aecb83cf87fd.png)
 ---
 title: Hello World
 intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
