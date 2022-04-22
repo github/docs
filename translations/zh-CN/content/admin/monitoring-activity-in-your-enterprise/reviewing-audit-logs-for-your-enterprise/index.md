@@ -1,7 +1,7 @@
 ---
-title: Reviewing audit logs for your enterprise
-intro: You can view user and system activity in the audit logs for your enterprise.
-shortTitle: Review audit logs
+title: 查看企业的审核日志
+intro: 您可以在企业的审核日志中查看用户和系统活动。
+shortTitle: 查看审核日志
 versions:
   ghec: '*'
   ghes: '*'

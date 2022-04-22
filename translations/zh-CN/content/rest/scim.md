@@ -18,8 +18,8 @@ SCIM API 由 SCIM 启用的身份提供程序 (IdP) 用来自动预配 {% data v
 {% note %}
 
 **注意：**
-  - SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) 上启用了 [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) 的组织。 {% data reusables.scim.enterprise-account-scim %} 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
-  - SCIM API 不能与 {% data variables.product.prodname_emus %} 一起使用。
+  - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+  - The SCIM API cannot be used with an enterprise account or with an {% data variables.product.prodname_emu_org %}.
 
 {% endnote %}
 

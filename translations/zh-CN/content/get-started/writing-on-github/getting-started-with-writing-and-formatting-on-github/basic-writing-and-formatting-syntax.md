@@ -318,7 +318,7 @@ You can also use words, to fit your writing style more closely[^note].
 
 **注意**：Markdown 中脚注的位置不会影响该脚注的呈现位置。 您可以在引用脚注后立即写脚注，脚注仍将呈现在 Markdown 的底部。
 
-Footnotes are not supported in wikis.
+维基不支持脚注。
 
 {% endtip %}
 {% endif %}
