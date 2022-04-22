@@ -62,5 +62,6 @@ If your IdP supports SCIM, {% data variables.product.prodname_dotcom %} can auto
 
 ## Further reading
 
+- "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"
 - "[About two-factor authentication and SAML single sign-on ](/articles/about-two-factor-authentication-and-saml-single-sign-on)"
 - "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"

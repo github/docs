@@ -124,7 +124,7 @@ For more information about {% data variables.product.prodname_ghe_server %}'s us
 
 - SSH public key authentication provides both repository access using Git and administrative shell access. For more information, see "[About SSH](/authentication/connecting-to-github-with-ssh/about-ssh)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 - Username and password authentication with HTTP cookies provides web application access and session management, with optional two-factor authentication (2FA). For more information, see "[Using built-in authentication](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication)."
-- External LDAP, SAML, or CAS authentication using an LDAP service, SAML Identity Provider (IdP), or other compatible service provides access to the web application. For more information, see "[Authenticating users for your GitHub Enterprise Server instance](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance)."
+- External LDAP, SAML, or CAS authentication using an LDAP service, SAML Identity Provider (IdP), or other compatible service provides access to the web application. For more information, see "[Managing IAM for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise)."
 - OAuth and Personal Access Tokens provide access to Git repository data and APIs for both external clients and services. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 ### Audit and access logging
