@@ -19,7 +19,7 @@ topics:
 shortTitle: Access permissions
 ---
 
-## About access permissions on {% data variables.product.prodname_dotcom %}
+ ## About access permissions on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.organizations.about-roles %} 
 
