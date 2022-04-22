@@ -1,6 +1,6 @@
 ---
 title: Pulls
-intro: 'The Pulls API allows you to list, view, edit, create, and even merge pull requests.'
+intro: 'A API Pulls permite que você liste, veja, edite, crie e até mesmo faça merge de pull requests.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,13 +11,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The Pull Request API allows you to list, view, edit, create, and even merge pull requests. Comments on pull requests can be managed via the [Issue Comments API](/rest/reference/issues#comments).
+A API do Pull Request permite que você liste, visualize, edite, crie e até mesmo faça merge de pull requests. Comentários em pull requests podem ser gerenciados através da [API de Comentários do Problema](/rest/reference/issues#comments).
 
-Every pull request is an issue, but not every issue is a pull request. For this reason, "shared" actions for both features, like manipulating assignees, labels and milestones, are provided within [the Issues API](/rest/reference/issues).
+Cada pull request é um problema, mas nem todos os problemas são um pull request. Por este motivo, as ações "compartilhadas" para ambos os recursos, como a manipulação de responsáveis, etiquetas e marcos são fornecidos dentro de [a API de problemas](/rest/reference/issues).
 
-### Custom media types for pull requests
+### Tipos de mídia personalizados para pull requests
 
-These are the supported media types for pull requests.
+Estes são os tipos de mídia compatíveis com pull requests.
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
@@ -26,21 +26,21 @@ These are the supported media types for pull requests.
     application/vnd.github.VERSION.diff
     application/vnd.github.VERSION.patch
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+Para obter mais informações, consulte "[tipos de mídia personalizados](/rest/overview/media-types)".
 
-If a diff is corrupt, contact {% data variables.contact.contact_support %}. Include the repository name and pull request ID in your message.
+Se um diff estiver corrompido, entre em contato com {% data variables.contact.contact_support %}. Inclua o nome e o ID do pull request do repositório na sua mensagem.
 
-### Link Relations
+### Relações do Link
 
-Pull Requests have these possible link relations:
+Pull Requests têm estas relações de link possíveis:
 
-Name | Description
------|-----------|
-`self`| The API location of this Pull Request.
-`html`| The HTML location of this Pull Request.
-`issue`| The API location of this Pull Request's [Issue](/rest/reference/issues).
-`comments`| The API location of this Pull Request's [Issue comments](/rest/reference/issues#comments).
-`review_comments`| The API location of this Pull Request's [Review comments](/rest/reference/pulls#comments).
-`review_comment`| The [URL template](/rest#hypermedia) to construct the API location for a [Review comment](/rest/reference/pulls#comments) in this Pull Request's repository.
-`commits`|The API location of this Pull Request's [commits](#list-commits-on-a-pull-request).
-`statuses`| The API location of this Pull Request's [commit statuses](/rest/reference/commits#commit-statuses), which are the statuses of its `head` branch.
+| Nome              | Descrição                                                                                                                                                            |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `self`            | O local da API deste Pull Request.                                                                                                                                   |
+| `html`            | O locl do HTML deste Pull Request.                                                                                                                                   |
+| `problema`        | O local da API do [Problema](/rest/reference/issues) deste Pull Request.                                                                                             |
+| `comentários`     | O local da API dos [comentários do problema](/rest/reference/issues#comments) deste Pull Request.                                                                    |
+| `review_comments` | O local da API dos [comentários da revisão](/rest/reference/pulls#comments) deste Pull Request.                                                                      |
+| `review_comment`  | O [modelo de URL](/rest#hypermedia) para construir o local da API para um [comentário de revisão](/rest/reference/pulls#comments) no repositório deste Pull Request. |
+| `commits`         | O local da API dos [commits](#list-commits-on-a-pull-request) deste Pull Request.                                                                                    |
+| `Status`          | O local da API dos [status do commit](/rest/reference/commits#commit-statuses) deste pull request, que são os status no seu branch `principal`.                      |

@@ -9,14 +9,14 @@ versions:
   ghec: '*'
 ---
 
-For more information about {% data variables.product.prodname_marketplace %}, see "[GitHub Marketplace](/marketplace/)."
+Para obter mais informações sobre {% data variables.product.prodname_marketplace %}, consulte "[GitHub Marketplace](/marketplace/)".
 
-The {% data variables.product.prodname_marketplace %} API allows you to see which customers are using a pricing plan, see a customer's purchases, and see if an account has an active subscription.
+A API de {% data variables.product.prodname_marketplace %} permite que você veja quais clientes estão usando um plano de preços, as compras de um cliente e se uma conta tem uma assinatura ativa.
 
-### Testing with stubbed endpoints
+### Fazer testes com pontos de extremidades de amostra
 
-This API includes endpoints that allow you to [test your {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) with **stubbed data**. Stubbed data is hard-coded, fake data that will not change based on actual subscriptions.
+Esta API inclui pontos de extremidade que permitem que você [teste o seu {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) com **dados de amostra**. Os dados do de amostra têm código rígido, dados falsos e não serão alterados com base em assinaturas reais.
 
-To test with stubbed data, use a stubbed endpoint in place of its production counterpart. This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
+Para fazer teste com dados de amostra, use um pontos de extremidade de amostra no lugar da sua contraparte de produção. Isso permite que você teste se a lógica da API é bem-sucedida antes de anunciar {% data variables.product.prodname_github_apps %} em {% data variables.product.prodname_marketplace %}.
 
-Be sure to replace stubbed endpoints with production endpoints before deploying your {% data variables.product.prodname_github_app %}.
+Certifique-se de substituir pontos de extremidades de amostra pelos pontos de extremidades de produção antes de implantar seu {% data variables.product.prodname_github_app %}.

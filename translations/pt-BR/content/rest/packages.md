@@ -1,6 +1,6 @@
 ---
 title: Packages
-intro: 'With the {% data variables.product.prodname_registry %} API, you can manage packages for your {% data variables.product.prodname_dotcom %} repositories and organizations.'
+intro: 'Com a API do {% data variables.product.prodname_registry %}, você pode gerenciar pacotes para seus repositórios e organizações de {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,11 +13,11 @@ redirect_from:
 
 The {% data variables.product.prodname_registry %} API enables you to manage packages using the REST API.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} To learn more about restoring or deleting packages, see "[Restoring and deleting packages](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
-To use this API, you must authenticate using a personal access token. 
-  - To access package metadata, your token must include the `read:packages` scope.
-  - To delete packages and package versions, your token must include the `read:packages` and `delete:packages` scopes.
-  - To restore packages and package versions, your token must include the `read:packages` and `write:packages` scopes.
+Para usar essa API, você deve efetuar a autenticação usando um token de acesso pessoal.
+  - Para acessar os metadados do pacote, seu token deve incluir o escopo `read:packages`.
+  - Para excluir pacotes e versões de pacote, seu token deverá incluir os escopos `read:packages` e `delete:packages`.
+  - Para restaurar pacotes e versões do pacote, o seu token deve incluir os escopos `read:packages` e `write:packages`.
 
-If your `package_type` is `npm`, `maven`, `rubygems`, or `nuget`, then your token must also include the `repo` scope since your package inherits permissions from a {% data variables.product.prodname_dotcom %} repository. If your package is in the {% data variables.product.prodname_container_registry %}, then your `package_type` is `container` and your token does not need the `repo` scope to access or manage this `package_type`. `container` packages offer granular permissions separate from a repository. For more information, see "[About permissions for {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)."
+Se seu `package_type` for `npm`, `maven`, `rubygems` ou `nuget`, o seu token também deverá incluir o escopo `repo` já que o pacote herda as permissões de um repositório de {% data variables.product.prodname_dotcom %}. Se seu pacote estiver em {% data variables.product.prodname_container_registry %}, seu `package_type` será `container` e seu token não precisará do escopo `repositório` para acessar ou gerenciar este `package_type`. Os pacotes de `contêiner` oferecem permissões granulares separadas de um repositório. Para obter mais informações, consulte "[Sobre permissões para {% data variables.product.prodname_registry %}](/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries)".
 
-If you want to use the {% data variables.product.prodname_registry %} API to access resources in an organization with SSO enabled, then you must enable SSO for your personal access token. For more information, see "[Authorizing a personal access token for use with SAML single sign-on](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+Se você quiser usar a API de {% data variables.product.prodname_registry %} para acessar os recursos em uma organização com SSO habilitado, então você deve habilitar o SSO para o seu token de acesso pessoal. Para mais informações consulte "[Autorizando um token de acesso pessoal para usar com lgon único SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}.{% else %}."{% endif %}

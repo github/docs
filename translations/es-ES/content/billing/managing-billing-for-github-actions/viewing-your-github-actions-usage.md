@@ -37,6 +37,7 @@ Los propietarios de la organización y gerentes de facturación pueden ver el us
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## Visualizar el uso de {% data variables.product.prodname_actions %} para tu cuenta empresarial
 
 Los propietarios de empresa y gerentes de facturación pueden ver el uso de {% data variables.product.prodname_actions %} para una cuenta empresarial.
@@ -53,3 +54,4 @@ Los propietarios de empresa y gerentes de facturación pueden ver el uso de {% d
 1. Debajo de "{% data variables.product.prodname_actions %}", visualiza los detalles de uso para transferencia de datos de cada organización en tu cuenta empresarial. ![Detalles del uso de minutos](/assets/images/help/billing/actions-minutes-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+{% endif %}

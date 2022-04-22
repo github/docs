@@ -1,6 +1,6 @@
 ---
-title: Installations
-intro: 'The Installations API enables you to get information about installations of your GitHub App and perform actions within those installations.'
+title: Instalações
+intro: A API de instalações permite que você obtenha informações sobre as instalações do seu aplicativo GitHub e execute ações nessas instalações.
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -11,6 +11,6 @@ versions:
   ghec: '*'
 ---
 
-An _installation_ refers to any user or organization account that has installed the app. For information on how to authenticate as an installation and limit access to specific repositories, see "[Authenticating as an installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
+Uma _instalação_ refere-se a qualquer usuário ou conta de organização que instalou o aplicativo. Para obter informações sobre como efetuar a autenticação como uma instalação e limitar o acesso a repositórios específicos, consulte "[Efetuar a autenticação como uma instalação](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
 
-To list all GitHub App installations for an organization, see "[List app installations for an organization](/rest/reference/orgs#list-app-installations-for-an-organization)."
+Para listar todas as instalações do aplicativo GitHub para uma organização, consulte "[Listar instalações de aplicativos para uma organização](/rest/reference/orgs#list-app-installations-for-an-organization)".

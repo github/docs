@@ -1,6 +1,6 @@
 ---
-title: Activity
-intro: 'The Activity API allows you to list events and feeds and manage notifications, starring, and watching for the authenticated user.'
+title: Atividade
+intro: 'A API de atividade permite que você liste eventos, alimenta e gerencia notificações, favoritos e inspeciona o usuário autenticado.'
 redirect_from:
   - /v3/activity
   - /rest/reference/activity
@@ -19,3 +19,4 @@ children:
   - /starring
   - /watching
 ---
+

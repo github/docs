@@ -1,5 +1,5 @@
 ---
-title: Labels
+title: Etiquetas
 intro: ''
 versions:
   fpt: '*'
@@ -10,3 +10,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

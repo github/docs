@@ -21,6 +21,7 @@ Os proprietários da organização e gerentes de faturamento podem ver o uso do 
 {% data reusables.dotcom_billing.codespaces-minutes %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## Visualizando o uso de {% data variables.product.prodname_codespaces %} para sua conta corporativa
 
 Proprietários de organizações e gestores de faturamento podem visualizar o uso de {% data variables.product.prodname_codespaces %} para uma conta corporativa.
@@ -30,4 +31,4 @@ Proprietários de organizações e gestores de faturamento podem visualizar o us
 {% data reusables.enterprise-accounts.billing-tab %}
 1. Em "{% data variables.product.prodname_codespaces %}, veja as informações de uso de cada organização na sua conta corporativa.
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
-
+{% endif %}

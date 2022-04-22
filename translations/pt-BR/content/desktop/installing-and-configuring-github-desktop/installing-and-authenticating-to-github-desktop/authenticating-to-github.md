@@ -36,11 +36,11 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. To add an account on {% data variables.product.product_location_enterprise %}, type the URL for your instance under "Enterprise address," then click **Continue**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+4. Para adicionar uma conta em {% data variables.product.product_location_enterprise %}, digite o URL para sua instância em "Endereço corporativo", depois clique em **Continuar**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
 {% data reusables.desktop.sign-in-browser %}
-1. To authenticate to {% data variables.product.product_location_enterprise %} account, type your account credentials and click **Sign in**. ![Botão de Sign In (Login) em {% data variables.product.prodname_ghe_server %} no navegador](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
+1. Para efetuar a autenticação na conta de {% data variables.product.product_location_enterprise %}, digite suas credenciais de conta e clique em **Efetuar login**. ![Botão de Sign In (Login) em {% data variables.product.prodname_ghe_server %} no navegador](/assets/images/help/desktop/enterprise-sign-in-button-browser.png)
 
-  Alternatively, if you were already signed in to {% data variables.product.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating.
+  Como alternativa, se você já estava conectado à conta {% data variables.product.product_location_enterprise %}, siga as instruções para retornar para {% data variables.product.prodname_desktop %} para concluir a autenticação.
 
 {% endmac %}
 
@@ -65,7 +65,7 @@ Antes de autenticar, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise address," then click **Continue**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+4. Para adicionar uma conta de {% data variables.product.prodname_enterprise %}, digite suas credenciais em "Endereço corporativo" e, em seguida, clique em **Continuar**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}

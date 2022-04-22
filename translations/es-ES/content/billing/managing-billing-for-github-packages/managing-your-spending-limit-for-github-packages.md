@@ -53,6 +53,7 @@ Los propietarios de las organizaciones pueden administrar el límite de gastos d
 {% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## Administrar el límite de gastos de {% data variables.product.prodname_registry %} para tu cuenta empresarial
 
 Los propietarios de la empresa y gerentes de facturación pueden administrar el límite de gastos para {% data variables.product.prodname_registry %} para una cuenta empresarial.
@@ -63,6 +64,7 @@ Los propietarios de la empresa y gerentes de facturación pueden administrar el 
 1. Sobre "uso mensual de paquetes y {% data variables.product.prodname_actions %}", haz clic en **Límite de gastos**. ![Pestaña de límite de gastos](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+{% endif %}
 
 ## Administrar las notificaciones de uso y límite de gastos
 {% data reusables.billing.email-notifications %}
