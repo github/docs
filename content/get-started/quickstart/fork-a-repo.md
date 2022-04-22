@@ -204,10 +204,12 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 ## Next Steps
 
-You have now forked a repository, practiced cloning your fork, and configured an upstream repository. For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[Set up Git](/articles/set-up-git)."
+You have now forked a repository, practiced cloning your fork, and configured an upstream repository. 
 
-You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. For more information see, "[Create a repository](/articles/create-a-repo)."
+* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[Set up Git](/articles/set-up-git)."
 
-Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with users, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information, see "[Be social](/articles/be-social)."
+* You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. For more information see, "[Create a repository](/articles/create-a-repo)."
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with users, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information, see "[Be social](/articles/be-social)."
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}
