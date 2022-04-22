@@ -1,7 +1,7 @@
 ---
 title: Configurar y administrar tu cuenta de usuario de GitHub
-intro: 'Puedes administrar la configuración en tu cuenta de usuario de GitHub, incluyendo las preferencias de correo electrónico, el acceso de colaboradores para los repositorios personales y las membrecías de la organización.'
-shortTitle: Cuentas de usuario
+intro: 'You can manage settings in your GitHub personal account including email preferences, collaborator access for personal repositories, and organization memberships.'
+shortTitle: Cuentas personales
 redirect_from:
   - /categories/setting-up-and-managing-your-github-user-account
   - /github/setting-up-and-managing-your-github-user-account

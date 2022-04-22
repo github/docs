@@ -18,7 +18,7 @@ shortTitle: 应用程序创建查询参数
 
 您可以将查询参数添加到这些 URL 中，以便在个人或组织帐户上预选 {% data variables.product.prodname_github_app %} 的配置：
 
-* **用户帐户：** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **个人帐户：** `{% data variables.product.oauth_host_code %}/settings/apps/new`
 * **组织帐户：** `{% data variables.product.oauth_host_code %}/organizations/:org/settings/apps/new`
 
 创建应用程序的人在提交应用程序之前，可以从 {% data variables.product.prodname_github_app %} 注册页面编辑预选值。 如果您没有在 URL 查询字符串中包含必需的参数，例如 `name`，则创建应用程序的人在提交该应用程序之前需要输入值。
@@ -83,7 +83,7 @@ shortTitle: 应用程序创建查询参数
 | `plan`                                                                                                                           | 授予使用“[获取用户](/rest/reference/users#get-a-user)”端点获取有关用户 GitHub 计划的信息的权限。 可以是以下项之一：`none` 或 `read`。                                                                                                                                                                                 |
 | [`pull_requests`](/rest/reference/permissions-required-for-github-apps/#permission-on-pull-requests)                             | 授予对各种拉取请求端点的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                                                                               |
 | [`repository_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-hooks)                       | 授予对[仓库 web 挂钩 API](/rest/reference/repos#hooks) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                                          |
-| [`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects)                 | 授予对[项目 API](/rest/reference/projects) 的访问权限。 可以是以下项之一：`none`、`read`、`write` 或 `admin`。{% ifversion fpt or ghes or ghec %}
+| [`repository_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-projects)                 | 授予对[项目 API](/rest/reference/projects) 的访问权限。 可以是以下项之一：`none`、`read`、`write` 或 `admin`。{% ifversion ghes or ghec %}
 | [`secret_scanning_alerts`](/rest/reference/permissions-required-for-github-apps/#permission-on-secret-scanning-alerts)           | 授予对[密钥扫描 API](/rest/reference/secret-scanning) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。{% endif %}{% ifversion fpt or ghes or ghec %}
 | [`security_events`](/rest/reference/permissions-required-for-github-apps/#permission-on-security-events)                         | 授予对[代码扫描 API](/rest/reference/code-scanning/) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。{% endif %}
 | [`single_file`](/rest/reference/permissions-required-for-github-apps/#permission-on-single-file)                                 | 授予对[内容 API](/rest/reference/repos#contents) 的访问权限。 可以是以下项之一：`none`、`read` 或 `write`。                                                                                                                                                                                              |
@@ -123,6 +123,7 @@ shortTitle: 应用程序创建查询参数
 | [`pull_request`](/webhooks/event-payloads/#pull_request)                               | `pull_requests`                                 | {% data reusables.webhooks.pull_request_short_desc %}
 | [`pull_request_review`](/webhooks/event-payloads/#pull_request_review)                 | `pull_request`                                  | {% data reusables.webhooks.pull_request_review_short_desc %}
 | [`pull_request_review_comment`](/webhooks/event-payloads/#pull_request_review_comment) | `pull_request`                                  | {% data reusables.webhooks.pull_request_review_comment_short_desc %}
+| [`pull_request_review_thread`](/webhooks/event-payloads/#pull_request_review_thread)   | `pull_request`                                  | {% data reusables.webhooks.pull_request_review_thread_short_desc %}
 | [`推送`](/webhooks/event-payloads/#push)                                                 | `内容`                                            | {% data reusables.webhooks.push_short_desc %}
 | [`发行版`](/webhooks/event-payloads/#release)                                             | `内容`                                            | {% data reusables.webhooks.release_short_desc %}
 | [`仓库`](/webhooks/event-payloads/#repository)                                           | `元数据`                                           | {% data reusables.webhooks.repository_short_desc %}{% ifversion fpt or ghec %}

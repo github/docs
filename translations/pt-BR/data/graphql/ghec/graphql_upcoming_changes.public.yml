@@ -106,13 +106,6 @@ upcoming_changes:
     criticality: breaking
     owner: synthead
   - 
-    location: PullRequest.viewerCanOverrideMergeQueue
-    description: '`viewerCanOverrideMergeQueue` será removido. Use PullRequest.viewerCanMergeAsAdmin.'
-    reason: '`viewer_can_override_merge_queue` will be removed'
-    date: '2022-04-01'
-    criticality: breaking
-    owner: cbeaman
-  - 
     location: Repository.defaultMergeQueue
     description: 'O `defaultMergeQueue` será removido. Use `Repository.mergeQueue`.'
     reason: '`defaultMergeQueue` será removido.'
@@ -140,3 +133,10 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: breaking
     owner: cheshire137
+  - 
+    location: UpdateProjectNextItemFieldInput.fieldWithSettingId
+    description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
+    reason: Renamed to fieldConstraintId to improve naming consistency.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: memex

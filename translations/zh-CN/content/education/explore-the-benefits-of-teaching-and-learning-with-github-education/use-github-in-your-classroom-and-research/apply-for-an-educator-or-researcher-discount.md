@@ -21,7 +21,7 @@ shortTitle: 申请折扣
 
 {% data reusables.education.educator-requirements %}
 
-有关在 {% data variables.product.product_name %} 上创建用户帐户的更多信息，请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/github/getting-started-with-github/signing-up-for-a-new-github-account)”。
+有关在 {% data variables.product.product_name %} 上创建个人帐户的更多信息，请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/github/getting-started-with-github/signing-up-for-a-new-github-account)”。
 
 ## 申请教育者或研究人员折扣
 

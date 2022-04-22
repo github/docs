@@ -16,13 +16,17 @@ miniTocMaxHeadingLevel: 3
 
 ## 检查、更改和删除预构建配置
 
-您配置的预构建是使用 {% data variables.product.prodname_actions %} 工作流程创建和更新的，由 {% data variables.product.prodname_codespaces %} 服务管理。
+您为存储库配置的预构建是使用 {% data variables.product.prodname_actions %} 工作流程创建和更新的，由 {% data variables.product.prodname_codespaces %} 服务管理。
 
-工作流程由以下事件触发：
+根据预构建配置中的设置，更新预构建模板的工作流程可能由以下事件触发：
 
 * 创建或更新预构建配置
 * 将提交或拉取请求推送到配置为具有预构建的分支
+* 更改任何开发容器配置文件
+* 在预构建配置中定义的计划
 * 手动触发工作流程
+
+预构建配置中的设置确定哪些事件会自动触发预构建模板的更新。 更多信息请参阅“[配置预构建](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)”。
 
 对存储库具有管理员访问权限的人员可以检查预构建、编辑和删除预构建配置的进度。
 

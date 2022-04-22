@@ -15,7 +15,7 @@ versions:
 
 {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %}
 
-Repository administrators and project maintainers can delete a discussion in that repository. Similarly, administrators and maintainers of the source repository for an organization's discussions can delete a discussion in that organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
+仓库管理员和项目维护者可以删除该仓库中的讨论。 同样，组织讨论的源存储库的管理员和维护者可以删除该组织中的讨论。 更多信息请参阅“[管理讨论](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)”。
 
 {% data reusables.discussions.github-recognizes-members %} 这些成员出现在对项目讨论最有帮助的贡献者名单中。 随着项目的发展，您可以向社区的活动成员授予更高的访问权限。 更多信息请参阅“[向顶级贡献者授予更高权限](/discussions/guides/granting-higher-permissions-to-top-contributors)”
 
@@ -25,21 +25,21 @@ Repository administrators and project maintainers can delete a discussion in tha
 
 ## 基本要求
 
-To collaborate with maintainers in repository discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. 更多信息请参阅“[为仓库启用或禁用 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
+要在仓库讨论中与维护者合作，仓库管理员或项目维护者必须为仓库启用 {% data variables.product.prodname_discussions %}。 更多信息请参阅“[为仓库启用或禁用 {% data variables.product.prodname_discussions %}](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)”。
 
-To collaborate with maintainers in organization discussions, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+要在组织讨论中与维护者协作，必须为组织启用 {% data variables.product.prodname_discussions %}。 For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
 
 ## 开始讨论
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Starting a poll
+## 发起投票
 
 {% data reusables.discussions.starting-a-poll %}
 
 ## 过滤讨论列表
 
-You can search for discussions and filter the list of discussions in a repository or organization. 更多信息请参阅“[搜索讨论](/search-github/searching-on-github/searching-discussions)”。
+您可以搜索讨论并筛选存储库或组织中的讨论列表。 更多信息请参阅“[搜索讨论](/search-github/searching-on-github/searching-discussions)”。
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
@@ -48,7 +48,7 @@ You can search for discussions and filter the list of discussions in a repositor
 
 ## 将议题转换为讨论
 
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+{% data reusables.discussions.you-can-convert-an-issue %} 更多信息请参阅“[主持讨论](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)”。
 
 ## 延伸阅读
 

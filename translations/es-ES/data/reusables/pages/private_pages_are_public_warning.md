@@ -1,5 +1,17 @@
 {% warning %}
 
-**Advertencia**: {% ifversion ghes or ghae %}Si tu administrador de sitio habilitó las páginas públicas, {% endif %}los sitios de {% data variables.product.prodname_pages %} estarán disponibles al público en general por internet{% ifversion fpt or ghec %} predeterminadamente{% endif %}, incluso si el repositorio del sitio es privado o internol.{% ifversion fpt or ghec %} {% data reusables.pages.about-private-publishing %} De otra forma, si{% else %} Si{% endif %} tienes datos sensibles en el repositorio de tu sitio, podrías querer eliminar los datos antes de publicar. Para obtener más información, consulta las secciones{% ifversion ghes or ghae %} "[Configurar {% data variables.product.prodname_pages %} para tu empresa](/admin/configuration/configuring-github-pages-for-your-enterprise#enabling-public-sites-for-github-pages)" y {% endif %} "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility){% ifversion fpt or ghec %}" y "[Cambiar la visibilidad de tu sitio de {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)".{% else %}."{% endif %}
+{% ifversion fpt %}
+**Advertencia**:
+{% data variables.product.prodname_pages %} sites are publicly available on the internet, even if the repository for the site is private. If you have sensitive data in your site's repository, you may want to remove the data before publishing. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
+{% elsif ghec %}
+**Warning**: Unless your enterprise uses
+{% data variables.product.prodname_emus %}, {% data variables.product.prodname_pages %} sites are publicly available on the internet by default, even if the repository for the site is private or internal. You can publish a site privately by managing access control for the site. Otherwise, if you have sensitive data in your site's repository, you may want to remove the data before publishing. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)" and "[Changing the visibility of your {% data variables.product.prodname_pages %} site](/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site)."
+{% elsif ghae %}
+**Advertencia**:
+{% data variables.product.prodname_pages %} sites are visible to all enterprise members, even if the repository for the site is private. If you have sensitive data in your site's repository, you may want to remove the data before publishing. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)".
+{% elsif ghes %}
+**Warning**: If your site administrator has enabled Public Pages,
+{% data variables.product.prodname_pages %} sites are publicly available on the internet, even if the repository for the site is private or internal. If you have sensitive data in your site's repository, you may want to remove the data before publishing. For more information, see "[Configuring {% data variables.product.prodname_pages %} for your enterprise](/admin/configuration/configuring-github-pages-for-your-enterprise#enabling-public-sites-for-github-pages)" and "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+{% endif %}
 
 {% endwarning %}

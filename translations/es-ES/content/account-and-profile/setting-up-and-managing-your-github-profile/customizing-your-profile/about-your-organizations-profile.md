@@ -16,9 +16,13 @@ topics:
 shortTitle: Perfil de la organización
 ---
 
-Opcionalmente, puedes elegir agregar una descripción, ubicación, sitio web y dirección de correo electrónico para tu organización y fijar repositorios importantes.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4749 %} Puedes personalizar el perfil de tu organización si agregas un archivo README.md. Para obtener más información, consulta la sección "[Personalizar el perfil de tu organización ](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".{% endif %}
+You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories.{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4749 %} You can customize your organization's public profile by adding a README.md file. Para obtener más información, consulta la sección "[Personalizar el perfil de tu organización ](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)".{% endif %}
 
-{% ifversion fpt or ghec %}Para confirmar la identidad de tu organización y mostrar el distintivo "Verificada" en la página del perfil de tu organización, debes verificar los dominios de tu organización con {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)".{% endif %}
+{% ifversion fpt %}
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can confirm their organization's identity and display a "Verified" badge on their organization's profile page by verifying the organization's domains with {% data variables.product.product_name %}. For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" in the {% data variables.product.prodname_ghe_cloud %} documenatation.
+{% elsif ghec or ghes > 3.1 %}
+To confirm your organization's identity and display a "Verified" badge on your organization profile page, you can verify your organization's domains with {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
+{% endif %}
 
 {% ifversion fpt or ghes > 3.2 or ghec %}
 ![Muestra de la página de perfil de una organización](/assets/images/help/organizations/org_profile_with_overview.png)

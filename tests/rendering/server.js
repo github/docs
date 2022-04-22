@@ -1104,19 +1104,19 @@ describe('index pages', () => {
 
 describe('REST reference pages', () => {
   test('view the rest/repos page in English', async () => {
-    const res = await get('/en/rest/reference/repos')
+    const res = await get('/en/rest/repos')
     expect(res.statusCode).toBe(200)
   })
   test('view the rest/repos page in Japanese', async () => {
-    const res = await get('/ja/rest/reference/repos')
+    const res = await get('/ja/rest/repos')
     expect(res.statusCode).toBe(200)
   })
   test('deeper pages in English', async () => {
-    const res = await get('/ja/enterprise-cloud@latest/rest/reference/code-scanning')
+    const res = await get('/ja/enterprise-cloud@latest/rest/code-scanning')
     expect(res.statusCode).toBe(200)
   })
   test('deeper pages in Japanese', async () => {
-    const res = await get('/en/enterprise-cloud@latest/rest/reference/code-scanning')
+    const res = await get('/en/enterprise-cloud@latest/rest/code-scanning')
     expect(res.statusCode).toBe(200)
   })
 })

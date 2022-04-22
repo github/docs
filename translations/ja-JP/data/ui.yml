@@ -24,13 +24,15 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: お困りですか？
-  placeholder: トピックや製品などの検索
+  placeholder: Search GitHub Docs
   loading: ロード中
   no_results: 結果が見つかりませんでした
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: 製品で調べる
   version_picker: バージョン
@@ -114,6 +116,7 @@ products:
       preview_header_is_required: このヘッダは<strong>必須</strong>です
       preview_notice_to_change: This API is under preview and subject to change
       works_with_github_apps: Works with GitHub Apps
+      api_reference: REST API reference
 footer:
   all_rights_reserved: All rights reserved
   terms: 規約

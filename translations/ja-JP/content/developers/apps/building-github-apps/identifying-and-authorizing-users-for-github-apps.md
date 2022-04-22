@@ -149,7 +149,7 @@ curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre
 
 ## ユーザレベルの権限
 
-[ユーザ認可フロー](#identifying-users-on-your-site)の一環として、個々のユーザに付与されたユーザのメールなどのユーザが所有するリソースにアクセスできる、ユーザレベルの権限を GitHub App に付与できます。 ユーザレベルの権限は、Organization またはユーザアカウントにインストールされる際に付与される、[リポジトリおよび Organization レベルの権限](/rest/reference/permissions-required-for-github-apps)とは異なります。
+[ユーザ認可フロー](#identifying-users-on-your-site)の一環として、個々のユーザに付与されたユーザのメールなどのユーザが所有するリソースにアクセスできる、ユーザレベルの権限を GitHub App に付与できます。 User-level permissions differ from [repository and organization-level permissions](/rest/reference/permissions-required-for-github-apps), which are granted at the time of installation on an organization or personal account.
 
 ユーザレベルの権限は、[**Permissions & webhooks**] ページの [**User permissions**] セクションにある GitHub App の設定で選択できます。 権限の選択に関する詳しい情報については、「[GitHub Appの権限の編集](/apps/managing-github-apps/editing-a-github-app-s-permissions/)」を参照してください。
 

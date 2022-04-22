@@ -22,7 +22,7 @@ shortTitle: 限制仓库中的交互
 
 {% data reusables.community.types-of-interaction-limits %}
 
-您也可以为用户帐户或组织拥有的所有仓库启用或活动限制。 如果启用了用户范围或组织范围的限制，则不能限制帐户拥有的单个仓库的活动。 更多信息请参阅“[限制用户帐户的交互](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)”和“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)”。
+您也可以为个人帐户或组织拥有的所有仓库启用或活动限制。 如果启用了用户范围或组织范围的限制，则不能限制帐户拥有的单个仓库的活动。 更多信息请参阅“[限制个人帐户的交互](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)”和“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)”。
 
 ## 限制仓库中的交互
 
@@ -35,6 +35,6 @@ shortTitle: 限制仓库中的交互
 ## 延伸阅读
 - “[举报滥用或垃圾邮件](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)”
 - "[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository)"
+- "[个人帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository)"
 - "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - “[管理组织中的版主](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)”

@@ -43,7 +43,7 @@ Com as informações de atividade da organização, é possível exibir visualiz
 
 {% note %}
 
-**Observação:** Certifique-se que você habilitou o [Gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).
+**Observação:** Certifique-se que você habilitou o [Gráfico de dependências](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
-title: GitHub Bullying and Harassment
-shortTitle: Bullying and Harassment
+title: GitHub 欺凌和骚扰
+shortTitle: 欺凌和骚扰
 versions:
   fpt: '*'
 topics:
@@ -11,13 +11,13 @@ redirect_from:
   - /github/site-policy/github-community-guidelines#bullying-and-harassment
 ---
 
-We do not tolerate harassment, bullying, or abuse of any kind, whether directly or by encouraging others to take part in the prohibited conduct. 这包括：
+我们不容忍任何形式的骚扰、欺凌或虐待，无论是直接还是鼓励他人参与违禁行为。 这包括：
 
-- Targeted personal attacks
-- Piling on to or orchestrating [disruptive](/github/site-policy/github-disrupting-the-experience-of-other-users) activity in a way that amounts to abuse
-- Following another user around the platform in a manner that causes intimidation
-- Making sexual advances or comments directed at another individual
-- Disingenuously participating in conversation in a way that instigates conflict or undermines sincere discussion
-- Creating alternative accounts specifically to evade moderation action taken by GitHub staff or users
+- 针对性的人身攻击
+- 以相当于滥用的方式实施或策划[破坏性](/github/site-policy/github-disrupting-the-experience-of-other-users)活动
+- 以导致恐吓的方式在平台上跟踪其他用户
+- 发出针对他人的性骚扰或评论
+- 以煽动冲突或破坏真诚讨论的方式虚伪地参与对话
+- 创建专门用于逃避 GitHub 员工或用户采取的审核操作的备用帐户
 
-Please note, not all unwelcome conduct is necessarily considered harassment. For example, disagreeing with another user or downvoting their comments may not rise to the level of harassment on our platform. In addition, sharing criticism of public figures or projects, or topics of public interest, does not necessarily fall under this policy. However, we encourage you to be mindful in how you engage with other users and the platform, as this activity may still violate our restriction on disrupting the experience of other users.
+请注意，并非所有不受欢迎的行为都一定被视为骚扰。 例如，不同意其他用户或否决他们的评论可能不会上升到我们平台上的骚扰级别。 此外，分享对公众人物或项目的批评，或公共利益的话题，并不一定属于本政策的范围。 但是，我们鼓励您在与其他用户和平台的互动方式上要小心，因为此活动仍可能违反我们对破坏其他用户体验的限制。

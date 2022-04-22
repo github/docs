@@ -14,7 +14,7 @@ shortTitle: 模板仓库
 
 要将模板仓库用于作业，模板仓库必须由您的组织拥有，或者模板仓库的可见性必须是公共的。
 
-You can reuse an existing assignment, even if it uses a template repository, in any other classroom that you have admin access to, including classrooms in a different organization. For more information, see "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
+您可以在您具有管理员访问权限的任何其他教室（包括其他组织中的教室）中重复使用现有作业，即使它使用模板存储库也是如此。 更多信息请参阅“[重复使用作业](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)”。
 
 ## 延伸阅读
 

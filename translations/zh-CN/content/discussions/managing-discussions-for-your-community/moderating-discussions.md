@@ -10,7 +10,7 @@ versions:
 
 ## 关于主持讨论
 
-{% data reusables.discussions.about-discussions %} If you have triage permissions for a repository, you can help moderate a repository's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, if you have triage permission for the source repository for organization discussions, you can moderate discussions for that organization.
+{% data reusables.discussions.about-discussions %}如果您对仓库具有分类权限，便可通过将评论标记为答案、锁定不再有用或对社区造成损害的讨论，以及在想法仍处于开发的早期阶段时将问题转换为讨论，从而帮助主持仓库的讨论。 同样，如果您具有组织讨论的源存储库的分类权限，则可以主持该组织的讨论。
 
 ## 将评论标记为答案
 
@@ -18,7 +18,7 @@ versions:
 
 ## 锁定讨论
 
-当整个对话没有建设性或者违反社区的行为准则或 {% data variables.product.prodname_dotcom %} 的[社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines)时，锁定对话是明智之举。 您还可以锁定对话，以防止对要用作社区公告的讨论发表评论。 When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion.
+当整个对话没有建设性或者违反社区的行为准则或 {% data variables.product.prodname_dotcom %} 的[社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines)时，锁定对话是明智之举。 您还可以锁定对话，以防止对要用作社区公告的讨论发表评论。 锁定对话后，对存储库或组织讨论的源存储库具有写入访问权限的人员仍可以对讨论进行评论。
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
@@ -29,7 +29,7 @@ versions:
 
 ## 将议题转换为讨论
 
-在将议题转换为讨论时，会使用议题中的内容自动创建讨论。 People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
+在将议题转换为讨论时，会使用议题中的内容自动创建讨论。 对存储库或组织讨论的源存储库具有写入访问权限的人员可以根据标签批量转换议题。 更多信息请参阅“[管理讨论](/discussions/managing-discussions-for-your-community/managing-discussions)”。
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.repositories.sidebar-issues %}

@@ -43,7 +43,7 @@ Con la información sobre la actividad de la organización puedes ver semanal, m
 
 {% note %}
 
-**Notea:** Por favor, asegúrate de que hayas habilitado la [Gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).
+**Notea:** Por favor, asegúrate de que hayas habilitado la [Gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
 
 {% endnote %}
 

@@ -152,7 +152,7 @@ gh repo fork <em>repository</em> --clone=true
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
-6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. 它将如下所示：
+6. 键入 `git remote add upstream`，然后粘贴您在第 3 步中复制的 URL 并按 **Enter** 键。 它将如下所示：
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```

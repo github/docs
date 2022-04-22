@@ -56,7 +56,9 @@ Para obter informações sobre como gerenciar e alterar o limite de gastos da su
 
 ## Limitando a escolha dos tipos de máquina
 
-O tipo de máquina que um usuário escolhe ao criar um codespace afeta a carga por minuto desse codespace, conforme mostrado acima.
+Por padrão, usa-se o tipo de máquina com os recursos mais baixos válidos quando um código é criado. No entanto, os usuários podem escolher um tipo de máquina com mais recursos. Eles podem fazê-lo ao criar um codespace ou podem alterar o tipo de máquina de um codespace existente. Para obter mais informações, consulte "[Criando um codespace"](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)" e "[Alterando o tipo de máquina para o seu codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)".
+
+Se um tipo de máquina com mais recursos for escolhido, isso afetará a carga por minuto desse codespace, como mostrado acima.
 
 Os proprietários da organização podem criar uma política para restringir os tipos de máquina disponíveis para os usuários. Para obter mais informações, consulte "[Restringindo o acesso aos tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
