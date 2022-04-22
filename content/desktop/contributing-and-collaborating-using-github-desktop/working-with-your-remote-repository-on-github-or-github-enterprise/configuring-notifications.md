@@ -1,51 +1,63 @@
 ---
 title: Configuring notifications in GitHub Desktop
 shortTitle: Configuring notifications
-intro: '{% data variables.product.prodname_desktop %} will keep you up-to-date with events that occur in your pull request.'
+intro: '{% data variables.product.prodname_desktop %} will keep you up-to-date with notifications about events that occur in your pull request branch.'
 versions:
   fpt: '*'
 ---
 ## About notifications in {% data variables.product.prodname_desktop %}
 
-{% data variables.product.prodname_desktop %} will show system notifications for events that occur in the current repository you are working on. System notifications will be shown when:
+{% data variables.product.prodname_desktop %} will show a system notification for events that occur in the currently selected repository. Notifications will be shown when:
 
-- Status checks have failed.
+- Pull request checks have failed.
 - A pull request review is left with a comment, approval, or requested changes.
 
-Clicking the system notification will switch application focus to {% data variables.product.prodname_desktop %} and provide more detailed information.
+Clicking the notification will switch application focus to {% data variables.product.prodname_desktop %} and provide more detailed information.
 
-### Status check notifications
+## Pull request checks failed notifications
 
-If you push changes to a pull request branch from {% data variables.product.prodname_desktop %} you will receive a system notification if the checks in your repository fail.
+When changes are made to a pull request branch you will receive a notification if the checks in your repository fail.
 
+![pull request checks failed notification](/assets/images/help/desktop/pull-request-checks-failed-notification.png)
 
-### Pull request review notifications
+Clicking the notification will display a dialog with details about the checks. Once you've reviewed why the checks have failed you can re-run the checks, or quickly switch to the pull request branch to get started on fixing the errors. For more information about working with checks in GitHub Desktop, see "[Viewing and re-running checks](desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks)."
 
-2. Pull request reviews
+![checks failed dialog](/assets/images/help/desktop/checks-failed-dialog.png)
+## Pull request review notifications
 
-A user reviewing the pull request will leave specific feedback about the pull request. {% data variables.product.prodname_desktop %} will surface a system notification when a teammate has approved, commented, or requested changes on the pull request. Clicking on the system notification will switch application focus to {% data variables.product.prodname_desktop %} and show the comment on the pull request. Clicking `Switch to Pull Request` will quickly switch to the pull request branch where you can make the requested changes.
+{% data variables.product.prodname_desktop %} will surface a system notification when a teammate has approved, commented, or requested changes in your pull request. See "[About pull request reviews](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)" for more information on pull request reviews.
 
+![Pull request review notification](/assets/images/help/desktop/pull-request-review-notification.png)
 
+Clicking the notification will switch application focus to {% data variables.product.prodname_desktop %} and provide more context for the pull request review comment.
 
-Notifications are shown for
+![pull request review dialog](/assets/images/help/desktop/pull-request-review-dialog.png)
+## Enabling notifications
 
+If system notifications are disabled for {% data variables.product.prodname_desktop %} you can follow the steps below to enable them.
 
-The first time a notification event occurs a prompt will be shown asking permission for {% data variables.product.prodname_desktop %} to show system notifications. If system notifications were not enabled you can follow the steps below.
+{% mac %}
 
-Enabling system notifications on macOS operating systems
+1. Click the **Apple menu**, then select **System Preferences**.
+2. Select **Notifications & Focus**.
+3. Select {% data variables.product.prodname_desktop %} from the list of applications.
+4. Click **Allow Notifications**.
 
-1. Select Apple menu  > System Preferences, then click Notifications
-2. Select {% data variables.product.prodname_desktop %} from the list
-3. Click "Allow Notifications"
+![macOS Notifications & Focus](/assets/images/help/desktop/mac-enable-notifications.png)
 
-Enabling system notifications on Windows
+For more information about macOS system notifications, see "[Use notifications on your Mac](https://support.apple.com/en-us/HT204079)."
 
-1. Select Start > Settings
-2. Go to System > Notifications
-3. Select GitHub Desktop from the list
+{% endmac %}
 
-Further information:
+{% windows %}
 
-For more information, see <https://support.apple.com/en-us/HT204079>
+1. Open the **Start** menu, then select **Settings**.
+2. Select **System**, then click **Notifications**.
+3. Find {% data variables.product.prodname_desktop %} in the application list and click **On**.
 
-For more information, see <https://support.microsoft.com/en-us/windows/change-notification-settings-in-windows-8942c744-6198-fe56-4639-34320cf9444e>
+![Enable Windows Notifications](/assets/images/help/desktop/windows-enable-notifications.png)
+
+For more information about Windows system notifications, see "[Change notification settings in Windows](https://support.microsoft.com/en-us/windows/change-notification-settings-in-windows-8942c744-6198-fe56-4639-34320cf9444e)."
+
+{% endwindows %}
+
