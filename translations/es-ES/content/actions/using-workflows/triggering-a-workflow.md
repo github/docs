@@ -20,14 +20,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Acerca de los activadores de los flujos de trabajo
 
-Los activadores de los flujos de trabajo son eventos que ocasionan que se ejecute un flujo de trabajo. Estos eventos pueden ser:
-
-- Eventos que ocurren en el repositorio de tu flujo de trabajo
-- Eventos que ocurren fuera de {% data variables.product.product_name %} y activan un evento de `repository_dispatch` en {% data variables.product.product_name %}
-- Tiempos programados
-- Manual
-
-Por ejemplo, puedes configurar tu flujo de trabajo para que se ejecute cuando se realiza una subida a la rama predeterminada de tu repositorio, cuando se crea un lanzamiento o cuando se abre una propuesta.
+{% data reusables.actions.about-triggers %}
 
 Los activadores de los flujos de trabajo se definen con la clave `on`. Para obtener más información, consulta la sección "[Sintaxis del flujo de trabajo para las {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)".
 
@@ -43,7 +36,7 @@ Los siguientes pasos se producen para activar una ejecución de flujo de trabajo
 
 {% data reusables.actions.actions-do-not-trigger-workflows %} Para obtener más información, consulta la sección "[Autenticarse con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
-Si no quieres activar un flujo de trabajo dentro una ejecución de flujo de trabajo, puedes utilizar un token de acceso personal en vez de un `GITHUB_TOKEN` para activar los eventos que requieren tu token. Necesitaras crear un token de acceso personal y almacenarlo como un secreto. Para minimizar tus costos de uso de {% data variables.product.prodname_actions %}, asegúrate de no crear ejecuciones de flujo de trabajo recurrentes o involuntarias. Para obtener más información acerca de cómo crear un token de acceso personal, consulta la sección "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)". Para obtener más información sobre cómo almacenr un token de acceso personal como secreto, consulta la sección "[Crear y almacenar secretos cifrados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+Si no quieres activar un flujo de trabajo dentro una ejecución de flujo de trabajo, puedes utilizar un token de acceso personal en vez de un `GITHUB_TOKEN` para activar los eventos que requieren tu token. Necesitaras crear un token de acceso personal y almacenarlo como un secreto. Para minimizar tus costos de uso de {% data variables.product.prodname_actions %}, asegúrate de no crear ejecuciones de flujo de trabajo recurrentes o involuntarias. For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." Para obtener más información sobre cómo almacenr un token de acceso personal como secreto, consulta la sección "[Crear y almacenar secretos cifrados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
 
 Por ejemplo, el siguiente flujo de trabajo utiliza un token de acceso personal (almacenado como secreto y llamado `MY_TOKEN`) para agregar una etiqueta a una propuesta de cambios a través del cli.{% data variables.product.prodname_cli %}. Cualquier flujo de trabajo que se ejecute cuando una etiqueta se agrega se ejecutará una vez mediante este espejo.
 

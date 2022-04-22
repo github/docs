@@ -15,20 +15,6 @@ upcoming_changes:
     criticality: breaking
     owner: tambling
   - 
-    location: EnterpriseBillingInfo.availableSeats
-    description: 'Se eliminará a `availableSeats`. Utiliza EnterpriseBillingInfo.totalAvailableLicenses en sustitución.'
-    reason: 'Se reemplazará a `availableSeats` con `totalAvailableLicenses` para proporcionar más claridad en el valor que se devuelva'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BlakeWilliams
-  - 
-    location: EnterpriseBillingInfo.seats
-    description: 'Se eliminará a `seats`. Utiliza EnterpriseBillingInfo.totalLicenses en sustitución.'
-    reason: 'Se reemplazará a `seats` con `totalLicenses` para proporcionar más claridad en el valor que se devuelva'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BlakeWilliams
-  - 
     location: UnassignedEvent.user
     description: 'Se eliminará a `user`. Utiliza el campo `assignee` en sustitución.'
     reason: Los asignados ahora pueden ser maniquíes.
