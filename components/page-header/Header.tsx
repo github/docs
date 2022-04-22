@@ -59,7 +59,7 @@ export const Header = () => {
       {error !== '404' && <HeaderNotifications />}
       <header
         className={cx(
-          'color-bg-default px-3 px-md-6 pt-3 pb-3 position-sticky top-0 z-3 border-bottom',
+          'color-bg-default px-3 px-md-6 pt-3 pb-3 top-0 z-3 border-bottom',
           scroll && 'color-shadow-small'
         )}
       >
