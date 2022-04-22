@@ -510,9 +510,10 @@
 - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
 
-# FPT versioning for this file was removed as part of github/docs-content#6637
+# FPT versioning was removed.
+# Shipped in pull #26869 on 04/19/22
 
-/enterprise-cloud@latest/rest/reference/secret-scanning
+/enterprise-cloud@latest/rest/secret-scanning
 - /rest/reference/secret-scanning
 
 # FPT versioning was removed as part of github/docs-content#5166
