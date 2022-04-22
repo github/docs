@@ -13,6 +13,7 @@ versions:
 topics:
   - Pull requests
 shortTitle: Change visibility
+permissions: Organization owners and people with admin access for a project board can change a project board's visibility.
 ---
 {% data reusables.projects.project_boards_old %}
 
@@ -23,8 +24,6 @@ shortTitle: Change visibility
 **Tip:** When you make your project board {% ifversion ghae %}internal{% else %}public{% endif %}, organization members are given read access by default. You can give specific organization members write or admin permissions by giving project board access to teams they're on or by adding them to the project board as a collaborator. For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 {% endtip %}
-
-Only organization members with *owner* or *project admin* roles can change project board visibility.
 
 1. Navigate to the project board you want to make {% ifversion ghae %}internal{% else %}public{% endif %} or private.
 {% data reusables.project-management.click-menu %}
