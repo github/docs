@@ -36,6 +36,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## Viewing {% data variables.product.prodname_actions %} usage for your enterprise account
 
 Enterprise owners and billing managers can view {% data variables.product.prodname_actions %} usage for an enterprise account.
@@ -53,3 +54,4 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
   ![Details of usage of minutes](/assets/images/help/billing/actions-minutes-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+{% endif %}
