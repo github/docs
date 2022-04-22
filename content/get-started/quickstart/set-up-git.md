@@ -53,7 +53,7 @@ If you do not need to work with files locally, {% data variables.product.product
 2. [Set your username in Git](/github/getting-started-with-github/setting-your-username-in-git).
 3. [Set your commit email address in Git](/articles/setting-your-commit-email-address).
 
-## Next steps: Authenticating with {% data variables.product.prodname_dotcom %} from Git
+## Authenticating with {% data variables.product.prodname_dotcom %} from Git
 
 When you connect to a {% data variables.product.prodname_dotcom %} repository from Git, you will need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH.
 
