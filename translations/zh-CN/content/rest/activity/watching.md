@@ -1,6 +1,6 @@
 ---
-title: Watching
-intro: "Watching a repository registers the user to receive notifications on new discussions, as well as events in the user's activity feed."
+title: 关注
+intro: 关注仓库会注册用户接收有关新讨论的通知以及用户活动馈送中的事件。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For simple repository bookmarks, see "[Repository starring](/rest/reference/activity#starring)."
+有关简单的仓库书签制作，请参阅“[仓库标星](/rest/reference/activity#starring)”。

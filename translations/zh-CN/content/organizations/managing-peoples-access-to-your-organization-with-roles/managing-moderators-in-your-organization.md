@@ -1,6 +1,6 @@
 ---
-title: Managing moderators in your organization
-intro: 'You can give an individual or team in your organization the ability to block and limit access, by assigning them to the moderator role.'
+title: 管理组织中的版主
+intro: 您可以将组织中的个人或团队分配给版主角色，以授予其阻止和限制访问的能力。
 permissions: Organization owners can assign the moderator role.
 versions:
   fpt: '*'
@@ -9,32 +9,32 @@ topics:
   - Organizations
   - Teams
   - Community
-shortTitle: Managing moderators
+shortTitle: 管理版主
 ---
 
-## About organization moderators
+## 关于组织版主
 
-Sometimes it's necessary to block a contributor, or to set up interaction limits for your organization, or for individual repositories. As an organization owner, you can perform these tasks, but you may want to delegate these tasks to other members of your organization. You can do this by assigning an organization member, or a team, to the moderator role.
+有时需要阻止参与者，或者为组织或单个存储库设置交互限制。 作为组织所有者，您可以执行这些任务，但您可能希望将这些任务委派给组织中的其他成员。 为此，您可以向组织成员或团队分配版主角色。
 
-Organization moderators can:
-* Block and unblock users from the organization. 更多信息请参阅“[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”。
-* Manage organization interaction limits. 更多信息请参阅“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)”。
-* Manage repository interaction limits. 更多信息请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”。
-* Hide comments in all public repositories owned by the organization. For more information, see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)."
+组织版主可以：
+* 阻止和取消阻止组织中的用户。 更多信息请参阅“[阻止用户访问组织](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)”。
+* 管理组织交互限制。 更多信息请参阅“[限制组织中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)”。
+* 管理存储库交互限制。 更多信息请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”。
+* 在组织拥有的所有公共存储库中隐藏评论。 更多信息请参阅“[管理破坏性评论](/communities/moderating-comments-and-conversations/managing-disruptive-comments)”。
 
-Making someone an organization moderator does not give them additional abilities other than those listed above. For example, someone who only has read access to a repository will not gain write access by being made a moderator.
+将某人设为组织版主不会向他们授予除上述能力以外的其他能力。 例如，仅对存储库具有读取访问权限的人不会通过成为版主而获得写入访问权限。
 
-You can add up to 10 individual people, or teams, as moderators. If you've already assigned 10 individuals and/or teams as users and you want to add more, you can group people in a moderators team and then use this to replace one or more of the existing assignments. For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
+您最多可以添加 10 个人或团队作为版主。 如果您已将 10 个人和/或团队分配为用户，并且想要添加更多用户，则可以将人员分组到版主团队中，然后使用它来替换一个或多个现有任务。 For more information, see "[Creating a team](/organizations/organizing-members-into-teams/creating-a-team)."
 
-## Adding an organization moderator
+## 添加组织版主
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-1. In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation** then click **Moderators**.
-1. Under **Moderators**, search for and select the person or team you want to assign the moderator role. Each person or team you select will appear in a list below the search bar. ![The Moderators search field and list](/assets/images/help/organizations/add-moderators.png)
+1. 在侧边栏的“Access（访问）”部分中，选择 **{% octicon "report" aria-label="The report icon" %} 主持**，然后点击 **Moderators（版主）**。
+1. 在 **Moderators（版主）**下，搜索并选择要分配版主角色的人员或团队。 您选择的每个人或团队都将显示在搜索栏下方的列表中。 ![版主搜索字段和列表](/assets/images/help/organizations/add-moderators.png)
 
 
-## Removing an organization moderator
+## 删除组织版主
 
-Follow steps 1-4 above, then click **Remove moderator** beside the person or team you want to remove as a moderator.
+按照上面的步骤 1-4 操作，然后点击您要以版主身份移除的人员或团队旁边的 **Remove moderator（移除版主）**。

@@ -1,6 +1,6 @@
 ---
-title: Blobs
-intro: 'A Git blob (binary large object) is the object type used to store the contents of each file in a repository.'
+title: Blob
+intro: Git Blob（二进制大对象）是用于将每个文件的内容存储在仓库中的对象类型。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,14 +11,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The file's SHA-1 hash is computed and stored in the blob object. These endpoints allow you to read and write [blob objects](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects)
-to your Git database on {% data variables.product.product_name %}. Blobs leverage [these custom media types](#custom-media-types-for-blobs). You can read more about the use of media types in the API [here](/rest/overview/media-types).
+文件的 SHA-1 哈希在 Blob 对象中计算和存储。 这些端点允许您在 {% data variables.product.product_name %} 上的 Git 数据库中读取和写入 [blob 对象](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects)。 Blob 使用[这些自定义媒体类型](#custom-media-types-for-blobs)。 您可以在[此处](/rest/overview/media-types)阅读有关 API 中媒体类型使用情况的更多信息。
 
-### Custom media types for blobs
+### Blob 的自定义媒体类型
 
-These are the supported media types for blobs.
+以下是 blob 支持的媒体类型。
 
     application/json
     application/vnd.github.VERSION.raw
 
-For more information, see "[Media types](/rest/overview/media-types)."
+更多信息请参阅“[媒体类型](/rest/overview/media-types)”。

@@ -370,6 +370,7 @@ topics:
 | `gist.destroy`           | A gist is deleted.                   |
 | `gist.visibility_change` | The visibility of a gist is changed. |
 
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6724 %}
 ### `git` 类操作
 
 | 操作          | 描述                                      |
@@ -377,6 +378,7 @@ topics:
 | `git.clone` | A repository was cloned.                |
 | `git.fetch` | Changes were fetched from a repository. |
 | `git.push`  | Changes were pushed to a repository.    |
+{% endif %}
 
 ### `hook` 类操作
 
@@ -856,21 +858,21 @@ topics:
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 ### `pull_request` 类操作
 
-| 操作                                   | 描述                                                                                                                                                                                                                                                                                             |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pull_request.close`                 | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."                                                                        |
-| `pull_request.converted_to_draft`    | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)."             |
-| `pull_request.create`                | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."                                                                                  |
-| `pull_request.create_review_request` | A review was requested on a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."                                                                             |
-| `pull_request.in_progress`           | A pull request was marked as in progress.                                                                                                                                                                                                                                                      |
-| `pull_request.indirect_merge`        | A pull request was considered merged because the pull request's commits were merged into the target branch.                                                                                                                                                                                    |
-| `pull_request.merge`                 | A pull request was merged. 更多信息请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。                                                                                                                                |
-| `pull_request.ready_for_review`      | A pull request was marked as ready for review. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)." |
-| `pull_request.remove_review_request` | A review request was removed from a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."                                                                     |
-| `pull_request.reopen`                | A pull request was reopened after previously being closed.                                                                                                                                                                                                                                     |
-| `pull_request_review.delete`         | A review on a pull request was deleted.                                                                                                                                                                                                                                                        |
-| `pull_request_review.dismiss`        | A review on a pull request was dismissed. 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。                                                                                                            |
-| `pull_request_review.submit`         | A review was submitted for a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."                                                                            |
+| 操作                                   | 描述                                                                                                                                                                                                                                                                                 |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pull_request.close`                 | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."                                                            |
+| `pull_request.converted_to_draft`    | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)." |
+| `pull_request.create`                | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."                                                                      |
+| `pull_request.create_review_request` | A review was requested on a pull request. 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。                                                                                                      |
+| `pull_request.in_progress`           | A pull request was marked as in progress.                                                                                                                                                                                                                                          |
+| `pull_request.indirect_merge`        | A pull request was considered merged because the pull request's commits were merged into the target branch.                                                                                                                                                                        |
+| `pull_request.merge`                 | A pull request was merged. 更多信息请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。                                                                                                                    |
+| `pull_request.ready_for_review`      | A pull request was marked as ready for review. 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)”。                                   |
+| `pull_request.remove_review_request` | A review request was removed from a pull request. 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。                                                                                              |
+| `pull_request.reopen`                | A pull request was reopened after previously being closed.                                                                                                                                                                                                                         |
+| `pull_request_review.delete`         | A review on a pull request was deleted.                                                                                                                                                                                                                                            |
+| `pull_request_review.dismiss`        | A review on a pull request was dismissed. 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。                                                                                                |
+| `pull_request_review.submit`         | A review was submitted for a pull request. 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。                                                                                                     |
 
 ### `pull_request_review` 类操作
 
@@ -882,11 +884,11 @@ topics:
 
 ### `pull_request_review_comment` 类操作
 
-| 操作                                   | 描述                                                                                                                                                                                                                     |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pull_request_review_comment.create` | A review comment was added to a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review_comment.delete` | A review comment on a pull request was deleted.                                                                                                                                                                        |
-| `pull_request_review_comment.update` | A review comment on a pull request was changed.                                                                                                                                                                        |
+| 操作                                   | 描述                                                                                                                                                                                |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pull_request_review_comment.create` | A review comment was added to a pull request. 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 |
+| `pull_request_review_comment.delete` | A review comment on a pull request was deleted.                                                                                                                                   |
+| `pull_request_review_comment.update` | A review comment on a pull request was changed.                                                                                                                                   |
 {%- endif %}
 
 ### `repo` 类操作

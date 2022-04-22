@@ -1,6 +1,6 @@
 ---
-title: Teams
-intro: 'With the Teams API, you can create and manage teams in your {% data variables.product.product_name %} organization.'
+title: Equipos
+intro: 'Con la API de Equipos puedes crear y administrar los equipos en tu organización de {% data variables.product.product_name %}.'
 redirect_from:
   - /v3/teams
   - /rest/reference/teams
@@ -20,3 +20,4 @@ children:
   - /members
   - /team-sync
 ---
+

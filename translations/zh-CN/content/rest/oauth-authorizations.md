@@ -1,6 +1,6 @@
 ---
-title: OAuth Authorizations
-intro: 'The Migrations API is only available to authenticated organization owners.'
+title: OAuth 授权
+intro: 迁移 API 仅适用于经过身份验证的组织所有者。
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,6 +12,6 @@ redirect_from:
   - /rest/reference/oauth-authorizations
 ---
 
-You can use this API to manage the access OAuth applications have to your account. You can only access this API via [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) using your username and password, not tokens.
+您可以使用此 API 来管理 OAuth 应用程序对您帐户的访问权限。 您只能使用您的用户名和密码（而不是令牌），通过[基本身份验证](/rest/overview/other-authentication-methods#basic-authentication)访问此 API。
 
-If you or your users have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
+如果您或您的用户启用了双重身份验证，请务必了解如何[使用双重身份验证](/rest/overview/other-authentication-methods#working-with-two-factor-authentication)。

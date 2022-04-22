@@ -1,6 +1,6 @@
 ---
-title: Users
-intro: 'The User Administration API allows you to suspend{% ifversion ghes %}, unsuspend, promote, and demote{% endif %}{% ifversion ghae %} and unsuspend{% endif %} users on your enterprise.'
+title: 用户
+intro: '用户管理 API 允许您暂停{% ifversion ghes %}、取消暂停、升级和降级{% endif %}{% ifversion ghae %} 以及取消暂停{% endif %} 企业上的用户。'
 versions:
   ghes: '*'
   ghae: '*'
@@ -9,4 +9,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `403` response if they try to access it.
+*它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。

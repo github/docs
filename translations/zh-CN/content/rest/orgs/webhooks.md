@@ -1,5 +1,5 @@
 ---
-title: Webhooks
+title: Web 挂钩
 intro: ''
 versions:
   fpt: '*'
@@ -11,25 +11,25 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}
+组织 web 挂钩允许您在组织内发生特定事件时接收 HTTP `POST` 有效负载。 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
+有关您可以订阅的操作的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 事件类型](/developers/webhooks-and-events/github-event-types)”。
 
-### Scopes & Restrictions
+### 范围和限制
 
-All actions against organization webhooks require the authenticated user to be an admin of the organization being managed. Additionally, OAuth tokens require the `admin:org_hook` scope. For more information, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps)."
+对组织 web 挂钩的所有操作都需要经过身份验证的用户是所管理组织的管理员。 此外，OAuth 令牌需要 `admin:org_hook` 作用域。 更多信息请参阅“[OAuth 应用程序的作用域](/developers/apps/scopes-for-oauth-apps)”。
 
-In order to protect sensitive data which may be present in webhook configurations, we also enforce the following access control rules:
+为了保护 web 挂钩配置中可能存在的敏感数据，我们还强制实施以下访问控制规则：
 
-- OAuth applications cannot list, view, or edit webhooks which they did not create.
-- Users cannot list, view, or edit webhooks which were created by OAuth applications.
+- OAuth 应用程序无法列出、查看或编辑不是它们创建的 web 挂钩。
+- 用户无法列出、查看或编辑由 OAuth 应用程序创建的 web 挂钩。
 
-### Receiving Webhooks
+### 接收 web 挂钩
 
-In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
+为了让 {% data variables.product.product_name %} 发送 web 挂钩有效负载，您的服务器需要能够从 Internet 访问。 我们还强烈建议使用 SSL，以便我们可以通过 HTTPS 发送加密的有效负载。
 
-For more best practices, [see our guide](/guides/best-practices-for-integrators/).
+有关更多最佳实践，[请参阅我们的指南](/guides/best-practices-for-integrators/)。
 
-#### Webhook headers
+#### Web 挂钩标头
 
-{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/webhooks/event-payloads/#delivery-headers) for details.
+{% data variables.product.product_name %} 发送时将附带几个 HTTP 标头，以区分事件类型和有效负载标识符。 更多信息请参阅 [web 挂钩标头](/webhooks/event-payloads/#delivery-headers)。

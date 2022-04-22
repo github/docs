@@ -1,6 +1,6 @@
 ---
-title: Artifacts
-intro: 'The Artifacts API allows you to download, delete, and retrieve information about workflow artifacts.'
+title: 构件
+intro: 构件 API 允许您下载、删除和检索有关工作流程构件的信息。
 topics:
   - API
 versions:
@@ -10,6 +10,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.about-artifacts %} For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+{% data reusables.actions.about-artifacts %}更多信息请参阅“[使用构件持久化工作流程](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}

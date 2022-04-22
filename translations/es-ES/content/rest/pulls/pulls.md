@@ -1,6 +1,6 @@
 ---
-title: Pulls
-intro: 'The Pulls API allows you to list, view, edit, create, and even merge pull requests.'
+title: Extracciones
+intro: 'La API de extracciones te permite listar, ver editar, crear e incluso fusionar las solicitudes de cambios.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,13 +11,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The Pull Request API allows you to list, view, edit, create, and even merge pull requests. Comments on pull requests can be managed via the [Issue Comments API](/rest/reference/issues#comments).
+La API de Solicitudes de Extracción te permite listar, ver, editar, crear e incluso fusionar solicitudes de extracción. Los comentarios en las solicitudes de extracción se pueden administrar a través de la [API de Comentarios de los Informes de Problemas](/rest/reference/issues#comments).
 
-Every pull request is an issue, but not every issue is a pull request. For this reason, "shared" actions for both features, like manipulating assignees, labels and milestones, are provided within [the Issues API](/rest/reference/issues).
+Cada solicitud de extracción es un informe de problemas, pero no todos los informes de problemas son una solicitud de extracción. Es por esto que las acciones "compartidas" para ambas características, como el manipular a los asignados, etiquetas e hitos, se proporcionan dentro de la [API de Informes de Problemas](/rest/reference/issues).
 
-### Custom media types for pull requests
+### Tipos de medios personalizados para las solicitudes de extracción
 
-These are the supported media types for pull requests.
+Estos son los tipos de medios compatibles para las solicitudes de extracción.
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
@@ -26,21 +26,21 @@ These are the supported media types for pull requests.
     application/vnd.github.VERSION.diff
     application/vnd.github.VERSION.patch
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+Para obtener más información, consulta la sección "[Tipos de medios personalizados](/rest/overview/media-types)".
 
-If a diff is corrupt, contact {% data variables.contact.contact_support %}. Include the repository name and pull request ID in your message.
+Si existe alguna diff que se haya dañado, contacta a {% data variables.contact.contact_support %}. Incluye el nombre del repositorio y la ID de la solicitud de extracción en tu mensaje.
 
-### Link Relations
+### Relaciones de los enlaces
 
-Pull Requests have these possible link relations:
+Las solicitudes de extracción tienen estas posibles relaciones de enlaces:
 
-Name | Description
------|-----------|
-`self`| The API location of this Pull Request.
-`html`| The HTML location of this Pull Request.
-`issue`| The API location of this Pull Request's [Issue](/rest/reference/issues).
-`comments`| The API location of this Pull Request's [Issue comments](/rest/reference/issues#comments).
-`review_comments`| The API location of this Pull Request's [Review comments](/rest/reference/pulls#comments).
-`review_comment`| The [URL template](/rest#hypermedia) to construct the API location for a [Review comment](/rest/reference/pulls#comments) in this Pull Request's repository.
-`commits`|The API location of this Pull Request's [commits](#list-commits-on-a-pull-request).
-`statuses`| The API location of this Pull Request's [commit statuses](/rest/reference/commits#commit-statuses), which are the statuses of its `head` branch.
+| Nombre            | Descripción                                                                                                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `self`            | La ubicación de la API para esta Solicitud de Extracción.                                                                                                                                         |
+| `html`            | La ubicación de HTML para esta Solicitud de Extracción.                                                                                                                                           |
+| `propuesta`       | La ubicación de la API para el [informe de problemas](/rest/reference/issues) de esta Solicitud de Extracción.                                                                                    |
+| `comments`        | La ubicación de la API para los [Comentarios del informe de problemas](/rest/reference/issues#comments) de esta Solicitud de Extracción.                                                          |
+| `review_comments` | La ubicación de la API para los [Comentarios de revisión](/rest/reference/pulls#comments) de esta Solicitud de Extracción.                                                                        |
+| `review_comment`  | La [plantilla de URL](/rest#hypermedia) para construir la ubicación de la API para un [Comentario de revisión](/rest/reference/pulls#comments) en el repositorio de esta Solicitud de Extracción. |
+| `commits`         | La ubicación de la API para las [confirmaciones](#list-commits-on-a-pull-request) de esta solicitud de extracción.                                                                                |
+| `estados`         | La ubicación de la API para los [estados de las confirmaciones](/rest/reference/commits#commit-statuses) de esta Solicitud de Extracción, los cuales son los estados de su rama `head`.           |

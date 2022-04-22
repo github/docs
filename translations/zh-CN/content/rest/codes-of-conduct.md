@@ -13,4 +13,4 @@ redirect_from:
   - /rest/reference/codes-of-conduct
 ---
 
-You can use the Codes of Conduct API to retrieve information about a repository's code of conduct. To get a repository's code of conduct, use the "[Get a repository](/rest/reference/repos#get-a-repository)" endpoint.
+您可以使用行为准则 API 检索有关仓库行为准则的信息。 要获取仓库的行为准则，请使用“[获取仓库](/rest/reference/repos#get-a-repository)”端点。

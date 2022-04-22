@@ -1,5 +1,5 @@
 ---
-title: Assignees
+title: アサインされた人
 intro: ''
 versions:
   fpt: '*'
@@ -10,3 +10,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

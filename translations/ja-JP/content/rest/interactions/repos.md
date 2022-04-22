@@ -1,6 +1,6 @@
 ---
-title: Repository
-intro: 'The Repository Interactions API allows people with owner or admin access to temporarily restrict which type of user can comment, open issues, or create pull requests in a public repository.'
+title: リポジトリ
+intro: リポジトリのインタラクションAPIを使用すると、オーナーまたは管理者アクセス権のあるユーザはパブリックリポジトリでコメント、Issueのオープン、プルリクエストの作成ができるユーザのタイプを一時的に制限することができます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,10 +10,10 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.interactions.interactions-detail %} Here's more about the types of {% data variables.product.product_name %} users:
+{% data reusables.interactions.interactions-detail %} {% data variables.product.product_name %} ユーザのタイプについては以下を参照してください。
 
-* {% data reusables.interactions.existing-user-limit-definition %} in the repository.
-* {% data reusables.interactions.contributor-user-limit-definition %} in the repository.
-* {% data reusables.interactions.collaborator-user-limit-definition %} in the repository.
+* リポジトリの{% data reusables.interactions.existing-user-limit-definition %}
+* リポジトリの{% data reusables.interactions.contributor-user-limit-definition %}
+* リポジトリの{% data reusables.interactions.collaborator-user-limit-definition %}
 
-If an interaction limit is enabled for the user or organization that owns the repository, the limit cannot be changed for the individual repository. Instead, use the [User](#user) or [Organization](#organization) interactions endpoints to change the interaction limit.
+リポジトリを所有しているユーザまたはOrganizationについてインタラクション制限を有効にしている場合、個々のリポジトリについてその制限を変更することはできません。 インタラクション制限を変更するには、[ユーザ](#user)または[Organization](#organization)インタラクションエンドポイントを使用してください。

@@ -1,6 +1,6 @@
 ---
 title: Pre-receive Hooks
-intro: 'The Pre-receive Hooks API allows you to create, list, update and delete pre-receive hooks.'
+intro: pre-receive フック API を使用すると、pre-receive フックを作成、一覧表示、更新、および削除できます。
 versions:
   ghes: '*'
 topics:
@@ -8,20 +8,19 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-*It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+*[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
 
-### Object attributes
+### オブジェクトの属性
 
-#### Pre-receive Hook
+#### pre-receive フック
 
-| Name                             | Type      | Description                                                     |
-|----------------------------------|-----------|-----------------------------------------------------------------|
-| `name`                           | `string`  | The name of the hook.                                           |
-| `script`                         | `string`  | The script that the hook runs.                                  |
-| `script_repository`              | `object`  | The GitHub repository where the script is kept.                 |
-| `environment`                    | `object`  | The pre-receive environment where the script is executed.       |
-| `enforcement`                    | `string`  | The state of enforcement for this hook.                         |
-| `allow_downstream_configuration` | `boolean` | Whether enforcement can be overridden at the org or repo level. |
+| 名前                               | 種類        | 説明                                   |
+| -------------------------------- | --------- | ------------------------------------ |
+| `name`                           | `string`  | フックの名前。                              |
+| `script`                         | `string`  | フックが実行するスクリプト。                       |
+| `script_repository`              | `オブジェクト`  | スクリプトが保存されているGitHubリポジトリ。            |
+| `environment`                    | `オブジェクト`  | スクリプトが実行される pre-receive 環境。          |
+| `enforcement`                    | `string`  | このフックの適用状態。                          |
+| `allow_downstream_configuration` | `boolean` | 適用の Org レベルまたは repo レベルでのオーバーライドの可否。 |
 
-Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject
-any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
+*適用*可能な値は、`enabled`、`disabled`、`testing` です。 `disabled` は、pre-receive フックが実行されないことを示します。 `enabled` は、それが実行され、ゼロ以外の状態になるプッシュを拒否することを示します。 `testing` は、スクリプトは実行されるが、プッシュが拒否されないことを示します。

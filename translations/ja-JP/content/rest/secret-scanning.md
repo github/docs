@@ -1,6 +1,6 @@
 ---
 title: Secret Scanning
-intro: 'Use the Secret Scanning API to retrieve and update secret alerts from a repository.'
+intro: Use the Secret Scanning API to retrieve and update secret alerts from a repository.
 versions:
   ghes: '*'
   ghae: '*'
@@ -20,4 +20,4 @@ The {% data variables.product.prodname_secret_scanning %} API lets you{% ifversi
 - Retrieve and update {% data variables.product.prodname_secret_scanning_GHAS %} alerts from a repository. For further details, see the sections below.
 {%- else %} retrieve and update {% data variables.product.prodname_secret_scanning %} alerts from a repository.{% endif %}
 
-For more information about {% data variables.product.prodname_secret_scanning %}, see "[About {% data variables.product.prodname_secret_scanning %}](/code-security/secret-security/about-secret-scanning)."
+{% data variables.product.prodname_secret_scanning %} の詳細については、「[{% data variables.product.prodname_secret_scanning %} について](/code-security/secret-security/about-secret-scanning)」を参照してください。

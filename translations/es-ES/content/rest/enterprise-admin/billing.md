@@ -1,5 +1,5 @@
 ---
-title: Billing
+title: Facturación
 intro: ''
 versions:
   fpt: '*'
@@ -9,3 +9,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

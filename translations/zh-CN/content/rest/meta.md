@@ -1,6 +1,6 @@
 ---
-title: Meta
-intro: 'The Meta API returns meta information about {% data variables.product.product_name %} including the IP addresses of {% data variables.product.product_name %} services.'
+title: 元数据
+intro: 'Meta API 返回关于 {% data variables.product.product_name %} 的元信息，包括 {% data variables.product.product_name %} 服务的 IP 地址。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,3 +12,4 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/meta
 ---
+

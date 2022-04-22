@@ -1,5 +1,5 @@
 ---
-title: Notifications
+title: Notificaciones
 intro: ''
 versions:
   fpt: '*'
@@ -11,24 +11,24 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Users receive notifications for conversations in repositories they watch including:
+Los usuarios reciben notificaciones para las conversaciones en los repositorios que observan, incluyendo:
 
-* Issues and their comments
-* Pull Requests and their comments
-* Comments on any commits
+* Las de los informes de problemas y sus comentarios
+* Las de las solicitudes de extracción en sus comentarios
+* Las de los comentarios en cualquier confirmación
 
-Notifications are also sent for conversations in unwatched repositories when the user is involved including:
+También se envían notificaciones para las conversaciones en los repositorios sin observar cuando el usuario está involucrado, incluyendo:
 
-* **@mentions**
-* Issue assignments
-* Commits the user authors or commits
-* Any discussion in which the user actively participates
+* **@menciones**
+* Asignaciones de informes de problemas
+* Confirmaciones que confirme o cree el usuario
+* Cualquier debate en el que el usuario participe activamente
 
-All Notification API calls require the `notifications` or `repo` API scopes.  Doing this will give read-only access to some issue and commit content. You will still need the `repo` scope to access issues and commits from their respective endpoints.
+Todas las llamadas de la API para notificaciones necesitan los alcances de la API para `notifications` o `repo`.  El hacerlo te dará acceso de solo lectura a algunos contenidos de informes de problemas y de confirmaciones. Aún necesitarás el alcance de `repo` para acceder a los informes de problemas y a las confirmaciones desde sus respectivas terminales.
 
-Notifications come back as "threads".  A thread contains information about the current discussion of an issue, pull request, or commit.
+Las notificaciones se devuelven como "hilos".  Un hilo contiene información acerca del debate actual sobre un informe de problemas, solicitud de extracción o confirmación.
 
-Notifications are optimized for polling with the `Last-Modified` header.  If there are no new notifications, you will see a `304 Not Modified` response, leaving your current rate limit untouched.  There is an `X-Poll-Interval` header that specifies how often (in seconds) you are allowed to poll.  In times of high server load, the time may increase.  Please obey the header.
+Las notificaciones se optimizan para el sondeo con el encabezado `Last-Modified`.  Si no hay notificaciones nuevas, verás una respuesta `304 Not Modified`, la cual dejará tu límite de tasa intacto.  Hay un encabezado de `X-Poll-Interval` que especifica la frecuencia (en segundos) en la que se te permite hacer sondeos.  Este tiempo podría incrementarse durante los periodos de carga fuerte en el servidor.  Por favor obedece al encabezado.
 
 ``` shell
 # Add authentication to your requests
@@ -44,27 +44,27 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### Notification reasons
+### Razones para obtener las notificaciones
 
-When retrieving responses from the Notifications API, each payload has a key titled `reason`. These correspond to events that trigger a notification.
+Cuando recuperas respuestas de la API de Notificaciones, cada carga útil tiene una clave que se titula `reason`. Estas corresponden a los eventos que activan una notificación.
 
-Here's a list of potential `reason`s for receiving a notification:
+Hay una lista potencial de `reason` para recibir una notificación:
 
-Reason Name | Description
-------------|------------
-`assign` | You were assigned to the issue.
-`author` | You created the thread.
-`comment` | You commented on the thread.
-`ci_activity` | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.
-`invitation` | You accepted an invitation to contribute to the repository.
-`manual` | You subscribed to the thread (via an issue or pull request).
-`mention` | You were specifically **@mentioned** in the content.
-`review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
-`security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
-`state_change` | You changed the thread state (for example, closing an issue or merging a pull request).
-`subscribed` | You're watching the repository.
-`team_mention` | You were on a team that was mentioned.
+| Nombre de la razón | Descripción                                                                                                                                                                                                |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `assign`           | Se te asignó al informe de problemas.                                                                                                                                                                      |
+| `autor`            | Creaste el hilo.                                                                                                                                                                                           |
+| `comentario`       | Comentaste en el hilo.                                                                                                                                                                                     |
+| `ci_activity`      | Se completó una ejecución de flujo de trabajo de {% data variables.product.prodname_actions %}.                                                                                                            |
+| `invitación`       | Aceptaste una invitación para colaborar en el repositorio.                                                                                                                                                 |
+| `manual`           | Te suscribiste al hilo (a través de un informe de problemas o solicitud de extracción).                                                                                                                    |
+| `mención`          | Se te **@mencionó** específicamente en el contenido.                                                                                                                                                       |
+| `review_requested` | Se te solicitó, o se solicitó a un equipo del cual eres miembro, revisar una solicitud de extracción.{% ifversion fpt or ghec %}
+| `security_alert`   | {% data variables.product.prodname_dotcom %} descubrió una [vulnerabilidad de seguridad](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) en tu repositorio.{% endif %}
+| `state_change`     | Cambiaste el estado del hilo (por ejemplo, cerraste un informe de problemas o fusionaste una solicitud de extracción).                                                                                     |
+| `subscribed`       | Estás observando el repositorio.                                                                                                                                                                           |
+| `team_mention`     | Estuviste en un equipo al que se mencionó.                                                                                                                                                                 |
 
-Note that the `reason` is modified on a per-thread basis, and can change, if the `reason` on a later notification is different.
+Toma en cuenta que la `reason` se modificará conforme al hilo, y puede cambiar si esta `reason` es diferente en una notificación posterior.
 
-For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then  **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
+Por ejemplo, si eres el autor de un informe de problemas, las notificaciones subsecuentes de dicho informe tendrán una `reason` o un `author`. Si entonces se te **@menciona** en el mismo informe de problemas, las notificaciones que obtengas de ahí en adelante tendrán una `reason` o una `mention`. La `reason` se queda como una `mention`, sin importar si nunca se te menciona.

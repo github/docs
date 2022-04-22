@@ -4,6 +4,26 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `AddProjectDraftIssueInput` was added",
+          "Type `AddProjectDraftIssuePayload` was added",
+          "Type `UpdateProjectDraftIssueInput` was added",
+          "Type `UpdateProjectDraftIssuePayload` was added",
+          "Field `availableSeats` (deprecated) was removed from object type `EnterpriseBillingInfo`",
+          "Field `seats` (deprecated) was removed from object type `EnterpriseBillingInfo`",
+          "Field `addProjectDraftIssue` was added to object type `Mutation`",
+          "Field `updateProjectDraftIssue` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-04-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type 'ProjectV2Owner' was added",
           "`Issue` object implements 'ProjectV2Owner' interface",
           "`Organization` object implements 'ProjectV2Owner' interface",

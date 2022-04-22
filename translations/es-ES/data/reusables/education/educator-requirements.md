@@ -3,4 +3,4 @@ Para postularte para obtener und escuento de docente o investigador, debes cumpl
 - Ser educador, miembro de una factultad, o investigador.
 - Tener una dirección de correo electrónico verificable que haya emitido una institución educativa.
 - Cargar los documentos que comprueben tu afiliación a la institución educativa.
-- Have a personal account on {% data variables.product.product_name %}.
+- Tener una cuenta personal en {% data variables.product.product_name %}.

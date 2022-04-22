@@ -1,7 +1,7 @@
 {% ifversion fpt %}
-You can create
-{% data variables.product.prodname_pages %} sites that are publicly available on the internet. Organizations that use {% data variables.product.prodname_ghe_cloud %} can also publish sites privately by managing access control for the site.
+Puedes crear
+sitios de {% data variables.product.prodname_pages %} que estén disponibles al público en la internet. Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} también pueden publicar sitios de forma privada al administrar el control de accesos para el sitio.
 {% elsif ghec %}
-Unless your enterprise uses
-{% data variables.product.prodname_emus %}, you can choose to publish sites publicly or privately by managing access control for the site.
+A menos de que tu empresa utilice
+{% data variables.product.prodname_emus %}, puedes elegir publicar los sitios de forma pública o privada al administrar su control de accesos.
 {% endif %}

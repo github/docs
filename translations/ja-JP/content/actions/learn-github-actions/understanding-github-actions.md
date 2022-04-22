@@ -72,7 +72,7 @@ You can configure a job's dependencies with other jobs; by default, jobs have no
 
 For more information about jobs, see "[Using jobs](/actions/using-jobs)."
 
-### アクション
+### Actions
 
 An _action_ is a custom application for the {% data variables.product.prodname_actions %} platform that performs a complex but frequently repeated task.  Use an action to help reduce the amount of repetitive code that you write in your workflow files.  An action can pull your git repository from {% data variables.product.prodname_dotcom %}, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
 

@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Pull request authors and repository owners and collaborators can request a pull request review from anyone with write access to the repository. Each requested reviewer will receive a notification asking them to review the pull request.
+Pull Requestの作者、リポジトリのオーナー、およびコラボレータは、リポジトリの書き込みアクセスを持つ人にPull Requestレビューをリクエストできます。 リクエストされたレビュー担当者は、Pull Requestレビューをするようあなたが依頼したという通知を受け取ります。

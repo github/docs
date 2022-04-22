@@ -1,6 +1,6 @@
 ---
 title: Organization
-intro: 'The Migrations API is only available to authenticated organization owners.'
+intro: 移行 API を使用できるのは、認証済みの Organization オーナーのみです。
 versions:
   fpt: '*'
   ghec: '*'

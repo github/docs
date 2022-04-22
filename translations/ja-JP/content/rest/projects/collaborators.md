@@ -1,6 +1,6 @@
 ---
-title: Collaborators
-intro: "This API allows you to interact with an organization's projects."
+title: コラボレータ
+intro: このAPIを使用すると、Organizationのプロジェクトと対話できます。
 versions:
   fpt: '*'
   ghes: '*'

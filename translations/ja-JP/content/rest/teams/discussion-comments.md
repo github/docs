@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Any member of the team's [organization](/rest/reference/orgs) can create and read comments on a public discussion. For more details, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions/)." This API is only available to authenticated members of the team's organization.
+Team の [Organization](/rest/reference/orgs) に属する全メンバーが、公開のディスカッションについたコメントを作成や表示できます。 詳細については「[Teamディスカッションについて](/organizations/collaborating-with-your-team/about-team-discussions/)」を参照してください。 この API は、Team の Organization の、認証済みメンバーのみが利用できます。

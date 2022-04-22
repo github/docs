@@ -54,6 +54,8 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 
 {% endnote %}
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6143 %}
+
 ## Controlling runner software updates on self-hosted runners
 
 By default, self-hosted runners will automatically perform a software update whenever a new version of the runner software is available.  If you use ephemeral runners in containers then this can lead to repeated software updates when a new runner version is released.  Turning off automatic updates allows you to update the runner version on the container image directly on your own schedule.
@@ -75,6 +77,8 @@ For instructions on how to install the latest runner version, see the installati
 **Note:** If you do not perform a software update within 30 days, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner.  In addition, if a critical security update is required, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner until it has been updated.
 
 {% endnote %}
+
+{% endif %}
 
 ## Using webhooks for autoscaling
 
