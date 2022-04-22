@@ -18,7 +18,7 @@ shortTitle: Learning resources
 ---
 ## Using Git
 
-Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can also review the [Git command list](https://git-scm.com/docs) or our [Git command lookup reference](https://git.github.io/git-reference/).
+Familiarize yourself with Git by visiting the [official Git project site](https://git-scm.com) and reading the [ProGit book](http://git-scm.com/book). You can also review the [Git command list](https://git-scm.com/docs).
 
 ## Using {% data variables.product.product_name %}
 
