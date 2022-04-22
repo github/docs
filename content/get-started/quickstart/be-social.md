@@ -33,7 +33,7 @@ For more information, see "[Following people](/get-started/exploring-projects-on
 
 ## Watching a repository
 
-You can subscribe to watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you will see the changes in your personal dashboard. For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
+You can subscribe to a repository to watch it and receive notifications for activity in it. When the owner updates the repository, you will see the changes in your personal dashboard. For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
 
 Click **Watch** at the top of a repository to watch it.
 
