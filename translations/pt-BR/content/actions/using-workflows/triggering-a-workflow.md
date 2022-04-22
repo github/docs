@@ -20,14 +20,7 @@ miniTocMaxHeadingLevel: 3
 
 ## Sobre acionadores de fluxo de trabalho
 
-Os acionadores de fluxo de trabalho são eventos que fazem com que um fluxo de trabalho seja executado. Esses eventos podem ser:
-
-- Eventos que ocorrem no repositório do fluxo de trabalho
-- Eventos que ocorrem fora de {% data variables.product.product_name %} e acionam um evento `repository_dispatch` em {% data variables.product.product_name %}
-- Horários agendados
-- Manual
-
-Por exemplo, você pode configurar o fluxo de trabalho para executar quando um push é feito no branch padrão do seu repositório, quando uma versão é criada, ou quando um problema é aberto.
+{% data reusables.actions.about-triggers %}
 
 Os gatilhos de fluxo de trabalho estão definidos com a chave `on`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)".
 
@@ -43,7 +36,7 @@ As etapas a seguir ocorrem para acionar a execução de um fluxo de trabalho:
 
 {% data reusables.actions.actions-do-not-trigger-workflows %} Para obter mais informações, consulte "[Efetuando a autenticação com o GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
-Se você deseja acionar um fluxo de trabalho de dentro de uma execução de fluxo de trabalho, você pode usar um token de acesso pessoal em vez de `GITHUB_TOKEN` para acionar eventos que exigem um token. Você deverá criar um token de acesso pessoal e armazená-lo como um segredo. Para minimizar seus custos de uso {% data variables.product.prodname_actions %}, certifique-se de que você não cria execução de fluxo de trabalho recursivo ou não intencional. Para obter mais informações sobre a criação de um token de acesso pessoal, consulte[Criando um token de acesso pessoal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." Para mais informações sobre como armazenar um token de acesso pessoal como segredo, consulte "[Criar e armazenar segredos criptografados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+Se você deseja acionar um fluxo de trabalho de dentro de uma execução de fluxo de trabalho, você pode usar um token de acesso pessoal em vez de `GITHUB_TOKEN` para acionar eventos que exigem um token. Você deverá criar um token de acesso pessoal e armazená-lo como um segredo. Para minimizar seus custos de uso {% data variables.product.prodname_actions %}, certifique-se de que você não cria execução de fluxo de trabalho recursivo ou não intencional. For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." Para mais informações sobre como armazenar um token de acesso pessoal como segredo, consulte "[Criar e armazenar segredos criptografados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
 
 Por exemplo, o fluxo de trabalho a seguir usa um token de acesso pessoal (armazenado como um segredo chamado `MY_TOKEN`) para adicionar uma etiqueta a um problema por meio de {% data variables.product.prodname_cli %}. Todos os fluxos de trabalho que forem executados quando uma etiqueta é adicionada, serão executados assim que esta etapa for executada.
 

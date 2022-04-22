@@ -1,5 +1,5 @@
 ---
-title: Comments
+title: Comentários
 intro: 'The Issue Comments API supports listing, viewing, editing, and creating comments on issues and pull requests.'
 versions:
   fpt: '*'
@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Issue Comments use [these custom media types](#custom-media-types). You can read more about the use of media types in the API [here](/rest/overview/media-types).
+Os comentários do problema usam [estes tipos de mídia personalizados](#custom-media-types). Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).

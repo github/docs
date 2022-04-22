@@ -1,7 +1,7 @@
 ---
 title: Fazer o registro em uma conta conta do GitHub
 shortTitle: Inscreva-se para uma nova conta no GitHub
-intro: '{% data variables.product.company_short %} offers personal accounts for individuals and organizations for teams of people working together.'
+intro: 'O {% data variables.product.company_short %} oferece contas pessoais para pessoas e organizações para que equipes de pessoas trabalhem juntas.'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
   - /github/getting-started-with-github/signing-up-for-a-new-github-account

@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: 'The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.'
+intro: A API do Gitignore busca modelos `.gitignore` que podem ser usados para ignorar arquivos e diretórios.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,12 +13,12 @@ redirect_from:
   - /rest/reference/gitignore
 ---
 
-When you create a new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} via the API, you can specify a [.gitignore template](/github/getting-started-with-github/ignoring-files) to apply to the repository upon creation. The .gitignore templates API lists and fetches templates from the {% data variables.product.product_name %} [.gitignore repository](https://github.com/github/gitignore).
+Ao criar um novo repositório em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} por meio da API, você pode especificar um [.gitignore template](/github/getting-started-with-github/ignoring-files) para que seja aplicado ao repositório após a criação. A API de modlos do .gitignore lista e recupera modelos do repositório de [.gitignore](https://github.com/github/gitignore) de {% data variables.product.product_name %}.
 
-### Custom media types for gitignore
+### Tipos de mídia personalizados para gitignore
 
-You can use this custom media type when getting a gitignore template.
+Você pode usar este tipo de mídia personalizada ao obter um modelo de gitignore.
 
     application/vnd.github.VERSION.raw
 
-For more information, see "[Media types](/rest/overview/media-types)."
+Para obter mais informações, consulte "[Tipos de mídia](/rest/overview/media-types)".

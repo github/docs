@@ -1,1 +1,0 @@
-## Status da implantação

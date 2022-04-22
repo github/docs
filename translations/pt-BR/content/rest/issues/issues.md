@@ -1,6 +1,6 @@
 ---
-title: Issues
-intro: 'The Issues API enables you to view and manage issues, including issue assignees, comments, labels, and milestones.'
+title: Problemas
+intro: 'A API de Problemas permite que você visualize e gerencie problemas, incluindo responsáveis de problemas, comentários, etiquetas e marcos.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,13 +11,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Custom media types for issues
+### Tipos de mídia personalizados para problemas
 
-These are the supported media types for issues.
+Estes são os tipos de mídia compatíveis para problemas.
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
     application/vnd.github.VERSION.html+json
     application/vnd.github.VERSION.full+json
 
-For more information about media types, see "[Custom media types](/rest/overview/media-types)."
+Para obter mais informações sobre os tipos de mídia, consulte "[Tipos de mídia personalizados](/rest/overview/media-types)".

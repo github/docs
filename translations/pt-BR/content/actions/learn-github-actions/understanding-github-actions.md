@@ -50,9 +50,7 @@ Para obter informações mais informações sobre a introdução de {% data vari
 
 ### Fluxos de trabalho
 
-Um fluxo de trabalho é um processo automatizado configurável que executa um ou mais trabalhos.  Os fluxos de trabalho são definidos por um arquivo YAML verificado no seu repositório e será executado quando acionado por um evento no repositório, ou eles podem ser acionados manualmente ou de acordo com um cronograma definido.
-
-É possível ter vários fluxos de trabalho em um repositório, cada um dos quais pode executar um conjunto diferente de etapas.  Por exemplo, você pode ter um fluxo de trabalho para criar e testar pull requests, outro fluxo de trabalho para implantar seu aplicativo toda vez que uma versão for criada, e outro fluxo de trabalho que adiciona uma etiqueta toda vez que alguém abre um novo problema.
+{% data reusables.actions.about-workflows-long %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}Você pode consultar um fluxo de trabalho dentro de outro fluxo de trabalho. Consulte "[Reutilizando fluxos de trabalho](/actions/learn-github-actions/reusing-workflows)"{% endif %}
 
@@ -72,7 +70,7 @@ Você pode configurar as dependências de um trabalho com outros trabalhos; por 
 
 Para obter mais informações sobre trabalhos, consulte "[Usando trabalhos](/actions/using-jobs)".
 
-### Ações
+### Actions
 
 Uma _ação_ é uma aplicativo personalizado para a plataforma de {% data variables.product.prodname_actions %} que executa uma tarefa complexa, mas frequentemente repetida.  Use uma ação para ajudar a reduzir a quantidade de código repetitivo que você grava nos seus arquivos de fluxo de trabalho.  Uma ação pode extrair o seu repositório git de {% data variables.product.prodname_dotcom %}, configurar a cadeia de ferramentas correta para seu ambiente de criação ou configurar a autenticação para seu provedor de nuvem.
 
@@ -86,168 +84,7 @@ Para obter mais informações, consulte "[Criar ações](/actions/creating-actio
 
 {% data reusables.actions.about-runners %} Cada executor pode executar uma tarefa por vez. {% ifversion ghes or ghae %} Você deve hospedar seus próprios executores para {% data variables.product.product_name %}. {% elsif fpt or ghec %}{% data variables.product.company_short %} fornece executores para Ubuntu Linux, Microsoft Windows e macOS para executar seus fluxos de trabalho. Cada fluxo de trabalho é executado em uma nova máquina virtual provisionada. Se você precisar de um sistema operacional diferente ou precisar de uma configuração de hardware específica, você poderá hospedar seus próprios executores.{% endif %} Para mais informações{% ifversion fpt or ghec %} sobre executores auto-hospedados{% endif %}, consulte "[Hospedando os seus próprios executores](/actions/hosting-your-own-runners)"
 
-## Criar um exemplo de fluxo de trabalho
-
-{% data variables.product.prodname_actions %} usa a sintaxe do YAML para definir o fluxo de trabalho.  Cada fluxo de trabalho é armazenado como um arquivo YAML separado no seu repositório de código, em um diretório denominado `.github/workflows`.
-
-Você pode criar um exemplo de fluxo de trabalho no repositório que aciona automaticamente uma série de comandos sempre que o código for carregado. Neste fluxo de trabalho, {% data variables.product.prodname_actions %} verifica o código enviado, instala as dependências do software e executa `bats -v`.
-
-1. No seu repositório, crie o diretório `.github/workflows/` para armazenar seus arquivos do fluxo de trabalho.
-1. No diretório `.github/workflows/`, crie um novo arquivo denominado `learn-github-actions.yml` e adicione o código a seguir.
-
-   ```yaml
-   name: learn-github-actions
-   on: [push]
-   jobs:
-     check-bats-version:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: {% data reusables.actions.action-checkout %}
-         - uses: {% data reusables.actions.action-setup-node %}
-           with:
-             node-version: '14'
-         - run: npm install -g bats
-         - run: bats -v
-   ```
-1. Faça commit dessas alterações e faça push para o seu repositório do {% data variables.product.prodname_dotcom %}.
-
-Seu novo arquivo de fluxo de trabalho de {% data variables.product.prodname_actions %} agora está instalado no seu repositório e será executado automaticamente toda vez que alguém fizer push de uma alteração no repositório. Para obter detalhes sobre o histórico de execução de um fluxo de trabalho, consulte "[Visualizando a atividade do fluxo de trabalho](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-workflows-activity)".
-
-## Entender o arquivo de fluxo de trabalho
-
-Para ajudar você a entender como a sintaxe de YAML é usada para criar um arquivo de fluxo de trabalho, esta seção explica cada linha do exemplo Introdução:
-
-<table>
-<tr>
-<td>
-
-  ```yaml
-  name: learn-github-actions
-  ```
-</td>
-<td>
-  <em>Opcional</em> - Como o nome do fluxo de trabalho irá aparecer na aba Ações do repositório de {% data variables.product.prodname_dotcom %}.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-  on: [push]
-  ```
-</td>
-<td>
-Especifica o gatilho para este fluxo de trabalho. Este exemplo usa o evento <code>push</code> para que a execução de um fluxo de trabalho seja acionada toda vez que alguém fizer push de uma alteração no repositório ou merge de um pull request.  Isso é acionado por um push para cada branch. Para obter exemplos de sintaxe executados apenas em pushes para branches, caminhos ou tags específicos, consulte <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">"Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}.</a>
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-  jobs:
-  ```
-</td>
-<td>
- Agrupa todos os trabalhos executados no fluxo de trabalho <code>learn-github-actions</code>.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-  check-bats-version:
-  ```
-</td>
-<td>
-Define uma tarefa chamada <code>check-bats-version</code>. As chaves secundaárias definirão as propriedades do trabalho.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-    runs-on: ubuntu-latest
-  ```
-</td>
-<td>
-  Configura o trabalho a ser executado na versão mais recente de um executor do Linux do Ubuntu. Isto significa que o trabalho será executado em uma nova máquina virtual hospedada pelo GitHub. Para obter exemplos de sintaxe usando outros executores, consulte <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">"Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}."</a>
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-    steps:
-  ```
-</td>
-<td>
-  Agrupa todos os passos são executados no trabalho <code>check-bats-version</code>. Cada item aninhado nesta seção é uma ação separada ou script do shell.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-      - uses: {% data reusables.actions.action-checkout %}
-  ```
-</td>
-<td>
-A palavra-chave <code>usa</code> especifica que esta etapa irá executar <code>v3</code> da ação <code>actions/checkout</code>.  Esta é uma ação que faz o check-out do seu repositório para o executor, permitindo que você execute scripts ou outras ações com base no seu código (como ferramentas de compilação e teste). Você deve usar a ação de checkout sempre que o fluxo de trabalho for executado no código do repositório.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-      - uses: {% data reusables.actions.action-setup-node %}
-        with:
-          node-version: '14'
-  ```
-</td>
-<td>
-  Essa etapa usa a <code>ação de {% data reusables.actions.action-setup-node %}</code> para instalar a versão especificada do Node.js (este exemplo usa v14). Isso coloca os dois comandos <code>nó</code> e <code>npm</code> no seu <code>PATH</code>.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-      - run: npm install -g bats
-  ```
-</td>
-<td>
-  A palavra-chave <code>executar</code> diz ao trabalho para executar um comando no executor. Neste caso, você está usando o <code>npm</code> para instalar o pacote de teste do software <code>bats</code>.
-</td>
-</tr>
-<tr>
-<td>
-
-  ```yaml
-      - run: bats -v
-  ```
-</td>
-<td>
-  Por fim, você executará o comando <code>bats</code> com um parâmetro que produz a versão do software.
-</td>
-</tr>
-</table>
-
-### Visualizar o arquivo de fluxo de trabalho
-
-Neste diagrama, você pode ver o arquivo de fluxo de trabalho que acabou de criar e como os componentes de {% data variables.product.prodname_actions %} estão organizados em uma hierarquia. Cada etapa executa uma única ação ou script do shell. As etapas 1 e 2 executam ações, enquanto as etapas 3 e 4 executam scripts de shell. Para encontrar mais ações pré-criadas para seus fluxos de trabalho, consulte "[Encontrar e personalizar ações](/actions/learn-github-actions/finding-and-customizing-actions)".
-
-![Visão geral do fluxo de trabalho](/assets/images/help/images/overview-actions-event.png)
-
-## Visualizando a atividade do fluxo de trabalho
-
-Uma vez que seu fluxo de trabalho começou a ser executado, você poderá ver um gráfico de visualização do progresso da execução e ver a atividade de cada etapa em {% data variables.product.prodname_dotcom %}.
-
-{% data reusables.repositories.navigate-to-repo %}
-1. No nome do seu repositório, clique em **Ações**. ![Acesse o repositório](/assets/images/help/images/learn-github-actions-repository.png)
-1. Na barra lateral esquerda, clique no fluxo de trabalho que deseja ver. ![Captura de tela dos resultados do fluxo de trabalho](/assets/images/help/images/learn-github-actions-workflow.png)
-1. Em "Execuções do fluxo de trabalho", clique no nome da execução que você deseja ver. ![Captura de tela das execuções do fluxo de trabalho](/assets/images/help/images/learn-github-actions-run.png)
-1. Em **Trabalhos** ou no gráfico de visualização, clique no trabalho que você deseja ver. ![Selecionar trabalho](/assets/images/help/images/overview-actions-result-navigate.png)
-1. Visualizar os resultados de cada etapa. ![Captura de tela dos detalhes de execução do fluxo de trabalho](/assets/images/help/images/overview-actions-result-updated-2.png)
+{% data reusables.actions.workflow-basic-example-and-explanation %}
 
 ## Próximas etapas
 
@@ -263,7 +100,8 @@ Para entender como a cobrança funciona para {% data variables.product.prodname_
 
 {% data reusables.actions.contacting-support %}
 
+{% ifversion ghec or ghes or ghae %}
 ## Leia mais
 
-{% ifversion ghec or ghes or ghae %}
-- "[Sobre {% data variables.product.prodname_actions %} para as empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"{% endif %}
+- "[Sobre {% data variables.product.prodname_actions %} para as empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"
+{% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Deployments
-intro: 'The Deployments API allows you to create and delete deployments and deployment environments.'
+title: Implantações
+intro: The Deployments API allows you to create and delete deployments and deployment environments.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,16 +11,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Deployments are requests to deploy a specific ref (branch, SHA, tag). GitHub dispatches a [`deployment` event](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) that external services can listen for and act on when new deployments are created. Deployments enable developers and organizations to build loosely coupled tooling around deployments, without having to worry about the implementation details of delivering different types of applications (e.g., web, native).
+As implantações são solicitações para implantar um ref específico (branch, SHA, tag). O GitHub envia um [ evento de `implantação`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) pelo qual os serviços externos podem ouvir e atuar quando novas implantações são criadas. As implantações permitem que os desenvolvedores e as organizações construam ferramentas associadas em torno de implantações sem ter que se preocupar com os detalhes de implementação da entrega de diferentes tipos de aplicativos (p. ex., web, nativo).
 
-Deployment statuses allow external services to mark deployments with an `error`, `failure`, `pending`, `in_progress`, `queued`, or `success` state that systems listening to [`deployment_status` events](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status) can consume.
+Os status de implantação externos permitem marcar implantações com `error`, `failure`, `pending`, `in_progress`, `queued` ou `success` afirmar que os sistemas que estão escutando os eventos [`deployment_status`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status) podem consumir.
 
-Deployment statuses can also include an optional `description` and `log_url`, which are highly recommended because they make deployment statuses more useful. The `log_url` is the full URL to the deployment output, and
-the `description` is a high-level summary of what happened with the deployment.
+Os status de implantação também podem incluir uma `descrição` opcional e `log_url`, que são altamente recomendados porque tornam o status de implantação mais útil. O `log_url` é a URL completa para a saída de implantação e a `descrição` é um resumo de alto nível do que aconteceu com a implantação.
 
-GitHub dispatches `deployment` and `deployment_status` events when new deployments and deployment statuses are created. These events allows third-party integrations to receive respond to deployment requests and update the status of a deployment as progress is made.
+O GitHub envia os eventos de `implantação` e `deployment_status` quando novas implantações de status de implantação são criadas. Esses eventos permitem que as integrações de terceiros recebam resposta para solicitações de implantação e atualizem o status de implantação conforme o progresso é feito.
 
-Below is a simple sequence diagram for how these interactions would work.
+Abaixo está um diagrama de sequência sobre para como essas interações funcionariam.
 
 ```
 +---------+             +--------+            +-----------+        +-------------+
@@ -49,12 +48,12 @@ Below is a simple sequence diagram for how these interactions would work.
      |                      |                       |                     |
 ```
 
-Keep in mind that GitHub is never actually accessing your servers. It's up to your third-party integration to interact with deployment events. Multiple systems can listen for deployment events, and it's up to each of those systems to decide whether they're responsible for pushing the code out to your servers, building native code, etc.
+Tenha em mente que o GitHub nunca terá acesso aos seus servidores. Cabe à sua integração de terceiros interagir com os eventos de implantação. Vários sistemas podem ouvir eventos de implantação, e cabe a cada um desses sistemas decidir se serão responsáveis por retirar o código dos seus servidores, criar código nativo, etc.
 
-Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% ifversion not ghae %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+Observe que o `repo_deployment` [OAuth escopo](/developers/apps/scopes-for-oauth-apps) concede acesso direcionado a implantações e status **sem** conceder acesso ao código do repositório, enquanto os es escopos {% ifversion not ghae %}`public_repo` e{% endif %}`repositório` também concedem permissão para codificar.
 
-### Inactive deployments
+### Implantações inativas
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
+Ao definir o estado de uma implantação como `sucesso`, todas as implantações de ambiente de não produção e não transitórios anteriores no mesmo nome do ambiente irão tornar-se `inativas`. Para evitar isso, você pode definir `auto_inactive` como `falso` ao criar o status de implantação.
 
-You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
+Você pode informar que um ambiente transitório não existe mais definindo seu `estado` como `inativo`.  Definir o `estado` como `inativo` mostra a implantação como `destruída` em {% data variables.product.prodname_dotcom %} e remove o acesso a ela.

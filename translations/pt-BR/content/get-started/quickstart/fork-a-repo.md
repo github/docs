@@ -152,7 +152,7 @@ Ao bifurcar um projeto para propor mudanças no repositório original, é possí
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
-6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. Ficará assim:
+6. Digite `git remote add upstream`, cole o URL que você copiou na etapa 3 e pressione **Enter**. Ficará assim:
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```

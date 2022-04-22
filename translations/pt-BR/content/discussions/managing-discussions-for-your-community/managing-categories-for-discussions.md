@@ -1,6 +1,6 @@
 ---
-title: Managing categories for discussions
-intro: 'You can categorize discussions to organize conversations for your community members, and you can choose a format for each category.'
+title: Gerenciar categorias para discussões
+intro: Você pode categorizar as discussões para organizar conversas para integrantes da sua comunidade e você pode escolher um formato para cada categoria.
 permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage categories for discussions in the organization.
 versions:
   fpt: '*'
@@ -26,13 +26,13 @@ Cada categoria deve ter um nome e um pareamento de emojis únicos e pode ser aco
 | 📣 Anúncios         | Atualizações e notícias de mantenedores do projeto                         | Anúncio             |
 | #️⃣ Geral          | Tudo que for relevante para o projeto                                      | Discussão aberta    |
 | 💡 Ideias           | Ideias para alterar ou melhorar o projeto                                  | Discussão aberta    |
-| 🗳 Polls            | Polls with multiple options for the community to vote for and discuss      | Polls               |
+| 🗳 Enquetes         | Enquetes com várias opções para a comunidade votar e discutir              | Enquetes            |
 | 🙏 Q&A              | Perguntas para a comunidade responder, com um formato de pergunta/resposta | Pergunta e resposta |
 | 🙌 Mostrar e contar | Criações, experimentos ou testes relevantes para o projeto                 | Discussão aberta    |
 
 ## Criar categoria
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. Em {% data variables.product.product_location %}, acesse a página principal do repositório ou organização onde você deseja criar uma categoria.
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
 1. Clique em **Nova Categoria**. ![Botão "Nova categoria" acima da lista de categorias de discussão para um repositório](/assets/images/help/discussions/click-new-category-button.png)
@@ -43,7 +43,7 @@ Cada categoria deve ter um nome e um pareamento de emojis únicos e pode ser aco
 
 Você pode editar uma categoria para alterar o emoji, título, descrição e formato da discussão.
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. Em {% data variables.product.product_location %}, acesse a página principal do repositório ou organização onde você deseja criar uma categoria.
 {% data reusables.discussions.discussions-tab %}
 1. À direita de uma categoria na lista, clique em {% octicon "pencil" aria-label="The pencil icon" %}. ![Botão de editar à direita da categoria na lista de categorias para um repositório](/assets/images/help/discussions/click-edit-for-category.png)
 1. {% data reusables.discussions.edit-category-details %}![Editar emoji, título, descrição e formato de discussão para uma categoria existente](/assets/images/help/discussions/edit-existing-category-details.png)
@@ -53,7 +53,7 @@ Você pode editar uma categoria para alterar o emoji, título, descrição e for
 
 Ao você excluir uma categoria, {% data variables.product.product_name %} moverá todas as discussões da categoria excluída para uma categoria existente que você escolher.
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
+1. Em {% data variables.product.product_location %}, acesse a página principal do repositório ou organização onde você deseja criar uma categoria.
 {% data reusables.discussions.discussions-tab %}
 1. À direita de uma categoria na lista, clique em {% octicon "trash" aria-label="The trash icon" %}. ![Botão de lixeira à direita da categoria na lista de categorias para um repositório](/assets/images/help/discussions/click-delete-for-category.png)
 1. Use o menu suspenso e escolha uma nova categoria para qualquer discussão na categoria que você está excluindo. ![Menu suspenso para escolher nova categoria ao excluir uma categoria existente](/assets/images/help/discussions/choose-new-category.png)

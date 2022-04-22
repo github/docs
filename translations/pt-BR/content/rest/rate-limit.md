@@ -1,6 +1,6 @@
 ---
-title: Rate limit
-intro: 'With the Rate Limit API, you can check the current rate limit status of various REST APIs.'
+title: Limite de taxa
+intro: 'Com a API de limite de taxa, você pode verificar o status atual da taxa limite de várias APIs REST.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,21 +13,20 @@ redirect_from:
   - /rest/reference/rate-limit
 ---
 
-The REST API overview documentation describes the [rate limit rules](/rest/overview/resources-in-the-rest-api#rate-limiting). You can check your current rate limit status at any time using the Rate Limit API described below.
+A documentação geral da API REST descreve as [regras de limite de taxa](/rest/overview/resources-in-the-rest-api#rate-limiting). Você pode verificar seu status de limite de taxa atual a qualquer momento usando a API de limite de taxa descrita abaixo.
 
-### Understanding your rate limit status
+### Entender o seu status de limite de taxa
 
-The Search API has a [custom rate limit](/rest/reference/search#rate-limit), separate from the rate limit governing the rest of the REST API. The GraphQL API also has a [custom rate limit]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations#rate-limit) that is separate from and calculated differently than rate limits in the REST API.
+A API de pesquisa tem um [limite de taxa personalizado](/rest/reference/search#rate-limit), separado do limite de taxa que rege o restante da API REST. A API do GraphQL também tem um [limite de taxa personalizado]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations#rate-limit), que é separado e calculado de forma diferente dos limites de taxa na API REST.
 
-For these reasons, the Rate Limit API response categorizes your rate limit. Under `resources`, you'll see four
-objects:
+Por esses motivos, a resposta da API do limite de taxa categoriza o seu limite de taxa. Em `recursos`, você verá quatro objetos:
 
-* The `core` object provides your rate limit status for all non-search-related resources in the REST API.
+* O objeto `principal` fornece o status do limite de taxa para todos os recursos não relacionados à pesquisa na API REST.
 
-* The `search` object provides your rate limit status for the [Search API](/rest/reference/search).
+* O objeto `de pesquisa` fornece o status do limite de taxa para a [API de pesquisa](/rest/reference/search).
 
-* The `graphql` object provides your rate limit status for the [GraphQL API]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql).
+* O objeto `graphql` fornece o status do limite de taxa para a [API do GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql).
 
-* The `integration_manifest` object provides your rate limit status for the [GitHub App Manifest code conversion](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration) endpoint.
+* O objeto `integration_manifest` fornece o status do limite de taxa para o ponto de extremidade [Conversão do código de manifesto do aplicativo GitHub](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
 
-For more information on the headers and values in the rate limit response, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
+Para obter mais informações sobre os cabeçalhos e valores na resposta de limite de taxa, consulte "[Recursos na API REST](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)".
