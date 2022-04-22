@@ -520,6 +520,16 @@
 /rest/overview/resources-in-the-rest-api
 - /rest/overview/api-previews
 
+/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
+- /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
+- /articles/viewing-insights-for-your-organization
+- /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
+
+/enterprise-cloud@latest/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights
+- /organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights
+- /articles/changing-the-visibility-of-your-organizations-dependency-insights
+- /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
+
 /enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 - /search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 - /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-account
