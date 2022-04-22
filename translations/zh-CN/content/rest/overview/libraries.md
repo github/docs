@@ -18,11 +18,17 @@ topics:
   <h1>Octokit 风格多样</h1>
   <p class="lead">使用官方的 Octokit 库，或者使用任何适用的第三方库。</p>
   <div class="octokit-links"><br/>
-     <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
      <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
+
+{% warning %}
+
+警告：截至 2021 年 10 月下旬，官方 Octokit 库目前尚未维护。 更多信息请参阅 [octokit.js 存储库中的此讨论](https://github.com/octokit/octokit.js/discussions/620)。
+
+{% endwarning %}
 
 # 第三方库
 

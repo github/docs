@@ -72,7 +72,7 @@ You can configure a job's dependencies with other jobs; by default, jobs have no
 
 For more information about jobs, see "[Using jobs](/actions/using-jobs)."
 
-### アクション
+### Actions
 
 An _action_ is a custom application for the {% data variables.product.prodname_actions %} platform that performs a complex but frequently repeated task.  Use an action to help reduce the amount of repetitive code that you write in your workflow files.  An action can pull your git repository from {% data variables.product.prodname_dotcom %}, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
 
@@ -111,7 +111,7 @@ You can write your own actions, or you can find actions to use in your workflows
    ```
 1. これらの変更をコミットして、{% data variables.product.prodname_dotcom %} リポジトリにプッシュします。
 
-これで、新しい {% data variables.product.prodname_actions %} ワークフローファイルがリポジトリにインストールされ、別のユーザがリポジトリに変更をプッシュするたびに自動的に実行されます。 ジョブの実行履歴の詳細については、「[ワークフローのアクティビティを表示する](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)」を参照してください。
+これで、新しい {% data variables.product.prodname_actions %} ワークフローファイルがリポジトリにインストールされ、別のユーザがリポジトリに変更をプッシュするたびに自動的に実行されます。 For details about a workflow's execution history, see "[Viewing the workflow's activity](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-workflows-activity)."
 
 ## ワークフローファイルを理解する
 
@@ -192,7 +192,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```
 </td>
 <td>
-The <code>uses</code> keyword specifies that this step will run <code>v2</code> of the <code>actions/checkout</code> action.  This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
+The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action.  This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
 </td>
 </tr>
 <tr>

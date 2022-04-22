@@ -23,12 +23,12 @@ shortTitle: 访问控制和可见性
 
 ## 为个人帐户配置对容器映像的访问
 
-如果您对用户帐户拥有的容器映像具有管理员权限，您可以向其他用户分配读取、写入或管理员角色。 有关这些权限角色的更多信息，请参阅“[容器映像的可见性和访问权限](#visibility-and-access-permissions-for-container-images)”。
+如果您对个人帐户拥有的容器映像具有管理员权限，您可以向其他用户分配读取、写入或管理员角色。 有关这些权限角色的更多信息，请参阅“[容器映像的可见性和访问权限](#visibility-and-access-permissions-for-container-images)”。
 
 如果您的软件包是私人或内部的并且由组织拥有，则您只能向其他组织成员或团队授予访问。
 
 {% data reusables.package_registry.package-settings-from-user-level %}
-1. 在软件包设置页面上，单击 **Invite teams or people（邀请团队或人员）**，然后输入名称、用户名或您想要授予访问权限的人员的电子邮件地址。 不能授予团队访问用户帐户拥有的容器映像。 ![容器访问邀请按钮](/assets/images/help/package-registry/container-access-invite.png)
+1. 在软件包设置页面上，单击 **Invite teams or people（邀请团队或人员）**，然后输入名称、用户名或您想要授予访问权限的人员的电子邮件地址。 不能授予团队访问个人帐户拥有的容器映像。 ![容器访问邀请按钮](/assets/images/help/package-registry/container-access-invite.png)
 1. 在用户名或团队名称旁边，使用“Role（角色）”下拉菜单选择所需的权限级别。 ![容器访问选项](/assets/images/help/package-registry/container-access-control-options.png)
 
 所选用户将自动被授予访问权限，不需要先接受邀请。

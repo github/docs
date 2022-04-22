@@ -72,7 +72,7 @@ Puedes configurar las dependencias de un job con otros jobs; predeterminadamente
 
 Para obtener más información sobre los jobs, consulta la sección "[Utilizar jobs](/actions/using-jobs)".
 
-### Acciones
+### Actions
 
 Una _acción_ es una aplicación personalizada para la plataforma de {% data variables.product.prodname_actions %} que realiza una tarea compleja pero que se repite frecuentemente.  Utiliza una acción para ayudarte a reducir la cantidad de código repetitivo que escribes en tus archivos de flujo de trabajo.  Una acción puede extraer tu repositorio de git desde {% data variables.product.prodname_dotcom %}, configurar la cadena de herramientas correcta para tu ambiente de compilación o configurar la autenticación en tu proveedor de servicios en la nube.
 
@@ -111,7 +111,7 @@ Puedes crear un flujo de trabajo de ejemplo en tu repositorio que active automá
    ```
 1. Confirma estos cambios y cárgalos a tu repositorio de {% data variables.product.prodname_dotcom %}.
 
-Tu archivo de flujo de trabajo de {% data variables.product.prodname_actions %} nuevo estará ahora instalado en tu repositorio y se ejecutará automáticamente cada que alguien suba un cambio a éste. Para encontrar los detalles sobre el historial de ejecución un job, consulta la sección "[Visualizar la actividad del flujo de trabajo](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)".
+Tu archivo de flujo de trabajo de {% data variables.product.prodname_actions %} nuevo estará ahora instalado en tu repositorio y se ejecutará automáticamente cada que alguien suba un cambio a éste. For details about a workflow's execution history, see "[Viewing the workflow's activity](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-workflows-activity)."
 
 ## Entender el archivo de flujo de trabajo
 
@@ -192,7 +192,7 @@ Define un job que se llame <code>check-bats-version</code>. Las llaves hijas def
   ```
 </td>
 <td>
-La palabra clave <code>uses</code> especifica que este paso ejecutará la <code>v2</code> de la acción <code>actions/checkout</code>.  Esta es una acción que comprueba tu repositorio en el ejecutor, lo cual te permite ejecutar scripts u otras acciones contra tu código (tales como herramientas de compilación y prueba). Debes utilizar la acción de verificación en cualquier momento en el que tu flujo de trabajo se ejecute contra el código del repositorio.
+The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action.  Esta es una acción que comprueba tu repositorio en el ejecutor, lo cual te permite ejecutar scripts u otras acciones contra tu código (tales como herramientas de compilación y prueba). Debes utilizar la acción de verificación en cualquier momento en el que tu flujo de trabajo se ejecute contra el código del repositorio.
 </td>
 </tr>
 <tr>

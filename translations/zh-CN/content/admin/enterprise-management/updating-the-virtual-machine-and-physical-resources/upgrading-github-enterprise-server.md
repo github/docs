@@ -28,8 +28,9 @@ shortTitle: 升级 GHES
 ## 准备升级
 
 1. 确定升级策略并选择要升级到的版本。 更多信息请参阅“[升级要求](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)”，并参考 [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) 以查找当前发行版的升级路径。
-3. 使用 {% data variables.product.prodname_enterprise_backup_utilities %} 创建全新的主实例备份。 更多信息请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %} README.md 文件](https://github.com/github/backup-utils#readme)。
-4. 如果您要使用升级包进行升级，请为 {% data variables.product.prodname_ghe_server %} 最终用户排定维护窗口。 如果您要使用热补丁，则不需要使用维护模式。
+1. 使用 {% data variables.product.prodname_enterprise_backup_utilities %} 创建全新的主实例备份。 更多信息请参阅 [{% data variables.product.prodname_enterprise_backup_utilities %} README.md 文件](https://github.com/github/backup-utils#readme)。
+1. 如果 {% data variables.product.product_location %} 使用临时自托管运行器进行 {% data variables.product.prodname_actions %} 并且您已禁用自动更新，请将运行器升级到已升级实例将运行的运行器应用程序的版本。
+1. 如果您要使用升级包进行升级，请为 {% data variables.product.prodname_ghe_server %} 最终用户排定维护窗口。 如果您要使用热补丁，则不需要使用维护模式。
 
   {% note %}
 

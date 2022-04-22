@@ -104,7 +104,7 @@ Puedes definir entradas y secretos, las cuales pueden pasarse desde el flujo de 
    ```
    {% endraw %}
    Para encontrar los detalles de la sintaxis para definir entradas y secretos, consulta [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) y [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
-1. Referencia la entrada o secreto ene l flujo de trabajo reutilizable.
+1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
 
    {% raw %}
    ```yaml

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
+permissions: Anyone can sponsor accounts on behalf of their own personal account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
@@ -23,7 +23,7 @@ shortTitle: Patrocina a un contribuyente
 
 {% data reusables.sponsors.sponsorship-details %}
 
-Puedes patrocinar una cuenta en nombre de tu cuenta de usuario para invertir en los proyectos de los cuales te beneficies personalmente. Puedes patrocinar una cuenta en nombre de tu organización por varias razones.
+You can sponsor an account on behalf of your personal account to invest in projects that you personally benefit from. Puedes patrocinar una cuenta en nombre de tu organización por varias razones.
 - Mantener bibliotecas específicas de las cuales dependa el trabajo de tu organización
 - Invertir en el ecosistema del cual dependes como organización (tal como blockchain)
 - Desarrollar una conciencia de marca como una organización que valora el código abierto
@@ -35,21 +35,34 @@ Puedes utilizar una tarjeta de crédito para patrocinar una cuenta en {% data va
 
 Cuando patrocinas una cuenta utilizando una tarjeta de crédito, el cargo tomará efecto de inmediato. {% data reusables.sponsors.prorated-sponsorship %}
 
+We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
+
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
 Puedes elegir si quieres mostrar tu patrocinio públicamente. Los patrocinios de una sola vez permanecen visibles durante un mes.
 
 Si la cuenta patrocinada retira tu nivel, éste permanecerá configurado hasta que elijas uno diferente o hasta que canceles tu suscripción. Para obtener más información, consulta "[Actualizar un patrocinio](/articles/upgrading-a-sponsorship)" y "[Bajar de categoría un patrocinio](/articles/downgrading-a-sponsorship)."
 
-Si la cuenta que quieres patrocinar no tiene un perfil en {% data variables.product.prodname_sponsors %}, puedes alentarla a que se una. Para obtener más información, consulta las secciónes "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta de usuario](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)" y "[Configurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)".
+Si la cuenta que quieres patrocinar no tiene un perfil en {% data variables.product.prodname_sponsors %}, puedes alentarla a que se una. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
 {% note %}
 
-**Nota:** {% data variables.product.prodname_dotcom %} no se hace responsable de la forma en la que los desarrolladores se representan a sí mismos y {% data variables.product.prodname_dotcom %} tampoco respalda ningún proyecto de código abierto patrocinado. Las alegaciones son responsabilidad total del desarrollador que recibe los fondos. Asegúrate de que confías en una persona antes de ofrecerle un patrocinio. Para obtener más información, consulta la sección de [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
+**Note:** {% data variables.product.prodname_dotcom %} is not responsible for how developers represent themselves nor does {% data variables.product.prodname_dotcom %} endorse any sponsored open source projects. Las alegaciones son responsabilidad total del desarrollador que recibe los fondos. Asegúrate de que confías en una persona antes de ofrecerle un patrocinio. Para obtener más información, consulta la sección de [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
 
 {% endnote %}
+
+## Información fiscal
+
+As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:
+
+- Transaction date
+- Amount paid
+- The country, state, and province from where payment was made
+- Whether payment was made by a business or individual
+
+This information is necessary to enable payment and reporting of any taxes arising from such sponsorship payments.
 
 ## Patrocinar una cuenta
 

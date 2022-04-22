@@ -1,15 +1,16 @@
 #!/usr/bin/env node
-import { readFile } from 'fs/promises'
-import { get, flatten, isPlainObject } from 'lodash-es'
+import Ajv from 'ajv'
 import GitHubSlugger from 'github-slugger'
 import httpStatusCodes from 'http-status-code'
-import renderContent from '../../../lib/render-content/index.js'
-import getCodeSamples from './create-rest-examples.js'
-import Ajv from 'ajv'
-import operationSchema from './operation-schema.js'
+import { readFile } from 'fs/promises'
+import { get, flatten, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
 
-const overrideOperations = JSON.parse(
+import renderContent from '../../../lib/render-content/index.js'
+import getCodeSamples from './create-rest-examples.js'
+import operationSchema from './operation-schema.js'
+
+const { operationUrls } = JSON.parse(
   await readFile('script/rest/utils/rest-api-overrides.json', 'utf8')
 )
 const slugger = new GitHubSlugger()
@@ -62,8 +63,8 @@ export default class Operation {
     // the openapi schema. Without it, we'd have to update several
     // @documentation_urls in the api code every time we move
     // an endpoint to a new page.
-    this.category = overrideOperations[operationId]
-      ? overrideOperations[operationId].category
+    this.category = operationUrls[operationId]
+      ? operationUrls[operationId].category
       : xGithub.category
 
     // Set subcategory
@@ -71,9 +72,9 @@ export default class Operation {
     // defined in the openapi schema. Without it, we'd have to update several
     // @documentation_urls in the api code every time we move
     // an endpoint to a new page.
-    if (overrideOperations[operationId]) {
-      if (overrideOperations[operationId].subcategory) {
-        this.subcategory = overrideOperations[operationId].subcategory
+    if (operationUrls[operationId]) {
+      if (operationUrls[operationId].subcategory) {
+        this.subcategory = operationUrls[operationId].subcategory
       }
     } else if (xGithub.subcategory) {
       this.subcategory = xGithub.subcategory
@@ -97,6 +98,7 @@ export default class Operation {
       this.renderStatusCodes(),
       this.renderParameterDescriptions(),
       this.renderBodyParameterDescriptions(),
+      this.renderExampleRequestResponseDescriptions(),
       this.renderPreviewNotes(),
     ])
 
@@ -108,9 +110,24 @@ export default class Operation {
     }
   }
 
+  getExternalDocs() {
+    return this.#operation.externalDocs
+  }
+
   async renderDescription() {
     this.descriptionHTML = await renderContent(this.#operation.description)
     return this
+  }
+
+  async renderExampleRequestResponseDescriptions() {
+    return Promise.all(
+      this.codeExamples.map(async (codeExample) => {
+        codeExample.response.description = await renderContent(codeExample.response.description)
+        codeExample.request.description = await renderContent(codeExample.request.description)
+
+        return codeExample
+      })
+    )
   }
 
   async renderStatusCodes() {
@@ -142,7 +159,7 @@ export default class Operation {
   async renderParameterDescriptions() {
     return Promise.all(
       this.parameters.map(async (param) => {
-        param.descriptionHtml = await renderContent(param.description)
+        param.descriptionHTML = await renderContent(param.description)
         delete param.description
         return param
       })
@@ -281,7 +298,7 @@ async function getBodyParams(paramsObject, requiredParams) {
         }
         // push the remaining types in the param.type array
         // that aren't type array
-        const remainingItems = param.type
+        const remainingItems = [...param.type]
         const indexOfArrayType = remainingItems.indexOf('array')
         remainingItems.splice(indexOfArrayType, 1)
         paramArray.push(...remainingItems)
@@ -307,8 +324,12 @@ async function getBodyParams(paramsObject, requiredParams) {
         param.childParamsGroups.push(childParamsGroup)
       }
 
-      // if the param is an object, it may have child object params that have child params :/
-      if (param.rawType === 'object') {
+      // If the param is an object, it may have child object params that have child params :/
+      // Objects can potentially be null where the rawType is [ 'object', 'null' ].
+      if (
+        param.rawType === 'object' ||
+        (Array.isArray(param.rawType) && param.rawType.includes('object'))
+      ) {
         param.childParamsGroups.push(
           ...flatten(
             childParamsGroup.params
@@ -324,8 +345,18 @@ async function getBodyParams(paramsObject, requiredParams) {
 }
 
 async function getChildParamsGroup(param) {
-  // only objects, arrays of objects, anyOf, allOf, and oneOf have child params
-  if (!(param.rawType === 'array' || param.rawType === 'object' || param.oneOf)) return
+  // Only objects, arrays of objects, anyOf, allOf, and oneOf have child params.
+  // Objects can potentially be null where the rawType is [ 'object', 'null' ].
+  if (
+    !(
+      param.rawType === 'array' ||
+      (Array.isArray(param.rawType) && param.rawType.includes('array')) ||
+      param.rawType === 'object' ||
+      (Array.isArray(param.rawType) && param.rawType.includes('object')) ||
+      param.oneOf
+    )
+  )
+    return
   if (
     param.oneOf &&
     !param.oneOf.filter((param) => param.type === 'object' || param.type === 'array')
@@ -333,12 +364,30 @@ async function getChildParamsGroup(param) {
     return
   if (param.items && param.items.type !== 'object') return
 
-  const childParamsObject = param.rawType === 'array' ? param.items.properties : param.properties
-  const requiredParams = param.rawType === 'array' ? param.items.required : param.required
+  const childParamsObject =
+    param.rawType === 'array' || (Array.isArray(param.rawType) && param.rawType.includes('array'))
+      ? param.items.properties
+      : param.properties
+  const requiredParams =
+    param.rawType === 'array' || (Array.isArray(param.rawType) && param.rawType.includes('array'))
+      ? param.items.required
+      : param.required
   const childParams = await getBodyParams(childParamsObject, requiredParams)
 
   // adjust the type for easier readability in the child table
-  const parentType = param.rawType === 'array' ? 'items' : param.rawType
+  let parentType
+
+  if (param.rawType === 'array') {
+    parentType = 'items'
+  } else if (Array.isArray(param.rawType) && param.rawType.includes('array')) {
+    // handle the case where rawType is [ 'array', 'null' ]
+    parentType = 'items'
+  } else if (Array.isArray(param.rawType) && param.rawType.includes('object')) {
+    // handle the case where rawType is [ 'object', 'null' ]
+    parentType = 'object'
+  } else {
+    parentType = param.rawType
+  }
 
   // add an ID to the child table so they can be linked to
   slugger.reset()

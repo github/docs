@@ -9,7 +9,7 @@ import { SidebarHomepage } from './SidebarHomepage'
 
 export const SidebarNav = () => {
   const router = useRouter()
-  const { error, relativePath } = useMainContext()
+  const { error, currentProduct } = useMainContext()
   const { t } = useTranslation('header')
 
   return (
@@ -40,7 +40,7 @@ export const SidebarNav = () => {
         </Link>
       </div>
       <nav>
-        {error === '404' || relativePath === 'index.md' ? <SidebarHomepage /> : <SidebarProduct />}
+        {error === '404' || currentProduct === null ? <SidebarHomepage /> : <SidebarProduct />}
       </nav>
     </div>
   )

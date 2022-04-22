@@ -20,7 +20,7 @@ Para dirigir a las personas hasta recursos de soporte específicos, puedes agreg
 
 {% ifversion fpt or ghes or ghec %}
 
-Puedes crear recursos de apoyo predeterminados para tu cuenta de organización o de usuario. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear recursos de apoyo predeterminados para tu cuenta de organización o personal. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

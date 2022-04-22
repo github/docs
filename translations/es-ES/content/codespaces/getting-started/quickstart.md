@@ -25,9 +25,9 @@ Para obtener más información sobre cómo funcionan los {% data variables.produ
 
 1. Navega al [repositorio de plantilla](https://github.com/2percentsilk/haikus-for-codespaces) y selecciona **Utilizar esta plantilla**.
 
-2. Nombra a tu repositorio, selecciona tus ajustes de privacidad preferidos y haz clic en **Crear repositorio desde esta plantilla**.
+2. Name your repository, select your preferred privacy setting, and click **Create repository from template**.
 
-3. Navega a la página principal del repositorio recientemente creado. Debajo del nombre de repositorio, utiliza el menú desplegable de **Código {% octicon "code" aria-label="The code icon" %}** y, en la pestaña de **Codespaces**, haz clic en {% octicon "plus" aria-label="The plus icon" %} **Codespace nuevo**.
+3. Navega a la página principal del repositorio recientemente creado. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
 
   ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
 

@@ -72,7 +72,7 @@ topics:
 
 有关作业的详细信息，请参阅“[使用作业](/actions/using-jobs)”。
 
-### 操作
+### Actions
 
 _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应用程序，用于执行复杂但经常重复的任务。  使用操作可帮助减少在工作流程文件中编写的重复代码量。  操作可以从 {% data variables.product.prodname_dotcom %} 拉取 git 存储库，为您的构建环境设置正确的工具链，或设置对云提供商的身份验证。
 
@@ -111,7 +111,7 @@ _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应�
    ```
 1. 提交这些更改并将其推送到您的 {% data variables.product.prodname_dotcom %} 仓库。
 
-您的新 {% data variables.product.prodname_actions %} 工作流程文件现在安装在您的仓库中，每次有人推送更改到仓库时都会自动运行。 有关作业的执行历史记录的详细信息，请参阅“[查看工作流程的活动](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)”。
+您的新 {% data variables.product.prodname_actions %} 工作流程文件现在安装在您的仓库中，每次有人推送更改到仓库时都会自动运行。 有关工作流程的执行历史记录的详细信息，请参阅“[查看工作流程的活动](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-workflows-activity)”。
 
 ## 了解工作流程文件
 
@@ -192,7 +192,7 @@ _操作_是 {% data variables.product.prodname_actions %} 平台的自定义应�
   ```
 </td>
 <td>
-<code>uses</code> 关键字指定此步骤将运行 <code>actions/checkout</code> 操作的 <code>v2</code>。  这是一个将存储库签出到运行器上的操作，允许您对代码（如生成和测试工具）运行脚本或其他操作。 每当工作流程将针对存储库的代码运行时，都应使用签出操作。
+<code>uses</code> 关键字指定此步骤将运行 <code>actions/checkout</code> 操作的 <code>v3</code>。  这是一个将存储库签出到运行器上的操作，允许您对代码（如生成和测试工具）运行脚本或其他操作。 每当工作流程将针对存储库的代码运行时，都应使用签出操作。
 </td>
 </tr>
 <tr>

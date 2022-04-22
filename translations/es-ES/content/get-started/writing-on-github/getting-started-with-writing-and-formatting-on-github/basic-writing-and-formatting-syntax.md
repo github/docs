@@ -318,6 +318,8 @@ La nota al pie se verá así:
 
 **Notae**: La posición de una nota al pie en tu archivo con lenguaje de marcado no influencia la nota al pie que se interpretará. Puedes escribir una nota al pie después de referenciarla y esta aún se interpretará en la parte inferior del archivo con lenguaje de marcado.
 
+Footnotes are not supported in wikis.
+
 {% endtip %}
 {% endif %}
 

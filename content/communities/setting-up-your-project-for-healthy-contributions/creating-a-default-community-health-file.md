@@ -29,7 +29,7 @@ Default files are not included in clones, packages, or downloads of individual r
 
 ## Supported file types
 
-You can create defaults in your organization{% ifversion fpt or ghes or ghec %} or user account{% endif %} for the following community health files:
+You can create defaults in your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} for the following community health files:
 
 Community health file | Description
 --- | ---{% ifversion fpt or ghec %}
@@ -45,7 +45,7 @@ You cannot create a default license file. License files must be added to individ
 ## Creating a repository for default files
 
 {% data reusables.repositories.create_new %}
-2. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghes or ghec %} or user account{% endif %} you want to create default files for.
+2. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} you want to create default files for.
   ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
 3. Type **.github** as the name for your repository, and an optional description.
   ![Create repository field](/assets/images/help/repository/default-file-repository-name.png)

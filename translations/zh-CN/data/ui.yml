@@ -24,13 +24,15 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: 需要帮助？
-  placeholder: 搜索主题、产品......
+  placeholder: Search GitHub Docs
   loading: 正在加载
   no_results: 未找到结果
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: 按产品浏览
   version_picker: 版本
@@ -114,6 +116,7 @@ products:
       preview_header_is_required: 此标头<strong>必填</strong>
       preview_notice_to_change: This API is under preview and subject to change
       works_with_github_apps: Works with GitHub Apps
+      api_reference: REST API reference
 footer:
   all_rights_reserved: 保留所有权利
   terms: 条款

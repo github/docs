@@ -46,7 +46,7 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
 
 ### 1. 将人员重定向到 GitHub 以创建新的 GitHub 应用程序。
 
-要重定向人员以创建新的 GitHub 应用程序，请[提供一个链接](#examples)，供他们单击以将 `POST` 请求发送到用户帐户的 `https://github.com/settings/apps/new` 或组织帐户的 `https://github.com/organizations/ORGANIZATION/settings/apps/new`，其中的 `ORGANIZATION` 替换为要在其中创建应用程序的组织帐户的名称。
+要重定向人员以创建新的 GitHub 应用程序，请[提供一个链接](#examples)，供他们单击以将 `POST` 请求发送到个人帐户的 `https://github.com/settings/apps/new` 或组织帐户的 `https://github.com/organizations/ORGANIZATION/settings/apps/new`，其中的 `ORGANIZATION` 替换为要在其中创建应用程序的组织帐户的名称。
 
 必须将 [GitHub 应用程序清单参数](#github-app-manifest-parameters)作为 JSON 编码的字符串包含在名为 `manifest` 的参数中。 还可以包括 `state` [参数](#parameters) 以增加安全性。
 
@@ -83,7 +83,7 @@ GitHub 应用程序清单使用类似于 [OAuth 流程](/apps/building-oauth-app
 
 #### 示例
 
-此示例使用网页上的表单，其中包含一个按钮，该按钮可触发用户帐户的 `POST` 请求：
+此示例使用网页上的表单，其中包含一个按钮，该按钮可触发个人帐户的 `POST` 请求：
 
 ```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">

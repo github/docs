@@ -26,6 +26,7 @@ jobs:
     env:
       ENABLE_EARLY_ACCESS: ${{ github.repository == 'github/docs-internal' }}
       DOCKER_IMAGE_CACHE_REF: ${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
+      NONPROD_REGISTRY_USERNAME: ${{ fromJSON('["ghdocs", "ghdocsinternal"]')[github.repository == 'github/docs-internal'] }}
 
     steps:
       - name: 'Az CLI login'
@@ -37,14 +38,14 @@ jobs:
         uses: azure/docker-login@81744f9799e7eaa418697cb168452a2882ae844a
         with:
           login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
-          username: ${{ secrets.NONPROD_REGISTRY_USERNAME }}
+          username: ${{ env.NONPROD_REGISTRY_USERNAME }}
           password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@94ab11c41e45d028884a99163086648e898eed25
 
       - name: Check out repo
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
@@ -55,7 +56,7 @@ jobs:
 
       - if: ${{ env.ENABLE_EARLY_ACCESS }}
         name: Clone docs-early-access
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
