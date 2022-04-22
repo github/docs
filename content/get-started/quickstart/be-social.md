@@ -47,7 +47,7 @@ Click **Watch** at the top of a repository to watch it.
 
 {% data variables.product.product_name %} provides built-in collaborative communication tools, allowing you to interact closely with your community when building great software. For example, you can contribute to another user's project by creating a pull request, or use issues to track bugs or suggest ideas in a repository. You can also brainstorm new ideas with your team with discussions. 
 
-For an overview of these tools and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)." To learn more about discussions, see "[{% data variables.product.prodname_dotcom %} Discussions](https://docs.github.com/en/discussions)."
+For an overview of these tools, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
 
 ## Participating in organizations
 
