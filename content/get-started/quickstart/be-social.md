@@ -59,7 +59,9 @@ From your dashboard, click the drop down menu of your username on the left side 
 
 ### Exploring other projects on {% data variables.product.prodname_dotcom %}
 
-You can discover new and interesting projects on {% data variables.product.prodname_dotcom %}'s Explore page. Your dashboard feed will generate projects based on your interests from repositories you have starred, people you follow, and your public repository contributions. From your dashboard, you can see trending projects, view topics, and check out collections. Star interesting projects and come back to them later. Visit your stars page to see all your starred projects. For more information about stars, see "[Saving repositories with stars](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
+You can discover new and interesting projects on {% data variables.product.prodname_dotcom %}'s Explore page. You can star interesting projects to make them easy to find again later. Visit your stars page to see all your starred projects. For more information about stars, see "[Saving repositories with stars](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
+
+Your dashboard feed displays projects based on your interests including repositories you star, people you follow, and your contributions to public repositories. From your dashboard, you can see trending projects, view topics, and check out collections. 
 
 To explore more projects, see "{% data variables.explore.explore_github %}".
 
