@@ -230,7 +230,11 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 ## Links
 
-Introduce links consistently using a standard format that clearly indicates where we’re linking: "For more information, see X [or "Page/article title"] in the X documentation." Do not include quotation marks within a hyperlink.
+Introduce links consistently using a standard format that clearly indicates where we’re linking.
+For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
+For links to another section in the same article: `For more information, see "[Header text]()."`
+For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+Do not include quotation marks within a hyperlink.
 
 Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
 
