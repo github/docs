@@ -34,7 +34,7 @@ If your enterprise members manage their own personal accounts on {% data variabl
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} For more information, see "[Managing recovery codes for your enterprise](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)."
 
-After you enable SAML SSO, depending on the IdP you use, you may be able to enable additional identity and access management features. {% data reusables.scim.enterprise-account-scim %}
+After you enable SAML SSO, depending on the IdP you use, you may be able to enable additional identity and access management features. 
 
 If you use Azure AD as your IDP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[Managing team synchronization for organizations in your enterprise account](/admin/authentication/managing-identity-and-access-for-your-enterprise/managing-team-synchronization-for-organizations-in-your-enterprise)."
 
@@ -43,6 +43,12 @@ If you use Azure AD as your IDP, you can use team synchronization to manage team
 ## About {% data variables.product.prodname_emus %}
 
 {% data reusables.enterprise-accounts.emu-short-summary %}
+
+{% note %}
+
+**Note:** You cannot use SCIM at the enterprise level unless your enterprise is enabled for {% data variables.product.prodname_emus %}.
+
+{% endnote %}
 
 Configuring {% data variables.product.prodname_emus %} for SAML single-sign on and user provisioning involves following a different process than you would for an enterprise that isn't using {% data variables.product.prodname_managed_users %}. If your enterprise uses {% data variables.product.prodname_emus %}, see "[Configuring SAML single sign-on for Enterprise Managed Users](/github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
