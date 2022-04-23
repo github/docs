@@ -1,5 +1,5 @@
 ---
-title: Emails
+title: E-mails
 intro: ''
 versions:
   fpt: '*'
@@ -10,4 +10,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Management of email addresses via the API requires that you authenticate through basic auth, or through OAuth with a correct scope for the endpoint.
+O gerenciamento de endereços de e-mail através da API requer que você efetue a autenticação por meio de autenticação básica, ou através do OAuth com um escopo correto para o ponto de extremidade.

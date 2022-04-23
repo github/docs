@@ -1,6 +1,6 @@
 ---
-title: Starring
-intro: 'Repository starring is a feature that lets users bookmark repositories.'
+title: Marcar com uma estrela
+intro: Marcar o repositório como uma estrela é uma funcionalidade que permite aos usuários favoritar os repositórios.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,20 +11,16 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Stars are shown next to repositories to show an approximate level of interest. Stars have no effect on notifications or the activity feed.
+As estrelas são exibidas ao lado dos repositórios para mostrar um nível de interesse aproximado. As estrelas não têm efeito nas notificações ou no feed da atividade.
 
-### Starring vs. Watching
+### Marcar como estrela vs. Inspecionar
 
-In August 2012, we [changed the way watching
-works](https://github.com/blog/1204-notifications-stars) on {% data variables.product.prodname_dotcom %}. Many API
-client applications may be using the original "watcher" endpoints for accessing
-this data. You can now start using the "star" endpoints instead (described
-below). For more information, see the [Watcher API Change post](https://developer.github.com/changes/2012-09-05-watcher-api/) and the "[Repository Watching API](/rest/reference/activity#watching)."
+Em agosto de 2012, [mudamos a forma como a inspeção funciona](https://github.com/blog/1204-notifications-stars) em {% data variables.product.prodname_dotcom %}. Muitas aplicações de cliente da API podem estar usando os pontos de extremidade originais de "inspetor" para acessar estes dados. Agora você pode começar a usar os pontos de extremidade "estrela" (descritos abaixo). Para obter mais informações, consulte a [Post de alteração da API de Inspeção](https://developer.github.com/changes/2012-09-05-watcher-api/) e a [API de Inspeção do repositório](/rest/reference/activity#watching)".
 
-### Custom media types for starring
+### Tipos de mídia personalizados para marcar como estrela
 
-There is one supported custom media type for the Starring REST API. When you use this custom media type, you will receive a response with the `starred_at` timestamp property that indicates the time the star was created. The response also has a second property that includes the resource that is returned when the custom media type is not included. The property that contains the resource will be either `user` or `repo`.
+Existe um tipo de mídia personalizado com suporte para a API REST estrelada. Ao usar este tipo de mídia personalizada, você receberá uma resposta com a propriedade do registro de tempo `starred_at`, que indica o tempo que a estrela foi criada. A resposta também tem uma segunda propriedade que inclui o recurso retornado quando o tipo de mídia personalizado não está incluído. A propriedade que contém o recurso será `usuário` ou `repositório`.
 
     application/vnd.github.v3.star+json
 
-For more information about media types, see "[Custom media types](/rest/overview/media-types)."
+Para obter mais informações sobre os tipos de mídia, consulte "[Tipos de mídia personalizados](/rest/overview/media-types)".

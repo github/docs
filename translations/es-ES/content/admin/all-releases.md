@@ -1,38 +1,53 @@
 ---
 title: Lanzamientos de GitHub Enterprise Server
-intro: 'Documentación para las versiones actualmente compatibles y previamente obsoletizadas de {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: '{% data variables.product.company_short %} releases new versions of {% data variables.product.product_name %} regularly. You can review supported versions, see deprecation dates, and browse documentation for the release you''ve deployed.'
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
 topics:
   - Enterprise
+  - Upgrades
 shortTitle: Lanzamientos
 ---
 
-## Actualmente compatibles
+## About releases of {% data variables.product.product_name %}
 
-Consulta la sección [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) para obtener más información sobre el último lanzamiento.
+{% data reusables.enterprise.constantly-improving %} {% data variables.product.company_short %} supports the four most recent feature releases. For more information, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
 
-{% for supportedRelease in enterpriseServerReleases.supported %}
-- [{% data variables.product.prodname_ghe_server %} {{supportedRelease}}](/enterprise-server@{{supportedRelease}})
-{% endfor %}
+You can see what's new for each release in the [release notes](/admin/release-notes), and you can view administrator and user documentation for all releases here on {% data variables.product.prodname_docs %}. When you read the documentation, make sure to select the version that reflects your product. Para obtener más información, consulta la sección "[Acerca de las versiones de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
 
-## Obsoletizado
+## Currently supported releases
 
-La documentación dlae s versiones obsoletizadas sigue estando disponible pero ya no se le da mantenimiento.
+{% data variables.product.company_short %} supports the following releases of {% data variables.product.product_name %}. For more information about the latest release, see the [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) website.
 
-{% for deprecatedRelease in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
-- [Enterprise Server {{deprecatedRelease}}](/enterprise-server@{{deprecatedRelease}})
-{% endfor %}
+| Versión | Lanzamiento | Deprecation | Notas de lanzamiento | Documentación |
+|:------- |:----------- |:----------- |:-------------------- |:------------- |
+|         |             |             |                      |               |
+{%- for version in enterpriseServerReleases.supported %}
+| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
+{%- endfor %}
 
-{% for deprecatedReleaseLegacyFormat in enterpriseServerReleases.deprecatedReleasesWithLegacyFormat %}
-- [Enterprise Server {{deprecatedReleaseLegacyFormat}}](/enterprise/{{deprecatedReleaseLegacyFormat}})
-{% endfor %}
+## Deprecated releases
 
-## Documentación obsoletizada para desarrolladores
+{% data variables.product.company_short %} provides documentation for deprecated versions, but does not maintain or update the documentation.
 
-La documentación para desarrolladores para las versiones obsoletizadas sigue disponible, pero ya no se le da mantenimiento.
+| Versión | Lanzamiento | Deprecation | Notas de lanzamiento | Documentación |
+|:------- |:----------- |:----------- |:-------------------- |:------------- |
+|         |             |             |                      |               |
+{%- for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
+| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} release notes](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
+{%- endfor %}
+{%- for version in enterpriseServerReleases.deprecatedReleasesWithLegacyFormat %}
+| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} release notes](https://enterprise.github.com/releases/series/{{version}}) | [{{version}} documentation](/enterprise/{{version}}) |
+{%- endfor %}
 
-{% for deprecatedDevRelease in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
-- [Enterprise Server {{deprecatedDevRelease}}](https://developer.github.com/enterprise/{{deprecatedDevRelease}})
-{% endfor %}
+### Documentación obsoletizada para desarrolladores
+
+{% data variables.product.company_short %} hosted developer documentation for {% data variables.product.product_name %} on a separate site until the 2.17 release. {% data variables.product.company_short %} continues to provide developer documentation for version 2.16 and earlier, but does not maintain or update the documentation.
+
+| Versión | Lanzamiento | Deprecation | Developer documentation |
+|:------- |:----------- |:----------- |:----------------------- |
+|         |             |             |                         |
+{%- for version in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
+| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} developer documentation](https://developer.github.com/enterprise/{{version}}) |
+{%- endfor %}

@@ -12,7 +12,7 @@ shortTitle: Ver insights de discussões
 
 ## Sobre o painel de insights das discussões
 
-You can use discussions insights to help understand the contribution activity, page views, and growth of your discussions community.
+Você pode usar insights de discussões para ajudar a entender a atividade de contribuição, exibições de página e o crescimento da sua comunidade de discussões.
 - **Atividade de contribuição** mostra a contagem total de contribuições para discussões, problemas e pull requests.
 - **Visualizações de páginas de discussões** mostra o total de visualizações de páginas para discussões, segmentadas por usuários conectados em comparação com usuários anônimos.
 - **Contribuidores diários de discussões** mostram a contagem diária de usuários únicos que reagiram, votaram, marcaram uma resposta, comentaram ou postaram no período de tempo selecionado.
@@ -28,7 +28,7 @@ You can use discussions insights to help understand the contribution activity, p
 
 ## Visualizando insights de discussões
 
-{% data reusables.repositories.navigate-to-repo %} For organization discussions, navigate to the main page of the source repository.
+{% data reusables.repositories.navigate-to-repo %} Para discussões na organização, acesse a página principal do repositório de origem.
 {% data reusables.repositories.accessing-repository-graphs %}
 3. Na barra lateral esquerda, clique em **Community** (Comunidade). ![Captura de tela da aba "Comunidade" na barra lateral esquerda](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
 1. Opcionalmente, no canto superior direito da página, selecione o menu suspenso **Período** e clique no período de tempo para o qual você deseja ver dados: **30 dias**, **3 meses** ou **1 ano**. ![Captura de tela do seletor de intervalo de datas para insights de discussões](/assets/images/help/discussions/discussions-dashboard-date-selctor.png)

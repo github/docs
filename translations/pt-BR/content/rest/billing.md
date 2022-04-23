@@ -1,5 +1,5 @@
 ---
-title: Billing
+title: Cobrança
 intro: ''
 topics:
   - API
@@ -12,4 +12,4 @@ redirect_from:
   - /rest/reference/billing
 ---
 
-You can get billing information for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin#billing)" REST API.
+Você pode obter informações de cobrança para uma empresa. Para obter mais informações, consulte a API REST "[{% data variables.product.prodname_dotcom %} administração de Enterprise](/rest/reference/enterprise-admin#billing)".

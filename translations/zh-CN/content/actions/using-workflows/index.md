@@ -21,12 +21,12 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
+  - /about-workflows
   - /triggering-a-workflow
   - /events-that-trigger-workflows
   - /workflow-syntax-for-github-actions
   - /workflow-commands-for-github-actions
   - /reusing-workflows
-  - /advanced-workflow-features
   - /creating-starter-workflows-for-your-organization
   - /using-starter-workflows
   - /sharing-workflows-secrets-and-runners-with-your-organization

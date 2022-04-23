@@ -1,6 +1,6 @@
 ---
-title: Reactions
-intro: 'The Reactions API enables you to create, list and delete the reactions on comments.'
+title: Reações
+intro: 'A API de Reações permite que você crie, liste e exclua as reações nos comentários.'
 versions:
   fpt: '*'
   ghes: '*'

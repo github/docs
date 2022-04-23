@@ -116,7 +116,7 @@ products:
       preview_header_is_required: El encabezado es <strong>requerido</strong>
       preview_notice_to_change: Esta API está en vista previa y sujeta al cambio
       works_with_github_apps: Funciona con las GitHub Apps
-      api_reference: REST API reference
+      api_reference: Referencia de la API de REST
 footer:
   all_rights_reserved: Todos los derechos reservados
   terms: Términos

@@ -1,5 +1,5 @@
 ---
-title: Blocking users
+title: Bloquear usuários
 intro: ''
 versions:
   fpt: '*'
@@ -10,4 +10,4 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-The token used to authenticate the call must have the `admin:org` scope in order to make any blocking calls for an organization. Otherwise, the response returns `HTTP 404`.
+O token usado para autenticar a chamada deve ter o escopo `admin:org` para fazer quaisquer chamadas de bloqueio para uma organização. Caso contrário, a resposta retornará `HTTP 404`.
