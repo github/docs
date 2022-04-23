@@ -89,4 +89,22 @@ The example workflow you just added runs each time code is pushed to the branch,
 
 {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial.
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial
+Name: Deploy
+Actions:
+  - Name: Deploy
+    ActionTypeId:
+      Category: Deploy
+      Owner: AWS
+      Provider: CodeDeploy
+      Version: '1'
+    RunOrder: 1
+    Configuration:
+      ApplicationName: my-application
+      DeploymentGroupName: my-deployment-group
+    OutputArtifacts: []
+    InputArtifacts:
+      - Name: SourceArtifact
+    Region: us-west-2
+    Namespace: DeployVariables
+
