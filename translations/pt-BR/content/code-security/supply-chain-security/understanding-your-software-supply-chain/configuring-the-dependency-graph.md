@@ -37,6 +37,6 @@ Quando o gráfico de dependências é ativado pela primeira vez, todos manifesto
 
 ## Leia mais
 
-{% ifversion fpt or ghec %}- "[Visualizando insights para sua organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
+{% ifversion ghec %}- "[Visualizando insights para sua organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}
 - "[Visualizando {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[Solução de problemas na detecção de dependências vulneráveis](/github/managing-security-vulnerabilities/troubleshooting-the-detection-of-vulnerable-dependencies)"
