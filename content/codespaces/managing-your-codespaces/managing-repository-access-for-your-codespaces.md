@@ -94,9 +94,7 @@ To create codespaces with custom permissions defined, you must use one of the fo
       "codespaces": {
         "repositories": {
           "my_org/my_repo": {
-            "permissions": {
-              "write-all"
-            }
+            "permissions": "write-all"
           }
         }
       }
