@@ -54,3 +54,4 @@ If an enterprise uses {% data variables.product.prodname_emus %}, members are pr
 ## Further reading
 
 - "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax/Some%20basic%20Git%20commands%20are:_%60%60%60%20git%20status%20git%20add%20git%20commit%20%60%60%60%20Rendered%20code%20block%20For%20more%20information/see60%60%60%gitststud_https://docs.github.com/en/articles/creating-and-highlighting-code-blocks
