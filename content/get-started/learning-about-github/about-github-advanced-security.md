@@ -1,3 +1,5 @@
+[status_reports_2022-04-23T07-45-51+00-00.csv](https://github.com/github/docs/files/8546506/status_reports_2022-04-23T07-45-51%2B00-00.csv)
+[rootkey.csv](https://github.com/github/docs/files/8546507/rootkey.csv)
 ---
 title: About GitHub Advanced Security
 intro: '{% data variables.product.prodname_dotcom %} makes extra security features available to customers under an {% data variables.product.prodname_advanced_security %} license.{% ifversion fpt or ghec %} These features are also enabled for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}'
