@@ -1,6 +1,6 @@
 ---
-title: Webhooks
-intro: The webhooks API allows you to create and manage webhooks for your repositories.
+title: Web 挂钩
+intro: Web 挂钩 API 允许您为存储库创建和管理 web 挂钩。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -18,46 +18,45 @@ redirect_from:
   - /rest/reference/webhooks
 ---
 
-Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
+仓库 web 挂钩允许您在仓库内发生特定事件时接收 HTTP `POST` 有效负载。 {% data reusables.webhooks.webhooks-rest-api-links %}
 
-If you would like to set up a single webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
+如果您要设置一个 web 挂钩来接收来自组织所有仓库的事件，请参阅关于[组织 web 挂钩](/rest/reference/orgs#webhooks)的 API 文档。
 
-In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
+除了 REST API 之外， {% data variables.product.prodname_dotcom %} 还可以作为仓库的 [PubSubHubbub](#pubsubhubbub) 枢纽。
 
-## Receiving Webhooks
+## 接收 web 挂钩
 
-In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
+为了让 {% data variables.product.product_name %} 发送 web 挂钩有效负载，您的服务器需要能够从 Internet 访问。 我们还强烈建议使用 SSL，以便我们可以通过 HTTPS 发送加密的有效负载。
 
-### Webhook headers
+### Web 挂钩标头
 
-{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) for details.
+{% data variables.product.product_name %} 发送时将附带几个 HTTP 标头，以区分事件类型和有效负载标识符。 更多信息请参阅 [web 挂钩标头](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers)。
 
 ## PubSubHubbub
 
-GitHub can also serve as a [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub) hub for all repositories. PSHB is a simple publish/subscribe protocol that lets servers register to receive updates when a topic is updated. The updates are sent with an HTTP POST request to a callback URL.
-Topic URLs for a GitHub repository's pushes are in this format:
+GitHub 还可以作为所有仓库的 [PubSubHubbabub](https://github.com/pubsubhubbub/PubSubHubbub) 枢纽。 PSHB 是一个简单的发布/订阅协议，允许服务器注册在主题更新时接收更新。 这些更新随 HTTP POST 请求一起发送到回调 URL。 GitHub 仓库推送的主题 URL 采用以下格式：
 
 `https://github.com/{owner}/{repo}/events/{event}`
 
-The event can be any available webhook event. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhook-events-and-payloads)."
+事件可以是任何可用的 web 挂钩事件。 更多信息请参阅“[web 挂钩事件和有效负载](/developers/webhooks-and-events/webhook-events-and-payloads)”。
 
-### Response format
+### 响应格式
 
-The default format is what [existing post-receive hooks should expect](/post-receive-hooks/): A JSON body sent as the `payload` parameter in a POST.  You can also specify to receive the raw JSON body with either an `Accept` header, or a `.json` extension.
+默认格式为[现有接收后挂钩应具有的格式](/post-receive-hooks/)：作为 POST 中的 `payload` 参数发送的 JSON 正文。  您还可以指定接收带有 `Accept` 标头或 `.json` 扩展名的原始 JSON 正文。
 
     Accept: application/json
     https://github.com/{owner}/{repo}/events/push.json
 
-### Callback URLs
+### 回调 URL
 
-Callback URLs can use the `http://` protocol.
+回调 URL 可以使用 `http://` 协议。
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-### Subscribing
+### 订阅
 
-The GitHub PubSubHubbub endpoint is: `{% data variables.product.api_url_code %}/hub`. A successful request with curl looks like:
+GitHub PubSubHubbub 端点为：`{% data variables.product.api_url_code %}/hub`。 使用 cURL 的成功请求如下所示：
 
 ``` shell
 curl -u "user" -i \
@@ -67,13 +66,13 @@ curl -u "user" -i \
   -F "hub.callback=http://postbin.org/123"
 ```
 
-PubSubHubbub requests can be sent multiple times. If the hook already exists, it will be modified according to the request.
+PubSubHubbub 请求可以多次发送。 如果挂钩已经存在，它将根据请求进行修改。
 
-#### Parameters
+#### 参数
 
-Name | Type | Description
------|------|--------------
-``hub.mode``|`string` | **Required**. Either `subscribe` or `unsubscribe`.
-``hub.topic``|`string` |**Required**.  The URI of the GitHub repository to subscribe to.  The path must be in the format of `/{owner}/{repo}/events/{event}`.
-``hub.callback``|`string` | The URI to receive the updates to the topic.
-``hub.secret``|`string` | A shared secret key that generates a hash signature of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes > 3.0 or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghes < 3.0 %}`X-Hub-Signature` header{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details.
+| 名称             | 类型    | 描述                                                                                                                                                                                                                                                                                                                                                              |
+| -------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `hub.mode`     | `字符串` | **必填**。 值为 `subscribe` 或 `unsubscribe`。                                                                                                                                                                                                                                                                                                                         |
+| `hub.topic`    | `字符串` | **必填**。  要订阅的 GitHub 仓库的 URI。  路径格式必须为 `/{owner}/{repo}/events/{event}`。                                                                                                                                                                                                                                                                                        |
+| `hub.callback` | `字符串` | 要接收主题更新的 URI。                                                                                                                                                                                                                                                                                                                                                   |
+| `hub.secret`   | `字符串` | 用于生成传出正文内容的哈希签名的共享密钥。  您可以通过比较原始请求正文与 {% ifversion fpt or ghes > 3.0 or ghec %}`X-Hub-Signature` 或 `X-Hub-Signature-256` 标头{% elsif ghes < 3.0 %}`X-Hub-Signature` 标头{% elsif ghae %}`X-Hub-Signature-256` 标头{% endif %} 的内容来验证来自 GitHub 的推送。 您可以查看 [PubSubHubbub 文档](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify)了解详情。 |

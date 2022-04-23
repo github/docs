@@ -1,5 +1,5 @@
 ---
-title: Columns
+title: 列
 intro: ''
 versions:
   fpt: '*'
@@ -10,3 +10,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

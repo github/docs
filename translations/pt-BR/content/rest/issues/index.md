@@ -1,6 +1,6 @@
 ---
-title: Issues
-intro: 'The Issues API enables you to view and manage issues, including issue assignees, comments, labels, and milestones.'
+title: Problemas
+intro: 'A API de Problemas permite que você visualize e gerencie problemas, incluindo responsáveis de problemas, comentários, etiquetas e marcos.'
 redirect_from:
   - /v3/issues
   - /rest/reference/issues
@@ -21,3 +21,4 @@ children:
   - /milestones
   - /timeline
 ---
+

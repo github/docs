@@ -1,6 +1,6 @@
 ---
-title: Migrations
-intro: 'The Migration API lets you migrate the repositories and users of your  organization from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}.'
+title: 迁移
+intro: 'Migration API 可让您将组织的仓库和用户从 {% data variables.product.prodname_dotcom_the_website %} 迁移到 {% data variables.product.prodname_ghe_server %}。'
 redirect_from:
   - /v3/migrations
   - /v3/migration
@@ -19,3 +19,4 @@ children:
   - /source-imports
   - /users
 ---
+

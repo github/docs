@@ -1,6 +1,6 @@
 ---
-title: Trees
-intro: 'A Git tree object creates the hierarchy between files in a Git repository. '
+title: 树
+intro: Git 树对象在 Git 仓库中的文件之间创建层次结构。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-You can use the Git tree object to create the relationship between directories and the files they contain. These endpoints allow you to read and write [tree objects](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Tree-Objects) to your Git database on {% data variables.product.product_name %}.
+您可以使用 Git 树对象创建目录与其包含的文件之间的关系。 这些端点允许您在 {% data variables.product.product_name %} 上的 Git 数据库中读取和写入[树对象](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Tree-Objects)。

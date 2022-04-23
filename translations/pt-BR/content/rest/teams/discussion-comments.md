@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Any member of the team's [organization](/rest/reference/orgs) can create and read comments on a public discussion. For more details, see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions/)." This API is only available to authenticated members of the team's organization.
+Qualquer integrante da organização da [organização](/rest/reference/orgs) da equipe pode criar e ler comentários em uma discussão pública. Para obter mais informações, consulte "[Sobre discussões de equipe](/organizations/collaborating-with-your-team/about-team-discussions/)". Esta API só está disponível para os integrantes autenticados da organização da equipe.

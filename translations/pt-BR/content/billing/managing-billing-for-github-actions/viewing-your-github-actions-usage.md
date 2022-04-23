@@ -37,6 +37,7 @@ Os proprietários da organização e gerentes de faturamento podem ver o uso do 
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## Visualizando o uso de {% data variables.product.prodname_actions %} para sua conta corporativa
 
 Proprietários de organizações e gestores de faturamento podem visualizar o uso de {% data variables.product.prodname_actions %} para uma conta corporativa.
@@ -53,3 +54,4 @@ Proprietários de organizações e gestores de faturamento podem visualizar o us
 1. Em "{% data variables.product.prodname_actions %}", veja os detalhes do uso de transferência de dados por cada organização em sua conta corporativa. ![Detalhes do uso de minutos](/assets/images/help/billing/actions-minutes-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+{% endif %}

@@ -1,6 +1,6 @@
 ---
-title: Collaborators
-intro: "This API allows you to interact with an organization's projects."
+title: 协作者
+intro: 此 API 允许您与组织的项目进行交互。
 versions:
   fpt: '*'
   ghes: '*'

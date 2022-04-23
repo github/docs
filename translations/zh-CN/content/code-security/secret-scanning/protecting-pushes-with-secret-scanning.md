@@ -1,6 +1,6 @@
 ---
-title: Protecting pushes with secret scanning
-intro: 'You can use {% data variables.product.prodname_secret_scanning %} to prevent supported secrets from being pushed into your organization or repository by enabling push protection.'
+title: 通过机密扫描保护推送
+intro: '您可以使用 {% data variables.product.prodname_secret_scanning %}，通过启用推送保护来防止将支持的机密推送到您的组织或存储库中。'
 product: '{% data reusables.gated-features.secret-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -13,28 +13,28 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Push protection
+shortTitle: 推送保护
 ---
 
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 {% data reusables.secret-scanning.push-protection-beta %}
 
-## About push protection for secrets
+## 关于机密的推送保护
 
-Up to now, {% data variables.product.prodname_secret_scanning_GHAS %} checks for secrets _after_ a push and alerts users to exposed secrets. {% data reusables.secret-scanning.push-protection-overview %}
+到目前为止，{% data variables.product.prodname_secret_scanning_GHAS %} 在推送_后_检查机密，并向用户提醒暴露的机密。 {% data reusables.secret-scanning.push-protection-overview %}
 
-{% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans repositories for secrets issued by the following service providers.
+{% data variables.product.prodname_secret_scanning_caps %} 作为推送保护，当前会扫描存储库中查找由以下服务提供商颁发的机密。
 
 {% data reusables.secret-scanning.secret-list-private-push-protection %}
 
-## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection
+## 启用 {% data variables.product.prodname_secret_scanning %} 作为推送保护
 
-For you to use {% data variables.product.prodname_secret_scanning %} as a push protection, the organization or repository needs to have both {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled. For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)," "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)," and "[About {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)."
+要将 {% data variables.product.prodname_secret_scanning %} 用作推送保护，组织或存储库需要同时启用 {% data variables.product.prodname_GH_advanced_security %} 和 {% data variables.product.prodname_secret_scanning %}。 更多信息请参阅“[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”、“[管理存储库的安全和分析设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)”和“[关于 {% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security)”。
 
-Organization owners, security managers, and repository administrators can enable push protection for {% data variables.product.prodname_secret_scanning %} via the UI and API. For more information, see "[Repositories](/rest/reference/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
+组织所有者、安全管理员和存储库管理员可以通过 UI 和 API 为 {% data variables.product.prodname_secret_scanning %} 启用推送保护。 更多信息请参阅“[存储库](/rest/reference/repos#update-a-repository)”，并展开 REST API 文档中的“`security_and_analysis` 对象的属性”部分。
 
-### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for an organization
+### 启用 {% data variables.product.prodname_secret_scanning %} 作为组织的推送保护
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
@@ -42,7 +42,7 @@ Organization owners, security managers, and repository administrators can enable
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-org %}
 
-### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for a repository
+### 启用 {% data variables.product.prodname_secret_scanning %} 作为存储库的推送保护
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -51,37 +51,37 @@ Organization owners, security managers, and repository administrators can enable
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
 
-## Using {% data variables.product.prodname_secret_scanning %} as a push protection from the command line
+## 从命令行使用 {% data variables.product.prodname_secret_scanning %} 作为推送保护
 
-When you attempt to push a supported secret to a repository or organization with {% data variables.product.prodname_secret_scanning %} as a push protection enabled, {% data variables.product.prodname_dotcom %} will block the push. You can remove the secret from your commit or follow a provided URL to allow the push.
+当您尝试将受支持的密钥推送到启用了 {% data variables.product.prodname_secret_scanning %} 作为推送保护的存储库或组织时，{% data variables.product.prodname_dotcom %} 将阻止推送。 您可以从提交中删除机密，也可以按照提供的 URL 进行推送。
 
-Up to five detected secrets will be displayed at a time on the command line. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
+在命令行上一次最多会显示五个检测到的机密。 如果已在存储库中检测到特定机密，并且警报已存在，{% data variables.product.prodname_dotcom %} 不会阻止该机密。
 
-![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
+![显示当用户尝试将密钥推送到存储库时推送被阻止的屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
 
-If you need to remove the secret from your latest commit (that is, `HEAD`) on the branch being pushed and any earlier commits that contain the secret, you can remove the secret from `HEAD`, then squash the commits between when the commit was introduced and the first version of `HEAD` for which the secret has been removed.
+如果需要从正在推送的分支上的最新提交（即 `HEAD`）以及包含该机密的任何早期提交中删除机密，您可以从 `HEAD` 中删除机密，然后在引入提交和已删除机密的 `HEAD` 的第一个版本之间压缩提交。
 
 {% note %}
 
 **注意**：
 
-* If your git configuration supports pushes to multiple branches, and not only to the default branch, your push may be blocked due to additional and unintended refs being pushed. For more information, see the [`push.default` options](https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault) in the Git Docs.
-* If {% data variables.product.prodname_secret_scanning %} upon a push times out, {% data variables.product.prodname_dotcom %} will still run a scan after the push.
+* 如果您的 git 配置支持推送到多个分支，而不仅仅是到默认分支，则您的推送可能会由于推送了其他和意外的引用而被阻止。 更多信息请参阅 Git 文档中的 [`push.default` 选项](https://git-scm.com/docs/git-config#Documentation/git-config.txt-pushdefault)。
+* 如果在推送时 {% data variables.product.prodname_secret_scanning %} 超时，{% data variables.product.prodname_dotcom %} 仍将在推送后运行扫描。
 
 {% endnote %}
 
-### Allowing a blocked secret to be pushed
+### 允许推送被阻止的机密
 
-If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
+如果 {% data variables.product.prodname_dotcom %} 阻止了您认为可以安全推送的机密，则可以允许该机密并说明应允许该机密的原因。
 
-If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible. For example, you might revoke the secret and remove the secret from the repository's commit history. For more information, see "[Removing sensitive data from a repository](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。 例如，您可以撤销密钥，并从存储库的提交历史记录中删除密钥。 更多信息请参阅“[从仓库中删除敏感数据](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)”。
 
-When you allow a secret to be pushed, an alert is created in the "Security" tab. The alert is closed and no notifications are sent if you specify that the secret is a false positive or used only in tests. If you specify that the secret is real and that you will fix it later, the security alert remains open and notifications are sent to the author of the commit and repository administrators. For more information, see "[Managing alerts from secret scanning](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+当您允许推送密钥时，将在“Security（安全）”选项卡中创建警报。 如果指定机密为误报或仅在测试中使用，则警报将关闭且不会发送任何通知。 如果您指定密钥是真实的，并且稍后将修复它，则安全警报将保持打开状态，并向提交管理员和存储库管理员的作者发送通知。 更多信息请参阅“[管理来自密码扫描的警报](/code-security/secret-scanning/managing-alerts-from-secret-scanning)”。
 
-1. Visit the URL returned by {% data variables.product.prodname_dotcom %} when your push was blocked. ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-unblock-form.png)
-2. Choose the option that best describes why you should be able to push the secret.
-    - If the secret is only used in tests and poses no threat, click **It's used in tests**.
-    - If the detected string is not a secret, click **It's a false positive**.
-    - If the secret is real but you intend to fix it later, click **I'll fix it later**.
-3. Click **Allow me to push this secret**.
-4. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
+1. 访问 {% data variables.product.prodname_dotcom %} 在推送被阻止时返回的 URL。 ![显示包含用于取消阻止密钥推送的选项的表单屏幕截图](/assets/images/help/repository/secret-scanning-unblock-form.png)
+2. 选择最准确描述为什么您应该能够推送密钥的选项。
+    - 如果机密仅在测试中使用，并且不构成威胁，请单击 **It's used in tests（它在测试中使用）**。
+    - 如果检测到的字符串不是机密，请单击 **It's a false positive（这是误报）**。
+    - 如果密钥是真实的，但您打算稍后修复它，请单击 **I'll fix it later（稍后修复）**。
+3. 单击 **Allow me to push this secret（允许我推送此机密）**。
+4. 在三小时内重新尝试在命令行上推送。 如果您在三小时内没有推送，则需要重复此过程。

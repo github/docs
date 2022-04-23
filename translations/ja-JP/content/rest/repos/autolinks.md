@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+詳しい情報については「[外部リソースを参照する自動リンクの設定](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)」を参照してください。
 
 {% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.

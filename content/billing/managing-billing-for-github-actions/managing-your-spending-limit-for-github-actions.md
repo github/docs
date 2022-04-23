@@ -51,6 +51,7 @@ Organizations owners and billing managers can manage the spending limit for {% d
 {% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## Managing the spending limit for {% data variables.product.prodname_actions %} for your enterprise account
 
 Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_actions %} for an enterprise account.
@@ -62,7 +63,7 @@ Enterprise owners and billing managers can manage the spending limit for {% data
   ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
-
+{% endif %}
 
 ## Managing usage and spending limit email notifications
 {% data reusables.billing.email-notifications %}

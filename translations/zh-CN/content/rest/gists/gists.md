@@ -1,5 +1,5 @@
 ---
-title: Gists
+title: Gist
 intro: 'The Gists API enables the authorized user to list, create, update and delete the public gists on GitHub.'
 versions:
   fpt: '*'
@@ -11,25 +11,25 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Authentication
+### 身份验证
 
-You can read public gists {% ifversion ghae or ghes %}and create them for anonymous users without a token.{% else %} anonymously, but you must be signed into GitHub to create gists.{% endif %} To read or write gists on a user's behalf, you need the gist OAuth scope and a token. For more information, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps)."
+您可以匿名读取公开 Gist {% ifversion ghae or ghes %}并为没有令牌的匿名用户创建它们。{% else %}，但是您必须登录到 GitHub 才能创建 Gist。{% endif %} 要代表用户读取或写入 Gist，您需要 Gist OAuth 作用域和令牌。 更多信息请参阅“[OAuth 应用程序的作用域](/developers/apps/scopes-for-oauth-apps)”。
 
 <!-- When an OAuth client does not have the gists scope, the API will return a 404 "Not Found" response regardless of the validity of the credentials. The API will return a 401 "Bad credentials" response if the gists scope was given to the application but the credentials are invalid. -->
 
-### Truncation
+### 截断
 
-The Gist API provides up to one megabyte of content for each file in the gist. Each file returned for a gist through the API has a key called `truncated`. If `truncated` is `true`, the file is too large and only a portion of the contents were returned in `content`.
+Gist API 为 Gist 中的每个文件提供最多一兆字节的内容。 通过 API 返回的每个 Gist 文件都有一个名为 `truncated` 的键。 如果 `truncated` 为 `true`，则说明文件太大，`content` 中只返回部分内容。
 
-If you need the full contents of the file, you can make a `GET` request to the URL specified by `raw_url`. Be aware that for files larger than ten megabytes, you'll need to clone the gist via the URL provided by `git_pull_url`.
+如果您需要文件的全部内容，您可以向 `raw_url` 指定的 URL 提出 `GET` 请求。 请注意，对于超过十兆字节的文件，您需要通过 `git_pull_url` 提供的 URL 克隆 Gist。
 
-In addition to a specific file's contents being truncated, the entire files list may be truncated if the total number exceeds 300 files. If the top level `truncated` key is `true`, only the first 300 files have been returned in the files list. If you need to fetch all of the gist's files, you'll need to clone the gist via the URL provided by `git_pull_url`.
+除了特定文件的内容被截断外，如果文件总数超过 300 个，则整个文件列表也可能被截断。 如果顶层 `truncated` 键为 `true`，则说明文件列表中只返回了前 300 个文件。 如果需要获取 Gist 的所有文件，您需要通过 `git_pull_url` 提供的 URL 克隆 Gist。
 
-### Custom media types for gists
+### Gist 的自定义媒体类型
 
-These are the supported media types for fetching gist contents.
+以下是获取 Gist 内容所支持的媒体类型。
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.base64
 
-For more information, see "[Media types](/rest/overview/media-types)."
+更多信息请参阅“[媒体类型](/rest/overview/media-types)”。

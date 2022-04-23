@@ -1,6 +1,6 @@
 ---
-title: Invitations
-intro: 'The Repository Invitations API allows users or external services to invite other users to collaborate on a repo.'
+title: Invitaciones
+intro: La API de Invitaciones al Repositorio permite a los usuarios o a los servicios externos invitar a otros usuarios para colaborar en un repositorio.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,12 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The invited users (or external services on behalf of invited users) can choose to accept or decline the invitations.
+Los usuarios invitados (o los servicios externos en nombre de estos) pueden elegir aceptar o rechazar la invitación.
 
-Note that the `repo:invite` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted
-access to invitations **without** also granting access to repository code, while the
-`repo` scope grants permission to code as well as invitations.
+Toma en cuenta que el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps) `repo:invite` otorga un acceso dirigido a las invitaciones **sin** otorgar también el acceso al código del repositorio, mientras que el alcance `repo` otorga permisos para el código así como para las invitaciones.
 
-### Invite a user to a repository		
+### Invitar a un usuario a un repositorio
 
-Use the API endpoint for adding a collaborator. For more information, see "[Add a repository collaborator](/rest/collaborators/collaborators#add-a-repository-collaborator)."
+Utiliza la terminal de la API para agregar un colaborador. Para obtener más información, consulta la sección "[Agregar un colaborador del repositorio](/rest/collaborators/collaborators#add-a-repository-collaborator)".

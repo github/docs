@@ -1,5 +1,5 @@
 ---
-title: Gists
+title: Gist
 intro: 'The Gists API enables the authorized user to list, create, update and delete the public gists on GitHub.'
 versions:
   fpt: '*'
@@ -11,25 +11,25 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Authentication
+### 認証
 
-You can read public gists {% ifversion ghae or ghes %}and create them for anonymous users without a token.{% else %} anonymously, but you must be signed into GitHub to create gists.{% endif %} To read or write gists on a user's behalf, you need the gist OAuth scope and a token. For more information, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps)."
+パブリック Gist {% ifversion ghae or ghes %} を読んで、トークンなしで匿名ユーザ向けに作成できます。{% else %} 匿名でも、Gist を作成するには GitHub にサインインする必要があります。{% endif %}ユーザに代わって Gist を読み書きするには、Gist OAuth スコープとトークンが必要です。 詳しい情報については、「[OAuth App のスコープ](/developers/apps/scopes-for-oauth-apps)」を参照してください。
 
 <!-- When an OAuth client does not have the gists scope, the API will return a 404 "Not Found" response regardless of the validity of the credentials. The API will return a 401 "Bad credentials" response if the gists scope was given to the application but the credentials are invalid. -->
 
-### Truncation
+### 切り捨て
 
-The Gist API provides up to one megabyte of content for each file in the gist. Each file returned for a gist through the API has a key called `truncated`. If `truncated` is `true`, the file is too large and only a portion of the contents were returned in `content`.
+Gist API は、Gist 内の各ファイルに最大 1 メガバイトのコンテンツを提供します。 API を介して Gist として返される各ファイルには、`truncated` というキーがあります。 `truncated` が `true` の場合、ファイルが大きすぎるためコンテンツの一部のみが `content` で返されました。
 
-If you need the full contents of the file, you can make a `GET` request to the URL specified by `raw_url`. Be aware that for files larger than ten megabytes, you'll need to clone the gist via the URL provided by `git_pull_url`.
+ファイルのフルコンテンツが必要な場合は、`raw_url` で指定された URL に `GET` リクエストを送信できます。 10 メガバイトを超えるファイルの場合、`git_pull_url` が提供する URL を介して Gist をクローンする必要があることに注意してください。
 
-In addition to a specific file's contents being truncated, the entire files list may be truncated if the total number exceeds 300 files. If the top level `truncated` key is `true`, only the first 300 files have been returned in the files list. If you need to fetch all of the gist's files, you'll need to clone the gist via the URL provided by `git_pull_url`.
+ファイル総数が 300 個を超えると、特定のファイルの内容が切り捨てられることに加えて、ファイルリスト全体が切り捨てられる場合があります。 最上位の `truncated` キーが `true` の場合、最初の 300 ファイルのみがファイルリストに返されます。 Gist のファイルをすべてフェッチする必要がある場合は、`git_pull_url` が提供する URL を介して Gist のクローンを作成する必要があります。
 
-### Custom media types for gists
+### Gist のカスタムメディアタイプ
 
-These are the supported media types for fetching gist contents.
+これらは、Gist コンテンツをフェッチするためにサポートされているメディアタイプです。
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.base64
 
-For more information, see "[Media types](/rest/overview/media-types)."
+詳しい情報については、「[メディアタイプ](/rest/overview/media-types)」を参照してください。

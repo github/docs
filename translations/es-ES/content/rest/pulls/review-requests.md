@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Pull request authors and repository owners and collaborators can request a pull request review from anyone with write access to the repository. Each requested reviewer will receive a notification asking them to review the pull request.
+Los autores de las solicitudes de extracción y los propietarios y colaboradores de los repositorios pueden solicitar una revisión de una solicitud de extracción a cualquiera con acceso de escritura en el repositorio. Cada revisor solicitado recibirá una notificación solicitándoles revisar la solicitud de extracción.

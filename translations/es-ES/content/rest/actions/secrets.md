@@ -1,6 +1,6 @@
 ---
-title: Secrets
-intro: 'The Secrets API lets you create, update, delete, and retrieve information about encrypted secrets. '
+title: Secretos
+intro: 'La API de Secretos te permite crear, actualizar, borrar y recuperar información acerca de los secretos cifrados.'
 topics:
   - API
 versions:
@@ -10,6 +10,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.about-secrets %} For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+{% data reusables.actions.about-secrets %} Para obtener más información, consulta la sección "[Crear y utilizar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `secrets` permission to use this API. Authenticated users must have collaborator access to a repository to create, update, or read secrets.
+La {% data reusables.actions.actions-authentication %} en las {% data variables.product.prodname_github_apps %} debe contar con el permiso de `secrets` para utilizar esta API. Los usuarios autenticados deben tener acceso de colaborador en el repositorio para crear, actualizar o leer los secretos.

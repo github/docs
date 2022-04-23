@@ -10,7 +10,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Manage repository discussions
+shortTitle: Gerenciar discussões do repositório
 ---
 
 
@@ -28,4 +28,4 @@ Por padrão, integrantes da organização com acesso de leitura podem criar disc
 
 - "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
 - "[Gerenciar discussões para a sua comunidade](/discussions/managing-discussions-for-your-community)"
-- "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)"
+- "[Habilitando ou desabilitando discussões no GitHub para uma organização](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)"

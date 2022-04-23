@@ -1,6 +1,6 @@
 ---
 title: Gitignore
-intro: 'The Gitignore API fetches `.gitignore` templates that can be used to ignore files and directories.'
+intro: Gitignore APIは、ファイルやディレクトリを無視するために利用できる`.gitignore`テンプレートをフェッチします。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,12 +13,12 @@ redirect_from:
   - /rest/reference/gitignore
 ---
 
-When you create a new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} via the API, you can specify a [.gitignore template](/github/getting-started-with-github/ignoring-files) to apply to the repository upon creation. The .gitignore templates API lists and fetches templates from the {% data variables.product.product_name %} [.gitignore repository](https://github.com/github/gitignore).
+When you create a new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} via the API, you can specify a [.gitignore template](/github/getting-started-with-github/ignoring-files) to apply to the repository upon creation. .gitignore テンプレート API は、{% data variables.product.product_name %} の [.gitignore リポジトリ](https://github.com/github/gitignore)からテンプレートを一覧表示してフェッチします。
 
-### Custom media types for gitignore
+### gitignore のカスタムメディアタイプ
 
-You can use this custom media type when getting a gitignore template.
+gitignore テンプレートを取得するときに、このカスタムメディアタイプを使用できます。
 
     application/vnd.github.VERSION.raw
 
-For more information, see "[Media types](/rest/overview/media-types)."
+詳しい情報については、「[メディアタイプ](/rest/overview/media-types)」を参照してください。

@@ -82,7 +82,7 @@ shortTitle: 组合操作
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
-          run: echo "::set-output name=random-id::$(echo $RANDOM)"
+          run: echo "::set-output name=random-number::$(echo $RANDOM)"
           shell: bash
         - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
           shell: bash          

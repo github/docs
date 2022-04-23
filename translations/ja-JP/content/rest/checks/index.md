@@ -1,6 +1,6 @@
 ---
-title: Checks
-intro: 'With the Checks API, you can build {% data variables.product.prodname_github_apps %} that run powerful checks against the code changes in a repository.'
+title: チェック
+intro: 'Checks APIを使用すると、リポジトリでのコード変更に対して強力なチェックを行う{% data variables.product.prodname_github_apps %}を構築できます。'
 redirect_from:
   - /v3/checks
   - /rest/reference/checks
@@ -17,4 +17,4 @@ children:
   - /suites
 ---
 
-You can create apps that perform continuous integration, code linting, or code scanning services and provide detailed feedback on commits. For more information, see "[Getting started with the checks API](/rest/guides/getting-started-with-the-checks-api)" and "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)."
+継続的インテグレーション、コードの構文チェック、コードのスキャンサービスを実行し、コミットについて詳細なフィードバックを行うアプリを作成できます。 詳しい情報については、「[Checks API を使ってみる](/rest/guides/getting-started-with-the-checks-api)」および「[Checks API で CI テストを作成する](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)」を参照してください。

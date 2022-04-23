@@ -13,37 +13,37 @@ shortTitle: Personalizar perfil da organização
 
 {% if org-profile-pin-private %}
 
-## About your organization's profile page
+## Sobre a página de perfil da sua organização
 
-You can customize your organization's Overview page to show content dedicated to public users or members of the organization. Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, are shown a member view when they visit your organization's profile page. Users who are not members of your organization will be shown a public view.
+Você pode personalizar a página de visão geral da sua organização para mostrar o conteúdo dedicado a usuários públicos ou integrantes da organização. Os integrantes da sua organização que estão conectados em {% data variables.product.prodname_dotcom %} são exibidos em uma visualização de integrantes quando visitam a página de perfil da sua organização. Os usuários que não são integrantes da sua organização serão mostrados como público.
 
-![Image of an organization profile page](/assets/images/help/organizations/new_organization_page.png)
+![Imagem de uma página de perfil da organização](/assets/images/help/organizations/new_organization_page.png)
 {% endif %}
 
 ### Repositórios fixos
 
-You can give users easy access to important or frequently used repositories, by choosing up to six repositories for public users and six repositories for members of the organization. Once you pin repositories to your organization profile, the "Pinned" section is shown above the "Repositories" section of the profile page.
+Você pode dar aos usuários acesso fácil a repositórios importantes ou usados com frequência, ao escolher até seis repositórios para usuários públicos e seis repositórios para integrantes da organização. Assim que você fixar os repositórios no perfil da organização, a seção "Fixado" será exibida acima da seção "Repositórios" na página de perfil.
 
-Only organization owners can pin repositories. For more information, see "[Pinning repositories to your organization's profile](#pinning-repositories-to-your-organizations-profile)."
+Apenas os proprietários da organização podem fixar repositórios. Para obter mais informações, consulte "[Fixando repositórios no perfil da sua organização](#pinning-repositories-to-your-organizations-profile)".
 
-### Organization profile READMEs
+### READMEs do perfil da organização
 
-You can share information about how to engage with your organization by creating an organization profile README for both public users and members of the organization. {% data variables.product.prodname_dotcom %} mostra o README do perfil da sua organização na aba "Visão geral" da sua organização.
+Você pode compartilhar informações sobre como se envolver com a sua organização criando um README do perfil da organização para usuários públicos e integrantes da organização. {% data variables.product.prodname_dotcom %} mostra o README do perfil da sua organização na aba "Visão geral" da sua organização.
 
-You can choose what information to include in your organization profile README. Here are some examples of information that may be helpful.
+Você pode escolher quais informações incluir no README do perfil da sua organização. Aqui estão alguns exemplos de informação que podem ser úteis.
 
 - Uma seção "Sobre" que descreve sua organização
 - Orientação para obter ajuda na organização
 
 Você pode formatar o texto e incluir emoji, imagens e GIFs no README do perfil da sua organização usando o Markdown enriquecido de {% data variables.product.company_short %}. Para obter mais informações, consulte "[Começando a escrever e formatar no {% data variables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)".
 
-## Adding a public organization profile README
+## Adicionando um README de perfil público da organização
 
 1. Se sua organização ainda não tiver um repositório público de `.github`, crie um repositório público de `.github`.
 2. No repositório `.github` da sua organização, crie um arquivo `README.md` na pasta `perfil`.
-3. Faça o commit das alterações para o arquivo `README.md`. The content of the `README.md` will appear on your organization's public profile.
+3. Faça o commit das alterações para o arquivo `README.md`. O conteúdo do `README.md` será exibido no perfil público da sua organização.
 
-   ![Image of an organization's public README](/assets/images/help/organizations/org_public_readme.png)
+   ![Imagem do README público de uma organização](/assets/images/help/organizations/org_public_readme.png)
 
 {% if org-profile-pin-private %}
 

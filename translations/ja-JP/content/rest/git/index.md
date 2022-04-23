@@ -1,6 +1,6 @@
 ---
-title: Git database
-intro: 'The Git Database API enables you to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update Git references (branch heads and tags).'
+title: Git データベース
+intro: 'Git Database APIを使うと、{% data variables.product.product_name %}上のGitデータベースに対してRaw形式のGitオブジェクトを読み書きしたり、リファレンス (ブランチheadやタグ) をリストおよび更新したりできます。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/git
@@ -21,4 +21,4 @@ children:
   - /trees
 ---
 
-The Git Database API gives you access to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update your references (branch heads and tags). For more information about using the Git Database API, see "[Getting started with the Git data API](/rest/guides/getting-started-with-the-git-database-api)."
+Git Database APIでは、{% data variables.product.product_name %}上のGitデータベースに対してRaw形式のGitオブジェクトを読み書きしたり、リファレンス (ブランチheadやタグ) をリストおよび更新したりすることができます。 Git Database API の使用方法の詳細については、「[Git データ API の概要](/rest/guides/getting-started-with-the-git-database-api)」を参照してください。

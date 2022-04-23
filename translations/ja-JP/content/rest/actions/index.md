@@ -1,6 +1,6 @@
 ---
 title: Actions
-intro: 'With the Actions API, you can manage and control {% data variables.product.prodname_actions %} for an organization or repository.'
+intro: 'Actions APIを使うと、Organizationやリポジトリの{% data variables.product.prodname_actions %}を管理し、制御できます。'
 redirect_from:
   - /v3/actions
   - /rest/reference/actions
@@ -23,4 +23,5 @@ children:
   - /workflow-runs
   - /workflows
 ---
-The {% data variables.product.prodname_actions %} API enables you to manage {% data variables.product.prodname_actions %} using the REST API. {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} require the permissions mentioned in each endpoint. For more information, see "[{% data variables.product.prodname_actions %} Documentation](/actions)."
+
+{% data variables.product.prodname_actions %} API では、REST API を使用して {% data variables.product.prodname_actions %} を管理できます。 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} require the permissions mentioned in each endpoint. 詳しい情報については、「[{% data variables.product.prodname_actions %} のドキュメント](/actions)」を参照してください。

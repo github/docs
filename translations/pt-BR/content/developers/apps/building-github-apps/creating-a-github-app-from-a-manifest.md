@@ -46,7 +46,7 @@ Siga estas etapas para implementar o fluxo do Manifesto do aplicativo GitHub:
 
 ### 1. Você redireciona as pessoas para o GitHub para criar um novo aplicativo GitHub
 
-To redirect people to create a new GitHub App, [provide a link](#examples) for them to click that sends a `POST` request to `https://github.com/settings/apps/new` for a personal account or `https://github.com/organizations/ORGANIZATION/settings/apps/new` for an organization account, replacing `ORGANIZATION` with the name of the organization account where the app will be created.
+Para redirecionar as pessoas para criar um novo aplicativo GitHub, [fornece um link](#examples) para que cliquem que envia uma solicitação `POST` para `https://github. om/settings/apps/new` para uma conta pessoal ou `https://github. om/organizações/ORGANIZAÇÃO/configurações/apps/novo` para uma conta de organização substituindo `ORGANIZAÇÃO` pelo nome da conta da organização, em que o aplicativo será criado.
 
 Você deve incluir os [parâmetros do manifesto do aplicativo GitHub](#github-app-manifest-parameters) como uma string codificada por JSON em um parâmetro denominado `manifesto`. Você também pode incluir um parâmetro `estado` [](#parameters) para segurança adicional.
 
@@ -83,7 +83,7 @@ O objeto `hook_attributes` tem a chave a seguir:
 
 #### Exemplos
 
-This example uses a form on a web page with a button that triggers the `POST` request for a personal account:
+Este exemplo usa um formulário em uma página web com um botão que aciona a solicitação `POST` para uma conta pessoal:
 
 ```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">

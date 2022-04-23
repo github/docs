@@ -1,6 +1,6 @@
 ---
-title: Users
-intro: 'The Users migrations API is only available to authenticated account owners.'
+title: 用户
+intro: The Users migrations API is only available to authenticated account owners.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,10 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information, see "[Other authentication methods](/rest/overview/other-authentication-methods)."
+更多信息请参阅“[其他身份验证方法](/rest/overview/other-authentication-methods)”。
 
-{% data variables.migrations.user_migrations_intro %} For a list of migration data that you can download, see "[Download a user migration archive](#download-a-user-migration-archive)."
+{% data variables.migrations.user_migrations_intro %} 有关可下载的迁移数据列表，请参阅“[下载用户迁移存档](#download-a-user-migration-archive)”。
 
-To download an archive, you'll need to start a user migration first. Once the status of the migration is `exported`, you can download the migration.
+要下载存档，您需要先开始用户迁移。 在迁移状态为 `exported` 后，便可下载迁移。
 
-Once you've created a migration archive, it will be available to download for seven days. But, you can delete the user migration archive sooner if you'd like. You can unlock your repository when the migration is `exported` to begin using your repository again or delete the repository if you no longer need the source data.
+创建迁移存档后，该存档可供下载七天。 但是，如果您喜欢，您可以更早删除用户迁移存档。 当迁移为 `exported` 时，您可以解锁仓库以便再次开始使用，如果你不再需要源数据，则可删除您的仓库。

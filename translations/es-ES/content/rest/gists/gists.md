@@ -11,25 +11,25 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Authentication
+### Autenticación
 
-You can read public gists {% ifversion ghae or ghes %}and create them for anonymous users without a token.{% else %} anonymously, but you must be signed into GitHub to create gists.{% endif %} To read or write gists on a user's behalf, you need the gist OAuth scope and a token. For more information, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps)."
+Puedes leer gists públicos {% ifversion ghae or ghes %}y crearlos para usuarios anónimos sin un token{% else %} de forma anónima, pero debes haber iniciado sesión en GitHub para crear gists.{% endif %} Para leer o escribir gists en nombre de un usuario, necesitas el alcance de OAuth para gists y un token. Par aobtener más información, consulta la sección "[Alcances para las Apps de OAuth](/developers/apps/scopes-for-oauth-apps)".
 
 <!-- When an OAuth client does not have the gists scope, the API will return a 404 "Not Found" response regardless of the validity of the credentials. The API will return a 401 "Bad credentials" response if the gists scope was given to the application but the credentials are invalid. -->
 
-### Truncation
+### Truncamiento
 
-The Gist API provides up to one megabyte of content for each file in the gist. Each file returned for a gist through the API has a key called `truncated`. If `truncated` is `true`, the file is too large and only a portion of the contents were returned in `content`.
+La API de Gist proporciona hasta un megabyte de contenido para cada archivo en el gist. Cada archivo que se devuelve para un gist a través de la API tiene una clave que se llama `truncated`. Si `truncated` aparece como `true`, significa que el archivo es demasiado grande y solo se devolvió una parte de su contenido en `content`.
 
-If you need the full contents of the file, you can make a `GET` request to the URL specified by `raw_url`. Be aware that for files larger than ten megabytes, you'll need to clone the gist via the URL provided by `git_pull_url`.
+Si necesitas el contenido completo del archivo, puedes hacer una solicitud de tipo `GET` a la URL que se especifica en `raw_url`. Ten en cuent que, para los archivos mayores a diez megabytes, necesitarás clonar el gist a través de la URL que proprocionó `git_pull_url`.
 
-In addition to a specific file's contents being truncated, the entire files list may be truncated if the total number exceeds 300 files. If the top level `truncated` key is `true`, only the first 300 files have been returned in the files list. If you need to fetch all of the gist's files, you'll need to clone the gist via the URL provided by `git_pull_url`.
+Adicionalmente a el truncamiento del contenido específico del archivo, la lista de archivos completa podría truncarse si la cantidad total excede los 300 archivos. Si la clave `truncated` de nivel superior aparece como `true`, únicamente se han devuelto los primeros 300 archivos en la lista. Si necesitas recuperar todos los archivos del gist, necesitarás clonarlo a través de la URL que te proporcionó `git_pull_url`.
 
-### Custom media types for gists
+### Tipos de medios personalizados para los gists
 
-These are the supported media types for fetching gist contents.
+Estos son los tipos de medios compatibles para recuperar el contenido de los gists.
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.base64
 
-For more information, see "[Media types](/rest/overview/media-types)."
+Para obtener más información, consulta la sección "[Tipos de medios](/rest/overview/media-types)".

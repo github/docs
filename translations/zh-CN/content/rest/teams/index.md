@@ -1,6 +1,6 @@
 ---
-title: Teams
-intro: 'With the Teams API, you can create and manage teams in your {% data variables.product.product_name %} organization.'
+title: 团队
+intro: '通过团队 API，您可以在您的 {% data variables.product.product_name %} 组织中创建和管理团队。'
 redirect_from:
   - /v3/teams
   - /rest/reference/teams
@@ -20,3 +20,4 @@ children:
   - /members
   - /team-sync
 ---
+

@@ -1,5 +1,5 @@
 ---
-title: Collaborators
+title: 协作者
 intro: 'The Collaborators API allows you to add, invite, and remove collaborators from a repository.'
 allowTitleToDifferFromFilename: true
 versions:
@@ -16,3 +16,4 @@ children:
 redirect_from:
   - /rest/reference/collaborators
 ---
+

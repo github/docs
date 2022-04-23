@@ -1,6 +1,6 @@
 ---
-title: Search
-intro: 'The GitHub Search API lets you to search for the specific item efficiently.'
+title: Buscar
+intro: The GitHub Search API lets you to search for the specific item efficiently.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,122 +13,106 @@ redirect_from:
   - /rest/reference/search
 ---
 
-The Search API helps you search for the specific item you want to find. For example, you can find a user or a specific file in a repository. Think of it the way you think of performing a search on Google. It's designed to help you find the one result you're looking for (or maybe the few results you're looking for). Just like searching on Google, you sometimes want to see a few pages of search results so that you can find the item that best meets your needs. To satisfy that need, the {% data variables.product.product_name %} Search API provides **up to 1,000 results for each search**.
+La API de Búsqueda te ayuda a buscar el elemento específico que quieres encontrar. Por ejemplo, puedes buscar un usuario o un archivo específico en el repositorio. Tómalo como el simil de realizar una búsqueda en Google. Se diseñó para ayudarte a encontrar el resultado exacto que estás buscando (o tal vez algunos de los resultados que buscas). Tal como la búsqueda en Google, a veces quieres ver algunas páginas de los resultados de búsqueda para que puedas encontrar el elemento que mejor satisfaga tus necesidades. Para satisfacer esta necesidad, la API de Búsqueda de {% data variables.product.product_name %} proporciona **hasta 1,000 resultados por búsqueda**.
 
-You can narrow your search using queries. To learn more about the search query syntax, see "[Constructing a search query](/rest/reference/search#constructing-a-search-query)."
+Puedes delimitar tu búsqueda utilizando consultas. Para aprender más sobre la sintaxis de las consultas de búsqueda, dirígete a "[Construir una consulta de búsqueda](/rest/reference/search#constructing-a-search-query)".
 
-### Ranking search results
+### Clasificar los resultados de la búsqueda
 
-Unless another sort option is provided as a query parameter, results are sorted by best match in descending order. Multiple factors are combined to boost the most relevant item to the top of the result list.
+A menos de que se proporcione algún otro tipo de opción como parámetro de consulta, los resultados se clasificarán de acuerdo a la exactitud de la coincidencia en orden descendente. Varios factores se combinan para impulsar el elemento más relevante hasta arriba de la lista de resultados.
 
-### Rate limit
+### Limite de tasa
 
 {% data reusables.enterprise.rate_limit %}
 
-The Search API has a custom rate limit. For requests using [Basic
-Authentication](/rest#authentication), [OAuth](/rest#authentication), or [client
-ID and secret](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to
-30 requests per minute. For unauthenticated requests, the rate limit allows you
-to make up to 10 requests per minute.
+La API de Búsqueda tiene un límite de tasa personalizado. Para las solicitudes que utilizan [Autenticación Básica](/rest#authentication), [OAuth](/rest#authentication), o [secreto e ID de cliente](/rest#increasing-the-unauthenticated-rate-limit-for-oauth-applications), puedes hacer hasta 30 solicitudes por minuto. Para las solicitudes sin autenticar, el límite de tasa te permite hacer hasta 10 por minuto.
 
-See the [rate limit documentation](/rest/reference/rate-limit) for details on
-determining your current rate limit status.
+Consulta la [documentación del límite de tasa](/rest/reference/rate-limit) para obtener más detalles sobre cómo determinar tu estado de límite de tasa actual.
 
-### Constructing a search query
+### Construir una consulta de búsqueda
 
-Each endpoint in the Search API uses [query parameters](https://en.wikipedia.org/wiki/Query_string) to perform searches on {% data variables.product.product_name %}. See the individual endpoint in the Search API for an example that includes the endpoint and query parameters.
+Cada terminal en la API de búsqueda utiliza [parámetros de búsqueda](https://en.wikipedia.org/wiki/Query_string) para realizar búsqeudas en {% data variables.product.product_name %}. Observa la terminal individual an la API de Búsqueda para encontrar un ejemplo que incluye los parámetros de consulta y de terminal.
 
-A query can contain any combination of search qualifiers supported on {% data variables.product.product_name %}. The format of the search query is:
+Una consulta puede contener cualquier combinación de calificadores de búsqueda que sea compatible con {% data variables.product.product_name %}. El formato de esta consulta de búsqueda es:
 
 ```
 SEARCH_KEYWORD_1 SEARCH_KEYWORD_N QUALIFIER_1 QUALIFIER_N
 ```
 
-For example, if you wanted to search for all _repositories_ owned by `defunkt` that
-contained the word `GitHub` and `Octocat` in the README file, you would use the
-following query with the _search repositories_ endpoint:
+Por ejemplo, si quisieras buscar todos los _repositorios_ que pertenecen a `defunkt` y que contienen la palabra `GitHub` y `Octocat` en el archivo de README, utilizarías la siguiente consulta con la terminal de _buscar repositorios_:
 
 ```
 GitHub Octocat in:readme user:defunkt
 ```
 
-**Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. For example:
+**Nota:** Asegúrate de utilizar el codificador HTML preferido de tu lenguaje de programación para construir tus cadenas de consulta. Por ejemplo:
 ```javascript
 // JavaScript
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
 ```
 
-See "[Searching on GitHub](/search-github/searching-on-github)"
-for a complete list of available qualifiers, their format, and an example of
-how to use them. For information about how to use operators to match specific
-quantities, dates, or to exclude results, see "[Understanding the search syntax](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)."
+Consulta la sección "[Buscar en GitHub](/search-github/searching-on-github)" para encontrar una lista completa de calificadores disponibles, su formato, y ejemplos de cómo utilizarlos. Para obtener más información acerca de cómo utilizar los operadores para que coincidan con cantidades y fechas específicas o para que excluyan resultados, consulta la sección "[Entender la sintaxis de búsqueda](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax/)".
 
-### Limitations on query length
+### Limitaciones sobre la longitud de la consulta
 
-The Search API does not support queries that:
-- are longer than 256 characters (not including operators or qualifiers).
-- have more than five `AND`, `OR`, or `NOT` operators.
+La API de búsqueda no es compatible con consultas que:
+- sean mayores a 256 caracteres (sin incluir los operadores o calificativos).
+- tengan más de cinco operadores de `AND`, `OR`, o `NOT`.
 
-These search queries will return a "Validation failed" error message.
+Estas consultas de búsqueda devolverán un mensaje de error de "Validation failed".
 
-### Timeouts and incomplete results
+### Tiempos excedidos y resultados incompletos
 
-To keep the Search API fast for everyone, we limit how long any individual query
-can run. For queries that [exceed the time limit](https://developer.github.com/changes/2014-04-07-understanding-search-results-and-potential-timeouts/),
-the API returns the matches that were already found prior to the timeout, and
-the response has the `incomplete_results` property set to `true`.
+Para que la API de Búsqueda se mantenga rápida para todos, limitamos el tiempo que puede jecutarse cualquier consulta específica. Para las consultas que [exceden el límite de tiempo](https://developer.github.com/changes/2014-04-07-understanding-search-results-and-potential-timeouts/), la API devuelve las coincidencias que ya se habían encontrado antes de exceder el tiempo, y la respuesta tiene la propiedad `incomplete_results` como `true`.
 
-Reaching a timeout does not necessarily mean that search results are incomplete.
-More results might have been found, but also might not.
+Llegar a una interrupción no necesariamente significa que los resultados de búsqueda estén incompletos. Puede que se hayan encontrado más resultados, pero también puede que no.
 
-### Access errors or missing search results
+### Errores de acceso o resultados de búsqueda faltantes
 
-You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. For example, your search will fail if your query includes `repo:`, `user:`, or `org:` qualifiers that request resources that you don't have access to when you sign in on {% data variables.product.prodname_dotcom %}.
+Necesitas autenticarte con éxito y tener acceso a los repositorios en tus consultas de búsqueda, de otro modo, verás un error `422 Unprocessable Entry` con un mensaje de "Validation Failed". Por ejemplo, tu búsqueda fallará si tu consulta incluye los calificadores `repo:`, `user:`, o `org:` que solicitan los recursos a los cuales no tienes acceso cuando inicias sesión en {% data variables.product.prodname_dotcom %}.
 
-When your search query requests multiple resources, the response will only contain the resources that you have access to and will **not** provide an error message listing the resources that were not returned.
+Cuando tu consulta de búsqueda solicita recursos múltiples, la respuesta solo contendrá aquellos a los que tengas acceso y **no** proporcionará un mensaje de error que liste los recursos que no se devolvieron.
 
-For example, if your search query searches for the `octocat/test` and `codertocat/test` repositories, but you only have access to `octocat/test`, your response will show search results for `octocat/test` and nothing for `codertocat/test`. This behavior mimics how search works on {% data variables.product.prodname_dotcom %}.
+Por ejemplo, si tu consulta de búsqueda quiere buscar en los repositorios `octocat/test` y `codertocat/test`, pero solo tienes acceso a `octocat/test`, tu respuesta mostrará los resultados de búsqueda para `octocat/test` y no mostrará nada para `codertocat/test`. Este comportamiento simula cómo funciona la búsqueda en {% data variables.product.prodname_dotcom %}.
 
-### Text match metadata
+### Metadatos en el texto coincidente
 
-On GitHub, you can use the context provided by code snippets and highlights in search results. The Search API offers additional metadata that allows you to highlight the matching search terms when displaying search results.
+En GitHub, puedes utilizar el contexto que te proporcionan los extractos de código y los puntos destacados en los resultados de búsqueda. La API de Búsqueda ofrece metadatos adicionales que te permiten resaltar los términos de búsqueda coincidentes cuando se muestran los resultados de la búsqueda.
 
-![code-snippet-highlighting](/assets/images/text-match-search-api.png)
+![resaltado del fragmento de código](/assets/images/text-match-search-api.png)
 
-Requests can opt to receive those text fragments in the response, and every fragment is accompanied by numeric offsets identifying the exact location of each matching search term.
+Las solicitudes pueden decidir recibir esos fragmentos de texto en la respuesta, y cada fragmento se acompaña de intervalos numéricos que identifican la ubicación exacta de cada término de búsqueda coincidente.
 
-To get this metadata in your search results, specify the `text-match` media type in your `Accept` header.
+Para obtener estos metadatos en tus resultados de búsqueda, especifica el tipo de medios `text-match` en tu encabezado de `Accept`.
 
 ```shell
 application/vnd.github.v3.text-match+json
 ```
 
-When you provide the `text-match` media type, you will receive an extra key in the JSON payload called `text_matches` that provides information about the position of your search terms within the text and the `property` that includes the search term. Inside the `text_matches` array, each object includes
-the following attributes:
+Cuando proporcionas el tipo de medios `text-match`, recibirás una clave extra en la carga útil de JSON llamada `text_matches`, la cual proporciona información acerca de la posición de tus términos de búsqueda dentro del texto y la `property` que incluye dicho término de búsqueda. Dentro de la matriz `text_matches`, cada objeto incluye los siguientes atributos:
 
-Name | Description
------|-----------|
-`object_url` | The URL for the resource that contains a string property matching one of the search terms.
-`object_type` | The name for the type of resource that exists at the given `object_url`.
-`property` | The name of a property of the resource that exists at `object_url`. That property is a string that matches one of the search terms. (In the JSON returned from `object_url`, the full content for the `fragment` will be found in the property with this name.)
-`fragment` | A subset of the value of `property`. This is the text fragment that matches one or more of the search terms.
-`matches` | An array of one or more search terms that are present in `fragment`. The indices (i.e., "offsets") are relative to the fragment. (They are not relative to the _full_ content of `property`.)
+| Nombre        | Descripción                                                                                                                                                                                                                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `object_url`  | La URL del recurso que contiene una propiedad de secuencia que empata con uno de los términos de búsqueda.                                                                                                                                                                                    |
+| `object_type` | El nombre del tipo de recurso que existe en la `object_url` específica.                                                                                                                                                                                                                       |
+| `property`    | El nombre de la propiedad del recurso que existe en la `object_url`. Esa propiedad es una secuencia que empata con uno de los términos de la búsqueda. (En el JSON que se devuelve de la `object_url`, el contenido entero para el `fragment` se encontrará en la propiedad con este nombre.) |
+| `fragmento`   | Un subconjunto del valor de `property`. Este es el fragmento de texto que empata con uno o más de los términos de búsqueda.                                                                                                                                                                   |
+| `matches`     | Una matriz de uno o más términos de búsqueda presentes en el `fragment`. Los índices (es decir, "intervalos") son relativos al fragmento. (No son relativos al contenido _completo_ de `property`.)                                                                                           |
 
-#### Example
+#### Ejemplo
 
-Using cURL, and the [example issue search](#search-issues-and-pull-requests) above, our API
-request would look like this:
+Si utilizas cURL y también el [ejemplo de búsqueda de informe de problemas](#search-issues-and-pull-requests) anterior, nuestra solicitud de la API se vería así:
 
 ``` shell
 curl -H 'Accept: application/vnd.github.v3.text-match+json' \
 '{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
 ```
 
-The response will include a `text_matches` array for each search result. In the JSON below, we have two objects in the `text_matches` array.
+La respuesta incluirá una matriz de `text_matches` para cada resultado de búsqueda. En el JSON que se muestra a continuación, tenemos dos objetos en la matriz `text_matches`.
 
-The first text match occurred in the `body` property of the issue. We see a fragment of text from the issue body. The search term (`windows`) appears twice within that fragment, and we have the indices for each occurrence.
+La primera coincidencia de texto ocurrió en la propiedad de `body` del informe de problemas. Aquí vemos un fragmento de texto del cuerpo del informe de problemas. El término de búsqueda (`windows`) aparece dos veces dentro de ese fragmento, y tenemos los índices para cada ocurrencia.
 
-The second text match occurred in the `body` property of one of the issue's comments. We have the URL for the issue comment. And of course, we see a fragment of text from the comment body. The search term (`windows`) appears once within that fragment.
+La segunda coincidencia de texto ocurrió en la propiedad `body` de uno de los comentarios del informe de problemas. Tenemos la URL para el comentario del informe de problemas. Y, por supuesto, vemos un fragmento de texto del cuerpo del comentario. El término de búsqueda (`windows`) se muestra una vez dentro de ese fragmento.
 
 ```json
 {

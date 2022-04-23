@@ -24,7 +24,7 @@ shortTitle: 管理 SAML 访问
 
 {% data reusables.saml.about-linked-identities %}
 
-如果可用，该条目将包含 SCIM 数据。 更多信息请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
+如果可用，该条目将包含 SCIM 数据。 For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
 {% warning %}
 

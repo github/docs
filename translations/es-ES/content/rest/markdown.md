@@ -1,6 +1,6 @@
 ---
 title: Markdown
-intro: 'The Markdown API enables you to render a markdown document as an HTML page or as raw text.'
+intro: La API de Lenguaje de marcado te permite generar un documento de lenguaje de marcado como una página HTML o como texto sin procesar.
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,3 +12,4 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/markdown
 ---
+

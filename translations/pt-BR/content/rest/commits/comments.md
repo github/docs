@@ -1,5 +1,5 @@
 ---
-title: Commit comments
+title: Comentários de commit
 intro: ''
 versions:
   fpt: '*'
@@ -12,14 +12,13 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-### Custom media types for commit comments
+### Tipos de mídia personalizados para comentários de commit
 
-These are the supported media types for commit comments. You can read more
-about the use of media types in the API [here](/rest/overview/media-types).
+Estes são os tipos de mídia compatíveis com os comentários do commit. Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).
 
     application/vnd.github-commitcomment.raw+json
     application/vnd.github-commitcomment.text+json
     application/vnd.github-commitcomment.html+json
     application/vnd.github-commitcomment.full+json
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+Para obter mais informações, consulte "[tipos de mídia personalizados](/rest/overview/media-types)".

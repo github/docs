@@ -1,6 +1,6 @@
 ---
 title: Review Comments
-intro: 'Pull request review comments are comments on a portion of the unified diff made during a pull request review.'
+intro: Los comentarios de revisión de las solicitudes de extracción son comentarios de una porción de la diff unificada durante la revisión de esta solicitud.
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,15 +12,15 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-Commit comments and issue comments are different from pull request review comments. You apply commit comments directly to a commit and you apply issue comments without referencing a portion of the unified diff. For more information, see "[Create a commit comment](/rest/reference/commits#create-a-commit-comment)" and "[Create an issue comment](/rest/reference/issues#create-an-issue-comment)."
+Los comentarios de confirmación y comentarios de la solicitud de extracción son diferentes de aquellos sobre la revisión de estas solicitudes. Se aplican comentarios de confirmación directamente a un confirmación, así como se aplican comentarios del informe de problemas sin referenciar una porción de la diff unificada. Para obtener más información, consulta las secciones "[Crear un comentario sobre una confirmación](/rest/reference/commits#create-a-commit-comment)" y "[Crear un comentario sobre un informe de problemas](/rest/reference/issues#create-an-issue-comment)".
 
-### Custom media types for pull request review comments
+### Tipos de medios personalizados para los comentarios sobre las revisiones de las solicitudes de extracción
 
-These are the supported media types for pull request review comments.
+Estos son los tipos de medios compatibles para los comentarios sobre las revisiones de las solicitudes de exstracción.
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
     application/vnd.github.VERSION.html+json
     application/vnd.github.VERSION.full+json
 
-For more information, see "[Custom media types](/rest/overview/media-types)."
+Para obtener más información, consulta la sección "[Tipos de medios personalizados](/rest/overview/media-types)".

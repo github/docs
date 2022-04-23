@@ -123,6 +123,7 @@ shortTitle: 应用程序创建查询参数
 | [`pull_request`](/webhooks/event-payloads/#pull_request)                               | `pull_requests`                                 | {% data reusables.webhooks.pull_request_short_desc %}
 | [`pull_request_review`](/webhooks/event-payloads/#pull_request_review)                 | `pull_request`                                  | {% data reusables.webhooks.pull_request_review_short_desc %}
 | [`pull_request_review_comment`](/webhooks/event-payloads/#pull_request_review_comment) | `pull_request`                                  | {% data reusables.webhooks.pull_request_review_comment_short_desc %}
+| [`pull_request_review_thread`](/webhooks/event-payloads/#pull_request_review_thread)   | `pull_request`                                  | {% data reusables.webhooks.pull_request_review_thread_short_desc %}
 | [`推送`](/webhooks/event-payloads/#push)                                                 | `内容`                                            | {% data reusables.webhooks.push_short_desc %}
 | [`发行版`](/webhooks/event-payloads/#release)                                             | `内容`                                            | {% data reusables.webhooks.release_short_desc %}
 | [`仓库`](/webhooks/event-payloads/#repository)                                           | `元数据`                                           | {% data reusables.webhooks.repository_short_desc %}{% ifversion fpt or ghec %}

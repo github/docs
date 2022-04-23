@@ -1,6 +1,6 @@
 ---
 title: Discussions
-intro: "The Team Discussions API allows you to get, create, edit, and delete discussion posts on a team's page."
+intro: 'The Team Discussions API allows you to get, create, edit, and delete discussion posts on a team''s page.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-You can use team discussions to have conversations that are not specific to a repository or project. Any member of the team's [organization](/rest/reference/orgs) can create and read public discussion posts. For more details, see "[About team discussions](//organizations/collaborating-with-your-team/about-team-discussions/)." To learn more about commenting on a discussion post, see the [team discussion comments API](/rest/reference/teams#discussion-comments). This API is only available to authenticated members of the team's organization.
+Você pode usar discussões da equipe para ter conversas que não são específicas para um repositório ou projeto. Qualquer integrante da [organização](/rest/reference/orgs) da equipe pode criar e ler posts de discussão públicos. Para obter mais informações, consulte "[Sobre discussões de equipe](//organizations/collaborating-with-your-team/about-team-discussions/)". Para aprender mais sobre comentários em uma publicação de discussão, consulte [a API de comentários de discussão em equipe](/rest/reference/teams#discussion-comments). Esta API só está disponível para os integrantes autenticados da organização da equipe.

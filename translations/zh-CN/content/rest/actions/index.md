@@ -1,6 +1,6 @@
 ---
 title: Actions
-intro: 'With the Actions API, you can manage and control {% data variables.product.prodname_actions %} for an organization or repository.'
+intro: '通过 Actions API，您可以管理和控制组织或仓库的 {% data variables.product.prodname_actions %}。'
 redirect_from:
   - /v3/actions
   - /rest/reference/actions
@@ -23,4 +23,5 @@ children:
   - /workflow-runs
   - /workflows
 ---
-The {% data variables.product.prodname_actions %} API enables you to manage {% data variables.product.prodname_actions %} using the REST API. {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} require the permissions mentioned in each endpoint. For more information, see "[{% data variables.product.prodname_actions %} Documentation](/actions)."
+
+{% data variables.product.prodname_actions %} API 允许您使用 REST API 来管理 {% data variables.product.prodname_actions %}。 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} 需要在每个端点中提及的权限。 更多信息请参阅“[{% data variables.product.prodname_actions %} 文档](/actions)”。

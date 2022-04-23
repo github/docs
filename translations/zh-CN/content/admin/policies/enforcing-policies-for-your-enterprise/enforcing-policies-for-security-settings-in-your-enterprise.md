@@ -31,7 +31,7 @@ shortTitle: 安全设置策略
 
 ## 要求企业中的组织进行双重身份验证
 
-企业所有者可以要求企业拥有的所有组织中的组织成员、帐单管理员和外部协作者使用双重身份验证来保护其个人帐户。
+Enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.
 
 您必须为自己的帐户启用双重身份验证，然后才能对企业拥有的所有组织都要求 2FA。 更多信息请参阅“[使用双重身份验证 (2FA) 保护您的帐户](/articles/securing-your-account-with-two-factor-authentication-2fa/)”。
 
@@ -39,9 +39,9 @@ shortTitle: 安全设置策略
 
 **警告：**
 
-- 当您需要为企业进行双重身份验证时，不使用 2FA 的企业拥有的所有组织中的成员、外部协作者和帐单管理员（包括自动程序帐户）将从组织中删除，并失去对其仓库的访问权限。 他们还会失去对组织私有仓库的复刻的访问权限。 如果他们在从您的组织中删除后的三个月内为其个人帐户启用双重身份验证，您可以恢复其访问权限和设置。 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
-- 为其个人帐户禁用 2FA 的企业拥有的任何组织中的任何组织所有者、成员、帐单管理员或外部协作者在您启用所需的双重身份验证后将自动从组织中删除。
-- 如果您是某个要求双重身份验证的企业的唯一所有者，则在不为企业禁用双重身份验证要求的情况下，您将无法为个人帐户禁用 2FA。
+- 当您需要为企业进行双重身份验证时，不使用 2FA 的企业拥有的所有组织中的成员、外部协作者和帐单管理员（包括自动程序帐户）将从组织中删除，并失去对其仓库的访问权限。 他们还会失去对组织私有仓库的复刻的访问权限。 You can reinstate their access privileges and settings if they enable two-factor authentication for their account within three months of their removal from your organization. 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
+- Any organization owner, member, billing manager, or outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization.
+- If you're the sole owner of a enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required two-factor authentication for the enterprise.
 
 {% endwarning %}
 

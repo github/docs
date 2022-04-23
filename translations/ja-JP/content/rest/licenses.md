@@ -1,6 +1,6 @@
 ---
-title: Licenses
-intro: "The Licenses API lets you to retrieve popular open source licenses and information about a particular project's license file."
+title: ライセンス
+intro: Licenses API は、広く利用されているオープンソースライセンスと、特定のプロジェクトのライセンスファイルに関する情報を返します。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,23 +13,23 @@ redirect_from:
   - /rest/reference/licenses
 ---
 
-The Licenses API uses [the open source Ruby Gem Licensee](https://github.com/benbalter/licensee) to attempt to identify the project's license. Licensee matches the contents of a project's `LICENSE` file (if it exists) against a short list of known licenses. As a result, the API does not take into account the licenses of project dependencies or other means of documenting a project's license such as references to the license name in the documentation.
+ライセンス API は[オープンソースの Ruby Gem ライセンス](https://github.com/benbalter/licensee)を使用して、プロセスのライセンスを特定しようとします。 ライセンシーは、プロジェクトの `LICENSE` ファイル (存在する場合) を既知のライセンスの短いリストと照合します。 そのためライセンス API では、プロジェクト依存関係のライセンス、あるいはプロジェクトのライセンスをドキュメント化するその他の方法、たとえばドキュメントにおけるライセンス名の参照などは考慮されません。
 
-If a license is matched, the license key and name returned conforms to the [SPDX specification](https://spdx.org/).
+ライセンスが一致した場合、返されるライセンスキーおよび名前は[SPDX 仕様](https://spdx.org/)に適合します。
 
-**Note:** These endpoints will also return a repository's license information:
+**注釈:** 以下のエンドポイントも、リポジトリのライセンス情報を返します。
 
-- [Get a repository](/rest/reference/repos#get-a-repository)
-- [List repositories for a user](/rest/reference/repos#list-repositories-for-a-user)
-- [List organization repositories](/rest/reference/repos#list-organization-repositories)
-- [List forks](/rest/reference/repos#list-forks)
-- [List repositories watched by a user](/rest/reference/activity#list-repositories-watched-by-a-user)
-- [List team repositories](/rest/reference/teams#list-team-repositories)
+- [リポジトリの取得](/rest/reference/repos#get-a-repository)
+- [ユーザのリポジトリの一覧表示](/rest/reference/repos#list-repositories-for-a-user)
+- [Organization リポジトリの一覧表示](/rest/reference/repos#list-organization-repositories)
+- [フォークの一覧表示](/rest/reference/repos#list-forks)
+- [ユーザが Watch しているリポジトリの一覧表示](/rest/reference/activity#list-repositories-watched-by-a-user)
+- [Team リポジトリの一覧表示](/rest/reference/teams#list-team-repositories)
 
 {% warning %}
 
-GitHub is a lot of things, but it’s not a law firm. As such, GitHub does not provide legal advice. Using the Licenses API or sending us an email about it does not constitute legal advice nor does it create an attorney-client relationship. If you have any questions about what you can and can't do with a particular license, you should consult with your own legal counsel before moving forward. In fact, you should always consult with your own lawyer before making any decisions that might have legal ramifications or that may impact your legal rights.
+GitHub にはいろいろなものがありますが、法律事務所ではありません。 そのため、GitHub が法律上の助言をすることはありません。 ライセンス API を使用したり、それに関して当社にメールを送信したりすることは法律上の助言に該当せず、弁護士と依頼人の関係を確立するものでもありません。 特定のライセンスで許可される範囲について疑問がある場合は、先に進む前にそれぞれの顧問弁護士にご相談ください。 むしろ、法的な結果が想定される、あるいは法律上の権利に影響しうる決定を下す場合には、必ずその前に各自の弁護士にご相談ください。
 
-GitHub created the License API to help users get information about open source licenses and the projects that use them. We hope it helps, but please keep in mind that we’re not lawyers (at least most of us aren't) and that we make mistakes like everyone else. For that reason, GitHub provides the API on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the API.
+GitHub は、ユーザがオープンソースライセンスと、それを利用するプロジェクトに関する情報を得るためにライセンス API を作成しました。 お役に立てれば幸いですが、当社は (少なくとも従業員のほとんどは) 弁護士ではなく、他の方と同じように誤りがないとは言えません。 For that reason, GitHub provides the API on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the API.
 
 {% endwarning %}

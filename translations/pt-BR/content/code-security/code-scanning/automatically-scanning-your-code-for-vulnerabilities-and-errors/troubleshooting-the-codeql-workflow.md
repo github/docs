@@ -158,7 +158,7 @@ Isso faz o upload do banco de dados como um artefato de ações que você pode b
 
 O artefato conterá uma cópia arquivada dos arquivos de origem digitalizados por {% data variables.product.prodname_codeql %} denominada _src.zip_. Se você comparar os arquivos do código-fonte no repositório e os arquivos em _src. ip_, você poderá ver quais tipos de arquivo estarão faltando. Uma vez que você sabe quais tipos de arquivo não estão sendo analisados, é mais fácil entender como você pode precisar alterar o fluxo de trabalho para a análise de {% data variables.product.prodname_codeql %}.
 
-## Alerts found in generated code
+## Alertas encontrados no código gerado
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 

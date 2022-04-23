@@ -1,5 +1,5 @@
 ---
-title: Notifications
+title: 通知
 intro: ''
 versions:
   fpt: '*'
@@ -11,24 +11,24 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Users receive notifications for conversations in repositories they watch including:
+用户将收到其关注的仓库中各种对话的通知，包括：
 
-* Issues and their comments
-* Pull Requests and their comments
-* Comments on any commits
+* 议题及其评论
+* 拉取请求及其评论
+* 对任何提交的评论
 
-Notifications are also sent for conversations in unwatched repositories when the user is involved including:
+当用户涉及未关注仓库中的对话时也会发送通知，包括：
 
-* **@mentions**
-* Issue assignments
-* Commits the user authors or commits
-* Any discussion in which the user actively participates
+* **@提及**
+* 议题分配
+* 提交用户作者或提交
+* 用户积极参与的任何讨论
 
-All Notification API calls require the `notifications` or `repo` API scopes.  Doing this will give read-only access to some issue and commit content. You will still need the `repo` scope to access issues and commits from their respective endpoints.
+所有通知 API 调用都需要 `notifications` 或 `repo` API 作用域。  这将赋予对某些议题和提交内容的只读权限。 您仍需要 `repo` 作用域才能从相应的端点访问议题和提交。
 
-Notifications come back as "threads".  A thread contains information about the current discussion of an issue, pull request, or commit.
+通知以“帖子”的形式返回。  帖子包含当前对议题、拉取请求或提交的讨论信息。
 
-Notifications are optimized for polling with the `Last-Modified` header.  If there are no new notifications, you will see a `304 Not Modified` response, leaving your current rate limit untouched.  There is an `X-Poll-Interval` header that specifies how often (in seconds) you are allowed to poll.  In times of high server load, the time may increase.  Please obey the header.
+通知通过 `Last-Modified` 标头对轮询进行了优化。  如果没有新的通知，您将看到 `304 Not Modified` 响应，您的当前速率限制不受影响。  有一个 `X-Poll-Interval` 标头用于指定允许您轮询的间隔时间（以秒为单位）。  在服务器负载较高时，该时间可能会增加。  请遵循标头指示。
 
 ``` shell
 # Add authentication to your requests
@@ -44,27 +44,27 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### Notification reasons
+### 通知原因
 
-When retrieving responses from the Notifications API, each payload has a key titled `reason`. These correspond to events that trigger a notification.
+从通知 API 检索响应时，每个有效负载都有一个名为 `reason` 的键。 这些键对应于触发通知的事件。
 
-Here's a list of potential `reason`s for receiving a notification:
+以下是收到通知的可能 `reason` 列表：
 
-Reason Name | Description
-------------|------------
-`assign` | You were assigned to the issue.
-`author` | You created the thread.
-`comment` | You commented on the thread.
-`ci_activity` | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.
-`invitation` | You accepted an invitation to contribute to the repository.
-`manual` | You subscribed to the thread (via an issue or pull request).
-`mention` | You were specifically **@mentioned** in the content.
-`review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
-`security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
-`state_change` | You changed the thread state (for example, closing an issue or merging a pull request).
-`subscribed` | You're watching the repository.
-`team_mention` | You were on a team that was mentioned.
+| 原因名称               | 描述                                                                                                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `assign`           | 您被分配到议题。                                                                                                                                                     |
+| `作者`               | 您创建了帖子。                                                                                                                                                      |
+| `注释，评论`            | 您评论了帖子。                                                                                                                                                      |
+| `ci_activity`      | 当 {% data variables.product.prodname_actions %} 工作流程运行被请求或完成时。                                                                                               |
+| `邀请`               | 您接受了参与仓库的邀请。                                                                                                                                                 |
+| `manual`           | 您订阅了帖子（通过议题或拉取请求）                                                                                                                                            |
+| `提及`               | 您在内容中被特别 **@提及**。                                                                                                                                            |
+| `review_requested` | 您或您所属的团队被请求审查拉取请求。{% ifversion fpt or ghec %}
+| `security_alert`   | {% data variables.product.prodname_dotcom %} 在您的仓库中发现了[安全漏洞](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)。{% endif %}
+| `state_change`     | 您更改了帖子主题（例如关闭议题或合并拉取请求）。                                                                                                                                     |
+| `subscribed`       | 您在关注仓库。                                                                                                                                                      |
+| `team_mention`     | 您所属的团队被提及。                                                                                                                                                   |
 
-Note that the `reason` is modified on a per-thread basis, and can change, if the `reason` on a later notification is different.
+请注意，`reason` 根据每个帖子而修改，如果在以后的通知中，`reason` 不同，其值可能会变更。
 
-For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then  **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
+例如，如果您是某个议题的作者，则有关该议题的后续通知中，其 `reason` 值为 `author`。 如果后来您在这个议题上被 **@提及**，则您此后收到的通知中，其 `reason` 值为 `mention`。 无论您此后是否被再次提及，`reason` 值将保持 `mention` 不变。

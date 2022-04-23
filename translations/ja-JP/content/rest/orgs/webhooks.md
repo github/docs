@@ -1,5 +1,5 @@
 ---
-title: Webhooks
+title: webhook
 intro: ''
 versions:
   fpt: '*'
@@ -13,23 +13,23 @@ miniTocMaxHeadingLevel: 3
 
 Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}
 
-For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
+サブスクライブできるアクションの詳細は、「[{% data variables.product.prodname_dotcom %} のイベントタイプ](/developers/webhooks-and-events/github-event-types)」を参照してください。
 
-### Scopes & Restrictions
+### スコープと制限事項
 
-All actions against organization webhooks require the authenticated user to be an admin of the organization being managed. Additionally, OAuth tokens require the `admin:org_hook` scope. For more information, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps)."
+Organization の webhook に対するすべてのアクションでは、認証ユーザが管理対象の Organization の管理者である必要があります。 また、OAuth トークンには `admin:org_hook` スコープが必要です。 詳しい情報については、「[OAuth App のスコープ](/developers/apps/scopes-for-oauth-apps)」を参照してください。
 
-In order to protect sensitive data which may be present in webhook configurations, we also enforce the following access control rules:
+webhook 設定に存在する可能性がある機密データを保護するために、次のアクセス制御ルールも適用します。
 
-- OAuth applications cannot list, view, or edit webhooks which they did not create.
-- Users cannot list, view, or edit webhooks which were created by OAuth applications.
+- OAuth アプリケーションが、それによって作成されたのではない webhook をリスト、表示、編集することはできません。
+- OAuth アプリケーションによって作成された webhook をユーザがリスト、表示、編集することはできません。
 
-### Receiving Webhooks
+### webhook の受信
 
-In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
+{% data variables.product.product_name %} で webhook ペイロードを送信するには、インターネットからサーバーにアクセスできる必要があります。 暗号化されたペイロードを HTTPS 経由で送信できるように、SSL の使用も強く推奨します。
 
-For more best practices, [see our guide](/guides/best-practices-for-integrators/).
+その他のベストプラクティスについては、[ガイド](/guides/best-practices-for-integrators/)を参照してください。
 
-#### Webhook headers
+#### webhook ヘッダー
 
-{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/webhooks/event-payloads/#delivery-headers) for details.
+{% data variables.product.product_name %} は、イベントタイプとペイロード識別子を区別するために、複数の HTTP ヘッダーも送信します。 詳細は「[webhook ヘッダー](/webhooks/event-payloads/#delivery-headers)」を参照してください。
