@@ -67,3 +67,4 @@ jobs:
           ELEVATED_TOKEN: ${{ secrets.DOCS_BOT_FR }}
           REPO: ${{ github.repository }}
           RUN_ID: ${{ github.run_id }}
+[![Remove stale staging resources](https://github.com/MrHtetNaingSoe/docs/actions/workflows/remove-stale-staging-resources.yml/badge.svg)](https://github.com/MrHtetNaingSoe/docs/actions/workflows/remove-stale-staging-resources.yml)
