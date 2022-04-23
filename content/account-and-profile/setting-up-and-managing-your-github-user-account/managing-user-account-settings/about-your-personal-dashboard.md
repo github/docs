@@ -92,4 +92,4 @@ In the "Explore repositories" section on the right side of your dashboard, you c
 
 ## Further reading
 
-- "[About your organization dashboard](/articles/about-your-organization-dashboard)"
+"[About your organization dashboard](/articles/about-your-organization-dashboard)"
