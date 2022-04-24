@@ -24,7 +24,7 @@ shortTitle: 管理您的组织角色
 
 {% warning %}
 
-**警告**：如果组织使用 SCIM 来预配用户，则以这种方式加入组织可能会产生意想不到的后果。 更多信息请参阅“[关于 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)”。
+**警告**：如果组织使用 SCIM 来预配用户，则以这种方式加入组织可能会产生意想不到的后果。 For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
 {% endwarning %}
 

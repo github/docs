@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       - name: Setup node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
@@ -38,7 +38,7 @@ jobs:
         run: npm ci
 
       - name: Cache nextjs build
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}

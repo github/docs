@@ -198,7 +198,7 @@ The `devcontainer.json` file is written using the JSONC format. This allows you 
 
 {% note %}
 
-**Note**: If you use a linter to valid the `devcontainer.json` file, make sure it is set to JSONC and not JSON or comments will be reported as errors.
+**Note**: If you use a linter to validate the `devcontainer.json` file, make sure it is set to JSONC and not JSON or comments will be reported as errors.
 
 {% endnote %}
 

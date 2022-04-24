@@ -27,7 +27,7 @@ Al utilizar las características y productos adicionales, también estás de acu
 
 - Los usuarios de **GitHub AE** podrían tener acceso a los siguientes productos y características adicionales: Acciones, Seguridad Avanzada, Base de Datos de Asesorías, Connect, Vista Previa del Dependabot, GitHub Enterprise Importer, Paquetes y Páginas.
 
-## Acciones
+## Actions
 Acciones de GitHub te permiten crear flujos de trabajo de ciclo de vida de desarrollo del software personalizado directamente en tu repositorio de GitHub. Las acciones se facturan conforme se utilizan. La [Documentación de las acciones](/actions) incluye detalles como las cantidades de procesamiento y almacenamiento (dependiendo del plan de tu cuenta), y el cómo monitorear el uso de minutos de tus acciones y configurar los límites de uso.
 
 No podrán utilizarse las acciones ni cualquier elemento del servicio de este producto para violar el acuerdo, las [Políticas de uso aceptable de GitHub](/github/site-policy/github-acceptable-use-policies), ni las limitaciones del servicio de Github, las cuales se establecen en la [Documentación de las acciones](/actions/reference/usage-limits-billing-and-administration). Adicionalmente, sin importar si la acción utiliza ejecutores auto-hospedados, estas no deben utilizarse para:

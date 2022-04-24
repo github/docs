@@ -208,6 +208,16 @@ Este evento devuelve un objeto de `payload` vacío.
 {% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
 {% data reusables.webhooks.pull_request_review_comment_properties %}
 
+## PullRequestReviewThreadEvent
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+{% data reusables.webhooks.events_api_payload %}
+
+### Objeto de `payload` del evento
+
+{% data reusables.webhooks.pull_request_thread_properties %}
+
 ## PushEvent
 
 {% data reusables.webhooks.push_short_desc %}

@@ -1,0 +1,32 @@
+---
+date: '2022-04-20'
+sections:
+  security_fixes:
+    - 包已更新到最新的安全版本。
+  bugs:
+    - When a manifest file was deleted from a repository, the manifest would not be removed from the repository's "Dependency graph" page.
+    - Resolved a regression that could lead to consistent failures to retrieve artifacts and download log archives for {% data variables.product.prodname_actions %}. In some circumstances we stopped resolving URLs for internal communications that used `localhost`, and instead incorrectly used the instance hostname.
+    - Upgrading the nodes in a high availability pair with an upgrade package could cause Elasticsearch to enter an inconsistent state in some cases.
+    - Rotated log files with the extension `.backup` would accumulate in directories containing system logs.
+    - In some cluster topologies, the command line utilities `ghe-spokesctl` and `ghe-btop` failed to run.
+    - Elasticsearch indices could be duplicated during a package upgrade, due to an `elasticsearch-upgrade` service running multiple times in parallel.
+    - In the pull request and commit views, rich diffs would fail to load for some files tracked by Git LFS.
+    - When converting a user account to an organization, if the user account was an owner of the {% data variables.product.prodname_ghe_server %} enterprise account, the converted organization would incorrectly appear in the enterprise owner list.
+    - Creating an impersonation OAuth token using the Enterprise Administration REST API resulted in an error when an integration matching the OAuth Application ID already existed.
+    - The Secret Scanning REST API would return a `500` response code when there were UTF8 characters present in a detected secret.
+    - Repository cache servers could serve data from non-cache locations even when the data was available in the local cache location.
+  changes:
+    - Configuration errors that halt a config apply run are now output to the terminal in addition to the configuration log.
+    - When attempting to cache a value larger than the maximum allowed in Memcached, an error was raised however the key was not reported.
+    - If {% data variables.product.prodname_GH_advanced_security %} features are enabled on your instance, the performance of background jobs has improved when processing batches for repository contributions.
+  known_issues:
+    - After upgrading to {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_actions %} may fail to start automatically. To resolve this issue, connect to the appliance via SSH and run the `ghe-actions-start` command.
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - 自定义防火墙规则在升级过程中被删除。
+    - Git LFS 跟踪的文件[通过 Web 界面上传](https://github.com/blog/2105-upload-files-to-your-repositories) 被错误地直接添加到仓库。
+    - 如果议题包含文件路径长于 255 个字符的同一仓库中 blob 的永久链接，则议题无法关闭。
+    - When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.
+    - '{% data variables.product.prodname_registry %} npm 注册表不再返回元数据响应的时间值。这样做是为了大幅改善性能。作为元数据响应的一部分，我们继续拥有返回时间值所需的所有数据，并将在我们解决现有性能问题后恢复返回这个值。'
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - '{% data variables.product.prodname_actions %} storage settings cannot be validated and saved in the {% data variables.enterprise.management_console %} when "Force Path Style" is selected, and must instead be configured with the `ghe-actions-precheck` command line utility.'
+    - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'

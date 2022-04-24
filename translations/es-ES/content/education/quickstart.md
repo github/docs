@@ -26,7 +26,7 @@ First, you'll need to create a free personal account on {% data variables.produc
 {% data reusables.accounts.create-account %}
 1. Follow the prompts to create your free personal account.
 
-After you create your personal account, create a free organization account. Utilizarás esta cuenta de organización para crear y administrar las aulas {% data variables.product.prodname_classroom %}.
+Después de crear tu cuenta personal, crea una cuenta gratuita de organización. Utilizarás esta cuenta de organización para crear y administrar las aulas {% data variables.product.prodname_classroom %}.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
@@ -55,10 +55,10 @@ A continuación, te registrarás para obtener descuentos en los servicios de {% 
 
 ## Configura {% data variables.product.prodname_classroom %}
 
-With your personal account and organization account, you're ready to get started with {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %} es de uso gratuito. Puedes rastrear y administrar las tareas, calificar los trabajos automáticamente y proporcionar retroalimentación a tus alumnos.
+Con tu cuenta personal y organizacional, ya puedes comenzar con {% data variables.product.prodname_classroom %}. {% data variables.product.prodname_classroom %} es de uso gratuito. Puedes rastrear y administrar las tareas, calificar los trabajos automáticamente y proporcionar retroalimentación a tus alumnos.
 
 {% data reusables.classroom.sign-into-github-classroom %}
-1. To authorize {% data variables.product.prodname_classroom %} to access your personal account on {% data variables.product.prodname_dotcom %}, review the information, then click **Authorize {% data variables.product.prodname_classroom %}**. !["Authorize {% data variables.product.prodname_classroom %}" button for personal account](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
+1. Para autorizar que {% data variables.product.prodname_classroom %} acceda a tu cuenta personal en {% data variables.product.prodname_dotcom %}, revisa la información y luego haz clic en **Autorizar a {% data variables.product.prodname_classroom %}**. ![Botón de "Autorizar a {% data variables.product.prodname_classroom %}" para una cuenta personal](/assets/images/help/classroom/setup-click-authorize-github-classroom.png)
 1. Revisa la información. Para autorizar a {% data variables.product.prodname_classroom %} para que acceda a tu cuenta de organización en {% data variables.product.prodname_dotcom %}, da clic en **Otorgar**. ![Botón de "Otorgar" para una organización](/assets/images/help/classroom/setup-click-grant.png)
 
   {% tip %}

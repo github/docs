@@ -29,7 +29,7 @@ Los archivos predeterminados no están incluidos en los clones, paquetes ni desc
 
 ## Tipos de archivos admitidos
 
-You can create defaults in your organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} for the following community health files:
+Puedes crear recursos predeterminados en tu cuenta de organización{% ifversion fpt or ghes or ghec %} o personal{% endif %} para los siguientes archivos de salud comunitaria:
 
 | Archivo de salud de la comunidad                                                                                            | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% ifversion fpt or ghec %}

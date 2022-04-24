@@ -909,7 +909,7 @@ _团队_
 - [`DELETE /orgs/:org/dependabot/secrets/:secret_name`](/rest/reference/dependabot#delete-an-organization-secret) (:write)
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghec %}
+{% ifversion ghes > 3.0 or ghec %}
 ### 对于“密码扫描警报”的权限
 
 - [`GET /repos/:owner/:repo/secret-scanning/alerts`](/rest/reference/secret-scanning#list-secret-scanning-alerts-for-a-repository) (:read)

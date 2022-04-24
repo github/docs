@@ -22,7 +22,7 @@ Você pode definir lembretes agendados para solicitações de revisão no nível
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-## Creating scheduled reminders for your personal account
+## Criando lembretes agendados para sua conta pessoal
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -37,14 +37,14 @@ Você pode definir lembretes agendados para solicitações de revisão no nível
 ![Caixa de seleção para habilitar alertas em tempo real](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
 {% data reusables.reminders.create-reminder %}
 
-## Managing scheduled reminders for your personal account
+## Gerenciando lembretes agendados para sua conta pessoal
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. Ao lado da organização para a qual você deseja editar lembretes agendados, clique em **Editar**. ![Botão editar lembretes agendados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-## Deleting scheduled reminders for your personal account
+## Excluindo lembretes agendados para sua conta pessoal
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. Ao lado da organização para a qual você gostaria de excluir lembretes, clique em **Editar**. ![Botão editar lembretes agendados](/assets/images/help/settings/scheduled-reminders-org-choice.png)

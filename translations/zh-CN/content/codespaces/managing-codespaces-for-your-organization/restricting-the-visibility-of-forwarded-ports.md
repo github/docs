@@ -1,7 +1,7 @@
 ---
-title: Restricting the visibility of forwarded ports
-shortTitle: Restricting port visibility
-intro: You can set constraints on the visibility options users can choose when they forward ports from codespaces in your organization.
+title: 限制转发端口的可见性
+shortTitle: 限制端口可见性
+intro: 您可以对用户在从组织中的代码空间转发端口时可以选择的可见性选项设置约束。
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an organization owner.'
 versions:
@@ -14,46 +14,46 @@ topics:
 
 ## 概览
 
-Typically, within a codespace you are able to forward ports privately (only to yourself), to members of your organization, or publicly (to anyone with the URL). 更多信息请参阅“[在代码空间中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
+通常，在代码空间中，您可以私下（仅向自己）、向组织成员或公开（向具有 URL 的任何人）转发端口。 更多信息请参阅“[在代码空间中转发端口](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)”。
 
-As an organization owner, you may want to configure constraints on the visibility options users can set when forwarding ports. For example, for security reasons, you may want to disallow public port forwarding. 为此，您可以在组织的 {% data variables.product.prodname_codespaces %} 设置中定义一个或多个策略。
+作为组织所有者，您可能希望对用户在转发端口时可以设置的可见性选项配置约束。 例如，出于安全原因，您可能希望禁止公共端口转发。 为此，您可以在组织的 {% data variables.product.prodname_codespaces %} 设置中定义一个或多个策略。
 
-### Behavior when you set a port visibility constraint
+### 设置端口可见性约束时的行为
 
-If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they are stopped or time out. When the user resumes the codespace, it will be subject to the policy constraints.
+如果存在不再符合您定义的策略的现有代码空间，则这些代码空间将继续运行，直到它们停止或超时。 当用户恢复代码空间时，它将受限于策略约束。
 
 {% note %}
 
-**Note**: You can't disable private port forwarding, as private port forwarding is required by {% data variables.product.prodname_codespaces %} to continue working as designed, for example to forward SSH on port 22.
+**注意**：您无法禁用专用端口转发，因为 {% data variables.product.prodname_codespaces %} 需要专用端口转发才能继续按设计工作，例如在端口 22 上转发 SSH。
 
 {% endnote %}
 
 ### 设置组织范围和存储库特定的策略
 
-创建策略时，您可以选择是将其应用于组织中的所有存储库，还是仅应用于指定的存储库。 如果设置了组织范围的策略，则为各个存储库设置的任何策略都必须在组织级别设置的限制范围内。 Adding policies makes the choice of visibility options more, not less, restrictive.
+创建策略时，您可以选择是将其应用于组织中的所有存储库，还是仅应用于指定的存储库。 如果设置了组织范围的策略，则为各个存储库设置的任何策略都必须在组织级别设置的限制范围内。 添加策略会使可见性选项的选择受到限制更多，而不是更少。
 
-For example, you could create an organization-wide policy that restricts the visibility options to organization only. You can then set a policy for Repository A that disallows both public and organization visibility, which would result in only private port forwarding being available for this repository. Setting a policy for Repository A that allowed both public and organization would result in only organization visibility, because the organization-wide policy does not allow public visibility.
+例如，您可以创建一个组织范围的策略，将可见性选项限制为仅组织。 然后，您可以为存储库 A 设置一个策略，不允许公共和组织可见性，这将导致只有私有端口转发可用于此存储库。 为存储库 A 设置同时允许公共和组织的策略将仅导致组织可见性，因为组织范围的策略不允许公共可见性。
 
-If you add an organization-wide policy, you should set it to the most lenient visibility option that will be available for any repository in your organization. 然后，您可以添加特定于存储库的策略以进一步限制选择。
+如果添加组织范围的策略，则应将其设置为适用于组织中的任何存储库的最宽松的可见性选项。 然后，您可以添加特定于存储库的策略以进一步限制选择。
 
-## Adding a policy to limit the port visibility options
+## 添加策略以限制端口可见性选项
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policies**.
+1. 在边栏的“Code, planning, and automation（代码、规划和自动化）”部分中，选择 **{% octicon "codespaces" aria-label="The codespaces icon" %}{% data variables.product.prodname_codespaces %}**，然后单击 **Policies（策略）**。
 1. 在“Codespace policies（代码空间策略）”页面上，单击 **Create Policy（创建策略）**。
 1. 输入新策略的名称。
-1. Click **Add constraint** and choose **Port visibility**.
+1. 单击 **Add constraint（添加约束）** ，然后选择 **Port visibility（端口可见性）**。
 
-   ![Add a constraint for port visibility](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
+   ![为端口可见性添加约束](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint
+1. 单击 {% octicon "pencil" aria-label="The edit icon" %} 编辑约束。
 
-   ![Edit the port visibility constraint](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
+   ![编辑端口可见性约束](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
 
-1. Clear the selection of the port visibility options (**Org** or **Public**) that you don't want to be available.
+1. 清除选择的端口可见性选项（**Org** 或 **Public**）。
 
-   ![Choose the port visibility options](/assets/images/help/codespaces/choose-port-visibility-options.png)
+   ![选择端口可见性选项](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
 1. 在“Change policy target（更改策略目标）”区域中，单击下拉按钮。
 1. 选择 **All repositories（所有存储库）** 或 **Selected repositories（选定的存储库）**，以确定此策略将应用于哪些存储库。
@@ -71,13 +71,13 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 
 ## 编辑策略
 
-1. 显示“Codespace policies（代码空间策略）”页。 For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
+1. 显示“Codespace policies（代码空间策略）”页。 更多信息请参阅“[添加策略以限制端口可见性选项](#adding-a-policy-to-limit-the-port-visibility-options)”。
 1. 单击要编辑的策略的名称。
 1. 进行所需的更改，然后单击 **Save（保存）**。
 
 ## 删除策略
 
-1. 显示“Codespace policies（代码空间策略）”页。 For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
+1. 显示“Codespace policies（代码空间策略）”页。 更多信息请参阅“[添加策略以限制端口可见性选项](#adding-a-policy-to-limit-the-port-visibility-options)”。
 1. 单击要删除的策略右侧的删除按钮。
 
    ![策略的删除按钮](/assets/images/help/codespaces/policy-delete.png)
