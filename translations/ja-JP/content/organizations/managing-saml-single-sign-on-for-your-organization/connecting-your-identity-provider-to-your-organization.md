@@ -1,16 +1,19 @@
 ---
 title: アイデンティティプロバイダを Organization に接続する
-intro: 'SAML シングルサインオンおよび SCIM を使うには、あなたのアイデンティティプロバイダを、あなたの {% data variables.product.product_name %} Organization に接続する必要があります。'
+intro: 'To use SAML single sign-on and SCIM, you must connect your identity provider (IdP) to your organization on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
 versions:
   ghec: '*'
 topics:
+  - Authentication
   - Organizations
   - Teams
 shortTitle: IdPの接続
 ---
+
+## About connection of your IdP to your organization
 
 {% data variables.product.product_name %} OrganizationでSAML SSOを有効化すると、アイデンティティプロバイダ（IdP）をOrganizationに接続することになります。 詳細は「[Organization での SAML シングルサインオンの有効化とテスト](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)」を参照してください。
 
@@ -24,14 +27,14 @@ IdPのSAML及びSCIMの実装の詳細は、IdPのドキュメンテーション
 - PingOne: [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector)
 - Shibboleth: [SAML](https://wiki.shibboleth.net/confluence/display/IDP30/Home)
 
-Organizationのサービスプロバイダのメタデータには、以下のURLでアクセスできます。ORGANIZATIONを自分のOrganizationのユーザ名で置き換えてください。
-
-```
-http(s)://github.com/orgs/ORGANIZATION/saml/metadata.xml
-```
-
 {% note %}
 
-**メモ:** {% data variables.product.product_name %} がサポートする SCIM アイデンティティプロバイダは Azure AD、Okta、OneLogin です。 {% data reusables.scim.enterprise-account-scim %} SCIMに関する詳しい情報については、「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim) 」を参照してください。
+**メモ:** {% data variables.product.product_name %} がサポートする SCIM アイデンティティプロバイダは Azure AD、Okta、OneLogin です。 For more information about SCIM, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+
+{% data reusables.scim.enterprise-account-scim %}
 
 {% endnote %}
+
+## SAMLのメタデータ
+
+For more information about SAML metadata for your organization, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)."

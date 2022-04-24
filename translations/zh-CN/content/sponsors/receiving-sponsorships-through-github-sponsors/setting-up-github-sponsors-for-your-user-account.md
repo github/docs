@@ -12,7 +12,7 @@ type: how_to
 topics:
   - User account
   - Sponsors profile
-shortTitle: 设置用户帐户
+shortTitle: 设置个人帐户
 ---
 
 ## 加入 {% data variables.product.prodname_sponsors %}
@@ -22,7 +22,7 @@ shortTitle: 设置用户帐户
 要作为组织加入 {% data variables.product.prodname_sponsors %}，请参阅“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
-2. 如果您是组织所有者，则有多个符合条件的帐户。 单击 **View your eligible accounts（查看符合条件的帐户）**，然后在帐户列表中找到您的用户帐户。
+2. 如果您是组织所有者，则有多个符合条件的帐户。 单击 **View your eligible accounts（查看符合条件的帐户）**，然后在帐户列表中找到您的个人帐户。
 3. 单击 **Join the waitlist（加入等待列表）**。
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}

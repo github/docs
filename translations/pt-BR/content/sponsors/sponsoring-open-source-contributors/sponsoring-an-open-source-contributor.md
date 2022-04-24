@@ -35,6 +35,8 @@ Você pode usar um cartão de crédito para patrocinar uma conta em {% data vari
 
 Ao patrocinar uma conta usando um cartão de crédito, a alteração entrará em vigor imediatamente. {% data reusables.sponsors.prorated-sponsorship %}
 
+We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
+
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
 Você pode escolher se deseja mostrar seu patrocínio publicamente. Patrocínios únicos permanecem visíveis por um mês.
@@ -50,6 +52,17 @@ Se a conta que você deseja patrocinar não tiver um perfil em {% data variables
 **Nota:** O {% data variables.product.prodname_dotcom %} não é responsável por como os desenvolvedores representam a si mesmos nem {% data variables.product.prodname_dotcom %} endossa quaisquer projetos de código aberto patrocinados. As reivindicações são de responsabilidade exclusiva do desenvolvedor que recebe os fundos. Certifique-se de confiar em uma pessoa antes de oferecer um patrocínio. Para obter mais informações, consulte "[{% data variables.product.prodname_sponsors %} Termos Adicionais ](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
 
 {% endnote %}
+
+## Informações fiscais
+
+As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:
+
+- Transaction date
+- Amount paid
+- The country, state, and province from where payment was made
+- Whether payment was made by a business or individual
+
+This information is necessary to enable payment and reporting of any taxes arising from such sponsorship payments.
 
 ## Patrocinar uma conta
 

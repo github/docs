@@ -1,11 +1,7 @@
-{% ifversion ghae %}
-If the policies for your enterprise permit forking private and internal repositories, you can fork a repository to your personal account or an organization where you have repository creation permissions. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
+{% ifversion ghae %}Si las políticas de tu empresa permiten bifurcar repositorios privados e internos, puedes{% else %}Puedes{% endif %} bifurcar un repositorio a tu cuenta personal o a cualquier organización en donde tengas permisos de creación de repositorios. Para obtener más información, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-{% elsif ghes or ghec %}
-You can fork a private or internal repository to your personal account or an organization on
-{% data variables.product.product_location %} where you have repository creation permissions, if settings for the repository and your enterprise policies allow forking.
+{% ifversion fpt or ghes or ghec %}
 
-{% elsif fpt %}
-If you have access to a private repository and the owner permits forking, you can fork the repository to your personal account, or an organization on
-{% data variables.product.prodname_team %} where you have repository creation permissions. You cannot fork a private repository to an organization using {% data variables.product.prodname_free_team %}. Para obtener más información, consulta la sección "[Productos de GitHub](/articles/githubs-products)".
+Si tienes acceso a un repositorio privado y el propietario permite la bifurcación, puedes bifurcar el repositorio hacia tu cuenta personal o hacia cualquier organización en {% ifversion fpt or ghec %}{% data variables.product.prodname_team %}{% else %}{% data variables.product.product_location %}{% endif %} en donde tengas permisos de creación de repositorios. {% ifversion fpt or ghec %}No puedes bifurcar un repositorio privado hacia una organización que utilice {% data variables.product.prodname_free_team %}. Para obtener más información, consulta la sección "[Productos de GitHub](/articles/githubs-products)".{% endif %}
+
 {% endif %}

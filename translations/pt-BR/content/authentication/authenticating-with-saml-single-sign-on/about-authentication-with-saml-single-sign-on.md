@@ -27,7 +27,7 @@ Se você não puder acessar {% data variables.product.product_name %}, entre em 
 
 {% ifversion fpt or ghec %}
 
-{% data reusables.saml.dotcom-saml-explanation %} Organization owners can invite your personal account on {% data variables.product.prodname_dotcom %} to join their organization that uses SAML SSO, which allows you to contribute to the organization and retain your existing identity and contributions on {% data variables.product.prodname_dotcom %}.
+{% data reusables.saml.dotcom-saml-explanation %} Os proprietários da organização podem convidar sua conta pessoal em {% data variables.product.prodname_dotcom %} para participar da organização que usa o SSO SAML, o que permite que você contribua com a organização e mantenha sua identidade e contribuições existentes em {% data variables.product.prodname_dotcom %}.
 
 Se você for integrante de um {% data variables.product.prodname_emu_enterprise %}, você usará uma nova conta que lhe será fornecida. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
@@ -46,11 +46,13 @@ Na falta de um token de acesso pessoal ou uma chave SSH, você poderá criar um 
 
 Para usar um token novo ou existente de acesso pessoal ou chave SSH com uma organização que usa ou impõe o SSO do SAML, você precisará autorizar o token ou autorizar a chave SSH para uso com uma organização de SSO do SAML. Para obter mais informações consulte "[Autorizar um token de acesso pessoal para usar com logon único SAML](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" ou "[Autorizando uma chave SSH para uso com o logon único SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on).
 
-## Sobre {% data variables.product.prodname_oauth_apps %} e SSO do SAML
+## About {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %}, and SAML SSO
 
-Você deve ter uma sessão do SAML ativa toda vez que autorizar um {% data variables.product.prodname_oauth_app %} para acessar uma organização que usa ou aplica o SSO do SAML.
+You must have an active SAML session each time you authorize an {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} to access an organization that uses or enforces SAML SSO. You can create an active SAML session by navigating to `https://github.com/orgs/ORGANIZATION-NAME/sso` in your browser.
 
-Após o proprietário de uma empresa ou organização habilitar ou aplicar o SSO do SAML para uma organização, você deverá autorizar novamente qualquer {% data variables.product.prodname_oauth_app %} que você autorizou anteriormente a acessar a organização. Para visualizar {% data variables.product.prodname_oauth_apps %} que você autorizou ou ou autorizar novamente um {% data variables.product.prodname_oauth_app %}, acesse a sua página de [{% data variables.product.prodname_oauth_apps %}](https://github.com/settings/applications).
+After an enterprise or organization owner enables or enforces SAML SSO for an organization, and after you authenticate via SAML for the first time, you must reauthorize any {% data variables.product.prodname_oauth_apps %} or {% data variables.product.prodname_github_apps %} that you previously authorized to access the organization.
+
+To see the {% data variables.product.prodname_oauth_apps %} you've authorized, visit your [{% data variables.product.prodname_oauth_apps %} page](https://github.com/settings/applications). To see the {% data variables.product.prodname_github_apps %} you've authorized, visit your [{% data variables.product.prodname_github_apps %} page](https://github.com/settings/apps/authorizations).
 
 {% endif %}
 

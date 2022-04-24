@@ -10,11 +10,11 @@ versions:
 
 ## Conversas da comunidade em {% data variables.product.prodname_discussions %}
 
-Since {% data variables.product.prodname_discussions %} is an open forum, there is an opportunity to bring non-code collaboration into a project's repository or organization and gather diverse feedback and ideas more quickly. You can help drive a productive conversation in a number of ways.
+Como {% data variables.product.prodname_discussions %} é um fórum aberto, há a oportunidade de trazer uma colaboração que não é do código para o repositório ou organização de um projeto e coletar diversas sugestões e ideias mais rapidamente. Você pode ajudar a dirigir uma conversa produtiva de várias maneiras.
 
 - Fazendo pontuais e perguntas complementares para obter feedback específico
-- Capturing a diverse experience and distilling it down to main points
-- Opening an issue to take action based on the conversation, where applicable
+- Capturar uma experiência diversificada e sintetizá-la para os pontos principais
+- Abrir um problema para tomar ações com base na conversa, quando aplicável
 
 Para mais informações sobre como abrir um problema e fazer referências cruzadas a uma discussão, consulte "[Abrir um problema a partir de um comentário](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)".
 
@@ -22,19 +22,19 @@ Para mais informações sobre como abrir um problema e fazer referências cruzad
 
 Você pode criar e participar de discussões, problemas e pull requests, dependendo do tipo de conversa que você gostaria de ter.
 
-You can use {% data variables.product.prodname_discussions %} to discuss big picture ideas, brainstorm, and develop a project's specific details before committing it to an issue, which can then be scoped. {% data variables.product.prodname_discussions %} é útil para equipes se:
+Você pode usar {% data variables.product.prodname_discussions %} para discutir o panorama geral, levantamento de hipóteses e desenvolver detalhes específicos de um projeto antes de vinculá-lo a um problema, que poderá ter o escopo definido. {% data variables.product.prodname_discussions %} é útil para equipes se:
 - Você está na fase de descoberta de um projeto e ainda está aprendendo qual direção a sua equipe quer acessar
 - Você deseja coletar comentários de uma comunidade mais ampla sobre um projeto
 - Você deseja manter correções de erros, solicitações de recursos e conversas gerais separadas
-- You want to measure interest in new ideas and gauge community opinion using polls
+- Você deverá o interesse em novas ideias e medir a opinião da comunidade usando enquetes
 
-You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, you might use organization discussions to discuss topics that aren't specific to a single repository in your organization.
+Você pode usar discussões no repositório para discutir tópicos específicos do repositório. Se o seu projeto abrange vários repositórios, você poderá usar discussões da organização para discutir tópicos que não sejam específicos de um único repositório na sua organização.
 
 Os problemas são úteis para discutir detalhes específicos de um projeto, como relatórios de erros e melhorias planejadas. Para obter mais informações, consulte "[Sobre problemas](/articles/about-issues)". As pull requests permitem comentar diretamente nas alterações propostas. Para obter mais informações, consulte "[Sobre pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)" e "[Comentar em uma pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)".
 
 ## Seguindo as diretrizes de contribuição
 
-Before you open a discussion in an open source repository, check to see if the repository has contributing guidelines. O arquivo CONTRIBUTING inclui informações sobre como o mantenedor do repositório gostaria que você contribuísse com ideias para o projeto.
+Antes de abrir uma discussão em um repositório de código aberto, verifique se o repositório tem diretrizes de contribuição. O arquivo CONTRIBUTING inclui informações sobre como o mantenedor do repositório gostaria que você contribuísse com ideias para o projeto.
 
 Para obter mais informações, consulte "[Configurando seu projeto para Contribuições Úteis](/communities/setting-up-your-project-for-healthy-contributions)."
 

@@ -55,7 +55,7 @@ shortTitle: 邀请协作者
 
 ## 延伸阅读
 
-- “[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)”
+- "[个人帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account)"
 - "[从个人仓库删除协作者](/articles/removing-a-collaborator-from-a-personal-repository)"
 - "[从协作者的仓库删除您自己](/articles/removing-yourself-from-a-collaborator-s-repository)"
 - "[将成员组织成团队](/organizations/organizing-members-into-teams)"

@@ -318,6 +318,8 @@ A nota de rodapé será interpretada da seguinte forma:
 
 **Observação**: A posição de uma nota de rodapé no seu Markdown não influencia o lugar onde a nota de rodapé será interpretada. Você pode escrever uma nota de rodapé logo após sua referência à nota de rodapé, e ela continuará sendo interpretada na parte inferior do Markdown.
 
+Footnotes are not supported in wikis.
+
 {% endtip %}
 {% endif %}
 

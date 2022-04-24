@@ -12,7 +12,7 @@ shortTitle: 验证自定义域
 
 ## 关于 GitHub Pages 的域验证
 
-验证用户帐户或组织的自定义域时，只能使用您的用户帐户或组织拥有的存储库将 {% data variables.product.prodname_pages %} 站点发布到已验证的自定义域或域的直接子域。
+验证个人帐户或组织的自定义域时，只能使用您的个人帐户或组织拥有的存储库将 {% data variables.product.prodname_pages %} 站点发布到已验证的自定义域或域的直接子域。
 
 验证您的域会阻止其他 GitHub 用户接管您的自定义域并使用它来发布他们自己的 {% data variables.product.prodname_pages %} 站点。 当您删除存储库、降低计费计划级别时，或者在取消链接自定义域或禁用 {% data variables.product.prodname_pages %} 而域仍配置为 {% data variables.product.prodname_pages %} 且未进行验证的任何其他更改之后，可能会发生域接管。
 

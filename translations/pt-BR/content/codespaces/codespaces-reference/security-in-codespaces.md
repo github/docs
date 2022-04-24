@@ -99,7 +99,7 @@ Há algumas práticas recomendadas e riscos adicionais dos quais você deve esta
 
 #### Compreendendo o arquivo devcontainer.json de um repositório
 
-When you create a codespace, if a `devcontainer.json` file is found for your repository, it is parsed and used to configure your codespace. The `devcontainer.json` file can contain powerful features, such as installing third-party extensions and running arbitrary code supplied in a `postCreateCommand`.
+Ao criar um codespace, se um arquivo `devcontainer.json` for encontrado para o seu repositório, ele será analisado e usado para configurar o seu codespace. O arquivo `devcontainer.json` pode conter funcionalidades poderosas, como instalar extensões de terceiros e executar código arbitrário fornecido em um `postCreateCommand`.
 
 Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)".
 

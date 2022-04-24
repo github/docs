@@ -60,13 +60,13 @@ Antes de configurar as pré-compilações para seu projeto, os pontos a seguir d
 
    {% endnote %}
 
-1. Choose how you want to automatically trigger updates of the prebuild template.
+1. Escolha como você quer acionar automaticamente as atualizações do modelo de pré-criação.
 
-   * **Every push** (the default setting) - With this setting, prebuild configurations will be updated on every push made to the given branch. This will ensure that codespaces generated from a prebuild template always contain the latest codespace configuration, including any recently added or updated dependencies.
-   * **On configuration change** - With this setting, prebuild configurations will be updated every time associated configuration files for a given repo and branch are updated. This ensures that changes to the dev container configuration files for the repository are used when a codespace is generated from a prebuild template. The Actions workflow that updates the prebuild template will run less often, so this option will use fewer Actions minutes. However, this option will not guarantee that codespaces always include recently added or updated dependencies, so these may have to be added or updated manually after a codespace has been created.
-   * **Scheduled** - With this setting, you can have your prebuild configurations update on a custom schedule that's defined by you. This can reduce consumption of Actions minutes, and reduce the amount of time during which prebuilds are unavailable because they are being updated. However, with this option, codespaces may be created that do not use the latest dev container configuration changes.
+   * **Cada push** (a configuração padrão) - Com esta configuração, configurações de pré-criação serão atualizadas a cada push feito para o branch determinado. Isto irá garantir que os codespaces gerados a partir de um template de pré-criação sempre contenham as configurações mais recentes de codespace, incluindo as dependências adicionadas recentemente ou atualizadas.
+   * **Na alteração da configuração** - Com essa configuração, as configurações de pré-criação serão atualizadas toda vez que os arquivos de configuração associados para um determinado repositório e branch forem atualizados. Isso garante que as alterações nos arquivos de configuração de contêiner de desenvolvimento do repositório sejam usadas quando um codespace for gerado a partir de um modelo de pré-criação. O fluxo de trabalho de ações que atualizar o template de pré-criação será executado menos vezes. Portanto, esta opção usará menos minutos de ações. No entanto, esta opção não garante que os codespaces sempre incluam dependências recentemente adicionadas ou atualizadas. Portanto, elas podem ser adicionadas ou atualizadas manualmente depois que o codespace for criado.
+   * **Agendado** - Com esta configuração, você pode atualizar suas configurações de pré-criação em um agendamento personalizado definido por você. Isso pode reduzir o consumo de minutos de ações e reduzir a quantidade de tempo durante o qual as pré-criações não estão disponíveis porque estão sendo atualizadas. No entanto, com esta opção, é possível que se criem codespaces podem que não usam as últimas alterações de configuração de contêiner de desenvolvimento
 
-   ![The prebuild trigger options](/assets/images/help/codespaces/prebuilds-triggers.png)
+   ![As opções de acionamento de pré-criação](/assets/images/help/codespaces/prebuilds-triggers.png)
 
 1. Clique em **Criar**.
 

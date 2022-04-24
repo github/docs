@@ -231,7 +231,7 @@
 - /github/setting-up-and-managing-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
 - /admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise
 
-/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
+/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
 
@@ -467,6 +467,21 @@
 /enterprise-cloud@latest/code-security/security-overview/filtering-alerts-in-the-security-overview
 - /code-security/security-overview/filtering-alerts-in-the-security-overview
 
+/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization
+- /organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization
+- /articles/verifying-your-organization-s-domain
+- /articles/verifying-your-organizations-domain
+- /github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain
+- /organizations/managing-organization-settings/verifying-your-organizations-domain
+
+/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization
+- /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization
+- /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
+- /articles/restricting-email-notifications-to-an-approved-domain
+- /github/setting-up-and-managing-organizations-and-teams/restricting-email-notifications-to-an-approved-domain
+- /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
+- /organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization
+
 /enterprise-cloud@latest/organizations/managing-git-access-to-your-organizations-repositories
 - /organizations/managing-git-access-to-your-organizations-repositories
 - /articles/managing-git-access-to-your-organizations-repositories-using-ssh-certificate-authorities
@@ -494,3 +509,34 @@
 - /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
 - /github/setting-up-and-managing-your-enterprise/managing-use-of-advanced-security-for-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-your-github-advanced-security-usage
+
+# FPT versioning was removed.
+# Shipped in pull #26869 on 04/19/22
+
+/enterprise-cloud@latest/rest/secret-scanning
+- /rest/reference/secret-scanning
+
+# FPT versioning was removed as part of github/docs-content#5166
+
+/rest/overview/resources-in-the-rest-api
+- /rest/overview/api-previews
+
+/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
+- /organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization
+- /articles/viewing-insights-for-your-organization
+- /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
+
+/enterprise-cloud@latest/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights
+- /organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights
+- /articles/changing-the-visibility-of-your-organizations-dependency-insights
+- /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
+
+/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+- /search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+- /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-account
+- /articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account
+- /articles/enabling-private-githubcom-repository-search-in-your-github-enterprise-server-account
+- /articles/enabling-githubcom-repository-search-in-github-enterprise-server
+- /github/searching-for-information-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
+- /github/searching-for-information-on-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-in-github-enterprise-server
+- /enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment

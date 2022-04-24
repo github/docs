@@ -100,9 +100,7 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}
 {% else %}
-6. Em "Repository creation" (Criação de repositórios), use o menu suspenso e escolha uma política.
-
-  ![Menu suspenso com opções de políticas de criação de repositórios](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
+6. Em "Repository creation" (Criação de repositórios), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de criação de repositórios](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
 
 ## Aplicar uma política para a bifurcação de repositórios internos ou privados
@@ -113,16 +111,7 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. Em "Bifurcação de repositório", revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Em "Repository forking" (Bifurcação de repositórios), use o menu suspenso e escolha uma política.
-
-  ![Menu suspenso com opções de políticas de bifurcação de repositórios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
-
-{% if innersource-fork-policies %}
-5. If forking is enabled, you can specify where users are allowed to fork repositories. Review the information about changing the setting and choose a policy.
-
-    ![Screenshot showing the list of repository forking policy options](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
-{% endif %}
-
+4. Em "Repository forking" (Bifurcação de repositórios), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de bifurcação de repositórios](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
 ## Aplicando uma política para convidar{% ifversion ghec %} colaboradores{% endif %} externos para repositórios
 
@@ -133,7 +122,6 @@ Em todas as organizações pertencentes à sua empresa, você pode permitir que 
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. Em "Repositório {% ifversion ghec %}colaboradores externos{% elsif ghes or ghae %}convites{% endif %}", revise as informações sobre a alteração da configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. Em "Repositório{% ifversion ghec %}colaboradores externos{% elsif ghes or ghae %}convites{% endif %}", use o menu suspenso e escolha uma política.
-
   {% ifversion ghec %}
   ![Menu suspenso com opções de políticas de convite de colaboradores externos](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
   {% elsif ghes or ghae %}
@@ -185,9 +173,7 @@ Em todas as organizações pertencentes à sua empresa, é possível permitir qu
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 3. Na guia **Repository policies** (Políticas de repositório), em "Repository issue deletion" (Exclusão de problemas em repositórios), revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. Em "Repository issue deletion" (Exclusão de problemas em repositórios), use o menu suspenso e escolha uma política.
-
-  ![Menu suspenso com opções de políticas de exclusão de problemas](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
+4. Em "Repository issue deletion" (Exclusão de problemas em repositórios), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de exclusão de problemas](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
 
 {% ifversion ghes or ghae %}
 

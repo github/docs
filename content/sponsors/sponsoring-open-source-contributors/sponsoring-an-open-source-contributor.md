@@ -35,6 +35,8 @@ You can use a credit card to sponsor an account on {% data variables.product.pro
 
 When you sponsor an account using a credit card, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
 
+We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
+
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
 You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month. 
@@ -50,6 +52,17 @@ If the account you want to sponsor does not have a profile on {% data variables.
 **Note:** {% data variables.product.prodname_dotcom %} is not responsible for how developers represent themselves nor does {% data variables.product.prodname_dotcom %} endorse any sponsored open source projects. The claims are solely the responsibility of the developer receiving the funds. Make sure you trust a person before offering a sponsorship. For more information, see the [{% data variables.product.prodname_sponsors %} Additional Terms](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
 
 {% endnote %}
+
+## Tax information
+
+As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:
+
+- Transaction date
+- Amount paid
+- The country, state, and province from where payment was made
+- Whether payment was made by a business or individual
+
+This information is necessary to enable payment and reporting of any taxes arising from such sponsorship payments.
 
 ## Sponsoring an account
 

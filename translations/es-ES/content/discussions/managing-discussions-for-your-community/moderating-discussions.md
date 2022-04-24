@@ -10,7 +10,7 @@ versions:
 
 ## Acerca de moderar los debates
 
-{% data reusables.discussions.about-discussions %} If you have triage permissions for a repository, you can help moderate a repository's discussions by marking comments as answers, locking discussions that are not longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Similarly, if you have triage permission for the source repository for organization discussions, you can moderate discussions for that organization.
+{% data reusables.discussions.about-discussions %} Si tienes permisos de clasificación para un repositorio, puedes ayudar a moderar los debates de este marcando los comentarios como respuestas, bloqueando debates que ya no sean útiles o que dañen a la comunidad y convirtiendo las propuestas en debates cuando una idea aún está en las etapas tempranas de desarrollo. De forma similar, si tienes permisos de clasificación para el repositorio origen para los debates de la organización, puedes moderarlos en esta.
 
 ## Marcar un comentario como una respuesta
 
@@ -18,7 +18,7 @@ versions:
 
 ## Bloquear debates
 
-Es adecuado bloquear una conversación cuando ésta no sea constructiva o viole el código de conducta de tu comunidad o los [Lineamientos comunitarios](/free-pro-team@latest/github/site-policy/github-community-guidelines) de {% data variables.product.prodname_dotcom %}. También puedes bloquear una conversación para prevenir que se hagan comentarios en un debate que quieres utilizar como un anuncio para la comunidad. When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion.
+Es adecuado bloquear una conversación cuando ésta no sea constructiva o viole el código de conducta de tu comunidad o los [Lineamientos comunitarios](/free-pro-team@latest/github/site-policy/github-community-guidelines) de {% data variables.product.prodname_dotcom %}. También puedes bloquear una conversación para prevenir que se hagan comentarios en un debate que quieres utilizar como un anuncio para la comunidad. Cuando bloqueas una conversación, las personas con acceso de escritura al repositorio o al repositorio origen para los debates de organización aún podrán comentar en este debate.
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
@@ -29,7 +29,7 @@ Es adecuado bloquear una conversación cuando ésta no sea constructiva o viole 
 
 ## Convertir una propuesta en un debate
 
-Cuando conviertes una propuesta en un debate, ésta se creará automáticamente utilizando el contenido de la propuesta. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
+Cuando conviertes una propuesta en un debate, ésta se creará automáticamente utilizando el contenido de la propuesta. Las personas con acceso de escritura a un repositorio o repositorio origen para debates de organización pueden convertir las propuestas por lotes con base en las etiquetas. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.repositories.sidebar-issues %}

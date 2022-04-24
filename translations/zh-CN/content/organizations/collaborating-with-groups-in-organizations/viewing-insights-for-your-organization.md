@@ -43,7 +43,7 @@ permissions: Organization members can view organization insights.
 
 {% note %}
 
-**注意：** 请确保您启用了[依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph)。
+**注意：** 请确保您启用了[依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph)。
 
 {% endnote %}
 

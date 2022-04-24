@@ -20,14 +20,7 @@ miniTocMaxHeadingLevel: 3
 
 ## 关于工作流程触发器
 
-工作流程触发器是导致工作流程运行的事件。 这些事件可以是：
-
-- 工作流程存储库中发生的事件
-- 在 {% data variables.product.product_name %} 之外发生并在 {% data variables.product.product_name %} 上触发 `repository_dispatch` 事件的事件
-- 预定时间
-- 手册
-
-例如，您可以将工作流程配置为在推送到存储库的默认分支、创建发行版或打开议题时运行。
+{% data reusables.actions.about-triggers %}
 
 工作流程触发器使用 `on` 键定义。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#on)”。
 
@@ -43,7 +36,7 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.actions-do-not-trigger-workflows %} 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
 
-如果确实要从工作流程运行中触发工作流程，则可以使用个人访问令牌而不是 `GITHUB_TOKEN` 来触发需要令牌的事件。 您需要创建个人访问令牌并将其存储为密码。 为了最大限度地降低 {% data variables.product.prodname_actions %} 使用成本，请确保不要创建递归或意外的工作流程。 有关创建个人访问令牌的更多信息，请参阅“[创建个人访问令牌](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。 有关存储个人访问令牌的更多信息，请参阅“[创建和存储加密密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。
+如果确实要从工作流程运行中触发工作流程，则可以使用个人访问令牌而不是 `GITHUB_TOKEN` 来触发需要令牌的事件。 您需要创建个人访问令牌并将其存储为密码。 为了最大限度地降低 {% data variables.product.prodname_actions %} 使用成本，请确保不要创建递归或意外的工作流程。 For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." 有关存储个人访问令牌的更多信息，请参阅“[创建和存储加密密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。
 
 例如，以下工作流程使用个人访问令牌（存储为称为 `MY_TOKEN` 的机密）通过 {% data variables.product.prodname_cli %} 向议题添加标签。 添加标签时运行的任何工作流程都将在执行此步骤后运行。
 
