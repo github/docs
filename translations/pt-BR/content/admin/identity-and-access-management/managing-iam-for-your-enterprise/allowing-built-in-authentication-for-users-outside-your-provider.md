@@ -1,6 +1,6 @@
 ---
-title: Allowing built-in authentication for users outside your provider
-intro: 'You can configure fallback authentication to allow built-in authentication for people who don''t have an account on your CAS, LDAP, or SAML authentication provider.'
+title: Permitindo autenticação integrada para usuários fora do seu provedor
+intro: 'Você pode configurar a autenticação padrão para permitir a autenticação integrada para pessoas que não têm uma conta no seu provedor de autenticação CAS, LDAP ou SAML.'
 redirect_from:
   - /enterprise/admin/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
@@ -18,13 +18,13 @@ topics:
 shortTitle: Fallback authentication
 ---
 
-## About built-in authentication for users outside your provider
+## Sobre a autenticação integrada para usuários fora do seu provedor
 
-By default, when you enable external authentication for {% data variables.product.product_name %}, built-in authentication is disabled for your instance. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."
+Por padrão, quando você habilitar a autenticação externa para {% data variables.product.product_name %}, a autenticação integrada está desabilitada para sua instância. Para obter mais informações, consulte "[Sobre a autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)".
 
 If you're unable to add specific accounts to your external authentication provider, such as accounts for contractors or machine users, you can configure fallback authentication. Fallback authentication allows built-in authentication for outside users and to access a fallback account if your authentication provider is unavailable.
 
-If you configure built-in authentication and a person successfully authenticates with SAML or CAS, the person will no longer have the option to authenticate with a username and password. Se o usuário se autenticar com êxito via LDAP, as credenciais não serão mais consideradas internas.
+Se você configurar a autenticação integrada e uma pessoa autenticada com sucesso com o SAML ou CAS, a pessoa não terá mais a opção de realizar a autenticação com um nome de usuário e senha. Se o usuário se autenticar com êxito via LDAP, as credenciais não serão mais consideradas internas.
 
 {% warning %}
 
@@ -32,7 +32,7 @@ If you configure built-in authentication and a person successfully authenticates
 
 {% endwarning %}
 
-## Configuring built-in authentication for users outside your provider
+## Configurando a autenticação interna para usuários fora do seu provedor
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -45,7 +45,7 @@ If you configure built-in authentication and a person successfully authenticates
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-## Inviting users outside your provider to authenticate to your instance
+## Convidando usuários fora do seu provedor para efetuar a autenticação na sua instância
 
 Quando aceitar o convite, o usuário poderá fazer login com seu próprio nome de usuário e senha, em vez de fazer login via IdP.
 
@@ -56,6 +56,6 @@ Quando aceitar o convite, o usuário poderá fazer login com seu próprio nome d
 
 ## Leia mais
 
-- "[Using CAS for enterprise IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
-- "[Using LDAP for enterprise IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
-- "[Using SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
+- "[Usando CAS para IAM corporativo](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
+- "[Usando LDAP para IAM corporativo](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
+- "[Usando SAML para IAM corporativo](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
