@@ -155,6 +155,7 @@
   "/rest/orgs#list-custom-repository-roles-in-an-organization": "/rest/orgs/custom-roles#list-custom-repository-roles-in-an-organization",
   "/rest/repos#deploy-keys": "/rest/deploy-keys",
   "/rest/deployments#deploy-keys": "/rest/deploy-keys",
+  "/rest/repos#statuses": "/rest/commits/statuses",
   "/rest/apps#get-the-authenticated-app": "/rest/apps/apps#get-the-authenticated-app",
   "/rest/apps#create-a-github-app-from-a-manifest": "/rest/apps/apps#create-a-github-app-from-a-manifest",
   "/rest/apps#get-a-webhook-configuration-for-an-app": "/rest/apps/webhooks#get-a-webhook-configuration-for-an-app",

@@ -24,7 +24,7 @@ Organizationに対する SAMLシングルサインオンを有効にすると、
 
 {% data reusables.saml.about-linked-identities %}
 
-利用できる場合には、このエントリにはSCIMデータが含まれます。 For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+利用できる場合には、このエントリにはSCIMデータが含まれます。 詳しい情報については、「[OrganizationのSCIMについて](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)」を参照してください。
 
 {% warning %}
 

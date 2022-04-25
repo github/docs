@@ -61,10 +61,10 @@ shortTitle: 使用 Jira 的项目管理
 
 5. 在 **Add New Account** 模态中，填写您的 {% data variables.product.prodname_enterprise %} 设置：
     - 从 **Host（主机）**下拉菜单中，选择 **{% data variables.product.prodname_enterprise %}**。
-    - In the **Team or User Account** field, type the name of your {% data variables.product.prodname_enterprise %} organization or user account.
+    - 在 **Team or User Account** 字段中，输入 {% data variables.product.prodname_enterprise %} 组织或用户帐户的名称。
     - 在 **OAuth Key** 字段中，输入 {% data variables.product.prodname_enterprise %} 开发者应用程序的客户端 ID。
     - 在 **OAuth Secret** 字段中，输入 {% data variables.product.prodname_enterprise %} 开发者应用程序的客户端密钥。
-    - If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or user account, deselect **Auto Link New Repositories**.
+    - 如果您不想链接 {% data variables.product.prodname_enterprise %} 组织或用户帐户拥有的新仓库，请取消选择 **Auto Link New Repositories（自动链接新仓库）**。
     - 如果您不想启用智能提交，请取消选择 **Enable Smart Commits（启用智能提交）**。
     - 单击 **Add（添加）**。
 6. 查看您要授予 {% data variables.product.prodname_enterprise %} 帐户的权限，然后单击 **Authorize application**。

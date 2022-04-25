@@ -71,7 +71,7 @@ Where we have decided that moderation action is warranted, these are some of the
 
 ## Apelación y reinstauración
 
-If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
+Si tu contenido o tu cuenta se inhabilitó o restringió y buscas una reinstauración o quieres apelar, consulta nuestra [Página de reinstauración y apelación](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) para obtener más información sobre el proceso y utiliza nuestro [Formato de reinstauración y apelación](https://support.github.com/contact/reinstatement) para emitir una solicitud.
 
 ## Avisos legales
 

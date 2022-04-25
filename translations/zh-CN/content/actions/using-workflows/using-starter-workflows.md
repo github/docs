@@ -39,10 +39,10 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. 如果存储库中已有工作流程，请单击 **New workflow（新建工作流程）**。
-1. The "{% if actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Find the starter workflow that you want to use, then click {% if actions-starter-template-ui %}**Configure**{% else %}**Set up this workflow**{% endif %}.{% if actions-starter-template-ui %} To help you find the starter workflow that you want, you can search for keywords or filter by category.{% endif %}
+1. “{% if actions-starter-template-ui %}选择工作流程{% else %}选择工作流程模板{% endif %}”页面显示推荐的入门工作流程。 找到要使用的入门工作流程，然后单击 {% if actions-starter-template-ui %}**Configure（配置）**{% else %}**Set up this workflow（设置此工作流程）**{% endif %}。{% if actions-starter-template-ui %} 为帮助您找到所需的入门工作流程，您可以搜索关键字或按类别进行筛选。{% endif %}
 
    {% if actions-starter-template-ui %}![Configure this workflow](/assets/images/help/settings/actions-create-starter-workflow-updated-ui.png){% else %}![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png){% endif %}
-1. 如果入门工作流程包含详细说明其他设置步骤的注释，请按照下列步骤操作。 许多入门工作流程都有相应的指南。 For more information, see the [{% data variables.product.prodname_actions %} guides](/actions/guides).
+1. 如果入门工作流程包含详细说明其他设置步骤的注释，请按照下列步骤操作。 许多入门工作流程都有相应的指南。 更多信息请参阅 [{% data variables.product.prodname_actions %} 指南](/actions/guides)。
 1. 某些入门工作流程使用机密。 例如 {% raw %}`${{ secrets.npm_token }}`{% endraw %}。 如果入门工作流使用机密，请将机密名称中描述的值作为机密存储在存储库中。 更多信息请参阅“[加密密码](/actions/reference/encrypted-secrets)”。
 1. （可选）进行其他更改。 例如，您可能希望更改 `on` 的值，以便在工作流程运行时进行更改。
 1. 单击 **Start commit（开始提交）**。
