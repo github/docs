@@ -66,9 +66,9 @@ Name | Description
 &emsp;`user:follow`| Grants access to follow or unfollow other users.
 **`delete_repo`** | Grants access to delete adminable repositories.
 **`write:discussion`** | Allows read and write access for team discussions.
-&emsp;`read:discussion` | Allows read access for team discussions.{% ifversion fpt or ghae or ghec %}
+&emsp;`read:discussion` | Allows read access for team discussions.
 **`write:packages`** | Grants access to upload or publish a package in {% data variables.product.prodname_registry %}. For more information, see "[Publishing a package](/github/managing-packages-with-github-packages/publishing-a-package)".
-**`read:packages`** | Grants access to download or install packages from {% data variables.product.prodname_registry %}. For more information, see "[Installing a package](/github/managing-packages-with-github-packages/installing-a-package)".
+**`read:packages`** | Grants access to download or install packages from {% data variables.product.prodname_registry %}. For more information, see "[Installing a package](/github/managing-packages-with-github-packages/installing-a-package)".{% ifversion fpt or ghec or ghes > 3.1 or ghae %}
 **`delete:packages`** | Grants access to delete packages from {% data variables.product.prodname_registry %}. For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 **`admin:gpg_key`** | Fully manage GPG keys.
 &emsp;`write:gpg_key`| Create, list, and view details for GPG keys.

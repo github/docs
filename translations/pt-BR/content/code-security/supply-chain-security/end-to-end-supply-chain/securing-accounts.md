@@ -43,7 +43,7 @@ Se você é o administrador do site para {% data variables.product.product_locat
 
 Alguns métodos de autenticação também são compatíveis com a comunicação de informações adicionais para {% data variables.product.product_name %}, por exemplo, de quais grupos o usuário é integrante ou sincronizando chaves criptográficas para o usuário. Esta é uma excelente maneira de simplificar a sua administração à medida que a sua organização cresce.
 
-For more information about the authentication methods available for {% data variables.product.product_name %}, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
+Para obter mais informações sobre os métodos de autenticação disponíveis para {% data variables.product.product_name %}, consulte "[Sobre a autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)".
 {% endif %}
 
 ## Configurar autenticação de dois fatores

@@ -1,7 +1,7 @@
 ---
-title: Username considerations for external authentication
-shortTitle: Username considerations
-intro: '{% ifversion ghes or ghec %}When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% endif %}{% data variables.product.product_name %} follows certain rules to determine the username for each user account {% ifversion ghec or ghae %}in your enterprise{% elsif ghes %}on your instance{% endif %}.'
+title: Considerações de nome de usuário para autenticação externa
+shortTitle: Considerações de nome de usuário
+intro: '{% ifversion ghes or ghec %}Ao usar {% ifversion ghes %}CAS, LDAP ou SAML para autenticação{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% endif %}{% data variables.product.product_name %} irá seguir certas regras para determinar o nome de usuário para cada conta {% ifversion ghec or ghae %}na sua empresa{% elsif ghes %}na sua instância{% endif %}.'
 miniTocMaxHeadingLevel: 3
 versions:
   ghec: '*'
@@ -16,31 +16,31 @@ topics:
   - SSO
 ---
 
-## About usernames with external authentication
+## Sobre nomes de usuário com autenticação externa
 
 {% ifversion ghes %}
 
-You can configure external authentication for {% data variables.product.product_name %} using CAS, LDAP, or SAML. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
+Você pode configurar a autenticação externa para {% data variables.product.product_name %}, usando o CAS, LDAP ou SAML. Para obter mais informações, consulte "[Sobre a autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)".
 
-When you use external authentication, {% data variables.product.product_location %} automatically creates a username for each person when the person signs into {% data variables.product.product_location %} through your external authentication system for the first time.
+Ao usar a autenticação externa, {% data variables.product.product_location %} cria automaticamente um nome de usuário para cada pessoa quando esta efetua o login em {% data variables.product.product_location %} por meio do seu sistema de autenticação externa pela primeira vez.
 
 {% elsif ghec %}
 
-If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
+Se você usar uma empresa com {% data variables.product.prodname_emus %}, os integrantes da sua empresa irão efetuar a autenticação para acessar {% data variables.product.prodname_dotcom %} por meio do seu provedor de identidade (IdP) do SAML. Para obter mais informações, consulte "[Sobre a autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)".
 
-{% data variables.product.product_name %} automatically creates a username for each person when the person signs in through your IdP for the first time.
+{% data variables.product.product_name %} cria automaticamente um nome de usuário para cada pessoa quando esta efetua o login pelo seu IdP pela primeira vez.
 
 {% elsif ghae %}
 
-{% data variables.product.product_name %} uses SAML SSO for authentication, and automatically creates a username for each person when the person signs in through your identity provider (IdP) for the first time.
+{% data variables.product.product_name %} usa o SAML SSO para autenticação e cria automaticamente um nome de usuário para cada pessoa quando efetua o login por meio do seu provedor de identidade (IdP) pela primeira vez.
 
 {% endif %}
 
-## About username normalization
+## Sobre a normalização de usuário
 
-Usernames for user accounts on {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_dotcom_the_website %}{% endif %} can only contain alphanumeric characters and dashes (`-`).
+Os nomes de usuário para contas de usuário em {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_dotcom_the_website %}{% endif %} podem conter apenas caracteres alfanuméricos e traços (`-`).
 
-{% ifversion ghec or ghes %}When you configure {% ifversion ghes %}CAS, LDAP, or {% endif %}SAML authentication, {% endif %}{% data variables.product.product_name %} uses an identifier from the user account on your {% ifversion ghes %}external authentication provider{% elsif ghec or ghae %}IdP{% endif %} to determine the username for the corresponding user account on {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_dotcom_the_website %}{% endif %}. If the identifier for the account on your provider includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
+{% ifversion ghec or ghes %}Ao configurar {% ifversion ghes %}autenticação de CAS, LDAP ou {% endif %}SAML, {% endif %}{% data variables.product.product_name %} usa um identificador da conta de usuário em seu provedor de autenticação externa {% ifversion ghes %}{% elsif ghec or ghae %}IdP{% endif %} para determinar o nome de usuário da conta de usuário correspondente em {% ifversion ghes or ghae %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_dotcom_the_website %}{% endif %}. If the identifier for the account on your provider includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
 
 1. {% data variables.product.product_name %} will normalize any non-alphanumeric character in your account's username into a dash. For example, a username of `mona.the.octocat` will be normalized to `mona-the-octocat`. Observe que nomes de usuários normalizados também não podem iniciar ou terminar com um traço. Eles também não podem conter dois traços consecutivos.
 
