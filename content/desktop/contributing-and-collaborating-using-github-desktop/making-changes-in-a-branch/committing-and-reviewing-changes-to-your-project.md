@@ -31,8 +31,8 @@ To change how you view diffs, in the top-right corner of the diff view, click {%
 
 ![Diff option menu](/assets/images/help/desktop/diff-selection.png)
 
-If you need to see more of the file than {% data variables.product.prodname_desktop %} shows by default, you can expand the diff. 
-- To see the next few lines above or below the highlighted changes, click the arrow above or below the line numbers. 
+If you need to see more of the file than {% data variables.product.prodname_desktop %} shows by default, you can expand the diff.
+- To see the next few lines above or below the highlighted changes, click the arrow above or below the line numbers.
 - To see the entire file, right-click in the diff view and click **Expand Whole File**.
 
 ![Expand diff view](/assets/images/help/desktop/expand-diff-view.png)
@@ -123,6 +123,6 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
   ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
 
-6. {% data variables.product.prodname_desktop %} will display the status of the checks that have run after your push was completed. For more information about checks, see "[Viewing an re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+6. {% data variables.product.prodname_desktop %} will display the status of the checks that have run after your push was completed. For more information about checks, see "[Viewing and re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
 
  ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
