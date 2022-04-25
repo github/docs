@@ -1,6 +1,6 @@
 ---
 title: ユーザ
-intro: The Users migrations API is only available to authenticated account owners.
+intro: Users migrations APIを利用できるのは、認証を受けたアカウントのオーナーのみです。
 versions:
   fpt: '*'
   ghec: '*'

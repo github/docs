@@ -1,5 +1,5 @@
 ---
-title: Review Comments
+title: レビューコメント
 intro: Pull Requestレビューコメントは、Pull Requestのレビュー中に unified 形式の diff の一部に付けられたコメントです。
 versions:
   fpt: '*'

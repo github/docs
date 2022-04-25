@@ -1,6 +1,6 @@
 ---
-title: Discussion Comments
-intro: 'The team discussion comments API allows you to get, create, edit, and delete discussion comments on a [team discussion](/rest/reference/teams#discussions) post.'
+title: ディスカッションコメント
+intro: 'Team ディスカッションコメント API を使用すると、[Team ディスカッション](/rest/reference/teams#discussions)投稿のコメントを取得、作成、編集、削除できます。'
 versions:
   fpt: '*'
   ghes: '*'

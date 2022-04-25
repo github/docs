@@ -160,7 +160,7 @@ Esto carga la base de datos como un artefacto de acciones que puedes descargar e
 
 El artefacto contendrá una copia archivada de los archivos de código fuente que escaneó el {% data variables.product.prodname_codeql %} llamada _src.zip_. Si comparas los archivos de código fuente en el repositorio con los archivos en _src.zip_, puedes ver qué tipos de archivo faltan. Una vez que sepas qué tipos de archivo son los que no se analizan es más fácil entender cómo podrías cambiar el flujo de trabajo para el análisis de {% data variables.product.prodname_codeql %}.
 
-## Alerts found in generated code
+## Alertas que se encuentran en el código generado
 
 {% data reusables.code-scanning.alerts-found-in-generated-code %}
 

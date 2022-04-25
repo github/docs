@@ -1,5 +1,5 @@
 ---
-title: Dependency Graph
+title: 依存関係グラフ
 intro: Dependency Graph APIを使うと、リポジトリにおける依存関係の変更や、その変更のセキュリティへの影響を見ることができます。
 versions:
   fpt: '*'

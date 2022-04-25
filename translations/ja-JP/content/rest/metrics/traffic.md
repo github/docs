@@ -1,6 +1,6 @@
 ---
 title: トラフィック
-intro: 'For repositories that you have push access to, the traffic API provides access to the information provided in your repository graph.'
+intro: プッシュアクセスを持つリポジトリに対し、トラフィック API はリポジトリグラフが提供する情報へのアクセスを提供します。
 versions:
   fpt: '*'
   ghec: '*'

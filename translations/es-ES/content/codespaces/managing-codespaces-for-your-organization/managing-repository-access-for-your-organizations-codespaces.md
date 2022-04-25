@@ -20,7 +20,7 @@ redirect_from:
 
 {% warning %}
 
-**Deprecation note**: The access and security setting is now deprecated. To enable expanded access to other repositories, add the requested permissions to your dev container definition. For more information, see "[Managing access to other repositories within your codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
+**Aviso de obsolesencia**: El acceso y ajustes de seguridad ahora son obsoletos. Para habilitar un acceso expandido a otros repositorios, agrega los permisos solicitados a tu definición de contenedor dev. Si necesitas más información, consulta la sección "[Administrar el acceso a otros repositorios dentro de tu codespace](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)".
 
 {% endwarning %}
 

@@ -1,6 +1,6 @@
 ---
 title: Gist
-intro: 'The Gists API enables the authorized user to list, create, update and delete the public gists on GitHub.'
+intro: Gists APIを使うと、認可されたユーザはGitHub上のパブリックGistのリスト、作成、更新、削除ができます。
 versions:
   fpt: '*'
   ghes: '*'
