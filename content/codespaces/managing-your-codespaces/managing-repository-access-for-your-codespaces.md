@@ -67,6 +67,7 @@ To create codespaces with custom permissions defined, you must use one of the fo
    * `repository_projects` - read / write
    * `statuses` - read / write
    * `workflows` - write
+   * `packages` - read
 
   To set a permission for all repositories in an organization, use the `*` wildcard following your organization name in the `repositories` object.
 
