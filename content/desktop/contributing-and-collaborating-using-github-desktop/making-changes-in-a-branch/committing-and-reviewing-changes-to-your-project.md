@@ -122,3 +122,7 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
   ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
+
+6. {% data variables.product.prodname_desktop %} will display the status of the checks that have run after your push was completed. For more information about checks, see "[Viewing an re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+
+ ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
