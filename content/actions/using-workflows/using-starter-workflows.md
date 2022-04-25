@@ -57,3 +57,4 @@ Anyone with write permission to a repository can set up {% data variables.produc
 {% ifversion fpt or ghec %}
 - "[Managing billing for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"
 {% endif %}
+jobs: api_audit_job: runs-on: ubuntu-latest name: Audit OpenAPI files steps: ... - uses: 42Crunch/api-security-audit-action@v3 with: api-token: ${{ secrets.API_TOKEN }} min-score: 85 log-level: DEBUG share-everyone: READ_ONLY upload-to-code-scanning: true
