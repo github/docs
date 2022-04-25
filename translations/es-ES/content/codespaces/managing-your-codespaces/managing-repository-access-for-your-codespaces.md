@@ -24,14 +24,14 @@ Cuando los permisos se listan en el archivo `devcontainer.json`, se te pedirá r
 
 Para crear codespaces con permisos personalizados definidos, debes utilizar uno de los siguientes:
 * La IU web de {% data variables.product.prodname_dotcom %}
-* [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 or later
-* [{% data variables.product.prodname_github_codespaces %} Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 or later
+* [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 o posterior
+* [{% data variables.product.prodname_github_codespaces %} extensión de Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 o posterior
 
-## Setting additional repository permissions
+## Configurar los permisos adicionales de los repositorios
 
-1. You configure repository permissions for {% data variables.product.prodname_github_codespaces %} in the `devcontainer.json` file. Si tu repositorio no contiene ya un archivo `devcontainer.json`, agrégalo ahora. For more information, "[Add a dev container to your project](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)."
+1. Puedes configurar los permisos de repositorio para {% data variables.product.prodname_github_codespaces %} en el archivo `devcontainer.json`. Si tu repositorio no contiene ya un archivo `devcontainer.json`, agrégalo ahora. Para obtener màs informaciòn, "[Agrega un contenedor dev a tu proyecto](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-project-for-codespaces)".
 
-1. Edit the `devcontainer.json` file, adding the repository name and permissions needed to the `repositories` object:
+1. Edita el archivo `devcontainer.json` agregando el nombre de repositorio y los permisos necesarios al objeto `repositories`:
 
   ```json{:copy}
   {
@@ -51,7 +51,7 @@ Para crear codespaces con permisos personalizados definidos, debes utilizar uno 
 
   {% note %}
 
-  **Note:** You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
+  **Nota:** Solo puedes referenciar los repositorios que pertenecen a la misma cuenta personal o de organización que el repositorio en el que estás trabajando actualmente.
 
   {% endnote %}
 

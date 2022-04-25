@@ -4,7 +4,7 @@ sections:
     - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
   bugs:
     - 'When a manifest file was deleted from a repository, the manifest would not be removed from the repository''s "Dependency graph" page.'
-    - 'Resolved a regression that could lead to consistent failures to retrieve artifacts and download log archives for {% data variables.product.prodname_actions %}. In some circumstances we stopped resolving URLs for internal communications that used `localhost`, and instead incorrectly used the instance hostname.'
+    - 'Se resolvió una regresión que pudo haber ocasionado fallas consistentes para recuperar artefactos y descargar archivos de bitácora para {% data variables.product.prodname_actions %}. En algunas circunstancias, dejamos de resolver URL para las comunicaciones internas que utilizaron `localhost` y utilizaron incorrectamente el nombre de host de la instancia en su lugar.'
     - 'Upgrading the nodes in a high availability pair with an upgrade package could cause Elasticsearch to enter an inconsistent state in some cases.'
     - 'Rotated log files with the extension `.backup` would accumulate in directories containing system logs.'
     - 'In some cluster topologies, the command line utilities `ghe-spokesctl` and `ghe-btop` failed to run.'

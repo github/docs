@@ -59,7 +59,7 @@ Up to five detected secrets will be displayed at a time on the command line. If 
 
 ![Screenshot showing that a push is blocked when a user attempts to push a secret to a repository](/assets/images/help/repository/secret-scanning-push-protection-with-link.png)
 
-If you need to remove the secret from your latest commit (that is, `HEAD`) on the branch being pushed and any earlier commits that contain the secret, you can remove the secret from `HEAD`, then squash the commits between when the commit was introduced and the first version of `HEAD` for which the secret has been removed.
+Si necesitas eliminar el secreto de tu última confirmación (es decir, `HEAD`) en la rama que se está subiendo y cualquier confirmación anterior que lo contenga, puedes eliminarlo de `HEAD` y luego combinar las confirmaciones que haya entre ellos cuando la confirmación se introdujo y la primera versión de `HEAD` para la cual se eliminó el secreto.
 
 {% note %}
 
