@@ -1,6 +1,6 @@
 ---
 title: 配置 GitHub Enterprise
-shortTitle: Configure GitHub Enterprise
+shortTitle: 配置 GitHub Enterprise
 intro: 您可以配置企业以适应组织的需求。
 redirect_from:
   - /enterprise/admin/configuration

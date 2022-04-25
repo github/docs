@@ -13,7 +13,7 @@ topics:
 
 {% ifversion ghes < 3.3 %}{% data reusables.enterprise.upgrade-ghes-for-features %}{% endif %}
 
-{% data reusables.enterprise.constantly-improving %}{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} is a fully managed service, so {% data variables.product.company_short %} completes the upgrade process for your enterprise.{% endif %}
+{% data reusables.enterprise.constantly-improving %}{% ifversion ghae %}{% data variables.product.prodname_ghe_managed %} 是一项完全管理的服务，因此 {% data variables.product.company_short %} 可完成企业的升级过程。{% endif %}
 
 功能版本包括新的功能和功能升级，通常每季度进行一次。 {% ifversion ghae %}{% data variables.product.company_short %} 会将您的企业升级到最新的功能版本。 您的企业如有任何计划内的停机，都会提前通知您。{% endif %}
 

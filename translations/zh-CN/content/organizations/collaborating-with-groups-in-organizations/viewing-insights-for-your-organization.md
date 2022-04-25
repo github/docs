@@ -1,12 +1,10 @@
 ---
 title: 查看组织的洞察
 intro: 组织洞察提供有关组织的活动、贡献和依赖项的数据。
-product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -14,6 +12,8 @@ topics:
 shortTitle: 查看组织见解
 permissions: Organization members can view organization insights.
 ---
+
+## 关于组织洞见
 
 您可以使用组织活动洞察来帮助您更好地了解组织成员如何使用 {% data variables.product.product_name %} 进行协作和处理代码。 依赖项洞察可帮助您跟踪、报告和处理组织的开源使用情况。
 

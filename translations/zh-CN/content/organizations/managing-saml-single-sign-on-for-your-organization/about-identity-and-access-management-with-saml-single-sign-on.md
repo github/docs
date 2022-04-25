@@ -46,7 +46,7 @@ shortTitle: 使用 SAML SSO 的 IAM
 
 {% data reusables.saml.saml-supported-idps %}
 
-有些 IdP 支持配置通过 SCIM 访问 {% data variables.product.prodname_dotcom %} 组织。 For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+有些 IdP 支持配置通过 SCIM 访问 {% data variables.product.prodname_dotcom %} 组织。 更多信息请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
 
 {% data reusables.scim.enterprise-account-scim %}
 
@@ -56,7 +56,7 @@ shortTitle: 使用 SAML SSO 的 IAM
 
 要供应新用户而不使用组织所有者的邀请，您可以使用 URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`，将 _ORGANIZATION_ 替换为组织的名称。 例如，您可以配置 IdP，让能访问 IdP 的任何人都可单击 IdP 仪表板上的链接加入 {% data variables.product.prodname_dotcom %} 组织。
 
-如果您的 IdP 支持 SCIM，当您在 IdP 上授予访问权限时，{% data variables.product.prodname_dotcom %} 可以自动邀请成员加入您的组织。 如果您删除成员对 SAML IdP 上 {% data variables.product.prodname_dotcom %} 组织的访问权限，该成员将自动从 {% data variables.product.prodname_dotcom %} 组织删除。 For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+如果您的 IdP 支持 SCIM，当您在 IdP 上授予访问权限时，{% data variables.product.prodname_dotcom %} 可以自动邀请成员加入您的组织。 如果您删除成员对 SAML IdP 上 {% data variables.product.prodname_dotcom %} 组织的访问权限，该成员将自动从 {% data variables.product.prodname_dotcom %} 组织删除。 更多信息请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
 
 {% data reusables.organizations.team-synchronization %}
 
@@ -64,6 +64,6 @@ shortTitle: 使用 SAML SSO 的 IAM
 
 ## 延伸阅读
 
-- "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"
+- “[SAML 配置参考](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)”
 - "[关于双重身份验证和 SAML 单点登录](/articles/about-two-factor-authentication-and-saml-single-sign-on)"
 - "[关于使用 SAML 单点登录进行身份验证](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)"
