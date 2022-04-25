@@ -7,7 +7,7 @@ versions:
 ---
 ## About checks in {% data variables.product.prodname_desktop %}
 
-{% data variables.product.prodname_desktop %} displays the status of checks that have run in your pull request branches. For more information on setting up checks in your repository, see "[About status checks](/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)." {% data variables.product.prodname_desktop %} will also instantly notify you when checks fail. For more information on notifications, see "[Configuring notifications](desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/configuring-notifications)."
+{% data variables.product.prodname_desktop %} displays the status of checks that have run in your pull request branches. For more information on setting up checks in your repository, see "[About status checks](/github/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)." {% data variables.product.prodname_desktop %} will also instantly notify you when checks fail. For more information on notifications, see "[Configuring notifications](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/configuring-notifications)."
 
 ## Viewing and re-running checks
 

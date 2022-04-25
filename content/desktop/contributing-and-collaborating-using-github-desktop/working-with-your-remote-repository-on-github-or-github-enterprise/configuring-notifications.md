@@ -20,7 +20,7 @@ When changes are made to a pull request branch you will receive a notification i
 
 ![pull request checks failed notification](/assets/images/help/desktop/pull-request-checks-failed-notification.png)
 
-Clicking the notification will display a dialog with details about the checks. Once you've reviewed why the checks have failed you can re-run the checks, or quickly switch to the pull request branch to get started on fixing the errors. For more information, see "[Viewing and re-running checks](desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks)."
+Clicking the notification will display a dialog with details about the checks. Once you've reviewed why the checks have failed you can re-run the checks, or quickly switch to the pull request branch to get started on fixing the errors. For more information, see "[Viewing and re-running checks](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks)."
 
 ![checks failed dialog](/assets/images/help/desktop/checks-failed-dialog.png)
 ## Pull request review notifications
