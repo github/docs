@@ -88,3 +88,4 @@ When routing a job to a self-hosted runner, {% data variables.product.prodname_d
    - If there are no matching runners at any level, the job will fail.
    - If the job remains queued for more than 24 hours, the job will fail.
 {% endif %}
+runs-on: [self-hosted, linux, ARM64]gpu
