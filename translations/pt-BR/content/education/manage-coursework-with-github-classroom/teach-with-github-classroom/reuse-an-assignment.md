@@ -1,17 +1,17 @@
 ---
-title: Reuse an assignment
-intro: 'You can reuse an existing assignment in more than one classroom, including classrooms in a different organization.'
+title: Reutilizar uma atividade
+intro: 'Você pode reutilizar uma atividade existente em mais de uma sala, incluindo salas de aula em uma organização diferente.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can reuse assignments from a classroom. {% data reusables.classroom.classroom-admins-link %}'
-shortTitle: Reuse an assignment
+shortTitle: Reutilizar uma atividade
 ---
 
-## About reusing assignments
+## Sobre a reutilização de recomendações
 
-You can reuse an existing individual or group assignment in any other classroom you have access to, including classrooms in a different organization. If you choose to reuse an assignment, {% data variables.product.prodname_classroom %} will copy the assignment to the classroom you choose. If the assignment uses a template repository and you choose to reuse it in a classroom from a different organization, {% data variables.product.prodname_classroom %} will create a copy of the repository and its contents in the target organization.
+Você pode reutilizar uma atividade individual ou em grupo existente em qualquer outra sala de aula à qual você tenha acesso, incluindo as salas de aula em uma organização diferente. Se você optar por reutilizar uma atividade, {% data variables.product.prodname_classroom %} irá copiar a atividade para a sala de aula que você escolher. Se a atividade usar um repositório de modelo e você escolher reutilizá-lo em uma sala de aula de uma organização diferente, {% data variables.product.prodname_classroom %} criará uma cópia do repositório e seu conteúdo na organização de destino.
 
-The copied assignment includes assignment details such as the name, source repository, autograding test, and preferred editor. You can edit the assignment after it has been copied to make changes. You cannot make changes to the preferred editor.
+A atribuição copiada inclui detalhes da atividade, como nome, repositório de origem, teste de autoavaliação e editor preferido. You can edit the assignment after it has been copied to make changes. You cannot make changes to the preferred editor.
 
 ## Reusing an assignment
 

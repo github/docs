@@ -1,6 +1,6 @@
 ---
 title: Mapeando grupos do Okta com as equipes
-shortTitle: Map Okta groups to teams
+shortTitle: Mapear grupos do Okta com equipes
 intro: 'Você pode mapear os seus grupos do Okta com as equipes em {% data variables.product.prodname_ghe_managed %} para adicionar e remover automaticamente os integrantes da equipe.'
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.prodname_ghe_managed %}.'
 versions:
