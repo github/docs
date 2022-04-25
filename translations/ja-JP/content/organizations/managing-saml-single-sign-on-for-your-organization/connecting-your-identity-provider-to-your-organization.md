@@ -1,6 +1,6 @@
 ---
 title: アイデンティティプロバイダを Organization に接続する
-intro: 'To use SAML single sign-on and SCIM, you must connect your identity provider (IdP) to your organization on {% data variables.product.product_name %}.'
+intro: 'SAML シングルサインオンおよび SCIM を使うには、あなたのアイデンティティプロバイダ（IdP）を、{% data variables.product.product_name %}上のあなたのOrganizationに接続する必要があります。'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
@@ -13,7 +13,7 @@ topics:
 shortTitle: IdPの接続
 ---
 
-## About connection of your IdP to your organization
+## IdPのOrganizationへの接続について
 
 {% data variables.product.product_name %} OrganizationでSAML SSOを有効化すると、アイデンティティプロバイダ（IdP）をOrganizationに接続することになります。 詳細は「[Organization での SAML シングルサインオンの有効化とテスト](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)」を参照してください。
 
@@ -29,7 +29,7 @@ IdPのSAML及びSCIMの実装の詳細は、IdPのドキュメンテーション
 
 {% note %}
 
-**メモ:** {% data variables.product.product_name %} がサポートする SCIM アイデンティティプロバイダは Azure AD、Okta、OneLogin です。 For more information about SCIM, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+**メモ:** {% data variables.product.product_name %} がサポートする SCIM アイデンティティプロバイダは Azure AD、Okta、OneLogin です。 SCIMに関する詳しい情報については「[OrganizationのSCIMについて](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)」を参照してください。
 
 {% data reusables.scim.enterprise-account-scim %}
 
@@ -37,4 +37,4 @@ IdPのSAML及びSCIMの実装の詳細は、IdPのドキュメンテーション
 
 ## SAMLのメタデータ
 
-For more information about SAML metadata for your organization, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)."
+OrganizationのSAMLメタデータに関する詳しい情報については「[SAML設定のリファレンス](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)」を参照してください。

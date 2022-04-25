@@ -1,7 +1,7 @@
 ---
 title: Updating a user's SAML NameID
 shortTitle: Update SAML NameID
-intro: 'When an account''s `NameID` changes on your identity provider (IdP) and the person can no longer {% ifversion ghes or ghae %}sign into {% data variables.product.product_location %}{% elsif ghec %}authenticate to access your enterprise''s resources{% endif %}, you must {% ifversion ghec %}either contact {% data variables.product.company_short %} Support or revoke the person''s linked identity{% elsif ghes %}update the `NameID` mapping on {% data variables.product.product_location %}{% elsif ghae %}contact {% data variables.product.company_short %} Support{% endif %}.'
+intro: 'Cuando el `NameID` de una cuenta cambia en tu proveedor de identidad (IdP) y la persona ya no puede {% ifversion ghes or ghae %}iniciar sesión en {% data variables.product.product_location %}{% elsif ghec %}autenticarse para acceder a los recursos de tu empresa{% endif %}, debes {% ifversion ghec %}ya sea contactar al soporte de {% data variables.product.company_short %} o revocar la identidad vinculada de la persona{% elsif ghes %}actualizar el mapeo de la `NameID` en {% data variables.product.product_location %}{% elsif ghae %}contactar al soporte de {% data variables.product.company_short %}{% endif %}.'
 versions:
   ghes: '*'
 type: how_to

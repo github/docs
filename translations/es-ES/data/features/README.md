@@ -45,7 +45,7 @@ versions:
 
 ## Imposición del modelado
 
-The schema for validating the feature versioning lives in [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) and is exercised by [`tests/linting/lint-files.js`](/tests/linting/lint-files.js).
+El modelo para validar la característica de versionamiento vive en [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) y la ejecuta [`tests/linting/lint-files.js`](/tests/linting/lint-files.js).
 
 ## Script para eliminar las etiquetas de característica
 

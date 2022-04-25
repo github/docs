@@ -18,7 +18,7 @@ shortTitle: 使用 Octa 配置 SAML 和 SCIM
 
 {% data reusables.saml.ghec-only %}
 
-SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）的访问。 当您在 Okta 中进行更改时，SCIM 会自动添加、管理和删除成员对您在 {% data variables.product.product_location %} 上的组织的访问权限。 For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" and "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）的访问。 当您在 Okta 中进行更改时，SCIM 会自动添加、管理和删除成员对您在 {% data variables.product.product_location %} 上的组织的访问权限。 更多信息请参阅“[关于使用 SAML 单点登录管理身份和访问](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)”和“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
 
 启用 SCIM 后，您在 Okta 中为其分配了 {% data variables.product.prodname_ghe_cloud %} 应用程序的任何用户都可以使用以下配置。
 
@@ -41,9 +41,9 @@ SAML SSO 控制并保护对组织资源（如仓库、议题和拉取请求）�
 
 {% data reusables.scim.dedicated-configuration-account %}
 
-1. Sign into {% data variables.product.prodname_dotcom_the_website %} using an account that is an organization owner and is ideally used only for SCIM configuration.
-1. To create an active SAML session for your organization, navigate to `https://github.com/orgs/ORGANIZATION-NAME/sso`. 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)”。
-1. Navigate to Okta.
+1. 使用作为组织所有者且理想情况下仅用于 SCIM 配置的帐户登录到 {% data variables.product.prodname_dotcom_the_website %}。
+1. 要为组织创建活动的 SAML 会话，请导航到 `https://github.com/orgs/ORGANIZATION-NAME/sso`。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)”。
+1. 导航到 Okta。
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
 {% data reusables.saml.okta-provisioning-tab %}

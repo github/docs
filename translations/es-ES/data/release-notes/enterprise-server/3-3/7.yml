@@ -11,11 +11,11 @@ sections:
     - 'Elasticsearch indices could be duplicated during a package upgrade, due to an `elasticsearch-upgrade` service running multiple times in parallel.'
     - 'In the pull request and commit views, rich diffs would fail to load for some files tracked by Git LFS.'
     - 'When converting a user account to an organization, if the user account was an owner of the {% data variables.product.prodname_ghe_server %} enterprise account, the converted organization would incorrectly appear in the enterprise owner list.'
-    - 'Creating an impersonation OAuth token using the Enterprise Administration REST API resulted in an error when an integration matching the OAuth Application ID already existed.'
+    - 'El crear un token de OAuth de personificación utilizando la API de REST de administración de empresas dio como resultado un error cuando una integración que coincidió con la ID de aplicación de OAuth ya existía.'
     - 'The Secret Scanning REST API would return a `500` response code when there were UTF8 characters present in a detected secret.'
     - 'Repository cache servers could serve data from non-cache locations even when the data was available in the local cache location.'
   changes:
-    - 'Configuration errors that halt a config apply run are now output to the terminal in addition to the configuration log.'
+    - 'Los errores de configuración que detienen una ejecución de aplicación de configuraciones ahora son el producto de la terminal adicionalmente a la bitácora de configuración.'
     - 'When attempting to cache a value larger than the maximum allowed in Memcached, an error was raised however the key was not reported.'
     - 'If {% data variables.product.prodname_GH_advanced_security %} features are enabled on your instance, the performance of background jobs has improved when processing batches for repository contributions.'
   known_issues:

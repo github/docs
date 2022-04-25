@@ -1,7 +1,7 @@
 ---
 title: About SAML for enterprise IAM
 shortTitle: About SAML for IAM
-intro: 'You can use SAML single sign-on (SSO) {% ifversion ghec or ghae %}and System for Cross-domain Identity Management (SCIM) {% endif %}to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}to {% data variables.product.product_location %}{% elsif ghae %}to {% data variables.product.product_location %}{% endif %}.'
+intro: 'Puedes utilizar el inicio de sesión único (SSO) de SAML {% ifversion ghec or ghae %}y el Sistema para la Administración de Identidades entre Dominios (SCIM) {% endif %}para administrar centralmente el acceso {% ifversion ghec %}a las organizaciones que pertenecen a tu empresa de {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}a {% data variables.product.product_location %}{% elsif ghae %}a {% data variables.product.product_location %}{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'

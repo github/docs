@@ -69,7 +69,7 @@ Puedes elegir inhabilitar {% data variables.product.prodname_actions %} para tod
    {%- elsif ghes or ghae-issue-5094 %}
    ![Add actions to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
+   ![Agregar acciones a la lista de elementos permitidos](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
    {%- endif %}
 
 ## Requerir una política para la retención de bitácoras y artefactos en tu empresa
