@@ -135,7 +135,7 @@ shortTitle: 个性化
 
 {% data reusables.user-settings.access_settings %}
 2. 在“Profile settings（个人资料设置）”下，取消选择您想要禁用的徽章。 ![不再在个人资料中显示徽章的复选框](/assets/images/help/profile/profile-badge-settings.png)
-3. 单击 **Update preferences（更新首选项）**。
+{% data reusables.user-settings.update-preferences %}
 
 {% endif %}
 

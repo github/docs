@@ -35,6 +35,8 @@ Puedes utilizar una tarjeta de crédito para patrocinar una cuenta en {% data va
 
 Cuando patrocinas una cuenta utilizando una tarjeta de crédito, el cargo tomará efecto de inmediato. {% data reusables.sponsors.prorated-sponsorship %}
 
+We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
+
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
 Puedes elegir si quieres mostrar tu patrocinio públicamente. Los patrocinios de una sola vez permanecen visibles durante un mes.
@@ -47,9 +49,20 @@ Si la cuenta que quieres patrocinar no tiene un perfil en {% data variables.prod
 
 {% note %}
 
-**Nota:** {% data variables.product.prodname_dotcom %} no se hace responsable de la forma en la que los desarrolladores se representan a sí mismos y {% data variables.product.prodname_dotcom %} tampoco respalda ningún proyecto de código abierto patrocinado. Las alegaciones son responsabilidad total del desarrollador que recibe los fondos. Asegúrate de que confías en una persona antes de ofrecerle un patrocinio. Para obtener más información, consulta la sección de [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
+**Note:** {% data variables.product.prodname_dotcom %} is not responsible for how developers represent themselves nor does {% data variables.product.prodname_dotcom %} endorse any sponsored open source projects. Las alegaciones son responsabilidad total del desarrollador que recibe los fondos. Asegúrate de que confías en una persona antes de ofrecerle un patrocinio. Para obtener más información, consulta la sección de [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms).
 
 {% endnote %}
+
+## Información fiscal
+
+As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:
+
+- Transaction date
+- Amount paid
+- The country, state, and province from where payment was made
+- Whether payment was made by a business or individual
+
+This information is necessary to enable payment and reporting of any taxes arising from such sponsorship payments.
 
 ## Patrocinar una cuenta
 

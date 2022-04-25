@@ -35,6 +35,8 @@ shortTitle: 赞助贡献者
 
 使用信用卡赞助帐户后，更改将立即生效。 {% data reusables.sponsors.prorated-sponsorship %}
 
+我们可能会与赞助帐户共享某些有限的税务信息。 更多信息请参阅“[税务信息](#tax-information)”。
+
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
 您可以选择是否公开显示您的赞助。 一次性赞助在一个月内保持可见。
@@ -50,6 +52,17 @@ shortTitle: 赞助贡献者
 **注：**{% data variables.product.prodname_dotcom %} 对开发者如何介绍自己概不负责，{% data variables.product.prodname_dotcom %} 也不为任何被赞助的开源项目背书。 索赔由接受资助的开发者自行负责。 请确保在建立信任之后提供赞助。 更多信息请参阅 [{% data variables.product.prodname_sponsors %} 附加条款](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)。
 
 {% endnote %}
+
+## 税务信息
+
+作为赞助者，您承认，自赞助者计划启动后，我们可能会向您赞助的每个帐户的所有者披露以下有关您向该帐户支付赞助费用的有限信息：
+
+- 交易日期
+- 支付金额
+- 付款所在的国家/地区、州和省
+- 付款是由企业还是个人支付的
+
+此信息对于支付和报告此类赞助付款产生的任何税款是必要的。
 
 ## 赞助帐户
 

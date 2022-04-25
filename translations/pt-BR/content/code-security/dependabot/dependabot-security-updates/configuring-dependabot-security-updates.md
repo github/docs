@@ -33,7 +33,7 @@ topics:
 
 É possível habilitar o {% data variables.product.prodname_dependabot_security_updates %} para qualquer repositório que use {% data variables.product.prodname_dependabot_alerts %} e o gráfico de dependências. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)."
 
-You can disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository or for all repositories owned by your personal account or organization. Para obter mais informações, consulte "[Gerenciar o {% data variables.product.prodname_dependabot_security_updates %} para seus repositórios](#managing-dependabot-security-updates-for-your-repositories) abaixo".
+Você pode desabilitar {% data variables.product.prodname_dependabot_security_updates %} para um repositório individual ou para todos os repositórios pertencentes à sua conta pessoal ou organização. Para obter mais informações, consulte "[Gerenciar o {% data variables.product.prodname_dependabot_security_updates %} para seus repositórios](#managing-dependabot-security-updates-for-your-repositories) abaixo".
 
 {% ifversion fpt or ghec %}{% data reusables.dependabot.dependabot-tos %}{% endif %}
 
@@ -63,7 +63,7 @@ Se as atualizações de segurança não estiverem habilitadas para o seu reposit
 Você pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_security_updates %} para um repositório individual (veja abaixo).
 
 
-You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all repositories owned by your personal account or organization. For more information, see "[Managing security and analysis settings for your personal account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)."
+Você também pode habilitar ou desabilitar {% data variables.product.prodname_dependabot_security_updates %} para todos os repositórios pertencentes à sua conta pessoal ou organização. Para mais informações consulte "[Gerenciar as configurações de segurança e análise da sua conta pessoal](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" ou "[Gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
 O {% data variables.product.prodname_dependabot_security_updates %} exige configurações específicas do repositório. Para obter mais informações, consulte "[Repositórios compatíveis](#supported-repositories)".
 
@@ -79,6 +79,6 @@ O {% data variables.product.prodname_dependabot_security_updates %} exige config
 ## Leia mais
 
 - "[Sobre {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
-- "[Configuring {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)"{% ifversion fpt or ghec %}
+- "[Configurar {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)"{% ifversion fpt or ghec %}
 - "[Gerenciando configurações de uso de dados para o seu repositório privado](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"{% endif %}
 - "[Ecossistemas de pacotes compatíveis](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)"

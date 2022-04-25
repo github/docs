@@ -30,9 +30,9 @@ Um codespace é um ambiente de desenvolvimento hospedado na nuvem. Você pode pe
 
 Você pode criar um codespace a partir de qualquer branch ou commit no seu repositório e começar a desenvolver usando recursos de computação baseados na nuvem. {% data reusables.codespaces.links-to-get-started %}
 
-To customize the runtimes and tools in your codespace, you can create one or more dev container configurations for your repository. Adding dev container configurations to your repository allows you to define a choice of different development environments that are appropriate for the work people will do in your repository.
+Para personalizar os tempos de execução e ferramentas no seu codespace, é possível criar uma ou mais configurações de contêiner de desenvolvimento para o seu repositório. Adicionar configurações de contêiner de desenvolvimento ao repositório permite que você defina uma escolha de diferentes ambientes de desenvolvimento que sejam apropriados para o trabalho que as pessoas farão no seu repositório.
 
-If you don't add a dev container configuration, {% data variables.product.prodname_codespaces %} will clone your repository into an environment with the default codespace image that includes many tools, languages, and runtime environments. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
+Se você não adicionar uma configuração de contêiner de desenvolvimento, o {% data variables.product.prodname_codespaces %} clonará seu repositório em um ambiente com a imagem de código padrão que inclui muitas ferramentas, linguagens e ambientes de tempo de execução. Para obter mais informações, consulte "[Introdução a contêineres de desenvolvimento](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project)".
 
 Você também pode personalizar aspectos do ambiente do seu codespace usando um repositório público do [dotfiles](https://dotfiles.github.io/tutorials/) e [Sincronização de configurações](https://code.visualstudio.com/docs/editor/settings-sync). A personalização pode incluir preferências de shell, ferramentas adicionais, configurações de editor e extensões de código VS. Para obter mais informações, consulte[Personalizando seu codespace](/codespaces/customizing-your-codespace)".
 

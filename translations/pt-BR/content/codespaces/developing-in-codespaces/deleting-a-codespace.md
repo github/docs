@@ -55,42 +55,42 @@ Para excluir um codespace, use o comando `gh codespace delete` e, em seguida, es
 gh codespace delete
 ```
 
-Se você tiver alterações não salvas, será solicitado que você confirme a exclusão. You can use the `--force` flag to force deletion, avoiding this prompt.
+Se você tiver alterações não salvas, será solicitado que você confirme a exclusão. Você pode usar o sinalizador `--force` para forçar a exclusão, evitando a instrução.
 
 Para obter mais informações sobre esse comando, consulte [o manual de{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_codespace_delete).
 
 {% endcli %}
 
-## Bulk deleting codespaces
+## Exclusão de codespaces em massa
 
 {% webui %}
 
-You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the **{% data variables.product.prodname_cli %}** tab near the top of this page.
+Você pode usar {% data variables.product.prodname_cli %} para excluir vários ou todos os seus codespaces com um único comando. Para obter mais informações, clique na aba **{% data variables.product.prodname_cli %}** perto da parte superior desta página.
 
 {% endwebui %}
 
 {% vscode %}
 
-You can use {% data variables.product.prodname_cli %} to delete several or all of your codespaces with a single command. For more information, click the **{% data variables.product.prodname_cli %}** tab near the top of this page.
+Você pode usar {% data variables.product.prodname_cli %} para excluir vários ou todos os seus codespaces com um único comando. Para obter mais informações, clique na aba **{% data variables.product.prodname_cli %}** perto da parte superior desta página.
 
 {% endvscode %}
 
 
 {% cli %}
 
-You can delete several or all of your codespaces with a single command, using `gh codespace delete` followed by one of these flags:
+Você pode excluir vários ou todos os seus codespaces com um único comando, usando o código `gh codespace delete` seguido por uma desses sinalizadores:
 
-`--all` - Delete all of your codespaces.
+`--all` - Exclua todos os seus codespaces.
 
-`--repo REPOSITORY` - Delete all of your codespaces for this repository. Or use together with the `--days` flag to filter by age of the codespace.
+`--repo REPOSITORY` - Exclua todos os seus codespaces do repositório. Ou use junto com o sinalizador `--days` para filtrar por idade do codespace.
 
-`--days NUMBER` - Delete all of your codespaces that are older than the specified number of days. Can be used together with the `--repo` flag.
+`--days NUMBER` - Exclua todos os seus codespaces que são mais antigos que o número de dias especificado. Pode ser usado junto com o sinalizador `--repo`.
 
-By default you are prompted to confirm deletion of any codespaces that contain unsaved changes. You can use the `--force` flag to skip this confirmation.
+Por padrão, solicita-se que você confirme a exclusão de todos os codespaces que contenham alterações não salvas. Você pode usar o sinalizador `--force` para pular esta confirmação.
 
 ### Exemplo
 
-Delete all of the codespaces for the `octo-org/octo-repo` repository that you created more than 7 days ago.
+Excluir todos os codespaces do repositório `octo-org/octo-repo` que você criou há mais de 7 dias.
 
 ```
 gh cs delete --repo octo-org/octo-repo --days 7

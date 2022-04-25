@@ -54,7 +54,7 @@ Puedes agregar más usuarios a tu organización{% ifversion ghec %} o empresa en
 
 Si tienes dudas sobre tu suscripción, contacta al{% data variables.contact.contact_support %}.
 
-Para apoyar aún más las capacidades de colaboración de tu equipo, puedes mejorar a {% data variables.product.prodname_ghe_cloud %}, el cual incluye características como las ramas protegidas y los propietarios de código en los repositorios privados. {% data reusables.enterprise.link-to-ghec-trial %}
+To further support your team's collaboration abilities, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes features like SAML single sign-on and advanced auditing. {% data reusables.enterprise.link-to-ghec-trial %}
 
 Para obtener más información sobre los precios por usuario para {% data variables.product.prodname_ghe_cloud %}, consulta [la documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing).
 

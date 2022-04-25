@@ -1,6 +1,6 @@
 ---
-title: About system logs
-intro: '{% data variables.product.product_name %} keeps error and message logs for system events. Logs are useful for identifying user, application and system-level actions and exceptions.'
+title: 关于系统日志
+intro: '{% data variables.product.product_name %} 保留系统事件的错误和消息日志。 日志对于标识用户、应用程序和系统级操作和异常非常有用。'
 versions:
   ghes: '*'
 type: overview
@@ -11,35 +11,35 @@ topics:
   - Security
 ---
 
-## System logs
+## 系统日志
 
-By default, system logs for {% data variables.product.product_name %} are automatically rotated every 24 hours and are retained for seven days. System logs include system-level events, application logs, and Git events data. As log files are often being written to and can be large in size, it may be beneficial to extract and parse relevant log entries on a host separate to your {% data variables.product.prodname_ghe_server %} instance.
+默认情况下，{% data variables.product.product_name %} 的系统日志每 24 小时自动轮换一次，并保留 7 天。 系统日志包括系统级事件、应用程序日志和 Git 事件数据。 由于日志文件经常被写入并且可能很大，因此在与您的 {% data variables.product.prodname_ghe_server %} 实例分开的主机上提取和分析相关日志条目可能会有所帮助。
 
-You can forward system logs to a third-party system or server for longer retention. 更多信息请参阅“[日志转发](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)。”
+您可以将系统日志转发到第三方系统或服务器，以便延长保留期。 更多信息请参阅“[日志转发](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)。”
 
-In addition to reviewing your system logs, you can monitor activity in your enterprise in other ways, such as viewing audit logs, push logs and managing global webhooks. 更多信息请参阅“[监控企业中的活动](/admin/monitoring-activity-in-your-enterprise)”。
+除了查看系统日志外，您还可以通过其他方式监控企业中的活动，例如查看审核日志、推送日志和管理全局 web 挂钩。 更多信息请参阅“[监控企业中的活动](/admin/monitoring-activity-in-your-enterprise)”。
 
-## Types of logs
+## 日志类型
 
-Listed below are the main logs used by the {% data variables.product.product_name %} appliance and their functions:
+下面列出了 {% data variables.product.product_name %} 设备使用的主要日志及其功能：
 
-| 路径                               | 描述​                                                                           |
-| -------------------------------- | ----------------------------------------------------------------------------- |
-| `/var/log/github/audit.log`      | Audited user, repository and system events.                                   |
-| `/var/log/github/unicorn.log`    | API and web interface traffic.                                                |
-| `/var/log/github/exceptions.log` | Application-level errors.                                                     |
-| `/var/log/haproxy.log`           | All IP traffic reaching the appliance.                                        |
-| `/var/log/hookshot/resqued.log`  | Webhook delivery and failures.                                                |
-| `/var/log/github/auth.log`       | Authentication requests, whether through built in, LDAP, CAS or SAML methods. |
-| `/var/log/github/gitauth.log`    | All Git authentication requests.                                              |
+| 路径                               | 描述​                                 |
+| -------------------------------- | ----------------------------------- |
+| `/var/log/github/audit.log`      | 审核的用户、存储库和系统事件。                     |
+| `/var/log/github/unicorn.log`    | API 和 web 接口流量。                     |
+| `/var/log/github/exceptions.log` | 应用程序级错误。                            |
+| `/var/log/haproxy.log`           | 到达设备的所有 IP 流量。                      |
+| `/var/log/hookshot/resqued.log`  | Web 挂钩交付和失败。                        |
+| `/var/log/github/auth.log`       | 身份验证请求，无论是通过内置、LDAP、CAS 还是 SAML 方法。 |
+| `/var/log/github/gitauth.log`    | 所有 Git 身份验证请求。                      |
 
-Git activity and authentication requests are processed by the `babeld` service.
+Git 活动和身份验证请求由 `babeld` 服务处理。
 
-Several {% data variables.product.product_name %} services, such as the `babeld` service, are containerized. Containerized logs are written to the `systemd journal`, and can be queried at any time using the `journalctl` command.
+一些 {% data variables.product.product_name %} 服务（如 `babeld` 服务）是容器化的。 容器化日志被写入 `systemd journal`，可以随时使用 `journalctl` 命令进行查询。
 
-## Audited system events
+## 已审核的系统事件
 
-All entries from the `audit.log` file use and can be filtered with the `github_audit` keyword.
+`audit.log` 文件中的所有条目都使用，可以使用 `github_audit` 关键字进行筛选。
 
 例如，此条目显示已创建的新仓库。
 
@@ -55,8 +55,8 @@ Oct 26 02:19:31 github-ent github_audit: { "pid":22860, "ppid":22859, "program":
 
 ## 支持包
 
-The support bundle includes system logs and all audit information is logged to the `audit.log` file in the `github-logs` directory. For more information, see "[Providing data to {% data variables.product.prodname_dotcom %} Support](/support/contacting-github-support/providing-data-to-github-support)."
+支持包中包括系统日志，所有审核信息都记录到 `github-logs` 目录中的 `audit.log` 文件。 更多信息请参阅“[向 {% data variables.product.prodname_dotcom %} Support 提供数据](/support/contacting-github-support/providing-data-to-github-support)”。
 
 ## 延伸阅读
 
-- [Linux man page for the `journalctl` command](http://man7.org/linux/man-pages/man1/journalctl.1.html)
+- [`journalctl` 命令的 Linux 手册页](http://man7.org/linux/man-pages/man1/journalctl.1.html)

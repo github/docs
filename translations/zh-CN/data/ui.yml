@@ -116,6 +116,7 @@ products:
       preview_header_is_required: 此标头<strong>必填</strong>
       preview_notice_to_change: This API is under preview and subject to change
       works_with_github_apps: Works with GitHub Apps
+      api_reference: REST API reference
 footer:
   all_rights_reserved: 保留所有权利
   terms: 条款

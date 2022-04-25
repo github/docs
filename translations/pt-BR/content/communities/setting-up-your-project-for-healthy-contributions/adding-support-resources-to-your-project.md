@@ -20,7 +20,7 @@ Para direcionar pessoas a recursos de suporte específicos, é possível adicion
 
 {% ifversion fpt or ghes or ghec %}
 
-You can create default support resources for your organization or personal account. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar recursos-padrão de suporte para a conta da sua organização ou pessoal. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 
