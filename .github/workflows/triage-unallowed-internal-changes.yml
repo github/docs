@@ -30,9 +30,7 @@ jobs:
     if: github.repository == 'github/docs-internal' && github.event.pull_request.user.login != 'Octomerger'
     runs-on: ubuntu-latest
     outputs:
-      notAllowed: ${{ steps.filter.outputs.notAllowed }}
       notAllowedSearchSyncLabel: ${{ steps.filter.outputs.notAllowedSearchSyncLabel }}
-      count: 0
     steps:
       - name: Get files changed
         uses: dorny/paths-filter@eb75a1edc117d3756a18ef89958ee59f9500ba58
@@ -55,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.DOCUBOT_REPO_PAT }}

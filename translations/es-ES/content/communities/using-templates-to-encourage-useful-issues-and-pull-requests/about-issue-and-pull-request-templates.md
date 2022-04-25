@@ -18,7 +18,7 @@ Una vez que creas las plantillas de propuestas y solicitudes de extracción en t
 
 {% ifversion fpt or ghes or ghec %}
 
-You can create default issue and pull request templates for your organization or personal account. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Puedes crear plantillas de solicitudes de cambios y propuestas predeterminadas para tu cuenta de organización o personal. Para obtener más información, consulta "[Crear un archivo de salud predeterminado para la comunidad](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

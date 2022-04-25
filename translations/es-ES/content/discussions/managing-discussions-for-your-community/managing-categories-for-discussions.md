@@ -26,7 +26,7 @@ Cada categoría debe tener un nombre único y un emoji distintivo, y se le puede
 | 📣 Anuncios         | Actualizaciones y noticias de los mantenedores de proyecto                     | Anuncio              |
 | #️⃣ General        | Cualquier cosa que sea relevante para el proyecto                              | Debates abiertos     |
 | 💡 Ideas            | Ideas para cambiar o mejorar el proyecto                                       | Debates abiertos     |
-| 🗳 Polls            | Polls with multiple options for the community to vote for and discuss          | Polls                |
+| 🗳 Encuestas        | Polls with multiple options for the community to vote for and discuss          | Polls                |
 | 🙏 Q&A              | Preguntas para que responda la comunidad, con un formato de pregunta/respuesta | Pregunta y respuesta |
 | 🙌 Mostrar y contar | Creaciones, experimentos, o pruebas relevantes para el proyecto                | Debates abiertos     |
 

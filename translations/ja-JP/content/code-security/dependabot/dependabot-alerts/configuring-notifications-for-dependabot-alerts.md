@@ -1,7 +1,7 @@
 ---
-title: Configuring notifications for Dependabot alerts
-shortTitle: Configure notifications
-intro: 'Optimize how you receive notifications about  {% data variables.product.prodname_dependabot_alerts %}.'
+title: Dependabotアラートに対する通知の設定
+shortTitle: 通知の設定
+intro: '{% data variables.product.prodname_dependabot_alerts %}に関する通知の受信方法の最適化'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
   - /code-security/supply-chain-security/configuring-notifications-for-vulnerable-dependencies
@@ -32,15 +32,15 @@ topics:
 {% endif %}
 
 {% ifversion ghes or ghae-issue-4864 %}
-By default, if your enterprise owner has configured email for notifications on your enterprise, you will receive {% data variables.product.prodname_dependabot_alerts %} by email.
+デフォルトでは、EnterpriseのオーナーがEnterpriseにおいて通知のためのメールを設定していれば、あなたはメールで{% data variables.product.prodname_dependabot_alerts %}を受け取ることになります。
 
-Enterprise owners can also enable {% data variables.product.prodname_dependabot_alerts %} without notifications. For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+Enterpriseオーナーは、通知なしで{% data variables.product.prodname_dependabot_alerts %}を有効化することもできます。 詳しい情報については「[Enterpriseでの{% data variables.product.prodname_dependabot %}の有効化](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)」を参照してください。
 {% endif %}
 
 ## {% data variables.product.prodname_dependabot_alerts %}の通知設定
 
 {% ifversion fpt or ghes > 3.1 or ghec %}
-When a new {% data variables.product.prodname_dependabot %} alert is detected, {% data variables.product.product_name %} notifies all users with access to {% data variables.product.prodname_dependabot_alerts %} for the repository according to their notification preferences. You will receive alerts if you are watching the repository, have enabled notifications for security alerts or for all the activity on the repository, and are not ignoring the repository. 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)」を参照してください。
+新しい{% data variables.product.prodname_dependabot %}アラートが検出されると、{% data variables.product.product_name %}はそのリポジトリの{% data variables.product.prodname_dependabot_alerts %}にアクセスできるすべてのユーザーに対し、通知設定に従って通知します。 あなたがリポジトリをWatchしていて、セキュリティアラートもしくはそのリポジトリ上のすべてのアクティビティに対する通知を有効化しているおり、そのリポジトリを無視していなければ、あなたは通知を受け取ることになります。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)」を参照してください。
 {% endif %}
 
 各ページの上部に表示される [Manage notifications] ドロップダウン {% octicon "bell" aria-label="The notifications bell" %} から、自分または Organization の通知設定を構成できます。 詳しい情報については、「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)」を参照してください。
@@ -52,7 +52,7 @@ When a new {% data variables.product.prodname_dependabot %} alert is detected, {
 
 {% note %}
 
-**Note:** You can filter your notifications on {% data variables.product.company_short %} to show  {% data variables.product.prodname_dependabot_alerts %}. 詳しい情報については「[インボックスからの通知を管理する](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)」を参照してください。
+**ノート:** {% data variables.product.company_short %}の通知をフィルタして{% data variables.product.prodname_dependabot_alerts %}を表示できます。 詳しい情報については「[インボックスからの通知を管理する](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#dependabot-custom-filters)」を参照してください。
 
 {% endnote %}
 
@@ -60,7 +60,7 @@ When a new {% data variables.product.prodname_dependabot %} alert is detected, {
 
 ## 脆弱性のある依存関係の通知を減らす方法
 
-{% data variables.product.prodname_dependabot_alerts %}の通知をあまりに多く受け取ることが心配なら、週次のメールダイジェストにオプトインするか、{% data variables.product.prodname_dependabot_alerts %}を有効化したままで通知をオフにすることをおすすめします。 その場合でも、リポジトリのセキュリティタブで{% data variables.product.prodname_dependabot_alerts %}を確認することはできます。 For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
+{% data variables.product.prodname_dependabot_alerts %}の通知をあまりに多く受け取ることが心配なら、週次のメールダイジェストにオプトインするか、{% data variables.product.prodname_dependabot_alerts %}を有効化したままで通知をオフにすることをおすすめします。 その場合でも、リポジトリのセキュリティタブで{% data variables.product.prodname_dependabot_alerts %}を確認することはできます。 詳しい情報については「[脆弱性のある依存関係に対する{% data variables.product.prodname_dependabot_alerts %}の表示](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
 
 ## 参考リンク
 

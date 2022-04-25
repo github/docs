@@ -57,6 +57,8 @@ miniTocMaxHeadingLevel: 3
 - 以 `a-Z` 或 `_` 开头。
 - 后跟 `a-Z` `0-9` `-` 或 `_`。
 
+如果尝试取消引用不存在的属性，则该属性的计算结果将为空字符串。
+
 ### 确定何时使用上下文
 
 {% data reusables.actions.using-context-or-environment-variables %}

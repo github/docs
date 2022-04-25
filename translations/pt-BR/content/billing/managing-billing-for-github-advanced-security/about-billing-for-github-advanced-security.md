@@ -25,7 +25,7 @@ shortTitle: Cobrança da segurança avançada
 
 Se você quiser usar as funcionalidades do {% data variables.product.prodname_GH_advanced_security %} em qualquer repositório, além de um repositório público em {% data variables.product.prodname_dotcom_the_website %}, você precisará de uma licença de {% data variables.product.prodname_GH_advanced_security %}, disponível com {% data variables.product.prodname_ghe_cloud %} ou {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre {% data variables.product.prodname_GH_advanced_security %}, consulte "[Sobre {% data variables.product.prodname_GH_advanced_security %}](/github/getting-started-with-github/about-github-advanced-security)."
 
-For more information about billing for {% data variables.product.prodname_GH_advanced_security %}, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+Para obter mais informações sobre cobrança para {% data variables.product.prodname_GH_advanced_security %}, consulte a [documentação de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
 {% elsif ghec %}
 

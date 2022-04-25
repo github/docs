@@ -186,13 +186,30 @@ For example, the following words are reserved, among others:
 
 For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
 
-{% ifversion ghes or ghae %}
+{% if ghas-committers-calculator %}
+## {% data variables.product.prodname_advanced_security %} Committers
+
+You can see the number of active committers that are currently using seats for {% data variables.product.prodname_GH_advanced_security %}, and you can calculate how many additional seats would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories.
+
+Under "Current active committer count", you can see the number of active committers for repositories with {% data variables.product.prodname_GH_advanced_security %} enabled. This is the number of licensed seats that are currently being used.
+
+Under "Maximum committers across across entire instance", you can see the number of active committers across all the repositories in your enterprise. This is the number of seats that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for every repository in your enterprise.
+
+Under "Calculate Additional Advanced Committers", you can calculate how many more additional seats will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for specific organizations and repositories. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line. 
+
+```
+example-org
+octo-org/octo-repo
+```
+
+The result is the number of additional seats that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for those organizations and repositories.
+
+For more information about billing for {% data variables.product.prodname_advanced_security %}, see "[About billing for {% data variables.product.prodname_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
+{% endif %}
 
 ## Enterprise overview
 
 Refer to this section of the site admin dashboard to manage organizations, people, policies, and settings.
-
-{% endif %}
 
 ## Repositories
 

@@ -43,7 +43,7 @@ export const RestBanner = () => {
     >
     const newRestPagesText = pages.map((page, i) => [
       <React.Fragment key={page}>
-        <Link href={`/${router.locale}/rest/reference/${page}`}>
+        <Link href={`/${router.locale}/rest/${page}`}>
           {restRepoCategoryExceptionsTitles[page]}
         </Link>
         {i < pages.length - 1 && ', '}
@@ -60,7 +60,7 @@ export const RestBanner = () => {
     noticeString = (
       <React.Fragment>
         If you can't find what you're looking for, you might try the{' '}
-        <Link href={`/${router.locale}/rest/reference/actions`}>Actions</Link> REST API page.
+        <Link href={`/${router.locale}/rest/actions`}>Actions</Link> REST API page.
       </React.Fragment>
     )
   }

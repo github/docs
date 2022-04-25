@@ -1,6 +1,6 @@
 ---
-title: Finding your discussions
-intro: You can easily access every discussion you've created or participated in.
+title: Encontrando suas discussões
+intro: Você pode acessar facilmente cada discussão que você criou ou participou.
 versions:
   fpt: '*'
   ghec: '*'

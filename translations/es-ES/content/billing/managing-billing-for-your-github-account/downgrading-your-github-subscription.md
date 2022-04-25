@@ -31,7 +31,7 @@ shortTitle: Bajar una suscripción de categoría
 
 ## Bajar de nivel tu suscripción de {% data variables.product.product_name %}
 
-When you downgrade your personal account or organization's subscription, pricing and account feature changes take effect on your next billing date. Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features. Para obtener más información, consulta "[¿Cómo afecta subir o bajar de categoría el proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
+Cuando bajas de nivel tu suscripción de cuenta personal o de organización, los precios y características cambian y toman efecto en tu siguiente fecha de facturación. Changes to your paid personal account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features. Para obtener más información, consulta "[¿Cómo afecta subir o bajar de categoría el proceso de facturación?](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process)."
 
 ## Downgrading your personal account's subscription
 

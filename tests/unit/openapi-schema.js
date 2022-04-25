@@ -29,11 +29,7 @@ describe('markdown for each rest version', () => {
   test('markdown file exists for every operationId prefix in all versions of the OpenAPI schema', async () => {
     // list of REST markdown files that do not correspond to REST API resources
     // TODO could we get this list dynamically, say via page frontmatter?
-    const excludeFromResourceNameCheck = [
-      'endpoints-available-for-github-apps.md',
-      'permissions-required-for-github-apps.md',
-      'index.md',
-    ]
+    const excludeFromResourceNameCheck = ['README.md', 'index.md', 'guides', 'overview']
 
     // Unique set of all categories across all versions of the OpenAPI schema
     const allCategories = new Set()
@@ -43,7 +39,7 @@ describe('markdown for each rest version', () => {
       Object.keys(restOperations).forEach((category) => allCategories.add(category))
     }
 
-    const referenceDir = path.join(__dirname, '../../content/rest/reference')
+    const referenceDir = path.join(__dirname, '../../content/rest')
     const filenames = (await fs.readdir(referenceDir))
       .filter(
         (filename) =>
@@ -52,11 +48,11 @@ describe('markdown for each rest version', () => {
       .map((filename) => filename.replace('.md', ''))
 
     const missingResource =
-      'Found a markdown file in content/rest/reference that is not represented by an OpenAPI REST operation category.'
+      'Found a markdown file in content/rest that is not represented by an OpenAPI REST operation category.'
     expect(difference(filenames, [...allCategories]), missingResource).toEqual([])
 
     const missingFile =
-      'Found an OpenAPI REST operation category that is not represented by a markdown file in content/rest/reference.'
+      'Found an OpenAPI REST operation category that is not represented by a markdown file in content/rest.'
     expect(difference([...allCategories], filenames), missingFile).toEqual([])
   })
 })

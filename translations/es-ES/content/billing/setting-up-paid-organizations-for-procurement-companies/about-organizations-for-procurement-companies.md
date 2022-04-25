@@ -15,7 +15,7 @@ topics:
 shortTitle: Acerca de las organizaciones
 ---
 
-To access an organization, each member must sign into their own personal account.
+Para acceder a una organización, cada miembro debe iniciar sesión en su propia cuenta personal.
 
 Los miembros de la organización pueden tener diferentes roles, como *propietario* o *gerente de facturación*:
 
