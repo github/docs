@@ -21,7 +21,7 @@ redirect_from:
 
 Depois de criar uma sala de aula, {% data variables.product.prodname_classroom %} solicitará que você convide assistentes de ensino (ETI) e administradores para a sala de aula. Cada sala de aula pode ter um ou mais administradores. Os administradores podem ser professores, TAs ou qualquer outro administrador do curso o qual que você gostaria que tivesse controle das suas salas de aula em {% data variables.product.prodname_classroom %}.
 
-Invite TAs and admins to your classroom by inviting the personal accounts on {% data variables.product.product_name %} to your organization as organization owners and sharing the URL for your classroom. Os proprietários da organização podem administrar qualquer sala de aula da organização. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" e "[Convidando usuários para participar da sua organização](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
+Convide TAs e administradores para a sua sala de aula, convidando as contas pessoais em {% data variables.product.product_name %} para a sua organização como proprietários e compartilhando a URL da sua sala de aula. Os proprietários da organização podem administrar qualquer sala de aula da organização. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" e "[Convidando usuários para participar da sua organização](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
 
 Ao terminar de usar uma sala de aula, você pode arquivar a sala de aula e consultar a sala de aula, lista, e recomendações posteriormente, ou você pode excluir a sala de aula se não precisar mais dela.
 
@@ -31,7 +31,7 @@ Ao terminar de usar uma sala de aula, você pode arquivar a sala de aula e consu
 
 Cada sala de aula tem uma lista. Uma lista é uma lista de identificadores para os alunos que participam do seu curso.
 
-When you first share the URL for an assignment with a student, the student must sign into {% data variables.product.product_name %} with a personal account to link the personal account to an identifier for the classroom. After the student links a personal account, you can see the associated personal account in the roster. Você também pode ver quando o aluno aceita ou envia uma atividade.
+A primeira vez que você compartilha a URL de uma atividade com um estudante, o aluno precisa efetuar o login em {% data variables.product.product_name %} com uma conta pessoal para vincular a conta pessoal a um identificador da sala de aula. Depois que o aluno vincular uma conta pessoal, você poderá ver a conta pessoal associada na lista. Você também pode ver quando o aluno aceita ou envia uma atividade.
 
 ![Lista de salas de aula](/assets/images/help/classroom/roster-hero.png)
 

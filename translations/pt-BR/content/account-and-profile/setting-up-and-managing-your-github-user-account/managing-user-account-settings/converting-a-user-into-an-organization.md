@@ -45,7 +45,7 @@ Você também pode converter sua conta pessoal diretamente em uma organização.
  {% ifversion fpt or ghec %}- Para contas pessoais no {% data variables.product.prodname_pro %}, faz a transição da cobrança automaticamente para o [{% data variables.product.prodname_team %} pago](/articles/about-billing-for-github-accounts) sem a necessidade de inserir novamente as informações de pagamento, ajustar o ciclo de cobrança ou pagar em dobro{% endif %}
 
 1. Crie uma conta pessoal, que você usará para entrar no GitHub e acessar a organização e seus repositórios após conversão.
-2.  [Leave any organizations](/articles/removing-yourself-from-an-organization) the personal account you're converting has joined.
+2.  [Deixe qualquer organização](/articles/removing-yourself-from-an-organization) a conta pessoal que você está convertendo começou a participar.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
 5. Em "Transform account" (Transformar conta), clique em **Turn <username> into an organization** (Transformar <username> em uma organização). ![Botão de conversão da organização](/assets/images/help/settings/convert-to-organization.png)

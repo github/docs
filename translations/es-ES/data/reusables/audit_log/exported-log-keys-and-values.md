@@ -1,4 +1,4 @@
-After you export the log, you'll see the following keys and values in the resulting file.
+Después de que exportes la bitácora, verás la siguientes claves y valores en el archivo de resultado.
 
 | Clave                         | Valor de ejemplo                                                                      |
 | ----------------------------- | ------------------------------------------------------------------------------------- |

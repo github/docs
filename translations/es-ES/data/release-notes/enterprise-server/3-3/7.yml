@@ -1,0 +1,31 @@
+date: '2022-04-20'
+sections:
+  security_fixes:
+    - 'Los paquetes se actualizaron a las últimas versiones de seguridad.'
+  bugs:
+    - 'When a manifest file was deleted from a repository, the manifest would not be removed from the repository''s "Dependency graph" page.'
+    - 'Resolved a regression that could lead to consistent failures to retrieve artifacts and download log archives for {% data variables.product.prodname_actions %}. In some circumstances we stopped resolving URLs for internal communications that used `localhost`, and instead incorrectly used the instance hostname.'
+    - 'Upgrading the nodes in a high availability pair with an upgrade package could cause Elasticsearch to enter an inconsistent state in some cases.'
+    - 'Rotated log files with the extension `.backup` would accumulate in directories containing system logs.'
+    - 'In some cluster topologies, the command line utilities `ghe-spokesctl` and `ghe-btop` failed to run.'
+    - 'Elasticsearch indices could be duplicated during a package upgrade, due to an `elasticsearch-upgrade` service running multiple times in parallel.'
+    - 'In the pull request and commit views, rich diffs would fail to load for some files tracked by Git LFS.'
+    - 'When converting a user account to an organization, if the user account was an owner of the {% data variables.product.prodname_ghe_server %} enterprise account, the converted organization would incorrectly appear in the enterprise owner list.'
+    - 'Creating an impersonation OAuth token using the Enterprise Administration REST API resulted in an error when an integration matching the OAuth Application ID already existed.'
+    - 'The Secret Scanning REST API would return a `500` response code when there were UTF8 characters present in a detected secret.'
+    - 'Repository cache servers could serve data from non-cache locations even when the data was available in the local cache location.'
+  changes:
+    - 'Configuration errors that halt a config apply run are now output to the terminal in addition to the configuration log.'
+    - 'When attempting to cache a value larger than the maximum allowed in Memcached, an error was raised however the key was not reported.'
+    - 'If {% data variables.product.prodname_GH_advanced_security %} features are enabled on your instance, the performance of background jobs has improved when processing batches for repository contributions.'
+  known_issues:
+    - 'Después de haber actualizado a {% data variables.product.prodname_ghe_server %} 3.3, podría que las {% data variables.product.prodname_actions %} no inicien automáticamente. Para resolver este problema, conéctate al aplicativo a través de SSH y ejecuta el comando `ghe-actions-start`.'
+    - 'En una instancia recién configurada de {% data variables.product.prodname_ghe_server %} sin ningún usuario, un atacante podría crear el primer usuario adminsitrador.'
+    - 'Las reglas de cortafuegos personalizadas se eliminan durante el proceso de actualización.'
+    - 'Los archivos rastreados del LFS de Git que se [cargaron mediante la interface web](https://github.com/blog/2105-upload-files-to-your-repositories) se agregaron incorrecta y directamente al repositorio.'
+    - 'Las propuestas no pudieron cerrarse si contenían un permalink a un blob en el mismo repositorio en donde la ruta de archvio del blob era más grande a 255 caracteres.'
+    - 'When "Users can search GitHub.com" is enabled with {% data variables.product.prodname_github_connect %}, issues in private and internal repositories are not included in {% data variables.product.prodname_dotcom_the_website %} search results.'
+    - 'El registor de npm del {% data variables.product.prodname_registry %} ya no regresa un valor de tiempo en las respuestas de metadatos. Esto se hizo para permitir mejoras de rendimiento sustanciales. Seguimos teniendo todos los datos necesarios para devolver un valor de tiempo como parte de la respuesta de metadatos y terminaremos de devolver este valor ene l futuro una vez que hayamos resuelto los problemas de rendimiento existentes.'
+    - 'Los límites de recursos que son específicos para procesar ganchos de pre-recepción podrían ocasionar que fallen algunos ganchos de pre-recepción.'
+    - 'Los ajustes de almacenamiento de {% data variables.product.prodname_actions %} no pueden validarse y guardarse en la {% data variables.enterprise.management_console %} cuando se selecciona "Forzar estilo de ruta" y, en su lugar, debe configurarse la utilidad de línea de comando `ghe-actions-precheck`.'
+    - '{% data variables.product.prodname_ghe_server %} 3.3 instances installed on Azure and provisioned with 32+ CPU cores would fail to launch, due to a bug present in the current Linux kernel. [Updated: 2022-04-08]'

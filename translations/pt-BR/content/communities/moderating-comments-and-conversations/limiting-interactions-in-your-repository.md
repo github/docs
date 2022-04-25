@@ -22,7 +22,7 @@ shortTitle: Limitar interações no repositório
 
 {% data reusables.community.types-of-interaction-limits %}
 
-You can also enable activity limitations on all repositories owned by your personal account or an organization. Se o limite de um usuário ou organização estiver habilitado, não será possível limitar a atividade para repositórios individuais pertencentes à conta. For more information, see "[Limiting interactions for your personal account](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)" and "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)."
+Você também pode habilitar limitações de atividade em todos os repositórios pertencentes à sua conta pessoal ou a uma organização. Se o limite de um usuário ou organização estiver habilitado, não será possível limitar a atividade para repositórios individuais pertencentes à conta. Para obter mais informações, consulte "[Limitar interações para a sua conta pessoal](/communities/moderating-comments-and-conversations/limiting-interactions-for-your-user-account)" e "[Limitar interações na sua organização](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)".
 
 ## Restringir interações no repositório
 
@@ -35,6 +35,6 @@ You can also enable activity limitations on all repositories owned by your perso
 ## Leia mais
 - "[Denunciar abuso ou spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 - "[Gerenciar o acesso de um indivíduo a um repositório da organização](/articles/managing-an-individual-s-access-to-an-organization-repository)"
-- "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository)"
+- "[Níveis de permissão para o repositório de uma conta pessoal](/articles/permission-levels-for-a-user-account-repository)"
 - "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
 - "[Gerenciando moderadores na sua organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"

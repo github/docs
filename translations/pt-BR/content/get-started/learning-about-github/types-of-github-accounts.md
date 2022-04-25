@@ -46,7 +46,7 @@ A sua conta pessoal pode ter recursos próprios, como repositórios, pacotes e p
 {% endtip %}
 
 {% ifversion fpt or ghec %}
-A maioria das pessoas usará uma conta pessoal para todo seu trabalho em {% data variables.product.prodname_dotcom_the_website %}, incluindo projetos de código aberto e trabalho remunerado. Se você está usando atualmente mais de uma conta pessoal criada por você, sugerimos que você combine as contas. For more information, see "[Merging multiple personal accounts](/articles/merging-multiple-user-accounts)."
+A maioria das pessoas usará uma conta pessoal para todo seu trabalho em {% data variables.product.prodname_dotcom_the_website %}, incluindo projetos de código aberto e trabalho remunerado. Se você está usando atualmente mais de uma conta pessoal criada por você, sugerimos que você combine as contas. Para obter mais informações, consulte "[Fazer merge de várias contas pessoais](/articles/merging-multiple-user-accounts)".
 {% endif %}
 
 ## Contas da organização
@@ -57,7 +57,7 @@ Como as contas pessoais, as organizações podem ter recursos próprios, como re
 
 As contas pessoais dentro de uma organização podem receber diferentes funções na organização, que concedem diferentes níveis de acesso à organização e aos seus dados. Todos os integrantes podem colaborar entre si em repositórios e projetos, mas apenas os proprietários da organização e os gerentes de segurança podem gerenciar as configurações da organização e controlar o acesso aos dados da organização, com funcionalidades administrativas e de segurança sofisticadas. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" e "[Mantendo a sua organização segura](/organizations/keeping-your-organization-secure)".
 
-![Diagram showing that users must sign in to their personal account to access an organization's resources](/assets/images/help/overview/sign-in-pattern.png)
+![Diagrama que mostra que os usuários devem efetuar o login na sua conta pessoal para acessar os recursos de uma organização](/assets/images/help/overview/sign-in-pattern.png)
 
 {% ifversion fpt or ghec %}
 Mesmo que você seja um integrante de uma organização que usa o logon único SAML, você ainda vai efetuar o login na sua própria conta pessoal em {% data variables.product.prodname_dotcom_the_website %}, e essa conta pessoal será vinculada à sua identidade no provedor de identidade da sua organização (IdP). Para obter mais informações, consulte "[Sobre a autenticação com o logon único SAML](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" na documentação de {% data variables.product.prodname_ghe_cloud %}{% else %}"{% endif %}

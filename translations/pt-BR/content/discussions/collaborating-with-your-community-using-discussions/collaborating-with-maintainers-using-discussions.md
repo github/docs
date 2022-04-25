@@ -15,7 +15,7 @@ versions:
 
 {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.about-announcement-format %}
 
-Repository administrators and project maintainers can delete a discussion in that repository. Similarly, administrators and maintainers of the source repository for an organization's discussions can delete a discussion in that organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
+Os administradores de repositório e mantenedores de projeto podem excluir uma discussão nesse repositório. Da mesma forma, os administradores e os mantenedores do repositório de origem das discussões de uma organização podem excluir uma discussão nessa organização. Para obter mais informações, consulte "[Gerenciando discussões](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)".
 
 {% data reusables.discussions.github-recognizes-members %} Estes membros aparecem em uma lista dos colaboradores mais úteis para as discussões do projeto. À medida que o seu projeto cresce, você pode conceder mais permissões de acesso aos integrantes ativos da sua comunidade. Para obter mais informações, consulte "[Conceder permissões mais elevadas aos melhores contribuidores](/discussions/guides/granting-higher-permissions-to-top-contributors)"
 
@@ -25,21 +25,21 @@ Para obter mais informações sobre a participação em discussões, consulte "[
 
 ## Pré-requisitos
 
-To collaborate with maintainers in repository discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. Para obter mais informações, consulte "[Habilitando ou desabilitando {% data variables.product.prodname_discussions %} para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
+Para colaborar com mantenedores em discussões de repositório, um administrador ou mantenedor do projeto deve habilitar {% data variables.product.prodname_discussions %} para o repositório. Para obter mais informações, consulte "[Habilitando ou desabilitando {% data variables.product.prodname_discussions %} para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
 
-To collaborate with maintainers in organization discussions, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+Para colaborar com os mantenedores em discussões na organização, o {% data variables.product.prodname_discussions %} deve estar habilitado para a organização. Para obter mais informações, consulte "[Habilitando ou desabilitando {% data variables.product.prodname_discussions %} para uma organização](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
 
 ## Iniciar uma discussão
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Starting a poll
+## Iniciando uma enquete
 
 {% data reusables.discussions.starting-a-poll %}
 
 ## Filtrar a lista de discussões
 
-You can search for discussions and filter the list of discussions in a repository or organization. Para obter mais informações, consulte "[Pesquisar discussões](/search-github/searching-on-github/searching-discussions)".
+É possível pesquisar discussões e filtrar a lista de discussões em um repositório ou organização. Para obter mais informações, consulte "[Pesquisar discussões](/search-github/searching-on-github/searching-discussions)".
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
@@ -48,7 +48,7 @@ You can search for discussions and filter the list of discussions in a repositor
 
 ## Converter um problema em uma discussão
 
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+{% data reusables.discussions.you-can-convert-an-issue %} Para obter mais informações, consulte "[Moderando discussões](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)".
 
 ## Leia mais
 
