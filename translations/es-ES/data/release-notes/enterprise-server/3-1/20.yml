@@ -8,7 +8,7 @@ sections:
     - 'Elasticsearch indices could be duplicated during a package upgrade, due to an `elasticsearch-upgrade` service running multiple times in parallel.'
     - 'The `maint_host_low` job queues were not processed, resulting in some maintenance tasks failing to run.'
     - 'When converting a user account to an organization, if the user account was an owner of the {% data variables.product.prodname_ghe_server %} enterprise account, the converted organization would incorrectly appear in the enterprise owner list.'
-    - 'Creating an impersonation OAuth token using the Enterprise Administration REST API resulted in an error when an integration matching the OAuth Application ID already existed.'
+    - 'El crear un token de OAuth de personificación utilizando la API de REST de administración de empresas dio como resultado un error cuando una integración que coincidió con la ID de aplicación de OAuth ya existía.'
   changes:
     - 'When attempting to cache a value larger than the maximum allowed in Memcached, an error was raised however the key was not reported.'
   known_issues:

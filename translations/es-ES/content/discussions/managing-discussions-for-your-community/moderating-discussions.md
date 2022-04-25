@@ -29,7 +29,7 @@ Es adecuado bloquear una conversación cuando ésta no sea constructiva o viole 
 
 ## Convertir una propuesta en un debate
 
-Cuando conviertes una propuesta en un debate, ésta se creará automáticamente utilizando el contenido de la propuesta. Las personas con acceso de escritura a un repositorio o repositorio origen para debates de organización pueden convertir las propuestas por lotes con base en las etiquetas. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
+Cuando conviertes una propuesta en un debate, ésta se creará automáticamente utilizando el contenido de la propuesta. Las personas con acceso de escritura a un repositorio o repositorio origen para debates de organización pueden convertir las propuestas por lotes con base en las etiquetas. Para obtener más información, consulta la sección "[Administrar los debates](/discussions/managing-discussions-for-your-community/managing-discussions)".
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.repositories.sidebar-issues %}

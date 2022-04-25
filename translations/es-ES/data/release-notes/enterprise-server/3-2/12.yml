@@ -9,7 +9,7 @@ sections:
     - 'When converting a user account to an organization, if the user account was an owner of the {% data variables.product.prodname_ghe_server %} enterprise account, the converted organization would incorrectly appear in the enterprise owner list.'
     - 'Creating an impersonation OAuth token using the Enterprise Administration REST API worked incorrectly when an integration matching the OAuth Application ID already existed.'
   changes:
-    - 'Configuration errors that halt a config apply run are now output to the terminal in addition to the configuration log.'
+    - 'Los errores de configuración que detienen una ejecución de aplicación de configuraciones ahora son el producto de la terminal adicionalmente a la bitácora de configuración.'
     - 'When attempting to cache a value larger than the maximum allowed in Memcached, an error was raised however the key was not reported.'
     - 'The {% data variables.product.prodname_codeql %} starter workflow no longer errors even if the default token permissions for {% data variables.product.prodname_actions %} are not used.'
     - 'If {% data variables.product.prodname_GH_advanced_security %} features are enabled on your instance, the performance of background jobs has improved when processing batches for repository contributions.'
