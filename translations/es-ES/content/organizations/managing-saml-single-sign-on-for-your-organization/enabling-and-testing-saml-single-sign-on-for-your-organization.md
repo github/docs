@@ -59,3 +59,4 @@ Haz clic en **Save ** (guardar). ![Botón para guardar la configuración de SAML
 ## Leer más
 
 - "[Acerca de la administración de identidad y el acceso con el inicio de sesión único de SAML](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"

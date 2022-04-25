@@ -46,7 +46,9 @@ Organizationへのアクセスにメンバーが初めてSAML SSOを使うとき
 
 {% data reusables.saml.saml-supported-idps %}
 
-一部の IdPは、SCIM を介した {% data variables.product.prodname_dotcom %} Organization へのプロビジョニングアクセスをサポートしています。 {% data reusables.scim.enterprise-account-scim %} 詳しい情報については、「[SCIM について](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim) 」を参照してください。
+一部の IdPは、SCIM を介した {% data variables.product.prodname_dotcom %} Organization へのプロビジョニングアクセスをサポートしています。 For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+
+{% data reusables.scim.enterprise-account-scim %}
 
 ## SAML SSO で Organization にメンバーを追加する
 
@@ -54,7 +56,7 @@ SAML SSO を有効化後、Organization に新しいメンバーを追加する�
 
 新しいユーザを、Organization のオーナーから招待せずにプロビジョニングするには、`https://github.com/orgs/ORGANIZATION/sso/sign_up` の URL の _ORGANIZATION_ をあなたの Organization 名に置き換えてアクセスします。 たとえば、あなたの IdP にアクセスできる人なら誰でも、IdP のダッシュボードにあるリンクをクリックして、あなたの {% data variables.product.prodname_dotcom %} Organization に参加できるよう、IdP を設定できます。
 
-IdP が SCIM をサポートしている場合、{% data variables.product.prodname_dotcom %} は、IdP でアクセス権限が付与されたとき Organization に参加するよう自動的にメンバーを招待できます。 SAML IdP での メンバーの {% data variables.product.prodname_dotcom %} Organization へのアクセス権限を削除すると、そのメンバーは {% data variables.product.prodname_dotcom %} Organization から自動的に削除されます。 詳しい情報については「[SCIMについて](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)」を参照してください。
+IdP が SCIM をサポートしている場合、{% data variables.product.prodname_dotcom %} は、IdP でアクセス権限が付与されたとき Organization に参加するよう自動的にメンバーを招待できます。 SAML IdP での メンバーの {% data variables.product.prodname_dotcom %} Organization へのアクセス権限を削除すると、そのメンバーは {% data variables.product.prodname_dotcom %} Organization から自動的に削除されます。 For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
 {% data reusables.organizations.team-synchronization %}
 
@@ -62,5 +64,6 @@ IdP が SCIM をサポートしている場合、{% data variables.product.prodn
 
 ## 参考リンク
 
+- "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)"
 - [2要素認証とSAMLシングルサインオンについて](/articles/about-two-factor-authentication-and-saml-single-sign-on)
 - [SAML シングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)

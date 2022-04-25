@@ -318,6 +318,8 @@ The footnote will render like this:
 
 **Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
 
+Footnotes are not supported in wikis.
+
 {% endtip %}
 {% endif %}
 

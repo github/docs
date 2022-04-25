@@ -1,12 +1,10 @@
 ---
 title: Changing the visibility of your organization's dependency insights
 intro: You can allow all organization members to view dependency insights for your organization or limit viewing to organization owners.
-product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

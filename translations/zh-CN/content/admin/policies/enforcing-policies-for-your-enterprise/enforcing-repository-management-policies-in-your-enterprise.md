@@ -100,9 +100,7 @@ shortTitle: 仓库管理策略
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}
 {% else %}
-6. 在“Repository creation（仓库创建）”下，使用下拉菜单并选择策略。
-
-  ![包含仓库创建策略的下拉菜单](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
+6. 在“Repository creation（仓库创建）”下，使用下拉菜单并选择策略。 ![包含仓库创建策略的下拉菜单](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
 
 ## 实施有关复刻私有或内部仓库的策略
@@ -113,16 +111,7 @@ shortTitle: 仓库管理策略
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. 在“Repository forking”（仓库复刻）下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. 在“Repository forking（仓库复刻）”下，使用下拉菜单并选择策略。
-
-  ![带有仓库复刻策略选项的下拉菜单](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
-
-{% if innersource-fork-policies %}
-5. 如果启用了复刻，则可以指定允许用户复刻存储库的位置。 查看有关更改设置的信息并选择策略。
-
-    ![显示存储库复刻策略选项列表的屏幕截图](/assets/images/help/business-accounts/repository-forking-policy-settings.png)
-{% endif %}
-
+4. 在“Repository forking（仓库复刻）”下，使用下拉菜单并选择策略。 ![带有仓库复刻策略选项的下拉菜单](/assets/images/help/business-accounts/repository-forking-policy-drop-down.png)
 
 ## 执行邀请{% ifversion ghec %} 外部{% endif %} 协作者参与仓库的策略
 
@@ -133,7 +122,6 @@ shortTitle: 仓库管理策略
 {% data reusables.enterprise-accounts.repositories-tab %}
 3. 在“仓库 {% ifversion ghec %}外部协作者{% elsif ghes or ghae %}邀请{% endif %}”下，请查看有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 4. 在“仓库 {% ifversion ghec %}外部协作者{% elsif ghes or ghae %}邀请{% endif %}”下，使用下拉菜单并选择策略。
-
   {% ifversion ghec %}
   ![带有外部协作者邀请策略选项的下拉菜单](/assets/images/help/business-accounts/repository-invitation-policy-drop-down.png)
   {% elsif ghes or ghae %}
@@ -185,9 +173,7 @@ shortTitle: 仓库管理策略
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 3. 在 **Repository policies（仓库策略）**选项卡中的“Repository issue deletion（仓库议题删除）”下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-4. 在“Repository issue deletion（仓库议题删除）”下，使用下拉菜单并选择策略。
-
-  ![带有议题删除策略选项的下拉菜单](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
+4. 在“Repository issue deletion（仓库议题删除）”下，使用下拉菜单并选择策略。 ![带有议题删除策略选项的下拉菜单](/assets/images/help/business-accounts/repository-issue-deletion-policy-drop-down.png)
 
 {% ifversion ghes or ghae %}
 

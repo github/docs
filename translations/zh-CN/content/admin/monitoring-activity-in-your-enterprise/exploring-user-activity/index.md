@@ -1,6 +1,6 @@
 ---
-title: Exploring user activity in your enterprise
-intro: 'You can view user and system activity by leveraging dashboards, webhooks and log forwarding.'
+title: 探索企业中的用户活动
+intro: 您可以利用仪表板、web 挂钩和日志转发来查看用户和系统活动。
 versions:
   ghec: '*'
   ghes: '*'
@@ -12,6 +12,6 @@ children:
   - /viewing-push-logs
   - /log-forwarding
   - /managing-global-webhooks
-shortTitle: Explore user activity
+shortTitle: 探索用户活动
 ---
 

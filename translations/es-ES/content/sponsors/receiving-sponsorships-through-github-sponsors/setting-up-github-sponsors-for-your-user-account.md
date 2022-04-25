@@ -12,7 +12,7 @@ type: how_to
 topics:
   - User account
   - Sponsors profile
-shortTitle: Set up for personal account
+shortTitle: Registrarte para tu cuenta personal
 ---
 
 ## Unirte a {% data variables.product.prodname_sponsors %}

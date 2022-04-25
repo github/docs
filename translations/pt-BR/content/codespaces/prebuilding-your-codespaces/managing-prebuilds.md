@@ -16,17 +16,17 @@ miniTocMaxHeadingLevel: 3
 
 ## Verificando, alterando e excluindo suas configurações de pré-compilação
 
-The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_codespaces %} service.
+As pré-compilações que você configurar para um repositórios são criadas e atualizadas usando um fluxo de trabalho de {% data variables.product.prodname_actions %}, gerenciado pelo serviço de {% data variables.product.prodname_codespaces %}.
 
-Depending on the settings in a prebuild configuration, the workflow to update the prebuild template may be triggered by these events:
+Dependendo das configurações em uma configuração de pré-criação, o fluxo de trabalho para atualizar o modelo de pré-criação poderá ser acionado por esses eventos:
 
 * Criando ou atualizando a configuração de pré-compilação
 * Enviando por push um commit ou um pull request para um branch configurado para pré-compilações
-* Changing any of the dev container configuration files
-* A schedule that you've defined in the prebuild configuration
+* Alterando qualquer um dos arquivos de configuração de contêiner de desenvolvimento
+* Um agendamento que você definiu na configuração de pré-criação
 * Acionando manualmente o fluxo de trabalho
 
-The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild template. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
+As configurações na configuração de pré-criação determinam quais eventos acionaram automaticamente uma atualização do modelo de pré-criação. Para obter mais informações, consulte "[Configurando pré-criações](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
 
 As pessoas com acesso de administrador a um repositório podem verificar o progresso de pré-compilações, editar e excluir configurações de pré-criação.
 

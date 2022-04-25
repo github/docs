@@ -66,7 +66,7 @@ The recommended formats explicitly define which versions are used for all direct
 | Package manager | Languages | Recommended formats | All supported formats |
 | --- | --- | --- | ---|
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
-| `dotnet` CLI | .NET languages (C#, C++, F#, VB)  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
+| NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 {%- if github-actions-in-dependency-graph %}
 | {% data variables.product.prodname_actions %} workflows<sup>[1]</sup> | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
