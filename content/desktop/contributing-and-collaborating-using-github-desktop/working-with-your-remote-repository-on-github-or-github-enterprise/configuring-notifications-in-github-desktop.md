@@ -20,7 +20,7 @@ When changes are made to a pull request branch you will receive a notification i
 
 ![pull request checks failed notification](/assets/images/help/desktop/pull-request-checks-failed-notification.png)
 
-Clicking the notification will display a dialog with details about the checks. Once you've reviewed why the checks have failed you can re-run the checks, or quickly switch to the pull request branch to get started on fixing the errors. For more information, see "[Viewing and re-running checks](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+Clicking the notification will display a dialog with details about the checks. Once you've reviewed why the checks have failed you can re-run the checks, or quickly switch to the pull request branch to get started on fixing the errors. For more information, see "[Viewing and re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
 
 ![checks failed dialog](/assets/images/help/desktop/checks-failed-dialog.png)
 ## Pull request review notifications
@@ -40,7 +40,7 @@ If system notifications are disabled for {% data variables.product.prodname_desk
 
 1. Click the **Apple menu**, then select **System Preferences**.
 2. Select **Notifications & Focus**.
-3. Select {% data variables.product.prodname_desktop %} from the list of applications.
+3. Select **{% data variables.product.prodname_desktop %}** from the list of applications.
 4. Click **Allow Notifications**.
 
 ![macOS Notifications & Focus](/assets/images/help/desktop/mac-enable-notifications.png)
@@ -53,7 +53,7 @@ For more information about macOS system notifications, see "[Use notifications o
 
 1. Open the **Start** menu, then select **Settings**.
 2. Select **System**, then click **Notifications**.
-3. Find {% data variables.product.prodname_desktop %} in the application list and click **On**.
+3. Find **{% data variables.product.prodname_desktop %}** in the application list and click **On**.
 
 ![Enable Windows Notifications](/assets/images/help/desktop/windows-enable-notifications.png)
 
