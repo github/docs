@@ -4,7 +4,7 @@ intro: You can use API previews to try out new features and provide feedback bef
 redirect_from:
   - /v3/previews
 versions:
-  ghes: '*'
+  ghes: '<3.4'
   ghae: '*'
 topics:
   - API
@@ -51,15 +51,6 @@ Get a [list of events](/rest/reference/issues#timeline) for an issue or pull req
 
 {% endif %}
 
-{% ifversion ghes %}
-## Pre-receive environments
-
-Create, list, update, and delete environments for pre-receive hooks.
-
-**Custom media type:** `eye-scream-preview`
-**Announced:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## Projects
 
@@ -97,7 +88,7 @@ View all [codes of conduct](/rest/reference/codes-of-conduct) or get which code 
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## Global webhooks
 

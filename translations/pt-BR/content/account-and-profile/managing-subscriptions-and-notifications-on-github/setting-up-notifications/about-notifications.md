@@ -44,7 +44,7 @@ Em geral, você é automaticamente inscrito em conversas por padrão quando voc�
 - Alteração do estado de uma thread, como por exemplo, fechando um problema ou mesclando uma pull request.
 - Uma @menção a uma equipe da qual você é integrante
 
-By default, you also automatically watch all repositories that you create and are owned by your personal account.
+Por padrão, você também observa automaticamente todos os repositórios que você cria e que são pertencentes à sua conta pessoal.
 
 Para cancelar a inscrição de conversas que você se inscreveu automaticamente, você pode alterar suas configurações de notificação ou cancelar diretamente a inscrição ou desmarcar a atividade em {% data variables.product.product_location %}. Para obter mais informações, consulte "[Gerenciando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 

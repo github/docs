@@ -58,7 +58,7 @@ Parabéns! Você criou com êxito seu primeiro repositório e o inicializou com 
 {% data reusables.cli.cli-learn-more %}
 
 1. Na linha de comando, acesse o diretório onde você gostaria de criar um clone local do seu novo projeto.
-2. Para criar um repositório para o seu projeto, use o subcomando `gh repo create`. Quando solicitado, selecione **Criar um novo repositório no GitHub a do zero** e digite o nome do seu novo projeto. If you want your project to belong to an organization instead of to your personal account, specify the organization name and project name with `organization-name/project-name`.
+2. Para criar um repositório para o seu projeto, use o subcomando `gh repo create`. Quando solicitado, selecione **Criar um novo repositório no GitHub a do zero** e digite o nome do seu novo projeto. Se você quiser que o seu projeto pertença a uma organização em vez de sua conta pessoal, especifique o nome da organização e o nome do projeto com `organization-name/project-name`.
 3. Siga as instruções interativas. Para clonar o repositório localmente, marque sim quando perguntarem se você deseja clonar o diretório do projeto remoto.
 4. Como alternativa, para pular as instruções, forneça o nome do repositório e um sinalizador de visibilidade (`--public`, `--private`, ou `--interno`). Por exemplo, `gh repo create project-name --public`. Para clonar o repositório localmente, passe o sinalizador `--clone`.  Para obter mais informações sobre possíveis argumentos, consulte o [manual da CLI do GitHub](https://cli.github.com/manual/gh_repo_create).
 

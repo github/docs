@@ -37,6 +37,7 @@ shortTitle: 查看 Actions 使用情况
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## 查看企业帐户的 {% data variables.product.prodname_actions %} 使用情况
 
 企业所有者和帐单管理员可查看企业帐户的 {% data variables.product.prodname_actions %} 使用情况。
@@ -53,3 +54,4 @@ shortTitle: 查看 Actions 使用情况
 1. 在“{% data variables.product.prodname_actions %}”下，查看您的企业帐户中每个组织的数据传输使用详情。 ![分钟数使用详情](/assets/images/help/billing/actions-minutes-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+{% endif %}

@@ -26,7 +26,7 @@
 {%- endif %}
 | `commit_comment` | Contains activities related to updating or deleting commit comments.
 {%- ifversion ghes %}
-| `config_entry` |  Contains activities related to configuration settings. These events are only visible in the site admin audit log.
+| `config_entry` |  Contains activities related to configuration settings. Esses eventos só são visíveis no log de auditoria do administrador do site.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
 | `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" | `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization. | `dependabot_repository_access` | Contains activities related to which private repositories in an organization {% data variables.product.prodname_dependabot %} is allowed to access.

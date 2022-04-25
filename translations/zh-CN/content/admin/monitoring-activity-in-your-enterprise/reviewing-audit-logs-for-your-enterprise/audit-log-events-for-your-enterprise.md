@@ -1,7 +1,7 @@
 ---
-title: Audit log events for your enterprise
-intro: Learn about audit log events recorded for your enterprise.
-shortTitle: Audit log events
+title: 企业的审核日志事件
+intro: 了解为企业记录的审核日志事件。
+shortTitle: 审核日志事件
 permissions: 'Enterprise owners {% ifversion ghes %}and site administrators {% endif %}can interact with the audit log.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
@@ -25,79 +25,79 @@ topics:
 {%- ifversion fpt or ghec %}
 ### `account` 类操作
 
-| 操作                                    | 描述                                                                                                                                                                                                                                                 |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `account.billing_plan_change`         | An organization's billing cycle changed. 更多信息请参阅“[更改计费周期的持续时间](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)”。                                                                                       |
-| `account.plan_change`                 | An organization's subscription changed. For more information, see "[About billing for GitHub accounts](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)."                                                      |
-| `account.pending_plan_change`         | An organization owner or billing manager canceled or downgraded a paid subscription. 更多信息请参阅“[升级或降低对结算过程有何影响？](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)”                    |
-| `account.pending_subscription_change` | A {% data variables.product.prodname_marketplace %} free trial started or expired. For more information, see "[About billing for GitHub Marketplace](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)." |
+| 操作                                    | 描述                                                                                                                                                                                                |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `account.billing_plan_change`         | 组织的结算周期已更改。 更多信息请参阅“[更改计费周期的持续时间](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)”。                                                                   |
+| `account.plan_change`                 | 组织的订阅已更改。 更多信息请参阅“[关于 GitHub 帐户的计费](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)”。                                                                        |
+| `account.pending_plan_change`         | 组织所有者或帐单管理员取消或降级了付费订阅。 更多信息请参阅“[升级或降低对结算过程有何影响？](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)”                                 |
+| `account.pending_subscription_change` | {% data variables.product.prodname_marketplace %} 免费试用版已开始或已过期。 更多信息请参阅“[关于 GitHub Marketplace 的计费](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)”。 |
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
 ### `advisory_credit` 类操作
 
-| 操作                        | 描述                                                                                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `advisory_credit.accept`  | Someone accepted credit for a security advisory. 更多信息请参阅“[编辑安全通告](/github/managing-security-vulnerabilities/editing-a-security-advisory)”。 |
-| `advisory_credit.create`  | The administrator of a security advisory added someone to the credit section.                                                              |
-| `advisory_credit.decline` | Someone declined credit for a security advisory.                                                                                           |
-| `advisory_credit.destroy` | The administrator of a security advisory removed someone from the credit section.                                                          |
+| 操作                        | 描述                                                                                                      |
+| ------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `advisory_credit.accept`  | 有人接受了安全通告的信用。 更多信息请参阅“[编辑安全通告](/github/managing-security-vulnerabilities/editing-a-security-advisory)”。 |
+| `advisory_credit.create`  | 安全通告的管理员将某人添加到信用部分。                                                                                     |
+| `advisory_credit.decline` | 有人拒绝了安全通告的信用。                                                                                           |
+| `advisory_credit.destroy` | The administrator of a security advisory removed someone from the credit section.                       |
 {%- endif %}
 
-### `artifact` category actions
+### `artifact` 类操作
 
-| 操作                 | 描述                                            |
-| ------------------ | --------------------------------------------- |
-| `artifact.destroy` | A workflow run artifact was manually deleted. |
+| 操作                 | 描述             |
+| ------------------ | -------------- |
+| `artifact.destroy` | 工作流程运行构件已手动删除。 |
 
 {%- ifversion ghec %}
-### `audit_log_streaming` category actions
+### `audit_log_streaming` 类操作
 
-| 操作                            | 描述                                                                                                                  |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `audit_log_streaming.check`   | A manual check was performed of the endpoint configured for audit log streaming.                                    |
-| `audit_log_streaming.create`  | An endpoint was added for audit log streaming.                                                                      |
-| `audit_log_streaming.update`  | An endpoint configuration was updated for audit log streaming, such as the stream was paused, enabled, or disabled. |
-| `audit_log_streaming.destroy` | An audit log streaming endpoint was deleted.                                                                        |
+| 操作                            | 描述                           |
+| ----------------------------- | ---------------------------- |
+| `audit_log_streaming.check`   | 已对为审核日志流配置的端点执行手动检查。         |
+| `audit_log_streaming.create`  | 为审核日志流式处理添加了一个端点。            |
+| `audit_log_streaming.update`  | 已针对审核日志流更新端点配置，例如流已暂停、启用或禁用。 |
+| `audit_log_streaming.destroy` | 已删除审核日志流式处理端点。               |
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
 ### `billing` 类操作
 
-| 操作                            | 描述                                                                                                                                                                                             |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `billing.change_billing_type` | An organization changed how it paid for {% data variables.product.prodname_dotcom %}. 更多信息请参阅“[添加或编辑付款方式](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)”。 |
-| `billing.change_email`        | An organization's billing email address changed. 更多信息请参阅“[设置帐单邮箱](/billing/managing-your-github-billing-settings/setting-your-billing-email)”。                                                 |
+| 操作                            | 描述                                                                                                                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `billing.change_billing_type` | 组织改变了它支付 {% data variables.product.prodname_dotcom %} 的方式。 更多信息请参阅“[添加或编辑付款方式](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)”。 |
+| `billing.change_email`        | 组织的帐单电子邮件地址已更改。 更多信息请参阅“[设置帐单邮箱](/billing/managing-your-github-billing-settings/setting-your-billing-email)”。                                                       |
 {%- endif %}
 
 ### `business` 类操作
 
-| 操作                   | 描述                                                                                                   |
-| -------------------- | ---------------------------------------------------------------------------------------------------- |
-| `business.add_admin` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} was added to an enterprise. |
+| 操作                   | 描述                                                  |
+| -------------------- | --------------------------------------------------- |
+| `business.add_admin` | 企业所有者{% ifversion ghes %} 或站点管理员{% endif %} 已添加到企业。 |
 {%- ifversion ghec %}
-| `business.add_billing_manager` | A billing manager was added to an enterprise.
+| `business.add_billing_manager` | 向企业添加了帐单管理员。
 {%- endif %}
-| `business.add_organization` | An organization was added to an enterprise.
+| `business.add_organization` | 向企业添加了组织。
 {%- ifversion ghec %}
-| `business.add_support_entitlee` | A support entitlement was added to a member of an enterprise. 更多信息请参阅“[管理企业的支持权利](/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)”。
+| `business.add_support_entitlee` | 向企业成员添加了支持权利。 更多信息请参阅“[管理企业的支持权利](/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)”。
 {%- endif %}
 {%- ifversion ghes > 3.0 or ghae %}
-| `business.advanced_security_policy_update` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} created, updated, or removed a policy for {% data variables.product.prodname_GH_advanced_security %}. 更多信息请参阅“[在企业中执行 {% data variables.product.prodname_advanced_security %} 的策略](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)”。
+| `business.advanced_security_policy_update` |企业所有者{% ifversion ghes %} 或站点管理员{% endif %} 创建、更新或删除了 {% data variables.product.prodname_GH_advanced_security %} 的策略。 更多信息请参阅“[在企业中执行 {% data variables.product.prodname_advanced_security %} 的策略](/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise)”。
 {%- endif %}
 {%- ifversion ghec %}
-| `business.cancel_admin_invitation` | An invitation for someone to be an owner{% ifversion ghes %} or site administrator{% endif %} of an enterprise was canceled. | `business.cancel_billing_manager_invitation` | An invitation for someone to be an billing manager of an enterprise was canceled.
+| `business.cancel_admin_invitation` | 取消邀请某人成为企业所有者{% ifversion ghes %} 或站点管理员{% endif %}。 | `business.cancel_billing_manager_invitation` | 取消邀请某人担任企业的帐单管理员。
 {%- endif %}
 {%- ifversion ghes %}
-| `business.clear_actions_settings` | An enterprise owner or site administrator cleared {% data variables.product.prodname_actions %} policy settings for an enterprise. For more information, see "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
+| `business.clear_actions_settings` | 企业所有者或站点管理员清除了企业的 {% data variables.product.prodname_actions %} 策略设置。 更多信息请参阅“[在企业中实施 GitHub Actions 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)”。
 {%- endif %}
-| `business.clear_default_repository_permission` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the base repository permission policy setting for an enterprise. For more information, see "[Enforcing a policy for base repository permissions](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)." | `business.clear_members_can_create_repos`      | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared a restriction on repository creation in organizations in the enterprise. 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。 | `business.create`                              | An enterprise was created.
+| `business.clear_default_repository_permission` | 企业所有者{% ifversion ghes %} 或站点管理员{% endif %} 清除了企业的基本存储库权限策略设置。 更多信息请参阅“[实施基本存储库权限的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)”。 | `business.clear_members_can_create_repos`      |企业所有者{% ifversion ghes %} 或站点管理员{% endif %} 清除了对企业中组织中存储库创建的限制。 更多信息请参阅“[在企业中实施仓库管理策略](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation)”。 | `business.create`                              | 企业已创建。
 {%- ifversion ghec %}
-| `business.disable_saml` | SAML single sign-on was disabled for an enterprise.
+| `business.disable_saml` | 已对企业禁用 SAML 单点登录。
 {%- endif %}
-| `business.disable_two_factor_requirement` | The requirement for members to have two-factor authentication enabled to access an enterprise was disabled.
+| `business.disable_two_factor_requirement` | 已禁用对成员启用双重身份验证以访问企业的要求。
 {%- ifversion ghec %}
-| `business.enable_saml` | SAML single sign-on was enabled for an enterprise.
+| `business.enable_saml` | 已为企业启用 SAML 单点登录。
 {%- endif %}
 | `business.enable_two_factor_requirement` | The requirement for members to have two-factor authentication enabled to access an enterprise was enabled.
 {%- ifversion ghec %}
@@ -126,9 +126,9 @@ topics:
 | `business.set_fork_pr_workflows_policy` | The policy for workflows on private repository forks was changed. For more information, see "{% ifversion ghec %}[Enforcing policies for {% data variables.product.prodname_actions %} in an enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[Enabling workflows for private repository forks](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enforcing-github-actions-policies-for-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}."
 {%- endif %}
 {%- ifversion ghes %}
-| `business.update_actions_settings` | An enterprise owner or site administrator updated {% data variables.product.prodname_actions %} policy settings for an enterprise. For more information, see "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
+| `business.update_actions_settings` | An enterprise owner or site administrator updated {% data variables.product.prodname_actions %} policy settings for an enterprise. 更多信息请参阅“[在企业中实施 GitHub Actions 的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)”。
 {%- endif %}
-| `business.update_default_repository_permission` | The base repository permission setting was updated for all organizations in an enterprise. For more information, see "[Enforcing a policy for base repository permissions](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)." | `business.update_member_repository_creation_permission` | The repository creation setting was updated for an enterprise. For more information, see "[Enforcing a policy for repository creation](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)." | `business.update_member_repository_invitation_permission` | The policy setting for enterprise members inviting outside collaborators to repositories was updated. For more information, see "[Enforcing a policy for inviting outside collaborators to repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)."
+| `business.update_default_repository_permission` | The base repository permission setting was updated for all organizations in an enterprise. 更多信息请参阅“[实施基本存储库权限的策略](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions)”。 | `business.update_member_repository_creation_permission` | The repository creation setting was updated for an enterprise. For more information, see "[Enforcing a policy for repository creation](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)." | `business.update_member_repository_invitation_permission` | The policy setting for enterprise members inviting outside collaborators to repositories was updated. For more information, see "[Enforcing a policy for inviting outside collaborators to repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories)."
 {%- ifversion ghec %}
 | `business.update_saml_provider_settings` | The SAML single sign-on provider settings for an enterprise were updated.
 {%- endif %}
@@ -370,6 +370,7 @@ topics:
 | `gist.destroy`           | A gist is deleted.                   |
 | `gist.visibility_change` | The visibility of a gist is changed. |
 
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6724 %}
 ### `git` 类操作
 
 | 操作          | 描述                                      |
@@ -377,6 +378,7 @@ topics:
 | `git.clone` | A repository was cloned.                |
 | `git.fetch` | Changes were fetched from a repository. |
 | `git.push`  | Changes were pushed to a repository.    |
+{% endif %}
 
 ### `hook` 类操作
 
@@ -856,21 +858,21 @@ topics:
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 ### `pull_request` 类操作
 
-| 操作                                   | 描述                                                                                                                                                                                                                                                                                             |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pull_request.close`                 | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."                                                                        |
-| `pull_request.converted_to_draft`    | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)."             |
-| `pull_request.create`                | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."                                                                                  |
-| `pull_request.create_review_request` | A review was requested on a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."                                                                             |
-| `pull_request.in_progress`           | A pull request was marked as in progress.                                                                                                                                                                                                                                                      |
-| `pull_request.indirect_merge`        | A pull request was considered merged because the pull request's commits were merged into the target branch.                                                                                                                                                                                    |
-| `pull_request.merge`                 | A pull request was merged. 更多信息请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。                                                                                                                                |
-| `pull_request.ready_for_review`      | A pull request was marked as ready for review. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)." |
-| `pull_request.remove_review_request` | A review request was removed from a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."                                                                     |
-| `pull_request.reopen`                | A pull request was reopened after previously being closed.                                                                                                                                                                                                                                     |
-| `pull_request_review.delete`         | A review on a pull request was deleted.                                                                                                                                                                                                                                                        |
-| `pull_request_review.dismiss`        | A review on a pull request was dismissed. 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。                                                                                                            |
-| `pull_request_review.submit`         | A review was submitted for a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."                                                                            |
+| 操作                                   | 描述                                                                                                                                                                                                                                                                                 |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pull_request.close`                 | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."                                                            |
+| `pull_request.converted_to_draft`    | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)." |
+| `pull_request.create`                | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."                                                                      |
+| `pull_request.create_review_request` | A review was requested on a pull request. 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。                                                                                                      |
+| `pull_request.in_progress`           | A pull request was marked as in progress.                                                                                                                                                                                                                                          |
+| `pull_request.indirect_merge`        | A pull request was considered merged because the pull request's commits were merged into the target branch.                                                                                                                                                                        |
+| `pull_request.merge`                 | A pull request was merged. 更多信息请参阅“[合并拉取请求](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)”。                                                                                                                    |
+| `pull_request.ready_for_review`      | A pull request was marked as ready for review. 更多信息请参阅“[更改拉取请求的阶段](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)”。                                   |
+| `pull_request.remove_review_request` | A review request was removed from a pull request. 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。                                                                                              |
+| `pull_request.reopen`                | A pull request was reopened after previously being closed.                                                                                                                                                                                                                         |
+| `pull_request_review.delete`         | A review on a pull request was deleted.                                                                                                                                                                                                                                            |
+| `pull_request_review.dismiss`        | A review on a pull request was dismissed. 更多信息请参阅“[忽略拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)”。                                                                                                |
+| `pull_request_review.submit`         | A review was submitted for a pull request. 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。                                                                                                     |
 
 ### `pull_request_review` 类操作
 
@@ -882,11 +884,11 @@ topics:
 
 ### `pull_request_review_comment` 类操作
 
-| 操作                                   | 描述                                                                                                                                                                                                                     |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pull_request_review_comment.create` | A review comment was added to a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review_comment.delete` | A review comment on a pull request was deleted.                                                                                                                                                                        |
-| `pull_request_review_comment.update` | A review comment on a pull request was changed.                                                                                                                                                                        |
+| 操作                                   | 描述                                                                                                                                                                                |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pull_request_review_comment.create` | A review comment was added to a pull request. 更多信息请参阅“[关于拉取请求审查](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)”。 |
+| `pull_request_review_comment.delete` | A review comment on a pull request was deleted.                                                                                                                                   |
+| `pull_request_review_comment.update` | A review comment on a pull request was changed.                                                                                                                                   |
 {%- endif %}
 
 ### `repo` 类操作
