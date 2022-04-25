@@ -157,6 +157,34 @@ jobs:
 ```
 {% endraw %}
 
+{% if actions-inherit-secrets-reusable-workflows %}
+
+#### `on.workflow_call.secrets.inherit`
+
+Use the `inherit` keyword to pass all secrets the calling workflow has access to, to the called workflow. This includes all organization, repository and environment secrets. The keyword can be used to pass secrets across organizations within the same enterprise. If there are duplicate names between the repository and organization, the repository secret will be used.
+
+#### Example
+
+{% raw %}
+
+```yaml
+on:
+  workflow_call:
+    secrets: inherit
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Pass all org and repo secrets to the called workflow
+        uses: ./.github/workflows/called-workflow.yml
+```
+
+{% endraw %}
+
+{%endif%}
+
 #### `on.workflow_call.secrets.<secret_id>`
 
 A string identifier to associate with the secret.
