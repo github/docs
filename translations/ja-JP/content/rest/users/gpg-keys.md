@@ -1,5 +1,5 @@
 ---
-title: GPG Keys
+title: GPGキー
 intro: ''
 versions:
   fpt: '*'

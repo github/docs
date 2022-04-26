@@ -1,7 +1,7 @@
 ---
 title: 关于工作流程
 shortTitle: 关于工作流程
-intro: 'Get a high level overview {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.'
+intro: '获取 {% data variables.product.prodname_actions %} 工作流程的高级概述，包括触发器、语法和高级功能。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,15 +20,15 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.about-workflows-long %}
 
-## Workflow basics
+## 工作流程基础知识
 
-A workflow must contain the following basic components:
+工作流程必须包含以下基本组件：
 
-1. One or more _events_ that will trigger the workflow.
-1. One or more _jobs_, each of which will execute on a _runner_ machine and run a series of one or more _steps_.
-1. Each step can either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.
+1. 将触发工作流程的一个或多个_事件_。
+1. 一个或多个_作业_，每个作业将在_运行器_计算机上执行，并运行一系列一个或多个_步骤_。
+1. 每个步骤都可以运行您定义的脚本，也可以运行操作，这是一个可重用的扩展，可以简化您的工作流程。
 
-For more information these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
 
 ![工作流程概述](/assets/images/help/images/overview-actions-simple.png)
 
@@ -36,32 +36,32 @@ For more information these basic components, see "[Understanding GitHub Actions]
 
 {% data reusables.actions.about-triggers %}
 
-For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)", and for a full list of events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+更多信息请参阅“[触发工作流程](/actions/using-workflows/triggering-a-workflow)”，有关事件的完整列表，请参阅“[触发工作流程的事件](/actions/using-workflows/events-that-trigger-workflows)”。
 
 ## 工作流程语法
 
-Workflow are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
+工作流程是使用 YAML 定义的。 有关用于创建工作流程的 YAML 语法的完整参考，请参阅“[GitHub Actions 的工作流程语法](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)”。
 
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-For more on managing workflow runs, such as re-running, cancelling, or deleting a workflow run, see "[Managing workflow runs](/actions/managing-workflow-runs)."
+有关管理工作流程运行（如重新运行、取消或删除工作流程运行）的详细信息，请参阅“[管理工作流程运行](/actions/managing-workflow-runs)”。
 
 ## 使用入门工作流程
 
 {% data reusables.actions.workflow-template-overview %}
 
-For more information on using and creating starter workflows, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)" and "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+有关使用和创建入门工作流程的详细信息，请参阅“[使用入门工作流程](/actions/using-workflows/using-starter-workflows)”和“[为组织创建入门工作流程](/actions/using-workflows/creating-starter-workflows-for-your-organization)”。
 
 ## 高级工作流程功能
 
-This section briefly describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
+本节简介了 {% data variables.product.prodname_actions %} 的一些高级功能，可帮助您创建更复杂的工作流程。
 
 ### 存储密码
 
-如果您的工作流程使用敏感数据，例如密码或证书， 您可以将这些信息在 {% data variables.product.prodname_dotcom %} 中保存为 _机密_，然后在工作流中将它们用作环境变量。 This means that you will be able to create and share workflows without having to embed sensitive values directly in the workflow's YAML source.
+如果您的工作流程使用敏感数据，例如密码或证书， 您可以将这些信息在 {% data variables.product.prodname_dotcom %} 中保存为 _机密_，然后在工作流中将它们用作环境变量。 这意味着您将能够创建和共享工作流程，而无需直接在工作流程的 YAML 源中嵌入敏感值。
 
-This example job demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
+此示例作业演示如何将现有机密引用为环境变量，并将其作为参数发送到示例命令。
 
 {% raw %}
 ```yaml
@@ -81,7 +81,7 @@ jobs:
 
 ### 创建依赖的作业
 
-默认情况下，工作流程中的作业同时并行运行。 If you have a job that must only run after another job has completed, you can use the `needs` keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; however, if you need the jobs to continue, you can define this using the `if` conditional statement.
+默认情况下，工作流程中的作业同时并行运行。 如果您有一个作业必须在另一个作业完成后运行，可以使用 `needs` 关键字来创建此依赖项。 如果其中一个作业失败，则跳过所有从属作业；但如果您需要作业继续，可以使用条件语句 `if` 来定义。
 
 在此示例中，`setup`、`build` 和 `test` 作业连续运行，`build` 和 `test` 取决于其前面的作业成功完成：
 
@@ -107,7 +107,7 @@ jobs:
 
 ### 使用构建矩阵
 
-You can use a build matrix if you want your workflow to run tests across multiple combinations of parameters, such as operating systems, platforms, and languages. 构建矩阵是使用 `strategy` 关键字创建的，它接收构建选项作为数组。 例如，此构建矩阵将使用不同版本的 Node.js 多次运行作业：
+如果您希望工作流程跨参数（如操作系统、平台和语言）的多个组合运行测试，可以使用构建矩阵。 构建矩阵是使用 `strategy` 关键字创建的，它接收构建选项作为数组。 例如，此构建矩阵将使用不同版本的 Node.js 多次运行作业：
 
 ```yaml
 jobs:
@@ -173,7 +173,7 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using containerized services](/actions/using-containerized-services)."
+更多信息请参阅“[使用容器化服务](/actions/using-containerized-services)”。
 
 ### 使用标签路由工作流程
 
@@ -187,12 +187,12 @@ jobs:
     runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-工作流程只能在一个所有标签处于 `runs-on` 数组中的运行器上运行。 作业将优先转到具有指定标签的空闲自托管运行器。 {% ifversion fpt or ghec %}If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.{% endif %}
+工作流程只能在一个所有标签处于 `runs-on` 数组中的运行器上运行。 作业将优先转到具有指定标签的空闲自托管运行器。 {% ifversion fpt or ghec %}如果没有可用且具有指定标签的 {% data variables.product.prodname_dotcom %} 托管运行器存在，作业将转到 {% data variables.product.prodname_dotcom %} 托管的运行器。{% endif %}
 
-To learn more about self-hosted runner labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+要了解自托管运行器标签的更多信息，请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)”。
 
 {% ifversion fpt or ghec %}
-To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+要详细了解 {% data variables.product.prodname_dotcom %} 托管的运行器标签，请参阅[“支持的运行器和硬件资源”](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)。
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
@@ -202,4 +202,4 @@ To learn more about {% data variables.product.prodname_dotcom %}-hosted runner l
 
 ### 使用环境
 
-You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 更多信息请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。
+您可以使用保护规则和机密配置环境，以控制工作流程中作业的执行。 工作流程中的每个作业都可以引用单个环境。 在将引用环境的作业发送到运行器之前，必须通过为环境配置的任何保护规则。 更多信息请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。

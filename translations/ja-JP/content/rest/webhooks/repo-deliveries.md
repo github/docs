@@ -1,5 +1,5 @@
 ---
-title: Repository Webhook Deliveries
+title: リポジトリwebhookのデリバリ
 intro: ''
 versions:
   fpt: '*'
