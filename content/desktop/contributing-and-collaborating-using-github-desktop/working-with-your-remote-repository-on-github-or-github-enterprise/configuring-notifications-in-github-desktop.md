@@ -38,7 +38,7 @@ If system notifications are disabled for {% data variables.product.prodname_desk
 
 {% mac %}
 
-1. Click the **Apple menu**, then select **System Preferences**.
+1. Click the **Apple** menu, then select **System Preferences**.
 2. Select **Notifications & Focus**.
 3. Select **{% data variables.product.prodname_desktop %}** from the list of applications.
 4. Click **Allow Notifications**.
