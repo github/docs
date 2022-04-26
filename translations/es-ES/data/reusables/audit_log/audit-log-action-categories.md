@@ -15,7 +15,7 @@
 | `business`  | Contains activities related to business settings for an enterprise.
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
-| `business`  | Contains activities related to business settings for an enterprise.
+| `business`  | Contiene actividades relacionadas con los ajustes de negocio para una empresa.
 {%- endif %}
 {%- if secret-scanning-audit-log-custom-patterns %}
 | `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an enterprise.
@@ -26,7 +26,7 @@
 {%- endif %}
 | `commit_comment` | Contains activities related to updating or deleting commit comments.
 {%- ifversion ghes %}
-| `config_entry` |  Contains activities related to configuration settings. These events are only visible in the site admin audit log.
+| `config_entry` |  Contains activities related to configuration settings. Estos eventos solo se pueden ver en la bitácora de auditoría del administrador de sitio.
 {%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
 | `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)". | `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization. | `dependabot_repository_access` | Contains activities related to which private repositories in an organization {% data variables.product.prodname_dependabot %} is allowed to access.
@@ -65,7 +65,7 @@
 | `members_can_delete_repos` | Contains activities related to enabling or disabling repository creation for an organization.
 {%- endif %}
 {%- ifversion fpt or ghec %}
-| `members_can_view_dependency_insights` | Contains organization-level configuration activities allowing organization members to view dependency insights. | `migration` | Contains activities related to transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.
+| `members_can_view_dependency_insights` | Contains organization-level configuration activities allowing organization members to view dependency insights. | `migration` | Contiene actividades relacionadas con transferir datos desde una ubicación *origen* (Tal como una organización de {% data variables.product.prodname_dotcom_the_website %} o una instancia de {% data variables.product.prodname_ghe_server %}) a una instancia *destino* de {% data variables.product.prodname_ghe_server %}.
 {%- endif %}
 | `oauth_access` | Contains activities related to OAuth access tokens. | `oauth_application` | Contains activities related to OAuth Apps.
 {%- ifversion fpt or ghec %}
@@ -76,7 +76,7 @@
 | `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on.
 {%- endif %}
 {%- if secret-scanning-audit-log-custom-patterns %}
-| `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." | `org.secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in an organization. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an organization. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)". | `org.secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in an organization. Para obtener más información, consulta la sección "[Proteger las subidas de información con el escaneo de secretos](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
 {%- endif %}
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization.
 {%- ifversion fpt or ghec or ghes > 3.1 %}
@@ -111,7 +111,7 @@
 | `repository_secret_scanning`  | Contains repository-level activities related to secret scanning. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning).
 {%- endif %}
 {%- if secret-scanning-audit-log-custom-patterns %}
-| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." |{% endif %}{% if secret-scanning-audit-log-custom-patterns %}| | `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)". |{% endif %}{% if secret-scanning-audit-log-custom-patterns %}| | `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. Para obtener más información, consulta la sección "[Proteger las subidas de información con el escaneo de secretos](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.

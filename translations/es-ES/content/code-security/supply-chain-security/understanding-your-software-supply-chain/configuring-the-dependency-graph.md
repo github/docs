@@ -1,6 +1,6 @@
 ---
 title: Configuring the dependency graph
-intro: You can allow users to identify their projects' dependencies by enabling the dependency graph.
+intro: Puedes permitir que los usuarios identifiquen las dependencias de sus proyectos si habilitas la gráfica de dependencias.
 redirect_from:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph
 versions:

@@ -27,7 +27,7 @@ translations/es-ES/content/actions/hosting-your-own-runners/adding-self-hosted-r
 translations/es-ES/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,broken liquid tags
 translations/es-ES/content/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners.md,Listed in localization-support#489
 translations/es-ES/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,Listed in localization-support#489
-translations/es-ES/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,broken liquid tags
+translations/es-ES/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/es-ES/content/actions/index.md,Listed in localization-support#489
 translations/es-ES/content/actions/learn-github-actions/contexts.md,Listed in localization-support#489
 translations/es-ES/content/actions/learn-github-actions/environment-variables.md,Listed in localization-support#489
@@ -312,6 +312,7 @@ translations/es-ES/data/reusables/actions/contacting-support.md,broken liquid ta
 translations/es-ES/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
 translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,rendering error
+translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runners.md,rendering error
 translations/es-ES/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/edit-workflow.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/enabling-options.md,broken liquid tags
