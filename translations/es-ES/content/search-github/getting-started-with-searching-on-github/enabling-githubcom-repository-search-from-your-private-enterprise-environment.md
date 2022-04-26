@@ -16,15 +16,15 @@ topics:
   - GitHub search
 ---
 
-## About search for {% data variables.product.prodname_dotcom_the_website %} repositories from {% data variables.product.product_name %}
+## Acerca de la búsqueda de repositorios de {% data variables.product.prodname_dotcom_the_website %} desde {% data variables.product.product_name %}
 
-You can search for designated private repositories on {% data variables.product.prodname_ghe_cloud %} from {% data variables.product.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}. For more information about searching across environments, see "[About searching on GitHub](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)."
+Puedes buscar repositorios privados designados en {% data variables.product.prodname_ghe_cloud %} desde {% data variables.product.product_location %}{% ifversion ghae %} en {% data variables.product.prodname_ghe_managed %}{% endif %}. Para obtener más información sobre cómo buscar entre ambientes, consulta la sección "[Acerca de buscar en GitHub](/github/searching-for-information-on-github/getting-started-with-searching-on-github/about-searching-on-github#searching-repositories-on-githubcom-from-your-private-enterprise-environment)".
 
 ## Prerrequisitos
 
-An enterprise owner for {% data variables.product.product_name %} must enable {% data variables.product.prodname_github_connect %} and {% data variables.product.prodname_unified_search %} for private repositories. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_unified_search %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)".
+Un propietario de empresa de {% data variables.product.product_name %} debe habilitar {% data variables.product.prodname_github_connect %} y la {% data variables.product.prodname_unified_search %} para los repositorios privados. Para obtener más información, consulta la sección "[Habilitar la {% data variables.product.prodname_unified_search %} en tu empresa](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)".
 
-## Enabling {% data variables.product.prodname_dotcom_the_website %} repository search from {% data variables.product.product_name %}
+## Habilitar la búsqueda de repositorios de {% data variables.product.prodname_dotcom_the_website %} desde {% data variables.product.product_name %}
 
 1. Inicia sesión en {% data variables.product.product_name %} y en {% data variables.product.prodname_dotcom_the_website %}.
 1. En {% data variables.product.product_name %}, en la esquina superior derecha de cualquier página, haz clic en tu foto de perfil y luego haz clic en **Ajustes**. ![Icono Settings (Parámetros) en la barra de usuario](/assets/images/help/settings/userbar-account-settings.png)

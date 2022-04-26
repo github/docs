@@ -235,7 +235,7 @@ Com a digitalização de código, você pode encontrar vulnerabilidades e erros 
 
 Quando a digitalização de código identifica um problema em um pull request, você poderá revisar o código destacado e resolver o alerta. Para obter mais informações, consulte "[Triar alertas de {% data variables.product.prodname_code_scanning %} em pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)".
 
-Se você tiver permissão de gravação em um repositório, você poderá gerenciar alertas de digitalização de código para esse repositório. Com permissão de gravação em um repositório, você pode visualizar, corrigir, ignorar ou excluir alertas de potenciais vulnerabilidades ou erros no código do seu repositório. Para obter mais informações, consulte "[Gerenciar alertas de varredura de código para seu repositório](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository). "
+Se você tiver permissão de gravação em um repositório, você poderá gerenciar alertas de digitalização de código para esse repositório. With write permission to a repository, {% if delete-code-scanning-alerts %}you can view, fix, dismiss, or delete alerts {% else %}you can view, fix, or dismiss alerts{% endif %} for potential vulnerabilities or errors in your repository's code. Para obter mais informações, consulte "[Gerenciar alertas de varredura de código para seu repositório](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository). "
 
 #### Gerar relatórios de alertas de {% data variables.product.prodname_code_scanning %}
 

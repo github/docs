@@ -1,5 +1,5 @@
 ---
-title: Outside Collaborators
+title: 外部のコラボレータ
 intro: ''
 versions:
   fpt: '*'

@@ -1,7 +1,7 @@
 ---
 title: About authentication for your enterprise
 shortTitle: Acerca de la autenticación
-intro: 'You {% ifversion ghae %}must configure SAML single sign-on (SSO) so people can{% else %}can choose how people{% endif %} authenticate to access {% ifversion ghec %}your enterprise''s resources on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}.'
+intro: 'Debes {% ifversion ghae %}configurar el inicio de sesión único (SSO) de SAML para que las personas puedan{% else %}puedes elegir cómo las personas pueden{% endif %} autenticarse para acceder a {% ifversion ghec %}los recursos de tu empresa en {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}tu empresa de {% data variables.product.product_name %}{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -56,7 +56,7 @@ The following authentication methods are available for {% data variables.product
 
 ### Built-in authentication
 
-{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} To access your instance, people authenticate with the credentials for the account. For more information, see "[Configuring built-in authentication](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)."
+{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} To access your instance, people authenticate with the credentials for the account. Para obtener más información, consulta la sección "[Configurar la autenticación incorporada](/admin/identity-and-access-management/using-built-in-authentication/configuring-built-in-authentication)".
 
 ### External authentication
 

@@ -14,7 +14,7 @@ shortTitle: Organization discussions
 
 {% data reusables.discussions.about-organization-discussions %}
 
-You can also manage repository discussions. For more information, see "[Enabling or disabling GitHub Discussions for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)" and "[Managing discussion creation for repositories in your organization](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."
+You can also manage repository discussions. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los debates de GitHub para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)" y "[Administrar la creación de debates para los repositorios en tu organización](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
 
 ## Enabling or disabling {% data variables.product.prodname_discussions %} for your organization
 

@@ -1,5 +1,5 @@
 ---
-title: Review Requests
+title: レビューリクエスト
 intro: ''
 versions:
   fpt: '*'

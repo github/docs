@@ -124,7 +124,7 @@ topics:
 
 - SSH 公钥身份验证提供使用 Git 的仓库访问权限和管理 shell 的访问权限。 更多信息请参阅“[关于 SSH](/authentication/connecting-to-github-with-ssh/about-ssh)”和“[访问管理 shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)“。
 - 使用 HTTP cookie 的用户名和密码身份验证提供 Web 应用程序访问和会话管理权限，可选择双重身份验证 (2FA)。 更多信息请参阅“[使用内置身份验证](/admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication)”。
-- 使用 LDAP 服务、SAML 身份提供程序 (IdP) 或其他兼容服务的外部 LDAP、SAML 或 CAS 身份验证提供对 Web 应用程序的访问权限。 For more information, see "[Managing IAM for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise)."
+- 使用 LDAP 服务、SAML 身份提供程序 (IdP) 或其他兼容服务的外部 LDAP、SAML 或 CAS 身份验证提供对 Web 应用程序的访问权限。 更多信息请参阅“[管理企业的 IAM](/admin/identity-and-access-management/managing-iam-for-your-enterprise)”。
 - OAuth 和个人访问令牌为外部客户端和服务提供对 Git 仓库数据和 API 的访问权限。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
 ### 审核和访问日志记录

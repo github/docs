@@ -23,5 +23,5 @@ versions:
 ## 延伸阅读
 
 - [官方 Git 术语表](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
-- [Git 参考](http://gitref.org/)
-- [Git SCM](https://git-scm.com/doc)
+- [Git documentation](https://git-scm.com/doc)
+- [Git command list](https://git-scm.com/docs)

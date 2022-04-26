@@ -1,6 +1,6 @@
 ---
-title: User Secrets
-intro: 'The User Secrets API allows a user to create, list, and delete secrets (such as access tokens for cloud services) as well as assign secrets to repositories that the user has access to.'
+title: ユーザシークレット
+intro: User Secrets APIを使うと、ユーザは自分がアクセスできるリポジトリのためのシークレット（クラウドサービスのためのアクセストークンなど）の作成、リスト、削除とともに、シークレットの割り当てができます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,6 +10,6 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## User Secrets
+## ユーザシークレット
 
-The User Secrets API allows a user to create, list, and delete secrets (such as access tokens for cloud services) as well as assign secrets to repositories that the user has access to. These secrets are made available to the codespace at runtime. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+User Secrets APIを使うと、ユーザは自分がアクセスできるリポジトリのためのシークレット（クラウドサービスのためのアクセストークンなど）の作成、リスト、削除とともに、シークレットの割り当てができます。 これらのシークレットは、実行時にcodespaceで利用できるようになります。 詳しい情報については「[codespaceのための暗号化されたシークレットの管理](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)」を参照してください。

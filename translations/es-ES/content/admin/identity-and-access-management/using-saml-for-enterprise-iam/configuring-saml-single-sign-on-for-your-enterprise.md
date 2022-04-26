@@ -1,7 +1,7 @@
 ---
 title: Configurar el inicio de sesión único de SAML para tu empresa
 shortTitle: Configurar el SSO de SAML
-intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.prodname_ghe_managed %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghes or ghae %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
+intro: 'Puedes controlar y asegurar el acceso a {% ifversion ghec %}los recursos como repositorios, propuestas y solicitudes de cambio dentro de las organizaciones de tu empresa{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}tu empresa en {% data variables.product.prodname_ghe_managed %}{% endif %} si {% ifversion ghec %}requieres{% elsif ghes or ghae %}configuras{% endif %} el inicio de sesión único (SSO) de SAML mediante tu proveedor de identidad (IdP).'
 permissions: '{% ifversion ghes %}Site administrators{% elsif ghec or ghae %}Enterprise owners{% endif %} can configure SAML SSO for {% ifversion ghec or ghae %}an enterprise on {% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.product_name %} instance{% endif %}.'
 versions:
   ghec: '*'
@@ -65,7 +65,7 @@ Después de autenticarse exitosamente en tu IdP, la sesión de SAML del usuario 
 
 ## Consideraciones sobre el nombre de usuario con SAML
 
-{% ifversion ghec %}If you use {% data variables.product.prodname_emus %}, {% endif %}{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% ifversion ghec %}Si utilizas {% data variables.product.prodname_emus %}, {% endif %}{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} Para obtener más información, consulta la sección "[Consideraciones de nombre de usuario para la autenticación externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
 
 ## Requerir el inicio de sesión único de SAML para las organizaciones en tu cuenta empresarial
 

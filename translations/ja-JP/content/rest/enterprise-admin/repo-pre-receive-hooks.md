@@ -1,6 +1,6 @@
 ---
-title: Repository Pre-receive Hooks
-intro: The Repository Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to a repository.
+title: リポジトリ pre-receive フック
+intro: Repository Pre-receive Hooks API を使用すると、リポジトリで使用可能な pre-receive フックの適用を表示および変更できます。
 versions:
   ghes: '*'
 topics:

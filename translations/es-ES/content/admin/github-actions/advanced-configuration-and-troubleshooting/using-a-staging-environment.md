@@ -1,6 +1,6 @@
 ---
 title: Utilizar un ambiente de montaje
-intro: 'Learn about using {% data variables.product.prodname_actions %} with {% data variables.product.prodname_ghe_server %} staging instances.'
+intro: 'Aprende sobre cómo utilizar las {% data variables.product.prodname_actions %} con las instancias de pruebas de {% data variables.product.prodname_ghe_server %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -11,34 +11,34 @@ topics:
   - Upgrades
 redirect_from:
   - /admin/github-actions/using-a-staging-environment
-shortTitle: Use staging environment
+shortTitle: Utilizar un ambiente de pruebas
 ---
 
-## About staging environments for {% data variables.product.product_name %}
+## Acerca de los ambientes de pruebas para {% data variables.product.product_name %}
 
 Puede ser útil tener un ambiente de montaje o de pruebas para {% data variables.product.product_location %}, para que así puedas probar las actualizaciones o características nuevas antes de implementarlas en tu ambiente productivo. Para obtener más información, consulta "[Configurar una instancia de preparación](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
-## Using a staging environment with {% data variables.product.prodname_actions %}
+## Utilizar un ambiente de pruebas con {% data variables.product.prodname_actions %}
 
-A common way to create the staging environment is to restore a backup of your production {% data variables.product.product_name %} instance to a new virtual machine in the staging environment. If you use a staging instance and plan to test {% data variables.product.prodname_actions %} functionality, you should review your storage configuration in the staging environment.
+Una forma común de crear un ambiente de pruebas es restablecer un respaldo de tu instancia productiva de {% data variables.product.product_name %} a una máquina virtual nueva en dicho ambiente de pruebas. Si utilizas una instancia de pruebas y planeas probar la funcionalidad de {% data variables.product.prodname_actions %}, deberías revisar tu configuración de almacenamiento en el ambiente de pruebas.
 
-After you restore a {% data variables.product.prodname_ghe_server %} backup to the staging instance, if you try to view logs or artifacts from existing {% data variables.product.prodname_actions %} workflow runs on your staging instance, you will see `404` errors, because this data will be missing from your staging storage location. To work around the `404` errors, you can copy data from production to use in your staging environment.
+Después de que restableces un respaldo de {% data variables.product.prodname_ghe_server %} en la instancia de pruebas, si intentas ver las bitácoras o artefactos de las ejecuciones de flujo de trabajo existentes de {% data variables.product.prodname_actions %} en tu instancia de pruebas, verás errores `404`, ya que estos datos no se encontrarán en tu ubicación de almacenamiento de pruebas. Para solucionar los errores `404`, puedes copiar los datos de producción para utilizarlos en tu ambiente de pruebas.
 
-### Configuring storage
+### Configurar el almacenamiento
 
-When you set up a staging environment that includes a {% data variables.product.product_name %} instance with {% data variables.product.prodname_actions %} enabled, you must use a different external storage configuration for {% data variables.product.prodname_actions %} storage than your production environment.
+Cuando configuras un ambiente de pruebas que incluye una instancia de {% data variables.product.product_name %} con {% data variables.product.prodname_actions %} habilitadas, debes utilizar una configuración de almacenamiento externo diferente para el de {% data variables.product.prodname_actions %} que aquél de tu ambiente productivo.
 
 {% warning %}
 
-**Warning**: If you don't change the storage configuration, your staging instance may be able to write to the same external storage that you use for production, which could result in loss of data.
+**Advertencia**: Si no cambias la configuración de almacenamiento, tu instancia de pruebas podría escribir en el mismo almacenamiento externo que utilizas para producción, lo cual podría hacerte perder datos.
 
 {% endwarning %}
 
-For more information about storage configuration for {% data variables.product.prodname_actions %}, see "[Getting started with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)."
+Para obtener más información sobre la configuración de almacenamiento de {% data variables.product.prodname_actions %}, consulta la sección "[Iniciar con {% data variables.product.prodname_actions %} para {% data variables.product.prodname_ghe_server %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#enabling-github-actions-with-your-storage-provider)".
 
-### Copying files from production to staging
+### Copiar los archivos de producción a pruebas
 
-To more accurately mirror your production environment, you can optionally copy files from your production storage location for {% data variables.product.prodname_actions %} to the staging storage location.
+Para duplicar tu ambiente productivo con mayor exactitud, opcionalmente, puedes copiar los archivos de tu ubicación de almacenamiento productivo para {% data variables.product.prodname_actions %} a aquella del almacenamiento de pruebas.
 
 * Para una cuenta de almacenamiento de Azure, puedes utilizar [`azcopy`](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs#copy-all-containers-directories-and-blobs-to-another-storage-account). Por ejemplo:
 
