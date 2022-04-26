@@ -1,5 +1,5 @@
 ---
-title: Codes of Conduct
+title: 行動規範
 intro: ''
 versions:
   fpt: '*'
