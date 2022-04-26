@@ -41,11 +41,11 @@ While some disagreements can be resolved with direct, respectful communication b
 
 * **Moderate Comments** - Users with [write-access privileges](/articles/repository-permission-levels-for-an-organization/) for a repository can [edit, delete, or hide anyone's comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments) on commits, pull requests, and issues. Cualquier persona con acceso de lectura a un repositorio puede ver el historial de edición del comentario. Comment authors and people with write access to a repository can also delete sensitive information from a [comment's edit history](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment). El moderar tus proyectos puede sentirse como una tarea grande si hay mucha actividad, pero puedes [agregar colaboradores](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account) para que te ayuden a administrar tu comunidad.
 
-* **Lock Conversations**  - If a discussion in an issue, pull request, or commit gets out of hand, off topic, or violates your project’s code of conduct or GitHub’s policies, owners, collaborators, and anyone else with write access can put a temporary or permanent [lock](/articles/locking-conversations/) on the conversation.
+* **Bloquear conversaciones** - Si un debate en una propuesta, solicitud de cambios o confirmación se sale de control o de tema o viola el código de conducta de tu proyecto o las políticas de GitHub, los colaboradores y el resto de las personas con acceso de descritura pueden [bloquearlo](/articles/locking-conversations/) temporal o permanentemente en la conversación.
 
 * **Block Users**  - If you encounter a specific user who you would rather not engage with, you can [block the user from your personal account](/articles/blocking-a-user-from-your-personal-account/) or [from your organization](/articles/blocking-a-user-from-your-organization/).
 
-* **Limit Interactions** - If your public project is getting unwanted attention, being trolled, spammed, or otherwise, you have the option of setting [temporary interaction limits](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository) to keep certain users from interacting with your repository. You can even set [code review limits](https://github.blog/2021-11-01-github-keeps-getting-better-for-open-source-maintainers/#preventing-drive-by-pull-request-approvals-and-requested-changes) to ensure quality contributions on your projects.
+* **Limitar las interacciones** - Si tu proyecto público está atrayendo a las personas equivocadas, lo están "troleando", llenando de spam o interfieren en él de otra forma, puedes configurar [límites de interacción temporales](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository) para impedir que usuarios específicos interactúen con tu repositorio. You can even set [code review limits](https://github.blog/2021-11-01-github-keeps-getting-better-for-open-source-maintainers/#preventing-drive-by-pull-request-approvals-and-requested-changes) to ensure quality contributions on your projects.
 
 
 While we are passionate about empowering maintainers to moderate their own projects, please reach out to us to {% data variables.contact.report_abuse %} if you need additional support in dealing with a situation.
@@ -71,7 +71,7 @@ Where we have decided that moderation action is warranted, these are some of the
 
 ## Apelación y reinstauración
 
-If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
+Si tu contenido o tu cuenta se inhabilitó o restringió y buscas una reinstauración o quieres apelar, consulta nuestra [Página de reinstauración y apelación](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) para obtener más información sobre el proceso y utiliza nuestro [Formato de reinstauración y apelación](https://support.github.com/contact/reinstatement) para emitir una solicitud.
 
 ## Avisos legales
 

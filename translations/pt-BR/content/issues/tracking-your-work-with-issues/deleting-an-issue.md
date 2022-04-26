@@ -15,7 +15,7 @@ topics:
   - Pull requests
 ---
 
-You can only delete issues in a repository owned by your personal account. You cannot delete issues in a repository owned by another personal account, even if you are a collaborator there.
+Você só pode excluir problemas em um repositório que pertença à sua conta pessoal. Não é possível excluir problemas em um repositório pertencente a outra conta pessoal, mesmo que você seja um colaborador nela.
 
 Para excluir um problema em um repositório que pertença a uma organização, o proprietário da organização deve permitir a exclusão de um problema dos repositórios da organização e você deve ter permissões de administrador ou de proprietário no repositório. Para obter mais informações, consulte "[Permitindo que pessoas excluam problemas na sua organização](/articles/allowing-people-to-delete-issues-in-your-organization)" e "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 

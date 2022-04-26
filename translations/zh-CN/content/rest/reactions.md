@@ -1,6 +1,6 @@
 ---
-title: Reactions
-intro: 'The Reactions API enables you to create, list and delete the reactions on comments.'
+title: 反应
+intro: 反应 API 使您能够创建、列出和删除评论中的反应。
 versions:
   fpt: '*'
   ghes: '*'

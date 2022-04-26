@@ -1,5 +1,5 @@
 ---
-title: Notifications
+title: Notificações
 intro: ''
 versions:
   fpt: '*'
@@ -11,24 +11,24 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Users receive notifications for conversations in repositories they watch including:
+Os usuários recebem notificações de conversas em repositórios que inspecionam, incluindo:
 
-* Issues and their comments
-* Pull Requests and their comments
-* Comments on any commits
+* Problemas e seus comentários
+* Pull Requests e seus comentários
+* Comentários em quaisquer commits
 
-Notifications are also sent for conversations in unwatched repositories when the user is involved including:
+As notificações também são enviadas para conversas em repositórios não inspecionados quando o usuário está envolvido, incluindo:
 
 * **@mentions**
-* Issue assignments
-* Commits the user authors or commits
-* Any discussion in which the user actively participates
+* Tarefas de problemas
+* Commits que o usuário cria ou faz commit
+* Qualquer discussão de que o usuário participa ativamente
 
-All Notification API calls require the `notifications` or `repo` API scopes.  Doing this will give read-only access to some issue and commit content. You will still need the `repo` scope to access issues and commits from their respective endpoints.
+Todas as chamadas de notificação da API requerem escopos da API para `notificações` ou `repositórios`.  Fazer isto dará acesso somente-leitura a algum problema e fará commit do conteúdo. Você ainda precisará do escopo de `repositório` para acessar problemas e commits de seus respectivos pontos de extremidade.
 
-Notifications come back as "threads".  A thread contains information about the current discussion of an issue, pull request, or commit.
+Notificações retornam como "correntes".  Uma corrente contém informações sobre a discussão atual de um problema, pull request ou commit.
 
-Notifications are optimized for polling with the `Last-Modified` header.  If there are no new notifications, you will see a `304 Not Modified` response, leaving your current rate limit untouched.  There is an `X-Poll-Interval` header that specifies how often (in seconds) you are allowed to poll.  In times of high server load, the time may increase.  Please obey the header.
+As notificações são otimizadas para sondagem com o cabeçalho `Last-Modified`.  Se não houver novas notificações, você verá uma resposta `304 Not Modified`, deixando a sua taxa de limite atual inalterada.  Há um cabeçalho `X-Poll-Interval` que especifica com que frequência (em segundos) que você pode fazer a sondagem.  Em tempos de alta carga do servidor, o tempo pode aumentar.  Obedeça o cabeçalho.
 
 ``` shell
 # Add authentication to your requests
@@ -44,27 +44,27 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### Notification reasons
+### Motivos de notificação
 
-When retrieving responses from the Notifications API, each payload has a key titled `reason`. These correspond to events that trigger a notification.
+Ao recuperar respostas da API de Notificações, cada carga tem uma carga denominada `drazão`. Estas correspondem a eventos que ativam uma notificação.
 
-Here's a list of potential `reason`s for receiving a notification:
+Aqui está uma lista da potencial `razão` para receber uma notificação:
 
-Reason Name | Description
-------------|------------
-`assign` | You were assigned to the issue.
-`author` | You created the thread.
-`comment` | You commented on the thread.
-`ci_activity` | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.
-`invitation` | You accepted an invitation to contribute to the repository.
-`manual` | You subscribed to the thread (via an issue or pull request).
-`mention` | You were specifically **@mentioned** in the content.
-`review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
-`security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
-`state_change` | You changed the thread state (for example, closing an issue or merging a pull request).
-`subscribed` | You're watching the repository.
-`team_mention` | You were on a team that was mentioned.
+| Nome da razão      | Descrição                                                                                                                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `assign`           | O problema foi atribuído a você.                                                                                                                                                                               |
+| `autor`            | Você criou a corrente.                                                                                                                                                                                         |
+| `comentário`       | Você comentou na corrente.                                                                                                                                                                                     |
+| `ci_activity`      | A execução de um fluxo de trabalho {% data variables.product.prodname_actions %} que você acionou foi concluída.                                                                                               |
+| `convite`          | Você aceitou um convite para contribuir com o repositório.                                                                                                                                                     |
+| `manual`           | Você assinou a corrente (por meio de um problema ou pull request).                                                                                                                                             |
+| `menção`           | Você foi especificamente **@mentioned** no conteúdo.                                                                                                                                                           |
+| `review_requested` | Foi solicitado que você ou uma equipe da qual você é integrante revise um pull request.{% ifversion fpt or ghec %}
+| `security_alert`   | O {% data variables.product.prodname_dotcom %} descobriu uma [vulnerabilidade de segurança](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) no seu repositório.{% endif %}
+| `state_change`     | Você alterou o estado da corrente (por exemplo, fechando um problema ou mesclando um pull request).                                                                                                            |
+| `assinado`         | Você está inspecionando o repositório.                                                                                                                                                                         |
+| `team_mention`     | Você estava em uma equipe que foi mencionada.                                                                                                                                                                  |
 
-Note that the `reason` is modified on a per-thread basis, and can change, if the `reason` on a later notification is different.
+Observe que a `razão` é modificada em uma base de corrente e pode mudar se a `razão` em uma notificação posterior for diferente.
 
-For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then  **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
+Por exemplo, se você é o autor de um problema, as notificações subsequentes sobre essa problema terão uma `razão` do `autor`. Portanto, se você for  **@mentioned** no mesmo problema, as notificações que você buscar subsequentemente terão uma `razão` a `mencionar`. A `razão` permanece como `menção`, independentemente se você já foi mencionado novamente.

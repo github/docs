@@ -1,5 +1,5 @@
 ---
-title: Emails
+title: Emails (Correos electrónicos)
 intro: ''
 versions:
   fpt: '*'
@@ -10,4 +10,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Management of email addresses via the API requires that you authenticate through basic auth, or through OAuth with a correct scope for the endpoint.
+Administrar las direcciones de correo electrónico a través de la API requiere que ingreses con la autenticación básica o con OAuth con un alcance correcto para la terminal.

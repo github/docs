@@ -135,7 +135,7 @@ Você pode desabilitar alguns dos selos para programas de {% data variables.prod
 
 {% data reusables.user-settings.access_settings %}
 2. Em "Configurações de perfil", desmarque o selo que você deseja desabilitar. ![Caixa de seleção para deixar de exibir um selo no seu perfil](/assets/images/help/profile/profile-badge-settings.png)
-3. Clique em **Update preferences** (Atualizar preferências).
+{% data reusables.user-settings.update-preferences %}
 
 {% endif %}
 

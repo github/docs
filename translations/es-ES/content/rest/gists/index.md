@@ -1,6 +1,6 @@
 ---
 title: Gists
-intro: 'The Gists API enables the authorized user to list, create, update and delete the public gists on {% data variables.product.product_name %}.'
+intro: 'La API de Gists habilita al usuario autorizado para listar, crear, actualizar y borrar los gists públicos en {% data variables.product.product_name %}.'
 redirect_from:
   - /v3/gists
   - /rest/reference/gists
@@ -16,3 +16,4 @@ children:
   - /gists
   - /comments
 ---
+

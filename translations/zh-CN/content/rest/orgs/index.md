@@ -1,6 +1,6 @@
 ---
-title: Organizations
-intro: 'The Organizations API gives you access to control and manage all your {% data variables.product.product_name %} organizations.'
+title: 组织
+intro: 'Organizations API 允许您控制和管理所有 {% data variables.product.product_name %} 组织。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
@@ -21,3 +21,4 @@ children:
   - /outside-collaborators
   - /webhooks
 ---
+

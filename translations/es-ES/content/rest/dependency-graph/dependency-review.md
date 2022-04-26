@@ -1,18 +1,18 @@
 ---
-title: Dependency Review
+title: Revisión de dependencias
 intro: 'The Dependency Review API allows you to understand dependency changes, and the security impact of these changes, before you add them to your environment.'
 versions:
   fpt: '*'
   ghes: '>=3.6'
   ghec: '*'
-  ghae: 'issue-6396'
+  ghae: issue-6396
 topics:
   - API
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## Dependency review
+## Revisión de dependencias
 
 {% data reusables.dependency-review.dependency-review-api-beta-note %}
 

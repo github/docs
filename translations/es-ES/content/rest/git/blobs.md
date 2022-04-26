@@ -1,6 +1,6 @@
 ---
 title: Blobs
-intro: 'A Git blob (binary large object) is the object type used to store the contents of each file in a repository.'
+intro: 'Un blob (objeto binario grande, por sus siglas en inglés) de Git es el tipo de objeto que se utiliza para almacenar el contenido de cada archivo en un repositorio.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,14 +11,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-The file's SHA-1 hash is computed and stored in the blob object. These endpoints allow you to read and write [blob objects](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects)
-to your Git database on {% data variables.product.product_name %}. Blobs leverage [these custom media types](#custom-media-types-for-blobs). You can read more about the use of media types in the API [here](/rest/overview/media-types).
+El hash SHA-1 del archivo se calcula y almacena en el objeto del blob. Estas terminales te permiten leer y escribir [objetos de blob](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects) en tu base de datos de Git en {% data variables.product.product_name %}. Los blobs aprovechan [estos tipos de medios personalizados](#custom-media-types-for-blobs). Puedes leer más acerca del uso de tipos de medios en la API [aquí](/rest/overview/media-types).
 
-### Custom media types for blobs
+### Tipos de medios personalizados para los blobs
 
-These are the supported media types for blobs.
+Estos son los tipos de medios compatibles para los blobs.
 
     application/json
     application/vnd.github.VERSION.raw
 
-For more information, see "[Media types](/rest/overview/media-types)."
+Para obtener más información, consulta la sección "[Tipos de medios](/rest/overview/media-types)".

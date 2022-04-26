@@ -1,6 +1,6 @@
 ---
-title: Watching
-intro: "Watching a repository registers the user to receive notifications on new discussions, as well as events in the user's activity feed."
+title: Inspecionando
+intro: 'Inspecionar um repositório registra o usuário para receber notificações de novas discussões, bem como eventos no feed de atividade do usuário.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For simple repository bookmarks, see "[Repository starring](/rest/reference/activity#starring)."
+Para favoritar um repositório de forma simples, consulte "[Marcar repositórios com uma estrela](/rest/reference/activity#starring)".

@@ -1,6 +1,6 @@
 ---
 title: Codespaces
-intro: 'The {% data variables.product.prodname_codespaces %} API enables you to manage your codespaces using the REST API.'
+intro: 'A API de {% data variables.product.prodname_codespaces %} permite que você gerencie seus codespaces usando a API REST.'
 product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
@@ -16,3 +16,4 @@ children:
 redirect_from:
   - /rest/reference/codespaces
 ---
+

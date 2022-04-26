@@ -57,6 +57,8 @@ Para usar a sintaxe de propriedade de desreferência, o nome da propriedade deve
 - começar com `a-Z` ou `_`;
 - ser seguido por `a-Z` `0-9` `-` ou `_`.
 
+Se você tentar desfazer uma propriedade inexistente, isso irá retornar uma string vazia.
+
 ### Determinar quando usar contextos
 
 {% data reusables.actions.using-context-or-environment-variables %}

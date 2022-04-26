@@ -1,5 +1,5 @@
 ---
-title: Comments
+title: 评论
 intro: ''
 versions:
   fpt: '*'
@@ -11,11 +11,11 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Custom media types for Gist comments
+### Gist 评论的自定义媒体类型
 
-These are the supported media types for gist comments.
+以下是 Gist 评论支持的媒体类型。
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.base64
 
-For more information about media types, see "[Custom media types](/rest/overview/media-types)."
+有关媒体类型的更多信息，请参阅“[自定义媒体类型](/rest/overview/media-types)”。

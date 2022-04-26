@@ -1,5 +1,5 @@
 ---
-title: Deployment Statuses
+title: 部署状态
 intro: ''
 versions:
   fpt: '*'
@@ -11,3 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+

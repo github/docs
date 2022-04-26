@@ -24,7 +24,7 @@ topics:
 
 {% ifversion ghec %}
 
-Your enterprise account on {% data variables.product.prodname_dotcom_the_website %} allows you to manage multiple organizations. Enterprise アカウントは、{% data variables.product.prodname_dotcom %} 上の Organization や個人アカウントのようにハンドルを持たなければなりません。
+Your enterprise account on {% data variables.product.prodname_dotcom_the_website %} allows you to manage multiple organizations. Your enterprise account must have a handle, like an organization or user account on {% data variables.product.prodname_dotcom %}.
 
 {% elsif ghes or ghae %}
 

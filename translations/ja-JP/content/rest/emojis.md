@@ -1,6 +1,6 @@
 ---
-title: Emojis
-intro: 'With the Emojis API, you can list and view all the available emojis to use in {% data variables.product.product_name %}.'
+title: 絵文字
+intro: 'Emojis APIを使用すると、{% data variables.product.product_name %}で利用できるすべての絵文字のリストと表示ができます。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,3 +12,4 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/emojis
 ---
+

@@ -95,6 +95,12 @@ Para obtener más información acerca de los requisitos mínimos de {% data vari
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
+{% ifversion ghes > 3.4 %}
+
+Optionally, you can limit resource consumption on {% data variables.product.product_location %} by configuring a rate limit for {% data variables.product.prodname_actions %}. Para obtener más información, consulta "[Configurar límites de tasa](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
+
+{% endif %}
+
 ## Requisitos de almacenamiento externo
 
 Para habilitar {% data variables.product.prodname_actions %} en {% data variables.product.prodname_ghe_server %}, debes tener acceso al almacenamiento externo de blobs.

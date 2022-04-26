@@ -1,5 +1,5 @@
 ---
-title: Commits
+title: 提交
 intro: 'A Git commit is a snapshot of the hierarchy ([Git tree](/rest/reference/git#trees)) and the contents of the files ([Git blob](/rest/reference/git#blobs)) in a Git repository.'
 versions:
   fpt: '*'

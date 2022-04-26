@@ -13,9 +13,11 @@ import readFileAsync from '../../lib/readfile-async.js'
 import getOperations from './utils/get-operations.js'
 import frontmatter from '../../lib/read-frontmatter.js'
 import _ from 'lodash'
+import { supported } from '../../lib/enterprise-server-releases.js'
 
-let LOWEST_SUPPORTED_GHES_VERSION = Number.MAX_VALUE
-let HIGHEST_SUPPORTED_GHES_VERSION = Number.MIN_VALUE
+const supportedVersions = supported.map(Number)
+const LOWEST_SUPPORTED_GHES_VERSION = Math.min(...supportedVersions)
+const HIGHEST_SUPPORTED_GHES_VERSION = Math.max(...supportedVersions)
 
 const dereferencedPath = path.join(process.cwd(), 'lib/rest/static/dereferenced')
 const contentPath = path.join(process.cwd(), 'content/rest')
@@ -45,7 +47,7 @@ export async function getDiffOpenAPIContentRest() {
   if (Object.keys(differences).length > 0) {
     for (const schemaName in differences) {
       errorMessages[schemaName] = {}
-      for (const category in differences[schemaName]) {
+      for (const category of differences[schemaName]) {
         if (!errorMessages[schemaName]) errorMessages[schemaName] = category
         errorMessages[schemaName][category] = {
           contentDir: contentCheck[schemaName][category],
@@ -62,11 +64,6 @@ async function addVersionKeys() {
     const schema = JSON.parse(await readFile(path.join(dereferencedPath, filename)))
     const key = filename.replace('.deref.json', '')
     contentCheck[key] = {}
-    if (key.startsWith('ghes')) {
-      const version = parseFloat(key.split('-')[1]).toFixed(1)
-      LOWEST_SUPPORTED_GHES_VERSION = Math.min(LOWEST_SUPPORTED_GHES_VERSION, version)
-      HIGHEST_SUPPORTED_GHES_VERSION = Math.max(HIGHEST_SUPPORTED_GHES_VERSION, version)
-    }
     dereferencedSchemas[key] = schema
   }
   // GitHub Enterprise Cloud is just github.com bc it is not in the OpenAPI schema yet. Once it is, this should be updated
@@ -178,7 +175,9 @@ function getSchemaName(version, versionValues) {
     if (versionValues === '*') versions.push('github.ae')
   } else if (version === 'ghes') {
     if (versionValues === '*') {
-      versions.push('ghes-3.1', 'ghes-3.2', 'ghes-3.3', 'ghes-3.4')
+      for (const numVer of supported) {
+        versions.push('ghes-' + numVer)
+      }
     } else {
       let ver = ''
       let includeVersion = false

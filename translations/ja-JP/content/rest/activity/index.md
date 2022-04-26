@@ -1,6 +1,6 @@
 ---
-title: Activity
-intro: 'The Activity API allows you to list events and feeds and manage notifications, starring, and watching for the authenticated user.'
+title: アクティビティ
+intro: Activity APIを使うと、イベントやフィードをリストし、通知、Star、認証されたユーザのWatchを管理できます。
 redirect_from:
   - /v3/activity
   - /rest/reference/activity
@@ -19,3 +19,4 @@ children:
   - /starring
   - /watching
 ---
+

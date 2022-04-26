@@ -1,6 +1,6 @@
 ---
-title: Teams
-intro: 'With the Teams API, you can create and manage teams in your {% data variables.product.product_name %} organization.'
+title: Team
+intro: 'Team APIを使うと、{% data variables.product.product_name %} Organization内のTeamの作成や管理ができます。'
 redirect_from:
   - /v3/teams
   - /rest/reference/teams
@@ -20,3 +20,4 @@ children:
   - /members
   - /team-sync
 ---
+
