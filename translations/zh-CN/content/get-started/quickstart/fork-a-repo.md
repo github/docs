@@ -22,11 +22,11 @@ topics:
 
 ## 关于复刻
 
-最常见的是，复刻用于对其他人的项目提出您没有写入权限的项目的更改，或者使用其他人的项目作为您自己想法的起点。 您可以复刻仓库以创建仓库的副本，并在不影响上游仓库的情况下进行更改。 更多信息请参阅“[使用复刻](/github/collaborating-with-issues-and-pull-requests/working-with-forks)”。
+Most commonly, forks are used to either propose changes to someone else's project to which you do not have write access, or to use someone else's project as a starting point for your own idea. 您可以复刻仓库以创建仓库的副本，并在不影响上游仓库的情况下进行更改。 更多信息请参阅“[使用复刻](/github/collaborating-with-issues-and-pull-requests/working-with-forks)”。
 
 ### 对其他人的项目提出更改
 
-例如，可以使用复刻提出与修复 Bug 相关的更改。 无需为您发现的漏洞创建议题，您可以：
+例如，可以使用复刻提出与修复 Bug 相关的更改。 Rather than logging an issue for a bug you have found, you can:
 
 - 复刻仓库
 - 进行修复
@@ -48,7 +48,7 @@ topics:
 
 ## 基本要求
 
-如果尚未[设置 Git](/articles/set-up-git)，您应该先设置它。 不要忘记[从 Git 设置向 {% data variables.product.product_location %} 验证](/articles/set-up-git#next-steps-authenticating-with-github-from-git)。
+If you have not yet, you should first [set up Git](/articles/set-up-git). 不要忘记[从 Git 设置向 {% data variables.product.product_location %} 验证](/articles/set-up-git#next-steps-authenticating-with-github-from-git)。
 
 ## 复刻仓库
 
@@ -84,7 +84,7 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 ## 克隆复刻的仓库
 
-现在，您有了 Spoon-Knife 仓库的复刻，但您的计算机本地还没有该仓库中的文件。
+Right now, you have a fork of the Spoon-Knife repository, but you do not have the files in that repository locally on your computer.
 
 {% webui %}
 
@@ -145,7 +145,7 @@ gh repo fork <em>repository</em> --clone=true
     - 要列出当前目录中的文件和文件夹，请键入 `ls`。
     - 要进入列出的某个目录，请键入 `cd your_listed_directory`。
     - 要回到上一个目录，请键入 `cd ..`。
-5. 键入 `git remote -v`，然后按 **Enter** 键。 您将看到当前为复刻配置的远程仓库。
+5. 键入 `git remote -v`，然后按 **Enter** 键。 You will see the current configured remote repository for your fork.
   ```shell
   $ git remote -v
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
@@ -157,7 +157,7 @@ gh repo fork <em>repository</em> --clone=true
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```
 
-7. 要验证为复刻指定的新上游仓库，请再次键入 `git remote -v`。 您应该看到复刻的 URL 为 `origin`，原始仓库的 URL 为 `upstream`。
+7. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. 您应该看到复刻的 URL 为 `origin`，原始仓库的 URL 为 `upstream`。
   ```shell
   $ git remote -v
   > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
@@ -188,7 +188,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 {% endcli %}
 
-### 后续步骤
+### Editing a fork
 
 您可以对复刻进行任何更改，包括：
 
@@ -202,12 +202,14 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 {% endif %}
 
-## 祝贺
+## 后续步骤
 
-您现在已经复刻了仓库、练习了克隆复刻并配置了上游仓库。 有关克隆复刻和从计算机同步复刻仓库更改的更多信息，请参阅“[设置 Git](/articles/set-up-git)”。
+您现在已经复刻了仓库、练习了克隆复刻并配置了上游仓库。
 
-您也可以创建一个新的仓库，以将所有项目放在 {% data variables.product.prodname_dotcom %} 上并共享代码。 更多信息请参阅“[创建仓库](/articles/create-a-repo)”。
+* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[Set up Git](/articles/set-up-git)."
 
-{% data variables.product.product_name %} 中的每个仓库均归个人或组织所有。 您可以在 {% data variables.product.product_name %} 上连接和关注人员、仓库和组织以与之进行交互。 更多信息请参阅“[社交](/articles/be-social)”。
+* 您也可以创建一个新的仓库，以将所有项目放在 {% data variables.product.prodname_dotcom %} 上并共享代码。 {% data reusables.getting-started.create-a-repository %}"
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data variables.product.product_name %} 中的每个仓库均归个人或组织所有。 You can interact with users, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. {% data reusables.getting-started.being-social %}
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

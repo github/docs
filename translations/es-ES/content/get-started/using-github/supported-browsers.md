@@ -6,7 +6,7 @@ redirect_from:
   - /articles/supported-browsers
   - /github/getting-started-with-github/supported-browsers
   - /github/getting-started-with-github/using-github/supported-browsers
-intro: 'For the best experience with {% data variables.product.product_name %}, we recommend using the latest version of [Chrome](https://google.com/chrome), [Edge](https://microsoft.com/windows/microsoft-edge), [Firefox](https://mozilla.org/firefox), or [Safari](https://apple.com/safari).'
+intro: 'Para obtener la mejor experiencia con {% data variables.product.product_name %}, te recomendamos utilizar la versión más reciente de [Chrome](https://google.com/chrome), [Edge](https://microsoft.com/windows/microsoft-edge), [Firefox](https://mozilla.org/firefox) o [Safari](https://apple.com/safari).'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,9 +14,9 @@ versions:
   ghec: '*'
 ---
 
-## About web browser support for {% data variables.product.product_name %}
+## Acerca del soporte del buscador web para {% data variables.product.product_name %}
 
-We design {% data variables.product.product_name %} with the latest web browsers in mind. Te recomendamos que utilices la última versión de uno de los siguientes buscadores.
+Diseñamos a {% data variables.product.product_name %} pensando el los buscadores web más recientes. Te recomendamos que utilices la última versión de uno de los siguientes buscadores.
 
  - [Apple Safari](https://apple.com/safari)
  - [Google Chrome](https://google.com/chrome)

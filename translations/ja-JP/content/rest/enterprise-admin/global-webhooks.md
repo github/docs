@@ -1,6 +1,6 @@
 ---
-title: Global Webhooks
-intro: Global Webhooks are installed on your enterprise. グローバル webhook を使用して、Engerprise のユーザ、Organization、Team、およびリポジトリのルールを自動的に監視、対応、強制することができます。
+title: グローバル webhook
+intro: グローバルwebhookはEnterpriseにインストールされます。 グローバル webhook を使用して、Engerprise のユーザ、Organization、Team、およびリポジトリのルールを自動的に監視、対応、強制することができます。
 versions:
   ghes: '*'
   ghae: '*'
