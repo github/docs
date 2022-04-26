@@ -18,7 +18,7 @@ versions:
   ![Pull Requests tab in the Current Branch drop-down menu](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png)
 {% data reusables.desktop.choose-pr-from-list %}
   ![List of open pull requests in the repository](/assets/images/help/desktop/click-pull-request.png)
-4. Click the check next to the pull request branch name
+4. Click on the pull request number, to the right of the pull request branch name.
   ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
 5. To re-run failed checks, click **Re-run** and select **Re-run Failed Checks**.
   ![Re-run failed checks](/assets/images/help/desktop/re-run-failed-checks.png)
