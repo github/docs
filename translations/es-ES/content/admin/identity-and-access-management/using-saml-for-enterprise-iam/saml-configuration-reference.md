@@ -1,7 +1,7 @@
 ---
 title: SAML configuration reference
 shortTitle: SAML reference
-intro: 'You can see SAML metadata for {% ifversion ghec %}your organization or enterprise on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}your enterprise on {% data variables.product.product_name %}{% endif %}, and you can learn more about available SAML attributes and response requirements.'
+intro: 'Puedes ver los metadatos de SAML para {% ifversion ghec %}tu organización o empresa en {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% elsif ghae %}tu empresa en {% data variables.product.product_name %}{% endif %} y puedes aprender más sobre los atributos disponibles de SAML y los requisitos de respuesta.'
 versions:
   ghec: '*'
   ghes: '*'

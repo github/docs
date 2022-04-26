@@ -27,11 +27,11 @@ topics:
 
 ## Utilizar GitHub
 
-Para usar Git en la línea de comando, deberás descargar, instalar y configurar Git en tu computadora. También puedes instalar el {% data variables.product.prodname_cli %} para utilizar {% data variables.product.prodname_dotcom %} desde la línea de comandos. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
+To use Git on the command line, you will need to download, install, and configure Git on your computer. También puedes instalar el {% data variables.product.prodname_cli %} para utilizar {% data variables.product.prodname_dotcom %} desde la línea de comandos. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
 
-Si deseas trabajar con Git de forma local, pero no deseas utilizar la línea de comando, puedes descargar e instalar en su lugar el cliente [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}).  Para obtener más información, consulta la sección "[Instalar y configurar {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
+If you want to work with Git locally, but do not want to use the command line, you can instead download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  Para obtener más información, consulta la sección "[Instalar y configurar {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
 
-Si no deseas trabajar con archivos de forma local, {% data variables.product.product_name %} te permite realizar muchas acciones relacionadas con Git de forma directa en el navegador, lo que incluye:
+If you do not need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
 
 - [Crear un repositorio](/articles/create-a-repo)
 - [Bifurcar un repositorio](/articles/fork-a-repo)
@@ -46,17 +46,17 @@ Si no deseas trabajar con archivos de forma local, {% data variables.product.pro
 
 **Nota**: Si estás utilizando un dispositivo con Chrome OS, necesitarás realizar configuraciones adicionales:
 
-1. Instala un emulador de terminal como Termux desde la Google Play Store en tu dispositivo Chrome OS.
-2. Instala Git desde el emulador de terminal que instalaste. Por ejemplo, ingresa `apt install git` en Termux y teclea `y` cuando se te indique.
+2. Instala un emulador de terminal como Termux desde la Google Play Store en tu dispositivo Chrome OS.
+3. Instala Git desde el emulador de terminal que instalaste. Por ejemplo, ingresa `apt install git` en Termux y teclea `y` cuando se te indique.
 
 {% endnote %}
 
 2. [Configura tu nombre de usuario en Git](/github/getting-started-with-github/setting-your-username-in-git).
 3. [Configura tu dirección de correo electrónico de confirmación en Git](/articles/setting-your-commit-email-address).
 
-## Pasos siguientes: Autenticación con {% data variables.product.prodname_dotcom %} desde Git
+## Authenticating with {% data variables.product.prodname_dotcom %} from Git
 
-Cuando te conectas a un repositorio {% data variables.product.prodname_dotcom %} desde Git, deberás autenticarte con {% data variables.product.product_name %} utilizando HTTPS o SSH.
+When you connect to a {% data variables.product.prodname_dotcom %} repository from Git, you will need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH.
 
 {% note %}
 
@@ -66,18 +66,21 @@ Cuando te conectas a un repositorio {% data variables.product.prodname_dotcom %}
 
 ### Conectar por HTTPS (recomendado)
 
-Si [clonas con HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), puedes [almacenar tus credenciales de {% data variables.product.prodname_dotcom %} en el caché dentro de Git](/github/getting-started-with-github/caching-your-github-credentials-in-git) utilizando un asistente de credenciales.
+If you clone with HTTPS, you can cache your {% data variables.product.prodname_dotcom %} credentials in Git using a credential helper. For more information, see "[Cloning with HTTPS urls](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)" and "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
 
 ### Conectar por SSH
 
-Si clonas [con SSH](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls), debes [generar las claves de SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) en cada computadora que utilices para subir o extraer desde {% data variables.product.product_name %}.
+If you clone with SSH, you must generate SSH keys on each computer you use to push or pull from {% data variables.product.product_name %}. For more information, see "[Cloning with SSH urls](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls)" and "[Generating a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
-## Celebrar
+## Pasos siguientes
 
-¡Felicitaciones, ahora tienes configurado todo Git y {% data variables.product.prodname_dotcom %}! Ahora puedes elegir crear un repositorio en donde puedas poner tus proyectos. Esta es una forma excelente de respaldar tu código y facilita compartirlo en todo el mundo. Para obtener más información, consulta "[Crear un repositorio](/articles/create-a-repo)".
+You now have Git and {% data variables.product.prodname_dotcom %} all set up. Ahora puedes elegir crear un repositorio en donde puedas poner tus proyectos. Saving your code in a repository allows you to back up your code and share it around the world.
 
-Puedes crear una copia de un repositorio si la bifurcas y propones los cambios que quieres ver si afectar al repositorio de nivel superior. Para obtener más información, consulta "[Bifurcar un repositorio](/articles/fork-a-repo)."
+* {% data reusables.getting-started.create-a-repository %}.
 
-Cada repositorio de {% data variables.product.prodname_dotcom %} le pertenece a una persona u organización. Puedes interactuar con las personas, repositorios y organizaciones conectándote y siguiéndolos en {% data variables.product.product_name %}. Para obtener más información, consulta la sección "[Sé sociable ](/articles/be-social)".
+* {% data reusables.getting-started.fork-a-repository %}
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.getting-started.being-social %}
+
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

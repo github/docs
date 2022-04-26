@@ -5,7 +5,7 @@ redirect_from:
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
-intro: '要将项目放在 {% data variables.product.prodname_dotcom %} 上，您需要创建一个仓库来存放它。'
+intro: 'To put your project up on {% data variables.product.prodname_dotcom %}, you will need to create a repository for it to live in.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-您可以在 {% data variables.product.prodname_dotcom %} 仓库中存储各种项目，包括开源项目。 通过[开源项目](http://opensource.org/about)，您可以共享代码以开发更好、更可靠的软件。 您可以使用仓库与他人协作并跟踪您的工作。 更多信息请参阅“[关于仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)”。
+您可以在 {% data variables.product.prodname_dotcom %} 仓库中存储各种项目，包括开源项目。 With open source projects, you can share code to make better, more reliable software. 您可以使用仓库与他人协作并跟踪您的工作。 更多信息请参阅“[关于仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)”。 To learn more about open source projects, visit [OpenSource.org](http://opensource.org/about).
 
 {% elsif ghes or ghae %}
 
@@ -78,7 +78,7 @@ A *[提交](/articles/github-glossary#commit)*就像是项目中所有文件在�
 2. 在文件内容的上方，单击 {% octicon "pencil" aria-label="The edit icon" %}。
 3. 在 **Edit file（编辑文件）**选项卡上，键入一些关于您自己的信息。 ![文件中的新内容](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}
-5. 查看您对文件所做的更改。 您会看到新内容以绿色显示。 ![文件预览视图](/assets/images/help/repository/create-commit-review.png)
+5. 查看您对文件所做的更改。 You will see the new content in green. ![文件预览视图](/assets/images/help/repository/create-commit-review.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
@@ -124,18 +124,18 @@ A *[提交](/articles/github-glossary#commit)*就像是项目中所有文件在�
 
 {% endcli %}
 
-## 祝贺
+## 后续步骤
 
-恭喜！ 您现在已经创建了一个仓库，其中包括*自述文件*，并在 {% data variables.product.product_location %} 上创建了您的第一个提交。
+您现在已经创建了一个仓库，其中包括*自述文件*，并在 {% data variables.product.product_location %} 上创建了您的第一个提交。
 
 {% webui %}
 
-您现在可以克隆 {% data variables.product.prodname_dotcom %} 仓库以在计算机上创建本地副本。 从您的本地仓库，您可以提交并创建拉取请求来更新上游仓库中的更改。 更多信息请参阅“[克隆仓库](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)”和“[设置 Git](/articles/set-up-git)”。
+* 您现在可以克隆 {% data variables.product.prodname_dotcom %} 仓库以在计算机上创建本地副本。 从您的本地仓库，您可以提交并创建拉取请求来更新上游仓库中的更改。 更多信息请参阅“[克隆仓库](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)”和“[设置 Git](/articles/set-up-git)”。
 
 {% endwebui %}
 
-您可以在 {% data variables.product.prodname_dotcom %} 上找到有趣的项目和仓库，并通过创建仓库的复刻来更改它们。 更多信息请参阅“[复刻仓库](/articles/fork-a-repo)”。
+* 您可以在 {% data variables.product.prodname_dotcom %} 上找到有趣的项目和仓库，并通过创建仓库的复刻来更改它们。 {% data reusables.getting-started.fork-a-repository %}
 
-{% data variables.product.prodname_dotcom %} 中的每个仓库均归个人或组织所有。 您可以在 {% data variables.product.prodname_dotcom %} 上连接和关注人员、仓库和组织以与之进行交互。 更多信息请参阅“[社交](/articles/be-social)”。
+* {% data reusables.getting-started.being-social %}
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

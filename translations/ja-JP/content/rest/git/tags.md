@@ -1,6 +1,6 @@
 ---
 title: タグ
-intro: 'A Git tag is similar to a [Git reference](/rest/reference/git#refs), but the Git commit that it points to never changes.'
+intro: 'Git タグは [Gitリファレンス](/rest/reference/git#refs)に似ていますが、変更されることがないところを指す Gitコミットです。'
 versions:
   fpt: '*'
   ghes: '*'
