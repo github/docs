@@ -39,8 +39,10 @@ Qualquer pessoa com a permissão de gravação em um repositório pode configura
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. Se você já tem um fluxo de trabalho no seu repositório, clique em **Novo fluxo de trabalho**.
-1. Localize o fluxo de trabalho inicial que deseja usar e, em seguida, clique em **Configurar este fluxo de trabalho**.{% if actions-starter-template-ui %} Para ajudá-lo a encontrar o fluxo de trabalho inicial que você quer, você pode procurar por palavras-chave ou filtrar por categoria.{% endif %}
-1. Se o fluxo de trabalho inicial contiver comentários que detalham as etapas de instalação adicionais, siga estas etapas. Muitos dos fluxos de trabalho iniciais têm guias correspondentes. Para obter mais informações, consulte [os guias de {% data variables.product.prodname_actions %}](/actions/guides).
+1. A página "{% if actions-starter-template-ui %}Escolher um fluxo de trabalho{% else %}Escolher o modelo de um fluxo de trabalho{% endif %} mostra uma seleção de fluxos de trabalhos iniciais recomendados. Localizar o fluxo de trabalho inicial que você deseja usar, em seguida, clique em {% if actions-starter-template-ui %}**Configurar**{% else %}**Configurar este fluxo de trabalho**{% endif %}.{% if actions-starter-template-ui %} Para ajudar você a encontrar o fluxo de trabalho inicial que deseja, você procurar por palavras-chave ou filtrar por categoria.{% endif %}
+
+   {% if actions-starter-template-ui %}![Configure this workflow](/assets/images/help/settings/actions-create-starter-workflow-updated-ui.png){% else %}![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png){% endif %}
+1. Se o fluxo de trabalho inicial contiver comentários que detalham as etapas de instalação adicionais, siga estas etapas. Muitos dos fluxos de trabalho iniciais têm guias correspondentes. Para obter mais informações, consulte os [ guias de {% data variables.product.prodname_actions %}](/actions/guides).
 1. Alguns fluxos de trabalho iniciais usam segredos. Por exemplo, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. Se o fluxo de trabalho inicial usar um segredo, armazene o valor descrito no nome do segredo como um segredo no repositório. Para obter mais informações, consulte "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 1. Opcionalmente, faça as alterações adicionais. Por exemplo, talvez você queira alterar o valor de `on` para mudar quando o fluxo de trabalho é executado.
 1. Clique em **Start commit** (Iniciar commit).

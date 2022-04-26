@@ -18,7 +18,7 @@ Você pode controlar o acesso à sua organização em {% data variables.product.
 
 {% data reusables.saml.ghec-only %}
 
-O SAML SSO controla e protege o acesso a recursos da organização, como repositórios, problemas e pull requests. O SCIM adiciona, gerencia e remove automaticamente o acesso dos integrantes à sua organização em {% data variables.product.product_location %} quando você fizer alterações no Okta. Para obter mais informações, consulte "[Sobre a identidade e gerenciamento de acesso com logon único SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" e "[Sobre SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+O SAML SSO controla e protege o acesso a recursos da organização, como repositórios, problemas e pull requests. O SCIM adiciona, gerencia e remove automaticamente o acesso dos integrantes à sua organização em {% data variables.product.product_location %} quando você fizer alterações no Okta. For more information, see "[About identity and access management with SAML single sign-on](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)" and "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
 Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponíveis para qualquer usuário ao qual você atribuir seu aplicativo do {% data variables.product.prodname_ghe_cloud %} no Okta.
 
@@ -38,6 +38,12 @@ Como alternativa, você pode configurar o SAML SSO para uma empresa usando o Okt
 1. Habilitar e testar o SAML SSO no {% data variables.product.prodname_dotcom %} usando a URL de logon, a URL do emissor e os certificados públicos da aba "Como configurar o SAML 2.0". Para obter mais informações, consulte "[Habilitar e testar logon único de SAML para sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization#enabling-and-testing-saml-single-sign-on-for-your-organization)".
 
 ## Configurar provisionamento de acesso com SCIM em Okta
+
+{% data reusables.scim.dedicated-configuration-account %}
+
+1. Sign into {% data variables.product.prodname_dotcom_the_website %} using an account that is an organization owner and is ideally used only for SCIM configuration.
+1. To create an active SAML session for your organization, navigate to `https://github.com/orgs/ORGANIZATION-NAME/sso`. Para obter mais informações, consulte "[Sobre a autenticação com logon único SAML](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on#about-oauth-apps-github-apps-and-saml-sso)".
+1. Navigate to Okta.
 {% data reusables.saml.okta-dashboard-click-applications %}
 {% data reusables.saml.okta-applications-click-ghec-application-label %}
 {% data reusables.saml.okta-provisioning-tab %}
@@ -47,12 +53,6 @@ Como alternativa, você pode configurar o SAML SSO para uma empresa usando o Okt
 1. À direita do nome da sua organização, clique em **Conceder**.
 
   ![Botão "Conceder" para autorizar a integração do SCIM do Okta para acessar a organização](/assets/images/help/saml/okta-scim-integration-grant-organization-access.png)
-
-  {% note %}
-
-  **Observação**: Se você não vir a sua organização na lista, acesse `https://github.com/orgs/ORGANIZATION-NAME/sso` no seu navegador e efetue a autenticação com sua organização por meio do SAML SSO usando sua conta de administrador no IdP. Por exemplo, se o nome da sua organização for `octo-org`, a URL seria `https://github.com/orgs/octo-org/sso`. Para obter mais informações, consulte "[Sobre a autenticação com logon único SAML](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)".
-
-  {% endnote %}
 1. Clique em **Autorizar o OktaOAN**.
 {% data reusables.saml.okta-save-provisioning %}
 {% data reusables.saml.okta-edit-provisioning %}
@@ -60,6 +60,5 @@ Como alternativa, você pode configurar o SAML SSO para uma empresa usando o Okt
 ## Leia mais
 
 - "[Configurar o logon único SAML para a sua conta corporativa usando o Okta](/enterprise-cloud@latest/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise-using-okta)"
-- "[Gerenciar a sincronização de equipe para sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization#enabling-team-synchronization-for-okta)"
 - [Compreender o SAML](https://developer.okta.com/docs/concepts/saml/) na documentação do Okta
 - [Entender o SCIM](https://developer.okta.com/docs/concepts/scim/) na documentação do Okta

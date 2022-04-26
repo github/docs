@@ -23,5 +23,5 @@ versions:
 ## Leia mais
 
 - [Glossário oficial do Git](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
-- [Referência do Git](http://gitref.org/)
-- [Git SCM](https://git-scm.com/doc)
+- [Git documentation](https://git-scm.com/doc)
+- [Git command list](https://git-scm.com/docs)

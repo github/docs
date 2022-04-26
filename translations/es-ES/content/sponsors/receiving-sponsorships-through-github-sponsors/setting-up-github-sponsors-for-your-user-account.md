@@ -12,7 +12,7 @@ type: how_to
 topics:
   - User account
   - Sponsors profile
-shortTitle: Set up for personal account
+shortTitle: Registrarte para tu cuenta personal
 ---
 
 ## Unirte a {% data variables.product.prodname_sponsors %}
@@ -22,7 +22,7 @@ shortTitle: Set up for personal account
 Para unirte a {% data variables.product.prodname_sponsors %} comoorganización, consulta la sección "[Configurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)".
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
-2. Si eres un propietario de organización, tienes más de una cuenta elegible. Click **View your eligible accounts**, then in the list of accounts, find your personal account.
+2. Si eres un propietario de organización, tienes más de una cuenta elegible. Haz clic en **Ver tus cuentas elegibles** y luego en la lista de cuentas para encontrar tu cuenta personal.
 3. Da clic en **Unirse a la lista de espera**.
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.accept-legal-terms %}

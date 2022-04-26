@@ -32,7 +32,7 @@ Se você ainda não puder criar um codespace para um repositório em que {% data
 
 O proprietário de um codespace tem controle total sobre ele e apenas o proprietário pode excluir seus codespaces. Você não pode excluir um codespace criado por outro usuário.
 
-You can delete your codespaces in the browser, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} also allows you to bulk delete codespaces. Para obter mais informações, consulte "[Excluindo um codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)".
+Você pode excluir seus codespaces do navegador, em {% data variables.product.prodname_vscode %}, ou usando {% data variables.product.prodname_cli %}. {% data variables.product.prodname_cli %} também permite que você exclua codespaces em massa. Para obter mais informações, consulte "[Excluindo um codespace](/codespaces/developing-in-codespaces/deleting-a-codespace)".
 
 ## Armazenamento do contêiner
 
@@ -56,4 +56,4 @@ Algumas opções mais destrutivas:
 Este codespace está em execução em modo de recuperação devido a um erro no contêiner.
 ```
 
-Review the creation logs, update the dev container configuration as needed, and run **Codespaces: Rebuild Container** in the {% data variables.product.prodname_vscode_command_palette %} to retry. Para obter mais informações, consulte " [Programas registra](/codespaces/troubleshooting/codespaces-logs)" e "[Configurando {% data variables.product.prodname_codespaces %} para o seu projeto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
+Revise os registros de criação, atualize a configuração do contêiner de desenvolvimento conforme necessário e execute **Codespaces: Recriar contêiner** no {% data variables.product.prodname_vscode_command_palette %} para tentar novamente. Para obter mais informações, consulte " [Programas registra](/codespaces/troubleshooting/codespaces-logs)" e "[Configurando {% data variables.product.prodname_codespaces %} para o seu projeto](/github/developing-online-with-codespaces/configuring-codespaces-for-your-project#apply-changes-to-your-configuration)".
