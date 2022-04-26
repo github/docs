@@ -1,6 +1,6 @@
 ---
 title: コメント
-intro: 'The Issue Comments API supports listing, viewing, editing, and creating comments on issues and pull requests.'
+intro: Issue Comments API は、Issue およびPull Requestに関するリスト、表示、編集、コメントの作成に対応しています。
 versions:
   fpt: '*'
   ghes: '*'

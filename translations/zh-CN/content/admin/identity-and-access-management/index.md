@@ -1,6 +1,6 @@
 ---
-title: 身份和访问管理
-intro: 'You can configure how people access {% ifversion ghec or ghae %}your enterprise on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.'
+title: Identity and access management
+intro: You can configure how people access {% ifversion ghec or ghae %}your enterprise on {% data variables.product.product_name %}{% elsif ghes %}{% data variables.product.product_location %}{% endif %}.
 redirect_from:
   - /enterprise/admin/authentication
   - /admin/authentication

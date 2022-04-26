@@ -43,7 +43,7 @@ Para obtener más información, consulta la sección "[Configurar el control de 
 
 ## Administrar paquetes
 
-To use or manage a package hosted by a package registry, you must use a token with the appropriate scope, and your personal account must have appropriate permissions.
+Para utilizar o administrar un paquete que hospede un registro de paquetes, debes utilizar un token con el alcance adecuado y tu cuenta personal debe tener permisos adecuados.
 
 Por ejemplo:
 -  Para descargar e instalar los paquetes desde un repositorio, tu token debe tener el alcance de `read:packages` y tu cuenta de usuario debe tener permisos de lectura.

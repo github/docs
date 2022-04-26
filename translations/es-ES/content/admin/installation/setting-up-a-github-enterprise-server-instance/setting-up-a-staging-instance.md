@@ -1,6 +1,6 @@
 ---
 title: Configurar una instancia de preparación
-intro: 'You can set up a {% data variables.product.product_name %} instance in a separate, isolated environment, and use the instance to validate and test changes.'
+intro: 'Puedes configurar una instancia de {% data variables.product.product_name %} en un ambiente aislado y separado y utilizarla para validar y probar los cambios.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance
@@ -14,23 +14,23 @@ topics:
 shortTitle: Configurar una instancia de pruebas
 ---
 
-## About staging instances
+## Acerca de las instancias de prueba
 
-{% data variables.product.company_short %} recommends that you set up a separate environment to test backups, updates, or changes to the configuration for {% data variables.product.product_location %}. This environment, which you should isolate from your production systems, is called a staging environment.
+{% data variables.product.company_short %} recomienda que configures un ambiente separado para probar los respaldos, actualziaciones o cambios a la configuración de {% data variables.product.product_location %}. Este ambiente, el cual debes aislar de tus sistemas productivos, se denomina ambiente de pruebas.
 
-For example, to protect against loss of data, you can regularly validate the backup of your production instance. You can regularly restore the backup of your production data to a separate {% data variables.product.product_name %} instance in a staging environment. On this staging instance, you could also test the upgrade to the latest feature release of {% data variables.product.product_name %}.
+Por ejemplo, para protegerte contra una pérdida de datos, puedes validar el respaldo de tu instancia productiva frecuentemente. Puedes restablecer el respaldo de tus datos productivos con frecuencia hacia una instancia separada de {% data variables.product.product_name %} en un ambiente de pruebas. En esta instancia de pruebas, también puedes probar la mejora lanzamiento de características más reciente de {% data variables.product.product_name %}.
 
 {% tip %}
 
-**Tip:** You may reuse your existing {% data variables.product.prodname_enterprise %} license file as long as the staging instance is not used in a production capacity.
+**Tip:** Puedes reutilizar tu archivo de licencia existente de {% data variables.product.prodname_enterprise %} siempre y cuando la instancia de pruebas no se utilice en una capacidad de producción.
 
 {% endtip %}
 
-## Considerations for a staging environment
+## Consideraciones para un ambiente de pruebas
 
-To thoroughly test {% data variables.product.product_name %} and recreate an environment that's as similar to your production environment as possible, consider the external systems that interact with your instance. For example, you may want to test the following in your staging environment.
+Para probar {% data variables.product.product_name %} exhaustivamente y recrear un ambiente que sea tan similar a tu ambiente de pruebas como sea posible, considera los sistemas externos que interactúan con tu instancia. Por ejemplo, podrías querer probar lo siguiente en tu ambiente de pruebas.
 
-- Authentication, especially if you use an external authentication provider like SAML
+- La autenticación, especialmente si utilizas un proveedor de autenticación externo como SAML
 - La integración con un sistema externo de vales
 - La integración con un servidor de integración continua
 - Los scripts externos o el software que usan {% data variables.product.prodname_enterprise_api %}
@@ -40,7 +40,7 @@ To thoroughly test {% data variables.product.product_name %} and recreate an env
 
 1. Realiza una copia de seguridad de tu instancia de producción utilizando {% data variables.product.prodname_enterprise_backup_utilities %}. Para obtener más información, consulta la sección "Acerca de {% data variables.product.prodname_enterprise_backup_utilities %}" en "[Configurar copias de seguridad en tu aparato](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#about-github-enterprise-server-backup-utilities)."
 2. Configura una nueva instancia para que actúe como tu entorno de preparación. Puedes utilizar las mismas guías para aprovisionar e instalar tu instancia de preparación como hiciste para tu instancia de producción. Para obtener más información, consulta "[Configurar una instancia del {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance/)."
-3. Optionally, if you plan to test {% data variables.product.prodname_actions %} functionality in your test environment, review the considerations for your logs and storage. For more information, see "[Using a staging environment](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)."
+3. Opcionalmente, si planeas probar la funcionalidad de {% data variables.product.prodname_actions %} en tu ambiente de pruebas, revisa las consideraciones para tus bitácoras y almacenamiento. Para obtener más información, consulta la sección "[Utilizar un ambiente de pruebas](/admin/github-actions/advanced-configuration-and-troubleshooting/using-a-staging-environment)".
 4. Restaura tu copia de seguridad a tu instancia de preparación. Para obtener más información, consulta la sección "Restaurar una copia de seguridad" en "[Configurar copias de seguridad en tu aparato](/enterprise/admin/guides/installation/configuring-backups-on-your-appliance#restoring-a-backup)."
 
 ## Leer más

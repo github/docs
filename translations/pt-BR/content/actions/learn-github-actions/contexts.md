@@ -57,7 +57,7 @@ Para usar a sintaxe de propriedade de desreferência, o nome da propriedade deve
 - começar com `a-Z` ou `_`;
 - ser seguido por `a-Z` `0-9` `-` ou `_`.
 
-If you attempt to dereference a non-existent property, it will evaluate to an empty string.
+Se você tentar desfazer uma propriedade inexistente, isso irá retornar uma string vazia.
 
 ### Determinar quando usar contextos
 

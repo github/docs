@@ -1,6 +1,6 @@
 ---
 title: Configurar o provisionamento do usuário para a sua empresa
-shortTitle: Configure user provisioning
+shortTitle: Configurar provisionamento do usuário
 intro: 'Você pode configurar o Sistema para Gerenciamento de Identidades entre Domínios (SCIM) para sua empresa, que automaticamente fornece contas de usuário em {% data variables.product.product_location %} quando você atribuir o aplicativo para {% data variables.product.product_location %} a um usuário no seu provedor de identidade (IdP).'
 permissions: 'Enterprise owners can configure user provisioning for an enterprise on {% data variables.product.product_name %}.'
 versions:
@@ -21,9 +21,9 @@ redirect_from:
 
 {% data reusables.saml.ae-uses-saml-sso %} Para obter mais informações, consulte "[Configurar logon único SAML para a sua empresa](/admin/authentication/configuring-saml-single-sign-on-for-your-enterprise)".
 
-You can configure user provisioning with SCIM to automatically create or suspend user accounts and grant access for {% data variables.product.product_name %} when you assign or unassign the application on your IdP. For more information about SCIM, see [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website.
+Você pode configurar o provisionamento do usuário com SCIM para criar ou suspender contas de usuário automaticamente e conceder acesso para {% data variables.product.product_name %} ao atribuir ou desatribuir o aplicativo no seu IdP. Para obter mais informações sobre SCIM, consulte [Sistema para Gerenciamento de Identidade de Domínio: Protocolo (RFC 7644)](https://tools.ietf.org/html/rfc7644) no site IETF.
 
-If you do not configure user provisioning with SCIM, your IdP will not communicate with {% data variables.product.product_name %} automatically when you assign or unassign the application to a user. Without SCIM, {% data variables.product.product_name %} creates a user account using SAML Just-in-Time (JIT) provisioning the first time someone navigates to {% data variables.product.product_name %} and signs in by authenticating through your IdP.
+Se você não configurar o provisionamento de usuários com o SCIM, seu IdP não irá comunicar-se com {% data variables.product.product_name %} automaticamente quando você atribuir ou desatribuir o aplicativo ao usuário. Sem o SCIM, {% data variables.product.product_name %} cria uma conta de usuário usando o SAML Just-in-Time (JIT) provisionando pela primeira vez que alguém acessa {% data variables.product.product_name %} efetua o login autenticando por meio do seu IdP.
 
 A configuração do provisionamento permite que o seu IdP se comunique com {% data variables.product.product_location %} quando você atribuir ou cancela a atribuição do aplicativo para {% data variables.product.product_name %} a um usuário no seu IdP. Ao atribuir o aplicativo, seu IdP pedirá que {% data variables.product.product_location %} crie uma conta e enviar um e-mail de integração para o usuário. Ao desatribuir o aplicativo, o seu IdP irá comunicar-se com {% data variables.product.product_name %} para invalidar quaisquer sessões de SAML e desabilitar a conta do integrante.
 

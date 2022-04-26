@@ -1,6 +1,6 @@
 ---
 title: Configurar a autenticação e provisionamento para sua empresa usando o Azure AD
-shortTitle: Configure with Azure AD
+shortTitle: Configurar com Azure AD
 intro: 'Você pode usar um inquilino no Azure Active Directory (Azure AD) como um provedor de identidade (IdP) para gerenciar centralizadamente autenticação e provisionamento de usuário para {% data variables.product.product_location %}.'
 permissions: 'Enterprise owners can configure authentication and provisioning for an enterprise on {% data variables.product.product_name %}.'
 versions:

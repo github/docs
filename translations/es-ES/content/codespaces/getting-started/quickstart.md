@@ -25,9 +25,9 @@ Para obtener más información sobre cómo funcionan los {% data variables.produ
 
 1. Navega al [repositorio de plantilla](https://github.com/2percentsilk/haikus-for-codespaces) y selecciona **Utilizar esta plantilla**.
 
-2. Name your repository, select your preferred privacy setting, and click **Create repository from template**.
+2. Nombra a tu repositorio, selecciona tu configuración de privacidad preferido y haz clic en **Crear repositorio desde plantilla**.
 
-3. Navega a la página principal del repositorio recientemente creado. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+3. Navega a la página principal del repositorio recientemente creado. Debajo del nombre de repositorio, utiliza el menú desplegable **{% octicon "code" aria-label="The code icon" %} Código** y la pestaña de **Codespaces** y haz clic en **Crear codespace en rama principal**.
 
   ![Botón de codespace nuevo](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -41,7 +41,7 @@ Una vez que se cree tu codespace, tu repositorio se clonará automáticamente en
 
     Si estás siguiendo la guía con un tipo de aplicación diferente, ingresa el comando de incio correspondiente para este.
 
-2. When your application starts, the codespace recognizes the port the application is running on and displays a prompt to let you know it has been forwarded.
+2. Cuando tu aplicación comienza, el codespace reconoce el puerto en el que se está ejecutando esta y muestra un mensaje para dejarte saber que se reenvió.
 
   ![Notificación de reenvío de puertos](/assets/images/help/codespaces/quickstart-port-toast.png)
 

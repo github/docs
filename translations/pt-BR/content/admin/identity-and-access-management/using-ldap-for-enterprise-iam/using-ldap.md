@@ -11,7 +11,7 @@ redirect_from:
   - /admin/authentication/using-ldap
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-ldap
-intro: 'If you use Lightweight Directory Access Protocol (LDAP) to centralize access across applications, you can integrate {% data variables.product.product_name %} by configuring LDAP authentication for your instance.'
+intro: 'Se você usar o Lightweight Directory Access Protocol (LDAP) para centralizar o acesso em todos os aplicativos, você poderá integrar o {% data variables.product.product_name %} configurando autenticação do LDAP para sua instância.'
 versions:
   ghes: '*'
 type: how_to
@@ -22,11 +22,11 @@ topics:
   - Identity
 ---
 
-## About LDAP authentication for {% data variables.product.product_name %}
+## Sobre a autenticação do LDAP para {% data variables.product.product_name %}
 
-LDAP is a popular application protocol for access and maintenance of directory information services, and is one of the most common protocols for integration of third-party software with large company user directories. For more information, see "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" on Wikipedia.
+O LDAP é um protocolo popular do aplicativo para acesso e manutenção de serviços de informações de diretórios e é um dos protocolos mais comuns para integração de softwares de terceiros com grandes diretórios de usuários da empresa. Para obter mais informações, consulte "[Lightweight Directory Access Protocol](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)" na Wikipedia.
 
-If you use an LDAP directory for centralized authentication, you can configure LDAP authentication for the people who use {% data variables.product.product_location %}.
+Se você usar um diretório do LDAP para autenticação centralizada, você poderá configurar a autenticação do LDAP para as pessoas que usam {% data variables.product.product_location %}.
 
 {% data reusables.enterprise_user_management.built-in-authentication %}
 
@@ -43,7 +43,7 @@ O {% data variables.product.prodname_ghe_server %} se integra aos seguintes serv
 
 ## Considerações de nome de usuário no LDAP
 
-{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[Username considerations for external authentication](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} Para obter mais informações, consulte "[Considerações de nome de usuário para autenticação externa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)".
 
 ## Configurar o LDAP na {% data variables.product.product_location %}
 

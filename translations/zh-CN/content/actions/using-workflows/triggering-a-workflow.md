@@ -36,7 +36,7 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.actions-do-not-trigger-workflows %} 更多信息请参阅“[使用 GITHUB_TOKEN 验证身份](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)”。
 
-如果确实要从工作流程运行中触发工作流程，则可以使用个人访问令牌而不是 `GITHUB_TOKEN` 来触发需要令牌的事件。 您需要创建个人访问令牌并将其存储为密码。 为了最大限度地降低 {% data variables.product.prodname_actions %} 使用成本，请确保不要创建递归或意外的工作流程。 For more information about creating a personal access token, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." 有关存储个人访问令牌的更多信息，请参阅“[创建和存储加密密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。
+如果确实要从工作流程运行中触发工作流程，则可以使用个人访问令牌而不是 `GITHUB_TOKEN` 来触发需要令牌的事件。 您需要创建个人访问令牌并将其存储为密码。 为了最大限度地降低 {% data variables.product.prodname_actions %} 使用成本，请确保不要创建递归或意外的工作流程。 有关创建个人访问令牌的更多信息，请参阅“[创建个人访问令牌](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)”。 有关存储个人访问令牌的更多信息，请参阅“[创建和存储加密密码](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)”。
 
 例如，以下工作流程使用个人访问令牌（存储为称为 `MY_TOKEN` 的机密）通过 {% data variables.product.prodname_cli %} 向议题添加标签。 添加标签时运行的任何工作流程都将在执行此步骤后运行。
 

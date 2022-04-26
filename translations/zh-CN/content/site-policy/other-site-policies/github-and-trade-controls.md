@@ -16,9 +16,9 @@ topics:
 
 GitHub.com、GitHub Enterprise Server 以及您上传至其中任一产品的信息都需遵守贸易管制法规，包括美国出口管理条例（Export Administration Regulations，EAR）。 出口管理条例 (EAR)。
 
-GitHub 的愿景是成为开发者合作的全球平台，不管开发者居住在哪里都可参与。 We take seriously our responsibility to examine government sanctions thoroughly to be certain that users and customers are not impacted beyond what is required by law. 这包括保持公共仓库服务，其中包括提供开放源码项目并帮助用户访问，以支持受制裁区域开发人员的个人沟通。 这也意味着 GitHub 将提倡受制裁区域的开发者享有更大的平台访问权，并充分进入全球开源社区。
+GitHub 的愿景是成为开发者合作的全球平台，不管开发者居住在哪里都可参与。 我们认真履行全面研究政府制裁的职责，以确保用户和客户不受法律以外因素的影响。 这包括保持公共仓库服务，其中包括提供开放源码项目并帮助用户访问，以支持受制裁区域开发人员的个人沟通。 这也意味着 GitHub 将提倡受制裁区域的开发者享有更大的平台访问权，并充分进入全球开源社区。
 
-由于我们的积极倡导以及与美国 监管机构的通力合作，GitHub 已获得美国 财政部外国资产控制办公室 (OFAC) 的许可，允许向伊朗的开发者恢复我们的云服务。 我们将继续与美国 regulators to secure similar licenses to offer collaboration services to developers in other sanctioned regions, such as Syria and Crimea. 我们致力于倡导尽可能广泛的开发者访问权限，因为我们相信，为受制裁地区的开发者提供代码协作服务，可以使全球开发者社区变得更强大，促进人类进步，并支持美国 促进言论自由和信息自由流通的一贯外交政策。 有关我们为伊朗开发者获取的许可的信息，请阅读[博客文章](https://github.blog/2021-01-05-advancing-developer-freedom-github-is-fully-available-in-iran)。
+由于我们的积极倡导以及与美国 监管机构的通力合作，GitHub 已获得美国 财政部外国资产控制办公室 (OFAC) 的许可，允许向伊朗的开发者恢复我们的云服务。 我们将继续与美国 监管机构将获得类似的许可证，为叙利亚和克里米亚等其他受制裁地区的开发者提供协作服务。 我们致力于倡导尽可能广泛的开发者访问权限，因为我们相信，为受制裁地区的开发者提供代码协作服务，可以使全球开发者社区变得更强大，促进人类进步，并支持美国 促进言论自由和信息自由流通的一贯外交政策。 有关我们为伊朗开发者获取的许可的信息，请阅读[博客文章](https://github.blog/2021-01-05-advancing-developer-freedom-github-is-fully-available-in-iran)。
 
 虽然我们为了方便您而提供了以下信息，但您要最终负责确保对 GitHub 产品和服务的使用符合所有适用法律和法规，包括美国出口管制法律。 出口管制法律。
 
@@ -42,13 +42,13 @@ GitHub Enterprise Server 是一种自托管的虚拟设备，可以在客户自�
 
 GitHub Enterprise Server 是一种商业性的大宗市场产品，已分配出口管制分类号码 (ECCN)`5D992`，并可能导出到大多数目的地，无需许可证 (NLR)。
 
-GitHub Enterprise Server may not be sold to, exported, or re-exported to any country listed in Country Group E:1 in Supplement No. 1 to part 740 of the EAR or to the following regions of Ukraine: Crimea and the separatist areas of Donetsk and Luhansk. The countries listed currently include Cuba, Iran, North Korea, Syria, Russia, and Belarus, but this list is subject to change.
+GitHub Enterprise Server 不得出售给、出口或再出口到 EAR 第 740 部分补充协议第 1 号补充协议 E:1 中列出的任何国家/地区，也不得再出口到乌克兰的以下地区：克里米亚以及顿涅茨克和卢甘斯克的分离主义地区。 列出的国家目前包括古巴、伊朗、朝鲜、叙利亚、俄罗斯和白俄罗斯，但此列表可能会发生变化。
 
 ## 常见问题
 
 ### 美国政府对哪些国家和地区 实行制裁？
 
-Crimea, the separatist areas of Donetsk and Luhasnk, Cuba, Iran, North Korea, and Syria. 但是，就伊朗而言，GitHub 现在已获得美国 财政部外国资产控制办公室 (OFAC) 的许可，可为位于该国或居住在该国的开发者提供云服务。 GitHub 云服务（包括付费和免费）也向古巴的开发者普遍开放。
+克里米亚、顿涅茨克和卢哈申克的分离主义地区、古巴、伊朗、朝鲜和叙利亚。 但是，就伊朗而言，GitHub 现在已获得美国 财政部外国资产控制办公室 (OFAC) 的许可，可为位于该国或居住在该国的开发者提供云服务。 GitHub 云服务（包括付费和免费）也向古巴的开发者普遍开放。
 
 ### GitHub 如何确保不在受制裁国家及地区生活和/或与受制裁国家及地区有专业联系的民间团体仍然能够访问或上诉？
 
@@ -64,7 +64,7 @@ Crimea, the separatist areas of Donetsk and Luhasnk, Cuba, Iran, North Korea, an
 
 GitHub 现在获得了 OFAC 的许可，可以向位于或居住在美国制裁国家——伊朗的开发者提供云服务。 该许可为个人和组织提供的一切免费和有偿的公共和私人服务。 GitHub 云服务（包括付费和免费）也向古巴的开发者普遍开放。
 
-GitHub is committed to continuing to offer free public repository services to developers with individual and organizational accounts in Syria, Crimea, and the separatist areas of Donetsk and Luhansk. 包括有限制地访问免费服务，例如用于开源项目（和相关公共页面）的公共仓库、公共Gist 以及分配的免费操作分钟数，但只能用于个人通信，而不得用于商业目的。
+GitHub 致力于继续为在叙利亚、克里米亚以及顿涅茨克和卢甘斯克分离主义地区拥有个人和组织帐户的开发者提供免费的公共存储库服务。 包括有限制地访问免费服务，例如用于开源项目（和相关公共页面）的公共仓库、公共Gist 以及分配的免费操作分钟数，但只能用于个人通信，而不得用于商业目的。
 
 对于这些受制裁地区的付费组织级帐户，用户对其公共仓库的访问有限，这些仓库已降级为存档的只读仓库。 但是，对于这些受制裁地区的免费组织级帐户，用户仍然可以完全访问用于开源项目（和相关公共页面）的免费公共仓库、公共 Gist 和分配的免费操作分钟数。
 

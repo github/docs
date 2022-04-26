@@ -253,8 +253,7 @@ When code scanning identifies a problem in a pull request, you can review the hi
 code and resolve the alert. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)."
 
 If you have write permission to a repository you can manage code scanning alerts for that
-repository. With write permission to a repository, you can view, fix, dismiss, or delete alerts for potential
-vulnerabilities or errors in your repository's code. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
+repository. With write permission to a repository, {% if delete-code-scanning-alerts %}you can view, fix, dismiss, or delete alerts {% else %}you can view, fix, or dismiss alerts{% endif %} for potential vulnerabilities or errors in your repository's code. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
 
 #### Generate reports of {% data variables.product.prodname_code_scanning %} alerts
 
