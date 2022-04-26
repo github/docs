@@ -1,9 +1,9 @@
 ---
 title: 限制转发端口的可见性
-shortTitle: 限制端口可见性
+shortTitle: Restrict port visibility
 intro: 您可以对用户在从组织中的代码空间转发端口时可以选择的可见性选项设置约束。
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an organization owner.'
+permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -40,14 +40,12 @@ topics:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. 在边栏的“Code, planning, and automation（代码、规划和自动化）”部分中，选择 **{% octicon "codespaces" aria-label="The codespaces icon" %}{% data variables.product.prodname_codespaces %}**，然后单击 **Policies（策略）**。
-1. 在“Codespace policies（代码空间策略）”页面上，单击 **Create Policy（创建策略）**。
-1. 输入新策略的名称。
+{% data reusables.codespaces.codespaces-org-policies %}
 1. 单击 **Add constraint（添加约束）** ，然后选择 **Port visibility（端口可见性）**。
 
    ![为端口可见性添加约束](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
 
-1. 单击 {% octicon "pencil" aria-label="The edit icon" %} 编辑约束。
+1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
 
    ![编辑端口可见性约束](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
 
@@ -55,21 +53,12 @@ topics:
 
    ![选择端口可见性选项](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
-1. 在“Change policy target（更改策略目标）”区域中，单击下拉按钮。
-1. 选择 **All repositories（所有存储库）** 或 **Selected repositories（选定的存储库）**，以确定此策略将应用于哪些存储库。
-1. 如果选择了 **Selected repositories（所选仓库）**：
-   1. 单击 {% octicon "gear" aria-label="The settings icon" %}。
-
-      ![编辑策略的设置](/assets/images/help/codespaces/policy-edit.png)
-
-   2. 选择要应用此策略的存储库。
-   3. 在存储库列表的底部，单击 **Select repositories（选择存储库）**。
-
-      ![为此策略选择存储库](/assets/images/help/codespaces/policy-select-repos.png)
-
-1. 单击 **Save（保存）**。
-
+{% data reusables.codespaces.codespaces-policy-targets %}
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+1. After you have finished adding constraints to your policy, click **Save**.
 ## 编辑策略
+
+You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
 1. 显示“Codespace policies（代码空间策略）”页。 更多信息请参阅“[添加策略以限制端口可见性选项](#adding-a-policy-to-limit-the-port-visibility-options)”。
 1. 单击要编辑的策略的名称。
