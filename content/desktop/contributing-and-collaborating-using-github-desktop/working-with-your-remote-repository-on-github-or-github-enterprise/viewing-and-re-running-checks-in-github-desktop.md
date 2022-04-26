@@ -22,8 +22,7 @@ versions:
   ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
 5. To re-run failed checks, click **{% octicon "sync" aria-label="The sync icon" %} Re-run** and select **Re-run Failed Checks**.
   ![Re-run failed checks](/assets/images/help/desktop/re-run-failed-checks.png)
-6. To re-run individual checks, highlight the individual check you want to re-run and select **Re-run this check**.
+6. To re-run individual checks, hover over the individual check you want to re-run and select the {% octicon "sync" aria-label="The sync icon" %} icon to re-run the check.
   ![Re-run individual checks](/assets/images/help/desktop/re-run-individual-checks.png)
-7. You will see a confirmation dialog with the summary of the check(s) that will be re-run.
-8. Click **Re-run Check(s)** to confirm that you want to perform the re-run.
+7. You will see a confirmation dialog with the summary of the checks that will be re-run. Click **Re-run Checks** to confirm that you want to perform the re-run.
   ![Re-run confirmation dialog](/assets/images/help/desktop/re-run-confirmation-dialog.png)
