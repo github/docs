@@ -26,3 +26,4 @@ In order to access your enterprise account this way, you must have previously do
 {% endnote %}
 
 {% data reusables.saml.recovery-code-access %}
+tài liệu/các nội dung/quản trị viên/quản lý danh tính và quyền truy cập/quản lý-khôi phục-mã-cho-doanh nghiệp của bạn/ access-your-enterprise-account-if-your-identity-provider-is-unavailable.md
