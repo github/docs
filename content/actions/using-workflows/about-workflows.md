@@ -28,7 +28,7 @@ A workflow must contain the following basic components:
 1. One or more _jobs_, each of which will execute on a _runner_ machine and run a series of one or more _steps_.
 1. Each step can either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.
 
-For more information these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
 
 ![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
 
