@@ -16,7 +16,7 @@ Clicking the notification will switch application focus to {% data variables.pro
 
 ## Pull request checks failed notifications
 
-When changes are made to a pull request branch you will receive a notification if the checks in your repository fail.
+When changes are made to a pull request branch, you will receive a notification if the checks fail.
 
 ![pull request checks failed notification](/assets/images/help/desktop/pull-request-checks-failed-notification.png)
 
