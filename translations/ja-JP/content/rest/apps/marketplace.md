@@ -17,6 +17,6 @@ versions:
 
 この API には、[**スタブされたデータ**で {% data variables.product.prodname_github_app %} をテスト](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/)できるエンドポイントが含まれています。 スタブされたデータはハードコードされた偽のデータであり、実際のプランに基づいて変更されることはありません。
 
-スタブされたデータでテストするには、対応する本番環境の代わりにスタブされたエンドポイントを使用します。 This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_apps %} on {% data variables.product.prodname_marketplace %}.
+スタブされたデータでテストするには、対応する本番環境の代わりにスタブされたエンドポイントを使用します。 これにより、{% data variables.product.prodname_github_apps %} を {% data variables.product.prodname_marketplace %} にリストする前に、API ロジックが成功するかどうかをテストできます。
 
 {% data variables.product.prodname_github_app %} をデプロイする前に、スタブされたエンドポイントを本番のエンドポイントに置き換えてください。

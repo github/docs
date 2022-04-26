@@ -1,6 +1,6 @@
 ---
 title: Gerenciando discussões
-intro: 'You can categorize, spotlight, transfer, or delete the discussions.'
+intro: 'Você pode categorizar, destacar e transferir ou excluir as discussões de um repositório.'
 permissions: Repository administrators and people with write or greater access to a repository can manage discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage discussions in the organization.
 versions:
   fpt: '*'
@@ -15,7 +15,7 @@ redirect_from:
 
 {% data reusables.discussions.about-discussions %} Para obter mais informações sobre discussões, consulte[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-Organization owners can choose the permissions required to create a discussion in repositories owned by the organization. Similarly, to choose the permissions required to create an organization discussion, organization owners can change the permissions required in the source repository. Para obter mais informações, consulte "[Gerenciar a criação de discussões para repositórios na sua organização](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
+Os proprietários da organização podem escolher as permissões necessárias para criar uma discussão para repositórios pertencentes à organização. Da mesma forma, para escolher as permissões necessárias para criar uma discussão na organização, os proprietários da organização podem alterar as permissões necessárias no repositório de origem. Para obter mais informações, consulte "[Gerenciar a criação de discussões para repositórios na sua organização](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)".
 
 Como mantenedor de discussões, você pode criar recursos da comunidade para incentivar discussões alinhadas com o objetivo geral do projeto e manter um fórum aberto amigável para os colaboradores. Criar um código de conduta ou diretrizes de contribuição para os colaboradores a seguir ajudará a facilitar um fórum colaborativo e produtivo. Para obter mais informações sobre como criar recursos da comunidade, consulte "[Adicionar um código de conduta ao seu projeto](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" e "[Diretrizes de configuração para contribuidores do repositório](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)".
 
@@ -29,13 +29,13 @@ Para obter mais informações sobre como facilitar uma discussão saudável, con
 
 Para gerenciar as discussões em um repositório, {% data variables.product.prodname_discussions %} deve estar habilitado para o repositório. Para obter mais informações, consulte "[Habilitando ou desabilitando {% data variables.product.prodname_discussions %} para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
 
-To manage discussions in an organization, {% data variables.product.prodname_discussions %} must be enabled for the organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+Para gerenciar as discussões em uma organização, deve-se habilitar {% data variables.product.prodname_discussions %} para a organização. Para obter mais informações, consulte "[Habilitando ou desabilitando {% data variables.product.prodname_discussions %} para uma organização](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
 
 ## Alterar a categoria para uma discussão
 
-Você pode categorizar discussões para ajudar os integrantes da comunidade a encontrar discussões relacionadas. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Você pode categorizar discussões para ajudar os integrantes da comunidade a encontrar discussões relacionadas. Para obter mais informações, consulte "[Gerenciando categorias para discussões](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
-Você também pode mover a discussão para uma categoria diferente. It's not possible to move a discussion to or from the polls category.
+Você também pode mover a discussão para uma categoria diferente. Não é possível transferir uma discussão de ou para a categoria de enquetes.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
@@ -45,7 +45,7 @@ Você também pode mover a discussão para uma categoria diferente. It's not pos
 
 ## Fixar uma discussão
 
-You can pin up to four important discussions above the list of discussions for the repository or organization.
+Você pode fixar até quatro discussões importantes acima da lista de discussões para o repositório ou organização.
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
@@ -56,7 +56,7 @@ You can pin up to four important discussions above the list of discussions for t
 
 ## Editar uma discussão fixada
 
-Editar uma discussão fixada não irá alterar a categoria da discussão. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Editar uma discussão fixada não irá alterar a categoria da discussão. Para obter mais informações, consulte "[Gerenciando categorias para discussões](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
@@ -75,13 +75,13 @@ Editar uma discussão fixada não irá alterar a categoria da discussão. For mo
 
 ## Transferir uma discussão
 
-Para transferir uma discussão, você precisa ter permissão de criar discussões no repositório, em que você deseja transferir a discussão. If you want to transfer a discussion to an organization, you must have permissions to create discussions in the source repository for the organization's discussions. Você somente pode transferir discussões entre repositórios pertencentes à mesma conta de usuário ou organização. Você não pode transferir uma discussão de um repositório privado para um repositório público.
+Para transferir uma discussão, você precisa ter permissão de criar discussões no repositório, em que você deseja transferir a discussão. Se você deseja transferir uma discussão para uma organização, você deve ter permissão para criar discussões no repositório de origem para as discussões da organização. Você somente pode transferir discussões entre repositórios pertencentes à mesma conta de usuário ou organização. Você não pode transferir uma discussão de um repositório privado para um repositório público.
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
 1. Na barra lateral direita, clique em {% octicon "arrow-right" aria-label="The right arrow icon" %} **Transferir discussão**. !["Transferir discussão" na barra lateral direita para discussão](/assets/images/help/discussions/click-transfer-discussion.png)
-1. Selecione a lista suspensa **Escolher um repositório** e clique no repositório para o qual deseja transferir a discussão. If you want to transfer a discussion to an organization, choose the source repository for the organization's discussions. ![Menu suspenso "Selecionar um repositório" Campo de pesquisar "Encontrar um repositório" e repositório na lista](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
+1. Selecione a lista suspensa **Escolher um repositório** e clique no repositório para o qual deseja transferir a discussão. Se você deseja transferir uma discussão para uma organização, escolha o repositório de origem para as discussões da organização. ![Menu suspenso "Selecionar um repositório" Campo de pesquisar "Encontrar um repositório" e repositório na lista](/assets/images/help/discussions/use-choose-a-repository-drop-down.png)
 1. Clique em **Transferir discussão**. ![Botão "Transferir discussão"](/assets/images/help/discussions/click-transfer-discussion-button.png)
 
 ## Excluir uma discussão
@@ -96,7 +96,7 @@ Para transferir uma discussão, você precisa ter permissão de criar discussõe
 
 Você pode converter todos as etiquetas com a mesma etiqueta para discussões em massa. Os problemas futuros com essa etiqueta também serão automaticamente convertidos em discussão e categoria que você configurar.
 
-1. On {% data variables.product.product_location %}, navigate to the main page of the repository or, for organization discussions, the source repository.
+1. No {% data variables.product.product_location %}, acesse a página principal do repositório ou, para discussões na organização, o repositório de origem.
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.project-management.labels %}
 1. Ao lado da etiqueta que você deseja converter em problemas, clique em **Converter problemas**.

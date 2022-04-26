@@ -1,6 +1,6 @@
 ---
 title: リリース
-intro: 'The Releases API allows you to create, modify, and delete releases and release assets.'
+intro: Releases APIを使うと、リリースとリリースアセットの作成、変更、削除ができます。
 versions:
   fpt: '*'
   ghes: '*'

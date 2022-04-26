@@ -1,6 +1,6 @@
 ---
 title: デプロイメント
-intro: The Deployments API allows you to create and delete deployments and deployment environments.
+intro: Deployments APIを使うと、デプロイメント及びデプロイメント環境の作成と削除ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -50,10 +50,10 @@ GitHub は、新しいデプロイメント、デプロイメントのステー�
 
 GitHub は、あなたのサーバーに実際にアクセスすることはないということは覚えておきましょう。 デプロイメントイベントとやり取りするかどうかは、サードパーティインテグレーション次第です。 複数のシステムがデプロイメントイベントをリッスンできます。コードをサーバーにプッシュする、ネイティブコードを構築するなどを行うかどうかは、それぞれのシステムが決めることができます。
 
-Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% ifversion not ghae %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+{% ifversion not ghae %}`public_repo` スコープおよび{% endif %}`repo` スコープはコードにもアクセス権を付与するのに対し、</code>repo_deployment</0> [OAuth scope](/developers/apps/scopes-for-oauth-apps) は、リポジトリのコードにアクセス権を付与**せず**、デプロイメントおよびデプロイメントステータスに絞ってアクセス権を付与することに注意してください。
 
 ### 非アクティブのデプロイメント
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. これを回避するには、デプロイメントのステータスを作成する前に、`auto_inactive` を `false` に設定します。
+デプロイメントのステータスを `success` に設定すると、同じ環境の同じリポジトリ内の一時的でない、非本番環境のデプロイメントはすべて `inactive` になります。 これを回避するには、デプロイメントのステータスを作成する前に、`auto_inactive` を `false` に設定します。
 
 `state` を `inactive` に設定することで、一時的な環境が存在しなくなったことを伝えることができます。  `state` を `inactive` に設定すると、{% data variables.product.prodname_dotcom %} でデプロイメントが `destroyed` と表示され、アクセス権が削除されます。

@@ -54,7 +54,7 @@ topics:
 
 如果对您的订阅有任何疑问，请联系 {% data variables.contact.contact_support %}。
 
-为了进一步支持团队的协作能力，您可以升级到 {% data variables.product.prodname_ghe_cloud %}，其中包括受保护的分支机构和私有仓库的代码所有者等功能。 {% data reusables.enterprise.link-to-ghec-trial %}
+为了进一步支持团队的协作能力，您可以升级到 {% data variables.product.prodname_ghe_cloud %}，其中包括 SAML 单点登录和高级审核等功能。 {% data reusables.enterprise.link-to-ghec-trial %}
 
 有关 {% data variables.product.prodname_ghe_cloud %} 的每用户定价的详细信息，请参阅 [{% data variables.product.prodname_ghe_cloud %} 文档](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-per-user-pricing)。
 

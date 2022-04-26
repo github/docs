@@ -57,6 +57,8 @@ In order to use property dereference syntax, the property name must:
 - start with `a-Z` or `_`.
 - be followed by `a-Z` `0-9` `-` or `_`.
 
+If you attempt to dereference a non-existent property, it will evaluate to an empty string.
+
 ### Determining when to use contexts
 
 {% data reusables.actions.using-context-or-environment-variables %}

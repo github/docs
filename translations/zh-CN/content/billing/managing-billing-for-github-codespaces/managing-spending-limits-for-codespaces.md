@@ -38,6 +38,7 @@ shortTitle: 支出限额
 {% data reusables.dotcom_billing.monthly-spending-limit-codespaces %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## 管理企业帐户的 {% data variables.product.prodname_codespaces %} 支出限额
 
 企业所有者和帐单管理员可管理企业帐户的 {% data variables.product.prodname_codespaces %} 支出限额。
@@ -48,6 +49,7 @@ shortTitle: 支出限额
 1. 在“{% data variables.product.prodname_codespaces %} 每月使用”上方，单击 **Spending Limit（支出限制）**。 ![支出限制选项卡](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+{% endif %}
 
 ## 在达到支出限制时导出更改
 

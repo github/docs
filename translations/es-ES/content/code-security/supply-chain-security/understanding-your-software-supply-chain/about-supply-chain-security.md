@@ -43,7 +43,7 @@ The dependency graph is central to supply chain security. The dependency graph i
 Other supply chain features on {% data variables.product.prodname_dotcom %} rely on the information provided by the dependency graph.
 
 - Dependency review uses the dependency graph to identify dependency changes and help you understand the security impact of these changes when you review pull requests.
-- {% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of known vulnerabilities published in the {% data variables.product.prodname_advisory_database %}, scans your dependecies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability is detected.
+- El {% data variables.product.prodname_dependabot %} hace referencias de los datos de las dependencias que proporciona la gráfica de dependencias con la lista de las vulnerabilidades publicadas en la {% data variables.product.prodname_advisory_database %}, escanea tus dependencias y genera {% data variables.product.prodname_dependabot_alerts %} cuando se detecta una vulnerabilidad potencial.
 {% ifversion fpt or ghec or ghes > 3.2 %}- {% data variables.product.prodname_dependabot_security_updates %} use the dependency graph and  {% data variables.product.prodname_dependabot_alerts %} to help you update dependencies with known vulnerabilities in your repository.
 
 {% data variables.product.prodname_dependabot_version_updates %} don't use the dependency graph and rely on the semantic versioning of dependencies instead. {% data variables.product.prodname_dependabot_version_updates %} help you keep your dependencies updated, even when they don’t have any vulnerabilities.
@@ -51,7 +51,7 @@ Other supply chain features on {% data variables.product.prodname_dotcom %} rely
 {% endif %}
 
 {% ifversion ghes < 3.2 %}
-{% data variables.product.prodname_dependabot %} cross-references dependency data provided by the dependency graph with the list of known vulnerabilities published in the {% data variables.product.prodname_advisory_database %}, scans your dependencies and generates {% data variables.product.prodname_dependabot_alerts %} when a potential vulnerability is detected.
+El {% data variables.product.prodname_dependabot %} hace referencias de los datos de las dependencias que proporciona la gráfica de dependencias con la lista de las vulnerabilidades publicadas en la {% data variables.product.prodname_advisory_database %}, escanea tus dependencias y genera {% data variables.product.prodname_dependabot_alerts %} cuando se detecta una vulnerabilidad potencial.
  {% endif %}
 
 ## Feature overview

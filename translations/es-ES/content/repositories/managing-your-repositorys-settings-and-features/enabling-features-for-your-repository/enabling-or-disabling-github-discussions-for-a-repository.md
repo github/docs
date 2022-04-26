@@ -19,7 +19,7 @@ shortTitle: Discussions
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-repository %}
 1. Para inhabilitar los debates, debajo de "Características", deselecciona **Debates**.
 
-You can also use organization discussions to facilitate conversations that span multiple repositories in your organization. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+También puedes utilizar los debates de organización para facilitar las conversaciones que se extienden a lo largo de varios repositorios en tu organización. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los debates de GitHub en una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
 
 ## Leer más
 

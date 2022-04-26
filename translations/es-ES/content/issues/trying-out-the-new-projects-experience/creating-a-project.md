@@ -63,14 +63,14 @@ Los borradores de propuesta pueden tener un título, cuerpo de texto, asignados 
 3. Selecciona el repositorio en donde se ubica la solicitud de cambios o propuesta. Puedes teclear la parte del nombre de repositorio para reducir tus opciones.
 4. Selecciona la propuesta o solicitud de cambios. Puedes teclear parte del título para reducir tus opciones.
 
-#### Adding multiple issues or pull requests from a repository
+#### Agregar propuestas o solicitudes de cambio múltiples desde un repositorio
 
-1. On {% data variables.product.product_location %}, navigate to the repository that contains the issues or pull requests you want to add to your project.
+1. En {% data variables.product.product_location %}, navega al repositorio que contiene las propuestas o solicitudes de cambio que quieras agregar a tu proyecto.
 {% data reusables.repositories.sidebar-issue-pr %}
-1. To the left of each issue title, select the issues that you want to add to your project. ![Screenshot showing checkbox to select issue or pull request](/assets/images/help/issues/select-issue-checkbox.png)
-1. Optionally, to select every issue or pull request on the page, at the top of the list of issues or pull requests, select all. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/select-all-checkbox.png)
-1. Above the list of issues or pull requests, click **Projects (beta)**. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/projects-beta-assign-button.png)
-1. Click the projects you want to add the selected issues or pull requests to. ![Screenshot showing checkbox to select all on screen](/assets/images/help/issues/projects-beta-assign-dropdown.png)
+1. A la izquierda de cada título de propuesta, selecciona aquellas que quieras agregar a tu proyecto. ![Captura de pantalla que muestra una casilla de verificación para seleccionar una propuesta o solicitud de cambios](/assets/images/help/issues/select-issue-checkbox.png)
+1. Opcionalmente, para seleccionar todas las propuestas o solicitudes de cambio en la página, en la parte superior de la lista de propuesta o solicitudes de cambio, selecciona todas. ![Captura de pantalla que muestra la casilla de verificación para seleccionar todo en la pantalla](/assets/images/help/issues/select-all-checkbox.png)
+1. Sobre la lista de propuestas o solicitudes de cambio, haz clic en **Proyectos (beta)**. ![Captura de pantalla que muestra la casilla de verificación para seleccionar todo en la pantalla](/assets/images/help/issues/projects-beta-assign-button.png)
+1. Haz clic en los proyectos a los que quieras agregar las propuestas o solicitudes de cambio. ![Captura de pantalla que muestra la casilla de verificación para seleccionar todo en la pantalla](/assets/images/help/issues/projects-beta-assign-dropdown.png)
 
 #### Asignar un rpoyecto desde dentro de una propuesta o solicitud de cambios
 
@@ -112,19 +112,19 @@ Puedes restablecer los elementos archivados, pero no los borrados. Para obtener 
 ## Restaurar los elementos archivados
 
 1. Navegar a tu proyecto.
-1. In the top-right, click {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
-1. In the menu, click **Archived items**.
-1. Optionally, to filter the archived items displayed, type your filter into the text box above the list of items. For more information about the available filters, see "[Filtering projects (beta)](/issues/trying-out-the-new-projects-experience/filtering-projects)."
+1. En la parte derecha, haz clic en {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
+1. En el menú, haz clic en **Elementos archivados**.
+1. Opcionalmente, para filtrar los elementos archivados que se muestran, teclea tu filtro en la caja de texto superior a la lista de elementos. Para obtener más información sobre los filtros disponibles, consulta la sección "[Filtrar proyectos (beta)](/issues/trying-out-the-new-projects-experience/filtering-projects)".
 
-   ![Screenshot showing field for filtering archived items](/assets/images/help/issues/filter-archived-items.png)
+   ![Captura de pantalla que muestra un campo para filtrar los elementos archivados](/assets/images/help/issues/filter-archived-items.png)
 
-1. To the left of each item title, select the items you would like to restore.
+1. A la izquierda de cada título de elemento, selecciona aquellos que te gustaría restablecer.
 
-   ![Screenshot showing checkboxes next to archived items](/assets/images/help/issues/select-archived-item.png)
+   ![Captura de pantalla que muestra las casillas de verificación junto a los elementos archivados](/assets/images/help/issues/select-archived-item.png)
 
-1. To restore the selected items, above the list of items, click **Restore**.
+1. Para restablecer los elementos seleccionados, sobre la lista de elementos, haz clic en **Restablecer**.
 
-   ![Screenshot showing the "Restore" button](/assets/images/help/issues/restore-archived-item-button.png)
+   ![Captura de pantalla que muestra el botón "Restablecer"](/assets/images/help/issues/restore-archived-item-button.png)
 
 ## Agregar campos
 

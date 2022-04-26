@@ -1,5 +1,5 @@
 ---
-title: Check Runs
+title: Execuções de verificação
 intro: ''
 versions:
   fpt: '*'
@@ -11,3 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+

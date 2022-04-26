@@ -35,7 +35,7 @@ Si tu organización utiliza {% data variables.product.prodname_ghe_cloud %}, tam
 
 Si una cuenta empresarial administra tu organización, entonces puedes ver a los propietarios de la empresa que administran los ajustes de facturación y las políticas de todas las organizaciones de esta. Para obtener más información sobre las cuentas empresariales, consulta la sección "[Tipos de cuenta de {% data variables.product.prodname_dotcom %}](/get-started/learning-about-github/types-of-github-accounts)".
 
-También puedes ver si un propietario de empresa tiene un rol específico en la organización. Enterprise owners can also be an organization member, any other organization role, or be un-affiliated with the organization.
+También puedes ver si un propietario de empresa tiene un rol específico en la organización. Los propietarios de las empresas también pueden ser un miembro de la organización, tener cualquier otro rol en ella o estar desafiliados con ella.
 
 {% note %}
 
@@ -43,11 +43,11 @@ También puedes ver si un propietario de empresa tiene un rol específico en la 
 
 {% endnote %}
 
-| **Roles en la empresa** | **Roles en la organización**                   | **Acceso o impacto a la organización**                                                                                                                        |
-| ----------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Propietario de empresa  | Un-affiliated or no official organization role | No puede acceder al contenido de la organización ni a sus repositorios, pero administra los ajustes y políticas de la empresa que impactan a tu organización. |
-| Propietario de empresa  | Propietario de la organización                 | Puede configurar los ajustes de la organización y administrar el acceso a los recursos de la misma mediante equipos, etc.                                     |
-| Propietario de empresa  | Miembro de la organización                     | Puede acceder a los recursos y contenido de la organización, tales como repositorios, sin acceder a los ajustes de la misma.                                  |
+| **Roles en la empresa** | **Roles en la organización**                     | **Acceso o impacto a la organización**                                                                                                                        |
+| ----------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Propietario de empresa  | Desafiliado o sin rol oficial en la organización | No puede acceder al contenido de la organización ni a sus repositorios, pero administra los ajustes y políticas de la empresa que impactan a tu organización. |
+| Propietario de empresa  | Propietario de la organización                   | Puede configurar los ajustes de la organización y administrar el acceso a los recursos de la misma mediante equipos, etc.                                     |
+| Propietario de empresa  | Miembro de la organización                       | Puede acceder a los recursos y contenido de la organización, tales como repositorios, sin acceder a los ajustes de la misma.                                  |
 
 Para revisar todos los roles en una organización, consulta la sección "[Roles en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)". {% ifversion ghec %} Los miembros de la organización también pueden tener roles personalizados para un repositorio específico. Para obtener más información, consulta la sección "[Administrar los roles personalizados de repositorio en una organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".{% endif %}
 

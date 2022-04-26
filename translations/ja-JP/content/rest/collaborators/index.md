@@ -1,6 +1,6 @@
 ---
 title: コラボレータ
-intro: 'The Collaborators API allows you to add, invite, and remove collaborators from a repository.'
+intro: Collaborators APIを使うと、リポジトリでコラボレータの追加、招待、削除が行えます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'

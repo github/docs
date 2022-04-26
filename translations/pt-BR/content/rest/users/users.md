@@ -1,6 +1,6 @@
 ---
-title: Users
-intro: 'The Users API allows to get public and private information about the authenticated user.'
+title: Usuários
+intro: A API de Usuários permite obter informações públicas e privadas sobre o usuário autenticado.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Many of the resources on the users API provide a shortcut for getting information about the currently authenticated user. If a request URL does not include a `{username}` parameter then the response will be for the logged in user (and you must pass [authentication information](/rest/overview/resources-in-the-rest-api#authentication) with your request).{% ifversion fpt or ghes or ghec %} Additional private information, such as whether a user has two-factor authentication enabled, is included when authenticated through basic auth or OAuth with the `user` scope.{% endif %}
+Muitos dos recursos na API de usuários fornecem um atalho para obter informações sobre o usuário autenticado atualmente. Se uma URL de solicitação não incluir um parâmetro `{username}`, a resposta será para o usuário conectado (e você deve passar [informações de autenticação](/rest/overview/resources-in-the-rest-api#authentication) com sua solicitação).{% ifversion fpt or ghes or ghec %} Informações privadas adicionais, como se um usuário tem autenticação de dois fatores habilitada, estão incluídas quando a autenticação é efetuada por meio da autenticação básica ou OAuth com o escopo do `usuário` .{% endif %}

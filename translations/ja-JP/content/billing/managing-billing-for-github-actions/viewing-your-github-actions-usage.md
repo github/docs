@@ -37,6 +37,7 @@ Organization については、Organization のオーナーと支払いマネー
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## Enterprise アカウントの {% data variables.product.prodname_actions %} の使用状況を表示する
 
 Enterprise アカウントについては、Enterprise オーナーと支払いマネージャーが {% data variables.product.prodname_actions %} の使用状況を確認できます。
@@ -53,3 +54,4 @@ Enterprise アカウントについては、Enterprise オーナーと支払い�
 1. [{% data variables.product.prodname_actions %}] で、Enterprise アカウントの Organization ごとにデータ転送の使用状況の詳細を表示します。 ![利用時間 (分) の詳細](/assets/images/help/billing/actions-minutes-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+{% endif %}

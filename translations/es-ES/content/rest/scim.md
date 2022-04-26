@@ -18,8 +18,8 @@ Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM
 {% note %}
 
 **Notas:**
-  - La API de SCIM se encuentra disponible únicamente para las organizaciones de [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) que cuentan con el [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. {% data reusables.scim.enterprise-account-scim %} Para obtener más información sobre SCIM, consulta la sección "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
-  - La API de SCIM no puede utilizarse con {% data variables.product.prodname_emus %}.
+  - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. For more information about SCIM, see "[About SCIM for organizations](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+  - The SCIM API cannot be used with an enterprise account or with an {% data variables.product.prodname_emu_org %}.
 
 {% endnote %}
 

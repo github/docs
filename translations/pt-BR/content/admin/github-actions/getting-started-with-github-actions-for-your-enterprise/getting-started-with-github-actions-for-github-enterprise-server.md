@@ -97,7 +97,7 @@ Para obter mais informações sobre os requisitos mínimos de hardware para {% d
 
 {% ifversion ghes > 3.4 %}
 
-Optionally, you can limit resource consumption on {% data variables.product.product_location %} by configuring a rate limit for {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Configurar limites de taxa](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)".
+Opcionalmente, você pode limitar o consumo de recursos em {% data variables.product.product_location %}, configurando um limite de taxa para {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Configurar limites de taxa](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)".
 
 {% endif %}
 
