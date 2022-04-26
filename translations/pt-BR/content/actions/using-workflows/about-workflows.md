@@ -28,7 +28,7 @@ Um fluxo de trabalho deve conter os seguintes componentes básicos:
 1. Um ou mais _trabalhos_, cada uma das quais será executado em uma máquina de _executor_ e executará uma série de uma ou mais _etapas_.
 1. Cada etapa pode executar um script que você define ou executa uma ação, que é uma extensão reutilizável que pode simplificar seu fluxo de trabalho.
 
-Para obter mais informações sobre esses componentes básicos, consulte "[Entendendo GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)".
+For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
 
 ![Visão geral do fluxo de trabalho](/assets/images/help/images/overview-actions-simple.png)
 

@@ -46,13 +46,13 @@ Na falta de um token de acesso pessoal ou uma chave SSH, você poderá criar um 
 
 Para usar um token novo ou existente de acesso pessoal ou chave SSH com uma organização que usa ou impõe o SSO do SAML, você precisará autorizar o token ou autorizar a chave SSH para uso com uma organização de SSO do SAML. Para obter mais informações consulte "[Autorizar um token de acesso pessoal para usar com logon único SAML](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" ou "[Autorizando uma chave SSH para uso com o logon único SAML](/articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on).
 
-## About {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %}, and SAML SSO
+## Sobre {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} e SAML SSO
 
-You must have an active SAML session each time you authorize an {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} to access an organization that uses or enforces SAML SSO. You can create an active SAML session by navigating to `https://github.com/orgs/ORGANIZATION-NAME/sso` in your browser.
+Você deve ter uma sessão do SAML ativa toda vez que autorizar um {% data variables.product.prodname_oauth_app %} ou {% data variables.product.prodname_github_app %} para acessar uma organização que usa ou aplica o SAML SSO. Você pode criar uma sessão do SAML ativa, acessando `https://github.com/orgs/ORGANIZATION-NAME/sso` no seu navegador.
 
-After an enterprise or organization owner enables or enforces SAML SSO for an organization, and after you authenticate via SAML for the first time, you must reauthorize any {% data variables.product.prodname_oauth_apps %} or {% data variables.product.prodname_github_apps %} that you previously authorized to access the organization.
+Após o proprietário de uma empresa ou organização permitir ou aplicar o SAML SSO para uma organização, e depois de efetuar a autenticação por meio do SAML pela primeira vez, você deverá autorizar novamente todos os {% data variables.product.prodname_oauth_apps %} ou {% data variables.product.prodname_github_apps %} que você autorizou anteriormente a acessar a organização.
 
-To see the {% data variables.product.prodname_oauth_apps %} you've authorized, visit your [{% data variables.product.prodname_oauth_apps %} page](https://github.com/settings/applications). To see the {% data variables.product.prodname_github_apps %} you've authorized, visit your [{% data variables.product.prodname_github_apps %} page](https://github.com/settings/apps/authorizations).
+Para ver o {% data variables.product.prodname_oauth_apps %} que você autorizou, acesse a sua [página de {% data variables.product.prodname_oauth_apps %}](https://github.com/settings/applications). Para ver o {% data variables.product.prodname_github_apps %} que você autorizou, acesse a sua [página de {% data variables.product.prodname_github_apps %}](https://github.com/settings/apps/authorizations).
 
 {% endif %}
 
