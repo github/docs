@@ -1,9 +1,9 @@
 ---
 title: Restricting the visibility of forwarded ports
-shortTitle: Restricting port visibility
+shortTitle: Restrict port visibility
 intro: You can set constraints on the visibility options users can choose when they forward ports from codespaces in your organization.
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an organization owner.'
+permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an owner of the organization.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -20,7 +20,7 @@ As an organization owner, you may want to configure constraints on the visibilit
 
 ### Behavior when you set a port visibility constraint
 
-If there are existing codespaces that no longer conform to a policy you have defined, these codespaces will continue to operate until they are stopped or time out. When the user resumes the codespace, it will be subject to the policy constraints.
+Si existen codespaces que ya no se conformen con alguna política que hayas definido, estos seguirán operando hasta que se les detenga o hasta que se agote el tiempo. When the user resumes the codespace, it will be subject to the policy constraints.
 
 {% note %}
 
@@ -40,14 +40,12 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, select **{% octicon "codespaces" aria-label="The codespaces icon" %} {% data variables.product.prodname_codespaces %}** then click **Policies**.
-1. En la página de "Políticas de los codespaces", haz clic en **Crear política**.
-1. Ingresa un nombre para tu política nueva.
+{% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Port visibility**.
 
    ![Add a constraint for port visibility](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint
+1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
 
    ![Edit the port visibility constraint](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
 
@@ -55,29 +53,20 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 
    ![Choose the port visibility options](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
-1. En el área de "Cambiar destino de la política", haz clic en el botón desplegable.
-1. Elige y asea **Todos los repositorios** o **Repositorios seleccionados** para determinar a cuáles aplicará esta política.
-1. Si eliges **Repositorios seleccionados**:
-   1. Da clic en {% octicon "gear" aria-label="The settings icon" %}.
-
-      ![Editar los ajustes para la política](/assets/images/help/codespaces/policy-edit.png)
-
-   2. Selecciona los repositorios a los cuales quieres que aplique esta política.
-   3. En la parte inferior de la lista de repositorios, haz clic en **Seleccionar repositorios**.
-
-      ![Selecciona los repositorios para esta política](/assets/images/help/codespaces/policy-select-repos.png)
-
-1. Haz clic en **Save ** (guardar).
-
+{% data reusables.codespaces.codespaces-policy-targets %}
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+1. After you have finished adding constraints to your policy, click **Save**.
 ## Editar una política
 
-1. Muestra la página de "Políticas del Codespace". For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
+You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+
+1. Muestra la página de "Políticas del Codespace". Para obtener más información, consulta la sección "[Agregar una política para limitar las opciones de visibilidad de puerto](#adding-a-policy-to-limit-the-port-visibility-options)".
 1. Haz clic en el nombre de la política que quieres editar.
 1. Haz los cambios requeridos y luego haz clic en **Guardar**.
 
 ## Borrar una política
 
-1. Muestra la página de "Políticas del Codespace". For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
+1. Muestra la página de "Políticas del Codespace". Para obtener más información, consulta la sección "[Agregar una política para limitar las opciones de visibilidad de puerto](#adding-a-policy-to-limit-the-port-visibility-options)".
 1. Haz clic en el botón de borrar a la derecha de la política que quieras borrar.
 
    ![El botón de borrar para una política](/assets/images/help/codespaces/policy-delete.png)

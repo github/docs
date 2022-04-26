@@ -8,6 +8,6 @@ Detection of vulnerable calls is included in {% data variables.product.product_n
 Detection of vulnerable calls is available for organization-owned repositories in {% data variables.product.product_name %}. Esta característica requiere una licencia para la {% data variables.product.prodname_GH_advanced_security %}.
 
 {%- elsif ghae-issue-6076 %}
-Detection of vulnerable calls is available for organization-owned repositories in {% data variables.product.product_name %}. Esta es una característica de la {% data variables.product.prodname_GH_advanced_security %} (gratuita durante el lanzamiento beta).
+La detección de llamadas vulnerables está disponible para los repositorios que pertenecen a organizaciones de {% data variables.product.product_name %}. Esta es una característica de la {% data variables.product.prodname_GH_advanced_security %} (gratuita durante el lanzamiento beta).
 
 {%- endif %} {% data reusables.advanced-security.more-info-ghas %}

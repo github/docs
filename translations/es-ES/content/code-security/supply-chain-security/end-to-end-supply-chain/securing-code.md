@@ -18,9 +18,9 @@ topics:
 
 ## Acerca de esta guía
 
-This guide describes the highest impact changes you can make to improve the security of your code. Cada sección detalla un cambio que puedes hacer a tus procesos para mejorar la seguridad. The highest impact changes are listed first.
+This guide describes the highest impact changes you can make to improve the security of your code. Cada sección detalla un cambio que puedes hacer a tus procesos para mejorar la seguridad. Los cambios de más alto impacto se listan primero.
 
-## What's the risk?
+## ¿Cuál es el riesgo?
 
 Key risks in the development process include:
 
@@ -77,7 +77,7 @@ Code often needs to communicate with other systems over a network, and requires 
 {% elsif ghec %}
 If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.product.prodname_secret_scanning_GHAS %} on any repository owned by the organization. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advacned-security)."
 {% else %}
-You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)" and "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)."
+You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. También puedes definir patrones personalizados para detectar secretos adicionales a nivel de repositorio, organización o empresa. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)" and "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns)."
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.2 %}
@@ -89,7 +89,7 @@ Besides your code, you probably need to use secrets in other places. For example
 {% endif %}
 
 {% ifversion ghes > 3.2 %}
-Además de tu código, probablemente necesitarás utilizar secretos en otros lugares. For example, to allow {% data variables.product.prodname_actions %} workflows or {% data variables.product.prodname_dependabot %} to communicate with other systems. For more information on how to securely store and use secrets, see "[Encrypted secrets in Actions](/actions/security-guides/encrypted-secrets)", and "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."
+Además de tu código, probablemente necesitarás utilizar secretos en otros lugares. For example, to allow {% data variables.product.prodname_actions %} workflows or {% data variables.product.prodname_dependabot %} to communicate with other systems. Para obtener más información sobre cómo almacenar y utilizar los secretos de forma segura, consulta las secciones "[Secretos cifrados en las acciones](/actions/security-guides/encrypted-secrets)" y "[Administrar los secretos cifrados para el Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)".
 {% endif %}
 
 ## Keep vulnerable coding patterns out of your repository
