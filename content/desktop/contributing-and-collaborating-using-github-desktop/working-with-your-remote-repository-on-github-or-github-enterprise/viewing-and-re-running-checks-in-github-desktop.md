@@ -20,7 +20,7 @@ versions:
   ![List of open pull requests in the repository](/assets/images/help/desktop/click-pull-request.png)
 4. Click on the pull request number, to the right of the pull request branch name.
   ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
-5. To re-run failed checks, click **Re-run** and select **Re-run Failed Checks**.
+5. To re-run failed checks, click **{% octicon "sync" aria-label="The sync icon" %} Re-run** and select **Re-run Failed Checks**.
   ![Re-run failed checks](/assets/images/help/desktop/re-run-failed-checks.png)
 6. To re-run individual checks, highlight the individual check you want to re-run and select **Re-run this check**.
   ![Re-run individual checks](/assets/images/help/desktop/re-run-individual-checks.png)
