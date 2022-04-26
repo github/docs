@@ -108,7 +108,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    {%else%}
    For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
    {%endif%}
-1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step. If the secrets are inherited using `secrets: inherit`, secrets that are not defined in the `on` key can be referenced.
+1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step. If the secrets are inherited using `secrets: inherit`, you can reference them even if they are not defined in the `on` key.
 
    {% raw %}
    ```yaml
