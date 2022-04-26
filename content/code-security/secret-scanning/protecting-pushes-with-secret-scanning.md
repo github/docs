@@ -98,13 +98,13 @@ You can remove the secret from the file using the web UI. Once you remove the se
 
 If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
 
-1. In the banner that appeared at the top of the page when GitHub blocked your commit, click **Bypass protection**.
+{% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
+
+1. In the banner that appeared at the top of the page when {% data variables.product.prodname_dotcom %} blocked your commit, click **Bypass protection**.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 
   ![Screenshot showing form with options for unblocking the push of a secret](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
 
 1. Click **Allow secret**.
-
-{% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
 
 {% endif %}
