@@ -169,16 +169,24 @@ Use the `inherit` keyword to pass all secrets the calling workflow has access to
 
 ```yaml
 on:
+  workflow_dispatch:
+
+jobs:
+  pass-secrets-to-workflow:
+      uses: ./.github/workflows/called-workflow.yml
+      secrets: inherit
+```
+
+```yaml
+on:
   workflow_call:
-    secrets: inherit
 
 jobs:
   pass-secret-to-action:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Pass all org and repo secrets to the called workflow
-        uses: ./.github/workflows/called-workflow.yml
+      - name: Use a repo or org secret from the calling workflow.
+        uses: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
 ```
 
 {% endraw %}
