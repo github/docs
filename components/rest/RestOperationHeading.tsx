@@ -9,12 +9,12 @@ type Props = {
 export function RestOperationHeading({ slug, title, descriptionHTML }: Props) {
   return (
     <>
-      <h3 id={slug}>
+      <h2 id={slug}>
         <a href={`#${slug}`}>
           <LinkIcon size={16} className="m-1" />
         </a>
         {title}
-      </h3>
+      </h2>
       <div dangerouslySetInnerHTML={{ __html: descriptionHTML }} />
     </>
   )

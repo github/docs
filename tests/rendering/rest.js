@@ -9,17 +9,17 @@ import { getDiffOpenAPIContentRest } from '../../script/rest/test-open-api-schem
 describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
 
-  // Checks that every version of the /rest/references/checks
+  // Checks that every version of the /rest/checks
   // page has every operation defined in the openapi schema.
   test('loads schema data for all versions', async () => {
     for (const version in allVersions) {
       const checksRestOperations = await getRest(version, 'checks', 'runs')
       const $ = await getDOM(`/en/${version}/rest/checks/runs`)
-      const domH3Ids = $('h3')
-        .map((i, h3) => $(h3).attr('id'))
+      const domH2Ids = $('h2')
+        .map((i, h2) => $(h2).attr('id'))
         .get()
       const schemaSlugs = checksRestOperations.map((operation) => slugger.slug(operation.title))
-      expect(schemaSlugs.every((slug) => domH3Ids.includes(slug))).toBe(true)
+      expect(schemaSlugs.every((slug) => domH2Ids.includes(slug))).toBe(true)
     }
   })
 
