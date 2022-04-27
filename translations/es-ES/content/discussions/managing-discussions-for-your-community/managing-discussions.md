@@ -56,7 +56,7 @@ You can pin up to four important discussions above the list of discussions for t
 
 ## Editar un debate que se fijó
 
-Editar un debate que se ha fijado no cambiará la categoría del mismo. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Editar un debate que se ha fijado no cambiará la categoría del mismo. Para obtener más información, consulta la sección "[Administrar las categorías de los debates](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}

@@ -55,6 +55,6 @@ Cuando un usuario acepta la invitación, puede utilizar su nombre de usuario y c
 
 ## Leer más
 
-- "[Using CAS for enterprise IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
-- "[Using LDAP for enterprise IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
-- "[Using SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
+- "[Utilizar CAS para el IAM empresarial](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
+- "[Utilizar LDAP para el IAM empresarial](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
+- "[Utilizar SAML para el IAM empresarial](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"

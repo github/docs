@@ -134,10 +134,10 @@ Available in the {% data variables.product.prodname_dependabot %} alert views. Y
 
 Disponible en las vistas de alerta del escaneo de secretos.
 
-| Qualifier                      | Descripción                                                                                                                                                                                                                                         |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `secret-type:SERVICE_PROVIDER` | Muestra alertas para el secreto y proveedor especificados. Para obtener más información, consulta la sección "[patrones de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)". |
-| `secret-type:CUSTOM-PATTERN`   | Muestra alertas para los secretos que coinciden con el patrón personalizado específico. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."    |
+| Qualifier                      | Descripción                                                                                                                                                                                                                                                                                 |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `secret-type:SERVICE_PROVIDER` | Muestra alertas para el secreto y proveedor especificados. Para obtener más información, consulta la sección "[patrones de {% data variables.product.prodname_secret_scanning_caps %}](/code-security/secret-scanning/secret-scanning-patterns)".                                         |
+| `secret-type:CUSTOM-PATTERN`   | Muestra alertas para los secretos que coinciden con el patrón personalizado específico. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)". |
 
 ## Filtrar por proveedor
 

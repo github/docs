@@ -26,7 +26,7 @@ When you use external authentication, {% data variables.product.product_location
 
 {% elsif ghec %}
 
-If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
+If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). Para obtener más información, consulta la sección "[Acerca de la autenticación para tu empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)".
 
 {% data variables.product.product_name %} automatically creates a username for each person when the person signs in through your IdP for the first time.
 
@@ -70,7 +70,7 @@ Usernames for user accounts on {% ifversion ghes or ghae %}{% data variables.pro
 
 {% data variables.product.product_name %} requires the `NameID` element even if other attributes are present. For more information, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-attributes)."
 
-{% data variables.product.product_name %} creates a mapping between the `NameID` from the IdP and the username {% ifversion ghec or ghae %}in{% elsif ghes %}on{% endif %} {% data variables.product.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
+{% data variables.product.product_name %} crea un mapeo entre la `NameID` del IdP y el nombre de usuario {% ifversion ghec or ghae %}en{% elsif ghes %}en{% endif %} {% data variables.product.product_location %}, así que la `NameID` debería ser persistente, única y no estar sujeta a los cambios durante el ciclo de vida del usuario.
 
 {% ifversion ghes %}
 {% note %}

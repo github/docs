@@ -1,6 +1,6 @@
 ---
 title: Usar la autenticación integrada
-shortTitle: Built-in authentication
+shortTitle: Autenticación incorporada
 intro: 'If you don''t use a centralized, external system for your users'' identity, you can use built-in authentication to allow {% data variables.product.prodname_ghe_server %} to manage accounts and perform local authentication.'
 versions:
   ghes: '*'

@@ -57,4 +57,4 @@ To enable encrypted assertions, you must provide {% data variables.product.produ
 1. Haz clic en **Guardar parámetros**.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
-Si habilitaste la depuración de SAML para probar la autenticación con las aserciones cifradas, inhabilita la depuración de SAML cuando termines de hacer las pruebas. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)."
+Si habilitaste la depuración de SAML para probar la autenticación con las aserciones cifradas, inhabilita la depuración de SAML cuando termines de hacer las pruebas. Para obtener más información, consulta la sección "[Solucionar problemas de la autenticación de SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)".

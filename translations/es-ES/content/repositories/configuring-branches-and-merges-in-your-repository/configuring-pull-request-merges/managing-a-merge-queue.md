@@ -15,7 +15,7 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-beta %}
 
-## About merge queues
+## Acerca de las colas de fusión
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
@@ -46,7 +46,7 @@ Para obtener más información acerca de los métodos de fusión, consulta "[Ace
 
 {% data reusables.pull_requests.merge-queue-reject %}
 
-## Managing a merge queue
+## Administrar una cola de fusión
 
 Repository administrators can require a merge by enabling the branch protection setting "Require merge queue" in the protection rules for the base branch.
 
