@@ -161,7 +161,7 @@ jobs:
 
 #### `on.workflow_call.secrets.inherit`
 
-Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, and also includes organization, repository, and environment secrets. The `inherit` keyword can also be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
+Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
 
 #### Example
 
