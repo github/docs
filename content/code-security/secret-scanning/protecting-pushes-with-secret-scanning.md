@@ -99,9 +99,11 @@ You can remove the secret from the file using the web UI. Once you remove the se
 
 ### Bypassing push protection for a secret
 
-If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed.
+If {% data variables.product.prodname_dotcom %} blocks a secret that you believe is safe to push, you can allow the secret and specify the reason why it should be allowed. If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible.
 
 {% data reusables.secret-scanning.push-protection-allow-secrets-alerts %}
+
+If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible.
 
 1. In the banner that appeared at the top of the page when {% data variables.product.prodname_dotcom %} blocked your commit, click **Bypass protection**.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
