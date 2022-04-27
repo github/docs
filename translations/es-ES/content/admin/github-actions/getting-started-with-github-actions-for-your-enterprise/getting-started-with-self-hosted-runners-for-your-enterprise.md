@@ -61,7 +61,7 @@ Primero, habilita las {% data variables.product.prodname_actions %} para todas l
    {% if actions-workflow-policy %}
    ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github-with-workflows.png)
    {%- else %}
-   ![Screenshot of "Allow select actions" and "Allow actions created by {% data variables.product.company_short %}" for {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png)
+   ![Captura de pantalla de "Permitir acciones seleccionadas" y "Permitir acciones creadas por {% data variables.product.company_short %}" para las {% data variables.product.prodname_actions %}](/assets/images/help/settings/actions-policy-allow-select-actions-and-actions-from-github.png)
    {%- endif %}
 1. Haz clic en **Save ** (guardar).
 

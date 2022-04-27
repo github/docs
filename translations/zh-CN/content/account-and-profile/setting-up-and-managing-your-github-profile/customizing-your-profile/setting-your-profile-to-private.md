@@ -1,63 +1,63 @@
 ---
-title: Setting your profile to private
-intro: 'A private profile displays only limited information, and hides some activity.'
+title: 将您的个人资料设置为私密
+intro: 私密个人资料仅显示有限的信息，并隐藏某些活动。
 versions:
   fpt: '*'
 topics:
   - Profiles
-shortTitle: Set profile to private
+shortTitle: 将个人资料设置为私密
 ---
 
-## About private profiles
+## 关于私密个人资料
 
 {% note %}
 
-**Note:** Private profiles are currently in beta and are subject to change.
+**注意：**私密个人资料目前处于测试阶段，可能会有所变化。
 
 {% endnote %}
 
-To hide parts of your profile page, you can make your profile private. This also hides your activity in various social features on {% data variables.product.prodname_dotcom_the_website %}. A private profile hides information from all users, and there is currently no option to allow specified users to see your activity.
+要隐藏部分个人资料页面，您可以将个人资料设为私密。 这也会隐藏您在 {% data variables.product.prodname_dotcom_the_website %} 上的各种社交功能中的活动。 私密个人资料会隐藏所有用户的信息，并且当前没有允许指定用户查看您的活动的选项。
 
-After making your profile private, you can still view all your information when you visit your own profile.
+将个人资料设为私密后，您仍然可以在访问自己的个人资料时查看所有信息。
 
-Private profiles cannot receive sponsorships under [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors). To be eligible for {% data variables.product.prodname_sponsors %}, your profile cannot be private.
+私密个人资料在 [{% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors) 下不能获得赞助。 要获得 {% data variables.product.prodname_sponsors %} 资格，您的个人资料不能是私密的。
 
-## Differences between private and public profiles
+## 私密个人资料与公共个人资料之间的差异
 
-When your profile is private, the following content is hidden from your profile page:
+当您的个人资料为私密时，您的个人资料页面中会隐藏以下内容：
 
-- Achievements and highlights.
-- Activity overview and activity feed.
-- Contribution graph.
-- Follower and following counts.
-- Follow and Sponsor buttons.
-- Organization memberships.
-- Stars, projects, packages, and sponsoring tabs.
+- 成就和亮点。
+- 活动概述和活动源。
+- 贡献图。
+- 关注者和关注数。
+- 关注和赞助者按钮。
+- 组织成员资格。
+- 星标、项目、包和赞助标签。
 
 {% note %}
 
-**Note**: When your profile is private, some optional fields are still publicly visible, such as the README, biography, and profile photo.
+**注意**：当您的个人资料为私密时，某些可选字段仍可公开显示，例如自述文件、传记和头像。
 
 {% endnote %}
 
-## Changes to reporting on your activities
+## 更改活动报告
 
-By making your profile private, you will not remove or hide past activity; this setting only applies to your activity while the private setting is enabled.
+通过将个人资料设为私密，您无法删除或隐藏过去的活动；此设置仅适用于启用私密设置时的活动。
 
-When your profile is private, your {% data variables.product.prodname_dotcom_the_website %} activity will not appear in the following locations:
+当您的个人资料为私密时，您的 {% data variables.product.prodname_dotcom_the_website %} 活动将不会显示在以下位置：
 
-- Activity feeds for other users.
-- Discussions leaderboards.
-- The [Trending](https://github.com/trending) page.
+- 其他用户的活动源。
+- 讨论排行榜。
+- [热门](https://github.com/trending)页面。
 
 {% note %}
 
-**Note**: Your activity on public repositories will still be publicly visible to anyone viewing those repositories, and some activity data may still be available through the {% data variables.product.prodname_dotcom %} API.
+**注意**：您在公共仓库上的活动仍将对查看这些仓库的任何人公开可见，并且某些活动数据可能仍可通过 {% data variables.product.prodname_dotcom %} API 获得。
 
 {% endnote %}
 
-## Changing your profile's privacy settings
+## 更改个人资料的隐私设置
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Contributions & Activity", select the checkbox next to **Make profile private and hide activity**.
+1. 在“Contributions & Activity（贡献和活动）”下，选中 **Make profile private and hide activity（将个人资料设为私密并隐藏活动）**旁边的复选框。
 {% data reusables.user-settings.update-preferences %}

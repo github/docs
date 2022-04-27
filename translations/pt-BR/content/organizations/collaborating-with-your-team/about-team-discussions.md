@@ -44,7 +44,7 @@ Para obter mais informações, consulte {% ifversion fpt or ghae or ghes or ghec
 
 {% ifversion fpt or ghec %}
 
-## Organization discussions
+## Discussões da organização
 
 Você também pode usar discussões da organização para facilitar conversas em toda a sua organização. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
 
