@@ -29,7 +29,7 @@ Issues can be created in a variety of ways, you can choose the most convenient m
 * {% data variables.product.prodname_desktop %}
 * {% data variables.product.prodname_cli %}
 * GraphQL and REST APIs
-* {% data variables.product.prodname_mobile %}.
+* {% data variables.product.prodname_mobile %}
 
 For more information, see "[Creating an issue](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)."
 
