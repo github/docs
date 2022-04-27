@@ -124,8 +124,6 @@
 
 /enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
 - /admin/overview/managing-billing-for-your-enterprise
-- /enterprise/admin/installation/managing-billing-for-github-enterprise
-- /enterprise/admin/overview/managing-billing-for-github-enterprise
 - /admin/overview/managing-billing-for-github-enterprise
 
 /enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
@@ -133,9 +131,6 @@
 
 /enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise
 - /billing/managing-your-license-for-github-enterprise
-- /enterprise/admin/installation/managing-your-github-enterprise-license
-- /enterprise/admin/categories/licenses
-- /enterprise/admin/articles/license-files
 
 /enterprise-cloud@latest/admin
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
@@ -322,11 +317,6 @@
 - /github/setting-up-and-managing-organizations-and-teams/preparing-to-enforce-saml-single-sign-on-in-your-organization
 - /organizations/managing-saml-single-sign-on-for-your-organization/preparing-to-enforce-saml-single-sign-on-in-your-organization
 
-/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization
-- /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
-- /github/setting-up-and-managing-organizations-and-teams/preparing-to-enforce-saml-single-sign-on-in-your-organization
-- /organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization
-
 /enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes
 - /articles/downloading-your-organization-s-saml-single-sign-on-recovery-codes
 - /articles/downloading-your-organizations-saml-single-sign-on-recovery-codes
@@ -412,8 +402,6 @@
 /enterprise-cloud@latest/support/learning-about-github-support/about-github-premium-support
 - /articles/about-github-premium-support
 - /articles/about-github-premium-support-for-github-enterprise-cloud
-- /enterprise/admin/guides/enterprise-support/about-premium-support-for-github-enterprise
-- /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise
 - /admin/enterprise-support/about-github-premium-support-for-github-enterprise
 - /github/working-with-github-support/about-github-premium-support-for-github-enterprise-cloud
 - /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise
@@ -421,8 +409,6 @@
 - /support/learning-about-github-support/about-github-premium-support
 
 /enterprise-server@latest/support/learning-about-github-support/about-github-premium-support
-- /enterprise/admin/guides/enterprise-support/about-premium-support
-- /enterprise/admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 - /admin/enterprise-support/about-github-premium-support-for-github-enterprise-server
 - /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise-server
 
