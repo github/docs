@@ -1,6 +1,6 @@
 ---
 title: 限制转发端口的可见性
-shortTitle: Restrict port visibility
+shortTitle: 限制端口可见性
 intro: 您可以对用户在从组织中的代码空间转发端口时可以选择的可见性选项设置约束。
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access to port visibility constraints for the repositories in an organization, you must be an owner of the organization.'
@@ -54,7 +54,7 @@ topics:
    ![选择端口可见性选项](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. 有关其他约束的信息，请参阅“[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”和“[限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)”。
 1. After you have finished adding constraints to your policy, click **Save**.
 ## 编辑策略
 
