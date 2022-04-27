@@ -1,6 +1,6 @@
 ---
 title: 限制对计算机类型的访问
-shortTitle: Restrict machine types
+shortTitle: 限制机器类型
 intro: 您可以对用户在组织中创建代码空间时可以选择的计算机类型设置约束。
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: 'To manage access to machine types for the repositories in an organization, you must be an owner of the organization.'
@@ -57,7 +57,7 @@ topics:
    ![编辑计算机类型约束](/assets/images/help/codespaces/edit-machine-constraint.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)" and "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. 有关其他约束的信息，请参阅“[限制转发端口可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)”和“[限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)”。
 1. After you have finished adding constraints to your policy, click **Save**.
 ## 编辑策略
 

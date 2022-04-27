@@ -105,9 +105,9 @@ jobs:
 
 更多信息请参阅“[定义先决条件作业](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)”。
 
-### 使用构建矩阵
+### Using a matrix
 
-如果您希望工作流程跨参数（如操作系统、平台和语言）的多个组合运行测试，可以使用构建矩阵。 构建矩阵是使用 `strategy` 关键字创建的，它接收构建选项作为数组。 例如，此构建矩阵将使用不同版本的 Node.js 多次运行作业：
+{% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
 
 ```yaml
 jobs:
@@ -115,14 +115,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [6, 8, 10]
+        node: [12, 14, 16]
     steps:
       - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-更多信息请参阅“[对作业使用构建矩阵](/actions/using-jobs/using-a-build-matrix-for-your-jobs)”。
+For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% ifversion fpt or ghec %}
 ### 缓存依赖项
