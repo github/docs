@@ -27,7 +27,7 @@ program
   .description(
     'Toggle issue-based, feature-flagged versioning for GitHub AE content like\n' +
       'ghae-next or ghae-issue-1234, then commit the results.\n\n' +
-      'Documentation: https://git.io/JCtUO\n\n' +
+      'Documentation: https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/content-creation/versioning-documentation.md#internal-versioning-conventions-for-github-ae\n\n' +
       'Examples:\n' +
       `  ${scriptName} -n\n` +
       `  ${scriptName} -f 'issue-1234, issue-5678'`
