@@ -1,5 +1,5 @@
 ---
-title: Git SSH Keys
+title: Git SSHキー
 intro: ''
 versions:
   fpt: '*'

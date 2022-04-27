@@ -5,7 +5,7 @@ redirect_from:
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
-intro: 'To put your project up on {% data variables.product.prodname_dotcom %}, you will need to create a repository for it to live in.'
+intro: '要将项目放在 {% data variables.product.prodname_dotcom %} 上，您需要创建一个仓库来存放它。'
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-您可以在 {% data variables.product.prodname_dotcom %} 仓库中存储各种项目，包括开源项目。 With open source projects, you can share code to make better, more reliable software. 您可以使用仓库与他人协作并跟踪您的工作。 更多信息请参阅“[关于仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)”。 To learn more about open source projects, visit [OpenSource.org](http://opensource.org/about).
+您可以在 {% data variables.product.prodname_dotcom %} 仓库中存储各种项目，包括开源项目。 通过开源项目，您可以共享代码以开发更好、更可靠的软件。 您可以使用仓库与他人协作并跟踪您的工作。 更多信息请参阅“[关于仓库](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)”。 要了解有关开源项目的更多信息，请访问 [OpenSource.org](http://opensource.org/about)。
 
 {% elsif ghes or ghae %}
 
@@ -78,7 +78,7 @@ A *[提交](/articles/github-glossary#commit)*就像是项目中所有文件在�
 2. 在文件内容的上方，单击 {% octicon "pencil" aria-label="The edit icon" %}。
 3. 在 **Edit file（编辑文件）**选项卡上，键入一些关于您自己的信息。 ![文件中的新内容](/assets/images/help/repository/edit-readme-light.png)
 {% data reusables.files.preview_change %}
-5. 查看您对文件所做的更改。 You will see the new content in green. ![文件预览视图](/assets/images/help/repository/create-commit-review.png)
+5. 查看您对文件所做的更改。 您将看到绿色的新内容。 ![文件预览视图](/assets/images/help/repository/create-commit-review.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
