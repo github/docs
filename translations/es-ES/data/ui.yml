@@ -24,13 +24,15 @@ release_notes:
   banner_text: GitHub comenzó a implementar estos cambios en empresas en
 search:
   need_help: '¿Necesitas ayuda?'
-  placeholder: Busca temas, productos...
+  placeholder: Buscar en los GitHub Docs
   loading: Cargando
   no_results: No se encontró ningún resultado
   search_results_for: Buscar resultados para
   no_content: Sin contenido
   matches_displayed: Coincidencias mostradas
   search_error: Ocurrió un error al intentar realizar la búsqueda.
+  description: Ingrese un término de búsqueda para encontrarlo en la Documentación de GitHub.
+  label: Buscar en los GitHub Docs
 homepage:
   explore_by_product: Explorar por producto
   version_picker: Versión
@@ -103,7 +105,7 @@ products:
       notes: Notas
       parameters: Parámetros
       response: Respuesta
-      status_codes: Status codes
+      status_codes: Códigos de estado
       http_status_code: Código de estado HTTP
       code_sample: Ejemplo de código
       code_samples: Ejemplos de código
@@ -114,6 +116,7 @@ products:
       preview_header_is_required: El encabezado es <strong>requerido</strong>
       preview_notice_to_change: Esta API está en vista previa y sujeta al cambio
       works_with_github_apps: Funciona con las GitHub Apps
+      api_reference: Referencia de la API de REST
 footer:
   all_rights_reserved: Todos los derechos reservados
   terms: Términos

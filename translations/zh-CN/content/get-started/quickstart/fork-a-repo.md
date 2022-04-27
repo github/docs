@@ -152,7 +152,7 @@ gh repo fork <em>repository</em> --clone=true
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
-6. 键入 `git remote add upstream`，然后粘贴您在第 2 步中复制的 URL 并按 **Enter** 键。 它将如下所示：
+6. 键入 `git remote add upstream`，然后粘贴您在第 3 步中复制的 URL 并按 **Enter** 键。 它将如下所示：
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```
@@ -188,7 +188,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 {% endcli %}
 
-### 后续步骤
+### 编辑复刻
 
 您可以对复刻进行任何更改，包括：
 
@@ -202,12 +202,14 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 {% endif %}
 
-## 祝贺
+## 后续步骤
 
-您现在已经复刻了仓库、练习了克隆复刻并配置了上游仓库。 有关克隆复刻和从计算机同步复刻仓库更改的更多信息，请参阅“[设置 Git](/articles/set-up-git)”。
+您现在已经复刻了仓库、练习了克隆复刻并配置了上游仓库。
 
-您也可以创建一个新的仓库，以将所有项目放在 {% data variables.product.prodname_dotcom %} 上并共享代码。 更多信息请参阅“[创建仓库](/articles/create-a-repo)”。
+* 有关克隆复刻和从计算机同步复刻仓库更改的更多信息，请参阅“[设置 Git](/articles/set-up-git)”。
 
-{% data variables.product.product_name %} 中的每个仓库均归个人或组织所有。 您可以在 {% data variables.product.product_name %} 上连接和关注人员、仓库和组织以与之进行交互。 更多信息请参阅“[社交](/articles/be-social)”。
+* 您也可以创建一个新的仓库，以将所有项目放在 {% data variables.product.prodname_dotcom %} 上并共享代码。 {% data reusables.getting-started.create-a-repository %}"
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data variables.product.product_name %} 中的每个仓库均归个人或组织所有。 您可以在 {% data variables.product.product_name %} 上连接和关注用户、仓库和组织以与之进行交互。 {% data reusables.getting-started.being-social %}
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

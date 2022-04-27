@@ -16,7 +16,7 @@ topics:
 
 {% data variables.product.product_name %}上でファイルを作成するときは、以下にご注意ください:
 
-- アクセス権を持たないリポジトリでの新しいファイル作成を試みている場合、変更をコミットした後で、ユーザーアカウントにプロジェクトをフォークして [プルリクエスト](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)をオリジナルのリポジトリに送信できるようお手伝いします。
+- If you try to create a new file in a repository that you don’t have access to, we will fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
 - Web インターフェイスを介して作成されるファイル名では英数字とハイフン (`-`) しか使用できません。 他の文字を使用するには、[ローカルにファイルを作成してからコミットし、{% data variables.product.product_name %} 上のリポジトリにプッシュします](/articles/adding-a-file-to-a-repository-using-the-command-line)。
 
 {% data reusables.repositories.sensitive-info-warning %}

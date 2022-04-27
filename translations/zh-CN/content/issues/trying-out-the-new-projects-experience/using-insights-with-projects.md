@@ -1,6 +1,6 @@
 ---
-title: Using insights with projects (beta)
-intro: You can view and customize charts that are built from your project's data.
+title: 将见解用于项目（测试版）
+intro: 您可以查看和自定义根据项目数据生成的图表。
 allowTitleToDifferFromFilename: true
 miniTocMaxHeadingLevel: 2
 versions:
@@ -13,31 +13,31 @@ topics:
 
 {% data reusables.projects.insights-alpha %}
 
-## About insights
+## 关于见解
 
-You can use insights to view and customize charts that use the items added to your project as their source data. The default "Burn up" chart shows item status over time, allowing you to visualize progress and spot patterns over time.
+您可以使用见解来查看和自定义图表，这些图表使用添加到项目中的项作为其源数据。 默认的“燃尽”图显示一段时间内的项状态，允许您可视化一段时间内的进度和点模式。
 
-![Screenshot showing an example of the default burn up chart for the current iteration](/assets/images/help/issues/burnup-example.png)
+![显示当前迭代的默认燃尽图示例的屏幕截图](/assets/images/help/issues/burnup-example.png)
 
-You can apply filters to the default chart and also create your own charts. When you create a chart, you set the filters, chart type, and the information displayed, and the chart is available to anyone that can view the project.
+您可以将筛选器应用于默认图表，也可以创建自己的图表。 创建图表时，可以设置筛选器、图表类型和显示的信息，图表可用于能够查看项目的任何人。
 
-![Screenshot showing an stacked column chart showing item types for each iteration](/assets/images/help/issues/column-chart-example.png)
+![显示堆叠柱形图的屏幕截图，该图表显示每次迭代的项类型](/assets/images/help/issues/column-chart-example.png)
 
-## Creating a chart
-
-{% data reusables.projects.access-insights %}
-3. In the menu on the left, click **New chart**.
-4. Optionally, to change the name of the new chart, click {% octicon "triangle-down" aria-label="The triangle icon" %}, type a new name, and press <kbd>Return</kbd>.
-5. Above the chart, type filters to change the data used to build the chart. 更多信息请参阅“[筛选项目](/issues/trying-out-the-new-projects-experience/filtering-projects)”。
-6. To the right of the filter text box, click **Save changes**.
-
-## Configuring a chart
+## 创建图表
 
 {% data reusables.projects.access-insights %}
-1. In the menu on the left, click on the chart you would like to configure.
-1. On the right side of the page, click **Configure**. A panel will open on the right.
-2. To change the type of chart, select the **Layout** dropdown and click on the chart type you want to use.
-3. To change the field used for your chart's X-axis, select the **X-axis** dropdown and click the field you want to use. If you select "Time", "Group by" will change to "Status" and "Y-Axis" will change to "Count of items."
-4. Optionally, to group the items on your X-axis by another field, select **Group by** and click on the field you want to use, or click "None" to disable grouping.
-5. Optionally, if your project contains number fields and you want the Y-axis to display the sum, average, minimum, or maximum of one of those number fields, select **Y-axis** and click an option. Then, select the dropdown that appears beneath and click on the number field you want to use.
-6. To save your chart, click **Save changes**.
+3. 在左侧菜单中，单击 **New chart（新建图表）**。
+4. （可选）要更改新图表的名称，请单击 {% octicon "triangle-down" aria-label="The triangle icon" %}，键入新名称，然后按 <kbd>Return</kbd>。
+5. 在图表上方，键入筛选器以更改用于生成图表的数据。 更多信息请参阅“[筛选项目](/issues/trying-out-the-new-projects-experience/filtering-projects)”。
+6. 在筛选器文本框的右侧，单击 **Save changes（保存更改）**。
+
+## 配置图表
+
+{% data reusables.projects.access-insights %}
+1. 在左侧菜单中，单击要配置的图表。
+1. 在页面右侧，单击 **Configure（配置）**。 右侧将打开一个面板。
+2. 要更改图表类型，请选择 **Layout（布局）**下拉列表，然后单击要使用的图表类型。
+3. 要更改用于图表 X 轴的字段，请选择 **X-axis（X 轴）**下拉列表，然后单击要使用的字段。 如果选择“Time（时间）”，“Group by（分组依据）”将变为“Status（状态）”，“Y-Axis（Y 轴）”将变为“Count of items（项数）”。
+4. （可选）要按其他字段对 X 轴上的项目进行分组，请选择 **Group by（分组依据）**，然后单击要使用的字段，或单击“None（无）”以禁用分组。
+5. （可选）如果项目包含数字字段，并且您希望 Y 轴显示其中一个数字字段的总和、平均值、最小值或最大值，请选择 **Y-axis（Y 轴）** ，然后单击选项。 然后，选择下面显示的下拉列表，并单击要使用的数字字段。
+6. 要保存图表，请单击 **Save changes（保存更改）**。

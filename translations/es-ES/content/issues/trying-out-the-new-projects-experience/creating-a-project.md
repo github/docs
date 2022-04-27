@@ -63,6 +63,15 @@ Los borradores de propuesta pueden tener un título, cuerpo de texto, asignados 
 3. Selecciona el repositorio en donde se ubica la solicitud de cambios o propuesta. Puedes teclear la parte del nombre de repositorio para reducir tus opciones.
 4. Selecciona la propuesta o solicitud de cambios. Puedes teclear parte del título para reducir tus opciones.
 
+#### Agregar propuestas o solicitudes de cambio múltiples desde un repositorio
+
+1. En {% data variables.product.product_location %}, navega al repositorio que contiene las propuestas o solicitudes de cambio que quieras agregar a tu proyecto.
+{% data reusables.repositories.sidebar-issue-pr %}
+1. A la izquierda de cada título de propuesta, selecciona aquellas que quieras agregar a tu proyecto. ![Captura de pantalla que muestra una casilla de verificación para seleccionar una propuesta o solicitud de cambios](/assets/images/help/issues/select-issue-checkbox.png)
+1. Opcionalmente, para seleccionar todas las propuestas o solicitudes de cambio en la página, en la parte superior de la lista de propuesta o solicitudes de cambio, selecciona todas. ![Captura de pantalla que muestra la casilla de verificación para seleccionar todo en la pantalla](/assets/images/help/issues/select-all-checkbox.png)
+1. Sobre la lista de propuestas o solicitudes de cambio, haz clic en **Proyectos (beta)**. ![Captura de pantalla que muestra la casilla de verificación para seleccionar todo en la pantalla](/assets/images/help/issues/projects-beta-assign-button.png)
+1. Haz clic en los proyectos a los que quieras agregar las propuestas o solicitudes de cambio. ![Captura de pantalla que muestra la casilla de verificación para seleccionar todo en la pantalla](/assets/images/help/issues/projects-beta-assign-dropdown.png)
+
 #### Asignar un rpoyecto desde dentro de una propuesta o solicitud de cambios
 
 1. Navega a la propuesta o solicitud de cambios que quieras agregar a un proyecto.
@@ -102,7 +111,20 @@ Puedes restablecer los elementos archivados, pero no los borrados. Para obtener 
 
 ## Restaurar los elementos archivados
 
-Para restablecer un elemento archivado, navega a la propuesta o solicitud de cambios. En la barra lateral del proyecto sobre la propuesta o solicitud de cambios, haz clic en **Restablecer** en el proyecto al cual quieras restablecer el elemento. Los borradores de propuestas no pueden restaurarse.
+1. Navegar a tu proyecto.
+1. En la parte derecha, haz clic en {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
+1. En el menú, haz clic en **Elementos archivados**.
+1. Opcionalmente, para filtrar los elementos archivados que se muestran, teclea tu filtro en la caja de texto superior a la lista de elementos. Para obtener más información sobre los filtros disponibles, consulta la sección "[Filtrar proyectos (beta)](/issues/trying-out-the-new-projects-experience/filtering-projects)".
+
+   ![Captura de pantalla que muestra un campo para filtrar los elementos archivados](/assets/images/help/issues/filter-archived-items.png)
+
+1. A la izquierda de cada título de elemento, selecciona aquellos que te gustaría restablecer.
+
+   ![Captura de pantalla que muestra las casillas de verificación junto a los elementos archivados](/assets/images/help/issues/select-archived-item.png)
+
+1. Para restablecer los elementos seleccionados, sobre la lista de elementos, haz clic en **Restablecer**.
+
+   ![Captura de pantalla que muestra el botón "Restablecer"](/assets/images/help/issues/restore-archived-item-button.png)
 
 ## Agregar campos
 

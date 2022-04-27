@@ -22,7 +22,7 @@ Puedes configurar recordatorios programados para solicitudes de revisión a nive
 
 {% data reusables.reminders.scheduled-reminders-limitations %}
 
-## Crear recordatorios programados para tu cuenta de usuario
+## Crear recordatorios programados para tu cuenta personal
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
@@ -37,14 +37,14 @@ Puedes configurar recordatorios programados para solicitudes de revisión a nive
 ![Casilla para habilitar las alertas en tiempo real](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
 {% data reusables.reminders.create-reminder %}
 
-## Administrar recordatorios programados para tu cuenta de usuario
+## Administrar los recordatorios programados para tu cuenta personal
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. Da clic en **Editar** a un costado de la organización para la cual quieres editar los recordatorios programados. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
 {% data reusables.reminders.edit-page %}
 {% data reusables.reminders.update-buttons %}
 
-## Borrar recordatorios programados para tu cuenta de usuario
+## Borrar los recordatorios programados para tu cuenta personal
 {% data reusables.user-settings.access_settings %}
 {% data reusables.reminders.scheduled-reminders %}
 1. Da clic en **Editar** a un costado de la organización para la cual quieres borrar un recordatorio. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)

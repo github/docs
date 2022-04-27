@@ -25,7 +25,7 @@ Public installation flows have a landing page to enable other people besides the
 
 ## Private installation flow
 
-Private installation flows allow only the owner of a GitHub App to install it. Limited information about the GitHub App will still exist on a public page, but the **Install** button will only be available to organization administrators or the user account if the GitHub App is owned by an individual account. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}Private {% else %}Private (also known as internal){% endif %} GitHub Apps can only be installed on the user or organization account of the owner.
+Private installation flows allow only the owner of a GitHub App to install it. Limited information about the GitHub App will still exist on a public page, but the **Install** button will only be available to organization administrators or the personal account if the GitHub App is owned by an individual account. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}Private {% else %}Private (also known as internal){% endif %} GitHub Apps can only be installed on the user or organization account of the owner.
 
 ## Changing who can install your GitHub App
 

@@ -12,6 +12,8 @@ shortTitle: Configurar el tiempo de inactividad
 
 Un codespace dejará de ejecutarse después de un periodo de inactividad. Puedes especificar la longitud de este periodo. El ajuste actualizado se aplicará a cualquier codespace recién creado.
 
+Some organizations may have a maximum idle timeout policy. If an organization policy sets a maximum timeout which is less than the default timeout you have set, the organization's timeout will be used instead of your setting, and you will be notified of this after the codespace is created. For more information, see "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+
 {% warning %}
 
 **Advertencia**: Los Coespaces se facturan por minuto. Si no estás utilizando un codespace activamente, pero este no ha llegado a su tiempo de inactividad, se te cobrará por el tiempo durante el cual este se ejecute de todos modos. Para obtener más información, consulta la sección "[Acerca de la facturación para los Codespaces](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)".
@@ -34,7 +36,7 @@ Un codespace dejará de ejecutarse después de un periodo de inactividad. Puedes
 
 {% data reusables.cli.cli-learn-more %}
 
-Para configurar el periodo de inactividad cuando creas un codespace, utiliza el argumento `idle-timeout` con el subcomando `codespace create`. Especifica el tiempo en minutos, seguido de `m`. La hora debe ser entre 5 y 240 minutos (4 horas).
+Para configurar el periodo de inactividad cuando creas un codespace, utiliza el argumento `idle-timeout` con el subcomando `codespace create`. Especifica el tiempo en minutos, seguido de `m`. El tiempo debe ser de entre 5 minutos y 240 minutos (4 horas).
 
 ```shell
 gh codespace create --idle-timeout 90m

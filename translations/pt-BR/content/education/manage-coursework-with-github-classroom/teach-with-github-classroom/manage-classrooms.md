@@ -21,15 +21,17 @@ redirect_from:
 
 Depois de criar uma sala de aula, {% data variables.product.prodname_classroom %} solicitará que você convide assistentes de ensino (ETI) e administradores para a sala de aula. Cada sala de aula pode ter um ou mais administradores. Os administradores podem ser professores, TAs ou qualquer outro administrador do curso o qual que você gostaria que tivesse controle das suas salas de aula em {% data variables.product.prodname_classroom %}.
 
-Convide TAs e administradores para a sua sala de aula, convidando as contas de usuário em {% data variables.product.product_name %} para a sua organização como proprietários e compartilhando a URL da sua sala de aula. Os proprietários da organização podem administrar qualquer sala de aula da organização. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" e "[Convidando usuários para participar da sua organização](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
+Convide TAs e administradores para a sua sala de aula, convidando as contas pessoais em {% data variables.product.product_name %} para a sua organização como proprietários e compartilhando a URL da sua sala de aula. Os proprietários da organização podem administrar qualquer sala de aula da organização. Para obter mais informações, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)" e "[Convidando usuários para participar da sua organização](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)".
 
 Ao terminar de usar uma sala de aula, você pode arquivar a sala de aula e consultar a sala de aula, lista, e recomendações posteriormente, ou você pode excluir a sala de aula se não precisar mais dela.
+
+{% data reusables.classroom.reuse-assignment-link %}
 
 ## Sobre as listas de salas de aula
 
 Cada sala de aula tem uma lista. Uma lista é uma lista de identificadores para os alunos que participam do seu curso.
 
-A primeira vez que você compartilha a URL de uma atividade com um estudante, o aluno precisa efetuar o login em {% data variables.product.product_name %} com uma conta de usuário para vincular a conta do usuário a um identificador da sala de aula. Depois que o aluno vincular uma conta de usuário, você poderá ver a conta de usuário associada na lista. Você também pode ver quando o aluno aceita ou envia uma atividade.
+A primeira vez que você compartilha a URL de uma atividade com um estudante, o aluno precisa efetuar o login em {% data variables.product.product_name %} com uma conta pessoal para vincular a conta pessoal a um identificador da sala de aula. Depois que o aluno vincular uma conta pessoal, você poderá ver a conta pessoal associada na lista. Você também pode ver quando o aluno aceita ou envia uma atividade.
 
 ![Lista de salas de aula](/assets/images/help/classroom/roster-hero.png)
 
@@ -45,7 +47,7 @@ Você deve autorizar o aplicativo OAuth {% data variables.product.prodname_class
 1. Clique em **Nova sala de aula**. ![Botão "Nova sala de aula"](/assets/images/help/classroom/click-new-classroom-button.png)
 {% data reusables.classroom.guide-create-new-classroom %}
 
-Depois de criar uma sala de aula, você pode começar a criar atividades para os alunos. Para obter mais informações, consulte "[Use a atividade inicial do Git e {% data variables.product.company_short %}](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment), "[Crie uma tarefa individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" ou "[Crie uma atividade em grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)."
+Depois de criar uma sala de aula, você pode começar a criar atividades para os alunos. For more information, see "[Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/use-the-git-and-github-starter-assignment)," "[Create an individual assignment](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)," "[Create a group assignment](/education/manage-coursework-with-github-classroom/create-a-group-assignment)," or "[Reuse an assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)."
 
 ## Criando uma lista para sua sala de aula
 

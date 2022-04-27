@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   stale_needs-sme:
-    if: ${{ github.repository == 'github/docs'' }}
+    if: ${{ github.repository == 'github/docs' }}
     runs-on: ubuntu-latest
 
     steps:

@@ -54,14 +54,16 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 
 {% endnote %}
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6143 %}
+
 ## Controlling runner software updates on self-hosted runners
 
 By default, self-hosted runners will automatically perform a software update whenever a new version of the runner software is available.  If you use ephemeral runners in containers then this can lead to repeated software updates when a new runner version is released.  Turning off automatic updates allows you to update the runner version on the container image directly on your own schedule.
 
-If you want to turn off automatic software updates and install software updates yourself, you can specify the `--disableupdate` parameter when starting the runner.  For example:
+To turn off automatic software updates and install software updates yourself, specify the `--disableupdate` flag when registering your runner using `config.sh`. For example:
 
 ```shell
-./run.sh --disableupdate
+./config.sh --url <em>https://github.com/octo-org</em> --token <em>example-token</em> --disableupdate
 ```
 
 If you disable automatic updates, you must still update your runner version regularly.  New functionality in {% data variables.product.prodname_actions %} requires changes in both the {% data variables.product.prodname_actions %} service _and_ the runner software.  The runner may not be able to correctly process jobs that take advantage of new features in {% data variables.product.prodname_actions %} without a software update.
@@ -75,6 +77,8 @@ For instructions on how to install the latest runner version, see the installati
 **Note:** If you do not perform a software update within 30 days, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner.  In addition, if a critical security update is required, the {% data variables.product.prodname_actions %} service will not queue jobs to your runner until it has been updated.
 
 {% endnote %}
+
+{% endif %}
 
 ## Using webhooks for autoscaling
 

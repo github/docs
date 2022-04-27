@@ -12,6 +12,8 @@ shortTitle: 设置超时
 
 代码空间将在一段时间不活动后停止运行。 您可以指定此超时期限的长度。 更新后的设置将应用于任何新创建的代码空间。
 
+Some organizations may have a maximum idle timeout policy. If an organization policy sets a maximum timeout which is less than the default timeout you have set, the organization's timeout will be used instead of your setting, and you will be notified of this after the codespace is created. For more information, see "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+
 {% warning %}
 
 **警告**：代码空间按分钟计费。 如果您未主动使用代码空间，但代码空间尚未超时，则仍需为代码空间运行的时间付费。 更多信息请参阅“[关于代码空间的计费](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces#codespaces-pricing)”。

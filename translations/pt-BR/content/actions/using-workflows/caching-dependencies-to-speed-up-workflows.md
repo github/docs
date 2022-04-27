@@ -102,7 +102,7 @@ Para obter mais informações, consulte [`ações/cache`](https://github.com/act
           ~/.gradle/wrapper
     ```
   - Com `v1` da ação da `cache`, somente um caminho único é compatível e deve ser um diretório. Você não pode armazenar em cache um único arquivo.
-- `restore-keys`: **Optional** A string containing alternative restore keys, with each restore key placed on a new line. If no cache hit occurred for `key`, these restore keys are used sequentially in the order provided to find and restore a cache. Por exemplo:
+- `restore-keys`: **Opcional** Uma string que contêm chaves de restauração alternativas, com cada uma colocada em uma nova linha. Se nenhuma correspondência de cache foi encontrada para a `chave`, estas chaves de restauração serão usadas sequencialmente na ordem fornecida para encontrar e restaurar um cache. Por exemplo:
 
   {% raw %}
   ```yaml

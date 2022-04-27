@@ -102,7 +102,16 @@ Para más información, consulta [`actions/cache`](https://github.com/actions/ca
           ~/.gradle/wrapper
     ```
   - Con la `v1` de la acción `cache`, solo se puede utilizar una ruta única, la cual debe ser un directorio. No puedes almacenar en caché un archivo único.
-- `restore-keys`: **Opcional** Una lista ordenada de claves alternativas que se usan para encontrar la caché si no se ha producido ningún hit de caché para `key`.
+- `restore-keys`: **Optional** A string containing alternative restore keys, with each restore key placed on a new line. If no cache hit occurred for `key`, these restore keys are used sequentially in the order provided to find and restore a cache. Por ejemplo:
+
+  {% raw %}
+  ```yaml
+  restore-keys: |
+    npm-foobar-${{ hashFiles('package-lock.json') }}
+    npm-foobar-
+    npm-
+  ```
+  {% endraw %}
 
 ### Parámetros de salida para la acción `cache`
 

@@ -22,11 +22,11 @@ topics:
 
 ## フォークについて
 
-Most commonly, forks are used to either propose changes to someone else's project to which you don't have write access, or to use someone else's project as a starting point for your own idea. You can fork a repository to create a copy of the repository and make changes without affecting the upstream repository. For more information, see "[Working with forks](/github/collaborating-with-issues-and-pull-requests/working-with-forks)."
+Most commonly, forks are used to either propose changes to someone else's project to which you do not have write access, or to use someone else's project as a starting point for your own idea. You can fork a repository to create a copy of the repository and make changes without affecting the upstream repository. For more information, see "[Working with forks](/github/collaborating-with-issues-and-pull-requests/working-with-forks)."
 
 ### 他のユーザのプロジェクトへの変更を提案する
 
-たとえば、フォークを使用して、バグの修正に関連する変更を提案できます。 見つけたバグから Issue をログするのではなく、以下のことができます:
+たとえば、フォークを使用して、バグの修正に関連する変更を提案できます。 Rather than logging an issue for a bug you have found, you can:
 
 - リポジトリをフォークする。
 - 修正する。
@@ -48,7 +48,7 @@ Most commonly, forks are used to either propose changes to someone else's projec
 
 ## 必要な環境
 
-まだ設定していない場合は、まず [Git を設定](/articles/set-up-git)します。 [Git からの {% data variables.product.product_location %} への認証を設定](/articles/set-up-git#next-steps-authenticating-with-github-from-git)することも忘れないでください。
+If you have not yet, you should first [set up Git](/articles/set-up-git). [Git からの {% data variables.product.product_location %} への認証を設定](/articles/set-up-git#next-steps-authenticating-with-github-from-git)することも忘れないでください。
 
 ## リポジトリをフォークする
 
@@ -84,7 +84,7 @@ gh repo fork <em>repository</em> --org "octo-org"
 
 ## Cloning your forked repository
 
-Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository locally on your computer.
+Right now, you have a fork of the Spoon-Knife repository, but you do not have the files in that repository locally on your computer.
 
 {% webui %}
 
@@ -145,19 +145,19 @@ When you fork a project in order to propose changes to the original repository, 
     - 現在のディレクトリのファイルとフォルダを一覧表示するには、`ls` と入力します。
     - 一覧表示されたディレクトリのいずれかにアクセスするには、`cd your_listed_directory` と入力します。
     - 1 つ上のディレクトリに移動するには、`cd ..` と入力します。
-5. `git remote -v` と入力して **Enter** キーを押します。 フォーク用に現在構成されているリモートリポジトリが表示されます。
+5. `git remote -v` と入力して **Enter** キーを押します。 You will see the current configured remote repository for your fork.
   ```shell
   $ git remote -v
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
-6. `git remote add upstream` と入力し、ステップ 2 でコピーした URL を貼り付けて **Enter** キーを押します。 次のようになります:
+6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. 次のようになります:
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```
 
-7. フォーク用に指定した新しい上流リポジトリを確認するには、再度 `git remote -v` と入力します。 フォークの URL が `origin` として、オリジナルのリポジトリの URL が `upstream` として表示されるはずです。
+7. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. フォークの URL が `origin` として、オリジナルのリポジトリの URL が `upstream` として表示されるはずです。
   ```shell
   $ git remote -v
   > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
@@ -188,7 +188,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 {% endcli %}
 
-### 次のステップ
+### Editing a fork
 
 フォークには、次のような変更を加えることができます。
 
@@ -202,12 +202,14 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 {% endif %}
 
-## おめでとうございます
+## 次のステップ
 
-リポジトリをフォークし、フォークのクローンを練習し、上流リポジトリを構成しました。 For more information about cloning the fork and syncing the changes in a forked repository from your computer see "[Set up Git](/articles/set-up-git)."
+リポジトリをフォークし、フォークのクローンを練習し、上流リポジトリを構成しました。
 
-You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. For more information see, "[Create a repository](/articles/create-a-repo)."
+* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[Set up Git](/articles/set-up-git)."
 
-Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
+* You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with users, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. {% data reusables.getting-started.being-social %}
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

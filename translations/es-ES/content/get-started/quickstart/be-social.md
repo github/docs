@@ -5,7 +5,7 @@ redirect_from:
   - /articles/be-social
   - /github/getting-started-with-github/be-social
   - /github/getting-started-with-github/quickstart/be-social
-intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they''re connecting with from your personal dashboard.'
+intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they are connecting with from your personal dashboard.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
@@ -23,15 +23,17 @@ To learn about accessing your personal dashboard, see "[About your personal dash
 
 ## Following people
 
-When you follow someone on {% data variables.product.prodname_dotcom %}, you'll get notifications on your personal dashboard about their activity. For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard)."
+When you follow someone on {% data variables.product.prodname_dotcom %}, you will get notifications on your personal dashboard about their public activity. If someone you follow creates a new repository, stars a repository, or follows another user, the activity will display in your dashboard. 
 
 Click **Follow** on a person's profile page to follow them.
 
 ![Follow user button](/assets/images/help/profile/follow-user-button.png)
 
+For more information, see "[Following people](/get-started/exploring-projects-on-github/following-people)."
+
 ## Watching a repository
 
-You can watch a repository to receive notifications for new pull requests and issues. When the owner updates the repository, you'll see the changes in your personal dashboard. For more information see {% ifversion fpt or ghae or ghes or ghec %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+You can subscribe to a repository to watch it and receive notifications for activity in it. When the owner updates the repository, you will see the changes in your personal dashboard. For more information, see "[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)."
 
 Click **Watch** at the top of a repository to watch it.
 
@@ -43,39 +45,35 @@ Click **Watch** at the top of a repository to watch it.
 
 ## Communicating on {% data variables.product.product_name %}
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools, such as issues and pull requests, allowing you to interact closely with your community when building great software. For an overview of these tools, and information about the specificity of each, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
+{% data variables.product.product_name %} provides built-in collaborative communication tools, allowing you to interact closely with your community when building great software. For example, you can contribute to another user's project by creating a pull request, or use issues to track bugs or suggest ideas in a repository. You can also brainstorm new ideas with your team with discussions. 
 
-## Doing even more
+For an overview of these tools, see "[Quickstart for communicating on {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)."
 
-### Creating pull requests
-
- You may want to contribute to another person's project, whether to add features or to fix bugs. After making changes, let the original author know by sending a pull request. For more information, see "[About pull requests](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-
- ![Pull request button](/assets/images/help/repository/repo-actions-pullrequest.png)
-
-### Using issues
-
-When collaborating on a repository, use issues to track ideas, enhancements, tasks, or bugs. For more information, see '[About issues](/articles/about-issues/)."
-
-![Issues button](/assets/images/help/repository/repo-tabs-issues.png)
-
-### Participating in organizations
+## Participating in organizations
 
 Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can establish teams with special permissions, have a public organization profile, and keep track of activity within the organization. For more information, see "[About organizations](/articles/about-organizations/)."
+
+From your dashboard, click the drop down menu of your username on the left side of your dashboard. Here, you can view organizations that you are a part of and easily switch between them.
 
 ![Switch account context dropdown](/assets/images/help/overview/dashboard-contextswitcher.png)
 
 ### Exploring other projects on {% data variables.product.prodname_dotcom %}
 
-Discover interesting projects using {% data variables.explore.explore_github %}, [Explore repositories](https://github.com/explore), and the {% data variables.explore.trending_page %}. Star interesting projects and come back to them later. Visit your {% data variables.explore.your_stars_page %} to see all your starred projects.  For more information, see "[About your personal dashboard](/articles/about-your-personal-dashboard/)." 
+You can discover new and interesting projects on {% data variables.product.prodname_dotcom %}'s Explore page. You can star interesting projects to make them easy to find again later. Visit your stars page to see all your starred projects. For more information about stars, see "[Saving repositories with stars](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 
-## Celebrate
+Your dashboard feed displays projects based on your interests including repositories you star, people you follow, and your contributions to public repositories. From your dashboard, you can see trending projects, view topics, and check out collections. 
 
-You're now connected to the {% data variables.product.product_name %} community. What do you want to do next?
-![Star a project](/assets/images/help/stars/star-a-project.png)
+To explore more projects, see "{% data variables.explore.explore_github %}".
 
+## Next steps
+You are now connected to the {% data variables.product.product_name %} community. There are other ways to interact and build within {% data variables.product.product_name %}.
 
-- To synchronize your {% data variables.product.product_name %} projects with your computer, you can set up Git. For more information see "[Set up Git](/articles/set-up-git)."
-- You can also create a repository, where you can put all your projects and maintain your workflows. For more information see, "[Create a repository](/articles/create-a-repo)."
-- You can fork a repository to make changes you want to see without affecting the original repository. For more information, see "[Fork a repository](/articles/fork-a-repo)."
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.getting-started.set-up-git %}
+
+* {% data reusables.getting-started.create-a-repository %}
+
+* {% data reusables.getting-started.fork-a-repository %}
+
+* {% data reusables.getting-started.contributing-to-projects  %}
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

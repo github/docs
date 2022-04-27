@@ -6,7 +6,7 @@ Ao marcar uma pergunta como resposta, {% data variables.product.product_name %} 
 
 Você não pode marcar um comentário em resposta a um comentário como resposta a uma discussão. Você também não pode marcar um comentário minimizado como resposta para uma discussão.
 
-{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. Na lista de discussões, clique na discussão não respondida que você deseja marcar como respondida. ![Discussão não respondida](/assets/images/help/discussions/unanswered-discussion.png)
 1. Na discussão, encontre o comentário que deseja marcar como resposta.

@@ -32,7 +32,7 @@ jobs:
           echo 'The repo is currently frozen! Exiting this workflow.'
           exit 1 # prevents further steps from running
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
       - name: Setup Node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
@@ -48,7 +48,7 @@ jobs:
           script/graphql/update-files.js
       - name: Create pull request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@f22a7da129c901513876a2380e2dae9f8e145330
+        uses: peter-evans/create-pull-request@bd72e1b7922d417764d27d30768117ad7da78a0e
         env:
           # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'
