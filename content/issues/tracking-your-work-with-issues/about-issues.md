@@ -25,7 +25,7 @@ Issues let you track your work on {% data variables.product.company_short %}, wh
 
 Issues can be created in a variety of ways, you can choose the most convenient method for your workflow. For example, you can create an issue from a repository,{% ifversion fpt or ghec %} an item in a task list,{% endif %} a note in a project, a comment in an issue or pull request, a specific line of code, or a URL query. You can  create an issue from your platform of choice:
 
-* Through the web UI,
+* Through the web UI
 * {% data variables.product.prodname_desktop %}
 * {% data variables.product.prodname_cli %}
 * GraphQL and REST APIs
