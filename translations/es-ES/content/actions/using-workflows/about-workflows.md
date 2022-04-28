@@ -105,9 +105,9 @@ jobs:
 
 Para obtener más información, consulta la sección "[Definir los jobs de prerrequisito](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)".
 
-### Utilizar una matriz de compilaciones
+### Using a matrix
 
-You can use a build matrix if you want your workflow to run tests across multiple combinations of parameters, such as operating systems, platforms, and languages. La matriz de compilaciones se crea utilizando la palabra clave `strategy`, la cual recibe las opciones de compilación como un arreglo. Por ejemplo, esta matriz de compilaciones ejecutará el job varias veces, utilizando diferentes versiones de Node.js:
+{% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
 
 ```yaml
 jobs:
@@ -115,14 +115,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [6, 8, 10]
+        node: [12, 14, 16]
     steps:
       - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-Para obtener más información, consulte la sección "[Utilizar una matriz de compilación para tus jobs](/actions/using-jobs/using-a-build-matrix-for-your-jobs)".
+For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% ifversion fpt or ghec %}
 ### Almacenar dependencias en caché
