@@ -74,22 +74,6 @@
         "date": "2021-01-01",
         "criticality": "breaking",
         "owner": "nplasterer"
-      },
-      {
-        "location": "EnterpriseOutsideCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All outside collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseMemberEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All members consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-10-01": [
@@ -116,16 +100,6 @@
         "date": "2020-10-01",
         "criticality": "breaking",
         "owner": "mikesea"
-      }
-    ],
-    "2020-07-01": [
-      {
-        "location": "EnterprisePendingMemberInvitationEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending members consume a license</p>",
-        "date": "2020-07-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-04-01": [
@@ -242,22 +216,6 @@
         "date": "2021-01-01",
         "criticality": "breaking",
         "owner": "nplasterer"
-      },
-      {
-        "location": "EnterpriseOutsideCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All outside collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseMemberEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All members consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-10-01": [
@@ -284,16 +242,6 @@
         "date": "2020-10-01",
         "criticality": "breaking",
         "owner": "mikesea"
-      }
-    ],
-    "2020-07-01": [
-      {
-        "location": "EnterprisePendingMemberInvitationEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending members consume a license</p>",
-        "date": "2020-07-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-04-01": [
@@ -984,22 +932,6 @@
         "date": "2021-01-01",
         "criticality": "breaking",
         "owner": "nplasterer"
-      },
-      {
-        "location": "EnterpriseOutsideCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All outside collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseMemberEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All members consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-10-01": [
@@ -1018,16 +950,6 @@
         "date": "2020-10-01",
         "criticality": "breaking",
         "owner": "mikesea"
-      }
-    ],
-    "2020-07-01": [
-      {
-        "location": "EnterprisePendingMemberInvitationEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending members consume a license</p>",
-        "date": "2020-07-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-01-01": [

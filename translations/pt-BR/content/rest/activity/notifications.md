@@ -1,6 +1,6 @@
 ---
 title: Notificações
-intro: ''
+intro: 'The Notifications API lets you manage {% data variables.product.product_name %} notifications.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,18 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Os usuários recebem notificações de conversas em repositórios que inspecionam, incluindo:
+## About the Notifications API
 
-* Problemas e seus comentários
-* Pull Requests e seus comentários
-* Comentários em quaisquer commits
-
-As notificações também são enviadas para conversas em repositórios não inspecionados quando o usuário está envolvido, incluindo:
-
-* **@mentions**
-* Tarefas de problemas
-* Commits que o usuário cria ou faz commit
-* Qualquer discussão de que o usuário participa ativamente
+The Notifications API lets you manage {% data variables.product.product_name %} notifications. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 
 Todas as chamadas de notificação da API requerem escopos da API para `notificações` ou `repositórios`.  Fazer isto dará acesso somente-leitura a algum problema e fará commit do conteúdo. Você ainda precisará do escopo de `repositório` para acessar problemas e commits de seus respectivos pontos de extremidade.
 
@@ -44,11 +35,11 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### Motivos de notificação
+### About notification reasons
 
 Ao recuperar respostas da API de Notificações, cada carga tem uma carga denominada `drazão`. Estas correspondem a eventos que ativam uma notificação.
 
-Aqui está uma lista da potencial `razão` para receber uma notificação:
+These are the potential `reason`s for receiving a notification:
 
 | Nome da razão      | Descrição                                                                                                                                                                                                      |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
