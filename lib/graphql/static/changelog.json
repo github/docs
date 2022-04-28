@@ -4,6 +4,26 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `PatchStatus` was added",
+          "Field `isUnlicensed` (deprecated) was removed from object type `EnterpriseMemberEdge`",
+          "Field `isUnlicensed` (deprecated) was removed from object type `EnterpriseOutsideCollaboratorEdge`",
+          "Argument 'organizationLogins: [String!]` added to field `EnterpriseOwnerInfo.admins'",
+          "Argument `hasTwoFactorEnabled: Boolean` added to field `EnterpriseOwnerInfo.outsideCollaborators`",
+          "Argument 'organizationLogins: [String!]` added to field `EnterpriseOwnerInfo.outsideCollaborators'",
+          "Field `isUnlicensed` (deprecated) was removed from object type `EnterprisePendingMemberInvitationEdge`",
+          "Field `changeType` was added to object type `PullRequestChangedFile`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-04-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Type `AddProjectDraftIssueInput` was added",
           "Type `AddProjectDraftIssuePayload` was added",
           "Type `UpdateProjectDraftIssueInput` was added",
