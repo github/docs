@@ -107,7 +107,7 @@ You can create a codespace from any branch, commit, or pull request in your proj
 
 ## Personalizing your codespace with extensions
 
-Using {% data variables.product.prodname_vscode_shortname %} in your codespace gives you access to the {% data variables.product.prodname_vs_marketplace %} so that you can add any extensions you need. For information on how extensions run in {% data variables.product.prodname_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} docs. 
+Using {% data variables.product.prodname_vscode_shortname %} in your codespace gives you access to the {% data variables.product.prodname_vscode_marketplace %} so that you can add any extensions you need. For information on how extensions run in {% data variables.product.prodname_codespaces %}, see [Supporting Remote Development and GitHub Codespaces](https://code.visualstudio.com/api/advanced-topics/remote-extensions) in the {% data variables.product.prodname_vscode_shortname %} docs. 
 
 If you already use {% data variables.product.prodname_vscode_shortname %}, you can use [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync) to automatically sync extensions, settings, themes, and keyboard shortcuts between your local instance and any {% data variables.product.prodname_codespaces %} you create.
 

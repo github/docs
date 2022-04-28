@@ -76,7 +76,7 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 
 ## Personalizing with an extension
 
-Within a codespace, you have access to the {% data variables.product.prodname_vs_marketplace %}. For this example, you'll install an extension that alters the theme, but you can install any extension that is useful for your workflow.
+Within a codespace, you have access to the {% data variables.product.prodname_vscode_marketplace %}. For this example, you'll install an extension that alters the theme, but you can install any extension that is useful for your workflow.
 
 1. In the left sidebar, click the Extensions icon.
 

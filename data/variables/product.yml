@@ -182,9 +182,9 @@ prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
 prodname_vss_ghe: 'Visual Studio subscriptions with GitHub Enterprise'
 prodname_vss_admin_portal_with_url: 'the [administrator portal for Visual Studio subscriptions](https://visualstudio.microsoft.com/subscriptions-administration/)'
-prodname_vs_command_palette_shortname: 'VS Code Command Palette'
+prodname_vscode_command_palette_shortname: 'VS Code Command Palette'
 prodname_vscode_command_palette: 'Visual Studio Code Command Palette'
-prodname_vs_marketplace: 'Visual Studio Code Marketplace'
+prodname_vscode_marketplace: 'Visual Studio Code Marketplace'
 prodname_vs_marketplace_shortname: 'VS Code Marketplace'
 
 # GitHub Dependabot
