@@ -1,6 +1,6 @@
 ---
-title: References
-intro: 'A Git reference (`git ref`) is just a file that contains a Git commit SHA-1 hash.'
+title: 引用
+intro: A Git reference (`git ref`) is just a file that contains a Git commit SHA-1 hash.
 versions:
   fpt: '*'
   ghes: '*'

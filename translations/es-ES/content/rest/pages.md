@@ -1,6 +1,6 @@
 ---
 title: Pages
-intro: 'The GitHub Pages API allows you to interact with GitHub Pages sites and build information.'
+intro: La API de GitHub Pages te permite interactuar con la información de compilación y los sitios de GitHub Pages.
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,3 +12,4 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/pages
 ---
+

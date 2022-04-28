@@ -82,9 +82,9 @@ Jenkins can run the `stages` and `steps` in parallel, while {% data variables.pr
 | ------------- | ------------- |
 | [`parallel`](https://jenkins.io/doc/book/pipeline/syntax/#parallel) | [`jobs.<job_id>.strategy.max-parallel`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel) |
 
-### Build matrix
+### Matrix
 
-Both {% data variables.product.prodname_actions %} and Jenkins let you use a build matrix to define various system combinations.
+Both {% data variables.product.prodname_actions %} and Jenkins let you use a matrix to define various system combinations.
 
 | Jenkins       | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |

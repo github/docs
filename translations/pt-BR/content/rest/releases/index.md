@@ -1,6 +1,6 @@
 ---
-title: Releases
-intro: 'The releases API allows you to create, modify, and delete releases and release assets.'
+title: Versões
+intro: 'A API de versões permite que você crie, modifique e exclua versões e ativos de versões.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,3 +16,4 @@ children:
 redirect_from:
   - /rest/reference/releases
 ---
+

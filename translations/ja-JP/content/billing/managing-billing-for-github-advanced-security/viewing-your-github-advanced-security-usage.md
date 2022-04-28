@@ -25,6 +25,10 @@ shortTitle: View Advanced Security usage
 
 {% data reusables.advanced-security.about-ghas-license-seats %} For more information, see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
 
+{% if ghas-committers-calculator %}
+You can calculate how many additional seats will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories with the site admin dashboard. For more information, see "[Site admin dashboard](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-active-committers)."
+{% endif %}
+
 ## Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
 
 You can check how many seats your license includes and how many of them are currently used.

@@ -1,5 +1,5 @@
 ---
-title: Streaming the audit log for your enterprise
+title: 流式传输企业的审核日志
 intro: '您可以将审核和 Git 事件数据从 {% data variables.product.prodname_dotcom %} 流式传输到外部数据管理系统。'
 miniTocMaxHeadingLevel: 3
 versions:
@@ -10,7 +10,7 @@ topics:
   - Enterprise
   - Logging
   - Organizations
-shortTitle: Stream audit logs
+shortTitle: 流式传输审核日志
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
   - /admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account
@@ -26,7 +26,7 @@ permissions: Enterprise owners can configure audit log streaming.
 
 * **数据探索**。 您可以使用首选工具检查流事件，以查询大量数据。 流包含整个企业帐户中的审核事件和 Git 事件。
 * **数据连续性**。 您可以暂停流长达七天，而不会丢失任何审核数据。
-* **数据保留**。 You can keep your exported audit logs and Git events data as long as you need to.
+* **数据保留**。 您可以根据需要保留导出的审核日志和 Git 事件数据。
 
 企业所有者可以随时设置、暂停或删除流。 流导出企业中所有组织的审核数据。
 

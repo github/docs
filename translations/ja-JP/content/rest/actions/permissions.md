@@ -1,6 +1,6 @@
 ---
-title: Permissions
-intro: 'The Permissions API allows you to set permissions for what enterprises, organizations, and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions{% if actions-workflow-policy %} and reusable workflows{% endif %} are allowed to run.'
+title: 権限
+intro: 'Permissions API では、どのEnterprise、組織、リポジトリが {% data variables.product.prodname_actions %} を実行できるか、どのアクション{% if actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を実行できるかについて権限を設定できます。'
 topics:
   - API
 versions:
@@ -10,6 +10,6 @@ versions:
   ghec: '*'
 ---
 
-## Permissions
+## 権限
 
-The Permissions API allows you to set permissions for what enterprises, organizations, and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions{% if actions-workflow-policy %} and reusable workflows{% endif %} are allowed to run.{% ifversion fpt or ghec or ghes %} For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)."{% endif %}
+Permissions API では、どのEnterprise、組織、リポジトリが {% data variables.product.prodname_actions %} を実行できるか、どのアクション{% if actions-workflow-policy %}と再利用可能なワークフロー{% endif %}を実行できるかについて権限を設定できます。{% ifversion fpt or ghec or ghes %}詳しい情報については[利用制限、支払い、管理](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)」を参照してください。{% endif %}

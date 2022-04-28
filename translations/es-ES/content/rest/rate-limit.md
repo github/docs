@@ -1,6 +1,6 @@
 ---
-title: Rate limit
-intro: 'With the Rate Limit API, you can check the current rate limit status of various REST APIs.'
+title: Limite de tasa
+intro: 'Con la API de Límite de Tasa, puedes verificar el estado de límite de tasa actual para varias API de REST.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,21 +13,20 @@ redirect_from:
   - /rest/reference/rate-limit
 ---
 
-The REST API overview documentation describes the [rate limit rules](/rest/overview/resources-in-the-rest-api#rate-limiting). You can check your current rate limit status at any time using the Rate Limit API described below.
+La documentación general de la API de REST describe las [reglas de los límites de tasa](/rest/overview/resources-in-the-rest-api#rate-limiting). Puedes revisar tu estado actual de límite de tasa en cualquier momento utilizando la API de Límites de Tasa que se describe a continuación.
 
-### Understanding your rate limit status
+### Entender el estado de tu límite de tasa
 
-The Search API has a [custom rate limit](/rest/reference/search#rate-limit), separate from the rate limit governing the rest of the REST API. The GraphQL API also has a [custom rate limit]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations#rate-limit) that is separate from and calculated differently than rate limits in the REST API.
+La API de Búsqueda tiene un [límite de tasa personalizado](/rest/reference/search#rate-limit) separado de aquél que rige el resto de la API de REST. La API de GraphQL también tiene un [límite de tasa personalizado]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations#rate-limit) que está separado y se calcula diferente que los límites de tasa de la API de REST.
 
-For these reasons, the Rate Limit API response categorizes your rate limit. Under `resources`, you'll see four
-objects:
+Es por esto que la respuesta de la API de Límites de Tasa categoriza tu límite de tasa. Debajo de `resources`, verás cuatro objetos:
 
-* The `core` object provides your rate limit status for all non-search-related resources in the REST API.
+* El objeto `core` proporciona tu estado de límite de tasa para todos los recursos no relacionados a búsquedas en la API de REST.
 
-* The `search` object provides your rate limit status for the [Search API](/rest/reference/search).
+* El objeto `search` proporciona el estado de tu límite de tasa para la [API de Búsqueda](/rest/reference/search).
 
-* The `graphql` object provides your rate limit status for the [GraphQL API]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql).
+* El objeto `graphql` proporciona el estado de tu límite de tasa para la [API de GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql).
 
-* The `integration_manifest` object provides your rate limit status for the [GitHub App Manifest code conversion](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration) endpoint.
+* El objeto `integration_manifest` proporciona el estado de tu límite de tasa para la terminal [Conversión de código para el Manifiesto de GitHub App](/apps/building-github-apps/creating-github-apps-from-a-manifest/#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
 
-For more information on the headers and values in the rate limit response, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
+Para obtener más información sobre los encabezados y valores en la respuesta de límite de tasa, consulta la sección "[Recursos en la API de REST](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)".

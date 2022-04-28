@@ -1,6 +1,6 @@
 ---
 title: Pulls
-intro: 'The Pulls API allows you to list, view, edit, create, and even merge pull requests.'
+intro: 'A API Pulls permite que você liste, veja, edite, crie e até mesmo faça merge de pull requests.'
 redirect_from:
   - /v3/pulls
   - /rest/reference/pulls
@@ -18,3 +18,4 @@ children:
   - /review-requests
   - /reviews
 ---
+

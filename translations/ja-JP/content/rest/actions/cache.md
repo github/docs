@@ -1,6 +1,6 @@
 ---
-title: Cache
-intro: 'The Cache API allows you to query and manage the {% data variables.product.prodname_actions %} cache for repositories.'
+title: キャッシュ
+intro: 'キャッシュAPIを使うと、リポジトリの{% data variables.product.prodname_actions %}キャッシュに対するクエリと管理を行えます。'
 topics:
   - API
 versions:
@@ -8,4 +8,4 @@ versions:
   ghec: '*'
 ---
 
-The cache API allows you to query and manage the {% data variables.product.prodname_actions %} cache for repositories. For more information, see "[Caching dependencies to speed up workflows](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)."
+キャッシュAPIを使うと、リポジトリの{% data variables.product.prodname_actions %}キャッシュに対するクエリと管理を行えます。 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)」を参照してください。

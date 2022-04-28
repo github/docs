@@ -1,6 +1,6 @@
 ---
-title: Collaborators
-intro: "This API allows you to interact with an organization's projects."
+title: Colaboradores
+intro: Esta API permite que você interaja com os projetos de uma organização.
 versions:
   fpt: '*'
   ghes: '*'

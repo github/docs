@@ -1,6 +1,6 @@
 ---
-title: Users
-intro: 'The Users migrations API is only available to authenticated account owners.'
+title: Usuários
+intro: The Users migrations API is only available to authenticated account owners.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,10 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information, see "[Other authentication methods](/rest/overview/other-authentication-methods)."
+Para obter mais informações, consulte "[Outros métodos de autenticação](/rest/overview/other-authentication-methods)".
 
-{% data variables.migrations.user_migrations_intro %} For a list of migration data that you can download, see "[Download a user migration archive](#download-a-user-migration-archive)."
+{% data variables.migrations.user_migrations_intro %} Para obter uma lista dos dados de migração que você pode baixar, consulte "[Fazer download de um arquivo de migração do usuário](#download-a-user-migration-archive)".
 
-To download an archive, you'll need to start a user migration first. Once the status of the migration is `exported`, you can download the migration.
+Para fazer o download de um arquivo, você deverá iniciar uma migração de usuário primeiro. Uma vez que o status da migração é `exportado`, você pode fazer o download da migração.
 
-Once you've created a migration archive, it will be available to download for seven days. But, you can delete the user migration archive sooner if you'd like. You can unlock your repository when the migration is `exported` to begin using your repository again or delete the repository if you no longer need the source data.
+Ao criar um arquivo de migração, ele ficará disponível para download por sete dias. No entanto, você pode excluir o arquivo de migração do usuário mais cedo, se desejar. Você pode desbloquear o repositório quando a migração for `exportada` para começar a usar seu repositório novamente ou excluir o repositório se não precisar mais dos dados do código-fonte.

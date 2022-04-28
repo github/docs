@@ -59,9 +59,9 @@ Travis CI 可以使用 `stages` 并行运行作业。 同样，{% data variables
 
 Travis CI 和 {% data variables.product.prodname_actions %} 都支持状态徽章，用于表示构建是通过还是失败。 更多信息请参阅“[将工作流程状态徽章添加到仓库](/actions/managing-workflow-runs/adding-a-workflow-status-badge)”。
 
-### 使用构建矩阵
+### Using a matrix
 
-Travis CI和 {% data variables.product.prodname_actions %} 都支持构建矩阵，允许您使用操作系统和软件包的组合进行测试。 更多信息请参阅“[使用构建矩阵](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)”。
+Travis CI and {% data variables.product.prodname_actions %} both support a matrix, allowing you to perform testing using combinations of operating systems and software packages. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 下面是比较每个系统的语法示例：
 

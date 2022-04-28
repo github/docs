@@ -1,6 +1,6 @@
 ---
-title: Repositories
-intro: 'The Repos API allows to create, manage and control the workflow of public and private {% data variables.product.product_name %} repositories.'
+title: 仓库
+intro: '仓库 API 允许创建、管理以及控制公共和私有 {% data variables.product.product_name %} 仓库的工作流程。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
@@ -21,3 +21,4 @@ children:
   - /lfs
   - /tags
 ---
+

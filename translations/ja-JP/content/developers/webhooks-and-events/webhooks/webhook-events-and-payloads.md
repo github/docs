@@ -811,8 +811,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghec %}
-
 ## package
 
 {% data variables.product.prodname_registry %} に関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} {% data variables.product.prodname_registry %} の詳細については、「[{% data variables.product.prodname_registry %} を使用してパッケージを管理する](/github/managing-packages-with-github-packages)」を参照してください。
@@ -832,7 +830,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
-{% endif %}
 
 ## page_build
 

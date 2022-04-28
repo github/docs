@@ -1,6 +1,6 @@
 ---
-title: Interactions
-intro: 'With the Interactions API, people with owner or admin access can set the interaction limit for the users in their organizations and repositories.'
+title: インタラクション
+intro: Interactions APIを使うと、オーナーもしくは管理アクセスを持つ人が、Organizationやリポジトリ内のユーザの操作制限を設定できます。
 redirect_from:
   - /v3/interactions
   - /rest/reference/interactions
@@ -16,4 +16,4 @@ children:
   - /user
 ---
 
-Users interact with repositories by commenting, opening issues, and creating pull requests. The Interactions APIs allow people with owner or admin access to temporarily restrict interaction with public repositories to a certain type of user.
+リポジトリに対するインタラクションには、コミット、Issueのオープン、プルリクエストの作成があります。 インタラクションAPIを使用すると、オーナーまたは管理者アクセス権のあるユーザはパブリックリポジトリの操作を一時的に特定のユーザのタイプに制限することができます。

@@ -1,6 +1,6 @@
 ---
-title: Checks
-intro: 'With the Checks API, you can build {% data variables.product.prodname_github_apps %} that run powerful checks against the code changes in a repository.'
+title: Verificações
+intro: 'Com a API de verificações, você pode criar {% data variables.product.prodname_github_apps %} que executa verificações poderosas para as alterações de código em um repositório.'
 redirect_from:
   - /v3/checks
   - /rest/reference/checks
@@ -17,4 +17,4 @@ children:
   - /suites
 ---
 
-You can create apps that perform continuous integration, code linting, or code scanning services and provide detailed feedback on commits. For more information, see "[Getting started with the checks API](/rest/guides/getting-started-with-the-checks-api)" and "[Creating CI tests with the Checks API](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)."
+Você pode criar os aplicativos que realizam integração contínua, linting ou serviços de varredura de código e fornecem feedback detalhado sobre commits. Para mais informações, consulte "[Começar com a API de verificações](/rest/guides/getting-started-with-the-checks-api)" e "[Criar testes de CI com a API de verificações](/apps/quickstart-guides/creating-ci-tests-with-the-checks-api/)".

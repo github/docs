@@ -17,16 +17,16 @@ redirect_from:
 
 {% data reusables.code-scanning.beta %}
 
-The {% data variables.product.prodname_code_scanning %} API lets you retrieve and update {% data variables.product.prodname_code_scanning %} alerts from a repository. You can use the endpoints to create automated reports for the {% data variables.product.prodname_code_scanning %} alerts in an organization or upload analysis results generated using offline {% data variables.product.prodname_code_scanning %} tools. For more information, see "[Finding security vulnerabilities and errors in your code](/github/finding-security-vulnerabilities-and-errors-in-your-code)."
+{% data variables.product.prodname_code_scanning %} API 可让您从仓库检索和更新 {% data variables.product.prodname_code_scanning %} 警报。 您可以使用端点为组织中的 {% data variables.product.prodname_code_scanning %} 警报创建自动报告，或上传使用离线 {% data variables.product.prodname_code_scanning %} 工具生成的分析结果。 更多信息请参阅“[查找代码中的安全漏洞和错误](/github/finding-security-vulnerabilities-and-errors-in-your-code)”。
 
 {% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-### Custom media type for {% data variables.product.prodname_code_scanning %}
+### {% data variables.product.prodname_code_scanning %} 的自定义媒体类型
 
-There is one supported custom media type for the {% data variables.product.prodname_code_scanning %} REST API. 
+{% data variables.product.prodname_code_scanning %} REST API 有一种支持的自定义媒体类型。 
 
     application/sarif+json
 
-You can use this with `GET` requests sent to the `/analyses/{analysis_id}` endpoint. For more information about this operation, see "[Get a {% data variables.product.prodname_code_scanning %} analysis for a repository](#get-a-code-scanning-analysis-for-a-repository)." When you use this media type with this operation, the response includes a subset of the actual data that was uploaded for the specified analysis, rather than the summary of the analysis that's returned when you use the default media type. The response also includes additional data such as the `github/alertNumber` and `github/alertUrl` properties. The data is formatted as [SARIF version 2.1.0](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html).
+您可以将此请求与发送到 `/analyses/{analysis_id}` 端点的 `GET` 请求一起使用。 有关此操作的更多信息，请参阅“[获取仓库的 {% data variables.product.prodname_code_scanning %} 分析](#get-a-code-scanning-analysis-for-a-repository)”。 当您使用此媒体类型进行此操作时，响应包括上传用于指定分析的实际数据的子集，而不是使用默认媒体类型时返回的分析摘要。 响应还包括其他数据，如 `github/alertNumber` 和 `github/alertUrl` 属性。 数据格式为 [SARIF 版本 2.1.0](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html)。
 
-For more information, see "[Media types](/rest/overview/media-types)."
+更多信息请参阅“[媒体类型](/rest/overview/media-types)”。
 {% endif %}

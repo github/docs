@@ -15,20 +15,6 @@ upcoming_changes:
     criticality: 破壊的
     owner: tambling
   - 
-    location: EnterpriseBillingInfo.availableSeats
-    description: '`availableSeats`は削除されます。代わりにEnterpriseBillingInfo.totalAvailableLicensesを使ってください。'
-    reason: '`availableSeats`は、返される値をより明確にするために`totalAvailableLicenses`に置き換えられます。'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BlakeWilliams
-  - 
-    location: EnterpriseBillingInfo.seats
-    description: '`seats`は削除されます。代わりにEnterpriseBillingInfo.totalLicensesを使ってください。'
-    reason: '`seats` は、返される値をより明確にするために`totalLicenses`に置き換えられます。'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BlakeWilliams
-  - 
     location: UnassignedEvent.user
     description: '`user`は削除されます。代わりに`assignee`フィールドを使ってください。'
     reason: アサインされた人を、マネキンにできるようになりました。

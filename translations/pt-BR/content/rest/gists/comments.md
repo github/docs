@@ -1,5 +1,5 @@
 ---
-title: Comments
+title: Comentários
 intro: ''
 versions:
   fpt: '*'
@@ -11,11 +11,11 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### Custom media types for Gist comments
+### Tipos de mídia personalizados para comentários do Gist
 
-These are the supported media types for gist comments.
+Estes são os tipos de mídia compatíveis para comentários de gist.
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.base64
 
-For more information about media types, see "[Custom media types](/rest/overview/media-types)."
+Para obter mais informações sobre os tipos de mídia, consulte "[Tipos de mídia personalizados](/rest/overview/media-types)".

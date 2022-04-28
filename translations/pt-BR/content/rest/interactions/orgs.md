@@ -1,6 +1,6 @@
 ---
-title: Organization
-intro: "The Organization Interactions API allows organization owners to temporarily restrict which type of user can comment, open issues, or create pull requests in the organization's public repositories."
+title: organização
+intro: 'A API de Interações da Organização permite que os proprietários da organização restrinjam temporariamente quais tipos de usuário podem comentar, abrir problemas ou criar pull requests nos repositórios públicos da organização.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,10 +10,10 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.interactions.interactions-detail %} Here's more about the types of {% data variables.product.product_name %} users:
+{% data reusables.interactions.interactions-detail %} Veja mais sobre os tipos de usuários de {% data variables.product.product_name %}:
 
-* {% data reusables.interactions.existing-user-limit-definition %} in the organization.
-* {% data reusables.interactions.contributor-user-limit-definition %} in the organization.
-* {% data reusables.interactions.collaborator-user-limit-definition %} in the organization.
+* {% data reusables.interactions.existing-user-limit-definition %} na organização.
+* {% data reusables.interactions.contributor-user-limit-definition %} na organização.
+* {% data reusables.interactions.collaborator-user-limit-definition %} na organização.
 
-Setting the interaction limit at the organization level will overwrite any interaction limits that are set for individual repositories owned by the organization. To set different interaction limits for individual repositories owned by the organization, use the [Repository](#repository) interactions endpoints instead.
+Definir o limite de interação no nível da organização sobrescreverá quaisquer limites de interação definidos para repositórios individuais pertencentes à organização. Para definir diferentes limites de interação para repositórios individuais pertencentes à organização, use os pontos de extremidade das interações do [Repositório](#repository).

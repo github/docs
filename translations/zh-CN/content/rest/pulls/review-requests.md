@@ -11,4 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Pull request authors and repository owners and collaborators can request a pull request review from anyone with write access to the repository. Each requested reviewer will receive a notification asking them to review the pull request.
+拉取请求作者以及仓库所有者和协作者可以向具有仓库写入权限的任何人请求拉取请求审查。 每个被请求的审查者将收到您要求他们审查拉取请求的通知。

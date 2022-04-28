@@ -1,6 +1,6 @@
 ---
 title: Actions
-intro: 'With the Actions API, you can manage and control {% data variables.product.prodname_actions %} for an organization or repository.'
+intro: 'Com a API de ações, você pode gerenciar e controlar {% data variables.product.prodname_actions %} para uma organização ou repositório.'
 redirect_from:
   - /v3/actions
   - /rest/reference/actions
@@ -23,4 +23,5 @@ children:
   - /workflow-runs
   - /workflows
 ---
-The {% data variables.product.prodname_actions %} API enables you to manage {% data variables.product.prodname_actions %} using the REST API. {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} require the permissions mentioned in each endpoint. For more information, see "[{% data variables.product.prodname_actions %} Documentation](/actions)."
+
+A API de {% data variables.product.prodname_actions %} permite que você gerencie {% data variables.product.prodname_actions %} usando a API REST. {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} exige permissões mencionadas em cada ponto de extremidade. Para obter mais informações, consulte "[Documentação do {% data variables.product.prodname_actions %}](/actions)".

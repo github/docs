@@ -1,6 +1,6 @@
 ---
-title: Apps
-intro: 'The GitHub Apps API enables you to retrieve the information about the installation as well as specific information about GitHub Apps.'
+title: アプリ
+intro: GitHub Apps APIを使うと、インストールに関する情報や、GitHub Appに関する特定の情報を取得できます。
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -13,10 +13,10 @@ versions:
 
 {% data reusables.apps.general-apps-restrictions %}
 
-This page lists endpoints that you can access while authenticated as a GitHub App. See "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)" to learn more.
+このページには、GitHub App として認証されている場合にアクセスできるエンドポイントが一覧表示されています。 詳細については、「[GitHub App として認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)」を参照してださい。
 
-When authenticated as a GitHub App, the GitHub Apps API enables you to get high-level information about a GitHub App as well as specific information about installations of an app.
+GitHub App として認証されると、GitHub Apps API を使用して、GitHub App に関する大まかな情報と、アプリケーションのインストールに関する具体的な情報を取得できます。
 
-You can access REST API v3 endpoints while authenticated as a GitHub App. These endpoints have a "Notes" section that contains a bullet point that says "Works with GitHub Apps." You can also access these endpoints while authenticated as a user.
+GitHub App として認証されている場合、REST API v3 エンドポイントにアクセスできます。 これらのエンドポイントには、「Works with GitHub Apps」という箇条書きを含む「注釈」セクションがあります。 ユーザとして認証されている場合、これらのエンドポイントにアクセスすることもできます。
 
-A subset of REST API v3 endpoints requires authenticating as a GitHub App installation. See [Installations](/rest/reference/apps#installations) for a list of these endpoints.
+REST API v3 エンドポイントのサブセットでは、GitHub App のインストールとして認証する必要があります。 これらのエンドポイントの一覧については、[Installations](/rest/reference/apps#installations) を参照してください。

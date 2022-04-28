@@ -1,6 +1,6 @@
 ---
-title: Licenses
-intro: "The Licenses API lets you to retrieve popular open source licenses and information about a particular project's license file."
+title: 许可
+intro: Licenses API 可让您检索热门开源许可证，以及有关特定项目许可文件的信息。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,23 +13,23 @@ redirect_from:
   - /rest/reference/licenses
 ---
 
-The Licenses API uses [the open source Ruby Gem Licensee](https://github.com/benbalter/licensee) to attempt to identify the project's license. Licensee matches the contents of a project's `LICENSE` file (if it exists) against a short list of known licenses. As a result, the API does not take into account the licenses of project dependencies or other means of documenting a project's license such as references to the license name in the documentation.
+许可证 API 使用[开源 Ruby Gem 许可](https://github.com/benbalter/licensee)来尝试识别项目的许可。 被许可人将项目 `LICENSE` 文件（如果有）的内容与已知许可的简短列表相匹配。 因此，API 不考虑项目依赖项的许可或其他记录项目许可的方式，例如对文档中许可名称的引用。
 
-If a license is matched, the license key and name returned conforms to the [SPDX specification](https://spdx.org/).
+如果许可匹配，则返回的许可密钥和名称符合 [SPDX 规格](https://spdx.org/)。
 
-**Note:** These endpoints will also return a repository's license information:
+**注：**这些端点还将返回仓库的许可信息：
 
-- [Get a repository](/rest/reference/repos#get-a-repository)
-- [List repositories for a user](/rest/reference/repos#list-repositories-for-a-user)
-- [List organization repositories](/rest/reference/repos#list-organization-repositories)
-- [List forks](/rest/reference/repos#list-forks)
-- [List repositories watched by a user](/rest/reference/activity#list-repositories-watched-by-a-user)
-- [List team repositories](/rest/reference/teams#list-team-repositories)
+- [获取仓库](/rest/reference/repos#get-a-repository)
+- [列出用户的仓库](/rest/reference/repos#list-repositories-for-a-user)
+- [列出组织仓库](/rest/reference/repos#list-organization-repositories)
+- [列出复刻](/rest/reference/repos#list-forks)
+- [列出用户关注的仓库](/rest/reference/activity#list-repositories-watched-by-a-user)
+- [列出团队仓库](/rest/reference/teams#list-team-repositories)
 
 {% warning %}
 
-GitHub is a lot of things, but it’s not a law firm. As such, GitHub does not provide legal advice. Using the Licenses API or sending us an email about it does not constitute legal advice nor does it create an attorney-client relationship. If you have any questions about what you can and can't do with a particular license, you should consult with your own legal counsel before moving forward. In fact, you should always consult with your own lawyer before making any decisions that might have legal ramifications or that may impact your legal rights.
+GitHub 有很多功能， 但它不是律师事务所。 因此，GitHub 不提供法律建议。 使用许可 API 或向我们发送电子邮件并不构成法律意见，也不形成律师-客户关系。 如果您对特定许可可以做什么和不能做什么有任何疑问，您应该在继续之前先咨询自己的法律顾问。 事实上，在做出任何可能具有法律后果或影响您合法权利的决定之前，您都应该咨询自己的律师。
 
-GitHub created the License API to help users get information about open source licenses and the projects that use them. We hope it helps, but please keep in mind that we’re not lawyers (at least most of us aren't) and that we make mistakes like everyone else. For that reason, GitHub provides the API on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the API.
+GitHub 创建了许可 API，旨在帮助用户获取有关开源许可以及使用它们的项目的信息。 我们希望它有帮助，但请记住，我们不是律师（至少大多数人不是），像其他人一样，我们也会犯错。 因此，GitHub“按原样”提供 API，对提供或通过其提供的任何信息或许可不做任何保证，并对使用 API 所造成的损害不承担责任。
 
 {% endwarning %}

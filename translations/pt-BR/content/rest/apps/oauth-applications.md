@@ -11,4 +11,4 @@ versions:
   ghec: '*'
 ---
 
-You can use this API to manage the OAuth tokens an OAuth application uses to access people's accounts on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.
+Você pode usar esta API para gerenciar os tokens do OAuth que um aplicativo OAuth usa para acessar as contas das pessoas em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.

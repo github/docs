@@ -35,7 +35,7 @@ shortTitle: 赞助贡献者
 
 使用信用卡赞助帐户后，更改将立即生效。 {% data reusables.sponsors.prorated-sponsorship %}
 
-We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
+我们可能会与赞助帐户共享某些有限的税务信息。 更多信息请参阅“[税务信息](#tax-information)”。
 
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
@@ -55,14 +55,14 @@ We may share certain limited tax information with sponsored accounts. For more i
 
 ## 税务信息
 
-As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:
+作为赞助者，您承认，自赞助者计划启动后，我们可能会向您赞助的每个帐户的所有者披露以下有关您向该帐户支付赞助费用的有限信息：
 
-- Transaction date
-- Amount paid
-- The country, state, and province from where payment was made
-- Whether payment was made by a business or individual
+- 交易日期
+- 支付金额
+- 付款所在的国家/地区、州和省
+- 付款是由企业还是个人支付的
 
-This information is necessary to enable payment and reporting of any taxes arising from such sponsorship payments.
+此信息对于支付和报告此类赞助付款产生的任何税款是必要的。
 
 ## 赞助帐户
 

@@ -1,6 +1,6 @@
 ---
-title: Contents
-intro: 'These API endpoints let you create, modify, and delete Base64 encoded content in a repository.'
+title: Conteúdo
+intro: 'Estes pontos de extremidade da API permitem criar, modificar e excluir conteúdo codificado em Base64 em um repositório.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,24 +11,23 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-To request the raw format or rendered HTML (when supported), use custom media types for repository contents.
+Para solicitar o formato sem processar ou HTML interpretado (quando compatível), use os tipos de mídia personalizados para o conteúdo do repositório.
 
-### Custom media types for repository contents
+### Tipos de mídia personalizados para conteúdo do repositório
 
-[READMEs](/rest/reference/repos#get-a-repository-readme), [files](/rest/reference/repos#get-repository-content), and [symlinks](/rest/reference/repos#get-repository-content) support the following custom media types:
+Os [READMEs](/rest/reference/repos#get-a-repository-readme), [arquivos](/rest/reference/repos#get-repository-content) e [links simbólicos](/rest/reference/repos#get-repository-content) são compatíveis com os seguintes tipos de mídia personalizados:
 
     application/vnd.github.VERSION.raw
     application/vnd.github.VERSION.html
 
-Use the `.raw` media type to retrieve the contents of the file.
+Use o tipo de mídia `.raw` para recuperar o conteúdo do arquivo.
 
-For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
+Para arquivos de markup, como Markdown ou AsciiDoc, você pode recuperar o HTML interpretado usando o tipo de mídia `.html`. As linguagens de markup são processadas em HTML usando nossa [biblioteca de markup](https://github.com/github/markup) de código aberto.
 
-[All objects](/rest/reference/repos#get-repository-content) support the following custom media type:
+[Todos os objetos](/rest/reference/repos#get-repository-content) são compatíveis com o seguinte tipo de mídia personalizado:
 
     application/vnd.github.VERSION.object
 
-Use the `object` media type parameter to retrieve the contents in a consistent object format regardless of the content type. For example, instead of an array of objects
-for a directory, the response will be an object with an `entries` attribute containing the array of objects.
+Use o parâmetro do tipo de mídia do `objeto` para recuperar o conteúdo em um formato de objeto consistente independentemente do tipo de conteúdo. Por exemplo, em vez de um array de objetos para um diretório, a resposta será um objeto com um atributo de `entrada` contendo o array de objetos.
 
-You can read more about the use of media types in the API [here](/rest/overview/media-types).
+Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).

@@ -1,6 +1,6 @@
 ---
 title: Commits
-intro: 'The commits API allows you to list, view, and compare commits in a repository. You can also interact with commit comments and commit statuses.'
+intro: 'A API de commits permite que você liste, visualize e compare commits em um repositório. Você também pode interagir com os comentários do commit e com os status do commit.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -17,3 +17,4 @@ children:
 redirect_from:
   - /rest/reference/commits
 ---
+

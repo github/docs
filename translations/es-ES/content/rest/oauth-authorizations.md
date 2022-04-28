@@ -1,6 +1,6 @@
 ---
-title: OAuth Authorizations
-intro: 'The Migrations API is only available to authenticated organization owners.'
+title: Autorizaciones de OAuth
+intro: La API de Migraciones solo está disponible para los propietarios autenticados de la organización.
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,6 +12,6 @@ redirect_from:
   - /rest/reference/oauth-authorizations
 ---
 
-You can use this API to manage the access OAuth applications have to your account. You can only access this API via [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) using your username and password, not tokens.
+Puedes utilizar esta API para administrar el acceso que las aplicaciones de OAuth tienen en tu cuenta. Solo puedes acceder a esta API a través de la [Autenticación Básica](/rest/overview/other-authentication-methods#basic-authentication) utilizando tu nombre de usuario y contraseña, y no los tokens.
 
-If you or your users have two-factor authentication enabled, make sure you understand how to [work with two-factor authentication](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
+Si tú o tus usuarios habilitaron la autenticación de dos factores, asegúrate de que entiendes cómo [trabajar con la autenticación de dos factores](/rest/overview/other-authentication-methods#working-with-two-factor-authentication).
