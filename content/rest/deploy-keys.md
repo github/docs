@@ -1,6 +1,6 @@
 ---
-title: Deploy keys
-intro: 'The Deploy keys API lets you create and manage deploy keys.'
+title: Deploy Keys
+intro: ''
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,8 +13,6 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /rest/reference/deploy_keys
 ---
-
-## About the Deploy keys API
 
 {% data reusables.repositories.deploy-keys %}
 
