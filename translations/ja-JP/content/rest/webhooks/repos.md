@@ -1,5 +1,5 @@
 ---
-title: Repository Webhooks
+title: リポジトリwebhook
 intro: ''
 versions:
   fpt: '*'

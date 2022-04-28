@@ -25,7 +25,7 @@ Para acceder a tu tablero personal una vez que has iniciado sesión, haz clic en
 
 ## Encontrar tu actividad reciente
 
-En la sección "Recent activity" (Actividad reciente) de tus noticias, rápidamente puedes encontrar las propuestas y solicitudes de extracción recién actualizadas en las que estás trabajando y hacerles el seguimiento. En "Recent activity" (Actividad reciente), puedes previsualizar hasta 12 actualizaciones recientes, realizadas durante las últimas dos semanas.
+En la sección "Recent activity" (Actividad reciente) de tus noticias, rápidamente puedes encontrar las propuestas y solicitudes de extracción recién actualizadas en las que estás trabajando y hacerles el seguimiento. En "Recent activity" (Actividad reciente), puedes previsualizar hasta 4 actualizaciones recientes, realizadas durante las últimas dos semanas.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 

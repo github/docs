@@ -27,11 +27,11 @@ topics:
 
 ## Usar o Git
 
-To use Git on the command line, you will need to download, install, and configure Git on your computer. Você também pode instalar {% data variables.product.prodname_cli %} para usar {% data variables.product.prodname_dotcom %} a partir da linha de comando. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
+Para usar o Git na linha de comando, você precisará fazer download, instalar e configurar o Git no computador. Você também pode instalar {% data variables.product.prodname_cli %} para usar {% data variables.product.prodname_dotcom %} a partir da linha de comando. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli)".
 
-If you want to work with Git locally, but do not want to use the command line, you can instead download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  Para obter mais informações, consulte "[Instalar e configurar o {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
+Se quiser trabalhar com o Git, mas não quiser usar a linha de comando, você poderá fazer o download e instalar o cliente do [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}).  Para obter mais informações, consulte "[Instalar e configurar o {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)".
 
-If you do not need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
+Se não precisar trabalhar nos arquivos localmente, o {% data variables.product.product_name %} permite a execução de diversas ações relacionadas ao Git diretamente no navegador, incluindo:
 
 - [Criar um repositório](/articles/create-a-repo)
 - [Bifurcar um repositório](/articles/fork-a-repo)
@@ -54,9 +54,9 @@ If you do not need to work with files locally, {% data variables.product.product
 2. [Configure seu nome de usuário no Git](/github/getting-started-with-github/setting-your-username-in-git).
 3. [Configure seu endereço de e-mail de commit no Git](/articles/setting-your-commit-email-address).
 
-## Authenticating with {% data variables.product.prodname_dotcom %} from Git
+## Efetuando a autenticação com {% data variables.product.prodname_dotcom %} a partir do Git
 
-When you connect to a {% data variables.product.prodname_dotcom %} repository from Git, you will need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH.
+Quando você se conecta a um repositório do {% data variables.product.prodname_dotcom %} a partir do Git, precisa fazer a autenticação no {% data variables.product.product_name %} usando HTTPS ou SSH.
 
 {% note %}
 
@@ -66,15 +66,15 @@ When you connect to a {% data variables.product.prodname_dotcom %} repository fr
 
 ### Conexão por HTTPS (recomendada)
 
-If you clone with HTTPS, you can cache your {% data variables.product.prodname_dotcom %} credentials in Git using a credential helper. For more information, see "[Cloning with HTTPS urls](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)" and "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
+Se você fizer a clonagem com HTTPS, você pode armazenar suas credenciais de {% data variables.product.prodname_dotcom %} no Git usando um auxiliar de credenciais. Para obter mais informações, consulte "[Clonando com URLs de HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)" e "[Armazenando as suas credenciais de {% data variables.product.prodname_dotcom %} no cache do Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)".
 
 ### Conexão por SSH
 
-If you clone with SSH, you must generate SSH keys on each computer you use to push or pull from {% data variables.product.product_name %}. For more information, see "[Cloning with SSH urls](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls)" and "[Generating a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+Se você fizer a clonagem com SSH, você deverá gerar chaves SSH em cada computador que usar para fazer push ou pull a partir de {% data variables.product.product_name %}. Para obter mais informações, consulte "[Clonando com URLs de SSH](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls)" e "[Gerando uma nova chave SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)".
 
 ## Próximas etapas
 
-You now have Git and {% data variables.product.prodname_dotcom %} all set up. Agora você pode optar por criar um repositório onde possa colocar seus projetos. Saving your code in a repository allows you to back up your code and share it around the world.
+Agora você o Git e {% data variables.product.prodname_dotcom %} estão configurados. Agora você pode optar por criar um repositório onde possa colocar seus projetos. Salvar seu código em um repositório permite que você faça backup do seu código e o compartilhe no mundo todo.
 
 * {% data reusables.getting-started.create-a-repository %}.
 

@@ -1,6 +1,6 @@
 ---
-title: Discussions
-intro: 'The Team Discussions API allows you to get, create, edit, and delete discussion posts on a team''s page.'
+title: ディスカッション
+intro: Team Discussions APIを使用すると、Teamのページに投稿されたディスカッションを取得、作成、編集、削除できます。
 versions:
   fpt: '*'
   ghes: '*'

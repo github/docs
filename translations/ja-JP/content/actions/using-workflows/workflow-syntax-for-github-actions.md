@@ -745,11 +745,39 @@ If the timeout exceeds the job execution time limit for the runner, the job will
 
 ## `jobs.<job_id>.strategy`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-strategy %}
+Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reusables.actions.jobs.about-matrix-strategy %} For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 ### `jobs.<job_id>.strategy.matrix`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-matrix %}
+{% data reusables.actions.jobs.using-matrix-strategy %}
+
+#### Example: Using a single-dimension matrix
+
+{% data reusables.actions.jobs.single-dimension-matrix %}
+
+#### Example: Using a multi-dimension matrix
+
+{% data reusables.actions.jobs.multi-dimension-matrix %}
+
+#### Example: Using contexts to create matrices
+
+{% data reusables.actions.jobs.matrix-from-context %}
+
+### `jobs.<job_id>.strategy.matrix.include`
+
+{% data reusables.actions.jobs.matrix-include %}
+
+#### Example: Expanding configurations
+
+{% data reusables.actions.jobs.matrix-expand-with-include %}
+
+#### Example: Adding configurations
+
+{% data reusables.actions.jobs.matrix-add-with-include %}
+
+### `jobs.<job_id>.strategy.matrix.exclude`
+
+{% data reusables.actions.jobs.matrix-exclude %}
 
 ### `jobs.<job_id>.strategy.fail-fast`
 

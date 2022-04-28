@@ -65,7 +65,7 @@ Cuando el usuario vuelve a ingresar, {% data variables.product.prodname_ghe_serv
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-Este mensaje habitualmente indica que el nombre de usuario o dirección de correo electrónico cambió en el IdP. Asegúrate de que el mapeo de la `NameID` de la cuenta de usuario de {% data variables.product.prodname_ghe_server %} coincida con la `NameID` en tu IdP. For more information, see "[Updating a user's SAML `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+Este mensaje habitualmente indica que el nombre de usuario o dirección de correo electrónico cambió en el IdP. Asegúrate de que el mapeo de la `NameID` de la cuenta de usuario de {% data variables.product.prodname_ghe_server %} coincida con la `NameID` en tu IdP. Para obtener más información, consulta la sección "[Actualizar la `NameID` de SAML de un usuario](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)".
 
 ## Si la respuesta SAML no está firmada o la firma no coincide con los contenidos, se presentará el siguiente mensaje de error en el registro de autenticación:
 

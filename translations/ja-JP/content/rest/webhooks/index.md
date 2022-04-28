@@ -18,11 +18,11 @@ redirect_from:
   - /rest/reference/webhooks
 ---
 
-Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
+リポジトリwebhookを使用すると、リポジトリで特定のイベントが発生するとき必ずHTTP `POST` ペイロードを受け取ることができます。 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 Organization のすべてのリポジトリからイベントを受信するため単一の webhook を設定する場合は、[Organization Webhooks](/rest/reference/orgs#webhooks) の API ドキュメントを参照してください。
 
-In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
+REST APIに加えて、{% data variables.product.prodname_dotcom %}はリポジトリの[PubSubHubbub](#pubsubhubbub)ハブとしても動作します。
 
 ## webhook の受信
 
