@@ -1,7 +1,7 @@
 ---
 title: Habilitando declarações criptografadas
-shortTitle: Enable encrypted assertions
-intro: 'You can improve {% data variables.product.product_location %}''s security with SAML single sign-on (SSO) by encrypting the messages that your SAML identity provider (IdP) sends.'
+shortTitle: Habilitar declarações criptografadas
+intro: 'Você pode melhorar a segurança de {% data variables.product.product_location %} com o logon único SAML (SSO), criptografando as mensagens que o seu provedor de identidade do SAML (IdP) envia.'
 permissions: 'Site administrators can configure encrypted assertions for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '> 3.3'
@@ -15,17 +15,17 @@ topics:
   - SSO
 ---
 
-## About encrypted assertions
+## Sobre as declarações criptografadas
 
-If your IdP support encryption of assertions, you can configure encrypted assertions on {% data variables.product.product_name %} for increased security during the authentication process.
+Se oseu IdP for compatível com a encriptação de declarações, você poderá configurar as declarações criptografadas no {% data variables.product.product_name %} para aumentar a segurança durante o processo de autenticação.
 
 ## Pré-requisitos
 
-To enable encrypted assertions for authentication to {% data variables.product.product_name %}, you must configure SAML authentication, and your IdP must support encrypted assertions.
+Para habilitar as declarações criptografadas para autenticação em {% data variables.product.product_name %}, é necessário configurar a autenticação SAML, e seu IdP deverá ser compatível com as declarações criptografadas.
 
 ## Habilitando declarações criptografadas
 
-To enable encrypted assertions, you must provide {% data variables.product.product_location %}'s public certificate to your IdP, and configure encryption settings that match your IdP.
+Para habilitar as declarações criptografadas, você deve fornecer um certificado público de {% data variables.product.product_location %} para seu IdP e definir as configurações de criptografia que correspondem ao seu IdP.
 
 {% note %}
 
@@ -33,7 +33,7 @@ To enable encrypted assertions, you must provide {% data variables.product.produ
 
 {% endnote %}
 
-1. Opcionalmente, habilite a depuração do SAML. A depuração do SAML registra entradas detalhadas no registro de autenticação de {% data variables.product.product_name %} e pode ajudar você a solucionar problemas com falha nas tentativas de autenticação. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)."
+1. Opcionalmente, habilite a depuração do SAML. A depuração do SAML registra entradas detalhadas no registro de autenticação de {% data variables.product.product_name %} e pode ajudar você a solucionar problemas com falha nas tentativas de autenticação. Para obter mais informações, consulte "[Solução de problemas de autenticação do SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)".
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
@@ -57,4 +57,4 @@ To enable encrypted assertions, you must provide {% data variables.product.produ
 1. Clique em **Save settings** (Salvar configurações).
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
-Se você habilitou a depuração do SAML para testar a autenticação com declarações criptografadas, desabilite a depuração do SAML quando terminar o teste. For more information, see "[Troubleshooting SAML authentication](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)."
+Se você habilitou a depuração do SAML para testar a autenticação com declarações criptografadas, desabilite a depuração do SAML quando terminar o teste. Para obter mais informações, consulte "[Solução de problemas de autenticação do SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication#configuring-saml-debugging)".

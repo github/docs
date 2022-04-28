@@ -23,7 +23,7 @@ topics:
   - Security
 ---
 
-## About audit logs
+## Acerca de las bitácoras de auditoría
 
 {% data reusables.audit_log.retention-periods %}
 
@@ -50,7 +50,7 @@ For a full list of audit log actions that may appear in your enterprise audit lo
 {% ifversion ghec %}
 ## Git events
 
-Git events data, such as cloning, fetching, and pushing is logged. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+Git events data, such as cloning, fetching, and pushing is logged. Para obtener más información, consulta la sección "[Transmitir la bitácora de auditoría de tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)".
 
 {% endif %}
 

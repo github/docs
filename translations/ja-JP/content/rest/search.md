@@ -1,6 +1,6 @@
 ---
 title: 検索
-intro: The GitHub Search API lets you to search for the specific item efficiently.
+intro: GitHub Search APIを使うと、特定のアイテムを効率的に検索できます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -69,7 +69,7 @@ Search API は、以下のクエリをサポートしていません。
 
 ### アクセスエラーまたは検索結果の欠落
 
-You need to successfully authenticate and have access to the repositories in your search queries, otherwise, you'll see a `422 Unprocessable Entry` error with a "Validation Failed" message. たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
+認証に成功しており、検索クエリ中のリポジトリにアクセスを持っていなければなりません。そうでない場合は、"Validation Failed"というメッセージとともに`422 Unprocessable Entry`が返されます。 たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
 
 検索クエリで複数のリソースをリクエストする場合、レスポンスにはあなたがアクセスできるリソースのみが含まれ、返されないリソースを一覧表示するようなエラーメッセージは**表示されません**。
 

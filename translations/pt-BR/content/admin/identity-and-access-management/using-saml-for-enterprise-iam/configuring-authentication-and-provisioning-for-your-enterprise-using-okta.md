@@ -1,6 +1,6 @@
 ---
 title: Configurar autenticação e provisionamento para sua empresa usando o Okta
-shortTitle: Configure with Okta
+shortTitle: Configurar com Okta
 intro: 'Você pode usar o Okta como um provedor de identidade (IdP) para gerenciar centralmente o provisionamento de autenticação e usuário para {% data variables.product.prodname_ghe_managed %}.'
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.prodname_ghe_managed %}.'
 versions:

@@ -7,7 +7,7 @@ redirect_from:
   - /admin/authentication/disabling-unauthenticated-sign-ups
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/disabling-unauthenticated-sign-ups
   - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/disabling-unauthenticated-sign-ups
-intro: 'If you''re using built-in authentication for {% data variables.product.product_location %}, you can block unauthenticated people from creating new user accounts on your instance.'
+intro: 'Se você estiver usando a autenticação integrada para {% data variables.product.product_location %}, você pode impedir que pessoas não autenticadas criem novas contas de usuário em sua instância.'
 permissions: 'Site administrators can disable unauthenticated sign-ups on a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '*'
@@ -17,12 +17,12 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Block unauthenticated sign-up
+shortTitle: Bloquear inscrição não autenticada
 ---
 
-## About unauthenticated sign-ups
+## Sobre inscrições não autenticadas
 
-{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} {% data reusables.enterprise_user_management.unauthenticated-sign-ups %} You can disable unauthenticated sign-ups and require an invitation to create a new user account on your instance.
+{% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} {% data reusables.enterprise_user_management.unauthenticated-sign-ups %} Você pode desabilitar inscrições não autenticadas e exigir um convite para criar uma nova conta de usuário em sua instância.
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 

@@ -1,6 +1,6 @@
 ---
 title: Configurar una instancia de preparación
-intro: 'You can set up a {% data variables.product.product_name %} instance in a separate, isolated environment, and use the instance to validate and test changes.'
+intro: 'Puedes configurar una instancia de {% data variables.product.product_name %} en un ambiente aislado y separado y utilizarla para validar y probar los cambios.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
   - /admin/installation/setting-up-a-staging-instance

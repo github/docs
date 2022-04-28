@@ -62,7 +62,7 @@ Cualquier usuario no autenticado que pueda ver un repositorio podrá crear una e
 
 Los propietarios de los repositorios y las personas con acceso de escritura en estos pueden crear categorías nuevas para mantener los debates organizados. De la misma manera, ya que los debates de las organizaciones se basan en un repositorio origen, los propietarios de los repositorios y las personas con acceso de escritura con acceso de escritura en el repositorio origen pueden crear categorías nuevas para estos debates.
 
-Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. Para obtener más información, consulta la sección "[Administrar las categorías de los debates](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
 {% data reusables.discussions.you-can-label-discussions %}
 

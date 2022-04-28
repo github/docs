@@ -1,5 +1,5 @@
 ---
-title: Release Assets
+title: リリースアセット
 intro: ''
 versions:
   fpt: '*'

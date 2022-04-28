@@ -1,6 +1,6 @@
 ---
 title: Team
-intro: 'With the Teams API, you can create and manage teams in your GitHub organization.'
+intro: Team APIを使うと、GitHub Organization内のTeamの作成や管理ができます。
 versions:
   fpt: '*'
   ghes: '*'

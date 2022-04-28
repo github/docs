@@ -1,5 +1,5 @@
 ---
-title: Pre-receive Environments
+title: pre-receive 環境
 intro: pre-receive 環境 API を使用すると、pre-receive フックの環境を作成、一覧表示、更新、および削除できます。
 versions:
   ghes: '*'

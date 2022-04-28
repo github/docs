@@ -68,7 +68,7 @@ Se ocorrer uma falha na uma criação automática de código para uma linguagem 
 
 - Remova a etapa de `autobuild` do seu fluxo de trabalho de {% data variables.product.prodname_code_scanning %} e adicione etapas de criação específicas. Para obter informações sobre a edição do fluxo de trabalho, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/code-security/secure-coding/configuring-code-scanning#editing-a-code-scanning-workflow)". Para obter mais informações sobre a substituição da etapa `autobuild`, consulte "[Configurar o fluxo de trabalho de {% data variables.product.prodname_codeql %} para linguagens compiladas](/code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
-- Se seu fluxo de trabalho não especificar explicitamente linguagens para analisar, {% data variables.product.prodname_codeql %} irá detectar implicitamente as linguagens compiladas na sua base de código. Nesta configuração, das linguagens compiladas de C/C++, C#, e Java, {% data variables.product.prodname_codeql %} analisa apenas a linguagem com mais arquivos-fonte. Edite o fluxo de trabalho e adicione uma matriz de compilação especificando as linguagens que você deseja analisar. O fluxo de trabalho de análise do CodeQL padrão usa essa matriz.
+- Se seu fluxo de trabalho não especificar explicitamente linguagens para analisar, {% data variables.product.prodname_codeql %} irá detectar implicitamente as linguagens compiladas na sua base de código. Nesta configuração, das linguagens compiladas de C/C++, C#, e Java, {% data variables.product.prodname_codeql %} analisa apenas a linguagem com mais arquivos-fonte. Edit the workflow and add a matrix specifying the languages you want to analyze. O fluxo de trabalho de análise do CodeQL padrão usa essa matriz.
 
   Os seguintes extratos de um fluxo de trabalho mostram como usar uma matriz dentro da estratégia de trabalho para especificar linguagens e, em seguida, fazer referência a cada linguagem dentro da etapa "Inicializar {% data variables.product.prodname_codeql %}:
 
@@ -186,7 +186,7 @@ Se você usar executores auto-hospedados para executar a análise do {% data var
 
 ### Usar criações da matriz para paralelizar a análise
 
-O {% data variables.product.prodname_codeql_workflow %} padrão usa uma matriz de criação de linguagens, o que faz com que a análise de cada linguagem seja executada em paralelo. Se você especificou as linguagens que deseja analisar diretamente na etapa "Inicializar CodeQL", a análise de cada linguagem acontecerá sequencialmente. Para acelerar a análise de várias linguagens, modifique o seu fluxo de trabalho para usar uma matriz. Para obter mais informações, consulte a extração de fluxo de trabalho em "[Criação automática para falhas de linguagem compilada](#automatic-build-for-a-compiled-language-fails)" acima.
+The default {% data variables.product.prodname_codeql_workflow %} uses a matrix of languages, which causes the analysis of each language to run in parallel. Se você especificou as linguagens que deseja analisar diretamente na etapa "Inicializar CodeQL", a análise de cada linguagem acontecerá sequencialmente. Para acelerar a análise de várias linguagens, modifique o seu fluxo de trabalho para usar uma matriz. Para obter mais informações, consulte a extração de fluxo de trabalho em "[Criação automática para falhas de linguagem compilada](#automatic-build-for-a-compiled-language-fails)" acima.
 
 ### Reduz a quantidade de código em análise em um único fluxo de trabalho
 

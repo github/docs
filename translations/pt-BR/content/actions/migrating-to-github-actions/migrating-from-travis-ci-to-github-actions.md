@@ -59,9 +59,9 @@ O Travis CI pode usar `stages` para executar trabalhos em paralelo. Da mesma for
 
 O Travis CI e {% data variables.product.prodname_actions %} são compatíveis com selos de status, o que permite que você indique se uma criação está sendo aprovada ou falhando. Para obter mais informações, consulte ["Adicionar um selo de status de fluxo de trabalho ao seu repositório](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
-### Usar uma matriz de criação
+### Using a matrix
 
-O Travis CI e {% data variables.product.prodname_actions %} são compatíveis com uma matriz de criação, o que permite que você realize testes usando combinações de sistemas operacionais e pacotes de software. Para obter mais informações, consulte "[Usar uma matriz de criação](/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix)".
+Travis CI and {% data variables.product.prodname_actions %} both support a matrix, allowing you to perform testing using combinations of operating systems and software packages. For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 Abaixo, há um exemplo de comparação da sintaxe para cada sistema:
 

@@ -1,6 +1,6 @@
 ---
-title: Organization Pre-receive Hooks
-intro: The Organization Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to an organization.
+title: Organizationのpre-receive フック
+intro: Organization pre-receive フック API を使用すると、Organization で使用可能な pre-receive フックの適用を表示および変更できます。
 versions:
   ghes: '*'
 topics:
@@ -20,4 +20,4 @@ allowTitleToDifferFromFilename: true
 
 *適用*可能な値は、`enabled`、`disabled`、`testing` です。 `disabled` は、pre-receive フックが実行されないことを示します。 `enabled` は、それが実行され、ゼロ以外の状態になるプッシュを拒否することを示します。 `testing` は、スクリプトは実行されるが、プッシュが拒否されないことを示します。
 
-`configuration_url` may be a link to this endpoint or this hook's global configuration. サイトアドミンのみがグローバル設定にアクセスできます。
+`configuration_url`は、このエンドポイントへのリンクもしくはこのフックのグローバル設定です。 サイトアドミンのみがグローバル設定にアクセスできます。

@@ -1,7 +1,7 @@
 ---
 title: Sobre fluxos de trabalho
 shortTitle: Sobre fluxos de trabalho
-intro: 'Get a high level overview {% data variables.product.prodname_actions %} workflows, including triggers, syntax, and advanced features.'
+intro: 'Obtenha uma visão geral de alto nível dos fluxos de trabalho de {% data variables.product.prodname_actions %}, incluindo gatilhos, sintaxe e funcionalidades avançadas.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,15 +20,15 @@ miniTocMaxHeadingLevel: 3
 
 {% data reusables.actions.about-workflows-long %}
 
-## Workflow basics
+## Noções básicas do fluxo de trabalho
 
-A workflow must contain the following basic components:
+Um fluxo de trabalho deve conter os seguintes componentes básicos:
 
-1. One or more _events_ that will trigger the workflow.
-1. One or more _jobs_, each of which will execute on a _runner_ machine and run a series of one or more _steps_.
-1. Each step can either run a script that you define or run an action, which is a reusable extension that can simplify your workflow.
+1. Um ou mais _eventos_ que acionarão o fluxo de trabalho.
+1. Um ou mais _trabalhos_, cada uma das quais será executado em uma máquina de _executor_ e executará uma série de uma ou mais _etapas_.
+1. Cada etapa pode executar um script que você define ou executa uma ação, que é uma extensão reutilizável que pode simplificar seu fluxo de trabalho.
 
-For more information these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
 
 ![Visão geral do fluxo de trabalho](/assets/images/help/images/overview-actions-simple.png)
 
@@ -36,32 +36,32 @@ For more information these basic components, see "[Understanding GitHub Actions]
 
 {% data reusables.actions.about-triggers %}
 
-For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow)", and for a full list of events, see "[Events that trigger workflows](/actions/using-workflows/events-that-trigger-workflows)."
+Para obter mais informações, consulte "[Acionando um workflow](/actions/using-workflows/triggering-a-workflow)" e para obter uma lista completa de eventos, consulte "[Eventos que acionam fluxos de trabalho](/actions/using-workflows/events-that-trigger-workflows)".
 
 ## Sintaxe de fluxo de trabalho
 
-Workflow are defined using YAML. For the full reference of the YAML syntax for authoring workflows, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)."
+O fluxo de trabalho é definido usando YAML. Para a referência completa da sintaxe do YAML para autorizar fluxos de trabalho, consulte "[Sintaxe no fluxo de trabalho para o GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)".
 
 
 {% data reusables.actions.workflow-basic-example-and-explanation %}
 
-For more on managing workflow runs, such as re-running, cancelling, or deleting a workflow run, see "[Managing workflow runs](/actions/managing-workflow-runs)."
+Para mais ao gerenciar execuções do fluxo de trabalho, como re-executar, cancelar ou excluir a execução de um fluxo de trabalho, consulte "[Gerenciando execuções do fluxo de trabalho](/actions/managing-workflow-runs)".
 
 ## Usando fluxos de trabalho iniciais
 
 {% data reusables.actions.workflow-template-overview %}
 
-For more information on using and creating starter workflows, see "[Using starter workflows](/actions/using-workflows/using-starter-workflows)" and "[Creating starter workflows for your organization](/actions/using-workflows/creating-starter-workflows-for-your-organization)."
+Para obter mais informações sobre como usar e criar fluxos de trabalho iniciais, consulte "[Usando um fluxo de trabalho inicial](/actions/using-workflows/using-starter-workflows)" e "[Criando fluxos de trabalho iniciais para a sua organização](/actions/using-workflows/creating-starter-workflows-for-your-organization)".
 
 ## Recursos avançados de fluxo de trabalho
 
-This section briefly describes some of the advanced features of {% data variables.product.prodname_actions %} that help you create more complex workflows.
+Esta seção descreve brevemente algumas das funcionalidades avançadas de {% data variables.product.prodname_actions %} que ajudam você a criar fluxos de trabalho mais complexos.
 
 ### Armazenar segredos
 
-Se os seus fluxos de trabalho usarem dados confidenciais, como senhas ou certificados, você pode salvá-los em {% data variables.product.prodname_dotcom %} como _segredos_ e usá-los nos seus fluxos de trabalho como variáveis de ambiente. This means that you will be able to create and share workflows without having to embed sensitive values directly in the workflow's YAML source.
+Se os seus fluxos de trabalho usarem dados confidenciais, como senhas ou certificados, você pode salvá-los em {% data variables.product.prodname_dotcom %} como _segredos_ e usá-los nos seus fluxos de trabalho como variáveis de ambiente. Isso significa que você poderá criar e compartilhar fluxos de trabalho sem ter que incorporar valores sensíveis diretamente na fonte do YAML do fluxo de trabalho.
 
-This example job demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
+O exemplo desse trabalho demonstra como fazer referência a um segredo existente como uma variável de ambiente e enviá-lo como um parâmetro para um comando de exemplo.
 
 {% raw %}
 ```yaml
@@ -81,7 +81,7 @@ Para obter mais informações, consulte "[Segredos criptografados](/actions/secu
 
 ### Criar trabalhos dependentes
 
-Por padrão, os trabalhos do seu fluxo de trabalho são executadas em paralelo e ao mesmo tempo. If you have a job that must only run after another job has completed, you can use the `needs` keyword to create this dependency. If one of the jobs fails, all dependent jobs are skipped; however, if you need the jobs to continue, you can define this using the `if` conditional statement.
+Por padrão, os trabalhos do seu fluxo de trabalho são executadas em paralelo e ao mesmo tempo. Se você tem um trabalho que só deve ser executado após a conclusão de outro trabalho, você pode usar a palavra-chave `needs` para criar esta dependência. Se um dos trabalhos falhar, todos os trabalhos dependentes serão suprimidos. No entanto, se você precisa que os trabalhos continuem, você pode definir isso usando a declaração condicional `se`.
 
 Neste exemplo, os trabalhos de `configuração`, `criação` e `teste` executados em série, com `criação` e `teste` sendo dependentes da conclusão bem-sucedida do trabalho que os precede:
 
@@ -105,9 +105,9 @@ jobs:
 
 Para obter mais informações, consulte[Definindo trabalhos de pré-requisito](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)".
 
-### Usar uma matriz de criação
+### Using a matrix
 
-You can use a build matrix if you want your workflow to run tests across multiple combinations of parameters, such as operating systems, platforms, and languages. A matriz de criação é criada usando a palavra-chave `estratégia`, que recebe as opções de compilação como um array. Por exemplo, essa matriz de criação irá executar o trabalho várias vezes, usando diferentes versões do Node.js:
+{% data reusables.actions.jobs.about-matrix-strategy %} The matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this matrix will run the job multiple times, using different versions of Node.js:
 
 ```yaml
 jobs:
@@ -115,14 +115,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [6, 8, 10]
+        node: [12, 14, 16]
     steps:
       - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-Para obter mais informações, consulte "[Usando uma matriz de construção para seus trabalhos](/actions/using-jobs/using-a-build-matrix-for-your-jobs)".
+For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% ifversion fpt or ghec %}
 ### Memorizar dependências
@@ -173,7 +173,7 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using containerized services](/actions/using-containerized-services)."
+Para obter mais informações, consulte "[Usando serviços dentro de contêineres](/actions/using-containerized-services)".
 
 ### Usar etiquetas para encaminhar fluxos de trabalho
 
@@ -187,12 +187,12 @@ jobs:
     runs-on: [self-hosted, linux, x64, gpu]
 ```
 
-Um fluxo de trabalho só é executado em um executor que possui todas as etiquetas na matriz `runs-on`. O trabalho irá preferencialmente para um executor auto-hospedado inativo com as etiquetas especificadas. {% ifversion fpt or ghec %}If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.{% endif %}
+Um fluxo de trabalho só é executado em um executor que possui todas as etiquetas na matriz `runs-on`. O trabalho irá preferencialmente para um executor auto-hospedado inativo com as etiquetas especificadas. {% ifversion fpt or ghec %}Se não houver nada disponível e um executor hospedado em {% data variables.product.prodname_dotcom %} com os etiquetas especificadas estiver presente, o trabalho irá a um executor hospedado em {% data variables.product.prodname_dotcom %}.{% endif %}
 
-To learn more about self-hosted runner labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+Para aprender mais sobre etiquetas de executores auto-hospedados, consulte "["Usando etiquetas com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
 {% ifversion fpt or ghec %}
-To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[Supported runners and hardware resources](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+Para saber mais sobre as etiquetas do executor hospedado em {% data variables.product.prodname_dotcom %}, consulte "["Executores e recursos de hardware compatíveis"](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 {% endif %}
 
 {% ifversion fpt or ghes > 3.3 or ghae-issue-4757 or ghec %}
@@ -202,4 +202,4 @@ To learn more about {% data variables.product.prodname_dotcom %}-hosted runner l
 
 ### Usar ambientes
 
-You can configure environments with protection rules and secrets to control the execution of jobs in a workflow. Cada trabalho em um fluxo de trabalho pode fazer referência a um único ambiente. Todas as regras de proteção configuradas para o ambiente têm de ser aprovadas antes que um trabalho de referência ao ambiente seja enviado a um executor. Para obter mais informações, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)".
+Você pode configurar ambientes com regras de proteção e segredos para controlar a execução de trabalhos no fluxo de trabalho. Cada trabalho em um fluxo de trabalho pode fazer referência a um único ambiente. Todas as regras de proteção configuradas para o ambiente têm de ser aprovadas antes que um trabalho de referência ao ambiente seja enviado a um executor. Para obter mais informações, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)".

@@ -5,7 +5,7 @@ redirect_from:
   - /articles/create-a-repo
   - /github/getting-started-with-github/create-a-repo
   - /github/getting-started-with-github/quickstart/create-a-repo
-intro: 'Para colocar seu projeto no {% data variables.product.prodname_dotcom %}, você precisará criar um repositório no qual ele residirá.'
+intro: 'Para colocar seu projeto no {% data variables.product.prodname_dotcom %}, você deverá criar um repositório para ele ser publicado.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,7 +22,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-Você pode armazenar vários projetos nos repositórios do {% data variables.product.prodname_dotcom %}, incluindo projetos de código aberto. Com os [projetos de código aberto](http://opensource.org/about), é possível compartilhar código para criar softwares melhores e mais confiáveis. Você pode usar repositórios para colaborar com outras pessoas e acompanhar seu trabalho. Para obter mais informações, consulte "[Sobre repositórios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)".
+Você pode armazenar vários projetos nos repositórios do {% data variables.product.prodname_dotcom %}, incluindo projetos de código aberto. Com projetos de código aberto, você pode compartilhar código para tornar o software melhor e mais confiável. Você pode usar repositórios para colaborar com outras pessoas e acompanhar seu trabalho. Para obter mais informações, consulte "[Sobre repositórios](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-repositories)". Para saber mais sobre projetos de código aberto, acesse [OpenSource.org](http://opensource.org/about).
 
 {% elsif ghes or ghae %}
 
@@ -124,18 +124,18 @@ Os arquivos *README* são um excelente local para descrever seu projeto mais det
 
 {% endcli %}
 
-## Comemore
+## Próximas etapas
 
-Parabéns! Você criou um repositório, incluindo um arquivo *README*, assim como seu primeiro commit no {% data variables.product.product_location %}.
+Você criou um repositório, incluindo um arquivo *README*, assim como seu primeiro commit no {% data variables.product.product_location %}.
 
 {% webui %}
 
-Agora você pode clonar um repositório de {% data variables.product.prodname_dotcom %} para criar uma cópia local no seu computador. A partir do seu repositório local, você pode fazer commit e criar um pull request para atualizar as alterações no repositório upstream. Para obter mais informações, consulte "[Clonando um repositório](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)" e "[Configurar o Git](/articles/set-up-git)".
+* Agora você pode clonar um repositório de {% data variables.product.prodname_dotcom %} para criar uma cópia local no seu computador. A partir do seu repositório local, você pode fazer commit e criar um pull request para atualizar as alterações no repositório upstream. Para obter mais informações, consulte "[Clonando um repositório](/github/creating-cloning-and-archiving-repositories/cloning-a-repository)" e "[Configurar o Git](/articles/set-up-git)".
 
 {% endwebui %}
 
-Você pode encontrar projetos e repositórios interessantes em {% data variables.product.prodname_dotcom %} e fazer alterações neles criando uma bifurcação no repositório. Para obter mais informações, "[Bifurcar um repositório](/articles/fork-a-repo)".
+* Você pode encontrar projetos e repositórios interessantes em {% data variables.product.prodname_dotcom %} e fazer alterações neles criando uma bifurcação no repositório. {% data reusables.getting-started.fork-a-repository %}
 
-Cada repositório em {% data variables.product.prodname_dotcom %} pertence a uma pessoa ou organização. Você pode interagir com as pessoas, repositórios e organizações, conectando-se e seguindo-as em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Seja social](/articles/be-social)".
+* {% data reusables.getting-started.being-social %}
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

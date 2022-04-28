@@ -71,7 +71,7 @@ Predeterminadamente, notificamos a las personas con permisos administrativos en 
 1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable** or **Enable**. ![Screenshot of "Configure security and analysis" features with the "Disable" button emphasized for Dependabot alerts](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt-private.png)
  {% endif %}{% ifversion ghes or ghae %}
 
-{% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. For more information, see "[Enabling Dependabot for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+{% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. Para obtener más información, consulta la sección "[Habilitar al Dependabot para tu empresa](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)".
 {% endif %}
 
 ## Administrar las {% data variables.product.prodname_dependabot_alerts %} para tu organización
@@ -82,7 +82,7 @@ Predeterminadamente, notificamos a las personas con permisos administrativos en 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security-and-analysis %}
-2. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable all** or **Enable all**.
+2. Debajo de "Análisis y seguridad del código", a la derecha de las {% data variables.product.prodname_dependabot_alerts %}, haz clic en **Inhabilitar todas** o **Habilitar todas**.
    {% ifversion fpt or ghec %}
    ![Screenshot of "Configure security and analysis" features with the "Enable all" or "Disable all" button emphasized for Dependabot alerts](/assets/images/help/dependabot/dependabot-alerts-disable-or-enable-fpt.png)
    {% endif %}
