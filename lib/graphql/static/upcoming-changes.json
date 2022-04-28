@@ -74,22 +74,6 @@
         "date": "2021-01-01",
         "criticality": "breaking",
         "owner": "nplasterer"
-      },
-      {
-        "location": "EnterpriseOutsideCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All outside collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseMemberEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All members consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-10-01": [
@@ -118,16 +102,6 @@
         "owner": "mikesea"
       }
     ],
-    "2020-07-01": [
-      {
-        "location": "EnterprisePendingMemberInvitationEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending members consume a license</p>",
-        "date": "2020-07-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      }
-    ],
     "2020-04-01": [
       {
         "location": "Sponsorship.maintainer",
@@ -146,22 +120,6 @@
         "date": "2020-01-01",
         "criticality": "breaking",
         "owner": "tambling"
-      },
-      {
-        "location": "EnterpriseBillingInfo.seats",
-        "description": "<p><code>seats</code> will be removed. Use EnterpriseBillingInfo.totalLicenses instead.</p>",
-        "reason": "<p><code>seats</code> will be replaced with <code>totalLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
-      },
-      {
-        "location": "EnterpriseBillingInfo.availableSeats",
-        "description": "<p><code>availableSeats</code> will be removed. Use EnterpriseBillingInfo.totalAvailableLicenses instead.</p>",
-        "reason": "<p><code>availableSeats</code> will be replaced with <code>totalAvailableLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
       },
       {
         "location": "AssignedEvent.user",
@@ -258,22 +216,6 @@
         "date": "2021-01-01",
         "criticality": "breaking",
         "owner": "nplasterer"
-      },
-      {
-        "location": "EnterpriseOutsideCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All outside collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseMemberEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All members consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-10-01": [
@@ -302,16 +244,6 @@
         "owner": "mikesea"
       }
     ],
-    "2020-07-01": [
-      {
-        "location": "EnterprisePendingMemberInvitationEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending members consume a license</p>",
-        "date": "2020-07-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      }
-    ],
     "2020-04-01": [
       {
         "location": "Sponsorship.maintainer",
@@ -330,22 +262,6 @@
         "date": "2020-01-01",
         "criticality": "breaking",
         "owner": "tambling"
-      },
-      {
-        "location": "EnterpriseBillingInfo.seats",
-        "description": "<p><code>seats</code> will be removed. Use EnterpriseBillingInfo.totalLicenses instead.</p>",
-        "reason": "<p><code>seats</code> will be replaced with <code>totalLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
-      },
-      {
-        "location": "EnterpriseBillingInfo.availableSeats",
-        "description": "<p><code>availableSeats</code> will be removed. Use EnterpriseBillingInfo.totalAvailableLicenses instead.</p>",
-        "reason": "<p><code>availableSeats</code> will be replaced with <code>totalAvailableLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
       },
       {
         "location": "AssignedEvent.user",
@@ -1016,22 +932,6 @@
         "date": "2021-01-01",
         "criticality": "breaking",
         "owner": "nplasterer"
-      },
-      {
-        "location": "EnterpriseOutsideCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All outside collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseMemberEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All members consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-10-01": [
@@ -1052,16 +952,6 @@
         "owner": "mikesea"
       }
     ],
-    "2020-07-01": [
-      {
-        "location": "EnterprisePendingMemberInvitationEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending members consume a license</p>",
-        "date": "2020-07-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      }
-    ],
     "2020-01-01": [
       {
         "location": "UnassignedEvent.user",
@@ -1070,22 +960,6 @@
         "date": "2020-01-01",
         "criticality": "breaking",
         "owner": "tambling"
-      },
-      {
-        "location": "EnterpriseBillingInfo.seats",
-        "description": "<p><code>seats</code> will be removed. Use EnterpriseBillingInfo.totalLicenses instead.</p>",
-        "reason": "<p><code>seats</code> will be replaced with <code>totalLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
-      },
-      {
-        "location": "EnterpriseBillingInfo.availableSeats",
-        "description": "<p><code>availableSeats</code> will be removed. Use EnterpriseBillingInfo.totalAvailableLicenses instead.</p>",
-        "reason": "<p><code>availableSeats</code> will be replaced with <code>totalAvailableLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
       },
       {
         "location": "AssignedEvent.user",

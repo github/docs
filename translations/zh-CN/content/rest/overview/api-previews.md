@@ -4,7 +4,7 @@ intro: 您可以使用 API 预览来试用新功能并在这些功能正式发�
 redirect_from:
   - /v3/previews
 versions:
-  ghes: '*'
+  ghes: <3.4
   ghae: '*'
 topics:
   - API
@@ -47,14 +47,6 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-{% ifversion ghes %}
-## 预接收环境
-
-创建、列出、更新和删除预接收挂钩的环境。
-
-**自定义媒体类型：** `eye-scream-preview` **公布日期：** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## 项目
 
@@ -88,7 +80,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## 全局 web 挂钩
 

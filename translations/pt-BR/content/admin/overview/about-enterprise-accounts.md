@@ -24,7 +24,7 @@ topics:
 
 {% ifversion ghec %}
 
-Sua conta corporativa no {% data variables.product.prodname_dotcom_the_website %} permite que você gerencie múltiplas organizações. Sua conta corporativa deve ter um manipulador, como uma conta pessoal ou organizacional no {% data variables.product.prodname_dotcom %}.
+Sua conta corporativa no {% data variables.product.prodname_dotcom_the_website %} permite que você gerencie múltiplas organizações. Sua conta corporativa deve ter um manipulador, como uma conta de usuário ou organizacional no {% data variables.product.prodname_dotcom %}.
 
 {% elsif ghes or ghae %}
 

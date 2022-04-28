@@ -38,6 +38,7 @@ Organization の {% data variables.product.prodname_codespaces %} について�
 {% data reusables.dotcom_billing.monthly-spending-limit-codespaces %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## Enterprise アカウントの {% data variables.product.prodname_codespaces %} に対する利用上限を管理する
 
 Enterprise アカウントの {% data variables.product.prodname_codespaces %} の利用上限は、Enterprise オーナーと支払いマネージャーが管理できます。
@@ -48,6 +49,7 @@ Enterprise アカウントの {% data variables.product.prodname_codespaces %} �
 1. ""[{% data variables.product.prodname_codespaces %} monthly usage]"の上で、**Spending Limit（利用上限）**をクリックしてください。 ![利用上限タブ](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
+{% endif %}
 
 ## 利用上限に達した際の変更のエクスポート
 
@@ -56,7 +58,7 @@ Enterprise アカウントの {% data variables.product.prodname_codespaces %} �
 
 メール通知は、利用量がアカウントの利用上限の50%、75%、90%、100%に達したときに、アカウントのオーナーと支払いマネージャーに送信されます。
 
-これらの通知は、**Spending Limit（利用上限）** ページの下部にアクセスしていつでも無効化できます。
+You can disable these notifications anytime by navigating to the bottom of the **Spending Limit** page.
 
 ![支払いのメール通知設定のスクリーンショット](/assets/images/help/billing/codespaces-spending-limit-notifications.png)
 

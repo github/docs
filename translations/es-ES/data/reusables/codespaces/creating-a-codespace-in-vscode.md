@@ -2,7 +2,7 @@ Después de que conectes tu cuenta de {% data variables.product.product_location
 
 {% note %}
 
-**Note**: Currently, {% data variables.product.prodname_vscode %} doesn't allow you to choose a dev container configuration when you create a codespace. If you want to choose a specific dev container configuration, use the {% data variables.product.prodname_dotcom %} web interface to create your codespace. For more information, click the **Web browser** tab at the top of this page.
+**Note**: Currently, {% data variables.product.prodname_vscode %} doesn't allow you to choose a dev container configuration when you create a codespace. Si quieres elegir una configuración de contenedor dev específica, utiliza la interfaz web de {% data variables.product.prodname_dotcom %} para crear tu codespace. For more information, click the **Web browser** tab at the top of this page.
 
 {% endnote %}
 

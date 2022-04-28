@@ -385,6 +385,7 @@ Action                        | Description
 | `gist.destroy` | A gist is deleted.
 | `gist.visibility_change` | The visibility of a gist is changed.
 
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6724 %}
 ### `git` category actions
 
 | Action | Description
@@ -392,6 +393,7 @@ Action                        | Description
 | `git.clone` | A repository was cloned.
 | `git.fetch` | Changes were fetched from a repository.
 | `git.push`  | Changes were pushed to a repository.
+{% endif %}
 
 ### `hook` category actions
 
