@@ -62,6 +62,7 @@ redirect_from:
    * `deployments` - 读/写
    * `discussions` - 读/写
    * `issues` - 读/写
+   * `packages` - read
    * `pages` - 读/写
    * `pull_requests` - 读/写
    * `repository_projects` - 读/写

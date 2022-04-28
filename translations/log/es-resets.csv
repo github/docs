@@ -311,8 +311,8 @@ translations/es-ES/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken li
 translations/es-ES/data/reusables/actions/contacting-support.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
-translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,broken liquid tags
-translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runners.md,broken liquid tags
+translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,rendering error
+translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runners.md,rendering error
 translations/es-ES/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/edit-workflow.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/enabling-options.md,broken liquid tags

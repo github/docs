@@ -29,13 +29,6 @@ upcoming_changes:
     criticality: 重大
     owner: antn
   - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed` 将被删除。'
-    reason: 所有挂起的成员都会使用许可证
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: 重大
-    owner: BrentWheeldon
-  - 
     location: Issue.timeline
     description: '`timeline` 将被删除。使用 Issue.timelineItems 代替。'
     reason: '`timeline` 将被删除'
@@ -56,20 +49,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: 重大
     owner: nholden
-  - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed` 将被删除。'
-    reason: 所有成员都会使用许可证
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: 重大
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` 将被删除。'
-    reason: 所有外部协作者使用许可证
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: 重大
-    owner: BrentWheeldon
   - 
     location: MergeStateStatus.DRAFT
     description: '`DRAFT` 将被删除。改为使用 PullRequest.isDraft。'

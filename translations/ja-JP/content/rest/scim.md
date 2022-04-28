@@ -11,6 +11,8 @@ redirect_from:
   - /rest/reference/scim
 ---
 
+## About the SCIM API
+
 ### Organization 向け SCIM プロビジョニング
 
 SCIM API は SCIM を有効にしたアイデンティティプロバイダ (IdPs) で、{% data variables.product.product_name %} Organization メンバーシップのプロビジョニングを自動化するために用いられます。 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} APIは、[SCIM標準](http://www.simplecloud.info/)バージョン2に基づいています。 IdP が使用するべき {% data variables.product.product_name %} SCIM エンドポイントは、`{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/` です。

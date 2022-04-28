@@ -1,6 +1,6 @@
 ---
-title: Codes of Conduct
-intro: ''
+title: 行为准则
+intro: The Codes of conduct API lets you retrieve information about a repository's code of conduct.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,4 +13,6 @@ redirect_from:
   - /rest/reference/codes-of-conduct
 ---
 
-您可以使用行为准则 API 检索有关仓库行为准则的信息。 要获取仓库的行为准则，请使用“[获取仓库](/rest/reference/repos#get-a-repository)”端点。
+## About the Codes of conduct API
+
+您可以使用行为准则 API 检索有关仓库行为准则的信息。 To get a code of conduct for a repository, use the "[Get a repository](/rest/reference/repos#get-a-repository)" endpoint.

@@ -1,6 +1,6 @@
 ---
 title: 搜索
-intro: The GitHub Search API lets you to search for the specific item efficiently.
+intro: 'The Search API lets you to search for specific items on {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,6 +12,8 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/search
 ---
+
+## About the Search API
 
 搜索 API 可帮助您搜索要查找的特定条目。 例如，您可以在仓库中找到用户或特定文件。 就像您在 Google 上执行搜索一样。 它旨在帮助您找到要查找的一个或几个结果。 就像在 Google 上搜索一样，有时您希望查看几页搜索结果，以便找到最能满足您需求的条目。 为了满足这一需求， {% data variables.product.product_name %} 搜索 API **为每个搜索提供最多 1,000 个结果**。
 

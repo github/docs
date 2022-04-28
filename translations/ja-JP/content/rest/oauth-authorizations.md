@@ -1,6 +1,6 @@
 ---
-title: OAuth 認証
-intro: 移行 API を使用できるのは、認証済みの Organization オーナーのみです。
+title: OAuth authorizations
+intro: The OAuth authorizations lets you manage the access OAuth applications have to your account.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,6 +11,8 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/oauth-authorizations
 ---
+
+## About the OAuth authorizations API
 
 この API を使用すると、OAuth アプリケーションから自分のアカウントへのアクセスを管理することができます。 この API にアクセスするには、ユーザ名とパスワードを使用する [Basic 認証](/rest/overview/other-authentication-methods#basic-authentication) が必要であり、トークンは使用できません。
 

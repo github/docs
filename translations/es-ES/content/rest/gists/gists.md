@@ -11,6 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## About the Gists API
+
+The Gist API lets you view and modify gists. For more information about gists, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+
 ### Autenticación
 
 Puedes leer gists públicos {% ifversion ghae or ghes %}y crearlos para usuarios anónimos sin un token{% else %} de forma anónima, pero debes haber iniciado sesión en GitHub para crear gists.{% endif %} Para leer o escribir gists en nombre de un usuario, necesitas el alcance de OAuth para gists y un token. Par aobtener más información, consulta la sección "[Alcances para las Apps de OAuth](/developers/apps/scopes-for-oauth-apps)".
