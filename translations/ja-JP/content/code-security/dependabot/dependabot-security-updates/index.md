@@ -1,6 +1,6 @@
 ---
-title: Automatically updating dependencies with known vulnerabilities with Dependabot security updates
-intro: '{% data variables.product.prodname_dependabot %} can help you fix vulnerable dependencies by automatically raising pull requests to update dependencies to secure versions.'
+title: Dependabotセキュリティアップデートで既知の脆弱性を持つ依存関係を自動的にアップデート
+intro: '{% data variables.product.prodname_dependabot %}は、依存関係をセキュアなバージョンにアップデートするPull Requestを自動的に起こすことで、脆弱性のある依存関係の修復を助けることができます。'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
