@@ -32,6 +32,12 @@ Antes de que puedas habilitar y configurar el {% data variables.product.prodname
 {% data reusables.package_registry.enable-enterprise-github-packages %}
 1. Debajo de "Almacenamiento de Packages", selecciona **Azure Blob Storage** e ingresa el nombre de tu contenedor de Azure para tu bucket de almacenamiento de paquetes y secuencia de conexión. ![Cajas para el nombre del contenedor de Azure Blob Storage y secuencia de conexión](/assets/images/help/package-registry/azure-blob-storage-settings.png)
 
+  {% note %}
+
+  **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account. Usage of a SAS Token or SAS URL as connection string is not currently supported.
+
+  {% endnote %}
+
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Pasos siguientes
