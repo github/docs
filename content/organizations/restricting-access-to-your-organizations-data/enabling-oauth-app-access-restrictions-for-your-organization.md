@@ -32,3 +32,4 @@ shortTitle: Enable OAuth App
   ![Set up restrictions button](/assets/images/help/settings/settings-third-party-set-up-restrictions.png)
 6. After you review the information about third-party access restrictions, click **Restrict third-party application access**.
   ![Restriction confirmation button](/assets/images/help/settings/settings-third-party-restrict-confirm.png)
+4c3447f7b9c3a9e0628e5a889ed386089c160db3
