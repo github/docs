@@ -52,7 +52,7 @@ for (const file of articleFiles) {
   )
 
   // parse the frontmatter
-  const { data } = parse(fileContents)
+  const { data } = await parse(fileContents)
 
   let contentCell = ''
   let previewCell = ''
@@ -70,12 +70,12 @@ for (const file of articleFiles) {
       // for fpt, ghec, and ghae
       if (currentApplicableVersions.toString() === nonEnterpriseDefaultVersion) {
         // omit version from fpt url
-        previewCell += `[${version}](${APP_URL}/${fileUrl})`
-        prodCell += `[${version}](${PROD_URL}/${fileUrl})`
+        previewCell += `[${version}](${APP_URL}/${fileUrl}) `
+        prodCell += `[${version}](${PROD_URL}/${fileUrl}) `
       } else {
         // for non-versioned releases (ghae, ghec) use full url
-        previewCell += `[${version}](${APP_URL}/${currentApplicableVersions}/${fileUrl})`
-        prodCell += `[${version}](${PROD_URL}/${currentApplicableVersions}/${fileUrl})`
+        previewCell += `[${version}](${APP_URL}/${currentApplicableVersions}/${fileUrl}) `
+        prodCell += `[${version}](${PROD_URL}/${currentApplicableVersions}/${fileUrl}) `
       }
     } else {
       // for ghes releases, link each version
