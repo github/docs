@@ -44,7 +44,7 @@ for (const file of articleFiles) {
 
   // get the file contents and decode them
   // this script is called from the main branch, so we need the API call to get the contents from the branch, instead
-  const fileContents = getContents(
+  const fileContents = await getContents(
     context.repo.owner,
     context.payload.repository.name,
     context.payload.pull_request.head.ref,
@@ -52,7 +52,7 @@ for (const file of articleFiles) {
   )
 
   // parse the frontmatter
-  const { data } = await parse(fileContents)
+  const { data } = parse(fileContents)
 
   let contentCell = ''
   let previewCell = ''
