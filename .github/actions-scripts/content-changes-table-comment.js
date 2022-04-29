@@ -3,10 +3,10 @@
 import * as github from '@actions/github'
 import { setOutput } from '@actions/core'
 
-import { getContents } from '../../script/helpers/git-utils'
-import parse from '../../lib/read-frontmatter'
-import getApplicableVersions from '../../lib/get-applicable-versions'
-import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version'
+import { getContents } from '../../script/helpers/git-utils.js'
+import parse from '../../lib/read-frontmatter.js'
+import getApplicableVersions from '../../lib/get-applicable-versions.js'
+import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
 
 const { GITHUB_TOKEN, APP_URL } = process.env
 const context = github.context
