@@ -19,7 +19,7 @@ if (!APP_URL) {
   throw new Error(`APP_URL environment variable not set`)
 }
 
-const PROD_URL = 'https://docs.github.com/'
+const PROD_URL = 'https://docs.github.com'
 const octokit = github.getOctokit(GITHUB_TOKEN)
 
 const response = await octokit.rest.repos.compareCommitsWithBasehead({
@@ -43,7 +43,7 @@ for (const file of articleFiles) {
   const fileUrl = fileName.slice(0, fileName.lastIndexOf('.'))
 
   // get the file contents and decode them
-  // TODO: look into whether we need this API call
+  // this script is called from the main branch, so we need the API call to get the contents from the branch, instead
   const fileContents = getContents(
     context.repo.owner,
     context.payload.repository.name,
@@ -54,39 +54,38 @@ for (const file of articleFiles) {
   // parse the frontmatter
   const { data } = parse(fileContents)
 
-  let contentCell
-  let previewCell
+  let contentCell = ''
+  let previewCell = ''
   let prodCell = ''
 
   if (file.status === 'added') contentCell = `New file: `
   contentCell += `[\`${fileName}\`](${sourceUrl})`
 
   for (const version in data.versions) {
-    const currentApplicableVersions = getApplicableVersions({ [version]: data.versions[version] })
+    const currentApplicableVersions = getApplicableVersions({
+      [version]: data.versions[version],
+    })
 
     if (currentApplicableVersions.length === 1) {
       // for fpt, ghec, and ghae
-      if (currentApplicableVersions === nonEnterpriseDefaultVersion) {
+      if (currentApplicableVersions.toString() === nonEnterpriseDefaultVersion) {
         // omit version from fpt url
-        previewCell += `[\`${version}\`](${APP_URL}/${fileUrl})`
-        prodCell += `[\`${version}\`](${PROD_URL}/${fileUrl})`
+        previewCell += `[${version}](${APP_URL}/${fileUrl})`
+        prodCell += `[${version}](${PROD_URL}/${fileUrl})`
       } else {
         // for non-versioned releases (ghae, ghec) use full url
-        previewCell += `[\`${version}\`](${APP_URL}/${currentApplicableVersions}/${fileUrl})`
-        prodCell += `[\`${version}\`](${PROD_URL}/${currentApplicableVersions}/${fileUrl})`
+        previewCell += `[${version}](${APP_URL}/${currentApplicableVersions}/${fileUrl})`
+        prodCell += `[${version}](${PROD_URL}/${currentApplicableVersions}/${fileUrl})`
       }
     } else {
       // for ghes releases, link each version
       previewCell += `${version}@ `
       prodCell += `${version}@ `
 
-      previewCell += currentApplicableVersions.map(
-        (version) => `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl})`
-      )
-
-      prodCell += currentApplicableVersions.map(
-        (version) => `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl})`
-      )
+      currentApplicableVersions.forEach((version) => {
+        previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
+        prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
+      })
     }
   }
   markdownTable += `| ${contentCell} | ${previewCell} | ${prodCell} | |\n`
