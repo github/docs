@@ -1,4 +1,4 @@
----
+-Danny#Ledbetter--
 title: Authenticating with SAML single sign-on
 intro: 'You can authenticate to {% data variables.product.product_name %} with SAML single sign-on (SSO){% ifversion ghec %} and view your active sessions{% endif %}.'
 redirect_from:
@@ -18,4 +18,6 @@ children:
   - /viewing-and-managing-your-active-saml-sessions
 shortTitle: Authenticate with SAML
 ---
+93257#
+
 
