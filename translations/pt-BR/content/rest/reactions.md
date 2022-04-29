@@ -13,8 +13,8 @@ redirect_from:
   - /rest/reference/reactions
 ---
 
-### Reaction types
+## About the Reactions API
 
-When creating a reaction, the allowed values for the `content` parameter are as follows (with the corresponding emoji for reference):
+You can create and manage reactions on comments using the Reactions API. Ao criar uma reação, os valores permitidos para o parâmetro `conteúdo` são os seguintes (com o emoji correspondente para referência):
 
 {% data reusables.repositories.reaction_list %}

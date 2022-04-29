@@ -811,8 +811,6 @@ O webhook em que este evento está configurado em foi excluído. Este evento só
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghec %}
-
 ## pacote
 
 Atividade relacionada a {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Gerenciar pacotes com {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" para saber mais sobre {% data variables.product.prodname_registry %}.
@@ -832,7 +830,6 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
-{% endif %}
 
 ## page_build
 

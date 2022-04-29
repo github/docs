@@ -123,7 +123,7 @@ For supported languages, {% data variables.product.prodname_dependabot %} detect
 
 If you schedule extensive work to upgrade a dependency, or decide that an alert does not need to be fixed, you can dismiss the alert. Dismissing alerts that you have already assessed makes it easier to triage new alerts as they appear.
 
-1. View the details for an alert. For more information, see "[Viewing vulnerable dependencies](#viewing-vulnerable-dependencies)" (above).
+1. Ver los detalles de una alerta. Para obtener más información, consulta la sección "[Ver las dependencias vulnerables](#viewing-vulnerable-dependencies)" (anteriormente).
 1. Select the "Dismiss" dropdown, and click a reason for dismissing the alert.{% if reopen-dependabot-alerts %} Unfixed dismissed alerts can be reopened later.{% endif %} ![Elegir una razón para descartar la alerta a través del menú desplegable de "Descartar"](/assets/images/help/repository/dependabot-alert-dismiss-drop-down-ungrouped.png)
 
 {% if reopen-dependabot-alerts %}

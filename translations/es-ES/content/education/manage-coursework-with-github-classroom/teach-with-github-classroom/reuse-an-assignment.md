@@ -4,7 +4,7 @@ intro: 'You can reuse an existing assignment in more than one classroom, includi
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can reuse assignments from a classroom. {% data reusables.classroom.classroom-admins-link %}'
-shortTitle: Reuse an assignment
+shortTitle: Rechazar una tarea
 ---
 
 ## About reusing assignments

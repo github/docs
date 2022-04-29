@@ -27,7 +27,7 @@ Para obtener más información acerca de la participación en los debates, consu
 
 Para colaborar con los mantenedores en los debates de los repositorios, un administrador de repositorio o mantenedor de proyeto debe habilitar los {% data variables.product.prodname_discussions %} en dicho repositorio. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los {% data variables.product.prodname_discussions %} para un repositorio](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)".
 
-Para colaborar con los mantenedores en los debates de las organizaciones, se deben habilitar los {% data variables.product.prodname_discussions %} en la organización. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+Para colaborar con los mantenedores en los debates de las organizaciones, se deben habilitar los {% data variables.product.prodname_discussions %} en la organización. Para obtener más información, consulta la sección "[Habilitar o inhabilitar los {% data variables.product.prodname_discussions %} para una organización](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
 
 ## Iniciar un debate
 

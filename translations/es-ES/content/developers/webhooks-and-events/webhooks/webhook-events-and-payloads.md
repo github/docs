@@ -811,8 +811,6 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghec %}
-
 ## paquete
 
 Actividad relacionada con el {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} para obtener más información, consulta la sección "[Administrar paquetes con {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" para aprender más sobre el {% data variables.product.prodname_registry %}.
@@ -832,7 +830,6 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 ### Ejemplo de carga útil del webhook
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
-{% endif %}
 
 ## page_build
 

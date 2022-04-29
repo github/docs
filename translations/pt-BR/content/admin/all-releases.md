@@ -20,9 +20,9 @@ Você pode ver o que há de novo para cada versão nas [observações da versão
 
 {% data variables.product.company_short %} é compatível com as seguintes versões de {% data variables.product.product_name %}. Para obter mais informações sobre a última versão, consulte o [side de {% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
 
-| Versão | Versão | Deprecation | Notas de lançamento | Documentação |
-|:------ |:------ |:----------- |:------------------- |:------------ |
-|        |        |             |                     |              |
+| Versão | Versão | Descontinuação | Notas de lançamento | Documentação |
+|:------ |:------ |:-------------- |:------------------- |:------------ |
+|        |        |                |                     |              |
 {%- for version in enterpriseServerReleases.supported %}
 | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} observações da versão](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
 {%- endfor %}
@@ -31,9 +31,9 @@ Você pode ver o que há de novo para cada versão nas [observações da versão
 
 {% data variables.product.company_short %} fornece documentação para versões obsoletas, mas não mantém ou atualiza a documentação.
 
-| Versão | Versão | Deprecation | Notas de lançamento | Documentação |
-|:------ |:------ |:----------- |:------------------- |:------------ |
-|        |        |             |                     |              |
+| Versão | Versão | Descontinuação | Notas de lançamento | Documentação |
+|:------ |:------ |:-------------- |:------------------- |:------------ |
+|        |        |                |                     |              |
 {%- for version in enterpriseServerReleases.deprecatedReleasesWithNewFormat %}
 | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} observações da versão](/enterprise-server@{{version}}/admin/release-notes) | [{{version}} documentation](/enterprise-server@{{version}}) |
 {%- endfor %}
@@ -43,11 +43,11 @@ Você pode ver o que há de novo para cada versão nas [observações da versão
 
 ### Documentação de desenvolvedor descontinuada
 
-{% data variables.product.company_short %} hosted developer documentation for {% data variables.product.product_name %} on a separate site until the 2.17 release. {% data variables.product.company_short %} continues to provide developer documentation for version 2.16 and earlier, but does not maintain or update the documentation.
+{% data variables.product.company_short %} hospedou a documentação do desenvolvedor para {% data variables.product.product_name %} em um site separado até a versão 2.17. {% data variables.product.company_short %} continua fornecendo a documentação de desenvolvedor para a versão 2.16 e anterior, mas não mantém ou atualiza a documentação.
 
-| Versão | Versão | Deprecation | Developer documentation |
-|:------ |:------ |:----------- |:----------------------- |
-|        |        |             |                         |
+| Versão | Versão | Descontinuação | Documentação do desenvolvedor |
+|:------ |:------ |:-------------- |:----------------------------- |
+|        |        |                |                               |
 {%- for version in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
-| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} developer documentation](https://developer.github.com/enterprise/{{version}}) |
+| {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} documentação do desenvolvedor](https://developer.github.com/enterprise/{{version}}) |
 {%- endfor %}

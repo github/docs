@@ -14,6 +14,8 @@ You can view pull requests that you or your collaborators have proposed in {% da
 
 When you view a pull request in {% data variables.product.prodname_desktop %}, you can see a history of commits that contributors made. You can also see which files the commits modified, added, or deleted. From {% data variables.product.prodname_desktop %}, you can open repositories in your preferred text editor to view any changes or make additional changes. After reviewing changes in a pull request, you can give feedback on {% data variables.product.prodname_dotcom %}. For more information, see "[About pull request reviews](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)."
 
+If checks have been enabled in your repository, {% data variables.product.prodname_desktop %} will show the status of the checks on the pull request and allow you to re-run checks. For more information, see "[Viewing and re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+
 ## Viewing a pull request in {% data variables.product.prodname_desktop %}
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.click-pull-requests %}

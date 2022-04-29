@@ -83,9 +83,9 @@ Jenkins puede ejecutar las `stages` y `steps` en paralelo, mientras que, actualm
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`parallel`](https://jenkins.io/doc/book/pipeline/syntax/#parallel) | [`jobs.<job_id>.strategy.max-parallel`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel) |
 
-### Matriz de compilaciones
+### Matrix
 
-Tanto {% data variables.product.prodname_actions %} como Jenkins te permiten utilizar una matriz de compilaciones para definir diversas combinaciones de sistema.
+Both {% data variables.product.prodname_actions %} and Jenkins let you use a matrix to define various system combinations.
 
 | Jenkins                                                                  | {% data variables.product.prodname_actions %}
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

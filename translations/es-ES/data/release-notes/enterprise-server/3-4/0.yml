@@ -38,13 +38,13 @@ sections:
     - 
       heading: Cambios en la administración
       notes:
-        - Users can now choose the number of spaces a tab is equal to, by setting their preferred tab size in the "Appearance" settings of their user account. All code with a tab indent will render using the preferred tab size.
-        - The {% data variables.product.prodname_github_connect %} data connection record now includes a count of the number of active and dormant users and the configured dormancy period.
+        - Ahora los usuarios pueden elegir la cantidad de espacios que da una tabulación si configuran su tamaño de tabulación en los ajustes de "Apariencia" de sus cuentas de usuario. Todo el código con una sangría de tabulación se interpretará utilizando el tamaño de tabulación preferido.
+        - El registro de conexión de datos de {% data variables.product.prodname_github_connect %} ahora incluye un conteo de la cantidad de usuarios inactivos y activos y el periodo de inactividad configurado.
         - You can now give users access to enterprise-specific links by adding custom footers to {% data variables.product.prodname_ghe_server %}. For more information, see "[Configuring custom footers](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)."
     - 
       heading: Cambios de rendimiento
       notes:
-        - WireGuard, used to secure communication between {% data variables.product.prodname_ghe_server %} instances in a High Availability configuration, has been migrated to the Kernel implementation.
+        - WireGuard, el cual se utiliza para asegurar la comunicación entre las instancias de {% data variables.product.prodname_ghe_server %} en una configuración de disponibilidad alta, se migró a la implementación del Kernel.
     - 
       heading: Cambios en las notificaciones
       notes:
@@ -170,7 +170,7 @@ sections:
     - 
       heading: Obsoletización del soporte para XenServer Hypervisor
       notes:
-        - Starting in {% data variables.product.prodname_ghe_server %} 3.3, {% data variables.product.prodname_ghe_server %} on XenServer was deprecated and is no longer supported. Please contact [GitHub Support](https://support.github.com) with questions or concerns.
+        - Desde {% data variables.product.prodname_ghe_server %} 3.3, se obsoletizó el {% data variables.product.prodname_ghe_server %} en XenServer y ya no es compatible. Contacta al [Soporte de GitHub](https://support.github.com) si tienes cualquier duda o pregunta.
     - 
       heading: Obsoletización de la vista previa de la API de adjuntos de contenido
       notes:

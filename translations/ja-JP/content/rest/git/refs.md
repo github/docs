@@ -1,6 +1,7 @@
 ---
-title: リファレンス
-intro: Git リファレンス（`git ref`）は、Git コミット SHA-1 ハッシュを含むファイルです。
+title: Git references
+shortTitle: リファレンス
+intro: 'The Git references API lets you read and write references to your Git database on {% data variables.product.product_name %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,4 +13,6 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-Gitコミットを参照するときは、ハッシュではなく覚えやすい名前の Gitリファレンスを使用できます。 Gitリファレンスは、新しいコミットを指すように書き換えることができます。 ブランチは、新しいGitコミットハッシュを保存する Git リファレンスです。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに対して [リファレンス](https://git-scm.com/book/en/v1/Git-Internals-Git-References)の読み書きができます。
+## About the Git references API
+
+A Git reference (`git ref`) is a file that contains a Git commit SHA-1 hash. Gitコミットを参照するときは、ハッシュではなく覚えやすい名前の Gitリファレンスを使用できます。 Gitリファレンスは、新しいコミットを指すように書き換えることができます。 A branch is a Git reference that stores the new Git commit hash. これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに対して [リファレンス](https://git-scm.com/book/en/v1/Git-Internals-Git-References)の読み書きができます。

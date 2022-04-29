@@ -65,7 +65,7 @@ Quando o usuário inicia a sessão novamente, {% data variables.product.prodname
 
 > Outro usuário já possui a conta. Solicite ao administrador que verifique o registro de autenticação.
 
-De modo geral, a mensagem indica que o nome de usuário ou endereço de email da pessoa foi alterado no IdP. Certifique-se de que o mapeamento do `NameID` para a conta do usuário no {% data variables.product.prodname_ghe_server %} corresponde ao `NameID` do usuário no seu IdP. For more information, see "[Updating a user's SAML `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+De modo geral, a mensagem indica que o nome de usuário ou endereço de email da pessoa foi alterado no IdP. Certifique-se de que o mapeamento do `NameID` para a conta do usuário no {% data variables.product.prodname_ghe_server %} corresponde ao `NameID` do usuário no seu IdP. Para obter mais informações, consulte "[Atualizando `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid) do SAML de um usuário."
 
 ## Se a resposta SAML não estiver assinada ou se a assinatura não corresponder ao conteúdo, o log de autenticação mostrará a seguinte mensagem de erro:
 

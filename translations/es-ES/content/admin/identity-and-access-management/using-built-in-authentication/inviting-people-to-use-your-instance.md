@@ -17,7 +17,7 @@ shortTitle: Invite people
 
 {% data reusables.enterprise_user_management.built-in-authentication-new-accounts %} {% data reusables.enterprise_user_management.unauthenticated-sign-ups %}
 
-You can disable unauthenticated sign-ups and require an invitation to create a new user account on your instance. For more information, see "[Disabling unauthenticated sign-ups](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
+You can disable unauthenticated sign-ups and require an invitation to create a new user account on your instance. Para obtener más información, consulta la sección "[Inhabilitar los inicios de sesión no autenticados](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)".
 
 {% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
 

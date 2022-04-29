@@ -1,6 +1,6 @@
 ---
 title: 通知
-intro: ''
+intro: 'The Notifications API lets you manage {% data variables.product.product_name %} notifications.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,18 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-ユーザは、Watch しているリポジトリでの会話の通知を受け取ります。
+## About the Notifications API
 
-* Issue とそのコメント
-* プルリクエストとそのコメント
-* コミットに関するコメント
-
-ユーザが関わっている場合、Watch 解除したリポジトリでの会話の通知も送信されます。
-
-* **@メンション**
-* Issue の割り当て
-* ユーザの作者のコミット、またはコミット
-* ユーザが参加しているディスカッション
+The Notifications API lets you manage {% data variables.product.product_name %} notifications. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 
 すべての通知 API 呼び出しには、`notifications` または `repo` API スコープが必要です。  これを行うと、一部の Issue およびコミットコンテンツへの読み取り専用アクセス権が付与されます。 それぞれのエンドポイントから Issue とコミットにアクセスするには、`repo` スコープが必要です。
 
@@ -44,11 +35,11 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### 通知理由
+### About notification reasons
 
 通知 API からレスポンスを取得するとき、各ペイロードには `reason` というタイトルのキーがあります。 これらは、通知をトリガーするイベントに対応しています。
 
-通知を受け取る `reason`（理由）には、次のようなものがあります。
+These are the potential `reason`s for receiving a notification:
 
 | 理由名                | 説明                                                                                                                                                                     |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -115,6 +115,7 @@ translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scannin
 translations/ja-JP/content/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/running-codeql-runner-in-your-ci-system.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-alerts/about-dependabot-alerts.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-alerts/browsing-security-vulnerabilities-in-the-github-advisory-database.md,broken liquid tags
+translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot.md,broken liquid tags
 translations/ja-JP/content/code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies.md,broken liquid tags

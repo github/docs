@@ -13,6 +13,8 @@ redirect_from:
   - /rest/reference/licenses
 ---
 
+## About the Licenses API
+
 La API de licencias utiliza [el Licenciatario de código abierto de la Gema de Ruby ](https://github.com/benbalter/licensee) para intentar identificar la licencia del proyecto. Este licenciatario empata el contenido del archivo de `LICENSE` de un proyecto (si es que existe) contra una lista corta de licencias conocidas. Como resultado, la API no toma en cuenta las licencias de las dependencias del proyecto u otros medios de documentar la licencia de un proyecto tales como las referencias al nombre de la licencia en la documentación.
 
 Si una licencia empata, la llave de licencia y el nombre devuelto se apegan a la [especificación SPDX](https://spdx.org/).
