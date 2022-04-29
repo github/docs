@@ -1,6 +1,6 @@
 ---
 title: Colaboradores
-intro: The Collaborators API allows you manage collaborators for a repository.
+intro: 'La API de colaboradores te permite agregar, invitar y eliminar colaboradores de un repositorio.'
 versions:
   fpt: '*'
   ghes: '*'
