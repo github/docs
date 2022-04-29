@@ -1,4 +1,4 @@
-Provider | Supported secret | API slug
+Provider | Supported secret | Secret type
 --- | --- | ---
 Adafruit IO | Adafruit IO Key | adafruit_io_key
 Alibaba Cloud | Alibaba Cloud Access Key ID | alibaba_cloud_access_key_id
