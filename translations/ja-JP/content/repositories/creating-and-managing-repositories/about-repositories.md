@@ -26,10 +26,10 @@ topics:
 
 リポジトリの表示設定を選択して、リポジトリにアクセスできるユーザを制限できます。 詳細は「[リポジトリの可視性について](#about-repository-visibility)」を参照してください。
 
-ユーザが所有するリポジトリでは、他の人々にコラボレーターアクセスを与えて、プロジェクトでコラボレーションするようにできます。 リポジトリが Organization によって所有されている場合は、Organization のメンバーにアクセス権限を与え、リポジトリ上でコラボレーションするようにできます。 For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+ユーザが所有するリポジトリでは、他の人々にコラボレーターアクセスを与えて、プロジェクトでコラボレーションするようにできます。 リポジトリが Organization によって所有されている場合は、Organization のメンバーにアクセス権限を与え、リポジトリ上でコラボレーションするようにできます。 For more information, see "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
 {% ifversion fpt or ghec %}
-ユーザアカウントと Organization の {% data variables.product.prodname_free_team %} を使用すると、完全な機能セットを備えた無制限のパブリックリポジトリ、または機能セットを制限した無制限のプライベートリポジトリで無制限のコラボレータと連携できます。 プライベートリポジトリの高度なツールを入手するには、 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} にアップグレードします。 {% data reusables.gated-features.more-info %}
+With {% data variables.product.prodname_free_team %} for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. プライベートリポジトリの高度なツールを入手するには、 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} にアップグレードします。 {% data reusables.gated-features.more-info %}
 {% else %}
 各個人および Organization は、無制限のリポジトリを所有でき、すべてのリポジトリにコラボレータを何人でも招待できます。
 {% endif %}
@@ -52,7 +52,7 @@ When you create a repository, you can choose to make the repository public or pr
 
 {% elsif ghae %}
 
-When you create a repository owned by your user account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.
+When you create a repository owned by your personal account, the repository is always private. When you create a repository owned by an organization, you can choose to make the repository private or internal.
 
 {% endif %}
 
@@ -90,7 +90,7 @@ All enterprise members have read permissions to the internal repository, but int
 
 {% data reusables.repositories.internal-repo-default %}
 
-Any member of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's user account, and the visibility of the fork will be private. Enterprise が所有するすべての Organization からユーザが削除されると、そのユーザの内部リポジトリのフォークは自動的に削除されます。
+Any member of the enterprise can fork any internal repository owned by an organization in the enterprise. The forked repository will belong to the member's personal account, and the visibility of the fork will be private. Enterprise が所有するすべての Organization からユーザが削除されると、そのユーザの内部リポジトリのフォークは自動的に削除されます。
 {% endif %}
 
 ## リポジトリでコンテンツと diff の表示を制限する

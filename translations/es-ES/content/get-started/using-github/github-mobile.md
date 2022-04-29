@@ -35,7 +35,7 @@ Para instalar {% data variables.product.prodname_mobile %} para Android o iOS, c
 
 ## Administrar cuentas
 
-Puedes ingresar simultáneamente a la versión móvil con una cuenta de usuario en {% data variables.product.prodname_dotcom_the_website %} y otra en {% data variables.product.prodname_ghe_server %}. Para obtener más información sobre nuestros diversos productos, consulta la sección "[Productos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)".
+You can be simultaneously signed into mobile with one personal account on {% data variables.product.prodname_dotcom_the_website %} and one personal account on {% data variables.product.prodname_ghe_server %}. Para obtener más información sobre nuestros diversos productos, consulta la sección "[Productos de {% data variables.product.company_short %}](/get-started/learning-about-github/githubs-products)".
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
@@ -47,15 +47,15 @@ Debes instalar {% data variables.product.prodname_mobile %} 1.4 o posterior en t
 
 Para utilizar {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}, {% data variables.product.product_location %} debe estar en su versión 3.0 o posterior, y tu propietario de empresa debe habilitar la compatibilidad con la versión móvil en tu empresa. Para obtener más información, consulta las secciones {% ifversion ghes %}"[Notas de lanzamiento](/enterprise-server/admin/release-notes)" y {% endif %}"[Administrar {% data variables.product.prodname_mobile %} para tu empresa]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" en la documentación de {% data variables.product.prodname_ghe_server %}.{% else %}".{% endif %}
 
-Durante el beta para {% data variables.product.prodname_mobile %} con {% data variables.product.prodname_ghe_server %}, debes estar firmado con una cuenta de usuario en {% data variables.product.prodname_dotcom_the_website %}.
+During the beta for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 
 ### Agregar, cambiar o cerrar sesión en las cuentas
 
-Puedes ingresar en la versión móvil con una cuenta de usuario en {% data variables.product.prodname_ghe_server %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre {% octicon "plus" aria-label="The plus icon" %} **Agregar Cuenta Empresarial**. Sige las indicaciones para iniciar sesión.
+You can sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre {% octicon "plus" aria-label="The plus icon" %} **Agregar Cuenta Empresarial**. Sige las indicaciones para iniciar sesión.
 
-Después de que ingreses en la versión móvil con una cuenta de usuario de {% data variables.product.prodname_ghe_server %}, puedes cambiar entre esa cuenta y la de {% data variables.product.prodname_dotcom_the_website %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre la cuenta a la que quieras cambiar.
+After you sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}, you can switch between the account and your account on {% data variables.product.prodname_dotcom_the_website %}. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, y luego pulsa sobre la cuenta a la que quieras cambiar.
 
-Si ya no necesitas acceso a los datos de tu cuenta de usuario en {% data variables.product.prodname_ghe_server %} desde {% data variables.product.prodname_mobile %}, puedes salir de la sesión de la cuenta. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, desliza hacia la izquierda en la cuenta para salir de ella y luego pulsa en **Salir de sesión**.
+If you no longer need to access data for your personal account on {% data variables.product.prodname_ghe_server %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. En la parte inferior de la app, deja presionado {% octicon "person" aria-label="The person icon" %} **Perfil**, desliza hacia la izquierda en la cuenta para salir de ella y luego pulsa en **Salir de sesión**.
 
 ## Idiomas compatibles para {% data variables.product.prodname_mobile %}
 

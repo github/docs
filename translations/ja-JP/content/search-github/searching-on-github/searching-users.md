@@ -68,7 +68,7 @@ topics:
 | <code>language:<em>LANGUAGE</em></code> | [**language:javascript location:russia**](https://github.com/search?q=language%3Ajavascript+location%3Arussia&type=Users) は、リポジトリを主に JavaScript で記述している、ロシアに住んでいるユーザにマッチします。            |
 |                           | [**jenny language:javascript in:fullname**](https://github.com/search?q=jenny+language%3Ajavascript+in%3Afullname&type=Users) は、「jenny」という単語がフルネームに含まれる、JavaScript のリポジトリのあるユーザにマッチします。 |
 
-## ユーザアカウントの作成時期で検索
+## Search by when a personal account was created
 
 `created` 修飾子を使って、{% data variables.product.product_name %} に参加した時期でユーザをフィルタリングできます。 パラメータとして日付を採用しています。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 

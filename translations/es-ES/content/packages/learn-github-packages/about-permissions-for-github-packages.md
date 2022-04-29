@@ -43,7 +43,7 @@ Para obtener más información, consulta la sección "[Configurar el control de 
 
 ## Administrar paquetes
 
-Para utilizar o administrar un paquete que hospede un registro de paquete, debes utilizar un token con el alcance adecuado y tu cuenta de usuario debe tener los permisos adecuados.
+Para utilizar o administrar un paquete que hospede un registro de paquetes, debes utilizar un token con el alcance adecuado y tu cuenta personal debe tener permisos adecuados.
 
 Por ejemplo:
 -  Para descargar e instalar los paquetes desde un repositorio, tu token debe tener el alcance de `read:packages` y tu cuenta de usuario debe tener permisos de lectura.

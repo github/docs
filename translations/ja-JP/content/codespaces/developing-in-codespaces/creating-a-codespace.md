@@ -72,19 +72,53 @@ If you would like to create a codespace for a repository owned by your personal 
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. リポジトリ名の下で、[Branch] ドロップダウンメニューを使用して、codespace を作成するブランチを選択します。
+1. リポジトリ名の下で、[Branch] ドロップダウンメニューを使用して、codespace を作成するブランチを選択します。
 
    ![[Branch] ドロップダウンメニュー](/assets/images/help/codespaces/branch-drop-down.png)
 
-3. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click {% octicon "plus" aria-label="The plus icon" %} **New codespace**.
+1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
 
    ![[New codespace] ボタン](/assets/images/help/codespaces/new-codespace-button.png)
 
-   If you are a member of an organization and are creating a codespace on a repository owned by that organization, you can select the option of a different machine type. From the dialog box, choose a machine type and then click **Create codespace**.
+1. Create your codespace, either using the default options, or after configuring advanced options:
 
-   ![Machine type choice](/assets/images/help/codespaces/choose-custom-machine-type.png)
+   * **Use the default options**
 
-   {% data reusables.codespaces.codespaces-machine-type-availability %}
+      To create a codespace using the default options, click **Create codespace on BRANCH**.
+
+      Optionally, before clicking **Create codespace on BRANCH**, you can click the down arrow at the side of the button to see what machine type will be used for your codespace.
+
+      ![View the default machine type](/assets/images/help/codespaces/default-machine-type.png)
+
+      {% note %}
+
+      **Note**: The machine type with the lowest resources that are valid for the repository is selected by default.
+
+      {% endnote %}
+
+   * **Configure options**
+
+      To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
+
+      1. Click the down arrow at the side of the **Create codespace on BRANCH** button, then click **Configure and create codespace**.
+      1. Click the **Configure and create codespace** button.
+      1. On the options page for your codespace, choose your preferred options from the drop-down menus.
+
+         ![The codespace options page](/assets/images/help/codespaces/advanced-options.png)
+
+         {% note %}
+
+         **注釈**
+
+         * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
+         * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch.
+         * For more information about the `devcontainer.json` file, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)."
+         * For more information about machine types, see "[Changing the machine type for your codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+         * {% data reusables.codespaces.codespaces-machine-type-availability %}
+
+         {% endnote %}
+
+      1. Click **Start session**.
 
 {% endwebui %}
 
@@ -106,6 +140,12 @@ gh codespace create
 
 You are prompted to choose a repository, a branch, and a machine type (if more than one is available).
 
+{% note %}
+
+**Note**: Currently, {% data variables.product.prodname_cli %} doesn't allow you to choose a dev container configuration when you create a codespace. If you want to choose a specific dev container configuration, use the {% data variables.product.prodname_dotcom %} web interface to create your codespace. For more information, click the "Web browser" tab at the top of this page.
+
+{% endnote %}
+
 Alternatively, you can use flags to specify some or all of the options:
 
 ```shell
@@ -114,7 +154,7 @@ gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> -m <em>ma
 
 Replace `owner/repo` with the repository identifier. Replace `branch` with the name of the branch, or the full SHA hash of the commit, that you want to be initially checked out in the codespace. If you use the `-r` flag without the `b` flag, the codespace is created from the default branch.
 
-Replace `machine-type` with a valid identifier for an available machine type. Identifiers are strings such as: `basicLinux32gb` and `standardLinux32gb`. The type of machines that are available depends on the repository, your user account, and your location. If you enter an invalid or unavailable machine type, the available types are shown in the error message. If you omit this flag and more than one machine type is available you will be prompted to choose one from a list.
+Replace `machine-type` with a valid identifier for an available machine type. Identifiers are strings such as: `basicLinux32gb` and `standardLinux32gb`. The type of machines that are available depends on the repository, your personal account, and your location. If you enter an invalid or unavailable machine type, the available types are shown in the error message. If you omit this flag and more than one machine type is available you will be prompted to choose one from a list.
 
 For more information about this command, see [the {% data variables.product.prodname_cli %} manual](https://cli.github.com/manual/gh_codespace_create).
 

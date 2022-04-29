@@ -9737,14 +9737,6 @@ type EnterpriseBillingInfo {
   assetPacks: Int!
 
   """
-  The number of available seats across all owned organizations based on the unique number of billable users.
-  """
-  availableSeats: Int!
-    @deprecated(
-      reason: "`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC."
-    )
-
-  """
   The bandwidth quota in GB for all organizations owned by the enterprise.
   """
   bandwidthQuota: Float!
@@ -9758,14 +9750,6 @@ type EnterpriseBillingInfo {
   The bandwidth usage as a percentage of the bandwidth quota.
   """
   bandwidthUsagePercentage: Int!
-
-  """
-  The total seats across all organizations owned by the enterprise.
-  """
-  seats: Int!
-    @deprecated(
-      reason: "`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC."
-    )
 
   """
   The storage quota in GB for all organizations owned by the enterprise.
@@ -9979,11 +9963,6 @@ type EnterpriseMemberEdge {
   cursor: String!
 
   """
-  Whether the user does not have a license for the enterprise.
-  """
-  isUnlicensed: Boolean! @deprecated(reason: "All members consume a license Removal on 2021-01-01 UTC.")
-
-  """
   The item at the end of the edge.
   """
   node: EnterpriseMember
@@ -10144,11 +10123,6 @@ type EnterpriseOutsideCollaboratorEdge {
   cursor: String!
 
   """
-  Whether the outside collaborator does not have a license for the enterprise.
-  """
-  isUnlicensed: Boolean! @deprecated(reason: "All outside collaborators consume a license Removal on 2021-01-01 UTC.")
-
-  """
   The item at the end of the edge.
   """
   node: User
@@ -10216,6 +10190,11 @@ type EnterpriseOwnerInfo {
     Ordering options for administrators returned from the connection.
     """
     orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+
+    """
+    Only return members within the organizations with these logins
+    """
+    organizationLogins: [String!]
 
     """
     The search string to look for.
@@ -10749,6 +10728,11 @@ type EnterpriseOwnerInfo {
     first: Int
 
     """
+    Only return outside collaborators with this two-factor authentication status.
+    """
+    hasTwoFactorEnabled: Boolean = null
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -10762,6 +10746,11 @@ type EnterpriseOwnerInfo {
     Ordering options for outside collaborators returned from the connection.
     """
     orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+
+    """
+    Only return outside collaborators within the organizations with these logins
+    """
+    organizationLogins: [String!]
 
     """
     The search string to look for.
@@ -11079,11 +11068,6 @@ type EnterprisePendingMemberInvitationEdge {
   A cursor for use in pagination.
   """
   cursor: String!
-
-  """
-  Whether the invitation has a license for the enterprise.
-  """
-  isUnlicensed: Boolean! @deprecated(reason: "All pending members consume a license Removal on 2020-07-01 UTC.")
 
   """
   The item at the end of the edge.
@@ -22947,6 +22931,41 @@ type PageInfo {
 }
 
 """
+The possible types of patch statuses.
+"""
+enum PatchStatus {
+  """
+  The file was added. Git status 'A'.
+  """
+  ADDED
+
+  """
+  The file's type was changed. Git status 'T'.
+  """
+  CHANGED
+
+  """
+  The file was copied. Git status 'C'.
+  """
+  COPIED
+
+  """
+  The file was deleted. Git status 'D'.
+  """
+  DELETED
+
+  """
+  The file's contents were changed. Git status 'M'.
+  """
+  MODIFIED
+
+  """
+  The file was renamed. Git status 'R'.
+  """
+  RENAMED
+}
+
+"""
 Types that can grant permissions on a repository to a user
 """
 union PermissionGranter = Organization | Repository | Team
@@ -25411,6 +25430,11 @@ type PullRequestChangedFile {
   The number of additions to the file.
   """
   additions: Int!
+
+  """
+  How the file was changed in this PullRequest
+  """
+  changeType: PatchStatus!
 
   """
   The number of deletions to the file.
@@ -35660,6 +35684,11 @@ input StartRepositoryMigrationInput {
   repositoryName: String!
 
   """
+  Whether to skip migrating releases for the repository.
+  """
+  skipReleases: Boolean
+
+  """
   The ID of the Octoshift migration source.
   """
   sourceId: ID! @possibleTypes(concreteTypes: ["MigrationSource"])
@@ -38444,6 +38473,11 @@ type TreeEntry {
   Whether or not this tree entry is generated
   """
   isGenerated: Boolean!
+
+  """
+  Number of lines in the file.
+  """
+  lineCount: Int
 
   """
   Entry file mode.

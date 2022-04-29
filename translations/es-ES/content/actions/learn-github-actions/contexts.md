@@ -23,7 +23,7 @@ miniTocMaxHeadingLevel: 3
 
 Contexts are a way to access information about workflow runs, runner environments, jobs, and steps. Each context is an object that contains properties, which can be strings or other objects.
 
-{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [build matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
 You can access contexts using the expression syntax. For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
 
@@ -56,6 +56,8 @@ In order to use property dereference syntax, the property name must:
 
 - start with `a-Z` or `_`.
 - be followed by `a-Z` `0-9` `-` or `_`.
+
+If you attempt to dereference a non-existent property, it will evaluate to an empty string.
 
 ### Determining when to use contexts
 
@@ -550,19 +552,19 @@ The following example contents of the `secrets` context shows the automatic `GIT
 
 ## `strategy` context
 
-For workflows with a build matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
+For workflows with a matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
 
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `strategy` | `object` | This context changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains all the properties listed below. |
-| `strategy.fail-fast` | `string` | When `true`, all in-progress jobs are canceled if any job in a build matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
-| `strategy.job-index` | `string` | The index of the current job in the build matrix. **Note:** This number is a zero-based number. The first job's index in the build matrix is `0`. |
-| `strategy.job-total` | `string` | The total number of jobs in the build matrix. **Note:** This number **is not** a zero-based number. For example, for a build matrix with four jobs, the value of `job-total` is `4`. |
+| `strategy.fail-fast` | `string` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)." |
+| `strategy.job-index` | `string` | The index of the current job in the matrix. **Note:** This number is a zero-based number. The first job's index in the matrix is `0`. |
+| `strategy.job-total` | `string` | The total number of jobs in the matrix. **Note:** This number **is not** a zero-based number. For example, for a matrix with four jobs, the value of `job-total` is `4`. |
 | `strategy.max-parallel` | `string` | The maximum number of jobs that can run simultaneously when using a `matrix` job strategy. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)." |
 
 ### Example contents of the `strategy` context
 
-The following example contents of the `strategy` context is from a build matrix with four jobs, and is taken from the final job. Note the difference between the zero-based `job-index` number, and `job-total` which is not zero-based.
+The following example contents of the `strategy` context is from a matrix with four jobs, and is taken from the final job. Note the difference between the zero-based `job-index` number, and `job-total` which is not zero-based.
 
 ```yaml
 {
@@ -575,7 +577,7 @@ The following example contents of the `strategy` context is from a build matrix 
 
 ### Example usage of the `strategy` context
 
-This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a build matrix.
+This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a matrix.
 
 ```yaml{:copy}
 name: Test matrix
@@ -600,18 +602,18 @@ jobs:
 
 ## `matrix` context
 
-For workflows with a build matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a build matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
+For workflows with a matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
 
 There are no standard properties in the `matrix` context, only those which are defined in the workflow file.
 
 | Property name | Type | Description |
 |---------------|------|-------------|
-| `matrix` | `object` | This context is only available for jobs in a build matrix, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
+| `matrix` | `object` | This context is only available for jobs in a matrix, and changes for each job in a workflow run. You can access this context from any job or step in a workflow. This object contains the properties listed below. |
 | `matrix.<property_name>` | `string` | The value of a matrix property. |
 
 ### Example contents of the `matrix` context
 
-The following example contents of the `matrix` context is from a job in a build matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
+The following example contents of the `matrix` context is from a job in a matrix that has the `os` and `node` matrix properties defined in the workflow. The job is executing the matrix combination of an `ubuntu-latest` OS and Node.js version `16`.
 
 ```yaml
 {
@@ -622,7 +624,7 @@ The following example contents of the `matrix` context is from a job in a build 
 
 ### Example usage of the `matrix` context
 
-This example workflow creates a build matrix with `os` and `node` keys. It uses the `matrix.os` property to set the runner type for each job, and uses the `matrix.node` property to set the Node.js version for each job.
+This example workflow creates a matrix with `os` and `node` keys. It uses the `matrix.os` property to set the runner type for each job, and uses the `matrix.node` property to set the Node.js version for each job.
 
 ```yaml{:copy}
 name: Test matrix

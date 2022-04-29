@@ -811,8 +811,6 @@ O webhook em que este evento está configurado em foi excluído. Este evento só
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghec %}
-
 ## pacote
 
 Atividade relacionada a {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Gerenciar pacotes com {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" para saber mais sobre {% data variables.product.prodname_registry %}.
@@ -832,7 +830,6 @@ Atividade relacionada a {% data variables.product.prodname_registry %}. {% data 
 ### Exemplo de carga de webhook
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
-{% endif %}
 
 ## page_build
 
@@ -1062,6 +1059,28 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_comment.created }}
 
+## pull_request_review_thread
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+### Disponibilidade
+
+- Webhooks do repositório
+- Webhooks da organização
+- {% data variables.product.prodname_github_apps %} com a permissão `pull_requests`
+
+### Objeto da carga do webhook
+
+{% data reusables.webhooks.pull_request_thread_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### Exemplo de carga de webhook
+
+{{ webhookPayloadsForCurrentVersion.pull_request_review_thread.resolved }}
+
 ## push
 
 {% data reusables.webhooks.push_short_desc %}
@@ -1163,7 +1182,7 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 
 | Tecla  | Tipo     | Descrição                                                                          |
 | ------ | -------- | ---------------------------------------------------------------------------------- |
-| `Ação` | `string` | A ação que foi executada. Este pode ser um dos seguintes:<ul><li>`created` - Um repositório foi criado.</li><li>`deleted` - Um repositório foi excluído.</li><li>`archived` - Um repositório está arquivado.</li><li>`unarchived` - Um repositório não está arquivado.</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - Um repositório está [habilitado para acesso anônimo ao Git](/rest/overview/api-previews#anonymous-git-access-to-repositories), `anonymous_access_disabled` - Um repositório está [desativado para acesso anônimo ao Git](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - As informações de um repositório são editadas.</li><li>`renamed` - Um repositório é renomeado.</li><li>`transferred` - Um repositório é transferido.</li><li>`publicized` - Um repositório é publicado.</li><li> `privatizado` - Um repositório é privatizado.</li></ul> |
+| `Ação` | `string` | A ação que foi executada. Este pode ser um dos seguintes:<ul><li>`created` - Um repositório foi criado.</li><li>`deleted` - Um repositório foi excluído.</li><li>`archived` - Um repositório está arquivado.</li><li>`unarchived` - Um repositório não está arquivado.</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - Um repositório está [habilitado para acesso anônimo ao Git](/admin/policies/enforcing-policies-for-your-enterpris/enforcing-repository-management-policies-in-your-enterprise), `anonymous_access_disabled` - Um repositório está [desabilitado para acesso anônimo ao Git](/admin/policies/enforcing-policies-for-your-enterpris/enforcing-repository-management-polices-in-your-enterprise)</li>{% endif %}<li>`edited` - As informações de um repositório são editadas.</li><li>`renamed` - Um repositório é renomeado.</li><li>`transferred` - Um repositório é transferido.</li><li>`publicized` - Um repositório é publicado.</li><li> `privatizado` - Um repositório é privatizado.</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1216,7 +1235,7 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
+{% ifversion ghes or ghec %}
 
 ## secret_scanning_alert
 
@@ -1241,7 +1260,7 @@ Este evento ocorre quando um {% data variables.product.prodname_github_app %} en
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.4 or ghec or ghae-issue-6581 %}
+{% ifversion ghes > 3.4 or ghec or ghae-issue-6581 %}
 ## secret_scanning_alert_location
 
 {% data reusables.webhooks.secret_scanning_alert_location_event_short_desc %}

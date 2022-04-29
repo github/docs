@@ -16,13 +16,17 @@ miniTocMaxHeadingLevel: 3
 
 ## Checking, changing, and deleting your prebuild configurations
 
-The prebuilds that you configure are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_codespaces %} service.
+The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_codespaces %} service.
 
-The workflow is triggered by these events:
+Depending on the settings in a prebuild configuration, the workflow to update the prebuild template may be triggered by these events:
 
 * Creating or updating the prebuild configuration
 * Pushing a commit or a pull request to a branch that's configured to have prebuilds
+* Changing any of the dev container configuration files
+* A schedule that you've defined in the prebuild configuration
 * Manually triggering the workflow
+
+The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild template. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)."
 
 People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations.
 
@@ -84,7 +88,7 @@ Predeterminadamente, el flujo de trabajo de {% data variables.product.prodname_a
 
    {% warning %}
 
-   **Warning**: Although you can generate the PAT using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. For more information, see "[Signing up for a new GitHub account](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" and "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."
+   **Warning**: Although you can generate the PAT using your existing personal account, we strongly recommend creating a new account with access only to the target repositories required for your scenario. This is because the access token's `repository` permission grants access to all of the repositories that the account has access to. Para obtener más información, consulta las secciones "[Registrarse para obtener una cuenta nueva de GitHub](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)" y "[Fortalecimiento de seguridad para las {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)".
 
    {% endwarning %}
 1. Give the new account read access to the required repositories. Para obtener más información, consulta la sección "[Administrar el acceso de un individuo a un repositorio de la organización](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)".

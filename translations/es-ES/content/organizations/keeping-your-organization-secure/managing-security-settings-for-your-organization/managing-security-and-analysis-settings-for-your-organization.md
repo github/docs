@@ -98,7 +98,7 @@ Puedes habilitar o inhabilitar las características para todos los repositorios.
 1. Ve a la configuración de análisis y seguridad para tu organización. Para obtener más información, consulta la sección "[Mostrar la configuración de análisis y seguridad](#displaying-the-security-and-analysis-settings)".
 2. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories{% ifversion fpt or ghec %}, or all new private repositories,{% endif %} in your organization.
    {% ifversion fpt or ghec %}
-   ![Screenshot of a checkbox for enabling a feature for new repositories](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
+   ![Captura de pantalla de una casilla de verificación para habilitar una característica para los repositorios nuevos](/assets/images/help/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
    {% endif %}
   {% ifversion ghes > 3.2 %}
    ![Captura de pantalla de una casilla de verificación para habilitar una característica para los repositorios nuevos](/assets/images/enterprise/3.3/organizations/security-and-analysis-enable-or-disable-feature-checkbox.png)
@@ -113,8 +113,7 @@ Puedes habilitar o inhabilitar las características para todos los repositorios.
    ![Captura de pantalla de una casilla de verificación para habilitar una característica para los repositorios nuevos](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
 
-{% ifversion ghec or ghes > 3.2 %}
-<!--TODO confirm that this functionality is intentionally not available for FPT -->
+{% ifversion fpt or ghec or ghes > 3.2 %}
 
 ## Permitir que el {% data variables.product.prodname_dependabot %} acceda a las dependencias privadas
 

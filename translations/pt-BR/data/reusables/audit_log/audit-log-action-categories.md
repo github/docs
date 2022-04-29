@@ -25,6 +25,9 @@
 | `codespaces` | Contains activities related to an organization's codespaces.
 {%- endif %}
 | `commit_comment` | Contains activities related to updating or deleting commit comments.
+{%- ifversion ghes %}
+| `config_entry` |  Contains activities related to configuration settings. Esses eventos só são visíveis no log de auditoria do administrador do site.
+{%- endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
 | `dependabot_alerts`  | Contains organization-level configuration activities for {% data variables.product.prodname_dependabot_alerts %} in existing repositories. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" | `dependabot_alerts_new_repos`   | Contains organization-level configuration activities for  {% data variables.product.prodname_dependabot_alerts %} in new repositories created in the organization. | `dependabot_repository_access` | Contains activities related to which private repositories in an organization {% data variables.product.prodname_dependabot %} is allowed to access.
 {%- endif %}
@@ -49,7 +52,7 @@
 {%- ifversion ghae %}
 | `external_group` | Contains activities related to Okta groups. | `external_identity` | Contains activities related to a user in an Okta group.
 {%- endif %}
-| `git` | Contains activities related to Git events. | `hook` | Contains activities related to webhooks. | `integration` | Contains activities related to integrations in an account. | `integration_installation` | Contains activities related to integrations installed in an account. | `integration_installation_request`  | Contains activities related to organization member requests for owners to approve integrations for use in the organization.
+| `gist` | Contains activities related to Gists. | `git` | Contains activities related to Git events. | `hook` | Contains activities related to webhooks. | `integration` | Contains activities related to integrations in an account. | `integration_installation` | Contains activities related to integrations installed in an account. | `integration_installation_request`  | Contains activities related to organization member requests for owners to approve integrations for use in the organization.
 {%- ifversion ghec or ghae %}
 | `ip_allow_list`   | Contains activities related to enabling or disabling the IP allow list for an organization. | `ip_allow_list_entry`   | Contains activities related to the creation, deletion, and editing of an IP allow list entry for an organization.
 {%- endif %}
@@ -73,7 +76,7 @@
 | `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on.
 {%- endif %}
 {%- if secret-scanning-audit-log-custom-patterns %}
-| `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an organization. Para obter mais informações, consulte "[Definindo padrões personalizados para digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning). " | `org.secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in an organization. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for secret scanning in an organization. Para obter mais informações, consulte "[Definindo padrões personalizados para digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning). " | `org.secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in an organization. Para obter mais informações, consulte "[Protegendo pushes com digitalização de segredo](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
 {%- endif %}
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization.
 {%- ifversion fpt or ghec or ghes > 3.1 %}
@@ -103,12 +106,12 @@
 {%- ifversion fpt or ghec %}
 | `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  Para obter mais informações, consulte "[Sobre consultoria de segurança de {% data variables.product.prodname_dotcom %}](/github/managing-security-vulnerabilities/about-github-security-advisories)". | `repository_content_analysis`   | Contains activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data). | `repository_dependency_graph`   | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 {%- endif %}
-| `repository_image` | Contains activities related images for a repository. | `repository_projects_change` | Contains activities related to enabling projects for a repository or for all repositories in an organization.
+| `repository_image` | Contains activities related to images for a repository. | `repository_invitation` | Contains activities related to invitations to join a repository. | `repository_projects_change` | Contains activities related to enabling projects for a repository or for all repositories in an organization.
 {%- ifversion ghec or ghes or ghae %}
 | `repository_secret_scanning`  | Contains repository-level activities related to secret scanning. Para obter mais informações, consulte "[Sobre a varredura de segredos](/github/administering-a-repository/about-secret-scanning)."
 {%- endif %}
 {%- if secret-scanning-audit-log-custom-patterns %}
-| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. Para obter mais informações, consulte "[Definindo padrões personalizados para digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning). " |{% endif %}{% if secret-scanning-audit-log-custom-patterns %}| | `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_custom_pattern` | Contains activities related to secret scanning custom patterns in a repository. Para obter mais informações, consulte "[Definindo padrões personalizados para digitalização de segredo](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning). " |{% endif %}{% if secret-scanning-audit-log-custom-patterns %}| | `repository_secret_scanning_push_protection` | Contains activities related to secret scanning custom patterns in a repository. Para obter mais informações, consulte "[Protegendo pushes com digitalização de segredo](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)".
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization.

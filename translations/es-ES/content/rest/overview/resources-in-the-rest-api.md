@@ -320,7 +320,7 @@ Adicionalmente, la API de búsqueda tiene límites dedicados. Para obtener más 
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### Solicitudes de cuentas de usuario
+### Solicitudes de cuentas personales
 
 Las solicitudes directas de la API que autentiques con un token de acceso personal son de tipo usuario a servidor. Una App de OAuth o GitHub App también puede hacer una solicitud de usuario a servidor en tu nombre después de que la autorices para ello. Para obtener más información, consulta las secciones "[Crear un token de acceso personal](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)", "[Autorizar Apps de OAuth](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)" y [Autorizar GitHub Apps](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)".
 

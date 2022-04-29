@@ -72,19 +72,53 @@ shortTitle: 创建代码空间
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. 在仓库名称下，使用“Branch（分支）”下拉菜单选择您要为其创建代码的分支。
+1. 在仓库名称下，使用“Branch（分支）”下拉菜单选择您要为其创建代码的分支。
 
    ![分支下拉菜单](/assets/images/help/codespaces/branch-drop-down.png)
 
-3. 在存储库名称下，使用 **{% octicon "code" aria-label="The code icon" %} 代码**下拉菜单，然后在**Codespaces（代码空间）**选项卡中，单击 {% octicon "plus" aria-label="The plus icon" %} **New codespace（新建代码空间）**。
+1. 单击 **{% octicon "code" aria-label="The code icon" %} 代码**按钮，然后单击 **Codespaces** 选项卡。
 
    ![新建代码空间按钮](/assets/images/help/codespaces/new-codespace-button.png)
 
-   如果您是组织的成员，并且在该组织拥有的仓库上创建代码空间，您可以选择不同机器类型的选项。 从对话框中选择机器类型，然后点击 **Create codespace（创建代码空间）**。
+1. 使用默认选项或在配置高级选项后创建代码空间：
 
-   ![机器类型选择](/assets/images/help/codespaces/choose-custom-machine-type.png)
+   * **使用默认选项**
 
-   {% data reusables.codespaces.codespaces-machine-type-availability %}
+      要使用默认选项创建代码空间，请单击 **Create codespace on BRANCH（在 [分支] 上创建代码空间）**。
+
+      （可选）在单击 **Create codespace on BRANCH（在 [分支] 上创建代码空间）**之前，可以单击按钮侧面的向下箭头以查看将用于代码空间的计算机类型。
+
+      ![查看默认计算机类型](/assets/images/help/codespaces/default-machine-type.png)
+
+      {% note %}
+
+      **注意**：默认情况下，将选择对存储库有效的资源最少的计算机类型。
+
+      {% endnote %}
+
+   * **配置选项**
+
+      要为代码空间配置高级选项，例如不同的计算机类型或特定 `devcontainer.json` 文件：
+
+      1. 单击 **Create codespace on BRANCH（在 [分支] 上创建代码空间）**按钮侧面的向下箭头，然后单击 **Configure and create codespace（配置并创建代码空间）**。
+      1. 单击 **Configure and create codespace（配置并创建代码空间）**按钮。
+      1. 在代码空间的选项页面上，从下拉菜单中选择首选选项。
+
+         ![代码空间选项页](/assets/images/help/codespaces/advanced-options.png)
+
+         {% note %}
+
+         **注：**
+
+         * 您可以为选项页面添加书签，以便快速为此存储库和分支创建代码空间。
+         * [https://github.com/codespaces/new](https://github.com/codespaces/new) 页面提供了一种为任何存储库和分支创建代码空间的快速方法。
+         * 有关 `devcontainer.json` 文件的详细信息，请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#devcontainerjson)”。
+         * 有关计算机类型的详细信息，请参阅“[更改代码空间的计算机类型](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)”。
+         * {% data reusables.codespaces.codespaces-machine-type-availability %}
+
+         {% endnote %}
+
+      1. 单击 **Start session（开始会话）**。
 
 {% endwebui %}
 
@@ -106,6 +140,12 @@ gh codespace create
 
 系统将提示您选择仓库、分支和计算机类型（如果有多个可用）。
 
+{% note %}
+
+**注意**：目前，{% data variables.product.prodname_cli %} 不允许在创建代码空间时选择开发容器配置。 如果要选择特定的开发容器配置，请使用 {% data variables.product.prodname_dotcom %} Web 界面创建代码空间。 有关更多信息，请单击此页面顶部的“Web browser（Web 浏览器）”选项卡。
+
+{% endnote %}
+
 或者，您可以使用标志来指定部分或全部选项：
 
 ```shell
@@ -114,7 +154,7 @@ gh codespace create -r <em>owner</em>/<em>repo</em> -b <em>branch</em> -m <em>ma
 
 将 `owner/repo` 替换为仓库标识符。 将 `branch` 替换为您希望在代码空间中最初检出的分支的名称或提交的完整 SHA 哈希。 如果使用 `-r` 标志而不使用 `b` 标志，则将从默认分支创建代码空间。
 
-将 `machine-type` 替换为可用计算机类型的有效标识符。 标识符是字符串，例如：`basicLinux32gb` 和 `standardLinux32gb`。 可用的计算机类型取决于仓库、您的用户帐户和您的位置。 如果输入无效或不可用的计算机类型，则错误消息中将显示可用类型。 如果省略此标志，并且有多个计算机类型可用，系统将提示您从列表中选择一个计算机类型。
+将 `machine-type` 替换为可用计算机类型的有效标识符。 标识符是字符串，例如：`basicLinux32gb` 和 `standardLinux32gb`。 可用的计算机类型取决于仓库、您的个人帐户和您的位置。 如果输入无效或不可用的计算机类型，则错误消息中将显示可用类型。 如果省略此标志，并且有多个计算机类型可用，系统将提示您从列表中选择一个计算机类型。
 
 有关此命令的详细信息，请参阅 [{% data variables.product.prodname_cli %} 手册](https://cli.github.com/manual/gh_codespace_create)。
 

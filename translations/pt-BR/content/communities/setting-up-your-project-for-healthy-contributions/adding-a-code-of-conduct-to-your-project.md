@@ -21,7 +21,7 @@ Antes de adotar um código de conduta para seu projeto:
 
 Você pode adicionar um código de conduta ao seu projeto usando um modelo ou criando manualmente um código de conduta personalizado. O seu código de conduta estará disponível de qualquer forma, mas o "Código de Conduta" só será marcado como completo no perfil da comunidade do seu repositório se você usar um modelo. Se você usar um código de conduta escrito por outra pessoa ou organização, certifique-se de seguir as diretrizes de atribuição da fonte. Para obter mais informações sobre os perfis da comunidade, consulte "[Sobre os perfis da comunidade para repositórios públicos](//communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)".
 
-Você pode criar um código de conduta padrão para sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar um código de conduta padrão para sua organização ou conta pessoal. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 ## Adicionar um código de conduta usando um modelo
 

@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
+permissions: Anyone can sponsor accounts on behalf of their own personal account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
@@ -23,7 +23,7 @@ shortTitle: Sponsor a contributor
 
 {% data reusables.sponsors.sponsorship-details %}
 
-ユーザーアカウントの代わりにアカウントをスポンサーし、個人的に利益を得るプロジェクトに投資することができます。 Organization に代わってアカウントをスポンサーできますが、それには多くの理由があります。
+You can sponsor an account on behalf of your personal account to invest in projects that you personally benefit from. Organization に代わってアカウントをスポンサーできますが、それには多くの理由があります。
 - Organization の作業が依存する特定のライブラリを維持する
 - Organization として依存しているエコシステム (たとえばブロックチェーン) に投資する
 - オープンソースを大切にする Organization としてブランド認知度を確立する
@@ -35,13 +35,15 @@ shortTitle: Sponsor a contributor
 
 クレジットカードを使用してアカウントをスポンサーすると、その変更は直ちに有効になります。 {% data reusables.sponsors.prorated-sponsorship %}
 
+We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
+
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
 You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
 
 スポンサードアカウントがあなたのスポンサー層を廃止した場合、あなたが別の層を選択するか、プランをキャンセルするまで、あなたはその層にそのままとどまります。 詳細は「[スポンサーシップをアップグレードする](/articles/upgrading-a-sponsorship)」および「[スポンサーシップをダウングレードする](/articles/downgrading-a-sponsorship)」を参照してください。
 
-スポンサーしたいアカウントが {% data variables.product.prodname_sponsors %} にプロフィールを持っていない場合は、アカウント参加を推奨できます。 詳細については、「[ユーザアカウントに {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)」と「[Organization に {% data variables.product.prodname_sponsors %} を設定する](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)」を参照してください。
+スポンサーしたいアカウントが {% data variables.product.prodname_sponsors %} にプロフィールを持っていない場合は、アカウント参加を推奨できます。 For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your personal account](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
@@ -50,6 +52,17 @@ You can choose whether to display your sponsorship publicly. One-time sponsorshi
 **注釈:** {% data variables.product.prodname_dotcom %} は、開発者の発言について責任を負いません。また、{% data variables.product.prodname_dotcom %} はスポンサードオープンソースプロジェクトについて何の保証もしません。 請求の責任は、資金を受ける開発者のみにあります。 スポンサーシップを提供する前に、信頼できる人かどうか確認してください。 詳細は、「[{% data variables.product.prodname_sponsors %} に関する追加条項](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)」を参照してください。
 
 {% endnote %}
+
+## Tax information
+
+As a sponsor, you acknowledge that we may disclose to the owner of each account you sponsor the following limited information about your sponsorship payments to the account, since the inception of the Sponsors Program:
+
+- Transaction date
+- Amount paid
+- The country, state, and province from where payment was made
+- Whether payment was made by a business or individual
+
+This information is necessary to enable payment and reporting of any taxes arising from such sponsorship payments.
 
 ## アカウントをスポンサーする
 

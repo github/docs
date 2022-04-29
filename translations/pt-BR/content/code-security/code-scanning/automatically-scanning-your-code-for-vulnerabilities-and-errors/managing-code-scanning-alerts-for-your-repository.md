@@ -1,7 +1,7 @@
 ---
 title: Gerenciar alertas de verificação de código para o seu repositório
 shortTitle: Gerenciar alertas
-intro: 'Da visão de segurança, você pode visualizar, corrigir, ignorar ou excluir alertas de potenciais vulnerabilidades ou erros no código do seu projeto.'
+intro: 'Na visão de segurança, {% if delete-code-scanning-alerts %}você pode visualizar, corrigir, ignorar ou excluir alertas {% else %}que você pode visualizar, corrigir, ou dispensar alertas{% endif %} de possíveis vulnerabilidades ou erros no código do seu projeto.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
@@ -165,13 +165,13 @@ Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o 
 {% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
 {% note %}
 
-**Note:** If you run code scanning using multiple configurations, then sometimes an alert will have multiple analysis origins. Unless you run all configurations regularly, you may see alerts that are fixed in one analysis origin but not in another. For more information, see "[About analysis origins](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
+**Observação:** Se você executar a digitalização de código usando várias configurações, às vezes, um alerta terá múltiplas origens da análise. A menos que você execute todas as configurações regularmente, você poderá ver alertas fixos em uma análise de origem, mas não em outra. Para obter mais informações, consulte[Sobre as origens da análise](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)".
 
 {% endnote %}
 {% endif %}
-## Ignorar ou excluir alertas
+## Ignorando ou {% if delete-code-scanning-alerts %}ou excluindo{% endif %} alertas
 
-Há duas formas de fechar um alerta. Você pode corrigir o problema no código ou pode ignorar o alerta. Como alternativa, se você tiver permissões de administrador para o repositório, será possível excluir alertas. Excluir alertas é útil em situações em que você configurou uma ferramenta {% data variables.product.prodname_code_scanning %} e, em seguida, decidiu removê-la ou em situações em que você configurou a análise de {% data variables.product.prodname_codeql %} com um conjunto de consultas maior do que você deseja continuar usando, e, em seguida, você removeu algumas consultas da ferramenta. Em ambos os casos, excluir alertas permite limpar os seus resultados de {% data variables.product.prodname_code_scanning %}. Você pode excluir alertas da lista de resumo dentro da aba **Segurança**.
+Há duas formas de fechar um alerta. Você pode corrigir o problema no código ou pode ignorar o alerta. {% if delete-code-scanning-alerts %}Como alternativa, se você tiver permissões de administrador para o repositório, será possível excluir alertas. Excluir alertas é útil em situações em que você configurou uma ferramenta {% data variables.product.prodname_code_scanning %} e, em seguida, decidiu removê-la ou em situações em que você configurou a análise de {% data variables.product.prodname_codeql %} com um conjunto de consultas maior do que você deseja continuar usando, e, em seguida, você removeu algumas consultas da ferramenta. Em ambos os casos, excluir alertas permite limpar os seus resultados de {% data variables.product.prodname_code_scanning %}. Você pode excluir alertas da lista de resumo dentro da aba de **Segurança** .{% endif %}
 
 Ignorar um alerta é uma maneira de fechar um alerta que você considera que não precisa ser corrigido. {% data reusables.code-scanning.close-alert-examples %} Você pode ignorar alertas de anotações de {% data variables.product.prodname_code_scanning %} no código ou da lista de resumo dentro na aba **Segurança**.
 
@@ -183,30 +183,29 @@ Ao descartar um alerta:
 - O motivo pelo qual você fechou o alerta foi gravado.
 - Da próxima vez que {% data variables.product.prodname_code_scanning %} for executado, o mesmo código não gerará um alerta.
 
-Ao excluir um alerta:
+{% if delete-code-scanning-alerts %}Ao excluir um alerta:
 
 - Ele é excluído em todos os branches.
 - O alerta é removido do número de alertas atuais para o seu projeto.
 - Ele _não é_ adicionado à lista "Fechado" no resumo dos alertas.
-- Se o código que gerou o alerta permanecer o mesmo, e a mesma ferramenta {% data variables.product.prodname_code_scanning %} for executada novamente sem qualquer alteração de configuração, o alerta será exibido novamente nos resultados das análises.
+- Se o código que gerou o alerta permanecer o mesmo e a mesma ferramenta {% data variables.product.prodname_code_scanning %} for executada novamente sem qualquer alteração de configuração, o alerta será exibido novamente nos seus resultados das análises.{% endif %}
 
-Para ignorar ou excluir alertas:
+Para ignorar{% if delete-code-scanning-alerts %}ou excluir{% endif %} alertas:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-{% data reusables.repositories.sidebar-code-scanning-alerts %}
+{% data reusables.repositories.sidebar-code-scanning-alerts %}{% if delete-code-scanning-alerts %}
 1. Se você tem permissões de administrador para o repositório e deseja excluir alertas para esta ferramenta de {% data variables.product.prodname_code_scanning %}, selecione algumas ou todas as caixas de seleção e clique em **Excluir**.
 
    ![Excluir alertas](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
    Opcionalmente, você pode usar{% ifversion fpt or ghes > 3.1 or ghae or ghec %}} a pesquisa de texto livre ou{% endif %} os filtros para exibir um subconjunto de alertas e, em seguida, excluir todos os alertas correspondentes de uma só vez. Por exemplo, se você removeu uma consulta da análise de {% data variables.product.prodname_codeql %}, você pode usar o filtro "Regra" para listar apenas os alertas dessa consulta e, em seguida, selecionar e apagar todos esses alertas.
 
-{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+{% ifversion ghes > 3.1 or ghae %}
   ![Filtrar alertas por regra](/assets/images/help/repository/code-scanning-filter-by-rule.png)
 {% else %}
   ![Filtrar alertas por regra](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
-{% endif %}
-
+{% endif %}{% endif %}
 1. Se você deseja ignorar um alerta, é importante explorar primeiro o alerta para que você possa escolher o motivo correto para ignorá-lo. Clique no alerta que você deseja explorar.
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}

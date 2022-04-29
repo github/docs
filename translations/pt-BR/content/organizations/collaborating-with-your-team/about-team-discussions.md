@@ -42,6 +42,14 @@ Para desativar notificações de discussões de equipe, você pode cancelar a as
 
 Para obter mais informações, consulte {% ifversion fpt or ghae or ghes or ghec %}"[Visualizando suas assinaturas](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Cadastrar-se e descadastrar-se para receber notificações](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}" e "[Equipes aninhadas](/articles/about-teams/#nested-teams)."
 
+{% ifversion fpt or ghec %}
+
+## Discussões da organização
+
+Você também pode usar discussões da organização para facilitar conversas em toda a sua organização. For more information, see "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+
+{% endif %}
+
 ## Leia mais
 
 - "[Início rápido para comunicação em {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)"

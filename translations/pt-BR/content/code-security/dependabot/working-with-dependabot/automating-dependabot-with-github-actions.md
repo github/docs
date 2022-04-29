@@ -452,7 +452,7 @@ jobs:
 
 ### Habilitar o merge automático em um pull request
 
-Se você quiser fazer merge automático dos seus pull requests, você poderá usar a funcionalidade de merge automático de {% data variables.product.prodname_dotcom %}. Isto permite que o pull request seja mesclado quando todos os testes e aprovações forem cumpridos com sucesso. For more information on auto-merge, see "[Automatically merging a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+Se você quiser fazer merge automático dos seus pull requests, você poderá usar a funcionalidade de merge automático de {% data variables.product.prodname_dotcom %}. Isto permite que o pull request seja mesclado quando todos os testes e aprovações forem cumpridos com sucesso. Para obter mais informações sobre merge automático, consulte "[Fazer merge automático de um pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)".
 
 Aqui está um exemplo de como habilitar o merge automático para todas as atualizações de patch para `my-dependency`:
 
@@ -465,7 +465,6 @@ name: Dependabot auto-merge
 on: pull_request_target
 
 permissions:
-  pull-requests: write
   contents: write
 
 jobs:
@@ -497,7 +496,6 @@ name: Dependabot auto-merge
 on: pull_request
 
 permissions:
-  pull-requests: write
   contents: write
 
 jobs:

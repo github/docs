@@ -103,7 +103,7 @@ Ao contrário dos aplicativos OAuth, os aplicativos GitHub têm permissões dire
 
 ## Máquina vs. contas de bot
 
-Contas de usuário de máquina são contas de usuário baseadas no OAuth que separam sistemas automatizados usando o sistema de usuário do GitHub.
+Contas de usuário de máquina são contas pessoal baseadas no OAuth que separam sistemas automatizados usando o sistema de usuário do GitHub.
 
 As contas do bot são específicas para os aplicativos GitHub e são construídas em todos os aplicativos GitHub.
 

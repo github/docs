@@ -39,7 +39,7 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       - name: Setup Node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
@@ -49,6 +49,19 @@ jobs:
 
       - name: Install Node.js dependencies
         run: npm ci
+
+      - name: Build server
+        run: npm run build
+
+      - name: Start server in the background
+        env:
+          NODE_ENV: production
+          PORT: 4000
+        run: |
+
+          node server.mjs &
+          sleep 5
+          curl --retry-connrefused --retry 3 -I http://localhost:4000/
 
       - name: Run broken github/github link check
         run: |

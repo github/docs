@@ -22,11 +22,11 @@ topics:
 
 ## Sobre bifurcações
 
-Most commonly, forks are used to either propose changes to someone else's project to which you don't have write access, or to use someone else's project as a starting point for your own idea. Você pode bifurcar um repositório para criar uma cópia do repositório e fazer alterações sem afetar o repositório upstream. Para obter mais informações, consulte "[Trabalhando com as bifurcações](/github/collaborating-with-issues-and-pull-requests/working-with-forks)".
+Mais comumente, as bifurcações são usadas para propor mudanças no projeto de outra pessoa ao qual você não tem acesso de gravação, ou para usar o projeto de outra pessoa como ponto de partida para sua própria ideia. Você pode bifurcar um repositório para criar uma cópia do repositório e fazer alterações sem afetar o repositório upstream. Para obter mais informações, consulte "[Trabalhando com as bifurcações](/github/collaborating-with-issues-and-pull-requests/working-with-forks)".
 
 ### Proponha mudanças no projeto de outra pessoa
 
-Por exemplo, você pode usar bifurcações para propor alterações relacionadas à correção de um bug. Em vez de registrar um erro encontrado, é possível:
+Por exemplo, você pode usar bifurcações para propor alterações relacionadas à correção de um bug. Em vez de registrar um problema para um erro que você encontrou, você pode:
 
 - Bifurcar o repositório.
 - Fazer a correção.
@@ -152,7 +152,7 @@ Ao bifurcar um projeto para propor mudanças no repositório original, é possí
   > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
-6. Digite `git remote add upstream`, cole a URL que você copiou na etapa 2 e pressione **Enter**. Ficará assim:
+6. Digite `git remote add upstream`, cole o URL que você copiou na etapa 3 e pressione **Enter**. Ficará assim:
   ```shell
   $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```
@@ -188,7 +188,7 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 {% endcli %}
 
-### Próximas etapas
+### Editando uma bifurcação
 
 Você pode fazer alterações em uma bifurcação, incluindo:
 
@@ -202,12 +202,14 @@ Bifurque um repositório para começar a contribuir com um projeto. {% data reus
 
 {% endif %}
 
-## Comemore
+## Próximos passos
 
-Você já bifurcou um repositório, treinou clonar sua bifurcação e configurou um repositório upstream. Para obter mais informações sobre a clonagem da bifurcação e sincronizar as alterações em um repositório bifurcado a partir do seu computador"[Configurar o Git](/articles/set-up-git)".
+Você já bifurcou um repositório, treinou clonar sua bifurcação e configurou um repositório upstream.
 
-Você também pode criar um novo repositório onde você pode colocar todos os seus projetos e compartilhar o código em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Criar um repositório](/articles/create-a-repo)".
+* Para obter mais informações sobre a clonagem da bifurcação e sincronizar as alterações em um repositório bifurcado a partir do seu computador, consulte "[Configurar o Git](/articles/set-up-git)".
 
-Cada repositório em {% data variables.product.product_name %} pertence a uma pessoa ou organização. Você pode interagir com as pessoas, repositórios e organizações, conectando-se e seguindo-as em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Seja social](/articles/be-social)".
+* Você também pode criar um novo repositório onde você pode colocar todos os seus projetos e compartilhar o código em {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* Cada repositório em {% data variables.product.product_name %} pertence a uma pessoa ou organização. Você pode interagir com usuários, repositórios e organizações, conectando-os e seguindo-os em {% data variables.product.product_name %}. {% data reusables.getting-started.being-social %}
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

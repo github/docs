@@ -27,7 +27,7 @@ translations/es-ES/content/actions/hosting-your-own-runners/adding-self-hosted-r
 translations/es-ES/content/actions/hosting-your-own-runners/adding-self-hosted-runners.md,broken liquid tags
 translations/es-ES/content/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners.md,Listed in localization-support#489
 translations/es-ES/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,Listed in localization-support#489
-translations/es-ES/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,broken liquid tags
+translations/es-ES/content/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners.md,rendering error
 translations/es-ES/content/actions/index.md,Listed in localization-support#489
 translations/es-ES/content/actions/learn-github-actions/contexts.md,Listed in localization-support#489
 translations/es-ES/content/actions/learn-github-actions/environment-variables.md,Listed in localization-support#489
@@ -76,7 +76,6 @@ translations/es-ES/content/admin/user-management/managing-users-in-your-enterpri
 translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users.md,broken liquid tags
 translations/es-ES/content/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise.md,Listed in localization-support#489
 translations/es-ES/content/admin/user-management/migrating-data-to-and-from-your-enterprise/exporting-migration-data-from-githubcom.md,Listed in localization-support#489
-translations/es-ES/content/admin/user-management/monitoring-activity-in-your-enterprise/audited-actions.md,Listed in localization-support#489
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account.md,Listed in localization-support#489
 translations/es-ES/content/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent.md,Listed in localization-support#489
 translations/es-ES/content/authentication/keeping-your-account-and-data-secure/about-anonymized-urls.md,Listed in localization-support#489
@@ -297,16 +296,9 @@ translations/es-ES/content/repositories/working-with-files/managing-files/creati
 translations/es-ES/content/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location.md,Listed in localization-support#489
 translations/es-ES/content/repositories/working-with-files/managing-files/renaming-a-file.md,Listed in localization-support#489
 translations/es-ES/content/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage.md,Listed in localization-support#489
+translations/es-ES/content/rest/activity/events.md,broken liquid tags
+translations/es-ES/content/rest/enterprise-admin/index.md,broken liquid tags
 translations/es-ES/content/rest/overview/other-authentication-methods.md,Listed in localization-support#489
-translations/es-ES/content/rest/reference/actions.md,Listed in localization-support#489
-translations/es-ES/content/rest/reference/activity.md,Listed in localization-support#489
-translations/es-ES/content/rest/reference/apps.md,Listed in localization-support#489
-translations/es-ES/content/rest/reference/billing.md,Listed in localization-support#489
-translations/es-ES/content/rest/reference/checks.md,Listed in localization-support#489
-translations/es-ES/content/rest/reference/enterprise-admin.md,Listed in localization-support#489
-translations/es-ES/content/rest/reference/enterprise-admin.md,broken liquid tags
-translations/es-ES/content/rest/reference/pulls.md,Listed in localization-support#489
-translations/es-ES/content/rest/reference/repos.md,Listed in localization-support#489
 translations/es-ES/content/search-github/searching-on-github/searching-code.md,Listed in localization-support#489
 translations/es-ES/content/search-github/searching-on-github/searching-commits.md,Listed in localization-support#489
 translations/es-ES/content/search-github/searching-on-github/searching-in-forks.md,Listed in localization-support#489
@@ -319,13 +311,14 @@ translations/es-ES/data/release-notes/github-ae/2021-06/2021-12-06.yml,broken li
 translations/es-ES/data/reusables/actions/contacting-support.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-marketplace-actions.md,broken liquid tags
 translations/es-ES/data/reusables/actions/enterprise-storage-ha-backups.md,broken liquid tags
+translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runner-groups.md,rendering error
+translations/es-ES/data/reusables/actions/settings-ui/settings-actions-runners.md,rendering error
 translations/es-ES/data/reusables/code-scanning/codeql-context-for-actions-and-third-party-tools.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/edit-workflow.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/enabling-options.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/licensing-note.md,broken liquid tags
 translations/es-ES/data/reusables/code-scanning/run-additional-queries.md,broken liquid tags
 translations/es-ES/data/reusables/dependabot/dependabot-tos.md,broken liquid tags
-translations/es-ES/data/reusables/enterprise_installation/download-appliance.md,broken liquid tags
 translations/es-ES/data/reusables/enterprise_management_console/badge_indicator.md,broken liquid tags
 translations/es-ES/data/reusables/getting-started/marketplace.md,broken liquid tags
 translations/es-ES/data/reusables/github-connect/send-contribution-counts-to-githubcom.md,broken liquid tags
@@ -333,4 +326,3 @@ translations/es-ES/data/reusables/organizations/data_saved_for_reinstating_a_for
 translations/es-ES/data/reusables/package_registry/authenticate-packages.md,Listed in localization-support#489
 translations/es-ES/data/reusables/package_registry/authenticate-packages.md,broken liquid tags
 translations/es-ES/data/reusables/repositories/deleted_forks_from_private_repositories_warning.md,broken liquid tags
-translations/es-ES/data/reusables/rest-reference/activity/events.md,broken liquid tags

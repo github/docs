@@ -190,6 +190,12 @@ git commit
      - 第二个嵌套列表项
 ```
 
+{% tip %}
+
+**注意**：在基于 Web 的编辑器中，您可以缩进或缩减一行文本，方法是首先突出显示所需的行，然后分别使用 <kbd>Tab</kbd> 或 <kbd>Shift</kbd>+<kbd>Tab</kbd>。
+
+{% endtip %}
+
 ![突出显示对齐的嵌套列表](/assets/images/help/writing/nested-list-alignment.png)
 
 ![含两级嵌套项的列表](/assets/images/help/writing/nested-list-example-1.png)
@@ -311,6 +317,8 @@ You can also use words, to fit your writing style more closely[^note].
 {% tip %}
 
 **注意**：Markdown 中脚注的位置不会影响该脚注的呈现位置。 您可以在引用脚注后立即写脚注，脚注仍将呈现在 Markdown 的底部。
+
+维基不支持脚注。
 
 {% endtip %}
 {% endif %}

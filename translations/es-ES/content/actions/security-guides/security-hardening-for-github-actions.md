@@ -48,6 +48,12 @@ Para ayudar a prevenir la divulgación accidental, {% data variables.product.pro
 - **Considera requerir revisiones para el acceso a los secretos**
     - Puedes utilizar revisiones requeridas para proteger los secretos del ambiente. Un job del flujo de trabajo no podrá acceder a los secretos del ambiente hasta que el revisor otorgue la aprobación. Para obtener más información sobre cómo almacenar los secretos en los ambientes o cómo requerir las revisiones para estos, consulta las secciones "[Secretos cifrados](/actions/reference/encrypted-secrets)" y "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
 
+{% warning %}
+
+**Warning**: Any user with write access to your repository has read access to all secrets configured in your repository. Therefore, you should ensure that the credentials being used within workflows have the least privileges required.
+
+{% endwarning %}
+
 ## Utilizar `CODEOWNERS` para monitorear cambios
 
 Puedes utilizar la característica de `CODEOWNERS` para controlar la forma en la que se realizan los cambios en tus archivos de flujo de trabajo. Por ejemplo, si todos tus archivos de flujo de trabajo se almacenan en `.github/workflows`, puedes agregar este directorio a la lista de propietarios de código para que cualquier cambio propuesto a dichos archivos requiera primero de una aprobación del un revisor designado.
@@ -250,10 +256,10 @@ Esta lista describe los acercamientos recomendatos para acceder alos datos de un
 3. **Tokens de {% data variables.product.prodname_github_app %}**
     - Las {% data variables.product.prodname_github_apps %} pueden instalarse en los repositorios seleccionados, e incluso tienen permisos granulares en los recursos dentro de ellos. Puedes crear una {% data variables.product.prodname_github_app %} interna a tu organización, instalarla en los repositorios a los que necesites tener acceso dentro de tu flujo de trabajo, y autenticarte como la instalación dentro del flujo de trabajo para acceder a esos repositorios.
 4. **Tokens de acceso personal**
-    - Jamás debes utilizar tokens de acceso personal desde tu propia cuenta. Estos tokens otorgan acceso a todos los repositorios dentro de las organizaciones a las cuales tienes acceso, así como a los repositorios en tu cuenta de usuario. Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Adicionalmente, si sales de una organización más adelante, los flujos de trabajo que utilicen este token fallarán inmediatamente, y depurar este problema puede ser difícil.
+    - Jamás debes utilizar tokens de acceso personal desde tu propia cuenta. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Adicionalmente, si sales de una organización más adelante, los flujos de trabajo que utilicen este token fallarán inmediatamente, y depurar este problema puede ser difícil.
     - Si se utiliza un token de acceso personal, debe ser uno que se haya generado para una cuenta nueva a la que solo se le haya otorgado acceso para los repositorios específicos que se requieren para el flujo de trabajo. Nota que este acercamiento no es escalable y debe evitarse para favorecer otras alternativas, tales como las llaves de despliegue.
-5. **Llaves SSH en una cuenta de usuario**
-    - Los flujos de trabajo nunca deben utilizar las llaves SSH en una cuenta de usuario. De forma similar a los tokens de acceso personal, estas otorgan permisos de lectura/escritura a todos tus repositorios personales así como a todos los repositorios a los que tengas acceso mediante la membercía de organización.  Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Si pretendes utilizar una llave SSH porque solo necesitas llevar a cabo clonados de repositorio o subidas a éste, y no necesitas interactuar con una API pública, entonces mejor deberías utilizar llaves de despliegue individuales.
+5. **SSH keys on a personal account**
+    - Workflows should never use the SSH keys on a personal account. De forma similar a los tokens de acceso personal, estas otorgan permisos de lectura/escritura a todos tus repositorios personales así como a todos los repositorios a los que tengas acceso mediante la membercía de organización.  Esto otorga indirectamente un acceso amplio a todos los usuarios con acceso de escritura en el repositorio en el cual está el flujo de trabajo. Si pretendes utilizar una llave SSH porque solo necesitas llevar a cabo clonados de repositorio o subidas a éste, y no necesitas interactuar con una API pública, entonces mejor deberías utilizar llaves de despliegue individuales.
 
 ## Fortalecimiento para los ejecutores auto-hospedados
 
@@ -294,11 +300,11 @@ Si estás utilizando las {% data variables.product.prodname_actions %} para desp
 
 ## Auditar eventos de {% data variables.product.prodname_actions %}
 
-Puedes utilizar la bitácora de auditoría para monitorear las tareas administrativas en una organización. La bitácora de auditoría registra el tipo de acción, cuándo se ejecutó, y qué cuenta de usuario la realizó.
+Puedes utilizar la bitácora de auditoría para monitorear las tareas administrativas en una organización. The audit log records the type of action, when it was run, and which personal account performed the action.
 
 Por ejemplo, puedes utilizar la bitácora de auditoría para rastrear el evento `org.update_actions_secret`, el cual rastrea los cambios en los secretos de la organización: ![Entradas de la bitácora de auditoría](/assets/images/help/repository/audit-log-entries.png)
 
-Las siguientes tablas describen los eventos de {% data variables.product.prodname_actions %} que puedes encontrar en la bitácora de auditoría. Para obtener más información sobre cómo utilizar la bitácora de auditoría, consulta la sección "[Revisar la bitácora de auditoría de tu organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)".
+Las siguientes tablas describen los eventos de {% data variables.product.prodname_actions %} que puedes encontrar en la bitácora de auditoría. Para obtener más información sobre cómo utilizar la bitácora de auditoría, consulta la sección "[Revisar la bitácora de auditoría para tu organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" y "[Revisar las bitácoras de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)".
 
 {% ifversion fpt or ghec %}
 ### Eventos para los ambientes
@@ -313,9 +319,10 @@ Las siguientes tablas describen los eventos de {% data variables.product.prodnam
 
 {% ifversion fpt or ghes or ghec %}
 ### Eventos para cambios de configuración
-| Acción                 | Descripción                                                                                                                                                                                                                                                                                                                           |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `repo.actions_enabled` | Se activa cuando {% data variables.product.prodname_actions %} se habilita en un repositorio. Puede visualizarse utilizando la IU. Este evento no es visible cuando accedes a la bitácora de auditoría utilizando la API de REST. Para obtener más información, consulta la sección "[Utilizar la API de REST](#using-the-rest-api)". |
+| Acción                                | Descripción                                                                                                                                                                                                                                                                                                                           |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `repo.actions_enabled`                | Se activa cuando {% data variables.product.prodname_actions %} se habilita en un repositorio. Puede visualizarse utilizando la IU. Este evento no es visible cuando accedes a la bitácora de auditoría utilizando la API de REST. Para obtener más información, consulta la sección "[Utilizar la API de REST](#using-the-rest-api)". |
+| `repo.update_actions_access_settings` | Triggered when the setting to control how your repository is used by {% data variables.product.prodname_actions %} workflows in other repositories is changed.                                                                                                                                                                        |
 {% endif %}
 
 ### Eventos para la administración de secretos

@@ -70,16 +70,7 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 
 ## プライベートリポジトリの依存関係グラフを有効化および無効化する
 
-リポジトリ管理者は、プライベートリポジトリに対して依存関係グラフを有効または無効にすることができます。
-
-ユーザアカウントまたは Organization が所有するすべてのリポジトリの依存関係グラフを有効または無効にすることもできます。 詳しい情報については、「[ユーザーアカウントのセキュリティおよび分析設定を管理する](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)」または「[Organization のセキュリティおよび分析設定を管理する](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)」を参照してください。
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-security-and-analysis %}
-4. リポジトリ データへの読み取りアクセスを {% data variables.product.product_name %} に許可して依存関係グラフを有効にすることに関するメッセージを読んだうえで、[Dependency Graph] の隣にある [**Enable**] をクリックします。 ![依存関係グラフの [Enable] ボタン](/assets/images/help/repository/dependency-graph-enable-button.png)
-
-[Security & analysis] タブで [Dependency Graph] の隣にある [**Disable**] をクリックすれば、依存関係グラフはいつでも無効にできます。
+{% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
 
 ## "Used by"パッケージの変更
 
@@ -98,7 +89,7 @@ You may notice some repositories have a "Used by" section in the sidebar of the 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-security-and-analysis %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
 4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package. !["Used by"パッケージの選択](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
@@ -115,7 +106,7 @@ You may notice some repositories have a "Used by" section in the sidebar of the 
 ## 参考リンク
 
 - [依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)
-- "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
-- [Organization のインサイトを表示する](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)
+- 「[脆弱性のある依存関係に対する{% data variables.product.prodname_dependabot_alerts %}の表示](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」{% ifversion ghec %}
+- "[Viewing insights for your organization](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}{% ifversion fpt or ghec %}
 - [{% data variables.product.prodname_dotcom %}によるデータの利用と保護の方法の理解](/get-started/privacy-on-github)
 {% endif %}

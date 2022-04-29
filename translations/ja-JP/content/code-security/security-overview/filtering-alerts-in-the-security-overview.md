@@ -17,7 +17,9 @@ topics:
 shortTitle: Filtering alerts
 ---
 
+{% ifversion ghes < 3.5 or ghae-issue-4554 %}
 {% data reusables.security-center.beta %}
+{% endif %}
 
 ## About filtering the security overview
 
@@ -114,6 +116,17 @@ Available in the code scanning alert views. All code scanning alerts have one of
 | `severity:error`    | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as errors.   |
 | `severity:warning`  | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings. |
 | `severity:note`     | Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.    |
+
+{% if dependabot-alerts-vulnerable-calls %}
+## Filter by {% data variables.product.prodname_dependabot %} alert type
+
+Available in the {% data variables.product.prodname_dependabot %} alert views. You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.
+
+| 修飾子                    | 説明                                                                                                                                                                                                                                                                                                                                                                |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `has:patch`            | Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.                                                                                                                                                                                                                                 |
+| `has:vulnerable-calls` | Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[Viewing and updating Dependabot alerts](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)." |
+{% endif %}
 
 {% endif %}
 

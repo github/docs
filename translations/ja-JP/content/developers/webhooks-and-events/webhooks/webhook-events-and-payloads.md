@@ -811,8 +811,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghec %}
-
 ## package
 
 {% data variables.product.prodname_registry %} に関連するアクティビティ。 {% data reusables.webhooks.action_type_desc %} {% data variables.product.prodname_registry %} の詳細については、「[{% data variables.product.prodname_registry %} を使用してパッケージを管理する](/github/managing-packages-with-github-packages)」を参照してください。
@@ -832,7 +830,6 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 ### webhook ペイロードの例
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
-{% endif %}
 
 ## page_build
 
@@ -1062,6 +1059,28 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {{ webhookPayloadsForCurrentVersion.pull_request_review_comment.created }}
 
+## pull_request_review_thread
+
+{% data reusables.webhooks.pull_request_review_thread_short_desc %}
+
+### 利用の可否
+
+- リポジトリ webhook
+- Organization webhook
+- `pull_requests` 権限のある {% data variables.product.prodname_github_apps %}
+
+### webhook ペイロードオブジェクト
+
+{% data reusables.webhooks.pull_request_thread_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
+
+### webhook ペイロードの例
+
+{{ webhookPayloadsForCurrentVersion.pull_request_review_thread.resolved }}
+
 ## プッシュ
 
 {% data reusables.webhooks.push_short_desc %}
@@ -1163,7 +1182,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 | キー       | 種類       | 説明                                                   |
 | -------- | -------- | ---------------------------------------------------- |
-| `action` | `string` | 実行されたアクション. これは次のいずれかになります。<ul><li>「created」- リポジトリが作成されます。</li><li>「deleted」- リポジトリが削除されます。</li><li>「archived」- リポジトリがアーカイブされます。</li><li>「unarchived」- リポジトリがアーカイブ解除されます。</li>{% ifversion ghes or ghae %}<li>「anonymous_access_enabled」- リポジトリは [enabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)、「anonymous_access_disabled」 - リポジトリは [disabled for anonymous Git access](/rest/overview/api-previews#anonymous-git-access-to-repositories)</li>{% endif %}<li>「edited」- リポジトリの情報が編集されます。</li><li>「renamed」- リポジトリの名前が変更されます。</li><li>「transferred」- リポジトリが転送されます。</li><li>「publicized」- リポジトリが公開されます。</li><li> 「privatized」- リポジトリが非公開になります。</li></ul> |
+| `action` | `string` | 実行されたアクション. これは次のいずれかになります。<ul><li>「created」- リポジトリが作成されます。</li><li>「deleted」- リポジトリが削除されます。</li><li>「archived」- リポジトリがアーカイブされます。</li><li>「unarchived」- リポジトリがアーカイブ解除されます。</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)</li>{% endif %}<li>「edited」- リポジトリの情報が編集されます。</li><li>「renamed」- リポジトリの名前が変更されます。</li><li>「transferred」- リポジトリが転送されます。</li><li>「publicized」- リポジトリが公開されます。</li><li> 「privatized」- リポジトリが非公開になります。</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1216,7 +1235,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 
 {% endif %}
 
-{% ifversion fpt or ghes or ghec %}
+{% ifversion ghes or ghec %}
 
 ## secret_scanning_alert
 
@@ -1241,7 +1260,7 @@ GitHub Marketplace の購入に関連するアクティビティ。 {% data reus
 {{ webhookPayloadsForCurrentVersion.secret_scanning_alert.reopened }}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.4 or ghec or ghae-issue-6581 %}
+{% ifversion ghes > 3.4 or ghec or ghae-issue-6581 %}
 ## secret_scanning_alert_location
 
 {% data reusables.webhooks.secret_scanning_alert_location_event_short_desc %}

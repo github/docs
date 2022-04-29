@@ -104,7 +104,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    ```
    {% endraw %}
    For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
-1. Reference the input or secret in the reusable workflow.
+1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
 
    {% raw %}
    ```yaml

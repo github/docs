@@ -2,19 +2,19 @@ import { LinkIcon } from '@primer/octicons-react'
 
 type Props = {
   slug: string
-  summary: string
+  title: string
   descriptionHTML: string
 }
 
-export function RestOperationHeading({ slug, summary, descriptionHTML }: Props) {
+export function RestOperationHeading({ slug, title, descriptionHTML }: Props) {
   return (
     <>
-      <h3 id={slug}>
+      <h2 id={slug}>
         <a href={`#${slug}`}>
           <LinkIcon size={16} className="m-1" />
         </a>
-        {summary}
-      </h3>
+        {title}
+      </h2>
       <div dangerouslySetInnerHTML={{ __html: descriptionHTML }} />
     </>
   )

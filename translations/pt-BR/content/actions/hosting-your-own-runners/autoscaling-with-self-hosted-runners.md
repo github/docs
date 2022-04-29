@@ -54,11 +54,13 @@ O serviço {% data variables.product.prodname_actions %} irá cancelar o resgist
 
 {% endnote %}
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6143 %}
+
 ## Controlando atualizações de software dos executores em executores auto-hospedados
 
 Por padrão, os executores auto-hospedados realizarão automaticamente uma atualização de software sempre que uma nova versão do executor estiver disponível.  Se você usar executoresefêmeros em contêineres, isso pode gerar a atualizações de software repetidas quando uma nova versão do executor for lançada.  A desabilitação das atualizações automáticas permite que você atualize a versão do executor na imagem do contêiner diretamente no seu próprio agendamento.
 
-To turn off automatic software updates and install software updates yourself, specify the `--disableupdate` flag when registering your runner using `config.sh`. Por exemplo:
+Para desabilitar a atualização automática de software e instalar atualizações, especifique o sinalizador `--disableupdate` quando registrar seu executor usando a configuração `config.sh`. Por exemplo:
 
 ```shell
 ./config.sh --url <em>https://github.com/octo-org</em> --token <em>example-token</em> --disableupdate
@@ -75,6 +77,8 @@ Para obter instruções sobre como instalar a versão mais recente do executor, 
 **Observação:** Se você não executar uma atualização de software em 30 dias, o serviço de {% data variables.product.prodname_actions %} não irá colocar trabalhos na fila para o seu executor.  Além disso, se uma atualização crítica de segurança for necessária, o serviço de {% data variables.product.prodname_actions %} não colocará os trabalhos na fila do seu executor até que ele seja atualizado.
 
 {% endnote %}
+
+{% endif %}
 
 ## Usando webhooks para dimensionamento automático
 

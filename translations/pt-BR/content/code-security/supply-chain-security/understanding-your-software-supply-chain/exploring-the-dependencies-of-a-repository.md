@@ -70,16 +70,7 @@ Para repositórios públicos, a vista de dependentes mostra como o repositório 
 
 ## Habilitar e desabilitar o gráfico de dependências para um repositório privado
 
-Os administradores de repositórios podem habilitar ou desabilitar o gráfico de dependências em repositórios privados.
-
-Você também pode habilitar ou desabilitar o gráfico de dependências para todos os repositórios pertencentes à sua conta de usuário ou organização. Para mais informações consulte "[Gerenciar as configurações de segurança e análise da sua conta de usuário](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" ou "[Gerenciar as configurações de segurança e análise da sua organização](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-security-and-analysis %}
-4. Leia a mensagem sobre a concessão de acesso somente leitura pelo {% data variables.product.product_name %} aos dados do repositório para habilitar o gráfico de dependências e, em seguida, ao lado de "Gráfico de Dependência", clique em **Habilitar**. ![Botão "Habilitar" para o gráfico de dependência](/assets/images/help/repository/dependency-graph-enable-button.png)
-
-Você pode desabilitar o gráfico de dependências a qualquer momento clicando em **Desabilitar** ao lado de "Gráfico de dependência" na aba de análise & de Segurança &.
+{% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
 
 ## Alterar o pacote "Usado por"
 
@@ -98,7 +89,7 @@ A seção "Usado por" representa um único pacote do repositório. Se você tive
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-security-and-analysis %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
 4. Em "Segurança e análise de código" clique no menu suspenso na seção "Usado pelo contador" e escolha um pacote. ![Escolha um pacote "Usado por"](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
@@ -115,7 +106,7 @@ Se um arquivo de manifesto ou de bloqueio não for processado, suas dependência
 ## Leia mais
 
 - "[Sobre o gráfico de dependências](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"
-- "[Visualizando {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion fpt or ghec %}
-- "[Visualizar informações da sua organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"
+- "[Visualizando {% data variables.product.prodname_dependabot_alerts %} para dependências vulneráveis](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% ifversion ghec %}
+- "[Visualizando insights para a sua organização](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-your-organization)"{% endif %}{% ifversion fpt or ghec %}
 - "[Entender como o {% data variables.product.prodname_dotcom %} usa e protege seus dados](/get-started/privacy-on-github)"
 {% endif %}

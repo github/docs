@@ -29,11 +29,11 @@ miniTocMaxHeadingLevel: 3
 
 Puedes habilitar {% data variables.product.prodname_actions %} para tu repositorio. {% data reusables.actions.enabled-actions-description %} Puedes inhabilitar {% data variables.product.prodname_actions %} totalmente para tu repositorio. {% data reusables.actions.disabled-actions-description %}
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} in your repository but limit the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
+Como alternativa, puedes habilitar las {% data variables.product.prodname_actions %} en tu repositorio pero limitar las acciones {% if actions-workflow-policy %}y flujos de trabajo reutilizables{% endif %} que puede ejecutar un flujo de trabajo.
 
 ## Administrar los permisos de {% data variables.product.prodname_actions %} para tu repositorio
 
-You can disable {% data variables.product.prodname_actions %} for a repository, or set a policy that configures which actions{% if actions-workflow-policy %} and reusable workflows{% endif %} can be used in the repository.
+Puedes inhabilitar las {% data variables.product.prodname_actions %} para un repositorio o ajustar una política que configure qué acciones{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} pueden utilizarse ene l repositorio.
 
 {% note %}
 
@@ -49,9 +49,9 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
    {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
    {% if actions-workflow-policy %}
-   ![Set actions policy for this repository](/assets/images/help/repository/actions-policy-with-workflows.png)
+   ![Configurar una política de acciones para este repositorio](/assets/images/help/repository/actions-policy-with-workflows.png)
    {%- else %}
-   ![Set actions policy for this repository](/assets/images/help/repository/actions-policy.png)
+   ![Configurar una política de acciones para este repositorio](/assets/images/help/repository/actions-policy.png)
    {%- endif %}
 1. Haz clic en **Save ** (guardar).
 
@@ -60,14 +60,14 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Under "Actions permissions", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions to the list.
+1. Debajo de "Permissos de acciones", selecciona {% data reusables.actions.policy-label-for-select-actions-workflows %} y agrega tus acciones requeridas a la lista.
 
    {% if actions-workflow-policy%}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
+   ![Agrega acciones y flujos de trabajo reutilizables a la lista de elementos permitidos](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
    {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/repository/actions-policy-allow-list.png)
+   ![Agregar acciones a la lista de elementos permitidos](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   ![Agregar acciones a la lista de elementos permitidos](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
 1. Haz clic en **Save ** (guardar).
 

@@ -24,13 +24,15 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: Precisa de ajuda?
-  placeholder: Pesquisar tópicos, produtos...
+  placeholder: Search GitHub Docs
   loading: Carregando
   no_results: Nenhum resultado encontrado
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: Explorar por produto
   version_picker: Versão
@@ -114,6 +116,7 @@ products:
       preview_header_is_required: Este cabeçalho é <strong>obrigatório</strong>
       preview_notice_to_change: This API is under preview and subject to change
       works_with_github_apps: Works with GitHub Apps
+      api_reference: REST API reference
 footer:
   all_rights_reserved: Todos os direitos reservados
   terms: Termos

@@ -25,7 +25,7 @@ Para acessar seu quadro pessoal assim que se conectar, clique no {% octicon "mar
 
 ## Encontrar sua atividade recente
 
-Na seção "Recent activity" (Atividade recente) do feed de notícias, você pode encontrar e acompanhar problemas e pull requests recém-atualizados nos quais você está trabalhando, além de visualizar até 12 atualizações recentes feitas nas últimas duas semanas.
+Na seção "Recent activity" (Atividade recente) do feed de notícias, você pode encontrar e acompanhar problemas e pull requests recém-atualizados nos quais você está trabalhando, além de visualizar até 4 atualizações recentes feitas nas últimas duas semanas.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 

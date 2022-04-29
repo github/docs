@@ -27,4 +27,4 @@ OpenAPI 描述有很多用途。 例如，您可以：
 * 验证并测试 {% data variables.product.company_short %} REST API 集成。
 * 使用第三方工具（如 Insomnia 或 Postman）探索 {% data variables.product.product_name %} REST API 并与之交互。
 
-例如，{% data variables.product.company_short %} 使用 REST OpenAPI 描述生成 {% data variables.product.product_name %} [REST API 参考文档](/rest/reference)。
+例如，{% data variables.product.company_short %} 使用 REST OpenAPI 描述生成 {% data variables.product.product_name %} [REST API 参考文档](/rest)。

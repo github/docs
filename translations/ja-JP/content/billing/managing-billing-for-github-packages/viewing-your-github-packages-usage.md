@@ -17,9 +17,9 @@ topics:
 shortTitle: 使用状況の表示
 ---
 
-## ユーザアカウントの {% data variables.product.prodname_registry %} の使用状況を表示する
+## 個人アカウントの {% data variables.product.prodname_registry %} の使用状況を表示する
 
-自身のユーザアカウントの {% data variables.product.prodname_registry %} の使用状況は、誰でも表示できます。
+自身の個人アカウントの {% data variables.product.prodname_registry %} の使用状況は、誰でも表示できます。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -36,6 +36,7 @@ Organization については、Organization のオーナーと支払いマネー
 {% data reusables.dotcom_billing.actions-packages-storage %}
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
+{% ifversion ghec %}
 ## Enterprise アカウントの {% data variables.product.prodname_registry %} の使用状況を表示する
 
 Enterprise アカウントについては、Enterprise オーナーと支払いマネージャーが {% data variables.product.prodname_registry %} の使用状況を確認できます。
@@ -52,3 +53,4 @@ Enterprise アカウントについては、Enterprise オーナーと支払い�
 1. [{% data variables.product.prodname_registry %}] で、Enterprise アカウントの Organization ごとにデータ転送の使用状況の詳細を表示します。 ![データ転送の利用状況の詳細](/assets/images/help/billing/packages-data-enterprise.png)
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}
+{% endif %}

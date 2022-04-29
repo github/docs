@@ -1,17 +1,21 @@
-import { jest } from '@jest/globals'
+import { expect, jest } from '@jest/globals'
 
 import '../../lib/feature-flags.js'
 import { getDOM } from '../helpers/e2etest.js'
+import fs from 'fs'
+import path from 'path'
 
 describe('sidebar', () => {
   jest.setTimeout(3 * 60 * 1000)
 
-  let $homePage, $githubPage, $enterprisePage
+  let $homePage, $githubPage, $enterprisePage, $restPage
   beforeAll(async () => {
-    ;[$homePage, $githubPage, $enterprisePage] = await Promise.all([
+    ;[$homePage, $githubPage, $enterprisePage, $restPage] = await Promise.all([
       getDOM('/en'),
       getDOM('/en/github'),
       getDOM('/en/enterprise/admin'),
+      // Using enterprise cloud bc we currently have a one off situation where secret-scanning is not a part of FPT
+      getDOM('/en/enterprise-cloud@latest/rest'),
     ])
   })
 
@@ -53,5 +57,26 @@ describe('sidebar', () => {
     expect(
       $homePage('[data-testid=sidebar] [data-testid=sidebar-product][title*="early"]').length
     ).toBe(0)
+  })
+
+  test('REST API Reference title is viewable', async () => {
+    expect($restPage('[data-testid=rest-sidebar-reference]').length).toBe(1)
+  })
+
+  test('Check that the top level categories in the REST sidebar match content/rest directory for ghec', async () => {
+    const dir = path.posix.join(process.cwd(), 'content', 'rest')
+    const numCategories = []
+    const sidebarRestCategories = $restPage(
+      '[data-testid=sidebar] [data-testid=rest-sidebar-items] details summary div div'
+    ).get()
+    const sidebarRestCategoryTitles = sidebarRestCategories.map((el) => $restPage(el).text().trim())
+
+    fs.readdirSync(dir).forEach((file) => {
+      if (file !== 'index.md' && file !== 'README.md' && file !== '.DS_Store') {
+        numCategories.push(file)
+      }
+    })
+
+    expect(numCategories.length).toBe(sidebarRestCategoryTitles.length)
   })
 })

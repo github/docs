@@ -45,6 +45,7 @@
     "hot-shots": "^9.0.0",
     "html-entities": "^2.3.2",
     "imurmurhash": "^0.1.4",
+    "javascript-stringify": "^2.1.0",
     "js-cookie": "^3.0.1",
     "js-yaml": "^4.1.0",
     "kleur": "4.1.4",
@@ -85,6 +86,7 @@
     "ts-dedent": "^2.2.0",
     "unified": "^10.1.0",
     "unist-util-visit": "^4.1.0",
+    "url-template": "^3.0.0",
     "uuid": "^8.3.2",
     "walk-sync": "^3.0.0"
   },
@@ -107,12 +109,11 @@
     "@types/js-cookie": "^3.0.1",
     "@types/lodash": "^4.14.178",
     "@types/react": "^17.0.38",
-    "@types/react-dom": "^17.0.11",
+    "@types/react-dom": "^18.0.0",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "5.16.0",
     "@typescript-eslint/parser": "5.16.0",
-    "async": "^3.2.3",
     "babel-loader": "^8.2.3",
     "babel-plugin-styled-components": "^2.0.2",
     "babel-preset-env": "^1.7.0",
@@ -132,12 +133,11 @@
     "eslint-plugin-promise": "^6.0.0",
     "event-to-promise": "^0.8.0",
     "git-diff": "^2.0.6",
-    "glob": "^7.2.0",
+    "glob": "^8.0.1",
     "graphql": "^16.3.0",
     "http-status-code": "^2.1.0",
     "husky": "^7.0.4",
     "japanese-characters": "^1.1.0",
-    "javascript-stringify": "^2.1.0",
     "jest": "^27.4.7",
     "jest-environment-puppeteer": "5.0.4",
     "jest-fail-on-console": "^2.2.3",
@@ -162,11 +162,10 @@
     "start-server-and-test": "^1.14.0",
     "strip-ansi": "^7.0.1",
     "supertest": "^6.2.2",
-    "typescript": "^4.5.5",
-    "url-template": "^3.0.0"
+    "typescript": "^4.5.5"
   },
   "engines": {
-    "node": "16.x"
+    "node": ">=16.x"
   },
   "exports": "./server.mjs",
   "license": "(MIT AND CC-BY-4.0)",

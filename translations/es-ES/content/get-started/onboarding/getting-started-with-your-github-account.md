@@ -1,6 +1,6 @@
 ---
 title: Iniciar con tu cuenta de GitHub
-intro: 'Con una cuenta de usuario en {% data variables.product.prodname_dotcom %}, puedes importar o crear repositorios, colaborar con otros y conectarte con la comunidad de {% data variables.product.prodname_dotcom %}.'
+intro: 'Con una cuenta personal de {% data variables.product.prodname_dotcom %}, puedes importar o crear repositorios, colaborar con los demás y conectarte con la comunidad de {% data variables.product.prodname_dotcom %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,7 +20,7 @@ Los primeros pasos para comenzar con {% data variables.product.product_name %} s
 Los primeros pasos para comenzar con {% data variables.product.product_name %} son acceder a tu cuenta y ver tu perfil.
 {% endif %}
 
-{% ifversion fpt or ghec %}Hay varios tipos de cuentas en {% data variables.product.prodname_dotcom %}. {% endif %} Todo aquél que utilice {% data variables.product.product_name %} tiene su propia cuenta, la cual puede ser parte de varias organizaciones y equipos. Tu cuenta de usuario es tu identidad en {% data variables.product.product_location %} y te representa como individuo.
+{% ifversion fpt or ghec %}Hay varios tipos de cuentas en {% data variables.product.prodname_dotcom %}. {% endif %} Todo aquél que utilice {% data variables.product.product_name %} tiene su propia cuenta personal, la cual puede ser parte de varias organizaciones y equipos. Tu cuenta personal es tu identidad en {% data variables.product.product_location %} y te representa como individuo.
 
 {% ifversion fpt or ghec %}
 ### 1. Crear una cuenta
@@ -97,7 +97,7 @@ Cualquier cantidad de personas pueden trabajar juntas en los repositorios a lo l
 ### 1. Trabajar con repositorios
 
 #### Crear un repositorio
-Un repositorio es como una carpeta para tu proyecto. Puedes tener cualquier cantidad de repositorios públicos y privados en tu cuenta de usuario. Los repositorios pueden contener archivos y carpetas, imágenes, videos, hojas de cálculo y juegos de datos, así como el historial de revisión de todos los archivos en el repositorio. Para obtener más información, consulta la sección "[Acerca de los repositorios](/github/creating-cloning-and-archiving-repositories/about-repositories)".
+Un repositorio es como una carpeta para tu proyecto. Puedes tener cualquier cantidad de repositorios privados y públicos en tu cuenta personal. Los repositorios pueden contener archivos y carpetas, imágenes, videos, hojas de cálculo y juegos de datos, así como el historial de revisión de todos los archivos en el repositorio. Para obtener más información, consulta la sección "[Acerca de los repositorios](/github/creating-cloning-and-archiving-repositories/about-repositories)".
 
 Cuando creas un repositorio nuevo, debes inicializarlo con un archivo README para que las personas sepan sobre tu proyecto. Para obtener más información, consulta la sección "[Crear un nuevo repositorio](/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/creating-a-new-repository)."
 
@@ -112,7 +112,7 @@ Si tienes proyectos existentes que quisieras mover a {% data variables.product.p
 ### 3. Administrar colaboradores y permisos
 Puedes colaborar en tu proyecto con otros usando los tableros de proyecto, las solicitudes de extracción y las propuestas de tu repositorio. Puedes invitar a otras personas para que sean colaboradores en tu repositorio desde la pestaña de **Colaboradores** en los ajustes de repositorio. Para obtener más información, consulta la sección "[Invitar colaboradores a un repositorio personal](/github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository)".
 
-Eres el propietario de cualquier repositorio que crees en tu cuenta de usuario y tienes control total sobre este. Los colaboradores tiene acceso de escritura a tu repositorio, lo cual limita sus permisos. Para obtener más información, consulta "[Niveles de permiso para un repositorio de cuenta de usuario](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository)".
+Eres el propietario de cualquier repositorio que crees en tu cuenta personal y tienes el control total del repositorio. Los colaboradores tiene acceso de escritura a tu repositorio, lo cual limita sus permisos. Para obtener más información, consulta "[Niveles de permiso para un repositorio de cuenta de usuario](/github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository)".
 
 ### 4. Administrar configuraciones de repositorios
 Como propietario de un repositorio, puedes configurar varios ajustes, incluyendo la visibilidad del repositorio, los temas y la vista previa de redes sociales. Para obtener más información, consulta la sección "[Administrar la configuración de los repositorios](/github/administering-a-repository/managing-repository-settings)".

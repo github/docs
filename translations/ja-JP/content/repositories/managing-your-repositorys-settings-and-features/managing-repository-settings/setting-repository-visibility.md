@@ -24,7 +24,7 @@ Organization のオーナーは、リポジトリの可視性を変更する機�
 
 {% ifversion ghec %}
 
-Members of an {% data variables.product.prodname_emu_enterprise %} can only set the visibility of repositories owned by their user account to private, and repositories in their enterprise's organizations can only be private or internal. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+Members of an {% data variables.product.prodname_emu_enterprise %} can only set the visibility of repositories owned by their personal account to private, and repositories in their enterprise's organizations can only be private or internal. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 
 {% endif %}
 
@@ -52,7 +52,7 @@ Members of an {% data variables.product.prodname_emu_enterprise %} can only set 
 {%- endif %}
 
 {%- ifversion fpt %}
-* ユーザアカウントまたは Organization に {% data variables.product.prodname_free_user %} を使用している場合、可視性をプライベートに変更すると、リポジトリで一部の機能が使用できなくなります。 すべての公開済みの {% data variables.product.prodname_pages %} サイトは自動的に取り下げられます。 {% data variables.product.prodname_pages %} サイトにカスタムドメインを追加した場合、ドメインの乗っ取りリスクを回避するために、リポジトリをプライベートに設定する前に DNS レコードを削除または更新してください。 For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+* If you're using {% data variables.product.prodname_free_user %} for personal accounts or organizations, some features won't be available in the repository after you change the visibility to private. すべての公開済みの {% data variables.product.prodname_pages %} サイトは自動的に取り下げられます。 {% data variables.product.prodname_pages %} サイトにカスタムドメインを追加した場合、ドメインの乗っ取りリスクを回避するために、リポジトリをプライベートに設定する前に DNS レコードを削除または更新してください。 For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
