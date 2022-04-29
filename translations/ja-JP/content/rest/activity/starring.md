@@ -1,6 +1,6 @@
 ---
 title: Star
-intro: リポジトリに Star を付けると、ユーザがリポジトリをブックマークできます。
+intro: The Starring API lets you bookmark a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,7 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-おおよその関心レベルを示すために、リポジトリの横に Star が表示されます。 Star は通知やアクティビティフィードには影響しません。
+## About the Starring API
+
+The Starring API lets you bookmark a repository. おおよその関心レベルを示すために、リポジトリの横に Star が表示されます。 Star は通知やアクティビティフィードには影響しません。 詳しい情報については、「[Star を付けてリポジトリを保存する](/get-started/exploring-projects-on-github/saving-repositories-with-stars)」を参照してください。
 
 ### Star と Watch
 

@@ -13,6 +13,8 @@ redirect_from:
   - /rest/reference/licenses
 ---
 
+## About the Licenses API
+
 许可证 API 使用[开源 Ruby Gem 许可](https://github.com/benbalter/licensee)来尝试识别项目的许可。 被许可人将项目 `LICENSE` 文件（如果有）的内容与已知许可的简短列表相匹配。 因此，API 不考虑项目依赖项的许可或其他记录项目许可的方式，例如对文档中许可名称的引用。
 
 如果许可匹配，则返回的许可密钥和名称符合 [SPDX 规格](https://spdx.org/)。

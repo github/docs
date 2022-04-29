@@ -1,6 +1,6 @@
 ---
-title: 管理部署密钥
-intro: ''
+title: 部署密钥
+intro: The Deploy keys API lets you create and manage deploy keys.
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /rest/reference/deploy_keys
 ---
+
+## About the Deploy keys API
 
 {% data reusables.repositories.deploy-keys %}
 

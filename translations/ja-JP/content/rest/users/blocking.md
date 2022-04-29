@@ -1,5 +1,5 @@
 ---
-title: Blocking Users
+title: ユーザのブロック
 intro: ''
 versions:
   fpt: '*'

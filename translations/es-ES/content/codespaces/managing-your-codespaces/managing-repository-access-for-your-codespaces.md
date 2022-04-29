@@ -62,6 +62,7 @@ Para crear codespaces con permisos personalizados definidos, debes utilizar uno 
    * `deployments` - lectura / escritura
    * `discussions` - lectura / escritura
    * `issues` - lectura / escritura
+   * `packages` - read
    * `pages` - lectura / escritura
    * `pull_requests` - lectura / escritura
    * `repository_projects` - lectura / escritura

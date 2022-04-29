@@ -1,6 +1,8 @@
 ---
-title: Artefatos
-intro: 'A API de Artefatos permite que você faça o download, exclua e recupere informações sobre artefatos de fluxo de trabalho.'
+title: GitHub Actions Artifacts
+allowTitleToDifferFromFilename: true
+shortTitle: Artefatos
+intro: 'The {% data variables.product.prodname_actions %} Artifacts API allows you to download, delete, and retrieve information about workflow artifacts.'
 topics:
   - API
 versions:
@@ -10,6 +12,8 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.about-artifacts %} Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
+## About the Artifacts API
+
+The {% data variables.product.prodname_actions %} Artifacts API allows you to download, delete, and retrieve information about workflow artifacts. {% data reusables.actions.about-artifacts %} Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}

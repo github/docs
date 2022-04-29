@@ -465,7 +465,6 @@ name: Dependabot auto-merge
 on: pull_request_target
 
 permissions:
-  pull-requests: write
   contents: write
 
 jobs:
@@ -497,7 +496,6 @@ name: Dependabot auto-merge
 on: pull_request
 
 permissions:
-  pull-requests: write
   contents: write
 
 jobs:

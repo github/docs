@@ -20,14 +20,6 @@ Você pode querer usar um tema escuro para reduzir o consumo de energia em certo
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}Se você tiver baixa visão, você poderá aproveitar um tema de alto contraste, com maior contraste entre o primeiro plano e os elementos de segundo plano.{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} se você for daltônico, você poderá beneficiar-se dos nossos temas de cor clara e escura.
 
-{% ifversion fpt or ghec %}
-{% note %}
-
-**Observação:** Os temas coloridos estão atualmente em beta público. Para obter mais informações sobre como habilitar funcionalidades no beta público, consulte "[Explorando versões de acesso antecipado com visualização de funcionalidades](/get-started/using-github/exploring-early-access-releases-with-feature-preview)".
-
-{% endnote %}
-{% endif %}
-
 {% endif %}
 
 {% data reusables.user-settings.access_settings %}
