@@ -81,4 +81,4 @@ Enabling expiring user tokens for existing {% data variables.product.prodname_gi
 
 - "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github#githubs-token-formats)"
 
-{% endif %}
+{% endif %} 10
