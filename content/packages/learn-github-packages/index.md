@@ -25,3 +25,4 @@ children:
 ---
 {% data reusables.package_registry.packages-ghes-release-stage %}
 {% data reusables.package_registry.packages-ghae-release-stage %}
+https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian-ubuntu-linux-raspberry-pi-os-apt
