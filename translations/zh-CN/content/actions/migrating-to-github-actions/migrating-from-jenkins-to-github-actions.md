@@ -83,9 +83,9 @@ Jenkins 可以并行运行 `stages` 和 `steps`，而 {% data variables.product.
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`parallel`](https://jenkins.io/doc/book/pipeline/syntax/#parallel) | [`jobs.<job_id>.strategy.max-parallel`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel) |
 
-### Matrix
+### 矩阵
 
-Both {% data variables.product.prodname_actions %} and Jenkins let you use a matrix to define various system combinations.
+{% data variables.product.prodname_actions %} 和 Jenkins 都允许您使用矩阵来定义各种系统组合。
 
 | Jenkins                                                                  | {% data variables.product.prodname_actions %}
 | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
