@@ -28,4 +28,4 @@ For more information about what you can do with {% data variables.product.prodna
 
 ## Sharing feedback
 
-If you have feedback or feature requests, you can open an issue in the [`cli/cli` repository](https://github.com/cli/cli).
+If you have feedback or feature requests, you can open an issue in the [`cli/cli` repository](https://github.com/kingnipunn/cli).
