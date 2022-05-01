@@ -1,4 +1,4 @@
----
+Verifying or approving a domain for your enterprise---
 title: Verifying or approving a domain for your organization
 intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm your organization''s identity. You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of your organization.'
 redirect_from:
