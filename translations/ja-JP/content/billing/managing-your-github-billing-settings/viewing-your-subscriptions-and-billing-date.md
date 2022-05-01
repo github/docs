@@ -22,8 +22,8 @@ shortTitle: サブスクリプションと請求日
 
 ## 個人アカウントの次の請求日を確認する
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.next_billing_date %}
 
 ## Organization の次の請求日を確認する

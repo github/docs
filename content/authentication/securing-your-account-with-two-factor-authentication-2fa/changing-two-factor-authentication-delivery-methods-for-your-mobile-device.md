@@ -19,8 +19,8 @@ shortTitle: Change 2FA delivery method
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. Next to "SMS delivery", click **Edit**.
   ![Edit SMS delivery options](/assets/images/help/2fa/edit-sms-delivery-option.png)
 4. Under "Delivery options", click **Reconfigure two-factor authentication**.

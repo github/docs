@@ -88,8 +88,7 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 4. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
 5. When the test email succeeds, at the bottom of the page, click **Save settings**.
 ![Save settings button](/assets/images/enterprise/management-console/save-settings.png)
-6. Wait for the configuration run to complete.
-![Configuring your instance](/assets/images/enterprise/management-console/configuration-run.png)
+{% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 ## Configuring DNS and firewall settings to allow incoming emails
 

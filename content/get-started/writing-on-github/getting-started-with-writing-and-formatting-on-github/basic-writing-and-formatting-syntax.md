@@ -24,6 +24,11 @@ To create a heading, add one to six <kbd>#</kbd> symbols before your heading tex
 
 ![Rendered H1, H2, and H6 headings](/assets/images/help/writing/headings-rendered.png)
 
+When you use two or more headings, GitHub automatically generates a table of contents which you can access by clicking {% octicon "list-unordered" aria-label="The unordered list icon" %} within the file header. Each heading title is listed in the table of contents and you can click a title to navigate to the selected section. 
+
+![Screenshot highlighting the table of contents icon](/assets/images/help/repository/headings_toc.png)
+
+
 ## Styling text
 
 You can indicate emphasis with bold, italic, or strikethrough text in comment fields and `.md` files.  
@@ -79,7 +84,7 @@ git commit
 
 For more information, see "[Creating and highlighting code blocks](/articles/creating-and-highlighting-code-blocks)."
 
-{% data reusables.user_settings.enabling-fixed-width-fonts %}
+{% data reusables.user-settings.enabling-fixed-width-fonts %}
 
 ## Links
 
@@ -183,6 +188,12 @@ To create a nested list using the web editor on {% data variables.product.produc
    - First nested list item
      - Second nested list item
 ```
+
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
 
 ![Nested list with alignment highlighted](/assets/images/help/writing/nested-list-alignment.png)
 
@@ -305,6 +316,8 @@ The footnote will render like this:
 {% tip %}
 
 **Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+
+Footnotes are not supported in wikis.
 
 {% endtip %}
 {% endif %}

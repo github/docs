@@ -29,7 +29,7 @@ Você pode especificar o tipo de executor para cada trabalho em um fluxo de trab
 
 {% ifversion not ghes %}
 
-{% data reusables.github-actions.runner-app-open-source %}
+{% data reusables.actions.runner-app-open-source %}
 
 ### Hosts da nuvem para os executores hospedados em {% data variables.product.prodname_dotcom %}
 
@@ -39,7 +39,7 @@ O {% data variables.product.prodname_dotcom %} hospeda executores do Linux e Win
 
 ### Continuidade do fluxo de trabalho para executores hospedados em {% data variables.product.prodname_dotcom %}
 
-{% data reusables.github-actions.runner-workflow-continuity %}
+{% data reusables.actions.runner-workflow-continuity %}
 
 Além disso, se a execução do fluxo de trabalho entrar na fila com sucesso, mas não foi processado por um executor hospedado em {% data variables.product.prodname_dotcom %} dentro de 45 minutos, a execução do fluxo de trabalho na fila será descartada.
 
@@ -61,7 +61,7 @@ Especificação de hardware para máquinas virtuais do macOS:
 - 14 GB de memória RAM
 - 14 GB de espaço de disco SSD
 
-{% data reusables.github-actions.supported-github-runners %}
+{% data reusables.actions.supported-github-runners %}
 
 Lista de registros de fluxo de trabalho do executor usado para executar um trabalho. Para obter mais informações, consulte "[Visualizar histórico de execução de fluxo de trabalho](/actions/managing-workflow-runs/viewing-workflow-run-history)".
 
@@ -78,7 +78,6 @@ Para a lista geral das ferramentas incluídas para cada sistema operacional do e
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-Readme.md)
 * [Windows Server 2022](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md)
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
-* [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
 * [macOS 11](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md)
 * [macOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
 

@@ -24,7 +24,7 @@ shortTitle: Atualizar credenciais de acesso
 1. Para solicitar uma nova senha, acesse {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
 2. Insira o endereço de e-mail associado à sua conta em {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %} e, em seguida, clique em **em Enviar e-mail de redefinição de senha.** O e-mail será enviado para o endereço de e-mail de backup, se você tiver um configurado. ![Caixa de diálogo para solicitar e-mail de redefinição de senha](/assets/images/help/settings/password-recovery-email-request.png)
 3. Nós enviaremos por e-mail um link para você redefinir sua senha. Clique nele em até 3 horas após o recebimento do e-mail. Se você não receber o e-mail com o link, verifique sua pasta de spam.
-4. Se você tiver habilitado a autenticação de dois fatores, será solicitado que você crie suas credenciais de 2FA. Digite as suas credenciais de 2FA ou um de seus códigos de recuperação de 2FA e clique em **Verificar**. ![Instrução de autenticação de dois fatores](/assets/images/help/2fa/2fa-password-reset.png)
+4. Se você tiver habilitado a autenticação de dois fatores, será solicitado que você crie suas credenciais de 2FA. Digite o seu código de autenticação ou um dos seus códigos de recuperação e clique em **Verificar**. Se você adicionou uma chave de segurança à sua conta, você pode inserir a chave e clicar em **Usar a chave de segurança** ao invés de digitar um código de autenticação. ![Instrução de autenticação de dois fatores](/assets/images/help/2fa/2fa-password-reset.png)
 5. Digite uma nova senha, confirme a sua nova senha e clique em **Alterar senha**. Para ajudar a criar uma senha forte, consulte "[Criar uma senha forte](/articles/creating-a-strong-password)".
   {% ifversion fpt or ghec %}![Password recovery box](/assets/images/help/settings/password-recovery-page.png){% else %}
   ![Caixa para recuperar senha](/assets/images/enterprise/settings/password-recovery-page.png){% endif %}
@@ -40,8 +40,8 @@ Para evitar perder a sua senha no futuro, sugerimos o uso de um gerenciador de s
 {% data reusables.repositories.blocked-passwords %}
 
 1. {% data variables.product.signin_link %} para o {% data variables.product.product_name %}.
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 4. Em "Change password" (Alterar senha), insira a senha antiga, digite uma nova senha forte e confirme a nova senha. Consulte "[Criar uma senha forte](/articles/creating-a-strong-password)" para obter ajuda sobre esse assunto.
 5. Clique em **Update password** (Atualizar senha).
 
@@ -54,6 +54,12 @@ Para maior segurança, além de alterar a senha, habilite também a autenticaç�
 ## Atualizar tokens de acesso
 
 Consulte "[Revisar integrações autorizadas](/articles/reviewing-your-authorized-integrations)" para ver instruções sobre como revisar e excluir tokens de acesso. Para gerar novos tokens de acesso, consulte "[Criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
+
+{% ifversion not ghae %}
+
+Se você redefiniu sua senha de conta e também gostaria de acionar um logout do aplicativo GitHub Mobile, você pode revogar a sua autorização do aplicativo OAuth "GitHub iOS" ou "GitHub Android". Para obter mais informações, consulte "[Revisar integrações autorizadas](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations)".
+
+{% endif %}
 
 ## Atualizar chaves SSH
 

@@ -13,7 +13,7 @@ Todos os atalhos do teclado estão habilitados por padrão em {% data variables.
 
 ## Gerenciamento de atalhos de chave de caracteres
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.accessibility_settings %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.accessibility_settings %}
 1. Selecione ou desmarque a caixa de seleção **Habilitar a opção de atalhos das teclas de caracteres**. ![Captura de tela da caixa de seleção 'Habilitar atalhos de teclas de caracteres'](/assets/images/help/settings/disable-character-key-shortcuts.png)
 2. Clique em **Salvar**.

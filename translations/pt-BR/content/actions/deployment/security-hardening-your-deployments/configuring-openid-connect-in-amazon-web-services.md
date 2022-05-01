@@ -43,6 +43,7 @@ Edite o relacionamento de confiança para adicionar o campo `sub` às condiçõe
 ```json{:copy}
 "Condition": {
   "StringEquals": {
+    "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }
 }
@@ -56,14 +57,7 @@ Para atualizar seus fluxos de trabalho para o OIDC, você deverá fazer duas alt
 
 ### Adicionando configurações de permissões
 
-O fluxo de trabalho exigirá uma configuração `permissões` com um valor de [`id-token`](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) definido. If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. Por exemplo:
-
-```yaml{:copy}
-permissions:
-  id-token: write
-```
-
-Você pode precisar especificar permissões adicionais aqui, dependendo das necessidades do seu fluxo de trabalho.
+ {% data reusables.actions.oidc-permissions-token %}
 
 ### Solicitando o token de acesso
 
@@ -85,15 +79,15 @@ env:
 # permission can be added at job level or workflow level    
 permissions:
       id-token: write
-      contents: read    # This is required for actions/checkout@v2
+      contents: read    # This is required for actions/checkout
 jobs:
   S3PackageUpload:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession

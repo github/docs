@@ -54,7 +54,8 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
   {% note %}
 
   **Notes:**
-  - Scheduled checks are limited to one organization per term. You can add scheduled checks for additional organizations at any time for an additional fee by [contacting our account management team](https://enterprise.github.com/contact) or calling [+1 (877) 448-4820](tel:+1-877-448-4820).
+  - Scheduled checks are limited to one organization per term. You can add scheduled checks for additional organizations at any time for an additional fee by [contacting our account management team](https://enterprise.github.com/contact) or calling [+1 (877) 448-4820](tel:+1-877-448-4820).{% ifversion ghes %}
+  - You can generate a Health Check at any time by uploading a support bundle. For more information, see "[Generating a Health Check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)."{% endif %}
   - For the {% data variables.product.premium_plus_support_plan %}, 50% of unused Managed Services hours roll over to the next month and expire at the end of the quarter.
   - Enterprise owners and billing managers automatically have a support entitlement. Enterprise owners can add support entitlements to members of organizations owned by their enterprise account. For more information, see "[Managing support entitlements for your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise)."
 

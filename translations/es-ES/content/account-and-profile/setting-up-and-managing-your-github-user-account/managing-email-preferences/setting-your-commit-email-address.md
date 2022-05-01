@@ -35,7 +35,7 @@ Para las operaciones de Git basadas en web, puedes configurar tu dirección de c
 
 {% note %}
 
-**Nota**: {% data reusables.user_settings.no-verification-disposable-emails %}
+**Nota**: {% data reusables.user-settings.no-verification-disposable-emails %}
 
 {% endnote %}
 
@@ -61,11 +61,11 @@ Si utilizas tu dirección de correo electrónico de tipo `noreply` para que {% d
 
 {% data reusables.files.commit-author-email-options %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
-{% data reusables.user_settings.add_and_verify_email %}
-{% data reusables.user_settings.select_primary_email %}{% ifversion fpt or ghec %}
-{% data reusables.user_settings.keeping_your_email_address_private %}{% endif %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
+{% data reusables.user-settings.add_and_verify_email %}
+{% data reusables.user-settings.select_primary_email %}{% ifversion fpt or ghec %}
+{% data reusables.user-settings.keeping_your_email_address_private %}{% endif %}
 
 ## Configurar tu dirección de correo electrónico de confirmación en Git
 
@@ -74,32 +74,32 @@ Puedes utilizar el comando `git config` para cambiar la dirección de correo ele
 ### Configurar tu dirección de correo electrónico para cada repositorio en tu computadora
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. {% data reusables.user_settings.set_your_email_address_in_git %}
+2. {% data reusables.user-settings.set_your_email_address_in_git %}
    ```shell
    $ git config --global user.email "<em>email@example.com</em>"
    ```
-3. {% data reusables.user_settings.confirm_git_email_address_correct %}
+3. {% data reusables.user-settings.confirm_git_email_address_correct %}
    ```shell
    $ git config --global user.email
    <span class="output">email@example.com</span>
    ```
-4. {% data reusables.user_settings.link_email_with_your_account %}
+4. {% data reusables.user-settings.link_email_with_your_account %}
 
 ### Configurar tu dirección de correo electrónico para un repositorio único
 
 {% data variables.product.product_name %} utiliza la dirección de correo electrónico que se configuró en tus ajustes locales de Git para asociar las confirmaciones que se suben desde la línea de comandos con tu cuenta en {% data variables.product.product_location %}.
 
-Puedes cambiar la dirección de correo electrónico asociada a las confirmaciones que realizas en un repositorio único. This will override your global Git configuration settings in this one repository, but will not affect any other repositories.
+Puedes cambiar la dirección de correo electrónico asociada a las confirmaciones que realizas en un repositorio único. Esto sobrescribirá tus ajustes globales de configuración de Git en este repositorio específico, pero no afectará a ningún otro repositorio.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Cambia el directorio de trabajo actual al repositorio local donde deseas configurar la dirección de correo electrónico que asocias con tus confirmaciones de Git.
-3. {% data reusables.user_settings.set_your_email_address_in_git %}
+3. {% data reusables.user-settings.set_your_email_address_in_git %}
    ```shell
    $ git config user.email "<em>email@example.com</em>"
    ```
-4. {% data reusables.user_settings.confirm_git_email_address_correct %}
+4. {% data reusables.user-settings.confirm_git_email_address_correct %}
    ```shell
    $ git config user.email
    <span class="output">email@example.com</span>
    ```
-5. {% data reusables.user_settings.link_email_with_your_account %}
+5. {% data reusables.user-settings.link_email_with_your_account %}

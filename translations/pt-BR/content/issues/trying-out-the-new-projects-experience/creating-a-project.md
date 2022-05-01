@@ -25,6 +25,10 @@ Os projetos são uma coleção personalizável de itens que se mantêm atualizad
 
 {% data reusables.projects.create-user-project %}
 
+## Atualizando a descrição e o README do seu projeto
+
+{% data reusables.projects.project-description %}
+
 ## Adicionando itens ao seu projeto
 
 Seu projeto pode acompanhar os rascunhos de problemas, problemas e pull requests.
@@ -58,6 +62,15 @@ Os problemas do rascunho podem ter um título, texto, responsável e quaisquer c
 2. Digite <kbd>#</kbd>.
 3. Selecione o repositório onde está localizado o pull request ou problema. Você pode digitar parte do nome do repositório para restringir suas opções.
 4. Selecione o problema ou pull request. Você pode digitar parte do título para restringir suas opções.
+
+#### Adicionando vários problemas ou pull requests de um repositório
+
+1. No {% data variables.product.product_location %}, acesse o repositório que contém os problemas ou pull requests que você deseja adicionar ao projeto.
+{% data reusables.repositories.sidebar-issue-pr %}
+1. À esquerda de cada título do problema, selecione os problemas que você deseja adicionar ao seu projeto. ![Captura de tela que mostra caixa de seleção para selecionar problema ou pull request](/assets/images/help/issues/select-issue-checkbox.png)
+1. Opcionalmente, para selecionar cada problema ou pull request na página, na parte superior da lista de problemas ou pull requests, selecione tudo. ![Captura de tela que mostra caixa de seleção para selecionar todos na tela](/assets/images/help/issues/select-all-checkbox.png)
+1. Acima da lista de problemas ou pull requests, clique em **Projetos (beta)**. ![Captura de tela que mostra caixa de seleção para selecionar todos na tela](/assets/images/help/issues/projects-beta-assign-button.png)
+1. Clique nos projetos aos quais você deseja adicionar os problemas selecionados ou pull requests. ![Captura de tela que mostra caixa de seleção para selecionar todos na tela](/assets/images/help/issues/projects-beta-assign-dropdown.png)
 
 #### Atribuindo um projeto de dentro de um problema ou pull request
 
@@ -98,7 +111,20 @@ Você pode restaurar itens arquivados, mas não itens excluídos. Para obter mai
 
 ## Restaurando itens arquivados
 
-Para restaurar um item arquivado, acesse o problema ou pull request. Na barra lateral do projeto no problema ou pull request, clique em **Restaurar** para o projeto para o qual você deseja restaurar o item. Os rascunhos de problemas não podem ser restaurados.
+1. Navigate to your project.
+1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="the kebab icon" %}.
+1. No menu, clique em **Itens arquivados**.
+1. Opcionalmente, para filtrar os itens arquivados exibidos, digite seu filtro na caixa de texto acima da lista de itens. Para obter mais informações sobre os filtros disponíveis, consulte "[Filtrando projetos (beta)](/issues/trying-out-the-new-projects-experience/filtering-projects)".
+
+   ![Captura de tela que mostra o campo para filtrar itens arquivados](/assets/images/help/issues/filter-archived-items.png)
+
+1. À esquerda de cada item de título, selecione os itens que deseja restaurar.
+
+   ![Captura de tela que mostra as caixas de seleção próximas aos itens arquivados](/assets/images/help/issues/select-archived-item.png)
+
+1. Para restaurar os itens selecionados, acima da lista de itens, clique em **Restaurar**.
+
+   ![Captura de tela que mostra o botão "Restaurar"](/assets/images/help/issues/restore-archived-item-button.png)
 
 ## Adicionando campos
 
@@ -106,7 +132,7 @@ Como os valores do campo mudam, eles são sincronizados automaticamente para que
 
 ### Mostrando campos existentes
 
-Your project tracks up-to-date information about issues and pull requests, including any changes to the title, assignees, labels, milestones, repository, reviewers, and linked pull requests. Quando seu projeto é inicializado, são exibidos "título" e "responsáveis". Os outros campos permanecem ocultos. Você pode alterar a visibilidade desses campos no seu projeto.
+O seu projeto rastreia informações atualizadas sobre problemas e pull requests, incluindo todas as alterações no título, responsáveis, etiquetas, marcos, repositórios, revisores e pull requests vinculados. Quando seu projeto é inicializado, são exibidos "título" e "responsáveis". Os outros campos permanecem ocultos. Você pode alterar a visibilidade desses campos no seu projeto.
 
 1. {% data reusables.projects.open-command-palette %}
 2. Comece a digitar "mostrar".
@@ -127,7 +153,7 @@ Os campos personalizados podem ser texto, número, data, seleção única ou ite
 - Número: O valor deve ser um número.
 - Data: O valor deve ser uma data.
 - Seleção única: O valor deve ser selecionado a partir de um conjunto de valores especificados.
-- Iteração: O valor deve ser selecionado a partir de um conjunto de intervalos de datas (iterações). As iterações anteriores são automaticamente marcadas como "concluídas", e a iteração que cobre o intervalo de datas atual é marcada como "atual".
+- Iteração: O valor deve ser selecionado a partir de um conjunto de intervalos de datas (iterações). As iterações anteriores são automaticamente marcadas como "concluídas", e a iteração que cobre o intervalo de datas atual é marcada como "atual". Para obter mais informações, consulte "[Gerenciando iterações nos projetos](/issues/trying-out-the-new-projects-experience/managing-iterations). "
 
 1. {% data reusables.projects.open-command-palette %} Comece a digitar qualquer parte de "Criar novo campo". Quando "Criar novo campo" for exibido na paleta de comandos, selecione-o.
 2. Como alternativa, clique em {% octicon "plus" aria-label="the plus icon" %} no cabeçalho do campo mais à direita. Será exibido um menu suspenso com os campos do projeto. Clique em **Novo campo**.
@@ -142,7 +168,9 @@ Posteriormente, você poderá editar as opções de seleção única e iteraçã
 {% data reusables.projects.project-settings %}
 1. Em **Campos**, selecione o campo que deseja editar.
 1. Para campos de seleção única, você pode adicionar, excluir ou reordenar as opções.
-2. Para campos de iteração, você pode adicionar ou excluir as iterações, alterar nomes da iteração e alterar a data e a duração de início da iteração.
+1. Para campos de iteração, você pode adicionar ou excluir as iterações, alterar nomes da iteração e alterar a data e a duração de início da iteração.
+
+   Para obter mais informações sobre como modificar campos de iteração, consulte "[Gerenciando iterações nos projetos](/issues/trying-out-the-new-projects-experience/managing-iterations).
 
 ## Personalizando as suas visualizações
 
@@ -156,15 +184,15 @@ Você pode habilitar ou desabilitar os fluxos de trabalho internos para o seu pr
 
 {% data reusables.projects.enable-basic-workflow %}
 
-## Adding your project to a repository
+## Adicionando seu projeto a um repositório
 
-You can list relevant projects in a repository. You can only list projects that are owned by the same user or organization that owns the repository.
+Você pode listar projetos relevantes em um repositório. Você só pode listar projetos que pertencem ao mesmo usuário ou organização proprietária do repositório.
 
-In order for repository members to see a project listed in a repository, they must have visibility for the project. For more information, see "[Managing the visibility of your projects (beta)](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)" and "[Managing access to projects (beta)](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)."
+Para que os participantes do repositório vejam um projeto listado em um repositório, eles deverão ter visibilidade sobre o projeto. Para obter mais informações, consulte "[Gerenciando a visibilidade dos seus projetos (beta)](/issues/trying-out-the-new-projects-experience/managing-the-visibility-of-your-projects)" e "[Gerenciando o acesso a projetos (beta)](/issues/trying-out-the-new-projects-experience/managing-access-to-projects)".
 
-1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your repository.
+1. No {% data variables.product.prodname_dotcom %}, navegue até a página principal do seu repositório.
 1. Clique em {% octicon "table" aria-label="the project icon" %} **Projetos**.
-1. Click **Projects (Beta)** in the side bar.
-1. Click **Add project**.
-1. In the search bar that appears, search for projects that are owned by the same user or organization that owns the repository.
-1. Click on a project to list it in your repository.
+1. Clique em **Projetos (Beta)** na barra lateral.
+1. Clique **Adicionar projeto**.
+1. Na barra de pesquisa que aparece, pesquise por projetos pertentencentes ao mesmo usuário ou organização proprietária do repositório.
+1. Clique em um projeto para listá-lo no seu repositório.

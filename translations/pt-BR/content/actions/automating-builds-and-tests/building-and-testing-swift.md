@@ -37,7 +37,6 @@ Recomendamos que você tenha uma compreensão básica dos pacotes Swift. Para ob
 
 Para iniciar rapidamente, adicione o fluxo de trabalho inicial para o diretório `.github/workflows` do seu repositório.
 
-{% raw %}
 ```yaml{:copy}
 name: Swift
 
@@ -49,13 +48,12 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         run: swift build
       - name: Run tests
         run: swift test
 ```
-{% endraw %}
 
 ## Especificando uma versão do Swift
 
@@ -67,7 +65,7 @@ Os exemplos abaixo demonstram o uso da ação `fwal/setup-fast`.
 
 ### Usando várias versões do Swift
 
-Você pode configurar seu trabalho para usar várias versões do Swift em uma matriz de criação.
+You can configure your job to use multiple versions of Swift in a matrix.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -88,7 +86,7 @@ jobs:
       - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         run: swift build
       - name: Run tests
@@ -114,10 +112,9 @@ steps:
 
 Você pode usar os mesmos comandos usados localmente para criar e testar seu código usando o Swift. Este exemplo demonstra como usar `swift build` e `swift test` em um trabalho:
 
-{% raw %}
 ```yaml{:copy}
 steps:
-  - uses: actions/checkout@v2
+  - uses: {% data reusables.actions.action-checkout %}
   - uses: fwal/setup-swift@2040b795e5c453c3a05fcb8316496afc8a74f192
     with:
       swift-version: "5.3.3"
@@ -126,4 +123,3 @@ steps:
   - name: Run tests
     run: swift test
 ```
-{% endraw %}

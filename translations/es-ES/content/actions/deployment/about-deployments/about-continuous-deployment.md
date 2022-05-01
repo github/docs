@@ -19,37 +19,33 @@ shortTitle: Acerca del despliegue contínuo
 
 ## Acerca del despliegue contínuo
 
-_Continuous deployment_ (CD) is the practice of using automation to publish and deploy software updates. As part of the typical CD process, the code is automatically built and tested before deployment.
+_Despliegue continuo_ (DC) es la práctica de utilizar la automatización para publicar y desplegar actualizaciones de software. Como parte del proceso habitual de DC, el código se compila y prueba automáticamente antes del despliegue.
 
-Continuous deployment is often coupled with continuous integration. Para obtener más información acerca de la integración contínua, consulta la sección "[Acerca de la Integración Contínua](/actions/guides/about-continuous-integration)".
+El despliegue continuo a menudo se empareja con una integración continua. Para obtener más información acerca de la integración contínua, consulta la sección "[Acerca de la Integración Contínua](/actions/guides/about-continuous-integration)".
 
-## About continuous deployment using {% data variables.product.prodname_actions %}
+## Acerca del despliegue continuo utilizando {% data variables.product.prodname_actions %}
 
-You can set up a {% data variables.product.prodname_actions %} workflow to deploy your software product. To verify that your product works as expected, your workflow can build the code in your repository and run your tests before deploying.
+Puedes configurar un flujo de trabajo de {% data variables.product.prodname_actions %} para desplegar tu producto de software. Para verificar que tu producto funcione conforme lo esperado, este puede compilar el código en tu repositorio y ejecutar tus pruebas antes del despliegue.
 
-Puedes configurar tu flujo de trabajo de DC para que se ejecute cuando ocurra un evento de {% data variables.product.product_name %} (por ejemplo, cuando se sube código nuevo a la rama predeterminada de tu repositorio), en un horario establecido o cuando ocurre un evento externo que utilice el webhook de despacho. For more information about when your workflow can run, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
+Puedes configurar tu flujo de trabajo de DC para que se ejecute cuando ocurra un evento de {% data variables.product.product_name %} (por ejemplo, cuando se sube código nuevo a la rama predeterminada de tu repositorio), en un horario establecido o cuando ocurre un evento externo que utilice el webhook de despacho. Para obtener más información sobre cuándo puede ejecutarse tu flujo de trabajo, consulta la sección "[Eventos que activan flujos de trabajo](/actions/reference/events-that-trigger-workflows)".
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-{% data variables.product.prodname_actions %} provides features that give you more control over deployments. For example, you can use environments to require approval for a job to proceed, restrict which branches can trigger a workflow, or limit access to secrets. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}You can use concurrency to limit your CD pipeline to a maximum of one in-progress deployment and one pending deployment. {% endif %}Para obtener más información sobre estas características, consulta las secciones "[Desplegar con GitHub Actions](/actions/deployment/deploying-with-github-actions)" y "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".{% endif %}
+{% data variables.product.prodname_actions %} Proporciona características que te dan más control sobre los despliegues. Por ejemplo, puedes utilizar ambientes para requerir aprobaciones para que proceda un job, restringir que ramas pueden activar un flujo de trabajo o limitar el acceso a los secretos. {% ifversion fpt or ghae or ghes > 3.1 or ghec %}Puedes utilizar la concurrencia para limitar tu mapa de DC a un máximo de un despliegue en curso y uno pendiente. {% endif %}Para obtener más información sobre estas características, consulta las secciones "[Desplegar con las Github Actions](/actions/deployment/deploying-with-github-actions)" y "[Utilizar ambientes para despliegue](/actions/deployment/using-environments-for-deployment)".
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
-## Using OpenID Connect to access cloud resources
+## Utilizar OpenID Connect para acceder a los recursos en la nube
 
 {% data reusables.actions.about-oidc-short-overview %}
 
 {% endif %}
 
-## Starter workflows and third party actions
+## Flujos de trabajo iniciales y acciones de terceros
 
 {% data reusables.actions.cd-templates-actions %}
 
-{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
-
 ## Leer más
 
-- [Deploying with GitHub Actions](/actions/deployment/deploying-with-github-actions)
+- [Desplegar con GitHub Actions](/actions/deployment/deploying-with-github-actions)
 - [Utilizar ambientes para desplegue](/actions/deployment/using-environments-for-deployment){% ifversion fpt or ghec %}
 - "[Administrar la facturación para las {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions)"{% endif %}
 
-{% endif %}

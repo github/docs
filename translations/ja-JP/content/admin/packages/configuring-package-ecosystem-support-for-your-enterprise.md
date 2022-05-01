@@ -19,7 +19,6 @@ shortTitle: Configure package ecosystems
 
 新しいパッケージがアップロードされないようにするには、以前に有効にしたエコシステムを**読み取り専用**に設定し、既存のパッケージをダウンロードできるようにします。
 
-
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
@@ -29,7 +28,7 @@ shortTitle: Configure package ecosystems
 ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion ghes = 3.0 or ghes > 3.0 %}
+{% ifversion ghes %}
 ## 公式 npm レジストリに接続する
 
 Enterprise で npm パッケージを有効にしていて、公式の npm レジストリと {% data variables.product.prodname_registry %} npm レジストリへのアクセスを許可する場合は、追加の設定を実行する必要があります。

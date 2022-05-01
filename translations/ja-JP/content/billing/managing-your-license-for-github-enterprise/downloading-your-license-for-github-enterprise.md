@@ -24,8 +24,10 @@ You must have an enterprise account on {% data variables.product.prodname_dotcom
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. 左のサイドバーで、** Enterprise licensing（Enterpriseライセンス）**をクリックしてください。 ![[Enterprise account settings] サイトバーの "Enterprise licensing"](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-1. [Enterprise Server Instances] で、{% octicon "download" aria-label="The download icon" %} をクリックしてライセンスファイルをダウンロードします。 ![GitHub Enterprise Server ライセンスをダウンロードする](/assets/images/help/business-accounts/download-ghes-license.png)
+1. In the left sidebar, click **Enterprise licensing**.
+  !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+1. Under "Enterprise Server Instances", click {% octicon "download" aria-label="The download icon" %} to download your license file.
+  ![Download GitHub Enterprise Server license](/assets/images/help/business-accounts/download-ghes-license.png)
 
 After you download your license file, you can upload the file to {% data variables.product.product_location_enterprise %} to validate your application. For more information, see {% ifversion ghec %}"[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)" in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}"[Uploading a new license to {% data variables.product.prodname_ghe_server %}](/enterprise-server/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% endif %}
 

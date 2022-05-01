@@ -9,7 +9,6 @@ redirect_from:
   - /articles/removing-yourself-from-a-collaborators-repository
   - /github/setting-up-and-managing-your-github-user-account/removing-yourself-from-a-collaborators-repository
   - /github/setting-up-and-managing-your-github-user-account/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository
-product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -21,7 +20,11 @@ topics:
 shortTitle: Remove yourself
 ---
 
-{% data reusables.user_settings.access_settings %}
+{% data reusables.user-settings.access_settings %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+2. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "repo" aria-label="The repo icon" %} Repositories**.
+{% else %}
 2. 左のサイドバーで [**Repositories**] をクリックします。 ![[Repositories] タブ](/assets/images/help/settings/settings-sidebar-repositories.png)
+{% endif %}
 3. 離脱するリポジトリの横にある [**Leave**] をクリックします。 ![[Leave] ボタン](/assets/images/help/repository/repo-leave.png)
 4. 警告をよく読んでから [I understand, leave this repository.] をクリックします。 ![本当に離脱してよいか確認を促すダイアログボックス](/assets/images/help/repository/repo-leave-confirmation.png)

@@ -5,7 +5,7 @@ intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to comp
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
@@ -53,7 +53,7 @@ These examples also assume that the {% data variables.product.prodname_codeql_cl
 
 In these examples, a {% data variables.product.prodname_dotcom %} token with suitable scopes is stored in the `$TOKEN` environment variable and passed to the example commands via `stdin`, or is stored in the `$GITHUB_TOKEN` environment variable.
 
-The ref name and commit SHA being checked out and analyzed in these examples are known during the workflow. For a branch, use `refs/heads/BRANCH-NAME` as the ref. For the head commit of a pull request, use `refs/pulls/NUMBER/head`. For a {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request, use `refs/pulls/NUMBER/merge`. The examples below all use `refs/heads/main`. If you use a different branch name, you must modify the sample code.
+The ref name and commit SHA being checked out and analyzed in these examples are known during the workflow. For a branch, use `refs/heads/BRANCH-NAME` as the ref. For the head commit of a pull request, use `refs/pull/NUMBER/head`. For a {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request, use `refs/pull/NUMBER/merge`. The examples below all use `refs/heads/main`. If you use a different branch name, you must modify the sample code.
 
 ### Single non-compiled language (JavaScript)
 

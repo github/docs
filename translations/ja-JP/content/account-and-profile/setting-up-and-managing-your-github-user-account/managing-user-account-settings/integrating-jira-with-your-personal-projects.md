@@ -1,6 +1,6 @@
 ---
 title: JIRA を個人プロジェクトに統合する
-intro: Jira Cloud をユーザ アカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。
+intro: 'You can integrate Jira Cloud with your personal account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues.'
 redirect_from:
   - /articles/integrating-jira-with-your-personal-projects
   - /github/setting-up-and-managing-your-github-user-account/integrating-jira-with-your-personal-projects
@@ -11,16 +11,16 @@ versions:
 shortTitle: Integrate Jira with projects
 ---
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.developer_settings %}
-3. 左のサイドバーで**{% data variables.product.prodname_oauth_apps %}**をクリックしてください。 ![左のサイドバーの{% data variables.product.prodname_oauth_apps %}タブ](/assets/images/help/settings/developer-settings-oauth-apps.png)
-3. [**Register a new application**] をクリックします。
-4. [**Application name**] に "Jira" と入力します。
-5. [**Homepage URL**] に、JIRA インスタンスの完全な URL を入力します。
-6. [**Authorization callback URL**] に、JIRA インスタンスの完全な URL を入力します。
-7. **Register application** をクリックする。 ![[Register application] ボタン](/assets/images/help/oauth/register-application-button.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.oauth_apps %}
+1. [**Register a new application**] をクリックします。
+2. [**Application name**] に "Jira" と入力します。
+3. [**Homepage URL**] に、JIRA インスタンスの完全な URL を入力します。
+4. [**Authorization callback URL**] に、JIRA インスタンスの完全な URL を入力します。
+5. **Register application** をクリックする。 ![[Register application] ボタン](/assets/images/help/oauth/register-application-button.png)
 8. [**Developer applications**] で、[Client ID] と [Client Secret] の値を確認します。 ![クライアント ID とクライアントシークレット](/assets/images/help/oauth/client-id-and-secret.png)
-{% data reusables.user_settings.jira_help_docs %}
+{% data reusables.user-settings.jira_help_docs %}
 
 ## 参考リンク
 

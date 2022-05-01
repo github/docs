@@ -60,4 +60,4 @@ OAuth AppよりもGitHub Appを作成することをおすすめします。 {% 
 
 プロダクションインフラストラクチャーの定期的な脆弱性スキャンを行わなければなりません。 脆弱性スキャンの結果をトリアージし、脆弱性の修正までの期間を定義して同意しなければなりません。
 
-完全な脆弱性管理のプログラムをセットアップする準備ができていない場合は、パッチ適用のプロセスを作成することから始めると役立ちます。 パッチ管理ポリシーを作成するためのガイダンスとしては、TechRepublicの記事「[Establish a patch management policy](https://www.techrepublic.com/blog/it-security/establish-a-patch-management-policy-87756/)」を参照してください。
+完全な脆弱性管理のプログラムをセットアップする準備ができていない場合は、パッチ適用のプロセスを作成することから始めると役立ちます。 パッチ管理ポリシーを作成するためのガイダンスとしては、TechRepublicの記事「[Establish a patch management policy](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/)」を参照してください。

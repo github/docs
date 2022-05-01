@@ -80,3 +80,7 @@ Si tu aparato {% data variables.product.prodname_ghe_server %} interactúa con o
   ```shell
   $ ghe-ssl-ca-certificate-install -c rootCA.crt
   ```
+
+## Actualizar un certificado SSL
+
+Puedes generar un certificado auto-firmado nuevo o actualizar un certificado SSL para {% data variables.product.product_location %} con la utilidad de línea de comandos `ghe-ssl-certificate-setup`. Para obtener más información, consulta la sección "[Utilidades de línea de comandos](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-setup)".

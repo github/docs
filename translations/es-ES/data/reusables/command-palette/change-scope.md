@@ -1,5 +1,5 @@
-1. Optionally, narrow, expand, or completely change the scope for suggestions by editing the path in the command palette's text field.
+1. Opcionalmente, reduce, expande o cambia completamente el alcance de las sugerencias editando la ruta en el campo de texto de la paleta de comandos.
 
-   - To narrow the scope within a user or organization account, highlight a repository then use <kbd>Tab</kbd> to add it to the scope.
-   - To expand the scope, highlight and remove an item in the scope using the <kbd>Backspace</kbd> or <kbd>delete</kbd> key.
-   - To clear the scope and text box, click **Clear** or use <kbd>Ctrl</kbd><kbd>Backspace</kbd> (Windows and Linux) or <kbd>⌘</kbd><kbd>Backspace</kbd> (Mac).
+   - Para reducir el alcance dentro de una cuenta de usuario u organización, resalta el repositorio y luego utiliza <kbd>Tab</kbd> para agregarlo al alcance.
+   - Para expandir el alcance, resalta y retira un elemento en este utilizando la tecla <kbd>Backspace</kbd> o <kbd>delete</kbd>.
+   - Para limpiar las cajas de texto y de alcance, haz clic en **Limpiar** o utiliza <kbd>Ctrl</kbd><kbd>Backspace</kbd> (Windows y Linux) o <kbd>⌘</kbd><kbd>Backspace</kbd> (Mac).

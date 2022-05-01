@@ -22,7 +22,6 @@ topics:
   - Repositories
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 
@@ -75,10 +74,17 @@ Se você tiver permissão de gravação para o repositório, algumas anotações
 
 Para ver mais informações sobre um alerta, os usuários com permissão de gravação podem clicar no link **Mostrar mais detalhes**, exibido na anotação. Isso permite que você veja todos os contextos e metadados fornecidos pela ferramenta em uma exibição de alerta. No exemplo abaixo, você pode ver tags que mostram a gravidade, o tipo e as enumerações de fraquezas comuns relevantes (CWEs) para o problema. A vista mostra também quais commits introduziram o problema.
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
+{% data reusables.code-scanning.alert-default-branch %}
+{% endif %}
+
 Na visualização detalhada de um alerta, algumas ferramentas de {% data variables.product.prodname_code_scanning %}, como a análise de {% data variables.product.prodname_codeql %} também incluem uma descrição do problema e um link **Mostrar mais** para obter orientações sobre como corrigir seu código.
 
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6249 %}
 ![Descrição do alerta e link para mostrar mais informações](/assets/images/help/repository/code-scanning-pr-alert.png)
-
+{% else %}
+![Descrição do alerta e link para mostrar mais informações](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
+{% endif %}
 ## Corrigir de um alerta no seu pull request
 
 Qualquer pessoa com acesso push a um pull request pode corrigir um alerta de {% data variables.product.prodname_code_scanning %} que seja identificado nesse pull request. Se você fizer commit de alterações na solicitação do pull request, isto acionará uma nova execução das verificações do pull request. Se suas alterações corrigirem o problema, o alerta será fechado e a anotação removida.
@@ -93,4 +99,4 @@ Uma forma alternativa de fechar um alerta é ignorá-lo. Você pode descartar um
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-Para obter mais informações sobre alertas ignorados, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)".
+Para obter mais informações sobre ignorar alertas, consulte {% if delete-code-scanning-alerts %}"[Gerenciando alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts).{% else %} "[Gerenciando alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)".{% endif %}

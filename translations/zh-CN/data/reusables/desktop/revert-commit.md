@@ -1,1 +1,1 @@
-1. 右键单击要还原的提交，然后单击 **Revert This Commit（还原此提交）**。
+1. Right-click the commit you want to revert and click **Revert Changes in Commit**.

@@ -107,7 +107,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-La próxima vez que ejecutes `git`, `git pull` o `git push` en el repositorio remoto, se te pedirá el nombre de usuario y la contraseña de GitHub. {% data reusables.user_settings.password-authentication-deprecation %}
+La próxima vez que ejecutes `git`, `git pull` o `git push` en el repositorio remoto, se te pedirá el nombre de usuario y la contraseña de GitHub. {% data reusables.user-settings.password-authentication-deprecation %}
 
 Puedes [utilizar un ayudante de credenciales](/github/getting-started-with-github/caching-your-github-credentials-in-git) para que Git recuerde tu nombre de usuario y token de acceso personal cada vez que se comunique con GitHub.
 
@@ -195,6 +195,8 @@ Utiliza el comando `git remote rm` para eliminar una URL remota de tu repositori
 El comando `git remote rm` toma un argumento:
 * El nombre de un remoto, por ejemplo `destination` (destino)
 
+El eliminar la URL remota de tu repositorio únicamente desenlazará los repositorios remoto y local. Esto no borra el repositorio remoto.
+
 ## Ejemplo
 
 Estos ejemplos asumen que estás[clonando con HTTPS](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls), lo cual se recomienda.
@@ -217,7 +219,7 @@ $ git remote -v
 
 {% warning %}
 
-**Nota**: `git remote rm` no elimina el repositorio remoto del servidor.  Simplemente, elimina de tu repositorio local el remoto y sus referencias.
+**Nota**: `git remote rm` no borra el repositorio remoto del servidor.  Simplemente, elimina de tu repositorio local el remoto y sus referencias.
 
 {% endwarning %}
 

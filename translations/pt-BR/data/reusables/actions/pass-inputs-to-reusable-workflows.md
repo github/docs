@@ -1,4 +1,4 @@
-To pass named inputs to a called workflow, use the `with` keyword in a job. Use a palavra-chave `segredos` para passar segredos nomeados. For inputs, the data type of the input value must match the type specified in the called workflow (either boolean, number, or string).
+Para passar entradas de nome para um fluxo de trabalho chamado, use a palavra-chave `com` em um trabalho. Use a palavra-chave `segredos` para passar segredos nomeados. Para entradas, o tipo de dado do valor de entrada deve corresponder ao tipo especificado no fluxo de trabalho chamado (booleano, número ou string).
 
 {% raw %}
 ```yaml

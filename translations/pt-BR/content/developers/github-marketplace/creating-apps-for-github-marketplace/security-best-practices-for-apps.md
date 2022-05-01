@@ -60,4 +60,4 @@ Para obter um exemplo de um fluxo de trabalho de resposta de incidente, consulte
 
 Você deveria realizar varreduras regulares de vulnerabilidades de infraestrutura de produção. Você deve classificar os resultados de verificações de vulnerabilidades e definir um período de tempo no qual você concorda em remediar a vulnerabilidade.
 
-Se você não estiver pronto para criar um programa completo de gerenciamento de vulnerabilidades, é importante começar criando um processo de patching. Para obter orientações sobre a criação de uma política de gerenciamento de correções, consulte este artigo da TechRepublic "[Estabeleça uma política de gerenciamento de patch](https://www.techrepublic.com/blog/it-security/establish-a-patch-management-policy-87756/)".
+Se você não estiver pronto para criar um programa completo de gerenciamento de vulnerabilidades, é importante começar criando um processo de patching. Para obter orientações sobre a criação de uma política de gerenciamento de correções, consulte este artigo da TechRepublic "[Estabeleça uma política de gerenciamento de patch](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/)".

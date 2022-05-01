@@ -1,6 +1,6 @@
 ---
 title: Organization へのアクセス
-intro: 自分がメンバーになっている Organization にアクセスするには、個人ユーザアカウントにサインインしなければなりません。
+intro: 'To access an organization that you''re a member of, you must sign in to your personal account.'
 redirect_from:
   - /articles/error-cannot-log-in-that-account-is-an-organization
   - /articles/cannot-log-in-that-account-is-an-organization
@@ -24,4 +24,4 @@ topics:
 {% endtip %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}

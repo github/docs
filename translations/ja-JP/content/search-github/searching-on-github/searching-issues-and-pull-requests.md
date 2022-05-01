@@ -103,18 +103,18 @@ shortTitle: Search issues & PRs
 
 `mentions` 修飾子は、特定のユーザーにメンションしている Issue を表示します。 詳細は「[人およびチームにメンションする](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)」を参照してください。
 
-| 修飾子                       | サンプル                                                                                                                                                  |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>mentions:<em>USERNAME</em></code> | [**resque mentions:defunkt**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) は、@defunkt にメンションしている「resque」という単語がある Issue にマッチします。 |
+| 修飾子                       | サンプル                                                                                                                                                            |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>mentions:<em>USERNAME</em></code> | [**`resque mentions:defunkt`**](https://github.com/search?q=resque+mentions%3Adefunkt&type=Issues) matches issues with the word "resque" that mention @defunkt. |
 
 ## Team メンションで検索
 
 あなたが属する Organization および Team について、 `team` 修飾子により、Organization 内の一定の Team に @メンションしている Issue またはプルリクエストを表示します。 検索を行うには、これらのサンプルの名前をあなたの Organization および Team の名前に置き換えてください。
 
-| 修飾子                       | サンプル                                                                                 |
-| ------------------------- | ------------------------------------------------------------------------------------ |
-| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **team:jekyll/owners** は、`@jekyll/owners` Team がメンションされている Issue にマッチします。            |
-|                           | **team:myorg/ops is:open is:pr** は、`@myorg/ops` Team がメンションされているオープンなプルリクエストにマッチします。 |
+| 修飾子                       | サンプル                                                                                  |
+| ------------------------- | ------------------------------------------------------------------------------------- |
+| <code>team:<em>ORGNAME/TEAMNAME</em></code> | **`team:jekyll/owners`** matches issues where the `@jekyll/owners` team is mentioned. |
+|                           | **team:myorg/ops is:open is:pr** は、`@myorg/ops` Team がメンションされているオープンなプルリクエストにマッチします。  |
 
 ## コメントした人で検索
 
@@ -176,7 +176,7 @@ shortTitle: Search issues & PRs
 
 ## コミットステータスで検索
 
-コミットのステータスでプルリクエストをフィルタリングできます。 This is especially useful if you are using [the Status API](/rest/reference/repos#statuses) or a CI service.
+コミットのステータスでプルリクエストをフィルタリングできます。 This is especially useful if you are using [the Status API](/rest/reference/commits#commit-statuses) or a CI service.
 
 | 修飾子              | サンプル                                                                                                                                                                                                                     |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -293,17 +293,17 @@ shortTitle: Search issues & PRs
 
 | 修飾子                        | サンプル                                                                                                                                                                                                                     |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <code>merged:<em>YYYY-MM-DD</em></code> | [**language:javascript merged:<2011-01-01**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) は、2011 年より前にマージされた JavaScript のリポジトリにあるプルリクエストにマッチします。                               |
+| <code>merged:<em>YYYY-MM-DD</em></code> | [**`language:javascript merged:<2011-01-01`**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.  |
 |                            | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues)は、2014 年 5 月以降にマージされた、タイトルに「fast」という単語がある Ruby のプルリクエストにマッチします。 |
 
 ## プルリクエストがマージされているかどうかで検索
 
 `is` 修飾子を使って、マージされたかどうかでプルリクエストをフィルタリングできます。
 
-| 修飾子           | サンプル                                                                                                                                               |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `is:merged`   | [**bugfix is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) は、「bugfix」という単語がある、マージされたプルリクエストにマッチします。 |
-| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) は、「error」という単語がある、クローズされた Issue およびプルリクエストにマッチします。   |
+| 修飾子           | サンプル                                                                                                                                                     |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) matches merged pull requests with the word "bug." |
+| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) は、「error」という単語がある、クローズされた Issue およびプルリクエストにマッチします。         |
 
 ## リポジトリがアーカイブされているかどうかで検索
 

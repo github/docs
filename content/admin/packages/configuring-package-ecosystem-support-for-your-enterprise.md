@@ -19,7 +19,6 @@ shortTitle: Configure package ecosystems
 
 To prevent new packages from being uploaded, you can set an ecosystem you previously enabled to **Read-Only**, while still allowing existing packages to be downloaded.
 
-
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
@@ -28,7 +27,7 @@ To prevent new packages from being uploaded, you can set an ecosystem you previo
   ![Ecosystem toggles](/assets/images/enterprise/3.1/site-admin-settings/ecosystem-toggles.png){% endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion ghes = 3.0 or ghes > 3.0 %}
+{% ifversion ghes %}
 ## Connecting to the official npm registry
 
 If you've enabled npm packages on your enterprise and want to allow access to the official npm registry as well as the {% data variables.product.prodname_registry %} npm registry, then you must perform some additional configuration.

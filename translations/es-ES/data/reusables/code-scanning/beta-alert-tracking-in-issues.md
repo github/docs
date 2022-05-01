@@ -1,8 +1,8 @@
-{% ifversion fpt or ghes > 3.3 or ghae-issue-5036 %}
+{% if code-scanning-task-lists %}
 
 {% note %}
 
-**Note:** The tracking of {% data variables.product.prodname_code_scanning %} alerts in issues is in beta and subject to change.
+**Nota:** El rastreo de las alertas del {% data variables.product.prodname_code_scanning %} se encuentra en beta y está sujeto a cambios.
 
 Esta característica es compatible con la ejecución nativa de análisis utilizando {% data variables.product.prodname_actions %} o externamente utilizando infraestructura de IC/DC, así como herramientas del {% data variables.product.prodname_code_scanning %} de terceros, pero _no_ de herramientas de rastreo de terceros.
 

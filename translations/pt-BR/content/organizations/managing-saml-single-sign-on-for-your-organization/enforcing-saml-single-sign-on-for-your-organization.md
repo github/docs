@@ -14,13 +14,15 @@ shortTitle: Aplicar logon único SAML
 
 ## Sobre a aplicação do SAML SSO para sua organização
 
-Ao habilitar o SAML SSO, {% data variables.product.prodname_dotcom %} solicitará que os integrantes que visitam os recursos da organização em {% data variables.product.prodname_dotcom_the_website %} efetuem a autenticação no seu IdP, que vincula a conta de usuário do integrante a uma identidade no IdP. Os integrantes ainda podem acessar os recursos da organização antes da autenticação com seu IdP.
+When you enable SAML SSO, {% data variables.product.prodname_dotcom %} will prompt members who visit the organization's resources on {% data variables.product.prodname_dotcom_the_website %} to authenticate on your IdP, which links the member's personal account to an identity on the IdP. Os integrantes ainda podem acessar os recursos da organização antes da autenticação com seu IdP.
 
 ![Banner com solicitação para efetuar a autenticação por meio do SAML SSO para acessar a organização](/assets/images/help/saml/sso-has-been-enabled.png)
 
 Você também pode aplicar SAML SSO para a sua organização. {% data reusables.saml.when-you-enforce %} Aplicação remove todos os integrantes e administradores que não tenham efetuado a autenticação por meio do seu IdP da organização. {% data variables.product.company_short %} envia uma notificação de email para cada usuário removido.
 
-{% data reusables.saml.removed-users-can-rejoin %} If a user rejoins the organization within three months, the user's access privileges and settings will be restored. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
+{% data reusables.saml.ghec-only %}
+
+{% data reusables.saml.removed-users-can-rejoin %} Se um usuário juntar-se à organização em três meses, os privilégios e configurações de acesso do usuário serão restaurados. Para obter mais informações, consulte "[Restabelecer ex-integrantes da organização](/articles/reinstating-a-former-member-of-your-organization)".
 
 As contas de bots e serviços que não têm identidades externas configuradas no IdP da sua organização também serão removidas quando você aplicar o SAML SSO. Para obter mais informações sobre bots e contas de serviço, consulte "[Gerenciar bots e contas de serviço com logon único SAML](/articles/managing-bots-and-service-accounts-with-saml-single-sign-on)".
 

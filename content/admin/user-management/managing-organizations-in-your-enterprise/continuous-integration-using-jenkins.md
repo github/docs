@@ -7,6 +7,7 @@ redirect_from:
   - /admin/user-management/continuous-integration-using-jenkins
 versions:
   ghes: '*'
+  ghae: '*'
 type: reference
 topics:
   - CI

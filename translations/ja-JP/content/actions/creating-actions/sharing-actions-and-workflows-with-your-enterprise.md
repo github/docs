@@ -10,12 +10,6 @@ topics:
 shortTitle: Share with your enterprise
 ---
 
-{% note %}
-
-**Note:** Allowing workflows to access actions in internal repositories is currently in beta and subject to change.
-
-{% endnote %}
-
 ## About {% data variables.product.prodname_actions %} access to internal repositories
 
 If your organization is owned by an enterprise account, you can share actions and workflows within your enterprise, without publishing the action or workflow publicly, by allowing {% data variables.product.prodname_actions %} workflows to access an internal repository that contains the action or workflow.
@@ -31,7 +25,7 @@ Any actions or workflows stored in the internal repository can be used in workfl
 ## Sharing actions and workflows with your enterprise
 
 1. Store the action or workflow in an internal repository. For more information, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-internal-repositories)."
-1. Configure the repository to allow access to workflows in other private and internal repositories. For more information, see "[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."
+1. Configure the repository to allow access to workflows in other private and internal repositories. 詳しい情報については、「[リポジトリの {% data variables.product.prodname_actions %} 設定の管理](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)」を参照してください。
 
 ## 参考リンク
 

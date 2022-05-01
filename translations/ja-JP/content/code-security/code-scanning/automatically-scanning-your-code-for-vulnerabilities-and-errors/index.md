@@ -16,6 +16,7 @@ topics:
   - Code scanning
 children:
   - /about-code-scanning
+  - /about-code-scanning-alerts
   - /triaging-code-scanning-alerts-in-pull-requests
   - /setting-up-code-scanning-for-a-repository
   - /managing-code-scanning-alerts-for-your-repository
@@ -28,4 +29,4 @@ children:
   - /running-codeql-code-scanning-in-a-container
   - /viewing-code-scanning-logs
 ---
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+

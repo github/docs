@@ -19,12 +19,12 @@ permissions:
 jobs:
   first-responder-triage-pr:
     name: Triage PR to FR project board
-    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed'
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed' && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         id: set-result
         with:
           github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
@@ -66,12 +66,12 @@ jobs:
 
   first-responder-remove-pr:
     name: Remove PR from FR project board
-    if: github.repository == 'github/docs-internal' && ((github.event.label.name == 'docs-content-fr' && github.event.action == 'unlabeled') || github.event.action == 'closed')
+    if: github.repository == 'github/docs-internal' && ((github.event.label.name == 'docs-content-fr' && github.event.action == 'unlabeled') || github.event.action == 'closed') && github.actor != 'dependabot[bot]'
     runs-on: ubuntu-latest
 
     steps:
       - name: Remove card from project
-        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
           result-encoding: string

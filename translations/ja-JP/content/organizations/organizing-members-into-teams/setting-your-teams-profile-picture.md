@@ -19,7 +19,7 @@ shortTitle: Teamプロフィールの画像
 Team のプロフィール画像を設定しない場合、Team プロフィール画像は Organization のプロフィール画像と同じになります。
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. [**Upload new picture**] をクリックして、お好みのプロフィール画像を選択してください。 ![Upload new picture](/assets/images/help/teams/org-team-profile-picture-upload.png)

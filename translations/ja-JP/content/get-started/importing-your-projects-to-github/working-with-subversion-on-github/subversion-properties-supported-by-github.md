@@ -12,15 +12,15 @@ versions:
 shortTitle: Properties supported by GitHub
 ---
 
-## Executable ファイル (svn:executable)
+## Executable files (`svn:executable`)
 
 Git リポジトリに追加する前に、ファイルモードを直接更新することで、`svn:executable` プロパティを変換します。
 
-## MIME タイプ (svn:mime-type)
+## MIME types (`svn:mime-type`)
 
 {% data variables.product.product_name %}は、ファイルの MIME タイププロパティ、およびそれを追加したコミットを追跡します。
 
-## バージョンのないアイテムを無視する (svn:ignore)
+## Ignoring unversioned items (`svn:ignore`)
 
 Subversion で無視されるようにファイルとディレクトリを設定している場合、{% data variables.product.product_name %} はそれらを内部的に追跡します。 Subversion のクライアントで無視されたファイルは、*.gitignore* ファイルのエントリとは全く別のものです。
 

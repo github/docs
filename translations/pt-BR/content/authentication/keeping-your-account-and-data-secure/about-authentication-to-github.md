@@ -34,7 +34,7 @@ Você pode efetuar a autenticação no {% data variables.product.product_name %}
 {% endif %}
 
 - **Apenas nome de usuário e senha**
-    - Você criará uma senha ao criar sua conta de usuário em {% data variables.product.product_name %}. Recomendamos que você use um gerenciador de senhas para gerar uma senha aleatória e única. Para obter mais informações, consulte "[Criar uma senha forte](/github/authenticating-to-github/creating-a-strong-password)".
+    - Você irá definir uma senha ao criar sua conta pessoal em {% data variables.product.product_name %}. Recomendamos que você use um gerenciador de senhas para gerar uma senha aleatória e única. Para obter mais informações, consulte "[Criar uma senha forte](/github/authenticating-to-github/creating-a-strong-password)".
 - **Autenticação de dois fatores (2FA)** (recomendado)
     - Se você habilitar a 2FA, também iremos solicitar que você forneça um código gerado por um aplicativo no seu dispositivo móvel ou enviado como uma mensagem de texto (SMS) depois que você digitar seu nome de usuário e senha com sucesso. Para obter mais informações, consulte "[Acessar o {% data variables.product.prodname_dotcom %} usando a autenticação de dois fatores](/github/authenticating-to-github/accessing-github-using-two-factor-authentication#providing-a-2fa-code-when-signing-in-to-the-website)".
     - Além de autenticação com um aplicativo para celular ou uma mensagem de texto. você pode, opcionalmente, adicionar um método secundário de autenticação com uma chave de segurança usando o WebAuthn. Para obter mais informações, consulte "[Configurar a autenticação de dois fatores usando uma chave de segurança](/github/authenticating-to-github/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)".
@@ -73,7 +73,7 @@ Você pode trabalhar com todos os repositórios no {% data variables.product.pro
 
 Se você fizer a autenticação com {% data variables.product.prodname_cli %}, você poderá efetuar a autenticação com um token de acesso pessoal ou por meio do navegador web. Para mais informações sobre a autenticação com {% data variables.product.prodname_cli %}, consulte [`login gh`](https://cli.github.com/manual/gh_auth_login).
 
-Se você efetuar a autenticação sem {% data variables.product.prodname_cli %}, você deverá efetuar a autenticação com um token de acesso pessoal. {% data reusables.user_settings.password-authentication-deprecation %} Sempre que você usar o Git para efetuar a autenticação com {% data variables.product.product_name %}, será solicitado que você insira as suas credenciais para efetuar a autenticação com {% data variables.product.product_name %}, a menos que você faça o armazenamento em cache de um [auxiliar de credenciais](/github/getting-started-with-github/caching-your-github-credentials-in-git).
+Se você efetuar a autenticação sem {% data variables.product.prodname_cli %}, você deverá efetuar a autenticação com um token de acesso pessoal. {% data reusables.user-settings.password-authentication-deprecation %} Sempre que você usar o Git para efetuar a autenticação com {% data variables.product.product_name %}, será solicitado que você insira as suas credenciais para efetuar a autenticação com {% data variables.product.product_name %}, a menos que você faça o armazenamento em cache de um [auxiliar de credenciais](/github/getting-started-with-github/caching-your-github-credentials-in-git).
 
 
 

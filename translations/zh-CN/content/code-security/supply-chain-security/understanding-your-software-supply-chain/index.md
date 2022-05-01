@@ -9,10 +9,14 @@ topics:
   - Dependency graph
   - Dependencies
   - Repositories
+shortTitle: 了解供应链
 children:
+  - /about-supply-chain-security
   - /about-the-dependency-graph
-  - /exploring-the-dependencies-of-a-repository
+  - /configuring-the-dependency-graph
   - /about-dependency-review
-shortTitle: Understand your supply chain
+  - /configuring-dependency-review
+  - /exploring-the-dependencies-of-a-repository
+  - /troubleshooting-the-dependency-graph
 ---
 

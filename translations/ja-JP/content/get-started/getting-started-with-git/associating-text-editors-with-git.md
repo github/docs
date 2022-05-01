@@ -49,7 +49,7 @@ shortTitle: Associate text editors
 ## エディタとして TextMate を使う
 
 1. [TextMate](https://macromates.com/) をインストールします。
-2. TextMate の `mate` のシェルユーティリティをインストールします。 詳細は、TextMate のドキュメンテーションで「[mate と rmate](https://macromates.com/blog/2011/mate-and-rmate/)」を参照してください。
+2. TextMate の `mate` のシェルユーティリティをインストールします。 For more information, see "[`mate` and `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)" in the TextMate documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. 以下のコマンドを入力してください:
   ```shell

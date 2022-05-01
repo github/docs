@@ -22,7 +22,7 @@ topics:
 
 **メモ:** プルリクエストを使う際には以下のことを念頭に置いてください:
 * [共有リポジトリモデル](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)で作業をしている場合、プルリクエストにはトピックブランチを使うことをおすすめします。 ブランチあるいはコミットからプルリクエストを送ることもできますが、トピックブランチを使えば提案した変更を更新する必要がある場合、フォローアップのコミットをプッシュできます。
-* プルリクエストにコミットをプッシュする場合、フォースプッシュはしないでください。 Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
+* Be very careful when force pushing commits to a pull request. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
 
 {% endnote %}
 
@@ -32,7 +32,7 @@ You can create pull requests on {% data variables.product.prodname_dotcom_the_we
 
 プルリクエストを作成したら、トピックブランチからコミットをプッシュして、それらを既存のプルリクエストに追加できます。 それらのコミットは、プルリクエスト内で時系列順に表示され、変更は"Files changed（変更されたファイル）"タブで見ることができます。
 
-他のコントリビューターは、あなたが提案した変更をレビューしたり、レビューコメントを追加したり、プルリクエストのディスカッションにコントリビュートしたり、さらにはプルリクエストにコメントを追加したりできます。
+他のコントリビューターは、あなたが提案した変更をレビューしたり、レビューコメントを追加したり、プルリクエストのディスカッションにコントリビュートしたり、さらにはプルリクエストにコメントを追加したりできます。 {% if pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
 
 {% ifversion fpt or ghec %}
 [Conversation] タブで、ブランチの現在のデプロイメントステータスや過去のデプロイメントのアクティビティに関する情報を確認することができます。 詳細は「[リポジトリのデプロイメントアクティビティを表示する](/repositories/viewing-activity-and-data-for-your-repository/viewing-deployment-activity-for-your-repository)」を参照してください。

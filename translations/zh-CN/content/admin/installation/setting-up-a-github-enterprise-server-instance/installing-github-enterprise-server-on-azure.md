@@ -40,12 +40,12 @@ shortTitle: 在 Azure 上安装
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. 找到最新的 {% data variables.product.prodname_ghe_server %} 设备映像。 更多关于 `vm image list` 命令的信息，请参阅 Microsoft 文档中的“[az vm image list](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)”。
+1. 找到最新的 {% data variables.product.prodname_ghe_server %} 设备映像。 更多关于 `vm image list` 命令的信息，请参阅 Microsoft 文档中的“[`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)”。
   ```shell
   $ az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
   ```
 
-2. 使用找到的设备映像创建新的 VM。 更多信息请参阅 Microsoft 文档中的“[az vm 创建](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)”。
+2. 使用找到的设备映像创建新的 VM。 更多信息请参阅 Microsoft 文档中的“[`az vm create`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_create)”。
 
   传入以下选项：VM 名称、资源组、VM 大小、首选 Azure 地区名称、上一步中列出的设备映像 VM 的名称，以及用于高级存储的存储 SKU。 更多关于资源组的信息，请参阅 Microsoft 文档中的“[资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)”。
 
@@ -53,7 +53,7 @@ shortTitle: 在 Azure 上安装
   $ az vm create -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --size <em>VM_SIZE</em> -l <em>REGION</em> --image <em>APPLIANCE_IMAGE_NAME</em> --storage-sku Premium_LRS
   ```
 
-3. 在 VM 上配置安全设置，以打开所需端口。 更多信息请参阅 Microsoft 文档中的 "[az vm open-port](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)"。 请参阅下表中对每个端口的说明，以确定需要打开的端口。
+3. 在 VM 上配置安全设置，以打开所需端口。 更多信息请参阅 Microsoft 文档中的“[`az vm open-port`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)”。 请参阅下表中对每个端口的说明，以确定需要打开的端口。
 
   ```shell
   $ az vm open-port -n <em>VM_NAME</em> -g <em>RESOURCE_GROUP</em> --port <em>PORT_NUMBER</em>
@@ -63,7 +63,7 @@ shortTitle: 在 Azure 上安装
 
   {% data reusables.enterprise_installation.necessary_ports %}
 
-4. Create and attach a new managed data disk to the VM, and configure the size based on your license count. All Azure managed disks created since June 10, 2017 are encrypted at rest by default with Storage Service Encryption (SSE). For more information about the `az vm disk attach` command, see "[az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
+4. 创建新的未加密数据磁盘并将其附加至 VM，然后根据用户许可数配置大小。 更多信息请参阅 Microsoft 文档中的“[`az vm disk attach`](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)”。
 
   传入以下选项：VM 名称（例如 `ghe-acme-corp`）、资源组、高级存储 SKU、磁盘大小（例如 `100`）以及生成的 VHD 的名称。
 
@@ -79,7 +79,7 @@ shortTitle: 在 Azure 上安装
 
 ## 配置 {% data variables.product.prodname_ghe_server %} 虚拟机
 
-1. 在配置 VM 之前，您必须等待其进入 ReadyRole 状态。 使用 `vm list` 命令检查 VM 的状态。 更多信息请参阅 Microsoft 文档中的“[az vm 列表](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)”。
+1. 在配置 VM 之前，您必须等待其进入 ReadyRole 状态。 使用 `vm list` 命令检查 VM 的状态。 更多信息请参阅 Microsoft 文档中的“[`az vm list`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)”。
   ```shell
   $ az vm list -d -g <em>RESOURCE_GROUP</em> -o table
   > Name    ResourceGroup    PowerState    PublicIps     Fqdns    Location    Zones

@@ -1,0 +1,14 @@
+.codeBlock {
+  max-height: 32rem;
+  overflow: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.45;
+  background-color: var(--color-canvas-subtle);
+  white-space: pre-wrap;
+  word-break: break-all;
+
+  code {
+    background-color: transparent;
+  }
+}

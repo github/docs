@@ -1,7 +1,7 @@
 ---
-title: About ticket priority
-intro: You can communicate the severity of your issue and how it is affecting you and your team by setting the priority of your support ticket.
-shortTitle: Ticket priority
+title: Sobre a prioridade do tíquete
+intro: 'Você pode comunicar a gravidade do seu problema e como ele está afetando você e sua equipe, definindo a prioridade do seu tíquete de suporte.'
+shortTitle: Prioridade to tíquete
 versions:
   ghec: '*'
   ghes: '*'
@@ -10,7 +10,7 @@ topics:
   - Support
 ---
 
-When you contact {% data variables.contact.enterprise_support %}, you can choose one of {% ifversion ghes or ghae %}four{% else %}three{% endif %} priorities for the ticket: {% ifversion ghes or ghae %}{% data variables.product.support_ticket_priority_urgent %},{% endif %} {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %}, or {% data variables.product.support_ticket_priority_low %}.
+Ao entrar em contato com {% data variables.contact.enterprise_support %}, você pode escolher {% ifversion ghes or ghae %}four{% else %}três{% endif %} prioridades de tíquete: {% ifversion ghes or ghae %}{% data variables.product.support_ticket_priority_urgent %},{% endif %} {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} ou {% data variables.product.support_ticket_priority_low %}.
 
 {% ifversion ghes or ghae %}
 
@@ -18,11 +18,11 @@ When you contact {% data variables.contact.enterprise_support %}, you can choose
 
 {% ifversion ghes %}
 
-## Ticket priority for {% data variables.product.prodname_ghe_server %}
+## Prioridade do tíquete para {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.support.ghes-priorities %}
 
-## Ticket priority for {% data variables.product.prodname_advanced_security %}
+## Prioridade do tíquete para {% data variables.product.prodname_advanced_security %}
 
 |                          Prioridade                           | Descrição                                                                                                                                                                                                                                             |
 |:-------------------------------------------------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,7 +57,7 @@ Para se qualificar para uma resposta prioritária, você deve:
 
 {% note %}
 
-**Note:** Questions do not qualify for a priority response if they are submitted on a local holiday in your jurisdiction.
+**Observação:** As perguntas não se qualificam para uma resposta prioritária se forem enviadas em um feriado local na sua jurisdição.
 
 {% endnote %}
 
@@ -76,4 +76,4 @@ O tempo alvo de oito horas para respostas:
 
 ## Leia mais
 
-- "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)"
+- "[Criando um ticket de suporte](/support/contacting-github-support/creating-a-support-ticket)"

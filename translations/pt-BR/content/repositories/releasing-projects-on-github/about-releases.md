@@ -37,30 +37,22 @@ Você pode receber notificações quando novas versões são publicadas em um re
 Qualquer pessoa com acesso de leitura a um repositório pode ver e comparar versões, mas somente pessoas com permissões de gravação a um repositório podem gerenciar versões. Para obter mais informações, consulte "[Gerenciando versões em um repositório](/github/administering-a-repository/managing-releases-in-a-repository)."
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4974 %}
-
 Você pode criar notas de versão manualmente enquanto gerencia uma versão. Como alternativa, você pode gerar automaticamente notas de versão a partir de um modelo padrão, ou personalizar seu próprio modelo de notas de versão. Para obter mais informações, consulte "[Notas de versão geradas automaticamente](/repositories/releasing-projects-on-github/automatically-generated-release-notes)".
-
-Pessoas com permissões de administrador para um repositório podem escolher se objetos {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) estão incluídos nos arquivos ZIP e tarballs que {% data variables.product.product_name %} cria para cada versão. Para obter mais informações, consulte "
-
-[Gerenciando {% data variables.large_files.product_name_short %} objetos nos arquivos de seu repositório](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)". </p> 
-
 {% endif %}
 
 {% ifversion fpt or ghec %}
+Pessoas com permissões de administrador para um repositório podem escolher se objetos {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) estão incluídos nos arquivos ZIP e tarballs que {% data variables.product.product_name %} cria para cada versão. Para obter mais informações, consulte "[Gerenciando objetos de {% data variables.large_files.product_name_short %} nos arquivos do seu repositório](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)".
 
 Se uma versão consertar uma vulnerabilidade de segurança, você deverá publicar uma consultoria de segurança no seu repositório. {% data variables.product.prodname_dotcom %} revisa a cada consultoria de segurança publicado e pode usá-lo para enviar {% data variables.product.prodname_dependabot_alerts %} para repositórios afetados. Para obter mais informações, consulte "[Sobre as consultorias de segurança do GitHub](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
-Você pode visualizar a aba **Dependentes** do gráfico de dependências para ver quais repositórios e pacotes dependem do código no repositório e pode, portanto, ser afetado por uma nova versão. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)". 
-
+Você pode visualizar a aba **Dependentes** do gráfico de dependências para ver quais repositórios e pacotes dependem do código no repositório e pode, portanto, ser afetado por uma nova versão. Para obter mais informações, consulte "[Sobre o gráfico de dependência](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 {% endif %}
 
 Você também pode usar a API de Releases para reunir informações, tais como o número de vezes que as pessoas baixam um ativo de versão. Para obter mais informações, consulte "[Versões](/rest/reference/repos#releases)".
 
 {% ifversion fpt or ghec %}
-
-
 ## Cotas de armazenamento e banda
 
-Cada arquivo incluído em uma versão deve ser inferior a {% data variables.large_files.max_file_size %}. Não há limite para o tamanho total de uma versão, nem uso de largura de banda.
+ Cada arquivo incluído em uma versão deve ser inferior a {% data variables.large_files.max_file_size %}. Não há limite para o tamanho total de uma versão, nem uso de largura de banda.
 
 {% endif %}

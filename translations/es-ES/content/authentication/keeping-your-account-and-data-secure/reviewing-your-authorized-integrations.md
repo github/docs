@@ -18,15 +18,15 @@ shortTitle: Integraciones autorizadas
 
 ## Revisar tus {% data variables.product.prodname_oauth_apps %} autorizadas
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.access_applications %}
-{% data reusables.user_settings.access_authorized_oauth_apps %}
-{% data reusables.user_settings.review-oauth-apps %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.access_applications %}
+{% data reusables.user-settings.access_authorized_oauth_apps %}
+{% data reusables.user-settings.review-oauth-apps %}
 
 ## Revisar tus {% data variables.product.prodname_github_apps %} autorizadas
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.access_applications %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.access_applications %}
 3. Haz clic en la pestaña de **{% data variables.product.prodname_github_apps %} autorizadas**. ![Pestaña de {% data variables.product.prodname_github_apps %} autorizadas](/assets/images/help/settings/settings-authorized-github-apps-tab.png)
 3. Revisa las {% data variables.product.prodname_github_apps %}s que tienen acceso a tu cuenta. Para las que no reconozcas o las que estén desactualizadas, haz clic en **Revoke** (Revocar). Para revocar todas las {% data variables.product.prodname_github_apps %}s, haz clic en **Revocar todo**. ![Lista de {% data variables.product.prodname_github_app %} autorizadas](/assets/images/help/settings/revoke-github-app.png)
 

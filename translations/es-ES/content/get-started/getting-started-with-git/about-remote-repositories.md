@@ -53,7 +53,7 @@ Para obtener más información sobre cómo configurar o cambiar tu URL remota, c
 
 Las URL clon `https://` se encuentran disponibles en todos los repositorios, sin importar su visibilidad. Las URL clon `https://` funcionan aún si estás detrás de un cortafuegos o de un proxy.
 
-Cuando ejecutas `git clone`, `git fetch`, `git pull`, o `git push` en un repositorio mendiante URL con HTTPS en la línea de comando, Git te pedirá tu nombre de usuario y contraseña de {% data variables.product.product_name %}. {% data reusables.user_settings.password-authentication-deprecation %}
+Cuando ejecutas `git clone`, `git fetch`, `git pull`, o `git push` en un repositorio mendiante URL con HTTPS en la línea de comando, Git te pedirá tu nombre de usuario y contraseña de {% data variables.product.product_name %}. {% data reusables.user-settings.password-authentication-deprecation %}
 
 {% data reusables.command_line.provide-an-access-token %}
 

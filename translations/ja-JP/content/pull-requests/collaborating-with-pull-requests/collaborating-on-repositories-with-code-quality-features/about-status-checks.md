@@ -35,7 +35,7 @@ topics:
 
 _Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_apps %}.
 
-Organization オーナー、およびリポジトリにプッシュアクセスを持つユーザは、{% data variables.product.product_name %} の API でチェックおよびステータスを作成できます。 詳しい情報については、「[チェック](/rest/reference/checks)」および「[ ステータス](/rest/reference/repos#statuses)」を参照してください。
+Organization オーナー、およびリポジトリにプッシュアクセスを持つユーザは、{% data variables.product.product_name %} の API でチェックおよびステータスを作成できます。 詳しい情報については、「[チェック](/rest/reference/checks)」および「[ ステータス](/rest/reference/commits#commit-statuses)」を参照してください。
 
 ## チェック
 

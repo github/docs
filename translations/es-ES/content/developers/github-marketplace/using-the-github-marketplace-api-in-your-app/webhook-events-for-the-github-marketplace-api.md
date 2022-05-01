@@ -46,17 +46,17 @@ El objeto `marketplace_purchase` tiene las siguientes claves:
 
 El objeto `plan` tiene las siguientes claves:
 
-| Clave                    | Tipo                     | Descripción                                                                                                                                              |
-| ------------------------ | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                     | `número`                 | El identificador único para este plan.                                                                                                                   |
-| `name (nombre)`          | `secuencia`              | El nombre del plan.                                                                                                                                      |
-| `descripción`            | `secuencia`              | La descripción de este plan.                                                                                                                             |
-| `monthly_price_in_cents` | `número`                 | El precio mensual de este plan en centavos (Divisa de los EEUU). Por ejemplo, un listado que cuesta 10 dólares de EEUU por mes sería de 1000 centavos.   |
-| `yearly_price_in_cents`  | `número`                 | El precio anual para este plan en centavos (Divisa de los EEUU). Por ejemplo, un listado que cuesta 100 dólares de EEUU por mes sería de 10000 centavos. |
-| `price_model`            | `secuencia`              | El modelo de precios para este listado. Puede ser alguno de entre `flat-rate`, `per-unit`, o `free`.                                                     |
-| `has_free_trial`         | `boolean`                | es `true` cuando este listado ofrece un periodo de prueba gratuito.                                                                                      |
-| `unit_name`              | `secuencia`              | El nombre de la unidad. Si el modelo de precios no es `per-unit`, éste será `nil`.                                                                       |
-| `bullet`                 | `conjunto de secuencias` | Los nombres de los puntos configurados en el plan de precios.                                                                                            |
+| Clave                    | Tipo                     | Descripción                                                                                                                                               |
+| ------------------------ | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                     | `número`                 | El identificador único para este plan.                                                                                                                    |
+| `name (nombre)`          | `secuencia`              | El nombre del plan.                                                                                                                                       |
+| `descripción`            | `secuencia`              | La descripción de este plan.                                                                                                                              |
+| `monthly_price_in_cents` | `número`                 | El precio mensual de este plan en centavos (Divisa de los EEUU). Por ejemplo, un listado que cuesta 10 dólares de EEUU por mes sería de 1000 centavos.    |
+| `yearly_price_in_cents`  | `número`                 | El precio anual para este plan en centavos (Divisa de los EEUU). Por ejemplo, un listado que cuesta 100 dólares de EEUU por mes sería de 120000 centavos. |
+| `price_model`            | `secuencia`              | El modelo de precios para este listado. Puede ser alguno de entre `flat-rate`, `per-unit`, o `free`.                                                      |
+| `has_free_trial`         | `boolean`                | es `true` cuando este listado ofrece un periodo de prueba gratuito.                                                                                       |
+| `unit_name`              | `secuencia`              | El nombre de la unidad. Si el modelo de precios no es `per-unit`, éste será `nil`.                                                                        |
+| `bullet`                 | `conjunto de secuencias` | Los nombres de los puntos configurados en el plan de precios.                                                                                             |
 
 <br/>
 

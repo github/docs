@@ -54,7 +54,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 ## 步骤 1. 启动新的 Sme 通道
 
-为了帮助 GitHub 将 web 挂钩发送到您的本地计算机而不将其暴露在互联网上，您可以使用一个名为 Smee 的工具。 首先，转到 https://smee.io，然后单击 **Start a new channel（启动新通道）**。 如果您已经习惯使用将本地计算机暴露到互联网上的其他工具，例如 [ngrok](https://dashboard.ngrok.com/get-started) 或 [localtunnel](https://localtunnel.github.io/www/)，请随意使用。
+为了帮助 GitHub 将 web 挂钩发送到您的本地计算机而不将其暴露在互联网上，您可以使用一个名为 Smee 的工具。 首先，转到 https://smee.io，然后单击 **Start a new channel（启动新通道）**。 如果您已经习惯使用将本地计算机暴露到互联网上的其他工具，例如 [`ngrok`](https://dashboard.ngrok.com/get-started) 或 [`localtunnel`](https://localtunnel.github.io/www/)，请随意使用。
 
 ![Smee 新通道按钮](/assets/images/smee-new-channel.png)
 
@@ -91,7 +91,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 `smee --url <unique_channel>` 命令指示 Smee 将 Smee 通道接收的所有 web 挂钩事件转发到计算机上运行的 Smee 客户端。 `--path /event_handler` 选项将事件转发到 `/event_handler` 路由，我们将在[后面的章节](#step-5-review-the-github-app-template-code)中介绍。 `--port 3000` 选项指定端口 3000，这是服务器将侦听的端口。 使用 Smee，您的计算机不需要向公共互联网开放即可从 GitHub 接收 web 挂钩。 您也可以在浏览器中打开 Smee URL 来检查 web 挂钩有效负载。
 
-我们建议您在完成本指南其余步骤时保持此终端窗口打开并保持 Smee 连接。 尽管您_可以_断开连接后重新连接 Smee 客户端而不会丢失唯一域（与 ngrok 不同），但您可能会发现，保持连接时在其他终端窗口中执行其他命令行任务更容易。
+我们建议您在完成本指南其余步骤时保持此终端窗口打开并保持 Smee 连接。 尽管您_可以_断开连接后重新连接 Smee 客户端而不会丢失唯一域（与 `ngrok` 不同），但您可能会发现，保持连接时在其他终端窗口中执行其他命令行任务更容易。
 
 ## 步骤 2. 注册新的 GitHub 应用程序
 
@@ -131,7 +131,7 @@ $ git clone https://github.com/github-developer/github-app-template.git
 
 创建应用程序后，您将被带回[应用程序设置页面](https://github.com/settings/apps)。 您还有两件事要做：
 
-* **为应用程序生成私钥。**这是以后验证应用程序所必需的。 向下滚动页面，然后单击 **Generate a private key（生成私钥）**。 将生成的 PEM 文件（称为 _`app-name`_-_`date`_-private-key.pem 等）保存在可以再次找到的目录中。
+* **为应用程序生成私钥。**这是以后验证应用程序所必需的。 向下滚动页面，然后单击 **Generate a private key（生成私钥）**。 将生成的 `PEM` 文件（称为 _`app-name`_-_`date`_-`private-key.pem` 等）保存在可以再次找到的目录中。
 
     ![私钥生成对话框](/assets/images/private_key.png)
 

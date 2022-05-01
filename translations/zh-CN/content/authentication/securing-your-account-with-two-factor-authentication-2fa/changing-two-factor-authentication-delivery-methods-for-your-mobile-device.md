@@ -16,12 +16,12 @@ shortTitle: 更改 2FA 递送方式
 
 {% note %}
 
-**Note:** Changing your primary method for two-factor authentication invalidates your current two-factor authentication setup, including your recovery codes. Keep your new set of recovery codes safe. Changing your primary method for two-factor authentication does not affect your fallback SMS configuration, if configured. For more information, see "[Configuring two-factor authentication recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)."
+**注意：** 更改双重身份验证的主要方法会使您当前的双重身份验证设置（包括恢复代码）失效。 确保新恢复代码集的安全。 更改双重身份验证的主要方法不会影响回退 SMS 配置（如果已配置）。 更多信息请参阅“[配置双重身份验证恢复方法](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#setting-a-fallback-authentication-number)”。
 
 {% endnote %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.security %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.security %}
 3. 在“SMS delivery（SMS 递送）旁边，单击 **Edit（编辑）**。 ![编辑 SMS 递送选项](/assets/images/help/2fa/edit-sms-delivery-option.png)
 4. 在“Delivery options（递送选项）”下，单击 **Reconfigure two-factor authentication（重新配置双重身份验证）**。 ![切换 2FA 递送选项](/assets/images/help/2fa/2fa-switching-methods.png)
 5. 决定是使用 TOTP 移动应用程序还是使用短信设置双重身份验证。 更多信息请参阅“[配置双重身份验证](/articles/configuring-two-factor-authentication)”。

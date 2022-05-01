@@ -1,7 +1,7 @@
 ---
-title: Recommended hardware resources for running CodeQL
-shortTitle: Hardware resources for CodeQL
-intro: 'Recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis on self-hosted machines, based on the size of your codebase.'
+title: Recursos de hardware recomendados para ejecutar CodeQL
+shortTitle: Recursos de hardware para CodeQL
+intro: 'Especificaciones recomendadas (RAM, núcleos de CPU y disco) para ejecutar un análisis de {% data variables.product.prodname_codeql %} en las máquinas auto-hospedadas con base en el tamaño de tu base de código.'
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
@@ -17,16 +17,16 @@ topics:
   - CI
 ---
 
-You can set up {% data variables.product.prodname_codeql %} on {% data variables.product.prodname_actions %} or on an external CI system. {% data variables.product.prodname_codeql %} is fully compatible with {% data variables.product.prodname_dotcom %}-hosted runners on {% data variables.product.prodname_actions %}.
+Puedes configurar el {% data variables.product.prodname_codeql %} en {% data variables.product.prodname_actions %} o en un sistema de IC externo. El {% data variables.product.prodname_codeql %} es completamente compatible con los ejecutores hospedados en {% data variables.product.prodname_dotcom %} en las {% data variables.product.prodname_actions %}.
 
-If you're using an external CI system, or self-hosted runners on {% data variables.product.prodname_actions %} for private repositories, you're responsible for configuring your own hardware. The optimal hardware configuration for running {% data variables.product.prodname_codeql %} may vary based on the size and complexity of your codebase, the programming languages and build systems being used, and your CI workflow setup.
+Si estás utilizando un sistema de IC externo o ejecutores auto-hospedados en las {% data variables.product.prodname_actions %} para los repositorios privados, eres responsable de configurar tu propio hardware. La configuración de hardware óptima para ejecutar el {% data variables.product.prodname_codeql %} podría variar con base en el tamaño y la complejidad de tu base de código, los lenguajes de programación y los sistemas de compilación que se utilicen, así como en tu configuración de flujo de trabajo de IC.
 
-The table below provides recommended hardware specifications for running {% data variables.product.prodname_codeql %} analysis, based on the size of your codebase. Use these as a starting point for determining your choice of hardware or virtual machine. A machine with greater resources may improve analysis performance, but may also be more expensive to maintain.
+La siguiente tabla proporciona las especificaciones de hardware recomendadas para ejecutar un análisis de {% data variables.product.prodname_codeql %} con base ene l tamaño de tu base de código. Utiliza estos como punto inicial para determinar tu elección de hardware o máquina virtual. Una máquina con recursos mayores podría mejorar el rendimiento del análisis, pero también podría ser más cara de mantener.
 
-| Codebase size                       | Ram             | CPU          |
-| ----------------------------------- | --------------- | ------------ |
-| Small (<100 K lines of code)        | 8 GB or higher  | 2 cores      |
-| Medium (100 K to 1 M lines of code) | 16 GB or higher | 4 or 8 cores |
-| Large (>1 M lines of code)          | 64 GB or higher | 8 cores      |
+| Tamaño de la base de código                  | Ram              | CPU              |
+| -------------------------------------------- | ---------------- | ---------------- |
+| Pequeña (<100 K líneas de código)            | 8 GB o superior  | 2 núcleos        |
+| Mediana (de 100 K a 1 M de líneas de código) | 16 GB o superior | de 4 o 8 núcleos |
+| Grande (>1 M de líneas de código)            | 64 GB o superior | 8 núcleos        |
 
-For all codebase sizes, we recommend using an SSD with 14 GB or more of disk space. There must be enough disk space to check out and build your code, plus additional space for data produced by {% data variables.product.prodname_codeql %}.
+Para todos los tamaños de bases de código, recomendamos utilizar un SSD con 14 GB o más de espacio en disco. Debe haber suficiente espacio en disco para verificar y compilar tu código, además de espacio adicional para los datos que produce el {% data variables.product.prodname_codeql %}.

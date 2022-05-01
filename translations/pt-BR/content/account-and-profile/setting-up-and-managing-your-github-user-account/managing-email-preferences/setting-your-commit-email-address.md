@@ -35,7 +35,7 @@ Para operações com base na web do Git, você pode definir seu endereço de e-m
 
 {% note %}
 
-**Observação**: {% data reusables.user_settings.no-verification-disposable-emails %}
+**Observação**: {% data reusables.user-settings.no-verification-disposable-emails %}
 
 {% endnote %}
 
@@ -61,11 +61,11 @@ Se você usar o seu endereço de e-mail `noreply` para {% data variables.product
 
 {% data reusables.files.commit-author-email-options %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
-{% data reusables.user_settings.add_and_verify_email %}
-{% data reusables.user_settings.select_primary_email %}{% ifversion fpt or ghec %}
-{% data reusables.user_settings.keeping_your_email_address_private %}{% endif %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
+{% data reusables.user-settings.add_and_verify_email %}
+{% data reusables.user-settings.select_primary_email %}{% ifversion fpt or ghec %}
+{% data reusables.user-settings.keeping_your_email_address_private %}{% endif %}
 
 ## Configurar o endereço de e-mail do commit no Git
 
@@ -74,32 +74,32 @@ Você pode usar o comando `git config` para alterar o endereço de e-mail associ
 ### Configurar o endereço de e-mail para todos os repositórios no computador
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. {% data reusables.user_settings.set_your_email_address_in_git %}
+2. {% data reusables.user-settings.set_your_email_address_in_git %}
    ```shell
    $ git config --global user.email "<em>email@example.com</em>"
    ```
-3. {% data reusables.user_settings.confirm_git_email_address_correct %}
+3. {% data reusables.user-settings.confirm_git_email_address_correct %}
    ```shell
    $ git config --global user.email
    <span class="output">email@example.com</span>
    ```
-4. {% data reusables.user_settings.link_email_with_your_account %}
+4. {% data reusables.user-settings.link_email_with_your_account %}
 
 ### Configurar o endereço de e-mail para um repositório específico
 
 {% data variables.product.product_name %} usa o endereço de e-mail definido na sua configuração local do Git para associar commits enviados por push a partir da linha de comando para sua conta em {% data variables.product.product_location %}.
 
-Você pode alterar o endereço de e-mail associado aos commits feitos em um repositório específico. This will override your global Git configuration settings in this one repository, but will not affect any other repositories.
+Você pode alterar o endereço de e-mail associado aos commits feitos em um repositório específico. Isso sobrescreverá as definições de configuração global do Git no repositório em questão, mas não afetará nenhum outro repositório.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Altere o diretório de trabalho atual para o repositório local no qual deseja configurar o endereço de e-mail associado aos commits do Git.
-3. {% data reusables.user_settings.set_your_email_address_in_git %}
+3. {% data reusables.user-settings.set_your_email_address_in_git %}
    ```shell
    $ git config user.email "<em>email@example.com</em>"
    ```
-4. {% data reusables.user_settings.confirm_git_email_address_correct %}
+4. {% data reusables.user-settings.confirm_git_email_address_correct %}
    ```shell
    $ git config user.email
    <span class="output">email@example.com</span>
    ```
-5. {% data reusables.user_settings.link_email_with_your_account %}
+5. {% data reusables.user-settings.link_email_with_your_account %}

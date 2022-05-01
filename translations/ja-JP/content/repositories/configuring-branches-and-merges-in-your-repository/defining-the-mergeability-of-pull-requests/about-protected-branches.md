@@ -50,6 +50,9 @@ topics:
 {% ifversion fpt or ghec %}
 - [Require merge queue](#require-merge-queue)
 {% endif %}
+{%- if required-deployments %}
+- [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
+{%- endif %}
 - [管理者を含める](#include-administrators)
 - [一致するブランチにプッシュできるユーザを制限](#restrict-who-can-push-to-matching-branches)
 - [フォースプッシュを許可](#allow-force-pushes)
@@ -84,7 +87,7 @@ remote: error: Changes have been requested.
 
 必須ステータスチェックにより、コラボレータが保護されたブランチに変更を加える前に、すべての必須 CI テストにパスしていることが保証されます。 詳細は「[保護されたブランチを設定する](/articles/configuring-protected-branches/)」および「[必須ステータスチェックを有効にする](/articles/enabling-required-status-checks)」を参照してください。 詳しい情報については、「[ステータスチェックについて](/github/collaborating-with-issues-and-pull-requests/about-status-checks)」を参照してください。
 
-ステータスチェック必須を有効にする前に、ステータス API を使用するようにリポジトリを設定する必要があります。 詳しい情報については、REST ドキュメントの「[リポジトリ](/rest/reference/repos#statuses)」を参照してください。
+ステータスチェック必須を有効にする前に、ステータス API を使用するようにリポジトリを設定する必要があります。 詳しい情報については、REST ドキュメントの「[リポジトリ](/rest/reference/commits#commit-statuses)」を参照してください。
 
 ステータスチェック必須を有効にすると、すべてのステータスチェック必須がパスしないと、コラボレータは保護されたブランチにマージできません。 必須ステータスチェックをパスしたら、コミットを別のブランチにプッシュしてから、マージするか、保護されたブランチに直接プッシュする必要があります。
 
@@ -144,6 +147,11 @@ Requires all comments on the pull request to be resolved before it can be merged
 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endif %}
+
+### Require deployments to succeed before merging
+
+You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+
 ### 管理者を含める
 
 デフォルトでは、保護されたブランチのルールは、リポジトリの管理者権限を持つユーザには適用されません。 この設定を有効化すると、保護されたブランチのルールを管理者にも適用できます。
@@ -160,7 +168,7 @@ You can enable branch restrictions if your repository is owned by an organizatio
 
 ### フォースプッシュを許可
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
 デフォルトでは、{% data variables.product.product_name %}はすべての保護されたブランチでフォースプッシュをブロックします。 When you enable force pushes to a protected branch, you can choose one of two groups who can force push:
 
 1. Allow everyone with at least write permissions to the repository to force push to the branch, including those with admin permissions.
@@ -174,7 +182,7 @@ If someone force pushes to a branch, the force push may overwrite commits that o
 
 フォースプッシュを有効化しても、他のブランチ保護ルールは上書きされません。 たとえば、ブランチに直線状のコミット履歴が必要な場合、そのブランチにマージコミットをフォースプッシュすることはできません。
 
-{% ifversion ghes or ghae %}サイト管理者がリポジトリ内のすべてのブランチへのフォースプッシュをブロックしている場合、保護されたブランチのフォースプッシュを有効にすることはできません。 詳しい情報については、「[ユーザアカウントもしくはOrganizationが所有するリポジトリへのフォースプッシュのブロック](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)」を参照してください。
+{% ifversion ghes or ghae %}サイト管理者がリポジトリ内のすべてのブランチへのフォースプッシュをブロックしている場合、保護されたブランチのフォースプッシュを有効にすることはできません。 For more information, see "[Blocking force pushes to repositories owned by a personal account or organization](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
 サイト管理者がデフォルトブランチへのフォースプッシュのみをブロックしている場合、他の保護されたブランチに対してフォースプッシュを有効にできます。{% endif %}
 

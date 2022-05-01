@@ -35,6 +35,10 @@ Primero, crea un proyecto organizacional o de usuario.
 
 {% data reusables.projects.create-user-project %}
 
+## Configurar tu descripción de proyecto y README
+
+{% data reusables.projects.project-description %}
+
 ## Agregar propuestas a tu proyecto
 
 A continuación, agrega algunas propuestas a tu proyecto.
@@ -138,7 +142,7 @@ Para indicar la propuesta de la vista, dale un nombre descriptivo.
 
 Finalmente, agrega un flujo de trabajo integrado para configurar el estado en **Por hacer** cuando se agrega un elemento a tu proyecto.
 
-1. In your project, click {% octicon "workflow" aria-label="the workflow icon" %}.
+1. En tu proyecto, haz clic en {% octicon "workflow" aria-label="the workflow icon" %}.
 2. Debajo de **Flujos de trabajo predeterminados**, haz clic en **Elemento agregado al proyecto**.
 3. Junto a **Cuándo**, asegúrate de que tanto `issues` como `pull requests` estén seleccionados.
 4. Junto a **Configurar**, selecciona **Estado: Por hacer**.

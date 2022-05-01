@@ -27,6 +27,12 @@ To connect your Azure subscription, you must have owner permissions to the subsc
 1. To sign in to your Microsoft account, follow the prompts.
 1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
 1. Under "Select a subscription", select the Azure Subscription ID that you want to connect to your enterprise.
+
+   {% note %}
+
+   **Note:** {% data variables.product.company_short %}'s Subscription Permission Validation requests read-only access to display the list of available subscriptions. To select an Azure subscription, you must have owner permissions to the subscription. If the default tenant does not have the right permissions, you may need to specify a different tenant ID. For more information, see [Microsoft identity platform and OAuth 2.0 authorization code flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow#request-an-authorization-code) in Microsoft Docs.
+
+   {% endnote %}
 1. Click **Connect**.
 
 ## Disconnecting your Azure subscription from your enterprise account

@@ -1,1 +1,1 @@
-例如，您可以只允许从您办公室网络的 IP 地址访问。 IP 地址的允许列表将阻止 从不在允许列表中的任何 IP 地址通过 web、API、Git 进行访问。
+例如，您可以只允许从您办公室网络的 IP 地址访问。 The allow list for IP addresses will block access to private resources via the web, API, and Git from any IP addresses that are not on the allow list.

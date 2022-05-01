@@ -1,0 +1,1 @@
+By default, only events from the past three months are displayed. To view older events, you must specify a date range with the `created` parameter. 詳しい情報については、「[検索構文を理解する](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#query-for-dates)」を参照してください。

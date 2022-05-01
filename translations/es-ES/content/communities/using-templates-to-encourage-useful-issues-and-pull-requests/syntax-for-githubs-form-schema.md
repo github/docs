@@ -101,7 +101,8 @@ Para el texto de línea múltiple, puedes utilizar el operador de pipa.
 ```YAML{:copy}
 body:
 - type: markdown
-  value: "## Thank you for contributing to our project!"
+  attributes:
+    value: "## Thank you for contributing to our project!"
 - type: markdown
   attributes:
     value: |
@@ -185,7 +186,7 @@ body:
   attributes:
     label: Bug prevalence
     description: "How often do you or others encounter this bug?"
-    placeholder: "Example: Whenever I visit the user account page (1-2 times a week)"
+    placeholder: "Example: Whenever I visit the personal account page (1-2 times a week)"
   validations:
     required: true
 ```
@@ -241,7 +242,7 @@ Puedes utilizar el elemento de `checkboxes` para agregar un conjunto de casillas
 
 | Clave         | Descripción                                                                                                                                       | Requerido | Tipo      | Predeterminado                                  | Valores válidos                                 |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------------------------------------------- | ----------------------------------------------- |
-| `etiqueta`    | Una descripción de la entrada que se espera del usuario, lo cual también se muestra en el formato.                                                | Opcional  | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
+| `etiqueta`    | Una descripción de la entrada que se espera del usuario, lo cual también se muestra en el formato.                                                | Requerido | Secuencia | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 | `descripción` | Una descripción del conjunto de casillas de verificación, la cual se muestra en el formato. Es compatible con el formateo de lenguaje de marcado. | Opcional  | Secuencia | Secuencia vacía                                 | {% octicon "dash" aria-label="The dash icon" %}
 | `options`     | Un arreglo de casillas de verificación que puede seleccionar el usuario. Para conocer la sintaxis, consulta a continuación.                       | Requerido | Arreglo   | {% octicon "dash" aria-label="The dash icon" %} | {% octicon "dash" aria-label="The dash icon" %}
 

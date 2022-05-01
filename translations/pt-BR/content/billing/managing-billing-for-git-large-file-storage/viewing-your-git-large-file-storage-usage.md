@@ -22,8 +22,8 @@ shortTitle: Visualizar o uso do LFS do Git
 
 ## Exibir o uso de armazenamento e largura de banda de uma conta pessoal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-data %}
 
 ## Exibir o uso de armazenamento e largura de banda de uma organização

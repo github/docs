@@ -30,8 +30,8 @@ shortTitle: Remove a collaborator
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec %}
-{% data reusables.repositories.navigate-to-manage-access %}
+{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
+{% data reusables.repositories.click-collaborators-teams %}
 4. 削除するコラボレーターの右で、{% octicon "trash" aria-label="The trash icon" %} をクリックします。 ![コラボレーターを削除するボタン](/assets/images/help/repository/collaborator-remove.png)
 {% else %}
 3. 左のサイドバーで、[**Collaborators & teams**] をクリックします。 ![[Collaborators] タブ](/assets/images/help/repository/repo-settings-collaborators.png)

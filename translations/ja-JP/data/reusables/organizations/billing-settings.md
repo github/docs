@@ -1,4 +1,4 @@
-{% data reusables.user_settings.access_settings %}
-2. 設定のサイドバーで、**Organizations**をクリックしてください。 ![サイドバーのOrganizationの設定](/assets/images/help/settings/settings-sidebar-organizations.png)
+{% data reusables.user-settings.access_settings %}
+1. In the "Access" section of the sidebar, click **{% octicon "organization" aria-label="The organization icon" %} Organizations**.
 {% data reusables.profile.org_settings %}
-4. Organizationのオーナーは、左のサイドバーで**Billing & plans（支払とプラン）**をクリックしてください。 ![Organizationの設定サイドバーの支払とプラン](/assets/images/help/organizations/billing-settings.png)
+1. If you are an organization owner, in the "Access" section of the sidebar, click **{% octicon "credit-card" aria-label="The credit-card icon" %} Billing and plans**.

@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
-import { ArrowRightIcon } from '@primer/octicons-react'
+import { ArrowRightIcon, InfoIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
 import { useMainContext } from 'components/context/MainContext'
-import { useVersion } from 'components/hooks/useVersion'
+import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Picker } from 'components/ui/Picker'
 
@@ -17,7 +17,7 @@ export const VersionPicker = ({ variant }: Props) => {
   const { allVersions, page, enterpriseServerVersions } = useMainContext()
   const { t } = useTranslation(['pages', 'picker'])
 
-  if (page.permalinks && page.permalinks.length <= 1) {
+  if (page.permalinks && page.permalinks.length < 1) {
     return null
   }
 
@@ -26,8 +26,8 @@ export const VersionPicker = ({ variant }: Props) => {
     selected: allVersions[currentVersion].versionTitle === permalink.pageVersionTitle,
     item: <Link href={permalink.href}>{permalink.pageVersionTitle}</Link>,
   }))
-  const hasEnterpriseVersions = (page.permalinks || []).find((permalink) =>
-    permalink.pageVersion.startsWith('enterprise-version')
+  const hasEnterpriseVersions = (page.permalinks || []).some((permalink) =>
+    permalink.pageVersion.startsWith('enterprise-server')
   )
 
   if (hasEnterpriseVersions) {
@@ -37,10 +37,27 @@ export const VersionPicker = ({ variant }: Props) => {
       item: (
         <Link
           href={`/${router.locale}/${enterpriseServerVersions[0]}/admin/all-releases`}
-          className="f6 no-underline color-fg-muted"
+          className="f6 no-underline"
         >
           {t('all_enterprise_releases')}{' '}
           <ArrowRightIcon verticalAlign="middle" size={15} className="mr-2" />
+        </Link>
+      ),
+    })
+  }
+
+  if (allLinks) {
+    const currentVersionPathSegment = currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
+
+    allLinks.push({
+      text: t('about_versions'),
+      selected: false,
+      item: (
+        <Link
+          href={`/${router.locale}${currentVersionPathSegment}/get-started/learning-about-github/about-versions-of-github-docs`}
+          className="f6 no-underline"
+        >
+          {t('about_versions')} <InfoIcon verticalAlign="middle" size={15} className="mr-2" />
         </Link>
       ),
     })

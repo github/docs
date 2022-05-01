@@ -21,7 +21,7 @@ shortTitle: 迁移管理团队
 
 您可以将旧管理员团队迁移到改进的组织权限，以删除此能力。
 
-For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+更多信息请参阅“[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)”。
 
 {% warning %}
 
@@ -40,6 +40,6 @@ For more information, see "[Repository roles for an organization](/organizations
 ## 迁移单一管理员团队
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 1. 在团队说明框中，单击 **Migrate team（迁移团队）**。 ![迁移团队按钮](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

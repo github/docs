@@ -50,11 +50,11 @@ Organization 内でシークレットを一元管理し、選択したリポジ�
 
 Organizationでシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. [**New secret（新しいシークレット）**] をクリックします。
 1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
 1. シークレットの **Value（値）** を入力します。

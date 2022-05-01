@@ -24,6 +24,8 @@ topics:
 
 {% data reusables.actions.workflow-organization-templates %}
 
+{% data reusables.actions.starter-workflow-categories %}
+
 ## Creating a starter workflow
 
 Starter workflows can be created by users with write access to the organization's `.github` repository. These can then be used by organization members who have permission to create workflows.
@@ -64,7 +66,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        runs-on: ubuntu-latest
 
        steps:
-         - uses: actions/checkout@v2
+         - uses: {% data reusables.actions.action-checkout %}
 
          - name: Run a one-line script
            run: echo Hello from Octo Organization

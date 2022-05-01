@@ -1,7 +1,7 @@
 ---
 title: Managing custom repository roles for an organization
-intro: "You can more granularly control access to your organization's repositories by creating custom repository roles."
-permissions: 'Organization owners can manage custom repository roles.'
+intro: You can more granularly control access to your organization's repositories by creating custom repository roles.
+permissions: Organization owners can manage custom repository roles.
 versions:
   ghec: '*'
 topics:
@@ -20,9 +20,7 @@ To perform any actions on {% data variables.product.product_name %}, such as cre
 
 Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. A custom repository role is a configurable set of permissions with a custom name you choose. After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
-
-{% data reusables.enterprise.link-to-ghec-trial %}
+You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. A custom repository role is a configurable set of permissions with a custom name you choose. After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
 
 ## About the inherited role
 
@@ -84,12 +82,16 @@ You can only choose an additional permission if it's not already included in the
 - **Set interaction limits**: Temporarily restrict certain users from commenting, opening issues, or creating pull requests in your public repository to enforce a period of limited activity. For more information, see "[Limiting interactions in your repository](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
 - **Set the social preview**: Add an identifying image to your repository that appears on social media platforms when your repository is linked. For more information, see "[Customizing your repository's social media preview](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)."
 - **Push commits to protected branches**: Push to a branch that is marked as a protected branch.
+- **Create protected tags**: Create tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+- **Delete protected tags**: Delete tags that match a tag protection rule. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
 
 ### Security
 
 - **View {% data variables.product.prodname_code_scanning %} results**: Ability to view {% data variables.product.prodname_code_scanning %} alerts.
 - **Dismiss or reopen {% data variables.product.prodname_code_scanning %} results**: Ability to dismiss or reopen {% data variables.product.prodname_code_scanning %} alerts.
 - **Delete {% data variables.product.prodname_code_scanning %} results**: Ability to delete {% data variables.product.prodname_code_scanning %} alerts.
+- **View {% data variables.product.prodname_dependabot_alerts %}**: Ability to view {% data variables.product.prodname_dependabot_alerts %}.
+- **Dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}**: Ability to dismiss or reopen {% data variables.product.prodname_dependabot_alerts %}.
 - **View {% data variables.product.prodname_secret_scanning %} results**: Ability to view {% data variables.product.prodname_secret_scanning %} alerts.
 - **Dismiss or reopen {% data variables.product.prodname_secret_scanning %} results**: Ability to dismiss or reopen {% data variables.product.prodname_secret_scanning %} alerts.
 
@@ -97,7 +99,7 @@ You can only choose an additional permission if it's not already included in the
 
 If a person is given different levels of access through different avenues, such as team membership and the base permissions for an organization, the highest access overrides the others. For example, if an organization owner gives an organization member a custom role that uses the "Read" inherited role, and then an organization owner sets the organization's base permission to "Write", then this custom role will have write access, along with any additional permissions included in the custom role.
 
-If a person has been given conflicting access, you'll see a warning on the repository access page. The warning appears with "{% octicon "alert" aria-label="The alert icon" %} Mixed roles" next to the person with the conflicting access. To see the source of the conflicting access, hover over the warning icon or click **Mixed roles**.
+{% data reusables.organizations.mixed-roles-warning %}
 
 To resolve conflicting access, you can adjust your organization's base permissions or the team's access, or edit the custom role. For more information, see:
   - "[Setting base permissions for an organization](/github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization)"
@@ -107,6 +109,14 @@ To resolve conflicting access, you can adjust your organization's base permissio
 ## Creating a repository role
 
 To create a new repository role, you add permissions to an inherited role and give the custom role a name.
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can create custom repository roles. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

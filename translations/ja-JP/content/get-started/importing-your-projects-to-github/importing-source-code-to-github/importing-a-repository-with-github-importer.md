@@ -18,13 +18,13 @@ shortTitle: Use GitHub Importer
 
 {% endtip %}
 
-インポート中に、自分のリポジトリでのコミットを作者の GitHub ユーザ アカウントに一致させたい場合は、インポートを始める前に、リポジトリのコントリビューター全員が GitHub アカウントを持っていることを確認してください。
+If you'd like to match the commits in your repository to the authors' GitHub personal accounts during the import, make sure every contributor to your repository has a GitHub account before you begin the import.
 
 {% data reusables.repositories.repo-size-limit %}
 
 1. ページの右上角で {% octicon "plus" aria-label="Plus symbol" %} をクリックし、[**Import repository**] を選択します。 ![[New repository] メニューの [Import repository] オプション](/assets/images/help/importer/import-repository.png)
 2. [Your old repository's clone URL] に、インポートするプロジェクトの URL を入力します。 ![インポートするリポジトリの URL を入力するテキスト フィールド](/assets/images/help/importer/import-url.png)
-3. 自分のユーザ アカウント、またはリポジトリを所有する組織を選択し、GitHub 上のリポジトリの名前を入力します。 ![リポジトリの [Owner] メニューと、リポジトリ名フィールド](/assets/images/help/importer/import-repo-owner-name.png)
+3. Choose your personal account or an organization to own the repository, then type a name for the repository on GitHub. ![リポジトリの [Owner] メニューと、リポジトリ名フィールド](/assets/images/help/importer/import-repo-owner-name.png)
 4. 新しいリポジトリを*パブリック*にするか*プライベート*にするかを指定します。 詳細は「[リポジトリの可視性を設定する](/articles/setting-repository-visibility)」を参照してください。 ![リポジトリの [Public] と [Private] を選択するラジオ ボタン](/assets/images/help/importer/import-public-or-private.png)
 5. 入力した情報を確認し、[**Begin import**] をクリックします。 ![[Begin import] ボタン](/assets/images/help/importer/begin-import-button.png)
 6. 既存のプロジェクトがパスワードで保護されている場合は、必要なログイン情報を入力して [**Submit**] をクリックします。 ![パスワード保護されているプロジェクトのパスワード入力フォームと [Submit] ボタン](/assets/images/help/importer/submit-old-credentials-importer.png)

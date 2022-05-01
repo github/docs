@@ -27,7 +27,6 @@ topics:
   - Java
 ---
 
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
 
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
@@ -120,7 +119,7 @@ Se seu repositório contém várias linguagens compiladas, você pode especifica
 ```yaml
 - if: matrix.language == 'cpp' || matrix.language == 'csharp' 
   name: Autobuild
-  uses: github/codeql-action/autobuild@v1
+  uses: {% data reusables.actions.action-codeql-action-autobuild %}
 
 - if: matrix.language == 'java' 
   name: Build Java

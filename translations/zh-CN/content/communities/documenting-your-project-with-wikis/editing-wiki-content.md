@@ -48,7 +48,7 @@ Wikis 可显示 PNG、JPEG 和 GIF 图片。
 ## 受支持的 MediaWiki 格式
 
 无论您的 wiki 页面以哪种标记语言编写，始终可使用某些 MediaWiki 语法。
-- Links ([except AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- 链接（[AsciiDoc 除外](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b)）
 - 水平规则通过 `---`
 - 简明符号实体（例如 `&delta;` 或 `&euro;`）
 

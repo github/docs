@@ -15,7 +15,7 @@ topics:
 shortTitle: Restore deleted repository
 ---
 {% ifversion fpt or ghec %}
-Anyone can restore deleted repositories that were owned by their own user account. Organization owners can restore deleted repositories that were owned by the organization.
+Anyone can restore deleted repositories that were owned by their own personal account. Organization owners can restore deleted repositories that were owned by the organization.
 
 ## About repository restoration
 
@@ -27,13 +27,13 @@ It can take up to an hour after a repository is deleted before that repository i
 
 Restoring a repository will not restore release attachments or team permissions. Issues that are restored will not be labeled.
 
-## Restoring a deleted repository that was owned by a user account
+## Restoring a deleted repository that was owned by a personal account
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.repo-tab %}
-{% data reusables.user_settings.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.repo-tab %}
+{% data reusables.user-settings.deleted-repos %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## Restoring a deleted repository that was owned by an organization
 
@@ -41,8 +41,8 @@ Restoring a repository will not restore release attachments or team permissions.
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}
-{% data reusables.user_settings.restore-repo %}
-{% data reusables.user_settings.restore-confirmation %}
+{% data reusables.user-settings.restore-repo %}
+{% data reusables.user-settings.restore-confirmation %}
 
 ## Further reading
 

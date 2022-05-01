@@ -310,7 +310,7 @@ Para obter mais informações, consulte [`gh help formatting`](https://cli.githu
 
 ### Automatizando as versões
 
-Considere adicionar a ação [gh-extension-precompilar](https://github.com/cli/gh-extension-precompile) ao fluxo de trabalho no seu projeto. This action will automatically produce cross-compiled Go binaries for your extension and supplies build scaffolding for non-Go precompiled extensions.
+Considere adicionar a ação [gh-extension-precompilar](https://github.com/cli/gh-extension-precompile) ao fluxo de trabalho no seu projeto. Esta ação irá produzir automaticamente binários com compilação cruzada do Go para a sua extensão e irá fornecer uma estrutura de criação para extensões pré-compiladas que não são para o Go.
 
 
 

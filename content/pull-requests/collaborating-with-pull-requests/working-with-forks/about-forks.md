@@ -16,7 +16,7 @@ topics:
 ---
 Forking a repository is similar to copying a repository, with two major differences:
 
-* You can use a pull request to suggest changes from your user-owned fork to the original repository, also known as the *upstream* repository.
+* You can use a pull request to suggest changes from your user-owned fork to the original repository in its GitHub instance, also known as the *upstream* repository.
 * You can bring changes from the upstream repository to your local fork by synchronizing your fork with the upstream repository.
 
 {% data reusables.repositories.you-can-fork %}

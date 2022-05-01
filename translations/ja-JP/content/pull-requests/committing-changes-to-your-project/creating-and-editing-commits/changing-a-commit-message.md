@@ -54,7 +54,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 1. [上記の手順](/articles/changing-a-commit-message#commit-has-not-been-pushed-online)に従って、コミットメッセージを修正します。
 2. Use the `push --force-with-lease` command to force push over the old commit.
   ```shell
-  $ git push --force-with-lease <em>example-branch</em>
+  $ git push --force-with-lease origin <em>example-branch</em>
   ```
 
 **古いまたは複数のコミットメッセージを変更する**
@@ -103,7 +103,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 5. 生成された各コミットコミットファイルに、新しいコミットメッセージを入力し、ファイルを保存して閉じます。
 6. 変更を GitHub にプッシュする準備ができたら、push --force コマンドを使用して、古いコミットを強制的にプッシュします。
 ```shell
-$ git push --force <em>example-branch</em>
+$ git push --force origin <em>example-branch</em>
 ```
 
 インタラクティブリベースに関する詳しい情報については、Git のマニュアルにある「[インタラクティブモード](https://git-scm.com/docs/git-rebase#_interactive_mode)」を参照してください。

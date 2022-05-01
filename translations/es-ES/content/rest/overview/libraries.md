@@ -18,11 +18,17 @@ topics:
   <h1>El Octokit tiene muchos sabores</h1>
   <p class="lead">Utiliza la biblioteca oficial de Octokit, o elige entre cualquiera de las bibliotecas de terceros disponibles.</p>
   <div class="octokit-links"><br/>
-     <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
      <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/octokit.js">octokit/octokit.js</a></div><br/>
   </div>
 </div>
+
+{% warning %}
+
+Advertencia: Desde la segunda mitad de octubre del 2021, ya no se están manteniendo las librerías oficiales de Octokit. Para obtener más información, consulta [este debate en el repositorio de octokit.js](https://github.com/octokit/octokit.js/discussions/620).
+
+{% endwarning %}
 
 # Librería de terceros
 

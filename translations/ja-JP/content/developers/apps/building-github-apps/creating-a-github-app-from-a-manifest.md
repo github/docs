@@ -46,7 +46,7 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 ### 1. GitHub にユーザをリダイレクトして新しい GitHub App を作成する
 
-新しい GitHub App を作成するためユーザをリダイレクトするには、ユーザアカウントが `https://github.com/settings/apps/new` に、または Organization アカウントが `https://github.com/organizations/ORGANIZATION/settings/apps/new` に `POST` リクエストをクリックして送信するための[リンクを指定](#examples)します。`ORGANIZATION` は、アプリケーションが作成される Organization アカウントの名前で置き換えてください。
+To redirect people to create a new GitHub App, [provide a link](#examples) for them to click that sends a `POST` request to `https://github.com/settings/apps/new` for a personal account or `https://github.com/organizations/ORGANIZATION/settings/apps/new` for an organization account, replacing `ORGANIZATION` with the name of the organization account where the app will be created.
 
 `manifest` と呼ばれるパラメータに、JSON エンコードされた文字列として [GitHub App Manifest パラメータ](#github-app-manifest-parameters)を含める必要があります。 セキュリティ強化のため、`state` [parameter](#parameters) を追加することもできます。
 
@@ -61,9 +61,8 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
  | `name`                | `string`           | GitHub App の名前。                                                                                                                                        |
  | `url`                 | `string`           | **必須。**GitHub App のホームページ。                                                                                                                             |
  | `hook_attributes`     | `オブジェクト`           | GitHub App の webhook の構成。                                                                                                                              |
- | `redirect_url`        | `string`           | ユーザがマニフェストから GitHub App の作成を開始した後にリダイレクトする完全な URL。{% ifversion fpt or ghae or ghes > 3.0 or ghec %}
- | `callback_urls`       | `array of strings` | インストールの承認後にリダイレクトする完全な URL。 コールバック URL を最大 10 個指定できます。{% else %}
- | `callback_url`        | `string`           | インストールの承認後にリダイレクトする完全な URL。{% endif %}
+ | `redirect_url`        | `string`           | The full URL to redirect to after a user initiates the creation of a GitHub App from a manifest.                                                       |
+ | `callback_urls`       | `array of strings` | インストールの承認後にリダイレクトする完全な URL。 最大 10 個のコールバック URL を指定できます。                                                                                                |
  | `説明`                  | `string`           | GitHub App の説明。                                                                                                                                        |
  | `public`              | `boolean`          | GitHub App を公開する場合には `true` に、アプリケーションの所有者のみがアクセスできるようにするには `false` を設定。                                                                               |
  | `default_events`      | `array`            | GitHub App がサブスクライブする[イベント](/webhooks/event-payloads)のリスト。                                                                                             |
@@ -84,7 +83,7 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
 
 #### サンプル
 
-この例では、ウェブページ上にユーザアカウントに対して `POST` リクエストをトリガするボタンがあるフォームを使用します。
+This example uses a form on a web page with a button that triggers the `POST` request for a personal account:
 
 ```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">
@@ -101,9 +100,9 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% ifversion fpt or ghae or ghes > 3.0 or ghec %}"callback_urls": [
+   "callback_urls": [
      "https://example.com/callback"
-   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
+   ],
    "public": true,
    "default_permissions": {
      "issues": "write",
@@ -136,9 +135,9 @@ GitHub App Manifest フローを実装するには、以下の 3 つのステッ
      "url": "https://example.com/github/events",
    },
    "redirect_url": "https://example.com/redirect",
-   {% ifversion fpt or ghae or ghes > 3.0 or ghec %}"callback_urls": [
+   "callback_urls": [
      "https://example.com/callback"
-   ],{% else %}"callback_url": "https://example.com/callback",{% endif %}
+   ],
    "public": true,
    "default_permissions": {
      "issues": "write",

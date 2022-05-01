@@ -19,7 +19,7 @@ Para aprender más sobre los precios de los {% data variables.product.prodname_c
 
 {% data reusables.codespaces.codespaces-billing %}
 
-- Como propietario o gerente de facturación de una organización, puedes administrar la facturación de {% data variables.product.prodname_codespaces %} para tu organización: ["Acerca de la facturación para Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
+- Como propietario de una organización o como administrador de facturación, puedes administrar la facturación de los {% data variables.product.prodname_codespaces %} en tu organización: ["Acerca de la facturación para los Codespaces"](/billing/managing-billing-for-github-codespaces/about-billing-for-codespaces)
 
 - Hay una guía para los usuarios que explica cómo funciona la facturación: ["Entender la facturación para los Codespaces"](/codespaces/codespaces-reference/understanding-billing-for-codespaces)
 

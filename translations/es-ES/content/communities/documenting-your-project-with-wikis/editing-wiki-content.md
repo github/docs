@@ -48,7 +48,7 @@ Puedes establecer un enlace a una imagen en un repositorio en {% data variables.
 ## Formatos MediaWiki admitidos
 
 Independientemente del lenguaje markup en que esté escrita tu página, siempre tendrás una determinada sintaxis MediaWiki disponible.
-- Links ([except AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
+- Enlaces ([excepto AsciiDoc](https://github.com/gollum/gollum/commit/d1cf698b456cd6a35a54c6a8e7b41d3068acec3b))
 - Reglas horizontales mediante `---`
 - Entidades simbólicas abreviadas (como `&delta;` o `&euro;`)
 

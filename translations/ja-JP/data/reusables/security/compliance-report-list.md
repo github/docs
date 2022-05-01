@@ -1,0 +1,4 @@
+- SOC 1, Type 2
+- SOC 2, Type 2
+- Cloud Security Alliance CAIQ self-assessment (CSA CAIQ)
+- {% data variables.product.prodname_dotcom_the_website %} Services Continuity and Incident Management Plan

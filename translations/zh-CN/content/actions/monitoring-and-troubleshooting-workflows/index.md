@@ -1,7 +1,7 @@
 ---
-title: Monitoring and troubleshooting workflows
+title: 监控和故障排除工作流程
 shortTitle: 监控和故障排除
-intro: 'You can view the status and results of each step in your workflow, debug a failed workflow, search and download logs, and view billable job execution minutes.'
+intro: 您可以查看工作流程中每个步骤的状态和结果、调试失败的工作流程、搜索和下载日志以及查看计费作业执行分钟数。
 redirect_from:
   - /articles/viewing-your-repository-s-workflows
   - /articles/viewing-your-repositorys-workflows

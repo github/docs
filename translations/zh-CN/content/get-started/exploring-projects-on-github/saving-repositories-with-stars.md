@@ -26,7 +26,7 @@ shortTitle: 保存有星标的仓库
 标星操作便于以后再次找到仓库或主题。 您可以到 {% data variables.explore.your_stars_page %} 查看已经加星标的所有仓库和主题。
 
 {% ifversion fpt or ghec %}
-您可以对仓库和主题加星标以在 {% data variables.product.product_name %} 上发现类似的项目。 对仓库或主题加星标时，{% data variables.product.product_name %} 可能会在消息馈送的发现视图中推荐相关内容。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
+您可以对仓库和主题加星标以在 {% data variables.product.product_name %} 上发现类似的项目。 当您为存储库或主题添加星标时， {% data variables.product.product_name %} 可能会在您的个人仪表板上推荐相关内容。 更多信息请参阅“[查找参与 {% data variables.product.prodname_dotcom %} 上的开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”和“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
 {% endif %}
 
 对仓库加星标也可表示赞赏仓库维护员的工作。 许多 {% data variables.product.prodname_dotcom %} 的仓库评级取决于仓库拥有的星标数。 此外，[Explore](https://github.com/explore) 也会根据星标数显示最受欢迎的仓库。
@@ -40,61 +40,61 @@ shortTitle: 保存有星标的仓库
 1. （可选）要取消先前已标星仓库的星标，请点击 **Unstar（取消星标）**。 ![解压仓库](/assets/images/help/stars/unstarring-a-repository.png)
 
 {% ifversion fpt or ghec %}
-## Organizing starred repositories with lists
+## 使用列表组织带星标的存储库
 
 {% note %}
 
-**Note:** Lists are currently in public beta and subject to change.
+**注意：**列表目前处于公开测试阶段，可能会有变化。
 
 {% endnote %}
 
-Curate repositories that you've starred with public lists. You can create public lists that appear on your stars page at `https://github.com/USERNAME?tab=stars`.
+管理您已经用公开列表加星标的存储库。 您可以创建出现在星标页面 `https://github.com/USERNAME?tab=stars` 上的公共列表。
 
-If you add a private repository to a list, then the private repository will only appear in your list for people with `read` access to the repository.
+如果将私有存储库添加到列表中，则私有存储库将仅显示在您的列表中，供具有存储库`读取`访问权限的人员使用。
 
-![Screenshot of lists on stars page](/assets/images/help/stars/lists-overview-on-stars-page.png)
+![星标页面上列表的屏幕截图](/assets/images/help/stars/lists-overview-on-stars-page.png)
 
-You can add a repository to an existing or new list wherever you see a repository's **Star** or **Starred** dropdown menu, whether on a repository page or in a list of starred repositories.
+只要您看到存储库的 **Star（星标）**或 **Starred（已加星标）**下拉菜单，无论是在存储库页面上还是在已加星标的存储库列表中，您都可以将存储库添加到现有列表或新列表中。
 
-![Screenshot of "Star" dropdown menu with list options featured from the repository page](/assets/images/help/stars/stars-dropdown-on-repo.png)
+!["Star（星标）"下拉菜单的屏幕截图，其中包含存储库页面中的列表选项](/assets/images/help/stars/stars-dropdown-on-repo.png)
 
-![Screenshot of "Starred" dropdown menu with list options featured from a starred repository list](/assets/images/help/stars/add-repo-to-list.png)
+!["Starred（已加星标）"下拉菜单的屏幕截图，其中包含已加星标存储库列表中的列表选项](/assets/images/help/stars/add-repo-to-list.png)
 
-### Creating a list
-
-{% data reusables.stars.stars-page-navigation %}
-2. Next to "Lists", click **Create list**. ![Screenshot of "Create list" button](/assets/images/help/stars/create-list.png)
-3. Enter a name and description for your list and click **Create**. ![Screenshot of modal showing where you enter a name and description with the "Create" button.](/assets/images/help/stars/create-list-with-description.png)
-
-### Adding a repository to a list
+### 创建列表
 
 {% data reusables.stars.stars-page-navigation %}
-2. Find the repository you want to add to your list. ![Screenshot of starred repos search bar](/assets/images/help/stars/search-bar-for-starred-repos.png)
-3. Next to the repository you want to add, use the **Starred** dropdown menu and select your list. ![Screenshot of dropdown showing a list checkboxes](/assets/images/help/stars/add-repo-to-list.png)
+2. 在“Lists（列表）”旁边，单击 **Create list（创建列表）**。 !["Create list（创建列表）"按钮的屏幕截图](/assets/images/help/stars/create-list.png)
+3. 输入列表的名称和说明，然后单击 **Create（创建）**。 ![模式的屏幕截图，显示您在使用"Create（创建）"按钮输入名称和描述的位置。](/assets/images/help/stars/create-list-with-description.png)
 
-### Removing a repository from your list
-
-{% data reusables.stars.stars-page-navigation %}
-2. Select your list.
-3. Next to the repository you want to remove, use the **Starred** dropdown menu and deselect your list. ![Screenshot of dropdown showing list checkboxes](/assets/images/help/stars/add-repo-to-list.png)
-
-### Editing a list name or description
+### 将存储库添加到列表
 
 {% data reusables.stars.stars-page-navigation %}
-1. Select the list you want to edit.
-2. Click **Edit list**.
-3. Update the name or description and click **Save list**. ![Screenshot of modal showing "Save list" button](/assets/images/help/stars/edit-list-options.png)
+2. 找到要添加到列表中的存储库。 ![已加星标的存储库搜索栏的屏幕截图](/assets/images/help/stars/search-bar-for-starred-repos.png)
+3. 在要添加的存储库旁边，使用 **Starred（已加星标）**下拉菜单，然后选择您的列表。 ![显示列表复选框的下拉列表的屏幕截图](/assets/images/help/stars/add-repo-to-list.png)
 
-### Deleting a list
+### 从列表中删除存储库
 
 {% data reusables.stars.stars-page-navigation %}
-2. Select the list you want to delete.
-3. Click **Delete list**. ![Screenshot of modal showing "Delete list" button](/assets/images/help/stars/edit-list-options.png)
-4. To confirm, click **Delete**.
+2. 选择您的列表。
+3. 在要删除的存储库旁边，使用 **Starred（已加星标）**下拉菜单并取消选择列表。 ![显示列表复选框的下拉列表的屏幕截图](/assets/images/help/stars/add-repo-to-list.png)
+
+### 编辑列表名称或说明
+
+{% data reusables.stars.stars-page-navigation %}
+1. 选择要编辑的列表。
+2. 单击 **Edit list（编辑列表）**。
+3. 更新名称或说明，然后单击 **Save list（保存列表）**。 ![显示"Save list（保存列表）"按钮的模式的屏幕截图](/assets/images/help/stars/edit-list-options.png)
+
+### 删除列表
+
+{% data reusables.stars.stars-page-navigation %}
+2. 选择要删除的列表。
+3. 单击 **Delete list（删除列表）**。 ![显示"Delete list（删除列表）"按钮的模式的屏幕截图](/assets/images/help/stars/edit-list-options.png)
+4. 要确认，请单击 **Delete（删除）**。
 
 {% endif %}
 
-## Searching starred repositories and topics
+## 搜索已加星标的存储库和主题
 
 您可以使用 {% data variables.explore.your_stars_page %} 上的搜索栏快速查找您标星的仓库和主题。
 
@@ -103,7 +103,7 @@ You can add a repository to an existing or new list wherever you see a repositor
 
 搜索栏只能根据仓库或主题名称搜索，而不能根据任何其他限定符（如仓库大小或上次更新时间）搜索。
 
-## Sorting and filtering stars on your stars page
+## 在星标页面上排序和筛选星标
 
 您可以使用排序或筛选来自定义您如何在星标页面上查看标星的仓库和主题。
 

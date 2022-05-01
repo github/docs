@@ -29,7 +29,7 @@ topics:
 
 {% tip %}
 
-Windows users will either need to use the Git PowerShell (which is installed alongside [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) or download [curl for Windows](http://curl.haxx.se/download.html).
+Windows 用户需要使用 Git PowerShell（随 [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) 一起安装）或下载 [curl for Windows](http://curl.haxx.se/download.html)。
 
 {% endtip %}
 

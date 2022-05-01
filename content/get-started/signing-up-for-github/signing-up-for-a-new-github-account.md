@@ -1,7 +1,7 @@
 ---
 title: Signing up for a new GitHub account
 shortTitle: Sign up for a new GitHub account
-intro: '{% data variables.product.company_short %} offers user accounts for individuals and organizations for teams of people working together.'
+intro: '{% data variables.product.company_short %} offers personal accounts for individuals and organizations for teams of people working together.'
 redirect_from:
   - /articles/signing-up-for-a-new-github-account
   - /github/getting-started-with-github/signing-up-for-a-new-github-account
@@ -21,6 +21,7 @@ When you create a personal account or organization, you must select a billing pl
 
 ## Signing up for a new account
 
+1. If you want to create a new personal account, make sure you are currently signed out of GitHub.
 {% data reusables.accounts.create-account %}
 1. Follow the prompts to create your personal account or organization.
 

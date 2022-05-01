@@ -1,23 +1,20 @@
 #!/usr/bin/env node
 
-import createStagingAppName from '../../script/deployment/create-staging-app-name.js'
 import * as github from '@actions/github'
 import { setOutput } from '@actions/core'
 
+const { GITHUB_TOKEN, APP_URL } = process.env
 const context = github.context
 
-const githubToken = process.env.GITHUB_TOKEN
-if (!githubToken) {
+if (!GITHUB_TOKEN) {
   throw new Error(`GITHUB_TOKEN environment variable not set`)
 }
 
-const stagingPrefix = createStagingAppName({
-  repo: context.payload.repository.name,
-  pullNumber: context.payload.number,
-  branch: context.payload.pull_request.head.ref,
-})
+if (!APP_URL) {
+  throw new Error(`APP_URL environment variable not set`)
+}
 
-const octokit = github.getOctokit(githubToken)
+const octokit = github.getOctokit(GITHUB_TOKEN)
 
 const response = await octokit.rest.repos.compareCommits({
   owner: context.repo.owner,
@@ -29,7 +26,7 @@ const response = await octokit.rest.repos.compareCommits({
 const { files } = response.data
 
 let markdownTable =
-  '| **Source** | **Staging** | **Production** | **What Changed** |\n|:----------- |:----------- |:----------- |:----------- |\n'
+  '| **Source** | **Preview** | **Production** | **What Changed** |\n|:----------- |:----------- |:----------- |:----------- |\n'
 
 const pathPrefix = 'content/'
 const articleFiles = files.filter(
@@ -39,14 +36,14 @@ for (const file of articleFiles) {
   const sourceUrl = file.blob_url
   const fileName = file.filename.slice(pathPrefix.length)
   const fileUrl = fileName.slice(0, fileName.lastIndexOf('.'))
-  const stagingLink = `https://${stagingPrefix}.herokuapp.com/${fileUrl}`
+  const previewLink = `${APP_URL}/${fileUrl}`
   const productionLink = `https://docs.github.com/${fileUrl}`
   let markdownLine = ''
 
   if (file.status === 'modified') {
-    markdownLine = `| [content/${fileName}](${sourceUrl}) | [Modified](${stagingLink}) | [Original](${productionLink}) | |\n`
+    markdownLine = `| [content/${fileName}](${sourceUrl}) | [Modified](${previewLink}) | [Original](${productionLink}) | |\n`
   } else if (file.status === 'added') {
-    markdownLine = `| New file: [content/${fileName}](${sourceUrl}) | [Modified](${stagingLink}) | | |\n`
+    markdownLine = `| New file: [content/${fileName}](${sourceUrl}) | [Modified](${previewLink}) | | |\n`
   }
   markdownTable += markdownLine
 }

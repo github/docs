@@ -1,5 +1,5 @@
 ---
-title: GitHub 应用程序的速率限制
+title: Rate limits for GitHub Apps
 intro: '{% data reusables.shortdesc.rate_limits_github_apps %}'
 redirect_from:
   - /early-access/integrations/rate-limits
@@ -14,7 +14,7 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: 速率限制
+shortTitle: Rate limits
 ---
 
 {% data reusables.enterprise.rate_limit %}
@@ -29,7 +29,7 @@ Rate limits for {% data variables.product.prodname_github_apps %} and {% data va
 
 {% endif %}
 
-## 服务器到服务器请求
+## Server-to-server requests
 
 {% ifversion ghec or fpt %}
 
@@ -37,7 +37,7 @@ Rate limits for {% data variables.product.prodname_github_apps %} and {% data va
 
 {% endif %}
 
-发出服务器-服务器请求的 {% data variables.product.prodname_github_apps %} 使用安装的最低速率限制为每小时 5,000 个请求。 If an application is installed on an organization with more than 20 users, the application receives another 50 requests per hour for each user. 具有 20 个以上仓库的安装每小时会为每个仓库再接收 50 个请求。 安装的最大速率限制为每小时 12,500 个请求。
+{% data variables.product.prodname_github_apps %} making server-to-server requests use the installation's minimum rate limit of 5,000 requests per hour. If an application is installed on an organization with more than 20 users, the application receives another 50 requests per hour for each user. Installations that have more than 20 repositories receive another 50 requests per hour for each repository. The maximum rate limit for an installation is 12,500 requests per hour.
 
 {% ifversion fpt or ghec %}
 
@@ -51,7 +51,7 @@ Rate limits for {% data variables.product.prodname_github_apps %} and {% data va
 
 {% endif %}
 
-## 用户到服务器请求
+## User-to-server requests
 
 {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} can also act on behalf of a user, making user-to-server requests after the user authorizes the app. For more information, see "[Authorizing {% data variables.product.prodname_github_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)" and "[Authorizing {% data variables.product.prodname_oauth_apps %}](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)."
 
@@ -79,7 +79,7 @@ The rate limits for user-to-server requests made by {% data variables.product.pr
 
 {% endif %}
 
-## 延伸阅读
+## Further reading
 
 - "[Rate limiting](/rest/overview/resources-in-the-rest-api#rate-limiting)" in the REST API documentation
 - "[Resource limitations]({% ifversion ghec %}/free-pro-team@latest{% endif %}/graphql/overview/resource-limitations)" in the GraphQL API documentation

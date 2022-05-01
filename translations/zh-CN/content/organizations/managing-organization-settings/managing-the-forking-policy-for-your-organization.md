@@ -23,7 +23,8 @@ shortTitle: 管理复刻策略
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
+{% data reusables.profile.org_member_privileges %}
+1. 在“Repository forking（仓库复刻）”下，选择**允许私有{% ifversion ghec or ghes or ghae %}和内部{% endif %}仓库复刻**。
 
    {%- ifversion fpt %}
    ![允许或禁止组织复刻的复选框](/assets/images/help/repository/allow-disable-forking-fpt.png)
@@ -35,4 +36,4 @@ shortTitle: 管理复刻策略
 ## 延伸阅读
 
 - "[关于复刻](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[组织的仓库角色](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"

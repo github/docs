@@ -27,7 +27,7 @@ export const PlaygroundArticle = () => {
         {article.prerequisites && (
           <div className="mt-4 d-flex">
             <div className="pr-3 mt-1">
-              <Circle className="color-bg-accent-emphasis">
+              <Circle className="color-fg-on-emphasis color-bg-emphasis">
                 <CheckIcon className="" size={15} />
               </Circle>
             </div>
@@ -44,7 +44,7 @@ export const PlaygroundArticle = () => {
         {/* toc */}
         <div className="mt-4 d-flex">
           <div className="pr-3 mt-1">
-            <Circle className="color-bg-accent-emphasis">
+            <Circle className="color-fg-on-emphasis color-bg-emphasis">
               <SearchIcon className="" size={15} />
             </Circle>
           </div>

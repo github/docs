@@ -29,11 +29,7 @@ Puedes elegir la rama predeterminada para un repositorio. Èsta es la rama base 
 {% endnote %}
 {% endif %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-
 También puedes renombrar la rama predeterminada. Para obtener más información, consulta la sección "[Renombrar una rama](/github/administering-a-repository/renaming-a-branch)".
-
-{% endif %}
 
 {% data reusables.branches.set-default-branch %}
 

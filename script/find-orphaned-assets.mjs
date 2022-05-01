@@ -13,11 +13,22 @@ import program from 'commander'
 import walk from 'walk-sync'
 
 const EXCEPTIONS = new Set([
-  // These files are dynamically referenced in Search.tsx
-  // so they're referred to as `... search-${iconSize}.svg`
-  'assets/images/octicons/search-16.svg',
-  'assets/images/octicons/search-24.svg',
+  'assets/images/site/favicon.ico',
+  'assets/images/site/apple-touch-icon.png',
 ])
+
+function isExceptionPath(imagePath) {
+  // We also check for .DS_Store because any macOS user that has opened
+  // a folder with images will have this on disk. It won't get added
+  // to git anyway thanks to our .DS_Store.
+  // But if we don't make it a valid exception, it can become inconvenient
+  // to run this script locally.
+  return (
+    EXCEPTIONS.has(imagePath) ||
+    path.basename(imagePath) === '.DS_Store' ||
+    imagePath.split(path.sep).includes('early-access')
+  )
+}
 
 program
   .description('Print all images that are in ./assets/ but not found in any source files')
@@ -57,7 +68,7 @@ async function main(opts) {
         root,
         Object.assign(
           {
-            globs: ['!**/*.+(png|csv|graphql|json|svg)'],
+            globs: ['!**/*.+(png|jpe?g|csv|graphql|json|svg)'],
           },
           walkOptions
         )
@@ -87,7 +98,7 @@ async function main(opts) {
     const content = fs.readFileSync(sourceFile, 'utf-8')
     for (const imagePath of allImages) {
       const needle = imagePath.split(path.sep).slice(-2).join('/')
-      if (content.includes(needle) || EXCEPTIONS.has(imagePath)) {
+      if (content.includes(needle) || isExceptionPath(imagePath)) {
         allImages.delete(imagePath)
       }
     }

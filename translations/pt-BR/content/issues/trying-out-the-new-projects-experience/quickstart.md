@@ -35,6 +35,10 @@ Primeiro, crie um projeto de organização ou um projeto de usuário.
 
 {% data reusables.projects.create-user-project %}
 
+## Configurando a descrição e o README do seu projeto
+
+{% data reusables.projects.project-description %}
+
 ## Adicionando problemas ao seu projeto
 
 Em seguida, adicione alguns problemas ao seu projeto.

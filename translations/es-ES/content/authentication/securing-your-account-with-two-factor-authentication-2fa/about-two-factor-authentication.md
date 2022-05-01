@@ -19,7 +19,7 @@ Para {% data variables.product.product_name %}, la segunda forma de autenticaci�
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
 {% ifversion fpt or ghec %}
-In addition to security keys, you can also use {% data variables.product.prodname_mobile %} for 2FA after configuring a TOTP mobile app or text messages. {% data variables.product.prodname_mobile %} uses public-key cryptography to secure your account, allowing you to use any mobile device that you've used to signed in to {% data variables.product.prodname_mobile %} as your second factor.
+Adicionalmente a las llaves de seguridad, también puedes utilizar {% data variables.product.prodname_mobile %} para la 2FA después de configurar una app móvil TOTP o mensajes de texto. {% data variables.product.prodname_mobile %} utiliza criptografía de llaves públicas para asegurar tu cuenta, lo cual te permite utilizar cualquier dispositivo móvil que hayas utilizado para ingresar en {% data variables.product.prodname_mobile %} como tu segundo factor de ingreso.
 {% endif %}
 
 También puedes configurar métodos de recuperación adicionales en caso de que pierdas el acceso a tus credenciales de autenticación de dos factores. Para obtener más información acerca de la configuración de la 2FA, consulta "[Configurar autenticación de dos factores](/articles/configuring-two-factor-authentication)" y "[Configurar métodos de recuperación de autenticación de dos factores](/articles/configuring-two-factor-authentication-recovery-methods)".

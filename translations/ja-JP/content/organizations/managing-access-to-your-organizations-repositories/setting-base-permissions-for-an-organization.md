@@ -21,10 +21,10 @@ Organization のリポジトリにアクセスするとき Organization の全�
 
 {% ifversion fpt or ghec %}デフォルトでは、Organization のメンバーは Organization のリポジトリに対する**読み取り**権限を付与されます。{% endif %}
 
-If someone with admin access to an organization's repository grants a member a higher level of access for the repository, the higher level of access overrides the base permission.
+Organizationのリポジトリに対する管理者アクセスがあるユーザが、リポジトリに対してそれより高いレベルのアクセスを付与すると、基本レベルのアクセスは、付与された高いアクセスによってオーバーライドされます。
 
 {% ifversion ghec %}
-If you've created a custom repository role with an inherited role that is lower access than your organization's base permissions, any members assigned to that role will default to the organization's base permissions rather than the inherited role. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+Organizationの基本権限よりも低いアクセスを持つ継承ロールを持つカスタムのリポジトリロールを作成すると、そのロールに割り当てられたメンバーは、継承されたロールではなくOrganizationの基本権限がデフォルトになります。 詳しい情報については「[Organizationのカスタムリポジトリロールの管理](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)」を参照してください。
 {% endif %}
 
 ## 基本レベルの権限の設定
@@ -37,5 +37,5 @@ If you've created a custom repository role with an inherited role that is lower 
 
 ## 参考リンク
 
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- 「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」
 - [外部コラボレーターを Organization のリポジトリに追加する](/organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)

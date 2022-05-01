@@ -41,7 +41,7 @@ jobs:
 
       - name: Close pull request if unwanted
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
           script: |
@@ -98,13 +98,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
 
       # Set up npm and run npm ci to run husky to get githooks for LFS
       - name: Setup node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
         with:
-          node-version: 16.13.x
+          node-version: 16.14.x
           cache: npm
       - name: Install dependencies
         run: npm ci
@@ -120,7 +120,7 @@ jobs:
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
       - name: Create pull request
-        uses: repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3
+        uses: repo-sync/pull-request@65785d95a5a466e46a9d0708933a3bd51bbf9dde
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
         with:
@@ -147,7 +147,7 @@ jobs:
       # Because we get far too much spam ;_;
       - name: Lock conversations
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           script: |
             try {
@@ -165,7 +165,7 @@ jobs:
       # There are cases where the branch becomes out-of-date in between the time this workflow began and when the pull request is created/updated
       - name: Update branch
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         with:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           script: |
@@ -214,7 +214,7 @@ jobs:
 
       - name: Check pull request file count after updating
         if: ${{ steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@e3cbab99d3a9b271e1b79fc96d103a4a5534998c
+        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
         id: pr-files
         env:
           PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}

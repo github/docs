@@ -33,7 +33,7 @@ También puedes acceder a {% data variables.enterprise.management_console %} uti
 
 Para acceder a {% data variables.enterprise.management_console %}, debes utilizar la contraseña de administrador establecida durante la configuración inicial de {% data variables.product.product_location %}. También debes poder conectarte con el host de la máquina virtual en el puerto 8443. Si tienes problemas para acceder a {% data variables.enterprise.management_console %}, controla las configuraciones del firewall intermedio y del grupo de seguridad.
 
-The {% data variables.enterprise.management_console %} password hash is stored in `/data/user/common/secrets.conf`, and that file is automatically synced from the primary appliance to any high-availability replicas. Any change to the primary's password will automatically be replicated to high-availability replicas. For more information about high availability, see "[About high availability configuration](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)."
+El hash de la contraseña de la {% data variables.enterprise.management_console %} se almacena en `/data/user/common/secrets.conf` y ese archivo se sincroniza automáticamente desde el aplicativo principal hacia cualquier réplica de alta disponibilidad. Cualquier cambio a la contraseña primaria se replicará automáticamente en réplicas de disponibilidad alta. Para obtener más información sobre la disponibilidad alta, consulta la sección "[Acerca de la configuración de disponibilidad alta](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration)".
 
 ## Acceder a la {% data variables.enterprise.management_console %} como administrador del sitio
 

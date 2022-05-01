@@ -30,14 +30,20 @@ shortTitle: Configure DNS servers
 ## 管理シェルを使ったネームサーバの設定
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
+
 2. ネームサーバーを編集するには、次を入力します:
+
   ```shell
-  $ sudo vim /etc/resolvconf/resolv.conf.d/head
+  sudo vim /etc/resolvconf/resolv.conf.d/head
   ```
+
+{% data reusables.enterprise_installation.preventing-nameservers-change %}
+
 3. `nameserver` エントリを追加し、続いてファイルを保存します。
 4. 変更を確認したら、ファイルを保存します。
 5. To add your new nameserver entries to {% data variables.product.product_location %}, run the following:
+
   ```shell
-  $ sudo service resolvconf restart
-  $ sudo service dnsmasq restart
+  sudo service resolvconf restart
+  sudo service dnsmasq restart
   ```

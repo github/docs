@@ -6,7 +6,7 @@ product: '{% data reusables.gated-features.code-scanning %}'
 miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
 type: how_to
@@ -45,6 +45,16 @@ Você deve fazer o download do pacote {% data variables.product.prodname_codeql 
 - Uma versão compatível das consultas e bibliotecas de https://github.com/github/codeql
 - Versões pré-compiladas de todas as consultas incluídas no pacote
 
+{% ifversion ghes %}
+
+{% note %}
+{% ifversion ghes = 3.1 %}Para {% data variables.product.prodname_ghe_server %} 3.1, recomendamos a versão 2.6.3 de {% data variables.product.prodname_codeql_cli %}.{% endif %}
+{% ifversion ghes = 3.2 %}Para {% data variables.product.prodname_ghe_server %} 3.2, recomendamos a versão 2.6.3 de {% data variables.product.prodname_codeql_cli %}.{% endif %}
+{% ifversion ghes > 3.2 %}Para {% data variables.product.prodname_ghe_server %} 3.3 ou superior, recomendamos a versão 2.7.6 ou superior de {% data variables.product.prodname_codeql_cli %}.{% endif %}
+{% endnote %}
+
+{% endif %}
+
 Você sempre deve usar o pacote de {% data variables.product.prodname_codeql %}, uma vez que ele garante compatibilidade e também fornece um desempenho muito melhor do que um download separado de {% data variables.product.prodname_codeql_cli %} e checkout das consultas de {% data variables.product.prodname_codeql %}. Se você estiver executando o CLI apenas em uma plataforma específica, faça o download do arquivo `codeql-bundle-PLATFORM.tar.gz` apropriado. Como alternativa, você pode fazer o download de `codeql-bundle.tar.gz`, que contém a CLI para todas as plataformas compatíveis.
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
@@ -55,7 +65,7 @@ Você precisa disponibilizar todo o conteúdo do pacote {% data variables.produc
 
 ```shell
 $ wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
-$ tar -xvzf ../codeql-bundle-linux64.tar.gz
+$ tar -xvzf ./codeql-bundle-linux64.tar.gz
 ```
 
 Depois de extrair o pacote do {% data variables.product.prodname_codeql_cli %}, você poderá executar o executável `codeql` no servidor:

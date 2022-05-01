@@ -1,6 +1,6 @@
 ---
 title: 仓库
-intro: Learn to use and manage the repositories that allow you to store and collaborate on your project's code.
+intro: 了解如何使用和管理存储库，以便存储项目代码并进行协作。
 introLinks:
   quickstart: /get-started/quickstart/create-a-repo
   overview: /repositories/creating-and-managing-repositories/about-repositories

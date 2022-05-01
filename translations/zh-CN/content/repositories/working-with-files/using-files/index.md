@@ -1,6 +1,6 @@
 ---
-title: Using files
-intro: You can navigate and track changes in the code in your files.
+title: 使用文件
+intro: 您可以导航和跟踪文件中代码中的更改。
 versions:
   fpt: '*'
   ghes: '*'
@@ -8,7 +8,7 @@ versions:
   ghec: '*'
 children:
   - /navigating-code-on-github
-  - /tracking-changes-in-a-file
+  - /viewing-a-file
   - /getting-permanent-links-to-files
   - /working-with-non-code-files
 ---

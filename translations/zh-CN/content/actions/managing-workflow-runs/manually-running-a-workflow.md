@@ -70,4 +70,4 @@ gh run watch
 
 使用 REST API 时，应将 `inputs` 和 `ref` 配置为请求正文参数。 如果忽略输入，则使用工作流程文件中定义的默认值。
 
-For more information about using the REST API, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)."
+有关使用 REST API 的更多信息，请参阅“[创建工作流调度事件](/rest/reference/actions/#create-a-workflow-dispatch-event)”。

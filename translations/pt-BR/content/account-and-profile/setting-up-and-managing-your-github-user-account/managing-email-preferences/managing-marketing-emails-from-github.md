@@ -22,8 +22,8 @@ shortTitle: E-mails de marketing
 
 {% endtip %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 3. Em *Email preferences* (Preferências de e-mail), selecione **Only receive account related emails, and those I subscribe to** (Receber somente e-mails relacionados à conta e aqueles que assinei). ![Captura de tela de remover assinatura de e-mail marketing](/assets/images/help/notifications/email_preferences.png)
 4. Clique em **Save email preferences** (Salvar preferências de e-mail). ![Botão Save email preferences (Salvar preferências de e-mail)](/assets/images/help/notifications/save_email_preferences.png)
 

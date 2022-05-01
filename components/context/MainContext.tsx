@@ -21,10 +21,16 @@ export type ProductGroupT = {
 }
 
 type VersionItem = {
+  // free-pro-team@latest, enterprise-cloud@latest, enterprise-server@3.3 ...
   version: string
   versionTitle: string
   currentRelease: string
   latestVersion: string
+  shortName: string
+  // api.github.com, ghes-3.3, github.ae
+  openApiVersionName: string
+  // api.github.com, ghes-, github.ae
+  openApiBaseName: string
 }
 
 export type ProductTreeNode = {
@@ -118,6 +124,7 @@ export type MainContextT = {
 
   status: number
   fullUrl: string
+  isDotComAuthenticated: boolean
 }
 
 export const getMainContext = (req: any, res: any): MainContextT => {
@@ -183,6 +190,7 @@ export const getMainContext = (req: any, res: any): MainContextT => {
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     status: res.statusCode,
     fullUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
+    isDotComAuthenticated: Boolean(req.cookies.dotcom_user),
   }
 }
 

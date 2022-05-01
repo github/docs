@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 topics:
   - Repositories
-shortTitle: About merge methods
+shortTitle: 关于合并方法
 ---
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} 您可以只对仓库启用所需的方法，以实施一种合并方法，如提交压缩或变基。
@@ -20,7 +20,7 @@ shortTitle: About merge methods
 {% ifversion fpt or ghec %}
 {% note %}
 
-**Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
+**注意：**使用合并队列时，您将无法再选择合并方法，因为这由队列控制。 {% data reusables.pull_requests.merge-queue-references %}
 
 {% endnote %}
 {% endif %}

@@ -23,8 +23,8 @@ Quando você faz downgrade do número de pacotes de dados, as alterações entra
 
 ## Fazer downgrade de armazenamento e largura de banda de uma conta pessoal
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-remove-data %}
 {% data reusables.large_files.downgrade_data_packs %}
 

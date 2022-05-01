@@ -19,11 +19,11 @@ shortTitle: 与 IdP 同步
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
-{% ifversion ghec %}You can connect up to five IdP groups to a {% data variables.product.product_name %} team.{% elsif ghae %}You can connect a team on {% data variables.product.product_name %} to one IdP group. 组中的所有用户将自动添加到团队中，并作为成员添加到父组织。 当您断开组与团队的连接时，通过团队成员资格成为组织成员的用户将从组织中删除。{% endif %} 您可以将 IdP 组分配给多个 {% data variables.product.product_name %} 团队。
+{% ifversion ghec %}您可以将最多 5 个 IdP 组连接到 {% data variables.product.product_name %} 团队。{% elsif ghae %}您可以将 {% data variables.product.product_name %} 上的团队连接到一个 IdP 组。 组中的所有用户将自动添加到团队中，并作为成员添加到父组织。 当您断开组与团队的连接时，通过团队成员资格成为组织成员的用户将从组织中删除。{% endif %} 您可以将 IdP 组分配给多个 {% data variables.product.product_name %} 团队。
 
-{% ifversion ghec %}Team synchronization does not support IdP groups with more than 5000 members.{% endif %}
+{% ifversion ghec %}团队同步不支持超过 5000 个成员的 IdP 组。{% endif %}
 
-{% data variables.product.prodname_dotcom %} 团队连接到 IdP 组后，您的 IdP 管理员必须通过身份提供程序进行团队成员资格更改。 You cannot manage team membership on {% data variables.product.product_name %}{% ifversion ghec %} or using the API{% endif %}.
+{% data variables.product.prodname_dotcom %} 团队连接到 IdP 组后，您的 IdP 管理员必须通过身份提供程序进行团队成员资格更改。 您不能在 {% data variables.product.product_name %} 上{% ifversion ghec %}或使用 API{% endif %} 管理团队成员资格。
 
 {% ifversion ghec %}{% data reusables.enterprise-accounts.team-sync-override %}{% endif %}
 
@@ -39,14 +39,14 @@ shortTitle: 与 IdP 同步
 
 要管理 {% data variables.product.prodname_dotcom %} 团队（包括连接到 IdP 组的团队）的仓库访问权限，您必须使用 {% data variables.product.product_name %} 进行更改。 更多信息请参阅“[关于团队](/articles/about-teams)”和“[管理团队对组织仓库的访问](/articles/managing-team-access-to-an-organization-repository)”。
 
-{% ifversion ghec %}You can also manage team synchronization with the API. 更多信息请参阅“[团队同步](/rest/reference/teams#team-sync)”。{% endif %}
+{% ifversion ghec %}您还可以使用 API 管理团队同步。 更多信息请参阅“[团队同步](/rest/reference/teams#team-sync)”。{% endif %}
 
 {% ifversion ghec %}
 ## 已同步团队成员的要求
 
 将团队连接到 IdP 组后，团队同步将 IdP 组的每个成员添加到 {% data variables.product.product_name %} 上的相应团队，但需满足以下条件：
 - 此人是 {% data variables.product.product_name %} 上的组织的成员。
-- 此人已使用 {% data variables.product.product_name %} 上的用户帐户登录，并且至少一次通过 SAML 单点登录向组织或企业帐户验证。
+- 此人已使用 {% data variables.product.product_name %} 上的个人帐户登录，并且至少一次通过 SAML 单点登录向组织或企业帐户验证。
 - 此人的 SSO 身份是 IdP 组的成员。
 
 不符合这些条件的现有团队或组成员将被从 {% data variables.product.product_name %} 团队中自动删除，并失去对仓库的访问权限。 撤销用户关联的身份也会将用户从映射到 IdP 组的任何团队中删除。 更多信息请参阅“[查看和管理成员对组织的 SAML 访问](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)”和“[查看和管理用户对企业的 SAML 访问](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-a-linked-identity)”。
@@ -77,7 +77,7 @@ shortTitle: 与 IdP 同步
 将 IdP 组连接到 {% data variables.product.product_name %} 团队时，组中的所有用户都会自动添加到团队中。 {% ifversion ghae %}任何尚未成为父组织成员的用户也会添加到组织。{% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion ghec %}
@@ -90,7 +90,7 @@ shortTitle: 与 IdP 同步
 如果您断开 IdP 组与 {% data variables.product.prodname_dotcom %} 团队的连接，则通过 IdP 组分配给 {% data variables.product.prodname_dotcom %} 团队的团队成员将从团队中删除。 {% ifversion ghae %} 任何只是因为团队连接而成为父组织成员的用户也会从组织中删除。{% endif %}
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 {% ifversion ghec %}

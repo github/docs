@@ -23,7 +23,8 @@ Organization レベルでプライベート{% ifversion ghes or ghec or ghae %} 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. Under "Repository forking", select **Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**.
+{% data reusables.profile.org_member_privileges %}
+1. 「Repository forking（リポジトリのフォーク）」の下で、**Allow forking of private {% ifversion ghec or ghes or ghae %}and internal {% endif %}repositories**を選択してください。
 
    {%- ifversion fpt %}
    ![Organization でフォークを許可または禁止するチェックボックス](/assets/images/help/repository/allow-disable-forking-fpt.png)
@@ -35,4 +36,4 @@ Organization レベルでプライベート{% ifversion ghes or ghec or ghae %} 
 ## 参考リンク
 
 - 「[フォークについて](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)」
-- "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- 「[Organizationのリポジトリロール](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)」

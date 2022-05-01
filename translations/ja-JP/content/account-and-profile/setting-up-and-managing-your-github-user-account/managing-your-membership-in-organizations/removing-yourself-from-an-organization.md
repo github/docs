@@ -28,6 +28,6 @@ shortTitle: Leave an organization
 
 {% endif %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.organizations %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.organizations %}
 3. [Organizations] の下で、自分を削除する Organization を見つけ、[**Leave**] をクリックします。 ![ロールが表示され、その横に [Leave] ボタンがある](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

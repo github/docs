@@ -1,6 +1,6 @@
 ---
 title: Organization アカウントの削除
-intro: 'Organization を削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、プロジェクトページや Organization ページもすべて削除されます。 {% ifversion fpt or ghec %}Your billing will end, and after 90 days the organization name becomes available for use on a new user or organization account.{% endif %}'
+intro: 'Organization を削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、Pull Request、プロジェクトページや Organization ページもすべて削除されます。 {% ifversion fpt or ghec %}支払いは終了し、90日後にOrganizationの名前は新しいユーザもしくはOrganizationアカウントで利用できるようになります。{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
   - /github/setting-up-and-managing-organizations-and-teams/deleting-an-organization-account
@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Organizationアカウントの削除
+shortTitle: Organizationの削除
 ---
 
 {% ifversion fpt or ghec %}
@@ -26,7 +26,15 @@ shortTitle: Organizationアカウントの削除
 
 ## 1. Organization コンテンツのバックアップ
 
-Organization を削除すると、GitHub では**コンテンツを復元できません**。 したがって、Organization を削除する前に、アカウントからすべてのリポジトリ、ウィキ、Issue、プロジェクトボードのコピーがあることを確認してください。
+{% ifversion not ghes %} Organizationを削除すると、{% data variables.product.company_short %}は**コンテンツを復元できません**。 したがって、{% else %}{% endif %}Organization を削除する前に、アカウントからすべてのリポジトリ、ウィキ、Issue、プロジェクトボードのコピーがあることを確認してください。
+
+{% ifversion ghes %}
+{% note %}
+
+**ノート:** 必要なら、{% data variables.product.product_location %}の管理者は削除されたOrganizationを部分的に復元できることがあります。 詳しい情報については「[削除されたOrganizationの復元](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)」を参照してください。
+
+{% endnote %}
+{% endif %}
 
 ## 2. Organization の削除
 

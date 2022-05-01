@@ -18,7 +18,7 @@ shortTitle: Administrar comentarios
 
 ## Ocultar un comentario
 
-Cualquiera con acceso de escritura a un repositorio puede ocultar comentarios en reportes de problemas, solicitudes de extracción y confirmaciones.
+{% ifversion fpt or ghec %}Los moderadores de las organizaciones y cualquiera{% else %}Cualquiera{% endif %} con acceso de escritura a un repositorio puede ocultar comentarios en las propuestas, solicitudes de cambios y confirmaciones.
 
 Si un comentario está fuera de tema, desactualizado o resuelto, es posible que desees ocultar un comentario para mantener la conversación enfocada o hacer que una solicitud de extracción sea más fácil de navegar o revisar. Los comentarios ocultos se minimizan pero las personas con acceso de lectura a un repositorio puede expandirlos.
 
@@ -35,7 +35,7 @@ Si un comentario está fuera de tema, desactualizado o resuelto, es posible que 
 
 ## Desocultar un comentario
 
-Cualquiera con acceso de escritura a un repositorio puede volver a mostrar comentarios sobre reportes de problemas, solicitudes de extracción y confirmaciones.
+{% ifversion fpt or ghec %}Los moderadores de las organizaciones y cualquiera{% else %}Cualquiera{% endif %} con permisos de acceso en un repositorio puede dejar de ocultar los comentarios en las propuestas, solicitudes de cambios y confirmaciones.
 
 1. Navega hasta el comentario que deseas desocultar.
 2. En la esquina superior derecha del comentario, haz clic en **{% octicon "fold" aria-label="The fold icon" %} Show comment (Mostrar comentario)**. ![Mostrar el texto del comentario](/assets/images/help/repository/hidden-comment-show.png)
@@ -82,3 +82,8 @@ Si un comentario contiene algún contenido constructivo que sume a la conversaci
 1. Navega hasta el comentario que deseas eliminar.
 2. En la esquina superior derecha del comentario, haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, después haz clic en **Delete (Eliminar)**. ![El ícono de kebab horizontal y el menú de moderación de comentario que muestra las opciones Editar, Ocultar, Eliminar e Informar](/assets/images/help/repository/comment-menu.png)
 3. De forma opcional, escribe un comentario señalando que eliminaste un comentario y el porqué.
+
+{% ifversion fpt or ghec %}
+## Leer más
+- "[Administrar a los moderadores en tu organización](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
+{% endif %} 

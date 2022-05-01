@@ -21,10 +21,9 @@ topics:
   - Integration
   - SARIF
 ---
-<!--For this article in earlier GHES versions, see /content/github/finding-security-vulnerabilities-and-errors-in-your-code-->
+
 
 {% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.deprecation-codeql-runner %}
 
 ## About SARIF support
 
@@ -32,10 +31,7 @@ SARIF (Static Analysis Results Interchange Format) is an [OASIS Standard](https:
 
 To upload a SARIF file from a third-party static code analysis engine, you'll need to ensure that uploaded files use the SARIF 2.1.0 version. {% data variables.product.prodname_dotcom %} will parse the SARIF file and show alerts using the results in your repository as a part of the {% data variables.product.prodname_code_scanning %} experience. For more information, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github)." For more information about the SARIF 2.1.0 JSON schema, see [`sarif-schema-2.1.0.json`](https://github.com/oasis-tcs/sarif-spec/blob/master/Documents/CommitteeSpecifications/2.1.0/sarif-schema-2.1.0.json).
 
-If you're using {% data variables.product.prodname_actions %} with the {% data variables.product.prodname_codeql_workflow %} or using the {% data variables.product.prodname_codeql_runner %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)" or "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)."
-
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
-If you're using the {% data variables.product.prodname_codeql_cli %}, then you can specify the version of SARIF to use. For more information, see "[Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/secure-coding/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#analyzing-a-codeql-database)."{% endif %}
+If you're using {% data variables.product.prodname_actions %} with the {% data variables.product.prodname_codeql_workflow %}{% if codeql-runner-supported %}, using the {% data variables.product.prodname_codeql_runner %},{% endif %} or using the {% data variables.product.prodname_codeql_cli %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[Setting up {% data variables.product.prodname_code_scanning %} for a repository](/code-security/secure-coding/setting-up-code-scanning-for-a-repository)"{% if codeql-runner-supported %}, "[Running {% data variables.product.prodname_codeql_runner %} in your CI system](/code-security/secure-coding/running-codeql-runner-in-your-ci-system)",{% endif %} or "[Installing CodeQL CLI in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 You can upload multiple SARIF files for the same commit, and display the data from each file as {% data variables.product.prodname_code_scanning %} results. When you upload multiple SARIF files for a commit, you must indicate a "category" for each analysis. The way to specify a category varies according to the analysis method:
@@ -57,7 +53,7 @@ Each time the results of a new code scan are uploaded, the results are processed
 
 {% data variables.product.prodname_dotcom %} uses the `partialFingerprints` property in the OASIS standard to detect when two results are logically identical. For more information, see the "[partialFingerprints property](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012611)" entry in the OASIS documentation.
 
-SARIF files created by the {% data variables.product.prodname_codeql_workflow %} or using the {% data variables.product.prodname_codeql_runner %} include fingerprint data. If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
+SARIF files created by the {% data variables.product.prodname_codeql_workflow %}, {% if codeql-runner-supported %}using the {% data variables.product.prodname_codeql_runner %}, {% endif %}or using the {% data variables.product.prodname_codeql_cli %} include fingerprint data. If you upload a SARIF file using the `upload-sarif` action and this data is missing, {% data variables.product.prodname_dotcom %} attempts to populate the `partialFingerprints` field from the source files. For more information about uploading results, see "[Uploading a SARIF file to {% data variables.product.prodname_dotcom %}](/code-security/secure-coding/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
 
 If you upload a SARIF file without fingerprint data using the `/code-scanning/sarifs` API endpoint, the {% data variables.product.prodname_code_scanning %} alerts will be processed and displayed, but users may see duplicate alerts. To avoid seeing duplicate alerts, you should calculate fingerprint data and populate the `partialFingerprints` property before you upload the SARIF file. You may find the script that the `upload-sarif` action uses a helpful starting point: https://github.com/github/codeql-action/blob/main/src/fingerprints.ts. For more information about the API, see "[Upload an analysis as SARIF data](/rest/reference/code-scanning#upload-an-analysis-as-sarif-data)."
 
@@ -79,7 +75,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 
 | Name | Description |
 |----|----|
-|  `$schema` | **Required.** The URI of the SARIF JSON schema for version 2.1.0. For example, `https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json`. |
+|  `$schema` | **Required.** The URI of the SARIF JSON schema for version 2.1.0. For example, `https://json.schemastore.org/sarif-2.1.0.json`. |
 | `version` | **Required.** {% data variables.product.prodname_code_scanning_capc %} only supports SARIF version `2.1.0`.
 | `runs[]` | **Required.** A SARIF file contains an array of one or more runs. Each run represents a single run of an analysis tool. For more information about a `run`, see the [`run` object](#run-object).
 
@@ -109,7 +105,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | `properties.tags[]` | **Optional.** An array of strings. {% data variables.product.prodname_code_scanning_capc %} uses `tags` to allow you to filter results on {% data variables.product.prodname_dotcom %}. For example, it is possible to filter to all results that have the tag `security`.
 | `properties.precision` | **Recommended.** A string that indicates how often the results indicated by this rule are true. For example, if a rule has a known high false-positive rate, the precision should be `low`. {% data variables.product.prodname_code_scanning_capc %} orders results by precision on {% data variables.product.prodname_dotcom %} so that the results with the highest `level`, and highest `precision` are shown first. Can be one of: `very-high`, `high`, `medium`, or `low`. {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 | `properties.problem.severity` | **Recommended.** A string that indicates the level of severity of any alerts generated by a non-security query. This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `problem.severity`, and highest `precision` are shown first. Can be one of: `error`, `warning`, or `recommendation`.
-| `properties.security-severity` | **Recommended.** A score that indicates the level of severity, between 0.0 and 10.0, for security queries (`@tags` includes `security`). This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `security-severity`, and highest `precision` are shown first. {% data variables.product.prodname_code_scanning_capc %} translates numerical scores as follows: over 9.0 is `critical`, 7.0 to 8.9  is `high`, 4.0 to 6.9 is `medium` and 3.9 or less is `low`. {% endif %}
+| `properties.security-severity` | **Recommended.** A string representing a score that indicates the level of severity, between 0.0 and 10.0, for security queries (`@tags` includes `security`). This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `security-severity`, and highest `precision` are shown first. {% data variables.product.prodname_code_scanning_capc %} translates numerical scores as follows: over 9.0 is `critical`, 7.0 to 8.9  is `high`, 4.0 to 6.9 is `medium` and 3.9 or less is `low`. {% endif %}
 
 ### `result` object
 
@@ -118,7 +114,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | Name | Description |
 |----|----|
 | `ruleId`| **Optional.** The unique identifier of the rule (`reportingDescriptor.id`). For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object). {% data variables.product.prodname_code_scanning_capc %} uses the rule identifier to filter results by rule on {% data variables.product.prodname_dotcom %}.
-| `ruleIndex`| **Optional.** The index of the associated rule (`reportingDescriptor` object) in the tool component `rules` array. For more information, see the [`run` object](#run-object).
+| `ruleIndex`| **Optional.** The index of the associated rule (`reportingDescriptor` object) in the tool component `rules` array. For more information, see the [`run` object](#run-object). The allowed range for this property 0 to 2^63 - 1.
 | `rule`| **Optional.** A reference used to locate the rule (reporting descriptor) for this result. For more information, see the [`reportingDescriptor` object](#reportingdescriptor-object).
 | `level`| **Optional.** The severity of the result. This level overrides the default severity defined by the rule. {% data variables.product.prodname_code_scanning_capc %} uses the level to filter results by severity on {% data variables.product.prodname_dotcom %}.
 | `message.text`| **Required.** A message that describes the result. {% data variables.product.prodname_code_scanning_capc %} displays the message text as the title of the result. Only the first sentence of the message will be displayed when visible space is limited.
@@ -133,7 +129,7 @@ A location within a programming artifact, such as a file in the repository or a 
 
 | Name | Description |
 |----|----|
-| `location.id` | **Optional.** A unique identifier that distinguishes this location from all other locations within a single result object.
+| `location.id` | **Optional.** A unique identifier that distinguishes this location from all other locations within a single result object. The allowed range for this property 0 to 2^63 - 1.
 | `location.physicalLocation` | **Required.** Identifies the artifact and region. For more information, see the [`physicalLocation`](#physicallocation-object).
 | `location.message.text` | **Optional.** A message relevant to the location.
 
@@ -196,7 +192,7 @@ This SARIF output file has example values to show the minimum required propertie
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
   "version": "2.1.0",
   "runs": [
     {
@@ -254,7 +250,7 @@ This SARIF output file has example values to show all supported SARIF properties
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
   "version": "2.1.0",
   "runs": [
     {
@@ -507,7 +503,7 @@ This SARIF output file has example values to show all supported SARIF properties
 {% else %}
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
   "version": "2.1.0",
   "runs": [
     {

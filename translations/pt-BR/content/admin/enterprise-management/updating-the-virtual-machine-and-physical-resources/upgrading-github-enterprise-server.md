@@ -28,12 +28,13 @@ shortTitle: Atualizando GHES
 ## Preparar para a atualização
 
 1. Determine uma estratégia de atualização e escolha uma versão para atualizar. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)" e consulte o [{% data variables.enterprise.upgrade_assistant %}](https://support.github.com/enterprise/server-upgrade) para encontrar o caminho de atualização da sua versão atual.
-3. Crie um backup da instância primária usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte o [Arquivo README.md do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
-4. Se você estiver atualizando com um pacote de atualização, programe um período de manutenção para os usuários finais do {% data variables.product.prodname_ghe_server %}. Se estiver usando um hotpatch, não será necessário recorrer ao modo de manutenção.
+1. Crie um backup da instância primária usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte o [Arquivo README.md do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+1. Se {% data variables.product.product_location %} usa executores efêmeros auto-hospedados para {% data variables.product.prodname_actions %} e você desabilitou as atualizações automáticas, atualizar os seus executores para a versão do aplicativo do executor que sua instância atualizada será executada.
+1. Se você estiver atualizando com um pacote de atualização, programe um período de manutenção para os usuários finais do {% data variables.product.prodname_ghe_server %}. Se estiver usando um hotpatch, não será necessário recorrer ao modo de manutenção.
 
   {% note %}
 
-  **Observação:** o período de manutenção depende do tipo de atualização a ser feita. Atualizações com hotpatch normalmente não exigem período de manutenção. É preciso reinicializar a instância em alguns casos, mas o processo pode ser feito em outro momento. Seguindo o esquema de versões do MAJOR.FEATURE.PATCH, as versões de patch que usam pacote de atualização costumam gerar menos de cinco minutos de tempo de inatividade. Versões de recursos que incluem migrações de dados levam mais tempo, dependendo do desempenho do armazenamento e da quantidade de dados migrados. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+  **Observação:** o período de manutenção depende do tipo de atualização a ser feita. Atualizações com hotpatch costumam não exigir período de manutenção. É preciso reinicializar a instância em alguns casos, mas o processo pode ser feito em outro momento. Seguindo o esquema de versões do MAJOR.FEATURE.PATCH, as versões de patch que usam pacote de atualização costumam gerar menos de cinco minutos de tempo de inatividade. Versões de recursos que incluem migrações de dados levam mais tempo, dependendo do desempenho do armazenamento e da quantidade de dados migrados. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
   {% endnote %}
 
@@ -41,7 +42,7 @@ shortTitle: Atualizando GHES
 
 ## Obter um instantâneo
 
-Instantâneo é um ponto de verificação de uma máquina virtual (VM) em um momento específico. É altamente recomendável obter um instantâneo antes de atualizar sua máquina virtual para que você possa recuperar a VM em caso de falha. We only recommend taking a VM snapshot when the appliance is powered down or in maintenance mode and all background jobs have finished.
+Instantâneo é um ponto de verificação de uma máquina virtual (VM) em um momento específico. É altamente recomendável obter um instantâneo antes de atualizar sua máquina virtual para que você possa recuperar a VM em caso de falha. Apenas recomendamos tirar um instantâneo da VM quando o dispositivo estiver desligado ou em modo de manutenção e todos os trabalhos em segundo plano estiverem concluídos.
 
 Se você estiver atualizando para uma nova versão do recurso, obtenha um instantâneo da VM. Se você estiver atualizando para uma versão de patch, vincule o disco de dados existente.
 
@@ -71,7 +72,7 @@ Há dois tipos de instantâneo:
 
 {% data reusables.enterprise_installation.hotpatching-explanation %}
 
-Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. Você pode usar o shell administrativo para instalar um hotpatch com o utilitário `ghe-upgrade`. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
+Ao usar o {% data variables.enterprise.management_console %}, você pode instalar um hotpatch imediatamente ou programá-lo para instalação posterior. Você pode usar o shell administrativo para instalar um hotpatch com o utilitário `ghe-upgrade`. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
 
 {% note %}
 
@@ -88,9 +89,9 @@ Using the {% data variables.enterprise.management_console %}, you can install a 
 
 #### Instalar um hotpatch usando o {% data variables.enterprise.management_console %}
 
-You can use the {% data variables.enterprise.management_console %} to upgrade with a hotpatch by enabling automatic updates. You will then be presented with the latest available version of {% data variables.product.prodname_ghe_server %} that you can upgrade to.
+Você pode usar o {% data variables.enterprise.management_console %} para atualizar com um hotpatch, habilitando as atualizações automáticas. Em seguida, será apresentada a última versão de {% data variables.product.prodname_ghe_server %} disponível para a qual você pode atualizar.
 
-If the upgrade target you're presented with is a feature release instead of a patch release, you cannot use the {% data variables.enterprise.management_console %} to install a hotpatch. You must install the hotpatch using the administrative shell instead. For more information, see "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
+Se o alvo de atualização que lhe foi apresentado for uma versão do recurso em vez de uma versão de patch, você não poderá usar {% data variables.enterprise.management_console %} para instalar um hotpatch. Você deve instalar o hotpatch usando o shell administrativo. Para obter mais informações, consulte "[Instalando um hotpatch usando o shell administrativo](#installing-a-hotpatch-using-the-administrative-shell)."
 
 1. Habilite atualizações automáticas. Para obter mais informações, consulte "[Habilitar atualizações automáticas](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)".
 {% data reusables.enterprise_site_admin_settings.access-settings %}

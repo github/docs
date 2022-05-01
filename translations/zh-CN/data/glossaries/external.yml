@@ -210,7 +210,7 @@
   description: 发送到用户电子邮件地址的通知。
 - 
   term: 企业帐户
-  description: Enterprise accounts allow you to centrally manage policy and billing for multiple organizations. {% data reusables.gated-features.enterprise-accounts %}
+  description: 企业帐户允许您集中管理多个组织的策略和帐单。{% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -594,7 +594,7 @@
   description: >-
     仓库是 GitHub 最基本的元素，最容易被想象成项目的文件夹。一个仓库包含所有项目文件（包括文档），并且存储每个文件的修订历史记录。仓库可有多个协作者，也可以是公共仓库或私有仓库。
 - 
-  term: repository cache
+  term: 存储库缓存
   description: >-
     A read-only mirror of repositories for your GitHub Enterprise server instance, located near distributed teams and CI clients.
 - 

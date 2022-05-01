@@ -16,11 +16,11 @@ shortTitle: Subida de bloque con correo electrónico personal
 
 Cuando subes las confirmaciones de la línea de comando, la dirección de correo electrónico que has [establecido en Git](/articles/setting-your-commit-email-address) están asociadas con tus confirmaciones. Si habilitas este ajuste, cad que subas información a GitHub, verificaremos la confirmación más reciente. Si el correo electrónico del autor de la confirmación es una dirección de correo electrónico privada en tu cuenta de GitHub, bloquearemos la subida y te alertaremos sobre la exposición de tu cuenta de correo electrónico privada.
 
-{% data reusables.user_settings.about-commit-email-addresses %}
+{% data reusables.user-settings.about-commit-email-addresses %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
-{% data reusables.user_settings.keeping_your_email_address_private %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
+{% data reusables.user-settings.keeping_your_email_address_private %}
 4. Para que tu dirección de correo electrónico siga siendo privada en las confirmaciones desde la línea de comando, selecciona **Block command line pusses that expose my email** (Bloquear inserciones de la línea de comando que expone mi correo electrónico). ![Opción para bloquear las inserciones de la línea de comando que expone tus correos electrónicos](/assets/images/help/settings/email_privacy_block_command_line_pushes.png)
 
 ## Leer más

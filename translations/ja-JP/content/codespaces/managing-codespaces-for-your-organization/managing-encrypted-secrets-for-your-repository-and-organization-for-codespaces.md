@@ -41,28 +41,26 @@ Organization リポジトリのシークレットを作成するには、管理�
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.github-actions.sidebar-secret %}
-1. ページを下にスクロールし、[**Secrets**] で [**Codespaces**] を選択します。 ![サイドバーの Codespaces オプション](/assets/images/help/codespaces/codespaces-option-secrets.png)
-1. ページの上部にある [**New repository secret**] をクリックします。
-1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
-1. シークレットの値を入力します。
-1. [**Add secret（シークレットの追加）**] をクリックします。
+1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
+2. ページの上部にある [**New repository secret**] をクリックします。
+3. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
+4. シークレットの値を入力します。
+5. [**Add secret（シークレットの追加）**] をクリックします。
 
 ## Organization にシークレットを追加する
 
 Organizationでシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
 
-{% data reusables.github-actions.permissions-statement-secrets-organization %}
+{% data reusables.actions.permissions-statement-secrets-organization %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
-1. ページを下にスクロールし、[**Secrets**] で [**Codespaces**] を選択します。 ![サイドバーの Codespaces オプション](/assets/images/help/codespaces/codespaces-option-secrets-org.png)
-1. ページの上部にある [**New organization secret**] をクリックします。
-1. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
-1. シークレットの **Value（値）** を入力します。
-1. [ **Repository access（リポジトリアクセス）** ドロップダウン リストから、アクセス ポリシーを選択します。 ![プライベートリポジトリが選択された [Repository Access] リスト](/assets/images/help/codespaces/secret-repository-access.png)
-1. [**Add secret（シークレットの追加）**] をクリックします。
+1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-label="The key-asterisk icon" %} Secrets** then click **{% data variables.product.prodname_codespaces %}**.
+2. ページの上部にある [**New organization secret**] をクリックします。
+3. **[Name（名前）]** 入力ボックスにシークレットの名前を入力します。
+4. シークレットの **Value（値）** を入力します。
+5. [ **Repository access（リポジトリアクセス）** ドロップダウン リストから、アクセス ポリシーを選択します。 ![プライベートリポジトリが選択された [Repository Access] リスト](/assets/images/help/codespaces/secret-repository-access.png)
+6. [**Add secret（シークレットの追加）**] をクリックします。
 
 ## Organizationレベルのシークレットへのアクセスの確認
 
@@ -70,7 +68,7 @@ Organization 内のシークレットに適用されているアクセスポリ�
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.github-actions.sidebar-secret %}
+{% data reusables.actions.sidebar-secret %}
 1. シークレットのリストには、設定済みのアクセス許可とポリシーが含まれます。 例: ![シークレットリスト](/assets/images/help/settings/actions-org-secrets-list.png)
 1. 各シークレットに設定されているアクセス許可の詳細については、[**Update（更新）**] をクリックしてください。
 

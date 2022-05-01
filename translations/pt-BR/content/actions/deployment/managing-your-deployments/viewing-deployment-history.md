@@ -15,7 +15,7 @@ redirect_from:
 ---
 
 
-Você pode realizar implantações por meio de de {% ifversion fpt or ghae or ghes > 3.0 or ghec %}{% data variables.product.prodname_actions %} e ambientes ou com {% endif %}a API REST e aplicativos de terceiros. {% ifversion fpt or ghae ghes > 3.0 or ghec %}Para obter mais informações sobre o uso de ambientes para implantar com {% data variables.product.prodname_actions %}, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)". {% endif %}Para obter mais informações sobre implantações com a API REST, consulte "[Repositórios](/rest/reference/repos#deployments)".
+Você pode realizar implantações por meio de de {% data variables.product.prodname_actions %} e ambientes ou com a API REST e aplicativos de terceiros. {% ifversion fpt or ghae ghes > 3.0 or ghec %}Para obter mais informações sobre o uso de ambientes para implantar com {% data variables.product.prodname_actions %}, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)". {% endif %}Para obter mais informações sobre implantações com a API REST, consulte "[Repositórios](/rest/reference/repos#deployments)".
 
 Para visualizar implantações atuais e anteriores, clique em **Ambientes** na página inicial do repositório.
 {% ifversion ghae %}

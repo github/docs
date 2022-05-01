@@ -38,7 +38,10 @@ shortTitle: Create & delete branches
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. 削除するブランチまでスクロールし、{% octicon "trash" aria-label="The trash icon to delete the branch" %} をクリックします。 ![ブランチを削除する](/assets/images/help/branches/branches-delete.png)
+1. 削除対象のブランチまでスクロールし、{% octicon "trash" aria-label="The trash icon to delete the branch" %}をクリックします。 ![delete the branch](/assets/images/help/branches/branches-delete.png) {% ifversion fpt or ghes > 3.5 or ghae-issue-6763 or ghec %}
+1. If you try to delete a branch that is associated with at least one open pull request, you must confirm that you intend to close the pull request(s).
+
+   ![Confirm deleting a branch](/assets/images/help/branches/confirm-deleting-branch.png){% endif %}
 
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 詳細は「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)」を参照してください。

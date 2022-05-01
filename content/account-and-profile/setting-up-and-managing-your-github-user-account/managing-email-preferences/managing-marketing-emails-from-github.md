@@ -21,8 +21,8 @@ shortTitle: Marketing emails
 
 {% endtip %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.emails %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
 3. Under *Email preferences*, select **Only receive account related emails, and those I subscribe to**.
   ![Screenshot of opting out of marketing email](/assets/images/help/notifications/email_preferences.png)
 4. Click **Save email preferences**.

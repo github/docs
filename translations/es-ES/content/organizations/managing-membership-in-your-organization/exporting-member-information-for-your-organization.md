@@ -1,6 +1,6 @@
 ---
 title: Exporting member information for your organization
-intro: You can export information about members in your organization, directly from the user interface.
+intro: 'You can export information about members in your organization, directly from the user interface.'
 permissions: Organization owners can export member information for their organization.
 versions:
   fpt: '*'
@@ -28,6 +28,6 @@ You can get member information directly from the {% data variables.product.produ
 For more information about the APIs, see our [GraphQL API](/graphql/reference/objects#user) and [REST API](/rest/reference/users) documentation about users.
 
 {% data reusables.profile.access_org %}
-{% data reusables.user_settings.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 {% data reusables.organizations.people-export %}
