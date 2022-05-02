@@ -492,6 +492,6 @@ Keep learning with the next API guide [Basics of Authentication][auth guide]!
 [other user repos api]: /rest/reference/repos#list-repositories-for-a-user
 [org repos api]: /rest/reference/repos#list-organization-repositories
 [get issues api]: /rest/reference/issues#list-issues-assigned-to-the-authenticated-user
-[repo issues api]: /rest/reference/issues#list-repository-issues
+[repo issues api]: /rest/reference/issues#list-repository-issues 
 [etag]: http://en.wikipedia.org/wiki/HTTP_ETag
 [2fa section]: /rest/guides/getting-started-with-the-rest-api#two-factor-authentication
