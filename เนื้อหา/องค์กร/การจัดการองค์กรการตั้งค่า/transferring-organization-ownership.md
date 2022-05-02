@@ -7,7 +7,7 @@ redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/transferring-organization-ownership
 versions:
   fpt: '*'
-  ghes: '*'
+  ghes: '*'live2545
   ghae: '*'
   ghec: '*'
 topics:
