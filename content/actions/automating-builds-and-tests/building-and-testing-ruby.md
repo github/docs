@@ -100,6 +100,7 @@ Each version of Ruby specified in the `ruby-version` array creates a job that ru
 The full updated workflow with a matrix strategy could look like this:
 
 ```yaml
+{% data reusables.actions.actions-use-sha-pinning %}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 name: Ruby CI
@@ -200,6 +201,7 @@ steps:
 The following example matrix tests all stable releases and head versions of MRI, JRuby and TruffleRuby on Ubuntu and macOS.
 
 ```yaml
+{% data reusables.actions.actions-use-sha-pinning %}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 name: Matrix Testing
@@ -233,6 +235,7 @@ jobs:
 The following example installs `rubocop` and uses it to lint all files. For more information, see [RuboCop](https://github.com/rubocop-hq/rubocop). You can [configure Rubocop](https://docs.rubocop.org/rubocop/configuration.html) to decide on the specific linting rules.
 
 ```yaml
+{% data reusables.actions.actions-use-sha-pinning %}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 name: Linting
@@ -259,6 +262,7 @@ You can configure your workflow to publish your Ruby package to any package regi
 You can store any access tokens or credentials needed to publish your package using repository secrets. The following example creates and publishes a package to `GitHub Package Registry` and `RubyGems`.
 
 ```yaml
+{% data reusables.actions.actions-use-sha-pinning %}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 name: Ruby Gem
