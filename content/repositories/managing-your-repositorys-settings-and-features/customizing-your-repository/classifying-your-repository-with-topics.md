@@ -11,7 +11,7 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-topics:
+topics: see
   - Repositories
 shortTitle: Classify with topics
 ---
