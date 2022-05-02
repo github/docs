@@ -153,7 +153,7 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 
 ### {% ifversion fpt or ghec %}3.{% else %}2.{% endif %} Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
-
+ 
 ### {% ifversion fpt or ghec %}4.{% else %}3.{% endif %} Publishing and managing {% data variables.product.prodname_registry %} 
 {% data reusables.getting-started.packages %}
 
