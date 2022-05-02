@@ -44,8 +44,8 @@ export default function Category({ mainContext, enabledForApps, articleContext }
         </h3>
       )}
       <ul>
-        {operations.map((operation) => (
-          <li key={`enabledAppOperation-${operation.slug}`}>
+        {operations.map((operation, index) => (
+          <li key={`enabledAppOperation-${operation.slug}-${index}`}>
             <Link href={`/${locale}/rest/reference/${category}#${operation.slug}`}>
               <code>
                 <span className="text-uppercase">{operation.verb}</span> {operation.requestPath}
