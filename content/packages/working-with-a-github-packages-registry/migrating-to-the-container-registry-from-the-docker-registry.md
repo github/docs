@@ -12,7 +12,7 @@ versions:
 shortTitle: Migrate to Container registry
 ---
 
-{% data variables.product.prodname_dotcom %}'s Docker registry has been replaced by the {% data variables.product.prodname_container_registry %}. If you've stored Docker images in the Docker registry, they will be automatically moved to the {% data variables.product.prodname_container_registry %}. You don't need to do anything. Any scripts or {% data variables.product.prodname_actions %} workflows that use the namespace for the Docker registry (`docker.pkg.github.com`) will continue to work after the migration to the {% data variables.product.prodname_container_registry %} (`ghcr.io`).
+{% data variables.product.prodname_dotcom %}'s Docker registry has been replaced by the {% data variables.product.prodname_container_registry %}. If you've stored Docker images in the Docker registry, they will be automatically moved to the {% data variables.product.prodname_container_registry %}. You don't need to do anything. Any scripts or {% data variables.product.prodname_actions %} workflows that use the namespace for the Docker registry (`docker.pkg.github.com`) will continue to work after the migration to the {% data variables.product.prodname_container_registry %} (`ghcr.io`). 
 
 Migration is being done gradually, rather than all at once. If your images haven't yet been moved over, hold tight, we'll get to them sometime soon.
 
