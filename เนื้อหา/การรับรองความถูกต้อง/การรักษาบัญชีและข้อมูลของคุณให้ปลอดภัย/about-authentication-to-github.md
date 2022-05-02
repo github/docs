@@ -24,7 +24,7 @@ You can access your resources in {% data variables.product.product_name %} in a 
 - Personal access token
 - SSH key
 
-## Authenticating in your browser
+## Authenticating in your browserhttps://github.com/WTGW2END/congenial-octo-spork.git
 
 You can authenticate to {% data variables.product.product_name %} in your browser {% ifversion ghae %}using your IdP. For more information, see "[About authentication with SAML single sign-on](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)."{% else %}in different ways.
 
