@@ -71,6 +71,9 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
    - Optionally, to allow specific people or teams to push code to the branch without creating pull requests when they're required, select **Allow specific actors to bypass required pull requests**. Then, search for and select the people or teams who should be allowed to skip creating a pull request.
      ![Allow specific actors to bypass pull request requirements checkbox](/assets/images/help/repository/PR-bypass-requirements.png)
 {% endif %}
+    {% note %}
+    **Notes:** Bypassing Pull Requested only work if you have **not** configured required status checks to pass before merging.
+    {% endnote %}
    - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, search for and select the people or teams who are allowed to dismiss pull request reviews. For more information, see "[Dismissing a pull request review](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
      ![Restrict who can dismiss pull request reviews checkbox](/assets/images/help/repository/PR-review-required-dismissals.png)
 1. Optionally, enable required status checks. For more information, see "[About status checks](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
