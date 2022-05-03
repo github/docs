@@ -53,6 +53,7 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
               remove-labels: "needs review"
               repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
+
 5. Customize the parameters in your workflow file:
    - In `github.event.project_card.column_id == '12345678'`, replace `12345678` with the ID of the column where you want to un-label issues and pull requests that are moved there.
 
