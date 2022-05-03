@@ -29,10 +29,10 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
 2. {% data reusables.actions.make-workflow-file %}
 3. Copy the following YAML contents into your workflow file.
 
- ```yaml{:copy}
+    ```yaml{:copy}
     {% data reusables.actions.actions-not-certified-by-github-comment %}
-    {% data reusables.actions.actions-use-sha-pinning-comment %}
-
+    {% data reusables.actions.actions-use-sha-pinning-comment
+    
     name: Weekly Team Sync
     on:
       schedule:
@@ -67,7 +67,7 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
               close-previous: false
             env:
               GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
- ```
+    ```
 
 4. Customize the parameters in your workflow file:
    - Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every Monday at 7:20 UTC. For more information about scheduled workflows, see "[Scheduled events](/actions/reference/events-that-trigger-workflows#scheduled-events)."
