@@ -6,7 +6,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '*'
+  ghes: '*' 
   ghae: '*'
 topics:
   - API
