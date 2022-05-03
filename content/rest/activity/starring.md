@@ -1,6 +1,6 @@
 ---
 title: Starring
-intro: 'Repository starring is a feature that lets users bookmark repositories.'
+intro: 'The Starring API lets you bookmark a repository.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,7 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Stars are shown next to repositories to show an approximate level of interest. Stars have no effect on notifications or the activity feed.
+## About the Starring API
+
+The Starring API lets you bookmark a repository. Stars are shown next to repositories to show an approximate level of interest. Stars have no effect on notifications or the activity feed. For more information, see "[Saving repositories with stars](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 
 ### Starring vs. Watching
 

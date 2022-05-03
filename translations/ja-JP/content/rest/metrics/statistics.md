@@ -1,6 +1,8 @@
 ---
-title: 統計
-intro: 'Repository Statistics API を使用すると、{% data variables.product.product_name %} がさまざまなタイプのリポジトリのアクティビティを視覚化するために用いるデータをフェッチできます。'
+title: Repository statistics
+shortTitle: 統計
+allowTitleToDifferFromFilename: true
+intro: 'The Repository statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +12,10 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## About the Repository statistics API
+
+The Repository statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.
 
 ### キャッシングについて
 

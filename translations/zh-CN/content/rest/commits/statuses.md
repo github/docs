@@ -1,6 +1,6 @@
 ---
 title: 提交状态
-intro: 'The status API allows external services to mark commits with an `error`, `failure`, `pending`, or `success` state, which is then reflected in pull requests involving those commits.'
+intro: 'The Commit status API allows external services to mark commits with a status, which is then reflected in pull requests involving those commits.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,7 +12,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-Statuses can also include an optional `description` and `target_url`, and we highly recommend providing them as they make statuses much more useful in the GitHub UI.
+## About the Commit statuses API
+
+The Commit status API allows external services to mark commits with an `error`, `failure`, `pending`, or `success` state, which is then reflected in pull requests involving those commits. Statuses can also include an optional `description` and `target_url`, and we highly recommend providing them as they make statuses much more useful in the GitHub UI.
 
 As an example, one common use is for continuous integration services to mark commits as passing or failing builds using status.  The `target_url` would be the full URL to the build output, and the `description` would be the high level summary of what happened with the build.
 

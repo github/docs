@@ -23,6 +23,7 @@ permissions: Organization owners can remove members from an organization.
 **警告：**当您从组织删除成员时：
 - 付费的许可数不会自动降级。 要在从组织中删除用户后减少付费的许可数，请按照“[降级组织的付费席位](/articles/downgrading-your-organization-s-paid-seats)”中的步骤操作。
 - 被删除的成员将无法访问组织私有仓库的私人复刻，但仍可拥有本地副本。 但是，它们无法将本地副本与组织的仓库同步。 如果用户在从组织中删除后的三个月内[恢复为组织成员](/articles/reinstating-a-former-member-of-your-organization)，则可以恢复其私人复刻。 最终，您负责确保无法访问仓库的人员删除任何机密信息或知识产权。
+- 当私有存储库复刻到其他组织时，这些组织能够控制对复刻网络的访问。 这意味着用户即使在失去对原始组织的访问权限后，仍可以保留对复刻的访问权限，因为他们仍可以通过复刻进行显式访问。
 {%- ifversion ghec %}
 -  如果被删除成员不是同一企业帐户拥有的任何其他组织的成员，则被删除成员也将失去对组织内部仓库私人复刻的访问权限。 更多信息请参阅“[关于企业帐户](/admin/overview/about-enterprise-accounts)”。
 {%- endif %}

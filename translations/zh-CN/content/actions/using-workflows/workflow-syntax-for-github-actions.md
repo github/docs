@@ -745,11 +745,39 @@ steps:
 
 ## `jobs.<job_id>.strategy`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-strategy %}
+使用 `jobs.<job_id>.strategy` 为您的任务使用矩阵策略。 {% data reusables.actions.jobs.about-matrix-strategy %} 更多信息请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 ### `jobs.<job_id>.strategy.matrix`
 
-{% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-matrix %}
+{% data reusables.actions.jobs.using-matrix-strategy %}
+
+#### 示例：使用单维矩阵
+
+{% data reusables.actions.jobs.single-dimension-matrix %}
+
+#### 示例：使用多维矩阵
+
+{% data reusables.actions.jobs.multi-dimension-matrix %}
+
+#### 示例：使用上下文创建矩阵
+
+{% data reusables.actions.jobs.matrix-from-context %}
+
+### `jobs.<job_id>.strategy.matrix.include`
+
+{% data reusables.actions.jobs.matrix-include %}
+
+#### 示例：展开配置
+
+{% data reusables.actions.jobs.matrix-expand-with-include %}
+
+#### 示例：添加配置
+
+{% data reusables.actions.jobs.matrix-add-with-include %}
+
+### `jobs.<job_id>.strategy.matrix.exclude`
+
+{% data reusables.actions.jobs.matrix-exclude %}
 
 ### `jobs.<job_id>.strategy.fail-fast`
 
@@ -846,7 +874,7 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.image`
 
-要用作运行操作的服务容器的 Docker 图像。 值可以是 Docker Hub 映像名称或注册表名称。
+要用作运行操作的服务容器的 Docker 镜像。 值可以是 Docker Hub 映像名称或注册表名称。
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 

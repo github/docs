@@ -12,7 +12,7 @@ shortTitle: Lanzamientos
 
 ## Acerca de los lanzamientos de {% data variables.product.product_name %}
 
-{% data reusables.enterprise.constantly-improving %} {% data variables.product.company_short %} es compatible con los cuatro lanzamientos de características más recientes. For more information, see "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)."
+{% data reusables.enterprise.constantly-improving %} {% data variables.product.company_short %} es compatible con los cuatro lanzamientos de características más recientes. Para obtener más información, consulta la sección "[Acerca de las mejoras a los lanzamientos nuevos](/admin/overview/about-upgrades-to-new-releases)".
 
 Puedes ver lo nuevo de cada lanzamiento en las [notas de lanzamiento](/admin/release-notes) y puedes ver la documentación de usuario y de administrador de todos los lanzamientos aquí en {% data variables.product.prodname_docs %}. Cuando leas la documentación, asegúrate de seleccionar la versión que refleje tu producto. Para obtener más información, consulta la sección "[Acerca de las versiones de {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)".
 

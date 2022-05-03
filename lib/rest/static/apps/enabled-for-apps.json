@@ -7,6 +7,14 @@
       },
       {
         "verb": "get",
+        "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
+      },
+      {
+        "verb": "put",
+        "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
+      },
+      {
+        "verb": "get",
         "requestPath": "/orgs/{org}/actions/cache/usage"
       },
       {
@@ -240,6 +248,14 @@
       {
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/permissions/selected-actions"
+      },
+      {
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
+      },
+      {
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
       },
       {
         "verb": "get",
@@ -761,6 +777,10 @@
       }
     ],
     "codespaces": [
+      {
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/devcontainers"
+      },
       {
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/codespaces/machines"

@@ -1,6 +1,6 @@
 ---
 title: Inspecionando
-intro: 'Inspecionar um repositório registra o usuário para receber notificações de novas discussões, bem como eventos no feed de atividade do usuário.'
+intro: The Watching API lets users subscribe to notifications for activity in a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Para favoritar um repositório de forma simples, consulte "[Marcar repositórios com uma estrela](/rest/reference/activity#starring)".
+## About the Watching API
+
+The Watching API lets users subscribe to notifications for activity in a repository. To bookmark a repository instead, see "[Starring](/rest/reference/activity#starring)."

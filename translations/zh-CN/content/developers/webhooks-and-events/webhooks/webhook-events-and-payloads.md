@@ -811,8 +811,6 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghec %}
-
 ## package
 
 与 {% data variables.product.prodname_registry %} 有关的活动。 {% data reusables.webhooks.action_type_desc %}更多信息请参阅“[使用 {% data variables.product.prodname_registry %} 管理包](/github/managing-packages-with-github-packages)”以详细了解 {% data variables.product.prodname_registry %}。
@@ -832,7 +830,6 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 ### Web 挂钩有效负载示例
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
-{% endif %}
 
 ## page_build
 

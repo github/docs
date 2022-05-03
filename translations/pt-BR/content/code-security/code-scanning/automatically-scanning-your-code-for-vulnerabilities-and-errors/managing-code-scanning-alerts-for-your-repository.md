@@ -1,7 +1,7 @@
 ---
 title: Gerenciar alertas de verificação de código para o seu repositório
 shortTitle: Gerenciar alertas
-intro: 'From the security view, {% if delete-code-scanning-alerts %}you can view, fix, dismiss, or delete alerts {% else %}you can view, fix, or dismiss alerts{% endif %} for potential vulnerabilities or errors in your project''s code.'
+intro: 'Na visão de segurança, {% if delete-code-scanning-alerts %}você pode visualizar, corrigir, ignorar ou excluir alertas {% else %}que você pode visualizar, corrigir, ou dispensar alertas{% endif %} de possíveis vulnerabilidades ou erros no código do seu projeto.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
@@ -169,9 +169,9 @@ Alertas podem ser corrigidos em um branch, mas não em outro. Você pode usar o 
 
 {% endnote %}
 {% endif %}
-## Dismissing {% if delete-code-scanning-alerts %}or deleting{% endif %} alerts
+## Ignorando ou {% if delete-code-scanning-alerts %}ou excluindo{% endif %} alertas
 
-Há duas formas de fechar um alerta. Você pode corrigir o problema no código ou pode ignorar o alerta. {% if delete-code-scanning-alerts %}Alternatively, if you have admin permissions for the repository, you can delete alerts. Excluir alertas é útil em situações em que você configurou uma ferramenta {% data variables.product.prodname_code_scanning %} e, em seguida, decidiu removê-la ou em situações em que você configurou a análise de {% data variables.product.prodname_codeql %} com um conjunto de consultas maior do que você deseja continuar usando, e, em seguida, você removeu algumas consultas da ferramenta. Em ambos os casos, excluir alertas permite limpar os seus resultados de {% data variables.product.prodname_code_scanning %}. You can delete alerts from the summary list within the **Security** tab.{% endif %}
+Há duas formas de fechar um alerta. Você pode corrigir o problema no código ou pode ignorar o alerta. {% if delete-code-scanning-alerts %}Como alternativa, se você tiver permissões de administrador para o repositório, será possível excluir alertas. Excluir alertas é útil em situações em que você configurou uma ferramenta {% data variables.product.prodname_code_scanning %} e, em seguida, decidiu removê-la ou em situações em que você configurou a análise de {% data variables.product.prodname_codeql %} com um conjunto de consultas maior do que você deseja continuar usando, e, em seguida, você removeu algumas consultas da ferramenta. Em ambos os casos, excluir alertas permite limpar os seus resultados de {% data variables.product.prodname_code_scanning %}. Você pode excluir alertas da lista de resumo dentro da aba de **Segurança** .{% endif %}
 
 Ignorar um alerta é uma maneira de fechar um alerta que você considera que não precisa ser corrigido. {% data reusables.code-scanning.close-alert-examples %} Você pode ignorar alertas de anotações de {% data variables.product.prodname_code_scanning %} no código ou da lista de resumo dentro na aba **Segurança**.
 
@@ -183,14 +183,14 @@ Ao descartar um alerta:
 - O motivo pelo qual você fechou o alerta foi gravado.
 - Da próxima vez que {% data variables.product.prodname_code_scanning %} for executado, o mesmo código não gerará um alerta.
 
-{% if delete-code-scanning-alerts %}When you delete an alert:
+{% if delete-code-scanning-alerts %}Ao excluir um alerta:
 
 - Ele é excluído em todos os branches.
 - O alerta é removido do número de alertas atuais para o seu projeto.
 - Ele _não é_ adicionado à lista "Fechado" no resumo dos alertas.
-- If the code that generated the alert stays the same, and the same {% data variables.product.prodname_code_scanning %} tool runs again without any configuration changes, the alert will be shown again in your analysis results.{% endif %}
+- Se o código que gerou o alerta permanecer o mesmo e a mesma ferramenta {% data variables.product.prodname_code_scanning %} for executada novamente sem qualquer alteração de configuração, o alerta será exibido novamente nos seus resultados das análises.{% endif %}
 
-To dismiss {% if delete-code-scanning-alerts %}or delete{% endif %} alerts:
+Para ignorar{% if delete-code-scanning-alerts %}ou excluir{% endif %} alertas:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

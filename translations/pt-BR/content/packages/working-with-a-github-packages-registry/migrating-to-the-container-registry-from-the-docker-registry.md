@@ -30,7 +30,7 @@ Depois que suas imagens do Docker forem transferidas para o {% data variables.pr
 O {% data variables.product.prodname_container_registry %} é otimizado para dar suporte a algumas das necessidades únicas dos contêineres.
 
 Com o {% data variables.product.prodname_container_registry %}, você pode:
-- Store container images within your organization and personal account, or connect them to a repository.
+- Armazene imagens de contêiner na sua organização e conta pessoal, ou conecte-as a um repositório.
 - Escolha se deve herdar permissões de um repositório ou definir permissões granulares, independentemente de um repositório.
 - Acessar imagens de contêineres públicos anonimamente.
 
