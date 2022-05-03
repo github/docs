@@ -11,7 +11,7 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: Get started - REST API
+shortTitle: Get started - ALEXA REST API
 ---
 
 
