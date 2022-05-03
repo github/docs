@@ -31,7 +31,7 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
 
     ```yaml{:copy}
     {% data reusables.actions.actions-not-certified-by-github-comment %}
-    {% data reusables.actions.actions-use-sha-pinning-comment
+    {% data reusables.actions.actions-use-sha-pinning-comment %}
     
     name: Weekly Team Sync
     on:
