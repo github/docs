@@ -70,12 +70,12 @@ for (const file of articleFiles) {
       // for fpt, ghec, and ghae
       if (currentApplicableVersions.toString() === nonEnterpriseDefaultVersion) {
         // omit version from fpt url
-        previewCell += `[${version}](${APP_URL}/${fileUrl}) `
-        prodCell += `[${version}](${PROD_URL}/${fileUrl}) `
+        previewCell += `[${version}](${APP_URL}/${fileUrl})<br>`
+        prodCell += `[${version}](${PROD_URL}/${fileUrl})<br>`
       } else {
         // for non-versioned releases (ghae, ghec) use full url
-        previewCell += `[${version}](${APP_URL}/${currentApplicableVersions}/${fileUrl}) `
-        prodCell += `[${version}](${PROD_URL}/${currentApplicableVersions}/${fileUrl}) `
+        previewCell += `[${version}](${APP_URL}/${currentApplicableVersions}/${fileUrl})<br>`
+        prodCell += `[${version}](${PROD_URL}/${currentApplicableVersions}/${fileUrl})<br>`
       }
     } else {
       // for ghes releases, link each version
@@ -86,6 +86,8 @@ for (const file of articleFiles) {
         previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
         prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
       })
+      previewCell += '<br>'
+      prodCell += '<br>'
     }
   }
   markdownTable += `| ${contentCell} | ${previewCell} | ${prodCell} | |\n`
