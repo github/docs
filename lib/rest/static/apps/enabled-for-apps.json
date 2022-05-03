@@ -779,6 +779,10 @@
     "codespaces": [
       {
         "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/codespaces/devcontainers"
+      },
+      {
+        "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/codespaces/machines"
       },
       {
