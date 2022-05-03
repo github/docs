@@ -29,45 +29,45 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
 2. {% data reusables.actions.make-workflow-file %}
 3. Copy the following YAML contents into your workflow file.
 
-```yaml{:copy}
-{% data reusables.actions.actions-not-certified-by-github-comment %}
-{% data reusables.actions.actions-use-sha-pinning-comment %}
+   ```yaml{:copy}
+      {% data reusables.actions.actions-not-certified-by-github-comment %}
+      {% data reusables.actions.actions-use-sha-pinning-comment %}
 
-    name: Weekly Team Sync
-    on:
-      schedule:
-        - cron: 20 07 * * 1
+      name: Weekly Team Sync
+      on:
+        schedule:
+          - cron: 20 07 * * 1
 
-    jobs:
-      create_issue:
-        name: Create team sync issue
-        runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
-        permissions:
-          issues: write{% endif %}
-        steps:
-          - name: Create team sync issue
-            uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
-            with:
-              assignees: "monalisa, doctocat, hubot"
-              labels: "weekly sync, docs-team"
-              title: "Team sync"
-              body: |
-                ### Agenda
+      jobs:
+        create_issue:
+          name: Create team sync issue
+          runs-on: ubuntu-latest{% ifversion fpt or ghes > 3.1 or ghae or ghec %}
+          permissions:
+            issues: write{% endif %}
+          steps:
+            - name: Create team sync issue
+              uses: imjohnbo/issue-bot@3daae12aa54d38685d7ff8459fc8a2aee8cea98b
+              with:
+                assignees: "monalisa, doctocat, hubot"
+                labels: "weekly sync, docs-team"
+                title: "Team sync"
+                body: |
+                  ### Agenda
 
-                - [ ] Start the recording
-                - [ ] Check-ins
-                - [ ] Discussion points
-                - [ ] Post the recording
+                  - [ ] Start the recording
+                  - [ ] Check-ins
+                  - [ ] Discussion points
+                  - [ ] Post the recording
                         
-                ### Discussion Points
-                Add things to discuss below
+                  ### Discussion Points
+                  Add things to discuss below
 
-                - [Work this week](https://github.com/orgs/github/projects/3)
-              pinned: false
-              close-previous: false
-            env:
-              GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-```
+                  - [Work this week](https://github.com/orgs/github/projects/3)
+                pinned: false
+                close-previous: false
+              env:
+                GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+   ```
 
 4. Customize the parameters in your workflow file:
    - Change the value for `on.schedule` to dictate when you want this workflow to run. In the example above, the workflow will run every Monday at 7:20 UTC. For more information about scheduled workflows, see "[Scheduled events](/actions/reference/events-that-trigger-workflows#scheduled-events)."
