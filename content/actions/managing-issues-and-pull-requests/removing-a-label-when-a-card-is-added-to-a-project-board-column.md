@@ -32,7 +32,8 @@ In the tutorial, you will first make a workflow file that uses the [`andymckay/l
 4. Copy the following YAML contents into your workflow file.
 
     ```yaml{:copy}
-{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
+
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 {% data reusables.actions.actions-use-sha-pinning-comment %}
 
     name: Remove labels
