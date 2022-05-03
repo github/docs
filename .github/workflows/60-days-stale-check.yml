@@ -12,7 +12,7 @@ permissions:
   issues: write
   pull-requests: write
 
-jobs:
+jobs: 
   stale:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
