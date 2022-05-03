@@ -17,6 +17,10 @@
 | Checkout.com              | Checkout.com Production Secret Key                 | checkout_production_secret_key                         |
 | Clojars                   | Token de implantação de Clojars                    | clojars_deploy_token                                   |
 | Databricks                | Token de acesso de Databricks                      | databricks_access_token                                |
+| DigitalOcean              | DigitalOcean Personal Access Token                 | digitalocean_personal_access_token                     |
+| DigitalOcean              | DigitalOcean OAuth Token                           | digitalocean_oauth_token                               |
+| DigitalOcean              | DigitalOcean Refresh Token                         | digitalocean_refresh_token                             |
+| DigitalOcean              | DigitalOcean System Token                          | digitalocean_system_token                              |
 | Discord                   | Token de Bot de Discord                            | discord_bot_token                                      |
 | Doppler                   | Token pessoal de Doppler                           | doppler_personal_token                                 |
 | Doppler                   | Token de serviço de Doppler                        | doppler_service_token                                  |
@@ -65,7 +69,7 @@
 | Shopify                   | Segredo compartilhado do aplicativo Shopify        | shopify_app_shared_secret                              |
 | Shopify                   | Token de acesso de Shopify                         | shopify_access_token                                   |
 | Slack                     | Token da API de Slack                              | slack_api_token                                        |
-| Stripe                    | Chave de segredo Stripe Live                       | stripe_live_secret_key                                 |
+| Stripe                    | Chave de segredo Stripe Live                       | stripe_api_key                                         |
 | Tencent Cloud             | ID de segredot de Tencent Cloud                    | tencent_cloud_secret_id                                |
 | Typeform                  | Typeform Personal Access Token                     | typeform_personal_access_token                         |
 | WorkOS                    | WorkOS Production API Key                          | workos_production_api_key                              |

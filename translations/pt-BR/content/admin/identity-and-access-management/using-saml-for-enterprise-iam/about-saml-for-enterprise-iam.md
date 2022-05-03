@@ -1,7 +1,7 @@
 ---
-title: About SAML for enterprise IAM
-shortTitle: About SAML for IAM
-intro: 'You can use SAML single sign-on (SSO) {% ifversion ghec or ghae %}and System for Cross-domain Identity Management (SCIM) {% endif %}to centrally manage access {% ifversion ghec %}to organizations owned by your enterprise on {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}to {% data variables.product.product_location %}{% elsif ghae %}to {% data variables.product.product_location %}{% endif %}.'
+title: Sobre o SAML para IAM corporativo
+shortTitle: Sobre SAML para IAM
+intro: 'Você pode usar o logon único do SAML (SSO) {% ifversion ghec or ghae %}e o Sistema para Gerenciamento de Identidades de Domínio entre Domínios (SCIM) {% endif %}para gerenciar centralmente o acesso {% ifversion ghec %} às organizações pertencentes à sua empresa em {% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}a {% data variables.product.product_location %}{% elsif ghae %}a {% data variables.product.product_location %}{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -24,13 +24,13 @@ redirect_from:
   - /admin/identity-and-access-management/using-saml-for-enterprise-iam/about-identity-and-access-management-for-your-enterprise
 ---
 
-## About SAML SSO for {% ifversion ghec or ghae %}your enterprise on {% endif %}{% ifversion ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}
+## Sobre o SAML SSO para {% ifversion ghec or ghae %}sua empresa em {% endif %}{% ifversion ghec or ghes %}{% data variables.product.product_location %}{% elsif ghae %}{% data variables.product.product_name %}{% endif %}
 
 {% ifversion ghec %}
 
 {% data reusables.saml.dotcom-saml-explanation %} {% data reusables.saml.about-saml-enterprise-accounts %} Para obter mais informações, consulte "[Configurando o logon único SAML para a sua empresa](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)".
 
-If your enterprise members manage their own personal accounts on {% data variables.product.product_location %}, you can configure SAML authentication as an additional access restriction for your enterprise or organization. Alternatively, you can provision and manage the accounts of your enterprise members on {% data variables.product.product_location %} by using an enterprise account with {% data variables.product.prodname_emus %} enabled. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-cloud)."
+Se os integrantes da sua empresa gerenciarem suas próprias contas pessoais em {% data variables.product.product_location %}, você pode configurar a autenticação SAML como uma restrição de acesso adicional para sua empresa ou organização. Como alternativa, você pode provisionar e gerenciar as contas dos integrantes da empresa no {% data variables.product.product_location %} usando uma conta corporativa com o {% data variables.product.prodname_emus %} habilitado. Para obter mais informações, consulte "[Sobre a autenticação para sua empresa](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-cloud)".
 
 {% data reusables.enterprise-accounts.about-recovery-codes %} Para obter mais informações, consulte "[Gerenciar a códigos de recuperação para a sua empresa](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise)".
 
@@ -46,7 +46,7 @@ Se você usar o Azure AD como seu IDP, você poderá usar a sincronização de e
 
 {% note %}
 
-**Note:** You cannot use SCIM at the enterprise level unless your enterprise is enabled for {% data variables.product.prodname_emus %}.
+**Observação:** Você não pode usar o SCIM no nível corporativo, a menos que sua empresa esteja habilitada para {% data variables.product.prodname_emus %}.
 
 {% endnote %}
 
@@ -56,9 +56,9 @@ A configuração de {% data variables.product.prodname_emus %} para o logon úni
 
 O SAML SSO permite que as pessoas efetuem a autenticação e acessem {% data variables.product.product_location %} por meio de um sistema externo para gerenciamento de identidades.
 
-O SAML é um padrão de autenticação e autorização baseado em XML. Ao configurar o SAML para {% data variables.product.product_location %}, o sistema externo para autenticação é chamado de provedor de identidade (IdP). Sua instância atua como um provedor de serviço (SP) do SAML. For more information about the SAML standard, see [Security Assertion Markup Language](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) on Wikipedia.
+O SAML é um padrão de autenticação e autorização baseado em XML. Ao configurar o SAML para {% data variables.product.product_location %}, o sistema externo para autenticação é chamado de provedor de identidade (IdP). Sua instância atua como um provedor de serviço (SP) do SAML. Para obter mais informações sobre o padrão do SAML, consulte [Linguagem de markup de declaração de segurança](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) na Wikipédia.
 
-For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see "[Configuring SAML single sign-on for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
+Para obter mais informações sobre a configuração do SAML SSO em {% data variables.product.product_name %}, consulte "[Configurando o logon único SAML para a sua empresa](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)".
 
 {% data reusables.saml.saml-ghes-account-revocation %}
 

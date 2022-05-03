@@ -27,7 +27,7 @@ program
   .description(
     'Toggle issue-based, feature-flagged versioning for GitHub AE content like\n' +
       'ghae-next or ghae-issue-1234, then commit the results.\n\n' +
-      'Documentation: https://git.io/JCtUO\n\n' +
+      'Documentation: https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/content-creation/versioning-documentation.md#internal-versioning-conventions-for-github-ae\n\n' +
       'Examples:\n' +
       `  ${scriptName} -n\n` +
       `  ${scriptName} -f 'issue-1234, issue-5678'`
@@ -98,39 +98,64 @@ const allFiles = [...markdownFiles, ...yamlFiles]
 // Liquid conditionals.
 
 const allFlags = {}
+const liquidShowRegExp = new RegExp(`\\s+${plan}-([^\\s]+)`, 'g')
 
 console.log(`Parsing all flags for ${plan} plan on ${currentBranch} branch...`)
 
 allFiles.forEach((file) => {
   const fileContent = fs.readFileSync(file, 'utf8')
-  const { data } = frontmatter(fileContent)
+  const matches = []
 
-  // Process YAML front matter and data files.
+  if (file.endsWith('.md')) {
+    const { data } = frontmatter(fileContent)
 
-  if (data.versions && data.versions[plan] && data.versions[plan] !== '*') {
-    if (!allFlags[data.versions[plan]]) {
-      allFlags[data.versions[plan]] = []
-    }
+    // Process YAML front matter.
 
-    allFlags[data.versions[plan]].push(file)
-  }
-
-  // Process Liquid conditionals in Markdown source.
-
-  const liquidShowRegExp = new RegExp(`\\s${plan}-([^\\s]+)`, 'g')
-  const deduplicatedMatches = [...new Set(fileContent.match(liquidShowRegExp))]
-
-  if (deduplicatedMatches.length > 0) {
-    const matches = deduplicatedMatches.map((match) => match.trim().replace(plan + '-', ''))
-
-    matches.forEach((match) => {
-      if (!allFlags[match]) {
-        allFlags[match] = []
+    if (data.versions && data.versions[plan] && data.versions[plan] !== '*') {
+      if (!allFlags[data.versions[plan]]) {
+        allFlags[data.versions[plan]] = []
       }
 
-      allFlags[match].push(file)
-    })
+      allFlags[data.versions[plan]].push(file)
+    }
+
+    // Process Liquid conditionals in Markdown source.
+
+    const deduplicatedMatches = [...new Set(fileContent.match(liquidShowRegExp))]
+
+    if (deduplicatedMatches.length > 0) {
+      matches.push(...deduplicatedMatches.map((match) => match.trim().replace(plan + '-', '')))
+    }
+  } else if (file.endsWith('.yml')) {
+    // Process versions in YAML files for feature-based versioning.
+
+    const yamlShowRegExp = new RegExp(`${plan}: ['"]([A-Za-z0-9-_]+)['"]`, 'g')
+    const deduplicatedLiquidMatches = [...new Set(fileContent.match(yamlShowRegExp))]
+    const deduplicatedVersionMatches = [...new Set(fileContent.match(liquidShowRegExp))]
+
+    if (deduplicatedLiquidMatches.length > 0) {
+      matches.push(
+        ...deduplicatedLiquidMatches.map((match) =>
+          match.trim().replace(`${plan}: `, '').replace(/['"]+/g, '')
+        )
+      )
+    }
+
+    if (deduplicatedVersionMatches.length > 0) {
+      matches.push(
+        ...deduplicatedVersionMatches.map((match) => match.trim().replace(plan + '-', ''))
+      )
+    }
+  } else {
+    throw new Error(`Unrecognized file (${file}). Not a .md or .yml file.`)
   }
+
+  matches.forEach((match) => {
+    if (!allFlags[match]) {
+      allFlags[match] = []
+    }
+    allFlags[match].push(file)
+  })
 })
 
 // Output flags and lists of files that contain the flags.
@@ -165,34 +190,49 @@ if (options.showFlags) {
   console.log(`Toggling flag${flagCount > 1 ? 's' : ''} (${flagsToToggle.join(', ')})...`)
 
   flagsToToggle.forEach((flag) => {
-    allFiles.forEach((file) => {
+    if (!(flag in allFlags)) {
+      console.warn(`${flag} does not exist in source`)
+      return
+    }
+
+    allFlags[flag].forEach((file) => {
       const fileContent = fs.readFileSync(file, 'utf8')
       const { data } = frontmatter(fileContent)
-
       const liquidReplacementRegExp = new RegExp(`${plan}-${flag}`, 'g')
+      let newContent
 
-      // Update versions in Liquid conditionals.
+      if (file.endsWith('.md')) {
+        // Update versions in Liquid conditionals.
 
-      const newContent = fileContent.replace(liquidReplacementRegExp, plan)
+        newContent = fileContent.replace(liquidReplacementRegExp, plan)
 
-      if (data.versions && data.versions[plan] === flag) {
-        // Update versions in YAML files and content files with YAML front
-        // matter.
+        if (data.versions && data.versions[plan] === flag) {
+          // Update versions in content files with YAML front matter.
 
-        data.versions[plan] = '*'
+          data.versions[plan] = '*'
+        }
+        fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
+      } else if (file.endsWith('.yml')) {
+        const yamlReplacementRegExp = new RegExp(`${plan}: ['"]+${flag}['"]+`, 'g')
+
+        // Update versions in YAML files for feature-based versioning.
+
+        newContent = fileContent.replace(yamlReplacementRegExp, `${plan}: '*'`)
+
+        // Update versions in Liquid conditionals.
+
+        newContent = newContent.replace(liquidReplacementRegExp, plan)
+        fs.writeFileSync(file, newContent, 'utf-8')
+      } else {
+        throw new Error(`Unknown file to toggle (${file}). Not a .yml or .md file.`)
       }
-
-      fs.writeFileSync(file, frontmatter.stringify(newContent, data, { lineWidth: 10000 }))
     })
 
     let filesUpdatedForFlag = 0
 
-    if (!(flag in allFlags)) {
-      console.log(`Warning: ${flag} does not exist in source`)
-    }
-
-    if (allFlags[flag]) {
+    if (allFlags[flag].length) {
       console.log(`Toggled ${flag}. Committing changes...`)
+
       allFlags[flag].forEach((fileToAdd) => {
         execSync(`git add ${fileToAdd}`)
         filesUpdatedForFlag++
@@ -219,9 +259,8 @@ if (options.showFlags) {
     execSync(`git checkout --quiet ${contentDir} ${reusablesDir} ${dataDir}`)
   })
 
-  console.log('Done!')
-
   if (commitCount > 0) {
+    console.log('Done!')
     console.log('  - Review commits:')
     console.log(`      git log -n ${commitCount}`)
     console.log('  - Review changes in diffs:')

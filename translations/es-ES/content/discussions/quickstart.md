@@ -48,29 +48,29 @@ Para el caso de los debates, puedes compartir información sobre cómo participa
 
 ## Crear un debate nuevo
 
-Cualquier usuario sin autenticar que pueda ver el repositorio podrá crear un debate en este. Similarly, since organization discussions are based on a source repository, any authenticated user who can view the source repository can create a discussion in that organization.
+Cualquier usuario sin autenticar que pueda ver el repositorio podrá crear un debate en este. De la misma manera, ya que los debates de las organizaciones se basan en un repositorio origen, cualquier usuario autenticado que pueda ver dicho repositorio podrá crear un debate en esta organización.
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Creating a new poll
+## Crear una encuesta nueva
 
-Any authenticated user who can view a repository can create a poll. Similarly, since organization discussions are based on a source repository, any authenticated user who can view the source repository can create a poll in that organization.
+Cualquier usuario no autenticado que pueda ver un repositorio podrá crear una encuesta. De la misma manera, ya que los debates de las organizaciones se basan en un repositorio origen, cualquier usuario autenticado que pueda ver dicho repositorio podrá crear una encuesta en esta organización.
 
 {% data reusables.discussions.starting-a-poll %}
 
 ## Organizar debates
 
-Repository owners and people with write access to the repository can create new categories to keep discussions organized. Similarly, since organization discussions are based on a source repository, repository owners and people with write access to the source repository can create new categories for organization discussions.
+Los propietarios de los repositorios y las personas con acceso de escritura en estos pueden crear categorías nuevas para mantener los debates organizados. De la misma manera, ya que los debates de las organizaciones se basan en un repositorio origen, los propietarios de los repositorios y las personas con acceso de escritura con acceso de escritura en el repositorio origen pueden crear categorías nuevas para estos debates.
 
-Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Los colaboradores que participen y creen debates nuevos pueden agruparlos en las categorías existentes más relevantes. Los debates también pueden volver a categorizarse después de su creación. Para obtener más información, consulta la sección "[Administrar las categorías de los debates](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
 {% data reusables.discussions.you-can-label-discussions %}
 
 ## Promover las conversaciones sanas
 
-People with write permissions for the repository, or for the source repository for organization discussions, can help surface important conversations by pinning discussions, deleting discussions that are no longer useful or are damaging to the community, and transferring discussions to more relevant repositories owned by the organization. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
+Las personas con permisos de escritura en el repositorio o en el repositorio origen para los debates de las organizaciones pueden ayudar a que se noten las conversaciones importantes si las fijan, borran las que ya no son útiles o que dañan a la comunidad y las transfieren a los repositorios más relevantes que le pertenezcan a la organización. Para obtener más información, consulta la sección "[Administrar los debates](/discussions/managing-discussions-for-your-community/managing-discussions)".
 
-People with triage permissions for the repository, or for the source repository for organization discussions, can help moderate a project's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. Para obtener más información, consulta la sección "[Moderar los debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
+Las personas con permiso de clasificación en el repositorio o en el repositorio origen de los debates de la organización pueden ayudar a moderar los debates de un proyecto al marcar los comentarios como respuestas, fijar los debates que ya no son útiles o que dañan a la comunidad y convertir las propuestas en debates cuando una idea aún está en las primeras etapas de desarrollo. Para obtener más información, consulta la sección "[Moderar los debates](/discussions/managing-discussions-for-your-community/moderating-discussions)".
 
 ## Pasos siguientes
 

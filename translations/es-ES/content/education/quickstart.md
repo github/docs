@@ -21,10 +21,10 @@ En esta guía, iniciarás con {% data variables.product.product_name %}, regíst
 
 ## Crear cuentas en {% data variables.product.product_name %}
 
-First, you'll need to create a free personal account on {% data variables.product.product_name %}.
+Primero necesitarás crear una cuenta personal gratuita de {% data variables.product.product_name %}.
 
 {% data reusables.accounts.create-account %}
-1. Follow the prompts to create your free personal account.
+1. Sigue las instrucciones para crear tu cuenta personal gratuita.
 
 Después de crear tu cuenta personal, crea una cuenta gratuita de organización. Utilizarás esta cuenta de organización para crear y administrar las aulas {% data variables.product.prodname_classroom %}.
 

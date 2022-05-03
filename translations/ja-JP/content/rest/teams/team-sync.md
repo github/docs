@@ -1,5 +1,5 @@
 ---
-title: Team Synchronization
+title: Team同期
 intro: 'Team Synchronization API では、{% data variables.product.product_name %} Team と外部アイデンティティプロバイダ (IdP) グループとの間の接続を管理できます。'
 versions:
   fpt: '*'
@@ -16,6 +16,6 @@ Team 同期を使用して、IdPを通じて GitHubTeamメンバーを管理で�
 
 {% note %}
 
-**Note:** The Team Synchronization API cannot be used with {% data variables.product.prodname_emus %}. To learn more about managing an {% data variables.product.prodname_emu_org %}, see "[External groups API](/enterprise-cloud@latest/rest/reference/teams#external-groups)".
+**ノート:** Team Synchronization APIは{% data variables.product.prodname_emus %}とともに利用することはできません。 {% data variables.product.prodname_emu_org %}の管理についてさらに学ぶには、「[外部グループAPI](/enterprise-cloud@latest/rest/reference/teams#external-groups)」を参照してください。
 
 {% endnote %}

@@ -1,6 +1,6 @@
 ---
 title: コミット
-intro: 'The Commits API allows you to list, view, and compare commits in a repository. コミットコメントやコミットのステータスの操作もできます。'
+intro: Commits APIを使うと、リポジトリ内のコミットのリスト、表示、比較ができます。 コミットコメントやコミットのステータスの操作もできます。
 versions:
   fpt: '*'
   ghes: '*'

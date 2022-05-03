@@ -410,7 +410,7 @@ For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn
 
 ### GitHub Codespaces 
 
-Always use "GitHub Codespaces" (`{% data variables.product.prodname_github_codespaces %}`) as the product name, not just "Codespaces". This helps to avoid confusion with "codespaces" (lowercase c), which refers to instances of remote coding workspaces created with GitHub Codespaces.
+For the first mention in the body text of an article, use "GitHub Codespaces" (`{% data variables.product.prodname_github_codespaces %}`) as the product name, not just "Codespaces". After the first use, and in headings, you can use just "Codespaces" `{% data variables.product.prodname_github_codespaces %}`, but if a passage refers to the product and instances of codespaces in close proximity, use `{% data variables.product.prodname_github_codespaces %}` for the product within that passage. This helps to avoid confusion between the product and "codespaces" (lowercase c), which refers to instances of remote coding workspaces created with GitHub Codespaces.  
 
 Always use "dev container" (or, where clarification is needed, its longer form "development container") and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the Visual Studio Code documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
 
@@ -590,8 +590,8 @@ The following documentation should reference "user accounts."
 
 For enterprises on GitHub Enterprise Cloud that don't use Enterprise Managed Users, use "personal account" when describing members of organizations owned by the enterprise.
 
-- **Use:** If you configure SAML SSO, members of your organization will continue to log into their personal accounts on GitHub.com.
-- **Avoid:** If you configure SAML SSO, members of your organization will continue to log into their user accounts on GitHub.com.
+- **Use:** If you configure SAML SSO, members of your organization will continue to sign into their personal accounts on GitHub.com.
+- **Avoid:** If you configure SAML SSO, members of your organization will continue to sign into their user accounts on GitHub.com.
 
 Documentation that describes GitHub Enterprise Cloud without Enterprise Managed Users is generally in the "[Managing SAML single sign-on for your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" category.
 

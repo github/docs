@@ -29,6 +29,8 @@ export const RestCollapsibleSection = (props: SectionProps) => {
   const { routePath, defaultOpen, title, page, isStandaloneCategory } = props
   const [isOpen, setIsOpen] = useState(defaultOpen)
   const [currentAnchor, setCurrentAnchor] = useState('')
+  const [visibleAnchor, setVisibleAnchor] = useState('')
+
   const onToggle = (e: SyntheticEvent) => {
     const newIsOpen = (e.target as HTMLDetailsElement).open
     setIsOpen(newIsOpen)
@@ -37,6 +39,14 @@ export const RestCollapsibleSection = (props: SectionProps) => {
       navigate_label: `details ${newIsOpen ? 'open' : 'close'}: ${title}`,
     })
   }
+
+  const miniTocItems =
+    router.query.productId === 'rest' ||
+    // These pages need the Article Page mini tocs instead of the Rest Pages
+    router.asPath.includes('/rest/guides') ||
+    router.asPath.includes('/rest/overview')
+      ? []
+      : useRestContext().miniTocItems
 
   useEffect(() => {
     if (!currentAnchor) {
@@ -54,14 +64,36 @@ export const RestCollapsibleSection = (props: SectionProps) => {
     }
   }, [])
 
-  const miniTocItems =
-    router.query.productId === 'rest' ||
-    // These pages need the Article Page mini tocs instead of the Rest Pages
-    router.asPath.includes('/rest/guides') ||
-    router.asPath.includes('/rest/overview')
-      ? []
-      : useRestContext().miniTocItems
+  useEffect(() => {
+    if (!router.asPath.includes('guides') && !router.asPath.includes('overview')) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.target.id) {
+              const anchor = '#' + entry.target.id.split('--')[0]
+              if (entry.isIntersecting === true) setVisibleAnchor(anchor)
+            } else if (router.asPath.includes('#')) {
+              setVisibleAnchor('#' + router.asPath.split('#')[1])
+            } else {
+              setVisibleAnchor('')
+            }
+          })
+        },
+        { rootMargin: '0px 0px -85% 0px' }
+      )
+      // TODO: When we add the ## About the {title} API to each operation
+      // we can remove the h2 here
+      const headingsList = Array.from(document.querySelectorAll('h2, h3'))
 
+      headingsList.forEach((heading) => {
+        observer.observe(heading)
+      })
+
+      return () => {
+        observer.disconnect()
+      }
+    }
+  }, [miniTocItems])
   // This wrapper solves the issue of having standalone categories not
   // link to the new page. We want standalone categories to have links
   // just like maptopics/subcategories.
@@ -71,8 +103,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
   const renderRestAnchorLink = (miniTocItem: MiniTocItem) => {
     const miniTocAnchor = miniTocItem.contents.href
     const title = miniTocItem.contents.title
-    const isCurrent = currentAnchor === miniTocAnchor
-
+    const isCurrent = visibleAnchor === miniTocAnchor
     return {
       text: title,
       renderItem: () => (
@@ -96,6 +127,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
               'd-block pl-6 pr-5 py-1 no-underline width-full',
               isCurrent ? 'color-fg-accent' : 'color-fg-default'
             )}
+            onClick={() => setVisibleAnchor(miniTocAnchor)}
             href={miniTocAnchor}
           >
             {title}

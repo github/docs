@@ -1,6 +1,6 @@
 ---
 title: 通知
-intro: ''
+intro: 'The Notifications API lets you manage {% data variables.product.product_name %} notifications.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,18 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-ユーザは、Watch しているリポジトリでの会話の通知を受け取ります。
+## About the Notifications API
 
-* Issue とそのコメント
-* プルリクエストとそのコメント
-* コミットに関するコメント
-
-ユーザが関わっている場合、Watch 解除したリポジトリでの会話の通知も送信されます。
-
-* **@メンション**
-* Issue の割り当て
-* ユーザの作者のコミット、またはコミット
-* ユーザが参加しているディスカッション
+The Notifications API lets you manage {% data variables.product.product_name %} notifications. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 
 すべての通知 API 呼び出しには、`notifications` または `repo` API スコープが必要です。  これを行うと、一部の Issue およびコミットコンテンツへの読み取り専用アクセス権が付与されます。 それぞれのエンドポイントから Issue とコミットにアクセスするには、`repo` スコープが必要です。
 
@@ -44,21 +35,21 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### 通知理由
+### About notification reasons
 
 通知 API からレスポンスを取得するとき、各ペイロードには `reason` というタイトルのキーがあります。 これらは、通知をトリガーするイベントに対応しています。
 
-通知を受け取る `reason`（理由）には、次のようなものがあります。
+These are the potential `reason`s for receiving a notification:
 
 | 理由名                | 説明                                                                                                                                                                     |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `assign`           | Issue に割り当てられた。                                                                                                                                                        |
-| `作者`               | スレッドを作成した。                                                                                                                                                             |
-| `コメント`             | スレッドにコメントした。                                                                                                                                                           |
-| `ci_activity`      | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.                                                                         |
-| `招待`               | リポジトリへのコントリビューションへの招待を承諾した。                                                                                                                                            |
+| `author`           | スレッドを作成した。                                                                                                                                                             |
+| `comment`          | スレッドにコメントした。                                                                                                                                                           |
+| `ci_activity`      | トリガーした{% data variables.product.prodname_actions %} ワークフローの実行が完了した。                                                                                                    |
+| `invitation`       | リポジトリへのコントリビューションへの招待を承諾した。                                                                                                                                            |
 | `manual`           | スレッドをサブスクライブした（Issue またはプルリクエストを介して）。                                                                                                                                  |
-| `メンション`            | コンテンツで具体的に**@メンション**された。                                                                                                                                               |
+| `mention`          | コンテンツで具体的に**@メンション**された。                                                                                                                                               |
 | `review_requested` | 自分、または自分が所属している Team が、Pull Requestのレビューを求められた。{% ifversion fpt or ghec %}
 | `security_alert`   | {% data variables.product.prodname_dotcom %} が、リポジトリに[セキュリティの脆弱性](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)を発見した。{% endif %}
 | `state_change`     | スレッドの状態を変更した（たとえば、Issue をクローズしたり、プルリクエストをマージしたりした）。                                                                                                                    |

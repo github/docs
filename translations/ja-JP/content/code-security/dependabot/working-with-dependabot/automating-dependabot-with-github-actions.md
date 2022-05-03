@@ -16,7 +16,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Use Dependabot with Actions
+shortTitle: ActionsとDependabotを利用する
 redirect_from:
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/automating-dependabot-with-github-actions
 ---
@@ -30,10 +30,10 @@ redirect_from:
 
 ## イベントへの応答
 
-{% data variables.product.prodname_dependabot %} is able to trigger {% data variables.product.prodname_actions %} workflows on its pull requests and comments; however, certain events are treated differently.
+{% data variables.product.prodname_dependabot %}は、Pull Requestやコメントの際に{% data variables.product.prodname_actions %}ワークフローをトリガーできます。ただし、特定のイベントは異なる扱いを受けます。
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5792 %}
-For workflows initiated by {% data variables.product.prodname_dependabot %} (`github.actor == "dependabot[bot]"`) using the `pull_request`, `pull_request_review`, `pull_request_review_comment`, `push`, `create`, `deployment`, and `deployment_status` events, the following restrictions apply:
+`pull_request`、`pull_request_review`、`pull_request_review_comment`、`push`、`create`、`deployment`、`deployment_status`イベントを使って{% data variables.product.prodname_dependabot %}が起動したワークフロー(`github.actor == "dependabot[bot]"`)には、以下の制限が適用されます:
 {% endif %}
 
 - {% ifversion ghes = 3.3 %}`GITHUB_TOKEN` has read-only permissions, unless your administrator has removed restrictions.{% else %}`GITHUB_TOKEN` has read-only permissions by default.{% endif %}
@@ -465,7 +465,6 @@ name: Dependabot auto-merge
 on: pull_request_target
 
 permissions:
-  pull-requests: write
   contents: write
 
 jobs:
@@ -497,7 +496,6 @@ name: Dependabot auto-merge
 on: pull_request
 
 permissions:
-  pull-requests: write
   contents: write
 
 jobs:

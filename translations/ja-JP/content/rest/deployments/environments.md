@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." 環境のシークレットの管理については「[シークレット](/rest/reference/actions#secrets)」を参照してください。
+環境に関する詳しい情報については「[デプロイメントでの環境の利用](/actions/deployment/using-environments-for-deployment)」を参照してください。 環境のシークレットの管理については「[シークレット](/rest/reference/actions#secrets)」を参照してください。
 
 {% data reusables.gated-features.environments %}

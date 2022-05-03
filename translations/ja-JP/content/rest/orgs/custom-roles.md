@@ -1,5 +1,5 @@
 ---
-title: Custom Repository Roles
+title: カスタムリポジトリロール
 intro: ''
 versions:
   fpt: '*'

@@ -98,7 +98,7 @@ export default class Operation {
       this.renderStatusCodes(),
       this.renderParameterDescriptions(),
       this.renderBodyParameterDescriptions(),
-      this.renderExampleRequestResponseDescriptions(),
+      this.renderExampleResponseDescriptions(),
       this.renderPreviewNotes(),
     ])
 
@@ -119,12 +119,10 @@ export default class Operation {
     return this
   }
 
-  async renderExampleRequestResponseDescriptions() {
+  async renderExampleResponseDescriptions() {
     return Promise.all(
       this.codeExamples.map(async (codeExample) => {
         codeExample.response.description = await renderContent(codeExample.response.description)
-        codeExample.request.description = await renderContent(codeExample.request.description)
-
         return codeExample
       })
     )
@@ -159,8 +157,7 @@ export default class Operation {
   async renderParameterDescriptions() {
     return Promise.all(
       this.parameters.map(async (param) => {
-        param.descriptionHTML = await renderContent(param.description)
-        delete param.description
+        param.description = await renderContent(param.description)
         return param
       })
     )
@@ -313,9 +310,8 @@ async function getBodyParams(paramsObject, requiredParams) {
       param.type = paramArray.flat().join(' or ')
       param.description = param.description || ''
       const isRequired = requiredParams && requiredParams.includes(param.name)
-      const requiredString = isRequired ? '**Required**. ' : ''
-      param.description = await renderContent(requiredString + param.description)
-
+      param.isRequired = isRequired
+      param.description = await renderContent(param.description)
       // there may be zero, one, or multiple object parameters that have children parameters
       param.childParamsGroups = []
       const childParamsGroup = await getChildParamsGroup(param)

@@ -1,6 +1,6 @@
 ---
 title: 将身份提供程序连接到组织
-intro: 'To use SAML single sign-on and SCIM, you must connect your identity provider (IdP) to your organization on {% data variables.product.product_name %}.'
+intro: '要使用 SAML 单点登录和 SCIM，您必须在 {% data variables.product.product_name %}上将您的身份提供程序 (IdP) 连接到您的组织。'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
@@ -13,7 +13,7 @@ topics:
 shortTitle: 连接 IdP
 ---
 
-## About connection of your IdP to your organization
+## 关于将 IdP 连接到组织
 
 为您的 {% data variables.product.product_name %} 组织启用 SAML SSO时，会将您的身份提供商 (IDP) 连接到组织。 更多信息请参阅“[对组织启用并测试 SAML 单点登录](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)”。
 
@@ -29,7 +29,7 @@ shortTitle: 连接 IdP
 
 {% note %}
 
-**注：**{% data variables.product.product_name %} 支持的用于 SCIM 的身份提供程序为 Azure AD、Okta 和 OneLogin。 For more information about SCIM, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+**注：**{% data variables.product.product_name %} 支持的用于 SCIM 的身份提供程序为 Azure AD、Okta 和 OneLogin。 有关 SCIM 的详细信息，请参阅“[关于组织的 SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)”。
 
 {% data reusables.scim.enterprise-account-scim %}
 
@@ -37,4 +37,4 @@ shortTitle: 连接 IdP
 
 ## SAML 元数据
 
-For more information about SAML metadata for your organization, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)."
+有关组织的 SAML 元数据的详细信息，请参阅“[SAML 配置参考](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)”。

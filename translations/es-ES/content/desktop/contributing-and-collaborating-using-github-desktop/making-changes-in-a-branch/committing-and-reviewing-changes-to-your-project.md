@@ -123,3 +123,11 @@ Una vez que estés satisfecho con los cambios que elegiste incluir en tu confirm
 
   ![Advertencia de rama protegida](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
+
+6. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request. For more information about checks, see "[Viewing and re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+
+ ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
+
+ If a pull request has not been created for the current branch, {% data variables.product.prodname_desktop %} will give you the option to create one. Para obtener más información, consulta la sección "[Crear un informe de problemas o solicitud de extracción](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)."
+
+ ![Crear una solicitud de extracción](/assets/images/help/desktop/mac-create-pull-request.png)

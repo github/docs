@@ -1,7 +1,7 @@
 ---
 title: Autenticação SAML
-shortTitle: Troubleshoot SAML SSO
-intro: 'If you use SAML single sign-on (SSO) and people are unable to authenticate to access {% data variables.product.product_location %}, you can troubleshoot the problem.'
+shortTitle: Solucionar problemas do SAML SSO
+intro: 'Se você usar o logon único SAML (SSO) e as pessoas não conseguirem efetuar a autenticação para acessar {% data variables.product.product_location %}, você poderá solucionar o problema.'
 versions:
   ghes: '*'
 type: how_to
@@ -15,11 +15,11 @@ topics:
   - Troubleshooting
 ---
 
-## About problems with SAML authentication
+## Sobre problemas com autenticação do SAML
 
-{% data variables.product.product_name %} logs error messages for failed SAML authentication in the authentication log at _/var/log/github/auth.log_. You can review responses in this log file, and you can also configure more verbose logging.
+Mensagens de erro de registro de {% data variables.product.product_name %} para autenticação do SAML falhada no registro de autenticação em _/var/log/github/auth.log_. Você pode revisar as respostas neste arquivo de log, e você também pode configurar mais logs detalhados.
 
-For more information about SAML response requirements, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)."
+Para obter mais informações sobre requisitos de resposta do SAML, consulte "[Referência de configuração do SAML](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)".
 
 ## Configurando a depuração do SAML
 
@@ -59,13 +59,13 @@ $ base64 --decode <em>ENCODED OUTPUT</em>
 
 ## Erro: "Outro usuário já possui a conta"
 
-When a user signs into {% data variables.product.product_location %} for the first time with SAML authentication, {% data variables.product.product_name %} creates a user account on the instance and maps the SAML `NameID` to the account.
+Quando um usuário efetua o login em {% data variables.product.product_location %} pela primeira vez com autenticação do SAML, {% data variables.product.product_name %} cria uma conta de usuário na instância e mapeia o `NameID` do SAML com a conta.
 
 Quando o usuário inicia a sessão novamente, {% data variables.product.prodname_ghe_server %} compara o mapeamento do `NameID` da conta com a resposta do IdP. Se o `NameID` na resposta do IdP não corresponder mais ao `NameID` que {% data variables.product.product_name %} espera para o usuário. ocorrerá uma falha no login. O usuário receberá a seguinte mensagem.
 
 > Outro usuário já possui a conta. Solicite ao administrador que verifique o registro de autenticação.
 
-De modo geral, a mensagem indica que o nome de usuário ou endereço de email da pessoa foi alterado no IdP. Certifique-se de que o mapeamento do `NameID` para a conta do usuário no {% data variables.product.prodname_ghe_server %} corresponde ao `NameID` do usuário no seu IdP. For more information, see "[Updating a user's SAML `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+De modo geral, a mensagem indica que o nome de usuário ou endereço de email da pessoa foi alterado no IdP. Certifique-se de que o mapeamento do `NameID` para a conta do usuário no {% data variables.product.prodname_ghe_server %} corresponde ao `NameID` do usuário no seu IdP. Para obter mais informações, consulte "[Atualizando `NameID`](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid) do SAML de um usuário."
 
 ## Se a resposta SAML não estiver assinada ou se a assinatura não corresponder ao conteúdo, o log de autenticação mostrará a seguinte mensagem de erro:
 
@@ -99,4 +99,4 @@ Se a resposta do IdP tiver um valor ausente ou incorreto para `Audiência`, a se
 Audience inválido. O atributo Audience não corresponde a url_sua_instância
 ```
 
-Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.product.product_location %}, which is the full URL to your instance. Por exemplo, `https://ghe.corp.example.com`.
+Certifique-se de que você definiu o valor para `Audiência` no seu IdP para `EntityId` para {% data variables.product.product_location %}, que é o URL completo da sua instância. Por exemplo, `https://ghe.corp.example.com`.

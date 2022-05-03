@@ -1,6 +1,6 @@
 ---
 title: Comentarios sobre confirmación de cambios
-intro: ''
+intro: The Commit comments API lets you create and edit comments that relate to specific commits.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+
+## About the commit comments API
+
+The Commit comments API lets you create and edit comments that relate to specific commits.
 
 ### Tipos de medios personalizados para los comentarios de las confirmaciones
 
