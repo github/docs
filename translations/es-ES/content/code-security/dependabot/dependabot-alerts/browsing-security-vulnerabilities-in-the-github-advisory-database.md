@@ -77,7 +77,7 @@ También se puede acceder a la base de datos utilizando la API de GraphQL. Para 
 {% endnote %}
 
 ## Editar una asesoría en la {% data variables.product.prodname_advisory_database %}
-Puedes sugerir mejoras a cualquier asesoría en la {% data variables.product.prodname_advisory_database %}. For more information, see "[Editing security advisories in the {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)."
+Puedes sugerir mejoras a cualquier asesoría en la {% data variables.product.prodname_advisory_database %}. Para obtener más información, consulta la sección "[Editar las asesorías de seguridad en la {% data variables.product.prodname_advisory_database %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)".
 
 ## Buscar en la {% data variables.product.prodname_advisory_database %} por coincidencia exacta
 

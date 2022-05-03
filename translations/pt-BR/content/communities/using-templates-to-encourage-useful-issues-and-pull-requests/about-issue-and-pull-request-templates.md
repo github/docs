@@ -18,7 +18,7 @@ Depois que você cria modelos de problema e pull request no repositório, os con
 
 {% ifversion fpt or ghes or ghec %}
 
-Você pode criar problemas padrão e modelos de pull request para a sua organização ou conta de usuário. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+Você pode criar modelos de problema padrão e de pull request para sua organização ou conta pessoal. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
 
 {% endif %}
 

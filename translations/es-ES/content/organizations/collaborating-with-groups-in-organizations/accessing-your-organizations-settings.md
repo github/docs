@@ -25,7 +25,7 @@ shortTitle: Acceder a la configuración de organización
 
 {% tip %}
 
-**Sugerencia:** Solo los propietarios de la organización y los gerentes de facturación pueden ver y cambiar la información de facturación y la configuración de la cuenta para una organización. {% data reusables.organizations.new-org-permissions-more-info %}
+**Tip:** Solo los propietarios de la organización y los gerentes de facturación pueden ver y cambiar la información de facturación y todo el conjunto de ajustes de cuenta de la misma. Los moderadores de la organización solo ven los ajustes de moderación. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 

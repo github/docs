@@ -16,6 +16,8 @@ shortTitle: 启用和测试 SAML SSO
 
 无需所有成员使用 SAML SSO，即可在组织中将其启用。 在组织中启用但不实施 SAML SSO 可帮助组织顺利采用 SAML SSO。 一旦组织内的大多数成员使用 SAML SSO，即可在组织内将其实施。
 
+{% data reusables.saml.ghec-only %}
+
 如果启用但不实施 SAML SSO，则选择不使用 SAML SSO 的组织成员仍可以是组织的成员。 有关实施 SAML SSO 的更多信息，请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
 
 {% data reusables.saml.outside-collaborators-exemption %}
@@ -56,3 +58,4 @@ shortTitle: 启用和测试 SAML SSO
 ## 延伸阅读
 
 - "[关于使用 SAML 单点登录管理身份和访问](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- “[SAML 配置参考](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)”

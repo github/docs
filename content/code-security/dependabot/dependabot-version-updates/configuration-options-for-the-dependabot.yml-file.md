@@ -33,7 +33,7 @@ You must store this file in the `.github` directory of your repository. When you
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
-The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key. The file must start with `version: 2`.
+The *dependabot.yml* file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion fpt or ghec or ghes > 3.4 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
 
 ## Configuration options for updates
 
@@ -46,7 +46,8 @@ The top-level `updates` key is mandatory. You use it to configure how {% data va
 | [`schedule.interval`](#scheduleinterval)                      | **X** | How often to check for updates        |
 | [`allow`](#allow)                                             | | Customize which updates are allowed         |
 | [`assignees`](#assignees)                                     | | Assignees to set on pull requests           |
-| [`commit-message`](#commit-message)                           | | Commit message preferences                  |
+| [`commit-message`](#commit-message)                           | | Commit message preferences                  |{% ifversion fpt or ghec or ghes > 3.4 %}
+| [`enable-beta-ecosystems`](#enable-beta-ecosystems)           | | Enable ecosystems that have beta-level support |{% endif %}
 | [`ignore`](#ignore)                                           | | Ignore certain dependencies or versions     |
 | [`insecure-external-code-execution`](#insecure-external-code-execution) | | Allow or deny code execution in manifest files |
 | [`labels`](#labels)                                           | | Labels to set on pull requests              |
@@ -302,7 +303,6 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -330,7 +330,7 @@ If `versions` and `update-types` are used together, {% data variables.product.pr
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# Use `ignore` to specify dependencies that should not be updated 
+# Use `ignore` to specify dependencies that should not be updated
 
 version: 2
 updates:
@@ -355,6 +355,15 @@ updates:
 
 
 {% endnote %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+{% note %}
+
+**Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
+
+{% endnote %}
+
+{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -505,7 +514,7 @@ To allow {% data variables.product.prodname_dependabot %} to access a private pa
 To allow {% data variables.product.prodname_dependabot %} to use `bundler`, `mix`, and `pip` package managers to update dependencies in private registries, you can choose to allow external code execution. For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
 
 ```yaml
-# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
+# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries
 # when updating dependency versions for this ecosystem
 
 {% raw %}
@@ -723,7 +732,7 @@ updates:
 
 ## Configuration options for private registries
 
-The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries. 
+The top-level `registries` key is optional. It allows you to specify authentication details that {% data variables.product.prodname_dependabot %} can use to access private package registries.
 
 {% note %}
 
@@ -739,7 +748,7 @@ The value of the `registries` key is an associative array, each element of which
 
 version: 2
 registries:
-  dockerhub: # Define access for a private registry 
+  dockerhub: # Define access for a private registry
     type: docker-registry
     url: registry.hub.docker.com
     username: octocat
@@ -769,7 +778,7 @@ You use the following options to specify access settings. Registry settings must
 
 Each configuration `type` requires you to provide particular settings. Some types allow more than one way to connect. The following sections provide details of the settings you should use for each `type`.
 
-### `composer-repository` 
+### `composer-repository`
 
 The `composer-repository` type supports username and password.
 
@@ -784,7 +793,7 @@ registries:
 ```
 {% endraw %}
 
-### `docker-registry` 
+### `docker-registry`
 
 The `docker-registry` type supports username and password.
 
@@ -812,7 +821,7 @@ registries:
 ```
 {% endraw %}
 
-### `git` 
+### `git`
 
 The `git` type supports username and password.
 
@@ -827,7 +836,7 @@ registries:
 ```
 {% endraw %}
 
-### `hex-organization` 
+### `hex-organization`
 
 The `hex-organization` type supports organization and key.
 
@@ -883,7 +892,7 @@ registries:
 ```
 {% endraw %}
 
-### `nuget-feed` 
+### `nuget-feed`
 
 The `nuget-feed` type supports username and password, or token.
 
@@ -908,7 +917,7 @@ registries:
 ```
 {% endraw %}
 
-### `python-index` 
+### `python-index`
 
 The `python-index` type supports username and password, or token.
 
@@ -973,3 +982,23 @@ registries:
     token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %} 
+## Enabling support for beta-level ecosystems
+
+### `enable-beta-ecosystems`
+
+By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
+
+```yaml
+# Configure beta ecosystem
+
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+```
+{% endif %}

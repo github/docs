@@ -39,7 +39,7 @@ Embora alguns desacordos possam ser resolvidos com comunicação direta e respei
 * **Comunicar expectativas** - Os mantenedores podem definir diretrizes específicas da comunidade para ajudar os usuários a entender como interagir com seus projetos, por exemplo, no README de um repositório, em um [arquivo de CONTRIBUIÇÃO](/articles/setting-guidelines-for-repository-contributors/) ou [código de conduta dedicado](/articles/adding-a-code-of-conduct-to-your-project/). Você pode encontrar informações adicionais sobre a criação da comunidades [aqui](/communities).
 
 
-* **Comentários moderados** - Os usuários com privilégios de acesso de gravação [](/articles/repository-permission-levels-for-an-organization/) em um repositório [podem editar, excluir ou ocultar comentários de alguém](/communities/moderating-comments-and-conversations/managing-disruptive-comments) em commits, pull requests e problemas. Qualquer pessoa com acesso de leitura em um repositório pode visualizar o histórico de edição do comentário. Os autores de comentários e as pessoas com acesso de gravação a um repositório também podem excluir informações confidenciais do [histórico de edição dos comentários](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment). Moderar os seus projetos pode parecer uma grande tarefa se houver muita atividade, mas você pode [adicionar colaboradores](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository#collaborator-access-for-a-repository-owned-by-a-user-account) para ajudar você a gerenciar a sua comunidade.
+* **Comentários moderados** - Os usuários com privilégios de acesso de gravação [](/articles/repository-permission-levels-for-an-organization/) em um repositório [podem editar, excluir ou ocultar comentários de alguém](/communities/moderating-comments-and-conversations/managing-disruptive-comments) em commits, pull requests e problemas. Qualquer pessoa com acesso de leitura em um repositório pode visualizar o histórico de edição do comentário. Os autores de comentários e as pessoas com acesso de gravação a um repositório também podem excluir informações confidenciais do [histórico de edição dos comentários](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment). Moderar os seus projetos pode parecer uma grande tarefa se houver muita atividade, mas você pode [adicionar colaboradores](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-a-user-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account) para ajudar você a gerenciar a sua comunidade.
 
 * **Bloquear conversas**- Se uma discussão em um problema, pull request, ou commit fugir do assunto ou do tema, ou violar o código de conduta do seu projeto ou as políticas do GitHub, os proprietários, colaboradores, e qualquer pessoa com acesso de gravação poderá [bloquear](/articles/locking-conversations/) permanentemente a conversa.
 
@@ -71,13 +71,7 @@ Nos casos em que decidimos que se justifica uma ação de moderação, estas sã
 
 ## Apelação e reinstauração
 
-Em alguns casos, pode haver justificativa para reverter uma ação de moderação tomada pela equipe do GitHub.
-
-* **Restabelecimento**: Quando um usuário deseja corrigir a violação e está disposto a aceitar o cumprimento de nossas Políticas de Uso Aceitáveis dali em diante, podemos optar por restabelecar a sua conta ou conteúdo dependendo da gravidade da violação inicial.
-
-* **Recurso**: Se um usuário deseja contestar o fundamento de uma ação de execução e puder fornecer informações adicionais sobre a alegada violação, reanalisaremos essas informações e poderemos interpor recurso sempre que tivermos determinado que não ocorreu uma violação.
-
-Se você procurar restabelecer ou recorrer de uma ação de execução, entre em contato com [suporte](https://support.github.com/contact?tags=docs-policy).
+If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
 
 ## Avisos Legais
 

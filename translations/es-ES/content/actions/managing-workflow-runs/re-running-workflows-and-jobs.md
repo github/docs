@@ -91,15 +91,15 @@ Cuando vuelves a ejecutar un job específico en un flujo de trabajo, una ejecuci
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Next to the job that you want to re-run, click {% octicon "sync" aria-label="The re-run icon" %}. ![Volver a ejecutar el job seleccionado](/assets/images/help/repository/re-run-selected-job.png)
+1. Junto al job que quieras volver a ejecutar, haz clic en {% octicon "sync" aria-label="The re-run icon" %}. ![Volver a ejecutar el job seleccionado](/assets/images/help/repository/re-run-selected-job.png)
 
-   Alternatively, click on a job to view the log. In the log, click {% octicon "sync" aria-label="The re-run icon" %}. ![Volver a ejecutar el job seleccionado](/assets/images/help/repository/re-run-single-job-from-log.png)
+   Como alternativa, haz clic en un job para ver la bitácora. En la bitácora, haz clic en {% octicon "sync" aria-label="The re-run icon" %}. ![Volver a ejecutar el job seleccionado](/assets/images/help/repository/re-run-single-job-from-log.png)
 
 {% endwebui %}
 
 {% cli %}
 
-To re-run a specific job in a workflow run, use the `run rerun` subcommand with the `--job` flag. Replace `job-id` with the ID of the job that you want to re-run.
+Para volver a ejecutar un job específico en una ejecución de flujo de trabajo, utiliza el subcomando `run rerun` con el marcador `--job`. Reemplaza `job-id` con la ID del job que quieras volver a ejecutar.
 
 ```shell
 gh run rerun --job <em>job-id</em>

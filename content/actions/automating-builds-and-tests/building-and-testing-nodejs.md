@@ -42,7 +42,6 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 
 To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
 
-{% raw %}
 ```yaml{:copy}
 name: Node.js CI
 
@@ -62,16 +61,15 @@ jobs:
         node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+        uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
 ```
-{% endraw %}
 
 {% data reusables.actions.example-github-runner %}
 
@@ -85,20 +83,18 @@ The starter workflow includes a matrix strategy that builds and tests your code 
 
 Each job can access the value defined in the matrix `node-version` array using the `matrix` context. The `setup-node` action uses the context as the `node-version` input. The `setup-node` action configures each job with a different Node.js version before building and testing code. For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Contexts](/actions/learn-github-actions/contexts)."
 
-{% raw %}
 ```yaml{:copy}
 strategy:
   matrix:
     node-version: [10.x, 12.x, 14.x, 15.x]
 
 steps:
-- uses: actions/checkout@v2
-- name: Use Node.js ${{ matrix.node-version }}
-  uses: actions/setup-node@v2
+- uses: {% data reusables.actions.action-checkout %}
+- name: Use Node.js {% raw %}${{ matrix.node-version }}{% endraw %}
+  uses: {% data reusables.actions.action-setup-node %}
   with:
-    node-version: ${{ matrix.node-version }}
+    node-version: {% raw %}${{ matrix.node-version }}{% endraw %}
 ```
-{% endraw %}
 
 Alternatively, you can build and test with exact Node.js versions.
 
@@ -110,7 +106,6 @@ strategy:
 
 Or, you can build and test using a single version of Node.js too.
 
-{% raw %}
 ```yaml{:copy}
 name: Node.js CI
 
@@ -122,16 +117,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: '12.x'
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
 ```
-{% endraw %}
 
 If you don't specify a Node.js version, {% data variables.product.prodname_dotcom %} uses the environment's default Node.js version.
 {% ifversion ghae %} {% data reusables.actions.self-hosted-runners-software %}
@@ -150,9 +144,9 @@ This example installs the dependencies defined in the *package.json* file. For m
 
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '12.x'
 - name: Install dependencies
@@ -161,18 +155,16 @@ steps:
 
 Using `npm ci` installs the versions in the *package-lock.json* or *npm-shrinkwrap.json* file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and "[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)."
 
-{% raw %}
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '12.x'
 - name: Install dependencies
   run: npm ci
 ```
-{% endraw %}
 
 ### Example using Yarn
 
@@ -180,9 +172,9 @@ This example installs the dependencies defined in the *package.json* file. For m
 
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '12.x'
 - name: Install dependencies
@@ -193,9 +185,9 @@ Alternatively, you can pass `--frozen-lockfile` to install the versions in the `
 
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '12.x'
 - name: Install dependencies
@@ -212,12 +204,11 @@ In the example below, the secret `NPM_TOKEN` stores the npm authentication token
 
 Before installing dependencies, use the `setup-node` action to create the *.npmrc* file. The action has two input parameters. The `node-version` parameter sets the Node.js version, and the `registry-url` parameter sets the default registry. If your package registry uses scopes, you must use the `scope` parameter. For more information, see [`npm-scope`](https://docs.npmjs.com/misc/scope).
 
-{% raw %}
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     always-auth: true
     node-version: '12.x'
@@ -226,9 +217,8 @@ steps:
 - name: Install dependencies
   run: npm ci
   env:
-    NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+    NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 The example above creates an *.npmrc* file with the following contents:
 
@@ -243,10 +233,11 @@ always-auth=true
 When using {% data variables.product.prodname_dotcom %}-hosted runners, you can cache and restore the dependencies using the [`setup-node` action](https://github.com/actions/setup-node).
 
 The following example caches dependencies for npm.
+
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v2
+- uses: {% data reusables.actions.action-checkout %}
+- uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '14'
     cache: 'npm'
@@ -258,8 +249,8 @@ The following example caches dependencies for Yarn.
 
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
-- uses: actions/setup-node@v2
+- uses: {% data reusables.actions.action-checkout %}
+- uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '14'
     cache: 'yarn'
@@ -275,11 +266,11 @@ The following example caches dependencies for pnpm (v6.10+).
 # NOTE: pnpm caching support requires pnpm version >= 6.10.0
 
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - uses: pnpm/action-setup@646cdf48217256a3d0b80361c5a50727664284f2
   with:
     version: 6.10.0
-- uses: actions/setup-node@v2
+- uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '14'
     cache: 'pnpm'
@@ -295,9 +286,9 @@ You can use the same commands that you use locally to build and test your code. 
 
 ```yaml{:copy}
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
-  uses: actions/setup-node@v2
+  uses: {% data reusables.actions.action-setup-node %}
   with:
     node-version: '12.x'
 - run: npm install

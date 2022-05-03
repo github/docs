@@ -63,3 +63,4 @@ Existing sponsorships will remain in place during this period and maintainers wi
 4. Review your billing and payment information. If you need to make an edit, click **Edit** next to the relevant section. Otherwise, click **Submit payment**. ![One-time payment summary](/assets/images/help/billing/payment-summary.png)
 5. Optionally, if you clicked **Edit**, make any necessary changes, and then click **Submit payment**. ![One-time payment edit summary](/assets/images/help/billing/payment-summary-edit.png)
 6. Once payment for the current billing cycle has been successfully made, the **Pay now** button on your "Billing & plans" page will be disabled until your next payment is due. ![One-time payment pay now button disabled](/assets/images/help/billing/pay-now-button-disabled.png)
+  

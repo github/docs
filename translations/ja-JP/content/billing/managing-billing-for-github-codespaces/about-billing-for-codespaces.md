@@ -15,7 +15,7 @@ topics:
 
 ## {% data variables.product.prodname_codespaces %}の価格
 
-{% data variables.product.prodname_codespaces %} usage is billed for all accounts on the Team and Enterprise plans, and does not include any entitlements. 現在の処、個人のアカウントは{% data variables.product.prodname_codespaces %}の利用に対して課金されません。
+{% data variables.product.prodname_codespaces %}の利用状況に対しては、{% data variables.product.prodname_team %}及び{% data variables.product.prodname_enterprise %}上のすべてのOrganization及びEnterpriseアカウントについて課金され、これには無料の分あるいはストレージは含まれません。 現在のところ、個人のアカウントは{% data variables.product.prodname_codespaces %}の利用に対して課金されません。
 
 {% data variables.product.prodname_codespaces %}の利用については、以下の表に示す計測単位に従って課金されます。
 
@@ -54,22 +54,24 @@ Microsoft Enterprise Agreement を通じて {% data variables.product.prodname_e
 
 {% data reusables.codespaces.exporting-changes %}
 
-## Limiting the choice of machine types
+## マシンタイプの選択の制限
 
-The type of machine a user chooses when they create a codespace affects the per-minute charge for that codespace, as shown above.
+デフォルトでは、もっとも少ない有効リソースのマシンタイプがcodespace作成時に使われます。 しかし、ユーザはもっとリソースの多いマシンタイプを選択できます。 これはcodespaceの作成時に行えますが、既存のcodespaceのマシンタイプを変更することもできます。 詳しい情報については「[codespaceの作成](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)」及び「[codespaceのマシンタイプの変更](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)」を参照してください。
 
-Organization owners can create a policy to restrict the machine types that are available to users. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+もっとリソースの多いマシンタイプが選択されると、上に示したcodespaceの分あたりの料金に影響します。
 
-## How billing is handled for forked repositories
+Organizationオーナーは、ユーザが利用できるマシンタイプを制限するポリシーを作成できます。 詳しい情報については「[マシンタイプへのアクセス制限](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)」を参照してください。
 
-{% data variables.product.prodname_codespaces %} can only be used in organizations where a billable owner has been defined. To incur charges to the organization, the user must be a member or collaborator, otherwise they cannot create a codespace.
+## フォークされたリポジトリでの支払いの扱い
 
-For example, a user in a private organization can fork a repository within that organization, and can subsequently use a codespace billed to the organization; this is because the organization is the owner of the parent repository, which can remove the user's access, the forked repository, and the codespace.
+{% data variables.product.prodname_codespaces %}は、支払いできるオーナーが定義されたOrganizationでのみ利用できます。 Organizationに課金をするには、ユーザはメンバーもしくはコラボレータでなければなりません。そうでなければユーザはcodespaceを作成できません。
 
-## How billing is handled when a repository is transferred
+たとえば、プライベートなOrganizationのユーザは、そのOrganization内のリポジトリをフォークし、その後Organizationに課金されるcodespaceを使うことができます。これはそのOrganizationが、ユーザのアクセス、フォークされたリポジトリ、codespaceを削除できる親リポジトリのオーナーだからです。
 
-Usage is billed and reported on every hour. As such, you pay for any usage when a repository is within your organization. When a repository is transferred out of your organization, any codespaces in that repository are removed as part of the transfer process.
+## リポジトリが移譲されたときの支払いの扱い
 
-## What happens when users are removed
+使用量は1時間ごとに課金され、報告されます。 そのため、リポジトリがOrganization内にあれば、あらゆる使用に対して支払いをすることになります。 リポジトリがOrganization外に移譲されると、そのリポジトリ内のすべてのcodespaceは移譲のプロセスの一部として削除されます。
 
-If a user is removed from an organization or repository, their codespaces are automatically deleted. 
+## ユーザが削除されたときに生じること
+
+Organizationもしくはリポジトリからユーザが削除されると、そのユーザのcodespaceは自動的に削除されます。 

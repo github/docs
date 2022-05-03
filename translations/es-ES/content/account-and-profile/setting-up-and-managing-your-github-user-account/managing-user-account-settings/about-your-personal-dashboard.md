@@ -25,7 +25,7 @@ Para acceder a tu tablero personal una vez que has iniciado sesión, haz clic en
 
 ## Encontrar tu actividad reciente
 
-En la sección "Recent activity" (Actividad reciente) de tus noticias, rápidamente puedes encontrar las propuestas y solicitudes de extracción recién actualizadas en las que estás trabajando y hacerles el seguimiento. En "Recent activity" (Actividad reciente), puedes previsualizar hasta 12 actualizaciones recientes, realizadas durante las últimas dos semanas.
+En la sección "Recent activity" (Actividad reciente) de tus noticias, rápidamente puedes encontrar las propuestas y solicitudes de extracción recién actualizadas en las que estás trabajando y hacerles el seguimiento. En "Recent activity" (Actividad reciente), puedes previsualizar hasta 4 actualizaciones recientes, realizadas durante las últimas dos semanas.
 
 {% data reusables.dashboard.recent-activity-qualifying-events %}
 
@@ -77,13 +77,13 @@ Para obtener más información sobre cómo seguir personas y observar repositori
 
 {% endnote %}
 
-This feed shows activity and recommendations based on your network on {% data variables.product.product_name %}. It's designed to provide updates that inspire you, keep you up-to-date, and help you find new communities you want to participate in. Your network includes:
+Esta fuente muestra la actividad y recomendaciones con base en tu red en {% data variables.product.product_name %}. Se diseñó para proporcionar actualizaciones que te inspiran, te mantienen actualizado y te ayudan a encontrar comunidades nuevas en las que quieras participar. Tu red incluye:
 
-- Repositories you have starred
-- Repositories you've contributed to
-- Users you follow or sponsor
-- Users you've collaborated with
-- Organizations you follow
+- Los repositorios que has marcado con estrella
+- Los repositorios en los que has contribuido
+- Los usuarios que sigues o patrocinas
+- Los usuarios con los que has colaborado
+- Las organizaciones que sigues
 
 {% endif %}
 

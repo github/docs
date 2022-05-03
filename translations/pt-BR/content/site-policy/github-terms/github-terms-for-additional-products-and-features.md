@@ -27,7 +27,7 @@ Ao usar as Funcionalidades e Produtos Adicionais, você também concorda com os 
 
 - Os usuários do **GitHub AE** podem ter acesso aos seguintes produtos e funcionalidades: ações, segurança avançada, dados de consultoria, conexões, visualização de dependência, Importador do GitHub Enterprise, pacotes e páginas.
 
-## Ações
+## Actions
 As Ações GitHub permitem criar fluxos de trabalho personalizados do ciclo de vida de desenvolvimento de softwares diretamente no seu repositório GitHub. Ações são cobradas conforme o uso. A [Documentação de ações](/actions) inclui detalhes, que abrangem quantidades de computação e armazenamento (dependendo do plano da sua conta) e como monitorar seus minutos de ação de uso e definir limites de uso.
 
 As ações e todos elementos do serviço ou produto de Ações não podem ser usados em violação do Contrato, a [Políticas de Uso Aceitável no GitHub](/github/site-policy/github-acceptable-use-policies), ou as limitações de serviço do GitHub Actions estabelecidas na [Documentação de Ações](/actions/reference/usage-limits-billing-and-administration). Além disso, independentemente de uma Ação estar usando executores auto-hospedados, as ações não devem ser usadas para:
@@ -127,6 +127,10 @@ _Uso proibido_
 O GitHub Pages não pode ser usado de forma a violar o Contrato, as [Políticas de Uso Aceitável](/github/site-policy/github-acceptable-use-policies) do GitHub ou as limitações de serviço do GitHub Pages definidas na [documentação do GitHub Pages](/pages/getting-started-with-github-pages/about-github-pages#guidelines-for-using-github-pages).
 
 Se você tiver dúvidas sobre se o seu uso ou uso pretendido se enquadram nessas categorias, entre em contato com o [Suporte do GitHube](https://support.github.com/contact?tags=docs-policy). O GitHub se reserva o direito de recuperar qualquer subdomínio GitHub sem responsabilidade.
+
+## Previews
+
+Previews means software, online services and additional products and features provided for preview, evaluation, demonstration or trial purposes, or pre-release versions of those, such as alpha, beta, or early access. If your Agreement does not include terms and conditions that address Previews, then the following terms apply. GitHub grants a limited right to use a non-production instance of the Preview. Previews are provided “AS-IS”, “WITH ALL FAULTS” and “AS AVAILABLE”. GitHub may change or discontinue Previews at any time without notice. Any information we give you about a private Preview will be considered GitHub’s confidential information. If you choose to provide comments or suggestions about a Preview, we may use that feedback for any purpose without obligation of any kind. GitHub’s maximum liability is limited to direct damages up to US $5,000. GitHub has no obligation to defend, indemnify, or hold you harmless for claims brought by third parties arising from your use of Previews.
 
 ## Programa Sponsors
 

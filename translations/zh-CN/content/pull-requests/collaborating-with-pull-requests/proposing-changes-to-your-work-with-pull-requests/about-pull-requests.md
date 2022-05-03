@@ -22,11 +22,11 @@ topics:
 
 **注：**在处理拉取请求时，请记住：
 * 如果操作的是[共享仓库型号](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)，建议对拉取请求使用主题分支。 从任何分支或提交都可发送拉取请求，但如果需要更新提议的更改，则可使用主题分支推送跟进提交。
-* Be very careful when force pushing commits to a pull request. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
+* 强制推送提交到拉取请求时要非常小心。 强制推送会更改存储库历史记录，并可能损坏您的拉取请求。 如果其他协作者在强制推送之前对项目进行分支，则强制推送可能会覆盖协作者基于其工作的提交。
 
 {% endnote %}
 
-You can create pull requests on {% data variables.product.prodname_dotcom_the_website %}, with {% data variables.product.prodname_desktop %}, in {% data variables.product.prodname_codespaces %}, on {% data variables.product.prodname_mobile %}, and when using GitHub CLI.
+您可以在 {% data variables.product.prodname_dotcom_the_website %}、{% data variables.product.prodname_desktop %}、{% data variables.product.prodname_codespaces %}、{% data variables.product.prodname_mobile %} 上以及使用 GitHub CLI 时创建拉取请求。
 
 在初始化拉取请求后，您会看到一个审查页面，其中简要概述您的分支（整个分支）与仓库基本分支之间的更改。 您可以添加提议的更改摘要，审查提交所做的更改，添加标签、里程碑和受理人，以及 @提及个人贡献者或团队。 更多信息请参阅“[创建拉取请求](/articles/creating-a-pull-request)”。
 
@@ -47,7 +47,7 @@ You can create pull requests on {% data variables.product.prodname_dotcom_the_we
 {% tip %}
 
 **提示：**
-- To toggle between collapsing and expanding all outdated review comments in a pull request, hold down <span class="platform-mac"><kbd>Option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> and click **Show outdated** or **Hide outdated**. 有关更多快捷方式，请参阅“[键盘快捷键](/articles/keyboard-shortcuts)”。
+- 要切换折叠或展开拉取请求中所有过时的审查评论，请按住 <span class="platform-mac"><kbd>Option</kbd></span><span class="platform-linux"><kbd>Alt</kbd></span><span class="platform-windows"><kbd>Alt</kbd></span> 并单击 **Show outdated（显示已过时）**或 **Hide outdated（隐藏已过时）**。 有关更多快捷方式，请参阅“[键盘快捷键](/articles/keyboard-shortcuts)”。
 - 在合并拉取请求时可以压缩提交，以获取更简化的更改视图。 更多信息请参阅“[关于拉取请求合并](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)”。
 
 {% endtip %}

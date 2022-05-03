@@ -92,16 +92,26 @@ Para obter mais informações, consulte [`ações/cache`](https://github.com/act
 - `caminho`: **Obrigatório** O caminho do arquivo no executor para armazenar em cache ou restaurar. O caminho pode ser absoluto ou relativo com relação ao diretório de trabalho.
   - Os caminhos podem ser diretórios ou arquivos únicos. Os padrões de glob são compatíveis.
   - Com o `v2` da ação `cache`, é possível especificar um único caminho ou é possível adicionar vários caminhos em linhas separadas. Por exemplo:
+
     ```
     - name: Cache Gradle packages
-      uses: actions/cache@v2
+      uses: {% data reusables.actions.action-cache %}
       with:
         path: |
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
   - Com `v1` da ação da `cache`, somente um caminho único é compatível e deve ser um diretório. Você não pode armazenar em cache um único arquivo.
-- `chaves de restauração`: **Opcional** Uma lista ordenada de chaves alternativas a serem usadas para encontrar a cache se não ocorrer correspondência para a `chave`.
+- `restore-keys`: **Opcional** Uma string que contêm chaves de restauração alternativas, com cada uma colocada em uma nova linha. Se nenhuma correspondência de cache foi encontrada para a `chave`, estas chaves de restauração serão usadas sequencialmente na ordem fornecida para encontrar e restaurar um cache. Por exemplo:
+
+  {% raw %}
+  ```yaml
+  restore-keys: |
+    npm-foobar-${{ hashFiles('package-lock.json') }}
+    npm-foobar-
+    npm-
+  ```
+  {% endraw %}
 
 ### Parâmetros de saída para a ação da `cache`
 
@@ -111,7 +121,6 @@ Para obter mais informações, consulte [`ações/cache`](https://github.com/act
 
 Este exemplo cria uma nova cache quando são alterados os pacotes no arquivo `package-lock.json` ou quando é alterado o sistema operacional do executor. A chave da cache usa contextos e expressões para gerar uma chave que inclui o sistema operacional do executor e um hash SHA-256 do arquivo `package-lock.json` file.
 
-{% raw %}
 ```yaml{:copy}
 name: Caching with npm
 
@@ -122,20 +131,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         env:
           cache-name: cache-node-modules
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}{% endraw %}
           restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+            {% raw %}${{ runner.os }}-build-${{ env.cache-name }}-{% endraw %}
+            {% raw %}${{ runner.os }}-build-{% endraw %}
+            {% raw %}${{ runner.os }}-{% endraw %}
 
       - name: Install Dependencies
         run: npm install
@@ -146,7 +155,6 @@ jobs:
       - name: Test
         run: npm test
 ```
-{% endraw %}
 
 O processo de a `chave` corresponder a uma cache existente é denominado correspondência e a ação restaura o arquivo memorizado no diretório do `caminho`.
 

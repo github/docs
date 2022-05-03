@@ -15,7 +15,7 @@ topics:
 
 ## {% data variables.product.prodname_codespaces %} 定价
 
-{% data variables.product.prodname_codespaces %} 的使用将针对团队和企业计划中的所有帐户计费，并且不包括任何权利。 个人帐户目前不为 {% data variables.product.prodname_codespaces %} 使用付费。
+对于 {% data variables.product.prodname_codespaces %} 使用的计费将针对 {% data variables.product.prodname_team %} 和 {% data variables.product.prodname_enterprise %} 上的所有组织和企业帐户，不包括任何免费的分钟数或存储空间。 个人帐户目前不对 {% data variables.product.prodname_codespaces %} 使用付费。
 
 {% data variables.product.prodname_codespaces %} 使用按下表中的计量单位计费：
 
@@ -56,9 +56,11 @@ topics:
 
 ## 限制机器类型的选择
 
-用户在创建代码空间时选择的计算机类型会影响该代码空间的每分钟费用，如上所示。
+默认情况下，在创建代码空间时，将使用具有最低有效资源的计算机类型。 但是，用户可能能够选择具有更多资源的计算机类型。 他们可以在创建代码空间时执行此操作，也可以更改现有代码空间的计算机类型。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”和“[更改代码空间的计算机类型](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)”。
 
-组织所有者可以创建策略来限制用户可用的计算机类型。 For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
+如果选择了具有更多资源的计算机类型，这将影响该代码空间的每分钟费用，如上所示。
+
+组织所有者可以创建策略来限制用户可用的计算机类型。 更多信息请参阅“[限制对机器类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”。
 
 ## 如何处理复刻的存储库的计费
 

@@ -82,7 +82,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
-          run: echo "::set-output name=random-id::$(echo $RANDOM)"
+          run: echo "::set-output name=random-number::$(echo $RANDOM)"
           shell: bash
         - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
           shell: bash          
@@ -117,7 +117,6 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. `who-to-greet`の入力を自分の名前に置き換えることもできます。
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml
 on: [push]
@@ -127,14 +126,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - id: foo
         uses: actions/hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+      - run: echo random-number {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
         shell: bash
 ```
-{% endraw %}
 
 リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 出力には、「Hello Mona the Octocat」、"Goodbye"スクリプトの結果、および乱数が含まれているはずです。

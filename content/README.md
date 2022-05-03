@@ -336,7 +336,11 @@ Just add a hyphen on either the left, right, or both sides to indicate that ther
 
 ## Links and image paths
 
-Local links must start with a product ID (like `/actions` or `/admin`), and image paths must start with `/assets`. The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](lib/render-content/plugins/rewrite-local-links.js).
+Links to docs in the `docs-internal` repository must start with a product ID (like `/actions` or `/admin`) and contain the entire filepath, but not the file extension. For example, `/actions/creating-actions/about-custom-actions`.
+
+Image paths must start with `/assets` and contain the entire filepath including the file extension. For example, `/assets/images/help/settings/settings-account-delete.png`.
+
+The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](lib/render-content/plugins/rewrite-local-links.js).
 
 For example, if you include the following link in a content file:
 
@@ -363,6 +367,12 @@ Sometimes you want to link to a Dotcom-only article in Enterprise content and yo
 ```
 
 Sometimes the canonical home of content moves outside the docs site. None of the links included in [`lib/redirects/external-sites.json`](/lib/redirects/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.
+
+### Legacy filepaths and redirects for links
+
+Our docs contain links that use legacy filepaths such as `/article/article-name` or `/github/article-name`. Our docs also contain links that refer to articles by past names. Both of these link types function properly because of redirects, but they are bugs.
+
+When you add a link to an article, use the current filepath and article name.
 
 ### Index pages
 

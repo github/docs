@@ -1,18 +1,23 @@
 ---
 title: Conectar o provedor de identidade à organização
-intro: 'Para usar o logon único SAML e o SCIM, é preciso conectar o provedor de identidade à organização do {% data variables.product.product_name %}.'
+intro: 'To use SAML single sign-on and SCIM, you must connect your identity provider (IdP) to your organization on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/connecting-your-identity-provider-to-your-organization
 versions:
   ghec: '*'
 topics:
+  - Authentication
   - Organizations
   - Teams
 shortTitle: Conectar um IdP
 ---
 
+## About connection of your IdP to your organization
+
 Ao habilitar o SAML SSO para sua organização de {% data variables.product.product_name %}, você conecta seu provedor de identidade (IdP) à sua organização. Para obter mais informações, consulte "[Habilitar e testar logon único de SAML para sua organização](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)".
+
+{% data reusables.saml.ghec-only %}
 
 Você pode encontrar as informações de implementação do SAML e SCIM para seu IdP na documentação do IdP.
 - [SAML](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services) do Active Directory Federation Services (AD FS)
@@ -22,14 +27,14 @@ Você pode encontrar as informações de implementação do SAML e SCIM para seu
 - [SAML](https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector) do PingOne
 - [SAML](https://wiki.shibboleth.net/confluence/display/IDP30/Home) do Shibboleth
 
-Você pode acessar os metadados do provedor de serviços da sua organização no URL a seguir, substitundo a ORGANIZAÇÃO pelo nome de usuário da sua organização.
-
-```
-http(s)://github.com/orgs/ORGANIZATION/saml/metadata.xml
-```
-
 {% note %}
 
-**Observação:** os provedores de identidade aceitos pelo {% data variables.product.product_name %} para SCIM são Azure AD, Okta e OneLogin. {% data reusables.scim.enterprise-account-scim %} Para obter mais informações sobre o SCIM, consulte "[Sobre o SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+**Observação:** os provedores de identidade aceitos pelo {% data variables.product.product_name %} para SCIM são Azure AD, Okta e OneLogin. For more information about SCIM, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+
+{% data reusables.scim.enterprise-account-scim %}
 
 {% endnote %}
+
+## Metadados SAML
+
+For more information about SAML metadata for your organization, see "[SAML configuration reference](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference)."

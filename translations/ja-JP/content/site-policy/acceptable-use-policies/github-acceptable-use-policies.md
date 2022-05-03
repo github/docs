@@ -109,4 +109,6 @@ We will interpret our policies and resolve disputes in favor of protecting users
 
 ---
 
-GitHub retains full discretion to [take action](/github/site-policy/github-community-guidelines#what-happens-if-someone-violates-githubs-policies) in response to a violation of these policies, including account suspension, account [termination](/github/site-policy/github-terms-of-service#3-github-may-terminate), or [removal](/github/site-policy/github-terms-of-service#2-github-may-remove-content) of content.
+**Enforcement.** GitHub retains full discretion to [take action](/github/site-policy/github-community-guidelines#what-happens-if-someone-violates-githubs-policies) in response to a violation of these policies, including account suspension, account [termination](/github/site-policy/github-terms-of-service#3-github-may-terminate), or [removal](/github/site-policy/github-terms-of-service#2-github-may-remove-content) of content. Please also see our [Community Guidelines](/site-policy/github-terms/github-community-guidelines) for actions you can take if something or someone offends you.
+
+**Reinstatement and appeal.** If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.

@@ -15,7 +15,7 @@ topics:
 shortTitle: Sobre organizações
 ---
 
-Para acessar uma organização, cada integrante deve entrar na própria conta de usuário pessoal.
+Para acessar uma organização, cada integrante deve efetuar o login em sua própria conta pessoal.
 
 Os integrantes da organização podem ter diferentes funções, como *proprietário* ou *gerente de cobrança*:
 

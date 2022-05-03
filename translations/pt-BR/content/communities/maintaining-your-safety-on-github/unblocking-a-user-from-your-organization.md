@@ -1,6 +1,6 @@
 ---
 title: Desbloquear usuários da organização
-intro: 'Os proprietários da organização podem desbloquear um usuário que tenha sido bloqueado anteriormente, restaurando o acesso dele aos repositórios da organização.'
+intro: 'Os proprietários e moderadores da organização podem desbloquear um usuário que foi bloqueado anteriormente, restaurando seu acesso aos repositórios da organização.'
 redirect_from:
   - /articles/unblocking-a-user-from-your-organization
   - /github/building-a-strong-community/unblocking-a-user-from-your-organization
@@ -26,15 +26,15 @@ Se você tiver selecionado uma duração para o bloqueio do usuário, ele será 
 
 1. Navegue até o comentário cujo autor você deseja desbloquear.
 2. No canto superior direito do comentário, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e depois em **Unblock user** (Desbloquear usuário). ![Ícone horizontal kebab e menu comment moderation (moderação de comentários) mostrando a opção unblock user (desbloquear usuário)](/assets/images/help/repository/comment-menu-unblock-user.png)
-3. Para confirmar que você deseja desbloquear o usuário, clique em **OK**.
+3. Para confirmar que deseja desbloquear o usuário, clique em **OK**.
 
 ## Desbloquear usuários nas configurações da organização
 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}, em seguida, clique em **Usuários bloqueados**.
-5. Em "Blocked users" (Usuários bloqueados), clique em **Unblock** (Desbloquear) próximo ao usuário que deseja desbloquear. ![Botão Unblock user (Desbloquear usuário)](/assets/images/help/organizations/org-unblock-user-button.png)
+{% data reusables.organizations.block_users %}
+1. Em "Blocked users" (Usuários bloqueados), clique em **Unblock** (Desbloquear) próximo ao usuário que deseja desbloquear. ![Botão Unblock user (Desbloquear usuário)](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ## Leia mais
 

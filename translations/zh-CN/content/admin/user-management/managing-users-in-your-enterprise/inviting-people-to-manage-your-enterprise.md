@@ -45,6 +45,10 @@ shortTitle: 邀请人员进行管理
 
 {% ifversion ghec %}在邀请别人加入企业帐户后，他们必须接受电子邮件邀请，然后才可访问企业帐户。 待处理的邀请将在 7 天后过期。{% endif %}
 
+{% if enterprise-membership-view-improvements %}
+您可以查看所有待处理的邀请，以成为企业帐户的管理员。 更多信息请参阅“[查看企业中的人员](/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-pending-invitations)”。
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
@@ -63,10 +67,14 @@ shortTitle: 邀请人员进行管理
 
 只有企业所有者才可从企业帐户删除其他企业管理员。
 
+{% ifversion ghec %}
+如果要删除的管理员是企业拥有的任何组织的成员，则可以选择 **Convert to member（转换为成员）**，这将删除其管理角色但保留其组织成员身份，或选择 **Remove from enterprise（从企业中删除）**，这将删除其管理角色和组织成员身份。
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-1. 在您要删除的人员用户名旁边，单击 {% octicon "gear" aria-label="The Settings gear" %}，然后单击 {% ifversion ghes %}**Remove owner（删除所有者）**{% elsif ghec %}**Convert to member（转换为成员）**{% endif %}。
+1. 在您要删除的人员用户名旁边，单击 {% octicon "gear" aria-label="The Settings gear" %}，然后单击 {% ifversion ghes %}**Remove owner（删除所有者）**{% elsif ghec %}**Convert to member（转换为成员）**或 **Remove from enterprise（从企业中删除）**。{% endif %}。
   {% ifversion ghec %}
   ![包含删除企业管理员的菜单选项的设置齿轮](/assets/images/help/business-accounts/remove-admin.png)
   {% elsif ghes %}

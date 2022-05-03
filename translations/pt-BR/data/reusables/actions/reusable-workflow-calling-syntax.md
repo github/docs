@@ -1,4 +1,4 @@
-* `{owner}/{repo}/{path}/{filename}@{ref}`{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %} para fluxos de trabalho nos repositórios públicos {% ifversion ghes or ghec or ghae %}or internos{% endif %}.
-* `./{path}/{filename}` para fluxos de trabalho reutilizáveis no mesmo repositório.{% endif %}
+* `{owner}/{repo}/.github/workflows/{filename}@{ref}`{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %} for reusable workflows in public {% ifversion ghes or ghec or ghae %}or internal{% endif %} repositories.
+* `./.github/workflows/{filename}` for reusable workflows in the same repository.{% endif %}
 
 `{ref}` pode ser um SHA, uma tag de de versão ou um nome de branch. Usar o commit SHA é o mais seguro para a estabilidade e segurança. Para obter mais informações, consulte "[Enrijecimento de segurança para o GitHub Actions](/actions/learn-github-actions/security-hardening-for-github-actions#reusing-third-party-workflows)". {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}se você usar a segunda opção de sintaxe (sem `{owner}/{repo}` e `@{ref}`), o fluxo de trabalho chamado é do mesmo commit que o fluxo de trabalho de chamada.{% endif %}

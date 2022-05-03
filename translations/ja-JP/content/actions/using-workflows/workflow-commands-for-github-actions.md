@@ -127,7 +127,7 @@ core.setOutput('SELECTED_COLOR', 'green');
 ::set-output name={name}::{value}
 ```
 
-あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 For more information, see "[Metadata syntax for {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)."
+あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)」を参照してください。
 
 ### Example: Setting an output parameter
 
@@ -310,7 +310,7 @@ jobs:
 ::add-mask::{value}
 ```
 
-値をマスクすることにより、文字列または値がログに出力されることを防ぎます。 空白で分離された、マスクされた各語は "`*`" という文字で置き換えられます。 マスクの `value` には、環境変数または文字列を用いることができます。
+値をマスクすることにより、文字列または値がログに出力されることを防ぎます。 空白で分離された、マスクされた各語は "`*`" という文字で置き換えられます。 マスクの `value` には、環境変数または文字列を用いることができます。 When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
 
 ### Example: Masking a string
 

@@ -1,6 +1,6 @@
 ---
 title: Gerenciar a preferência de interpretação do tamanho da aba
-intro: Você pode gerenciar o número de espaços que equivale a uma aba para a sua conta de usuário.
+intro: Você pode gerenciar o número de espaços aos quais uma aba equivale para sua conta pessoal.
 versions:
   fpt: '*'
   ghae: issue-5083

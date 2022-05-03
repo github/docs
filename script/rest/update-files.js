@@ -79,8 +79,6 @@ async function main() {
     await decorate()
   }
 
-  await updateRedirectOverrides()
-
   console.log(
     '\n🏁 The static REST API files are now up-to-date with your local `github/github` checkout. To revert uncommitted changes, run `git checkout lib/rest/static/*.\n\n'
   )
@@ -135,26 +133,27 @@ async function getDereferencedFiles() {
   }
 }
 
-async function updateRedirectOverrides() {
-  const overrides = JSON.parse(await readFile('script/rest/utils/rest-api-overrides.json', 'utf8'))
-
-  const redirects = {}
-  console.log('\n➡️  Updating REST API redirect exception list.\n')
-  for (const [key, value] of Object.entries(overrides)) {
-    const oldUrl = value.originalUrl
-    const anchor = oldUrl.replace('/rest/reference', '').split('#')[1]
-    if (key.includes('#')) {
-      // We are updating a subcategory into a category
-      redirects[oldUrl] = `/rest/reference/${value.category}`
-    } else {
-      redirects[oldUrl] = `/rest/reference/${value.category}#${anchor}`
-    }
-  }
-  await writeFile(
-    'lib/redirects/static/client-side-rest-api-redirects.json',
-    JSON.stringify(redirects, null, 2),
-    'utf8'
+async function getCategoryOverrideRedirects() {
+  const { operationUrls, sectionUrls } = JSON.parse(
+    await readFile('script/rest/utils/rest-api-overrides.json', 'utf8')
   )
+
+  const operationRedirects = {}
+  console.log('\n➡️  Updating REST API redirect exception list.\n')
+  Object.values(operationUrls).forEach((value) => {
+    const oldUrl = value.originalUrl.replace('/rest/reference', '/rest')
+    const anchor = oldUrl.split('#')[1]
+    const subcategory = value.subcategory
+    const redirectTo = subcategory
+      ? `/rest/${value.category}/${subcategory}#${anchor}`
+      : `/rest/${value.category}#${anchor}`
+    operationRedirects[oldUrl] = redirectTo
+  })
+  const redirects = {
+    ...operationRedirects,
+    ...sectionUrls,
+  }
+  return redirects
 }
 
 async function decorate() {
@@ -167,31 +166,79 @@ async function decorate() {
   }
 
   const operationsEnabledForGitHubApps = {}
+  const clientSideRedirects = await getCategoryOverrideRedirects()
+
+  const skipCategory = [
+    'billing',
+    'code-scanning',
+    'codes-of-conduct',
+    'deploy-keys',
+    'emojis',
+    'gitignore',
+    'licenses',
+    'markdown',
+    'meta',
+    'oauth-authorizations',
+    'packages',
+    'pages',
+    'rate-limit',
+    'reactions',
+    'scim',
+    'search',
+    'secret-scanning',
+  ]
   for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
     try {
-      // munge OpenAPI definitions object in an array of operations objects
+      // get all of the operations for a particular version of the openapi
       const operations = await getOperations(schema)
       // process each operation, asynchronously rendering markdown and stuff
       await Promise.all(operations.map((operation) => operation.process()))
 
-      // Remove any keys not needed in the decorated files
-      const decoratedOperations = operations.map(
-        ({
-          tags,
-          description,
-          serverUrl,
-          operationId,
-          categoryLabel,
-          subcategoryLabel,
-          contentType,
-          externalDocs,
-          ...props
-        }) => props
-      )
+      // For each rest operation that doesn't have an override defined
+      // in script/rest/utils/rest-api-overrides.json,
+      // add a client-side redirect
+      operations.forEach((operation) => {
+        // A handful of operations don't have external docs properties
+        const externalDocs = operation.getExternalDocs()
+        if (!externalDocs) {
+          return
+        }
+        const oldUrl = `/rest${
+          externalDocs.url.replace('/rest/reference', '/rest').split('/rest')[1]
+        }`
 
-      const categories = [
-        ...new Set(decoratedOperations.map((operation) => operation.category)),
-      ].sort()
+        if (!(oldUrl in clientSideRedirects)) {
+          // There are some operations that aren't nested in the sidebar
+          // For these, don't need to add a client-side redirect, the
+          // frontmatter redirect will handle it for us.
+          if (skipCategory.includes(operation.category)) {
+            return
+          }
+          const anchor = oldUrl.split('#')[1]
+          const subcategory = operation.subcategory
+
+          // If there is no subcategory, a new page with the same name as the
+          // category was created. That page name may change going forward.
+          const redirectTo = subcategory
+            ? `/rest/${operation.category}/${subcategory}#${anchor}`
+            : `/rest/${operation.category}/${operation.category}#${anchor}`
+          clientSideRedirects[oldUrl] = redirectTo
+        }
+
+        // There are a lot of section headings that we'll want to redirect too,
+        // now that subcategories are on their own page. For example,
+        // /rest/reference/actions#artifacts should redirect to
+        // /rest/actions/artifacts
+        if (operation.subcategory) {
+          const sectionRedirectFrom = `/rest/${operation.category}#${operation.subcategory}`
+          const sectionRedirectTo = `/rest/${operation.category}/${operation.subcategory}`
+          if (!(sectionRedirectFrom in clientSideRedirects)) {
+            clientSideRedirects[sectionRedirectFrom] = sectionRedirectTo
+          }
+        }
+      })
+
+      const categories = [...new Set(operations.map((operation) => operation.category))].sort()
 
       // Orders the operations by their category and subcategories.
       // All operations must have a category, but operations don't need
@@ -215,9 +262,7 @@ async function decorate() {
       const operationsByCategory = {}
       categories.forEach((category) => {
         operationsByCategory[category] = {}
-        const categoryOperations = decoratedOperations.filter(
-          (operation) => operation.category === category
-        )
+        const categoryOperations = operations.filter((operation) => operation.category === category)
         categoryOperations
           .filter((operation) => !operation.subcategory)
           .map((operation) => (operation.subcategory = operation.category))
@@ -258,7 +303,7 @@ async function decorate() {
         // This is a collection of operations that have `enabledForGitHubApps = true`
         // It's grouped by resource title to make rendering easier
         operationsEnabledForGitHubApps[schemaName][category] = categoryOperations
-          .filter((operation) => operation['x-github'].enabledForGitHubApps)
+          .filter((operation) => operation.enabledForGitHubApps)
           .map((operation) => ({
             slug: operation.slug,
             verb: operation.verb,
@@ -278,6 +323,15 @@ async function decorate() {
     JSON.stringify(operationsEnabledForGitHubApps, null, 2)
   )
   console.log('Wrote', path.relative(process.cwd(), `${appsStaticPath}/enabled-for-apps.json`))
+  await writeFile(
+    'lib/redirects/static/client-side-rest-api-redirects.json',
+    JSON.stringify(clientSideRedirects, null, 2),
+    'utf8'
+  )
+  console.log(
+    'Wrote',
+    path.relative(process.cwd(), `lib/redirects/static/client-side-rest-api-redirects.json`)
+  )
 }
 
 async function validateInputParameters(schemas) {

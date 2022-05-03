@@ -23,7 +23,7 @@ topics:
 
 服务容器是 Docker 容器，以简便、可携带的方式托管您可能需要在工作流程中测试或操作应用程序的服务。 例如，您的工作流程可能必须运行需要访问数据库和内存缓存的集成测试。
 
-您可以为工作流程中的每个作业配置服务容器。 {% data variables.product.prodname_dotcom %} 为工作流中配置的每个服务创建一个新的 Docker 容器，并在作业完成后销毁该服务容器。 作业中的步骤可与属于同一作业的所有服务容器通信。
+您可以为工作流程中的每个作业配置服务容器。 {% data variables.product.prodname_dotcom %} 为工作流中配置的每个服务创建一个新的 Docker 容器，并在作业完成后销毁该服务容器。 作业中的步骤可与属于同一作业的所有服务容器通信。 但是，不能在复合操作中创建和使用服务容器。
 
 {% data reusables.actions.docker-container-os-support %}
 
@@ -49,7 +49,7 @@ topics:
 
 您可以使用 `services` 关键字创建服务容器作为工作流程中作业的一部分。 更多信息请参阅 [`jobs.<job_id>.services`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idservices)。
 
-本例在作业 `container-job` 中创建一个名为 `redis` 的服务。 本例中的 Docker 主机是 `node:10.18-jessie` 容器。
+本例在作业 `container-job` 中创建一个名为 `redis` 的服务。 本例中的 Docker 主机是 `node:16-bullseye` 容器。
 
 {% raw %}
 ```yaml{:copy}
@@ -62,7 +62,7 @@ jobs:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
     # Docker Hub image that `container-job` executes in
-    container: node:10.18-jessie
+    container: node:16-bullseye
 
     # Service containers to run with `container-job`
     services:

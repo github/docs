@@ -23,7 +23,7 @@ miniTocMaxHeadingLevel: 3
 
 Os contextos são uma forma de acessar informações sobre execuções de fluxo de trabalho, ambientes dos executores, trabalhos e etapas. Cada contexto é um objeto que contém propriedades, que podem ser strings ou outros objetos.
 
-{% data reusables.actions.context-contents %} Por exemplo, o contexto `matriz` só é povoado para trabalhos em uma matriz[matriz de construção](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+{% data reusables.actions.context-contents %} For example, the `matrix` context is only populated for jobs in a [matrix](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
 Você pode acessar contextos usando a sintaxe da expressão. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions)".
 
@@ -56,6 +56,8 @@ Para usar a sintaxe de propriedade de desreferência, o nome da propriedade deve
 
 - começar com `a-Z` ou `_`;
 - ser seguido por `a-Z` `0-9` `-` ou `_`.
+
+Se você tentar desfazer uma propriedade inexistente, isso irá retornar uma string vazia.
 
 ### Determinar quando usar contextos
 
@@ -257,7 +259,7 @@ jobs:
   normal_ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run normal CI
         run: ./run-tests
 
@@ -265,7 +267,7 @@ jobs:
     runs-on: ubuntu-latest
     if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Run PR CI
         run: ./run-additional-pr-ci
 ```
@@ -367,7 +369,6 @@ Este exemplo `contexto do job` usa um contêiner de serviço do PostgreSQL com p
 
 Este exemplo de fluxo de trabalho configura um contêiner de serviço do PostgreSQL e mapeia automaticamente a porta 5432 do recipiente de serviço com uma porta disponível escolhida aleatoriamente no host. O contexto `job` é usado para acessar o número da porta atribuída no host.
 
-{% raw %}
 ```yaml{:copy}
 name: PostgreSQL Service Example
 on: push
@@ -385,11 +386,10 @@ jobs:
           - 5432
 
     steps:
-      - uses: actions/checkout@v2
-      - run: pg_isready -h localhost -p ${{ job.services.postgres.ports[5432] }}
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: pg_isready -h localhost -p {% raw %}${{ job.services.postgres.ports[5432] }}{% endraw %}
       - run: ./run-tests
 ```
-{% endraw %}
 
 ## Contexto `etapas`
 
@@ -428,7 +428,6 @@ Este exemplo `passo` contexto mostra duas etapas anteriores que tinham um [`id`]
 
 Este exemplo de fluxo de trabalho gera um número aleatório como saída em uma etapa e uma etapa posterior usa o contexto `etapas` para ler o valor dessa saída.
 
-{% raw %}
 ```yaml{:copy}
 name: Generate random failure
 on: push
@@ -437,15 +436,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Generate 0 or 1
         id: generate_number
         run:  echo "::set-output name=random_number::$(($RANDOM % 2))"
       - name: Pass or fail
         run: |
-          if [[ ${{ steps.generate_number.outputs.random_number }} == 0 ]]; then exit 0; else exit 1; fi
+          if [[ {% raw %}${{ steps.generate_number.outputs.random_number }}{% endraw %} == 0 ]]; then exit 0; else exit 1; fi
 ```
-{% endraw %}
 
 ## Contexto do `executor`
 
@@ -486,7 +484,6 @@ O contexto de exemplo a seguir é de um executor do Linux hospedado em {% data v
 
 Este exemplo de fluxo de trabalho usa o contexto `executor` para definir o caminho para o diretório temporário e gravar registros e se, o fluxo de trabalho falhar, ele irá fazer o uplad dos registros como artefatos.
 
-{% raw %}
 ```yaml{:copy}
 name: Build
 on: push
@@ -495,19 +492,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build with logs
         run: |
-          mkdir ${{ runner.temp }}/build_logs
-          ./build.sh --log-path ${{ runner.temp }}/build_logs
+          mkdir {% raw %}${{ runner.temp }}{% endraw %}/build_logs
+          ./build.sh --log-path {% raw %}${{ runner.temp }}{% endraw %}/build_logs
       - name: Upload logs on fail
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v3
+        if: {% raw %}${{ failure() }}{% endraw %}
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: Build failure logs
-          path: ${{ runner.temp }}/build_logs
+          path: {% raw %}${{ runner.temp }}{% endraw %}/build_logs
 ```
-{% endraw %}
 
 ## contexto `segredos`
 
@@ -541,19 +537,19 @@ O conteúdo de exemplo do contexto dos `segredos` mostra o `GITHUB_TOKEN` autom�
 
 ## Contexto `estratégia`
 
-Para fluxos de trabalho com uma matriz de compilação, o contexto `estratégia` contém informações sobre a estratégia de execução da matriz para o trabalho atual.
+For workflows with a matrix, the `strategy` context contains information about the matrix execution strategy for the current job.
 
-| Nome da propriedade     | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                               |
-| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `strategy`              | `objeto` | Esse contexto altera cada trabalho em uma execução de fluxo de trabalho. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém todas as propriedades listadas abaixo.                                                                                                                      |
-| `strategy.fail-fast`    | `string` | Quando `verdadeiro`, todos os trabalhos em andamento são cancelados se qualquer trabalho em uma matriz de compilação falhar. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)". |
-| `strategy.job-index`    | `string` | O índice do trabalho atual na matriz de compilação. **Observação:** Este número é um número baseado em zero. O primeiro índice do trabalho na matriz de compilação é `0`.                                                                                                                                                                               |
-| `strategy.job-total`    | `string` | O número total de trabalhos na matriz de construção. **Observação:** Este número **não é** um número baseado em zero. Por exemplo, para uma matriz de construção com quatro trabalhos, o valor de `job-total de` é `4`.                                                                                                                                 |
-| `strategy.max-parallel` | `string` | Número máximo de trabalhos que podem ser executados simultaneamente ao usar uma estratégia de trabalho de `matrix`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)".       |
+| Nome da propriedade     | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                         |
+| ----------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `strategy`              | `objeto` | Esse contexto altera cada trabalho em uma execução de fluxo de trabalho. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém todas as propriedades listadas abaixo.                                                                                                                |
+| `strategy.fail-fast`    | `string` | When `true`, all in-progress jobs are canceled if any job in a matrix fails. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast)".                                           |
+| `strategy.job-index`    | `string` | The index of the current job in the matrix. **Observação:** Este número é um número baseado em zero. The first job's index in the matrix is `0`.                                                                                                                                                                                                  |
+| `strategy.job-total`    | `string` | The total number of jobs in the matrix. **Observação:** Este número **não é** um número baseado em zero. For example, for a matrix with four jobs, the value of `job-total` is `4`.                                                                                                                                                               |
+| `strategy.max-parallel` | `string` | Número máximo de trabalhos que podem ser executados simultaneamente ao usar uma estratégia de trabalho de `matrix`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel)". |
 
 ### Exemplo de conteúdo do contexto `estratégia`
 
-O conteúdo de exemplo a seguir do contexto `estratégia` é de uma matriz de construção com quatro trabalhos, e é tirada do trabalho final. Observe a diferença entre o número de `job-index` baseado em zero e o total de `job-job` que não é baseado em zero.
+The following example contents of the `strategy` context is from a matrix with four jobs, and is taken from the final job. Observe a diferença entre o número de `job-index` baseado em zero e o total de `job-job` que não é baseado em zero.
 
 ```yaml
 {
@@ -566,9 +562,8 @@ O conteúdo de exemplo a seguir do contexto `estratégia` é de uma matriz de co
 
 ### Exemplo de uso do contexto `estratégia`
 
-Esse exemplo de fluxo de trabalho usa a propriedade `strategy.job-index` para definir um nome exclusivo para um arquivo de registro para cada trabalho em uma matriz de criação.
+This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a matrix.
 
-{% raw %}
 ```yaml{:copy}
 name: Test matrix
 on: push
@@ -581,30 +576,29 @@ jobs:
         test-group: [1, 2]
         node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - run: npm test > test-job-${{ strategy.job-index }}.txt
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: npm test > test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
       - name: Upload logs
-        uses: actions/upload-artifact@v3
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
-          name: Build log for job ${{ strategy.job-index }}
-          path: test-job-${{ strategy.job-index }}.txt
+          name: Build log for job {% raw %}${{ strategy.job-index }}{% endraw %}
+          path: test-job-{% raw %}${{ strategy.job-index }}{% endraw %}.txt
 ```
-{% endraw %}
 
 ## Contexto `matriz`
 
-Para fluxos de trabalho com uma matriz de construção, o contexto `matriz` contém as propriedades definidas no arquivo do fluxo de trabalho que se aplicam ao trabalho atual. Por exemplo, se você configurar uma matriz de construção com as chaves `os` e `nó`, o objeto do contexto `matriz` irá incluir as propriedades `os` e `nó` com os valores usados para o trabalho atual.
+For workflows with a matrix, the `matrix` context contains the matrix properties defined in the workflow file that apply to the current job. For example, if you configure a matrix with the `os` and `node` keys, the `matrix` context object includes the `os` and `node` properties with the values that are being used for the current job.
 
 Não há propriedades padrão no contexto `matriz`, apenas as que são definidas no arquivo do fluxo de trabalho.
 
-| Nome da propriedade            | Tipo     | Descrição                                                                                                                                                                                                                                                                                            |
-| ------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `matrix`                       | `objeto` | Esse contexto só está disponível para trabalhos em uma matriz de compilação e alterações para cada trabalho na execução de um fluxo de trabalho. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
-| `matrix.<property_name>` | `string` | O valor da propriedade de uma matriz.                                                                                                                                                                                                                                                                |
+| Nome da propriedade            | Tipo     | Descrição                                                                                                                                                                                                                                            |
+| ------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `matrix`                       | `objeto` | This context is only available for jobs in a matrix, and changes for each job in a workflow run. Você pode acessar este contexto a partir de qualquer trabalho ou etapa em um fluxo de trabalho. Este objeto contém as propriedades listadas abaixo. |
+| `matrix.<property_name>` | `string` | O valor da propriedade de uma matriz.                                                                                                                                                                                                                |
 
 ### Exemplo de conteúdo do contexto `matriz`
 
-O exemplo a seguir do contexto `matriz` é de um trabalho em uma matriz de construção que tem as propriedades de matriz `os` e `nó` definidas no fluxo de trabalho. O trabalho está executando a combinação matriz de um `ubuntu-latest` OS e do Node.js versão `16`.
+The following example contents of the `matrix` context is from a job in a matrix that has the `os` and `node` matrix properties defined in the workflow. O trabalho está executando a combinação matriz de um `ubuntu-latest` OS e do Node.js versão `16`.
 
 ```yaml
 {
@@ -615,31 +609,29 @@ O exemplo a seguir do contexto `matriz` é de um trabalho em uma matriz de const
 
 ### Exemplo de uso do contexto `matriz`
 
-Este exemplo de fluxo de trabalho cria uma matriz de compilação com as chaves `os` e `nós`. Ele usa a propriedade `matriz.os` para definir o tipo de executor para cada trabalho e usa a propriedade `matrix.node` para definir a versão do Node.js para cada trabalho.
+This example workflow creates a matrix with `os` and `node` keys. Ele usa a propriedade `matriz.os` para definir o tipo de executor para cada trabalho e usa a propriedade `matrix.node` para definir a versão do Node.js para cada trabalho.
 
-{% raw %}
 ```yaml{:copy}
 name: Test matrix
 on: push
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node: [14, 16]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: ${{ matrix.node }}
+          node-version: {% raw %}${{ matrix.node }}{% endraw %}
       - name: Install dependencies
         run: npm ci
       - name: Run tests
         run: npm test
 ```
-{% endraw %}
 
 ## Contexto `needs`
 
@@ -676,7 +668,6 @@ O conteúdo de exemplo a seguir do contexto `needs` mostra informações para do
 
 Esse exemplo do fluxo de trabalho tem três trabalhos: um trabalho de `criação` que faz a criação, um trabalho de `implantação` que exige o trabalho de `criação` e um trabalho de `depuração` que exige os trabalhos de `criação` e `implantação` e que é executado apenas se houver uma falha no fluxo de trabalho. O trabalho de `implantação` também usa o contexto `needs` para acessar uma saída do trabalho de `criação`.
 
-{% raw %}
 ```yaml{:copy}
 name: Build and deploy
 on: push
@@ -685,9 +676,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      build_id: ${{ steps.build_step.outputs.build_id }}
+      build_id: {% raw %}${{ steps.build_step.outputs.build_id }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Build
         id: build_step
         run: |
@@ -697,17 +688,16 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: ./deploy --build ${{ needs.build.outputs.build_id }}
+      - uses: {% data reusables.actions.action-checkout %}
+      - run: ./deploy --build {% raw %}${{ needs.build.outputs.build_id }}{% endraw %}
   debug:
     needs: [build, deploy]
     runs-on: ubuntu-latest
-    if: ${{ failure() }}
+    if: {% raw %}${{ failure() }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - run: ./debug
 ```
-{% endraw %}
 
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-4757 %}
 ## Contexto `entradas`

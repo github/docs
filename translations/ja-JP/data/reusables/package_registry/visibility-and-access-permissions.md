@@ -3,7 +3,7 @@
 
 あなたが管理者であれば、Organization レベルおよびリポジトリレベルに設定した権限とは別に、コンテナイメージに対してアクセス権限を付与することもできます。
 
-ユーザアカウントが所有し公開しているコンテナイメージには、任意のユーザにアクセスロールを付与できます。 Organization が所有し公開しているコンテナイメージには、Organization 内の任意の Team にアクセスロールを付与できます。
+For container images published and owned by a personal account, you can give any person an access role. Organization が所有し公開しているコンテナイメージには、Organization 内の任意の Team にアクセスロールを付与できます。
 
 | 権限   | アクセス権の内容                                                                                             |
 | ---- | ---------------------------------------------------------------------------------------------------- |

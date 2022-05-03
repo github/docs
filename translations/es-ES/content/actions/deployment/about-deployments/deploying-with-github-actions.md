@@ -132,7 +132,7 @@ jobs:
         # ...deployment-specific steps
 ```
 
-For guidance on writing deployment-specific steps, see "[Finding deployment examples](#finding-deployment-examples)."
+Para obtener orientación sobre cómo escribir pasos específicos para los despliegues, consulta la sección "[Encontrar ejemplos de despliegues](#finding-deployment-examples)".
 
 ## Visualizar el historial de despliegues
 
@@ -166,7 +166,7 @@ Puedes utilizar una insignia de estado para mostrar el estado de tu flujo de tra
 
 Para obtener más información, consulta la sección "[Agregar una insignia de estado de flujo de trabajo](/actions/managing-workflow-runs/adding-a-workflow-status-badge)".
 
-## Finding deployment examples
+## Encontrar ejemplos de despliegues
 
 Este artículo demostró características de las {% data variables.product.prodname_actions %} que puedes agregar a tus flujos de trabajo de despliegue.
 

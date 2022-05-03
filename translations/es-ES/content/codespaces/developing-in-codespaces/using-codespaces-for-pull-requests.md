@@ -27,7 +27,7 @@ topics:
 
 2. En la lista de solicitudes de cambios, haz clic en aquella que quieras abrir en {% data variables.product.prodname_codespaces %}.
 3. A la derecha de tu pantalla, haz clic en **{% octicon "code" aria-label="The code icon" %} Código**.
-4. Desde la pestaña de {% data variables.product.prodname_codespaces %}, haz clic en **Codespace nuevo**. ![Opción para abrir una solicitud de cambios en un codespace](/assets/images/help/codespaces/open-with-codespaces-pr.png)
+4. En la pestaña de {% data variables.product.prodname_codespaces %}, haz clic en **Crear un codespace en RAMA**. ![Opción para abrir una solicitud de cambios en un codespace](/assets/images/help/codespaces/open-with-codespaces-pr.png)
 
 ## Revisar una solicitud de cambios en {% data variables.product.prodname_codespaces %}
 

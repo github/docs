@@ -31,23 +31,27 @@ jobs:
       fail-fast: false
       matrix:
         # The same array lives in test-windows.yml, so make any updates there too.
-        test-group: [
+        test-group:
+          [
             content,
             graphql,
             meta,
             rendering,
             routing,
             unit,
-            # linting,
+            linting,
             translations,
           ]
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
-          lfs: true
+          # Not all test suites need the LFS files. So instead, we opt to
+          # NOT clone them initially and instead, include them manually
+          # only for the test groups that we know need the files.
+          lfs: ${{ matrix.test-group == 'content' }}
           # Enables cloning the Early Access repo later with the relevant PAT
           persist-credentials: 'false'
 
@@ -83,7 +87,7 @@ jobs:
 
       - name: Check out docs-early-access too, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
@@ -98,23 +102,25 @@ jobs:
           mv docs-early-access/data data/early-access
           rm -r docs-early-access
 
+      # This is necessary when LFS files where cloned but does nothing
+      # if actions/checkout was run with `lfs:false`.
       - name: Checkout LFS objects
         run: git lfs checkout
 
-      # - name: Gather files changed
-      #   uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-      #   id: get_diff_files
-      #   with:
-      #     # So that `steps.get_diff_files.outputs.files` becomes
-      #     # a string like `foo.js path/bar.md`
-      #     output: ' '
+      - name: Gather files changed
+        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
+        id: get_diff_files
+        with:
+          # So that `steps.get_diff_files.outputs.files` becomes
+          # a string like `foo.js path/bar.md`
+          output: ' '
 
-      # - name: Insight into changed files
-      #   run: |
+      - name: Insight into changed files
+        run: |
 
-      #     # Must to do this because the list of files can be HUGE. Especially
-      #     # in a repo-sync when there are lots of translation files involved.
-      #     echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
+          # Must to do this because the list of files can be HUGE. Especially
+          # in a repo-sync when there are lots of translation files involved.
+          echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
 
       - name: Setup node
         uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561
@@ -126,7 +132,7 @@ jobs:
         run: npm ci
 
       - name: Cache nextjs build
-        uses: actions/cache@937d24475381cd9c75ae6db12cb4e79714b926ed
+        uses: actions/cache@48af2dc4a9e8278b89d7fa154b955c30c6aaab09
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -136,6 +142,6 @@ jobs:
 
       - name: Run tests
         env:
-          # DIFF_FILE: get_diff_files.txt
+          DIFF_FILE: get_diff_files.txt
           CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
         run: npm test -- tests/${{ matrix.test-group }}/

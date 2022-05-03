@@ -16,10 +16,6 @@ topics:
 shortTitle: 从收件箱管理
 ---
 
-{% ifversion ghes %}
-{% data reusables.mobile.ghes-release-phase %}
-{% endif %}
-
 ## 关于收件箱
 
 {% ifversion fpt or ghes or ghec %}

@@ -40,10 +40,12 @@ Los propietarios de las empresas pueden restringir las opciones que tienes dispo
    ![Opciones de creación de repositorio](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
    {%- elsif fpt %}
    ![Opciones de creación de repositorio](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
+   {%- endif %}
 
+   {% ifversion fpt or ghec %}
    {% note %}
 
-   **Nota:** Para restringir a los miembros y que no creen solo repositorios privados, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}.
+   **Nota:** Para restringir a los miembros y que no creen solo repositorios privados, tu organización debe utilizar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
    {% endnote %}
    {%- endif %}

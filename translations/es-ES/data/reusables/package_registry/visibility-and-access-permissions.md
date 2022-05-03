@@ -3,7 +3,7 @@ Si tienes permisos administrativos en una imagen de contenedor, peudes configura
 
 Como administrador, también puedes otorgar permisos de acceso para una imagen de contenedor que esté separada de los permisos que configuraste a nivel de organización y de repositorio.
 
-Puedes otorgar un rol de acceso a cualquier persona en el caso de las imagenes de contenedor que pertenecen a, o que publica una cuenta de usuario. Puedes otorgar un rol de acceso a cualquier persona o equipo en la organización para las imágenes de contenedor que pertenecen a, o que publica una cuenta de usuario.
+Para el caso de las imágenes que publique y le pertenezcan a una cuenta personal, puedes darle un rol de acceso a cualquier persona. Puedes otorgar un rol de acceso a cualquier persona o equipo en la organización para las imágenes de contenedor que pertenecen a, o que publica una cuenta de usuario.
 
 | Permiso   | Descripción del acceso                                                                                                                                             |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
