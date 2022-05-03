@@ -7,7 +7,9 @@ versions:
   ghec: '*'
 topics:
   - Issues
-  - Projects
+  - Prgithub:main
+ojectsgithub:main
+
 children:
   - /about-projects
   - /quickstart
