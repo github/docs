@@ -210,6 +210,6 @@ Você já bifurcou um repositório, treinou clonar sua bifurcação e configurou
 
 * Você também pode criar um novo repositório onde você pode colocar todos os seus projetos e compartilhar o código em {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
-* Cada repositório em {% data variables.product.product_name %} pertence a uma pessoa ou organização. Você pode interagir com usuários, repositórios e organizações, conectando-os e seguindo-os em {% data variables.product.product_name %}. {% data reusables.getting-started.being-social %}
+* {% data reusables.getting-started.being-social %}
 
 * {% data reusables.support.connect-in-the-forum-bootcamp %}
