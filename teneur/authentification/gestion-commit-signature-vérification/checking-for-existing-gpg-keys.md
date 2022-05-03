@@ -1,4 +1,5 @@
----
+#checking-for-existing-gpg-keys.md
+@Kinou9010
 title: Checking for existing GPG keys
 intro: 'Before you generate a GPG key, you can check to see if you have any existing GPG keys.'
 redirect_from:
