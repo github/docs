@@ -11,6 +11,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## About the deployments API
+
 As implantações são solicitações para implantar um ref específico (branch, SHA, tag). O GitHub envia um [ evento de `implantação`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) pelo qual os serviços externos podem ouvir e atuar quando novas implantações são criadas. As implantações permitem que os desenvolvedores e as organizações construam ferramentas associadas em torno de implantações sem ter que se preocupar com os detalhes de implementação da entrega de diferentes tipos de aplicativos (p. ex., web, nativo).
 
 Os status de implantação externos permitem marcar implantações com `error`, `failure`, `pending`, `in_progress`, `queued` ou `success` afirmar que os sistemas que estão escutando os eventos [`deployment_status`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status) podem consumir.
