@@ -1,9 +1,8 @@
 import { useRouter } from 'next/router'
 import slugger from 'github-slugger'
-import { CheckCircleIcon } from '@primer/octicons-react'
+import { CheckCircleFillIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
-import { Callout } from 'components/ui/Callout'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
@@ -33,21 +32,17 @@ export function RestOperation({ operation }: Props) {
         <a href={`#${slug}`}>{operation.title}</a>
       </h2>
       {operation.enabledForGitHubApps && (
-        <div className="d-flex">
-          <Callout variant="info">
-            <p className="flex-grow-0">
-              <span className="mr-2">
-                <CheckCircleIcon size={18} />
-              </span>
-              <span>
-                {t('rest.reference.works_with') + ' '}
-                <Link className="" href={`/${router.locale}/developers/apps`}>
-                  GitHub Apps
-                </Link>
-              </span>
-            </p>
-          </Callout>
-        </div>
+        <>
+          <span className="mr-2">
+            <CheckCircleFillIcon size={18} />
+          </span>
+          <span>
+            {t('rest.reference.works_with') + ' '}
+            <Link className="" href={`/${router.locale}/developers/apps`}>
+              GitHub Apps
+            </Link>
+          </span>
+        </>
       )}
       <div className={cx(styles.restOperation, 'd-flex flex-wrap gutter mt-4')}>
         <div className="col-md-12 col-lg-6">
