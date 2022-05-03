@@ -1,4 +1,4 @@
----
+--- 
 title: SCIM
 intro: 'You can control and manage your GitHub organization members access using SCIM API.'
 versions:
