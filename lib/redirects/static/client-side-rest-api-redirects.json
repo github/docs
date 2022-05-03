@@ -539,6 +539,7 @@
   "/rest/repos#list-codeowners-errors": "/rest/repos/repos#list-codeowners-errors",
   "/rest/codespaces#list-codespaces-in-a-repository-for-the-authenticated-user": "/rest/codespaces/codespaces#list-codespaces-in-a-repository-for-the-authenticated-user",
   "/rest/codespaces#create-a-codespace-in-a-repository": "/rest/codespaces/codespaces#create-a-codespace-in-a-repository",
+  "/rest/codespaces#list-devcontainers-in-a-repository-for-the-authenticated-user": "/rest/codespaces/codespaces#list-devcontainers-in-a-repository-for-the-authenticated-user",
   "/rest/codespaces#list-available-machine-types-for-a-repository": "/rest/codespaces/machines#list-available-machine-types-for-a-repository",
   "/rest/codespaces#machines": "/rest/codespaces/machines",
   "/rest/codespaces#list-repository-secrets": "/rest/codespaces/repository-secrets#list-repository-secrets",

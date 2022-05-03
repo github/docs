@@ -42,7 +42,7 @@ Edit the trust relationship to add the `sub` field to the validation conditions.
 
 ```json{:copy}
 "Condition": {
-  "ForAllValues:StringEquals": {
+  "StringEquals": {
     "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:ref:refs/heads/octo-branch"
   }

@@ -19,7 +19,7 @@ You can also manage repository discussions. For more information, see "[Enabling
 ## Enabling or disabling {% data variables.product.prodname_discussions %} for your organization
 
 {% data reusables.discussions.enabling-or-disabling-github-discussions-for-your-organization %}
-1. To disable discussions, under "Discussions", unselect **Enable discussions for this organization**.
+1. 要禁用讨论，请在“Discussions（讨论）”下，取消选择 **Enable discussions for this organization（为此组织启用讨论）**。
 
 ## 延伸阅读
 

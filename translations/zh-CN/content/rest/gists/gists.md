@@ -11,6 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## About the Gists API
+
+The Gist API lets you view and modify gists. For more information about gists, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+
 ### 身份验证
 
 您可以匿名读取公开 Gist {% ifversion ghae or ghes %}并为没有令牌的匿名用户创建它们。{% else %}，但是您必须登录到 GitHub 才能创建 Gist。{% endif %} 要代表用户读取或写入 Gist，您需要 Gist OAuth 作用域和令牌。 更多信息请参阅“[OAuth 应用程序的作用域](/developers/apps/scopes-for-oauth-apps)”。

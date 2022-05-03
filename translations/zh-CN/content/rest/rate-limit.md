@@ -1,6 +1,6 @@
 ---
 title: 速率限制
-intro: 使用速率限制 API，您可以检查各种 REST API 的当前速率限制状态。
+intro: 'With the Rate limit API, you can check the current rate limit status of various REST APIs.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,6 +12,8 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/rate-limit
 ---
+
+## About the Rate limit API
 
 REST API 概述文档描述了[速率限制规则](/rest/overview/resources-in-the-rest-api#rate-limiting)。 您可以随时使用下面描述的速率限制 API 来检查您当前的速率限制状态。
 

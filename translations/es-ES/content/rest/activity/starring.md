@@ -1,6 +1,6 @@
 ---
 title: Marcar con una estrella
-intro: El marcar a los repositorios con una estrella es una característica que permite a los usuarios marcar a los repositorios como favoritos.
+intro: The Starring API lets you bookmark a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,7 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Las estrellas se muestran junto a los repositorios para denotar un nivel aproximado de interés. Las estrellas no tienen efecto alguno en las notificaciones o en los canales de actividad.
+## About the Starring API
+
+The Starring API lets you bookmark a repository. Las estrellas se muestran junto a los repositorios para denotar un nivel aproximado de interés. Las estrellas no tienen efecto alguno en las notificaciones o en los canales de actividad. Para obtener más información, consulta la sección "[Guardar repositorios con estrellas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)".
 
 ### Marcar con estrella vs. Observar
 
