@@ -82,9 +82,9 @@ for (const file of articleFiles) {
       previewCell += `${version}@ `
       prodCell += `${version}@ `
 
-      currentApplicableVersions.forEach((version) => {
-        previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
-        prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
+      currentApplicableVersions.forEach((ghesVersion) => {
+        previewCell += `[${ghesVersion.split('@')[1]}](${APP_URL}/${ghesVersion}/${fileUrl}) `
+        prodCell += `[${ghesVersion.split('@')[1]}](${PROD_URL}/${ghesVersion}/${fileUrl}) `
       })
       previewCell += '<br>'
       prodCell += '<br>'
