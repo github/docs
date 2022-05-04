@@ -78,6 +78,7 @@ With this configuration, you can create a workflow that publishes your package t
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to the Maven Central Repository
 on:
@@ -147,6 +148,7 @@ With this configuration, you can create a workflow that publishes your package t
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to GitHub Packages
 on:
@@ -225,6 +227,7 @@ With this configuration, you can create a workflow that publishes your package t
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
