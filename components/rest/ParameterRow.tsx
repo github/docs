@@ -21,7 +21,7 @@ export function ParameterRow({
   description,
   isRequired,
   defaultValue,
-  // enumValues, //waiting on github #218747 to merge before adding enum support
+  enumValues,
   slug,
   childParamsGroups = null,
   numPreviews = 0,
@@ -61,8 +61,7 @@ export function ParameterRow({
                   <code>{defaultValue.toString()}</code>
                 </p>
               )}
-              {/* waiting on github #218747 to merge before adding enum support */}
-              {/* {enumValues && (
+              {enumValues && (
                 <p>
                   <span>{t('rest.reference.enum_description_title')}: </span>
 
@@ -78,7 +77,7 @@ export function ParameterRow({
                     )
                   })}
                 </p>
-              )} */}
+              )}
             </div>
           </div>
         </td>
