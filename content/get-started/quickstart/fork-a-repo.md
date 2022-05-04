@@ -1,6 +1,6 @@
----
+superman
 title: Fork a repo
-redirect_from:
+redirect_from:superman
   - /fork-a-repo
   - /forking
   - /articles/fork-a-repo
