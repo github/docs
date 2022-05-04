@@ -25,7 +25,7 @@ const octokit = github.getOctokit(GITHUB_TOKEN)
 const response = await octokit.rest.repos.compareCommitsWithBasehead({
   owner: context.repo.owner,
   repo: context.payload.repository.name,
-  basehead: `${context.payload.pull_request.base.ref}...${context.payload.pull_request.head.label}`,
+  basehead: `${context.payload.pull_request.base.sha}...${context.payload.pull_request.head.sha}`,
 })
 
 const { files } = response.data
