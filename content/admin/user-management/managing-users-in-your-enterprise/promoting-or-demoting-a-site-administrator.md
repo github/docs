@@ -60,3 +60,13 @@ For information about promoting a user to an organization owner, see the `ghe-or
   ```shell
   $ ghe-user-demote <em>username</em>
   ```
+
+## Promoting a user using REST API
+1. Perform a PUT /users/{username}/site_admin using an administrator token.
+
+More information (here)[https://docs.github.com/en/enterprise-server@3.3/rest/enterprise-admin/users#promote-a-user-to-be-a-site-administrator].
+
+## Demoting a user using REST API
+1. Perform a DELETE /users/{username}/site_admin using an adminitrator token.
+
+More information (here)[https://docs.github.com/en/enterprise-server@3.3/rest/enterprise-admin/users#demote-a-site-administrator].
