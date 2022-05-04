@@ -47,7 +47,7 @@ for (const file of articleFiles) {
   const fileContents = await getContents(
     context.repo.owner,
     context.payload.repository.name,
-    context.payload.pull_request.head.ref,
+    context.payload.pull_request.head.sha,
     file.filename
   )
 
