@@ -65,7 +65,7 @@ El [actions/toolkit](https://github.com/actions/toolkit) incluye varias funcione
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-### Example: Setting a value
+### Ejemplo: Configurar un valor
 
 Puedes utilizar el comando `set-output` en tu flujo de trabajo para configurar el mismo valor:
 
@@ -129,7 +129,7 @@ Establece un parámetro de salida de la acción.
 
 Opcionalmente, también puedes declarar parámetros de salida en el archivo de metadatos de una acción. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)".
 
-### Example: Setting an output parameter
+### Ejemplo;: Configurar un parámetro de salida
 
 {% bash %}
 
@@ -155,7 +155,7 @@ Imprime un mensaje de depuración para el registro. Debes crear un archivo `ACTI
 ::debug::{message}
 ```
 
-### Example: Setting a debug message
+### Ejemplo: Configurar un mensaje de depuración
 
 {% bash %}
 
@@ -185,7 +185,7 @@ Crea un mensaje de aviso e imprime el mensaje en la bitácora. {% data reusables
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a notice message
+### Ejemplo: configurar un mensaje de notificación
 
 {% bash %}
 
@@ -214,7 +214,7 @@ Crea un mensaje de advertencia e imprime el mensaje en el registro. {% data reus
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a warning message
+### Ejemplo: Configurar un mensaje de advertencia
 
 {% bash %}
 
@@ -241,7 +241,7 @@ Crea un mensaje de error e imprime el mensaje en el registro {% data reusables.a
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting an error message
+### Ejemplo: Configurar un mensaje de error
 
 {% bash %}
 
@@ -268,7 +268,7 @@ Crea un grupo expansible en la bitácora. Para crear un grupo, utiliza el comand
 ::endgroup::
 ```
 
-### Example: Grouping log lines
+### Ejemplo: Agrupar líneas de bitácoras
 
 {% bash %}
 
@@ -310,9 +310,9 @@ jobs:
 ::add-mask::{value}
 ```
 
-El enmascaramiento de un valor impide que una cadena o variable se imprima en el registro. Cada palabra enmascarada separada por un espacio en blanco se reemplaza con el carácter `*`. Puedes usar una variable de entorno o cadena para el `valor` de la máscara.
+El enmascaramiento de un valor impide que una cadena o variable se imprima en el registro. Cada palabra enmascarada separada por un espacio en blanco se reemplaza con el carácter `*`. Puedes usar una variable de entorno o cadena para el `valor` de la máscara. When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
 
-### Example: Masking a string
+### Ejemplo: Enmascarar una secuencia
 
 Cuando imprimas `"Mona The Octocat"` en el registro, verás `"***"`.
 
@@ -332,7 +332,7 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
-### Example: Masking an environment variable
+### Ejemplo: Enmascarar una variable de ambiente
 
 Cuando imprimes la variable `MY_NAME` o el valor `"Mona The Octocat"` en el registro, verás `"***"` en lugar de `"Mona The Octocat"`.
 
@@ -386,7 +386,7 @@ Para parar el procesamiento de los comandos de flujo de trabajo, pasa un token �
 ::{endtoken}::
 ```
 
-### Example: Stopping and starting workflow commands
+### Ejemplo: Parar e iniciar comandos de flujos de trabajo
 
 {% bash %}
 
@@ -447,7 +447,7 @@ Los comandos `add-mask`, `debug`, `warning` y `error` no son compatibles con el 
 
 También puedes habilitar el eco de comandos globalmente si activas la generación de bitácoras de depuración de pasos utilizando el secreto `ACTIONS_STEP_DEBUG`. Para obtener más información, consulta la sección "[Habilitar el registro de depuración](/actions/managing-workflow-runs/enabling-debug-logging)". Como contraste, el comando de flujo de trabajo `echo` te permite habilitar el eco de comandos en un nivel más granular en vez de habilitarlo para cada flujo de trabajo en un repositorio.
 
-### Example: Toggling command echoing
+### Ejemplo: Alternar el eco de comandos
 
 {% bash %}
 
@@ -485,7 +485,7 @@ jobs:
 
 {% endpowershell %}
 
-The example above prints the following lines to the log:
+El ejemplo anterior imprime las siguientes líneas en la bitácora:
 
 ```{:copy}
 ::set-output name=action_echo::enabled
@@ -514,7 +514,7 @@ La variable `STATE_processID` se encontrará entonces exclusivamente disponible 
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## Environment files
+## Archivos de ambiente
 
 Durante la ejecución de un flujo de trabajo, el ejecutor genera archivos temporales que pueden utilizarse para llevar a cabo ciertas acciones. La ruta a estos archivos se expone a través de variables de ambiente. Necesitarás utilizar codificación UTF-8 cuando escribas en estos archivos para garantizar el procesamiento adecuado de los comandos. Se pueden escribir varios comandos en el mismo archivo, separados por líneas nuevas.
 
@@ -522,7 +522,7 @@ Durante la ejecución de un flujo de trabajo, el ejecutor genera archivos tempor
 
 {% note %}
 
-**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. Por ejemplo:
+**Nota:** PowerShell versión 5.1 e inferiores (`shell: powershell`) no utiliza UTF-8 predeterminadamente, así que debes especificar el cifrado UTF-8. Por ejemplo:
 
 ```yaml{:copy}
 jobs:
@@ -534,7 +534,7 @@ jobs:
           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. Por ejemplo:
+Las versiones 6 y superior de PowerShell Core (`shell: pwsh`) utilizan UTF-8 predeterminadamente. Por ejemplo:
 
 ```yaml{:copy}
 jobs:
@@ -562,19 +562,19 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% powershell %}
 
-- Using PowerShell version 6 and higher:
+- Utilizar PowerShell versión 6 y superior:
 ```pwsh{:copy}
 "{environment_variable_name}={value}" >> $env:GITHUB_ENV
 ```
 
-- Using PowerShell version 5.1 and below:
+- Utilizar PowerShell versión 5.1 e inferior:
 ```powershell{:copy}
 "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 ```
 
 {% endpowershell %}
 
-You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. El paso que crea o actualiza la variable de ambiente no tiene acceso al valor nuevo, pero todos los pasos subsecuentes en un job tendrán acceso. The names of environment variables are case-sensitive, and you can include punctuation. Para obtener más información, consulta "[Variables del entorno](/actions/learn-github-actions/environment-variables)".
+Puedes hacer que una variable de ambiente esté disponible en cualquier paso subsecuente de un job de un flujo de trabajo si defines o actualizas la variable de ambiente y escribes esto en el archivo de ambiente `GITHUB_ENV`. El paso que crea o actualiza la variable de ambiente no tiene acceso al valor nuevo, pero todos los pasos subsecuentes en un job tendrán acceso. Los nombres de las variables de ambiente distinguen entre mayúsculas y minúsculas y puedes incluir signos de puntuación. Para obtener más información, consulta "[Variables del entorno](/actions/learn-github-actions/environment-variables)".
 
 ### Ejemplo
 

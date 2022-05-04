@@ -11,6 +11,7 @@ children:
   - /use-the-git-and-github-starter-assignment
   - /create-an-individual-assignment
   - /create-a-group-assignment
+  - /reuse-an-assignment
   - /create-an-assignment-from-a-template-repository
   - /leave-feedback-with-pull-requests
   - /use-autograding

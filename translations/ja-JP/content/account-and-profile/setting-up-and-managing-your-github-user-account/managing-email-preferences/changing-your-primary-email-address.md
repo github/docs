@@ -1,6 +1,6 @@
 ---
 title: プライマリメールアドレスの変更
-intro: ユーザアカウントに関連付けられたメールアドレスは、いつでも変更できます。
+intro: You can change the email address associated with your personal account at any time.
 redirect_from:
   - /articles/changing-your-primary-email-address
   - /github/setting-up-and-managing-your-github-user-account/changing-your-primary-email-address

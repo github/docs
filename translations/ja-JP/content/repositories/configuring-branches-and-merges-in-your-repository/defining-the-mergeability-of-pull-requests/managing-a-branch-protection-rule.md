@@ -83,6 +83,9 @@ For more information about each of the available branch protection settings, see
 
   {% endtip %}
 {%- endif %}
+{%- if required-deployments %}
+1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments. ![Require successful deployment option](/assets/images/help/repository/require-successful-deployment.png)
+{%- endif %}
 1. Optionally, select **Apply the rules above to administrators**. ![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
 1. 必要に応じて、{% ifversion fpt or ghec %}{% data variables.product.prodname_team %} または {% data variables.product.prodname_ghe_cloud %} を使用する Organization がリポジトリを所有している場合には、{% endif %}ブランチ制限を有効化します。
    - [**Restrict who can push to matching branches**] を選択します。 ![ブランチ制限のチェックボックス](/assets/images/help/repository/restrict-branch.png)

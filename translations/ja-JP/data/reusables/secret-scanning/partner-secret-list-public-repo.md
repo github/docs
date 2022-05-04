@@ -49,6 +49,7 @@
 | Hubspot                   | Hubspot API Key                                     |
 | Ionic                     | Ionic Personal Access Token                         |
 | Ionic                     | Ionic Refresh Token                                 |
+| JD Cloud                  | JD Cloud Access Key                                 |
 | Linear                    | Linear API Key                                      |
 | Linear                    | Linear OAuth Access Token                           |
 | Mailchimp                 | Mailchimp API Key                                   |
@@ -91,6 +92,7 @@
 | Stripe                    | Stripe Test API Secret Key                          |
 | Stripe                    | Stripe Live API Restricted Key                      |
 | Stripe                    | Stripe Test API Restricted Key                      |
+| Supabase                  | Supabase Service Key                                |
 | Tencent Cloud             | Tencent Cloud Secret ID                             |
 | Twilio                    | Twilio Account String Identifier                    |
 | Twilio                    | Twilio API Key                                      |

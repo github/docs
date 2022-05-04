@@ -1,6 +1,6 @@
 ---
 title: Volver a ejecutar flujos de trabajo y jobs
-intro: 'You can re-run a workflow run{% if re-run-jobs %}, all failed jobs in a workflow run, or specific jobs in a workflow run{% endif %} up to 30 days after its initial run.'
+intro: 'Puedes volver a ejecutar una ejecución de flujo de trabajo{% if re-run-jobs %}, todos los jobs que fallaron en ella o aquellos jobs específicos en este{% endif %} dentro de los siguientes 30 días después de su ejecución inicial.'
 permissions: People with write permissions to a repository can re-run workflows in the repository.
 miniTocMaxHeadingLevel: 3
 redirect_from:
@@ -15,9 +15,9 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About re-running workflows and jobs
+## Acerca de volver a ejecutar flujos de trabajo y jobs
 
-Re-running a workflow{% if re-run-jobs %} or jobs in a workflow{% endif %} uses the same `GITHUB_SHA` (commit SHA) and `GITHUB_REF` (Git ref) of the original event that triggered the workflow run. You can re-run a workflow{% if re-run-jobs %} or jobs in a workflow{% endif %} for up to 30 days after the initial run.
+Volver a ejecutar un flujo de tabajo{% if re-run-jobs %} o los jobs dentro de este{% endif %} utiliza los mismos `GITHUB_SHA` (SHA de confirmación) y `GITHUB_REF` (Git ref) del evento original que activó la ejecución de flujo de trabajo. Puedes volver a ejecutar un flujo de trabajo{% if re-run-jobs %} o jobs en un flujo de trabajo{% endif %} por hasta 30 días después de la ejecución inicial.
 
 ## Volver a ejecutar todos los jobs en un flujo de trabajo
 
@@ -30,7 +30,7 @@ Re-running a workflow{% if re-run-jobs %} or jobs in a workflow{% endif %} uses 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4721 or ghec %}
 1. En la esquina superior derecha del flujo de trabajo, utiliza el menú desplegable **Volver a ejecutar jobs** y selecciona **Volver a ejecutar todos los jobs**.
 
-   If no jobs failed, you will not see the **Re-run jobs** drop-down menu. Instead, click **Re-run all jobs**. ![Menú desplegable de verificaciones de re-ejecución](/assets/images/help/repository/rerun-checks-drop-down.png)
+   Si no hubieron jobs fallidos, no verás el menú desplegable **Volver a ejecutar jobs**. En vez de esto, haz clic en **Volver a ejecutar todos los jobs**. ![Menú desplegable de verificaciones de re-ejecución](/assets/images/help/repository/rerun-checks-drop-down.png)
 {% endif %}
 {% ifversion ghes < 3.3 or ghae %}
 1. En la esquina superior derecha del flujo de trabajo, utiliza el menú desplegable **Volver a ejecutar jobs** y selecciona **Volver a ejecutar todos los jobs**. ![Volver a ejecutar el menú desplegable de verificaciones](/assets/images/help/repository/rerun-checks-drop-down-updated.png)
@@ -57,9 +57,9 @@ gh run watch
 {% endcli %}
 
 {% if re-run-jobs %}
-## Re-running failed jobs in a workflow
+## Volver a ejecutar todos los jobs fallidos en un flujo de trabajo
 
-If any jobs in a workflow run failed, you can re-run just the jobs that failed. When you re-run failed jobs in a workflow, a new workflow run will start for all failed jobs and their dependents. Any outputs for any successful jobs in the previous workflow run will be used for the re-run. Any artifacts that were created in the initial run will be available in the re-run. Any environment protection rules that passed in the previous run will automatically pass in the re-run.
+Si cualquier job en una ejecución de flujo de trabajo falla, puedes volver a ejecutar solo los fallidos. Cuando vuelves a ejecutar jobs en un flujo de trabajo, comenzará una ejecución de flujo de trabajo nueva para todos los jobs fallidos y sus dependientes. Cualquier salida de cualquier job exitoso en la ejecución de flujo de trabajo previa se utilizará para volverla a ejecutar. Cualquier artefacto que se haya creado en la ejecución inicial estará disponible en la nueva ejecución. Cualquier regla de protección de ambiente que haya pasado en la ejecución previa pasará automáticamente en la nueva ejecución.
 
 {% webui %}
 
@@ -67,13 +67,13 @@ If any jobs in a workflow run failed, you can re-run just the jobs that failed. 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. In the upper-right corner of the workflow, use the **Re-run jobs** drop-down menu, and select **Re-run failed jobs**. ![Re-run failed jobs drop-down menu](/assets/images/help/repository/rerun-failed-jobs-drop-down.png)
+1. En la esquina superior derecha del flujo de trabajo, utiliza el menú desplegable de **Volver a ejecutar jobs** y selecciona **Volver a ejecutar los jobs fallidos**. ![Menú desplegable de volver a ejecutar los jobs fallidos](/assets/images/help/repository/rerun-failed-jobs-drop-down.png)
 
 {% endwebui %}
 
 {% cli %}
 
-To re-run failed jobs in a workflow run, use the `run rerun` subcommand with the `--failed` flag. Replace `run-id` with the ID of the run for which you want to re-run failed jobs. Si no especificas una `run-id`, {% data variables.product.prodname_cli %} devolverá un menú interactivo para que elijas una ejecución fallida reciente.
+Para volver a ejecutar los jobs fallidos en una ejecución de flujo de trabajo, utiliza el subcomando `run rerun` con el marcador `--failed`. Remplaza `run-id` con la ID de la ejecución para la cual quieres volver a ejecutar los jobs fallidos. Si no especificas una `run-id`, {% data variables.product.prodname_cli %} devolverá un menú interactivo para que elijas una ejecución fallida reciente.
 
 ```shell
 gh run rerun <em>run-id</em> --failed
@@ -81,9 +81,9 @@ gh run rerun <em>run-id</em> --failed
 
 {% endcli %}
 
-## Re-running a specific job in a workflow
+## Volver a ejecutar un job específico en un flujo de trabajo
 
-When you re-run a specific job in a workflow, a new workflow run will start for the job and any dependents. Any outputs for any other jobs in the previous workflow run will be used for the re-run. Any artifacts that were created in the initial run will be available in the re-run. Any environment protection rules that passed in the previous run will automatically pass in the re-run.
+Cuando vuelves a ejecutar un job específico en un flujo de trabajo, una ejecución de flujo de trabajo nueva iniciará para el job y para cualquier dependiente. Cualquier salida de cualquier otro job en la ejecución de flujo de trabajo previa se utilizará para la ejecución nueva. Cualquier artefacto que se haya creado en la ejecución inicial estará disponible en la nueva ejecución. Cualquier regla de protección de ambiente que haya pasado en la ejecución previa pasará automáticamente en la nueva ejecución.
 
 {% webui %}
 
@@ -91,15 +91,15 @@ When you re-run a specific job in a workflow, a new workflow run will start for 
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Next to the job that you want to re-run, click {% octicon "sync" aria-label="The re-run icon" %}. ![Re-run selected job](/assets/images/help/repository/re-run-selected-job.png)
+1. Junto al job que quieras volver a ejecutar, haz clic en {% octicon "sync" aria-label="The re-run icon" %}. ![Volver a ejecutar el job seleccionado](/assets/images/help/repository/re-run-selected-job.png)
 
-   Alternatively, click on a job to view the log. In the log, click {% octicon "sync" aria-label="The re-run icon" %}. ![Re-run selected job](/assets/images/help/repository/re-run-single-job-from-log.png)
+   Como alternativa, haz clic en un job para ver la bitácora. En la bitácora, haz clic en {% octicon "sync" aria-label="The re-run icon" %}. ![Volver a ejecutar el job seleccionado](/assets/images/help/repository/re-run-single-job-from-log.png)
 
 {% endwebui %}
 
 {% cli %}
 
-To re-run a specific job in a workflow run, use the `run rerun` subcommand with the `--job` flag. Replace `job-id` with the ID of the job that you want to re-run.
+Para volver a ejecutar un job específico en una ejecución de flujo de trabajo, utiliza el subcomando `run rerun` con el marcador `--job`. Reemplaza `job-id` con la ID del job que quieras volver a ejecutar.
 
 ```shell
 gh run rerun --job <em>job-id</em>

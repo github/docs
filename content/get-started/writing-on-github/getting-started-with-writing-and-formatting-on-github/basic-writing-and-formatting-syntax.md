@@ -189,6 +189,12 @@ To create a nested list using the web editor on {% data variables.product.produc
      - Second nested list item
 ```
 
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
+
 ![Nested list with alignment highlighted](/assets/images/help/writing/nested-list-alignment.png)
 
 ![List with two levels of nested items](/assets/images/help/writing/nested-list-example-1.png)
@@ -310,6 +316,8 @@ The footnote will render like this:
 {% tip %}
 
 **Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
+
+Footnotes are not supported in wikis.
 
 {% endtip %}
 {% endif %}

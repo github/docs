@@ -48,7 +48,7 @@ For more information, see "[Creating starter workflows for your organization](/a
 A reusable workflow can be used by another workflow if {% ifversion ghes or ghec or ghae %}any{% else %}either{% endif %} of the following is true:
 
 * Both workflows are in the same repository.
-* The called workflow is stored in a public repository.{% ifversion ghes or ghec or ghae %}
+* The called workflow is stored in a public repository{% if actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
 * The called workflow is stored in an internal repository and the settings for that repository allow it to be accessed. For more information, see {% if internal-actions %}"[Sharing actions and workflows with your enterprise](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Managing {% data variables.product.prodname_actions %} settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}."{% endif %}
 
 ## Using runners
@@ -104,7 +104,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    ```
    {% endraw %}
    For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
-1. Reference the input or secret in the reusable workflow.
+1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
 
    {% raw %}
    ```yaml

@@ -50,7 +50,7 @@ CircleCI 和 {% data variables.product.prodname_actions %} 在配置文件中使
 
 CircleCI 和 {% data variables.product.prodname_actions %} 都提供在工作流程中重复使用和共享任务的机制。 CircleCI 使用以 YAML 编写的概念 orbs 来提供人们可以在工作流程中重复使用的任务。 {% data variables.product.prodname_actions %} 具有强大而灵活的可重复使用的组件，称为“操作”，您可以使用 JavaScript 文件或 Docker 映像来构建操作。 您可以编写自定义代码来创建操作，以您喜欢的方式与仓库交互，包括使用 {% data variables.product.product_name %} 的 API 以及任何公开的第三方 API 进行交互。 例如，操作可以发布 npm 模块、在创建紧急议题时发送短信提醒，或者部署可用于生产的代码。 更多信息请参阅“[创建操作](/actions/creating-actions)”。
 
-CircleCI 可以使用 YAML 锚点和别名来重复使用工作流程的组件。 {% data variables.product.prodname_actions %} 支持对于重复使用构建矩阵的最常见需求。 有关构建矩阵的更多信息，请参阅“[管理复杂的工作流程](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)”。
+CircleCI 可以使用 YAML 锚点和别名来重复使用工作流程的组件。 {% data variables.product.prodname_actions %} 使用矩阵支持对可重用性的最常见需求。 有关矩阵的详细信息，请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 ## 使用 Docker 映像
 
@@ -105,16 +105,16 @@ GitHub Actions
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Cache node modules
-  uses: actions/cache@v2
+  uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.npm
-    key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+    key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -155,10 +155,10 @@ GitHub Actions
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Upload math result for job 1
-  uses: actions/upload-artifact@v3
+  uses: {% data reusables.actions.action-upload-artifact %}
   with:
     name: homework
     path: math-homework.txt
@@ -166,11 +166,11 @@ GitHub Actions
 ...
 
 - name: Download math result for job 1
-  uses: actions/download-artifact@v3
+  uses: {% data reusables.actions.action-download-artifact %}
   with:
     name: homework
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -250,7 +250,7 @@ workflows:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 name: Containers
 
@@ -284,7 +284,7 @@ jobs:
       # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
       - name: Setup file system permissions
         run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Install dependencies
         run: bundle install --path vendor/bundle
       - name: Setup environment configuration
@@ -294,7 +294,6 @@ jobs:
       - name: Run tests
         run: bundle exec rake
 ```
-{% endraw %}
 </td>
 </tr>
 </table>
@@ -401,9 +400,9 @@ workflows:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
-{% endraw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% raw %}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 
 name: Containers
 
@@ -436,16 +435,16 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Setup Ruby
         uses: eregon/use-ruby-action@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
-          ruby-version: ${{ matrix.ruby }}
+          ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         with:
           path: vendor/bundle
-          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+          key: administrate-{% raw %}${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}{% endraw %}
       - name: Install postgres headers
         run: |
           sudo apt-get update
@@ -463,7 +462,6 @@ jobs:
       - name: Run appraisal
         run: bundle exec appraisal rake
 ```
-{% endraw %}
 </td>
 </tr>
 </table>

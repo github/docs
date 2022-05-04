@@ -319,7 +319,7 @@ _この例は、読みやすいように改行されています。_
 
 {% data reusables.rest-api.always-check-your-limit %}
 
-### ユーザアカウントからのリクエスト
+### 個人アカウントからのリクエスト
 
 個人アクセストークンで認証された直接のAPIリクエストは、user-to-serverリクエストです。 OAuth AppあるいはGitHub Appは、ユーザが認可した後、user-to-serverリクエストをユーザの代わりに発行することもできます。 詳しい情報については「[個人アクセストークンの作成](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)」、「[OAuth Appの認可](/authentication/keeping-your-account-and-data-secure/authorizing-oauth-apps)」、「[GitHub Appの認可](/authentication/keeping-your-account-and-data-secure/authorizing-github-apps)」を参照してください。
 
@@ -403,7 +403,7 @@ new Date(1372700873 * 1000)
 OAuth Appが認証されていない呼び出しをより高いレート制限で行う必要がある場合は、エンドポイントルートの前にアプリのクライアント ID とシークレットを渡すことができます。
 
 ```shell
-$ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
+$ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000

@@ -1,1 +1,1 @@
-Si los cambios a la configuración de tu codespace causan un error de contenedor, este se ejecutará en modo de recuperación y verás un mensaje de error.
+Si los cambios a tu configuración de contenedor dev ocasionan un error del contenedor, tu codespace se ejecutará en modo de recuperación y verás un mensaje de error.

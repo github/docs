@@ -33,7 +33,7 @@ El {% data variables.product.prodname_dependabot %} ayuda a que los usuarios de 
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifies vulnerable dependencies in repositories and creates alerts on {% data variables.product.product_location %}, using data from the {% data variables.product.prodname_advisory_database %} and the dependency graph service.
+Con las {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifica las dependencias vulnerables en los repositorios y crea alertas en {% data variables.product.product_location %} utilizando datos de la {% data variables.product.prodname_advisory_database %} y del servicio de la gráfica de dependencias.
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
@@ -67,7 +67,7 @@ After you enable {% data variables.product.prodname_dependabot_alerts %}, you ca
 With {% data variables.product.prodname_dependabot_updates %}, {% data variables.product.company_short %} automatically creates pull requests to update dependencies in two ways.
 
 - **{% data variables.product.prodname_dependabot_version_updates %}**: Los usuarios agregan un archivo de configuración del {% data variables.product.prodname_dependabot %} al repositorio para habilitar el {% data variables.product.prodname_dependabot %} para que cree solicitudes de cambios cuando se lance una versión nueva de una dependencia rastreada. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_version_updates %}](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)".
-- **{% data variables.product.prodname_dependabot_security_updates %}**: Los usuarios pueden alternar un ajuste de repositorio para habilitar que el {% data variables.product.prodname_dependabot %} cree solicitudes de cambios cuando {% data variables.product.prodname_dotcom %} detecta una vulnerabilidad en una de las dependencias de la gráfica de dependencias del repositorio. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+- **{% data variables.product.prodname_dependabot_security_updates %}**: Los usuarios pueden alternar un ajuste de repositorio para habilitar que el {% data variables.product.prodname_dependabot %} cree solicitudes de cambios cuando {% data variables.product.prodname_dotcom %} detecta una vulnerabilidad en una de las dependencias de la gráfica de dependencias del repositorio. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)" y "[Acerca de las {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)".
 {% endif %}
 
 ## Habilitar {% data variables.product.prodname_dependabot_alerts %}

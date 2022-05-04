@@ -4,10 +4,8 @@ intro: Você pode usar pré-visualizações da API para testar novos recursos e 
 redirect_from:
   - /v3/previews
 versions:
-  fpt: '*'
-  ghes: '*'
+  ghes: <3.4
   ghae: '*'
-  ghec: '*'
 topics:
   - API
 ---
@@ -49,14 +47,6 @@ Obter uma [lista de eventos](/rest/reference/issues#timeline) para um problema o
 
 {% endif %}
 
-{% ifversion ghes %}
-## Ambientes pre-receive
-
-Cria, lista, atualiza e exclui ambientes para hooks pre-receive.
-
-**Tipo de mídia personalizada:** `eye-scream-preview` **Anunciado em:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
-{% endif %}
-
 {% ifversion ghes < 3.3 %}
 ## Projetos
 
@@ -90,7 +80,7 @@ Veja todos os [códigos de conduta](/rest/reference/codes-of-conduct) ou obtenha
 
 {% endif %}
 
-{% ifversion ghae or ghes %}
+{% ifversion ghes < 3.3 %}
 
 ## Webhooks globais
 
@@ -118,16 +108,6 @@ Agora você pode [exigir múltiplas revisões de aprovação](/rest/reference/re
 
 {% endif %}
 
-
-{% ifversion ghes %}
-
-## Acesso de Git anônimo aos repositórios
-
-Quando uma instância do {% data variables.product.prodname_ghe_server %} estiver em modo privado, os administradores do site e do repositório podem habilitar o acesso anônimo ao Git para um repositório público.
-
-**Tipo de mídia personalizada:** `x ray-preview` **Anunciado:** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
-
-{% endif %}
 {% ifversion ghes < 3.3 %}
 
 ## Detalhes do cartão de projeto
@@ -135,15 +115,6 @@ Quando uma instância do {% data variables.product.prodname_ghe_server %} estive
 As respostas da API REST para [eventos de problemas](/rest/reference/issues#events) e [eventos da linha do tempo de problemas](/rest/reference/issues#timeline) agora retornam o campo `project_card` para eventos relacionados ao projeto.
 
 **Tipo de mídia personalizada:** `starfox-preview` **Anunciado:** [2018-09-05](https://developer.github.com/changes/2018-09-05-project-card-events)
-
-{% endif %}
-{% ifversion fpt or ghec %}
-
-## Manifestoes do aplicativo GitHub
-
-Os manifestos do aplicativo GitHub permitem que pessoas criem aplicativos GitHub pré-configurados. Veja "[Criar aplicativos GitHub a partir de um manifesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" para obter mais inoformações.
-
-**Tipo de mídia personalizada:** `fury-preview`
 
 {% endif %}
 

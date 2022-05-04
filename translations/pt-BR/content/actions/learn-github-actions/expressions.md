@@ -366,4 +366,40 @@ Por exemplo, pense em um array de objetos de nome `frutas`.
 ]
 ```
 
-O filtro `frutas.*.name` retorna o array `[ "maçã", "laranja", "pera" ]`
+O filtro `frutas.*.name` retorna o array `[ "maçã", "laranja", "pera" ]`.
+
+Você também pode usar a sintaxe `*` em um objeto. Por exemplo, suponha que você tenha um objeto chamado `vegetables`.
+
+```json
+
+{
+  "scallions":
+  {
+    "colors": ["green", "white", "red"],
+    "ediblePortions": ["roots", "stalks"],
+  },
+  "beets":
+  {
+    "colors": ["purple", "red", "gold", "white", "pink"],
+    "ediblePortions": ["roots", "stems", "leaves"],
+  },
+  "artichokes":
+  {
+    "colors": ["green", "purple", "red", "black"],
+    "ediblePortions": ["hearts", "stems", "leaves"],
+  },
+}
+```
+
+O filtro `vegetables.*.ComblePortions` pode ser avaliado:
+
+```json
+
+[
+  ["roots", "stalks"],
+  ["hearts", "stems", "leaves"],
+  ["roots", "stems", "leaves"],
+]
+```
+
+Uma vez que os objetos não preservam a ordem, não se pode garantir a ordem de saída.

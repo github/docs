@@ -64,4 +64,4 @@ GitHub 的道德准则详细说明了某些情况，包括礼品、旅游和招�
 罚款和入狱。 遭受处罚的不一定只有 GitHub。 您自己可能会面临几年牢狱之灾，这无关乎该客户在日本之旅后是否向 GitHub 提交了订单或者该政府官员是否拿走了那箱现金。 基本上，与您是否实际_完成_行贿没关系。 不论结果，只要尝试就是违法。
 
 ## 更多信息
-如需了解有关规则、执行和处罚的更多信息和相关背景，美国 Department of Justice’s [Resource Guide to the U.S. 反海外腐败法](https://www.justice.gov/sites/default/files/criminal-fraud/legacy/2015/01/16/guide.pdf)是一种很好的资源。
+如需了解有关规则、执行和处罚的更多信息和相关背景，美国 司法部的[《美国 反海外腐败法](https://www.justice.gov/sites/default/files/criminal-fraud/legacy/2015/01/16/guide.pdf)是一种很好的资源。

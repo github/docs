@@ -56,6 +56,8 @@ If you need to allow external access to services running on a codespace, you can
 
 If you need to connect to a service (such as a development web server) running within your codespace, you can configure port forwarding to make the service available on the internet. 
 
+Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[Restricting the visibility of forwarded ports](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."
+
 **Privately forwarded ports**: Are accessible on the internet, but only the codespace creator can access them, after authenticating to {% data variables.product.product_name %}.
 
 **Publicly forwarded ports within your organization**: Are accessible on the internet, but only to members of the same organization as the codespace, after authenticating to {% data variables.product.product_name %}.
@@ -97,7 +99,9 @@ There are some additional good practices and risks that you should be aware of w
 
 #### Understanding a repository's devcontainer.json file
 
-When creating a codespace, the [devcontainer.json](https://code.visualstudio.com/docs/remote/devcontainerjson-reference) is parsed and applied from the source repo, if one exists.  The devcontainer contains powerful features, such as installing third-party extensions and running arbitrary code through a supplied `postCreateCommand`.
+When you create a codespace, if a `devcontainer.json` file is found for your repository, it is parsed and used to configure your codespace. The `devcontainer.json` file can contain powerful features, such as installing third-party extensions and running arbitrary code supplied in a `postCreateCommand`.
+
+For more information, see "[Introduction to dev containers](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
 
 #### Granting access through features
 

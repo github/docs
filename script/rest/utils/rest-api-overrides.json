@@ -1,802 +1,784 @@
 {
-  "repos/list-collaborators": {
-    "category": "collaborators",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#list-repository-collaborators"
-  },
-  "repos/check-collaborator": {
-    "category": "collaborators",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#check-if-a-user-is-a-repository-collaborator"
-  },
-  "repos/add-collaborator": {
-    "category": "collaborators",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#add-a-repository-collaborator"
-  },
-  "repos/remove-collaborator": {
-    "category": "collaborators",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#remove-a-repository-collaborator"
-  },
-  "repos/get-collaborator-permission-level": {
-    "category": "collaborators",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-repository-permissions-for-a-user"
-  },
-  "repos/list-commit-comments-for-repo": {
-    "category": "commits",
-    "subcategory": "comments",
-    "originalUrl": "/rest/reference/repos#list-commit-comments-for-a-repository"
-  },
-  "repos/get-commit-comment": {
-    "category": "commits",
-    "subcategory": "comments",
-    "originalUrl": "/rest/reference/repos#get-a-commit-comment"
-  },
-  "repos/update-commit-comment": {
-    "category": "commits",
-    "subcategory": "comments",
-    "originalUrl": "/rest/reference/repos#update-a-commit-comment"
-  },
-  "repos/delete-commit-comment": {
-    "category": "commits",
-    "subcategory": "comments",
-    "originalUrl": "/rest/reference/repos#delete-a-commit-comment"
-  },
-  "repos/list-commits": {
-    "category": "commits",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#list-commits"
-  },
-  "repos/list-branches-for-head-commit": {
-    "category": "commits",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#list-branches-for-head-commit"
-  },
-  "repos/list-comments-for-commit": {
-    "category": "commits",
-    "subcategory": "comments",
-    "originalUrl": "/rest/reference/repos#list-commit-comments"
-  },
-  "repos/create-commit-comment": {
-    "category": "commits",
-    "subcategory": "comments",
-    "originalUrl": "/rest/reference/repos#create-a-commit-comment"
-  },
-  "repos/list-pull-requests-associated-with-commit": {
-    "category": "commits",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#list-pull-requests-associated-with-a-commit"
-  },
-  "repos/get-commit": {
-    "category": "commits",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-a-commit"
-  },
-  "repos/get-combined-status-for-ref": {
-    "category": "commits",
-    "subcategory": "statuses",
-    "originalUrl": "/rest/reference/repos#get-the-combined-status-for-a-specific-reference"
-  },
-  "repos/list-commit-statuses-for-ref": {
-    "category": "commits",
-    "subcategory": "statuses",
-    "originalUrl": "/rest/reference/repos#list-commit-statuses-for-a-reference"
-  },
-  "repos/get-community-profile-metrics": {
-    "category": "metrics",
-    "subcategory": "community",
-    "originalUrl": "/rest/reference/repos#get-community-profile-metrics"
-  },
-  "repos/compare-commits": {
-    "category": "commits",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#compare-two-commits"
-  },
-  "repos/get-all-environments": {
-    "category": "deployments",
-    "subcategory": "environments",
-    "originalUrl": "/rest/reference/repos#get-all-environments"
-  },
-  "repos/get-environment": {
-    "category": "deployments",
-    "subcategory": "environments",
-    "originalUrl": "/rest/reference/repos#get-an-environment"
-  },
-  "repos/create-or-update-environment": {
-    "category": "deployments",
-    "subcategory": "environments",
-    "originalUrl": "/rest/reference/repos#create-or-update-an-environment"
-  },
-  "repos/delete-an-environment": {
-    "category": "deployments",
-    "subcategory": "environments",
-    "originalUrl": "/rest/reference/repos#delete-an-environment"
-  },
-  "repos/list-invitations": {
-    "category": "collaborators",
-    "subcategory": "invitations",
-    "originalUrl": "/rest/reference/repos#list-repository-invitations"
-  },
-  "repos/update-invitation": {
-    "category": "collaborators",
-    "subcategory": "invitations",
-    "originalUrl": "/rest/reference/repos#update-a-repository-invitation"
-  },
-  "repos/delete-invitation": {
-    "category": "collaborators",
-    "subcategory": "invitations",
-    "originalUrl": "/rest/reference/repos#delete-a-repository-invitation"
-  },
-  "repos/list-deploy-keys": {
-    "category": "deploy_keys",
-    "subcategory": "deploy_keys",
-    "originalUrl": "/rest/reference/repos#list-deploy-keys"
-  },
-  "repos/create-deploy-key": {
-    "category": "deploy_keys",
-    "subcategory": "deploy_keys",
-    "originalUrl": "/rest/reference/repos#create-a-deploy-key"
-  },
-  "repos/get-deploy-key": {
-    "category": "deploy_keys",
-    "subcategory": "deploy_keys",
-    "originalUrl": "/rest/reference/repos#get-a-deploy-key"
-  },
-  "repos/delete-deploy-key": {
-    "category": "deploy_keys",
-    "subcategory": "deploy_keys",
-    "originalUrl": "/rest/reference/repos#delete-a-deploy-key"
-  },
-  "repos#deploy-keys": {
-    "category": "deploy_keys",
-    "subcategory": "deploy_keys",
-    "originalUrl": "/rest/reference/repos#deploy-keys"
-  },
-  "deployments/list-deploy-keys": {
-    "category": "deploy_keys",
-    "subcategory": "deploy_keys",
-    "originalUrl": "/rest/reference/deployments#list-deploy-keys"
-  },
-  "deployments/create-deploy-key": {
-    "category": "deploy_keys",
-    "subcategory": "deploy_keys",
-    "originalUrl": "/rest/reference/deployments#create-a-deploy-key"
-  },
-  "deployments/get-deploy-key": {
-    "category": "deploy_keys",
-    "subcategory": "deploy_keys",
-    "originalUrl": "/rest/reference/deployments#get-a-deploy-key"
-  },
-  "deployments/delete-deploy-key": {
-    "category": "deploy_keys",
-    "subcategory": "deploy_keys",
-    "originalUrl": "/rest/reference/deployments#delete-a-deploy-key"
-  },
-  "deployments#deploy-keys": {
-    "category": "deploy_keys",
-    "subcategory": "deploy_keys",
-    "originalUrl": "/rest/reference/deployments#deploy-keys"
-  },
-  "repos/get-pages": {
-    "category": "pages",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-a-github-pages-site"
-  },
-  "repos/create-pages-site": {
-    "category": "pages",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#create-a-github-pages-site"
-  },
-  "repos/update-information-about-pages-site": {
-    "category": "pages",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#update-information-about-a-github-pages-site"
-  },
-  "repos/delete-pages-site": {
-    "category": "pages",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#delete-a-github-pages-site"
-  },
-  "repos/list-pages-builds": {
-    "category": "pages",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#list-github-pages-builds"
-  },
-  "repos/request-pages-build": {
-    "category": "pages",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#request-a-github-pages-build"
-  },
-  "repos/get-latest-pages-build": {
-    "category": "pages",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-latest-pages-build"
-  },
-  "repos/get-pages-build": {
-    "category": "pages",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-github-pages-build"
-  },
-  "repos/get-pages-health-check": {
-    "category": "pages",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-a-dns-health-check-for-github-pages"
-  },
-  "repos/get-code-frequency-stats": {
-    "category": "metrics",
-    "subcategory": "statistics",
-    "originalUrl": "/rest/reference/repos#get-the-weekly-commit-activity"
-  },
-  "repos/get-commit-activity-stats": {
-    "category": "metrics",
-    "subcategory": "statistics",
-    "originalUrl": "/rest/reference/repos#get-the-last-year-of-commit-activity"
-  },
-  "repos/get-contributors-stats": {
-    "category": "metrics",
-    "subcategory": "statistics",
-    "originalUrl": "/rest/reference/repos#get-all-contributor-commit-activity"
-  },
-  "repos/get-participation-stats": {
-    "category": "metrics",
-    "subcategory": "statistics",
-    "originalUrl": "/rest/reference/repos#get-the-weekly-commit-count"
-  },
-  "repos/get-punch-card-stats": {
-    "category": "metrics",
-    "subcategory": "statistics",
-    "originalUrl": "/rest/reference/repos#get-the-hourly-commit-count-for-each-day"
-  },
-  "repos/create-commit-status": {
-    "category": "commits",
-    "subcategory": "statuses",
-    "originalUrl": "/rest/reference/repos#create-a-commit-status"
-  },
-  "repos/get-clones": {
-    "category": "metrics",
-    "subcategory": "traffic",
-    "originalUrl": "/rest/reference/repos#get-repository-clones"
-  },
-  "repos/get-top-paths": {
-    "category": "metrics",
-    "subcategory": "traffic",
-    "originalUrl": "/rest/reference/repos#get-top-referral-paths"
-  },
-  "repos/get-top-referrers": {
-    "category": "metrics",
-    "subcategory": "traffic",
-    "originalUrl": "/rest/reference/repos#get-top-referral-sources"
-  },
-  "repos/get-views": {
-    "category": "metrics",
-    "subcategory": "traffic",
-    "originalUrl": "/rest/reference/repos#get-page-views"
-  },
-  "repos/list-invitations-for-authenticated-user": {
-    "category": "collaborators",
-    "subcategory": "invitations",
-    "originalUrl": "/rest/reference/repos#list-repository-invitations-for-the-authenticated-user"
-  },
-  "repos/accept-invitation-for-authenticated-user": {
-    "category": "collaborators",
-    "subcategory": "invitations",
-    "originalUrl": "/rest/reference/repos#accept-a-repository-invitation"
-  },
-  "repos/decline-invitation-for-authenticated-user": {
-    "category": "collaborators",
-    "subcategory": "invitations",
-    "originalUrl": "/rest/reference/repos#decline-a-repository-invitation"
-  },
-  "repos/list-branches": {
-    "category": "branches",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#list-branches"
-  },
-  "repos/get-branch": {
-    "category": "branches",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-a-branch"
-  },
-  "repos/rename-branch": {
-    "category": "branches",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#rename-a-branch"
-  },
-  "repos/merge-upstream": {
-    "category": "branches",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#sync-a-fork-branch-with-the-upstream-repository"
-  },
-  "repos/merge": {
-    "category": "branches",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#merge-a-branch"
-  },
-  "repos/add-app-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#add-app-access-restrictions"
-  },
-  "repos/add-status-check-contexts": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#add-status-check-contexts"
-  },
-  "repos/add-team-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#add-team-access-restrictions"
-  },
-  "repos/add-user-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#add-user-access-restrictions"
-  },
-  "repos/create-commit-signature-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#create-commit-signature-protection"
-  },
-  "repos/delete-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#delete-access-restrictions"
-  },
-  "repos/delete-admin-branch-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#delete-admin-branch-protection"
-  },
-  "repos/delete-branch-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#delete-branch-protection"
-  },
-  "repos/delete-commit-signature-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#delete-commit-signature-protection"
-  },
-  "repos/delete-pull-request-review-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#delete-pull-request-review-protection"
-  },
-  "repos/get-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#get-access-restrictions"
-  },
-  "repos/get-admin-branch-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#get-admin-branch-protection"
-  },
-  "repos/get-all-status-check-contexts": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#get-all-status-check-contexts"
-  },
-  "repos/get-apps-with-access-to-protected-branch": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#list-apps-with-access-to-the-protected-branch"
-  },
-  "repos/update-pull-request-review-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#update-pull-request-review-protection"
-  },
-  "repos/get-branch-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#get-branch-protection"
-  },
-  "repos/get-commit-signature-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#get-commit-signature-protection"
-  },
-  "repos/get-pull-request-review-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#get-pull-request-review-protection"
-  },
-  "repos/get-status-checks-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#get-status-checks-protection"
-  },
-  "repos/get-teams-with-access-to-protected-branch": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#list-teams-with-access-to-the-protected-branch"
-  },
-  "repos/get-users-with-access-to-protected-branch": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#list-users-with-access-to-the-protected-branch"
-  },
-  "repos/remove-app-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#remove-app-access-restrictions"
-  },
-  "repos/remove-status-check-contexts": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#remove-status-check-contexts"
-  },
-  "repos/remove-status-check-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#remove-status-check-protection"
-  },
-  "repos/remove-team-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#remove-team-access-restrictions"
-  },
-  "repos/remove-user-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#remove-user-access-restrictions"
-  },
-  "repos/set-admin-branch-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#set-admin-branch-protection"
-  },
-  "repos/set-app-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#set-app-access-restrictions"
-  },
-  "repos/set-status-check-contexts": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#set-status-check-contexts"
-  },
-  "repos/set-team-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#set-team-access-restrictions"
-  },
-  "repos/set-user-access-restrictions": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#set-user-access-restrictions"
-  },
-  "repos/update-branch-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#update-branch-protection"
-  },
-  "repos/update-status-check-protection": {
-    "category": "branches",
-    "subcategory": "branch-protection",
-    "originalUrl": "/rest/reference/repos#update-status-check-protection"
-  },
-  "repos/create-deployment-status": {
-    "category": "deployments",
-    "subcategory": "statuses",
-    "originalUrl": "/rest/reference/repos#create-a-deployment-status"
-  },
-  "repos/list-deployment-statuses": {
-    "category": "deployments",
-    "subcategory": "statuses",
-    "originalUrl": "/rest/reference/repos#list-deployment-statuses"
-  },
-  "repos/get-deployment-status": {
-    "category": "deployments",
-    "subcategory": "statuses",
-    "originalUrl": "/rest/reference/repos#get-a-deployment-status"
-  },
-  "repos/list-deployments": {
-    "category": "deployments",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#list-deployments"
-  },
-  "repos/create-deployment": {
-    "category": "deployments",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#create-a-deployment"
-  },
-  "repos/get-deployment": {
-    "category": "deployments",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-a-deployment"
-  },
-  "repos/delete-deployment": {
-    "category": "deployments",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#delete-a-deployment"
-  },
-  "repos/list-releases": {
-    "category": "releases",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#list-releases"
-  },
-  "repos/create-release": {
-    "category": "releases",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#create-a-release"
-  },
-  "repos/generate-release-notes": {
-    "category": "releases",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#generate-release-notes"
-  },
-  "repos/get-latest-release": {
-    "category": "releases",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-the-latest-release"
-  },
-  "repos/get-release-by-tag": {
-    "category": "releases",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-a-release-by-tag-name"
-  },
-  "repos/get-release": {
-    "category": "releases",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#get-a-release"
-  },
-  "repos/update-release": {
-    "category": "releases",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#update-a-release"
-  },
-  "repos/delete-release": {
-    "category": "releases",
-    "subcategory": null,
-    "originalUrl": "/rest/reference/repos#delete-a-release"
-  },
-  "repos/delete-release-asset": {
-    "category": "releases",
-    "subcategory": "assets",
-    "originalUrl": "/rest/reference/repos#delete-a-release-asset"
-  },
-  "repos/get-release-asset": {
-    "category": "releases",
-    "subcategory": "assets",
-    "originalUrl": "/rest/reference/repos#get-a-release-asset"
-  },
-  "repos/list-release-assets": {
-    "category": "releases",
-    "subcategory": "assets",
-    "originalUrl": "/rest/reference/repos#list-release-assets"
-  },
-  "repos/update-release-asset": {
-    "category": "releases",
-    "subcategory": "assets",
-    "originalUrl": "/rest/reference/repos#update-a-release-asset"
-  },
-  "repos/upload-release-asset": {
-    "category": "releases",
-    "subcategory": "assets",
-    "originalUrl": "/rest/reference/repos#upload-a-release-asset"
-  },
-  "repos/list-webhooks": {
-    "category": "webhooks",
-    "subcategory": "repos",
-    "originalUrl": "/rest/reference/repos#list-repository-webhooks"
-  },
-  "repos/create-webhook": {
-    "category": "webhooks",
-    "subcategory": "repos",
-    "originalUrl": "/rest/reference/repos#create-a-repository-webhook"
-  },
-  "repos/get-webhook": {
-    "category": "webhooks",
-    "subcategory": "repos",
-    "originalUrl": "/rest/reference/repos#get-a-repository-webhook"
-  },
-  "repos/update-webhook": {
-    "category": "webhooks",
-    "subcategory": "repos",
-    "originalUrl": "/rest/reference/repos#update-a-repository-webhook"
-  },
-  "repos/delete-webhook": {
-    "category": "webhooks",
-    "subcategory": "repos",
-    "originalUrl": "/rest/reference/repos#delete-a-repository-webhook"
-  },
-  "repos/ping-webhook": {
-    "category": "webhooks",
-    "subcategory": "repos",
-    "originalUrl": "/rest/reference/repos#ping-a-repository-webhook"
-  },
-  "repos/test-push-webhook": {
-    "category": "webhooks",
-    "subcategory": "repos",
-    "originalUrl": "/rest/reference/repos#test-the-push-repository-webhook"
-  },
-  "repos/get-webhook-config-for-repo": {
-    "category": "webhooks",
-    "subcategory": "repo-config",
-    "originalUrl": "/rest/reference/repos#get-a-webhook-configuration-for-a-repository"
-  },
-  "repos/update-webhook-config-for-repo": {
-    "category": "webhooks",
-    "subcategory": "repo-config",
-    "originalUrl": "/rest/reference/repos#update-a-webhook-configuration-for-a-repository"
-  },
-  "repos/get-webhook-delivery": {
-    "category": "webhooks",
-    "subcategory": "repo-deliveries",
-    "originalUrl": "/rest/reference/repos#get-a-delivery-for-a-repository-webhook"
-  },
-  "repos/list-webhook-deliveries": {
-    "category": "webhooks",
-    "subcategory": "repo-deliveries",
-    "originalUrl": "/rest/reference/repos#list-deliveries-for-a-repository-webhook"
-  },
-  "repos/redeliver-webhook-delivery": {
-    "category": "webhooks",
-    "subcategory": "repo-deliveries",
-    "originalUrl": "/rest/reference/repos#redeliver-a-delivery-for-a-repository-webhook"
-  },
-  "enterprise-admin/add-custom-labels-to-self-hosted-runner-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#add-custom-labels-to-a-self-hosted-runner-for-an-enterprise"
-  },
-  "enterprise-admin/add-org-access-to-self-hosted-runner-group-in-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#add-organization-access-to-a-self-hosted-runner-group-in-an-enterprise"
-  },
-  "enterprise-admin/add-self-hosted-runner-to-group-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#add-custom-labels-to-a-self-hosted-runner-for-an-enterprise"
-  },
-  "enterprise-admin/create-registration-token-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#create-a-registration-token-for-an-enterprise"
-  },
-  "enterprise-admin/create-remove-token-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#create-a-remove-token-for-an-enterprise"
-  },
-  "enterprise-admin/create-self-hosted-runner-group-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#create-self-hosted-runner-group-for-an-enterprise"
-  },
-  "enterprise-admin/delete-self-hosted-runner-from-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#delete-self-hosted-runner-from-an-enterprise"
-  },
-  "enterprise-admin/delete-self-hosted-runner-group-from-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#delete-a-self-hosted-runner-group-from-an-enterprise"
-  },
-  "enterprise-admin/disable-selected-organization-github-actions-enterprise": {
-    "category": "actions",
-    "subcategory": "permissions",
-    "originalUrl": "/rest/reference/enterprise-admin#disable-a-selected-organization-for-github-actions-in-an-enterprise"
-  },
-  "enterprise-admin/enable-selected-organization-github-actions-enterprise": {
-    "category": "actions",
-    "subcategory": "permissions",
-    "originalUrl": "/rest/reference/enterprise-admin#enable-a-selected-organization-for-github-actions-in-an-enterprise"
-  },
-  "enterprise-admin/get-allowed-actions-enterprise": {
-    "category": "actions",
-    "subcategory": "permissions",
-    "originalUrl": "/rest/reference/enterprise-admin#get-allowed-actions-for-an-enterprise"
-  },
-  "enterprise-admin/get-github-actions-permissions-enterprise": {
-    "category": "actions",
-    "subcategory": "permissions",
-    "originalUrl": "/rest/reference/enterprise-admin#get-github-actions-permissions-for-an-enterprise"
-  },
-  "enterprise-admin/get-self-hosted-runner-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#get-a-self-hosted-runner-for-an-enterprise"
-  },
-  "enterprise-admin/get-self-hosted-runner-group-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#get-a-self-hosted-runner-group-for-an-enterprise"
-  },
-  "enterprise-admin/list-labels-for-self-hosted-runner-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise"
-  },
-  "enterprise-admin/list-org-access-to-self-hosted-runner-group-in-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#list-organization-access-to-a-self-hosted-runner-group-in-a-enterprise"
-  },
-  "enterprise-admin/list-runner-applications-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#list-runner-applications-for-an-enterprise"
-  },
-  "enterprise-admin/list-selected-organizations-enabled-github-actions-enterprise": {
-    "category": "actions",
-    "subcategory": "permissions",
-    "originalUrl": "/rest/reference/enterprise-admin#list-selected-organizations-enabled-for-github-actions-in-an-enterprise"
-  },
-  "enterprise-admin/list-self-hosted-runner-groups-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise"
-  },
-  "enterprise-admin/list-self-hosted-runners-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#list-self-hosted-runners-for-an-enterprise"
-  },
-  "enterprise-admin/list-self-hosted-runners-in-group-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#list-self-hosted-runners-in-a-group-for-an-enterprise"
-  },
-  "enterprise-admin/remove-all-custom-labels-from-self-hosted-runner-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#remove-all-custom-labels-from-a-self-hosted-runner-for-an-enterprise"
-  },
-  "enterprise-admin/remove-custom-label-from-self-hosted-runner-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#remove-a-custom-label-from-a-self-hosted-runner-for-an-enterprise"
-  },
-  "enterprise-admin/remove-org-access-to-self-hosted-runner-group-in-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#remove-organization-access-to-a-self-hosted-runner-group-in-an-enterprise"
-  },
-  "enterprise-admin/remove-self-hosted-runner-from-group-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#remove-a-self-hosted-runner-from-a-group-for-an-enterprise"
-  },
-  "enterprise-admin/set-allowed-actions-enterprise": {
-    "category": "actions",
-    "subcategory": "permissions",
-    "originalUrl": "/rest/reference/enterprise-admin#set-allowed-actions-for-an-enterprise"
-  },
-  "enterprise-admin/set-custom-labels-for-self-hosted-runner-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runners",
-    "originalUrl": "/rest/reference/enterprise-admin#set-custom-labels-for-a-self-hosted-runner-for-an-enterprise"
-  },
-  "enterprise-admin/set-github-actions-permissions-enterprise": {
-    "category": "actions",
-    "subcategory": "permissions",
-    "originalUrl": "/rest/reference/enterprise-admin#set-github-actions-permissions-for-an-enterprise"
-  },
-  "enterprise-admin/set-org-access-to-self-hosted-runner-group-in-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#set-organization-access-to-a-self-hosted-runner-group-in-an-enterprise"
-  },
-  "enterprise-admin/set-selected-organizations-enabled-github-actions-enterprise": {
-    "category": "actions",
-    "subcategory": "permissions",
-    "originalUrl": "/rest/reference/enterprise-admin#set-selected-organizations-enabled-for-github-actions-in-an-enterprise"
-  },
-  "enterprise-admin/set-self-hosted-runners-in-group-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#set-self-hosted-runners-in-a-group-for-an-enterprise"
-  },
-  "enterprise-admin/update-self-hosted-runner-group-for-enterprise": {
-    "category": "actions",
-    "subcategory": "self-hosted-runner-groups",
-    "originalUrl": "/rest/reference/enterprise-admin#update-a-self-hosted-runner-group-for-an-enterprise"
+  "operationUrls": {
+    "repos/list-collaborators": {
+      "category": "collaborators",
+      "subcategory": "collaborators",
+      "originalUrl": "/rest/reference/repos#list-repository-collaborators"
+    },
+    "repos/check-collaborator": {
+      "category": "collaborators",
+      "subcategory": "collaborators",
+      "originalUrl": "/rest/reference/repos#check-if-a-user-is-a-repository-collaborator"
+    },
+    "repos/add-collaborator": {
+      "category": "collaborators",
+      "subcategory": "collaborators",
+      "originalUrl": "/rest/reference/repos#add-a-repository-collaborator"
+    },
+    "repos/remove-collaborator": {
+      "category": "collaborators",
+      "subcategory": "collaborators",
+      "originalUrl": "/rest/reference/repos#remove-a-repository-collaborator"
+    },
+    "repos/get-collaborator-permission-level": {
+      "category": "collaborators",
+      "subcategory": "collaborators",
+      "originalUrl": "/rest/reference/repos#get-repository-permissions-for-a-user"
+    },
+    "repos/list-commit-comments-for-repo": {
+      "category": "commits",
+      "subcategory": "comments",
+      "originalUrl": "/rest/reference/repos#list-commit-comments-for-a-repository"
+    },
+    "repos/get-commit-comment": {
+      "category": "commits",
+      "subcategory": "comments",
+      "originalUrl": "/rest/reference/repos#get-a-commit-comment"
+    },
+    "repos/update-commit-comment": {
+      "category": "commits",
+      "subcategory": "comments",
+      "originalUrl": "/rest/reference/repos#update-a-commit-comment"
+    },
+    "repos/delete-commit-comment": {
+      "category": "commits",
+      "subcategory": "comments",
+      "originalUrl": "/rest/reference/repos#delete-a-commit-comment"
+    },
+    "repos/list-commits": {
+      "category": "commits",
+      "subcategory": "commits",
+      "originalUrl": "/rest/reference/repos#list-commits"
+    },
+    "repos/list-branches-for-head-commit": {
+      "category": "commits",
+      "subcategory": "commits",
+      "originalUrl": "/rest/reference/repos#list-branches-for-head-commit"
+    },
+    "repos/list-comments-for-commit": {
+      "category": "commits",
+      "subcategory": "comments",
+      "originalUrl": "/rest/reference/repos#list-commit-comments"
+    },
+    "repos/create-commit-comment": {
+      "category": "commits",
+      "subcategory": "comments",
+      "originalUrl": "/rest/reference/repos#create-a-commit-comment"
+    },
+    "repos/list-pull-requests-associated-with-commit": {
+      "category": "commits",
+      "subcategory": "commits",
+      "originalUrl": "/rest/reference/repos#list-pull-requests-associated-with-a-commit"
+    },
+    "repos/get-commit": {
+      "category": "commits",
+      "subcategory": "commits",
+      "originalUrl": "/rest/reference/repos#get-a-commit"
+    },
+    "repos/get-combined-status-for-ref": {
+      "category": "commits",
+      "subcategory": "statuses",
+      "originalUrl": "/rest/reference/repos#get-the-combined-status-for-a-specific-reference"
+    },
+    "repos/list-commit-statuses-for-ref": {
+      "category": "commits",
+      "subcategory": "statuses",
+      "originalUrl": "/rest/reference/repos#list-commit-statuses-for-a-reference"
+    },
+    "repos/get-community-profile-metrics": {
+      "category": "metrics",
+      "subcategory": "community",
+      "originalUrl": "/rest/reference/repos#get-community-profile-metrics"
+    },
+    "repos/compare-commits": {
+      "category": "commits",
+      "subcategory": "commits",
+      "originalUrl": "/rest/reference/repos#compare-two-commits"
+    },
+    "repos/get-all-environments": {
+      "category": "deployments",
+      "subcategory": "environments",
+      "originalUrl": "/rest/reference/repos#get-all-environments"
+    },
+    "repos/get-environment": {
+      "category": "deployments",
+      "subcategory": "environments",
+      "originalUrl": "/rest/reference/repos#get-an-environment"
+    },
+    "repos/create-or-update-environment": {
+      "category": "deployments",
+      "subcategory": "environments",
+      "originalUrl": "/rest/reference/repos#create-or-update-an-environment"
+    },
+    "repos/delete-an-environment": {
+      "category": "deployments",
+      "subcategory": "environments",
+      "originalUrl": "/rest/reference/repos#delete-an-environment"
+    },
+    "repos/list-invitations": {
+      "category": "collaborators",
+      "subcategory": "invitations",
+      "originalUrl": "/rest/reference/repos#list-repository-invitations"
+    },
+    "repos/update-invitation": {
+      "category": "collaborators",
+      "subcategory": "invitations",
+      "originalUrl": "/rest/reference/repos#update-a-repository-invitation"
+    },
+    "repos/delete-invitation": {
+      "category": "collaborators",
+      "subcategory": "invitations",
+      "originalUrl": "/rest/reference/repos#delete-a-repository-invitation"
+    },
+    "repos/list-deploy-keys": {
+      "category": "deploy-keys",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#list-deploy-keys"
+    },
+    "repos/create-deploy-key": {
+      "category": "deploy-keys",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#create-a-deploy-key"
+    },
+    "repos/get-deploy-key": {
+      "category": "deploy-keys",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#get-a-deploy-key"
+    },
+    "repos/delete-deploy-key": {
+      "category": "deploy-keys",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#delete-a-deploy-key"
+    },
+    "repos/get-pages": {
+      "category": "pages",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#get-a-github-pages-site"
+    },
+    "repos/create-pages-site": {
+      "category": "pages",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#create-a-github-pages-site"
+    },
+    "repos/update-information-about-pages-site": {
+      "category": "pages",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#update-information-about-a-github-pages-site"
+    },
+    "repos/delete-pages-site": {
+      "category": "pages",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#delete-a-github-pages-site"
+    },
+    "repos/list-pages-builds": {
+      "category": "pages",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#list-github-pages-builds"
+    },
+    "repos/request-pages-build": {
+      "category": "pages",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#request-a-github-pages-build"
+    },
+    "repos/get-latest-pages-build": {
+      "category": "pages",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#get-latest-pages-build"
+    },
+    "repos/get-pages-build": {
+      "category": "pages",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#get-github-pages-build"
+    },
+    "repos/get-pages-health-check": {
+      "category": "pages",
+      "subcategory": null,
+      "originalUrl": "/rest/reference/repos#get-a-dns-health-check-for-github-pages"
+    },
+    "repos/get-code-frequency-stats": {
+      "category": "metrics",
+      "subcategory": "statistics",
+      "originalUrl": "/rest/reference/repos#get-the-weekly-commit-activity"
+    },
+    "repos/get-commit-activity-stats": {
+      "category": "metrics",
+      "subcategory": "statistics",
+      "originalUrl": "/rest/reference/repos#get-the-last-year-of-commit-activity"
+    },
+    "repos/get-contributors-stats": {
+      "category": "metrics",
+      "subcategory": "statistics",
+      "originalUrl": "/rest/reference/repos#get-all-contributor-commit-activity"
+    },
+    "repos/get-participation-stats": {
+      "category": "metrics",
+      "subcategory": "statistics",
+      "originalUrl": "/rest/reference/repos#get-the-weekly-commit-count"
+    },
+    "repos/get-punch-card-stats": {
+      "category": "metrics",
+      "subcategory": "statistics",
+      "originalUrl": "/rest/reference/repos#get-the-hourly-commit-count-for-each-day"
+    },
+    "repos/create-commit-status": {
+      "category": "commits",
+      "subcategory": "statuses",
+      "originalUrl": "/rest/reference/repos#create-a-commit-status"
+    },
+    "repos/get-clones": {
+      "category": "metrics",
+      "subcategory": "traffic",
+      "originalUrl": "/rest/reference/repos#get-repository-clones"
+    },
+    "repos/get-top-paths": {
+      "category": "metrics",
+      "subcategory": "traffic",
+      "originalUrl": "/rest/reference/repos#get-top-referral-paths"
+    },
+    "repos/get-top-referrers": {
+      "category": "metrics",
+      "subcategory": "traffic",
+      "originalUrl": "/rest/reference/repos#get-top-referral-sources"
+    },
+    "repos/get-views": {
+      "category": "metrics",
+      "subcategory": "traffic",
+      "originalUrl": "/rest/reference/repos#get-page-views"
+    },
+    "repos/list-invitations-for-authenticated-user": {
+      "category": "collaborators",
+      "subcategory": "invitations",
+      "originalUrl": "/rest/reference/repos#list-repository-invitations-for-the-authenticated-user"
+    },
+    "repos/accept-invitation-for-authenticated-user": {
+      "category": "collaborators",
+      "subcategory": "invitations",
+      "originalUrl": "/rest/reference/repos#accept-a-repository-invitation"
+    },
+    "repos/decline-invitation-for-authenticated-user": {
+      "category": "collaborators",
+      "subcategory": "invitations",
+      "originalUrl": "/rest/reference/repos#decline-a-repository-invitation"
+    },
+    "repos/list-branches": {
+      "category": "branches",
+      "subcategory": "branches",
+      "originalUrl": "/rest/reference/repos#list-branches"
+    },
+    "repos/get-branch": {
+      "category": "branches",
+      "subcategory": "branches",
+      "originalUrl": "/rest/reference/repos#get-a-branch"
+    },
+    "repos/rename-branch": {
+      "category": "branches",
+      "subcategory": "branches",
+      "originalUrl": "/rest/reference/repos#rename-a-branch"
+    },
+    "repos/merge-upstream": {
+      "category": "branches",
+      "subcategory": "branches",
+      "originalUrl": "/rest/reference/repos#sync-a-fork-branch-with-the-upstream-repository"
+    },
+    "repos/merge": {
+      "category": "branches",
+      "subcategory": "branches",
+      "originalUrl": "/rest/reference/repos#merge-a-branch"
+    },
+    "repos/add-app-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#add-app-access-restrictions"
+    },
+    "repos/add-status-check-contexts": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#add-status-check-contexts"
+    },
+    "repos/add-team-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#add-team-access-restrictions"
+    },
+    "repos/add-user-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#add-user-access-restrictions"
+    },
+    "repos/create-commit-signature-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#create-commit-signature-protection"
+    },
+    "repos/delete-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#delete-access-restrictions"
+    },
+    "repos/delete-admin-branch-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#delete-admin-branch-protection"
+    },
+    "repos/delete-branch-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#delete-branch-protection"
+    },
+    "repos/delete-commit-signature-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#delete-commit-signature-protection"
+    },
+    "repos/delete-pull-request-review-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#delete-pull-request-review-protection"
+    },
+    "repos/get-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#get-access-restrictions"
+    },
+    "repos/get-admin-branch-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#get-admin-branch-protection"
+    },
+    "repos/get-all-status-check-contexts": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#get-all-status-check-contexts"
+    },
+    "repos/get-apps-with-access-to-protected-branch": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#list-apps-with-access-to-the-protected-branch"
+    },
+    "repos/update-pull-request-review-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#update-pull-request-review-protection"
+    },
+    "repos/get-branch-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#get-branch-protection"
+    },
+    "repos/get-commit-signature-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#get-commit-signature-protection"
+    },
+    "repos/get-pull-request-review-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#get-pull-request-review-protection"
+    },
+    "repos/get-status-checks-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#get-status-checks-protection"
+    },
+    "repos/get-teams-with-access-to-protected-branch": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#list-teams-with-access-to-the-protected-branch"
+    },
+    "repos/get-users-with-access-to-protected-branch": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#list-users-with-access-to-the-protected-branch"
+    },
+    "repos/remove-app-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#remove-app-access-restrictions"
+    },
+    "repos/remove-status-check-contexts": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#remove-status-check-contexts"
+    },
+    "repos/remove-status-check-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#remove-status-check-protection"
+    },
+    "repos/remove-team-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#remove-team-access-restrictions"
+    },
+    "repos/remove-user-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#remove-user-access-restrictions"
+    },
+    "repos/set-admin-branch-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#set-admin-branch-protection"
+    },
+    "repos/set-app-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#set-app-access-restrictions"
+    },
+    "repos/set-status-check-contexts": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#set-status-check-contexts"
+    },
+    "repos/set-team-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#set-team-access-restrictions"
+    },
+    "repos/set-user-access-restrictions": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#set-user-access-restrictions"
+    },
+    "repos/update-branch-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#update-branch-protection"
+    },
+    "repos/update-status-check-protection": {
+      "category": "branches",
+      "subcategory": "branch-protection",
+      "originalUrl": "/rest/reference/repos#update-status-check-protection"
+    },
+    "repos/create-deployment-status": {
+      "category": "deployments",
+      "subcategory": "statuses",
+      "originalUrl": "/rest/reference/repos#create-a-deployment-status"
+    },
+    "repos/list-deployment-statuses": {
+      "category": "deployments",
+      "subcategory": "statuses",
+      "originalUrl": "/rest/reference/repos#list-deployment-statuses"
+    },
+    "repos/get-deployment-status": {
+      "category": "deployments",
+      "subcategory": "statuses",
+      "originalUrl": "/rest/reference/repos#get-a-deployment-status"
+    },
+    "repos/list-deployments": {
+      "category": "deployments",
+      "subcategory": "deployments",
+      "originalUrl": "/rest/reference/repos#list-deployments"
+    },
+    "repos/create-deployment": {
+      "category": "deployments",
+      "subcategory": "deployments",
+      "originalUrl": "/rest/reference/repos#create-a-deployment"
+    },
+    "repos/get-deployment": {
+      "category": "deployments",
+      "subcategory": "deployments",
+      "originalUrl": "/rest/reference/repos#get-a-deployment"
+    },
+    "repos/delete-deployment": {
+      "category": "deployments",
+      "subcategory": "deployments",
+      "originalUrl": "/rest/reference/repos#delete-a-deployment"
+    },
+    "repos/list-releases": {
+      "category": "releases",
+      "subcategory": "releases",
+      "originalUrl": "/rest/reference/repos#list-releases"
+    },
+    "repos/create-release": {
+      "category": "releases",
+      "subcategory": "releases",
+      "originalUrl": "/rest/reference/repos#create-a-release"
+    },
+    "repos/generate-release-notes": {
+      "category": "releases",
+      "subcategory": "releases",
+      "originalUrl": "/rest/reference/repos#generate-release-notes"
+    },
+    "repos/get-latest-release": {
+      "category": "releases",
+      "subcategory": "releases",
+      "originalUrl": "/rest/reference/repos#get-the-latest-release"
+    },
+    "repos/get-release-by-tag": {
+      "category": "releases",
+      "subcategory": "releases",
+      "originalUrl": "/rest/reference/repos#get-a-release-by-tag-name"
+    },
+    "repos/get-release": {
+      "category": "releases",
+      "subcategory": "releases",
+      "originalUrl": "/rest/reference/repos#get-a-release"
+    },
+    "repos/update-release": {
+      "category": "releases",
+      "subcategory": "releases",
+      "originalUrl": "/rest/reference/repos#update-a-release"
+    },
+    "repos/delete-release": {
+      "category": "releases",
+      "subcategory": "releases",
+      "originalUrl": "/rest/reference/repos#delete-a-release"
+    },
+    "repos/delete-release-asset": {
+      "category": "releases",
+      "subcategory": "assets",
+      "originalUrl": "/rest/reference/repos#delete-a-release-asset"
+    },
+    "repos/get-release-asset": {
+      "category": "releases",
+      "subcategory": "assets",
+      "originalUrl": "/rest/reference/repos#get-a-release-asset"
+    },
+    "repos/list-release-assets": {
+      "category": "releases",
+      "subcategory": "assets",
+      "originalUrl": "/rest/reference/repos#list-release-assets"
+    },
+    "repos/update-release-asset": {
+      "category": "releases",
+      "subcategory": "assets",
+      "originalUrl": "/rest/reference/repos#update-a-release-asset"
+    },
+    "repos/upload-release-asset": {
+      "category": "releases",
+      "subcategory": "assets",
+      "originalUrl": "/rest/reference/repos#upload-a-release-asset"
+    },
+    "repos/list-webhooks": {
+      "category": "webhooks",
+      "subcategory": "repos",
+      "originalUrl": "/rest/reference/repos#list-repository-webhooks"
+    },
+    "repos/create-webhook": {
+      "category": "webhooks",
+      "subcategory": "repos",
+      "originalUrl": "/rest/reference/repos#create-a-repository-webhook"
+    },
+    "repos/get-webhook": {
+      "category": "webhooks",
+      "subcategory": "repos",
+      "originalUrl": "/rest/reference/repos#get-a-repository-webhook"
+    },
+    "repos/update-webhook": {
+      "category": "webhooks",
+      "subcategory": "repos",
+      "originalUrl": "/rest/reference/repos#update-a-repository-webhook"
+    },
+    "repos/delete-webhook": {
+      "category": "webhooks",
+      "subcategory": "repos",
+      "originalUrl": "/rest/reference/repos#delete-a-repository-webhook"
+    },
+    "repos/ping-webhook": {
+      "category": "webhooks",
+      "subcategory": "repos",
+      "originalUrl": "/rest/reference/repos#ping-a-repository-webhook"
+    },
+    "repos/test-push-webhook": {
+      "category": "webhooks",
+      "subcategory": "repos",
+      "originalUrl": "/rest/reference/repos#test-the-push-repository-webhook"
+    },
+    "repos/get-webhook-config-for-repo": {
+      "category": "webhooks",
+      "subcategory": "repo-config",
+      "originalUrl": "/rest/reference/repos#get-a-webhook-configuration-for-a-repository"
+    },
+    "repos/update-webhook-config-for-repo": {
+      "category": "webhooks",
+      "subcategory": "repo-config",
+      "originalUrl": "/rest/reference/repos#update-a-webhook-configuration-for-a-repository"
+    },
+    "repos/get-webhook-delivery": {
+      "category": "webhooks",
+      "subcategory": "repo-deliveries",
+      "originalUrl": "/rest/reference/repos#get-a-delivery-for-a-repository-webhook"
+    },
+    "repos/list-webhook-deliveries": {
+      "category": "webhooks",
+      "subcategory": "repo-deliveries",
+      "originalUrl": "/rest/reference/repos#list-deliveries-for-a-repository-webhook"
+    },
+    "repos/redeliver-webhook-delivery": {
+      "category": "webhooks",
+      "subcategory": "repo-deliveries",
+      "originalUrl": "/rest/reference/repos#redeliver-a-delivery-for-a-repository-webhook"
+    },
+    "enterprise-admin/add-custom-labels-to-self-hosted-runner-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#add-custom-labels-to-a-self-hosted-runner-for-an-enterprise"
+    },
+    "enterprise-admin/add-org-access-to-self-hosted-runner-group-in-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#add-organization-access-to-a-self-hosted-runner-group-in-an-enterprise"
+    },
+    "enterprise-admin/add-self-hosted-runner-to-group-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#add-custom-labels-to-a-self-hosted-runner-for-an-enterprise"
+    },
+    "enterprise-admin/create-registration-token-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#create-a-registration-token-for-an-enterprise"
+    },
+    "enterprise-admin/create-remove-token-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#create-a-remove-token-for-an-enterprise"
+    },
+    "enterprise-admin/create-self-hosted-runner-group-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#create-self-hosted-runner-group-for-an-enterprise"
+    },
+    "enterprise-admin/delete-self-hosted-runner-from-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#delete-self-hosted-runner-from-an-enterprise"
+    },
+    "enterprise-admin/delete-self-hosted-runner-group-from-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#delete-a-self-hosted-runner-group-from-an-enterprise"
+    },
+    "enterprise-admin/disable-selected-organization-github-actions-enterprise": {
+      "category": "actions",
+      "subcategory": "permissions",
+      "originalUrl": "/rest/reference/enterprise-admin#disable-a-selected-organization-for-github-actions-in-an-enterprise"
+    },
+    "enterprise-admin/enable-selected-organization-github-actions-enterprise": {
+      "category": "actions",
+      "subcategory": "permissions",
+      "originalUrl": "/rest/reference/enterprise-admin#enable-a-selected-organization-for-github-actions-in-an-enterprise"
+    },
+    "enterprise-admin/get-allowed-actions-enterprise": {
+      "category": "actions",
+      "subcategory": "permissions",
+      "originalUrl": "/rest/reference/enterprise-admin#get-allowed-actions-for-an-enterprise"
+    },
+    "enterprise-admin/get-github-actions-permissions-enterprise": {
+      "category": "actions",
+      "subcategory": "permissions",
+      "originalUrl": "/rest/reference/enterprise-admin#get-github-actions-permissions-for-an-enterprise"
+    },
+    "enterprise-admin/get-self-hosted-runner-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#get-a-self-hosted-runner-for-an-enterprise"
+    },
+    "enterprise-admin/get-self-hosted-runner-group-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#get-a-self-hosted-runner-group-for-an-enterprise"
+    },
+    "enterprise-admin/list-labels-for-self-hosted-runner-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#list-labels-for-a-self-hosted-runner-for-an-enterprise"
+    },
+    "enterprise-admin/list-org-access-to-self-hosted-runner-group-in-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#list-organization-access-to-a-self-hosted-runner-group-in-a-enterprise"
+    },
+    "enterprise-admin/list-runner-applications-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#list-runner-applications-for-an-enterprise"
+    },
+    "enterprise-admin/list-selected-organizations-enabled-github-actions-enterprise": {
+      "category": "actions",
+      "subcategory": "permissions",
+      "originalUrl": "/rest/reference/enterprise-admin#list-selected-organizations-enabled-for-github-actions-in-an-enterprise"
+    },
+    "enterprise-admin/list-self-hosted-runner-groups-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#list-self-hosted-runner-groups-for-an-enterprise"
+    },
+    "enterprise-admin/list-self-hosted-runners-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#list-self-hosted-runners-for-an-enterprise"
+    },
+    "enterprise-admin/list-self-hosted-runners-in-group-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#list-self-hosted-runners-in-a-group-for-an-enterprise"
+    },
+    "enterprise-admin/remove-all-custom-labels-from-self-hosted-runner-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#remove-all-custom-labels-from-a-self-hosted-runner-for-an-enterprise"
+    },
+    "enterprise-admin/remove-custom-label-from-self-hosted-runner-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#remove-a-custom-label-from-a-self-hosted-runner-for-an-enterprise"
+    },
+    "enterprise-admin/remove-org-access-to-self-hosted-runner-group-in-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#remove-organization-access-to-a-self-hosted-runner-group-in-an-enterprise"
+    },
+    "enterprise-admin/remove-self-hosted-runner-from-group-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#remove-a-self-hosted-runner-from-a-group-for-an-enterprise"
+    },
+    "enterprise-admin/set-allowed-actions-enterprise": {
+      "category": "actions",
+      "subcategory": "permissions",
+      "originalUrl": "/rest/reference/enterprise-admin#set-allowed-actions-for-an-enterprise"
+    },
+    "enterprise-admin/set-custom-labels-for-self-hosted-runner-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runners",
+      "originalUrl": "/rest/reference/enterprise-admin#set-custom-labels-for-a-self-hosted-runner-for-an-enterprise"
+    },
+    "enterprise-admin/set-github-actions-permissions-enterprise": {
+      "category": "actions",
+      "subcategory": "permissions",
+      "originalUrl": "/rest/reference/enterprise-admin#set-github-actions-permissions-for-an-enterprise"
+    },
+    "enterprise-admin/set-org-access-to-self-hosted-runner-group-in-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#set-organization-access-to-a-self-hosted-runner-group-in-an-enterprise"
+    },
+    "enterprise-admin/set-selected-organizations-enabled-github-actions-enterprise": {
+      "category": "actions",
+      "subcategory": "permissions",
+      "originalUrl": "/rest/reference/enterprise-admin#set-selected-organizations-enabled-for-github-actions-in-an-enterprise"
+    },
+    "enterprise-admin/set-self-hosted-runners-in-group-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#set-self-hosted-runners-in-a-group-for-an-enterprise"
+    },
+    "enterprise-admin/update-self-hosted-runner-group-for-enterprise": {
+      "category": "actions",
+      "subcategory": "self-hosted-runner-groups",
+      "originalUrl": "/rest/reference/enterprise-admin#update-a-self-hosted-runner-group-for-an-enterprise"
+    },
+    "orgs/list-custom-roles": {
+      "category": "orgs",
+      "subcategory": "custom-roles",
+      "originalUrl": "/rest/reference/orgs#list-custom-repository-roles-in-an-organization"
+    }
+  },
+  "sectionUrls": {
+    "/rest/repos#deploy-keys": "/rest/deploy-keys",
+    "/rest/deployments#deploy-keys": "/rest/deploy-keys",
+    "/rest/repos#statuses": "/rest/commits/statuses"
   }
 }

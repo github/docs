@@ -50,7 +50,7 @@ Both CircleCI and {% data variables.product.prodname_actions %} configure `jobs`
 
 Both CircleCI and {% data variables.product.prodname_actions %} provide a mechanism to reuse and share tasks in a workflow. CircleCI uses a concept called orbs, written in YAML, to provide tasks that people can reuse in a workflow. {% data variables.product.prodname_actions %} has powerful and flexible reusable components called actions, which you build with either JavaScript files or Docker images. You can create actions by writing custom code that interacts with your repository in any way you'd like, including integrating with {% data variables.product.product_name %}'s APIs and any publicly available third-party API. For example, an action can publish npm modules, send SMS alerts when urgent issues are created, or deploy production-ready code. For more information, see "[Creating actions](/actions/creating-actions)."
 
-CircleCI can reuse pieces of workflows with YAML anchors and aliases. {% data variables.product.prodname_actions %} supports the most common need for reusability using build matrixes. For more information about build matrixes, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)."
+CircleCI can reuse pieces of workflows with YAML anchors and aliases. {% data variables.product.prodname_actions %} supports the most common need for reusability using matrices. For more information about matrices, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 ## Using Docker images
 
@@ -104,16 +104,16 @@ GitHub Actions
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Cache node modules
-  uses: actions/cache@v2
+  uses: {% data reusables.actions.action-cache %}
   with:
     path: ~/.npm
-    key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+    key: {% raw %}v1-npm-deps-${{ hashFiles('**/package-lock.json') }}{% endraw %}
     restore-keys: v1-npm-deps-
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -154,10 +154,10 @@ GitHub Actions
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 - name: Upload math result for job 1
-  uses: actions/upload-artifact@v3
+  uses: {% data reusables.actions.action-upload-artifact %}
   with:
     name: homework
     path: math-homework.txt
@@ -165,11 +165,11 @@ GitHub Actions
 ...
 
 - name: Download math result for job 1
-  uses: actions/download-artifact@v3
+  uses: {% data reusables.actions.action-download-artifact %}
   with:
     name: homework
 ```
-{% endraw %}
+
 </td>
 </tr>
 </table>
@@ -249,7 +249,7 @@ workflows:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
 name: Containers
 
@@ -283,7 +283,7 @@ jobs:
       # See https://docs.github.com/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem
       - name: Setup file system permissions
         run: sudo chmod -R 777 $GITHUB_WORKSPACE /github /__w/_temp
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Install dependencies
         run: bundle install --path vendor/bundle
       - name: Setup environment configuration
@@ -293,7 +293,6 @@ jobs:
       - name: Run tests
         run: bundle exec rake
 ```
-{% endraw %}
 </td>
 </tr>
 </table>
@@ -400,9 +399,9 @@ workflows:
 {% endraw %}
 </td>
 <td class="d-table-cell v-align-top">
-{% raw %}
+
 ```yaml
-{% endraw %}{% data reusables.actions.actions-not-certified-by-github-comment %}{% raw %}
+{% data reusables.actions.actions-not-certified-by-github-comment %}
 
 name: Containers
 
@@ -435,16 +434,16 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Setup Ruby
         uses: eregon/use-ruby-action@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
-          ruby-version: ${{ matrix.ruby }}
+          ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         with:
           path: vendor/bundle
-          key: administrate-${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}
+          key: administrate-{% raw %}${{ matrix.image }}-${{ hashFiles('Gemfile.lock') }}{% endraw %}
       - name: Install postgres headers
         run: |
           sudo apt-get update
@@ -462,7 +461,6 @@ jobs:
       - name: Run appraisal
         run: bundle exec appraisal rake
 ```
-{% endraw %}
 </td>
 </tr>
 </table>

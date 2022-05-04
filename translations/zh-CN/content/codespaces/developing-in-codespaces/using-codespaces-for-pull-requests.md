@@ -27,7 +27,7 @@ topics:
 
 2. 在拉取请求列表中，单击要在 {% data variables.product.prodname_codespaces %} 中打开的拉取请求。
 3. 在屏幕右侧，单击 **{% octicon "code" aria-label="The code icon" %} 代码**。
-4. 从 {% data variables.product.prodname_codespaces %} 选项卡中，单击 **New codespace（新建代码空间）**。 ![用于在代码空间中打开 PR 的选项](/assets/images/help/codespaces/open-with-codespaces-pr.png)
+4. 在 {% data variables.product.prodname_codespaces %} 选项卡中，单击 **Create codespace on BRANCH（在 [分支] 上创建代码空间）**。 ![用于在代码空间中打开 PR 的选项](/assets/images/help/codespaces/open-with-codespaces-pr.png)
 
 ## 在 {% data variables.product.prodname_codespaces %} 中审阅拉取请求
 

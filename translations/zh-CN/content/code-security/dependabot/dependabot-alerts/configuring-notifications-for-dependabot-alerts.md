@@ -1,6 +1,6 @@
 ---
-title: Configuring notifications for Dependabot alerts
-shortTitle: Configure notifications
+title: 配置 Dependabot 警报的通知
+shortTitle: 配置通知
 intro: '优化接收 {% data variables.product.prodname_dependabot_alerts %} 相关通知的方式。'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies
@@ -34,7 +34,7 @@ topics:
 {% ifversion ghes or ghae-issue-4864 %}
 默认情况下，如果您的企业所有者已配置电子邮件以获取有关企业的通知，您将收到 {% data variables.product.prodname_dependabot_alerts %} 电子邮件。
 
-企业所有者也可以在没有通知的情况下启用 {% data variables.product.prodname_dependabot_alerts %}。 For more information, see "[Enabling {% data variables.product.prodname_dependabot %} for your enterprise](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+企业所有者也可以在没有通知的情况下启用 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[为企业启用 {% data variables.product.prodname_dependabot %}](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)”。
 {% endif %}
 
 ## 配置 {% data variables.product.prodname_dependabot_alerts %} 的通知
@@ -60,7 +60,7 @@ topics:
 
 ## 如何减少有漏洞依赖项通知的干扰
 
-如果您想要收到太多 {% data variables.product.prodname_dependabot_alerts %} 的通知，我们建议您选择加入每周的电子邮件摘要，或者在保持 {% data variables.product.prodname_dependabot_alerts %} 启用时关闭通知。 您仍可导航到仓库的 Security（安全性）选项卡查看 {% data variables.product.prodname_dependabot_alerts %}。 For more information, see "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
+如果您想要收到太多 {% data variables.product.prodname_dependabot_alerts %} 的通知，我们建议您选择加入每周的电子邮件摘要，或者在保持 {% data variables.product.prodname_dependabot_alerts %} 启用时关闭通知。 您仍可导航到仓库的 Security（安全性）选项卡查看 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[查看有漏洞依赖项的 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)”。
 
 ## 延伸阅读
 

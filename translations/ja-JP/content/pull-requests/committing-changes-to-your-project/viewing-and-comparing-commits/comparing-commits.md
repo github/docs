@@ -53,7 +53,7 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 別のリポジトリにあるブランチを比較するには、ブランチの名前の前にユーザ名を付けてください。 たとえば、`base` に `octocat:main` を指定し、`compare` に `octo-org:main` を指定することで、`octocat` と `octo-org` がそれぞれ所有するリポジトリの `main` ブランチを比較できます。
 
-2 つのリポジトリ間を比較した例については、[こちらをクリック](https://github.com/octocat/linguist/compare/master...octo-org:master)してください。
+2 つのリポジトリ間を比較した例については、[こちらをクリック](https://github.com/github/linguist/compare/master...octocat:master)してください。
 
 ## コミットを比較する
 

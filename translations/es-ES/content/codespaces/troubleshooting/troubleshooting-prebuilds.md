@@ -18,11 +18,15 @@ For more information about {% data variables.product.prodname_codespaces %} preb
 
 ## Checking whether a codespace was created from a prebuild?
 
-If multiple machine types are available when you create a codespace then a dialog box is displayed giving you a choice of machine types. This will display the "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" label beside machine types for which prebuilds are available.
+When you create a codespace, you can choose the type of the virtual machine you want to use. If a prebuild is available for the type of virtual machine, "{% octicon "zap" aria-label="The zap icon" %} Prebuild ready" is shown next to it.
 
-![The dialog box for choosing a machine type](/assets/images/help/codespaces/choose-custom-machine-type.png)
+![A list of available machine types](/assets/images/help/codespaces/choose-custom-machine-type.png)
 
-If you have your {% data variables.product.prodname_codespaces %} editor preference set to "Visual Studio Code for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used. Similarly, if your editor preference is "Visual Studio Code" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[Setting your default editor for Codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)."
+If you have your {% data variables.product.prodname_codespaces %} editor preference set to "Visual Studio Code for Web" then the "Setting up your codespace" page will show the message "Prebuilt codespace found" if a prebuild is being used.
+
+![The 'prebuilt codespace found' message](/assets/images/help/codespaces/prebuilt-codespace-found.png)
+
+Similarly, if your editor preference is "Visual Studio Code" then the integrated terminal will contain the message "You are on a prebuilt codespace defined by the prebuild configuration for your repository" when you create a new codespace. For more information, see "[Setting your default editor for Codespaces](/codespaces/customizing-your-codespace/setting-your-default-editor-for-codespaces)."
 
 After you have created a codespace you can check whether it was created from a prebuild by running the following {% data variables.product.prodname_cli %} command in the terminal:
 
@@ -42,16 +46,16 @@ cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME
 
 You may notice that sometimes, when you create a new codespace from a prebuild-enabled branch, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed in the dialog box for choosing a machine type. This means that prebuilds are not currently available.
 
-Each time you push to a prebuild-enabled branch, the prebuild template is updated. If the push involves a change to the dev container then, while the update is in progress, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is removed from the machine types dialog box. During this time you can still create codespaces without a prebuild template.
+By default, each time you push to a prebuild-enabled branch, the prebuild template is updated. If the push involves a change to the dev container configuration then, while the update is in progress, the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is removed from the list of machine types. During this time you can still create codespaces without a prebuild template. If required, you can reduce the occasions on which prebuilds are unavailable for a repository by setting the prebuild template to be updated only when you make a change to your dev container configuration files, or only on a custom schedule. Para obtener más información, consulta la sección "[Configurar las precompilaciones](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)".
 
-If your branch is not specifically enabled for prebuilds it may still benefit from prebuilds if it was branched from a prebuild-enabled branch. However, if the dev container is changed on your branch, so that it's not the same as the dev container on the base branch, prebuilds will no longer be available on your branch.
+If your branch is not specifically enabled for prebuilds it may still benefit from prebuilds if it was branched from a prebuild-enabled branch. However, if the dev container configuration is changed on your branch, so that it's not the same as the configuration on the base branch, prebuilds will no longer be available on your branch.
 
 Here are things to check if the "{% octicon "zap" aria-label="The zap icon" %} Prebuild Ready" label is not displayed for a particular branch:
 
 * Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this.
 * Confirm that the prebuild configuration includes your region.
-* Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
-* Si no se hicieron cambios de configuración recientemente, dirígete a la pestaña de **Acciones** de tu repositorio, haz clic en **{% octicon "codespaces" aria-label="The Codespaces icon" %} Preconfiguraciones de los {% data variables.product.prodname_codespaces %} ** en la lista de flujos de trabajo y verifica que las ejecuciones de flujo de trabajo precompliladas para la rama estén teniendo éxito. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container, then there will be no available prebuilds for the associated branch.
+* Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
+* Si no se hicieron cambios de configuración recientemente, dirígete a la pestaña de **Acciones** de tu repositorio, haz clic en **{% octicon "codespaces" aria-label="The Codespaces icon" %} Preconfiguraciones de los {% data variables.product.prodname_codespaces %} ** en la lista de flujos de trabajo y verifica que las ejecuciones de flujo de trabajo precompliladas para la rama estén teniendo éxito. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch.
 
 ## Leer más
 

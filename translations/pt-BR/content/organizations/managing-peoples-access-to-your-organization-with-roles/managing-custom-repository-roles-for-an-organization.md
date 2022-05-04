@@ -20,9 +20,7 @@ Para executar quaisquer ações em {% data variables.product.product_name %}, co
 
 Dentro de uma organização, você pode atribuir funções ao nível da organização, equipe e repositório. Para obter mais informações sobre os diferentes níveis de funções, consulte "[Funções em uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)".
 
-Se a sua organização usar {% data variables.product.prodname_ghe_cloud %}, você poderá ter um controle mais granular sobre as permissões que você concede no nível de repositório, criando até três funções personalizadas no repositório. Uma função de repositório personalizado é um conjunto configurável de permissões com um nome personalizado que você escolheu. Depois de criar um cargo personalizado, qualquer pessoa com acesso de administrador a um repositório pode atribuir a função a um indivíduo ou equipe. Para obter mais informações, consulte "[Gerenciando o acesso de um indivíduo ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" e "[Gerenciando o acesso da equipe ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
-
-{% data reusables.enterprise.link-to-ghec-trial %}
+Você pode ter um controle mais granular sobre as permissões que você concede no nível de repositório, criando até três funções personalizadas de repositório. Uma função de repositório personalizado é um conjunto configurável de permissões com um nome personalizado que você escolheu. Depois de criar um cargo personalizado, qualquer pessoa com acesso de administrador a um repositório pode atribuir a função a um indivíduo ou equipe. Para obter mais informações, consulte "[Gerenciando o acesso de um indivíduo ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" e "[Gerenciando o acesso da equipe ao repositório de uma organização](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
 
 ## Sobre a função herdada
 
@@ -111,6 +109,14 @@ Para resolver o acesso conflitante, você pode ajustar as permissões básicas d
 ## Criando a função de um repositório
 
 Para criar uma nova função do repositório, você deve adicionar permissões a uma função herdada e dar um nome à função personalizada.
+
+{% ifversion ghec %}
+{% note %}
+
+**Nota:** Somente organizações que usam {% data variables.product.prodname_ghe_cloud %} podem criar funções de repositório personalizadas. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

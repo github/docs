@@ -23,7 +23,7 @@ versions:
 - "[关于应用程序](/apps/about-apps/)"
 - “[用户级权限](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-level-permissions)”
 - "[授权 {% data variables.product.prodname_oauth_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-oauth-apps)"
-- "[Authorizing {% data variables.product.prodname_github_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
+- "[授权 {% data variables.product.prodname_github_apps %}](/github/authenticating-to-github/keeping-your-account-and-data-secure/authorizing-github-apps)"
 - "[审查授权的集成](/articles/reviewing-your-authorized-integrations/)"
 
 如果集成者或应用程序创建者使用 {% data variables.product.prodname_github_app %} 清单流程创建了应用程序，您可以安装预配置的 {% data variables.product.prodname_github_app %}。 有关如何以自动化配置运行 {% data variables.product.prodname_github_app %} 的信息，请联系集成者或应用程序创建者。

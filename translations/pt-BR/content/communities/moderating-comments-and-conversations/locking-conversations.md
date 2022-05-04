@@ -19,7 +19,7 @@ Bloquear uma conversa cria um evento na linha do tempo visível a qualquer um co
 
 ![Evento anônimo de linha do tempo de uma conversa bloqueada](/assets/images/help/issues/anonymized-timeline-entry-for-locked-conversation.png)
 
-Quando uma conversa é bloqueada, somente [pessoas com acesso de gravação](/articles/repository-permission-levels-for-an-organization/) e [proprietários e colaboradores de repositórios](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account) podem adicionar, ocultar ou excluir comentários.
+Quando uma conversa é bloqueada, somente [pessoas com acesso de gravação](/articles/repository-permission-levels-for-an-organization/) e [proprietários e colaboradores de repositórios](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account) podem adicionar, ocultar ou excluir comentários.
 
 Para pesquisar conversas bloqueadas em um repositório que não está arquivado, é posível usar os qualificadores de pesquisa `is:locked` e `archived:false`. As conversas são automaticamente bloqueadas em repositórios arquivados. Para obter mais informações, consulte "[Pesquisar problemas e pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-conversation-is-locked)".
 

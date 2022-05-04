@@ -20,12 +20,6 @@ You may want to use a dark theme to reduce power consumption on certain devices,
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}If you have low vision, you may benefit from a high contrast theme, with greater contrast between foreground and background elements.{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} If you have colorblindness, you may benefit from our light and dark colorblind themes.
 
-{% note %}
-
-**Note:** The colorblind themes are currently in public beta. For more information on enabling features in public beta, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."
-
-{% endnote %}
-
 {% endif %}
 
 {% data reusables.user-settings.access_settings %}
@@ -41,7 +35,7 @@ You may want to use a dark theme to reduce power consumption on certain devices,
     - If you chose to follow your system settings, click a day theme and a night theme.
 
       {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
-    {% ifversion fpt or ghae-issue-4619 or ghec %}
+    {% ifversion fpt or ghec %}
     - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[Exploring early access releases with feature preview](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
 
 {% if command-palette %}

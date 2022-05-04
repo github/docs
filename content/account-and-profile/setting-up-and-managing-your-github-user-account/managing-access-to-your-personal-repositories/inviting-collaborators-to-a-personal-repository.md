@@ -60,7 +60,7 @@ If you're a member of an {% data variables.product.prodname_emu_enterprise %}, y
 
 ## Further reading
 
-- "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-user-account)"
+- "[Permission levels for a personal account repository](/articles/permission-levels-for-a-user-account-repository/#collaborator-access-for-a-repository-owned-by-a-personal-account)"
 - "[Removing a collaborator from a personal repository](/articles/removing-a-collaborator-from-a-personal-repository)"
 - "[Removing yourself from a collaborator's repository](/articles/removing-yourself-from-a-collaborator-s-repository)"
 - "[Organizing members into teams](/organizations/organizing-members-into-teams)"

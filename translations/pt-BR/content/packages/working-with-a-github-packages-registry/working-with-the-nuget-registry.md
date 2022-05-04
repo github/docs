@@ -43,7 +43,7 @@ dotnet nuget add source --username USERNAME --password {%raw%}${{ secrets.GITHUB
 To authenticate to {% data variables.product.prodname_registry %} with the `dotnet` command-line interface (CLI), create a *nuget.config* file in your project directory specifying {% data variables.product.prodname_registry %} as a source under `packageSources` for the `dotnet` CLI client.
 
 You must replace:
-- `USERNAME` with the name of your user account on {% data variables.product.prodname_dotcom %}.
+- `USERNAME` with the name of your personal account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your personal access token.
 - `OWNER` with the name of the user or organization account that owns the repository containing your project.{% ifversion ghes or ghae %}
 - `HOSTNAME` with the host name for {% data variables.product.product_location %}.{% endif %}

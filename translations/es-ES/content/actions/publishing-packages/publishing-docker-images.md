@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -131,7 +131,7 @@ Las opciones de `build-push-action` que se requieren para {% data variables.prod
 {% ifversion fpt or ghec %}
 {% data reusables.package_registry.publish-docker-image %}
 
-The above workflow is triggered by a push to the "release" branch. Verifica el repositorio de GitHub y utiliza la `login-action` para ingresar en el {% data variables.product.prodname_container_registry %}. Luego extrae las etiquetas y marcas de la imagen de Docker. Finalmente, utiliza la acción `build-push-action` para crear la imagen y publicarla en el {% data variables.product.prodname_container_registry %}.
+El flujo de trabajo anterior se activa mediante una subida a la rama "release". Verifica el repositorio de GitHub y utiliza la `login-action` para ingresar en el {% data variables.product.prodname_container_registry %}. Luego extrae las etiquetas y marcas de la imagen de Docker. Finalmente, utiliza la acción `build-push-action` para crear la imagen y publicarla en el {% data variables.product.prodname_container_registry %}.
 
 {% else %}
 ```yaml{:copy}
@@ -151,7 +151,7 @@ jobs:
       contents: read{% endif %}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
@@ -197,7 +197,7 @@ jobs:
       contents: read{% endif %}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9

@@ -28,7 +28,7 @@ Para uma apresentação do processo de construção de um {% data variables.prod
 
 {% data variables.product.prodname_github_apps %} são atores de primeira classe no GitHub. Um {% data variables.product.prodname_github_app %} age em seu próprio nome, tomando ações por meio da API diretamente usando sua própria identidade, o que significa que você não precisa manter um bot ou conta de serviço como um usuário separado.
 
-O {% data variables.product.prodname_github_apps %} pode ser instalado diretamente em organizações e contas de usuários e conceder acesso a repositórios específicos. Eles vêm com webhooks integrados e permissões específicas e restritas. Ao configurar o {% data variables.product.prodname_github_app %}, você pode selecionar os repositórios que deseja que ele acesse. Por exemplo, você pode configurar um aplicativo denominado `MyGitHub` que escreve problemas no repositório `octocat` e _apenas_ no repositório `octocat`. Para instalar um {% data variables.product.prodname_github_app %}, você deve ser o proprietário de uma organização ou ter permissões de administrador em um repositório.
+O {% data variables.product.prodname_github_apps %} pode ser instalado diretamente em organizações e contas pessoal e conceder acesso a repositórios específicos. Eles vêm com webhooks integrados e permissões específicas e restritas. Ao configurar o {% data variables.product.prodname_github_app %}, você pode selecionar os repositórios que deseja que ele acesse. Por exemplo, você pode configurar um aplicativo denominado `MyGitHub` que escreve problemas no repositório `octocat` e _apenas_ no repositório `octocat`. Para instalar um {% data variables.product.prodname_github_app %}, você deve ser o proprietário de uma organização ou ter permissões de administrador em um repositório.
 
 {% data reusables.apps.app_manager_role %}
 
@@ -85,7 +85,7 @@ Tenha em mente essas ideias ao usar os tokens de acesso pessoais:
 * Você pode realizar solicitações de cURL únicas.
 * Você pode executar scripts pessoais.
 * Não configure um script para toda a sua equipe ou empresa usá-lo.
-* Não configure uma conta de usuário compartilhada para agir atuar um usuário bot.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
+* Não configure uma conta pessoal compartilhada para agir atuar um usuário bot.{% ifversion fpt or ghes > 3.2 or ghae-issue-4374 or ghec %}
 * Defina um vencimento para os seus tokens de acesso pessoais para ajudar a manter suas informações seguras.{% endif %}
 
 ## Determinar qual integração criar

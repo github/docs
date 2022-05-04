@@ -24,15 +24,17 @@ topics:
 
 ## 关注他人
 
-在 {% data variables.product.prodname_dotcom %} 上关注某人后，您将会在您的个人仪表板中收到有关其活动的通知。 更多信息请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
+在 {% data variables.product.prodname_dotcom %} 上关注某人后，您将会在您的个人仪表板中收到有关其公共活动的通知。 如果您关注的某人创建了一个新存储库、为存储库添加星标或关注其他用户，则该活动将显示在您的仪表板中。
 
 在某人的个人资料页面上单击 **Follow（关注）**可关注他们。
 
 ![关注用户按钮](/assets/images/help/profile/follow-user-button.png)
 
+更多信息请参阅“[关注人员](/get-started/exploring-projects-on-github/following-people)”。
+
 ## 关注仓库
 
-您可以关注仓库以接收有关新拉取请求和议题的通知。 当所有者更新仓库时，您将在个人仪表板中看到其更改。 更多信息请参阅{% ifversion fpt or ghae or ghes or ghec %}“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}”[关注和取消关注仓库](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}”。
+您可以订阅存储库以关注它并接收其中活动的通知。 当所有者更新仓库时，您将在个人仪表板中看到其更改。 更多信息请参阅“[查看订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)”。
 
 在仓库顶部单击 **Watch（关注）**可关注它。
 
@@ -44,38 +46,35 @@ topics:
 
 ## {% data variables.product.product_name %} 上的通信
 
-{% data variables.product.product_name %} 提供内置的协作通信工具，如议题和拉取请求，使您在构建出色的软件时能够与社区进行密切互动。 有关这些工具的概述以及每个工具的特异性，请参阅“[{% data variables.product.prodname_dotcom %} 通信快速入门](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)”。
+{% data variables.product.product_name %} 提供内置的协作通信工具，让您在构建出色的软件时与社区密切互动。 例如，您可以通过创建拉取请求来为其他用户的项目做出贡献，或者使用议题来跟踪 Bug 或在存储库中提出想法。 您还可以通过讨论与您的团队一起集思广益。
 
-## 更多功能
+有关这些工具的概述，请参阅“[{% data variables.product.prodname_dotcom %} 通信快速入门](/github/collaborating-with-issues-and-pull-requests/quickstart-for-communicating-on-github)”。
 
-### 创建拉取请求
-
- 您可能希望为其他人的项目做出贡献，例如添加功能或修复漏洞。 做出更改后，通过发送拉取请求让原作者知道。 更多信息请参阅“[关于拉取请求](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)”。
-
- ![拉取请求按钮](/assets/images/help/repository/repo-actions-pullrequest.png)
-
-### 使用议题
-
-在仓库上进行协作时，可使用议题来跟踪想法、增强功能、任务或漏洞。 更多信息请参阅“[关于议题](/articles/about-issues/)”。
-
-![议题按钮](/assets/images/help/repository/repo-tabs-issues.png)
-
-### 参与组织
+## 参与组织
 
 组织是共享帐户，其中业务和开源项目可一次协助处理多个项目。 所有者和管理员可建立具有特殊权限的团队、拥有公共组织资料以及跟踪组织内的活动。 更多信息请参阅“[关于组织](/articles/about-organizations/)”。
+
+在仪表板中，单击仪表板左侧用户名的下拉菜单。 在这里，您可以查看您所属的组织，并在它们之间轻松切换。
 
 ![切换帐户上下文下拉列表](/assets/images/help/overview/dashboard-contextswitcher.png)
 
 ### 在 {% data variables.product.prodname_dotcom %} 上探索其他项目
 
-使用 {% data variables.explore.explore_github %}、[探索仓库](https://github.com/explore)以及 {% data variables.explore.trending_page %} 来发现感兴趣的项目。 用星号标记感兴趣的项目，以便今后访问。 访问您的 {% data variables.explore.your_stars_page %} 可查看所有加星标的项目。  更多信息请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard/)”。
+您可以在 {% data variables.product.prodname_dotcom %} 的 Explore（探索）页面上发现新的和有趣的项目。 您可以为有趣的项目加注星标，以便以后再次轻松找到它们。 访问您的星标页面，查看所有已加星标的项目。 有关星标的更多信息，请参阅“[使用星标保存仓库](/get-started/exploring-projects-on-github/saving-repositories-with-stars)”。
 
-## 祝贺
+您的仪表板源会根据您的兴趣显示项目，包括您关注的存储库、您关注的人员以及您对公共存储库的贡献。 在仪表板中，您可以查看热门项目、查看主题和查看集合。
 
-您现在已连接到 {% data variables.product.product_name %} 社区。 接下来您要做什么？ ![用星号标记项目](/assets/images/help/stars/star-a-project.png)
+要探索更多项目，请参阅“{% data variables.explore.explore_github %}”。
 
+## 后续步骤
+您现在已连接到 {% data variables.product.product_name %} 社区。 还有其他方法可以在 {% data variables.product.product_name %} 中进行交互和构建。
 
-- 要将您的 {% data variables.product.product_name %} 项目与计算机同步，您可以设置 Git。 更多信息请参阅“[设置 Git](/articles/set-up-git)”。
-- 您也可以创建仓库，以放置所有项目和维护工作流程。 更多信息请参阅“[创建仓库](/articles/create-a-repo)”。
-- 您可以复刻仓库以进行您想要看到的更改，而不影响原始仓库。 更多信息请参阅“[复刻仓库](/articles/fork-a-repo)”。
-- {% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.getting-started.set-up-git %}
+
+* {% data reusables.getting-started.create-a-repository %}
+
+* {% data reusables.getting-started.fork-a-repository %}
+
+* {% data reusables.getting-started.contributing-to-projects  %}
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

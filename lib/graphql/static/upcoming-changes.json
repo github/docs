@@ -1,5 +1,15 @@
 {
   "dotcom": {
+    "2022-10-01": [
+      {
+        "location": "UpdateProjectNextItemFieldInput.fieldWithSettingId",
+        "description": "<p><code>fieldWithSettingId</code> will be removed. Use <code>fieldConstraintId</code> instead</p>",
+        "reason": "<p>Renamed to fieldConstraintId to improve naming consistency.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "memex"
+      }
+    ],
     "2022-07-01": [
       {
         "location": "Query.sponsorables.dependencyEcosystem",
@@ -8,6 +18,22 @@
         "date": "2022-07-01",
         "criticality": "breaking",
         "owner": "cheshire137"
+      },
+      {
+        "location": "Enterprise.userAccounts",
+        "description": "<p><code>userAccounts</code> will be removed. Use the <code>Enterprise.members</code> field instead.</p>",
+        "reason": "<p>The <code>Enterprise.userAccounts</code> field is being removed.</p>",
+        "date": "2022-07-01",
+        "criticality": "breaking",
+        "owner": "jdennes"
+      },
+      {
+        "location": "AddPullRequestToMergeQueueInput.branch",
+        "description": "<p><code>branch</code> will be removed.</p>",
+        "reason": "<p>PRs are added to the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+        "date": "2022-07-01",
+        "criticality": "breaking",
+        "owner": "jhunschejones"
       }
     ],
     "2022-04-01": [
@@ -18,14 +44,6 @@
         "date": "2022-04-01",
         "criticality": "breaking",
         "owner": "colinshum"
-      },
-      {
-        "location": "PullRequest.viewerCanOverrideMergeQueue",
-        "description": "<p><code>viewerCanOverrideMergeQueue</code> will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.</p>",
-        "reason": "<p><code>viewer_can_override_merge_queue</code> will be removed</p>",
-        "date": "2022-04-01",
-        "criticality": "breaking",
-        "owner": "cbeaman"
       }
     ],
     "2021-10-01": [
@@ -56,30 +74,6 @@
         "date": "2021-01-01",
         "criticality": "breaking",
         "owner": "nplasterer"
-      },
-      {
-        "location": "EnterprisePendingCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseOutsideCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All outside collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseMemberEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All members consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-10-01": [
@@ -90,14 +84,6 @@
         "date": "2020-10-01",
         "criticality": "breaking",
         "owner": "nholden"
-      },
-      {
-        "location": "RepositoryInvitationOrderField.INVITEE_LOGIN",
-        "description": "<p><code>INVITEE_LOGIN</code> will be removed.</p>",
-        "reason": "<p><code>INVITEE_LOGIN</code> is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee.</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
       },
       {
         "location": "PullRequest.timeline",
@@ -114,24 +100,6 @@
         "date": "2020-10-01",
         "criticality": "breaking",
         "owner": "mikesea"
-      },
-      {
-        "location": "EnterpriseOwnerInfo.pendingCollaborators",
-        "description": "<p><code>pendingCollaborators</code> will be removed. Use the <code>pendingCollaboratorInvitations</code> field instead.</p>",
-        "reason": "<p>Repository invitations can now be associated with an email, not only an invitee.</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
-      }
-    ],
-    "2020-07-01": [
-      {
-        "location": "EnterprisePendingMemberInvitationEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending members consume a license</p>",
-        "date": "2020-07-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-04-01": [
@@ -152,22 +120,6 @@
         "date": "2020-01-01",
         "criticality": "breaking",
         "owner": "tambling"
-      },
-      {
-        "location": "EnterpriseBillingInfo.seats",
-        "description": "<p><code>seats</code> will be removed. Use EnterpriseBillingInfo.totalLicenses instead.</p>",
-        "reason": "<p><code>seats</code> will be replaced with <code>totalLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
-      },
-      {
-        "location": "EnterpriseBillingInfo.availableSeats",
-        "description": "<p><code>availableSeats</code> will be removed. Use EnterpriseBillingInfo.totalAvailableLicenses instead.</p>",
-        "reason": "<p><code>availableSeats</code> will be replaced with <code>totalAvailableLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
       },
       {
         "location": "AssignedEvent.user",
@@ -190,6 +142,16 @@
     ]
   },
   "ghec": {
+    "2022-10-01": [
+      {
+        "location": "UpdateProjectNextItemFieldInput.fieldWithSettingId",
+        "description": "<p><code>fieldWithSettingId</code> will be removed. Use <code>fieldConstraintId</code> instead</p>",
+        "reason": "<p>Renamed to fieldConstraintId to improve naming consistency.</p>",
+        "date": "2022-10-01",
+        "criticality": "breaking",
+        "owner": "memex"
+      }
+    ],
     "2022-07-01": [
       {
         "location": "Query.sponsorables.dependencyEcosystem",
@@ -198,6 +160,22 @@
         "date": "2022-07-01",
         "criticality": "breaking",
         "owner": "cheshire137"
+      },
+      {
+        "location": "Enterprise.userAccounts",
+        "description": "<p><code>userAccounts</code> will be removed. Use the <code>Enterprise.members</code> field instead.</p>",
+        "reason": "<p>The <code>Enterprise.userAccounts</code> field is being removed.</p>",
+        "date": "2022-07-01",
+        "criticality": "breaking",
+        "owner": "jdennes"
+      },
+      {
+        "location": "AddPullRequestToMergeQueueInput.branch",
+        "description": "<p><code>branch</code> will be removed.</p>",
+        "reason": "<p>PRs are added to the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+        "date": "2022-07-01",
+        "criticality": "breaking",
+        "owner": "jhunschejones"
       }
     ],
     "2022-04-01": [
@@ -208,14 +186,6 @@
         "date": "2022-04-01",
         "criticality": "breaking",
         "owner": "colinshum"
-      },
-      {
-        "location": "PullRequest.viewerCanOverrideMergeQueue",
-        "description": "<p><code>viewerCanOverrideMergeQueue</code> will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.</p>",
-        "reason": "<p><code>viewer_can_override_merge_queue</code> will be removed</p>",
-        "date": "2022-04-01",
-        "criticality": "breaking",
-        "owner": "cbeaman"
       }
     ],
     "2021-10-01": [
@@ -246,30 +216,6 @@
         "date": "2021-01-01",
         "criticality": "breaking",
         "owner": "nplasterer"
-      },
-      {
-        "location": "EnterprisePendingCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseOutsideCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All outside collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseMemberEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All members consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-10-01": [
@@ -280,14 +226,6 @@
         "date": "2020-10-01",
         "criticality": "breaking",
         "owner": "nholden"
-      },
-      {
-        "location": "RepositoryInvitationOrderField.INVITEE_LOGIN",
-        "description": "<p><code>INVITEE_LOGIN</code> will be removed.</p>",
-        "reason": "<p><code>INVITEE_LOGIN</code> is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee.</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
       },
       {
         "location": "PullRequest.timeline",
@@ -304,24 +242,6 @@
         "date": "2020-10-01",
         "criticality": "breaking",
         "owner": "mikesea"
-      },
-      {
-        "location": "EnterpriseOwnerInfo.pendingCollaborators",
-        "description": "<p><code>pendingCollaborators</code> will be removed. Use the <code>pendingCollaboratorInvitations</code> field instead.</p>",
-        "reason": "<p>Repository invitations can now be associated with an email, not only an invitee.</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
-      }
-    ],
-    "2020-07-01": [
-      {
-        "location": "EnterprisePendingMemberInvitationEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending members consume a license</p>",
-        "date": "2020-07-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-04-01": [
@@ -342,22 +262,6 @@
         "date": "2020-01-01",
         "criticality": "breaking",
         "owner": "tambling"
-      },
-      {
-        "location": "EnterpriseBillingInfo.seats",
-        "description": "<p><code>seats</code> will be removed. Use EnterpriseBillingInfo.totalLicenses instead.</p>",
-        "reason": "<p><code>seats</code> will be replaced with <code>totalLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
-      },
-      {
-        "location": "EnterpriseBillingInfo.availableSeats",
-        "description": "<p><code>availableSeats</code> will be removed. Use EnterpriseBillingInfo.totalAvailableLicenses instead.</p>",
-        "reason": "<p><code>availableSeats</code> will be replaced with <code>totalAvailableLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
       },
       {
         "location": "AssignedEvent.user",
@@ -971,149 +875,25 @@
       }
     ]
   },
-  "ghes-3.0": {
-    "2021-01-01": [
-      {
-        "location": "MergeStateStatus.DRAFT",
-        "description": "<p><code>DRAFT</code> will be removed. Use PullRequest.isDraft instead.</p>",
-        "reason": "<p>DRAFT state will be removed from this enum and <code>isDraft</code> should be used instead</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "nplasterer"
-      },
-      {
-        "location": "EnterprisePendingCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseOutsideCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All outside collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseMemberEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All members consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      }
-    ],
-    "2020-10-01": [
-      {
-        "location": "Sponsorship.sponsor",
-        "description": "<p><code>sponsor</code> will be removed. Use <code>Sponsorship.sponsorEntity</code> instead.</p>",
-        "reason": "<p><code>Sponsorship.sponsor</code> will be removed.</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "nholden"
-      },
-      {
-        "location": "RepositoryInvitationOrderField.INVITEE_LOGIN",
-        "description": "<p><code>INVITEE_LOGIN</code> will be removed.</p>",
-        "reason": "<p><code>INVITEE_LOGIN</code> is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee.</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
-      },
-      {
-        "location": "PullRequest.timeline",
-        "description": "<p><code>timeline</code> will be removed. Use PullRequest.timelineItems instead.</p>",
-        "reason": "<p><code>timeline</code> will be removed</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "mikesea"
-      },
-      {
-        "location": "Issue.timeline",
-        "description": "<p><code>timeline</code> will be removed. Use Issue.timelineItems instead.</p>",
-        "reason": "<p><code>timeline</code> will be removed</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "mikesea"
-      },
-      {
-        "location": "EnterpriseOwnerInfo.pendingCollaborators",
-        "description": "<p><code>pendingCollaborators</code> will be removed. Use the <code>pendingCollaboratorInvitations</code> field instead.</p>",
-        "reason": "<p>Repository invitations can now be associated with an email, not only an invitee.</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
-      }
-    ],
-    "2020-07-01": [
-      {
-        "location": "EnterprisePendingMemberInvitationEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending members consume a license</p>",
-        "date": "2020-07-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      }
-    ],
-    "2020-04-01": [
-      {
-        "location": "Sponsorship.maintainer",
-        "description": "<p><code>maintainer</code> will be removed. Use <code>Sponsorship.sponsorable</code> instead.</p>",
-        "reason": "<p><code>Sponsorship.maintainer</code> will be removed.</p>",
-        "date": "2020-04-01",
-        "criticality": "breaking",
-        "owner": "antn"
-      }
-    ],
-    "2020-01-01": [
-      {
-        "location": "UnassignedEvent.user",
-        "description": "<p><code>user</code> will be removed. Use the <code>assignee</code> field instead.</p>",
-        "reason": "<p>Assignees can now be mannequins.</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "tambling"
-      },
-      {
-        "location": "EnterpriseBillingInfo.seats",
-        "description": "<p><code>seats</code> will be removed. Use EnterpriseBillingInfo.totalLicenses instead.</p>",
-        "reason": "<p><code>seats</code> will be replaced with <code>totalLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
-      },
-      {
-        "location": "EnterpriseBillingInfo.availableSeats",
-        "description": "<p><code>availableSeats</code> will be removed. Use EnterpriseBillingInfo.totalAvailableLicenses instead.</p>",
-        "reason": "<p><code>availableSeats</code> will be replaced with <code>totalAvailableLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
-      },
-      {
-        "location": "AssignedEvent.user",
-        "description": "<p><code>user</code> will be removed. Use the <code>assignee</code> field instead.</p>",
-        "reason": "<p>Assignees can now be mannequins.</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "tambling"
-      }
-    ],
-    "2019-04-01": [
-      {
-        "location": "Migration.uploadUrlTemplate",
-        "description": "<p><code>uploadUrlTemplate</code> will be removed. Use <code>uploadUrl</code> instead.</p>",
-        "reason": "<p><code>uploadUrlTemplate</code> is being removed because it is not a standard URL and adds an extra user step.</p>",
-        "date": "2019-04-01",
-        "criticality": "breaking",
-        "owner": "tambling"
-      }
-    ]
-  },
   "ghae": {
+    "2022-07-01": [
+      {
+        "location": "Enterprise.userAccounts",
+        "description": "<p><code>userAccounts</code> will be removed. Use the <code>Enterprise.members</code> field instead.</p>",
+        "reason": "<p>The <code>Enterprise.userAccounts</code> field is being removed.</p>",
+        "date": "2022-07-01",
+        "criticality": "breaking",
+        "owner": "jdennes"
+      },
+      {
+        "location": "AddPullRequestToMergeQueueInput.branch",
+        "description": "<p><code>branch</code> will be removed.</p>",
+        "reason": "<p>PRs are added to the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+        "date": "2022-07-01",
+        "criticality": "breaking",
+        "owner": "jhunschejones"
+      }
+    ],
     "2022-04-01": [
       {
         "location": "Repository.defaultMergeQueue",
@@ -1122,14 +902,6 @@
         "date": "2022-04-01",
         "criticality": "breaking",
         "owner": "colinshum"
-      },
-      {
-        "location": "PullRequest.viewerCanOverrideMergeQueue",
-        "description": "<p><code>viewerCanOverrideMergeQueue</code> will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.</p>",
-        "reason": "<p><code>viewer_can_override_merge_queue</code> will be removed</p>",
-        "date": "2022-04-01",
-        "criticality": "breaking",
-        "owner": "cbeaman"
       }
     ],
     "2021-10-01": [
@@ -1160,41 +932,9 @@
         "date": "2021-01-01",
         "criticality": "breaking",
         "owner": "nplasterer"
-      },
-      {
-        "location": "EnterprisePendingCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseOutsideCollaboratorEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All outside collaborators consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
-      },
-      {
-        "location": "EnterpriseMemberEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All members consume a license</p>",
-        "date": "2021-01-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-10-01": [
-      {
-        "location": "RepositoryInvitationOrderField.INVITEE_LOGIN",
-        "description": "<p><code>INVITEE_LOGIN</code> will be removed.</p>",
-        "reason": "<p><code>INVITEE_LOGIN</code> is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee.</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
-      },
       {
         "location": "PullRequest.timeline",
         "description": "<p><code>timeline</code> will be removed. Use PullRequest.timelineItems instead.</p>",
@@ -1210,24 +950,6 @@
         "date": "2020-10-01",
         "criticality": "breaking",
         "owner": "mikesea"
-      },
-      {
-        "location": "EnterpriseOwnerInfo.pendingCollaborators",
-        "description": "<p><code>pendingCollaborators</code> will be removed. Use the <code>pendingCollaboratorInvitations</code> field instead.</p>",
-        "reason": "<p>Repository invitations can now be associated with an email, not only an invitee.</p>",
-        "date": "2020-10-01",
-        "criticality": "breaking",
-        "owner": "jdennes"
-      }
-    ],
-    "2020-07-01": [
-      {
-        "location": "EnterprisePendingMemberInvitationEdge.isUnlicensed",
-        "description": "<p><code>isUnlicensed</code> will be removed.</p>",
-        "reason": "<p>All pending members consume a license</p>",
-        "date": "2020-07-01",
-        "criticality": "breaking",
-        "owner": "BrentWheeldon"
       }
     ],
     "2020-01-01": [
@@ -1238,22 +960,6 @@
         "date": "2020-01-01",
         "criticality": "breaking",
         "owner": "tambling"
-      },
-      {
-        "location": "EnterpriseBillingInfo.seats",
-        "description": "<p><code>seats</code> will be removed. Use EnterpriseBillingInfo.totalLicenses instead.</p>",
-        "reason": "<p><code>seats</code> will be replaced with <code>totalLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
-      },
-      {
-        "location": "EnterpriseBillingInfo.availableSeats",
-        "description": "<p><code>availableSeats</code> will be removed. Use EnterpriseBillingInfo.totalAvailableLicenses instead.</p>",
-        "reason": "<p><code>availableSeats</code> will be replaced with <code>totalAvailableLicenses</code> to provide more clarity on the value being returned</p>",
-        "date": "2020-01-01",
-        "criticality": "breaking",
-        "owner": "BlakeWilliams"
       },
       {
         "location": "AssignedEvent.user",

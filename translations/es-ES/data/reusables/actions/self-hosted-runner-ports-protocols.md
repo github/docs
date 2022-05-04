@@ -1,3 +1,3 @@
 {% ifversion ghes or ghae %}
-The connection between self-hosted runners and {% data variables.product.product_name %} is over {% ifversion ghes %}HTTP (port 80) or {% endif %}HTTPS (port 443). {% ifversion ghes %}To ensure connectivity over HTTPS, configure TLS for {% data variables.product.product_location %}. For more information, see "[Configuring TLS](/admin/configuration/configuring-network-settings/configuring-tls)."{% endif %}
+La conexión entre los ejecutores auto-hospedados y {% data variables.product.product_name %} es a través de {% ifversion ghes %}HTTP (puerto 80) o {% endif %}HTTPS (puerto 443). {% ifversion ghes %}Para garantizar la conectividad por HTTPS, configura el TLS para {% data variables.product.product_location %}. Para obtener más información, consulta la sección "[Configurar el TLS](/admin/configuration/configuring-network-settings/configuring-tls)".{% endif %}
 {% endif %}

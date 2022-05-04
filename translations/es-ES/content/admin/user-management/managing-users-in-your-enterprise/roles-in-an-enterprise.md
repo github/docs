@@ -41,9 +41,9 @@ Los propietarios de las empresas tienen el control absoluto de las mismas y pued
 {% ifversion ghec %}- Administrar la configuración de facturación{% endif %}
 
 {% if enterprise-owner-join-org %}
-Los propietarios empresariales no tienen acceso a los ajustes o contenido de la organización predeterminadamente. Para obtener acceso, los propietarios de empresas pueden unirse a cualquier organización que le pertenezca a su empresa. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+Los propietarios empresariales no tienen acceso a los ajustes o contenido de la organización predeterminadamente. Para obtener acceso, los propietarios de empresas pueden unirse a cualquier organización que le pertenezca a su empresa. Para obtener más información, consulta la sección "[Administrar tu rol en una organización que le pertenezca a tu empresa](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)".
 
-Owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
+Los propietarios de las organizaciones en tu empresa no tienen acceso a la empresa misma a menos de que los hagas propietarios de la misma.
 {% else %}
 Los propietarios de empresa no pueden acceder a los parámetros o el contenido de la organización, a menos que se conviertan en propietarios de la organización o que se les otorgue acceso directo al repositorio que le pertenece a una organización. De forma similar, los propietarios de las organizaciones en tu empresa no tienen acceso a la empresa misma a menos de que los conviertas en propietarios de ella.
 {% endif %}

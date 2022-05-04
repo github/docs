@@ -12,18 +12,18 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: 合并多个用户帐户
+shortTitle: 合并多个个人帐户
 ---
 
 {% tip %}
 
 {% ifversion ghec %}
 
-**提示：** {% data variables.product.prodname_emus %} 允许企业通过身份提供商 (IdP) 为其成员配置唯一的用户帐户。 更多信息请参阅“[关于企业管理用户](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)”。 对于其他用例，我们建议仅使用一个用户帐户来管理个人和专业存储库。
+**提示：** {% data variables.product.prodname_emus %} 允许企业通过身份提供商 (IdP) 为其成员配置唯一的个人帐户。 更多信息请参阅“[关于企业管理用户](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/about-enterprise-managed-users)”。 对于其他用例，我们建议仅使用一个个人帐户来管理个人和专业存储库。
 
 {% else %}
 
-**提示：**建议只使用一个用户帐户来管理个人和专业仓库。
+**提示：**建议只使用一个个人帐户来管理个人和专业仓库。
 
 {% endif %}
 
@@ -31,7 +31,9 @@ shortTitle: 合并多个用户帐户
 
 {% warning %}
 
-**警告：** 组织和存储库访问权限不可在帐户之间转移。 如果要删除的帐户具有现有访问权限，则组织所有者或存储库管理员将需要邀请您要保留的帐户。
+**警告：**
+- 组织和存储库访问权限不可在帐户之间转移。 如果要删除的帐户具有现有访问权限，则组织所有者或存储库管理员将需要邀请您要保留的帐户。
+- 使用 GitHub 提供的 `noreply` 电子邮件地址创建的任何提交都不能从一个帐户转移到另一个帐户。 如果要删除的帐户使用了 **Keep my email address private（将我的电子邮件地址设为私有）**选项，则无法将要删除的帐户创建的提交转移到要保留的帐户。
 
 {% endwarning %}
 

@@ -33,34 +33,44 @@ shortTitle: GitHub Actions policies
 
 {% ifversion ghes %}If you enable {% data variables.product.prodname_actions %}, any{% else %}Any{% endif %} organization on {% data variables.product.product_location %} can use {% data variables.product.prodname_actions %}. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_actions %}. By default, organization owners can manage how members use {% data variables.product.prodname_actions %}. For more information, see "[Disabling or limiting {% data variables.product.prodname_actions %} for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
 
-## Enforcing a policy to restrict the use of actions in your enterprise
+## Enforcing a policy to restrict the use of {% data variables.product.prodname_actions %} in your enterprise
 
-Enterprise 内のすべての Organization に対して {% data variables.product.prodname_actions %} を無効化するか、特定の Organization のみを許可するかを選択できます。 Enterprise にあるローカルのアクションだけ利用できるように、パブリックなアクションの利用を制限することもできます。
+Enterprise 内のすべての Organization に対して {% data variables.product.prodname_actions %} を無効化するか、特定の Organization のみを許可するかを選択できます。 You can also limit the use of public actions {% if actions-workflow-policy %}and reusable workflows{% endif %}, so that people can only use local actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that exist in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-{% data reusables.actions.enterprise-actions-permissions %}
+1. "Policies（ポリシー）"の下で、オプションを選択してください。
+
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
+
+   {%- ifversion ghes or ghae %}
+   {% note %}
+
+   **Note:** To enable access to public actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, you must first configure {% data variables.product.product_location %} to connect to {% data variables.product.prodname_dotcom_the_website %}. 詳しい情報については「[GitHub Connectを使用したGitHub.comのアクションへの自動アクセスの有効化](/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)」を参照してください。
+
+   {% endnote %}
+   {%- endif %}
+   {% if actions-workflow-policy %}
+   ![この Enterprise アカウントについてアクションを無効化、無効化、または制限](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
+   {%- else %}
+   ![この Enterprise アカウントについてアクションを無効化、無効化、または制限](/assets/images/help/organizations/enterprise-actions-policy.png)
+   {%- endif %}
 1. [**Save**] をクリックします。
-
-{% ifversion ghec or ghes or ghae %}
-
-### Allowing select actions to run
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. [**Policies**] で [**Allow select actions**] を選択し、必要なアクションをリストに追加します。
-   {%- ifversion ghes or ghae-issue-5094 %}
-   ![許可リストにアクションを追加する](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% if actions-workflow-policy %} and reusable workflows{% endif %} to the list.
+   {% if actions-workflow-policy %}
+   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
+   {%- elsif ghes or ghae-issue-5094 %}
+   ![Add actions to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
-   ![許可リストにアクションを追加する](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
+   ![Add actions to the allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
    {%- endif %}
-{% endif %}
-
-{% ifversion ghec or ghes or ghae %}
 
 ## Enforcing a policy for artifact and log retention in your enterprise
 
@@ -72,8 +82,6 @@ Enterprise 内のすべての Organization に対して {% data variables.produc
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.change-retention-period-for-artifacts-logs  %}
-
-{% endif %}
 
 ## Enforcing a policy for fork pull requests in your enterprise
 
@@ -94,8 +102,6 @@ You can enforce policies to control how {% data variables.product.prodname_actio
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae %}
-
 ### Enforcing a policy for fork pull requests in private repositories
 
 {% data reusables.actions.private-repository-forks-overview %}
@@ -108,8 +114,6 @@ If a policy is enabled for an enterprise, the policy can be selectively disabled
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.private-repository-forks-configure %}
-
-{% endif %}
 
 {% ifversion ghec or ghes > 3.1 or ghae %}
 

@@ -35,7 +35,7 @@ Si utilizas un flujo de trabajo desde un repositorio diferente, cualquier acció
 
 Cuando un flujo de trabajo llamante activa uno reutilizable, el contexto `github` siempre se asocia con el flujo llamante. Se otorga acceso automáticamente al flujo de trabajo llamado para `github.token` y `secrets.GITHUB_TOKEN`. Para obtener más información sobre el contexto `github`, consulta la sección "[Sintaxis de contexto y expresión para GitHub Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
-You can view the reused workflows referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
+Puedes ver los flujos de trabajo reutilizados que se referencian en tus flujos de trabajo de {% data variables.product.prodname_actions %} como dependencias en la gráfica de dependencias del repositorio que los contiene. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)".
 
 ### Flujos de trabajo reutilizables e iniciales
 
@@ -48,7 +48,7 @@ Para obtener más información, consulta la sección "[Crear flujos de trabajo i
 Un flujo de trabajo reutilizable puede utilizar otro de ellos si {% ifversion ghes or ghec or ghae %}alguna{% else %}cualquiera{% endif %} de las siguientes condiciones es verdadera:
 
 * Ambos flujos de trabajo están en el mismo repositorio.
-* El flujo de trabajo llamado se almacena en un repositorio público.{% ifversion ghes or ghec or ghae %}
+* The called workflow is stored in a public repository{% if actions-workflow-policy %}, and your {% ifversion ghec %}enterprise{% else %}organization{% endif %} allows you to use public reusable workflows{% endif %}.{% ifversion ghes or ghec or ghae %}
 * El flujo de trabajo llamado se almacena en un repositorio interno y los ajustes de dicho repositorio permiten que se acceda a él. Para obtener más información, consulta la sección {% if internal-actions %}"[Compartir acciones y flujos de trabajo con tu empresa](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise){% else %}"[Administrar los ajustes de las {% data variables.product.prodname_actions %} en un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository){% endif %}".{% endif %}
 
 ## Utilizar ejecutores
@@ -63,7 +63,7 @@ La asignación de ejecutores hospedados en {% data variables.product.prodname_do
 
 {% endif %}
 
-Called workflows that are owned by the same user or organization{% ifversion ghes or ghec or ghae %} or enterprise{% endif %} as the caller workflow can access self-hosted runners from the caller's context. Esto significa que el flujo de trabajo llamado puede acceder a los ejecutores auto-hospedados que están:
+Los flujos de trabajo llamados que pertenecen al mismo usuario u organización{% ifversion ghes or ghec or ghae %} o empresa{% endif %} que el flujo de trabajo llamante pueden acceder a los ejecutores auto-hospedados desde el contexto del llamante. Esto significa que el flujo de trabajo llamado puede acceder a los ejecutores auto-hospedados que están:
 * En el repositorio del llamador
 * En la organización{% ifversion ghes or ghec or ghae %} o empresa{% endif %}, de la organización del repositorio, siempre y cuando se haya hecho disponible al ejecutor para el repositorio llamante
 
@@ -104,7 +104,7 @@ Puedes definir entradas y secretos, las cuales pueden pasarse desde el flujo de 
    ```
    {% endraw %}
    Para encontrar los detalles de la sintaxis para definir entradas y secretos, consulta [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) y [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
-1. Referencia la entrada o secreto ene l flujo de trabajo reutilizable.
+1. In the reusable workflow, reference the input or secret that you defined in the `on` key in the previous step.
 
    {% raw %}
    ```yaml
@@ -167,7 +167,7 @@ Se llama a un flujo de trabajo reutilizable utilizando la palabra clave `uses`. 
 
 [`jobs.<job_id>.uses`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-You reference reusable workflow files using {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}one of the following syntaxes:{% else %}the syntax:{% endif %}
+Referenciaras los archivos de flujo de trabajo reutilizables utilizando {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}una de las siguientes sintaxis:{% else %}la sintaxis:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
@@ -308,4 +308,4 @@ Para obtener más información sobre cómo utilizar la API de REST para consulta
 
 Para seguir aprendiendo sobre las {% data variables.product.prodname_actions %}, consulta la sección "[Eventos que activan flujos de trabajo](/actions/learn-github-actions/events-that-trigger-workflows)".
 
-{% if restrict-groups-to-workflows %}You can standardize deployments by creating a self-hosted runner group that can only execute a specific reusable workflow. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."{% endif %}
+{% if restrict-groups-to-workflows %}Puedes estandarizar los despliegues creando un grupo de ejecutores auto-hospedados que solo ejecute un flujo de trabajo reutilizable. Para obtener más información, consulta la sección "[Administrar acceso a los ejecutores auto-hospedados utilizando grupos](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)".{% endif %}

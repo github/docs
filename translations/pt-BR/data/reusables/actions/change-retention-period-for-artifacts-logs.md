@@ -1,2 +1,2 @@
-1. Em **Tempo de retenção do artefato e registro**, digite um novo valor.
+1. Under **Artifact and log retention**, enter a new value.
 1. Clique em **Salvar** para aplicar a alteração.

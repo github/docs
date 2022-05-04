@@ -1,6 +1,6 @@
 ---
-title: Assigning the team maintainer role to a team member
-intro: You can give a team member the ability to manage team membership and settings by assigning the team maintainer role.
+title: 将团队维护者角色分配给团队成员
+intro: 您可以通过分配团队维护者角色，为团队成员提供管理团队成员身份和设置的能力。
 redirect_from:
   - /articles/giving-team-maintainer-permissions-to-an-organization-member-early-access-program
   - /articles/giving-team-maintainer-permissions-to-an-organization-member
@@ -14,13 +14,13 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Team maintainers
+shortTitle: 团队维护员
 permissions: Organization owners can promote team members to team maintainers.
 ---
 
-## About team maintainers
+## 关于团队维护员
 
-People with the team maintainer role can manage team membership and settings.
+具有团队维护员角色的人员可以管理团队成员身份和设置。
 
 - [更改团队名称和描述](/articles/renaming-a-team)
 - [更改团队的可见性](/articles/changing-team-visibility)
@@ -38,7 +38,7 @@ People with the team maintainer role can manage team membership and settings.
 
 ## 将组织成员升级为团队维护员
 
-Before you can promote an organization member to team maintainer, the person must already be a member of the team.
+在将组织成员提升为团队维护员之前，该人员必须已经是团队的成员。
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
