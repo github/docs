@@ -35,14 +35,14 @@ When installing or publishing a Docker image, the {% data variables.product.prod
 
 ## Pushing container images
 
-This example pushes the latest version of `IMAGE-NAME`.
+This example pushes the latest version of `IMAGE_NAME`.
   ```shell
   $ docker push ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
 This example pushes the `2.5` version of the image.
   ```shell
-  $ docker push ghcr.io/OWNER/IMAGE-NAME:2.5
+  $ docker push ghcr.io/OWNER/IMAGE_NAME:2.5
   ```
 
 When you first publish a package, the default visibility is private. To change the visibility or set access permissions, see "[Configuring a package's access control and visibility](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."
