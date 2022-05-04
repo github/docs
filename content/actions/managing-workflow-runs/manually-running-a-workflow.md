@@ -75,7 +75,7 @@ When using the REST API, you configure the `inputs` and `ref` as request body pa
 
 {% note %}
 
-**Note:** You can define up to 10 `inputs` for a `workflow_dispatch` event
+**Note:** You can define up to 10 `inputs` for a `workflow_dispatch` event.
 
 {% endnote %}
 
