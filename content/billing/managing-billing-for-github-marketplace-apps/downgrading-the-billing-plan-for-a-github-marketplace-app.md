@@ -18,7 +18,7 @@ topics:
   - User account
 shortTitle: Downgrade billing plan
 ---
-When you downgrade an app, your subscription remains active until the end of your current billing cycle. The downgrade takes effect on your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
+When test you downgrade an app, your subscription remains active until the end of your current billing cycle. The downgrade takes effect on your next billing date. For more information, see "[About billing for {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)."
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
