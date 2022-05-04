@@ -17,7 +17,7 @@ topics:
 
 ## About sponsorship upgrades
 
-When you upgrade your sponsorship tier, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
+Another test When you upgrade your sponsorship tier, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
 
 ## Upgrading a sponsorship
 
