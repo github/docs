@@ -7,6 +7,7 @@ import { getContents } from '../../script/helpers/git-utils.js'
 import parse from '../../lib/read-frontmatter.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import { allVersions } from '../../lib/all-versions.js'
 
 const { GITHUB_TOKEN, APP_URL } = process.env
 const context = github.context
@@ -21,6 +22,12 @@ if (!APP_URL) {
 
 const PROD_URL = 'https://docs.github.com'
 const octokit = github.getOctokit(GITHUB_TOKEN)
+const supportedShortVersions = [
+  ...new Set(Object.values(allVersions).map((v) => [v.shortName, v.plan])),
+]
+const shortAndPlanNames = Array.from(
+  new Set(supportedShortVersions.map((e) => JSON.stringify(e)))
+).map((e) => JSON.parse(e))
 
 const response = await octokit.rest.repos.compareCommitsWithBasehead({
   owner: context.repo.owner,
@@ -61,36 +68,38 @@ for (const file of articleFiles) {
   if (file.status === 'added') contentCell = `New file: `
   contentCell += `[\`${fileName}\`](${sourceUrl})`
 
-  for (const version in data.versions) {
-    const currentApplicableVersions = getApplicableVersions({
-      [version]: data.versions[version],
-    })
+  const fileVersions = getApplicableVersions(data.versions)
 
-    if (currentApplicableVersions.length === 1) {
+  for (const plan of shortAndPlanNames) {
+    const versions = fileVersions.filter((fileVersion) => fileVersion.indexOf(plan[1]) !== -1)
+    // plan[0] is the shortName (i.e., fpt)
+    // plan[1] is the planName (i.e., free-pro-team)
+
+    if (versions.length === 1) {
       // for fpt, ghec, and ghae
-      if (currentApplicableVersions.toString() === nonEnterpriseDefaultVersion) {
+      if (versions.toString() === nonEnterpriseDefaultVersion) {
         // omit version from fpt url
-        previewCell += `[${version}](${APP_URL}/${fileUrl})<br>`
-        prodCell += `[${version}](${PROD_URL}/${fileUrl})<br>`
+        previewCell += `[${plan[0]}](${APP_URL}/${fileUrl})<br>`
+        prodCell += `[${plan[0]}](${PROD_URL}/${fileUrl})<br>`
       } else {
         // for non-versioned releases (ghae, ghec) use full url
-        previewCell += `[${version}](${APP_URL}/${currentApplicableVersions}/${fileUrl})<br>`
-        prodCell += `[${version}](${PROD_URL}/${currentApplicableVersions}/${fileUrl})<br>`
+        previewCell += `[${plan[0]}](${APP_URL}/${versions}/${fileUrl})<br>`
+        prodCell += `[${plan[0]}](${PROD_URL}/${versions}/${fileUrl})<br>`
       }
     } else {
       // for ghes releases, link each version
-      previewCell += `${version}@ `
-      prodCell += `${version}@ `
+      previewCell += `${plan[0]}@ `
+      prodCell += `${plan[0]}@ `
 
-      currentApplicableVersions.forEach((ghesVersion) => {
-        previewCell += `[${ghesVersion.split('@')[1]}](${APP_URL}/${ghesVersion}/${fileUrl}) `
-        prodCell += `[${ghesVersion.split('@')[1]}](${PROD_URL}/${ghesVersion}/${fileUrl}) `
+      versions.forEach((version) => {
+        previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
+        prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
       })
       previewCell += '<br>'
       prodCell += '<br>'
     }
   }
+
   markdownTable += `| ${contentCell} | ${previewCell} | ${prodCell} | |\n`
 }
-
 setOutput('changesTable', markdownTable)
