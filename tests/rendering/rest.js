@@ -28,16 +28,18 @@ describe('REST references docs', () => {
   // and ensures that all sections in the openapi schema
   // are present in the page.
   test('loads operations enabled for GitHub Apps', async () => {
-    const enableForApps = await getEnabledForApps()
+    const enabledForApps = await getEnabledForApps()
 
     for (const version in allVersions) {
       const schemaSlugs = []
       // One off edge case where secret-scanning should be removed from FPT. Docs Content #6637
-      if (version === 'free-pro-team@latest') {
-        delete enableForApps['free-pro-team@latest']['secret-scanning']
-      }
+      const noSecretScanning = { ...enabledForApps[version] }
+      delete noSecretScanning['secret-scanning']
+      const overrideEnabledForApps =
+        version === 'free-pro-team@latest' ? noSecretScanning : enabledForApps[version]
+
       // using the static file, generate the expected slug for each operation
-      for (const [key, value] of Object.entries(enableForApps[version])) {
+      for (const [key, value] of Object.entries(overrideEnabledForApps)) {
         schemaSlugs.push(
           ...value.map(
             (item) =>
