@@ -19,7 +19,7 @@ shortTitle: Connect an Azure subscription
 
 {% endnote %}
 
-After you connect an Azure subscription, you can also manage your spending limit. For information on managing and changing your account's spending limit, see the following.
+After you connect an Azure subscription, you can also manage your spending limits.
 
 - "[Managing your spending limit for {% data variables.product.prodname_registry %}](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)"
 - "[Managing your spending limit for {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)"
