@@ -1,4 +1,4 @@
----
+Tapas Ranjan Behera GitHub Git---
 title: Set up Git
 redirect_from:
   - /git-installation-redirect
