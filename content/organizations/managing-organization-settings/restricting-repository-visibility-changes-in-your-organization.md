@@ -15,7 +15,7 @@ topics:
 shortTitle: Set visibility changes policy
 ---
 
-You can restrict who has the ability to change a repository's visibility, such as changing a repository from private to public. For more information about repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)." 
+You can restrict who has the ability to change repository visibility in your organization, such as changing a repository from private to public. For more information about repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)." 
 
 You can restrict the ability to change repository visibility to organization owners only, or you can allow anyone with admin access to a repository to change visibility.
 
