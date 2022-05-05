@@ -112,7 +112,11 @@ for (const file of articleFiles) {
         prodCell += '<br>'
       }
     }
-  } catch (e) {}
+  } catch (e) {
+    console.error(
+      `Version information for ${file.filename} couldn't be determined from its frontmatter.`
+    )
+  }
   markdownTable += `| ${contentCell} | ${previewCell} | ${prodCell} | |\n`
 }
 setOutput('changesTable', markdownTable)
