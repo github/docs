@@ -28,6 +28,8 @@ You can choose to join an organization owned by your enterprise as a member or a
 
 {% endwarning %}
 
+For information about managing other people's roles in an organization, see "[Managing membership in your organization](/organizations/managing-membership-in-your-organization)" and "[Managing people's access to your organization with roles](n/organizations/managing-peoples-access-to-your-organization-with-roles)."
+
 ## Managing your role with the enterprise settings
 
 You can join an organization owned by your enterprise and manage your role within the organization, directly from the settings for your enterprise account.
