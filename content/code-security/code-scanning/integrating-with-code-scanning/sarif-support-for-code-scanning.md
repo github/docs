@@ -86,7 +86,7 @@ Any valid SARIF 2.1.0 output file can be uploaded, however, {% data variables.pr
 | Name | Description |
 |----|----|
 | `tool.driver` | **Required.** A `toolComponent` object that describes the analysis tool. For more information, see the [`toolComponent` object](#toolcomponent-object). |
-| `tool.extensions[]` | **Optional.** An array of `toolComponent` objects that represent any plugins or extensions that were used by the tool during analysis. For more information, see the [`toolComponent` object](#toolcomponent-object). |
+| `tool.extensions[]` | **Optional.** An array of `toolComponent` objects that represent any plugins or extensions used by the tool during analysis. For more information, see the [`toolComponent` object](#toolcomponent-object). |
 | `results[]` | **Required.** The results of the analysis tool. {% data variables.product.prodname_code_scanning_capc %} displays the results on {% data variables.product.prodname_dotcom %}. For more information, see the [`result` object](#result-object).
 
 ### `toolComponent` object
