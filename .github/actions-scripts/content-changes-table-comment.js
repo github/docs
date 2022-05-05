@@ -22,6 +22,9 @@ if (!APP_URL) {
 
 const PROD_URL = 'https://docs.github.com'
 const octokit = github.getOctokit(GITHUB_TOKEN)
+
+// creates an array for cross-referencing short to plan names:
+// i.e., [ [fpt, free-pro-team], [ghec, enterprise-cloud] ...]
 const supportedShortVersions = [
   ...new Set(Object.values(allVersions).map((v) => [v.shortName, v.plan])),
 ]
@@ -29,6 +32,7 @@ const shortAndPlanNames = Array.from(
   new Set(supportedShortVersions.map((e) => JSON.stringify(e)))
 ).map((e) => JSON.parse(e))
 
+// get the list of file changes from the PR
 const response = await octokit.rest.repos.compareCommitsWithBasehead({
   owner: context.repo.owner,
   repo: context.payload.repository.name,
@@ -68,38 +72,47 @@ for (const file of articleFiles) {
   if (file.status === 'added') contentCell = `New file: `
   contentCell += `[\`${fileName}\`](${sourceUrl})`
 
-  const fileVersions = getApplicableVersions(data.versions)
+  try {
+    // the try/catch is needed because getApplicableVersions() returns either [] or throws an error when it can't parse the versions frontmatter
+    // try/catch can be removed if https://github.com/github/docs-engineering/issues/1821 is resolved
+    // i.e. for feature based versioning, like ghae: 'issue-6337'
+    const fileVersions = getApplicableVersions(data.versions)
 
-  for (const plan of shortAndPlanNames) {
-    const versions = fileVersions.filter((fileVersion) => fileVersion.indexOf(plan[1]) !== -1)
-    // plan[0] is the shortName (i.e., fpt)
-    // plan[1] is the planName (i.e., free-pro-team)
+    for (const plan of shortAndPlanNames) {
+      // walk by the plan names since we generate links differently for most plans
+      const versions = fileVersions.filter((fileVersion) => fileVersion.indexOf(plan[1]) !== -1)
+      // plan[0] is the shortName (i.e., fpt)
+      // plan[1] is the planName (i.e., free-pro-team)
 
-    if (versions.length === 1) {
-      // for fpt, ghec, and ghae
-      if (versions.toString() === nonEnterpriseDefaultVersion) {
-        // omit version from fpt url
-        previewCell += `[${plan[0]}](${APP_URL}/${fileUrl})<br>`
-        prodCell += `[${plan[0]}](${PROD_URL}/${fileUrl})<br>`
-      } else {
-        // for non-versioned releases (ghae, ghec) use full url
-        previewCell += `[${plan[0]}](${APP_URL}/${versions}/${fileUrl})<br>`
-        prodCell += `[${plan[0]}](${PROD_URL}/${versions}/${fileUrl})<br>`
+      if (versions.length === 1) {
+        // for fpt, ghec, and ghae
+
+        if (versions.toString() === nonEnterpriseDefaultVersion) {
+          // omit version from fpt url
+
+          previewCell += `[${plan[0]}](${APP_URL}/${fileUrl})<br>`
+          prodCell += `[${plan[0]}](${PROD_URL}/${fileUrl})<br>`
+        } else {
+          // for non-versioned releases (ghae, ghec) use full url
+
+          previewCell += `[${plan[0]}](${APP_URL}/${versions}/${fileUrl})<br>`
+          prodCell += `[${plan[0]}](${PROD_URL}/${versions}/${fileUrl})<br>`
+        }
+      } else if (versions.length) {
+        // for ghes releases, link each version
+
+        previewCell += `${plan[0]}@ `
+        prodCell += `${plan[0]}@ `
+
+        versions.forEach((version) => {
+          previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
+          prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
+        })
+        previewCell += '<br>'
+        prodCell += '<br>'
       }
-    } else {
-      // for ghes releases, link each version
-      previewCell += `${plan[0]}@ `
-      prodCell += `${plan[0]}@ `
-
-      versions.forEach((version) => {
-        previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
-        prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
-      })
-      previewCell += '<br>'
-      prodCell += '<br>'
     }
-  }
-
+  } catch (e) {}
   markdownTable += `| ${contentCell} | ${previewCell} | ${prodCell} | |\n`
 }
 setOutput('changesTable', markdownTable)
