@@ -25,7 +25,7 @@ const octokit = github.getOctokit(GITHUB_TOKEN)
 const response = await octokit.rest.repos.compareCommitsWithBasehead({
   owner: context.repo.owner,
   repo: context.payload.repository.name,
-  basehead: `${context.payload.pull_request.base.ref}...${context.payload.pull_request.head.ref}`,
+  basehead: `${context.payload.pull_request.base.sha}...${context.payload.pull_request.head.sha}`,
 })
 
 const { files } = response.data
@@ -47,7 +47,7 @@ for (const file of articleFiles) {
   const fileContents = await getContents(
     context.repo.owner,
     context.payload.repository.name,
-    context.payload.pull_request.head.ref,
+    context.payload.pull_request.head.sha,
     file.filename
   )
 
@@ -82,9 +82,9 @@ for (const file of articleFiles) {
       previewCell += `${version}@ `
       prodCell += `${version}@ `
 
-      currentApplicableVersions.forEach((version) => {
-        previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
-        prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
+      currentApplicableVersions.forEach((ghesVersion) => {
+        previewCell += `[${ghesVersion.split('@')[1]}](${APP_URL}/${ghesVersion}/${fileUrl}) `
+        prodCell += `[${ghesVersion.split('@')[1]}](${PROD_URL}/${ghesVersion}/${fileUrl}) `
       })
       previewCell += '<br>'
       prodCell += '<br>'
