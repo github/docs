@@ -19,7 +19,7 @@ topics:
 ---
 ## Integrated with GitHub
 
-Issues let you track your work on {% data variables.product.company_short %}, where development happens. When you mention an issue in another issue or pull request, the issue's timeline reflects the cross-reference so that you can keep track of related work. To indicate that work is in progress, you can link an issue to a pull request. Pull requests addressing an issue typically include a [keyword that automatically closes the issue](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) when the pull request merges.
+Issues let you track your work on {% data variables.product.company_short %}, where development happens. When an issue is mentioned from in another issue or pull request, the issue's timeline reflects the cross-reference to make it easier to track the related work. To indicate that work is in progress, you can link an issue to a pull request. Pull requests addressing an issue typically include a [keyword that automatically closes the issue](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) when the pull request merges.
 
 ## Quickly create issues
 
