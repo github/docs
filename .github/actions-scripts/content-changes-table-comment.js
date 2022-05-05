@@ -7,7 +7,7 @@ import { getContents } from '../../script/helpers/git-utils.js'
 import parse from '../../lib/read-frontmatter.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
-import { allVersions } from '../../lib/all-versions.js'
+import { allVersionShortnames } from '../../lib/all-versions.js'
 
 const { GITHUB_TOKEN, APP_URL } = process.env
 const context = github.context
@@ -22,15 +22,6 @@ if (!APP_URL) {
 
 const PROD_URL = 'https://docs.github.com'
 const octokit = github.getOctokit(GITHUB_TOKEN)
-
-// creates an array for cross-referencing short to plan names:
-// i.e., [ [fpt, free-pro-team], [ghec, enterprise-cloud] ...]
-const supportedShortVersions = [
-  ...new Set(Object.values(allVersions).map((v) => [v.shortName, v.plan])),
-]
-const shortAndPlanNames = Array.from(
-  new Set(supportedShortVersions.map((e) => JSON.stringify(e)))
-).map((e) => JSON.parse(e))
 
 // get the list of file changes from the PR
 const response = await octokit.rest.repos.compareCommitsWithBasehead({
@@ -74,15 +65,18 @@ for (const file of articleFiles) {
 
   try {
     // the try/catch is needed because getApplicableVersions() returns either [] or throws an error when it can't parse the versions frontmatter
-    // try/catch can be removed if https://github.com/github/docs-engineering/issues/1821 is resolved
+    // try/catch can be removed if docs-engineering#1821 is resolved
     // i.e. for feature based versioning, like ghae: 'issue-6337'
     const fileVersions = getApplicableVersions(data.versions)
 
-    for (const plan of shortAndPlanNames) {
+    for (const plan in allVersionShortnames) {
+      // plan is the shortName (i.e., fpt)
+      // allVersionShortNames[plan] is the planName (i.e., free-pro-team)
+
       // walk by the plan names since we generate links differently for most plans
-      const versions = fileVersions.filter((fileVersion) => fileVersion.includes(plan[1]))
-      // plan[0] is the shortName (i.e., fpt)
-      // plan[1] is the planName (i.e., free-pro-team)
+      const versions = fileVersions.filter((fileVersion) =>
+        fileVersion.includes(allVersionShortnames[plan])
+      )
 
       if (versions.length === 1) {
         // for fpt, ghec, and ghae
@@ -90,19 +84,19 @@ for (const file of articleFiles) {
         if (versions.toString() === nonEnterpriseDefaultVersion) {
           // omit version from fpt url
 
-          previewCell += `[${plan[0]}](${APP_URL}/${fileUrl})<br>`
-          prodCell += `[${plan[0]}](${PROD_URL}/${fileUrl})<br>`
+          previewCell += `[${plan}](${APP_URL}/${fileUrl})<br>`
+          prodCell += `[${plan}](${PROD_URL}/${fileUrl})<br>`
         } else {
           // for non-versioned releases (ghae, ghec) use full url
 
-          previewCell += `[${plan[0]}](${APP_URL}/${versions}/${fileUrl})<br>`
-          prodCell += `[${plan[0]}](${PROD_URL}/${versions}/${fileUrl})<br>`
+          previewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl})<br>`
+          prodCell += `[${plan}](${PROD_URL}/${versions}/${fileUrl})<br>`
         }
       } else if (versions.length) {
         // for ghes releases, link each version
 
-        previewCell += `${plan[0]}@ `
-        prodCell += `${plan[0]}@ `
+        previewCell += `${plan}@ `
+        prodCell += `${plan}@ `
 
         versions.forEach((version) => {
           previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
