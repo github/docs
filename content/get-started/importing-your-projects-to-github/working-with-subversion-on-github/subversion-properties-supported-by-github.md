@@ -26,3 +26,4 @@ If you've set files and directories to be ignored in Subversion, {% data variabl
 ## Currently unsupported properties
 
 {% data variables.product.product_name %} doesn't currently support `svn:externals`, `svn:global-ignores`, or any properties not listed above, including custom properties.
+svn:global-ignores
