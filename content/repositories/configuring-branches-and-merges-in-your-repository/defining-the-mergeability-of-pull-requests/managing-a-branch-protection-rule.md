@@ -108,7 +108,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png)
    - Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**.
      ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png)
-   - Search for and select the people, teams, or apps who will have permission to push to the protected branch.
+   - Search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch.
      ![Branch restriction search](/assets/images/help/repository/restrict-branch-search.png)
 1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
   ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
