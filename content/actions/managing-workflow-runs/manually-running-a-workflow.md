@@ -1,3 +1,4 @@
+![download (1)](https://user-images.githubusercontent.com/91789335/167014041-602535c6-1104-4f1b-9579-8bfc32474d2c.png)
 ---
 title: Manually running a workflow
 intro: 'When a workflow is configured to run on the `workflow_dispatch` event, you can run the workflow using the Actions tab on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_cli %}, or the REST API.'
