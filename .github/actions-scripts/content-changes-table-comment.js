@@ -80,7 +80,7 @@ for (const file of articleFiles) {
 
     for (const plan of shortAndPlanNames) {
       // walk by the plan names since we generate links differently for most plans
-      const versions = fileVersions.filter((fileVersion) => fileVersion.indexOf(plan[1]) !== -1)
+      const versions = fileVersions.filter((fileVersion) => fileVersion.includes(plan[1]))
       // plan[0] is the shortName (i.e., fpt)
       // plan[1] is the planName (i.e., free-pro-team)
 
