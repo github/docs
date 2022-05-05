@@ -106,6 +106,8 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**.
      ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png)
+   - Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**.
+     ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png)
    - Search for and select the people, teams, or apps who will have permission to push to the protected branch.
      ![Branch restriction search](/assets/images/help/repository/restrict-branch-search.png)
 1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
