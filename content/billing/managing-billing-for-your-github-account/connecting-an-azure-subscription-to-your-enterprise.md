@@ -15,7 +15,7 @@ shortTitle: Connect an Azure subscription
 
 {% note %}
 
-**Note:** If your enterprise account is on a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_codespaces %} usage beyond the included amounts.
+**Note:** If your enterprise account is on a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, or {% data variables.product.prodname_codespaces %} beyond the included amounts.
 
 {% endnote %}
 
