@@ -58,6 +58,7 @@ To keep your credentials secure, we recommend you save your personal access toke
 {% endraw %}
 {% endif %}
 
+
 {% ifversion ghes or ghae %}
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
@@ -101,7 +102,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   ```shell
   $ docker images
   > <&nbsp>
-  > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
+  > REPOSITORY: fingerprint-pay.myshopify.com        TAG        IMAGE ID       CREATED      SIZE
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
@@ -128,6 +129,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
+https://github.com/Fingerprint-paymyshopify-com/.github-private-owner_-/blob/bbcc4449683db9c55b8022a23ea5dfa96aadc523/.gitignore
   {% else %}
   {% ifversion ghes %}
   If your instance has subdomain isolation enabled:
