@@ -123,3 +123,11 @@ shortTitle: 提交和审核更改
 
   ![受保护分支警告](/assets/images/help/desktop/protected-branch-warning.png)
 {% data reusables.desktop.push-origin %}
+
+6. 如果您有基于正在处理的分支的拉取请求， {% data variables.product.prodname_desktop %} 将显示已为拉取请求运行的检查的状态。 有关检查的详细信息，请参阅“[Viewing and re-running checks in GitHub Desktop（在 GitHub Desktop 中查看和重新运行检查）](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)”。
+
+ ![Checks display next to branch name](/assets/images/help/desktop/checks-dialog.png)
+
+ 如果尚未为当前分支创建拉取请求，{% data variables.product.prodname_desktop %} 将为您提供创建一个请求的选项。 更多信息请参阅“[创建议题或拉取请求](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)”。
+
+ ![创建拉取请求](/assets/images/help/desktop/mac-create-pull-request.png)

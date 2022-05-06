@@ -1,12 +1,10 @@
 ---
 title: Ver información de tu organización
 intro: 'La información de tu organización brinda datos acerca de la actividad, las contribuciones y las dependencias de tu organización.'
-product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -15,11 +13,13 @@ shortTitle: Ver las perspectivas de la organización
 permissions: Organization members can view organization insights.
 ---
 
+## Acerca de las perspectivas de la organización
+
 Puedes utilizar la información sobre la actividad de la organización para ayudarte a comprender mejor cómo los miembros de tu organización están utilizando {% data variables.product.product_name %} para colaborar y trabajar con el código. La información sobre las dependencias puede ayudarte a rastrear, informar y actuar en relación al uso del código abierto de tu organización.
 
 {% note %}
 
-**Note:** To view organization insights, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+**Nota:** Para ver las perspectivas de la organización, esta debe utilizar {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
 
 {% endnote %}
 
@@ -43,7 +43,7 @@ Con la información sobre la actividad de la organización puedes ver semanal, m
 
 {% note %}
 
-**Notea:** Por favor, asegúrate de que hayas habilitado la [Gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph).
+**Notea:** Por favor, asegúrate de que hayas habilitado la [Gráfica de dependencias](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
 
 {% endnote %}
 

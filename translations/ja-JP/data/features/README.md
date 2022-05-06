@@ -45,7 +45,7 @@ versions:
 
 ## スキーマの適用
 
-機能のバージョン管理の検証のためのスキーマは[`tests/helpers/schemas/feature-versions.js`](tests/helpers/schemas/feature-versions.js)にあり、[`tests/content/lint-files.js`](tests/content/lint-files.js)によって実行されます。
+The schema for validating the feature versioning lives in [`tests/helpers/schemas/feature-versions-schema.js`](/tests/helpers/schemas/feature-versions-schema.js) and is exercised by [`tests/linting/lint-files.js`](/tests/linting/lint-files.js).
 
 ## 機能タグを削除するためのスクリプト
 

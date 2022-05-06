@@ -34,13 +34,15 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   need_help: Need help?
-  placeholder: Search topics, products...
+  placeholder: Search GitHub Docs
   loading: Loading
   no_results: No results found
   search_results_for: Search results for
   no_content: No content
   matches_displayed: Matches displayed
   search_error: An error occurred trying to perform the search.
+  description: Enter a search term to find it in the GitHub Documentation.
+  label: Search GitHub Docs
 homepage:
   explore_by_product: Explore by product
   version_picker: Version
@@ -113,8 +115,9 @@ products:
       notes: Notes
       parameters: Parameters
       response: Response
-      status_codes: Status codes
-      http_status_code: HTTP Status Code
+      example_response: Example response
+      status_code: Status code
+      http_status_code: HTTP response status codes
       code_sample: Code sample
       code_samples: Code samples
       preview_notice: Preview notice
@@ -123,7 +126,14 @@ products:
       see_preview_notices: See preview notices
       preview_header_is_required: This header is <strong>required</strong>
       preview_notice_to_change: This API is under preview and subject to change
-      works_with_github_apps: Works with GitHub Apps
+      works_with: Works with
+      api_reference: REST API reference
+      enum_description_title: Can be one of
+      required: Required
+      headers: Headers
+      query: Query parameters
+      path: Path parameters
+      body: Body parameters
 footer:
   all_rights_reserved: All rights reserved
   terms: Terms

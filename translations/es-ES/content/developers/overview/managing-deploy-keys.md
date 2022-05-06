@@ -117,7 +117,7 @@ $ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.c
 
 Si tu servidor necesita acceder a repositorios a lo largo de una o más organizaciones, puedes utilizar una GitHub app para definir el acceso que necesitas y luego generar tokens de _alcance limitado_ de _servidor a servidor_ desde dicha GitHub App. Se puede ajustar el alcance de los tokens de servidor a servidor para repositorios múltiples y pueden tener permisos específicos. Por ejemplo, puedes generar un token con acceso de solo lectura al contenido de un repositorio.
 
-Ya que las GitHub Apps son un actor de primera clase en {% data variables.product.product_name %}, los tokens de servidor a servidor se desacoplan de cualquier usuario de GitHub, lo cual los hace comparables con los "tokens de servicio". Adicionalmente, los tokens de servidor a servidor. tienen límites de tasa dedicados que se escalan de acuerdo con el tamaño de las organizaciones sobre las cuales actúan. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
+Ya que las GitHub Apps son un actor de primera clase en {% data variables.product.product_name %}, los tokens de servidor a servidor se desacoplan de cualquier usuario de GitHub, lo cual los hace comparables con los "tokens de servicio". Adicionalmente, los tokens de servidor a servidor. tienen límites de tasa dedicados que se escalan de acuerdo con el tamaño de las organizaciones sobre las cuales actúan. Para obtener más información, consulta la sección [Límites de tasa para {% data variables.product.prodname_github_apps %}](/developers/apps/rate-limits-for-github-apps).
 
 #### Pros
 

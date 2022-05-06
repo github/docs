@@ -96,7 +96,7 @@ La tarea inicial de Git & {% data variables.product.company_short %} solo se enc
 
 ## Pasos siguientes
 
-- Haz tareas adicionales personalizadas para tu curso. Para obtener más información, consulta las secciones "[Crear una tarea individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" y "[Crear una tarea grupal](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
+- Haz tareas adicionales personalizadas para tu curso. Para obtener más información, consulta las secciones "[Crear una tarea individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)", "[Crear una tarea grupal](/education/manage-coursework-with-github-classroom/create-a-group-assignment)" y "[Reutilizar una tarea](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/reuse-an-assignment)".
 
 ## Leer más
 

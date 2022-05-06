@@ -15,7 +15,7 @@ topics:
 
 ## Precios de {% data variables.product.prodname_codespaces %}
 
-{% data variables.product.prodname_codespaces %} usage is billed for all organization and enterprise accounts on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %}, which do not include any free minutes or storage. Personal accounts are not currently billed for {% data variables.product.prodname_codespaces %} usage.
+El uso de {% data variables.product.prodname_codespaces %} se factura para todas las cuentas de empresa y organización en {% data variables.product.prodname_team %} y {% data variables.product.prodname_enterprise %}, las cuales no incluyen minutos ni almacenamiento gratuitos. Actualmente, a las cuentas personales no se les cobra por el uso de {% data variables.product.prodname_codespaces %}.
 
 El uso de {% data variables.product.prodname_codespaces %} se cobra de acuerdo con las unidades de medida en la siguiente tabla:
 
@@ -56,7 +56,9 @@ Para obtener más información sobre cómo administrar y cambiar el límite de g
 
 ## Limitar la elección de tipos de máquina
 
-El tipo de máquina que elija un usuario cuando crea un codespace afectará la carga por minuto del mismo, como se muestra anteriormente.
+Predeterminadamente, se utiliza el tipo de máquina con los recursos válidos más bajos cuando se crea un codespace. Sin embargo, los usuarios pueden elegir un tipo de máquina con más recursos. Pueden hacer esto cuando crean un codespace o pueden cambiar el tipo de máquina de un codespace existente. Para obtener más información, consulta la sección "[Crear un codespace](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)" y "[Cambiar el tipo de máquina de tu codespace](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)".
+
+Si se elige un tipo de máquina que tenga más recursos, esto afectará el cargo por minuto de este codespace tal como se muestra a continuación.
 
 Los propietarios de las organizaciones pueden crear una política para restringir los tipos de máquina que están disponibles para los usuarios. Para obtener más información, consulta la sección "[Restringir el acceso a los tipos de máquina](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)".
 

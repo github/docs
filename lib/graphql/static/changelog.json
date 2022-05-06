@@ -4,6 +4,72 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "Type `PatchStatus` was added",
+          "Field `isUnlicensed` (deprecated) was removed from object type `EnterpriseMemberEdge`",
+          "Field `isUnlicensed` (deprecated) was removed from object type `EnterpriseOutsideCollaboratorEdge`",
+          "Argument 'organizationLogins: [String!]` added to field `EnterpriseOwnerInfo.admins'",
+          "Argument `hasTwoFactorEnabled: Boolean` added to field `EnterpriseOwnerInfo.outsideCollaborators`",
+          "Argument 'organizationLogins: [String!]` added to field `EnterpriseOwnerInfo.outsideCollaborators'",
+          "Field `isUnlicensed` (deprecated) was removed from object type `EnterprisePendingMemberInvitationEdge`",
+          "Field `changeType` was added to object type `PullRequestChangedFile`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-04-28"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type `AddProjectDraftIssueInput` was added",
+          "Type `AddProjectDraftIssuePayload` was added",
+          "Type `UpdateProjectDraftIssueInput` was added",
+          "Type `UpdateProjectDraftIssuePayload` was added",
+          "Field `availableSeats` (deprecated) was removed from object type `EnterpriseBillingInfo`",
+          "Field `seats` (deprecated) was removed from object type `EnterpriseBillingInfo`",
+          "Field `addProjectDraftIssue` was added to object type `Mutation`",
+          "Field `updateProjectDraftIssue` was added to object type `Mutation`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2022-04-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Type 'ProjectV2Owner' was added",
+          "`Issue` object implements 'ProjectV2Owner' interface",
+          "`Organization` object implements 'ProjectV2Owner' interface",
+          "`PullRequest` object implements 'ProjectV2Owner' interface",
+          "Input field `skipReleases` was added to input object type `StartRepositoryMigrationInput`",
+          "Field `lineCount` was added to object type `TreeEntry`",
+          "`User` object implements 'ProjectV2Owner' interface"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "On member `UpdateProjectNextItemFieldInput.fieldWithSettingId`:`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead **Effective 2022-10-01**."
+        ]
+      }
+    ],
+    "date": "2022-04-14"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "Field `blocksCreations` was added to object type `BranchProtectionRule`",
           "Input field `blocksCreations` was added to input object type `CreateBranchProtectionRuleInput`",
           "Field `blocksCreations` was added to object type `RefUpdateRule`",

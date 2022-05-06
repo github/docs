@@ -15,7 +15,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  add-comment:
+  add-issue-comment:
     if: ${{ github.repository == 'github/docs' && (github.event.label.name == 'needs SME' && github.event_name == 'issues' || github.event_name == 'pull_request_target') }}
     runs-on: ubuntu-latest
     steps:
@@ -24,8 +24,13 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Thanks for opening an issue! We've triaged this issue for technical review by a subject matter expert :eyes:
+
+  add-pr-comment:
+    if: ${{ github.repository == 'github/docs' && github.event.label.name == 'needs SME' }}
+    runs-on: ubuntu-latest
+    steps:
       - uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
         with:
-          issue-number: ${{ github.event.pull_request_target.number }}
+          issue-number: ${{ github.event.pull_request.number }}
           body: |
             Thanks for opening a pull request! We've triaged this issue for technical review by a subject matter expert :eyes:

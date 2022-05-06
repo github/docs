@@ -16470,16 +16470,6 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
-          "name": "availableSeats",
-          "description": "<p>The number of available seats across all owned organizations based on the unique number of billable users.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int",
-          "isDeprecated": true,
-          "deprecationReason": "<p><code>availableSeats</code> will be replaced with <code>totalAvailableLicenses</code> to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC.</p>"
-        },
-        {
           "name": "bandwidthQuota",
           "description": "<p>The bandwidth quota in GB for all organizations owned by the enterprise.</p>",
           "type": "Float!",
@@ -16502,16 +16492,6 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
-        },
-        {
-          "name": "seats",
-          "description": "<p>The total seats across all organizations owned by the enterprise.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int",
-          "isDeprecated": true,
-          "deprecationReason": "<p><code>seats</code> will be replaced with <code>totalLicenses</code> to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC.</p>"
         },
         {
           "name": "storageQuota",
@@ -16764,16 +16744,6 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
-          "name": "isUnlicensed",
-          "description": "<p>Whether the user does not have a license for the enterprise.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "isDeprecated": true,
-          "deprecationReason": "<p>All members consume a license Removal on 2021-01-01 UTC.</p>"
-        },
-        {
           "name": "node",
           "description": "<p>The item at the end of the edge.</p>",
           "type": "EnterpriseMember",
@@ -16914,16 +16884,6 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
-          "name": "isUnlicensed",
-          "description": "<p>Whether the outside collaborator does not have a license for the enterprise.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "isDeprecated": true,
-          "deprecationReason": "<p>All outside collaborators consume a license Removal on 2021-01-01 UTC.</p>"
-        },
-        {
           "name": "node",
           "description": "<p>The item at the end of the edge.</p>",
           "type": "User",
@@ -17056,6 +17016,16 @@
                 "id": "enterprisememberorder",
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#enterprisememberorder"
+              }
+            },
+            {
+              "name": "organizationLogins",
+              "description": "<p>Only return members within the organizations with these logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -18081,6 +18051,16 @@
               }
             },
             {
+              "name": "hasTwoFactorEnabled",
+              "description": "<p>Only return outside collaborators with this two-factor authentication status.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "last",
               "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
               "type": {
@@ -18108,6 +18088,16 @@
                 "id": "enterprisememberorder",
                 "kind": "input-objects",
                 "href": "/graphql/reference/input-objects#enterprisememberorder"
+              }
+            },
+            {
+              "name": "organizationLogins",
+              "description": "<p>Only return outside collaborators within the organizations with these logins.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             },
             {
@@ -18719,16 +18709,6 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "isUnlicensed",
-          "description": "<p>Whether the invitation has a license for the enterprise.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "isDeprecated": true,
-          "deprecationReason": "<p>All pending members consume a license Removal on 2020-07-01 UTC.</p>"
         },
         {
           "name": "node",
@@ -36414,6 +36394,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "changeType",
+          "description": "<p>How the file was changed in this PullRequest.</p>",
+          "type": "PatchStatus!",
+          "id": "patchstatus",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#patchstatus"
+        },
+        {
           "name": "deletions",
           "description": "<p>The number of deletions to the file.</p>",
           "type": "Int!",
@@ -53953,6 +53941,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "lineCount",
+          "description": "<p>Number of lines in the file.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "mode",
           "description": "<p>Entry file mode.</p>",
           "type": "Int!",
@@ -61371,6 +61367,39 @@
         {
           "name": "LOGIN",
           "description": "<p>Order organizations by login.</p>"
+        }
+      ]
+    },
+    {
+      "name": "PatchStatus",
+      "kind": "enums",
+      "id": "patchstatus",
+      "href": "/graphql/reference/enums#patchstatus",
+      "description": "<p>The possible types of patch statuses.</p>",
+      "values": [
+        {
+          "name": "ADDED",
+          "description": "<p>The file was added. Git status 'A'.</p>"
+        },
+        {
+          "name": "CHANGED",
+          "description": "<p>The file's type was changed. Git status 'T'.</p>"
+        },
+        {
+          "name": "COPIED",
+          "description": "<p>The file was copied. Git status 'C'.</p>"
+        },
+        {
+          "name": "DELETED",
+          "description": "<p>The file was deleted. Git status 'D'.</p>"
+        },
+        {
+          "name": "MODIFIED",
+          "description": "<p>The file's contents were changed. Git status 'M'.</p>"
+        },
+        {
+          "name": "RENAMED",
+          "description": "<p>The file was renamed. Git status 'R'.</p>"
         }
       ]
     },
@@ -70165,6 +70194,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "skipReleases",
+          "description": "<p>Whether to skip migrating releases for the repository.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "sourceId",

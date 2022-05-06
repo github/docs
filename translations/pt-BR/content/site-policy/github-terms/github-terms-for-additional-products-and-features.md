@@ -27,7 +27,7 @@ Ao usar as Funcionalidades e Produtos Adicionais, você também concorda com os 
 
 - Os usuários do **GitHub AE** podem ter acesso aos seguintes produtos e funcionalidades: ações, segurança avançada, dados de consultoria, conexões, visualização de dependência, Importador do GitHub Enterprise, pacotes e páginas.
 
-## Ações
+## Actions
 As Ações GitHub permitem criar fluxos de trabalho personalizados do ciclo de vida de desenvolvimento de softwares diretamente no seu repositório GitHub. Ações são cobradas conforme o uso. A [Documentação de ações](/actions) inclui detalhes, que abrangem quantidades de computação e armazenamento (dependendo do plano da sua conta) e como monitorar seus minutos de ação de uso e definir limites de uso.
 
 As ações e todos elementos do serviço ou produto de Ações não podem ser usados em violação do Contrato, a [Políticas de Uso Aceitável no GitHub](/github/site-policy/github-acceptable-use-policies), ou as limitações de serviço do GitHub Actions estabelecidas na [Documentação de Ações](/actions/reference/usage-limits-billing-and-administration). Além disso, independentemente de uma Ação estar usando executores auto-hospedados, as ações não devem ser usadas para:

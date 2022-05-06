@@ -30,7 +30,7 @@ shortTitle: Install on Hyper-V
 
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. {% data variables.product.prodname_dotcom %}オンプレミスを選択し、**Hyper-V (VHD)**をクリックしてください。
+4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **Hyper-V (VHD)**.
 5. **Download for Hyper-V (VHD)**をクリックしてください。
 
 ## {% data variables.product.prodname_ghe_server %} インスタンスを作成する

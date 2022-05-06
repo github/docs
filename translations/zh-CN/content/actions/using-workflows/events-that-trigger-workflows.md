@@ -899,7 +899,7 @@ on:
 
 jobs:
   if_merged:
-    if: github.event.pull_request_target.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - run: |
@@ -1081,7 +1081,7 @@ on:
 
 {% note %}
 
-**Note:** The `event_type` value is limited to 100 characters.
+**注意：** `event_type` 值限制为 100 个字符。
 
 {% endnote %}
 
@@ -1157,7 +1157,7 @@ jobs:
 
 您可以使用 [crontab guru](https://crontab.guru/) 帮助生成计划任务语法并确认它在何时运行。 为帮助您开始，我们还提供了一系列 [crontab guru 示例](https://crontab.guru/examples.html)。
 
-计划工作流程的通知将发送给最后修改工作流程文件中的 cron 语法的用户。 更多信息请参阅“[工作流程运行通知](/actions/guides/about-continuous-integration#notifications-for-workflow-runs)”。
+计划工作流程的通知将发送给最后修改工作流程文件中的 cron 语法的用户。 更多信息请参阅“[工作流程运行通知](/actions/monitoring-and-troubleshooting-workflows/notifications-for-workflow-runs)”。
 
 ### `状态`
 

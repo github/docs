@@ -24,7 +24,7 @@ Você pode optar por participar de uma organização pertencente à sua empresa 
 
 {% warning %}
 
-**Aviso**: Se uma organização usar o SCIM para fornecer usuários, entrar na organização desta forma poderia ter consequências não desejadas. Para obter mais informações, consulte "[Sobre o SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+**Aviso**: Se uma organização usar o SCIM para fornecer usuários, entrar na organização desta forma poderia ter consequências não desejadas. Para obter mais informações, consulte "[Sobre SCIM para as organizações](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 
 {% endwarning %}
 

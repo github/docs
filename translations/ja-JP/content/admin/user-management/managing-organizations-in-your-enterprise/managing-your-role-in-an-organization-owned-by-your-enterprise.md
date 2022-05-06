@@ -24,7 +24,7 @@ You can choose to join an organization owned by your enterprise as a member or a
 
 {% warning %}
 
-**Warning**: If an organization uses SCIM to provision users, joining the organization this way could have unintended consequences. 詳しい情報については「[SCIMについて](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)」を参照してください。
+**Warning**: If an organization uses SCIM to provision users, joining the organization this way could have unintended consequences. 詳しい情報については、「[OrganizationのSCIMについて](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)」を参照してください。
 
 {% endwarning %}
 

@@ -17,7 +17,7 @@ topics:
 shortTitle: Processo de cobrança
 ---
 
-Alterações na sua conta de usuário paga ou assinatura de organização não afetam assinaturas ou pagamentos de outros recursos {% data variables.product.prodname_dotcom %} pagos, como o {% data variables.large_files.product_name_long %} ou aplicativos pagos comprados em {% data variables.product.prodname_marketplace %}.
+As alterações na sua conta pessoal paga ou assinatura da organização não afetam as assinaturas ou pagamentos para outras funcionalidades pagas de {% data variables.product.prodname_dotcom %}, como {% data variables.large_files.product_name_long %} ou aplicativos pagos comprados em {% data variables.product.prodname_marketplace %}.
 
 Para obter mais informações, consulte "produtos do [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)" e "[Sobre cobrança em {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)".
 

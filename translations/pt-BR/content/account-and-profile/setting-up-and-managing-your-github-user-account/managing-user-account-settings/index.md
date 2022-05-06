@@ -30,6 +30,6 @@ children:
   - /integrating-jira-with-your-personal-projects
   - /best-practices-for-leaving-your-company
   - /what-does-the-available-for-hire-checkbox-do
-shortTitle: Configurações de conta de usuário
+shortTitle: Configurações de conta pessoal
 ---
 

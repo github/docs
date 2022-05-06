@@ -1,5 +1,5 @@
 ---
-title: GitHub Terms
+title: GitHub 条款
 versions:
   fpt: '*'
 topics:

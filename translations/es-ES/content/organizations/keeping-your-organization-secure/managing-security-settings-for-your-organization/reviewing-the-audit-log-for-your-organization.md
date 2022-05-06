@@ -75,8 +75,8 @@ Para buscar eventos específicos, utiliza el calificador `action` en tu consulta
 | [`repository_dependency_graph`](#repository_dependency_graph-category-actions)                                                                                                                                                                                                    | Contiene las actividades a nivel de repositorio para habilitar o inhabilitar la gráfica de dependencias para un                                                                                                                                                                                                                                                                                                                                                   |
 | repositorio {% ifversion fpt or ghec %}privado{% endif %}. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".{% endif %}{% ifversion ghes or ghae or ghec %} |                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | [`repository_secret_scanning`](#repository_secret_scanning-category-actions)                                                                                                                                                                                                      | Contiene actividades a nivel de repositorio relacionadas con el escaneo de secretos. Para obtener más información, consulta la sección "[Acerca del escaneo de secretos"](/github/administering-a-repository/about-secret-scanning).                                                                                                                                                                                                                              |{% endif %}{% if secret-scanning-audit-log-custom-patterns %}
-| [`repository_secret_scanning_custom_pattern`](#respository_secret_scanning_custom_pattern-category-actions)                                                                                                                                                                       | Contains repository-level activities related to secret scanning custom patterns. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."                                                                                                                                                                                                                         |{% endif %}{% if secret-scanning-audit-log-custom-patterns %}
-| [`repository_secret_scanning_push_protection`](#respository_secret_scanning_push_protection)                                                                                                                                                                                      | Contains repository-level activities related to secret scanning custom patterns. For more information, see "[Protecting pushes with secert scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."                                                                                                                                                                                                                                     |{% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
+| [`repository_secret_scanning_custom_pattern`](#respository_secret_scanning_custom_pattern-category-actions)                                                                                                                                                                       | Contains repository-level activities related to secret scanning custom patterns. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)".                                                                                                                                                                              |{% endif %}{% if secret-scanning-audit-log-custom-patterns %}
+| [`repository_secret_scanning_push_protection`](#respository_secret_scanning_push_protection)                                                                                                                                                                                      | Contiene actividades a nivel de repositorio relacionadas con los patrones personalizados del escaneo de secretos. For more information, see "[Protecting pushes with secert scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."                                                                                                                                                                                                    |{% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | [`repository_vulnerability_alert`](#repository_vulnerability_alert-category-actions)                                                                                                                                                                                              | Contiene todas las actividades relacionadas con [las {% data variables.product.prodname_dependabot_alerts %} para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% endif %}{% ifversion fpt or ghec %}
 | [`repository_vulnerability_alerts`](#repository_vulnerability_alerts-category-actions)                                                                                                                                                                                            | Contiene actividades de configuración a nivel de repositorio para las {% data variables.product.prodname_dependabot_alerts %}.{% endif %}{% ifversion ghec %}
 | [`rol`](#role-category-actions)                                                                                                                                                                                                                                                   | Contiene todas las actividades relacionadas con los [roles de repositorio personalziados](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).{% endif %}{% ifversion ghes or ghae or ghec %}
@@ -133,9 +133,15 @@ Al utilizar el calificador `country`, puedes filtrar los eventos en la bitácora
 
 ## Utilizar la API de bitácoras de auditoría
 
+{% ifversion fpt %}
+
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can interact with the audit log using the GraphQL API and REST API. Para obtener más información, consulta la [documentación de {% data variables.product.prodname_ghe_cloud %}](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api).
+
+{% else %}
+
 Puedes interactuar con la bitácora de audotaría si utilizas la API de GraphQL{% ifversion fpt or ghec %} o la API de REST{% endif %}.
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 {% note %}
 
@@ -150,7 +156,7 @@ Puedes interactuar con la bitácora de audotaría si utilizas la API de GraphQL{
 Para garantizar que tu propiedad intelectual está segura y que mantienes el cumplimiento para tu organización, puedes utilizar la API de GraphQL para bitácoras de auditoría para mantener copias de tus datos de bitácoras de auditoría y monitorear:
 {% data reusables.audit_log.audit-log-api-info %}
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 Ten en cuenta que no puedes recuperar los eventos de Git utilizando la API de GraphQL. Para recuperar eventos de Git, utiliza mejor la API de REST. Para obtener más información, consulta las "[acciones de la categoría `git`](#git-category-actions)".
 {% endif %}
 
@@ -158,7 +164,7 @@ La respuesta de GraphQL puede incluir datos de hasta 90 a 120 días.
 
 Por ejemplo, puedes hacer una solicitud de GraphQL para ver todos los miembros nuevos de la organización agregados a tu organización. Para obtener más información, consulta la "[Bitácora de Auditoría de la API de GraphQL]({% ifversion ghec%}/free-pro-team@latest{% endif %}/graphql/reference/interfaces#auditentry/)".
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 ### Utilizar la API de REST
 
@@ -171,6 +177,7 @@ By default, only events from the past three months are returned. To include olde
 
 Para obtener más información sobre la API de REST del log de auditoría, consulta la sección "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization)".
 
+{% endif %}
 {% endif %}
 
 ## Acciones de la bitácora de auditoría
@@ -515,12 +522,12 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 
 ### Acciones de la categoría `packages`
 
-| Acción                      | Descripción                                                                                                                                                                                                                                         |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `package_version_published` | Se activa cuando se publica una versión del paquete.                                                                                                                                                                                                |
+| Acción                      | Descripción                                                                                                                                                                                                                                                                          |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `package_version_published` | Se activa cuando se publica una versión del paquete.                                                                                                                                                                                                                                 |
 | `package_version_deleted`   | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 | `package_deleted`           | Triggered when an entire package is deleted.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `package_version_restored`  | Triggered when a specific package version is deleted.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
+| `package_version_restored`  | Se activa cuando se borra una versión de un paquete específico.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} Para obtener más información, consulta la sección "[Borrar y restablecer un paquete](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
 | `package_restored`          | Triggered when an entire package is restored.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} For more information, see "[Deleting and restoring a package](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 
 {% ifversion fpt or ghec %}
@@ -687,20 +694,20 @@ Para obtener más información, consulta la sección "[Administrar la publicaci�
 
 ### `repository_secret_scanning_custom_pattern` category actions
 
-| Acción           | Descripción                                                                                                                                                                                                                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `create (crear)` | Triggered when a custom pattern is published for secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)." |
-| `actualización`  | Triggered when changes to a custom pattern are saved for secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."           |
-| `delete`         | Triggered when a custom pattern is removed from secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."                   |
+| Acción           | Descripción                                                                                                                                                                                                                                                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `create (crear)` | Triggered when a custom pattern is published for secret scanning in a repository. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."                                  |
+| `actualización`  | Triggered when changes to a custom pattern are saved for secret scanning in a repository. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)". |
+| `delete`         | Triggered when a custom pattern is removed from secret scanning in a repository. Para obtener más información, consulta la sección "[Definir los patrones personalizados para el escaneo de secretos](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)".         |
 
 {% endif %}{% if secret-scanning-audit-log-custom-patterns %}
 
 ### `repository_secret_scanning_push_protection` category actions
 
-| Acción        | Descripción                                                                                                                                                                                                                                                             |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `inhabilitar` | Triggered when a repository owner or person with admin access to the repository disables secret scanning for a repository. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." |
-| `habilitar`   | Triggered when a repository owner or person with admin access to the repository enables secret scanning for a repository.                                                                                                                                               |
+| Acción        | Descripción                                                                                                                                                                                                                                                                                      |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `inhabilitar` | Se activa cuando un propietario del repositorio o persona con acceso administrativo al mismo inhabilita el escaneo de secretos para un repositorio. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)." |
+| `habilitar`   | Se activa cuando un propietario del repositorio o persona con acceso administrativo al mismo habilita el escaneo de secretos para un repositorio.                                                                                                                                                |
 
 {% endif %}{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 ### acciones de la categoría `repository_vulnerability_alert`

@@ -30,7 +30,7 @@ Dockerイメージが{% data variables.product.prodname_container_registry %}に
 {% data variables.product.prodname_container_registry %}は、コンテナに固有の要求をサポートするために最適化されています。
 
 {% data variables.product.prodname_container_registry %}を使うと、以下のことができます。
-- コンテナイメージをOrganizationやユーザアカウント内に保存するか、リポジトリに接続する。
+- コンテナイメージをOrganizationや個人アカウント内に保存するか、リポジトリに接続する。
 - 権限をリポジトリから継承するか、リポジトリとは独立に詳細な権限を設定するかを選択する。
 - 匿名でパブリックなコンテナイメージにアクセスする。
 

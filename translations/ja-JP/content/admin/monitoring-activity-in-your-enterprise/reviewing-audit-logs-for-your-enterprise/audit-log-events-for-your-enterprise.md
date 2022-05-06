@@ -178,6 +178,16 @@ topics:
 | `commit_comment.update`  | A commit comment was updated. |
 {%- endif %}
 
+{%- ifversion ghes %}
+### `config_entry` category actions
+
+| アクション                  | 説明                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `config_entry.create`  | A configuration setting was created. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings. |
+| `config_entry.destroy` | A configuration setting was deleted. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings. |
+| `config_entry.update`  | A configuration setting was edited. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.  |
+{%- endif %}
+
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-4864 %}
 ### `dependabot_alerts` カテゴリアクション
 
@@ -352,6 +362,15 @@ topics:
 | `external_identity.update`      | An Okta user's settings were updated. For more information, see "[Mapping Okta groups to teams](/admin/identity-and-access-management/configuring-authentication-and-provisioning-with-your-identity-provider/mapping-okta-groups-to-teams)."                                                                                                               |
 {%- endif %}
 
+### `gist` category actions
+
+| アクション                    | 説明                                   |
+| ------------------------ | ------------------------------------ |
+| `gist.create`            | A gist is created.                   |
+| `gist.destroy`           | A gist is deleted.                   |
+| `gist.visibility_change` | The visibility of a gist is changed. |
+
+{% ifversion ghec or ghes > 3.4 or ghae-issue-6724 %}
 ### `git` カテゴリアクション
 
 | アクション       | 説明                                      |
@@ -359,6 +378,7 @@ topics:
 | `git.clone` | A repository was cloned.                |
 | `git.fetch` | Changes were fetched from a repository. |
 | `git.push`  | Changes were pushed to a repository.    |
+{% endif %}
 
 ### `hook` カテゴリアクション
 
@@ -656,7 +676,7 @@ topics:
 {%- endif %}
 
 {%- if secret-scanning-audit-log-custom-patterns %}
-### `org_secret_scanning_custom_pattern` category actions
+### `org_secret_scanning_custom_pattern`カテゴリアクション
 
 | アクション                                       | 説明                                                                                                                                                                                                                                                   |
 | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -838,21 +858,21 @@ topics:
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 ### `pull_request`カテゴリのアクション
 
-| アクション                                | 説明                                                                                                                                                                                                                                                                                             |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pull_request.close`                 | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."                                                                        |
-| `pull_request.converted_to_draft`    | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)."             |
-| `pull_request.create`                | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."                                                                                  |
-| `pull_request.create_review_request` | A review was requested on a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."                                                                             |
-| `pull_request.in_progress`           | A pull request was marked as in progress.                                                                                                                                                                                                                                                      |
-| `pull_request.indirect_merge`        | A pull request was considered merged because the pull request's commits were merged into the target branch.                                                                                                                                                                                    |
-| `pull_request.merge`                 | A pull request was merged. 詳しい情報については[プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)を参照してください。                                                                                                                 |
-| `pull_request.ready_for_review`      | A pull request was marked as ready for review. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)." |
-| `pull_request.remove_review_request` | A review request was removed from a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."                                                                     |
-| `pull_request.reopen`                | A pull request was reopened after previously being closed.                                                                                                                                                                                                                                     |
-| `pull_request_review.delete`         | A review on a pull request was deleted.                                                                                                                                                                                                                                                        |
-| `pull_request_review.dismiss`        | A review on a pull request was dismissed. 詳しい情報については[プルリクエストレビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。                                                                                            |
-| `pull_request_review.submit`         | A review was submitted for a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)."                                                                            |
+| アクション                                | 説明                                                                                                                                                                                                                                                                                 |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pull_request.close`                 | A pull request was closed without being merged. For more information, see "[Closing a pull request](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)."                                                            |
+| `pull_request.converted_to_draft`    | A pull request was converted to a draft. For more information, see "[Changing the stage of a pull request](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#converting-a-pull-request-to-a-draft)." |
+| `pull_request.create`                | A pull request was created. For more information, see "[Creating a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."                                                                      |
+| `pull_request.create_review_request` | A review was requested on a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。                                                                                  |
+| `pull_request.in_progress`           | A pull request was marked as in progress.                                                                                                                                                                                                                                          |
+| `pull_request.indirect_merge`        | A pull request was considered merged because the pull request's commits were merged into the target branch.                                                                                                                                                                        |
+| `pull_request.merge`                 | A pull request was merged. 詳しい情報については[プルリクエストのマージ](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request)を参照してください。                                                                                                     |
+| `pull_request.ready_for_review`      | A pull request was marked as ready for review. 詳しい情報については、「[プルリクエストのステージを変更する](/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request#marking-a-pull-request-as-ready-for-review)」を参照してください。              |
+| `pull_request.remove_review_request` | A review request was removed from a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。                                                                          |
+| `pull_request.reopen`                | A pull request was reopened after previously being closed.                                                                                                                                                                                                                         |
+| `pull_request_review.delete`         | A review on a pull request was deleted.                                                                                                                                                                                                                                            |
+| `pull_request_review.dismiss`        | A review on a pull request was dismissed. 詳しい情報については[プルリクエストレビューの却下](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)を参照してください。                                                                                |
+| `pull_request_review.submit`         | A review was submitted for a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。                                                                                 |
 
 ### `pull_request_review`カテゴリのアクション
 
@@ -864,11 +884,11 @@ topics:
 
 ### `pull_request_review_comment`カテゴリのアクション
 
-| アクション                                | 説明                                                                                                                                                                                                                     |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pull_request_review_comment.create` | A review comment was added to a pull request. For more information, see "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)." |
-| `pull_request_review_comment.delete` | A review comment on a pull request was deleted.                                                                                                                                                                        |
-| `pull_request_review_comment.update` | A review comment on a pull request was changed.                                                                                                                                                                        |
+| アクション                                | 説明                                                                                                                                                                                                    |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pull_request_review_comment.create` | A review comment was added to a pull request. 詳しい情報については、「[プルリクエストレビューについて](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)」を参照してください。 |
+| `pull_request_review_comment.delete` | A review comment on a pull request was deleted.                                                                                                                                                       |
+| `pull_request_review_comment.update` | A review comment on a pull request was changed.                                                                                                                                                       |
 {%- endif %}
 
 ### `repo` カテゴリアクション
@@ -944,6 +964,14 @@ topics:
 | `repository_image.create`  | An image to represent a repository was uploaded. |
 | `repository_image.destroy` | An image to represent a repository was deleted.  |
 
+### `repository_invitation` category actions
+
+| アクション                          | 説明                                               |
+| ------------------------------ | ------------------------------------------------ |
+| `repository_invitation.accept` | An invitation to join a repository was accepted. |
+| `repository_invitation.create` | An invitation to join a repository was sent.     |
+| `repository_invitation.reject` | An invitation to join a repository was canceled. |
+
 ### `repository_projects_change` category actions
 
 | アクション                                | 説明                                                                                                                                                                                                                                                                                                                                                                             |
@@ -963,7 +991,7 @@ topics:
 
 {%- if secret-scanning-audit-log-custom-patterns %}
 
-### `repository_secret_scanning_custom_pattern` category actions
+### `repository_secret_scanning_custom_pattern`カテゴリアクション
 
 | アクション                                              | 説明                                                                                                                                                                                                                                             |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -971,7 +999,7 @@ topics:
 | `repository_secret_scanning_custom_pattern.delete` | A custom pattern is removed from secret scanning in a repository. 詳しい情報については「[Secret scanningのカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)」を参照してください。                   |
 | `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for secret scanning in a repository. 詳しい情報については「[Secret scanningのカスタムパターンの定義](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)」を参照してください。           |
 
-### `repository_secret_scanning_push_protection` category actions
+### `repository_secret_scanning_push_protection`カテゴリアクション
 
 | アクション                                                | 説明                                                                                                                                                                                                      |
 | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1108,7 +1136,18 @@ topics:
 {%- ifversion ghes > 3.2 or ghae %}
 | `staff.exit_fake_login`       | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} ended an impersonation session on {% data variables.product.product_name %}. | `staff.fake_login`            | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} signed into {% data variables.product.product_name %} as another user.
 {%- endif %}
-| `staff.repo_lock`             | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator locked (temporarily gained full access to) a user's private repository. | `staff.repo_unlock`           | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator unlocked (ended their temporary access to) a user's private repository. | `staff.unlock`                | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} unlocked (temporarily gained full access to) all of a user's private repositories. | `staff.set_domain_token_expiration` | |{% ifversion ghes %}A site administrator or {% endif %}GitHub staff set the verification code expiry time for an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}| | `staff.unverify_domain` | |{% ifversion ghes %}A site administrator or {% endif %}GitHub staff unverified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}| | `staff.verify_domain` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff verified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+| `staff.repo_lock`             | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator locked (temporarily gained full access to) a user's private repository. | `staff.repo_unlock`           | An organization{% ifversion ghes %}, repository or site{% else %} or repository{% endif %} administrator unlocked (ended their temporary access to) a user's private repository.
+{%- ifversion ghes %}
+| `staff.search_audit_log` | A site administrator performed a search of the site admin audit log.
+{%- endif %}
+| `staff.set_domain_token_expiration` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff set the verification code expiry time for an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+{%- ifversion ghes %}
+| `staff.unlock`                | A site administrator unlocked (temporarily gained full access to) all of a user's private repositories.
+{%- endif %}
+| `staff.unverify_domain` | |{% ifversion ghes %}A site administrator or {% endif %}GitHub staff unverified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}| | `staff.verify_domain` | {% ifversion ghes %}A site administrator or {% endif %}GitHub staff verified an organization or enterprise domain. {% ifversion ghec or ghes > 3.1 %}For more information, see "[Verifying or approving a domain for your organization](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" and "[Verifying or approving a domain for your enterprise](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+{%- ifversion ghes %}
+| `staff.view_audit_log` | A site administrator viewed the site admin audit log.
+{%- endif %}
 
 ### `team` カテゴリアクション
 

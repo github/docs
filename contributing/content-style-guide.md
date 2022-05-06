@@ -230,7 +230,11 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 ## Links
 
-Introduce links consistently using a standard format that clearly indicates where we’re linking: "For more information, see X [or "Page/article title"] in the X documentation." Do not include quotation marks within a hyperlink.
+Introduce links consistently using a standard format that clearly indicates where we’re linking.
+For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
+For links to another section in the same article: `For more information, see "[Header text]()."`
+For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+Do not include quotation marks within a hyperlink.
 
 Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
 
@@ -406,7 +410,7 @@ For more information, see "[Using SHAs](https://docs.github.com/en/actions/learn
 
 ### GitHub Codespaces 
 
-Always use "GitHub Codespaces" (`{% data variables.product.prodname_github_codespaces %}`) as the product name, not just "Codespaces". This helps to avoid confusion with "codespaces" (lowercase c), which refers to instances of remote coding workspaces created with GitHub Codespaces.
+For the first mention in the body text of an article, use "GitHub Codespaces" (`{% data variables.product.prodname_github_codespaces %}`) as the product name, not just "Codespaces". After the first use, and in headings, you can use just "Codespaces" `{% data variables.product.prodname_github_codespaces %}`, but if a passage refers to the product and instances of codespaces in close proximity, use `{% data variables.product.prodname_github_codespaces %}` for the product within that passage. This helps to avoid confusion between the product and "codespaces" (lowercase c), which refers to instances of remote coding workspaces created with GitHub Codespaces.  
 
 Always use "dev container" (or, where clarification is needed, its longer form "development container") and not "devcontainer" (one word), except in file/path names. The single word could form could be considered a brand, which we want to avoid, and we also want to be consistent with the two-word form used in [the Visual Studio Code documentation](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container).
 
@@ -540,12 +544,60 @@ Do not use symbols or octicons that aren’t used in GitHub’s user interface.
 
 ### Accounts
 
-To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products.
-- **Use:** Your organization account
-- **Use:** Your user account on GitHub Enterprise Cloud
+#### Product names and accounts
+
+To avoid ambiguity and confusion, do not use product names as adjectives to describe accounts in any of our products. Instead, clarify the account type and choose clearer phrasing that avoids conflating accounts and products. When talking about accounts, only refer to the product name when needed to disambiguate between products. For more information about types of accounts available in GitHub's products, see "[Types of GitHub accounts](https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts)."
+- **Use:** Your organization on GitHub Enterprise Cloud
+- **Avoid:** Your GitHub Enterprise Cloud account
 - **Avoid:** Your GitHub Enterprise Server organization
 - **Use:** You can highlight your work on GitHub Enterprise Server by sending the contribution counts to your GitHub.com profile.
 
+#### Individual people's accounts on GitHub
+
+We refer to an account that an individual person signs into in various ways depending on the context.
+
+Unless the content is about administering an enterprise product, describe an individual person's account on GitHub as a "personal account." This creates consistency with the UI and prevents readers from being confused by seeing two terms that mean the same thing.
+
+- **Use:** Managing scheduled reminders for your personal account
+- **Avoid:** Managing scheduled reminders for your user account
+
+#### Accounts for enterprise products
+
+With GitHub's enterprise products, administrators manage an enterprise account. An enterprise account can own multiple organizations, and people's user accounts can be members of the organizations. For more information, see the "Roles in an enterprise" article for each product.
+
+- [GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+- [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+- [GitHub AE](https://docs.github.com/en/github-ae@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)
+
+If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
+
+- GitHub Enterprise Cloud with Enterprise Managed Users
+  - **Use:** With Enterprise Managed Users, you can create and manage user accounts for your enterprise members.
+  - **Avoid:** With Enterprise Managed Users, you can create and manage the personal accounts for your enterprise members.
+- GitHub Enterprise Server
+  - **Use:** If you need to temporarily take over a user account...
+  - **Avoid:** If you need to temporarily take over a personal account...
+- GitHub AE
+  - **Use:** Authorized users can access your enterprise from any IP address.
+  - **Avoid:** Authorized personal accounts can access your enterprise from any IP address.
+
+The following documentation should reference "user accounts."
+
+- The "[Enterprise administrators](https://docs.github.com/en/enterprise-cloud@latest/admin)" product
+- Enterprise-specific billing documentation, like "[About billing for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
+- Content within other products that's intended for an administrative audience, like "[Best practices for securing accounts](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[Setting up a trial of GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
+- Enterprise-specific API content, like the "[GitHub Enterprise administration](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
+
+For enterprises on GitHub Enterprise Cloud that don't use Enterprise Managed Users, use "personal account" when describing members of organizations owned by the enterprise.
+
+- **Use:** If you configure SAML SSO, members of your organization will continue to sign into their personal accounts on GitHub.com.
+- **Avoid:** If you configure SAML SSO, members of your organization will continue to sign into their user accounts on GitHub.com.
+
+Documentation that describes GitHub Enterprise Cloud without Enterprise Managed Users is generally in the "[Managing SAML single sign-on for your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" category.
+
+#### People's accounts for other services
+
+When you describe a person's account for a service other than GitHub, such as an integration or authentication provider, use "user account."
 ### Acronyms
 
 Spell out acronyms the first time they’re used in an article, except in titles or headers.

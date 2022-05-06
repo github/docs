@@ -1,6 +1,6 @@
 ---
 title: Acceder a una organización
-intro: 'Para acceder a una organización de la que eres miembro, debes iniciar sesión en tu cuenta de usuario personal.'
+intro: 'Para acceder a una organización de la cual eres miembro, debes iniciar sesión en tu cuenta personal.'
 redirect_from:
   - /articles/error-cannot-log-in-that-account-is-an-organization
   - /articles/cannot-log-in-that-account-is-an-organization

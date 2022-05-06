@@ -1,5 +1,5 @@
 ---
-title: GitHub の製品
+title: GitHub’s products
 intro: '{% data variables.product.prodname_dotcom %} の商品と価格プランの概要。'
 redirect_from:
   - /articles/github-s-products
@@ -21,17 +21,17 @@ topics:
 
 ## About {% data variables.product.prodname_dotcom %}'s products
 
-{% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to user accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
+{% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to personal accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[Types of {% data variables.product.prodname_dotcom %} accounts](/get-started/learning-about-github/types-of-github-accounts)."
 
 各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。 {% data reusables.products.product-roadmap %}
 
 When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your product. For more information, see "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)."
 
-## ユーザアカウント用の{% data variables.product.prodname_free_user %}
+## {% data variables.product.prodname_free_user %} for personal accounts
 
-ユーザアカウント用の{% data variables.product.prodname_free_team %}では、完全な機能セットを持つ無制限のパブリックリポジトリ上で無制限のコラボレータと、そして限定された機能セットを持つ無制限のプライベートリポジトリ上で作業ができます。
+With {% data variables.product.prodname_free_team %} for personal accounts, you can work with unlimited collaborators on unlimited public repositories with a full feature set, and on unlimited private repositories with a limited feature set.
 
-{% data variables.product.prodname_free_user %}では、ユーザアカウントには以下が含まれます。
+With {% data variables.product.prodname_free_user %}, your personal account includes:
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
 - 2 要素認証の強制
@@ -40,7 +40,7 @@ When you read {% data variables.product.prodname_docs %}, make sure to select th
 
 ## {% data variables.product.prodname_pro %}
 
-ユーザアカウント用の{% data variables.product.prodname_free_user %}で利用できる機能に加え、{% data variables.product.prodname_pro %}には以下が含まれます。
+In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_pro %} includes:
 - メールでの{% data variables.contact.github_support %}
 - 3,000 {% data variables.product.prodname_actions %} 分
 - 2GBの{% data variables.product.prodname_registry %}ストレージ
@@ -58,7 +58,7 @@ When you read {% data variables.product.prodname_docs %}, make sure to select th
 
 Organizationの{% data variables.product.prodname_free_team %}では、完全な機能セットを持つ無制限のパブリックリポジトリ上で無制限のコラボレータ、あるいは限定された機能セットを持つ無制限のプライベートリポジトリで作業ができます。
 
-ユーザアカウント用の{% data variables.product.prodname_free_user %}で利用できる機能に加えて、Organizationの{% data variables.product.prodname_free_team %}には以下が含まれます。
+In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
 - {% data variables.product.prodname_gcf %}
 - Team ディスカッション
 - グループを管理するための Team アクセスコントロール

@@ -15,20 +15,6 @@ upcoming_changes:
     criticality: 破壊的
     owner: tambling
   - 
-    location: EnterpriseBillingInfo.availableSeats
-    description: '`availableSeats`は削除されます。代わりにEnterpriseBillingInfo.totalAvailableLicensesを使ってください。'
-    reason: '`availableSeats`は、返される値をより明確にするために`totalAvailableLicenses`に置き換えられます。'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BlakeWilliams
-  - 
-    location: EnterpriseBillingInfo.seats
-    description: '`seats`は削除されます。代わりにEnterpriseBillingInfo.totalLicensesを使ってください。'
-    reason: '`seats` は、返される値をより明確にするために`totalLicenses`に置き換えられます。'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BlakeWilliams
-  - 
     location: UnassignedEvent.user
     description: '`user`は削除されます。代わりに`assignee`フィールドを使ってください。'
     reason: アサインされた人を、マネキンにできるようになりました。
@@ -42,13 +28,6 @@ upcoming_changes:
     date: '2020-04-01T00:00:00+00:00'
     criticality: 破壊的
     owner: antn
-  - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed`は削除されます。'
-    reason: 保留中の全メンバーはライセンスを消費します
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BrentWheeldon
   - 
     location: Issue.timeline
     description: '`timeline`は削除されます。代わりにIssue.timelineItemsを使ってください。'
@@ -71,20 +50,6 @@ upcoming_changes:
     criticality: 破壊的
     owner: nholden
   - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed`は削除されます。'
-    reason: すべてのメンバーはライセンスを消費します
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed`は削除されます。'
-    reason: すべての外部コラボレータはライセンスを消費します
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BrentWheeldon
-  - 
     location: MergeStateStatus.DRAFT
     description: '`DRAFT`は削除されます。代わりにPullRequest.isDraftを使ってください。'
     reason: DRAFTの状態はこのenumから削除されるので、代わりに`isDraft`を使わなければなりません。
@@ -105,13 +70,6 @@ upcoming_changes:
     date: '2021-10-01T00:00:00+00:00'
     criticality: 破壊的
     owner: synthead
-  - 
-    location: PullRequest.viewerCanOverrideMergeQueue
-    description: '`viewerCanOverrideMergeQueue` will be removed. Use PullRequest.viewerCanMergeAsAdmin instead.'
-    reason: '`viewer_can_override_merge_queue` will be removed'
-    date: '2022-04-01'
-    criticality: 破壊的
-    owner: cbeaman
   - 
     location: Repository.defaultMergeQueue
     description: '`defaultMergeQueue` will be removed. Use `Repository.mergeQueue` instead.'
@@ -140,3 +98,10 @@ upcoming_changes:
     date: '2022-07-01T00:00:00+00:00'
     criticality: 破壊的
     owner: cheshire137
+  - 
+    location: UpdateProjectNextItemFieldInput.fieldWithSettingId
+    description: '`fieldWithSettingId` will be removed. Use `fieldConstraintId` instead'
+    reason: Renamed to fieldConstraintId to improve naming consistency.
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: 破壊的
+    owner: memex

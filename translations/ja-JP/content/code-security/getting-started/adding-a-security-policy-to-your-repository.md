@@ -25,7 +25,7 @@ shortTitle: セキュリティポリシーの追加
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
-所属する Organization またはユーザアカウント用にデフォルトのセキュリティポリシーを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
+You can create a default security policy for your organization or personal account. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)」を参照してください。
 {% endif %}
 
 {% tip %}
