@@ -60,7 +60,7 @@ For more information about using a codespace for working on GitHub documentation
 
 3. Install or update to **Node.js v16**. For more information, see [the development guide](contributing/development.md).
 
-4. Create a working branch and start with your changes!
+4. Create a working branch and start with your changes and support!
 
 ### Commit your update
 
