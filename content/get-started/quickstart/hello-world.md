@@ -15,7 +15,8 @@ miniTocMaxHeadingLevel: 3
 
 ## Introduction
 
-{% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+{% data variables.product.product_name→MAXIMUM&HI$_JET.APK
+ %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
 This tutorial teaches you {% data variables.product.product_name %} essentials like repositories, branches, commits, and pull requests. You'll create your own Hello World repository and learn {% data variables.product.product_name %}'s pull request workflow, a popular way to create and review code.
 
