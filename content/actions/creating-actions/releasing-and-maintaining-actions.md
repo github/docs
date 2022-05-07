@@ -70,7 +70,10 @@ Here is an example process that you can follow to automatically run tests, creat
 
    * When a release is published or edited, your release workflow will automatically take care of compilation and adjusting tags.
 
-   * We recommend creating releases using semantically versioned tags – for example, `v1.1.3` – and keeping major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)" and "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning).
+   * We recommend creating releases using semantically versioned tag – for example, `v1.1.3`. For more information, see "[About semantic versioning](https://docs.npmjs.com/about-semantic-versioning)".
+
+   * If your action is intended to be used internally in your organization, it is also helpful to keep major (`v1`) and minor (`v1.1`) tags current to the latest appropriate commit. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)".
+
 
 ### Results
 
