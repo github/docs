@@ -74,7 +74,7 @@ Now that you've made a few changes, you can use the integrated terminal or the s
 ![Ellipsis button for View and More Actions](/assets/images/help/codespaces/source-control-ellipsis-button-nochanges.png)
 1. In the drop-down menu, click **Push**.
 
-## Personalizing with an extension
+## Personalizing with an extensiong
 
 Within a codespace, you have access to the Visual Studio Code Marketplace. For this example, you'll install an extension that alters the theme, but you can install any extension that is useful for your workflow.
 
