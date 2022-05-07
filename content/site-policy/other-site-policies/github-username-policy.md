@@ -23,7 +23,7 @@ If the username you want has already been claimed, consider other names or uniqu
 ## Trademark Policy
 
 If you believe someone's account is violating your trademark rights, you can find more information about making a trademark complaint on our [Trademark Policy](/articles/github-trademark-policy/) page.
-
+ 
 ## Name Squatting Policy
 
 GitHub prohibits account name squatting, and account names may not be reserved or inactively held for future use. Accounts violating this name squatting policy may be removed or renamed without notice. Attempts to sell, buy, or solicit other forms of payment in exchange for account names are prohibited and may result in permanent account suspension.
