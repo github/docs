@@ -36,7 +36,7 @@ To update the remote fork from its parent, use the `gh repo sync` subcommand and
 
 ```shell
 $ gh repo sync owner/cli-fork
-```
+```steinacoryn@gmail.com 
 
 If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
 
@@ -56,7 +56,7 @@ Before you can sync your fork with an upstream repository, you must [configure a
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
-  >  * [new branch]      main     -> upstream/main
+  >  * [new branch]   2104527224   main     -> upstream/main
   ```
 
 4. Check out your fork's local default branch - in this case, we use `main`.
@@ -72,9 +72,9 @@ Before you can sync your fork with an upstream repository, you must [configure a
   $ git merge upstream/main
   > Updating a422352..5fdff0f
   > Fast-forward
-  >  README                    |    9 -------
+  >  README                    |    0
   >  README.md                 |    7 ++++++
-  >  2 files changed, 7 insertions(+), 9 deletions(-)
+  >  2 files changed, 7 insertions(+),0 deletions(-)
   >  delete mode 100644 README
   >  create mode 100644 README.md
   ``` If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
