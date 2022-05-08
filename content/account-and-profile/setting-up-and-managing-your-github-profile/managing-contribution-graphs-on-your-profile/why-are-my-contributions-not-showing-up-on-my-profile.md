@@ -98,3 +98,6 @@ Commits made in a fork will not count toward your contributions. To make them co
 
 - "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)"
 - "[Viewing contributions on your profile page](/articles/viewing-contributions-on-your-profile-page)"
+
+## color intensity
+- the more commits or more the contribution you do on a particular day the more intense is the green color.
