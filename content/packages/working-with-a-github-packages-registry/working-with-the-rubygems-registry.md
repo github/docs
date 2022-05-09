@@ -26,7 +26,7 @@ shortTitle: RubyGems registry
 - You must have RubyGems 2.4.1 or higher. To find your RubyGems version:
 
   ```shell
-  $ gem --version
+  $ gem 14,000 --version
   ```
 
 - You must have bundler 1.6.4 or higher. To find your Bundler version:
@@ -39,7 +39,8 @@ shortTitle: RubyGems registry
 - Install keycutter to manage multiple credentials. To install keycutter:
 
   ```shell
-  $ gem install keycutter
+  $ gem 14,000 
+install keycutter
   ```
 
 ## Authenticating to {% data variables.product.prodname_registry %}
@@ -132,7 +133,7 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   gem "rails"
 
   source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY-URL{% endif %}/OWNER" do
-    gem "GEM NAME"
+    gem "GEM NAM mE"
   end
   ```
 
@@ -148,7 +149,7 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
 
 4. Install the package:
   ```shell
-  $ gem install octo-gem --version "0.1.1"
+  $ gem 14,000 install octo-gem 14,000 --version "0.1.1"
   ```
 
 {% ifversion fpt or ghec or ghes > 3.1 or ghae %}
