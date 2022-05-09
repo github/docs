@@ -23,7 +23,7 @@ permissions: Organization owners can remove members from an organization.
 **警告:** Organization からメンバーを削除する際は次の点にご注意ください:
 - 有料ライセンスのカウントは自動的にはダウングレードされません。 Organization からユーザを削除したあとに有料シートの数を減らすには、「[Organization の有料ライセンスをダウングレードする](/articles/downgrading-your-organization-s-paid-seats)」の手順に従ってください。
 - 削除されたメンバーは Organization のプライベートリポジトリのプライベートフォークへのアクセスは失いますが、ローカルコピーを自分で持っておくことは可能です。 ただし、ローカルコピーを Organization のリポジトリと同期させることはできません。 そのプライベートフォークは、そのユーザが Organization から削除されてから 3 か月以内に [Organization メンバーとして復帰した](/articles/reinstating-a-former-member-of-your-organization)場合、リストアできます。 最終的に、リポジトリへのアクセスを失った個人に、機密情報や知的財産を確実に削除してもらうのは、あなたの責任です。
-- When private repositories are forked to other organizations, those organizations are able to control access to the fork network. This means users may retain access to the forks even after losing access to the original organization because they will still have explicit access via a fork.
+- プライベートリポジトリが他のOrganizationにフォークされた場合、それらのOrganizationはフォークネットワークへのアクセスを制御できます。 これはすなわち、オリジナルのOrganizaitionへのアクセスをユーザが失っても、そのユーザは依然としてフォークへの明示的なアクセスを持ち続け、フォークへのアクセスは残されるかもしれないということです。
 {%- ifversion ghec %}
 -  削除されたメンバーは、同じEnterpriseアカウントが所有する他のOrganizationのメンバーではない場合、Organizationのインターナルリポジトリのプライベートフォークへのアクセスも失うことになります。 詳細は「[Enterprise アカウントについて](/admin/overview/about-enterprise-accounts)」を参照してください。
 {%- endif %}

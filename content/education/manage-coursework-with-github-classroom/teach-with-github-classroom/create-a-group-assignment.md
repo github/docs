@@ -95,6 +95,8 @@ By default, a new assignment will create an empty repository for each team that 
 
 {% data reusables.classroom.about-online-ides %} For more information, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)."
 
+{% data reusables.classroom.classroom-codespaces-link %}
+
 {% data reusables.classroom.assignments-guide-choose-an-online-ide %}
 
 {% data reusables.classroom.assignments-guide-click-continue-after-starter-code-and-feedback %}

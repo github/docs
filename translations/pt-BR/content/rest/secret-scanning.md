@@ -1,6 +1,6 @@
 ---
-title: Secret Scanning
-intro: Use the Secret Scanning API to retrieve and update secret alerts from a repository.
+title: Varredura secreta
+intro: Use the Secret scanning API to retrieve and update secret alerts from a repository.
 versions:
   ghes: '*'
   ghae: '*'
@@ -13,6 +13,8 @@ redirect_from:
 ---
 
 {% data reusables.secret-scanning.api-beta %}
+
+## About the Secret scanning API
 
 A API de {% data variables.product.prodname_secret_scanning %} permite que você{% ifversion fpt or ghec or ghes > 3.1 or ghae %}:
 
