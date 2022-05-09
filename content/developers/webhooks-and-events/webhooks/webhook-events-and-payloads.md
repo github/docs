@@ -1491,7 +1491,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 {% data reusables.webhooks.org_desc %}
 | `ref` | `string` | The branch ref from which the workflow was run. |
 {% data reusables.webhooks.repo_desc %}
-{% data resuables.webhooks.sender_desc %}
+{% data reusables.webhooks.sender_desc %}
 | `workflow` | `string` | Relative path to the workflow file which contains the workflow. |
 
 ### Webhook payload example
