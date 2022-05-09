@@ -238,7 +238,7 @@ You can mention a person or [team](/articles/setting-up-teams/) on {% data varia
 
 {% note %}
 
-**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, is a member of the organization.
+**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
 
 {% endnote %}
 
