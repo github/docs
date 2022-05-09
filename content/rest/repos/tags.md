@@ -1,5 +1,7 @@
 ---
-title: Tags
+title: Repository tags
+allowTitleToDifferFromFilename: true
+shortTitle: Tags
 intro: ''
 versions:
   fpt: '*'

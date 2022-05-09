@@ -1,6 +1,8 @@
 ---
-title: Comentários
-intro: 'The Issue Comments API supports listing, viewing, editing, and creating comments on issues and pull requests.'
+title: Comentários dos problemas
+allowTitleToDifferFromFilename: true
+shortTitle: Comentários
+intro: The Issue comments API supports managing comments on issues and pull requests.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Os comentários do problema usam [estes tipos de mídia personalizados](#custom-media-types). Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/rest/overview/media-types).
+## About the Issue comments API
+
+The Issue comments API supports managing comments on issues and pull requests. {% data reusables.pull_requests.issues-pr-shared-api %} To manage pull request review comments, use the [Pull request review comments API](/rest/pulls/comments) instead.
+
+{% data reusables.pull_requests.issues-media-types %}

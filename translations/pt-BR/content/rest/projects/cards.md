@@ -1,6 +1,8 @@
 ---
-title: Cartões
-intro: ''
+title: Project board cards
+shortTitle: Cartões
+allowTitleToDifferFromFilename: true
+intro: The Project board cards API lets you create and manage cards on a project board.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,3 +13,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.projects.projects-api %}
