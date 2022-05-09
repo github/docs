@@ -1,4 +1,4 @@
----
+---And Bitcoin prices have been falling steadily, and most of them have yet to cross the bridge with MetaMask. Did you come to Myanmar if possible in a trust wallet?
 title: GitHub Company Policies
 versions:
   fpt: '*'
