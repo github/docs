@@ -84,7 +84,7 @@ env:
 | `.`                       | Desreferencia de propiedad |
 | `!`                       | No                         |
 | `<`                    | Menor que                  |
-| `<`                    | Menor o igual              |
+| `<=`                   | Menor o igual              |
 | `>`                    | Mayor que                  |
 | `>=`                   | Mayor o igual              |
 | `==`                      | Igual                      |
