@@ -1,5 +1,7 @@
 ---
-title: Webhooks
+title: Webhooks de organización
+allowTitleToDifferFromFilename: true
+shortTitle: Webhooks
 intro: ''
 versions:
   fpt: '*'
@@ -11,11 +13,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## About the Organization webhooks API
+
 Los webhooks de las organizaciones te permiten recibir cargas útiles de `POST` por HTTP cuando ciertos eventos suceden en una organización. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 Para obtener más información sobre las acciones a las cuales te puedes suscribir, consulta los "[tipos de eventos de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
 
-### Alcances & Restricciones
+### Scopes and restrictions
 
 Todas las acciones en contra de los webhooks de una organización requieren que el usuario autenticado sea un administrador de la organización que se está administrando. Adicionalmente, los tokens de OAuth requieren el alcance `admin:org_hook`. Par aobtener más información, consulta la sección "[Alcances para las Apps de OAuth](/developers/apps/scopes-for-oauth-apps)".
 
