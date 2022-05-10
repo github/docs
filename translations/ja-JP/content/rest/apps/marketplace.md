@@ -1,5 +1,7 @@
 ---
-title: Marketplace
+title: GitHub Marketplace
+allowTitleToDifferFromFilename: true
+shortTitle: Marketplace
 intro: ''
 topics:
   - API
@@ -8,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
 ---
+
+## {% data variables.product.prodname_marketplace %} APIについて
 
 {% data variables.product.prodname_marketplace %} の詳細については、「[GitHub Marketplace](/marketplace/)」を参照してください。
 

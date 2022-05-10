@@ -1,6 +1,6 @@
 ---
 title: Secret scanning
-intro: Use the Secret scanning API to retrieve and update secret alerts from a repository.
+intro: Secret scanning APIを使うと、リポジトリからシークレットアラートの取得と更新ができます。
 versions:
   ghes: '*'
   ghae: '*'
@@ -14,7 +14,7 @@ redirect_from:
 
 {% data reusables.secret-scanning.api-beta %}
 
-## About the Secret scanning API
+## Secret scanning APIについて
 
 {% data variables.product.prodname_secret_scanning %} APIを使うと{% ifversion fpt or ghec or ghes > 3.1 or ghae %}以下のことができます。
 
