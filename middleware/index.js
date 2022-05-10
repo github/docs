@@ -8,8 +8,6 @@ import abort from './abort.js'
 import timeout from './timeout.js'
 import morgan from 'morgan'
 import datadog from './connect-datadog.js'
-import rateLimit from './rate-limit.js'
-import slowDown from './slow-down.js'
 import cors from './cors.js'
 import helmet from 'helmet'
 import csp from './csp.js'
@@ -37,6 +35,7 @@ import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-ass
 import events from './events.js'
 import search from './search.js'
 import healthz from './healthz.js'
+import anchorRedirect from './anchor-redirect.js'
 import remoteIP from './remote-ip.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
@@ -52,7 +51,6 @@ import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
 import genericToc from './contextualizers/generic-toc.js'
 import breadcrumbs from './contextualizers/breadcrumbs.js'
-import earlyAccessBreadcrumbs from './contextualizers/early-access-breadcrumbs.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
 import featuredLinks from './featured-links.js'
@@ -213,8 +211,6 @@ export default function (app) {
   }
 
   // *** Early exits ***
-  app.use(slowDown)
-  app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(asyncMiddleware(instrument(handleNextDataPath, './handle-next-data-path')))
 
@@ -268,6 +264,7 @@ export default function (app) {
   app.use('/events', asyncMiddleware(instrument(events, './events')))
   app.use('/search', asyncMiddleware(instrument(search, './search')))
   app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
+  app.use('/anchor-redirect', asyncMiddleware(instrument(anchorRedirect, './anchor-redirect')))
   app.get('/_ip', asyncMiddleware(instrument(remoteIP, './remoteIP')))
 
   // Check for a dropped connection before proceeding (again)
@@ -297,11 +294,6 @@ export default function (app) {
   app.use(instrument(currentProductTree, './contextualizers/current-product-tree'))
   app.use(asyncMiddleware(instrument(genericToc, './contextualizers/generic-toc')))
   app.use(asyncMiddleware(instrument(breadcrumbs, './contextualizers/breadcrumbs')))
-  app.use(
-    asyncMiddleware(
-      instrument(earlyAccessBreadcrumbs, './contextualizers/early-access-breadcrumbs')
-    )
-  )
   app.use(asyncMiddleware(instrument(features, './contextualizers/features')))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
 

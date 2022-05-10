@@ -190,6 +190,12 @@ Para criar uma lista aninhada usando o editor web do {% data variables.product.p
      - Segundo item de lista aninhada
 ```
 
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
+
 ![Lista aninhada com alinhamento destacado](/assets/images/help/writing/nested-list-alignment.png)
 
 ![Lista com dois níveis de itens aninhados](/assets/images/help/writing/nested-list-example-1.png)
@@ -311,6 +317,8 @@ A nota de rodapé será interpretada da seguinte forma:
 {% tip %}
 
 **Observação**: A posição de uma nota de rodapé no seu Markdown não influencia o lugar onde a nota de rodapé será interpretada. Você pode escrever uma nota de rodapé logo após sua referência à nota de rodapé, e ela continuará sendo interpretada na parte inferior do Markdown.
+
+Notas de rodapé não são compatíveis nos wikis.
 
 {% endtip %}
 {% endif %}

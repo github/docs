@@ -38,6 +38,10 @@ redirect_from:
 
 {% data reusables.code-scanning.codeql-cli-context-for-third-party-tools %}
 
+{% ifversion fpt or ghes > 3.4 or ghae-issue-6251 or ghec %}
+{% data reusables.code-scanning.about-analysis-origins-link %}
+{% endif %}
+
 {% data reusables.code-scanning.upload-sarif-ghas %}
 
 ## Sobre o {% data variables.product.prodname_codeql_cli %}

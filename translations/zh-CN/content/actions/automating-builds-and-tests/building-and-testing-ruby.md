@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby
         uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
@@ -71,17 +71,15 @@ jobs:
 
 `setup-ruby` 操作采用 Ruby 版本作为输入，并在运行器上配置该版本。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
     ruby-version: '3.1' # Not needed with a .ruby-version file
 - run: bundle install
 - run: bundle exec rake
 ```
-{% endraw %}
 
 或者，您也可以将 `.ruby-version` 文件检入仓库的根目录，而 `setup-ruby` 将使用该文件中定义的版本。
 
@@ -122,7 +120,7 @@ jobs:
         ruby-version: ['3.1', '3.0', '2.7']
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: {% raw %}Set up Ruby ${{ matrix.ruby-version }}{% endraw %}
         uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
@@ -137,16 +135,14 @@ jobs:
 
 `setup-ruby` 操作将自动为您安装 Bundler。 版本由您的 `gemfile.lock` 文件决定。 如果您的锁定文件中没有版本，则会安装最新的兼容版本。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/checkout@v2
+- uses: {% data reusables.actions.action-checkout %}
 - uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
   with:
     ruby-version: '3.1'
 - run: bundle install
 ```
-{% endraw %}
 
 ### 缓存依赖项
 
@@ -169,39 +165,35 @@ steps:
 
 为了加强缓存控制，如果您使用的是 {% data variables.product.prodname_dotcom %} 托管的运行器，可以直接使用 `actions/cache` 操作。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: vendor/bundle
-    key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+    key: {% raw %}${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}{% endraw %}
     restore-keys: |
-      ${{ runner.os }}-gems-
+      {% raw %}${{ runner.os }}-gems-{% endraw %}
 - name: Bundle install
   run: |
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-{% endraw %}
 
 如果您使用的是矩阵构建，您将会想要在缓存密钥中包含矩阵变量。 例如，如果您e 不同 ruby 版本 (`matrix.ruby-version`) 和不同系统 (`matrix.os`) 的矩阵策略，您的工作流程步骤可能看起来如下：
 
-{% raw %}
 ```yaml
 steps:
-- uses: actions/cache@v2
+- uses: {% data reusables.actions.action-cache %}
   with:
     path: vendor/bundle
-    key: bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}
+    key: {% raw %}bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-${{ hashFiles('**/Gemfile.lock') }}{% endraw %}
     restore-keys: |
-      bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-
+      {% raw %}bundle-use-ruby-${{ matrix.os }}-${{ matrix.ruby-version }}-{% endraw %}
 - name: Bundle install
   run: |
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
-{% endraw %}
 
 ## 测试代码的矩阵
 
@@ -228,7 +220,7 @@ jobs:
         ruby: [2.5, 2.6, 2.7, head, debug, jruby, jruby-head, truffleruby, truffleruby-head]
     continue-on-error: {% raw %}${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}{% endraw %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
@@ -251,7 +243,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
           ruby-version: 2.6
@@ -288,8 +280,8 @@ jobs:
       packages: write
       contents: read{% endif %}
 
-    steps:{% raw %}
-      - uses: actions/checkout@v2
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby 2.6
         uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
         with:
@@ -297,7 +289,7 @@ jobs:
       - run: bundle install
 
       - name: Publish to GPR
-        run: |
+        run: |{% raw %}
           mkdir -p $HOME/.gem
           touch $HOME/.gem/credentials
           chmod 0600 $HOME/.gem/credentials

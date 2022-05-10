@@ -65,7 +65,7 @@ El [actions/toolkit](https://github.com/actions/toolkit) incluye varias funcione
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-### Example: Setting a value
+### Ejemplo: Configurar un valor
 
 Puedes utilizar el comando `set-output` en tu flujo de trabajo para configurar el mismo valor:
 
@@ -111,13 +111,10 @@ La siguiente tabla muestra qué funciones del toolkit se encuentran disponibles 
 | `core.getInput`       | Accesible utilizando la variable de ambiente `INPUT_{NAME}`           |
 | `core.getState`       | Accesible utilizando la variable de ambiente`STATE_{NAME}`            |
 | `core.isDebug`        | Accesible utilizando la variable de ambiente `RUNNER_DEBUG`           |
-| `core.saveState`      | `save-state`                                                          |
-| `core.setCommandEcho` | `echo`                                                                |
-| `core.setFailed`      | Utilizada como un atajo para `::error` y `exit 1`                     |
-| `core.setOutput`      | `set-output`                                                          |
-| `core.setSecret`      | `add-mask`                                                            |
-| `core.startGroup`     | `grupo`                                                               |
-| `core.warning`        | `advertencia`                                                         |
+{%- if actions-job-summaries %}
+| `core.summary` | Accessible using environment variable `GITHUB_STEP_SUMMARY` |
+{%- endif %}
+| `core.saveState`  | `save-state` | | `core.setCommandEcho` | `echo` | | `core.setFailed`  | Used as a shortcut for `::error` and `exit 1` | | `core.setOutput`  | `set-output` | | `core.setSecret`  | `add-mask` | | `core.startGroup` | `group` | | `core.warning`    | `warning` |
 
 ## Configurar un parámetro de salida
 
@@ -129,7 +126,7 @@ Establece un parámetro de salida de la acción.
 
 Opcionalmente, también puedes declarar parámetros de salida en el archivo de metadatos de una acción. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs-for-docker-container-and-javascript-actions)".
 
-### Example: Setting an output parameter
+### Ejemplo;: Configurar un parámetro de salida
 
 {% bash %}
 
@@ -155,7 +152,7 @@ Imprime un mensaje de depuración para el registro. Debes crear un archivo `ACTI
 ::debug::{message}
 ```
 
-### Example: Setting a debug message
+### Ejemplo: Configurar un mensaje de depuración
 
 {% bash %}
 
@@ -185,7 +182,7 @@ Crea un mensaje de aviso e imprime el mensaje en la bitácora. {% data reusables
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a notice message
+### Ejemplo: configurar un mensaje de notificación
 
 {% bash %}
 
@@ -214,7 +211,7 @@ Crea un mensaje de advertencia e imprime el mensaje en el registro. {% data reus
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting a warning message
+### Ejemplo: Configurar un mensaje de advertencia
 
 {% bash %}
 
@@ -233,7 +230,7 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 ## Configurar un mensaje de error
 
-Crea un mensaje de error e imprime el mensaje en el registro {% data reusables.actions.message-annotation-explanation %}
+Crea un mensaje de error e imprime el mensaje en el registro. {% data reusables.actions.message-annotation-explanation %}
 
 ```{:copy}
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
@@ -241,7 +238,7 @@ Crea un mensaje de error e imprime el mensaje en el registro {% data reusables.a
 
 {% data reusables.actions.message-parameters %}
 
-### Example: Setting an error message
+### Ejemplo: Configurar un mensaje de error
 
 {% bash %}
 
@@ -268,7 +265,7 @@ Crea un grupo expansible en la bitácora. Para crear un grupo, utiliza el comand
 ::endgroup::
 ```
 
-### Example: Grouping log lines
+### Ejemplo: Agrupar líneas de bitácoras
 
 {% bash %}
 
@@ -310,9 +307,9 @@ jobs:
 ::add-mask::{value}
 ```
 
-El enmascaramiento de un valor impide que una cadena o variable se imprima en el registro. Cada palabra enmascarada separada por un espacio en blanco se reemplaza con el carácter `*`. Puedes usar una variable de entorno o cadena para el `valor` de la máscara.
+El enmascaramiento de un valor impide que una cadena o variable se imprima en el registro. Cada palabra enmascarada separada por un espacio en blanco se reemplaza con el carácter `*`. Puedes usar una variable de entorno o cadena para el `valor` de la máscara. When you mask a value, it is treated as a secret and will be redacted on the runner. For example, after you mask a value, you won't be able to set that value as an output.
 
-### Example: Masking a string
+### Ejemplo: Enmascarar una secuencia
 
 Cuando imprimas `"Mona The Octocat"` en el registro, verás `"***"`.
 
@@ -332,7 +329,7 @@ Write-Output "::add-mask::Mona The Octocat"
 
 {% endpowershell %}
 
-### Example: Masking an environment variable
+### Ejemplo: Enmascarar una variable de ambiente
 
 Cuando imprimes la variable `MY_NAME` o el valor `"Mona The Octocat"` en el registro, verás `"***"` en lugar de `"Mona The Octocat"`.
 
@@ -368,7 +365,7 @@ jobs:
 
 ## Detener e iniciar comandos de flujo de trabajo
 
-Deja de procesar cualquier comando de flujo de trabajo. Este comando especial te permite registrar lo que sea sin ejecutar accidentalmente un comando de flujo de trabajo. Por ejemplo, podrías dejar de registrar para producir un script completo que tenga comentarios.
+Detiene el procesamiento de cualquier comando de flujo de trabajo. Este comando especial te permite registrar cualquier cosa sin ejecutar accidentalmente un comando de flujo de trabajo. Por ejemplo, podrías dejar de registrar para producir un script completo que tenga comentarios.
 
 ```{:copy}
 ::stop-commands::{endtoken}
@@ -386,7 +383,7 @@ Para parar el procesamiento de los comandos de flujo de trabajo, pasa un token �
 ::{endtoken}::
 ```
 
-### Example: Stopping and starting workflow commands
+### Ejemplo: Parar e iniciar comandos de flujos de trabajo
 
 {% bash %}
 
@@ -447,7 +444,7 @@ Los comandos `add-mask`, `debug`, `warning` y `error` no son compatibles con el 
 
 También puedes habilitar el eco de comandos globalmente si activas la generación de bitácoras de depuración de pasos utilizando el secreto `ACTIONS_STEP_DEBUG`. Para obtener más información, consulta la sección "[Habilitar el registro de depuración](/actions/managing-workflow-runs/enabling-debug-logging)". Como contraste, el comando de flujo de trabajo `echo` te permite habilitar el eco de comandos en un nivel más granular en vez de habilitarlo para cada flujo de trabajo en un repositorio.
 
-### Example: Toggling command echoing
+### Ejemplo: Alternar el eco de comandos
 
 {% bash %}
 
@@ -485,7 +482,7 @@ jobs:
 
 {% endpowershell %}
 
-The example above prints the following lines to the log:
+El ejemplo anterior imprime las siguientes líneas en la bitácora:
 
 ```{:copy}
 ::set-output name=action_echo::enabled
@@ -514,7 +511,7 @@ La variable `STATE_processID` se encontrará entonces exclusivamente disponible 
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
-## Environment files
+## Archivos de ambiente
 
 Durante la ejecución de un flujo de trabajo, el ejecutor genera archivos temporales que pueden utilizarse para llevar a cabo ciertas acciones. La ruta a estos archivos se expone a través de variables de ambiente. Necesitarás utilizar codificación UTF-8 cuando escribas en estos archivos para garantizar el procesamiento adecuado de los comandos. Se pueden escribir varios comandos en el mismo archivo, separados por líneas nuevas.
 
@@ -522,7 +519,7 @@ Durante la ejecución de un flujo de trabajo, el ejecutor genera archivos tempor
 
 {% note %}
 
-**Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. Por ejemplo:
+**Nota:** PowerShell versión 5.1 e inferiores (`shell: powershell`) no utiliza UTF-8 predeterminadamente, así que debes especificar el cifrado UTF-8. Por ejemplo:
 
 ```yaml{:copy}
 jobs:
@@ -534,7 +531,7 @@ jobs:
           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
-PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. Por ejemplo:
+Las versiones 6 y superior de PowerShell Core (`shell: pwsh`) utilizan UTF-8 predeterminadamente. Por ejemplo:
 
 ```yaml{:copy}
 jobs:
@@ -562,19 +559,21 @@ echo "{environment_variable_name}={value}" >> $GITHUB_ENV
 
 {% powershell %}
 
-- Using PowerShell version 6 and higher:
-```pwsh{:copy}
-"{environment_variable_name}={value}" >> $env:GITHUB_ENV
-```
+- Utilizar PowerShell versión 6 y superior:
 
-- Using PowerShell version 5.1 and below:
-```powershell{:copy}
-"{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-```
+  ```pwsh{:copy}
+  "{environment_variable_name}={value}" >> $env:GITHUB_ENV
+  ```
+
+- Utilizar PowerShell versión 5.1 e inferior:
+
+  ```powershell{:copy}
+  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+  ```
 
 {% endpowershell %}
 
-You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. El paso que crea o actualiza la variable de ambiente no tiene acceso al valor nuevo, pero todos los pasos subsecuentes en un job tendrán acceso. The names of environment variables are case-sensitive, and you can include punctuation. Para obtener más información, consulta "[Variables del entorno](/actions/learn-github-actions/environment-variables)".
+Puedes hacer que una variable de ambiente esté disponible en cualquier paso subsecuente de un job de un flujo de trabajo si defines o actualizas la variable de ambiente y escribes esto en el archivo de ambiente `GITHUB_ENV`. El paso que crea o actualiza la variable de ambiente no tiene acceso al valor nuevo, pero todos los pasos subsecuentes en un job tendrán acceso. Los nombres de las variables de ambiente distinguen entre mayúsculas y minúsculas y puedes incluir signos de puntuación. Para obtener más información, consulta "[Variables del entorno](/actions/learn-github-actions/environment-variables)".
 
 ### Ejemplo
 
@@ -657,6 +656,150 @@ steps:
 
 {% endpowershell %}
 
+{% if actions-job-summaries %}
+
+## Adding a job summary
+
+{% bash %}
+
+```bash{:copy}
+echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"{markdown content}" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+You can set some custom Markdown for each job so that it will be displayed on the summary page of a workflow run. You can use job summaries to display and group unique content, such as test result summaries, so that someone viewing the result of a workflow run doesn't need to go into the logs to see important information related to the run, such as failures.
+
+Job summaries support [{% data variables.product.prodname_dotcom %} flavored Markdown](https://github.github.com/gfm/), and you can add your Markdown content for a step to the `GITHUB_STEP_SUMMARY` environment file. `GITHUB_STEP_SUMMARY` is unique for each step in a job. For more information about the per-step file that `GITHUB_STEP_SUMMARY` references, see "[Environment files](#environment-files)."
+
+When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
+
+### Ejemplo
+
+{% bash %}
+
+```bash{:copy}
+echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```pwsh{:copy}
+"### Hello world! :rocket:" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+![Markdown summary example](/assets/images/actions-job-summary-simple-example.png)
+
+### Multiline Markdown content
+
+For multiline Markdown content, you can use `>>` to continuously append content for the current step. With every append operation, a newline character is automatically added.
+
+#### Ejemplo
+
+{% bash %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    echo "This is the lead in sentence for the list" >> $GITHUB_STEP_SUMMARY
+    echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+    echo "- Lets add a bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- Lets add a second bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- How about a third one?" >> $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Generate list using Markdown
+  run: |
+    "This is the lead in sentence for the list" >> $env:GITHUB_STEP_SUMMARY
+    "" >> $env:GITHUB_STEP_SUMMARY # this is a blank line
+    "- Lets add a bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- Lets add a second bullet point" >> $env:GITHUB_STEP_SUMMARY
+    "- How about a third one?" >> $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### Overwriting job summaries
+
+To clear all content for the current step, you can use `>` to overwrite any previously added content.
+
+#### Ejemplo
+
+{% bash %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    echo "Adding some Markdown content" >> $GITHUB_STEP_SUMMARY
+    echo "There was an error, we need to clear the previous Markdown with some new content." > $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Overwrite Markdown
+  run: |
+    "Adding some Markdown content" >> $env:GITHUB_STEP_SUMMARY
+    "There was an error, we need to clear the previous Markdown with some new content." > $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+### Removing job summaries
+
+To completely remove a summary for the current step, the file that `GITHUB_STEP_SUMMARY` references can be deleted.
+
+#### Ejemplo
+
+{% bash %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    echo "Adding Markdown content that we want to remove before the step ends" >> $GITHUB_STEP_SUMMARY
+    rm $GITHUB_STEP_SUMMARY
+```
+
+{% endbash %}
+
+{% powershell %}
+
+```yaml
+- name: Delete all summary content
+  run: |
+    "Adding Markdown content that we want to remove before the step ends" >> $env:GITHUB_STEP_SUMMARY
+    rm $env:GITHUB_STEP_SUMMARY
+```
+
+{% endpowershell %}
+
+After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "[Deleting a workflow run](/actions/managing-workflow-runs/deleting-a-workflow-run)."
+
+### Step isolation and limits
+
+Job summaries are isolated between steps and each step is restricted to a maximum size of 1MiB. Isolation is enforced between steps so that potentially malformed Markdown from a single step cannot break Markdown rendering for subsequent steps. If more than 1MiB of content is added for a step, then the upload for the step will fail and an error annotation will be created. Upload failures for job summaries do not affect the overall status of a step or a job. A maximum of 20 job summaries from steps are displayed per job.
+
+{% endif %}
+
 ## Agregar una ruta de sistema
 
 Antepone un directorio a la variable de sistema `PATH` y la hace disponible automáticamente para todas las acciones subsecuentes en el job actual; la acción que se está ejecutando actualmente no puede acceder a la variable de ruta actualizada. Para ver las rutas definidas actualmente para tu job, puedes utilizar `echo "$PATH"` en un paso o en una acción.
@@ -678,9 +821,9 @@ echo "{path}" >> $GITHUB_PATH
 
 ### Ejemplo
 
-Este ejemplo demuestra cómo agregar el directorio `$HOME/.local/bin` del usuario al `PATH`:
-
 {% bash %}
+
+Este ejemplo demuestra cómo agregar el directorio `$HOME/.local/bin` del usuario al `PATH`:
 
 ```bash{:copy}
 echo "$HOME/.local/bin" >> $GITHUB_PATH
@@ -688,10 +831,9 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 {% endbash %}
 
+{% powershell %}
 
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
-
-{% powershell %}
 
 ```pwsh{:copy}
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH

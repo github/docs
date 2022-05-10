@@ -1,21 +1,21 @@
 ---
-title: Troubleshooting identity and access management
-intro: 'Review and resolve common troubleshooting errors for managing your organization''s SAML SSO, team synchronization, or identity provider (IdP) connection.'
+title: Solucionar problemas de administración de acceso e identidad
+intro: 'Revisa y resuelve los errores comunes de las soluciones de problemas para administrar el SSO de SAML de tu organización, la sincronización de equipos o la conexión con el proveedor de identidad (IdP).'
 versions:
   ghec: '*'
 topics:
   - Organizations
   - Teams
-shortTitle: Troubleshooting access
+shortTitle: Solucionar problemas de acceso
 ---
 
-## Some users are not provisioned or deprovisioned by SCIM
+## Algunos usuarios no están aprovisionados o desaprovisionados por SCIM
 
-When you encounter provisioning issues with users, we recommend that you check if the users are missing SCIM metadata.
+Cuando encuentras problemas de aprovisionamiento con los usuarios, te recomendamos que verifiques si estos no tienen metadatos de SCIM.
 
 {% data reusables.scim.changes-should-come-from-idp %}
 
-If an organization member has missing SCIM metadata, then you can re-provision SCIM for the user manually through your IdP.
+Si a un miembro de la organización el faltan metadatos de SCIM, entonces puedes volver a aprovisionar el SCIM para este de forma manual mediante tu IdP.
 
 ### Auditar usarios para los metadatos perdidos de SCIM
 

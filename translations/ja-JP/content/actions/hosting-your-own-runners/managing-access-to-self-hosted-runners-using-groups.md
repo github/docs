@@ -49,7 +49,7 @@ When creating a group, you must choose a policy that defines which repositories{
 {% ifversion ghec or ghes > 3.3 or ghae-issue-5091 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.settings-sidebar-actions-runner-groups %}
+{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 1. In the "Runner groups" section, click **New runner group**.
 1. Enter a name for your runner group.
  {% data reusables.actions.runner-group-assign-policy-repo %}
@@ -66,7 +66,7 @@ When creating a group, you must choose a policy that defines which repositories{
 {% elsif ghae or ghes < 3.4 %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
-{% data reusables.actions.settings-sidebar-actions-runners %}
+{% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 1. Under {% ifversion ghes > 3.1 or ghae %}"Runners"{% elsif ghes < 3.2 %}"Self-hosted runners"{% endif %}, click **Add new**, and then **New group**.
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)

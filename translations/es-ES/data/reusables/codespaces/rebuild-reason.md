@@ -1,0 +1,1 @@
+Reconstruir dentro de tu codespace garantiza que tus cambios funcionan como se espera antes de que confirmes los cambios en el repositorio. Si algo resulta en un fallo, se te colocará en un codespace con un contenedor de recuperación desde el cual puedes reconstruir para seguir ajustando tu contenedor.

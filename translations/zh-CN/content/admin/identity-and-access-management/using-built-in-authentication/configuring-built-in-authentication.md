@@ -1,0 +1,55 @@
+---
+title: 配置内置身份验证
+intro: 'When you use the default authentication method, all authentication details are stored on {% data variables.product.product_location %}.'
+permissions: 'Site administrators can configure authentication for a {% data variables.product.product_name %} instance.'
+redirect_from:
+  - /enterprise/admin/user-management/using-built-in-authentication
+  - /enterprise/admin/authentication/using-built-in-authentication
+  - /admin/authentication/using-built-in-authentication
+  - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication
+  - /admin/identity-and-access-management/authenticating-users-for-your-github-enterprise-server-instance/using-built-in-authentication
+versions:
+  ghes: '*'
+type: how_to
+topics:
+  - Accounts
+  - Authentication
+  - Enterprise
+  - Identity
+shortTitle: Configure built-in authentication
+---
+
+## About built-in authentication
+
+By default, {% data variables.product.product_name %} uses built-in authentication. Each person creates a user account on {% data variables.product.product_location %} from an invitation or by signing up, and then authenticates with the credentials for the account to access your instance. Your {% data variables.product.product_name %} instance stores the authentication information for the account.
+
+You can prevent unauthenticated people from creating new user accounts on your instance. For more information, see "[Disabling unauthenticated sign-ups](/admin/identity-and-access-management/using-built-in-authentication/disabling-unauthenticated-sign-ups)."
+
+{% data reusables.enterprise_user_management.alternatively-enable-external-authentication %}
+
+## 配置内置身份验证
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.authentication %}
+4. 选择 **Built in authentication**。 ![选择内置身份验证选项](/assets/images/enterprise/management-console/built-in-auth-select.png)
+
+{% data reusables.enterprise_user_management.two_factor_auth_header %}
+{% data reusables.enterprise_user_management.2fa_is_available %}
+
+## 创建账户
+
+在实例创建完成后，您需要创建自己的管理员帐户。
+
+1. 在 `http(s)://[hostname]/join` 的“Create Admin Account”页面下，选择您的用户名、密码和电子邮件地址，然后单击 **Create an account**。 ![创建管理员帐户](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+
+## 后续步骤
+
+<a name="inviting-users"></a>
+
+After you configure built-in authentication and create your administrative account, you can invite people to create accounts and use your instance. For more information, see "[Inviting people to use your instance](/admin/identity-and-access-management/using-built-in-authentication/inviting-people-to-use-your-instance)."
+
+## 延伸阅读
+
+- "[配置通知电子邮件](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)"

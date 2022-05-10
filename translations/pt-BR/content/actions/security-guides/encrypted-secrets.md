@@ -325,31 +325,29 @@ Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você 
   $ git push
   ```
 
-1. A partir de seu fluxo de trabalho, use `step` para chamar o shell script e decifrar o segredo. Para ter uma cópia do seu repositório no ambiente em que o seu fluxo de trabalho é executado, você deverá executar a ação [`actions/checkout`](https://github.com/actions/checkout). Faça referência ao shell script usando o comando `run` relativo à raiz do repositório.
+1. A partir de seu fluxo de trabalho, use `step` para chamar o shell script e decifrar o segredo. Para ter uma cópia do seu repositório no ambiente em que o seu fluxo de trabalho é executado, você deverá executar a ação [`ações/checkout`](https://github.com/actions/checkout). Faça referência ao shell script usando o comando `run` relativo à raiz do repositório.
 
-{% raw %}
-  ```yaml
-  name: Workflows with large secrets
+   ```yaml
+   name: Workflows with large secrets
 
-  on: push
+   on: push
 
-  jobs:
-    my-job:
-      name: My Job
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-        - name: Decrypt large secret
-          run: ./.github/scripts/decrypt_secret.sh
-          env:
-            LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
-        # This command is just an example to show your secret being printed
-        # Ensure you remove any print statements of your secrets. O GitHub
-        # não oculta segredos que usam essa alternativa.
-        - name: Test printing your secret (Remove this step in production)
-          run: cat $HOME/secrets/my_secret.json
-  ```
-{% endraw %}
+   jobs:
+     my-job:
+       name: My Job
+       runs-on: ubuntu-latest
+       steps:
+         - uses: {% data reusables.actions.action-checkout %}
+         - name: Decrypt large secret
+           run: ./.github/scripts/decrypt_secret.sh
+           env:
+             LARGE_SECRET_PASSPHRASE: {% raw %}${{ secrets. LARGE_SECRET_PASSPHRASE }}{% endraw %}
+         # This command is just an example to show your secret being printed
+         # Ensure you remove any print statements of your secrets. GitHub does
+         # not hide secrets that use this workaround.
+         - name: Test printing your secret (Remove this step in production)
+           run: cat $HOME/secrets/my_secret.json
+   ```
 
 ## Armazenar Blobs binários de Base64 como segredos
 
@@ -385,7 +383,7 @@ Você pode usar a codificação de Base64 para armazenar pequenos blobs binário
      decode-secret:
        runs-on: ubuntu-latest
        steps:
-         - uses: actions/checkout@v2
+         - uses: {% data reusables.actions.action-checkout %}
          - name: Retrieve the secret and decode it to a file
            env:
              {% raw %}CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}{% endraw %}
@@ -395,4 +393,3 @@ Você pode usar a codificação de Base64 para armazenar pequenos blobs binário
            run: |
              openssl x509 -in cert.der -inform DER -text -noout
    ```
-

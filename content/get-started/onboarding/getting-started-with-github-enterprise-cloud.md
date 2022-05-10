@@ -21,7 +21,7 @@ The main difference between the products is that {% data variables.product.prodn
 
 With {% data variables.product.prodname_ghe_cloud %}, you have the option of using {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
-If you choose to let your members create and manage their own user accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
+If you choose to let your members create and manage their own personal accounts instead, there are two types of accounts you can use with {% data variables.product.prodname_ghe_cloud %}:
 
 - A single organization account
 - An enterprise account that contains multiple organizations
@@ -179,7 +179,7 @@ To manage and moderate your enterprise, you can set policies for organizations w
 
 You can choose to enforce a number of policies for all organizations owned by your enterprise, or choose to allow these policies to be set in each organization. Types of policies you can enforce include repository management, project board, and team policies. For more information, see "[Setting policies for your enterprise](/enterprise-cloud@latest/admin/policies)."
 #### 2. Viewing audit logs, configuring webhooks, and restricting email notifications for your enterprise
-You can view actions from all of the organizations owned by your enterprise account in the enterprise audit log. You can also configure webhooks to receive events from organizations owned by your enterprise account. For more information, see "[Viewing the audit logs for organizations in your enterprise](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise)" and "[Managing global webhooks](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-global-webhooks)."
+You can view actions from all of the organizations owned by your enterprise account in the enterprise audit log. You can also configure webhooks to receive events from organizations owned by your enterprise account. For more information, see "[Reviewing audit logs for your enterprise](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)" and "[Monitoring your enterprise](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise)."
 
 You can also restrict email notifications for your enterprise account so that enterprise members can only use an email address in a verified or approved domain to receive notifications. For more information, see "[Restricting email notifications for your enterprise](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)."
 

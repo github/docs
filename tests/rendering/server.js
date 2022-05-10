@@ -362,18 +362,16 @@ describe('server', () => {
       expect($('h2#in-this-article').length).toBe(0)
     })
 
+    // TODO
     test('renders mini TOC with correct links when headings contain markup', async () => {
-      const $ = await getDOM(
-        '/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates'
-      )
-      expect($('h2#in-this-article + div div ul a[href="#package-ecosystem"]').length).toBe(1)
+      const $ = await getDOM('/en/actions/using-workflows/workflow-syntax-for-github-actions')
+      expect($('h2#in-this-article + div div ul a[href="#on"]').length).toBe(1)
     })
 
+    // TODO
     test('renders mini TOC with correct links when headings contain markup in localized content', async () => {
-      const $ = await getDOM(
-        '/ja/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates'
-      )
-      expect($('h2#in-this-article + div div ul a[href="#package-ecosystem"]').length).toBe(1)
+      const $ = await getDOM('/ja/actions/using-workflows/workflow-syntax-for-github-actions')
+      expect($('h2#in-this-article + div div ul a[href="#on"]').length).toBe(1)
     })
   })
 
@@ -596,46 +594,33 @@ describe('server', () => {
   })
 
   describeViaActionsOnly('Early Access articles', () => {
-    let hiddenPageHrefs, hiddenPages
-
-    beforeAll(async () => {
-      const $ = await getDOM('/early-access')
-      hiddenPageHrefs = $('#article-contents ul > li > a')
-        .map((i, el) => $(el).attr('href'))
-        .get()
-
-      const allPages = await loadPages()
-      hiddenPages = allPages.filter((page) => page.languageCode === 'en' && page.hidden)
-    })
-
-    test('exist in the set of English pages', async () => {
-      expect(hiddenPages.length).toBeGreaterThan(0)
-    })
-
-    test('are listed at /early-access', async () => {
-      expect(hiddenPageHrefs.length).toBeGreaterThan(0)
-    })
-
     // Test skipped because this test file is no longer able to
     // change the `NODE_ENV` between tests because it depends on
     // HTTP and not raw supertest.
     // Idea: Move this one test somewhere into tests/unit/
     test.skip('are not listed at /early-access in production', async () => {
-      const oldNodeEnv = process.env.NODE_ENV
-      process.env.NODE_ENV = 'production'
       const res = await get('/early-access', { followRedirects: true })
-      process.env.NODE_ENV = oldNodeEnv
       expect(res.statusCode).toBe(404)
     })
 
     test('have noindex meta tags', async () => {
-      const $ = await getDOM(hiddenPageHrefs[0])
-      expect($('meta[content="noindex"]').length).toBe(1)
-    })
-
-    test('public articles do not have noindex meta tags', async () => {
-      const $ = await getDOM('/en/articles/set-up-git')
-      expect($('meta[content="noindex"]').length).toBe(0)
+      const allPages = await loadPages()
+      // This is what the earlyAccessContext middleware does to get a
+      // list of early-access pages for that TOC it displays when
+      // viewing /en/early-access in development.
+      // Here we're using it to get a least 1 page we can end-to-end
+      // test to look at it's meta tags.
+      const hiddenPages = allPages.filter(
+        (page) =>
+          page.languageCode === 'en' &&
+          page.hidden &&
+          page.relativePath.startsWith('early-access') &&
+          !page.relativePath.endsWith('index.md')
+      )
+      for (const { href } of hiddenPages[0].permalinks) {
+        const $ = await getDOM(href)
+        expect($('meta[content="noindex"]').length).toBe(1)
+      }
     })
   })
 
@@ -1119,19 +1104,19 @@ describe('index pages', () => {
 
 describe('REST reference pages', () => {
   test('view the rest/repos page in English', async () => {
-    const res = await get('/en/rest/reference/repos')
+    const res = await get('/en/rest/repos')
     expect(res.statusCode).toBe(200)
   })
   test('view the rest/repos page in Japanese', async () => {
-    const res = await get('/ja/rest/reference/repos')
+    const res = await get('/ja/rest/repos')
     expect(res.statusCode).toBe(200)
   })
   test('deeper pages in English', async () => {
-    const res = await get('/ja/enterprise-cloud@latest/rest/reference/code-scanning')
+    const res = await get('/ja/enterprise-cloud@latest/rest/code-scanning')
     expect(res.statusCode).toBe(200)
   })
   test('deeper pages in Japanese', async () => {
-    const res = await get('/en/enterprise-cloud@latest/rest/reference/code-scanning')
+    const res = await get('/en/enterprise-cloud@latest/rest/code-scanning')
     expect(res.statusCode).toBe(200)
   })
 })

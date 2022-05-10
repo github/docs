@@ -12,7 +12,7 @@
    * **In an organization**:
 
 {% indented_data_reference reusables.actions.settings-ui.settings-actions-runner-groups spaces=5 %}
-   * **If using an enterprise-level group**:
+   * **Si estás utilizando un grupo a nivel de empresa**:
 
 {% indented_data_reference reusables.enterprise-accounts.policies-tab spaces=5 %}
 {% indented_data_reference reusables.enterprise-accounts.actions-tab spaces=5 %}

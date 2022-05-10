@@ -1,7 +1,7 @@
 ---
 title: Asistencia de Mercado GitHub
-intro: 'When you encounter issues using an app in {% data variables.product.prodname_marketplace %}, you can contact the support team for the app.'
-shortTitle: Marketplace support
+intro: 'Cuando encuentras problemas al utilizar una app en {% data variables.product.prodname_marketplace %}, puedes contactar al equipo de soporte para la app.'
+shortTitle: Soporte de Marketplace
 versions:
   fpt: '*'
   ghec: '*'

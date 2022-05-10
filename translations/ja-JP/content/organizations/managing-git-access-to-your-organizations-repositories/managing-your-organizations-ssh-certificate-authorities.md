@@ -1,12 +1,10 @@
 ---
 title: OrganizationのSSH認証局を管理する
 intro: Organizationから、SSH認証局を追加または削除することができます。
-product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/managing-your-organizations-ssh-certificate-authorities
   - /github/setting-up-and-managing-organizations-and-teams/managing-your-organizations-ssh-certificate-authorities
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -14,11 +12,12 @@ topics:
   - Organizations
   - Teams
 shortTitle: SSH認証局の管理
+permissions: Organization owners can manage an organization's SSH certificate authorities (CA).
 ---
 
-Organizationのオーナーは、OrganizationのSSH認証局 (CAN) を管理できます。
+SSH CAをOrganizationに追加すると、メンバーはあなたが提供したSSH証明書を使用してOrganizationにアクセスできるようになります。 {% data reusables.organizations.can-require-ssh-cert %}詳しい情報については、「[SSS 認証局について](/articles/about-ssh-certificate-authorities)」を参照してください。
 
-SSH CAをOrganizationに追加すると、メンバーはあなたが提供したSSH証明書を使用してOrganizationにアクセスできるようになります。 {% data reusables.organizations.can-require-ssh-cert %}詳細については、「[SSH認証局について](/articles/about-ssh-certificate-authorities)」を参照してください。
+{% data reusables.organizations.ssh-ca-ghec-only %}
 
 {% data reusables.organizations.add-extension-to-cert %}
 

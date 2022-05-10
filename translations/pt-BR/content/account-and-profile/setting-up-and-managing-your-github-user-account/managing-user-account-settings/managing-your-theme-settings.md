@@ -20,12 +20,6 @@ Você pode querer usar um tema escuro para reduzir o consumo de energia em certo
 
 {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}Se você tiver baixa visão, você poderá aproveitar um tema de alto contraste, com maior contraste entre o primeiro plano e os elementos de segundo plano.{% endif %}{% ifversion fpt or ghae-issue-4619 or ghec %} se você for daltônico, você poderá beneficiar-se dos nossos temas de cor clara e escura.
 
-{% note %}
-
-**Observação:** Os temas coloridos estão atualmente em beta público. Para obter mais informações sobre como habilitar funcionalidades no beta público, consulte "[Explorando versões de acesso antecipado com visualização de funcionalidades](/get-started/using-github/exploring-early-access-releases-with-feature-preview)".
-
-{% endnote %}
-
 {% endif %}
 
 {% data reusables.user-settings.access_settings %}
@@ -41,7 +35,7 @@ Você pode querer usar um tema escuro para reduzir o consumo de energia em certo
     - Se você escolheu seguir as configurações do sistema, clique em um tema diurno e um tema noturno.
 
       {% ifversion fpt or ghes > 3.2 or ghae-issue-4618 or ghec %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync-highcontrast.png){% else %}![Buttons for the choice of a theme to sync with the system setting](/assets/images/help/settings/theme-choose-a-day-and-night-theme-to-sync.png){% endif %}
-    {% ifversion fpt or ghae-issue-4619 or ghec %}
+    {% ifversion fpt or ghec %}
     - Se você quiser escolher um tema que esteja atualmente em beta público, primeiro você deverá habilitá-lo com pré-visualização de recursos. Para obter mais informações, consulte "[Explorar versões de acesso antecipado com visualização de recursos em](/get-started/using-github/exploring-early-access-releases-with-feature-preview)".{% endif %}
 
 {% if command-palette %}

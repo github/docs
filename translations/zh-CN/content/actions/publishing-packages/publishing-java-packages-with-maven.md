@@ -74,7 +74,6 @@ _pom.xml_ 文件还包含 Maven 将在其中部署包的分配管理仓库的配
 在部署步骤中，您需要将环境变量设置为向仓库验证的用户名，以及用密码或令牌配置为进行身份验证的密钥。  更多信息请参阅“[创建和使用加密密码](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 
-{% raw %}
 ```yaml{:copy}
 name: Publish package to the Maven Central Repository
 on:
@@ -84,9 +83,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Maven Central Repository
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -96,10 +95,9 @@ jobs:
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
+          MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
 ```
-{% endraw %}
 
 此工作流程执行以下步骤：
 
@@ -150,8 +148,8 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
+      - uses: {% data reusables.actions.action-checkout %}
+      - uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -187,9 +185,9 @@ jobs:
       contents: read
       packages: write {% endif %}
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Java for publishing to Maven Central Repository
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
@@ -198,18 +196,18 @@ jobs:
           server-password: MAVEN_PASSWORD
       - name: Publish to the Maven Central Repository
         run: mvn --batch-mode deploy
-        env:{% raw %}
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+        env:
+          MAVEN_USERNAME: {% raw %}${{ secrets.OSSRH_USERNAME }}{% endraw %}
+          MAVEN_PASSWORD: {% raw %}${{ secrets.OSSRH_TOKEN }}{% endraw %}
       - name: Set up Java for publishing to GitHub Packages
-        uses: actions/setup-java@v2
+        uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
           distribution: 'adopt'
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}{% endraw %}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
 此工作流程将调用 `setup-java` 操作两次。  每次运行 `setup-java` 操作时，都会覆盖 Maven _settings.xml_ 文件以发布包。  为向仓库验证，_settings.xml_ 文件引用分发管理仓库 `id` 以及用户名和密码。

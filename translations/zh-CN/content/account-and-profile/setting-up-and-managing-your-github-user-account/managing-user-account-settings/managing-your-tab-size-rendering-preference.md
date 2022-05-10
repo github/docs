@@ -1,6 +1,6 @@
 ---
 title: 管理选项卡大小呈现首选项
-intro: 您可以管理选项卡占用户帐户多少空间。
+intro: 您可以管理选项卡占用个人帐户多少空间。
 versions:
   fpt: '*'
   ghae: issue-5083

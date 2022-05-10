@@ -1,6 +1,6 @@
 ---
 title: 用户帐户仓库的权限级别
-intro: 用户帐户拥有的仓库有两种权限级别：仓库所有者和协作者。
+intro: 个人帐户拥有的仓库有两种权限级别：仓库所有者和协作者。
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-a-user-account-repository
@@ -15,19 +15,19 @@ topics:
 shortTitle: 权限用户仓库
 ---
 
-## 关于用户帐户仓库的权限级别
+## 关于个人帐户仓库的权限级别
 
-用户帐户拥有的仓库有一个所有者。 所有权权限无法与其他用户帐户共享。
+个人帐户拥有的仓库有一个所有者。 所有权权限无法与其他个人帐户共享。
 
 您还可以{% ifversion fpt or ghec %}邀请{% else %}添加{% endif %} {% data variables.product.product_name %} 上的用户成为仓库的协作者。 更多信息请参阅“[邀请协作者参加个人仓库](/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository)”。
 
 {% tip %}
 
-**提示：**如果需要对用户帐户拥有的仓库实施更细致的权限，请考虑将仓库转让给组织。 更多信息请参阅“[转让仓库](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)”。
+**提示：**如果需要对个人帐户拥有的仓库实施更细致的权限，请考虑将仓库转让给组织。 更多信息请参阅“[转让仓库](/github/administering-a-repository/transferring-a-repository#transferring-a-repository-owned-by-your-personal-account)”。
 
 {% endtip %}
 
-## 所有者对用户帐户拥有仓库的权限
+## 所有者对个人帐户拥有仓库的权限
 
 仓库所有者对仓库具有完全控制权。 除了任何协作者可以执行的操作外，仓库所有者还可以执行以下操作。
 
@@ -49,7 +49,7 @@ shortTitle: 权限用户仓库
 | 自定义仓库的社交媒体预览                                                                                                             | "[自定义仓库的社交媒体预览](/github/administering-a-repository/customizing-your-repositorys-social-media-preview)"                                                                                                                                                       |
 | 从仓库创建模板                                                                                                                  | "[创建模板仓库](/github/creating-cloning-and-archiving-repositories/creating-a-template-repository)" |{% ifversion fpt or ghes or ghae-issue-4864 or ghec %}
 | 控制对易受攻击依赖项的 {% data variables.product.prodname_dependabot_alerts %} 访问                                                 | "[管理仓库的安全和分析设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" |{% endif %}{% ifversion fpt or ghec %}
-| 忽略仓库中的 {% data variables.product.prodname_dependabot_alerts %}                                                         | "[Viewing {% data variables.product.prodname_dependabot_alerts %} for vulnerable dependencies](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"                                                 |
+| 忽略仓库中的 {% data variables.product.prodname_dependabot_alerts %}                                                         | "[查看漏洞依赖项的 {% data variables.product.prodname_dependabot_alerts %}](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"                                                                            |
 | 管理私有仓库的数据使用                                                                                                              | “[管理私有仓库的数据使用设置](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)”
 {% endif %}
 | 定义仓库的代码所有者                                                                                                               | "[关于代码所有者](/github/creating-cloning-and-archiving-repositories/about-code-owners)"                                                                                                                                                                           |
@@ -59,13 +59,13 @@ shortTitle: 权限用户仓库
 {% endif %}
 | 允许或禁止自动合并拉取请求                                                                                                            | "[管理仓库中的拉取请求自动合并](/github/administering-a-repository/managing-auto-merge-for-pull-requests-in-your-repository)"                                                                                                                                              |
 
-## 协作者对用户帐户拥有仓库的权限
+## 协作者对个人帐户拥有仓库的权限
 
 个人仓库的协作者可以拉取（读取）仓库的内容并向仓库推送（写入）更改。
 
 {% note %}
 
-**注：**在私有仓库中，仓库所有者只能为协作者授予写入权限。 协作者不能对用户帐户拥有的仓库具有只读权限。
+**注：**在私有仓库中，仓库所有者只能为协作者授予写入权限。 协作者不能对个人帐户拥有的仓库具有只读权限。
 
 {% endnote %}
 

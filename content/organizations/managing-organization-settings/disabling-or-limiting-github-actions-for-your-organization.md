@@ -12,6 +12,7 @@ topics:
   - Organizations
   - Teams
 shortTitle: Disable or limit actions
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -23,13 +24,11 @@ shortTitle: Disable or limit actions
 
 You can enable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for all repositories in your organization. {% data reusables.actions.disabled-actions-description %}
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} for all repositories in your organization but limit the actions a workflow can run. {% data reusables.actions.enabled-local-github-actions %}
+Alternatively, you can enable {% data variables.product.prodname_actions %} for all repositories in your organization but limit the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
 
 ## Managing {% data variables.product.prodname_actions %} permissions for your organization
 
-You can disable all workflows for an organization or set a policy that configures which actions can be used in an organization.
-
-{% data reusables.actions.actions-use-policy-settings %}
+You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes or ghae %}enterprise{% else %}organization{% endif %}.
 
 {% note %}
 
@@ -40,22 +39,30 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under **Policies**, select an option.
-  ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
-1. Click **Save**.
+1. Under "Policies", select an option.
 
-## Allowing specific actions to run
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
+
+   {% if actions-workflow-policy %}
+   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy-with-workflows.png)
+   {%- else %}
+   ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
+   {%- endif %}
+1. Click **Save**.
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under **Policies**, select **Allow select actions** and add your required actions to the list.
-   {%- ifversion ghes %}
-   ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% if actions-workflow-policy %} and reusable workflows{% endif %} to the list.
+
+   {% if actions-workflow-policy %}
+   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
+   {%- elsif ghes %}
+   ![Add actions to the allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
-   ![Add actions to allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   ![Add actions to the allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
    {%- endif %}
 1. Click **Save**.
 

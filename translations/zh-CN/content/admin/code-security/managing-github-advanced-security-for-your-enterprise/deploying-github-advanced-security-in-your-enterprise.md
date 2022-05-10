@@ -1,5 +1,5 @@
 ---
-title: 在企业中部署 GitHub Advanced Security
+title: Deploying GitHub Advanced Security in your enterprise
 intro: 'Learn how to plan, prepare, and implement a phased approach for rolling out {% data variables.product.prodname_GH_advanced_security %} (GHAS) in your enterprise.'
 product: '{% data reusables.gated-features.advanced-security %}'
 redirect_from:
@@ -82,10 +82,12 @@ We recommend you cover these topics in your internal kickoff meeting at your com
 
 - What are your business success metrics, how do you plan to measure and report on those measures?
   - If these have not been defined, please define them. If they have been defined, communicate them and talk about how you plan to provide data-driven progress updates.
-- Review of how GHAS works within the SDLC (Software Development Life cycle) and how this is expected to work for your company.
+- Review of how GHAS works within the SDLC (Software Development Life cycle) and how this is
+expected to work for your company.
 - Review of best practices if your company did not participate in the Proof of Concept exercise (or a refresher if your team finds value in this review)
   - How does this compare/contrast with your existing Application Security Program?
-- Discuss and agree how your internal team will work best together throughout rollout and implementation.
+- Discuss and agree how your internal team will work best together throughout rollout and
+implementation.
   - Align on your communications plans and frequency of meetings for your internal team
   - Review tasks for rollout and implementation completion, defining roles and responsibilities. We have outlined the majority of the tasks in this article, but there may be additional tasks your company requires we have not included.
   - Consider establishing a “Champions Program” for scaled enablement
@@ -106,7 +108,8 @@ If you’re working independently, this section outlines some things to ensure a
 Plans for process changes (if needed) and training for team members as needed:
   - Documented team assignments for roles and responsibilities. For more information on the permissions required for each feature, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization#access-requirements-for-security-features)."
   - Documented plan of tasks and timelines/timeframes where possible. This should include infrastructure changes, process changes/training, and all subsequent phases of enablement of GHAS, allowing for timeframes for remediations and configuration adjustments as needed. For more information, see "[Phase 1: Pilot projects(s)](/admin/advanced-security/deploying-github-advanced-security-in-your-enterprise#--phase-1-pilot-projects)" below.
-  - Prioritized plan for which projects/teams will have GHAS enabled first, and subsequent plans for which projects/teams will come in following phases
+  - Prioritized plan for which projects/teams will have GHAS enabled first, and subsequent
+plans for which projects/teams will come in following phases
   - Success metrics based on business goals. This will be a crucial reference point following the Pilot Project(s) to gain buy-in for the full rollout.
 
 {% note %}
@@ -119,11 +122,11 @@ Plans for process changes (if needed) and training for team members as needed:
 
 For {% data variables.product.prodname_ghe_server %} customers, to help ensure your instance can support the rollout and implementation of GHAS, review the following:
 
-- While upgrading to GHES 3.0 is not required, you must upgrade to GHES 3.0 or higher to take advantage of feature combinations such as code scanning and {% data variables.product.prodname_actions %}. 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)。”
+- While upgrading to GHES 3.0 is not required, you must upgrade to GHES 3.0 or higher to take advantage of feature combinations such as code scanning and {% data variables.product.prodname_actions %}. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 
-- 在高性能配置中，完全冗余的次级 {% data variables.product.prodname_ghe_server %} 设备通过复制所有主要数据存储与主设备保持同步。 For more information on setting up high availability, see "[Configuring High Availability](/admin/enterprise-management/configuring-high-availability)."
+- In a high availability configuration, a fully redundant secondary {% data variables.product.prodname_ghe_server %} appliance is kept in sync with the primary appliance through replication of all major datastores. For more information on setting up high availability, see "[Configuring High Availability](/admin/enterprise-management/configuring-high-availability)."
 
-- To help support any discussions regarding potential changes to your company's set up, you can review the {% data variables.product.prodname_ghe_server %} system overview. 更多信息请参阅“[系统概述](/admin/overview/system-overview)”。
+- To help support any discussions regarding potential changes to your company's set up, you can review the {% data variables.product.prodname_ghe_server %} system overview. For more information, see "[System overview](/admin/overview/system-overview)."
 
 {% endif %}
 
@@ -131,10 +134,12 @@ For {% data variables.product.prodname_ghe_server %} customers, to help ensure y
 
 As your company prepares to begin your pilot project(s), it’s crucial to ensure that you have set a baseline for where your enterprise is today and have defined clear success metrics to measure your pilot project(s) progress against.
 
-There are likely key business goals your company has that will need to be measured against, but there are other metrics we can identify to help gauge your pilot’s success.
+There are likely key business goals your company has that will need to be measured
+against, but there are other metrics we can identify to help gauge your pilot’s success.
 
 As a starting point, some of these metrics might include:
-  - The mean time to remediation for GHAS vulnerabilities versus the previous tooling and practices the pilot project(s) / team(s) utilized.
+  - The mean time to remediation for GHAS vulnerabilities versus the previous tooling and
+practices the pilot project(s) / team(s) utilized.
   - The code scanning integration's findings for the top X most critical applications.
   - The number of applications that have SAST (Static application security testing) integrated versus before the engagement.
 
@@ -143,14 +148,20 @@ If you participated in the POC exercise prior to purchasing GHAS, these objectiv
   - Security / CISO (Chief Information Security Officer)
   - Application Development Teams
 
-If you’d like to take things a step further, you can look at utilizing OWASP’s DevSecOps Maturity Model (DSOMM) to work towards reaching a Level 1 maturity. There are four main evaluation criteria in DSOMM:
+If you’d like to take things a step further, you can look at utilizing OWASP’s DevSecOps
+Maturity Model (DSOMM) to work towards reaching a Level 1 maturity. There are four main
+evaluation criteria in DSOMM:
 
-- **Static depth:** How comprehensive is the static code scan that you’re performing within the AppSec CI pipeline
-- **Dynamic depth:** How comprehensive is the dynamic scan that is being run within the AppSec CI pipeline
+- **Static depth:** How comprehensive is the static code scan that you’re performing within
+the AppSec CI pipeline
+- **Dynamic depth:** How comprehensive is the dynamic scan that is being run within the
+AppSec CI pipeline
 - **Intensity:** Your schedule frequency for the security scans running in AppSec CI pipeline
-- **Consolidation:** Your remediation workflow for handling findings and process completeness
+- **Consolidation:** Your remediation workflow for handling findings and process
+completeness
 
-To learn more about this approach and how to implement it in GHAS, you can download our white paper "[Achieving DevSecOps Maturity with GitHub](https://resources.github.com/whitepapers/achieving-devsecops-maturity-github/)."
+To learn more about this approach and how to implement it in GHAS,
+you can download our white paper "[Achieving DevSecOps Maturity with GitHub](https://resources.github.com/whitepapers/achieving-devsecops-maturity-github/)."
 
 Based on your wider company’s goals and current levels of DevSecOps maturity, we can help you determine how to best measure your pilot’s progress and success.
 
@@ -162,7 +173,9 @@ Based on your wider company’s goals and current levels of DevSecOps maturity, 
 
 {% endnote %}
 
-To begin enabling GHAS across your company, we recommend beginning with a few high-impact projects or teams to pilot an initial rollout. This will allow an initial group within your company to get familiar with GHAS and build a solid foundation on GHAS before rolling out to the remainder of your company.
+To begin enabling GHAS across your company, we recommend beginning with a few
+high-impact projects or teams to pilot an initial rollout. This will allow an initial
+group within your company to get familiar with GHAS and build a solid foundation on GHAS before rolling out to the remainder of your company.
 
 Before you start your pilot project(s), we recommend that you schedule some checkpoint meetings for your team(s), such as an initial meeting, midpoint review, and a wrap-up session when the pilot is complete. These checkpoint meetings will help you all make adjustments as needed and ensure your team(s) are prepared and supported to complete the pilot successfully.
 
@@ -182,7 +195,7 @@ You need to enable GHAS for each pilot project, either by enabling the GHAS feat
 
 The vast majority of GHAS set-up and installation is centered around enabling and configuring code scanning on your enterprise and in your repositories.
 
-Code scanning allows you to analyze code in a {% data variables.product.prodname_dotcom %} repository to find security vulnerabilities and coding errors. Code scanning can be used to find, triage, and prioritize fixes for existing problems in your code, as well as help prevent developers from introducing new problems that may otherwise reach production. 更多信息请参阅“[关于代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)”。
+Code scanning allows you to analyze code in a {% data variables.product.prodname_dotcom %} repository to find security vulnerabilities and coding errors. Code scanning can be used to find, triage, and prioritize fixes for existing problems in your code, as well as help prevent developers from introducing new problems that may otherwise reach production. For more information, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
 
 ### Step 2: Set up {% data variables.product.prodname_code_scanning_capc %}
 
@@ -198,23 +211,24 @@ To set up code scanning, you must decide whether you'll run code scanning with [
 
 {% ifversion ghes %}
 
-To set up code scanning with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}, you'll need to provision one or more self-hosted {% data variables.product.prodname_actions %} runners in your environment. For more information, see "[Setting up a self-hosted runner](/admin/advanced-security/configuring-code-scanning-for-your-appliance#running-code-scanning-using-github-actions)."
+To set up code scanning with {% data variables.product.prodname_actions %} for {% data variables.product.prodname_ghe_server %}, you'll need to provision one or more self-hosted {% data variables.product.prodname_actions %} runners in your
+environment. For more information, see "[Setting up a self-hosted runner](/admin/advanced-security/configuring-code-scanning-for-your-appliance#running-code-scanning-using-github-actions)."
 
 {% endif %}
 
-For {% data variables.product.prodname_ghe_cloud %}, you can start to create a {% data variables.product.prodname_actions %} workflow using the [CodeQL action](https://github.com/github/codeql-action/) to run code scanning on a repository. {% data variables.product.prodname_code_scanning_capc %} uses [GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners) by default, but this can be customized if you plan to host your own runner with your own hardware specifications. 更多信息请参阅“[关于自托管运行器](/actions/hosting-your-own-runners)”。
+For {% data variables.product.prodname_ghe_cloud %}, you can start to create a {% data variables.product.prodname_actions %} workflow using the [CodeQL action](https://github.com/github/codeql-action/) to run code scanning on a repository. {% data variables.product.prodname_code_scanning_capc %} uses [GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners) by default, but this can be customized if you plan to host your own runner with your own hardware specifications. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners)."
 
 For more information about {% data variables.product.prodname_actions %}, see:
   - "[Learn GitHub Actions](/actions/learn-github-actions)"
   - "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions)"
-  - "[触发工作流程的事件](/actions/learn-github-actions/events-that-trigger-workflows)"
+  - "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows)"
   - "[Filter Pattern Cheat Sheet](/actions/learn-github-actions/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
 
 #### Using a third-party CI system with the CodeQL CLI for {% data variables.product.prodname_code_scanning %}
 
 If you’re not using {% data variables.product.prodname_actions %} and have your own continuous integration system, you can use the CodeQL CLI to perform CodeQL code scanning in a third-party CI system.
 
-更多信息请参阅：
+For more information, see:
   - "[About CodeQL code scanning in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)"
 
 ### Step 3: Enable {% data variables.product.prodname_code_scanning_capc %} in repositories
@@ -227,19 +241,23 @@ For an example of a script that opens pull requests to add a {% data variables.p
 
 ### Step 4: Run code scans and review your results
 
-With code scanning enabled in the necessary repositories, you're ready to help your development team(s) understand how to run code scans and reports, view reports, and process results.
+With code scanning enabled in the necessary repositories, you're ready to help your
+development team(s) understand how to run code scans and reports, view reports, and process results.
 
 #### {% data variables.product.prodname_code_scanning_capc %}
 
-With code scanning, you can find vulnerabilities and errors in your project's code on GitHub, as well as view, triage, understand, and resolve the related {% data variables.product.prodname_code_scanning %} alerts.
+With code scanning, you can find vulnerabilities and errors in your project's code on GitHub,
+as well as view, triage, understand, and resolve the related {% data variables.product.prodname_code_scanning %} alerts.
 
-When code scanning identifies a problem in a pull request, you can review the highlighted code and resolve the alert. 更多信息请参阅“[对拉取请求中的 {% data variables.product.prodname_code_scanning %} 警报分类](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)”。
+When code scanning identifies a problem in a pull request, you can review the highlighted
+code and resolve the alert. For more information, see "[Triaging {% data variables.product.prodname_code_scanning %} alerts in pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)."
 
-If you have write permission to a repository you can manage code scanning alerts for that repository. With write permission to a repository, you can view, fix, dismiss, or delete alerts for potential vulnerabilities or errors in your repository's code. 更多信息请参阅“[管理仓库的代码扫描警报](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)”。
+If you have write permission to a repository you can manage code scanning alerts for that
+repository. With write permission to a repository, {% if delete-code-scanning-alerts %}you can view, fix, dismiss, or delete alerts {% else %}you can view, fix, or dismiss alerts{% endif %} for potential vulnerabilities or errors in your repository's code. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
 
 #### Generate reports of {% data variables.product.prodname_code_scanning %} alerts
 
-If you’d like to create a report of your code scanning alerts, you can use the {% data variables.product.prodname_code_scanning_capc %} API. 更多信息请参阅“[{% data variables.product.prodname_code_scanning_capc %} API](/rest/reference/code-scanning)”。
+If you’d like to create a report of your code scanning alerts, you can use the {% data variables.product.prodname_code_scanning_capc %} API. For more information, see the "[{% data variables.product.prodname_code_scanning_capc %} API](/rest/reference/code-scanning)."
 
 For an example of how to use the {% data variables.product.prodname_code_scanning_capc %} API, see the [`get-code-scanning-alerts-in-org-sample`](https://github.com/jhutchings1/get-code-scanning-alerts-in-org-sample) repository.
 
@@ -247,7 +265,7 @@ For an example of how to use the {% data variables.product.prodname_code_scannin
 
 When running initial code scans, you may find that no results are found or that an unusual number of results are returned. You may want to adjust what is flagged in future scans.
 
-更多信息请参阅“[配置代码扫描](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)”。
+For more information, see "[Configuring code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning)."
 
 If your company wants to use other third-party code analysis tools with GitHub code scanning, you can use actions to run those tools within GitHub. Alternatively, you can upload results, generated by third-party tools as SARIF files, to code scanning. For more information, see "[Integrating with code scanning](/code-security/code-scanning/integrating-with-code-scanning)."
 
@@ -269,13 +287,13 @@ To learn how to view and close alerts for secrets checked into your repository, 
 
 GitHub helps you avoid using third-party software that contains known vulnerabilities. We provide the following tools for removing and avoiding vulnerable dependencies.
 
-| Dependency Management Tool                     | 描述                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Dependabot Alerts                              | You can track your repository's dependencies and receive Dependabot alerts when your enterprise detects vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)."                          |
-| Dependency Graph                               | 依赖项图是存储在仓库中的清单和锁定文件的摘要。 它显示您的代码库所依赖的生态系统和软件包（其依赖项）以及依赖于您的项目的仓库和包（其从属项）。 更多信息请参阅“[关于依赖关系图](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)”。 |{% ifversion ghes > 3.1 or ghec %}
-| Dependency Review                              | 如果拉取请求包含对依赖项的更改，您可以查看已更改内容摘要以及任何依赖项中是否存在已知漏洞。 For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" or  "[Reviewing Dependency Changes in a Pull Request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)." |{% endif %} {% ifversion ghec or ghes > 3.2 %}
-| Dependabot Security Updates                    | Dependabot can fix vulnerable dependencies for you by raising pull requests with security updates. For more information, see "[About Dependabot security updates](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."                                                                                             |
-| Dependabot Version Updates                     | Dependabot can be used to keep the packages you use updated to the latest versions. 更多信息请参阅“[关于 Dependabot 版本更新](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)”。 | {% endif %}
+| Dependency Management Tool | Description |
+|----|----|
+| Dependabot Alerts | You can track your repository's dependencies and receive Dependabot alerts when your enterprise detects vulnerable dependencies. For more information, see "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)." |
+| Dependency Graph | The dependency graph is a summary of the manifest and lock files stored in a repository. It shows you the ecosystems and packages your codebase depends on (its dependencies) and the repositories and packages that depend on your project (its dependents). For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." |{% ifversion ghes > 3.1 or ghec %}
+| Dependency Review | If a pull request contains changes to dependencies, you can view a summary of what has changed and whether there are known vulnerabilities in any of the dependencies. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" or  "[Reviewing Dependency Changes in a Pull Request](/github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)." | {% endif %} {% ifversion ghec or ghes > 3.2 %}
+| Dependabot Security Updates | Dependabot can fix vulnerable dependencies for you by raising pull requests with security updates. For more information, see "[About Dependabot security updates](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)." |
+| Dependabot Version Updates | Dependabot can be used to keep the packages you use updated to the latest versions. For more information, see "[About Dependabot version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)." | {% endif %}
 
 {% data reusables.dependabot.beta-security-and-version-updates-onboarding %}
 
@@ -301,7 +319,8 @@ You can learn more about [CodeQL queries](https://codeql.github.com/docs/writing
 
 All throughout the pilot phase, it’s essential to create and maintain high-quality internal documentation of the infrastructure and process changes made within your company, as well as learnings from the pilot process and configuration changes made as your team(s) progress throughout the rollout and implementation process.
 
-Having thorough and complete documentation helps make the remaining phases of your rollout more of a repeatable process. Good documentation also ensures that new teams can be onboarded consistently throughout the rollout process and as new team members join your team(s).
+Having thorough and complete documentation helps make the remaining phases of your rollout more of a repeatable process.
+Good documentation also ensures that new teams can be onboarded consistently throughout the rollout process and as new team members join your team(s).
 
 Good documentation doesn’t end when rollout and implementation are complete. The most helpful documentation is actively updated and evolves as your teams expand their experience using GHAS and as their needs grow.
 
@@ -356,7 +375,8 @@ Based on what you learned from your pilot project(s), update the rollout plan yo
 {% note %}
 
 {% octicon "clock" aria-label="Clock" %} **Estimated timing:** We estimate that phase 3 may
-last anywhere from 2 weeks to multiple months. This range can vary largely depending on your company’s size, number of repositories/teams, level of change the GHAS rollout will be for your company, etc.
+last anywhere from 2 weeks to multiple months. This range can vary largely depending on
+your company’s size, number of repositories/teams, level of change the GHAS rollout will be for your company, etc.
 
 {% endnote %}
 
@@ -381,11 +401,11 @@ To help support your teams, here's a recap of relevant GitHub documentation.
 
 For documentation on how to enable GHAS, see:
   - "[Enabling Advanced Security features](/get-started/learning-about-github/about-github-advanced-security)"
-  - “[管理组织的安全性和分析设置](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)”
-  - "[管理仓库的安全和分析设置](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
+  - "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)"
+  - "[Managing security and analysis settings for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
 
 For documentation on how to migrate to GitHub, see:
-  - “[将源代码导入到 GitHub](/github/importing-your-projects-to-github/importing-source-code-to-github)”
+  - "[Importing source code to GitHub](/github/importing-your-projects-to-github/importing-source-code-to-github)"
 
 For documentation on getting started with GitHub, see:
   - "[Get started](/get-started)"

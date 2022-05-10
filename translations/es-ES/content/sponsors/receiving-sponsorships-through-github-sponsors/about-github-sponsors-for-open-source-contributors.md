@@ -16,7 +16,7 @@ shortTitle: Contribuyentes de código abierto
 
 ## Unirte a {% data variables.product.prodname_sponsors %}
 
-{% data reusables.sponsors.you-can-be-a-sponsored-developer %}Para obtener más información, consulta [Configurar {% data variables.product.prodname_sponsors %} para tu cuenta de usuario](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)".
+{% data reusables.sponsors.you-can-be-a-sponsored-developer %}Para obtener más información, consulta [Configurar {% data variables.product.prodname_sponsors %} para tu cuenta de personal](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)".
 
 {% data reusables.sponsors.you-can-be-a-sponsored-organization %}Para obtener más información, consulta la sección "[Configurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)".
 
@@ -28,7 +28,7 @@ Puedes configurar una meta para tus patrocinios. Para obtener más información,
 
 ## Niveles de patrocinio
 
-{% data reusables.sponsors.tier-details %} Para obtener más información, consulta las secciones "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta de usuario"](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)", "[Configurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization) y "[Administrar tus niveles de patrocinio](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)".
+{% data reusables.sponsors.tier-details %} Para obtener más información, consulta las secciones "[Configurar {% data variables.product.prodname_sponsors %} para tu cuenta personal"](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)", "[Configurar {% data variables.product.prodname_sponsors %} para tu organización](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization) y "[Administrar tus niveles de patrocinio](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers)".
 
 Es mejor mantener una gama de opciones de patrocinio diferentes, incluyendo niveles mensuales y de una sola ocasión, para hacer más fácil que cualquiera apiye tu trabajo. Particularmente, los pagos de una sola ocasión le permiten a la spersonas recompensarte por tu esfuerzo sin preocuparse de que sus finanzas apoyen un programa de pagos constantes.
 

@@ -42,7 +42,7 @@ No tutorial, primeiro você vai fazer um arquivo de fluxo de trabalho que usa a 
           issues: write
           pull-requests: write{% endif %}
         steps:
-          - uses: actions/stale@v3
+          - uses: {% data reusables.actions.action-stale %}
             with:
               days-before-issue-stale: 30
               days-before-issue-close: 14

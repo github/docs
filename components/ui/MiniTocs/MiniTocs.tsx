@@ -16,7 +16,18 @@ const renderTocItem = (item: MiniTocItem) => {
       as="li"
       key={item.contents}
       className={item.platform}
-      sx={{ listStyle: 'none', padding: '2px' }}
+      sx={{
+        listStyle: 'none',
+        padding: '2px',
+        ':hover': {
+          bg: 'var(--color-canvas-inset)',
+        },
+        'ul > li': {
+          ':hover': {
+            bg: 'var(--color-neutral-subtle)',
+          },
+        },
+      }}
     >
       <div className={cx('lh-condensed d-block width-full')}>
         <div dangerouslySetInnerHTML={{ __html: item.contents }} />

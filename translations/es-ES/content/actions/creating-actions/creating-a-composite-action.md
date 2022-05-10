@@ -82,7 +82,7 @@ Antes de comenzar, deberás crear un repositorio en {% ifversion ghae %}{% data 
         - run: echo Hello ${{ inputs.who-to-greet }}.
           shell: bash
         - id: random-number-generator
-          run: echo "::set-output name=random-id::$(echo $RANDOM)"
+          run: echo "::set-output name=random-number::$(echo $RANDOM)"
           shell: bash
         - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
           shell: bash          
@@ -117,7 +117,6 @@ El siguiente código de flujo de trabajo utiliza la acción completada de "hello
 
 Copia el código del flujo de trabajo en un archivo de `.github/workflows/main.yml` en otro repositorio, pero reemplaza `actions/hello-world-composite-action@v1` con el repositorio y etiqueta que creaste. También puedes reemplazar la entrada `who-to-greet` con tu nombre.
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml
 on: [push]
@@ -127,14 +126,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
       - id: foo
         uses: actions/hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+      - run: echo random-number {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
         shell: bash
 ```
-{% endraw %}
 
 Desde tu repositorio, da clic en la pestaña de **Acciones** y selecciona la última ejecución de flujo de trabajo. La salida deberá incluir "Hello Mona the Octocat", el resultado del script de "Goodbye" y un número aleatorio.

@@ -96,7 +96,7 @@ runs:
 ```
 {% endraw %}
 
-此元数据定义一个 `who-to-greet`  输入和一个 `time` 输出参数。 要将输入传递给 Docker 容器，您必须使用 `inputs` 声明输入并以 `args` 关键词传递输入。
+此元数据定义一个 `who-to-greet`  输入和一个 `time` 输出参数。 要将输入传递给 Docker 容器，应使用 `inputs` 声明输入并以 `args` 关键词传递输入。 `args` 中包含的所有内容都将传递到容器，但为了更便于操作用户发现，我们建议使用输入。
 
 {% data variables.product.prodname_dotcom %} 将从 `Dockerfile` 构建映像，然后使用此映像在新容器中运行命令。
 
@@ -212,7 +212,6 @@ jobs:
 
 将以下示例工作流程代码复制到操作仓库中的 `.github/workflows/main.yml` 文件。 您还可以将 `who-to-greet` 输入替换为您的名称。 {% ifversion fpt or ghec %}此操作不能发布到 {% data variables.product.prodname_marketplace %}，并且只能在此仓库中使用。{% endif %}
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml{:copy}
 on: [push]
@@ -225,7 +224,7 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
@@ -233,9 +232,8 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
-{% endraw %}
 
 从您的仓库中，单击 **Actions（操作）**选项卡，然后选择最新的工作流程来运行。 在 **Jobs（作业）**下或可视化图形中，单击 **A job to say hello（打招呼的作业）**。 您应看到 "Hello Mona the Octocat" 或您用于 `who-to-greet` 输入的姓名和时间戳在日志中打印。
 

@@ -190,6 +190,12 @@ Para crear una lista anidada mediante el editor web en {% data variables.product
      - Segundo elemento de la lista anidado
 ```
 
+{% tip %}
+
+**Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
+
+{% endtip %}
+
 ![Lista anidada con alineación resaltada](/assets/images/help/writing/nested-list-alignment.png)
 
 ![Lista con dos niveles de elementos anidados](/assets/images/help/writing/nested-list-example-1.png)
@@ -311,6 +317,8 @@ La nota al pie se verá así:
 {% tip %}
 
 **Notae**: La posición de una nota al pie en tu archivo con lenguaje de marcado no influencia la nota al pie que se interpretará. Puedes escribir una nota al pie después de referenciarla y esta aún se interpretará en la parte inferior del archivo con lenguaje de marcado.
+
+Footnotes are not supported in wikis.
 
 {% endtip %}
 {% endif %}

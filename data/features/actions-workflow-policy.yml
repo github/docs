@@ -1,0 +1,5 @@
+# Reference: #6478.
+# Versioning for enterprise/org/repo policy settings for reusable workflow use.
+versions:
+  fpt: '*'
+  ghec: '*'

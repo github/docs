@@ -31,7 +31,7 @@ Si alguien verifica un secreto con un patrón conocido en un repositorio, el {% 
 
 - Necesitas habilitar el marcador de CPU de las [SSSE3](https://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-optimization-manual.pdf#G3.1106470) (Extenciones SIMD de Streaming Suplementario 3, por sus siglas en inglés) en el VM/KVM que ejecuta {% data variables.product.product_location %}.
 
-- A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see "[About billing for {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
+- Una licencia para {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (consulta la sección "[Acerca de la facturación para {% data variables.product.prodname_GH_advanced_security %}](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)"){% endif %}
 
 - Eñ {% data variables.product.prodname_secret_scanning_caps %} habilitado en la consola de administración (consulta la sección "[Habilitar la {% data variables.product.prodname_GH_advanced_security %} para tu empresa](/admin/advanced-security/enabling-github-advanced-security-for-your-enterprise)")
 

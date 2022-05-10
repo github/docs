@@ -18,13 +18,13 @@ shortTitle: Utilizar el importador de GitHub
 
 {% endtip %}
 
-Si quieres hacer coincidir las confirmaciones de tu repositorio con las cuentas de usuario de GitHub de los autores durante la importación, asegúrate de que cada contribuyente de tu repositorio tenga una cuenta de GitHub antes de comenzar la importación.
+If you'd like to match the commits in your repository to the authors' GitHub personal accounts during the import, make sure every contributor to your repository has a GitHub account before you begin the import.
 
 {% data reusables.repositories.repo-size-limit %}
 
 1. En la esquina superior derecha de cada página, haz clic en {% octicon "plus" aria-label="Plus symbol" %} y luego haz clic en **Import repository** (Importar repositorio). ![Opción de Importar repositorio en el menú del nuevo repositorio](/assets/images/help/importer/import-repository.png)
 2. En "La URL del clon de tu repositorio antiguo", escribe la URL del proyecto que quieres importar. ![Campo de texto para la URL del repositorio importado](/assets/images/help/importer/import-url.png)
-3. Elige tu cuenta de usuario o una organización como propietaria del repositorio, luego escribe un nombre para el repositorio en GitHub. ![Menú del propietario del repositorio y campo del nombre del repositorio](/assets/images/help/importer/import-repo-owner-name.png)
+3. Choose your personal account or an organization to own the repository, then type a name for the repository on GitHub. ![Menú del propietario del repositorio y campo del nombre del repositorio](/assets/images/help/importer/import-repo-owner-name.png)
 4. Especifica si el repositorio nuevo debe ser *público* o *privado*. Para obtener más información, consulta "[Configurar la visibilidad de un repositorio](/articles/setting-repository-visibility)". ![Botones Radio para el repositorio público o privado](/assets/images/help/importer/import-public-or-private.png)
 5. Revisa la información que ingresaste, luego haz clic en **Begin import** (Comenzar importación). ![Botón Begin import (Comenzar importación)](/assets/images/help/importer/begin-import-button.png)
 6. Si tus proyectos antiguos estaban protegidos con contraseña, escribe tu información de inicio de sesión para ese proyecto, luego haz clic en **Submit** (Enviar). ![Formulario de contraseña y botón Submit (Enviar) para proyecto protegido con contraseña](/assets/images/help/importer/submit-old-credentials-importer.png)

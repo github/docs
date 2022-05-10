@@ -1,7 +1,6 @@
 ---
 title: Restringir las notificaciones por correo electrónico para tu organización
 intro: 'Para prevenir que se fugue la información de la organización en la scuentas personales de correo electrónico, puedes restringir los dominios en donde los miembros pueden recibir este tipo de notificaciones sobre la actividad de la organización.'
-product: '{% data reusables.gated-features.restrict-email-domain %}'
 permissions: Organization owners can restrict email notifications for an organization.
 redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
@@ -10,7 +9,6 @@ redirect_from:
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-to-an-approved-domain
   - /organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization
 versions:
-  fpt: '*'
   ghes: '>=3.2'
   ghec: '*'
 type: how_to
@@ -26,7 +24,13 @@ shortTitle: Restringir las notificaciones por correo electrónico
 
 Cuando se habilitan las notificaciones por correo electrónico restringidas en una organización, los miembros solo pueden utilizar direcciones de correco electrónico asociadas con un dominio aprobado o verificado para recibir este tipo de notificaciones sobre la actividad de la organización. Para obtener más información, consulta la sección "[Verificar o aprobar un dominio para tu organización](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
-{% data reusables.enterprise-accounts.approved-domains-beta-note %}
+{% ifversion ghec %}
+{% note %}
+
+**Note:** To restrict email notifications, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.notifications.email-restrictions-verification %}
 

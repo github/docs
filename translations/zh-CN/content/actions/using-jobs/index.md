@@ -1,7 +1,7 @@
 ---
-title: Using jobs
-shortTitle: Using jobs
-intro: 'Creating and managing {% data variables.product.prodname_actions %} jobs.'
+title: 使用作业
+shortTitle: 使用作业
+intro: '创建和管理 {% data variables.product.prodname_actions %} 作业。'
 redirect_from:
   - /actions/jobs
 versions:
@@ -13,7 +13,7 @@ children:
   - /using-jobs-in-a-workflow
   - /choosing-the-runner-for-a-job
   - /using-conditions-to-control-job-execution
-  - /using-a-build-matrix-for-your-jobs
+  - /using-a-matrix-for-your-jobs
   - /using-concurrency
   - /using-environments-for-jobs
   - /running-jobs-in-a-container

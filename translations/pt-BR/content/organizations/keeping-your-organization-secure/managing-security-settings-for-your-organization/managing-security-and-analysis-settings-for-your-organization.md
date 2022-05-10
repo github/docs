@@ -113,8 +113,7 @@ Você pode habilitar ou desabilitar funcionalidades para todos os repositórios.
    ![Captura de tela de uma caixa de seleção para habilitar um revurso para novos repositórios](/assets/images/enterprise/github-ae/organizations/security-and-analysis-enable-or-disable-secret-scanning-checkbox-ghae.png)
    {% endif %}
 
-{% ifversion ghec or ghes > 3.2 %}
-<!--TODO confirm that this functionality is intentionally not available for FPT -->
+{% ifversion fpt or ghec or ghes > 3.2 %}
 
 ## Permitir que {% data variables.product.prodname_dependabot %} acesse dependências privadas
 

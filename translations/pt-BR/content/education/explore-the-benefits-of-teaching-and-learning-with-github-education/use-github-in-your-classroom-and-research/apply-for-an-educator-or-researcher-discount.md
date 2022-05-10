@@ -21,7 +21,7 @@ shortTitle: Solicitar desconto
 
 {% data reusables.education.educator-requirements %}
 
-Para obter mais informações sobre contas de usuário em {% data variables.product.product_name %}, consulte "[Cadastrar-se para uma nova conta de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/signing-up-for-a-new-github-account)".
+Para obter mais informações sobre contas pessoais em {% data variables.product.product_name %}, consulte "[Cadastrar-se para uma nova conta de {% data variables.product.prodname_dotcom %} ](/github/getting-started-with-github/signing-up-for-a-new-github-account)".
 
 ## Candidatar-se a um desconto de educador ou pesquisador
 
@@ -57,4 +57,4 @@ Depois que sua solicitação para desconto de educador ou pesquisador for aprova
 - "[Por que minha solicitação para desconto de educador ou pesquisador não foi aprovada?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)
 - [Vídeos do {% data variables.product.prodname_classroom %}](https://classroom.github.com/videos)
-- [{% data variables.product.prodname_education_community %}](https://education.github.community/)
+- [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})

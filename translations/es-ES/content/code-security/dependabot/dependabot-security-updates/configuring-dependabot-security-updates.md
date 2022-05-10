@@ -33,7 +33,7 @@ topics:
 
 Puedes habilitar las {% data variables.product.prodname_dependabot_security_updates %} para cualquier repositorio que utilice {% data variables.product.prodname_dependabot_alerts %} y la gráfica de dependencias. Para obtener más información, consulta la sección "[Acerca de las {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-dependabot-security-updates)".
 
-Puedes inhabilitar las {% data variables.product.prodname_dependabot_security_updates %} para un repositorio individual o para todos los repositorios que pertenezcan a tu organización o cuenta de usuario. Para obtener más información, consulta la sección "[Administrar las {% data variables.product.prodname_dependabot_security_updates %} para tus repositorios](#managing-dependabot-security-updates-for-your-repositories)" acontinuación.
+You can disable {% data variables.product.prodname_dependabot_security_updates %} for an individual repository or for all repositories owned by your personal account or organization. Para obtener más información, consulta la sección "[Administrar las {% data variables.product.prodname_dependabot_security_updates %} para tus repositorios](#managing-dependabot-security-updates-for-your-repositories)" acontinuación.
 
 {% ifversion fpt or ghec %}{% data reusables.dependabot.dependabot-tos %}{% endif %}
 
@@ -62,7 +62,8 @@ Si no se habilitan las actualizaciones de seguridad para tu repositorio y no sab
 
 Puedes habilitar o inhabilitar las {% data variables.product.prodname_dependabot_security_updates %} para un repositorio individual (ver a continuación).
 
-También puedes habilitar o inhabilitar las {% data variables.product.prodname_dependabot_security_updates %} para todos los repositorios que pertenezcan atu cuenta de usuario u organización. Para obtener más información, consulta la sección "[Administrar la seguridad y la configuración de análisis para tu cuenta de usuario](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" o la sección "[Administrar la configuración de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
+
+You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all repositories owned by your personal account or organization. Para obtener más información, consulta la sección "[Administrar los ajustes de seguridad y análisis de tu cuenta personal](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" o "[Administrar los ajustes de seguridad y análisis para tu organización](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization)".
 
 Las {% data variables.product.prodname_dependabot_security_updates %} requieren de configuraciones de repositorio específicas. Para obtener más información, consulta "[Repositorios soportados](#supported-repositories)".
 
@@ -70,13 +71,14 @@ Las {% data variables.product.prodname_dependabot_security_updates %} requieren 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-security-and-analysis %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Code security and analysis", to the right of "{% data variables.product.prodname_dependabot %} security updates", click **Enable** to enable the feature or **Disable** to disable it. {% ifversion fpt or ghec %}For public repositories, the button is disabled if the feature is always enabled.{% endif %}
   {% ifversion fpt or ghec %}!["Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/enable-dependabot-security-updates-button.png){% else %}!["Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/enterprise/3.3/repository/security-and-analysis-disable-or-enable-ghes.png){% endif %}
 
 
 ## Leer más
 
-- "[About {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"{% ifversion fpt or ghec %}
+- "[Acerca de las {% data variables.product.prodname_dependabot_alerts %}](/code-security/supply-chain-security/about-alerts-for-vulnerable-dependencies)"
+- "[Configuring {% data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)"{% ifversion fpt or ghec %}
 - "[Administrar los ajustes de uso de datos para tu repositorio privado](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"{% endif %}
 - "[Ecosistemas de paquete compatibles](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)"

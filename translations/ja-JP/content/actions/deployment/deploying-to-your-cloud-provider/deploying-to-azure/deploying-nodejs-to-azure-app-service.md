@@ -86,10 +86,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: {% data reusables.actions.action-setup-node %}
       with:
         node-version: {% raw %}${{ env.NODE_VERSION }}{% endraw %}
         cache: 'npm'
@@ -100,7 +100,7 @@ jobs:
         npm run build --if-present
         npm run test --if-present
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v3
+      uses: {% data reusables.actions.action-upload-artifact %}
       with:
         name: node-app
         path: .
@@ -114,7 +114,7 @@ jobs:
 
     steps:
     - name: Download artifact from build job
-      uses: actions/download-artifact@v3
+      uses: {% data reusables.actions.action-download-artifact %}
       with:
         name: node-app
 

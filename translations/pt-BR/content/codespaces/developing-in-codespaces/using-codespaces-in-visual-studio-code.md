@@ -75,9 +75,7 @@ Use o {% data variables.product.prodname_vs %} Marketplace para instalar a exten
 
 ## Alterar o tipo da máquina em {% data variables.product.prodname_vscode %}
 
-{% data reusables.codespaces.codespaces-machine-types %}
-
-Você pode alterar o tipo de máquina do seu codespace a qualquer momento.
+{% data reusables.codespaces.codespaces-machine-types %} Você pode alterar o tipo de máquina do seu codespace a qualquer momento.
 
 1. Em {% data variables.product.prodname_vscode %}, abra a Paleta de Comando (`shift comando P` / `shift control P`).
 1. Pesquise e selecione "Codespaces: Alterar tipo de máquina."
@@ -90,7 +88,11 @@ Você pode alterar o tipo de máquina do seu codespace a qualquer momento.
 
 1. Escolha o tipo de máquina que você quer usar.
 
-   {% data reusables.codespaces.codespaces-machine-type-availability %}
+   {% note %}
+
+   **Observação**: {% data reusables.codespaces.codespaces-machine-type-availability %}
+
+   {% endnote %}
 
 1. Se o codespace estiver sendo executado, será exibida uma mensagem perguntando se você deseja reiniciar e reconectar-se ao seu codespace agora.
 
@@ -100,7 +102,6 @@ Você pode alterar o tipo de máquina do seu codespace a qualquer momento.
 
 ## Excluir um codespace em {% data variables.product.prodname_vscode %}
 
-{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
 
 ## Alternando para a compilação de Insiders de {% data variables.product.prodname_vscode %}

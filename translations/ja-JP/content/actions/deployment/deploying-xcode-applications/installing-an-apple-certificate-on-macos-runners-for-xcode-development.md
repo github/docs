@@ -74,7 +74,6 @@ Xcode アプリケーションのビルドと署名について理解してお�
 
 このワークフロー例には、{% data variables.product.prodname_dotcom %} シークレットから Apple 証明書とプロビジョニングプロファイルをインポートし、それらをランナーにインストールするステップが含まれています。
 
-{% raw %}
 ```yaml{:copy}
 name: App build
 on: push
@@ -85,13 +84,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install the Apple certificate and provisioning profile
         env:
-          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
-          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
-          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+          BUILD_CERTIFICATE_BASE64: {% raw %}${{ secrets.BUILD_CERTIFICATE_BASE64 }}{% endraw %}
+          P12_PASSWORD: {% raw %}${{ secrets.P12_PASSWORD }}{% endraw %}
+          BUILD_PROVISION_PROFILE_BASE64: {% raw %}${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}{% endraw %}
+          KEYCHAIN_PASSWORD: {% raw %}${{ secrets.KEYCHAIN_PASSWORD }}{% endraw %}
         run: |
           # create variables
           CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
@@ -117,7 +116,6 @@ jobs:
       - name: Build app
         ...
 ```
-{% endraw %}
 
 ## セルフホストランナーに必要なクリーンアップ
 

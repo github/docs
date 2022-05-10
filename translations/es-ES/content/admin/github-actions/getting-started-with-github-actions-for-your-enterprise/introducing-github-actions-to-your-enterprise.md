@@ -1,7 +1,7 @@
 ---
-title: Introducing GitHub Actions to your enterprise
-shortTitle: Introduce Actions
-intro: 'You can plan how to roll out {% data variables.product.prodname_actions %} in your enterprise.'
+title: Intruducir las GitHub Actions a tu empresa
+shortTitle: Intrudcir las acciones
+intro: 'Puedes planear cómo implementar las {% data variables.product.prodname_actions %} en tu empresa.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -12,45 +12,49 @@ topics:
   - Enterprise
 ---
 
-## About {% data variables.product.prodname_actions %} for enterprises
+## Acerca de {% data variables.product.prodname_actions %} para empresas
 
-{% data reusables.actions.about-actions %} With {% data variables.product.prodname_actions %}, your enterprise can automate, customize, and execute your software development workflows like testing and deployments. For more information, see "[About {% data variables.product.prodname_actions %} for enterprises](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
+{% data reusables.actions.about-actions %} Con {% data variables.product.prodname_actions %}, tu empresa puede automatizar, personalizar y ejecutar tus flujos de trabajo de desarrollo de software como las pruebas y despliegues. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_actions %} para empresas](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)".
 
-![Diagram of jobs running on self-hosted runners](/assets/images/help/images/actions-enterprise-overview.png)
+![Diagrama de los jobs que se ejecutan en los ejecutores auto-hospedados](/assets/images/help/images/actions-enterprise-overview.png)
 
 {% data reusables.enterprise.upgrade-ghes-for-actions %}
 
 Antes de que incluyas las {% data variables.product.prodname_actions %} en una empresa grande, primero necesitas planear tu adopción y tomar las decisiones de cómo tu empresa utilizará {% data variables.product.prodname_actions %} para apoyar de la mejor forma a tus necesidades únicas.
 
-## Governance and compliance
+## Normatividad y cumplimiento
 
-You should create a plan to govern your enterprise's use of {% data variables.product.prodname_actions %} and meet your compliance obligations.
+Deberías crear un plan que rija el uso de las {% data variables.product.prodname_actions %} en tu empersa y logre tus obligaciones de cumplimiento.
 
-Determine which actions your developers will be allowed to use. {% ifversion ghes %}First, decide whether you'll enable access to actions from outside your instance. {% data reusables.actions.access-actions-on-dotcom %} Para obtener más información, consulta la sección "[Acerca de utilizar acciones en tu empresa](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)".
+Determine which actions {% if actions-workflow-policy %}and reusable workflows{% endif %} your developers will be allowed to use. {% ifversion ghes %}First, decide whether you'll enable access to actions {% if actions-workflow-policy %}and reusable workflows{% endif %} from outside your instance. {% data reusables.actions.access-actions-on-dotcom %} Para obtener más información, consulta la sección "[Acerca de utilizar acciones en tu empresa](/admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise)".
 
-Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions that were not created by {% data variables.product.company_short %}. You can configure the actions that are allowed to run at the repository, organization, and enterprise levels and can choose to only allow actions that are created by {% data variables.product.company_short %}. If you do allow third-party actions, you can limit allowed actions to those created by verified creators or a list of specific actions. Para obtener más información, consulta las secciones "[Administrar los ajustes de las {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)", "[Inhabilitar o limitar las {% data variables.product.prodname_actions %} para tu organización](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)" y "[Requerir políticas para las {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-actions-in-your-enterprise)".
+Then,{% else %}First,{% endif %} decide whether you'll allow third-party actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that were not created by {% data variables.product.company_short %}. You can configure the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that are allowed to run at the repository, organization, and enterprise levels and can choose to only allow actions that are created by {% data variables.product.company_short %}. If you do allow third-party actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, you can limit allowed actions to those created by verified creators or a list of specific actions{% if actions-workflow-policy %} and reusable workflows{% endif %}. Para obtener más información, consulta las secciones "[Administrar los ajustes de {% data variables.product.prodname_actions %} para un repositorio](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository)", "[Inhabilitar o limitar las {% data variables.product.prodname_actions %} para tu organización](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)" y "[Requerir políticas para las {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-github-actions-in-your-enterprise)".
 
-![Screenshot of {% data variables.product.prodname_actions %} policies](/assets/images/help/organizations/enterprise-actions-policy.png)
+{% if actions-workflow-policy %}
+![Captura de pantalla de las políticas de {% data variables.product.prodname_actions %}](/assets/images/help/organizations/enterprise-actions-policy-with-workflows.png)
+{%- else %}
+![Captura de pantalla de las políticas de {% data variables.product.prodname_actions %}](/assets/images/help/organizations/enterprise-actions-policy.png)
+{%- endif %}
 
 {% ifversion ghec or ghae-issue-4757 %}
-Consider combining OpenID Connect (OIDC) with reusable workflows to enforce consistent deployments across your repository, organization, or enterprise. Puedes hacerlo si defines las condiciones de confianza en los roles de la nube con base en los flujos reutilizables. For more information, see "[Using OpenID Connect with reusable workflows](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."
+Considera combinar OpenID Connect (OIDC) con los flujos de trabajo reutilizables para requerir despliegues continuos a lo largo de tu repositorio, organización o empresa. Puedes hacerlo si defines las condiciones de confianza en los roles de la nube con base en los flujos reutilizables. Para obtener más información, consulta la sección "[Utilizar OpenID Connect con flujos de trabajo reutilizables](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)".
 {% endif %}
 
-You can access information about activity related to {% data variables.product.prodname_actions %} in the audit logs for your enterprise. If your business needs require retaining audit logs for longer than six months, plan how you'll export and store this data outside of {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección {% ifversion ghec %}"[Transmitir las bitácoras de auditoría en tu empresa](/admin/user-management/managing-organizations-in-your-enterprise/streaming-the-audit-logs-for-organizations-in-your-enterprise-account)".{% else %}"[Transmitir la bitácora de auditoría](/admin/user-management/monitoring-activity-in-your-enterprise/searching-the-audit-log)".{% endif %}
+Puedes acceder a la información sobre la actividad relacionada con las {% data variables.product.prodname_actions %} en las bitácoras de auditoría de tu empresa. Si tus necesidades de negocio requieren que retengas bitácoras de auditoría por más de seis meses, planea cómo exportarás y almacenarás estos datos fuera de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta las secciones {% ifversion ghec %}"[Transmitir la bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)" y "[Exportar la actividad de tu bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)".{% else %}"[Reenvío de bitácoras](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)".{% endif %}
 
 ![Entradas de la bitácora de auditoría](/assets/images/help/repository/audit-log-entries.png)
 
 ## Seguridad
 
-You should plan your approach to security hardening for {% data variables.product.prodname_actions %}.
+Deberías planear tu enfoque sobre el fortalecimiento de seguridad para las {% data variables.product.prodname_actions %}.
 
-### Security hardening individual workflows and repositories
+### Fortalecer la seguridad de los flujos de trabajo y repositorios individuales
 
-Make a plan to enforce good security practices for people using {% data variables.product.prodname_actions %} features within your enterprise. For more information about these practices, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions)."
+Haz un plan para requerir buenas prácticas de seguridad para las personas que utilizan las características de {% data variables.product.prodname_actions %} dentro de tu empresa. Para obtener más información sobre estas prácticas, consulta la sección "[Fortalecimiento de seguridad para las {% data variables.product.prodname_actions %}](/actions/security-guides/security-hardening-for-github-actions)".
 
-You can also encourage reuse of workflows that have already been evaluated for security. Para obtener más información, consulta la sección de "[Innersourcing](#innersourcing)".
+También puedes fomentar la reutilización de flujos de trabajo que ya se hayan evaluado en su seguridad. Para obtener más información, consulta la sección de "[Innersourcing](#innersourcing)".
 
-### Securing access to secrets and deployment resources
+### Asegurar el acceso a los secretos y recursos de despliegue
 
 Deberías planear dónde almacenarás tus secretos. Te recomendamos almacenar secretos en {% data variables.product.prodname_dotcom %}, pero podrías elegir almacenarlos en un proveedor de servicios en la nube.
 
@@ -136,4 +140,4 @@ Para obtener datos de uso más detallados, puedes{% else %}Puedes{% endif %} uti
 
 Haz un plan de cómo tu empresa podrá pasar la información de estos webhooks a un sistema para archivar datos. Puedes considerar utilizar "CEDAR.GitHub.Collector", una herramienta de código abierto que recolecta y procesa datos de webhook desde {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta el [repositorio `Microsoft/CEDAR.GitHub.Collector`](https://github.com/microsoft/CEDAR.GitHub.Collector/).
 
-You should also plan how you'll enable your teams to get the data they need from your archiving system.
+También deberías planear cómo habilitarás a tus equipos para obtener los datos que necesitan desde tu sistema de archivado.

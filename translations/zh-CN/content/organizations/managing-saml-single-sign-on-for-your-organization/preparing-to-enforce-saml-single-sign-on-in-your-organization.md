@@ -12,6 +12,8 @@ topics:
 shortTitle: 准备执行 SAML SSO
 ---
 
+{% data reusables.saml.ghec-only %}
+
 {% data reusables.saml.when-you-enforce %} 在组织中执行 SAML SSO 之前，您应该审核组织成员资格，启用 SAML SSO，并审核组织成员的 SAML 访问权限。 更多信息请参阅以下文章。
 
 | 任务                       | 更多信息                      |

@@ -12,17 +12,13 @@ redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization
 ---
 
-{% data reusables.pre-release-program.custom-roles-public-beta %}
-
 ## About custom repository roles
 
 To perform any actions on {% data variables.product.product_name %}, such as creating a pull request in a repository or changing an organization's billing settings, a person must have sufficient access to the relevant account or resource. This access is controlled by permissions. A permission is the ability to perform a specific action. For example, the ability to delete an issue is a permission. A role is a set of permissions you can assign to individuals or teams.
 
 Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-If your organization uses {% data variables.product.prodname_ghe_cloud %}, you can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. A custom repository role is a configurable set of permissions with a custom name you choose. After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
-
-{% data reusables.enterprise.link-to-ghec-trial %}
+You can have more granular control over the permissions you grant at the repository level by creating up to three custom repository roles. A custom repository role is a configurable set of permissions with a custom name you choose. After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)" and "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
 
 ## About the inherited role
 
@@ -52,6 +48,15 @@ Here are some examples of custom repository roles you can configure.
 After choosing an inherited role, you can select additional permissions for your custom role.
 
 You can only choose an additional permission if it's not already included in the inherited role. For example, if the inherited role offers **Write** access to a repository, then the "Close a pull request" permission will already be included in the inherited role.
+
+### Discussions
+
+- **Create a discussion category**: Ability to create a new discussion category. For more information, see "[Creating a new discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)".
+- **Edit a discussion category**: Ability to edit a discussion category. For more information, see "[Editing a discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)."
+- **Delete a discussion category**: Ability to delete a discussion category. For more information, see "[Deleting a discussion category](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)."
+- **Mark or unmark discussion answers**: Ability to mark answers to a discussion, if the category for the discussion accepts answers. For more information, see "[Mark or unmark comments in a discussion as the answer](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)". 
+- **Hide or unhide discussion comments**: Ability to hide and unhide comments in a discussion.  For more information, see "[Moderating discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)."
+- **Convert issues to discussions**: Ability to convert an issue into a discussion.  For more information, see "[Converting issues to discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
 
 ### Issue and Pull Requests
 
@@ -111,6 +116,14 @@ To resolve conflicting access, you can adjust your organization's base permissio
 ## Creating a repository role
 
 To create a new repository role, you add permissions to an inherited role and give the custom role a name.
+
+{% ifversion ghec %}
+{% note %}
+
+**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can create custom repository roles. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

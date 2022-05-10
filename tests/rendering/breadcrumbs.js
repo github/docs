@@ -23,7 +23,7 @@ describe('breadcrumbs', () => {
 
       expect($breadcrumbs).toHaveLength(8)
       expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
-      expect($breadcrumbs[1].attribs.title).toBe('User accounts')
+      expect($breadcrumbs[1].attribs.title).toBe('Personal accounts')
       expect($breadcrumbs[2].attribs.title).toBe('Manage email preferences')
       expect($breadcrumbs[3].attribs.title).toBe('Add an email address')
     })
@@ -36,7 +36,7 @@ describe('breadcrumbs', () => {
 
       expect($breadcrumbs).toHaveLength(6)
       expect($breadcrumbs[0].attribs.title).toBe('Account and profile')
-      expect($breadcrumbs[1].attribs.title).toBe('User accounts')
+      expect($breadcrumbs[1].attribs.title).toBe('Personal accounts')
       expect($breadcrumbs[2].attribs.title).toBe('Manage email preferences')
       expect($breadcrumbs[2].attribs.class.includes('color-fg-muted')).toBe(true)
     })
@@ -104,10 +104,8 @@ describe('breadcrumbs', () => {
       const $breadcrumbTitles = $('[data-testid=breadcrumbs] [data-testid=breadcrumb-title]')
       const $breadcrumbLinks = $('[data-testid=breadcrumbs] a')
 
-      expect($breadcrumbTitles).toHaveLength(4)
+      expect($breadcrumbTitles).toHaveLength(0)
       expect($breadcrumbLinks).toHaveLength(4)
-      expect($breadcrumbTitles[0].children[0].data).toBe('Early Access documentation')
-      expect($breadcrumbTitles[1].children[0].data).toBe('GitHub')
       expect($breadcrumbLinks[0].attribs.title).toBe(
         'Enforcing best practices with GitHub Policies'
       )
@@ -160,11 +158,11 @@ describe('breadcrumbs', () => {
         },
         {
           href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
-          title: 'User accounts',
+          title: 'Personal accounts',
         },
         {
           href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
-          title: 'User account settings',
+          title: 'Personal account settings',
         },
       ]
       expect(breadcrumbs).toEqual(expected)
@@ -181,11 +179,11 @@ describe('breadcrumbs', () => {
         },
         {
           href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account',
-          title: 'User accounts',
+          title: 'Personal accounts',
         },
         {
           href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings',
-          title: 'User account settings',
+          title: 'Personal account settings',
         },
         {
           href: '/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard',

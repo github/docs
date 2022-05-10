@@ -33,35 +33,37 @@ Você deve armazenar este arquivo no diretório `.github` do seu repositório. A
 
 Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar um pull request para uma atualização de segurança.  Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)."
 
-O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. Opcionalmente, você pode incluir uma chave de `registro` de nível superior. O arquivo deve começar com a `versão: 2`.
+O arquivo *dependabot.yml* tem duas chaves obrigatórias de nível superior: `versão`e `atualizações`. Você pode, opcionalmente, incluir uma chave `registros` de nível superior {% ifversion fpt or ghec or ghes > 3.4 %} e/ou uma chave `enable-beta-ecosystem` key{% endif %}. O arquivo deve começar com a `versão: 2`.
 
 ## Opções de configuração para atualizações
 
 A chave `atualizações` de nível superior é obrigatória. Você a utiliza para configurar como {% data variables.product.prodname_dependabot %} atualiza as versões ou as dependências do seu projeto. Cada entrada configura as configurações de atualização para um gerenciador de pacotes específico. Você pode usar o seguinte opções.
 
-| Opção                                                                      | Obrigatório | Descrição                                                                            |
-|:-------------------------------------------------------------------------- |:-----------:|:------------------------------------------------------------------------------------ |
-| [`package-ecosystem`](#package-ecosystem)                                  |    **X**    | Gerenciador de pacotes para usar                                                     |
-| [`diretório`](#directory)                                                  |    **X**    | Localização de manifestos de pacotes                                                 |
-| [`schedule.interval`](#scheduleinterval)                                   |    **X**    | Com que frequência verificar se há atualizações                                      |
-| [`allow`](#allow)                                                          |             | Personalizar quais atualizações são permitidas                                       |
-| [`assignees`](#assignees)                                                  |             | Responsáveis por definir pull request                                                |
-| [`commit-message`](#commit-message)                                        |             | Preferências de mensagem do commit                                                   |
-| [`ignore`](#ignore)                                                        |             | Ignorar determinadas dependências ou versões                                         |
-| [`insecure-external-code-execution`](#insecure-external-code-execution)    |             | Permitir ou negar a execução de código nos arquivos de manifesto                     |
-| [`etiquetas`](#labels)                                                     |             | Etiquetas para definir pull requests                                                 |
-| [`marco`](#milestone)                                                      |             | Marcos para definir pull requests                                                    |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |             | Limite de número de pull request para atualizações de versão                         |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |             | Alterar o separador para nomes do branch de pull request                             |
-| [`rebase-strategy`](#rebase-strategy)                                      |             | Desativar o rebasamento automático                                                   |
-| [`registros`](#registries)                                                 |             | Registros privados que {% data variables.product.prodname_dependabot %} pode acessar |
-| [`reviewers`](#reviewers)                                                  |             | Revisores que irão configurar pull request                                           |
-| [`schedule.day`](#scheduleday)                                             |             | Dia da semana para verificar se há atualizações                                      |
-| [`schedule.time`](#scheduletime)                                           |             | Hora do dia para procurar atualizações (hh:mm)                                       |
-| [`schedule.timezone`](#scheduletimezone)                                   |             | Fuso horário para hora do dia (identificador de zona)                                |
-| [`target-branch`](#target-branch)                                          |             | Branch para criar pull requests contra                                               |
-| [`vendor`](#vendor)                                                        |             | Atualizar dependências de vendor ou armazenadas em cache                             |
-| [`versioning-strategy`](#versioning-strategy)                              |             | Como atualizar os requisitos da versão do manifesto                                  |
+| Opção                                                                      | Obrigatório | Descrição                                                                                       |
+|:-------------------------------------------------------------------------- |:-----------:|:----------------------------------------------------------------------------------------------- |
+| [`package-ecosystem`](#package-ecosystem)                                  |    **X**    | Gerenciador de pacotes para usar                                                                |
+| [`diretório`](#directory)                                                  |    **X**    | Localização de manifestos de pacotes                                                            |
+| [`schedule.interval`](#scheduleinterval)                                   |    **X**    | Com que frequência verificar se há atualizações                                                 |
+| [`allow`](#allow)                                                          |             | Personalizar quais atualizações são permitidas                                                  |
+| [`assignees`](#assignees)                                                  |             | Responsáveis por definir pull request                                                           |
+| [`commit-message`](#commit-message)                                        |             | Preferências de mensagens de commit                  |{% ifversion fpt or ghec or ghes > 3.4 %}
+| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |             | Habilitar ecossistemas que têm suporte de nível beta 
+{% endif %}
+| [`ignore`](#ignore)                                                        |             | Ignorar determinadas dependências ou versões                                                    |
+| [`insecure-external-code-execution`](#insecure-external-code-execution)    |             | Permitir ou negar a execução de código nos arquivos de manifesto                                |
+| [`etiquetas`](#labels)                                                     |             | Etiquetas para definir pull requests                                                            |
+| [`marco`](#milestone)                                                      |             | Marcos para definir pull requests                                                               |
+| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |             | Limite de número de pull request para atualizações de versão                                    |
+| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |             | Alterar o separador para nomes do branch de pull request                                        |
+| [`rebase-strategy`](#rebase-strategy)                                      |             | Desativar o rebasamento automático                                                              |
+| [`registros`](#registries)                                                 |             | Registros privados que {% data variables.product.prodname_dependabot %} pode acessar            |
+| [`reviewers`](#reviewers)                                                  |             | Revisores que irão configurar pull request                                                      |
+| [`schedule.day`](#scheduleday)                                             |             | Dia da semana para verificar se há atualizações                                                 |
+| [`schedule.time`](#scheduletime)                                           |             | Hora do dia para procurar atualizações (hh:mm)                                                  |
+| [`schedule.timezone`](#scheduletimezone)                                   |             | Fuso horário para hora do dia (identificador de zona)                                           |
+| [`target-branch`](#target-branch)                                          |             | Branch para criar pull requests contra                                                          |
+| [`vendor`](#vendor)                                                        |             | Atualizar dependências de vendor ou armazenadas em cache                                        |
+| [`versioning-strategy`](#versioning-strategy)                              |             | Como atualizar os requisitos da versão do manifesto                                             |
 
 Estas opções se encaixam, geralmente, nas seguintes categorias.
 
@@ -258,7 +260,7 @@ Opções suportadas
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+**Observação:** O `prefixo` e as opções `prefixo-desenvolvimento` têm um limite de 15 caracteres.
 
 {% endnote %}
 
@@ -302,7 +304,6 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -330,7 +331,7 @@ Se as `versões` e `update-types` forem usadas em conjunto, {% data variables.pr
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# Use `ignore` to specify dependencies that should not be updated 
+# Use `ignore` to specify dependencies that should not be updated
 
 version: 2
 updates:
@@ -355,6 +356,15 @@ updates:
 
 
 {% endnote %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+{% note %}
+
+**Observação**: Para o ecossistema `pub`, {% data variables.product.prodname_dependabot %} não efetuará uma atualização quando a versão para a qual tenta atualizar for ignorada, mesmo que uma versão anterior esteja disponível.
+
+{% endnote %}
+
+{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -504,7 +514,7 @@ Para permitir que {% data variables.product.prodname_dependabot %} acesse um reg
 Para permitir que {% data variables.product.prodname_dependabot %} use os gerenciadores de pacote `bundler`, `mix` e `pip` para atualizar dependências em registros privados, você pode optar por permitir a execução de código externo. Para obter mais informações, consulte [`insecure-external-code-execution`](#insecure-external-code-execution) acima.
 
 ```yaml
-# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
+# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries
 # when updating dependency versions for this ecosystem
 
 {% raw %}
@@ -738,7 +748,7 @@ O valor da chave de `registros` é uma matriz associativa e cada elemento que co
 
 version: 2
 registries:
-  dockerhub: # Define access for a private registry 
+  dockerhub: # Define access for a private registry
     type: docker-registry
     url: registry.hub.docker.com
     username: octocat
@@ -972,3 +982,23 @@ registries:
     token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+## Habilitando suporte para ecossistemas de nível beta
+
+### `enable-beta-ecosystems`
+
+Por padrão, {% data variables.product.prodname_dependabot %} atualiza os manifestos de dependência e arquivos de bloqueio apenas para ecossistemas totalmente compatíveis. Use o sinalizador `enable-beta-ecosystems-` para optar por atualizações para ecossistemas que ainda não estão disponíveis.
+
+```yaml
+# Configure beta ecosystem
+
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+```
+{% endif %}

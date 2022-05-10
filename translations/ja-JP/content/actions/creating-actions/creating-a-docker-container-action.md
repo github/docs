@@ -96,7 +96,7 @@ runs:
 ```
 {% endraw %}
 
-このメタデータは、1 つの `who-to-greet` 入力と 1 つの `time` 出力パラメータを定義しています。 Docker コンテナに入力を渡すには、`inputs` を使用して入力を宣言したうえで `args` キーワードを使用します。
+このメタデータは、1 つの `who-to-greet` 入力と 1 つの `time` 出力パラメータを定義しています。 To pass inputs to the Docker container, you should declare the input using `inputs` and pass the input in the `args` keyword. Everything you include in `args` is passed to the container, but for better discoverability for users of your action, we recommended using inputs.
 
 {% data variables.product.prodname_dotcom %} は `Dockerfile` からイメージをビルドし、このイメージを使用して新しいコンテナでコマンドを実行します。
 
@@ -185,7 +185,7 @@ git push --follow-tags
 
 ### パブリックアクションを使用する例
 
-以下のワークフローのコードは、パブリックの[`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action)リポジトリ内の完成した_hello world_アクションを使います。 次のワークフローサンプルコードを `.github/workflows/main.yml` にコピーし、`actions/hello-world-docker-action` をあなたのリポジトリとアクション名に置き換えてください。 `who-to-greet`の入力を自分の名前に置き換えることもできます。 {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. 詳しい情報については「[アクションの公開](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)」を参照してください。 {% endif %}
+以下のワークフローのコードは、パブリックの[`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action)リポジトリ内の完成した_hello world_アクションを使います。 次のワークフローサンプルコードを `.github/workflows/main.yml` にコピーし、`actions/hello-world-docker-action` をあなたのリポジトリとアクション名に置き換えてください。 `who-to-greet`の入力を自分の名前に置き換えることもできます。 {% ifversion fpt or ghec %}パブリックなアクションは、{% data variables.product.prodname_marketplace %}に公開されていなくても使うことができます。 詳しい情報については「[アクションの公開](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)」を参照してください。 {% endif %}
 
 {% raw %}
 **.github/workflows/main.yml**
@@ -210,9 +210,8 @@ jobs:
 
 ### プライベートアクションを使用する例
 
-次のワークフローコードサンプルを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet`の入力を自分の名前に置き換えることもできます。 {% ifversion fpt or ghec %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
+次のワークフローコードサンプルを、あなたのアクションのリポジトリの `.github/workflows/main.yml` ファイルにコピーします。 `who-to-greet`の入力を自分の名前に置き換えることもできます。 {% ifversion fpt or ghec %}このプライベートのアクションは{% data variables.product.prodname_marketplace %}に公開する事はできず、このリポジトリ内でのみ利用できます。{% endif %}
 
-{% raw %}
 **.github/workflows/main.yml**
 ```yaml{:copy}
 on: [push]
@@ -222,20 +221,19 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      # このリポジトリのプライベートアクションを使用するには
-      # リポジトリをチェックアウトする
+      # To use this repository's private action,
+      # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
         with:
           who-to-greet: 'Mona the Octocat'
-      # 「hello」ステップの出力を使用する
+      # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
-{% endraw %}
 
 リポジトリから [**Actions**] タブをクリックして、最新のワークフロー実行を選択します。 Under **Jobs** or in the visualization graph, click **A job to say hello**. "Hello Mona the Octocat"、または`who-to-greet` 入力に指定した名前とタイムスタンプがログに出力されます。
 

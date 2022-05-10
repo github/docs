@@ -1,5 +1,5 @@
 ---
-title: Configuration options for the dependabot.yml file
+title: dependabot.ymlファイルの設定オプション
 intro: '{% data variables.product.prodname_dependabot %} がリポジトリを維持する方法をカスタマイズする場合に使用可能なすべてのオプションの詳細情報。'
 permissions: 'People with write permissions to a repository can configure {% data variables.product.prodname_dependabot %} for the repository.'
 allowTitleToDifferFromFilename: true
@@ -19,7 +19,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Configure dependabot.yml
+shortTitle: dependabot.ymlの設定
 ---
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
@@ -29,39 +29,41 @@ shortTitle: Configure dependabot.yml
 
 {% data variables.product.prodname_dependabot %} の設定ファイルである *dependabot.yml* では YAML 構文を使用します。 YAMLについて詳しくなく、学んでいきたい場合は、「[Learn YAML in five minutes (5分で学ぶYAML)](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)」をお読みください。
 
-このファイルは、リポジトリの `.github` ディレクトリに保存する必要があります。 *dependabot.yml* ファイルを追加または更新すると、即座にバージョン更新を確認します。 For more information and an example, see "[Configuring {% data variables.product.prodname_dependabot %} version updates](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)."
+このファイルは、リポジトリの `.github` ディレクトリに保存する必要があります。 *dependabot.yml* ファイルを追加または更新すると、即座にバージョン更新を確認します。 詳しい情報と例については「[{% data variables.product.prodname_dependabot %}バージョンアップデートの設定](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/enabling-and-disabling-dependabot-version-updates#enabling-dependabot-version-updates)」を参照してください。
 
 セキュリティアップデートに影響するオプションは、次にセキュリティアラートがセキュリティアップデートのためのプルリクエストをトリガーするときにも使用されます。  詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-dependabot-security-updates)」を参照してください。
 
-*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 必要に応じて、最上位に `registries` キーを含めることができます。 ファイルは、`version: 2` で始まる必要があります。
+*dependabot.yml* ファイルには、必須の最上位キーに `version` と `updates` の 2 つがあります。 あるいは、トップレベルの`registries`キー{% ifversion fpt or ghec or ghes > 3.4 %}や`enable-beta-ecosystems`キー{% endif %}を含めることができます。 ファイルは、`version: 2` で始まる必要があります。
 
 ## 更新の設定オプション
 
 最上位の `updates` キーは必須です。 これを使用することで、{% data variables.product.prodname_dependabot %} がバージョンやプロジェクトの依存性を更新する方法を設定できます。 各エントリは、特定のパッケージマネージャーの更新設定を行います。 次のオプションを使用できます。
 
-| オプション                                                                      |  必須   | 説明                                                                   |
-|:-------------------------------------------------------------------------- |:-----:|:-------------------------------------------------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 使用するパッケージマネージャー                                                      |
-| [`directory`](#directory)                                                  | **X** | パッケージマニフェストの場所                                                       |
-| [`schedule.interval`](#scheduleinterval)                                   | **X** | 更新を確認する頻度                                                            |
-| [`allow`](#allow)                                                          |       | 許可する更新をカスタマイズする                                                      |
-| [`assignees`](#assignees)                                                  |       | プルリクエストのアサイン担当者                                                      |
-| [`commit-message`](#commit-message)                                        |       | コミットメッセージの環境設定                                                       |
-| [`ignore`](#ignore)                                                        |       | 特定の依存関係またはバージョンを無視する                                                 |
-| [`insecure-external-code-execution`](#insecure-external-code-execution)    |       | マニフェストファイル内でコードの実行を許可または拒否する                                         |
-| [`labels`](#labels)                                                        |       | プルリクエストに設定するラベル                                                      |
-| [`マイルストーン`](#milestone)                                                    |       | プルリクエストに設定するマイルストーン                                                  |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | バージョン更新時のオープンなプルリクエスト数を制限する                                          |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する                                              |
-| [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                                                         |
-| [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} がアクセスできるプライベートリポジトリ |
-| [`レビュー担当者`](#reviewers)                                                    |       | プルリクエストのレビュー担当者                                                      |
-| [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                                                            |
-| [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)                                                    |
-| [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）                                                    |
-| [`target-branch`](#target-branch)                                          |       | プルリクエストを作成するブランチ                                                     |
-| [`vendor`](#vendor)                                                        |       | ベンダーまたはキャッシュされた依存関係を更新する                                             |
-| [`versioning-strategy`](#versioning-strategy)                              |       | マニフェストのバージョン要件の更新方法                                                  |
+| オプション                                                                      |  必須   | 説明                                                                      |
+|:-------------------------------------------------------------------------- |:-----:|:----------------------------------------------------------------------- |
+| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 使用するパッケージマネージャー                                                         |
+| [`directory`](#directory)                                                  | **X** | パッケージマニフェストの場所                                                          |
+| [`schedule.interval`](#scheduleinterval)                                   | **X** | 更新を確認する頻度                                                               |
+| [`allow`](#allow)                                                          |       | 許可する更新をカスタマイズする                                                         |
+| [`assignees`](#assignees)                                                  |       | プルリクエストのアサイン担当者                                                         |
+| [`commit-message`](#commit-message)                                        |       | コミットメッセージの設定                 |{% ifversion fpt or ghec or ghes > 3.4 %}
+| [`enable-beta-ecosystems`](#enable-beta-ecosystems)                        |       | ベータレベルのサポートがあるエコシステムを有効にする 
+{% endif %}
+| [`ignore`](#ignore)                                                        |       | 特定の依存関係またはバージョンを無視する                                                    |
+| [`insecure-external-code-execution`](#insecure-external-code-execution)    |       | マニフェストファイル内でコードの実行を許可または拒否する                                            |
+| [`labels`](#labels)                                                        |       | プルリクエストに設定するラベル                                                         |
+| [`マイルストーン`](#milestone)                                                    |       | プルリクエストに設定するマイルストーン                                                     |
+| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | バージョン更新時のオープンなプルリクエスト数を制限する                                             |
+| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する                                                 |
+| [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                                                            |
+| [`registries`](#registries)                                                |       | {% data variables.product.prodname_dependabot %} がアクセスできるプライベートリポジトリ    |
+| [`レビュー担当者`](#reviewers)                                                    |       | プルリクエストのレビュー担当者                                                         |
+| [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                                                               |
+| [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)                                                       |
+| [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）                                                       |
+| [`target-branch`](#target-branch)                                          |       | プルリクエストを作成するブランチ                                                        |
+| [`vendor`](#vendor)                                                        |       | ベンダーまたはキャッシュされた依存関係を更新する                                                |
+| [`versioning-strategy`](#versioning-strategy)                              |       | マニフェストのバージョン要件の更新方法                                                     |
 
 これらのオプションは、次のようなカテゴリに幅広く適合しています。
 
@@ -172,7 +174,7 @@ updates:
 
 {% note %}
 
-**注釈**: `schedule` は、{% data variables.product.prodname_dependabot %} が新規更新を試行するタイミングを設定します。 ただし、プルリクエストを受け取るタイミングはこれだけではありません。 更新は、 `dependabot.yml` ファイルへの変更、更新失敗後のマニフェストファイルへの変更、または {% data variables.product.prodname_dependabot_security_updates %} に基づいてトリガーされることがあります。 For more information, see "[Frequency of {% data variables.product.prodname_dependabot %} pull requests](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)."
+**注釈**: `schedule` は、{% data variables.product.prodname_dependabot %} が新規更新を試行するタイミングを設定します。 ただし、プルリクエストを受け取るタイミングはこれだけではありません。 更新は、 `dependabot.yml` ファイルへの変更、更新失敗後のマニフェストファイルへの変更、または {% data variables.product.prodname_dependabot_security_updates %} に基づいてトリガーされることがあります。 詳しい情報については「[{% data variables.product.prodname_dependabot %} Pull Requestの頻度](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates#frequency-of-dependabot-pull-requests)」及び「[{% data variables.product.prodname_dependabot_security_updates %}について](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates)」を参照してください。
 
 {% endnote %}
 
@@ -190,7 +192,7 @@ updates:
   | `direct`      | すべて                                             | 明示的に定義されたすべての依存関係。                                                            |
   | `indirect`    | `bundler`、`pip`、`composer`、`cargo`              | 直接依存関係の依存関係 (サブ依存関係、または過渡依存関係とも呼ばれる)。                                         |
   | `all`         | すべて                                             | 明示的に定義されたすべての依存関係。 `bundler`、`pip`、`composer`、`cargo` についても、直接依存関係の依存関係になります。 |
-  | `production`  | `bundler`、`composer`、`mix`, `maven`、`npm`、`pip` | Only dependencies in the "Production dependency group".                       |
+  | `production`  | `bundler`、`composer`、`mix`, `maven`、`npm`、`pip` | [Production dependency group]内の依存関係のみ                                         |
   | `development` | `bundler`、`composer`、`mix`, `maven`、`npm`、`pip` | [Development dependency group] 内の依存関係のみ。                                      |
 
 ```yaml
@@ -258,7 +260,7 @@ updates:
 
 {% note %}
 
-**Note:** The `prefix` and the `prefix-development` options have a 15 character limit.
+**ノート:** `prefix`及び`prefix-development`オプションはには15文字の制限があります。
 
 {% endnote %}
 
@@ -302,7 +304,6 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
-
 ### `ignore`
 
 {% data reusables.dependabot.default-dependencies-allow-ignore %}
@@ -330,7 +331,7 @@ updates:
 {% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
-# `ignore`を使って更新されるべきではない依存関係を指定
+# 更新すべきでない依存関係の指定に`ignore`を使う
 
 version: 2
 updates:
@@ -351,10 +352,19 @@ updates:
 
 {% note %}
 
-**注釈**: 設定ファイルの `ignore` オプションにアクセス不可の依存関係を追加した場合でも、 ファイルの依存関係のすべてにアクセスできる場合には、{% data variables.product.prodname_dependabot %} は、マニフェストまたはロックされたファイルのみにバージョン更新を実行します。 For more information, see "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)."
+**注釈**: 設定ファイルの `ignore` オプションにアクセス不可の依存関係を追加した場合でも、 ファイルの依存関係のすべてにアクセスできる場合には、{% data variables.product.prodname_dependabot %} は、マニフェストまたはロックされたファイルのみにバージョン更新を実行します。 詳しい情報については「[Organizationのセキュリティ及び分析設定の管理](/organizations/keeping-your-organization-secure/managing-security-and-analysis-settings-for-your-organization#allowing-dependabot-to-access-private-dependencies)」及び「[{% data variables.product.prodname_dependabot %}エラーのトラブルシューティング](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/troubleshooting-dependabot-errors#dependabot-cant-resolve-your-dependency-files)」を参照してください。
 
 
 {% endnote %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+{% note %}
+
+**ノート**: `pub`エコシステムについては、{% data variables.product.prodname_dependabot %}は更新しようとするバージョンが無視されている場合は、それ以前のバージョンが利用できる場合であっても更新を行いません。
+
+{% endnote %}
+
+{% endif %}
 
 ### `insecure-external-code-execution`
 
@@ -498,13 +508,13 @@ updates:
 
 ### `registries`
 
-バージョン更新の実行時に {% data variables.product.prodname_dependabot %} がプライベートパッケージレジストリにアクセスできるようにするには、関係する `updates` 設定に `registries` 設定を含める必要があります。 `registries` を `"*"` に設定することで、定義されたリポジトリをすべて使用できるようにすることができます。 また、更新が使用できるレジストリをリストすることもできます。 これを行うには、_dependabot.yml_ ファイルの最上位の `registries` セクションで定義されているレジストリの名前を使用します。 For more information, see "[Configuration options for private registries](#configuration-options-for-private-registries)" below.
+バージョン更新の実行時に {% data variables.product.prodname_dependabot %} がプライベートパッケージレジストリにアクセスできるようにするには、関係する `updates` 設定に `registries` 設定を含める必要があります。 `registries` を `"*"` に設定することで、定義されたリポジトリをすべて使用できるようにすることができます。 また、更新が使用できるレジストリをリストすることもできます。 これを行うには、_dependabot.yml_ ファイルの最上位の `registries` セクションで定義されているレジストリの名前を使用します。 詳しい情報については下の「[プライベートリポジトリの設定オプション](#configuration-options-for-private-registries)」を参照してください。
 
-{% data variables.product.prodname_dependabot %} が `bundler`、`mix`、および `pip` パッケージマネージャーを使用してプライベートレジストリの依存関係を更新できるようにするため、外部コードの実行を許可できます。 For more information, see [`insecure-external-code-execution`](#insecure-external-code-execution) above.
+{% data variables.product.prodname_dependabot %} が `bundler`、`mix`、および `pip` パッケージマネージャーを使用してプライベートレジストリの依存関係を更新できるようにするため、外部コードの実行を許可できます。 詳しい情報については上の[`insecure-external-code-execution`](#insecure-external-code-execution)を参照してください。
 
 ```yaml
-# Allow {% data variables.product.prodname_dependabot %} to use one of the two defined private registries 
-# when updating dependency versions for this ecosystem
+# このエコシステムの依存関係のバージョンを更新する際に、定義済みの
+# 2つのプライベートリポジトリの1つの利用を{% data variables.product.prodname_dependabot %}に許可
 
 {% raw %}
 version: 2
@@ -553,7 +563,7 @@ updates:
 
 ### `schedule.day`
 
-When you set a `weekly` update schedule, by default, {% data variables.product.prodname_dependabot %} checks for new versions on Monday at a random set time for the repository. `schedule.day` を使用して、更新をチェックする代替日を指定します。
+更新スケジュールを `weekly` で設定すると、デフォルトで {% data variables.product.prodname_dependabot %} は月曜にリポジトリにランダムにセットされた時間に新しいバージョンをチェックします。 `schedule.day` を使用して、更新をチェックする代替日を指定します。
 
 サポートされている値
 
@@ -580,7 +590,7 @@ updates:
 
 ### `schedule.time`
 
-By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. `schedule.time` を使用して、更新をチェックする別の時刻を指定します（形式: `hh:mm`）。
+デフォルトでは、{% data variables.product.prodname_dependabot %}はリポジトリにランダムにセットされた時間に新しいバージョンをチェックします。 `schedule.time` を使用して、更新をチェックする別の時刻を指定します（形式: `hh:mm`）。
 
 ```yaml
 # チェックする時刻を設定する
@@ -596,7 +606,7 @@ updates:
 
 ### `schedule.timezone`
 
-By default, {% data variables.product.prodname_dependabot %} checks for new versions at a random set time for the repository. 別のタイムゾーンを指定するには、`schedule.timezone` を使用します。 タイムゾーン識別子は、[iana](https://www.iana.org/time-zones) が管理するタイムゾーンデータベースのものである必要があります。 詳しい情報については、[List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) を参照してください。
+デフォルトでは、{% data variables.product.prodname_dependabot %}はリポジトリにランダムにセットされた時間に新しいバージョンをチェックします。 別のタイムゾーンを指定するには、`schedule.timezone` を使用します。 タイムゾーン識別子は、[iana](https://www.iana.org/time-zones) が管理するタイムゾーンデータベースのものである必要があります。 詳しい情報については、[List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) を参照してください。
 
 ```yaml
 # チェック時のタイムゾーンを指定する
@@ -733,11 +743,11 @@ updates:
 
 {% raw %}
 ```yaml
-# 1つのプライベートリポジトリ内の依存関係の更新のための最小設定
+# 1つのプライベートリポジトリの依存関係を更新するための最小限の設定
 
 version: 2
 registries:
-  dockerhub: # Define access for a private registry 
+  dockerhub: # Define access for a private registry
     type: docker-registry
     url: registry.hub.docker.com
     username: octocat
@@ -754,15 +764,15 @@ updates:
 
 以下のオプションを使用して、アクセス設定を指定します。 レジストリ設定には `type` と `url`、そして通常は `username` と `password` の組み合わせか `token` を含める必要があります。
 
-| オプション           | 説明                                                                                                                                                                                                                                                                                             |
-|:--------------- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `type`          | レジストリのタイプを指定します。 タイプの一覧については下記をご覧ください。                                                                                                                                                                                                                                                         |
-| `url`           | このレジストリの依存関係にアクセスするために使用する URL。 プロトコルはオプションです。 指定しない場合には、`https://` が使用されます。 {% data variables.product.prodname_dependabot %} が必要に応じて末尾のスラッシュを追加または無視します。                                                                                                                                      |
-| `ユーザ名`          | {% data variables.product.prodname_dependabot %} がレジストリにアクセスするために使用するユーザ名。                                                                                                                                                                                                                     |
-| `パスワード`         | 指定したユーザのパスワードを含む {% data variables.product.prodname_dependabot %} シークレットへのリファレンス。 For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."     |
-| `key`           | このレジストリへのアクセスキーを含む{% data variables.product.prodname_dependabot %}シークレットへの参照 For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)."          |
-| `トークン`          | このレジストリへのアクセストークンを含む {% data variables.product.prodname_dependabot %} シークレットへのリファレンス。 For more information, see "[Managing encrypted secrets for Dependabot](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)." |
-| `replaces-base` | `type: python-index` となっているレジストリで、ブール値が `true` の場合、pip は、Python Package Index のベース URL (デフォルトでは `https://pypi.org/simple`) ではなく指定された URL を使用して依存関係を解決します。                                                                                                                                      |
+| オプション           | 説明                                                                                                                                                                                                                                                                       |
+|:--------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`          | レジストリのタイプを指定します。 タイプの一覧については下記をご覧ください。                                                                                                                                                                                                                                   |
+| `url`           | このレジストリの依存関係にアクセスするために使用する URL。 プロトコルはオプションです。 指定しない場合には、`https://` が使用されます。 {% data variables.product.prodname_dependabot %} が必要に応じて末尾のスラッシュを追加または無視します。                                                                                                                |
+| `ユーザ名`          | {% data variables.product.prodname_dependabot %} がレジストリにアクセスするために使用するユーザ名。                                                                                                                                                                                               |
+| `パスワード`         | 指定したユーザのパスワードを含む {% data variables.product.prodname_dependabot %} シークレットへのリファレンス。 詳しい情報については「[Dependabotの暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」を参照してください。     |
+| `key`           | このレジストリへのアクセスキーを含む{% data variables.product.prodname_dependabot %}シークレットへの参照 詳しい情報については「[Dependabotの暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」を参照してください。          |
+| `トークン`          | このレジストリへのアクセストークンを含む {% data variables.product.prodname_dependabot %} シークレットへのリファレンス。 詳しい情報については「[Dependabotの暗号化されたシークレットの管理](/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/managing-encrypted-secrets-for-dependabot)」を参照してください。 |
+| `replaces-base` | `type: python-index` となっているレジストリで、ブール値が `true` の場合、pip は、Python Package Index のベース URL (デフォルトでは `https://pypi.org/simple`) ではなく指定された URL を使用して依存関係を解決します。                                                                                                                |
 
 
 各設定 `type` には、特定の設定を指定する必要があります。 タイプによっては、複数の接続方法を使用できます。 以下のセクションで、各 `type` に使用する設定の詳細を説明します。
@@ -841,7 +851,7 @@ registries:
 
 ### `maven-repository`
 
-The `maven-repository` type supports username and password.
+`maven-repository`タイプは、ユーザ名とパスワードをサポートします。
 
 {% raw %}
 ```yaml
@@ -858,7 +868,7 @@ registries:
 
 `npm-registry` タイプは、ユーザ名とパスワード、またはトークンをサポートします。
 
-When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
+ユーザ名とパスワードを使う場合、`.npmrc`の認証トークンには`base64`エンコードされた`パスワード`が含まれることがありますが、{% data variables.product.prodname_dependabot %}設定ファイル中で参照されているパスワードは、オリジナルの（エンコードされていない）パスワードでなければなりません。
 
 {% raw %}
 ```yaml
@@ -971,3 +981,23 @@ registries:
     token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
 {% endraw %}
+
+{% ifversion fpt or ghec or ghes > 3.4 %}
+## ベータレベルのエコシステムのサポートの有効化
+
+### `enable-beta-ecosystems`
+
+デフォルトでは、{% data variables.product.prodname_dependabot %}は完全にサポートされているエコシステムに対してのみ依存関係のマニフェストとロックファイルを更新します。 一般的に利用可能になっていないエコシステムの更新をオプトインするには、`enable-beta-ecosystems`フラグを使ってください。
+
+```yaml
+# ベータエコシステムの設定
+
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+```
+{% endif %}

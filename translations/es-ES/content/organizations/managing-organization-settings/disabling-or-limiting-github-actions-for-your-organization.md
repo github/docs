@@ -12,6 +12,7 @@ topics:
   - Organizations
   - Teams
 shortTitle: Inhabilitar o limitar las acciones
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -23,38 +24,45 @@ shortTitle: Inhabilitar o limitar las acciones
 
 Puedes habilitar {% data variables.product.prodname_actions %} para todos los repositorios en tu organización. {% data reusables.actions.enabled-actions-description %}Puedes inhabilitar {% data variables.product.prodname_actions %} para todos los repositorios en tu organización. {% data reusables.actions.disabled-actions-description %}
 
-De manera alterna, puedes habilitar {% data variables.product.prodname_actions %} para todos los repositorios en tu organización, pero limitando las acciones que un flujo de trabajo puede ejecutar. {% data reusables.actions.enabled-local-github-actions %}
+Como alternativa, puedes habilitar las {% data variables.product.prodname_actions %} para todos los repositorios de tu organización, pero limitar las acciones {% if actions-workflow-policy %}y flujos de trabajo reutilizables{% endif %} que puede ejecutar un flujo de trabajo.
 
 ## Administrar los permisos de {% data variables.product.prodname_actions %} para tu organización
 
-Puedes inhabilitar todos los flujos de trabajo para una organización o configurar una política que configure qué acciones pueden utilizarse en una organización.
-
-{% data reusables.actions.actions-use-policy-settings %}
+Puedes elegir inhabilitar las {% data variables.product.prodname_actions %} para todos los repositorios de tu organización o permitir únicamente aquellos específicos. También puedes limitar el uso de acciones públicas{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} para que las personas utilicen únicamente las acciones {% if actions-workflow-policy %}y los flujos de trabajo reutilizables{% endif %} locales que existan en tu {% ifversion ghec or ghes or ghae %}empresa{% else %}organización{% endif %}.
 
 {% note %}
 
-**Nota:** Tal vez no puedas administrar estas configuraciones si la empresa que administra tu organización tiene una política que lo anule. Para obtener más información, consulta la sección "[Requerir políticas para la {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)".
+**Nota:** Tal vez no puedas administrar estas configuraciones si la empresa que administra tu organización tiene una política que lo anule. Para obtener más información, consulta la sección "[Requerir políticas para las {% data variables.product.prodname_actions %} en tu empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-github-actions-policies-for-your-enterprise)".
 
 {% endnote %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Debajo de **Políticas**, selecciona una opción. ![Configurar la política de acciones para esta organización](/assets/images/help/organizations/actions-policy.png)
-1. Haz clic en **Save ** (guardar).
+1. Debajo de "Políticas", selecciona una opción.
 
-## Permitir que se ejecuten acciones específicas
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
+
+   {% if actions-workflow-policy %}
+   ![Configurar la política de acciones para esta organización](/assets/images/help/organizations/actions-policy-with-workflows.png)
+   {%- else %}
+   ![Configurar la política de acciones para esta organización](/assets/images/help/organizations/actions-policy.png)
+   {%- endif %}
+1. Haz clic en **Save ** (guardar).
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Debajo de **Políticas**, selecciona **Permitir las acciones seleccionadas** y agrega tus acciones requeridas a la lista.
-   {%- ifversion ghes %}
-   ![Agregar acciones a la lista de permitidos](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. Debajo de "Políticas", selecciona {% data reusables.actions.policy-label-for-select-actions-workflows %} y agrega tus acciones{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} requeridos a la lista.
+
+   {% if actions-workflow-policy %}
+   ![Agrega acciones y flujos de trabajo reutilizables a la lista de elementos permitidos](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
+   {%- elsif ghes %}
+   ![Agregar acciones a la lista de elementos permitidos](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
-   ![Agregar acciones a la lista de permitidos](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   ![Agregar acciones a la lista de elementos permitidos](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
    {%- endif %}
 1. Haz clic en **Save ** (guardar).
 

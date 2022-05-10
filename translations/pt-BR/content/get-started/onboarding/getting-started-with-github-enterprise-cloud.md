@@ -21,7 +21,7 @@ A principal diferença entre os produtos é que {% data variables.product.prodna
 
 Com {% data variables.product.prodname_ghe_cloud %}, você tem a opção de usar {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 
-Se você optar por deixar seus integrantes criarem e gerenciarem suas próprias contas de usuário, há dois tipos de contas que você pode usar com {% data variables.product.prodname_ghe_cloud %}:
+Se você optar por deixar seus integrantes criarem e gerenciarem suas próprias contas pessoais, há dois tipos de contas que você pode usar com {% data variables.product.prodname_ghe_cloud %}:
 
 - Uma conta de organização única
 - Uma conta corporativa que contém várias organizações
@@ -179,7 +179,7 @@ Para gerenciar e moderar sua empresa, você pode definir políticas para organiz
 
 Você pode optar por aplicar várias políticas para todas as organizações pertencentes à sua empresa, ou escolher permitir que essas políticas sejam definidas em cada organização. Os tipos de políticas que você pode aplicar incluem gerenciamento de repositórios, quadro de projetos e políticas de equipe. Para obter mais informações, consulte "[Definindo políticas para a sua empresa](/enterprise-cloud@latest/admin/policies)".
 #### 2. Visualizando logs de auditoria, configurando webhooks, e restringindo notificações de e-mail para a sua empresa
-Você pode visualizar as ações de todas as organizações pertencentes à sua conta corporativa no log de auditoria da empresa. Você também pode configurar webhooks para receber eventos de organizações pertencentes à sua conta corporativa. Para obter mais informações, consulte "[Visualizando os logs de auditoria para organizações na sua empresa](/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/viewing-the-audit-logs-for-organizations-in-your-enterprise)" e "[Gerenciando webhooks globais](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-global-webhooks)".
+Você pode visualizar as ações de todas as organizações pertencentes à sua conta corporativa no log de auditoria da empresa. Você também pode configurar webhooks para receber eventos de organizações pertencentes à sua conta corporativa. Para obter mais informações, consulte "[Revisando os logs de auditoria para sua empresa](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)" e "[Monitorando sua empresa](/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise)".
 
 Você também pode restringir as notificações de e-mail da conta corporativa para que os integrantes da empresa só possam usar um endereço de e-mail em um domínio verificado ou aprovado para receber notificações. Para obter mais informações, consulte "[Restringindo notificações de e-mail para a sua empresa](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise)".
 

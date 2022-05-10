@@ -16,13 +16,17 @@ miniTocMaxHeadingLevel: 3
 
 ## Checking, changing, and deleting your prebuild configurations
 
-The prebuilds that you configure are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_codespaces %} service. 
+The prebuilds that you configure for a repository are created and updated using a {% data variables.product.prodname_actions %} workflow, managed by the {% data variables.product.prodname_codespaces %} service. 
 
-The workflow is triggered by these events:
+Depending on the settings in a prebuild configuration, the workflow to update the prebuild template may be triggered by these events:
 
 * Creating or updating the prebuild configuration
 * Pushing a commit or a pull request to a branch that's configured to have prebuilds
+* Changing any of the dev container configuration files
+* A schedule that you've defined in the prebuild configuration
 * Manually triggering the workflow
+
+The settings in the prebuild configuration determine which events automatically trigger an update of the prebuild template. For more information, see "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-a-prebuild)." 
 
 People with admin access to a repository can check the progress of prebuilds, edit, and delete prebuild configurations. 
 

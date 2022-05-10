@@ -1,6 +1,6 @@
 ---
 title: Mejores prácticas para abandonar la empresa
-intro: 'Cambiar de trabajo es una realidad. Si usas tu cuenta de usuario de GitHub para tus objetivos personales *y* laborales, hay algunas cosas que debes tener en cuenta al dejar la empresa u organización.'
+intro: 'Si utilizas tu cuenta en {% data variables.product.product_name %} tanto para propósitos personales como para trabajo, hay algunas cosas que debes considerar cuando salgas de tu empresa u organización.'
 redirect_from:
   - /articles/best-practices-for-leaving-your-company
   - /github/setting-up-and-managing-your-github-user-account/best-practices-for-leaving-your-company
@@ -13,7 +13,7 @@ topics:
 shortTitle: Dejar tu compañía
 ---
 
-Antes de abandonar tu empresa, asegúrate de actualizar la siguiente información en tu cuenta de usuario:
+Antes de que salgas de tu empresa, asegúrate de actualizar la siguiente información en tu cuenta personal:
 
 - Quitar la marca de verificación de la dirección de correo electrónico de la empresa al [eliminarla de los parámetros de Correo electrónico](/articles/changing-your-primary-email-address). Puedes volver a agregarla sin verificar para conservar todas las confirmaciones asociadas vinculadas con tu cuenta.
 - [Cambiar tu dirección principal de correo electrónico](/articles/changing-your-primary-email-address) del correo electrónico de tu empresa a tu correo electrónico personal.
@@ -28,7 +28,7 @@ Si has estado trabajando con repositorios que pertenecen a una organización, de
 
 ## Eliminar asociaciones profesionales con repositorios personales.
 
-Si has estado colaborando profesionalmente con otra persona en repositorios que pertenecen a su cuenta de usuario personal, deberás [eliminarte como colaborador](/articles/removing-yourself-from-a-collaborator-s-repository) desde otros repositorios.
+Si has estado colaborando de forma profesional con otra persona en los repositorios que le pertenecen a tu cuenta personal, necesitarás [eliminarte como colaborador](/articles/removing-yourself-from-a-collaborator-s-repository) de estos repositorios.
 
 - [Deja de mirar repositorios](https://github.com/watching) relacionados con tu trabajo. No desearás volver a ver esas notificaciones.
 - [Transfiere los repositorios que posees](/articles/how-to-transfer-a-repository) a otros que deben seguir trabajando con ellos una vez que te marches.

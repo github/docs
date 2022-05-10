@@ -17,6 +17,7 @@ topics:
   - Permissions
   - Pull requests
 shortTitle: Manage GitHub Actions settings
+miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -28,13 +29,11 @@ shortTitle: Manage GitHub Actions settings
 
 You can enable {% data variables.product.prodname_actions %} for your repository. {% data reusables.actions.enabled-actions-description %} You can disable {% data variables.product.prodname_actions %} for your repository altogether. {% data reusables.actions.disabled-actions-description %}
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} in your repository but limit the actions a workflow can run. {% data reusables.actions.enabled-local-github-actions %}
+Alternatively, you can enable {% data variables.product.prodname_actions %} in your repository but limit the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
 
 ## Managing {% data variables.product.prodname_actions %} permissions for your repository
 
-You can disable all workflows for a repository or set a policy that configures which actions can be used in a repository.
-
-{% data reusables.actions.actions-use-policy-settings %}
+You can disable {% data variables.product.prodname_actions %} for a repository, or set a policy that configures which actions{% if actions-workflow-policy %} and reusable workflows{% endif %} can be used in the repository.
 
 {% note %}
 
@@ -45,27 +44,31 @@ You can disable all workflows for a repository or set a policy that configures w
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Under **Actions permissions**, select an option.
+1. Under "Actions permissions", select an option.
 
-  ![Set actions policy for this organization](/assets/images/help/repository/actions-policy.png)
+   {% indented_data_reference reusables.actions.actions-use-policy-settings spaces=3 %}
 
+   {% if actions-workflow-policy %}
+   ![Set actions policy for this repository](/assets/images/help/repository/actions-policy-with-workflows.png)
+   {%- else %}
+   ![Set actions policy for this repository](/assets/images/help/repository/actions-policy.png)
+   {%- endif %}
 1. Click **Save**.
-
-## Allowing specific actions to run
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
-1. Under **Actions permissions**, select **Allow select actions** and add your required actions to the list.
+1. Under "Actions permissions", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions to the list.
 
-   {%- ifversion ghes %}
-   ![Add actions to allow list](/assets/images/help/repository/actions-policy-allow-list.png)
+   {% if actions-workflow-policy%}
+   ![Add actions and reusable workflows to the allow list](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
+   {%- elsif ghes %}
+   ![Add actions to the allow list](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
-   ![Add actions to allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   ![Add actions to the allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
-
 1. Click **Save**.
 
 {% ifversion fpt or ghec %}

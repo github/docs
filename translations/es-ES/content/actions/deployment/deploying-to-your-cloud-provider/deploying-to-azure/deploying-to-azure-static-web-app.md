@@ -1,6 +1,6 @@
 ---
-title: Deploying to Azure Static Web App
-intro: You can deploy your web app to Azure Static Web App as part of your continuous deployment (CD) workflows.
+title: Desplegar a Azure Static Web App
+intro: Puedes desplegar tu app web a Azure Static Web App como parte de tus flujos de trabajo de despliegue continuo (DC).
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +18,7 @@ topics:
 
 ## Introducción
 
-This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a web app to [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/).
+Esta guía te explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar y desplegar una app web a [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/).
 
 {% ifversion fpt or ghec or ghae-issue-4856 %}
 
@@ -34,22 +34,22 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 Antes de crear tu flujo de trabajo de {% data variables.product.prodname_actions %}, primero necesitarás completar los siguientes pasos de configuración:
 
-1. Create an Azure Static Web App using the 'Other' option for deployment source. For more information, see "[Quickstart: Building your first static site in the Azure portal](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)" in the Azure documentation.
+1. Crea una Azure Static Web App utilizando la opción 'Other' como fuente de despliegue. Para obtener más información, consulta la sección "[Guía de inicio rápido: Crear tu primer sitio en el portal de Azure](https://docs.microsoft.com/azure/static-web-apps/get-started-portal)" en la documentación de Azure.
 
-2. Create a secret called `AZURE_STATIC_WEB_APPS_API_TOKEN` with the value of your static web app deployment token. For more information about how to find your deployment token, see "[Reset deployment tokens in Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)" in the Azure documentation.
+2. Crea un secreto llamado `AZURE_STATIC_WEB_APPS_API_TOKEN` con el valor de tu token de despliegue de aplicación web estática. Para obtener más información sobre cómo encontrar tu token de despliegue, consulta la sección "[Restablecer los tokens de despliegue en Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/deployment-token-management)" en la documentación de Azure.
 
 ## Crear un flujo de trabajo
 
 Una vez que hayas completado los prerequisitos, puedes proceder con la creación del flujo de trabajo.
 
-The following example workflow demonstrates how to build and deploy an Azure static web app when there is a push to the `main` branch or when a pull request targeting `main` is opened, synchronized, or reopened. The workflow also tears down the corresponding pre-production deployment when a pull request targeting `main` is closed.
+El siguiente flujo de trabajo de ejemplo demuestra cómo compilar y desplegar una aplicación web estática de Azure cuando exite una subida a la rama `main` o cuando se abre, sincroniza o vuelve a abrir una solicitud de cambios que apunta a `main`. El flujo de trabajo también derriba el despliegue de pre-producción correspondiente cuando se cierra una solicitud de cambios que apunta a `main`.
 
-Under the workflow `env` key, change the following values:
-- `APP_LOCATION` to the location of your client code
-- `API_LOCATION` to the location of your API source code. If `API_LOCATION` is not relevant, you can delete the variable and the lines where it is used.
-- `APP_ARTIFACT_LOCATION` to the location of your client code build output
+Debajo del flujo de trabajo de la clave `env`, cambia los siguientes valores:
+- `APP_LOCATION` a la ubicación de tu código de cliente
+- `API_LOCATION` a la ubicación de tu código fuente de la API. Si `API_LOCATION` no es relevante, puedes borrar la variable y las líneas en las que se utilizó.
+- `APP_ARTIFACT_LOCATION` a la ubicación de tu salida de compilación de código de cliente
 
-For more information about these values, see "[Build configuration for Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)" in the Azure documentation.
+Para obtener más información sobre estos valores, consulta la sección "[Configuración de compilación para las Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/build-configuration?tabs=github-actions)" en la documentación de Azure.
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
@@ -79,7 +79,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
         with:
           submodules: true
       - name: Build And Deploy
@@ -109,5 +109,5 @@ jobs:
 Los siguientes recursos también pueden ser útiles:
 
 * Para encontrar el flujo de trabajo inicial original, consulta el archivo [`azure-staticwebapp.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-staticwebapp.yml) en el repositorio `starter-workflows` de {% data variables.product.prodname_actions %}.
-* The action used to deploy the web app is the official Azure [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) action.
+* La acción que se utiliza para desplegar la app web es la acción [`Azure/static-web-apps-deploy`](https://github.com/Azure/static-web-apps-deploy) oficial de Azure.
 * Para encontrar más ejemplos de flujos de trabajo de GitHub Actions que desplieguen a Azure, consulta el repositorio [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples).

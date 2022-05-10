@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-permissions: Anyone can sponsor accounts on behalf of their own user account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
+permissions: Anyone can sponsor accounts on behalf of their own personal account. Organization owners and billing managers can sponsor accounts on behalf of their organization.
 type: how_to
 topics:
   - Open Source
@@ -23,7 +23,7 @@ shortTitle: 赞助贡献者
 
 {% data reusables.sponsors.sponsorship-details %}
 
-您可以代表您的用户帐户赞助一个帐户，以投资您个人受益的项目。 您可以代表您的组织赞助帐户，原因有很多。
+您可以代表您的个人帐户赞助一个帐户，以投资您个人受益的项目。 您可以代表您的组织赞助帐户，原因有很多。
 - 维护组织工作所依赖的特定库
 - 投资于作为一个组织所依赖的生态系统（如区块链）
 - 作为重视开源的组织，培养品牌知名度
@@ -35,13 +35,15 @@ shortTitle: 赞助贡献者
 
 使用信用卡赞助帐户后，更改将立即生效。 {% data reusables.sponsors.prorated-sponsorship %}
 
+我们可能会与赞助帐户共享某些有限的税务信息。 更多信息请参阅“[税务信息](#tax-information)”。
+
 {% data reusables.sponsors.manage-updates-for-orgs %}
 
 您可以选择是否公开显示您的赞助。 一次性赞助在一个月内保持可见。
 
 如果被赞助帐户撤销的等级，您将仍保留在该等级，直到您选择其他等级或取消订阅。 更多信息请参阅“[升级赞助](/articles/upgrading-a-sponsorship)”和“[降级赞助](/articles/downgrading-a-sponsorship)”。
 
-如果您要赞助的帐户在 {% data variables.product.prodname_sponsors %} 上还没有个人资料，您可以建议该帐户加入。 更多信息请参阅“[为用户帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”和“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
+如果您要赞助的帐户在 {% data variables.product.prodname_sponsors %} 上还没有个人资料，您可以建议该帐户加入。 更多信息请参阅“[为个人帐户设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-user-account)”和“[为组织设置 {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
 
 {% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
@@ -50,6 +52,17 @@ shortTitle: 赞助贡献者
 **注：**{% data variables.product.prodname_dotcom %} 对开发者如何介绍自己概不负责，{% data variables.product.prodname_dotcom %} 也不为任何被赞助的开源项目背书。 索赔由接受资助的开发者自行负责。 请确保在建立信任之后提供赞助。 更多信息请参阅 [{% data variables.product.prodname_sponsors %} 附加条款](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms)。
 
 {% endnote %}
+
+## 税务信息
+
+作为赞助者，您承认，自赞助者计划启动后，我们可能会向您赞助的每个帐户的所有者披露以下有关您向该帐户支付赞助费用的有限信息：
+
+- 交易日期
+- 支付金额
+- 付款所在的国家/地区、州和省
+- 付款是由企业还是个人支付的
+
+此信息对于支付和报告此类赞助付款产生的任何税款是必要的。
 
 ## 赞助帐户
 

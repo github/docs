@@ -1,0 +1,1 @@
+Os proprietários da organização podem restringir a capacidade de tornar portas encaminhadas disponíveis publicamente ou dentro da organização. Para obter mais informações, consulte "[Restringindo a visibilidade das portas encaminhadas](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports). "

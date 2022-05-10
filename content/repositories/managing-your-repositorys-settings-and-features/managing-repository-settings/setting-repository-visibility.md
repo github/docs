@@ -23,7 +23,7 @@ Organization owners can restrict the ability to change repository visibility to 
 
 {% ifversion ghec %}
 
-Members of an {% data variables.product.prodname_emu_enterprise %} can only set the visibility of repositories owned by their user account to private, and repositories in their enterprise's organizations can only be private or internal. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
+Members of an {% data variables.product.prodname_emu_enterprise %} can only set the visibility of repositories owned by their personal account to private, and repositories in their enterprise's organizations can only be private or internal. For more information, see "[About {% data variables.product.prodname_emus %}](/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users)."
 
 {% endif %}
 
@@ -51,7 +51,7 @@ We recommend reviewing the following caveats before you change the visibility of
 {%- endif %}
 
 {%- ifversion fpt %}
-* If you're using {% data variables.product.prodname_free_user %} for user accounts or organizations, some features won't be available in the repository after you change the visibility to private. Any published {% data variables.product.prodname_pages %} site will be automatically unpublished. If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+* If you're using {% data variables.product.prodname_free_user %} for personal accounts or organizations, some features won't be available in the repository after you change the visibility to private. Any published {% data variables.product.prodname_pages %} site will be automatically unpublished. If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[{% data variables.product.company_short %}'s products](/get-started/learning-about-github/githubs-products) and "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
 {%- endif %}
 
 {%- ifversion fpt or ghec %}

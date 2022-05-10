@@ -1,1 +1,1 @@
-- **Tiempo de ejecución del flujo de trabajo** - Cada flujo de trabajo se limita a 72 horas. Si un flujo de trabajo llega a este límite, se cancelará.
+- **Workflow run time** - {% ifversion fpt or ghec or ghes > 3.2 or ghae-issue-6469 %}Each workflow run is limited to 35 days. Si un flujo de trabajo llega a este límite, se cancelará. This period includes execution duration, and time spent on waiting and approval.{% else %}Each workflow run is limited to 72 hours. If a workflow run reaches this limit, the workflow run is cancelled.{% endif %}
