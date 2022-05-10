@@ -108,7 +108,7 @@
     "@types/imurmurhash": "^0.1.1",
     "@types/js-cookie": "^3.0.1",
     "@types/lodash": "^4.14.178",
-    "@types/react": "^17.0.38",
+    "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.0",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/uuid": "^8.3.4",
