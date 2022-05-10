@@ -52,6 +52,7 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 {% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## Gerenciando o limite de gastos de {% data variables.product.prodname_actions %} para sua conta corporativa
 
 Proprietários de organizações e gestores de faturamento podem gerenciar o limite de gastos de {% data variables.product.prodname_actions %} para uma conta corporativa.
@@ -62,7 +63,7 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 1. Acima de "{% data variables.product.prodname_actions %} e pacotes de uso mensal", clique em **Limite de gastos**. ![Aba limite de gastos](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
-
+{% endif %}
 
 ## Gerenciamento de notificações por e-mail e limite de gastos
 {% data reusables.billing.email-notifications %}

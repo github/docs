@@ -23,5 +23,5 @@ versions:
 ## 参考リンク
 
 - [公式 Git 用語集](https://www.kernel.org/pub/software/scm/git/docs/gitglossary.html)
-- [Git リファレンス](http://gitref.org/)
-- [Git SCM](https://git-scm.com/doc)
+- [Git documentation](https://git-scm.com/doc)
+- [Git command list](https://git-scm.com/docs)

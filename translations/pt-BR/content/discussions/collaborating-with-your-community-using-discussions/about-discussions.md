@@ -9,34 +9,34 @@ versions:
 
 ## Sobre o {% data variables.product.prodname_discussions %}
 
-With {% data variables.product.prodname_discussions %}, the community for your project can create and participate in conversations within the project's repository or organization. As discussões capacitam os mantenedores, contribuidores e visitantes para reunirem e atingirem os objetivos seguintes em um local central, sem ferramentas de terceiros.
+Com {% data variables.product.prodname_discussions %}, a comunidade do seu projeto pode criar e participar de conversas no repositório ou organização do projeto. As discussões capacitam os mantenedores, contribuidores e visitantes para reunirem e atingirem os objetivos seguintes em um local central, sem ferramentas de terceiros.
 
 - Compartilhar anúncios e informações, recolher feedback, planejar e tomar decisões
 - Faça perguntas, discuta e responda às perguntas, e marque as discussões como respondidas
-- Create polls to gauge community opinion
+- Crie enquetes para medir a opinião da comunidade
 - Promova uma atmosfera convidativa para visitantes e contribuidores para discutir objetivos, desenvolvimento, administração e fluxos de trabalho
 
 ![Aba de discussões para um repositório](/assets/images/help/discussions/hero.png)
 
-You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, you might use organization discussions to discuss topics that aren't specific to a single repository in your organization.
+Você pode usar discussões no repositório para discutir tópicos específicos do repositório. Se o seu projeto abrange vários repositórios, você poderá usar discussões da organização para discutir tópicos que não sejam específicos de um único repositório na sua organização.
 
 Você não precisa fechar uma discussão como você fecha um problema ou um pull request.
 
-Se um administrador de repositório ou mantenedor do projeto habilitar {% data variables.product.prodname_discussions %} para um repositório, qualquer pessoa que visitar o repositório poderá criar e participar de discussões do repositório. If an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
+Se um administrador de repositório ou mantenedor do projeto habilitar {% data variables.product.prodname_discussions %} para um repositório, qualquer pessoa que visitar o repositório poderá criar e participar de discussões do repositório. Se um proprietário da organização permitir que {% data variables.product.prodname_discussions %} para uma organização, qualquer pessoa que possa visualizar o repositório de origem pode criar uma discussão na organização.
 
-Os administradores de repositório e mantenedores de projetos podem gerenciar as discussões e categorias de discussão em um repositório e fixar discussões para aumentar a visibilidade da discussão. Os moderadores e colaboradores podem marcar comentários como respostas, travar discussões e converter problemas em discussões. Similarly, for organization discussions, the role of a user in the source repository determines how a user can interact with organization discussions. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
+Os administradores de repositório e mantenedores de projetos podem gerenciar as discussões e categorias de discussão em um repositório e fixar discussões para aumentar a visibilidade da discussão. Os moderadores e colaboradores podem marcar comentários como respostas, travar discussões e converter problemas em discussões. Da mesma forma, para discussões na organização, a função de um usuário no repositório de origem determina como um usuário pode interagir com as discussões da organização. Para obter mais informações, consulte "[Funções do repositório para uma organização](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)".
 
-For more information about management of discussions, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions)."
+Para obter mais informações sobre o gerenciamento das discussões, consulte "[Gerenciando as discussões](/discussions/managing-discussions-for-your-community/managing-discussions). "
 
-## About polls
+## Sobre as enquetes
 
-You can create polls in the polls category to gauge interest in new ideas and project direction. Anyone with read access to your repository can create polls, vote in polls, and view their results. Logged out users can view the results of polls in public repositories.
+Você pode criar enquetes na categoria de enquetes para medir o interesse em novas idéias e na direção do projeto. Qualquer pessoa com acesso de leitura ao seu repositório pode criar enquetes, votar em enquetes e ver seus resultados. Usuários desconectados podem ver os resultados de enquetes em repositórios públicos.
 
-Polls require a question and at least two options. You can add a maximum of eight options and the options can contain a maximum of 128 characters.
+As enquetes exigem uma pergunta e pelo menos duas opções. Você pode adicionar um máximo de oito opções e as opções podem conter, no máximo, 128 caracteres.
 
-Voters cannot change their vote. Editing a poll will reset any votes that have already been cast.
+Os eleitores não podem alterar o seu voto. Editar uma enquete irá redefinir todos os votos que já foram expressos.
 
-For more information on creating polls, see "[Creating a poll](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion#creating-a-poll)."
+Para obter mais informações sobre como criar enquetes, consulte "[Criando uma enquete](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion#creating-a-poll)".
 
 ## Sobre a organização de discussão
 
@@ -48,7 +48,7 @@ Para discussões com um formato de pergunta/resposta, é possível marcar um com
 
 {% data reusables.discussions.about-announcement-format %}
 
-For more information, see "[Managing categories for discussions](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Para obter mais informações, consulte "[Gerenciando categorias para discussões](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)".
 
 {% data reusables.discussions.you-can-label-discussions %}
 
@@ -58,9 +58,9 @@ Como integrante ou mantenedor da comunidade, inicie uma discussão para fazer um
 
 Participe de uma discussão para fazer e responder a perguntas, fornecer feedback e envolver-se com a comunidade do projeto. Para obter mais informações, consulte "[Participar de uma discussão](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion)".
 
-Você pode destacar discussões que contenham conversas importantes, úteis ou exemplares entre os integrantes da comunidade. For more information, see "[Managing discussions](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)."
+Você pode destacar discussões que contenham conversas importantes, úteis ou exemplares entre os integrantes da comunidade. Para obter mais informações, consulte "[Gerenciando discussões](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)".
 
-{% data reusables.discussions.you-can-convert-an-issue %} For more information, see "[Moderating discussions](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
+{% data reusables.discussions.you-can-convert-an-issue %} Para obter mais informações, consulte "[Moderando discussões](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)".
 
 ## Compartilhando feedback
 

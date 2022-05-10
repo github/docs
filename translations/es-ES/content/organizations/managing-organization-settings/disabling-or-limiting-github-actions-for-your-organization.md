@@ -24,11 +24,11 @@ miniTocMaxHeadingLevel: 3
 
 Puedes habilitar {% data variables.product.prodname_actions %} para todos los repositorios en tu organización. {% data reusables.actions.enabled-actions-description %}Puedes inhabilitar {% data variables.product.prodname_actions %} para todos los repositorios en tu organización. {% data reusables.actions.disabled-actions-description %}
 
-Alternatively, you can enable {% data variables.product.prodname_actions %} for all repositories in your organization but limit the actions {% if actions-workflow-policy %}and reusable workflows{% endif %} a workflow can run.
+Como alternativa, puedes habilitar las {% data variables.product.prodname_actions %} para todos los repositorios de tu organización, pero limitar las acciones {% if actions-workflow-policy %}y flujos de trabajo reutilizables{% endif %} que puede ejecutar un flujo de trabajo.
 
 ## Administrar los permisos de {% data variables.product.prodname_actions %} para tu organización
 
-You can choose to disable {% data variables.product.prodname_actions %} for all repositories in your organization, or only allow specific repositories. You can also limit the use of public actions{% if actions-workflow-policy %} and reusable workflows{% endif %}, so that people can only use local actions {% if actions-workflow-policy %}and reusable workflows{% endif %} that exist in your {% ifversion ghec or ghes or ghae %}enterprise{% else %}organization{% endif %}.
+Puedes elegir inhabilitar las {% data variables.product.prodname_actions %} para todos los repositorios de tu organización o permitir únicamente aquellos específicos. También puedes limitar el uso de acciones públicas{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} para que las personas utilicen únicamente las acciones {% if actions-workflow-policy %}y los flujos de trabajo reutilizables{% endif %} locales que existan en tu {% ifversion ghec or ghes or ghae %}empresa{% else %}organización{% endif %}.
 
 {% note %}
 
@@ -55,14 +55,14 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% if actions-workflow-policy %} and reusable workflows{% endif %} to the list.
+1. Debajo de "Políticas", selecciona {% data reusables.actions.policy-label-for-select-actions-workflows %} y agrega tus acciones{% if actions-workflow-policy %} y flujos de trabajo reutilizables{% endif %} requeridos a la lista.
 
    {% if actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
+   ![Agrega acciones y flujos de trabajo reutilizables a la lista de elementos permitidos](/assets/images/help/organizations/actions-policy-allow-list-with-workflows.png)
    {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
+   ![Agregar acciones a la lista de elementos permitidos](/assets/images/help/organizations/actions-policy-allow-list.png)
    {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
+   ![Agregar acciones a la lista de elementos permitidos](/assets/images/enterprise/github-ae/organizations/actions-policy-allow-list.png)
    {%- endif %}
 1. Haz clic en **Save ** (guardar).
 

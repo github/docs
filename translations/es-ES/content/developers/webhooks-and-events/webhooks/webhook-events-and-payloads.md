@@ -811,8 +811,6 @@ Se eliminó el evento para el cual se configuró este webhook. Este evento únic
 
 {% endif %}
 
-{% ifversion fpt or ghae or ghec %}
-
 ## paquete
 
 Actividad relacionada con el {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} para obtener más información, consulta la sección "[Administrar paquetes con {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" para aprender más sobre el {% data variables.product.prodname_registry %}.
@@ -832,7 +830,6 @@ Actividad relacionada con el {% data variables.product.prodname_registry %}. {% 
 ### Ejemplo de carga útil del webhook
 
 {{ webhookPayloadsForCurrentVersion.package.published }}
-{% endif %}
 
 ## page_build
 
@@ -1185,7 +1182,7 @@ Este evento ocurre cuando una {% data variables.product.prodname_github_app %} e
 
 | Clave    | Tipo        | Descripción                                                                              |
 | -------- | ----------- | ---------------------------------------------------------------------------------------- |
-| `Acción` | `secuencia` | La acción que se realizó. Esta puede ser una de las siguientes:<ul><li>`created` - Un repositorio se crea.</li><li>Un repositorio se borra.</li><li>`archived` - Un repositorio se archiva.</li><li>`unarchived` - Un repositorio se desarchiva.</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)</li>{% endif %}<li>`edited` - Se edita la información de un repositorio.</li><li>`renamed` - Un repositorio se renombra.</li><li>`transferred` - Un repositorio se transfiere.</li><li>`publicized` - Un repositorio se hace público.</li><li> `privatized` - Un repositorio se hace privado.</li></ul> |
+| `Acción` | `secuencia` | La acción que se realizó. Esta puede ser una de las siguientes:<ul><li>`created` - Un repositorio se crea.</li><li>Un repositorio se borra.</li><li>`archived` - Un repositorio se archiva.</li><li>`unarchived` - Un repositorio se desarchiva.</li>{% ifversion ghes or ghae %}<li>`anonymous_access_enabled` - Un repositorio está [habilitado para acceso anónimo a Git](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise), `anonymous_access_disabled` - Un repositorio está [inhabilitado para acceso anónimo a Git](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)</li>{% endif %}<li>`edited` - Se edita la información de un repositorio.</li><li>`renamed` - Un repositorio se renombra.</li><li>`transferred` - Un repositorio se transfiere.</li><li>`publicized` - Un repositorio se hace público.</li><li> `privatized` - Un repositorio se hace privado.</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}

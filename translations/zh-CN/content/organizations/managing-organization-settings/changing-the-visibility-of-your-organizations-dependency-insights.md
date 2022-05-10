@@ -1,12 +1,10 @@
 ---
 title: 更改组织依赖项洞察图的可见性
 intro: 您可以允许所有组织成员查看组织的依赖项洞察图或仅限组织所有者查看。
-product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/changing-the-visibility-of-your-organizations-dependency-insights
   - /github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights
 versions:
-  fpt: '*'
   ghec: '*'
 topics:
   - Organizations

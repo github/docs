@@ -11,6 +11,8 @@ redirect_from:
   - /rest/reference/scim
 ---
 
+## About the SCIM API
+
 ### Aprovisionamiento de SCIM para las Organizaciones
 
 Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM para automatizar el aprovisionamiento de la membrecía de las organizaciones de {% data variables.product.product_name %}. La API de {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} se basa en la versión 2.0 del [SCIM estándar](http://www.simplecloud.info/). La terminal de SCIM de {% data variables.product.product_name %} que deben utilizar los IdP es: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
@@ -18,8 +20,8 @@ Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM
 {% note %}
 
 **Notas:**
-  - La API de SCIM se encuentra disponible únicamente para las organizaciones de [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) que cuentan con el [SSO de SAML](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) habilitado. {% data reusables.scim.enterprise-account-scim %} Para obtener más información sobre SCIM, consulta la sección "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
-  - La API de SCIM no puede utilizarse con {% data variables.product.prodname_emus %}.
+  - The SCIM API is available only for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with [SAML SSO](/rest/overview/other-authentication-methods#authenticating-for-saml-sso) enabled. Para obtener más información sobre SCIM, consulta la sección "[Acerca de SCIM para las organizaciones](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
+  - The SCIM API cannot be used with an enterprise account or with an {% data variables.product.prodname_emu_org %}.
 
 {% endnote %}
 

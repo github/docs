@@ -99,4 +99,4 @@ Uma forma alternativa de fechar um alerta é ignorá-lo. Você pode descartar um
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-Para obter mais informações sobre alertas ignorados, consulte "[Gerenciar alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts)".
+Para obter mais informações sobre ignorar alertas, consulte {% if delete-code-scanning-alerts %}"[Gerenciando alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/secure-coding/managing-code-scanning-alerts-for-your-repository#dismissing-or-deleting-alerts).{% else %} "[Gerenciando alertas de {% data variables.product.prodname_code_scanning %} para o seu repositório](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#dismissing--alerts)".{% endif %}

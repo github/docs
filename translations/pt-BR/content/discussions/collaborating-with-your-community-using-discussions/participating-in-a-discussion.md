@@ -13,24 +13,24 @@ shortTitle: Participar da discussão
 
 {% data reusables.discussions.about-discussions %} Para obter mais informações, consulte "[Sobre discussões](/discussions/collaborating-with-your-community-using-discussions/about-discussions)".
 
-In addition to starting or viewing discussions and polls, you can comment in response to the original comment from the author of the discussion. Você também pode criar um tópico de comentário respondendo a um comentário individual feito por outro integrante da comunidade dentro da discussão e reagir aos comentários com emoji.
+Além de iniciar ou visualizar discussões e enquetes, você pode fazer comentários em resposta ao comentário original do autor da discussão. Você também pode criar um tópico de comentário respondendo a um comentário individual feito por outro integrante da comunidade dentro da discussão e reagir aos comentários com emoji.
 
 Você pode bloquear usuários e reportar conteúdo disruptivo para manter um ambiente seguro e agradável para você mesmo em {% data variables.product.product_name %}. Para obter mais informações, consulte "[Manter sua segurança em {% data variables.product.prodname_dotcom %}](/communities/maintaining-your-safety-on-github)".
 
 ## Pré-requisitos
 
-{% data variables.product.prodname_discussions %} must be enabled for the repository or organization for you to participate in a discussion in the repository or organization. For more information, see "[Enabling or disabling {% data variables.product.prodname_discussions %} for a repository](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)" and "[Enabling or disabling GitHub Discussions for an organization](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+O {% data variables.product.prodname_discussions %} deve estar habilitado para o repositório ou organização para que você participe de uma discussão no repositório ou organização. Para obter mais informações, consulte "[Habilitando ou desabilitando {% data variables.product.prodname_discussions %} para um repositório](/github/administering-a-repository/enabling-or-disabling-github-discussions-for-a-repository)" e "[Habilitando ou desabilitando as Discussões do GitHub para uma organização](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)".
 
 ## Criar uma discussão
 
 {% data reusables.discussions.starting-a-discussion %}
 
-## Creating a poll
+## Criando uma enquete
 
 {% data reusables.discussions.starting-a-poll %}
 
 ## Marcar um comentário como uma resposta
 
-Os autores de discussões e usuários com função de triagem ou superior para um repositório podem marcar um comentário como a resposta para uma discussão no repositório. Similarly, discussion authors and users with the triage role or greater for the source repository for organization discussions can mark a comment as the answer to a discussion in the organization.
+Os autores de discussões e usuários com função de triagem ou superior para um repositório podem marcar um comentário como a resposta para uma discussão no repositório. Da mesma forma, os autores de discussões e usuários com a função de triagem ou superior para o repositório de origem para discussões na organização podem marcar um comentário como a resposta para uma discussão na organização.
 
 {% data reusables.discussions.marking-a-comment-as-an-answer %}

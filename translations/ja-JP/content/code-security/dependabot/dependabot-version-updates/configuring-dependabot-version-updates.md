@@ -1,5 +1,5 @@
 ---
-title: Configuring Dependabot version updates
+title: Dependabotのバージョンアップデートの設定
 intro: '{% data variables.product.prodname_dependabot %} が使用するパッケージを自動的に更新するようにリポジトリを設定できます。'
 permissions: 'People with write permissions to a repository can enable or disable {% data variables.product.prodname_dependabot_version_updates %} for the repository.'
 redirect_from:
@@ -18,7 +18,7 @@ topics:
   - Repositories
   - Dependencies
   - Pull requests
-shortTitle: Configure version updates
+shortTitle: バージョンアップデートの設定
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "About version updates for dependencies".-->
@@ -35,7 +35,7 @@ shortTitle: Configure version updates
 
 ## {% data variables.product.prodname_dependabot_version_updates %} を有効化する
 
-{% data reusables.dependabot.create-dependabot-yml %} For information, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates)."
+{% data reusables.dependabot.create-dependabot-yml %} 詳しい情報については「[dependabot.ymlファイルの設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates)」を参照してください。
 1. `version` を追加します。
 1. プライベートレジストリに依存関係がある場合、必要に応じて認証情報を含む `registries` セクションを追加します。
 1. `updates` セクションを追加し、{% data variables.product.prodname_dependabot %} に監視させるパッケージマネージャーごとにエントリを追加します。
@@ -88,7 +88,7 @@ updates:
 
 ## バージョン更新のステータスを確認する
 
-After you enable version updates, the **Dependabot** tab in the dependency graph for the repository is populated. このタブには、{% data variables.product.prodname_dependabot %} が監視するように設定されているパッケージマネージャーと、{% data variables.product.prodname_dependabot %} が最後に新しいバージョンをチェックした日時が表示されます。
+バージョンアップデートを有効にすると、リポジトリの依存関係グラフに**Dependabot** タブが展開されます。 このタブには、{% data variables.product.prodname_dependabot %} が監視するように設定されているパッケージマネージャーと、{% data variables.product.prodname_dependabot %} が最後に新しいバージョンをチェックした日時が表示されます。
 
 ![[Repository Insights] タブ、[Dependency graph]、[Dependabot] タブ](/assets/images/help/dependabot/dependabot-tab-view.png)
 
@@ -139,4 +139,4 @@ updates:
         update-types: ["version-update:semver-patch"]
 ```
 
-For more information about checking for existing ignore preferences, see "[Configuration options for the dependabot.yml file](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)."
+既存の無視設定の確認に関する詳しい情報については、「[依存関係のdependabot.ymlファイルの設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#ignore)」を参照してください。

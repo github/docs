@@ -1,6 +1,6 @@
 ---
-title: Reactions
-intro: 'The Reactions API enables you to create, list and delete the reactions on comments.'
+title: Reações
+intro: 'A API de Reações permite que você crie, liste e exclua as reações nos comentários.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,8 +13,8 @@ redirect_from:
   - /rest/reference/reactions
 ---
 
-### Reaction types
+## About the Reactions API
 
-When creating a reaction, the allowed values for the `content` parameter are as follows (with the corresponding emoji for reference):
+You can create and manage reactions on comments using the Reactions API. Ao criar uma reação, os valores permitidos para o parâmetro `conteúdo` são os seguintes (com o emoji correspondente para referência):
 
 {% data reusables.repositories.reaction_list %}

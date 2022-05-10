@@ -1,5 +1,5 @@
 ---
-title: Pre-receive Hooks
+title: pre-receive フック
 intro: pre-receive フック API を使用すると、pre-receive フックを作成、一覧表示、更新、および削除できます。
 versions:
   ghes: '*'

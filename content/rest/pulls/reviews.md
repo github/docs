@@ -1,6 +1,8 @@
 ---
-title: Reviews
-intro: 'Pull Request Reviews are groups of Pull Request Review Comments on the Pull Request, grouped together with a state and optional body comment.'
+title: Pull request reviews
+shortTitle: Reviews
+allowTitleToDifferFromFilename: true
+intro: ''
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,3 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## About the Pull request reviews API
+
+Pull Request Reviews are groups of pull request review comments on a pull request, grouped together with a state and optional body comment.

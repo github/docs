@@ -9,6 +9,7 @@ translations/pt-BR/content/admin/configuration/configuring-github-connect/managi
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/pt-BR/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
 translations/pt-BR/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources.md,broken liquid tags
+translations/pt-BR/content/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-organizations-in-your-enterprise/creating-teams.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise.md,broken liquid tags
 translations/pt-BR/content/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator.md,broken liquid tags
@@ -41,10 +42,8 @@ translations/pt-BR/content/packages/working-with-a-github-packages-registry/work
 translations/pt-BR/content/packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry.md,broken liquid tags
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository.md,broken liquid tags
 translations/pt-BR/content/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/about-email-notifications-for-pushes-to-your-repository.md,broken liquid tags
-translations/pt-BR/content/rest/reference/enterprise-admin.md,Listed in localization-support#489
-translations/pt-BR/content/rest/reference/enterprise-admin.md,broken liquid tags
-translations/pt-BR/content/rest/reference/gists.md,Listed in localization-support#489
-translations/pt-BR/content/rest/reference/repos.md,Listed in localization-support#489
+translations/pt-BR/content/rest/activity/events.md,broken liquid tags
+translations/pt-BR/content/rest/enterprise-admin/index.md,broken liquid tags
 translations/pt-BR/content/support/learning-about-github-support/about-github-support.md,broken liquid tags
 translations/pt-BR/data/release-notes/enterprise-server/2-20/15.yml,Listed in localization-support#489
 translations/pt-BR/data/release-notes/enterprise-server/2-21/6.yml,Listed in localization-support#489
@@ -64,4 +63,3 @@ translations/pt-BR/data/reusables/repositories/deleted_forks_from_private_reposi
 translations/pt-BR/data/reusables/repositories/security-alerts-x-github-severity.md,Listed in localization-support#489
 translations/pt-BR/data/reusables/repositories/squash-and-rebase-linear-commit-hisitory.md,Listed in localization-support#489
 translations/pt-BR/data/reusables/repositories/suggest-changes.md,Listed in localization-support#489
-translations/pt-BR/data/reusables/rest-reference/activity/events.md,broken liquid tags

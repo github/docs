@@ -24,7 +24,7 @@ You can choose to join an organization owned by your enterprise as a member or a
 
 {% warning %}
 
-**Warning**: If an organization uses SCIM to provision users, joining the organization this way could have unintended consequences. Para obtener más información, consulta la sección "[Acerca de SCIM](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim)".
+**Warning**: If an organization uses SCIM to provision users, joining the organization this way could have unintended consequences. Para obtener más información, consulta la sección "[SCIM para las organizaciones](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)".
 
 {% endwarning %}
 
@@ -32,7 +32,7 @@ You can choose to join an organization owned by your enterprise as a member or a
 
 You can join an organization owned by your enterprise and manage your role within the organization, directly from the settings for your enterprise account.
 
-If an organization enforces SAML single sign-on (SSO), you cannot use the enterprise settings to join the organization. Instead, you must join the organization using that organization's identity provider (IdP). Then, you can manage your role in your enterprise settings. For more information, see "[Joining an organization that enforces SAML SSO](#joining-an-organization-that-enforces-saml-sso)."
+If an organization enforces SAML single sign-on (SSO), you cannot use the enterprise settings to join the organization. En vez de esto, debes unirte a la organización utilizando su proveedor de identidad (IdP). Then, you can manage your role in your enterprise settings. For more information, see "[Joining an organization that enforces SAML SSO](#joining-an-organization-that-enforces-saml-sso)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. On the **Organizations** tab, to the right of the organization you want to manage your role in, select the {% octicon "gear" aria-label="The gear icon" %} dropdown menu and click the action you want to take.

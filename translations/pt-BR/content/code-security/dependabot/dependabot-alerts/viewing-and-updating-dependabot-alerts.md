@@ -55,7 +55,7 @@ Para as linguagens compatíveis, {% data variables.product.prodname_dependabot %
 
 {% note %}
 
-**Observação:** Durante a versão beta, esse recurso está disponível apenas para novas consultorias do Python criadas *depois de* 14 de abril de 2022 e para um subconjunto de consultorias históricas do Python. GitHub is working to backfill data across additional historical Python advisories, which are added on a rolling basis. As chamadas vulneráveis são destacadas apenas nas páginas de {% data variables.product.prodname_dependabot_alerts %}.
+**Observação:** Durante a versão beta, esse recurso está disponível apenas para novas consultorias do Python criadas *depois de* 14 de abril de 2022 e para um subconjunto de consultorias históricas do Python. O GitHub está trabalhando para preencher dados de backfill através de consultorias históricas no Python, que são adicionadas regularmente. As chamadas vulneráveis são destacadas apenas nas páginas de {% data variables.product.prodname_dependabot_alerts %}.
 
 {% endnote %}
 

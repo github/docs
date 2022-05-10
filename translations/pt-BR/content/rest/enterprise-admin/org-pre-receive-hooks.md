@@ -1,6 +1,6 @@
 ---
 title: Organization Pre-receive Hooks
-intro: 'The Organization Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to an organization.'
+intro: The Organization Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to an organization.
 versions:
   ghes: '*'
 topics:
@@ -9,15 +9,15 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-### Object attributes
+### Atributos do objeto
 
-| Name                             | Type      | Description                                               |
-|----------------------------------|-----------|-----------------------------------------------------------|
-| `name`                           | `string`  | The name of the hook.                                     |
-| `enforcement`                    | `string`  | The state of enforcement for the hook on this repository. |
-| `allow_downstream_configuration` | `boolean` | Whether repositories can override enforcement.            |
-| `configuration_url`              | `string`  | URL for the endpoint where enforcement is set.            |
+| Nome                             | Tipo      | Descrição                                                      |
+| -------------------------------- | --------- | -------------------------------------------------------------- |
+| `name`                           | `string`  | O nome do hook.                                                |
+| `enforcement`                    | `string`  | O estado de aplicação para o hook neste repositório.           |
+| `allow_downstream_configuration` | `boolean` | Se os repositórios podem substituir a imposição.               |
+| `configuration_url`              | `string`  | URL para o ponto de extremidade em que a aplicação é definida. |
 
-Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
+Os valores possíveis para *aplicação* são `habilitado`, `desabilitado` e`testando`. `desabilitado` indica que o hook pre-receive não será executado. `habilitado` indica que será executado e rejeitará quaisquer pushes que resultem em um estado diferente de zero. `testando` significa que o script será executado, mas não fará com que quaisquer pushes sejam rejeitados.
 
-`configuration_url` may be a link to this endpoint or this hook's global configuration. Only site admins are able to access the global configuration.
+`configuration_url` may be a link to this endpoint or this hook's global configuration. Apenas administradores do site podem acessar a configuração global.

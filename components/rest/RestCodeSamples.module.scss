@@ -1,0 +1,31 @@
+@import "@primer/css/support/index.scss";
+
+.codeBlock {
+  overflow: auto;
+  margin-bottom: 1rem;
+  line-height: 1.45;
+  background-color: var(--color-canvas-subtle);
+  font-size: 90%;
+
+  code {
+    background-color: transparent;
+    padding: 8px 8px 16px;
+    white-space: pre;
+    @include breakpoint(lg) {
+      max-width: 30vw;
+    }
+  }
+}
+
+.method {
+  font-size: 80%;
+}
+
+.requestCodeBlock {
+  max-height: 30vh;
+  min-height: 70px;
+}
+
+.responseCodeBlock {
+  min-height: 70px;
+}

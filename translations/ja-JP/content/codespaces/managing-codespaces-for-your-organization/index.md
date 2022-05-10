@@ -15,6 +15,7 @@ children:
   - /reviewing-your-organizations-audit-logs-for-codespaces
   - /restricting-access-to-machine-types
   - /restricting-the-visibility-of-forwarded-ports
+  - /restricting-the-idle-timeout-period
 shortTitle: Managing your organization
 ---
 

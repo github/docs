@@ -1,5 +1,5 @@
 ---
-title: Audit log
+title: Log de auditoria
 intro: ''
 versions:
   fpt: '*'
@@ -9,3 +9,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

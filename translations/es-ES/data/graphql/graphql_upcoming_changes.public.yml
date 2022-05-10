@@ -15,20 +15,6 @@ upcoming_changes:
     criticality: breaking
     owner: tambling
   - 
-    location: EnterpriseBillingInfo.availableSeats
-    description: 'Se eliminará a `availableSeats`. Utiliza EnterpriseBillingInfo.totalAvailableLicenses en sustitución.'
-    reason: 'Se reemplazará a `availableSeats` con `totalAvailableLicenses` para proporcionar más claridad en el valor que se devuelva'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BlakeWilliams
-  - 
-    location: EnterpriseBillingInfo.seats
-    description: 'Se eliminará a `seats`. Utiliza EnterpriseBillingInfo.totalLicenses en sustitución.'
-    reason: 'Se reemplazará a `seats` con `totalLicenses` para proporcionar más claridad en el valor que se devuelva'
-    date: '2020-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BlakeWilliams
-  - 
     location: UnassignedEvent.user
     description: 'Se eliminará a `user`. Utiliza el campo `assignee` en sustitución.'
     reason: Los asignados ahora pueden ser maniquíes.
@@ -42,13 +28,6 @@ upcoming_changes:
     date: '2020-04-01T00:00:00+00:00'
     criticality: breaking
     owner: antn
-  - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: 'Se eliminará a `isUnlicensed`.'
-    reason: Todos los miembros pendientes consumen una licencia
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - 
     location: Issue.timeline
     description: 'Se eliminará a `timeline`. Utiliza Issue.timelineItems en sustitución.'
@@ -70,20 +49,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: breaking
     owner: nholden
-  - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: 'Se eliminará a `isUnlicensed`.'
-    reason: Todos los miembros consumen una licencia
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: 'Se eliminará a `isUnlicensed`.'
-    reason: Todos los colaboradores externos consumen una licencia
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - 
     location: MergeStateStatus.DRAFT
     description: 'El `DRAFT` se eliminará. Utiliza PullRequest.isDraft en su lugar.'

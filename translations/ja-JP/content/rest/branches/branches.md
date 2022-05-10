@@ -1,6 +1,6 @@
 ---
 title: ブランチ
-intro: The Branches API allows you to modify branches and their protection settings.
+intro: Branches APIを使うと、ブランチとブランチの保護設定を変更できます。
 versions:
   fpt: '*'
   ghes: '*'

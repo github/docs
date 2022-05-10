@@ -50,13 +50,13 @@ Por ejemplo, puedes utilizar `https://github.com/sponsors/{account}?metadata_cam
 ## Visualizar la actividad de patrocinio reciente
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.activity-tab %}
+{% data reusables.sponsors.your-sponsors-tab %}
 
 ## Exportar tus datos de patrocinio
 
 Puedes exportar tus transacciones de patrocinio mensualmente. {% data variables.product.company_short %} te enviará un correo electrónico con los datos de las transacciones de todos tus patrocinadores para el mes que selecciones. Después de que se complete la exportación, puedes exportar otor mes de datos. Puedes exportar hasta 10 conjuntos de datos por hora para cualquiera de tus cuentas patrocinadas.
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.activity-tab %}
-1. Da clic en {% octicon "download" aria-label="The download icon" %} **Exportar**. ![Botón de exportar](/assets/images/help/sponsors/export-all.png)
+{% data reusables.sponsors.your-sponsors-tab %}
+1. En la esquina superior derecha, haz clic en {% octicon "download" aria-label="The download icon" %} **Exportar**. ![Botón de exportar](/assets/images/help/sponsors/export-all.png)
 1. Elige un periodo de tiempo y un formato para los datos que te gustaría exportar y luego haz clic en **Iniciar exportación**. ![Opciones para exportar datos](/assets/images/help/sponsors/export-your-sponsors.png)
