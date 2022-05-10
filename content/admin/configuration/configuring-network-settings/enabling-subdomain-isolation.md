@@ -39,7 +39,8 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 | `https://HOSTNAME/_registry/npm/` | `https://npm.HOSTNAME/`
 | `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`
 | `https://HOSTNAME/_registry/maven/` | `https://maven.HOSTNAME/`
-| `https://HOSTNAME/_registry/nuget/` | `https://nuget.HOSTNAME/`{% endif %}
+| `https://HOSTNAME/_registry/nuget/` | `https://nuget.HOSTNAME/`{% endif %}{% ifversion ghes > 3.4 %}
+| Not supported | `https://containers.HOSTNAME/` |{% endif %}
 
 ## Prerequisites
 
