@@ -1,6 +1,7 @@
 ---
-title: リポジトリ
-intro: リポジトリのインタラクションAPIを使用すると、オーナーまたは管理者アクセス権のあるユーザはパブリックリポジトリでコメント、Issueのオープン、プルリクエストの作成ができるユーザのタイプを一時的に制限することができます。
+title: リポジトリのインタラクション
+shortTitle: リポジトリ
+intro: Repository interactions API を使用すると、オーナーまたは管理者アクセス権のあるユーザはパブリックリポジトリでコメント、Issueのオープン、プルリクエストの作成ができるユーザのタイプを一時的に制限することができます。
 versions:
   fpt: '*'
   ghec: '*'
@@ -10,7 +11,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.interactions.interactions-detail %} {% data variables.product.product_name %} ユーザのタイプについては以下を参照してください。
+## Repository interactions APIについて
+
+Repository interactions API を使用すると、オーナーまたは管理者アクセス権のあるユーザはパブリックリポジトリでコメント、Issueのオープン、プルリクエストの作成ができるユーザのタイプを一時的に制限することができます。 {% data reusables.interactions.interactions-detail %} {% data variables.product.product_name %} ユーザのタイプについては以下を参照してください。
 
 * リポジトリの{% data reusables.interactions.existing-user-limit-definition %}
 * リポジトリの{% data reusables.interactions.contributor-user-limit-definition %}

@@ -1,6 +1,6 @@
 ---
 title: コミットのコメント
-intro: The Commit comments API lets you create and edit comments that relate to specific commits.
+intro: コミットコメントAPIを使用すると、特定のコミットに関連するコメントの作成と編集ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,9 +12,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-## About the commit comments API
+## コミットコメントAPIについて
 
-The Commit comments API lets you create and edit comments that relate to specific commits.
+コミットコメントAPIを使用すると、特定のコミットに関連するコメントの作成と編集ができます。
 
 ### コミットコメントのカスタムメディアタイプ
 

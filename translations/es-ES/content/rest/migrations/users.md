@@ -1,6 +1,8 @@
 ---
-title: Usuarios
-intro: The Users migrations API is only available to authenticated account owners.
+title: User migrations
+allowTitleToDifferFromFilename: true
+shortTitle: Usuarios
+intro: ''
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,7 +13,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Para obtener más información, consulta la sección "[Otros métodos de autenticación](/rest/overview/other-authentication-methods)".
+## About the User migrations API
+
+The Users migrations API is only available to authenticated account owners. Para obtener más información, consulta la sección "[Otros métodos de autenticación](/rest/overview/other-authentication-methods)".
 
 {% data variables.migrations.user_migrations_intro %} Para encontrar una lista descargable de datos de migración, consulta "[Descarga un archivo de migración de usuario](#download-a-user-migration-archive)".
 
