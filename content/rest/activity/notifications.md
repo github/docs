@@ -1,6 +1,6 @@
 ---
 title: Notifications
-intro: ''
+intro: 'The Notifications API lets you manage {% data variables.product.product_name %} notifications.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,18 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Users receive notifications for conversations in repositories they watch including:
+## About the Notifications API
 
-* Issues and their comments
-* Pull Requests and their comments
-* Comments on any commits
-
-Notifications are also sent for conversations in unwatched repositories when the user is involved including:
-
-* **@mentions**
-* Issue assignments
-* Commits the user authors or commits
-* Any discussion in which the user actively participates
+The Notifications API lets you manage {% data variables.product.product_name %} notifications. For more information about notifications, see "[About notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
 
 All Notification API calls require the `notifications` or `repo` API scopes.  Doing this will give read-only access to some issue and commit content. You will still need the `repo` scope to access issues and commits from their respective endpoints.
 
@@ -44,11 +35,11 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > X-Poll-Interval: 60
 ```
 
-### Notification reasons
+### About notification reasons
 
 When retrieving responses from the Notifications API, each payload has a key titled `reason`. These correspond to events that trigger a notification.
 
-Here's a list of potential `reason`s for receiving a notification:
+These are the potential `reason`s for receiving a notification:
 
 Reason Name | Description
 ------------|------------

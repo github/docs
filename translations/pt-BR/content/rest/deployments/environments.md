@@ -1,6 +1,8 @@
 ---
-title: Environments
-intro: 'The Environments API allows you to create, configure, and delete environments.'
+title: Deployment environments
+allowTitleToDifferFromFilename: true
+shortTitle: Ambientes
+intro: 'The Deployment environments API allows you to create, configure, and delete deployment environments.'
 versions:
   fpt: '*'
   ghes: '>=3.2'
@@ -11,6 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+## About the Deployment environments API
+
+Para obter mais informações sobre ambientes, consulte "[Usando ambientes para implantação](/actions/deployment/using-environments-for-deployment)". Para gerenciar segredos de ambiente, consulte "[Segredos](/rest/reference/actions#secrets)".
 
 {% data reusables.gated-features.environments %}

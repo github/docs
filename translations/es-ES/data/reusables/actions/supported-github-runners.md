@@ -50,6 +50,17 @@ Ubuntu 18.04
 </tr>
 <tr>
 <td>
+macOS Monterey 12
+</td>
+<td>
+<code>macos-12</code>
+</td>
+<td>
+macOS 12 is currently in public beta.
+</td>
+</tr>
+<tr>
+<td>
 macOS Big Sur 11
 </td>
 <td>

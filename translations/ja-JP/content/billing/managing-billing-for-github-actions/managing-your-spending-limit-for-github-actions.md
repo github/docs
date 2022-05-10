@@ -52,6 +52,7 @@ Organization の {% data variables.product.prodname_actions %} については�
 {% data reusables.dotcom_billing.monthly-spending-limit-actions-packages %}
 {% data reusables.dotcom_billing.update-spending-limit %}
 
+{% ifversion ghec %}
 ## Enterprise アカウントの {% data variables.product.prodname_actions %} に対する利用上限を管理する
 
 Enterprise アカウントの {% data variables.product.prodname_actions %} の利用上限は、Enterprise オーナーと支払いマネージャーが管理できます。
@@ -62,7 +63,7 @@ Enterprise アカウントの {% data variables.product.prodname_actions %} の�
 1. ""[{% data variables.product.prodname_actions %} and Packages monthly usage]"の上で、[**Spending Limit（利用上限）**]をクリックしてください。 ![利用上限タブ](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
-
+{% endif %}
 
 ## 使用状況の管理と利用上限のメール通知
 {% data reusables.billing.email-notifications %}

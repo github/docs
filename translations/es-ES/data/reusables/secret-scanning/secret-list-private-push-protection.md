@@ -45,8 +45,8 @@
 | Linear                    | Token de Acceso Oauth de Linear                    | linear_oauth_access_token                              |
 | Midtrans                  | Midtrans Production Server Key                     | midtrans_production_server_key                         |
 | New Relic                 | New Relic Personal API Key                         | new_relic_personal_api_key                           |
-| New Relic                 | New Relic REST API Key                             | new_relic_rest_api_key                               |
-| New Relic                 | New Relic Insights Query Key                       | new_relic_insights_query_key                         |
+| Reliquia nueva            | New Relic REST API Key                             | new_relic_rest_api_key                               |
+| Reliquia nueva            | New Relic Insights Query Key                       | new_relic_insights_query_key                         |
 | npm                       | Token de Acceso de npm                             | npm_access_token                                       |
 | NuGet                     | Clave de API de NuGet                              | nuget_api_key                                          |
 | Onfido                    | Onfido Live API Token                              | onfido_live_api_token                                  |

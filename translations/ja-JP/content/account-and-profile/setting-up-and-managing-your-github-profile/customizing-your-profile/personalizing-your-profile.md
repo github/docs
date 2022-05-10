@@ -135,7 +135,7 @@ You can disable some of the badges for {% data variables.product.prodname_dotcom
 
 {% data reusables.user-settings.access_settings %}
 2. [Profile settings] で、無効にするバッジの選択を解除します。 ![プロフィールでバッジを非表示にするチェックボックス](/assets/images/help/profile/profile-badge-settings.png)
-3. [**Update preferences**] をクリックします。
+{% data reusables.user-settings.update-preferences %}
 
 {% endif %}
 

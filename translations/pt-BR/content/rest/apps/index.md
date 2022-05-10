@@ -1,6 +1,6 @@
 ---
-title: Apps
-intro: The GitHub Apps API enables you to retrieve the information about the installation as well as specific information about GitHub Apps.
+title: Aplicativos
+intro: 'A API dos aplicativos GitHub permite que você recupere as informações sobre a instalação, bem como informações específicas sobre os aplicativos GitHub.'
 redirect_from:
   - /v3/apps
   - /rest/reference/apps
@@ -19,3 +19,4 @@ children:
   - /oauth-applications
   - /webhooks
 ---
+

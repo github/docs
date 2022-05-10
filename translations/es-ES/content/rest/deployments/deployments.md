@@ -1,6 +1,6 @@
 ---
-title: Deployments
-intro: 'The Deployments API allows you to create and delete deployments and deployment environments.'
+title: Implementaciones
+intro: The Deployments API allows you to create and delete deployments and deployment environments.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,16 +11,15 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Deployments are requests to deploy a specific ref (branch, SHA, tag). GitHub dispatches a [`deployment` event](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) that external services can listen for and act on when new deployments are created. Deployments enable developers and organizations to build loosely coupled tooling around deployments, without having to worry about the implementation details of delivering different types of applications (e.g., web, native).
+Los despliegues son slicitudes para desplegar una ref específica (rma, SHA, etiqueta). GitHub despliega un [evento de `deployment`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment) al que puedan escuchar los servicios externos y al con el cual puedan actuar cuando se creen los despliegues nuevos. Los despliegues habilitan a los desarrolladores y a las organizaciones para crear herramientas sin conexión directa en torno a los despliegues, sin tener que preocuparse acerca de los detalles de implementación de entregar tipos de aplicaciones diferentes (por ejemplo, web o nativas).
 
-Deployment statuses allow external services to mark deployments with an `error`, `failure`, `pending`, `in_progress`, `queued`, or `success` state that systems listening to [`deployment_status` events](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status) can consume.
+Los estados de despliegue permiten que los servicios externos marquen estos despliegues con un estado de `error`, `failure`, `pending`, `in_progress`, `queued`, o `success` que pueden consumir los sistemas que escuchan a los [eventos de `deployment_status`](/developers/webhooks-and-events/webhook-events-and-payloads#deployment_status).
 
-Deployment statuses can also include an optional `description` and `log_url`, which are highly recommended because they make deployment statuses more useful. The `log_url` is the full URL to the deployment output, and
-the `description` is a high-level summary of what happened with the deployment.
+Los estados de despliegue también incluyen una `description` y una `log_url` opcionales, las cuales se recomiendan ampliamente, ya que hacen que los estados de despliegue sean más útiles. La `log_url` es la URL completa para la salida del despliegue, y la `description` es el resumen de alto nivel de lo que pasó con este despliegue.
 
-GitHub dispatches `deployment` and `deployment_status` events when new deployments and deployment statuses are created. These events allows third-party integrations to receive respond to deployment requests and update the status of a deployment as progress is made.
+GitHub envía eventos de `deployment` y `deployment_status` cuando se crean despliegues y estados de despliegue nuevos. Estos eventos permiten que las integraciones de terceros reciban respuesta de las solicitudes de despliegue y actualizan el estado de un despliegue conforme éste progrese.
 
-Below is a simple sequence diagram for how these interactions would work.
+Debajo encontrarás un diagrama de secuencia simple que explica cómo funcionarían estas interacciones.
 
 ```
 +---------+             +--------+            +-----------+        +-------------+
@@ -49,12 +48,12 @@ Below is a simple sequence diagram for how these interactions would work.
      |                      |                       |                     |
 ```
 
-Keep in mind that GitHub is never actually accessing your servers. It's up to your third-party integration to interact with deployment events. Multiple systems can listen for deployment events, and it's up to each of those systems to decide whether they're responsible for pushing the code out to your servers, building native code, etc.
+Ten en cuenta que GitHub jamás accede a tus servidores realmente. La interacción con los eventos de despliegue dependerá de tu integración de terceros. Varios sistemas pueden escuchar a los eventos de despliegue, y depende de cada uno de ellos decidir si son responsables de cargar el código a tus servidores, si crean código nativo, etc.
 
-Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-apps) grants targeted access to deployments and deployment statuses **without** granting access to repository code, while the {% ifversion not ghae %}`public_repo` and{% endif %}`repo` scopes grant permission to code as well.
+Toma en cuenta que el [Alcance de OAuth](/developers/apps/scopes-for-oauth-apps) de `repo_deployment` otorga acceso dirigido para los despliegues y estados de despliegue **sin** otorgar acceso al código del repositorio, mientras que {% ifversion not ghae %} los alcances de `public_repo` y{% endif %}`repo` también otorgan permisos para el código.
 
-### Inactive deployments
+### Despliegues inactivos
 
-When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository with the same environment name will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
+Cuando configuras el estado de un despliegue como `success`, entonces todos los despliegues anteriores que no sean transitorios ni de producción y que se encuentren en el mismo repositorio con el mismo ambiente se convertirán en `inactive`. Para evitar esto, puedes configurar a `auto_inactive` como `false` cuando creas el estado del servidor.
 
-You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
+Puedes comunicar que un ambiente transitorio ya no existe si configuras el `state` como `inactive`.  El configurar al `state` como `inactive`muestra el despliegue como `destroyed` en {% data variables.product.prodname_dotcom %} y elimina el acceso al mismo.

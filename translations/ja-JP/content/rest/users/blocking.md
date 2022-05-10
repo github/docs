@@ -1,5 +1,5 @@
 ---
-title: Blocking Users
+title: ユーザのブロック
 intro: ''
 versions:
   fpt: '*'
@@ -9,3 +9,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+

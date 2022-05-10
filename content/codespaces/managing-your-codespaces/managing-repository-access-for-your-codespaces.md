@@ -62,6 +62,7 @@ To create codespaces with custom permissions defined, you must use one of the fo
    * `deployments` - read / write
    * `discussions` - read / write
    * `issues` - read / write
+   * `packages` - read
    * `pages` - read / write
    * `pull_requests` - read / write
    * `repository_projects` - read / write

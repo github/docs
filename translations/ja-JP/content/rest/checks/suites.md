@@ -1,5 +1,5 @@
 ---
-title: Check Suites
+title: チェックスイート
 intro: ''
 versions:
   fpt: '*'
@@ -14,6 +14,6 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-  **Note:** A GitHub App only receives one [`check_suite`](/webhooks/event-payloads/#check_suite) event per commit SHA, even if you push the commit SHA to more than one branch. To find out when a commit SHA is pushed to a branch, you can subscribe to branch [`create`](/webhooks/event-payloads/#create) events.
+  **注釈:** コミット SHA を複数のブランチにプッシュした場合でも、GitHub App はコミット SHA ごとに 1 つの [`check_suite`](/webhooks/event-payloads/#check_suite) イベントのみを受け取ります。 ブランチ [`create`](/webhooks/event-payloads/#create) イベントをサブスクライブして、コミット SHA がブランチにプッシュされたタイミングを確認することができます。
 
 {% endnote %}

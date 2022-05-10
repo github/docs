@@ -11,3 +11,7 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+
+## About the User Git SSH keys API
+
+{% data reusables.user-settings.user-api %}

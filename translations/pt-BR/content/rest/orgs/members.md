@@ -1,5 +1,7 @@
 ---
-title: Members
+title: Integrantes da organização
+allowTitleToDifferFromFilename: true
+shortTitle: Integrantes
 intro: ''
 versions:
   fpt: '*'
@@ -10,3 +12,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

@@ -14,3 +14,4 @@ children:
 redirect_from:
   - /rest/reference/dependabot
 ---
+

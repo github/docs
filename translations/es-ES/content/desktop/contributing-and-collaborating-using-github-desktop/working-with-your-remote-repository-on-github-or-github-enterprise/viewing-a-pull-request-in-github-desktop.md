@@ -15,6 +15,8 @@ Puedes ver las solicitudes de extracción que tú o tus colaboradores hayan prop
 
 Cuando visualizas una solicitud de extracción en {% data variables.product.prodname_desktop %}, puedes ver un historial de confirmaciones que han hecho los colaboradores. También puedes ver qué archivos modificaron, agregaron o borraron estas confirmaciones. Desde {% data variables.product.prodname_desktop %}, puedes abrir los repositorios en tu editor de texto preferido para ver cualquier cambio o para hacer cambios adicionales. Después de recibir los cambios en una solicitud de extracción, puedes dar retroalimentación en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Acerca de las revisiones de las solicitudes de extracción](/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)".
 
+If checks have been enabled in your repository, {% data variables.product.prodname_desktop %} will show the status of the checks on the pull request and allow you to re-run checks. For more information, see "[Viewing and re-running checks in GitHub Desktop](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+
 ## Visualizar una solicitud de extracción en {% data variables.product.prodname_desktop %}
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.click-pull-requests %}

@@ -1,6 +1,6 @@
 ---
-title: Collaborators
-intro: 'The Collaborators API allows you to add, invite, and remove collaborators from a repository.'
+title: Colaboradores
+intro: The Collaborators API allows you manage collaborators for a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,3 +10,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

@@ -1,38 +1,38 @@
 ---
-title: Reuse an assignment
-intro: 'You can reuse an existing assignment in more than one classroom, including classrooms in a different organization.'
+title: Reutilizar uma atividade
+intro: 'Você pode reutilizar uma atividade existente em mais de uma sala, incluindo salas de aula em uma organização diferente.'
 versions:
   fpt: '*'
 permissions: 'Organization owners who are admins for a classroom can reuse assignments from a classroom. {% data reusables.classroom.classroom-admins-link %}'
-shortTitle: Reuse an assignment
+shortTitle: Reutilizar uma atividade
 ---
 
-## About reusing assignments
+## Sobre a reutilização de recomendações
 
-You can reuse an existing individual or group assignment in any other classroom you have access to, including classrooms in a different organization. If you choose to reuse an assignment, {% data variables.product.prodname_classroom %} will copy the assignment to the classroom you choose. If the assignment uses a template repository and you choose to reuse it in a classroom from a different organization, {% data variables.product.prodname_classroom %} will create a copy of the repository and its contents in the target organization.
+Você pode reutilizar uma atividade individual ou em grupo existente em qualquer outra sala de aula à qual você tenha acesso, incluindo as salas de aula em uma organização diferente. Se você optar por reutilizar uma atividade, {% data variables.product.prodname_classroom %} irá copiar a atividade para a sala de aula que você escolher. Se a atividade usar um repositório de modelo e você escolher reutilizá-lo em uma sala de aula de uma organização diferente, {% data variables.product.prodname_classroom %} criará uma cópia do repositório e seu conteúdo na organização de destino.
 
-The copied assignment includes assignment details such as the name, source repository, autograding test, and preferred editor. You can edit the assignment after it has been copied to make changes. You cannot make changes to the preferred editor.
+A atribuição copiada inclui detalhes da atividade, como nome, repositório de origem, teste de autoavaliação e editor preferido. Você pode editar a atividade depois de ela ter sido copiada para realizar alterações. Você não pode fazer alterações no editor preferido.
 
-## Reusing an assignment
+## Reutilizando uma atividade
 
 1. Efetue o login em {% data variables.product.prodname_classroom_with_url %}.
-1. Navigate to the classroom that has the assignment that you want to reuse.
+1. Acesse a sala de aula com a atividade que você deseja reutilizar.
 
    ![Sala de aula na lista de salas de aula de uma organização](/assets/images/help/classroom/click-classroom-in-list.png)
 
-1. In the list of assignments, click the assignment you want to reuse.
+1. Na lista de atividades, clique na atividade que você deseja reutilizar.
 
    ![Atividade na lista de atividades para uma sala de aula](/assets/images/help/classroom/click-assignment-in-list.png)
 
-1. Select the **{% octicon "pencil" aria-label="The pencil icon" %} Edit** dropdown menu in the top right of the page, then click **{% octicon "sync" aria-label="The sync icon" %} Reuse assignment**.
+1. Selecione o menu suspenso **{% octicon "pencil" aria-label="The pencil icon" %} Editar** na parte superior direita da página e, em seguida, clique em **{% octicon "sync" aria-label="The sync icon" %} Reutilizar a atribuição**.
 
-   ![Reuse assignment button](/assets/images/help/classroom/reuse-assignment-button.png)
+   ![Botão de reutilizar a atividade](/assets/images/help/classroom/reuse-assignment-button.png)
 
-1. In "Reuse assignment" modal, use the **Choose an organization** dropdown menu to select the organization you want the assignment to be in.  Then use the **Choose a classroom** dropdown menu to select the classroom within that organization that you want to copy the assignment to.
+1. No módulo "Reutilizar atividade", use o menu suspenso **Escolha uma organização** para selecionar a organização na qual você deseja que a atividade esteja.  Em seguida, use o menu suspenso **Escolher uma sala de aula** para selecionar a sala de aula dentro da organização para a qual você deseja copiar a atividade.
 
-   ![Reuse assignment modal](/assets/images/help/classroom/reuse-assignment-modal.png)
+   ![Reutilizar o modo de atividade](/assets/images/help/classroom/reuse-assignment-modal.png)
 
-1. Click **Create assignment**.
-1. The assignment is copied to the selected classroom, and a confirmation message is shown. If you chose to reuse an assignment with a template repository, the copying process may take a few minutes to complete, and you may need to refresh the page to see the completed message.
+1. Clique em **Criar atividade**.
+1. A atividade foi copiada para a sala de aula selecionada e uma mensagem de confirmação foi exibida. Se você optar por reutilizar uma atividaed com um repositório do modelo, o processo de cópia poderá levar alguns minutos para ser concluído, e talvez você precise atualizar a página para ver a mensagem concluída.
 
-   ![Completed message for reused assignment](/assets/images/help/classroom/reuse-assignment-completed-message.png)
+   ![Mensagem concluída para atribuição reutilizada](/assets/images/help/classroom/reuse-assignment-completed-message.png)

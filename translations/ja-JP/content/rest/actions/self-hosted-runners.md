@@ -1,6 +1,6 @@
 ---
-title: Self-hosted runners
-intro: 'The Self-hosted Runners API allows you to register, view, and delete self-hosted runners.'
+title: セルフホストランナー
+intro: 'The Self-hosted runners API allows you to register, view, and delete self-hosted runners.'
 topics:
   - API
 versions:
@@ -8,10 +8,11 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
---- 
+---
+ 
 
-## Self-hosted runners
+## About the Self-hosted runners API
 
-The Self-hosted Runners API allows you to register, view, and delete self-hosted runners. {% data reusables.actions.about-self-hosted-runners %} For more information, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+The Self-hosted runners API allows you to register, view, and delete self-hosted runners. {% data reusables.actions.about-self-hosted-runners %} 詳しい情報については「[自分のランナーのホスト](/actions/hosting-your-own-runners)」を参照してください。
 
-{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises to use this API.
+{% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %}は、リポジトリに対する`administration`権限もしくはOrganizationに対する`organization_self_hosted_runners`権限を持っていなければなりません。 認証されたユーザがこのAPIを使うためには、リポジトリもしくはOrganizationに対する管理アクセス、あるいはEnterpriseに対する`manage_runners:enterprise`スコープを持っていなければなりません。

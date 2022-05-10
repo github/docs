@@ -40,7 +40,7 @@ We do not allow content or activity on GitHub that:
 
 
 ## 3. Intellectual Property, Authenticity, and Private Information
-We do not allow content or activity on GitHub that:
+No permitimos el contenido o la activad de GitHub que:
 
 - que infrinja algún derecho de propiedad de cualquiera de las partes, incluidos la patente, el nombre comercial, el secreto comercial, la propiedad intelectual, el derecho a publicidad o cualquier otro derecho;
 
@@ -64,7 +64,7 @@ We do not allow content or activity on GitHub that is:
 * using our servers for any form of excessive automated bulk activity, to place undue burden on our servers through automated means, or to relay any form of unsolicited advertising or solicitation through our servers, such as get-rich-quick schemes.
 
 ## 5. Site Access and Safety
-We do not allow content or activity on GitHub that:
+No permitimos el contenido o la activad de GitHub que:
 
 - apoye directamente [el ataque ilegal o campañas de malware](/github/site-policy/github-active-malware-or-exploits) que estén causando daños técnicos — tales como utilizar nuestra plataforma para entregar ejecutables malintencionados o como ataque de infraestructura, por ejemplo, organizando ataques de negación de servicio o administrando servidores de control y comando — sin propósitos implícitos o explícitos de uso dual previos a que suceda el abuso; o
 - uses our servers to disrupt or to attempt to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account or network. Please note, activities permitted under bug bounty programs, such as the [GitHub Bug Bounty program](https://bounty.github.com), are not considered “unauthorized.”
@@ -109,6 +109,6 @@ We will interpret our policies and resolve disputes in favor of protecting users
 
 ---
 
-**Enforcement.** GitHub retains full discretion to [take action](/github/site-policy/github-community-guidelines#what-happens-if-someone-violates-githubs-policies) in response to a violation of these policies, including account suspension, account [termination](/github/site-policy/github-terms-of-service#3-github-may-terminate), or [removal](/github/site-policy/github-terms-of-service#2-github-may-remove-content) of content. Please also see our [Community Guidelines](/site-policy/github-terms/github-community-guidelines) for actions you can take if something or someone offends you.
+**Aplicación.** GitHub retiene toda la discreción para [proceder](/github/site-policy/github-community-guidelines#what-happens-if-someone-violates-githubs-policies) en respuesta a cualquier violación de estas políticas, incluyendo la suspensión de cuentas, la [terminación](/github/site-policy/github-terms-of-service#3-github-may-terminate) de esta o la [eliminación](/github/site-policy/github-terms-of-service#2-github-may-remove-content) de contenido. Please also see our [Community Guidelines](/site-policy/github-terms/github-community-guidelines) for actions you can take if something or someone offends you.
 
-**Reinstatement and appeal.** If your content or account has been disabled or restricted and you seek reinstatement or wish to appeal, please see our [Appeal and Reinstatement page](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) for information about the process and use our [Appeal and Reinstatement form](https://support.github.com/contact/reinstatement) to submit a request.
+**Reinstauración y apelación.** Si tu contenido o cuenta se inhabilitó o restringió y buscas una reinstauración o quieres apelar, consulta nuestra [Página de apelación y reinstauración](/site-policy/acceptable-use-policies/github-appeal-and-reinstatement) para obtener más información sobre el proceso y utiliza nuestro [formato de apelación y reinstauración](https://support.github.com/contact/reinstatement) para emitir una solicitud.

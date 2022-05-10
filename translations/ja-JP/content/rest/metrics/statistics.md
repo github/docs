@@ -1,6 +1,8 @@
 ---
-title: Statistics
-intro: 'The Repository Statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.'
+title: Repository statistics
+shortTitle: 統計
+allowTitleToDifferFromFilename: true
+intro: 'The Repository statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,21 +13,20 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-### A word about caching
+## About the Repository statistics API
 
-Computing repository statistics is an expensive operation, so we try to return cached
-data whenever possible.  If the data hasn't been cached when you query a repository's
-statistics, you'll receive a `202` response; a background job is also fired to
-start compiling these statistics. Give the job a few moments to complete, and
-then submit the request again. If the job has completed, that request will receive a
-`200` response with the statistics in the response body.
+The Repository statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.
 
-Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
+### キャッシングについて
 
-### Statistics exclude some types of commits
+リポジトリの統計情報を計算するのは負荷が高い操作なので、可能な限りキャッシュされたデータを返すようにしています。  リポジトリの統計をクエリした際にデータがキャッシュされていなかった場合は、`202` レスポンスを受け取ります。また、この統計をまとめるため、バックグラウンドでジョブが開始します。 このジョブが完了するまで少し待ってから、リクエストを再度サブミットしてください。 ジョブが完了していた場合、リクエストは `200` レスポンスを受けとり、レスポンスの本文には統計情報が含まれています。
 
-The statistics exposed by the API match the statistics shown by [different repository graphs](/github/visualizing-repository-data-with-graphs/about-repository-graphs).
+リポジトリの統計情報は、リポジトリのデフォルトブランチに SHA でキャッシュされ、デフォルトのブランチにプッシュすると統計情報のキャッシュがリセットされます。
 
-To summarize:
-- All statistics exclude merge commits.
-- Contributor statistics also exclude empty commits.
+### 統計で除外されるコミットのタイプ
+
+API によって公開される統計は、[別のリポジトリグラフ](/github/visualizing-repository-data-with-graphs/about-repository-graphs)で表示される統計と同じものです。
+
+要約すると、
+- すべての統計は、マージコミットが除外されます。
+- コントリビューター統計では、空のコミットも除外されます。

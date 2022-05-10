@@ -1,6 +1,6 @@
 ---
-title: Autolinks
-intro: 'To help streamline your workflow, you can use the API to add autolinks to external resources like JIRA issues and Zendesk tickets.'
+title: 自動リンク
+intro: ワークフローを合理化するために、このAPIを使ってJIRAのIssueやZendeskのチケットのような外部リソースへの自動リンクを追加できます。
 versions:
   fpt: '*'
   ghes: '>=3.3'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information, see "[Configuring autolinks to reference external resources](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)."
+詳しい情報については「[外部リソースを参照する自動リンクの設定](/github/administering-a-repository/configuring-autolinks-to-reference-external-resources)」を参照してください。
 
-{% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use the Autolinks API.
+{% data variables.product.prodname_github_apps %}がAutolinks APIを使うためには、読み書きのアクセス付きのリポジトリ管理権限が必要です。

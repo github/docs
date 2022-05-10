@@ -1,6 +1,6 @@
 ---
-title: Starring
-intro: 'Repository starring is a feature that lets users bookmark repositories.'
+title: Marcar con una estrella
+intro: The Starring API lets you bookmark a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,20 +11,18 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Stars are shown next to repositories to show an approximate level of interest. Stars have no effect on notifications or the activity feed.
+## About the Starring API
 
-### Starring vs. Watching
+The Starring API lets you bookmark a repository. Las estrellas se muestran junto a los repositorios para denotar un nivel aproximado de interés. Las estrellas no tienen efecto alguno en las notificaciones o en los canales de actividad. Para obtener más información, consulta la sección "[Guardar repositorios con estrellas](/get-started/exploring-projects-on-github/saving-repositories-with-stars)".
 
-In August 2012, we [changed the way watching
-works](https://github.com/blog/1204-notifications-stars) on {% data variables.product.prodname_dotcom %}. Many API
-client applications may be using the original "watcher" endpoints for accessing
-this data. You can now start using the "star" endpoints instead (described
-below). For more information, see the [Watcher API Change post](https://developer.github.com/changes/2012-09-05-watcher-api/) and the "[Repository Watching API](/rest/reference/activity#watching)."
+### Marcar con estrella vs. Observar
 
-### Custom media types for starring
+En agosto de 2012, [cambiamos la forma en la que funciona el observar repositorios](https://github.com/blog/1204-notifications-stars) en {% data variables.product.prodname_dotcom %}. Muchas aplicaciones de cliente de la API podrían estar utilizando las terminales de "observación" originales para acceder a estos datos. Ahora puedes comenzar a utilizar las terminales de "estrella" como sustitución (como se describe más adelante). Para obtener más información, consulta la [publicación de Cambio de la API de observaciones](https://developer.github.com/changes/2012-09-05-watcher-api/) y la "[API para Observar Repositorios](/rest/reference/activity#watching)".
 
-There is one supported custom media type for the Starring REST API. When you use this custom media type, you will receive a response with the `starred_at` timestamp property that indicates the time the star was created. The response also has a second property that includes the resource that is returned when the custom media type is not included. The property that contains the resource will be either `user` or `repo`.
+### Tipos de medio personalizados para marcar con estrella
+
+Hay un tipo de medios personalizado compatible para la API de REST para Marcar con estrella. Cuando utilizas este tipo de medios personalizado, recibirás una respuesta con la marca de tiempo `starred_at` que indica la hora en el que se creó la estrella. La respuesta también tiene una segunda propiedad que incluye el recurso que se devuelve cuando no se incluye el tipo de medios personalizado. La propiedad que contiene el recurso puede ser `user` o `repo`.
 
     application/vnd.github.v3.star+json
 
-For more information about media types, see "[Custom media types](/rest/overview/media-types)."
+Para obtener más información acerca de los tipos de medios, consulta la sección "[Tipos de medios personalizados](/rest/overview/media-types)".

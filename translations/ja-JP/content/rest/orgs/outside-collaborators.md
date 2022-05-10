@@ -1,5 +1,5 @@
 ---
-title: Outside Collaborators
+title: 外部のコラボレータ
 intro: ''
 versions:
   fpt: '*'
@@ -10,3 +10,4 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+

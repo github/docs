@@ -7,5 +7,5 @@ then
     printf >&2 "\nGitHub Docs requires Git LFS but using the 'git-lfs' on your path failed.\n"
   fi
 else
-  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://git.io/JBCId>.\n"
+  printf >&2 "\nGitHub Docs requires Git LFS but 'git-lfs' was not found on your path.\nLearn how to install Git LFS at <https://docs.github.com/en/github/managing-large-files/versioning-large-files/installing-git-large-file-storage>.\n"
 fi

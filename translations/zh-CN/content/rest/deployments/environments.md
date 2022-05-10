@@ -1,6 +1,6 @@
 ---
-title: Environments
-intro: 'The Environments API allows you to create, configure, and delete environments.'
+title: 环境
+intro: 环境 API 允许您创建、配置和删除环境。
 versions:
   fpt: '*'
   ghes: '>=3.2'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-For more information about environments, see "[Using environments for deployment](/actions/deployment/using-environments-for-deployment)." To manage environment secrets, see "[Secrets](/rest/reference/actions#secrets)."
+有关环境的更多信息，请参阅“[使用环境进行部署](/actions/deployment/using-environments-for-deployment)”。 要管理环境密码，请参阅“[密码](/rest/reference/actions#secrets)”。
 
 {% data reusables.gated-features.environments %}

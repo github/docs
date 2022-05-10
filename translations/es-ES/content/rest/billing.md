@@ -1,6 +1,6 @@
 ---
-title: Billing
-intro: ''
+title: Facturación
+intro: The Billing API lets you get billing information for an enterprise.
 topics:
   - API
 miniTocMaxHeadingLevel: 3
@@ -12,4 +12,6 @@ redirect_from:
   - /rest/reference/billing
 ---
 
-You can get billing information for an enterprise. For more information, see the "[{% data variables.product.prodname_dotcom %} Enterprise administration](/rest/reference/enterprise-admin#billing)" REST API.
+## About the Billing API
+
+Puedes obtener información de facturación para una empresa. Para obtener más información, consulta la API de REST para la "[ Administración de {% data variables.product.prodname_dotcom %} Enterprise](/rest/reference/enterprise-admin#billing)".

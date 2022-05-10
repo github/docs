@@ -1,6 +1,8 @@
 ---
-title: Trees
-intro: 'A Git tree object creates the hierarchy between files in a Git repository. '
+title: Git trees
+shortTitle: ツリー
+allowTitleToDifferFromFilename: true
+intro: 'The Git trees API lets you read and write tree objects to your Git database on {% data variables.product.product_name %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +13,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-You can use the Git tree object to create the relationship between directories and the files they contain. These endpoints allow you to read and write [tree objects](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Tree-Objects) to your Git database on {% data variables.product.product_name %}.
+## About the Git trees API
+
+Git ツリーオブジェクトは、Git リポジトリ内のファイル間の階層を作成します。 Git ツリーオブジェクトを使用して、ディレクトリとそこに含まれるファイルの関係を作成できます。 これらのエンドポイントを使用すると、{% data variables.product.product_name %} 上の Git データベースに対して [ツリーオブジェクト](https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Tree-Objects)の読み書きができます。

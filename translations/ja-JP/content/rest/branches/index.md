@@ -1,6 +1,6 @@
 ---
-title: Branches
-intro: The branches API allows you to modify branches and their protection settings.
+title: ブランチ
+intro: ブランチAPIを使うと、ブランチとブランチの保護設定を変更できます。
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
@@ -16,3 +16,4 @@ children:
 redirect_from:
   - /rest/reference/branches
 ---
+

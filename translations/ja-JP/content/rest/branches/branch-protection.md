@@ -1,5 +1,5 @@
 ---
-title: Protected branches
+title: 保護されたブランチ
 intro: ''
 versions:
   fpt: '*'
@@ -11,3 +11,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+

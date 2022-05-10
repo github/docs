@@ -23,22 +23,22 @@ A API de eventos pode retornar diferentes tipos de eventos acionados por ativida
 
 Os objetos de evento retornados dos pontos de extremidade da API de eventos têm a mesma estrutura.
 
-| Nome do atributo da API do evento | Descrição                                                                                                                                                                                         |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                              | Identificador exclusivo do evento.                                                                                                                                                                |
-| `tipo`                            | O tipo de evento. Os eventos usam PascalCase para o nome.                                                                                                                                         |
-| `actor`                           | O usuário que acionou o evento.                                                                                                                                                                   |
-| `actor.id`                        | O identificador único para o ator.                                                                                                                                                                |
-| `actor.login`                     | O nome de usuário do ator.                                                                                                                                                                        |
-| `actor.display_login`             | O formato de exibição específico do nome de usuário.                                                                                                                                              |
-| `actor.gravatar_id`               | O identificador único do perfil Gravatar para o ator.                                                                                                                                             |
-| `actor.url`                       | A URL da API REST usada para recuperar o objeto do usuário, que inclui informações adicionais sobre o usuário.                                                                                    |
-| `actor.avatar_url`                | A URL da imagem do perfil do ator.                                                                                                                                                                |
-| `repo`                            | O objeto de repositório onde ocorreu o evento.                                                                                                                                                    |
-| `repo.id`                         | O identificador único do repositório.                                                                                                                                                             |
-| `repo.name`                       | O nome do repositório, que inclui o proprietário e o nome do repositório. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` personal account. |
-| `repo.url`                        | A URL da API REST usada para recuperar o objeto do repositório, que inclui informações adicionais do repositório.                                                                                 |
-| `carga`                           | O objeto da carga de eventos é único para o tipo de evento. Veja o tipo de evento abaixo para o objeto da `carga ` da API de eventos.                                                             |
+| Nome do atributo da API do evento | Descrição                                                                                                                                                                                  |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                              | Identificador exclusivo do evento.                                                                                                                                                         |
+| `tipo`                            | O tipo de evento. Os eventos usam PascalCase para o nome.                                                                                                                                  |
+| `actor`                           | O usuário que acionou o evento.                                                                                                                                                            |
+| `actor.id`                        | O identificador único para o ator.                                                                                                                                                         |
+| `actor.login`                     | O nome de usuário do ator.                                                                                                                                                                 |
+| `actor.display_login`             | O formato de exibição específico do nome de usuário.                                                                                                                                       |
+| `actor.gravatar_id`               | O identificador único do perfil Gravatar para o ator.                                                                                                                                      |
+| `actor.url`                       | A URL da API REST usada para recuperar o objeto do usuário, que inclui informações adicionais sobre o usuário.                                                                             |
+| `actor.avatar_url`                | A URL da imagem do perfil do ator.                                                                                                                                                         |
+| `repo`                            | O objeto de repositório onde ocorreu o evento.                                                                                                                                             |
+| `repo.id`                         | O identificador único do repositório.                                                                                                                                                      |
+| `repo.name`                       | O nome do repositório, que inclui o proprietário e o nome do repositório. Por exemplo, `octocat/hello-world` é o nome do repositório `hello-world` que pertence à conta pessoal `octocat`. |
+| `repo.url`                        | A URL da API REST usada para recuperar o objeto do repositório, que inclui informações adicionais do repositório.                                                                          |
+| `carga`                           | O objeto da carga de eventos é único para o tipo de evento. Veja o tipo de evento abaixo para o objeto da `carga ` da API de eventos.                                                      |
 
 ### Exemplo de objeto de evento WatchEvent
 
