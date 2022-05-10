@@ -1,5 +1,5 @@
 ---
-title: Publishing a repository security advisory
+title: リポジトリセキュリティアドバイザリの公開
 intro: プロジェクト内のセキュリティ脆弱性についてコミュニティにアラートするため、セキュリティアドバイザリを公開できます。
 redirect_from:
   - /articles/publishing-a-maintainer-security-advisory
@@ -15,7 +15,7 @@ topics:
   - Vulnerabilities
   - CVEs
   - Repositories
-shortTitle: Publish repository advisories
+shortTitle: リポジトリアドバイザリの公開
 ---
 
 <!--Marketing-LINK: From /features/security/software-supply-chain page "Publishing a security advisory".-->
@@ -26,9 +26,9 @@ shortTitle: Publish repository advisories
 
 ## 必要な環境
 
-セキュリティアドバイザリを公開したり、CVE の ID 番号をリクエストしたりする前に、セキュリティアドバイザリのドラフトを作成し、セキュリティの脆弱性の影響を受けるプロジェクトのバージョンに関する情報を提供する必要があります。 For more information, see "[Creating a repository security advisory](/code-security/repository-security-advisories/creating-a-repository-security-advisory)."
+セキュリティアドバイザリを公開したり、CVE の ID 番号をリクエストしたりする前に、セキュリティアドバイザリのドラフトを作成し、セキュリティの脆弱性の影響を受けるプロジェクトのバージョンに関する情報を提供する必要があります。 詳しい情報については、「[リポジトリのセキュリティアドバイザリの作成](/code-security/repository-security-advisories/creating-a-repository-security-advisory)」を参照してください。
 
-セキュリティアドバイザリを作成したが、セキュリティの脆弱性が影響を与えるプロジェクトのバージョンに関する詳細をまだ入力していない場合は、セキュリティアドバイザリを編集できます。 For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
+セキュリティアドバイザリを作成したが、セキュリティの脆弱性が影響を与えるプロジェクトのバージョンに関する詳細をまだ入力していない場合は、セキュリティアドバイザリを編集できます。 詳しい情報については、「[リポジトリのセキュリティアドバイザリの編集](/code-security/repository-security-advisories/editing-a-repository-security-advisory)」を参照してください。
 
 ## セキュリティアドバイザリの公開について
 
@@ -36,7 +36,7 @@ shortTitle: Publish repository advisories
 
 {% data reusables.repositories.security-advisories-republishing %}
 
-セキュリティアドバイザリを公開する前に、一時的なプライベートフォークで、脆弱性を修正するため非公式でコラボレートできます。 For more information, see "[Collaborating in a temporary private fork to resolve a repository security vulnerability](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)."
+セキュリティアドバイザリを公開する前に、一時的なプライベートフォークで、脆弱性を修正するため非公式でコラボレートできます。 詳細は「[一時的なプライベートフォークで、リポジトリのセキュリティ脆弱性を解決するためにコラボレートする](/code-security/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability)」を参照してください。
 
 {% warning %}
 
@@ -63,7 +63,7 @@ shortTitle: Publish repository advisories
 
 セキュリティアドバイザリの URL は、セキュリティアドバイザリの公開後も公開前と同じままです。 リポジトリへの読み取りアクセス権を持つユーザは、セキュリティアドバイザリを閲覧することができます。 セキュリティアドバイザリのコラボレータは、管理者権限を持つユーザがコラボレータをセキュリティアドバイザリから削除しない限り、セキュリティアドバイザリでコメントストリーム全体を含む過去の会話を引き続き表示できます。
 
-公開したセキュリティアドバイザリの情報をアップデートまたは修正する必要がある場合は、セキュリティアドバイザリを編集できます。 For more information, see "[Editing a repository security advisory](/code-security/repository-security-advisories/editing-a-repository-security-advisory)."
+公開したセキュリティアドバイザリの情報をアップデートまたは修正する必要がある場合は、セキュリティアドバイザリを編集できます。 詳しい情報については、「[リポジトリのセキュリティアドバイザリの編集](/code-security/repository-security-advisories/editing-a-repository-security-advisory)」を参照してください。
 
 ## セキュリティアドバイザリを公開する
 
@@ -79,9 +79,9 @@ shortTitle: Publish repository advisories
 
 {% data reusables.repositories.github-reviews-security-advisories %}
 
-## Requesting a CVE identification number (Optional)
+## CVE識別番号をリクエストする（オプション）
 
-{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %} for repositories](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} 詳しい情報については「[リポジトリの{% data variables.product.prodname_security_advisories %}について](/code-security/repository-security-advisories/about-github-security-advisories-for-repositories#cve-identification-numbers)」を参照してください。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -92,4 +92,4 @@ shortTitle: Publish repository advisories
 
 ## 参考リンク
 
-- "[Withdrawing a repository security advisory](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)"
+- 「[リポジトリセキュリティアドバイザリの撤回](/code-security/repository-security-advisories/withdrawing-a-repository-security-advisory)」

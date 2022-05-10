@@ -1,6 +1,6 @@
 ---
 title: レート制限
-intro: 'With the Rate limit API, you can check the current rate limit status of various REST APIs.'
+intro: Rate limit APIを使うと、様々なREST APIの現在のレート制限のステータスをチェックできます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,7 +13,7 @@ redirect_from:
   - /rest/reference/rate-limit
 ---
 
-## About the Rate limit API
+## Rate limit APIについて
 
 REST API 概要ドキュメンテーションでは、[レート制限のルール](/rest/overview/resources-in-the-rest-api#rate-limiting)について説明しています。 以下で説明する Rate Limit API を使用して、現在のレート制限ステータスをいつでも確認できます。
 
