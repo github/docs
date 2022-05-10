@@ -1,6 +1,6 @@
 ---
-title: Watch の違い
-intro: The Watching API lets users subscribe to notifications for activity in a repository.
+title: Watch
+intro: Watching APIを使うと、ユーザはリポジトリでのアクティビティに対する通知をサブスクライブできます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Watching API
+## Watching APIについて
 
-The Watching API lets users subscribe to notifications for activity in a repository. To bookmark a repository instead, see "[Starring](/rest/reference/activity#starring)."
+Watching APIを使うと、ユーザはリポジトリでのアクティビティに対する通知をサブスクライブできます。 このかわりにリポジトリをブックマークするには「[Star](/rest/reference/activity#starring)」を参照してください。
