@@ -745,21 +745,21 @@ steps:
 
 ## `jobs.<job_id>.strategy`
 
-Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reusables.actions.jobs.about-matrix-strategy %} For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+使用 `jobs.<job_id>.strategy` 为您的任务使用矩阵策略。 {% data reusables.actions.jobs.about-matrix-strategy %} 更多信息请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 ### `jobs.<job_id>.strategy.matrix`
 
 {% data reusables.actions.jobs.using-matrix-strategy %}
 
-#### Example: Using a single-dimension matrix
+#### 示例：使用单维矩阵
 
 {% data reusables.actions.jobs.single-dimension-matrix %}
 
-#### Example: Using a multi-dimension matrix
+#### 示例：使用多维矩阵
 
 {% data reusables.actions.jobs.multi-dimension-matrix %}
 
-#### Example: Using contexts to create matrices
+#### 示例：使用上下文创建矩阵
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
@@ -767,11 +767,11 @@ Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reu
 
 {% data reusables.actions.jobs.matrix-include %}
 
-#### Example: Expanding configurations
+#### 示例：展开配置
 
 {% data reusables.actions.jobs.matrix-expand-with-include %}
 
-#### Example: Adding configurations
+#### 示例：添加配置
 
 {% data reusables.actions.jobs.matrix-add-with-include %}
 

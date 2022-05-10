@@ -1,5 +1,7 @@
 ---
-title: Webhooks
+title: Organization webhooks
+allowTitleToDifferFromFilename: true
+shortTitle: Webhooks
 intro: ''
 versions:
   fpt: '*'
@@ -11,11 +13,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## About the Organization webhooks API
+
 Organization webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in an organization. {% data reusables.webhooks.webhooks-rest-api-links %}
 
 For more information on actions you can subscribe to, see "[{% data variables.product.prodname_dotcom %} event types](/developers/webhooks-and-events/github-event-types)."
 
-### Scopes & Restrictions
+### Scopes and restrictions
 
 All actions against organization webhooks require the authenticated user to be an admin of the organization being managed. Additionally, OAuth tokens require the `admin:org_hook` scope. For more information, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps)."
 

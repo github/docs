@@ -29,13 +29,6 @@ upcoming_changes:
     criticality: breaking
     owner: antn
   - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed` será removido.'
-    reason: Todos os integrantes pendentes consomem uma licença
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
     location: Issue.timeline
     description: '`timeline` será removido. Use Issue.timelineItems em vez disso.'
     reason: '`timeline` será removido'
@@ -56,20 +49,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: breaking
     owner: nholden
-  - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed` será removido.'
-    reason: Todos os integrantes consomem uma licença
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed` será removido.'
-    reason: Todos os colaboradores externos consomem uma licença
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: breaking
-    owner: BrentWheeldon
   - 
     location: MergeStateStatus.DRAFT
     description: 'O `DRAFT` será removido. Use PullRequest.isDraft.'

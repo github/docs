@@ -1,6 +1,8 @@
 ---
-title: 社区
-intro: ''
+title: Community metrics
+shortTitle: 社区
+allowTitleToDifferFromFilename: true
+intro: The Community metrics API lets you get data about your community profile.
 versions:
   fpt: '*'
   ghec: '*'

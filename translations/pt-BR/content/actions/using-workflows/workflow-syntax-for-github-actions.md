@@ -157,6 +157,42 @@ jobs:
 ```
 {% endraw %}
 
+{% if actions-inherit-secrets-reusable-workflows %}
+
+#### `on.workflow_call.secrets.inherit`
+
+Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
+
+#### Exemplo
+
+{% raw %}
+
+```yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  pass-secrets-to-workflow:
+      uses: ./.github/workflows/called-workflow.yml
+      secrets: inherit
+```
+
+```yaml
+on:
+  workflow_call:
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use a repo or org secret from the calling workflow.
+        uses: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
+```
+
+{% endraw %}
+
+{%endif%}
+
 #### `on.workflow_call.secrets.<secret_id>`
 
 Um identificador de string para associar ao segredo.
@@ -940,7 +976,7 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 
 {% data reusables.actions.reusable-workflows-ghes-beta %}
 
-O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como job. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use uma das seguintes sintaxes:{% endif %}
+O local e a versão de um arquivo de fluxo de trabalho reutilizável para ser executado como trabalho. {% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6000 %}Use uma das seguintes sintaxes:{% endif %}
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 

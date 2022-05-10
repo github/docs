@@ -11,6 +11,8 @@ redirect_from:
   - /rest/reference/packages
 ---
 
+## About the {% data variables.product.prodname_registry %} API
+
 La API de {% data variables.product.prodname_registry %} te habilita para administrar paquetes utilizando la API de REST.{% ifversion fpt or ghec or ghes > 3.1 or ghae %} Para aprender más sobre cómo restablecer o borrar paquetes, consulta la sección "[restablecer y borrar paquetes](/packages/learn-github-packages/deleting-and-restoring-a-package)".{% endif %}
 
 Para utilizar esta API, primero tienes que autenticarte utilizando un token de acceso personal.
