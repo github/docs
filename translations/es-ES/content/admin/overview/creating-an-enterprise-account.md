@@ -22,6 +22,11 @@ An enterprise account is included in {% data variables.product.prodname_ghe_clou
 
 When you create an enterprise account, your existing organization will automatically be owned by the enterprise account. All current owners of your organization will become owners of the enterprise account. All current billing managers of the organization will become billing managers of the new enterprise account. The current billing details of the organization, including the organization's billing email address, will become billing details of the new enterprise account.
 
+If the organization is connected to {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %} via {% data variables.product.prodname_github_connect %}, upgrading the organization to an enterprise account **will not** update the connection. If you want to connect to the new enterprise account, you must disable and re-enable {% data variables.product.prodname_github_connect %}.
+
+- "[Managing {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
+- "[Managing {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
+
 ## Creating an enterprise account on {% data variables.product.prodname_dotcom %}
 
 To create an enterprise account on {% data variables.product.prodname_dotcom %}, your organization must be using {% data variables.product.prodname_ghe_cloud %} and paying by invoice.
