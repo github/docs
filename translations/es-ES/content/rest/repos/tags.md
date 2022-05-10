@@ -1,5 +1,7 @@
 ---
-title: Etiquetas
+title: Repository tags
+allowTitleToDifferFromFilename: true
+shortTitle: Etiquetas
 intro: ''
 versions:
   fpt: '*'

@@ -177,6 +177,8 @@
   "/rest/apps#delete-an-app-token": "/rest/apps/oauth-applications#delete-an-app-token",
   "/rest/apps#create-a-scoped-access-token": "/rest/apps/oauth-applications#create-a-scoped-access-token",
   "/rest/apps/#get-an-app": "/rest/apps/apps#get-an-app",
+  "/rest/enterprise-admin#get-github-enterprise-server-statistics": "/rest/enterprise-admin/admin-stats#get-github-enterprise-server-statistics",
+  "/rest/enterprise-admin#admin-stats": "/rest/enterprise-admin/admin-stats",
   "/rest/actions#get-github-actions-cache-usage-for-an-enterprise": "/rest/actions/cache#get-github-actions-cache-usage-for-an-enterprise",
   "/rest/actions#cache": "/rest/actions/cache",
   "/rest/actions#get-github-actions-permissions-for-an-enterprise": "/rest/actions/permissions#get-github-actions-permissions-for-an-enterprise",
@@ -912,7 +914,6 @@
   "/rest/enterprise-admin#get-license-information": "/rest/enterprise-admin/license#get-license-information",
   "/rest/enterprise-admin#license": "/rest/enterprise-admin/license",
   "/rest/enterprise-admin#get-statistics": "/rest/enterprise-admin/admin-stats#get-statistics",
-  "/rest/enterprise-admin#admin-stats": "/rest/enterprise-admin/admin-stats",
   "/rest/enterprise-admin#get-comment-statistics": "/rest/enterprise-admin/admin-stats#get-comment-statistics",
   "/rest/enterprise-admin#get-gist-statistics": "/rest/enterprise-admin/admin-stats#get-gist-statistics",
   "/rest/enterprise-admin#get-hooks-statistics": "/rest/enterprise-admin/admin-stats#get-hooks-statistics",
@@ -950,5 +951,9 @@
   "/rest/enterprise-admin#demote-a-site-administrator": "/rest/enterprise-admin/users#demote-a-site-administrator",
   "/rest/enterprise-admin#suspend-a-user": "/rest/enterprise-admin/users#suspend-a-user",
   "/rest/enterprise-admin#unsuspend-a-user": "/rest/enterprise-admin/users#unsuspend-a-user",
-  "/rest/repos#list-repository-cache-replication-status": "/rest/repos/repos#list-repository-cache-replication-status"
+  "/rest/repos#list-repository-cache-replication-status": "/rest/repos/repos#list-repository-cache-replication-status",
+  "/rest/actions#get-github-actions-cache-usage-policy-for-an-enterprise": "/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise",
+  "/rest/actions#set-github-actions-cache-usage-policy-for-an-enterprise": "/rest/actions/cache#set-github-actions-cache-usage-policy-for-an-enterprise",
+  "/rest/actions#get-github-actions-cache-usage-policy-for-a-repository": "/rest/actions/cache#get-github-actions-cache-usage-policy-for-a-repository",
+  "/rest/actions#set-github-actions-cache-usage-policy-for-a-repository": "/rest/actions/cache#set-github-actions-cache-usage-policy-for-a-repository"
 }

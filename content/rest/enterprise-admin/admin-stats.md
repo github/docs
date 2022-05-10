@@ -4,6 +4,8 @@ intro: 'The Admin Stats API provides a variety of metrics about your installatio
 versions:
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

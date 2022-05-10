@@ -4,4 +4,4 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - A Service Level Agreement (SLA) with guaranteed initial response times
   - Access to premium content
   - Scheduled Health Checks
-  - Administration assistance hours
+  - Administration assistance hours ({% data variables.product.premium_plus_support_plan %} only)
