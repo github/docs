@@ -1,5 +1,7 @@
 ---
-title: Miembros
+title: Miembros del equipo
+allowTitleToDifferFromFilename: true
+shortTitle: Miembros
 intro: ''
 versions:
   fpt: '*'
@@ -11,7 +13,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Esta API solo está disponible para los miembros autenticados de la organization del equipo. Los tokens de acceso de OAuth requieren el [alcance](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) `read:org`.
+## About the Team members API
+
+{% data reusables.organizations.team-api %}
 
 {% ifversion fpt or ghes or ghec %}
 {% note %}
