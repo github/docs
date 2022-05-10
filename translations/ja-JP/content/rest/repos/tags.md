@@ -1,5 +1,7 @@
 ---
-title: タグ
+title: リポジトリのタグ
+allowTitleToDifferFromFilename: true
+shortTitle: タグ
 intro: ''
 versions:
   fpt: '*'

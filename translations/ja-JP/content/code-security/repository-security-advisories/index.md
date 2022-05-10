@@ -1,7 +1,7 @@
 ---
-title: Managing repository security advisories for vulnerabilities in your project
-shortTitle: Repository security advisories
-intro: 'Discuss, fix, and disclose security vulnerabilities in your repositories using repository security advisories.'
+title: プロジェクト中の脆弱性に対するリポジトリセキュリティアドバイザリの管理
+shortTitle: リポジトリのセキュリティアドバイザリ
+intro: リポジトリセキュリティアドバイザリを使ってリポジトリ中のセキュリティ脆弱性の議論、修復、開示をしてください。
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
