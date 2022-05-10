@@ -1,6 +1,8 @@
 ---
-title: Colaboradores
-intro: Esta API te permite interactuar con los proyectos de una organización.
+title: Project board collaborators
+shortTitle: Colaboradores
+allowTitleToDifferFromFilename: true
+intro: The Project board collaborators API lets you manage collaborators on a project board.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,3 +13,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.projects.projects-api %}

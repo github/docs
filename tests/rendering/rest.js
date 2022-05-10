@@ -2,7 +2,7 @@ import { jest } from '@jest/globals'
 import slugger from 'github-slugger'
 
 import { getDOM } from '../helpers/e2etest.js'
-import getRest, { getEnabledForApps } from '../../lib/rest/index.js'
+import getRest, { getEnabledForApps, categoriesWithoutSubcategories } from '../../lib/rest/index.js'
 import { allVersions } from '../../lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../../script/rest/test-open-api-schema.js'
 
@@ -28,13 +28,26 @@ describe('REST references docs', () => {
   // and ensures that all sections in the openapi schema
   // are present in the page.
   test('loads operations enabled for GitHub Apps', async () => {
-    const enableForApps = await getEnabledForApps()
+    const enabledForApps = await getEnabledForApps()
 
     for (const version in allVersions) {
       const schemaSlugs = []
+      // One off edge case where secret-scanning should be removed from FPT. Docs Content #6637
+      const noSecretScanning = { ...enabledForApps[version] }
+      delete noSecretScanning['secret-scanning']
+      const overrideEnabledForApps =
+        version === 'free-pro-team@latest' ? noSecretScanning : enabledForApps[version]
+
       // using the static file, generate the expected slug for each operation
-      for (const [key, value] of Object.entries(enableForApps[version])) {
-        schemaSlugs.push(...value.map((item) => `/en/rest/reference/${key}#${item.slug}`))
+      for (const [key, value] of Object.entries(overrideEnabledForApps)) {
+        schemaSlugs.push(
+          ...value.map(
+            (item) =>
+              `/en${version === 'free-pro-team@latest' ? '' : '/' + version}/rest/${key}${
+                categoriesWithoutSubcategories.includes(key) ? '' : '/' + item.subcategory
+              }#${item.slug}`
+          )
+        )
       }
       // get all of the href attributes in the anchor tags
       const $ = await getDOM(`/en/${version}/rest/overview/endpoints-available-for-github-apps`)
@@ -64,5 +77,7 @@ function formatErrors(differences) {
       errorMessage += '---\n'
     }
   }
+  errorMessage +=
+    'This means the categories and subcategories in the content/rest directory do not match the decorated files in lib/static/decorated directory from the OpenAPI schema. Please run ./script/rest/update-files.js --decorated-only and push up the file changes with your updates.\n'
   return errorMessage
 }

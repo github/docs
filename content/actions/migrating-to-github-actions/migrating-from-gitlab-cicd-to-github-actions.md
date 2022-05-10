@@ -309,6 +309,8 @@ For more information, see "[Environment variables](/actions/reference/environmen
 
 GitLab CI/CD and {% data variables.product.prodname_actions %} provide a method in the configuration file to manually cache workflow files.
 
+{% if actions-caching %}
+
 Below is an example of the syntax for each system:
 
 <table class="d-block">
@@ -359,7 +361,11 @@ jobs:
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} caching is only applicable for repositories hosted on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Caching dependencies to speed up workflows</a>."
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## Artifacts
 
