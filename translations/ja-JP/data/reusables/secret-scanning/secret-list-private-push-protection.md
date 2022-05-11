@@ -1,4 +1,4 @@
-| Provider                  | サポートされているシークレット                                    | APIスラッグ                                                  |
+| Provider                  | サポートされているシークレット                                    | Secret type                                              |
 | ------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | Adafruit IO               | Adafruit IO Key                                    | adafruit_io_key                                        |
 | Alibaba Cloud             | Alibaba Cloud Access Key ID                        | alibaba_cloud_access_key_id                          |

@@ -63,13 +63,13 @@ Enterprise 内のすべての Organization に対して {% data variables.produc
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
-1. Under "Policies", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions{% if actions-workflow-policy %} and reusable workflows{% endif %} to the list.
+1. "Policies（ポリシー）"の下で、{% data reusables.actions.policy-label-for-select-actions-workflows %}を選択し、必要なアクション{% if actions-workflow-policy %}と再利用可能なワークフロー{% endif %}をリストに追加してください。
    {% if actions-workflow-policy %}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
+   ![許可リストへのアクションと再利用可能なワークフローの追加](/assets/images/help/organizations/enterprise-actions-policy-allow-list-with-workflows.png)
    {%- elsif ghes or ghae-issue-5094 %}
-   ![Add actions to the allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
+   ![許可リストへのアクションの追加](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
    {%- elsif ghae %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
+   ![許可リストへのアクションの追加](/assets/images/enterprise/github-ae/enterprise-actions-policy-allow-list.png)
    {%- endif %}
 
 ## Enforcing a policy for artifact and log retention in your enterprise
@@ -130,5 +130,24 @@ You can set the default permissions for the `GITHUB_TOKEN` in the settings for y
 {% data reusables.enterprise-accounts.actions-tab %}
 1. [**Workflow permissions**]の下で、`GITHUB_TOKEN`にすべてのスコープに対する読み書きアクセスを持たせたいか、あるいは`contents`スコープに対する読み取りアクセスだけを持たせたいかを選択してください。 ![Set GITHUB_TOKEN permissions for this enterprise](/assets/images/help/settings/actions-workflow-permissions-enterprise.png)
 1. **Save（保存）**をクリックして、設定を適用してください。
+
+{% endif %}
+
+{% if actions-cache-policy-apis %}
+
+## Enforcing a policy for cache storage in your enterprise
+
+{% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}
+
+However, you can set an enterprise policy to customize both the default total cache size for each repository, as well as the maximum total cache size allowed for a repository. For example, you might want the default total cache size for each repository to be 5 GB, but also allow repository administrators to configure a total cache size up to 15 GB if necessary.
+
+People with admin access to a repository can set a total cache size for their repository up to the maximum cache size allowed by the enterprise policy setting.
+
+The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
+
+* To view the current enterprise policy settings, see "[Get GitHub Actions cache usage policy for an enterprise](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+* To change the enterprise policy settings, see "[Set GitHub Actions cache usage policy for an enterprise](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+
+{% data reusables.actions.cache-no-org-policy %}
 
 {% endif %}
