@@ -24,7 +24,7 @@ shortTitle: Create a PAT
 **Notes:**
 
 - If you use {% data variables.product.prodname_cli %} to authenticate to {% data variables.product.product_name %} on the command line, you can skip generating a personal access token and authenticate via the web browser instead. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
--  [Git Credential Manager](https://aka.ms/gcm) is a secure, cross-platform alternative to using personal access tokens. Git Credential Manager is [simple to set up](https://aka.ms/gcm/installdocs) and eliminates the need to manage personal access token scope and expiration.
+-  [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) is a secure, cross-platform alternative to using personal access tokens (PATs) and eliminates the need to manage PAT scope and expiration. For installation instructions, see [Download and install](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md#download-and-install) in the GitCredentialManager/git-credential-manager repository.
 
 {% endnote %}
 
