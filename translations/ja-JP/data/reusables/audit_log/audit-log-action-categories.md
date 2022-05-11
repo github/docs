@@ -125,7 +125,7 @@
 {%- ifversion ghec or ghes > 3.1 %}
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise.
 {%- endif %}
-{%- ifversion ghec or ghes > 3.4 or ghae-issue-6271 %}
+{%- if custom-repository-roles %}
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}

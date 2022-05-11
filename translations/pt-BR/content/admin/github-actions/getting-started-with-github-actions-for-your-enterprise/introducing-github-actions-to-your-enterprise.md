@@ -111,19 +111,17 @@ Finalmente, você deve considerar o fortalecimento da segurança para os executo
 
 {% data reusables.actions.about-artifacts %} Para obter mais informações, consulte "[Armazenar dados do fluxo de trabalho como artefatos](/actions/advanced-guides/storing-workflow-data-as-artifacts)".
 
-![Captura de tela do artefato](/assets/images/help/repository/passing-data-between-jobs-in-a-workflow-updated.png)
+{% if actions-caching %}{% data variables.product.prodname_actions %} also has a caching system that you can use to cache dependencies to speed up workflow runs. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
 {% ifversion ghes %}
-Você deve configurar o armazenamento externo de blob para estes artefatos. Escolha qual provedor de armazenamento compatível a sua empresa irá usar. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)".
+You must configure external blob storage for workflow artifacts{% if actions-caching %}, caches,{% endif %} and other workflow logs. Escolha qual provedor de armazenamento compatível a sua empresa irá usar. Para obter mais informações, consulte "[Primeiros passos com {% data variables.product.prodname_actions %} para {% data variables.product.product_name %}](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements)".
 {% endif %}
 
 {% ifversion ghec or ghes %}
 
-{% data reusables.actions.artifact-log-retention-statement %}
+You can use policy settings for {% data variables.product.prodname_actions %} to customize the storage of workflow artifacts{% if actions-caching %}, caches,{% endif %} and log retention. Para obter mais informações, consulte "[Aplicar políticas para {% data variables.product.prodname_actions %} na sua empresa](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)".
 
 {% endif %}
-
-Se você quiser manter registros e artefatos maiores que o limite superior que você pode configurar em {% data variables.product.product_name %}, você terá que planejar como exportar e armazenar os dados.
 
 {% ifversion ghec %}
 Um certo nível armazenamento está incluído na sua assinatura, mas o armazenamento adicional afetará o seu pagamento. Você deveria preparar-se para este custo. Para obter mais informações, consulte "[Sobre a cobrança do {% data variables.product.prodname_actions %}](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."

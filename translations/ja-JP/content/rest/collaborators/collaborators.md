@@ -1,6 +1,6 @@
 ---
 title: コラボレータ
-intro: The Collaborators API allows you manage collaborators for a repository.
+intro: Collaborators APIを使うと、リポジトリのコラボレータを管理できます。
 versions:
   fpt: '*'
   ghes: '*'

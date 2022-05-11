@@ -1,4 +1,4 @@
-| Provider    | Segredo compatível      | Slug da API       |
+| Provider    | Segredo compatível      | Secret type       |
 | ----------- | ----------------------- | ----------------- |
 | Adafruit IO | Chave de IO de Adafruit | adafruit_io_key |
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}

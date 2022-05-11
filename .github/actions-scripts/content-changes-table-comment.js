@@ -7,6 +7,7 @@ import { getContents } from '../../script/helpers/git-utils.js'
 import parse from '../../lib/read-frontmatter.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-version.js'
+import { allVersionShortnames } from '../../lib/all-versions.js'
 
 const { GITHUB_TOKEN, APP_URL } = process.env
 const context = github.context
@@ -22,6 +23,7 @@ if (!APP_URL) {
 const PROD_URL = 'https://docs.github.com'
 const octokit = github.getOctokit(GITHUB_TOKEN)
 
+// get the list of file changes from the PR
 const response = await octokit.rest.repos.compareCommitsWithBasehead({
   owner: context.repo.owner,
   repo: context.payload.repository.name,
@@ -61,36 +63,54 @@ for (const file of articleFiles) {
   if (file.status === 'added') contentCell = `New file: `
   contentCell += `[\`${fileName}\`](${sourceUrl})`
 
-  for (const version in data.versions) {
-    const currentApplicableVersions = getApplicableVersions({
-      [version]: data.versions[version],
-    })
+  try {
+    // the try/catch is needed because getApplicableVersions() returns either [] or throws an error when it can't parse the versions frontmatter
+    // try/catch can be removed if docs-engineering#1821 is resolved
+    // i.e. for feature based versioning, like ghae: 'issue-6337'
+    const fileVersions = getApplicableVersions(data.versions)
 
-    if (currentApplicableVersions.length === 1) {
-      // for fpt, ghec, and ghae
-      if (currentApplicableVersions.toString() === nonEnterpriseDefaultVersion) {
-        // omit version from fpt url
-        previewCell += `[${version}](${APP_URL}/${fileUrl})<br>`
-        prodCell += `[${version}](${PROD_URL}/${fileUrl})<br>`
-      } else {
-        // for non-versioned releases (ghae, ghec) use full url
-        previewCell += `[${version}](${APP_URL}/${currentApplicableVersions}/${fileUrl})<br>`
-        prodCell += `[${version}](${PROD_URL}/${currentApplicableVersions}/${fileUrl})<br>`
+    for (const plan in allVersionShortnames) {
+      // plan is the shortName (i.e., fpt)
+      // allVersionShortNames[plan] is the planName (i.e., free-pro-team)
+
+      // walk by the plan names since we generate links differently for most plans
+      const versions = fileVersions.filter((fileVersion) =>
+        fileVersion.includes(allVersionShortnames[plan])
+      )
+
+      if (versions.length === 1) {
+        // for fpt, ghec, and ghae
+
+        if (versions.toString() === nonEnterpriseDefaultVersion) {
+          // omit version from fpt url
+
+          previewCell += `[${plan}](${APP_URL}/${fileUrl})<br>`
+          prodCell += `[${plan}](${PROD_URL}/${fileUrl})<br>`
+        } else {
+          // for non-versioned releases (ghae, ghec) use full url
+
+          previewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl})<br>`
+          prodCell += `[${plan}](${PROD_URL}/${versions}/${fileUrl})<br>`
+        }
+      } else if (versions.length) {
+        // for ghes releases, link each version
+
+        previewCell += `${plan}@ `
+        prodCell += `${plan}@ `
+
+        versions.forEach((version) => {
+          previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}) `
+          prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
+        })
+        previewCell += '<br>'
+        prodCell += '<br>'
       }
-    } else {
-      // for ghes releases, link each version
-      previewCell += `${version}@ `
-      prodCell += `${version}@ `
-
-      currentApplicableVersions.forEach((ghesVersion) => {
-        previewCell += `[${ghesVersion.split('@')[1]}](${APP_URL}/${ghesVersion}/${fileUrl}) `
-        prodCell += `[${ghesVersion.split('@')[1]}](${PROD_URL}/${ghesVersion}/${fileUrl}) `
-      })
-      previewCell += '<br>'
-      prodCell += '<br>'
     }
+  } catch (e) {
+    console.error(
+      `Version information for ${file.filename} couldn't be determined from its frontmatter.`
+    )
   }
   markdownTable += `| ${contentCell} | ${previewCell} | ${prodCell} | |\n`
 }
-
 setOutput('changesTable', markdownTable)
