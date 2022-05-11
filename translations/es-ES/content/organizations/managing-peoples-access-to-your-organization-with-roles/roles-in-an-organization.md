@@ -91,9 +91,9 @@ Some of the features listed below are limited to organizations using {% data var
 | Set scheduled reminders (see "[Managing scheduled reminders for pull requests](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests)") | **X** |  |  |  |  |
 | Add collaborators to **all repositories** | **X** |  |  |  |  |
 | Access the organization audit log | **X** |  |  |  |  |
-| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |  |  |
+| Edit the organization's profile page (see "[About your organization's profile](/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)") | **X** |  |  |  |  |{% ifversion ghec %}
 | Verify the organization's domains (see "[Verifying your organization's domain](/articles/verifying-your-organization-s-domain)") | **X** |  |  |  |  |
-| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |  |  |  |
+| Restrict email notifications to verified or approved domains (see "[Restricting email notifications for your organization](/organizations/keeping-your-organization-secure/restricting-email-notifications-for-your-organization)") | **X** |  |  |  |  |{% endif %}
 | Delete **all teams** | **X** |  |  |  |  |
 | Delete the organization account, including all repositories | **X** |  |  |  |  |
 | Create teams (see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)") | **X** | **X** | **X** |  | **X**  |
@@ -101,8 +101,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Create project boards (see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)") | **X** | **X** | **X** |  | **X**  |
 | See all organization members and teams | **X** | **X** | **X** |  | **X**  |
 | @mention any visible team | **X** | **X** | **X** |  | **X**  |
-| Can be made a *team maintainer* | **X** | **X** | **X** |  | **X** |
-| View organization insights (see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization)") | **X** | **X** | **X** |  | **X**  |
+| Can be made a *team maintainer* | **X** | **X** | **X** |  | **X** |{% ifversion ghec %}
+| View organization insights (see "[Viewing insights for your organization](/articles/viewing-insights-for-your-organization)") | **X** | **X** | **X** |  | **X**  |{% endif %}
 | View and post public team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** | **X** | **X** |  | **X**  |
 | View and post private team discussions to **all teams** (see "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)") | **X** |  |  |  |  |
 | Edit and delete team discussions in **all teams** (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments)") | **X** |  |  |  |  |
@@ -110,8 +110,8 @@ Some of the features listed below are limited to organizations using {% data var
 | Hide comments on writable commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** | **X** | **X** |  | **X** |
 | Hide comments on _all_ commits, pull requests, and issues (see "[Managing disruptive comments](/communities/moderating-comments-and-conversations/managing-disruptive-comments/#hiding-a-comment)") | **X** |  | **X** |  | **X** |
 | Block and unblock non-member contributors (see "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)") | **X** |  | **X** |  |  |
-| Limit interactions for certain users in public repositories (see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)") | **X** |  | **X** |  |  |
-| Manage viewing of organization dependency insights (see "[Changing the visibility of your organization's dependency insights](/articles/changing-the-visibility-of-your-organizations-dependency-insights)") | **X** |  |  |  |  |
+| Limit interactions for certain users in public repositories (see "[Limiting interactions in your organization](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization)") | **X** |  | **X** |  |  |{% ifversion ghec %}
+| Manage viewing of organization dependency insights (see "[Changing the visibility of your organization's dependency insights](/articles/changing-the-visibility-of-your-organizations-dependency-insights)") | **X** |  |  |  |  |{% endif %}
 | Set a team profile picture in **all teams** (see "[Setting your team's profile picture](/articles/setting-your-team-s-profile-picture)") | **X** |  |  |  |  |
 | Sponsor accounts and manage the organization's sponsorships (see "[Sponsoring open-source contributors](/sponsors/sponsoring-open-source-contributors)") | **X** |  |  | **X** | **X**  |
 | Manage email updates from sponsored accounts (see "[Managing updates from accounts your organization's sponsors](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)") | **X** |  |  |  |  |

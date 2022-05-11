@@ -12,8 +12,11 @@ import program from 'commander'
 import { execSync } from 'child_process'
 import mkdirp from 'mkdirp'
 import rimraf from 'rimraf'
-import getOperations from './utils/get-operations.js'
 import yaml from 'js-yaml'
+import slugger from 'github-slugger'
+
+import { categoriesWithoutSubcategories } from '../../lib/rest/index.js'
+import getOperations from './utils/get-operations.js'
 
 const tempDocsDir = path.join(process.cwd(), 'openapiTmp')
 const githubRepoDir = path.join(process.cwd(), '../github')
@@ -79,8 +82,6 @@ async function main() {
     await decorate()
   }
 
-  await updateRedirectOverrides()
-
   console.log(
     '\n🏁 The static REST API files are now up-to-date with your local `github/github` checkout. To revert uncommitted changes, run `git checkout lib/rest/static/*.\n\n'
   )
@@ -135,26 +136,27 @@ async function getDereferencedFiles() {
   }
 }
 
-async function updateRedirectOverrides() {
-  const overrides = JSON.parse(await readFile('script/rest/utils/rest-api-overrides.json', 'utf8'))
-
-  const redirects = {}
-  console.log('\n➡️  Updating REST API redirect exception list.\n')
-  for (const [key, value] of Object.entries(overrides)) {
-    const oldUrl = value.originalUrl
-    const anchor = oldUrl.replace('/rest/reference', '').split('#')[1]
-    if (key.includes('#')) {
-      // We are updating a subcategory into a category
-      redirects[oldUrl] = `/rest/reference/${value.category}`
-    } else {
-      redirects[oldUrl] = `/rest/reference/${value.category}#${anchor}`
-    }
-  }
-  await writeFile(
-    'lib/redirects/static/client-side-rest-api-redirects.json',
-    JSON.stringify(redirects, null, 2),
-    'utf8'
+async function getCategoryOverrideRedirects() {
+  const { operationUrls, sectionUrls } = JSON.parse(
+    await readFile('script/rest/utils/rest-api-overrides.json', 'utf8')
   )
+
+  const operationRedirects = {}
+  console.log('\n➡️  Updating REST API redirect exception list.\n')
+  Object.values(operationUrls).forEach((value) => {
+    const oldUrl = value.originalUrl.replace('/rest/reference', '/rest')
+    const anchor = oldUrl.split('#')[1]
+    const subcategory = value.subcategory
+    const redirectTo = subcategory
+      ? `/rest/${value.category}/${subcategory}#${anchor}`
+      : `/rest/${value.category}#${anchor}`
+    operationRedirects[oldUrl] = redirectTo
+  })
+  const redirects = {
+    ...operationRedirects,
+    ...sectionUrls,
+  }
+  return redirects
 }
 
 async function decorate() {
@@ -167,12 +169,59 @@ async function decorate() {
   }
 
   const operationsEnabledForGitHubApps = {}
+  const clientSideRedirects = await getCategoryOverrideRedirects()
+
   for (const [schemaName, schema] of Object.entries(dereferencedSchemas)) {
     try {
-      // munge OpenAPI definitions object in an array of operations objects
+      // get all of the operations for a particular version of the openapi
       const operations = await getOperations(schema)
       // process each operation, asynchronously rendering markdown and stuff
       await Promise.all(operations.map((operation) => operation.process()))
+
+      // For each rest operation that doesn't have an override defined
+      // in script/rest/utils/rest-api-overrides.json,
+      // add a client-side redirect
+      operations.forEach((operation) => {
+        // A handful of operations don't have external docs properties
+        const externalDocs = operation.getExternalDocs()
+        if (!externalDocs) {
+          return
+        }
+        const oldUrl = `/rest${
+          externalDocs.url.replace('/rest/reference', '/rest').split('/rest')[1]
+        }`
+
+        if (!(oldUrl in clientSideRedirects)) {
+          // There are some operations that aren't nested in the sidebar
+          // For these, don't need to add a client-side redirect, the
+          // frontmatter redirect will handle it for us.
+          if (categoriesWithoutSubcategories.includes(operation.category)) {
+            return
+          }
+          const anchor = oldUrl.split('#')[1]
+          const subcategory = operation.subcategory
+
+          // If there is no subcategory, a new page with the same name as the
+          // category was created. That page name may change going forward.
+          const redirectTo = subcategory
+            ? `/rest/${operation.category}/${subcategory}#${anchor}`
+            : `/rest/${operation.category}/${operation.category}#${anchor}`
+          clientSideRedirects[oldUrl] = redirectTo
+        }
+
+        // There are a lot of section headings that we'll want to redirect too,
+        // now that subcategories are on their own page. For example,
+        // /rest/reference/actions#artifacts should redirect to
+        // /rest/actions/artifacts
+        if (operation.subcategory) {
+          const sectionRedirectFrom = `/rest/${operation.category}#${operation.subcategory}`
+          const sectionRedirectTo = `/rest/${operation.category}/${operation.subcategory}`
+          if (!(sectionRedirectFrom in clientSideRedirects)) {
+            clientSideRedirects[sectionRedirectFrom] = sectionRedirectTo
+          }
+        }
+      })
+
       const categories = [...new Set(operations.map((operation) => operation.category))].sort()
 
       // Orders the operations by their category and subcategories.
@@ -240,7 +289,8 @@ async function decorate() {
         operationsEnabledForGitHubApps[schemaName][category] = categoryOperations
           .filter((operation) => operation.enabledForGitHubApps)
           .map((operation) => ({
-            slug: operation.slug,
+            slug: slugger.slug(operation.title),
+            subcategory: operation.subcategory,
             verb: operation.verb,
             requestPath: operation.requestPath,
           }))
@@ -258,6 +308,15 @@ async function decorate() {
     JSON.stringify(operationsEnabledForGitHubApps, null, 2)
   )
   console.log('Wrote', path.relative(process.cwd(), `${appsStaticPath}/enabled-for-apps.json`))
+  await writeFile(
+    'lib/redirects/static/client-side-rest-api-redirects.json',
+    JSON.stringify(clientSideRedirects, null, 2),
+    'utf8'
+  )
+  console.log(
+    'Wrote',
+    path.relative(process.cwd(), `lib/redirects/static/client-side-rest-api-redirects.json`)
+  )
 }
 
 async function validateInputParameters(schemas) {

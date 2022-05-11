@@ -39,8 +39,10 @@ Cualquiera con permiso de escritura en un repositorio puede configurar flujos de
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. Si ya tienes un flujo de trabajo en tu repositorio, haz clic en **Flujo de trabajo nuevo**.
-1. Encuentra el flujo de trabajo inicial que quieras utilizar y luego haz clic en **Configurar este flujo de trabajo**.{% if actions-starter-template-ui %} Para ayudarte a encontrar el flujo de trabajo inicial que quieres, puedes buscar palabras clave o filtrar por categoría.{% endif %}
-1. Si el flujo de trabajo inicial contiene comentarios que detallen pasos de configuración adicional, sigue estos pasos. Muchos de los flujos de trabajo iniciales tienen guías correspondientes. Para obtener más información, consulta [las guías de {% data variables.product.prodname_actions %}](/actions/guides).
+1. The "{% if actions-starter-template-ui %}Choose a workflow{% else %}Choose a workflow template{% endif %}" page shows a selection of recommended starter workflows. Encuentra el flujo de trabajo inicial que quieras utilizar, luego haz clic en {% if actions-starter-template-ui %}**Configurar**{% else %}**Configurar este flujo de trabajo**{% endif %}.{% if actions-starter-template-ui %} Para ayudarte a encontrar el flujo de trabajo inicial que quieres, puedes buscar las palabras clave o filtrar por categoría.{% endif %}
+
+   {% if actions-starter-template-ui %}![Configure this workflow](/assets/images/help/settings/actions-create-starter-workflow-updated-ui.png){% else %}![Set up this workflow](/assets/images/help/settings/actions-create-starter-workflow.png){% endif %}
+1. Si el flujo de trabajo inicial contiene comentarios que detallen pasos de configuración adicional, sigue estos pasos. Muchos de los flujos de trabajo iniciales tienen guías correspondientes. For more information, see the [{% data variables.product.prodname_actions %} guides](/actions/guides).
 1. Algunos flujos de trabajo iniciales utilizan secretos. Por ejemplo, {% raw %}`${{ secrets.npm_token }}`{% endraw %}. Si el flujo de trabajo inicial utiliza un secreto, almacena el valor descrito en el nombre del secreto como un secreto en tu repositorio. Para obtener más información, consulta "[Secretos cifrados](/actions/reference/encrypted-secrets)".
 1. Opcionalmente, haz cambios adicionales. Por ejemplo, puede que quieras cambiar el valor de `on` para que este cambie cuando se ejecute el flujo de trabajo.
 1. Haz clic en **Iniciar confirmación**.

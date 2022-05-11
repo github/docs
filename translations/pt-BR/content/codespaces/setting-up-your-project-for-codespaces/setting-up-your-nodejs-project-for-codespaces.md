@@ -31,7 +31,7 @@ Este guia mostra como configurar seu projeto JavaScript, Node.js ou TypeScript e
 
 ## Etapa 1: Abra o seu projeto em um codespace
 
-1. Under the repository name, use the **{% octicon "code" aria-label="The code icon" %} Code** drop-down menu, and in the **Codespaces** tab, click **Create codespace on main**.
+1. No nome do repositório, use o menu suspenso **Código de {% octicon "code" aria-label="The code icon" %}** e na guia **Codespaces**, clique em **Criar codespace no principal**.
 
    ![Botão de codespace novo](/assets/images/help/codespaces/new-codespace-button.png)
 
@@ -42,9 +42,9 @@ Ao criar um código, seu projeto será criado em uma VM remota dedicada a você.
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 
-## Step 2: Add a dev container configuration to your repository from a template
+## Etapa 2: Adicionar uma configuração de contêiner de desenvolvimento ao repositório a partir de um modelo
 
-The default development container, or "dev container," for {% data variables.product.prodname_github_codespaces %} will support running Node.js projects like [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) out of the box. However, we recommend that you configure your own dev container, as this allows you to define any particular tools and scripts your project needs. This will ensure a fully reproducible environment for all GitHub Codespaces users in your repository.
+O contêiner de desenvolvimento padrão, ou "dev container", para {% data variables.product.prodname_github_codespaces %} é compatível com a execução de projetos do Node.js como [vscode-remote-try-node](https://github.com/microsoft/vscode-remote-try-node) de forma inovadora. No entanto, recomendamos que você configure seu próprio contêiner de desenvolvimento, pois isso permite que você defina todas as ferramentas e scripts específicos de que seu projeto precisa. Isso irá garantir um ambiente reproduzível para todos os usuários do codespace do GitHub no seu repositório.
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 
@@ -53,7 +53,7 @@ The default development container, or "dev container," for {% data variables.pro
 
    ![Selecione a opção Node na lista](/assets/images/help/codespaces/add-node-prebuilt-container.png)
 
-1. Click the recommended version of Node.js.
+1. Clique na versão recomendada do Node.js.
 
    ![Seleção de versão do Node.js](/assets/images/help/codespaces/add-node-version.png)
 
@@ -61,7 +61,7 @@ The default development container, or "dev container," for {% data variables.pro
 
 ### Anatomia do seu contêiner de desenvolvimento
 
-Adding the Node.js dev container template adds a `.devcontainer` directory to the root of your project's repository with the following files:
+A adição do modelo de contêiner de desenvolvimento do Node.js adiciona um diretório `.devcontainer` à raiz do repositório do seu projeto com os seguintes arquivos:
 
 - `devcontainer.json`
 - arquivo Docker
@@ -102,17 +102,17 @@ O arquivo recém-adicionado `devcontainer.json` define algumas propriedades que 
 }
 ```
 
-- **name** - You can name your dev container anything, this is just the default.
+- **nome** - Você pode dar qualquer nome ao seu contêiner de desenvolvimento. Este é apenas o padrão.
 - **build** - As propriedades de compilação.
-  - **dockerfile** - In the `build` object, `dockerfile` contains the path to the Dockerfile that was also added from the template.
+  - **Arquivo Docker** - No objeto `construir`, `Arquivo Docker` contém o caminho para o arquivo Dockerfile que também foi adicionado a partir do modelo.
   - **args**
-    - **variant**: This file only contains one build argument, which is the node variant we want to use that is passed into the Dockerfile.
-- **settings** - These are {% data variables.product.prodname_vscode %} settings that you can set.
-  - **terminal.integrated.shell.linux** - While bash is the default here, you could use other terminal shells by modifying this.
+    - **variante**: Este arquivo contém apenas um argumento de compilação, que é a variante de nó que queremos usar e que é passada para o arquivo Docker.
+- **configurações** - Estas são configurações de {% data variables.product.prodname_vscode %} que você pode definir.
+  - **terminal.integrated.shell.linux** - Embora o bash seja o padrão, você pode usar outros shells do terminal, fazendo a modificação.
 - **extensões** - Estas são extensões incluídas por padrão.
-  - **dbaeumer.vscode-eslint** - ES lint is a great extension for linting, but for JavaScript there are a number of great Marketplace extensions you could also include.
+  - <**dbaeumer.vscode-eslint** - ES lint é uma ótima extensão para linting, mas para o JavaScript, há uma série de ótimas extensões do Marketplace que você também pode incluir.
 - **forwardPorts** - Todas as portas listadas aqui serão encaminhadas automaticamente. Para obter mais informações, consulte "[Encaminhando portas no seu codespace](/codespaces/developing-in-codespaces/forwarding-ports-in-your-codespace)".
-- **postCreateCommand** - Use this to run commands that aren't defined in the Dockerfile, after your codespace is created.
+- **postCreateCommand** - Use isto para executar comandos que não estão definidos no arquivo Docker depois que seu codespace for criado.
 - **remoteUser** - Por padrão, você está executando como usuário do vscode, mas, opcionalmente, você pode definir isso como root.
 
 #### arquivo Docker
@@ -138,7 +138,7 @@ Você pode usar o arquivo Docker para adicionar camadas adicionais de contêiner
 
 ## Etapa 3: Modifique seu arquivo devcontainer.json
 
-With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. Neste exemplo, você irá adicionar propriedades para instalar o npm quando seu codespace for lançado e para fazer uma lista de portas dentro do contêiner disponível localmente.
+Com a configuração do contêiner de desenvolvimento adicionada e um entendimento básico do que tudo faz, agora você pode fazer alterações para personalizar ainda mais seu ambiente. Neste exemplo, você irá adicionar propriedades para instalar o npm quando seu codespace for lançado e para fazer uma lista de portas dentro do contêiner disponível localmente.
 
 1. No Explorer, selecione o arquivo `devcontainer.json` a partir da árvore para abri-lo. Você pode ter que expandir a pasta `.devcontainer` para vê-la.
 

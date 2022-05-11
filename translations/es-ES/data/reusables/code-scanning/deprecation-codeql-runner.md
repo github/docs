@@ -2,7 +2,7 @@
 
 {% ifversion fpt or ghec %}
 
-**Nota:** El {% data variables.product.prodname_codeql_runner %} se va a obsoletizar. En {% data variables.product.product_name %}, el {% data variables.product.prodname_codeql_runner %} será compatible hasta marzo del 2022. Deberías mejorar a la última versión de [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases).
+**Note:** The {% data variables.product.prodname_codeql_runner %} is deprecated. En {% data variables.product.product_name %}, el {% data variables.product.prodname_codeql_runner %} fue compatible hasta marzo del 2022. Deberías mejorar a la última versión de [{% data variables.product.prodname_codeql_cli %}](https://github.com/github/codeql-action/releases).
 
 {% elsif ghes > 3.3 %}
 

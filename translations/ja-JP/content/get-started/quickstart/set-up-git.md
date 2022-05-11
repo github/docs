@@ -27,11 +27,11 @@ topics:
 
 ## Git を使用する
 
-コマンドラインで Git を使うには、あなたのコンピュータに Git をダウンロードし、インストールし、設定する必要があります。 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. 詳しい情報については、「[{% data variables.product.prodname_cli %} について](/github-cli/github-cli/about-github-cli)」を参照してください。
+To use Git on the command line, you will need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. 詳しい情報については、「[{% data variables.product.prodname_cli %} について](/github-cli/github-cli/about-github-cli)」を参照してください。
 
-ローカルで Git を動かしたいけれどもコマンドラインを使いたくない場合、代わりに [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) クライアントをダウンロードしインストールしてください。  詳しい情報については、「[{% data variables.product.prodname_desktop %} のインストールと設定](/desktop/installing-and-configuring-github-desktop/)」を参照してください。
+If you want to work with Git locally, but do not want to use the command line, you can instead download and install the [{% data variables.product.prodname_desktop %}]({% data variables.product.desktop_link %}) client.  詳しい情報については、「[{% data variables.product.prodname_desktop %} のインストールと設定](/desktop/installing-and-configuring-github-desktop/)」を参照してください。
 
-ローカルでファイルを扱う作業をする必要がない場合、{% data variables.product.product_name %} により、以下を含む、多くの Git 関連のアクションをブラウザで直接実行できます:
+If you do not need to work with files locally, {% data variables.product.product_name %} lets you complete many Git-related actions directly in the browser, including:
 
 - [リポジトリを作成する](/articles/create-a-repo)
 - [リポジトリをフォークする](/articles/fork-a-repo)
@@ -46,17 +46,17 @@ topics:
 
 **Note**: If you are using a Chrome OS device, additional set up is required:
 
-1. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
-2. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
+2. Install a terminal emulator such as Termux from the Google Play Store on your Chrome OS device.
+3. From the terminal emulator that you installed, install Git. For example, in Termux, enter `apt install git` and then type `y` when prompted.
 
 {% endnote %}
 
 2. [Git でユーザ名を設定する](/github/getting-started-with-github/setting-your-username-in-git)。
 3. [Git のコミットメールアドレスを設定する](/articles/setting-your-commit-email-address)。
 
-## 次のステップ: Git から {% data variables.product.prodname_dotcom %} で認証する
+## Authenticating with {% data variables.product.prodname_dotcom %} from Git
 
-Git から {% data variables.product.prodname_dotcom %} リポジトリに接続した場合、HTTPS または SSH を使って、{% data variables.product.product_name %} で認証する必要があります。
+When you connect to a {% data variables.product.prodname_dotcom %} repository from Git, you will need to authenticate with {% data variables.product.product_name %} using either HTTPS or SSH.
 
 {% note %}
 
@@ -66,18 +66,21 @@ Git から {% data variables.product.prodname_dotcom %} リポジトリに接続
 
 ### HTTPS で接続 (推奨)
 
-[HTTPS でクローンする](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)場合、認証情報ヘルパーを使用して [Git で {% data variables.product.prodname_dotcom %} の認証情報をキャッシュ](/github/getting-started-with-github/caching-your-github-credentials-in-git)できます。
+If you clone with HTTPS, you can cache your {% data variables.product.prodname_dotcom %} credentials in Git using a credential helper. For more information, see "[Cloning with HTTPS urls](/github/getting-started-with-github/about-remote-repositories/#cloning-with-https-urls)" and "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/getting-started-with-github/caching-your-github-credentials-in-git)."
 
 ### SSH で接続
 
-[SSH でクローンする場合](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls)、{% data variables.product.product_name %} からプッシュまたはプルするには、使っているそれぞれのコンピュータに [SSH キー](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)を生成する必要があります。
+If you clone with SSH, you must generate SSH keys on each computer you use to push or pull from {% data variables.product.product_name %}. For more information, see "[Cloning with SSH urls](/github/getting-started-with-github/about-remote-repositories/#cloning-with-ssh-urls)" and "[Generating a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
 
-## おめでとうございます
+## 次のステップ
 
-おめでとうございます。これで、Git と {% data variables.product.prodname_dotcom %} はすべてセットアップされました。 You may now choose to create a repository where you can put your projects. This is a great way to back up your code and makes it easy to share the code around the world. For more information see "[Create a repository](/articles/create-a-repo)".
+You now have Git and {% data variables.product.prodname_dotcom %} all set up. You may now choose to create a repository where you can put your projects. Saving your code in a repository allows you to back up your code and share it around the world.
 
-You can create a copy of a repository by forking it and propose the changes that you want to see without affecting the upstream repository. For more information see "[Fork a repository](/articles/fork-a-repo)."
+* {% data reusables.getting-started.create-a-repository %}.
 
-Each repository on {% data variables.product.prodname_dotcom %} is owned by a person or an organization. You can interact with the people, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. For more information see "[Be social](/articles/be-social)."
+* {% data reusables.getting-started.fork-a-repository %}
 
-{% data reusables.support.connect-in-the-forum-bootcamp %}
+* {% data reusables.getting-started.being-social %}
+
+
+* {% data reusables.support.connect-in-the-forum-bootcamp %}

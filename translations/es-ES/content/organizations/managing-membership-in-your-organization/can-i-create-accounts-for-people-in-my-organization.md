@@ -1,6 +1,6 @@
 ---
 title: ¿Puedo crear cuentas para personas en mi organización?
-intro: 'While you can add users to an organization you''ve created, you can''t create personal accounts on behalf of another person.'
+intro: 'Si bien puedes agregar usuarios a una organización que has creado, no puedes crear cuentas personales en nombre de otra persona.'
 redirect_from:
   - /articles/can-i-create-accounts-for-those-in-my-organization
   - /articles/can-i-create-accounts-for-people-in-my-organization
@@ -14,12 +14,12 @@ topics:
 shortTitle: Crear cuentas para las personas
 ---
 
-## About personal accounts
+## Acerca de tus cuentas personales
 
-Because you access an organization by logging in to a personal account, each of your team members needs to create their own personal account. Después de que tengas nombres de usuario para cada una de las personas que quieras agregar a tu organización, podrás agregarlos a los equipos.
+Ya que accedes a una organización al iniciar sesión en una cuenta personal, cada uno de los miembros de tu equipo necesita crear su propia cuenta personal. Después de que tengas nombres de usuario para cada una de las personas que quieras agregar a tu organización, podrás agregarlos a los equipos.
 
 {% ifversion fpt or ghec %}
-{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% else %}You{% endif %} can use SAML single sign-on to centrally manage the access that personal accounts have to the organization's resources through an identity provider (IdP). Para obtener más información, consulta la sección "[Acerca de la administración de identidad y acceso con el inicio de sesión único de SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
+{% ifversion fpt %}Las organizaciones que utilizan {% data variables.product.prodname_ghe_cloud %} pueden{% else %}Puedes{% endif %} utilizar el inicio de sesión único de SAML para administrar centralmente el acceso que tienen las cuentas personales a los recursos de la organización mediante un proveedor de identidad (IdP). Para obtener más información, consulta la sección "[Acerca de la administración de identidad y acceso con el inicio de sesión único de SAML](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% ifversion fpt %}" en la documentación de {% data variables.product.prodname_ghe_cloud %}.{% else %}".{% endif %}
 
 También puedes considerar los {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
 {% endif %}

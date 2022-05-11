@@ -17,11 +17,12 @@ export interface Operation {
 export interface Parameter {
   in: string
   name: string
-  descriptionHTML: string
+  description: string
   required: boolean
   schema: {
     type: string
     default?: string
+    enum?: Array<string>
   }
 }
 
@@ -51,10 +52,12 @@ export interface CodeSample {
 export interface BodyParameter {
   in: string
   name: string
-  childParamsGroups?: Array<ChildParamsGroup>
-  default?: string
   description: string
   type: string
+  isRequired: boolean
+  default?: string
+  enum?: Array<string>
+  childParamsGroups?: Array<ChildParamsGroup>
 }
 
 export interface ChildParamsGroup {
@@ -68,8 +71,26 @@ export interface ChildParameter {
   name: string
   description: string
   type: string
+  isRequired: boolean
+  enum?: Array<string>
+  default?: string
 }
 
-export interface RestCategoryOperationsT {
-  [subcategory: string]: Operation[]
+export type ExampleT = {
+  description: string
+  curl: string
+  javascript: string
+  ghcli?: string
+  response: {
+    statusCode: string
+    contentType?: string
+    description: string
+    example?: Object
+    schema?: Object
+  }
+}
+
+export type LanguageOptionT = {
+  key: keyof ExampleT
+  text: string
 }

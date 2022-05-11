@@ -56,8 +56,8 @@ Las AMIs para {% data variables.product.prodname_ghe_server %} se encuentran dis
 ### Utilizar el portal {% data variables.product.prodname_ghe_server %} para seleccionar una AMI
 
 {% data reusables.enterprise_installation.download-appliance %}
-3. Under "{% data variables.product.prodname_dotcom %} in the Cloud", select the "Select your platform" dropdown menu, and click **Amazon Web Services**.
-4. Select the "Select your AWS region" drop-down menu, and click your desired region.
+3. Debajo de "{% data variables.product.prodname_dotcom %} en la nube", selecciona el menú desplegable "Selecciona tu plataforma" y haz clic en **Amazon Web Services**.
+4. Selecciona el menú desplegable "Selecciona tu región de AWS" y haz clic en tu región deseada.
 5. Toma nota de la ID de AMI que se muestra.
 
 ### Utilizar la CLI de AWS para seleccionar una AMI

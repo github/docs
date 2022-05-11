@@ -1,6 +1,13 @@
-Use `jobs.<job_id>.strategy.max-parallel` para definir o número máximo de trabalhos que podem ser executados simultaneamente ao usar uma estratégia de trabalho de `matriz`. Por padrão, o {% data variables.product.prodname_dotcom %} maximizará o número de trabalhos executados em paralelo dependendo dos executores disponíveis nas máquinas virtuais hospedadas no {% data variables.product.prodname_dotcom %}.
+By default, {% data variables.product.product_name %} will maximize the number of jobs run in parallel depending on runner availability. To set the maximum number of jobs that can run simultaneously when using a `matrix` job strategy, use `jobs.<job_id>.strategy.max-parallel`.
+
+For example, the following workflow will run a maximum of two jobs at a time, even if there are runners available to run all six jobs at once.
 
 ```yaml
-strategy:
-  max-parallel: 2
+jobs:
+  example_matrix:
+    strategy:
+      max-parallel: 2
+      matrix:
+        version: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest]
 ```

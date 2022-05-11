@@ -31,7 +31,7 @@ jobs:
           add-labels: 'github-openapi-bot'
 
       - name: Checkout repository code
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
         with:
           # actions/checkout by default will leave you in a detached head state
           # so we need to specify the PR head ref explicitly since we're making
@@ -57,7 +57,7 @@ jobs:
         uses: EndBug/add-and-commit@050a66787244b10a4874a2a5f682130263edc192
         with:
           # The arguments for the `git add` command
-          add: '["lib/rest/static/apps", "lib/rest/static/decorated"]'
+          add: '["lib/rest/static/apps", "lib/rest/static/decorated", "lib/redirects/static/client-side-rest-api-redirects.json"]'
 
           # The message for the commit
           message: 'Add decorated OpenAPI schema files'

@@ -28,7 +28,7 @@ Timestamps and date fields in the API response are measured in [UTC epoch millis
 To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log GraphQL API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audit-log-api-info %}
 
-Note that you can't retrieve Git events using the {% ifversion not ghec %}audit log API.{% else %}GraphQL API. Para recuperar eventos de Git, utiliza mejor la API de REST. For more information, see `git` category actions in "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)", and also the "[Enterprise administration](/rest/reference/enterprise-admin#audit-log)" and "[Organizations](/rest/reference/orgs#get-the-audit-log-for-an-organization) audit log endpoints in the REST API documentation."{% endif %}
+Note that you can't retrieve Git events using the {% ifversion not ghec %}audit log API.{% else %}GraphQL API. Para recuperar eventos de Git, utiliza mejor la API de REST. Para obtener más información, consulta las acciones de la categoría `git` en la sección "[Acciones de bitácora de auditoría para tu empresa](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)" y también las terminales de bitácoras de auditoría de [Administración de empresas](/rest/reference/enterprise-admin#audit-log)" y "[Organizaciones](/rest/reference/orgs#get-the-audit-log-for-an-organization) en la documentación de la API de REST".{% endif %}
 
 La respuesta de GraphQL puede incluir datos de hasta 90 a 120 días.
 
