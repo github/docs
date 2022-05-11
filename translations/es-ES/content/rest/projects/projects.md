@@ -1,6 +1,8 @@
 ---
-title: Proyectos
-intro: 'La API de Proyectos te permite crear, listar, actualizar, borrar y personalizar los proyectos en un repositorio.'
+title: Tableros de proyecto
+shortTitle: Boards
+allowTitleToDifferFromFilename: true
+intro: The Project boards API lets you create and manage projects in a repository.
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,3 +13,4 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+{% data reusables.projects.projects-api %}

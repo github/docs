@@ -13,7 +13,7 @@ redirect_from:
   - /rest/reference/licenses
 ---
 
-## About the Licenses API
+## Licenses APIについて
 
 ライセンス API は[オープンソースの Ruby Gem ライセンス](https://github.com/benbalter/licensee)を使用して、プロセスのライセンスを特定しようとします。 ライセンシーは、プロジェクトの `LICENSE` ファイル (存在する場合) を既知のライセンスの短いリストと照合します。 そのためライセンス API では、プロジェクト依存関係のライセンス、あるいはプロジェクトのライセンスをドキュメント化するその他の方法、たとえばドキュメントにおけるライセンス名の参照などは考慮されません。
 

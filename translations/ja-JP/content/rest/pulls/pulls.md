@@ -11,6 +11,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## Pulls APIについて
+
 Pull Request API を使用すると、Pull Requestを一覧表示、編集、作成、マージできます。 Pull Requestのコメントは、[Issue Comments API](/rest/reference/issues#comments) で管理できます。
 
 すべてのPull Requestは Issue ですが、すべての Issue がPull Requestというわけではありません。 このため、アサインされた人、ラベル、マイルストーンなどの操作といった、両方の機能で共通するアクションは、[Issues API](/rest/reference/issues) で提供されます。
