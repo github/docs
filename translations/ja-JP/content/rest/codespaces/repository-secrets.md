@@ -6,7 +6,6 @@ intro: Codespaces repository secrets APIを使うと、ユーザはcodespace中�
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

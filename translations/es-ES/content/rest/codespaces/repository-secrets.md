@@ -6,7 +6,6 @@ intro: 'The Codespaces repository secrets API allows a user to create, list, and
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
