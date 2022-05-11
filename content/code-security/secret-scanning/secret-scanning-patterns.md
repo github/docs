@@ -42,6 +42,8 @@ Organizations using {% data variables.product.prodname_ghe_cloud %} with {% data
 
 When {% data variables.product.prodname_secret_scanning_GHAS %} is enabled, {% data variables.product.prodname_dotcom %} scans for secrets issued by the following service providers. {% ifversion ghec %}For more information about {% data variables.product.prodname_secret_scanning_GHAS %}, see "[About {% data variables.product.prodname_secret_scanning_GHAS %}](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-advanced-security)."{% endif %}
 
+If you use the REST API for secret scanning, you can use the `Secret type` to report on secrets from specific issuers. For more information, see "[Secret scanning](/enterprise-cloud@latest/rest/secret-scanning)."
+ 
 {% ifversion ghes > 3.1 or ghae or ghec %}
 {% note %}
 
