@@ -134,3 +134,24 @@ Você pode definir as permissões padrão para o `GITHUB_TOKEN` nas configuraç�
 </ol>
 
 <p spaces-before="0">{% endif %}</p>
+
+<p spaces-before="0">{% if actions-cache-policy-apis %}</p>
+
+<h2 spaces-before="0">Enforcing a policy for cache storage in your enterprise</h2>
+
+<p spaces-before="0">{% data reusables.actions.cache-default-size %} {% data reusables.actions.cache-eviction-process %}</p>
+
+<p spaces-before="0">However, you can set an enterprise policy to customize both the default total cache size for each repository, as well as the maximum total cache size allowed for a repository. For example, you might want the default total cache size for each repository to be 5 GB, but also allow repository administrators to configure a total cache size up to 15 GB if necessary.</p>
+
+<p spaces-before="0">People with admin access to a repository can set a total cache size for their repository up to the maximum cache size allowed by the enterprise policy setting.</p>
+
+<p spaces-before="0">The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:</p>
+
+<ul>
+<li>To view the current enterprise policy settings, see "<a href="/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise">Get GitHub Actions cache usage policy for an enterprise</a>."</li>
+<li>To change the enterprise policy settings, see "<a href="/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise">Set GitHub Actions cache usage policy for an enterprise</a>."</li>
+</ul>
+
+<p spaces-before="0">{% data reusables.actions.cache-no-org-policy %}</p>
+
+<p spaces-before="0">{% endif %}</p>
