@@ -1,0 +1,14 @@
+.restOperation {
+  h2,
+  h3,
+  h4 {
+    a {
+      text-decoration: none;
+      color: var(--color-fg-default);
+    }
+  }
+}
+
+.statusTable {
+  table-layout: fixed !important;
+}

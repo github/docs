@@ -1,5 +1,7 @@
 ---
-title: Contents
+title: Repository contents
+allowTitleToDifferFromFilename: true
+shortTitle: Contents
 intro: 'These API endpoints let you create, modify, and delete Base64 encoded content in a repository.'
 versions:
   fpt: '*'
@@ -10,6 +12,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## About the Repository contents API
 
 To request the raw format or rendered HTML (when supported), use custom media types for repository contents.
 
