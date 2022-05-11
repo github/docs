@@ -54,6 +54,8 @@ Once an authorization is revoked, any tokens associated with the authorization w
 
 The owner of an {% data variables.product.prodname_oauth_app %} can revoke an account's authorization of their app, this will also revoke any tokens associated with the authorization. For more information about revoking authorizations of your OAuth app, see "[Delete an app authorization](/rest/reference/apps#delete-an-app-authorization)."
 
+{% data variables.product.prodname_oauth_app %} owners can also revoke individual tokens associated with an authorization. For more information about revoking individual tokens for your OAuth app, see "[Delete an app token](/rest/apps/oauth-applications#delete-an-app-token)".
+
 ## Token revoked due to excess of tokens for an {% data variables.product.prodname_oauth_app %} with the same scope
 
 {% data reusables.apps.oauth-token-limit %}

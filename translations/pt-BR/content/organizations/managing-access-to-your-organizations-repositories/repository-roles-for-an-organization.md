@@ -31,7 +31,7 @@ De menor acesso à maioria do acesso, as funções para o repositório de uma or
 
 {% ifversion fpt %}
 Se a sua organização usar o {% data variables.product.prodname_ghe_cloud %}, você poderá criar funções de repositórios personalizadas. Para obter mais informações, consulte "[Gerenciando funções personalizadas de repositórios para uma organização](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)" na documentação de {% data variables.product.prodname_ghe_cloud %}.
-{% elsif ghec %}
+{% elsif ghec or ghes > 3.4 or ghae-issue-6271 %}
 Você pode criar funções de repositório personalizadas. Para obter mais informações, consulte "[Gerenciando as funções de repositórios personalizados para uma organização](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)".
 {% endif %}
 

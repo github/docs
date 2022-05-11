@@ -17,7 +17,7 @@ topics:
 
 Ao seguir as organizações, você verá as atividades públicas delas no seu painel pessoal. Para obter mais informações, consulte "[Sobre seu painel pessoal](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)".
 
-Você pode deixar de seguir uma organização se não quiser ver suas atividades públicas em {% data variables.product.product_name %}.
+You can unfollow an organization if you do not wish to see their {% ifversion fpt or ghec %}public{% endif %} activity on {% data variables.product.product_name %}.
 
 ## Seguindo uma organização em {% data variables.product.product_name %}
 

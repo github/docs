@@ -82,6 +82,8 @@ Para obter mais informações, consulte "[Usar variáveis de ambiente](/actions/
 
 O CircleCI e o {% data variables.product.prodname_actions %} fornecem um método para armazenar arquivos de cache no arquivo de configuração manualmente.
 
+{% if actions-caching %}
+
 Abaixo, há um exemplo da sintaxe para cada sistema.
 
 <table class="d-block">
@@ -119,7 +121,11 @@ GitHub Actions
 </tr>
 </table>
 
-O cache de {% data variables.product.prodname_actions %} só é aplicável para repositórios hospedados em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 {% data variables.product.prodname_actions %} não tem o equivalente ao Docker Layer Caching (DLC) do CircleCI.
 

@@ -70,8 +70,6 @@ If you live in a supported region, you can follow these instructions to submit y
 {% data reusables.sponsors.tax-form-information-dev %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 

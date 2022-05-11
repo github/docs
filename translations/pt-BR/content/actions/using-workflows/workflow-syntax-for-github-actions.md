@@ -367,7 +367,7 @@ steps:
 
 #### Exemplo: Usando funções de verificação de status
 
-A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#job-status-check-functions)".
+A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#status-check-functions)".
 
 ```yaml
 steps:

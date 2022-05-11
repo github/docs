@@ -11,6 +11,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## About the Pulls API
+
 La API de Solicitudes de Extracción te permite listar, ver, editar, crear e incluso fusionar solicitudes de extracción. Los comentarios en las solicitudes de extracción se pueden administrar a través de la [API de Comentarios de los Informes de Problemas](/rest/reference/issues#comments).
 
 Cada solicitud de extracción es un informe de problemas, pero no todos los informes de problemas son una solicitud de extracción. Es por esto que las acciones "compartidas" para ambas características, como el manipular a los asignados, etiquetas e hitos, se proporcionan dentro de la [API de Informes de Problemas](/rest/reference/issues).
