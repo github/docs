@@ -236,6 +236,12 @@ For more information, see "[About task lists](/articles/about-task-lists)."
 
 You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see {% ifversion fpt or ghes or ghae or ghec %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
+{% note %}
+
+**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
+
+{% endnote %}
+
 `@github/support What do you think about these updates?`
 
 ![Rendered @mention](/assets/images/help/writing/mention-rendered.png)

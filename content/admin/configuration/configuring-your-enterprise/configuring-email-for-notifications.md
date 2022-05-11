@@ -25,12 +25,7 @@ Enterprise owners can configure email for notifications.
 ## Configuring SMTP for your enterprise
 
 {% ifversion ghes %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. At the top of the page, click **Settings**.
-![Settings tab](/assets/images/enterprise/management-console/settings-tab.png)
-3. In the left sidebar, click **Email**.
-![Email tab](/assets/images/enterprise/management-console/email-sidebar.png)
+{% data reusables.enterprise_site_admin_settings.email-settings %}
 4. Select **Enable email**. This will enable both outbound and inbound email, however for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
 settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
 ![Enable outbound email](/assets/images/enterprise/management-console/enable-outbound-email.png)

@@ -187,6 +187,8 @@ jobs:
           cache-from: type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
           # `main-docker-cache.yml` handles updating the remote cache so we don't pollute it with PR specific code
           cache-to: ''
+          build-args: |
+            BUILD_SHA=${{ github.sha }}
 
       # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
       - name: 'Cancel any existing deployments for this PR'

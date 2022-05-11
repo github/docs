@@ -85,6 +85,8 @@ jobs:
           tags: ${{ env.DOCKER_IMAGE }}, ${{ env.DOCKER_IMAGE_CACHE_REF }}
           cache-from: type=registry,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
           cache-to: type=registry,mode=max,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
+          build-args: |
+            BUILD_SHA=${{ github.sha }}
 
       - name: 'Update docker-compose.prod.yaml template file'
         run: |

@@ -50,7 +50,7 @@ You can also view whether an enterprise owner has a specific role in the organiz
 | Enterprise owner | Organization owner | Able to configure organization settings and manage access to the organization's resources through teams, etc. | 
 | Enterprise owner | Organization member | Able to access organization resources and content, such as repositories, without access to the organization's settings. |
 
-To review all roles in an organization, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)." {% ifversion ghec %} An organization member can also have a custom role for a specific repository. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."{% endif %}
+To review all roles in an organization, see "[Roles in an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)." {% if custom-repository-roles %} An organization member can also have a custom role for a specific repository. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."{% endif %}
 
 For more information about the enterprise owner role, see "[Roles in an enterprise](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)." 
 

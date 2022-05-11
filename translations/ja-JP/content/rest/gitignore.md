@@ -13,7 +13,7 @@ redirect_from:
   - /rest/reference/gitignore
 ---
 
-## About the Gitignore API
+## Gitignore APIについて
 
 {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}上に新しいリポジトリをAPIを介して作成する場合、作成時にリポジトリに適用する[.gitignoreテンプレート](/github/getting-started-with-github/ignoring-files)を指定できます。 .gitignore テンプレート API は、{% data variables.product.product_name %} の [.gitignore リポジトリ](https://github.com/github/gitignore)からテンプレートを一覧表示してフェッチします。
 

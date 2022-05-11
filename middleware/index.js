@@ -37,6 +37,7 @@ import search from './search.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
 import remoteIP from './remote-ip.js'
+import buildInfo from './build-info.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
@@ -266,6 +267,7 @@ export default function (app) {
   app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
   app.use('/anchor-redirect', asyncMiddleware(instrument(anchorRedirect, './anchor-redirect')))
   app.get('/_ip', asyncMiddleware(instrument(remoteIP, './remoteIP')))
+  app.get('/_build', asyncMiddleware(instrument(buildInfo, './buildInfo')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)

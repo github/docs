@@ -22,6 +22,11 @@ Uma conta corporativa está incluída em {% data variables.product.prodname_ghe_
 
 Ao criar uma conta corporativa, a organização existente será automaticamente propriedade da conta corporativa. Todos os proprietários atuais da sua organização irão tornar-se proprietários da conta corporativa. Todos os gerentes de cobrança atuais da organização irão tornar-se gerentes de cobrança da nova conta corporativa. Os detalhes de cobrança atuais da organização, incluindo o endereço de e-mail de cobrança da organização, irão tornar-se detalhes de cobrança da conta corporativa.
 
+If the organization is connected to {% data variables.product.prodname_ghe_server %} or {% data variables.product.prodname_ghe_managed %} via {% data variables.product.prodname_github_connect %}, upgrading the organization to an enterprise account **will not** update the connection. If you want to connect to the new enterprise account, you must disable and re-enable {% data variables.product.prodname_github_connect %}.
+
+- "[Managing {% data variables.product.prodname_github_connect %}](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
+- "[Managing {% data variables.product.prodname_github_connect %}](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
+
 ## Criando uma conta corporativa em {% data variables.product.prodname_dotcom %}
 
 Para criar uma conta corporativa em {% data variables.product.prodname_dotcom %}, a sua organização deve usar {% data variables.product.prodname_ghe_cloud %} e pagar por fatura.

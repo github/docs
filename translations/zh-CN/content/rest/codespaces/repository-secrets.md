@@ -4,7 +4,6 @@ intro: 'The Repository Secrets API allows a user to create, list, and delete sec
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
 topics:
   - API
 miniTocMaxHeadingLevel: 3
