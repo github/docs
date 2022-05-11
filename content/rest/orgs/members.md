@@ -1,5 +1,7 @@
 ---
-title: Members
+title: Organization members
+allowTitleToDifferFromFilename: true
+shortTitle: Members
 intro: ''
 versions:
   fpt: '*'

@@ -17,6 +17,10 @@ Azure | Azure DevOps Personal Access Token | azure_devops_personal_access_token
 Checkout.com | Checkout.com Production Secret Key | checkout_production_secret_key
 Clojars | Clojars Deploy Token | clojars_deploy_token
 Databricks | Databricks Access Token | databricks_access_token
+DigitalOcean | DigitalOcean Personal Access Token | digitalocean_personal_access_token
+DigitalOcean | DigitalOcean OAuth Token | digitalocean_oauth_token
+DigitalOcean | DigitalOcean Refresh Token | digitalocean_refresh_token
+DigitalOcean | DigitalOcean System Token | digitalocean_system_token
 Discord | Discord Bot Token | discord_bot_token
 Doppler | Doppler Personal Token | doppler_personal_token
 Doppler | Doppler Service Token | doppler_service_token
@@ -65,7 +69,7 @@ Shippo | Shippo Live API Token | shippo_live_api_token
 Shopify | Shopify App Shared Secret | shopify_app_shared_secret
 Shopify | Shopify Access Token | shopify_access_token
 Slack | Slack API Token | slack_api_token
-Stripe | Stripe Live API Secret Key | stripe_live_secret_key
+Stripe | Stripe Live API Secret Key | stripe_api_key
 Tencent Cloud | Tencent Cloud Secret ID | tencent_cloud_secret_id
 Typeform | Typeform Personal Access Token | typeform_personal_access_token
 WorkOS | WorkOS Production API Key | workos_production_api_key
