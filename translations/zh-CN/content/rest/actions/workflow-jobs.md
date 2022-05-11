@@ -10,6 +10,8 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.about-workflow-jobs %} 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
+## About the Workflow jobs API
+
+The Workflow jobs API allows you to view logs and workflow jobs. {% data reusables.actions.about-workflow-jobs %} 更多信息请参阅“[GitHub Actions 的工作流程语法](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}

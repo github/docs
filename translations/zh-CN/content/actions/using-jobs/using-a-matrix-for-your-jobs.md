@@ -1,6 +1,6 @@
 ---
 title: Using a matrix for your jobs
-shortTitle: Using a matrix
+shortTitle: 使用矩阵
 intro: Create a matrix to define variations for each job.
 versions:
   fpt: '*'
@@ -23,15 +23,15 @@ redirect_from:
 
 {% data reusables.actions.jobs.using-matrix-strategy %}
 
-### Example: Using a single-dimension matrix
+### 示例：使用单维矩阵
 
 {% data reusables.actions.jobs.single-dimension-matrix %}
 
-### Example: Using a multi-dimension matrix
+### 示例：使用多维矩阵
 
 {% data reusables.actions.jobs.multi-dimension-matrix %}
 
-### Example: Using contexts to create matrices
+### 示例：使用上下文创建矩阵
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
@@ -39,11 +39,11 @@ redirect_from:
 
 {% data reusables.actions.jobs.matrix-include %}
 
-### Example: Expanding configurations
+### 示例：展开配置
 
 {% data reusables.actions.jobs.matrix-expand-with-include %}
 
-### Example: Adding configurations
+### 示例：添加配置
 
 {% data reusables.actions.jobs.matrix-add-with-include %}
 

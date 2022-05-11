@@ -65,7 +65,7 @@ jobs:
 
 ### 使用多个 Swift 版本
 
-You can configure your job to use multiple versions of Swift in a matrix.
+您可以将作业配置为在矩阵中使用多个版本的 Swift。
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}

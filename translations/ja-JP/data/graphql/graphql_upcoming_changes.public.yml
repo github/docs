@@ -29,13 +29,6 @@ upcoming_changes:
     criticality: 破壊的
     owner: antn
   - 
-    location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: '`isUnlicensed`は削除されます。'
-    reason: 保留中の全メンバーはライセンスを消費します
-    date: '2020-07-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BrentWheeldon
-  - 
     location: Issue.timeline
     description: '`timeline`は削除されます。代わりにIssue.timelineItemsを使ってください。'
     reason: '`timeline`は削除されます。'
@@ -56,20 +49,6 @@ upcoming_changes:
     date: '2020-10-01T00:00:00+00:00'
     criticality: 破壊的
     owner: nholden
-  - 
-    location: EnterpriseMemberEdge.isUnlicensed
-    description: '`isUnlicensed`は削除されます。'
-    reason: すべてのメンバーはライセンスを消費します
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BrentWheeldon
-  - 
-    location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: '`isUnlicensed`は削除されます。'
-    reason: すべての外部コラボレータはライセンスを消費します
-    date: '2021-01-01T00:00:00+00:00'
-    criticality: 破壊的
-    owner: BrentWheeldon
   - 
     location: MergeStateStatus.DRAFT
     description: '`DRAFT`は削除されます。代わりにPullRequest.isDraftを使ってください。'

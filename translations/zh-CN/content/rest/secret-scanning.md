@@ -1,6 +1,6 @@
 ---
-title: Secret Scanning
-intro: Use the Secret Scanning API to retrieve and update secret alerts from a repository.
+title: 秘密扫描
+intro: Use the Secret scanning API to retrieve and update secret alerts from a repository.
 versions:
   ghes: '*'
   ghae: '*'
@@ -13,6 +13,8 @@ redirect_from:
 ---
 
 {% data reusables.secret-scanning.api-beta %}
+
+## About the Secret scanning API
 
 {% data variables.product.prodname_secret_scanning %} API 可让您{% ifversion fpt or ghec or ghes > 3.1 or ghae %}：
 

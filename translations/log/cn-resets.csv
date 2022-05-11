@@ -310,7 +310,7 @@ translations/zh-CN/data/reusables/package_registry/packages-cluster-support.md,b
 translations/zh-CN/data/reusables/repositories/deleted_forks_from_private_repositories_warning.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/github-reviews-security-advisories.md,broken liquid tags
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,Listed in localization-support#489
-translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
 translations/zh-CN/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/sponsors/feedback.md,broken liquid tags

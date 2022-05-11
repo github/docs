@@ -1,6 +1,6 @@
 ---
 title: コミットのステータス
-intro: ステータス API を使用すると、外部サービスがコミットに `error`、`failure`、`pending`、`success`ステータスを付けることができ、このステータスはコミットが含まれるPull Requestに反映されます。
+intro: 'The Commit status API allows external services to mark commits with a status, which is then reflected in pull requests involving those commits.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,7 +12,9 @@ miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
 
-ステータスには、オプションとして `description` と `target_url` を含めることもできます。これにより GitHub UI でステータスをより有用なものにできるので、強くおすすめします。
+## About the Commit statuses API
+
+The Commit status API allows external services to mark commits with an `error`, `failure`, `pending`, or `success` state, which is then reflected in pull requests involving those commits. ステータスには、オプションとして `description` と `target_url` を含めることもできます。これにより GitHub UI でステータスをより有用なものにできるので、強くおすすめします。
 
 たとえば、継続的インテグレーションサービスの典型的な使用方法の一つが、ステータスを使用してコミットに成功もしくは失敗のビルドとマークすることです。  `target_url` でビルドの出力先の完全な URL、`description` でビルドで発生したことの概要を示すといったようにします。
 

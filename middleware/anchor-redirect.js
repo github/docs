@@ -4,7 +4,6 @@ import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
 const clientSideRestAPIRedirects = readCompressedJsonFileFallbackLazily(
   './lib/redirects/static/client-side-rest-api-redirects.json'
 )
-console.log(clientSideRestAPIRedirects)
 
 const router = express.Router()
 
