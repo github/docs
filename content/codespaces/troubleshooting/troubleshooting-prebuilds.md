@@ -57,6 +57,10 @@ Here are things to check if the "{% octicon "zap" aria-label="The zap icon" %} P
 * Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
 * If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-label="The Codespaces icon" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch. 
 
+## Troubleshooting failed workflow runs for prebuilds
+
+If the workflow runs for a prebuild configuration are failing, you can temporarily disable the prebuild configuration while you investigate. For more information, see "[Managing prebuilds](/codespaces/prebuilding-your-codespaces/managing-prebuilds#disabling-a-prebuild-configuration)."
+
 ## Further reading
 
 - "[Configuring prebuilds](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
