@@ -1,4 +1,4 @@
-| Provider    | サポートされているシークレット | APIスラッグ           |
+| Provider    | サポートされているシークレット | Secret type       |
 | ----------- | --------------- | ----------------- |
 | Adafruit IO | Adafruit IO Key | adafruit_io_key |
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}

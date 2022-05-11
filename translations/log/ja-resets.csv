@@ -25,7 +25,6 @@ translations/ja-JP/content/admin/configuration/configuring-network-settings/netw
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/accessing-the-management-console.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/command-line-utilities.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance.md,broken liquid tags
-translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/configuring-rate-limits.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/initializing-github-ae.md,broken liquid tags
 translations/ja-JP/content/admin/configuration/configuring-your-enterprise/site-admin-dashboard.md,broken liquid tags
@@ -35,9 +34,6 @@ translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-mach
 translations/ja-JP/content/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/index.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise.md,broken liquid tags
-translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage.md,broken liquid tags
-translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage.md,broken liquid tags
-translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-gateway-for-nas-storage.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/enabling-github-actions-for-github-enterprise-server/index.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises.md,broken liquid tags
 translations/ja-JP/content/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-ae.md,broken liquid tags
@@ -190,6 +186,7 @@ translations/ja-JP/content/packages/learn-github-packages/publishing-a-package.m
 translations/ja-JP/content/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions.md,broken liquid tags
 translations/ja-JP/content/packages/quickstart.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry.md,broken liquid tags
+translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-container-registry.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-docker-registry.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry.md,broken liquid tags
 translations/ja-JP/content/packages/working-with-a-github-packages-registry/working-with-the-npm-registry.md,broken liquid tags
