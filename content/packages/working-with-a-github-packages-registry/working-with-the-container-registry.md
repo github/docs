@@ -109,7 +109,7 @@ This example builds the `hello_docker` image:
 ## Tagging container images
 
 1. Find the ID for the Docker image you want to tag.
-  ```sh /\+"$"++='>'-"hello-world"+/\'*."..."
+  ```sh /\+"$"++='>'-"hello-world"+/\'*."..."+2
   $ docker images
   > REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
   > ghcr.io/my-org/hello_docker         latest              38f737a91f39        47 hours ago        91.7MB
