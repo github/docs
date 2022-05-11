@@ -23,7 +23,9 @@ The {% data variables.product.prodname_codespaces %} Education benefit gives ver
 
 {% data reusables.classroom.free-limited-codespaces-for-verified-teachers-beta-note %}
 
-To become a verified teacher, you need to be approved for an educator or teacher benefit. For more information, see "[Applying for an educator or teacher benefit](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount#applying-for-an-educator-or-researcher-discount)."
+To become a verified teacher, you need to be approved for an educator or teacher benefit. For more information, see "[Applying for an educator or teacher benefit](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount#applying-for-an-educator-or-researcher-discount)." 
+
+After you have confirmation that you are a verified teacher, visit [Global Campus for Teachers](https://education.github.com/globalcampus/teacher) to upgrade the organization to GitHub Team. For more information, see [GitHub's products](/get-started/learning-about-github/githubs-products#github-team). 
 
 If you are eligible for the {% data variables.product.prodname_codespaces %} Education benefit, when you enable {% data variables.product.prodname_codespaces %} in {% data variables.product.prodname_classroom %} for your organization, GitHub automatically adds a Codespace policy to restrict machine types for all codespaces in the organization to 2 core machines. This helps you make the most of the free {% data variables.product.prodname_codespaces %} usage. However, you can change or remove these policies in your organization settings. For more information, see "[Restricting access to machine types](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 

@@ -138,7 +138,7 @@ You can add a predefined dev container configuration either while working in a c
 
    ![OK button](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
 
-1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-changes-to-your-configuration)."
+1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
 
    !["Codespaces: Rebuild Container" in the {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -163,7 +163,7 @@ You can add some of the most common features by selecting them when configuring 
 
    ![The select additional features menu during container configuration](/assets/images/help/codespaces/select-additional-features.png)
 
-1. To apply the changes, in the bottom right corner of the screen, click **Rebuild now**. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-changes-to-your-configuration)."
+1. To apply the changes, in the bottom right corner of the screen, click **Rebuild now**. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
 
    !["Codespaces: Rebuild Container" in the command palette](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -211,7 +211,7 @@ You can define default editor settings for {% data variables.product.prodname_vs
 * Editor settings defined in the `.vscode/settings.json` file in your repository are applied as _Workspace_-scoped settings in the codespace.
 * Editor settings defined in the `settings` key in the `devcontainer.json` file are applied as _Remote [Codespaces]_-scoped settings in the codespace.
 
-## Applying changes to your configuration
+## Applying configuration changes to a codespace
 
 {% data reusables.codespaces.apply-devcontainer-changes %}
 
