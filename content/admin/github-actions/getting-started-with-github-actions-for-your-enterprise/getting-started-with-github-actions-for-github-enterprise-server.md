@@ -118,6 +118,8 @@ To enable {% data variables.product.prodname_actions %} on {% data variables.pro
 
 {% endnote %}
 
+{% data reusables.actions.minio-gateways-removal %}
+
 Before you enable {% data variables.product.prodname_actions %}, you can test your storage configuration from the administrative shell with the `ghe-actions-precheck` utility. For more information, see "[Command-line utilities](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-actions-check)" and "[Accessing the administrative shell (SSH)](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
 ## Networking considerations
