@@ -73,8 +73,6 @@ For more information about setting up Stripe Connect using Open Collective, see 
 {% data reusables.sponsors.tax-form-information-org %}
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
-{% data reusables.sponsors.settings-tab %}
-{% data reusables.sponsors.country-of-residence %}
 {% data reusables.sponsors.overview-tab %}
 {% data reusables.sponsors.tax-form-link %}
 
@@ -90,5 +88,6 @@ Before your organization can become a sponsored organization, you must enable 2F
 {% data reusables.sponsors.github-review-app %}
 
 ## Further reading
+
 - "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
 - "[Receiving sponsorships through {% data variables.product.prodname_sponsors %}](/sponsors/receiving-sponsorships-through-github-sponsors)"

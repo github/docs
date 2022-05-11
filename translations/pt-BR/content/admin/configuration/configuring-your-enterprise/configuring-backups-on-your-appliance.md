@@ -130,6 +130,10 @@ $ ghe-restore -c 169.154.1.1
 > Acesse https://169.154.1.1/setup/settings para revisar a configuração do appliance.
 ```
 
+{% if ip-exception-list %}
+Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+{% endif %}
+
 {% note %}
 
 **Observação:** as configurações de rede são excluídas do instantâneo de backup. Você deve configurar manualmente a rede no appliance de destino do {% data variables.product.prodname_ghe_server %} conforme o seu ambiente.

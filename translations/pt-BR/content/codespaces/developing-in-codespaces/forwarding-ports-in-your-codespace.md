@@ -150,7 +150,7 @@ Você pode etiquetar uma porta para tornar a porta mais facilmente identificáve
 
 ## Adicionar uma porta à configuração do código
 
-É possível adicionar uma porta encaminhada para a configuração {% data variables.product.prodname_codespaces %} do repositório para que a porta seja automaticamente encaminhada para todos os códigos criados a partir do repositório. Depois de atualizar a configuração, todos os codespaces criados anteriormente deverão ser reconstruídos para que a alteração seja aplicada. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_codespaces %} para seu projeto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-changes-to-your-configuration)".
+É possível adicionar uma porta encaminhada para a configuração {% data variables.product.prodname_codespaces %} do repositório para que a porta seja automaticamente encaminhada para todos os códigos criados a partir do repositório. Depois de atualizar a configuração, todos os codespaces criados anteriormente deverão ser reconstruídos para que a alteração seja aplicada. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_codespaces %} para seu projeto](/codespaces/setting-up-your-codespace/configuring-codespaces-for-your-project#applying-configuration-changes-to-a-codespace)".
 
 Você pode configurar manualmente as portas encaminhadas em um arquivo `.devcontainer.json` usando a propriedade `forwardPorts` ou você pode usar o painel "Portas" no seu codespace.
 

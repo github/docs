@@ -105,9 +105,11 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 ![Apply the rules above to administrators checkbox](/assets/images/help/repository/include-admins-protected-branches.png)
 1. Optionally,{% ifversion fpt or ghec %} if your repository is owned by an organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %},{% endif %} enable branch restrictions.
    - Select **Restrict who can push to matching branches**.
-     ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png)
-   - Search for and select the people, teams, or apps who will have permission to push to the protected branch.
-     ![Branch restriction search](/assets/images/help/repository/restrict-branch-search.png)
+     ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% if restrict-pushes-create-branch %}
+   - Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**.
+     ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
+   - Search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch.
+     ![Branch restriction search]{% if restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
 1. Optionally, under "Rules applied to everyone including administrators", select **Allow force pushes**.
   ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
