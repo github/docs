@@ -104,8 +104,8 @@ Você pode definir entradas e segredos, que podem ser passados do fluxo de traba
    ```
    {% endraw %}
    {% if actions-inherit-secrets-reusable-workflows %}
-   For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs), [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets) and [`on.workflow_call.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecretsinherit).
-1. No fluxo de trabalho reutilizável, faça referência à entrada ou segredo que você definiu na chave `on` chave na etapa anterior. If the secrets are inherited using `secrets: inherit`, you can reference them even if they are not defined in the `on` key.
+   Para detalhes da sintaxe para definir entradas e segredos, consulte [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs), [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets) and [`on.workflow_call.secrets.inherit`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecretsinherit).
+1. No fluxo de trabalho reutilizável, faça referência à entrada ou segredo que você definiu na chave `on` chave na etapa anterior. Se os segredos são herdados usando `secrets: inherit`, você pode referenciá-los mesmo que eles não estejam definidos na chave `on`.
    {%- else %}
    Para obter detalhes da sintaxe para definir as entradas e segredos, consulte [`on.workflow_call.inputs`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callinputs) e [`on.workflow_call.secrets`](/actions/reference/workflow-syntax-for-github-actions#onworkflow_callsecrets).
 1. No fluxo de trabalho reutilizável, faça referência à entrada ou segredo que você definiu na chave `on` chave na etapa anterior.
@@ -128,7 +128,7 @@ Você pode definir entradas e segredos, que podem ser passados do fluxo de traba
 
    {% note %}
 
-   **Observação**: Os segredos do ambiente são strings criptografadas armazenadas em um ambiente que você definiu para um repositório. Os segredos de ambiente só estão disponíveis para trabalhos de fluxo de trabalho que fazem referência ao ambiente apropriado. For more information, see "[Using environments for deployment](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
+   **Observação**: Os segredos do ambiente são strings criptografadas armazenadas em um ambiente que você definiu para um repositório. Os segredos de ambiente só estão disponíveis para trabalhos de fluxo de trabalho que fazem referência ao ambiente apropriado. Para obter mais informações, consulte "[Usando ambientes para implantação](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)".
 
    {% endnote %}
 

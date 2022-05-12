@@ -98,6 +98,8 @@ Se ocorrer uma falha na uma criação automática de código para uma linguagem 
 
 Se seu fluxo de trabalho falhar com um erro `Nenhum código fonte foi visto durante a criação` ou `O processo '/opt/hostedtoolcache/CodeQL/0. .0-20200630/x64/codeql/codeql' falhou com o código de saída 32`, isto indica que {% data variables.product.prodname_codeql %} não foi capaz de monitorar o seu código. Há várias explicações para essa falha:
 
+1. The repository may not contain source code that is written in languages supported by {% data variables.product.prodname_codeql %}. Check the list of supported languages and, if this is the case, remove the {% data variables.product.prodname_codeql %} workflow. For more information, see "[About code scanning with CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)
+
 1. A detecção automática da linguagem identificou uma linguagem compatível, mas não há código analisável dessa linguagem no repositório. Um exemplo típico é quando nosso serviço de detecção de linguagem encontra um arquivo associado a uma determinada linguagem de programação, como um arquivo `.h`, or `.gyp`, mas nenhum código executável correspondente está presente no repositório. Para resolver o problema, você pode definir manualmente as linguagens que você deseja analisar atualizando a lista de linguagens na matriz de </code>linguagem`. Por exemplo, a configuração a seguir analisará somente Go, e JavaScript.
 <pre><code class="yaml">  strategy:
     fail-fast: false
