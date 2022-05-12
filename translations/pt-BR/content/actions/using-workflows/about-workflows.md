@@ -124,10 +124,10 @@ jobs:
 
 For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
-{% ifversion fpt or ghec %}
+{% if actions-caching %}
 ### Memorizar dependências
 
-Executores hospedados em {% data variables.product.prodname_dotcom %} são iniciados como ambientes novos para cada trabalho. Portanto, se os seus trabalhos reutilizam dependências regularmente, você pode considerar fazer armazenamento em cache desses arquivos para ajudar a melhorar o desempenho. Após a criação do armazenamento em cache, ele fica disponível para todos os fluxos de trabalho no mesmo repositório.
+If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Após a criação do armazenamento em cache, ele fica disponível para todos os fluxos de trabalho no mesmo repositório.
 
 Este exemplo demonstra como armazenar em cache o diretório `~/.npm`:
 

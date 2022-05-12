@@ -1,6 +1,6 @@
 ---
 title: Configurar permissões para adicionar colaboradores externos
-intro: 'Para proteger os dados da organização e o o número de licenças pagas usadas, você pode permitir que somente proprietários convidem colaboradores externos para os repositórios da organização.'
+intro: 'To protect your organization''s data and the number of paid licenses used in your organization, you can configure who can add outside collaborators to organization repositories.'
 redirect_from:
   - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
   - /articles/setting-permissions-for-adding-outside-collaborators
@@ -15,7 +15,7 @@ topics:
 shortTitle: Definir política de colaborador
 ---
 
-Por padrão, qualquer pessoa com acesso de administrador a um repositório pode convidar colaboradores externos para trabalhar no repositório. Você pode optar por restringir a capacidade de convidar colaboradores externos apenas para os proprietários da organização.
+Por padrão, qualquer pessoa com acesso de administrador a um repositório pode convidar colaboradores externos para trabalhar no repositório. You can choose to restrict the ability to add outside collaborators to organization owners only.
 
 {% ifversion ghec %}
 {% note %}
@@ -31,6 +31,7 @@ Por padrão, qualquer pessoa com acesso de administrador a um repositório pode 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. Em "Repository invitations" (Convites para o repositório), selecione **Allow members to invite outside collaborators to repositories for this organization** (Permitir que os integrantes convidem colaboradores externos aos repositórios desta organização). ![Caixa de seleção para permitir que os integrantes convidem colaboradores externos aos repositórios da organização](/assets/images/help/organizations/repo-invitations-checkbox-updated.png)
+{% data reusables.organizations.member-privileges %}{% ifversion ghes < 3.3 %}
+5. Em "Repository invitations" (Convites para o repositório), selecione **Allow members to invite outside collaborators to repositories for this organization** (Permitir que os integrantes convidem colaboradores externos aos repositórios desta organização). ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-old.png){% else %}
+5. Under "Repository outside collaborators", deselect **Allow repository administrators to invite outside collaborators to repositories for this organization**. ![Checkbox to allow repository administrators to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% endif %}
 6. Clique em **Salvar**.

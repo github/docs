@@ -1,15 +1,16 @@
 ---
-title: GitHub Actions Cache
+title: GitHub Actionsキャッシュ
 allowTitleToDifferFromFilename: true
 shortTitle: キャッシュ
-intro: 'The {% data variables.product.prodname_actions %} Cache API allows you to query and manage the {% data variables.product.prodname_actions %} cache for repositories.'
+intro: '{% data variables.product.prodname_actions %} Cache APIを使うと、リポジトリの{% data variables.product.prodname_actions %}キャッシュに対するクエリと管理ができます。'
 topics:
   - API
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>3.4'
 ---
 
-## About the Cache API
+## Cache APIについて
 
-The {% data variables.product.prodname_actions %} Cache API allows you to query and manage the {% data variables.product.prodname_actions %} cache for repositories. 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)」を参照してください。
+{% data variables.product.prodname_actions %} Cache APIを使うと、リポジトリの{% data variables.product.prodname_actions %}キャッシュに対するクエリと管理ができます。 詳しい情報については、「[ワークフローを高速化するための依存関係のキャッシュ](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)」を参照してください。

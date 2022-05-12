@@ -1,1 +1,1 @@
-To prevent acceptance or submission of an assignment by students, you can change the "Assignment Status" within the "Edit assignment" view. When an assignment is Active, students will be able to accept it using the invitation link. When it is Inactive, this link will no longer be valid.
+要防止学生接受或提交作业，您可以在“Edit assignment（编辑作业）”视图中更改“Assignment Status（作业状态）”。 当作业处于活动状态时，学生将能够使用邀请链接接受该作业。 当它处于非活动状态时，此链接将不再有效。

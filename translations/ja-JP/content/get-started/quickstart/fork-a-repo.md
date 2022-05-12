@@ -210,6 +210,6 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 * You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
-* Each repository in {% data variables.product.product_name %} is owned by a person or an organization. You can interact with users, repositories, and organizations by connecting and following them on {% data variables.product.product_name %}. {% data reusables.getting-started.being-social %}
+* {% data reusables.getting-started.being-social %}
 
 * {% data reusables.support.connect-in-the-forum-bootcamp %}
