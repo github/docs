@@ -45,6 +45,6 @@ jobs:
         image: ghcr.io/example/image_name:tag
 ```
 
-Alternatively, you can write your own action to perform these steps. {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you write an action to perform these steps. For more information about writing an action, see "[Creating actions](/actions/creating-actions)".
+Alternatively, you can write your own action to perform these steps. {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you write an action to perform these steps. For more information about writing an action, see "[Creating actions](/actions/creating-actions)". todo ensure that this repo will be public, or else delete this link. todo is "maintains" too strong a word?
 
 todo link to starter workflows once available
