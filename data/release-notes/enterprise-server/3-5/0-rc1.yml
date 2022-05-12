@@ -116,8 +116,7 @@ sections:
             - You can pass environment secrets to reusable workflows.
             - The audit log includes information about which reusable workflows are used.
             - Reusable workflows in the same repository as the calling repository can be referenced with just the path and filename (`PATH/FILENAME`). The called workflow will be from the same commit as the caller workflow.
-            - Reusable workflows are subject to your organization's actions access policy. Previously, even if your organization had configured the "Allow select actions" policy, you were still able to use a reusable workflow from any location. Now if you use a reusable workflow that falls outside of that policy, your run will fail. For more information, see "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-to-restrict-the-use-of-actions-in-your-enterprise)."
-
+          
     - heading: Self-hosted runners for GitHub Actions can now disable automatic updates
       notes:
         # https://github.com/github/releases/issues/2014
