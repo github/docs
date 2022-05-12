@@ -20,11 +20,6 @@ versions:
 
 {% mac %}
 
-{% data reusables.desktop.sign-in-choose-product %}
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-{% data reusables.desktop.copy-email-git-config %}
-{% data reusables.desktop.return-to-desktop %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 7. In the Preferences window, click **Git**.
   ![The Git Pane in the Preferences menu](/assets/images/help/desktop/mac-select-git-pane.png)
@@ -39,11 +34,6 @@ versions:
 
 {% windows %}
 
-{% data reusables.desktop.sign-in-choose-product %}
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.emails %}
-{% data reusables.desktop.copy-email-git-config %}
-{% data reusables.desktop.return-to-desktop %}
 {% data reusables.desktop.windows-choose-options %}
 8. In the Options window, click **Git**.
 ![The Git Pane in the Options menu](/assets/images/help/desktop/windows-select-git-pane.png)
