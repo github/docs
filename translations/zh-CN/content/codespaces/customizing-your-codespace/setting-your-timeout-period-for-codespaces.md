@@ -12,7 +12,7 @@ shortTitle: 设置超时
 
 代码空间将在一段时间不活动后停止运行。 您可以指定此超时期限的长度。 更新后的设置将应用于任何新创建的代码空间。
 
-Some organizations may have a maximum idle timeout policy. If an organization policy sets a maximum timeout which is less than the default timeout you have set, the organization's timeout will be used instead of your setting, and you will be notified of this after the codespace is created. For more information, see "[Restricting the idle timeout period](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
+某些组织可能有最大空闲超时策略。 如果组织策略设置的最大超时小于您设置的默认超时，则将使用组织的超时而不是您的设置，并且在创建代码空间后，您将收到通知。 更多信息请参阅“[限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)”。
 
 {% warning %}
 

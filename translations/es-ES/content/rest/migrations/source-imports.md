@@ -1,6 +1,6 @@
 ---
 title: Importaciones de Código Fuente
-intro: '{% data variables.migrations.source_imports_intro %}'
+intro: ''
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,7 +9,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Una importación de código fuente habitual inicia la importación y luego actualiza (opcionalmente) a los autores y/o actualiza las preferencias para utilizar el LFS de Ggit si existen archivos grandes en la importación. También puedes crear un webhook que escuche al [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) para encontrar el estado de la importación.
+## About the Source imports API
+
+{% data variables.migrations.source_imports_intro %} A typical source import would start the import and then (optionally) update the authors and/or update the preference for using Git LFS if large files exist in the import. También puedes crear un webhook que escuche al [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) para encontrar el estado de la importación.
 
 Se puede ver un ejemplo más detallado en este diagrama:
 

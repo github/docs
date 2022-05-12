@@ -6,7 +6,7 @@
 - 每周时事通讯更新
 - 您的赞助者将享受其他奖励 ✨
 
-{% data reusables.sponsors.sponsors-only-repos %} For more information, see "[Adding a repository to a sponsorship tier](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)."
+{% data reusables.sponsors.sponsors-only-repos %}更多信息请参阅“[将存储库添加到赞助层](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)”。
 
 您可以加入欢迎消息，其中包含有关访问或接收奖励的信息，这些信息在付款后和欢迎电子邮件中可见。
 

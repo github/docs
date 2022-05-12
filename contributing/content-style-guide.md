@@ -590,8 +590,8 @@ The following documentation should reference "user accounts."
 
 For enterprises on GitHub Enterprise Cloud that don't use Enterprise Managed Users, use "personal account" when describing members of organizations owned by the enterprise.
 
-- **Use:** If you configure SAML SSO, members of your organization will continue to log into their personal accounts on GitHub.com.
-- **Avoid:** If you configure SAML SSO, members of your organization will continue to log into their user accounts on GitHub.com.
+- **Use:** If you configure SAML SSO, members of your organization will continue to sign into their personal accounts on GitHub.com.
+- **Avoid:** If you configure SAML SSO, members of your organization will continue to sign into their user accounts on GitHub.com.
 
 Documentation that describes GitHub Enterprise Cloud without Enterprise Managed Users is generally in the "[Managing SAML single sign-on for your organization](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization)" category.
 

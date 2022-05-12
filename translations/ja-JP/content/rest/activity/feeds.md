@@ -11,9 +11,13 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
+## Feeds APIについて
+
+利用できるフィードを見るには、[Get feeds](#get-feeds)操作を使います。 そして、フィードURLの1つにリクエストを送信することによって、フィードを取得できます。
+
 ### Atomフィードの取得例
 
-フィードをAtom形式で取得するには、`Accept`ヘッダ中で`application/atom+xml`タイプを指定しなければなりません。 以下は、GitHubセキュリティアドバイザリに対するAtomフィードの取得例です。
+Atom 形式のフィードを取得するには、`Accept` ヘッダで `application/atom+xml` タイプを指定する必要があります。 たとえば、GitHub のセキュリティアドバイザリの Atom フィードを取得するには、次のように記述します。
 
     curl -H "Accept: application/atom+xml" https://github.com/security-advisories
 

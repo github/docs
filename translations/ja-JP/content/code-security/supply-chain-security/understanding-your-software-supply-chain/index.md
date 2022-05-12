@@ -9,7 +9,7 @@ topics:
   - Dependency graph
   - Dependencies
   - Repositories
-shortTitle: Understand your supply chain
+shortTitle: サプライチェーンの理解
 children:
   - /about-supply-chain-security
   - /about-the-dependency-graph

@@ -13,23 +13,21 @@ topics:
   - Organizations
   - Teams
 shortTitle: Configurar la política de cambios de visibilidad
+permissions: Organization owners can restrict repository visibility changes for an organization.
 ---
 
-Puedes restringir la habilidad de cambiar la visibilidad de un repositorio para solo los propietarios de la organización o permitir que los miembros con privilegios administrativos en éste también cambien la visibilidad.
+You can restrict who has the ability to change the visibility of repositories in your organization, such as changing a repository from private to public. For more information about repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+
+You can restrict the ability to change repository visibility to organization owners only, or you can allow anyone with admin access to a repository to change visibility.
 
 {% warning %}
 
-**Advertencia**: En caso de habilitarse, este ajuste permite a las personas con permisos administrativos cambiar un repositorio existente a cualquier visibilidad, aún si no permites que se cree este tipo de repositorio. Para obtener más información acerca de cómo restringir la visibilidad de los repositorios durante su creación, consulta la sección "[Restringir la creación de repositorios en tu organización](/articles/restricting-repository-creation-in-your-organization)".
+**Warning**: If enabled, this setting allows people with admin access to choose any visibility for an existing repository, even if you do not allow that type of repository to be created. Para obtener más información acerca de cómo restringir la visibilidad de los repositorios durante su creación, consulta la sección "[Restringir la creación de repositorios en tu organización](/articles/restricting-repository-creation-in-your-organization)".
 
 {% endwarning %}
-
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. En "Repository visibility change" (Cambio en la visibilidad de los repositorios), anula la selección de **Allow members to change repository visibilities for this organization** (Permitir que los miembros cambien las visibilidades de los repositorios para esta organización). ![Casilla para permitir que los miembros cambien la visibilidad de los repositorios](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
 6. Haz clic en **Save ** (guardar).
-
-## Leer más
-
-- "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"

@@ -1,6 +1,6 @@
 ---
 title: コミットのコメント
-intro: ''
+intro: コミットコメントAPIを使用すると、特定のコミットに関連するコメントの作成と編集ができます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,6 +11,10 @@ topics:
 miniTocMaxHeadingLevel: 3
 allowTitleToDifferFromFilename: true
 ---
+
+## コミットコメントAPIについて
+
+コミットコメントAPIを使用すると、特定のコミットに関連するコメントの作成と編集ができます。
 
 ### コミットコメントのカスタムメディアタイプ
 

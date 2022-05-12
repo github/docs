@@ -20,7 +20,7 @@ topics:
 
 本指南说明如何使用 {% data variables.product.prodname_actions %} 构建并部署 Python 项目到 [Azure App Service](https://azure.microsoft.com/services/app-service/)。
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 

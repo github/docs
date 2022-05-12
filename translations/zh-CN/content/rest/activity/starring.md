@@ -1,6 +1,6 @@
 ---
 title: 标星
-intro: 仓库标星是允许用户为仓库添加书签的功能。
+intro: 通过星标 API，您可以为存储库添加书签。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,7 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-显示在仓库旁边的星标表示大致的兴趣程度。 星标对通知或活动馈送没有影响。
+## 关于星标 API
+
+通过星标 API，您可以为存储库添加书签。 显示在仓库旁边的星标表示大致的兴趣程度。 星标对通知或活动馈送没有影响。 更多信息请参阅“[使用星标保存仓库](/get-started/exploring-projects-on-github/saving-repositories-with-stars)”。
 
 ### 标星与 关注
 

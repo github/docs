@@ -54,6 +54,8 @@ Una vez que se revoca una autorización, cualquier token asociado con la autoriz
 
 El propietario de una {% data variables.product.prodname_oauth_app %} puede revocar una autorización de su app en una cuenta, esto también revocará cualquier token asociado con esa autorización. Para obtener más información sobre cómo revocar las autorizaciones de tu app de OAuth, consulta la sección "[Borrar una autorización de una app](/rest/reference/apps#delete-an-app-authorization)".
 
+{% data variables.product.prodname_oauth_app %} owners can also revoke individual tokens associated with an authorization. For more information about revoking individual tokens for your OAuth app, see "[Delete an app token](/rest/apps/oauth-applications#delete-an-app-token)".
+
 ## El token se revocó debido a un exceso de tokens para una {% data variables.product.prodname_oauth_app %} con el mismo alcance
 
 {% data reusables.apps.oauth-token-limit %}

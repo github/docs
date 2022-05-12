@@ -36,6 +36,7 @@ children:
   - /configuring-github-pages-for-your-enterprise
   - /configuring-the-referrer-policy-for-your-enterprise
   - /configuring-custom-footers
+  - /configuring-web-commit-signing
 shortTitle: 配置企业
 ---
 

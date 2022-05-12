@@ -1,6 +1,8 @@
 ---
-title: Tráfico
-intro: 'For repositories that you have push access to, the traffic API provides access to the information provided in your repository graph.'
+title: Repository traffic
+shortTitle: Tráfico
+allowTitleToDifferFromFilename: true
+intro: The Repository traffic API provides access to the information provided in your repository graph.
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,4 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Para obtener más información, consulta la sección "<a href="/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository" class="dotcom-only">Ver el tráfico hacia un repositorio</a>".
+## About the Repository traffic API
+
+For repositories that you have push access to, the Repository traffic API provides access to the information provided in your repository graph. Para obtener más información, consulta la sección "[Ver el tráfico hacia un repositorio](/repositories/viewing-activity-and-data-for-your-repository/viewing-traffic-to-a-repository)".

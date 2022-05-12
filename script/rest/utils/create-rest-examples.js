@@ -15,7 +15,35 @@ export default function getCodeSamples(operation) {
   const responseExamples = getResponseExamples(operation)
   const requestExamples = getRequestExamples(operation)
 
-  return mergeExamples(requestExamples, responseExamples)
+  const mergedExamples = mergeExamples(requestExamples, responseExamples)
+
+  // If there are multiple examples and if the request body
+  // has the same description, add a number to the example
+  if (mergedExamples.length > 1) {
+    const count = {}
+    mergedExamples.forEach((item) => {
+      count[item.request.description] = (count[item.request.description] || 0) + 1
+    })
+
+    const newMergedExamples = mergedExamples.map((example, i) => ({
+      ...example,
+      request: {
+        ...example.request,
+        description:
+          count[example.request.description] > 1
+            ? example.request.description +
+              ' ' +
+              (i + 1) +
+              ': Status Code ' +
+              example.response.statusCode
+            : example.request.description,
+      },
+    }))
+
+    return newMergedExamples
+  }
+
+  return mergedExamples
 }
 
 export function mergeExamples(requestExamples, responseExamples) {
@@ -264,9 +292,9 @@ export function getResponseExamples(operation) {
         responseExamples.push(example)
         return
       } else {
+        // Example for this content type doesn't exist.
         // We could also check if there is a fully populated example
         // directly in the response schema examples properties.
-        // Example for this content type doesn't exist
         return
       }
 
@@ -285,7 +313,7 @@ export function getResponseExamples(operation) {
             // how we write the JSON file helps a lot, but we should revisit
             // adding the response schema to ensure we have a way to view the
             // prettified JSON before minimizing it.
-            // schema: operation.responses[statusCode].content[contentType].schema,
+            schema: operation.responses[statusCode].content[contentType].schema,
           },
         }
         responseExamples.push(example)

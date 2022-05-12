@@ -11,7 +11,7 @@ versions:
 ---
  
 
-## セルフホストランナーグループ
+## セルフホストランナーグループAPIについて
 
 セルフホストランナーグループ API を使用すると、セルフホストランナーのグループを管理できます。 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
 
