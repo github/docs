@@ -57,6 +57,7 @@ const PUBLIC_REPOS = new Set([
   'codespaces-precache',
   'advisory-database',
   'browser-support',
+  'dependency-submission-toolkit',
 ])
 
 const ALLOW_DOCS_PATHS = [
