@@ -43,26 +43,26 @@ describe('removing liquid statements only', () => {
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe(`{% ifversion ghes %}\n
-  Alpha\n\n{% endif %}`)
+Alpha\n\n{% endif %}`)
     expect($('.example2').text().trim()).toBe(`{% ifversion fpt or ghes %}\n
-  Alpha\n\n{% endif %}`)
+Alpha\n\n{% endif %}`)
     expect($('.example3').text().trim()).toBe(`{% ifversion ghes %}\n
-  Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
+Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
     expect($('.example4').text().trim()).toBe(`{% ifversion ghes > 2.16 %}\n
-  Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes %}\n\nCharlie\n\n{% endif %}\n\n{% endif %}`)
+Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes %}\n\nCharlie\n\n{% endif %}\n\n{% endif %}`)
     expect($('.example5').text().trim()).toBe(`{% ifversion ghes < 2.16 %}\n
-  Alpha\n\n{% ifversion ghes %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+Alpha\n\n{% ifversion ghes %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example6').text().trim()).toBe(`{% ifversion ghes %}\n\nAlpha\n
-  {% ifversion ghes < 2.16 %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+{% ifversion ghes < 2.16 %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example7').text().trim()).toBe(`{% ifversion ghes %}\n\nAlpha\n
-  {% ifversion ghes > 2.16 %}\n\nBravo\n\n{% else %}\n\nCharlie\n\n{% endif %}\n\n{% endif %}`)
+{% ifversion ghes > 2.16 %}\n\nBravo\n\n{% else %}\n\nCharlie\n\n{% endif %}\n\n{% endif %}`)
     expect($('.example8').text().trim()).toBe(`{% ifversion ghes %}\n\nAlpha\n
-  {% else %}\n\nBravo\n\n{% ifversion not fpt %}\n\nCharlie\n\n{% endif %}\n\nDelta\n\n{% endif %}`)
+{% else %}\n\nBravo\n\n{% ifversion not fpt %}\n\nCharlie\n\n{% endif %}\n\nDelta\n\n{% endif %}`)
     expect($('.example9').text().trim()).toBe(`{% ifversion fpt %}\n
-  Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes > 2.16 %}\n\nCharlie\n
-  {% endif %}\n\n{% ifversion ghes %}\n\nDelta\n\n{% endif %}\n\n{% endif %}`)
+Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes > 2.16 %}\n\nCharlie\n
+{% endif %}\n\n{% ifversion ghes %}\n\nDelta\n\n{% endif %}\n\n{% endif %}`)
     expect($('.example10').text().trim()).toBe(`{% ifversion ghes %}\n\nAlpha\n
-  {% else %}\n\nBravo\n\n{% endif %}`)
+{% else %}\n\nBravo\n\n{% endif %}`)
   })
   test('removes liquid statements that specify all known versions"', async () => {
     let contents = await readFileAsync(greaterThanNested, 'utf8')
@@ -92,13 +92,13 @@ describe('removing liquid statements only', () => {
     )
     expect($('.example2').text().trim())
       .toBe(`{% ifversion not fpt and ghes %}\n\nAlpha\n\n{% else %}\n
-  Bravo\n\n{% endif %}`)
+Bravo\n\n{% endif %}`)
     expect($('.example3').text().trim()).toBe(`{% ifversion ghes > 2.16 %}\n
-  Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion not fpt and ghes %}\n\nCharlie\n\n{% endif %}\n{% endif %}`)
+Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion not fpt and ghes %}\n\nCharlie\n\n{% endif %}\n{% endif %}`)
     expect($('.example4').text().trim()).toBe(`{% ifversion ghes < 2.16 %}\n
-  Alpha\n\n{% ifversion not fpt and ghes %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+Alpha\n\n{% ifversion not fpt and ghes %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example5').text().trim()).toBe(`{% ifversion not fpt and ghes %}\n
-  Alpha\n\n{% ifversion ghes > 2.16 %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+Alpha\n\n{% ifversion ghes > 2.16 %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
   })
 
   test('removes liquid statements that specify "and greater than version to deprecate" (alternate format)', async () => {
@@ -107,13 +107,13 @@ describe('removing liquid statements only', () => {
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('{% ifversion ghes < 2.16 %}\n\nAlpha\n\n{% endif %}')
     expect($('.example2').text().trim()).toBe(`{% ifversion ghes < 2.16 %}\n\nAlpha\n\n{% else %}\n
-  Bravo\n\n{% endif %}`)
+Bravo\n\n{% endif %}`)
     expect($('.example3').text().trim()).toBe(`{% ifversion fpt %}\n
-  Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes < 2.16 %}\n\nCharlie\n\n{% endif %}\n\n{% endif %}`)
+Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes < 2.16 %}\n\nCharlie\n\n{% endif %}\n\n{% endif %}`)
     expect($('.example4').text().trim()).toBe(`{% ifversion not fpt %}\n
-  Alpha\n\n{% ifversion ghes < 2.16 %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+Alpha\n\n{% ifversion ghes < 2.16 %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example5').text().trim()).toBe(`{% ifversion ghes < 2.16 %}\n
-  Alpha\n\n{% ifversion not fpt %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+Alpha\n\n{% ifversion not fpt %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
   })
 
   test('removes liquid statements that specify "not equals version to deprecate"', async () => {
@@ -123,14 +123,14 @@ describe('removing liquid statements only', () => {
     expect($('.example1').text().trim()).toBe('{% ifversion ghes %}\n\nAlpha\n\n{% endif %}')
     expect($('.example2').text().trim()).toBe('{% ifversion fpt or ghes %}\n\nAlpha\n\n{% endif %}')
     expect($('.example3').text().trim()).toBe(`{% ifversion fpt %}\n
-  Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes %}\n\nCharlie\n\n{% endif %}\n\n{% endif %}`)
+Alpha\n\n{% else %}\n\nBravo\n\n{% ifversion ghes %}\n\nCharlie\n\n{% endif %}\n\n{% endif %}`)
     expect($('.example4').text().trim()).toBe(`{% ifversion fpt %}\n
-  Alpha\n\n{% ifversion ghes %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+Alpha\n\n{% ifversion ghes %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example5').text().trim())
       .toBe(`{% ifversion ghes %}\n\nAlpha\n\n{% ifversion fpt %}\n
-  Bravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+Bravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example6').text().trim()).toBe(`{% ifversion not fpt and ghes %}\n
-  Alpha\n\n{% endif %}`)
+Alpha\n\n{% endif %}`)
   })
 })
 
@@ -142,9 +142,9 @@ describe('removing liquid statements and content', () => {
     expect($('.example1').text().trim()).toBe('')
     expect($('.example2').text().trim()).toBe('{% ifversion not fpt %}\n\nAlpha\n\n{% endif %}')
     expect($('.example3').text().trim()).toBe(`{% ifversion fpt %}\n
-  Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
+Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
     expect($('.example4').text().trim()).toBe(`{% ifversion fpt %}\n
-  Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example5').text().trim()).toBe('Charlie')
     expect($('.example6').text().trim()).toBe(
       'Charlie\n\n{% ifversion fpt or ghes %}\n\nBravo\n\n{% endif %}'
@@ -160,16 +160,16 @@ describe('removing liquid statements and content', () => {
       'Alpha\n\n{% ifversion fpt %}\n\nBravo\n\n{% endif %}'
     )
     expect($('.example3').text().trim()).toBe(`{% ifversion fpt %}\n
-  Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
+Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
     expect($('.example4').text().trim()).toBe(`{% ifversion fpt %}\n
-  Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example5').text().trim()).toBe('Charlie')
     expect($('.example6').text().trim()).toBe(`{% ifversion ghes < 2.16 %}\n
-  Alpha\n\n{% else %}\n\nCharlie\n\n{% ifversion not fpt %}\n\nBravo\n\n{% endif %}\n\n{% endif %}`)
+Alpha\n\n{% else %}\n\nCharlie\n\n{% ifversion not fpt %}\n\nBravo\n\n{% endif %}\n\n{% endif %}`)
     expect($('.example7').text().trim()).toBe(`{% ifversion not fpt %}\n
-  Alpha\n\nCharlie\n\n{% endif %}`)
+Alpha\n\nCharlie\n\n{% endif %}`)
     expect($('.example8').text().trim()).toBe(`Bravo\n\n{% ifversion ghes > 2.16 %}\n
-  Charlie\n\n{% else %}\n\nDelta\n\n{% endif %}\n\nEcho`)
+Charlie\n\n{% else %}\n\nDelta\n\n{% endif %}\n\nEcho`)
   })
 })
 
