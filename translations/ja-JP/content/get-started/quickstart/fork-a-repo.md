@@ -154,7 +154,7 @@ When you fork a project in order to propose changes to the original repository, 
 
 6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. 次のようになります:
   ```shell
-  $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/Spoon-Knife.git
   ```
 
 7. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. フォークの URL が `origin` として、オリジナルのリポジトリの URL が `upstream` として表示されるはずです。

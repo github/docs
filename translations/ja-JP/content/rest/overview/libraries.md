@@ -42,7 +42,7 @@ topics:
 
 | ライブラリ名          | リポジトリ                                                                   |
 | --------------- | ----------------------------------------------------------------------- |
-| **github.dart** | [DirectMyFile/github.dart](https://github.com/DirectMyFile/github.dart) |
+| **github.dart** | [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart) |
 
 ### Emacs Lisp
 
