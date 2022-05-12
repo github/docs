@@ -64,6 +64,7 @@ import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
+import protect from './overload-protection.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -116,6 +117,12 @@ export default function (app) {
   //    left-most entry in the X-Forwarded-For header.
   //
   app.set('trust proxy', true)
+
+  // *** Overload Protection ***
+  // Only used in production because our tests can overload the server
+  if (process.env.NODE_ENV === 'production') {
+    app.use(protect)
+  }
 
   // *** Request logging ***
   // Enabled in development and azure deployed environments
