@@ -118,7 +118,7 @@ products:
       preview_notice_to_change: This API is under preview and subject to change
       works_with: Works with
       api_reference: REST API reference
-      enum_description_title: Valores possíveis
+      enum_description_title: Pode ser uma das ações a seguir
       required: Obrigatório
       headers: Headers
       query: Parâmetros de consulta

@@ -49,7 +49,7 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 | Members with support entitlements | 10 | 25 |
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
 | Scheduled checks| Bi-annual health check and reporting             | <ul><li>Quarterly health check and reporting</li><li>Quarterly account reviews</li></ul>    |
-| Administration assistance| | 4 hours per month  |
+| Administration assistance| None | 4 hours per month  |
 
   {% note %}
 

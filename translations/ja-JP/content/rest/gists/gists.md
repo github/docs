@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Gists API
+## Gists APIについて
 
-The Gist API lets you view and modify gists. For more information about gists, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+Gists APIを使うと、Gistの表示と編集ができます。 Gistに関する詳しい情報については「[Gistとのコンテンツの編集と共有](/get-started/writing-on-github/editing-and-sharing-content-with-gists)」を参照してください。
 
 ### 認証
 

@@ -1,5 +1,5 @@
 ---
-title: Repository Webhooks
+title: 仓库 web 挂钩
 intro: ''
 versions:
   fpt: '*'

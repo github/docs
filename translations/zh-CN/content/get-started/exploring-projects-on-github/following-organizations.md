@@ -17,7 +17,7 @@ topics:
 
 当您关注组织时，您将在个人仪表板上看到他们的公共活动。 更多信息请参阅“[关于个人仪表板](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)”。
 
-如果您不希望在 {% data variables.product.product_name %} 上看到某个组织的公开活动，则可以取消关注该组织。
+You can unfollow an organization if you do not wish to see their {% ifversion fpt or ghec %}public{% endif %} activity on {% data variables.product.product_name %}.
 
 ## 在 {% data variables.product.product_name %} 上关注组织
 

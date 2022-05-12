@@ -47,7 +47,7 @@ Pull Requestの説明またはコミットメッセージで、サポートさ�
 * resolves
 * resolved
 
-他のPull RequestでPull Requestのコメントを参照するためにキーワードを使用すると、Pull Requestはリンクされます。 参照元のPull Requestをマージすると、参照先のPull Requestもクローズされます。
+他のPull RequestでPull Requestのコメントを参照するためにキーワードを使用すると、Pull Requestはリンクされます。 Merging the referencing pull request will also close the referenced issue.
 
 クローズするキーワードの構文は、IssueがPull Requestと同じリポジトリにあるかどうかによって異なります。
 

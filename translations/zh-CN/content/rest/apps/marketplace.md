@@ -1,5 +1,7 @@
 ---
-title: Marketplace
+title: GitHub Marketplace
+allowTitleToDifferFromFilename: true
+shortTitle: Marketplace
 intro: ''
 topics:
   - API
@@ -8,6 +10,8 @@ versions:
   fpt: '*'
   ghec: '*'
 ---
+
+## About the {% data variables.product.prodname_marketplace %} API
 
 For more information about {% data variables.product.prodname_marketplace %}, see "[GitHub Marketplace](/marketplace/)."
 

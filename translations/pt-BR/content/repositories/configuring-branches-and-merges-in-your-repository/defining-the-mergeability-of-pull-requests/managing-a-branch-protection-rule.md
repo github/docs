@@ -88,8 +88,9 @@ Ao criar uma regra de branch, o branch que você especificar ainda não existe n
 {%- endif %}
 1. Opcionalmente, selecione **Aplicar as regras acima aos administradores**. ![Aplicar as regras acima à caixa de seleção dos administradores](/assets/images/help/repository/include-admins-protected-branches.png)
 1. Opcionalmente, {% ifversion fpt or ghec %} se o repositório pertencer a uma organização que usa {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %},{% endif %} habilitar as restrições de branches.
-   - Selecione **Restringir quem pode fazer push para os branches correspondentes**. ![Caixa de seleção Branch restriction (Restrição de branch)](/assets/images/help/repository/restrict-branch.png)
-   - Procurar e selecionar pessoas, equipes ou aplicativos que tenham permissão para fazer push para o branch protegido. ![Pesquisa de restrição de branch](/assets/images/help/repository/restrict-branch-search.png)
+   - Selecione **Restringir quem pode fazer push para os branches correspondentes**. ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% if restrict-pushes-create-branch %}
+   - Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**. ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
+   - Search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch. ![Branch restriction search]{% if restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
 1. Opcionalmente, em "Regras aplicadas a todos incluindo administradores", selecione **Permitir pushes forçados**. ![Permitir opção push forçado](/assets/images/help/repository/allow-force-pushes.png)
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
   Em seguida, escolha quem pode fazer push forçado no branch.

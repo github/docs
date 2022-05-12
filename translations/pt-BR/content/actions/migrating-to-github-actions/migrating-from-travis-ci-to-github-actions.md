@@ -302,7 +302,11 @@ jobs:
 
 ## Memorizar dependências
 
-O Travis CI e {% data variables.product.prodname_actions %} permitem que você armazene as as dependências em cache manualmente para reutilização posterior. Esse exemplo demonstra a sintaxe do cache para cada sistema.
+O Travis CI e {% data variables.product.prodname_actions %} permitem que você armazene as as dependências em cache manualmente para reutilização posterior.
+
+{% if actions-caching %}
+
+Esse exemplo demonstra a sintaxe do cache para cada sistema.
 
 <table>
 <tr>
@@ -337,7 +341,11 @@ cache: npm
 </tr>
 </table>
 
-O cache de {% data variables.product.prodname_actions %} só é aplicável para repositórios hospedados em {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Memorizar dependências para acelerar fluxos de trabalho</a>".
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## Exemplos de tarefas comuns
 

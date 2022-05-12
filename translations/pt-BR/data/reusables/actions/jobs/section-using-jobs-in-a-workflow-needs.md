@@ -31,4 +31,4 @@ jobs:
     needs: [job1, job2]
 ```
 
-Neste exemplo, `job3` usa a expressão condicional `always()` para que ela sempre seja executada depois de `job1` e `job2` terem sido concluídos, independentemente de terem sido bem sucedidos. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#job-status-check-functions)".
+Neste exemplo, `job3` usa a expressão condicional `always()` para que ela sempre seja executada depois de `job1` e `job2` terem sido concluídos, independentemente de terem sido bem sucedidos. Para obter mais informações, consulte "[Expressões](/actions/learn-github-actions/expressions#status-check-functions)".

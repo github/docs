@@ -24,7 +24,7 @@ shortTitle: Aumentar capacidade de armazenamento
 
 {% note %}
 
-**Observação:** antes de redimensionar qualquer volume de armazenamento, coloque a sua instância em modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+**Note:** Before resizing any storage volume, put your instance in maintenance mode.{% if ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 
 {% endnote %}
 

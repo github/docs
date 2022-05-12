@@ -1,6 +1,6 @@
 ---
 title: 部署
-intro: The Deployments API allows you to create and delete deployments and deployment environments.
+intro: 部署 API 允许您创建和删除部署和部署环境。
 versions:
   fpt: '*'
   ghes: '*'
@@ -10,6 +10,8 @@ topics:
   - API
 miniTocMaxHeadingLevel: 3
 ---
+
+## 关于部署 API
 
 部署是部署特定引用（分支、SHA、标记）的请求。 GitHub 分发一个 [`deployment` 事件](/developers/webhooks-and-events/webhook-events-and-payloads#deployment)，使外部服务可以在创建新部署时侦听并采取行动。 部署使开发者和组织能够围绕部署构建松散耦合的工具，而不必担心交付不同类型的应用程序（例如 Web 和本地应用程序）的实现细节。
 
