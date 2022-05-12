@@ -166,6 +166,7 @@ An overview of some of the most common actions that are recorded as events in th
 | `create` | Triggered when [a new repository is created](/articles/creating-a-new-repository).
 | `destroy` |  Triggered when [a repository is deleted](/articles/deleting-a-repository).{% ifversion fpt or ghec %}
 | `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}{% ifversion fpt or ghec %}
+| `download_zip` | Triggered when a ZIP or TAR archive of a repository is downloaded.
 | `enable` | Triggered when a repository is re-enabled.{% endif %}
 | `remove_member` | Triggered when a {% data variables.product.product_name %} user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).
 | `remove_topic` | Triggered when a repository owner removes a topic from a repository.

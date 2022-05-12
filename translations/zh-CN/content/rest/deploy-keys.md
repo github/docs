@@ -1,6 +1,6 @@
 ---
-title: 管理部署密钥
-intro: ''
+title: 部署密钥
+intro: 部署密钥 API 允许您创建和管理部署密钥。
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,6 +13,8 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /rest/reference/deploy_keys
 ---
+
+## 关于部署密钥 API
 
 {% data reusables.repositories.deploy-keys %}
 

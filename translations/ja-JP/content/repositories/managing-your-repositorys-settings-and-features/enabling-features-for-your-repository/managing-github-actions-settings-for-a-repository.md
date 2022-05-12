@@ -63,11 +63,11 @@ You can disable {% data variables.product.prodname_actions %} for a repository, 
 1. Under "Actions permissions", select {% data reusables.actions.policy-label-for-select-actions-workflows %} and add your required actions to the list.
 
    {% if actions-workflow-policy%}
-   ![Add actions and reusable workflows to the allow list](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
+   ![許可リストへのアクションと再利用可能なワークフローの追加](/assets/images/help/repository/actions-policy-allow-list-with-workflows.png)
    {%- elsif ghes %}
-   ![Add actions to the allow list](/assets/images/help/repository/actions-policy-allow-list.png)
+   ![許可リストへのアクションの追加](/assets/images/help/repository/actions-policy-allow-list.png)
    {%- else %}
-   ![Add actions to the allow list](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
+   ![許可リストへのアクションの追加](/assets/images/enterprise/github-ae/repository/actions-policy-allow-list.png)
    {%- endif %}
 1. [**Save**] をクリックします。
 
@@ -156,3 +156,20 @@ You can use the steps below to configure whether {% if internal-actions%}actions
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-retention-period-for-artifacts-logs  %}
+
+{% if actions-cache-policy-apis %}
+
+## Configuring cache storage for a repository
+
+{% data reusables.actions.cache-default-size %} However, these default sizes might be different if an enterprise owner has changed them. {% data reusables.actions.cache-eviction-process %}
+
+You can set a total cache storage size for your repository up to the maximum size allowed by the enterprise policy setting.
+
+The repository settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
+
+* To view the current cache storage limit for a repository, see "[Get GitHub Actions cache usage policy for a repository](/rest/actions/cache#get-github-actions-cache-usage-policy-for-a-repository)."
+* To change the cache storage limit for a repository, see "[Set GitHub Actions cache usage policy for a repository](/rest/actions/cache#set-github-actions-cache-usage-policy-for-a-repository)."
+
+{% data reusables.actions.cache-no-org-policy %}
+
+{% endif %}

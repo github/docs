@@ -176,6 +176,9 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
+{% if ip-exception-list %}
+1. Optionally, to validate the upgrade, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+{% endif %}
 7. For single appliance upgrades, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
   {% note %}

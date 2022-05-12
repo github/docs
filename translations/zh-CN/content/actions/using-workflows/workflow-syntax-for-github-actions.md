@@ -95,7 +95,7 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+更多信息请参阅“[重用工作流程](/actions/learn-github-actions/reusing-workflows)”。
 
 #### `on.workflow_call.inputs.<input_id>.type`
 
@@ -124,7 +124,7 @@ on:
 ```
 {% endraw %}
 
-有关如何引用作业输出的信息，请参阅 [`jobs.<job_id>.outputs`](#jobsjob_idoutputs)。 For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+有关如何引用作业输出的信息，请参阅 [`jobs.<job_id>.outputs`](#jobsjob_idoutputs)。 更多信息请参阅“[重用工作流程](/actions/learn-github-actions/reusing-workflows)”。
 
 ### `on.workflow_call.secrets`
 
@@ -156,6 +156,42 @@ jobs:
           token: ${{ secrets.access-token }}
 ```
 {% endraw %}
+
+{% if actions-inherit-secrets-reusable-workflows %}
+
+#### `on.workflow_call.secrets.inherit`
+
+使用 `inherit` 关键字将调用工作流程的所有机密传递给被调用的工作流程。 这包括调用工作流程有权访问的所有机密，即组织、存储库和环境机密。 `inherit` 关键字可用于在同一组织内的存储库之间或同一企业中的组织之间传递机密。
+
+#### 示例
+
+{% raw %}
+
+```yaml
+on:
+  workflow_dispatch:
+
+jobs:
+  pass-secrets-to-workflow:
+      uses: ./.github/workflows/called-workflow.yml
+      secrets: inherit
+```
+
+```yaml
+on:
+  workflow_call:
+
+jobs:
+  pass-secret-to-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use a repo or org secret from the calling workflow.
+        uses: echo ${{ secrets.CALLING_WORKFLOW_SECRET }}
+```
+
+{% endraw %}
+
+{%endif%}
 
 #### `on.workflow_call.secrets.<secret_id>`
 
@@ -331,7 +367,7 @@ steps:
 
 #### 示例：使用状态检查功能
 
-`my backup step` 仅在作业的上一步失败时运行。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+`my backup step` 仅在作业的上一步失败时运行。 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions#status-check-functions)”。
 
 ```yaml
 steps:
@@ -745,21 +781,21 @@ steps:
 
 ## `jobs.<job_id>.strategy`
 
-Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reusables.actions.jobs.about-matrix-strategy %} For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+使用 `jobs.<job_id>.strategy` 为您的任务使用矩阵策略。 {% data reusables.actions.jobs.about-matrix-strategy %} 更多信息请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
 ### `jobs.<job_id>.strategy.matrix`
 
 {% data reusables.actions.jobs.using-matrix-strategy %}
 
-#### Example: Using a single-dimension matrix
+#### 示例：使用单维矩阵
 
 {% data reusables.actions.jobs.single-dimension-matrix %}
 
-#### Example: Using a multi-dimension matrix
+#### 示例：使用多维矩阵
 
 {% data reusables.actions.jobs.multi-dimension-matrix %}
 
-#### Example: Using contexts to create matrices
+#### 示例：使用上下文创建矩阵
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
@@ -767,11 +803,11 @@ Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reu
 
 {% data reusables.actions.jobs.matrix-include %}
 
-#### Example: Expanding configurations
+#### 示例：展开配置
 
 {% data reusables.actions.jobs.matrix-expand-with-include %}
 
-#### Example: Adding configurations
+#### 示例：添加配置
 
 {% data reusables.actions.jobs.matrix-add-with-include %}
 
@@ -874,7 +910,7 @@ services:
 
 ### `jobs.<job_id>.services.<service_id>.image`
 
-要用作运行操作的服务容器的 Docker 镜像。 值可以是 Docker Hub 映像名称或注册表名称。
+要用作运行操作的服务容器的 Docker 图像。 值可以是 Docker Hub 映像名称或注册表名称。
 
 ### `jobs.<job_id>.services.<service_id>.credentials`
 
@@ -948,7 +984,7 @@ volumes:
 
 {% data reusables.actions.uses-keyword-example %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+更多信息请参阅“[重用工作流程](/actions/learn-github-actions/reusing-workflows)”。
 
 ### `jobs.<job_id>.with`
 

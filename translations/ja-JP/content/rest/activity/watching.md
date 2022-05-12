@@ -1,6 +1,6 @@
 ---
-title: Watch の違い
-intro: リポジトリを Watch すると、ユーザは登録され、新しいディスカッションやユーザのアクティビティフィードのイベントに関する通知を受け取ります。
+title: Watch
+intro: Watching APIを使うと、ユーザはリポジトリでのアクティビティに対する通知をサブスクライブできます。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-基本的なリポジトリブックマークについては、「[リポジトリの Star 付け](/rest/reference/activity#starring)」を参照してください。
+## Watching APIについて
+
+Watching APIを使うと、ユーザはリポジトリでのアクティビティに対する通知をサブスクライブできます。 このかわりにリポジトリをブックマークするには「[Star](/rest/reference/activity#starring)」を参照してください。

@@ -24,23 +24,25 @@ shortTitle: 启用子域隔离
 
 启用子域隔离后，{% data variables.product.prodname_ghe_server %} 会以子域替代多个路径。 启用子域隔离后，尝试访问某些用户提供内容的以前路径（如 `http(s)://HOSTNAME/raw/`）可能会返回 `404` 错误。
 
-| 未使用子域隔离的路径                             | 使用子域隔离的路径                                                   |
-| -------------------------------------- | ----------------------------------------------------------- |
-| `http(s)://HOSTNAME/assets/`           | `http(s)://assets.HOSTNAME/`                                |
-| `http(s)://HOSTNAME/avatars/`          | `http(s)://avatars.HOSTNAME/`                               |
-| `http(s)://HOSTNAME/codeload/`         | `http(s)://codeload.HOSTNAME/`                              |
-| `http(s)://HOSTNAME/gist/`             | `http(s)://gist.HOSTNAME/`                                  |
-| `http(s)://HOSTNAME/media/`            | `http(s)://media.HOSTNAME/`                                 |
-| `http(s)://HOSTNAME/pages/`            | `http(s)://pages.HOSTNAME/`                                 |
-| `http(s)://HOSTNAME/raw/`              | `http(s)://raw.HOSTNAME/`                                   |
-| `http(s)://HOSTNAME/render/`           | `http(s)://render.HOSTNAME/`                                |
-| `http(s)://HOSTNAME/reply/`            | `http(s)://reply.HOSTNAME/`                                 |
-| `http(s)://HOSTNAME/uploads/`          | `http(s)://uploads.HOSTNAME/`                               |{% ifversion ghes %}
+| 未使用子域隔离的路径                             | 使用子域隔离的路径                                                      |
+| -------------------------------------- | -------------------------------------------------------------- |
+| `http(s)://HOSTNAME/assets/`           | `http(s)://assets.HOSTNAME/`                                   |
+| `http(s)://HOSTNAME/avatars/`          | `http(s)://avatars.HOSTNAME/`                                  |
+| `http(s)://HOSTNAME/codeload/`         | `http(s)://codeload.HOSTNAME/`                                 |
+| `http(s)://HOSTNAME/gist/`             | `http(s)://gist.HOSTNAME/`                                     |
+| `http(s)://HOSTNAME/media/`            | `http(s)://media.HOSTNAME/`                                    |
+| `http(s)://HOSTNAME/pages/`            | `http(s)://pages.HOSTNAME/`                                    |
+| `http(s)://HOSTNAME/raw/`              | `http(s)://raw.HOSTNAME/`                                      |
+| `http(s)://HOSTNAME/render/`           | `http(s)://render.HOSTNAME/`                                   |
+| `http(s)://HOSTNAME/reply/`            | `http(s)://reply.HOSTNAME/`                                    |
+| `http(s)://HOSTNAME/uploads/`          | `http(s)://uploads.HOSTNAME/`                                  |{% ifversion ghes %}
 | `https://HOSTNAME/_registry/docker/`   | `http(s)://docker.HOSTNAME/`{% endif %}{% ifversion ghes %}
-| `https://HOSTNAME/_registry/npm/`      | `https://npm.HOSTNAME/`                                     |
-| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`                                |
-| `https://HOSTNAME/_registry/maven/`    | `https://maven.HOSTNAME/`                                   |
-| `https://HOSTNAME/_registry/nuget/`    | `https://nuget.HOSTNAME/`{% endif %}
+| `https://HOSTNAME/_registry/npm/`      | `https://npm.HOSTNAME/`                                        |
+| `https://HOSTNAME/_registry/rubygems/` | `https://rubygems.HOSTNAME/`                                   |
+| `https://HOSTNAME/_registry/maven/`    | `https://maven.HOSTNAME/`                                      |
+| `https://HOSTNAME/_registry/nuget/`    | `https://nuget.HOSTNAME/`{% endif %}{% ifversion ghes > 3.4 %}
+| 不支持                                    | `https://containers.HOSTNAME/` 
+{% endif %}
 
 ## 基本要求
 

@@ -1,4 +1,4 @@
-| Proveedor   | Secreto compatible      | Slug de la API    |
+| Proveedor   | Secreto compatible      | Secret type       |
 | ----------- | ----------------------- | ----------------- |
 | Adafruit IO | Clave de IO de Adafruit | adafruit_io_key |
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -36,7 +36,9 @@ Checkout.com | Llave Secreta de Pruebas de Checkout.com | checkout_test_secret_k
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 CloudBees CodeShip | Credencial de CodeShip de CloudBees | codeship_credential{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
-Contentful | Token de Acceso Personal de Contentful | contentful_personal_access_token{% endif %} Databricks | Token de Acceso de Databricks | databricks_access_token Discord | Token del Bot de Discord | discord_bot_token Doppler | Token Personal de Doppler | doppler_personal_token Doppler | Token de Servicio de Doppler | doppler_service_token Doppler | Token de CLI de Doppler | doppler_cli_token Doppler | Token de SCIM de Doppler | doppler_scim_token
+Contentful | Token de Acceso Personal a Contentful | contentful_personal_access_token{% endif %} Databricks | Token de Acceso a Databricks | databricks_access_token
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
+DigitalOcean | Token de Acceso personal a DigitalOcean | digitalocean_personal_access_token DigitalOcean | Token OAuth de DigitalOcean | digitalocean_oauth_token DigitalOcean | Token de Actualización de DigitalOcean | digitalocean_refresh_token DigitalOcean | Token de Sistema de DigitalOcean | digitalocean_system_token{% endif %} Discord | Token del Bot de Discord | discord_bot_token Doppler | Token Personal de Doppler | doppler_personal_token Doppler | Token de Servicio de Doppler | doppler_service_token Doppler | Token del CLI de Doppler | doppler_cli_token Doppler | Token de SCIM de Doppler | doppler_scim_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Doppler | Token de Auditoría de Doppler | doppler_audit_token{% endif %} Dropbox | Token de Acceso a Dropbox | dropbox_access_token Dropbox | Token de Acceso de Vida Corta a Dropbox | dropbox_short_lived_access_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -158,7 +160,11 @@ Sendinblue | Llave de SMTP de Sendinblue | sendinblue_smtp_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Shippo | Token de la API de Shippo Live | shippo_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-Shippo | Token de la API de Pruebas de Shippo | shippo_test_api_token{% endif %} Shopify | Secreto Compartido de la App de Shopify | shopify_app_shared_secret Shopify | Token de Acceso a Shopify | shopify_access_token Shopify | Token de Acceso a la App Personalizada de Shopify | shopify_custom_app_access_token Shopify | Contraseña de la App Privada de Shopify | shopify_private_app_password Slack | Token de la API de Slack | slack_api_token Slack | URL del Webhook Entrante de Slack | slack_incoming_webhook_url Slack | URL del Webhook del Flujo de Trabajo de Slack | slack_workflow_webhook_url
+Shippo | Token de la APi de Prueba de Shippo | shippo_test_api_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
+Shopify | Credenciales del Cliente de la App de Shopify | shopify_app_client_credentials Shopify | Secreto del Cliente de la App de Shopify | shopify_app_client_secret{% endif %} Shopify | Secreto Compartido de la App de Shopify | shopify_app_shared_secret Shopify | Token de Acceso de Shopify | shopify_access_token Shopify | Token de Acceso a la App Personalizada de Shopify | shopify_custom_app_access_token
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
+Shopify | Token de Vendedor de Shopify | shopify_merchant_token Shopify | Token del Mercado de Shopify | shopify_marketplace_token Shopify | Token de la API de Socio de Shopify | shopify_partner_api_token{% endif %} Shopify | Contraseña de la App Privada de Shopify | shopify_private_app_password Slack | Token de la API de Slack | slack_api_token Slack | URL del Webhook Entrante de Slack | slack_incoming_webhook_url Slack | URL del Webhook del Flujo de Trabajo de Slack | slack_workflow_webhook_url
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Square | Token de Acceso a Square | square_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
@@ -188,6 +194,8 @@ Yandex | Cookie IAM de Yandex.Cloud | yandex_cloud_iam_cookie{% endif %}
 Yandex | Token IAM de Yandex.Cloud | yandex_cloud_iam_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Yandex | Llave de la API de Yandex.Dictionary | yandex_dictionary_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
+Yandex | Secreto de Acceso a Yandex.Cloud | yandex_iam_access_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Yandex | Llave de la API de Yandex.Predictor | yandex_predictor_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}

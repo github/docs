@@ -1,6 +1,8 @@
 ---
-title: コメント
-intro: Issue Comments API は、Issue およびPull Requestに関するリスト、表示、編集、コメントの作成に対応しています。
+title: Issueのコメント
+allowTitleToDifferFromFilename: true
+shortTitle: コメント
+intro: Issue comments APIは、IssueやPull Requestのコメントの管理を支援します。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,4 +13,8 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-Issue コメントは、[3 つのカスタムメディアタイプ](#custom-media-types)を使用します。 API でのメディアタイプの使用について詳しくは、[こちら](/rest/overview/media-types)をご覧ください。
+## Issue comments APIについて
+
+Issue comments APIは、IssueやPull Requestのコメントの管理を支援します。 {% data reusables.pull_requests.issues-pr-shared-api %} Pull Requestのレビューコメントを管理するには、[Pull request review comments API](/rest/pulls/comments)を使ってください。
+
+{% data reusables.pull_requests.issues-media-types %}

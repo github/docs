@@ -1,5 +1,5 @@
 ---
-title: Packages
+title: パッケージ
 intro: '{% data variables.product.prodname_registry %} APIを使うと、{% data variables.product.prodname_dotcom %}の自分のリポジトリとOrganizationのパッケージの管理ができます。'
 versions:
   fpt: '*'
@@ -10,6 +10,8 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/packages
 ---
+
+## {% data variables.product.prodname_registry %} APIについて
 
 {% data variables.product.prodname_registry %} APIを使用すると、REST APIを利用してパッケージを管理できます。{% ifversion fpt or ghec or ghes > 3.1 or ghae %}パッケージの復元もしくは削除に関してさらに学ぶには、「[パッケージの復元と削除](/packages/learn-github-packages/deleting-and-restoring-a-package)」を参照してください。{% endif %}
 

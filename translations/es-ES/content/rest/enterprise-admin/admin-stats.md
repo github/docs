@@ -4,6 +4,8 @@ intro: La API de estadísticas de los administradores proporciona diversas métr
 versions:
   ghes: '*'
   ghae: '*'
+  ghec: '*'
+  fpt: '*'
 topics:
   - API
 miniTocMaxHeadingLevel: 3

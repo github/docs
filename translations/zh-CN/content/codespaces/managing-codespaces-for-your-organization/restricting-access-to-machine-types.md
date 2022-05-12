@@ -57,11 +57,11 @@ topics:
    ![编辑计算机类型约束](/assets/images/help/codespaces/edit-machine-constraint.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. 有关其他约束的信息，请参阅“[限制转发端口可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)”和“[限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)”。
-1. After you have finished adding constraints to your policy, click **Save**.
+1. 如果要向策略添加其他约束，请单击 **Add constraint（添加约束）** ，然后选择另一个约束。 有关其他约束的信息，请参阅“[限制转发端口可见性](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)”和“[限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)”。
+1. 向策略添加完约束后，单击 **Save（保存）**。
 ## 编辑策略
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+您可以编辑现有策略。 例如，您可能希望在策略中添加或删除约束。
 
 1. 显示“Codespace policies（代码空间策略）”页。 更多信息请参阅“[添加策略以限制可用计算机类型](#adding-a-policy-to-limit-the-available-machine-types)”。
 1. 单击要编辑的策略的名称。
