@@ -9,7 +9,7 @@ topics:
   - Enterprise
   - Organizations
 type: how_to
-shortTitle: From organization to enterprise
+shortTitle: 从组织到企业
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/configuring-identity-and-access-management-for-your-enterprise-account/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account
   - /admin/authentication/managing-identity-and-access-for-your-enterprise/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account

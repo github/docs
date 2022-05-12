@@ -1,6 +1,6 @@
 ---
-title: Allowing built-in authentication for users outside your provider
-intro: 'You can configure fallback authentication to allow built-in authentication for people who don''t have an account on your CAS, LDAP, or SAML authentication provider.'
+title: 允许对提供程序覆盖范围以外的用户进行内置身份验证
+intro: 您可以配置回退身份验证，以允许对在 CAS、LDAP 或 SAML 身份验证提供程序上没有帐户的人员进行内置身份验证。
 redirect_from:
   - /enterprise/admin/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider
@@ -15,16 +15,16 @@ topics:
   - Authentication
   - Enterprise
   - Identity
-shortTitle: Fallback authentication
+shortTitle: 回退身份验证
 ---
 
-## About built-in authentication for users outside your provider
+## 关于对提供程序覆盖范围以外的用户进行内置身份验证
 
-By default, when you enable external authentication for {% data variables.product.product_name %}, built-in authentication is disabled for your instance. For more information, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."
+默认情况下，当您为 {% data variables.product.product_name %} 启用外部身份验证时，将为您的实例禁用内置身份验证。 更多信息请参阅“[关于企业的身份验证](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)”。
 
-If you're unable to add specific accounts to your external authentication provider, such as accounts for contractors or machine users, you can configure fallback authentication. Fallback authentication allows built-in authentication for outside users and to access a fallback account if your authentication provider is unavailable.
+如果无法将特定帐户添加到外部身份验证提供程序（如承包商或计算机用户的帐户），则可以配置回退身份验证。 回退身份验证允许外部用户进行内置身份验证，并在身份验证提供程序不可用时访问回退帐户。
 
-If you configure built-in authentication and a person successfully authenticates with SAML or CAS, the person will no longer have the option to authenticate with a username and password. 如果用户使用 LDAP 成功地完成身份验证，凭据将不再被视为内部凭据。
+如果配置了内置身份验证，并且某人成功使用 SAML 或 CAS 进行身份验证，则该人员将不再有权选择使用用户名和密码进行身份验证。 如果用户使用 LDAP 成功地完成身份验证，凭据将不再被视为内部凭据。
 
 {% warning %}
 
@@ -32,7 +32,7 @@ If you configure built-in authentication and a person successfully authenticates
 
 {% endwarning %}
 
-## Configuring built-in authentication for users outside your provider
+## 为您的提供程序覆盖范围外的用户配置内置身份验证
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -44,7 +44,7 @@ If you configure built-in authentication and a person successfully authenticates
 {% data reusables.enterprise_user_management.two_factor_auth_header %}
 {% data reusables.enterprise_user_management.2fa_is_available %}
 
-## Inviting users outside your provider to authenticate to your instance
+## 邀请您的提供程序覆盖范围外的用户在您的实例上进行身份验证
 
 在用户接受邀请后，他们可以使用用户名和密码登录，无需通过 IdP。
 
@@ -55,6 +55,6 @@ If you configure built-in authentication and a person successfully authenticates
 
 ## 延伸阅读
 
-- "[Using CAS for enterprise IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)"
-- "[Using LDAP for enterprise IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)"
-- "[Using SAML for enterprise IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)"
+- “[将 CAS 用于企业 IAM](/admin/identity-and-access-management/using-cas-for-enterprise-iam)”
+- “[将 LDAP 用于企业 IAM](/admin/identity-and-access-management/using-ldap-for-enterprise-iam)”
+- “[将 SAML 用于企业 IAM](/admin/identity-and-access-management/using-saml-for-enterprise-iam)”

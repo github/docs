@@ -45,7 +45,7 @@ topics:
 
    ![为端口可见性添加约束](/assets/images/help/codespaces/add-constraint-dropdown-ports.png)
 
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. 单击 {% octicon "pencil" aria-label="The edit icon" %} 编辑约束。
 
    ![编辑端口可见性约束](/assets/images/help/codespaces/edit-port-visibility-constraint.png)
 
@@ -54,11 +54,11 @@ topics:
    ![选择端口可见性选项](/assets/images/help/codespaces/choose-port-visibility-options.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
-1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. 有关其他约束的信息，请参阅“[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”和“[限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)”。
-1. After you have finished adding constraints to your policy, click **Save**.
+1. 如果要向策略添加其他约束，请单击 **Add constraint（添加约束）** ，然后选择另一个约束。 有关其他约束的信息，请参阅“[限制对计算机类型的访问](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)”和“[限制空闲超时期限](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)”。
+1. 向策略添加完约束后，单击 **Save（保存）**。
 ## 编辑策略
 
-You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
+您可以编辑现有策略。 例如，您可能希望在策略中添加或删除约束。
 
 1. 显示“Codespace policies（代码空间策略）”页。 更多信息请参阅“[添加策略以限制端口可见性选项](#adding-a-policy-to-limit-the-port-visibility-options)”。
 1. 单击要编辑的策略的名称。

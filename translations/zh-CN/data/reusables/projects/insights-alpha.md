@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Insights for projects (beta) is currently in private preview and is not yet available to all organizations.
+**注意**：适用于项目（测试版）的见解目前为个人预览版，尚未对所有组织可用。
 
 {% endnote %}

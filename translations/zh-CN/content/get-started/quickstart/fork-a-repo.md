@@ -210,6 +210,6 @@ gh repo fork <em>repository</em> --remote-name "main-remote-repo"
 
 * 您也可以创建一个新的仓库，以将所有项目放在 {% data variables.product.prodname_dotcom %} 上并共享代码。 {% data reusables.getting-started.create-a-repository %}"
 
-* {% data variables.product.product_name %} 中的每个仓库均归个人或组织所有。 您可以在 {% data variables.product.product_name %} 上连接和关注用户、仓库和组织以与之进行交互。 {% data reusables.getting-started.being-social %}
+* {% data reusables.getting-started.being-social %}
 
 * {% data reusables.support.connect-in-the-forum-bootcamp %}

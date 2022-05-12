@@ -102,7 +102,7 @@ sections:
         - |
           People with maintain access can now manage the repository-level "Allow auto-merge" setting. This setting, which is off by default, controls whether auto-merge is available on pull requests in the repository. Previously, only people with admin access could manage this setting. Additionally, this setting can now by controlled using the "[Create a repository](/rest/reference/repos#create-an-organization-repository)" and "[Update a repository](/rest/reference/repos#update-a-repository)" REST APIs. For more information, see "[Managing auto-merge for pull requests in your repository](/github/administering-a-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)."
         - |
-          The assignees selection for issues and pull requests now supports type ahead searching so you can find users in your organization faster. Additionally, search result rankings have been updated to prefer matches at the start of a person's username or profile name.
+          针对议题和拉取请求的受理人选择现在支持提前键入搜索，以便您可以更快地在组织中查找用户。此外，搜索结果排名已更新为首选用户的用户名或个人资料名称开头的匹配项。
     - 
       heading: '仓库'
       notes:

@@ -1,1 +1,1 @@
-If changes to your dev container configuration cause a container error, your codespace will run in recovery mode, and you will see an error message.
+如果对开发容器配置的更改导致容器错误，则代码空间将在恢复模式下运行，并且您将看到错误消息。

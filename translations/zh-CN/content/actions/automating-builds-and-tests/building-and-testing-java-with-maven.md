@@ -22,7 +22,7 @@ shortTitle: 使用 Maven 构建和测试 Java
 
 ## 简介
 
-本指南介绍如何使用 Maven 软件项目管理工具为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以缓存文件并且从工作流程运行上传构件。
+本指南介绍如何使用 Maven 软件项目管理工具为 Java 项目创建执行持续集成 (CI) 的工作流程。 您创建的工作流程将允许您查看拉取请求提交何时会在默认分支上导致构建或测试失败； 这个方法可帮助确保您的代码始终是健康的。 您可以扩展 CI 工作流程以{% if actions-caching %}缓存文件并且{% endif %}从工作流程运行上传构件。
 
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
@@ -99,9 +99,11 @@ steps:
     run: mvn --batch-mode --update-snapshots verify
 ```
 
+{% if actions-caching %}
+
 ## 缓存依赖项
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以缓存依赖项以加速工作流程运行。 运行成功后，您的本地 Maven 仓库将存储在 GitHub 操作基础架构中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程 Maven 仓库下载依赖项。 您可以简单地使用 [`setup-java` 操作](https://github.com/marketplace/actions/setup-java-jdk)缓存依赖项，也可使用 [`cache` 操作](https://github.com/actions/cache)进行自定义和更高级的配置。
+您可以缓存依赖项来加快工作流程运行。 成功运行后，本地 Maven 存储库将存储在缓存中。 在未来的工作流程运行中，缓存将会恢复，因此不需要从远程 Maven 仓库下载依赖项。 您可以简单地使用 [`setup-java` 操作](https://github.com/marketplace/actions/setup-java-jdk)缓存依赖项，也可使用 [`cache` 操作](https://github.com/actions/cache)进行自定义和更高级的配置。
 
 ```yaml{:copy}
 steps:
@@ -117,6 +119,8 @@ steps:
 ```
 
 此工作流程将保存本地 Maven 存储库的内容，位于运行器主目录的 `.m2` 目录。 缓存密钥是 _pom.xml_ 的哈希内容，因此更改 _pom.xml_ 将使缓存失效。
+
+{% endif %}
 
 ## 将工作流数据打包为构件
 

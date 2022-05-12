@@ -1,5 +1,5 @@
 ---
-title: Release Assets
+title: 发布资产
 intro: ''
 versions:
   fpt: '*'

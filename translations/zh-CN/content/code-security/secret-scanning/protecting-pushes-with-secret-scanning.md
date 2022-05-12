@@ -84,19 +84,19 @@ shortTitle: 推送保护
 2. 在三小时内重新尝试在命令行上推送。 如果您在三小时内没有推送，则需要重复此过程。
 
 {% if secret-scanning-push-protection-web-ui %}
-## Using secret scanning as a push protection from the web UI
+## 使用密钥扫描作为 Web UI 的推送保护
 
-When you use the web UI to attempt to commit a supported secret to a repository or organization with secret scanning as a push protection enabled, {% data variables.product.prodname_dotcom %} will block the commit. You will see a banner at the top of the page with information about the secret's location, and the secret will also be underlined in the file so you can easily find it.
+当您使用 Web UI 尝试将受支持的密钥提交到启用了机密扫描作为推送保护的存储库或组织时，{% data variables.product.prodname_dotcom %} 将阻止提交。 您将在页面顶部看到一个横幅，其中包含有关密钥位置的信息，并且密钥也将在文件中加下划线，以便您可以轻松找到它。
 
-  ![Screenshot showing commit in web ui blocked because of secret scanning push protection](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
+  ![显示由于机密扫描推送保护而在 Web UI 中阻止提交的屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-blocked-banner.png)
 
-{% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. 如果已在存储库中检测到特定机密，并且警报已存在，{% data variables.product.prodname_dotcom %} 不会阻止该机密。
+{% data variables.product.prodname_dotcom %} 将在 Web UI 中一次仅显示一个检测到的机密。 如果已在存储库中检测到特定机密，并且警报已存在，{% data variables.product.prodname_dotcom %} 不会阻止该机密。
 
-You can remove the secret from the file using the web UI. Once you remove the secret, the banner at the top of the page will change and tell you that you can now commit your changes.
+可以使用 Web UI 从文件中删除机密。 删除机密后，页面顶部的横幅将更改，并告诉您现在可以提交更改。
 
-  ![Screenshot showing commit in web ui allowed after secret fixed](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
+  ![显示密钥修复后允许在 Web UI 中提交的屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-web-ui-commit-allowed.png)
 
-### Bypassing push protection for a secret
+### 绕过密钥的推送保护
 
 如果 {% data variables.product.prodname_dotcom %} 阻止了您认为可以安全推送的机密，则可以允许该机密并说明应允许该机密的原因。 如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。
 
@@ -104,11 +104,11 @@ You can remove the secret from the file using the web UI. Once you remove the se
 
 如果确认某个机密是真实的，并且打算稍后修复它，则应尽快修复。
 
-1. In the banner that appeared at the top of the page when {% data variables.product.prodname_dotcom %} blocked your commit, click **Bypass protection**.
+1. 在 {% data variables.product.prodname_dotcom %} 阻止提交时显示在页面顶部的横幅中，单击 **Bypass protection（绕过保护）**。
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 
   ![显示包含用于取消阻止密钥推送的选项的表单屏幕截图](/assets/images/help/repository/secret-scanning-push-protection-web-ui-allow-secret-options.png)
 
-1. Click **Allow secret**.
+1. 单击 **Allow secret（允许密钥）**。
 
 {% endif %}

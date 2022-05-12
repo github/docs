@@ -25,7 +25,7 @@ permissions: People with write permissions to a repository can create or edit th
 1. 从要更改其开发容器的预构建启用分支创建代码空间。 更多信息请参阅“[创建代码空间](/codespaces/developing-in-codespaces/creating-a-codespace#creating-a-codespace)”。
 1. 在代码空间中，检出测试分支。 更多信息请参阅“[在代码空间中使用源控制](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#creating-or-switching-branches)”。
 1. 对开发容器配置进行所需的更改。
-1. 通过重新构建容器来应用更改。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-changes-to-your-configuration)”。
+1. 通过重新构建容器来应用更改。 更多信息请参阅“[开发容器简介](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)”。
 1. 在一切正常之后，我们还建议从测试分支创建一个新的代码空间，以确保一切正常。 然后，您可以将更改提交到存储库的默认分支或活动功能分支，从而触发该分支的预构建模板的更新。
 
    {% note %}
