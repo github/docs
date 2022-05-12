@@ -166,7 +166,7 @@ shortTitle: 安全日志
 | `create`                              | 在[创建新仓库](/articles/creating-a-new-repository)时触发。                                                                                                                                                                                            |
 | `destroy`                             | 当[仓库被删除](/articles/deleting-a-repository)时触发。{% ifversion fpt or ghec %}
 | `禁用`                                  | 当仓库被禁用（例如，因[资金不足](/articles/unlocking-a-locked-account)）时触发。{% endif %}{% ifversion fpt or ghec %}
-| `download_zip`                        | Triggered when a ZIP or TAR archive of a repository is downloaded.                                                                                                                                                                           |
+| `download_zip`                        | 在下载存储库的 ZIP 或 TAR 存档时触发。                                                                                                                                                                                                                     |
 | `启用`                                  | 在重新启用仓库时触发。{% endif %}
 | `remove_member`                       | 从[仓库中删除 {% data variables.product.product_name %} 用户的协作者身份](/articles/removing-a-collaborator-from-a-personal-repository)时触发。                                                                                                                |
 | `remove_topic`                        | 当仓库所有者从仓库中删除主题时触发。                                                                                                                                                                                                                           |

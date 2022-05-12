@@ -1,6 +1,6 @@
 ---
 title: 设置添加外部协作者的权限
-intro: 为了保护组织的数据和组织中使用的付费许可数，您可以只允许所有者邀请外部协作者加入组织仓库。
+intro: 为保护组织的数据和组织中使用的付费许可证数，可以配置谁可以将外部协作者添加到组织存储库。
 redirect_from:
   - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
   - /articles/setting-permissions-for-adding-outside-collaborators
@@ -15,7 +15,7 @@ topics:
 shortTitle: 设置协作者策略
 ---
 
-默认情况下，对存储库具有管理员访问权限的任何人都可以邀请外部协作者处理存储库。 您可以选择将邀请外部协作者的能力限制为仅邀请组织所有者。
+默认情况下，对存储库具有管理员访问权限的任何人都可以邀请外部协作者处理存储库。 您可以选择将添加外部协作者的能力仅限于组织所有者。
 
 {% ifversion ghec %}
 {% note %}
@@ -31,6 +31,7 @@ shortTitle: 设置协作者策略
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.member-privileges %}
-5. 在“Repository invitations（仓库邀请）”下，选择 **Allow members to invite outside collaborators to repositories for this organization（允许成员邀请外部协作者加入此组织的仓库）**。 ![允许成员邀请外部协作者加入组织仓库的复选框](/assets/images/help/organizations/repo-invitations-checkbox-updated.png)
+{% data reusables.organizations.member-privileges %}{% ifversion ghes < 3.3 %}
+5. 在“Repository invitations（仓库邀请）”下，选择 **Allow members to invite outside collaborators to repositories for this organization（允许成员邀请外部协作者加入此组织的仓库）**。 ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-old.png){% else %}
+5. 在“Repository outside collaborators（存储库外部协作者）”下，取消选择 **Allow repository administrators to invite outside collaborators to repositories for this organization（允许外部协作者邀请外部协作者访问此组织的存储库）**。 ![Checkbox to allow repository administrators to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% endif %}
 6. 单击 **Save（保存）**。

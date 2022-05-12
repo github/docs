@@ -1,6 +1,6 @@
 ---
 title: 标星
-intro: The Starring API lets you bookmark a repository.
+intro: 通过星标 API，您可以为存储库添加书签。
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,9 +11,9 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## About the Starring API
+## 关于星标 API
 
-The Starring API lets you bookmark a repository. 显示在仓库旁边的星标表示大致的兴趣程度。 星标对通知或活动馈送没有影响。 更多信息请参阅“[使用星标保存仓库](/get-started/exploring-projects-on-github/saving-repositories-with-stars)”。
+通过星标 API，您可以为存储库添加书签。 显示在仓库旁边的星标表示大致的兴趣程度。 星标对通知或活动馈送没有影响。 更多信息请参阅“[使用星标保存仓库](/get-started/exploring-projects-on-github/saving-repositories-with-stars)”。
 
 ### 标星与 关注
 
