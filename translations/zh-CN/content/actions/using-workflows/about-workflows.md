@@ -28,7 +28,7 @@ miniTocMaxHeadingLevel: 3
 1. 一个或多个_作业_，每个作业将在_运行器_计算机上执行，并运行一系列一个或多个_步骤_。
 1. 每个步骤都可以运行您定义的脚本，也可以运行操作，这是一个可重用的扩展，可以简化您的工作流程。
 
-For more information on these basic components, see "[Understanding GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
+有关这些基本组件的详细信息，请参阅“[了解 GitHub Actions](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)”。
 
 ![工作流程概述](/assets/images/help/images/overview-actions-simple.png)
 
@@ -105,9 +105,9 @@ jobs:
 
 更多信息请参阅“[定义先决条件作业](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)”。
 
-### 使用构建矩阵
+### 使用矩阵
 
-如果您希望工作流程跨参数（如操作系统、平台和语言）的多个组合运行测试，可以使用构建矩阵。 构建矩阵是使用 `strategy` 关键字创建的，它接收构建选项作为数组。 例如，此构建矩阵将使用不同版本的 Node.js 多次运行作业：
+{% data reusables.actions.jobs.about-matrix-strategy %} 矩阵是使用 `strategy` 关键字创建的，该关键字以数组的形式接收构建选项。 例如，此矩阵将使用不同版本的 Node.js 多次运行作业：
 
 ```yaml
 jobs:
@@ -115,19 +115,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [6, 8, 10]
+        node: [12, 14, 16]
     steps:
       - uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: {% raw %}${{ matrix.node }}{% endraw %}
 ```
 
-更多信息请参阅“[对作业使用构建矩阵](/actions/using-jobs/using-a-build-matrix-for-your-jobs)”。
+更多信息请参阅“[对作业使用矩阵](/actions/using-jobs/using-a-matrix-for-your-jobs)”。
 
-{% ifversion fpt or ghec %}
+{% if actions-caching %}
 ### 缓存依赖项
 
-{% data variables.product.prodname_dotcom %} 托管的运行器启动为每个作业的新环境，如果您的作业定期重复使用依赖项，您可以考虑缓存这些文件以帮助提高性能。 缓存一旦创建，就可用于同一仓库中的所有工作流程。
+If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. 缓存一旦创建，就可用于同一仓库中的所有工作流程。
 
 此示例演示如何缓存 `~/.npm` 目录：
 

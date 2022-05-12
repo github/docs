@@ -1,6 +1,6 @@
 ---
-title: Keeping your dependencies updated automatically with Dependabot version updates
-intro: 'You can use {% data variables.product.prodname_dependabot %} to automatically keep the dependencies and packages used in your repository updated to the latest version, even when they don’t have any known vulnerabilities.'
+title: Dependabotバージョンアップデートで自動的に依存関係を更新し続ける
+intro: '{% data variables.product.prodname_dependabot %}を使って、既知の脆弱性がない場合であってもリポジトリで使われている依存関係とパッケージを自動的に最新バージョンに更新し続けることができます。'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /github/administering-a-repository/keeping-your-dependencies-updated-automatically

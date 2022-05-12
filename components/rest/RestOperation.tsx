@@ -1,23 +1,25 @@
+import { useRouter } from 'next/router'
 import slugger from 'github-slugger'
+import { CheckCircleFillIcon } from '@primer/octicons-react'
+import cx from 'classnames'
 
-import { RestOperationHeading } from './RestOperationHeading'
-import { CodeBlock } from './CodeBlock'
+import { Link } from 'components/Link'
+import { useTranslation } from 'components/hooks/useTranslation'
+import { RestPreviewNotice } from './RestPreviewNotice'
+import styles from './RestOperation.module.scss'
 import { RestParameterTable } from './RestParameterTable'
 import { RestCodeSamples } from './RestCodeSamples'
 import { RestStatusCodes } from './RestStatusCodes'
 import { Operation } from './types'
-import { RestNotes } from './RestNotes'
-import { RestPreviewNotice } from './RestPreviewNotice'
-import { useTranslation } from 'components/hooks/useTranslation'
 
 type Props = {
   operation: Operation
 }
 
 export function RestOperation({ operation }: Props) {
-  const { t } = useTranslation('products')
-
   const slug = slugger.slug(operation.title)
+  const { t } = useTranslation('products')
+  const router = useRouter()
 
   const numPreviews = operation.previews.length
   const hasStatusCodes = operation.statusCodes.length > 0
@@ -25,38 +27,47 @@ export function RestOperation({ operation }: Props) {
   const hasParameters = operation.parameters.length > 0 || operation.bodyParameters.length > 0
 
   return (
-    <div>
-      <RestOperationHeading
-        slug={slug}
-        title={operation.title}
-        descriptionHTML={operation.descriptionHTML}
-      />
-
-      {operation.requestPath && (
-        <CodeBlock verb={operation.verb} codeBlock={operation.requestPath}></CodeBlock>
+    <div className="pb-8">
+      <h2 className="d-flex flex-md-row mb-6" id={slug}>
+        <a href={`#${slug}`}>{operation.title}</a>
+      </h2>
+      {operation.enabledForGitHubApps && (
+        <div className="d-flex">
+          <span className="mr-2 d-flex flex-items-center">
+            <CheckCircleFillIcon size={16} />
+          </span>
+          <span>
+            {t('rest.reference.works_with') + ' '}
+            <Link className="" href={`/${router.locale}/developers/apps`}>
+              GitHub Apps
+            </Link>
+          </span>
+        </div>
       )}
+      <div className={cx(styles.restOperation, 'd-flex flex-wrap gutter mt-4')}>
+        <div className="col-md-12 col-lg-6">
+          <div dangerouslySetInnerHTML={{ __html: operation.descriptionHTML }} />
 
-      {hasParameters && (
-        <RestParameterTable
-          slug={slug}
-          numPreviews={numPreviews}
-          parameters={operation.parameters}
-          bodyParameters={operation.bodyParameters}
-        />
-      )}
+          {hasParameters && (
+            <RestParameterTable
+              slug={slug}
+              numPreviews={numPreviews}
+              parameters={operation.parameters}
+              bodyParameters={operation.bodyParameters}
+            />
+          )}
 
-      {hasCodeSamples && <RestCodeSamples operation={operation} slug={slug} />}
+          {hasStatusCodes && <RestStatusCodes statusCodes={operation.statusCodes} slug={slug} />}
+        </div>
+        <div
+          className="col-md-12 col-lg-6 position-sticky flex-self-start"
+          style={{ top: '6.5em' }}
+        >
+          {hasCodeSamples && <RestCodeSamples operation={operation} slug={slug} />}
 
-      {hasStatusCodes && (
-        <RestStatusCodes
-          heading={t('rest.reference.status_codes')}
-          statusCodes={operation.statusCodes}
-        />
-      )}
-
-      {operation.enabledForGitHubApps && <RestNotes />}
-
-      {numPreviews > 0 && <RestPreviewNotice slug={slug} previews={operation.previews} />}
+          {numPreviews > 0 && <RestPreviewNotice slug={slug} previews={operation.previews} />}
+        </div>
+      </div>
     </div>
   )
 }

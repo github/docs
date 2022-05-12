@@ -35,9 +35,15 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const res = context.res as any
   // e.g. the `activity` from `/en/rest/activity/events`
   const category = context.params!.category as string
-  const subCategory = context.params!.subcategory as string
+  let subCategory = context.params!.subcategory as string
   const currentVersion = context.params!.versionId as string
   const currentLanguage = req.context.currentLanguage as string
+
+  // For pages with category level only operations like /rest/billing, we set
+  // the subcategory's value to be the category for the call to getRest()
+  if (!subCategory) {
+    subCategory = category
+  }
 
   const restOperations = (await getRest(currentVersion, category, subCategory)) || []
 

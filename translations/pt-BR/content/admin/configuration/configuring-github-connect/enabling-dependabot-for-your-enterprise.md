@@ -43,7 +43,7 @@ Também é possível sincronizar os dados de vulnerabilidade manualmente a qualq
 
 {% note %}
 
-**Observação:** Ao habilitar {% data variables.product.prodname_dependabot_alerts %}, nenhum código ou informação sobre o código de {% data variables.product.product_location %} será enviado para {% data variables.product.prodname_dotcom_the_website %}.
+**Note:** When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
 
 {% endnote %}
 

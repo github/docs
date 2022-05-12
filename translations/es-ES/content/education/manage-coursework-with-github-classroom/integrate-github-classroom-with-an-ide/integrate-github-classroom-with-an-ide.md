@@ -21,10 +21,11 @@ Después de que un alumno acepta una tarea con un IDE, el archivo README en su r
 
 {% data variables.product.prodname_classroom %} es compatible con los siguientes IDE. Puedes aprender más sobre la experiencia del alumno para cada IDE.
 
-| IDE                       | Más información                                                                                                                                                                                  |
-|:------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Microsoft MakeCode Arcade | "[Acerca de utilizar MakeCode Arcade con {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)" |
-| Visual Studio Code        | La [extensión de {% data variables.product.prodname_classroom %}](http://aka.ms/classroom-vscode-ext) en el Mercado de Visual Studio                                                             |
+| IDE                                                       | Más información                                                                                                                                                                                                                                                   |
+|:--------------------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {% data variables.product.prodname_github_codespaces %} | "[Using {% data variables.product.prodname_github_codespaces %} with {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)" |
+| Microsoft MakeCode Arcade                                 | "[Acerca de utilizar MakeCode Arcade con {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/about-using-makecode-arcade-with-github-classroom)"                                                                  |
+| Visual Studio Code                                        | La [extensión de {% data variables.product.prodname_classroom %}](http://aka.ms/classroom-vscode-ext) en el Mercado de Visual Studio                                                                                                                              |
 
 Sabemos que las integraciones con IDE en la nube son importantes para tu aula y estamos trabajando para traerte más opciones.
 
@@ -32,11 +33,13 @@ Sabemos que las integraciones con IDE en la nube son importantes para tu aula y 
 
 Puedes elegir el IDE que te gustaría utilizar para una tarea cuando la crees. Para aprender cómo crear una tarea nueva que utilice un IDE, consulta la sección "[Crear una tarea individual](/education/manage-coursework-with-github-classroom/create-an-individual-assignment)" o "[Crear una tarea de grupo](/education/manage-coursework-with-github-classroom/create-a-group-assignment)".
 
-## Autorizar la App de OAuth para un IDE
+## Setting up an assignment in a new IDE
 
-La primera vez que configuras una tarea con un IDE, deberás autorizar la App de OAuth para este en tu organización.
+The first time you configure an assignment using a different IDE, you must ensure that it is set up correctly.
 
-En todos tus repositorios, otorga acceso de **lectura** a la app para metadatos, administración y código, y acceso de **escritura** para administración y código. Para obtener más información, consulta la sección "[Autorizar las Apps de OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
+Unless you use {% data variables.product.prodname_github_codespaces %}, you must authorize the OAuth app for the IDE for your organization. En todos tus repositorios, otorga acceso de **lectura** a la app para metadatos, administración y código, y acceso de **escritura** para administración y código. Para obtener más información, consulta la sección "[Autorizar las Apps de OAuth](/github/authenticating-to-github/authorizing-oauth-apps)".
+
+{% data variables.product.prodname_github_codespaces %} does not require an OAuth app, but you need to enable {% data variables.product.prodname_github_codespaces %} for your organization to be able to configure an assignment with {% data variables.product.prodname_codespaces %}. Para obtener más información, consulta "[Usar {% data variables.product.prodname_github_codespaces %} con {% data variables.product.prodname_classroom %}](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)".
 
 ## Leer más
 

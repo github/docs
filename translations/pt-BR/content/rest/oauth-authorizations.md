@@ -1,6 +1,6 @@
 ---
-title: Autorizações do OAuth
-intro: A API de migrações só está disponível para os proprietários de organizações autenticadas.
+title: OAuth authorizations
+intro: The OAuth authorizations lets you manage the access OAuth applications have to your account.
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,6 +11,8 @@ miniTocMaxHeadingLevel: 3
 redirect_from:
   - /rest/reference/oauth-authorizations
 ---
+
+## About the OAuth authorizations API
 
 Você pode usar esta API para gerenciar o acesso do aplicativo OAuth à sua conta. Você só pode acessar esta API através da [Autenticação básica](/rest/overview/other-authentication-methods#basic-authentication) usando seu nome de usuário e senha, não tokens.
 

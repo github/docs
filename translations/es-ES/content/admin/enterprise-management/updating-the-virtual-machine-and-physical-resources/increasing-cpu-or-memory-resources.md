@@ -16,6 +16,12 @@ shortTitle: Increase CPU or memory
 ---
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
+{% note %}
+
+**Note:** Before increasing CPU or memory resources, put your instance in maintenance mode.{% if ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+
+{% endnote %}
+
 ## Adding CPU or memory resources for AWS
 
 {% note %}

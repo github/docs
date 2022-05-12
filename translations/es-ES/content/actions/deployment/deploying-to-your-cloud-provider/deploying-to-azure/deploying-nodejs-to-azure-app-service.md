@@ -25,7 +25,7 @@ topics:
 
 Esta guía explica cómo utilizar las {% data variables.product.prodname_actions %} para compilar, probar y desplegar un proyecto de Node.js a [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 {% note %}
 

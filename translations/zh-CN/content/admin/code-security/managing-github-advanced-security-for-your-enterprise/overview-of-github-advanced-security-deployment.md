@@ -1,7 +1,7 @@
 ---
 title: GitHub Advanced Security 部署概述
 intro: '通过查看和理解这些最佳实践、部署示例以及我们经过企业测试的分阶段方法，帮助您的公司成功准备采用 {% data variables.product.prodname_GH_advanced_security %} (GHAS)。'
-product: '{% data variables.product.prodname_GH_advanced_security %} is a set of security features designed to make enterprise code more secure. It is available for {% data variables.product.prodname_ghe_server %} 3.0 or higher, {% data variables.product.prodname_ghe_cloud %}, and open source repositories. 要了解有关 {% data variables.product.prodname_GH_advanced_security %} 中包含的功能的更多信息，请参阅“[关于GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)”。'
+product: '{% data variables.product.prodname_GH_advanced_security %} 是一组安全功能，旨在使企业代码更安全。 它可用于 {% data variables.product.prodname_ghe_server %} 3.0 或更高版本、 {% data variables.product.prodname_ghe_cloud %} 和开源存储库。 要了解有关 {% data variables.product.prodname_GH_advanced_security %} 中包含的功能的更多信息，请参阅“[关于GitHub Advanced Security](/get-started/learning-about-github/about-github-advanced-security)”。'
 redirect_from:
   - /admin/advanced-security/overview-of-github-advanced-security-deployment
 miniTocMaxHeadingLevel: 3
@@ -29,11 +29,11 @@ topics:
 
 ## 推荐用于 GHAS 部署的分阶段方法
 
-我们创建了一种分阶段的 GHAS 部署方法，该方法根据行业和 GitHub 最佳实践开发。 You can utilize this approach for your rollout, either in partnership with {% data variables.product.prodname_professional_services %} or independently.
+我们创建了一种分阶段的 GHAS 部署方法，该方法根据行业和 GitHub 最佳实践开发。 您可以利用此方法与 {% data variables.product.prodname_professional_services %} 合作或独立部署。
 
-虽然建议采用分阶段方法，但可以根据公司的需求进行调整。 We also suggest creating and adhering to a timeline for your rollout and implementation. 当您开始规划时，我们可以一起确定最适合您公司的理想方法和时间表。
+虽然建议采用分阶段方法，但可以根据公司的需求进行调整。 我们还建议创建并遵守部署和实施的时间表。 当您开始规划时，我们可以一起确定最适合您公司的理想方法和时间表。
 
-![Diagram showing the three phases of GitHub Advanced Security rollout and deployment, including Phase 0: Planning & Kickoff, Phase 1: Pilot projects, Phase 2: Org Buy-in and Rollout for early adopters, and Phase 3: Full org rollout & change management](/assets/images/enterprise/security/advanced-security-phased-approach-diagram.png)
+![显示 GitHub 高级安全部署和部署的三个阶段的图表，包括阶段 0：规划和 启动、阶段 1：试点项目、阶段 2：早期采用者组织支持和部署，以及阶段 3：全面组织部署和变更管理](/assets/images/enterprise/security/advanced-security-phased-approach-diagram.png)
 
 
 根据我们帮助客户成功部署 {% data variables.product.prodname_GH_advanced_security %} 的经验，我们预计大多数客户都希望遵循这些阶段。 根据贵公司的需要，您可能需要修改此方法并更改或删除某些阶段或步骤。
@@ -198,7 +198,7 @@ topics:
   - “[升级 {% data variables.product.prodname_ghe_server %}](/enterprise-server@2.22/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)”
   - “[升级要求](/enterprise-server@2.20/admin/enterprise-management/upgrade-requirements)”
 
-如果您使用的是第三方 CI/CD 系统，并且想要使用 {% data variables.product.prodname_code_scanning %}，请确保已下载 {% data variables.product.prodname_codeql_cli %}。 For more information, see "[About CodeQL code scanning in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
+如果您使用的是第三方 CI/CD 系统，并且想要使用 {% data variables.product.prodname_code_scanning %}，请确保已下载 {% data variables.product.prodname_codeql_cli %}。 更多信息请参阅“[关于 CI 系统中的 CodeQL 代码扫描](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)”。
 
 如果您与 {% data variables.product.prodname_professional_services %} 合作部署 GHAS ，请准备好在启动会议中详细讨论这些项目。
 

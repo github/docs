@@ -1,3 +1,3 @@
 {% ifversion fpt or ghec %}
-If a user was removed from your organization because you required members and outside collaborators to enable 2FA, you can send an invitation to reinstate a user's privileges and access to the organization before they have enabled two-factor authentication, but they must enable 2FA before they can accept your invitation to rejoin the organization.
+如果用户因您要求成员和外部协作者启用 2FA 而从组织中删除，您可以在用户启用双重身份验证之前发送邀请以恢复用户对组织的权限和访问，但他们必须先启用 2FA，然后才能接受您的重新加入组织邀请。
 {% endif %}

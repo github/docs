@@ -1,0 +1,5 @@
+---
+#Reference #6677
+#Documentation for GitHub Enterprise Server Statistics
+versions:
+  ghes: '>=3.5'

@@ -11,7 +11,7 @@ versions:
 ---
  
 
-## 自托管运行器
+## 关于自托管运行器 API
 
 自托管运行器 API 允许您注册、查看和删除自托管的运行器。 {% data reusables.actions.about-self-hosted-runners %} 更多信息请参阅“[托管您自己的运行器](/actions/hosting-your-own-runners)”。
 

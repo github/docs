@@ -1,1 +1,1 @@
-You can connect with developers around the world to ask and answer questions, learn, and interact directly with {% data variables.product.product_name %} staff. To get the conversation started, see "[{% data variables.product.prodname_gcf %}](https://github.community)."
+您可以与世界各地的开发人员联系，以提出和回答问题，学习并直接与 {% data variables.product.product_name %} 员工互动。 要开始对话，请参阅“[{% data variables.product.prodname_gcf %}](https://github.community)”。
