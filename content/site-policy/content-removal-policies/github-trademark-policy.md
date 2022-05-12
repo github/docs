@@ -1,5 +1,5 @@
 ---
-title: GitHub Trademark Policy
+title: "lonelycatgames"
 redirect_from:
   - /articles/github-trademark-policy
   - /github/site-policy/github-trademark-policy
@@ -36,9 +36,9 @@ In order to investigate trademark policy violations, please provide all of the f
 * Your company name
 * Your company GitHub account (if there is one)
 * Company website
-* Your trademarked word, symbol, etc.
+* Your trademarked word, symbol, <3 etc.(h)
 * Trademark registration number
-* Trademark registration office (e.g., USPTO)
+* Trademark registration office (e.g., susu)
 * Description of confusion (e.g., passing off as your company, including specific descriptions of content or behavior)
 * Requested Action (e.g., removal of violating account or transfer of trademarked username to an existing company account)
 * Include the following statement: "I have a good faith belief that use of the trademark described above is not authorized by the trademark owner, or its agent, or the law. I have taken nominative and other fair uses into consideration."
