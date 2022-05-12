@@ -74,7 +74,7 @@ Si clonas con SSH, debes generar llaves SSH en cada computadora que utilices par
 
 ## Pasos siguientes
 
-Ahora Git y {% data variables.product.prodname_dotcom %} están completamente configurados. Ahora puedes elegir crear un repositorio en donde puedas poner tus proyectos. Saving your code in a repository allows you to back up your code and share it around the world.
+Ahora Git y {% data variables.product.prodname_dotcom %} están completamente configurados. Ahora puedes elegir crear un repositorio en donde puedas poner tus proyectos. El guardar tu código en un repositorio te permite respaldarlo y compartirlo con todo el mundo.
 
 * {% data reusables.getting-started.create-a-repository %}.
 

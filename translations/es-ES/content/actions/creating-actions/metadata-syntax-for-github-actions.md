@@ -286,7 +286,7 @@ steps:
 
 **Ejemplo: Utilizando funciones de verificación de estado**
 
-`my backup step` solo se ejecutará cuando falle el paso previo de una acción compuesta. Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions#job-status-check-functions)".
+`my backup step` solo se ejecutará cuando falle el paso previo de una acción compuesta. Para obtener más información, consulta la sección "[Expresiones](/actions/learn-github-actions/expressions#status-check-functions)".
 
 ```yaml
 steps:

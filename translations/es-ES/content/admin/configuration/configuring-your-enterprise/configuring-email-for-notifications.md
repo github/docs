@@ -26,10 +26,7 @@ Los propietarios de las empresas pueden configurar los correos electrónicos par
 ## Configurar el SMTP para tu empresa
 
 {% ifversion ghes %}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.management-console %}
-2. En la parte superior de la página, haz clic en **Parámetros**. ![Pestaña Parámetros](/assets/images/enterprise/management-console/settings-tab.png)
-3. En la barra lateral de la izquierda, haz clic en **Correo electrónico**. ![Pestaña Correo electrónico](/assets/images/enterprise/management-console/email-sidebar.png)
+{% data reusables.enterprise_site_admin_settings.email-settings %}
 4. Selecciona **Activar correo electrónico**. Esto activará tanto el correo electrónico de salida como el de entrada, sin embargo para trabajar con el correo electrónico entrante también necesitarás configurar los parámetros de tu DNS como se describe a continuación en ["Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)". ![Activar correo electrónico de salida](/assets/images/enterprise/management-console/enable-outbound-email.png)
 5. Teclea la configuración para tu servidor de SMTP.
       - En el campo **Dirección del servidor**, escribe la dirección de tu servidor SMTP.
@@ -38,9 +35,9 @@ Los propietarios de las empresas pueden configurar los correos electrónicos par
       - Selecciona el menú desplegable de **Autenticación** y elige el tipo de cifrado que utiliza tu servidor SMTP.
       - En el campo **Dirección de correo electrónico sin respuesta**, escribe la dirección de correo electrónico para usar en los campos De y Para para todos los correos electrónicos para notificaciones.
 6. Si quieres descartar todos los correos electrónicos entrantes que estén dirigidos al correo electrónico sin respuesta, selecciona **Descartar correo electrónico dirigido a la dirección de correo electrónico sin respuesta**. ![Casilla de verificación para descartar los correos electrónicos dirigidos a la dirección de correo electrónico sin respuesta](/assets/images/enterprise/management-console/discard-noreply-emails.png)
-7. En **Soporte**, elige un tipo de enlace para ofrecer un soporte adicional a tus usuarios.
-    - **Correo electrónico:** Una dirección de correo electrónico interna.
-    - **URL:** Un enlace a un sitio de soporte interno. Debes incluir tanto `http://` como `https://`. ![Correo de soporte técnico o URL](/assets/images/enterprise/management-console/support-email-url.png)
+7. Under **Support**, choose a type of link to offer additional support to your users.
+    - **Email:** An internal email address.
+    - **URL:** A link to an internal support site. Debes incluir tanto `http://` como `https://`. ![Correo de soporte técnico o URL](/assets/images/enterprise/management-console/support-email-url.png)
 8. [Prueba de entrega del correo electrónico](#testing-email-delivery).
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -89,7 +86,7 @@ Si quieres permitir respuestas de correo electrónico para las notificaciones, d
 
 ### Crea un Paquete de soporte
 
-Si no puedes determinar qué está mal desde el mensaje de error mostrado, puedes descargar un [paquete de soporte](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) que contiene toda la conversación SMTP entre tu servidor de correo y {% data variables.product.prodname_ghe_server %}. Una vez que hayas descargado el paquete, verifica las entradas en *enterprise-manage-logs/unicorn.log* de todo el registro de conversación SMTP y cualquier error relacionado.
+If you cannot determine what is wrong from the displayed error message, you can download a [support bundle](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) containing the entire SMTP conversation between your mail server and {% data variables.product.prodname_ghe_server %}. Once you've downloaded and extracted the bundle, check the entries in *enterprise-manage-logs/unicorn.log* for the entire SMTP conversation log and any related errors.
 
 El registro unicornio debería mostrar una transacción similar a la siguiente:
 
@@ -164,7 +161,7 @@ Para procesar los correos electrónicos entrantes de manera adecuada, debes conf
 
 ### Controlar los parámetros de AWS Security Group o firewall
 
-Si {% data variables.product.product_location %} está detrás de un firewall o está siendo servido a través de un AWS Security Group, asegúrate de que el puerto 25 esté abierto a todos los servidores de correo que envíen correos electrónicos a `reply@reply.[hostname]`.
+If {% data variables.product.product_location %} is behind a firewall or is being served through an AWS Security Group, make sure port 25 is open to all mail servers that send emails to `reply@reply.[hostname]`.
 
 ### Contactar con soporte técnico
 {% ifversion ghes %}

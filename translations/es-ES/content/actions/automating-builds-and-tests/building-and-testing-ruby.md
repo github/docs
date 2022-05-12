@@ -144,9 +144,11 @@ steps:
 - run: bundle install
 ```
 
+{% if actions-caching %}
+
 ### Almacenar dependencias en caché
 
-Si estás utilizando ejecutores hospedados en {% data variables.product.prodname_dotcom %}, las acciones de `setup-ruby` proporcionarán un método para manejar automáticamente el guardado en caché de tus gemas entre ejecuciones.
+The `setup-ruby` actions provides a method to automatically handle the caching of your gems between runs.
 
 Para habilitar el guardado en caché, configura lo siguiente.
 
@@ -159,11 +161,11 @@ steps:
 ```
 {% endraw %}
 
-Esto configurará a bundler para que instale tus gemas en `vendor/cache`. Para cada ejecución exitosa de tu flujo de trabajo, Actions guardará esta carpeta en caché y volverá a descargarse para cualquier ejecución de flujo de trabajo subsecuente. Se utiliza un hash de tu gemfile.lock y de la versión de Ruby como la clave de caché. Si instalas cualquier gema nueva o cambias una versión, el caché se invalidará y bundler realizará una instalación desde cero.
+Esto configurará a bundler para que instale tus gemas en `vendor/cache`. For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. Se utiliza un hash de tu gemfile.lock y de la versión de Ruby como la clave de caché. Si instalas cualquier gema nueva o cambias una versión, el caché se invalidará y bundler realizará una instalación desde cero.
 
 **Guardar en caché sin setup-ruby**
 
-Para tener un mejor control sobre el guardado en caché, si estás utilizando ejecutores hospedados en {% data variables.product.prodname_dotcom %}, puedes utilizar la acción `actions/cache` directamente. Para obtener más información, consulta la sección "<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">Almacenar las dependencias en caché para agilizar los flujos de trabajo</a>".
+For greater control over caching, you can use the `actions/cache` action directly. Para obtener más información, consulta la sección "[Almacenar las dependencias en caché para agilizar los flujos de trabajo](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)".
 
 ```yaml
 steps:
@@ -194,6 +196,8 @@ steps:
     bundle config path vendor/bundle
     bundle install --jobs 4 --retry 3
 ```
+
+{% endif %}
 
 ## Probar tu código en matrices
 
