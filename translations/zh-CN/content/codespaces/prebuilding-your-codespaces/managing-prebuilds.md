@@ -58,7 +58,20 @@ miniTocMaxHeadingLevel: 3
 
 1. 对预构建配置进行所需的更改，然后单击 **Update（更新）**。
 
-### 删除预构建配置
+### Disabling a prebuild configuration
+
+To pause the update of prebuild templates for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuild templates for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild template.
+
+Disabling the workflow runs for a prebuild configuration is useful if you need to investigate template creation failures.
+
+1. On the {% data variables.product.prodname_codespaces %} page of your repository settings, click the ellipsis to the right of the prebuild configuration you want to disable.
+1. In the dropdown menu, click **Disable runs**.
+
+   ![The 'Disable runs' option in the drop-down menu](/assets/images/help/codespaces/prebuilds-disable.png)
+
+1. To confirm that you want to disable this configuration, click **OK**.
+
+### Deleting a prebuild configuration
 
 删除预构建配置也会删除以前为该配置创建的所有预构建模板。 因此，在删除配置后不久，在创建新代码空间时，由该配置生成的预构建将不再可用。
 

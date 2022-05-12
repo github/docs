@@ -136,7 +136,7 @@ jobs:
 
 {% data variables.product.prodname_dotcom %} 托管的运行器安装了 npm 和 Yarn 依赖项管理器。 在构建和测试代码之前，可以使用 npm 和 Yarn 在工作流程中安装依赖项。 Windows 和 Linux {% data variables.product.prodname_dotcom %} 托管的运行器也安装了 Grunt、Gulp 和 Bower。
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您还可以缓存依赖项以加速工作流程。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% if actions-caching %}您也可以缓存依赖项来加快工作流程。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。{% endif %}
 
 ### 使用 npm 的示例
 
@@ -228,9 +228,11 @@ steps:
 always-auth=true
 ```
 
+{% if actions-caching %}
+
 ### 缓存依赖项示例
 
-使用 {% data variables.product.prodname_dotcom %} 托管的运行器时，您可以使用 [`setup-node` 操作](https://github.com/actions/setup-node)缓存和恢复依赖项。
+您可以使用 [`setup-node` 操作](https://github.com/actions/setup-node)来缓存和还原依赖项。
 
 以下示例缓存 npm 的依赖项。
 
@@ -278,7 +280,9 @@ steps:
 - run: pnpm test
 ```
 
-如果您有自定义要求或需要更精确的缓存控制，则可以使用 [`cache` 操作](https://github.com/marketplace/actions/cache)。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+如果您有自定义要求或需要更精确的缓存控制，则可以使用 [`cache` 操作](https://github.com/marketplace/actions/cache)。 更多信息请参阅“[缓存依赖项以加快工作流程](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)”。
+
+{% endif %}
 
 ## 构建和测试代码
 

@@ -1,6 +1,8 @@
 ---
-title: Repository Secrets
-intro: 'The Repository Secrets API allows a user to create, list, and delete secrets (such as access tokens for cloud services) for repositories that the user has access to.'
+title: 代码空间存储库机密
+allowTitleToDifferFromFilename: true
+shortTitle: 存储库机密
+intro: 代码空间存储库机密 API 允许用户为用户在代码空间中有权访问的存储库创建、列出和删除机密（如云服务的访问令牌）。
 versions:
   fpt: '*'
   ghec: '*'
@@ -9,6 +11,6 @@ topics:
 miniTocMaxHeadingLevel: 3
 ---
 
-## Repository Secrets
+## 关于代码空间存储库机密 API
 
-The Repository Secrets API allows a user to create, list, and delete secrets (such as access tokens for cloud services) for repositories that the user has access to. These secrets are made available to the codespace at runtime. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+代码空间存储库机密 API 允许用户为用户有权访问的存储库创建、列出和删除机密（如云服务的访问令牌）。 这些机密在运行时可供代码空间使用。 更多信息请参阅“[管理代码空间的加密机密](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)。。

@@ -44,7 +44,7 @@ topics:
 
 {% ifversion fpt or ghec %}
 
-## Organization discussions
+## 组织讨论
 
 您还可以使用组织讨论来促进整个组织的对话。 更多信息请参阅“[为组织启用或禁用 GitHub Discussions](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)”。
 

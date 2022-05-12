@@ -32,6 +32,7 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 
 {% data reusables.repositories.create_new %}
 {% data reusables.repositories.owner-drop-down %}
+{% indented_data_reference reusables.pages.emu-org-only spaces=3 %}
 {% data reusables.pages.create-repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 

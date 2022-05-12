@@ -367,7 +367,7 @@ steps:
 
 **示例：使用状态检查功能**
 
-`my backup step` 仅在组合操作的上一步失败时运行。 For more information, see "[Expressions](/actions/learn-github-actions/expressions#job-status-check-functions)."
+`my backup step` 仅在组合操作的上一步失败时运行。 更多信息请参阅“[表达式](/actions/learn-github-actions/expressions#status-check-functions)”。
 
 
 

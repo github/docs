@@ -1,1 +1,1 @@
-You must be signed into a personal account on {% data variables.product.product_name %} to search for code across all public repositories.
+您必须登录到 {% data variables.product.product_name %} 上的个人帐户才能在所有公共仓库中搜索代码。

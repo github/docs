@@ -43,7 +43,7 @@ You can also choose to manually sync vulnerability data at any time. For more in
 
 {% note %}
 
-**Note:** When you enable enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}. 
+**Note:** When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.product_location %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}. 
 
 {% endnote %}
 

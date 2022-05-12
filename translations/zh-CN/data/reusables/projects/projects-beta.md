@@ -1,5 +1,5 @@
 {% note %}
 
-**Note:** Projects (beta) is currently in public beta and subject to change.
+**注意：** 项目（测试版）目前处于公开测试阶段，可能会有所变化。
 
 {% endnote %}

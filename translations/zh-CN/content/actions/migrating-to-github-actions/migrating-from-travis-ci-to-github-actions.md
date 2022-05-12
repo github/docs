@@ -302,7 +302,11 @@ jobs:
 
 ## 缓存依赖项
 
-Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。 此示例说明每个系统的缓存语法。
+Travis CI 和 {% data variables.product.prodname_actions %} 可让您手动缓存依赖供以后使用。
+
+{% if actions-caching %}
+
+此示例说明每个系统的缓存语法。
 
 <table>
 <tr>
@@ -337,7 +341,11 @@ cache: npm
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} 缓存仅适用于 {% data variables.product.prodname_dotcom_the_website %} 托管的仓库。 更多信息请参阅“<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">缓存依赖项以加快工作流程</a>”。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 ## 常见任务示例
 

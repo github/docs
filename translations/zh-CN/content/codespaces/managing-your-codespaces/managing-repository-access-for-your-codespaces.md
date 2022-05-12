@@ -87,7 +87,7 @@ redirect_from:
   }
   ```
 
-  要设置给定存储库的所有权限，请在 `permissions` 对象中使用 `read-all` 或 `write-all`
+  要设置给定存储库的所有权限，请在存储库对象中使用 `"permissions": "read-all"` 或 `"permissions": "write-all"`。
 
   ```json
   {
@@ -95,9 +95,7 @@ redirect_from:
       "codespaces": {
         "repositories": {
           "my_org/my_repo": {
-            "permissions": {
-              "write-all"
-            }
+            "permissions": "write-all"
           }
         }
       }
