@@ -2,5 +2,5 @@
 versions:
   fpt: '*'
   ghec: '*'
-  # ghes: '>=3.6' GHES version still TBD
+  ghes: '>=3.6'
   ghae: 'issue-6397'
