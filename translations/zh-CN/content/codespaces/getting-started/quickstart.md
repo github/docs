@@ -15,7 +15,7 @@ redirect_from:
 
 ## 简介
 
-在本指南中，您将从[模板存储库](https://github.com/2percentsilk/haikus-for-codespaces)创建代码空间，并探索代码空间中可用的一些基本功能。
+在本指南中，您将从[模板存储库](https://github.com/github/haikus-for-codespaces)创建代码空间，并探索代码空间中可用的一些基本功能。
 
 在本快速入门中，您将了解如何创建代码空间、连接到转发的端口以查看正在运行的应用程序、在代码空间中使用版本控制以及使用扩展个性化设置。
 
@@ -23,7 +23,7 @@ redirect_from:
 
 ## 创建代码空间
 
-1. 导航到 [template repository（模板存储库）](https://github.com/2percentsilk/haikus-for-codespaces) 并选择 **Use this template（使用此模板）**。
+1. 导航到 [template repository（模板存储库）](https://github.com/github/haikus-for-codespaces) 并选择 **Use this template（使用此模板）**。
 
 2. 命名存储库，选择首选隐私设置，然后单击 **Create repository from template（从模板创建存储库）**。
 

@@ -205,6 +205,7 @@ translations/zh-CN/content/education/manage-coursework-with-github-classroom/int
 translations/zh-CN/content/education/manage-coursework-with-github-classroom/learn-with-github-classroom/view-autograding-results.md,broken liquid tags
 translations/zh-CN/content/get-started/customizing-your-github-workflow/exploring-integrations/about-github-marketplace.md,broken liquid tags
 translations/zh-CN/content/get-started/customizing-your-github-workflow/index.md,broken liquid tags
+translations/zh-CN/content/get-started/exploring-projects-on-github/following-organizations.md,broken liquid tags
 translations/zh-CN/content/get-started/getting-started-with-git/about-remote-repositories.md,broken liquid tags
 translations/zh-CN/content/get-started/getting-started-with-git/updating-credentials-from-the-macos-keychain.md,broken liquid tags
 translations/zh-CN/content/get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github.md,broken liquid tags
@@ -360,9 +361,9 @@ translations/zh-CN/data/reusables/repositories/deleted_forks_from_private_reposi
 translations/zh-CN/data/reusables/repositories/enable-security-alerts.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/github-reviews-security-advisories.md,broken liquid tags
 translations/zh-CN/data/reusables/repositories/select-marketplace-apps.md,broken liquid tags
-translations/zh-CN/data/reusables/saml/saml-session-oauth.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/saml-session-oauth.md,rendering error
 translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,Listed in localization-support#489
-translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,broken liquid tags
+translations/zh-CN/data/reusables/saml/you-must-periodically-authenticate.md,rendering error
 translations/zh-CN/data/reusables/scim/after-you-configure-saml.md,broken liquid tags
 translations/zh-CN/data/reusables/secret-scanning/enterprise-enable-secret-scanning.md,broken liquid tags
 translations/zh-CN/data/reusables/security-advisory/link-browsing-advisory-db.md,broken liquid tags

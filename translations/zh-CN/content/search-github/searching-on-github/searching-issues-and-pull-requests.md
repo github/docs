@@ -300,10 +300,10 @@ shortTitle: 搜索议题和 PR
 
 您可以使用 `is` 限定符基于拉取请求已合并还是未合并进行过滤。
 
-| 限定符           | 示例                                                                                                                            |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) 匹配含有 "bug" 字样的已合并拉取请求。 |
-| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) 匹配含有 "error" 字样的已关闭议题和拉取请求。     |
+| 限定符           | 示例                                                                                                                                                                                                  |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `is:merged`   | [**bug is:pr is:merged**](https://github.com/search?utf8=%E2%9C%93&q=bugfix+is%3Apr+is%3Amerged&type=) 匹配含有 "bug" 字样的已合并拉取请求。                                                                       |
+| `is:unmerged` | [**error is:unmerged**](https://github.com/search?utf8=%E2%9C%93&q=error+is%3Aunmerged&type=) matches pull requests with the word "error" that are either open or were closed without being merged. |
 
 ## 基于仓库是否已存档搜索
 

@@ -89,8 +89,8 @@ shortTitle: 分支保护规则
 1. （可选）选择 **Apply the rules above to administrators（将上述规则应用于管理员）**。 ![将上述规则应用于管理员复选框](/assets/images/help/repository/include-admins-protected-branches.png)
 1. （可选）{% ifversion fpt or ghec %}如果仓库由组织拥有，可使用 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %}{% endif %} 启用分支限制。
    - 选择 **Restrict who can push to matching branches（限制谁可以推送到匹配分支）**。 ![Branch restriction checkbox](/assets/images/help/repository/restrict-branch.png){% if restrict-pushes-create-branch %}
-   - Optionally, to also restrict the creation of matching branches, select **Restrict pushes that create matching branches**. ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
-   - Search for and select the people, teams, or apps who will have permission to push to the protected branch or create a matching branch. ![Branch restriction search]{% if restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
+   - （可选）要同时限制创建匹配分支，请选择 **Restrict pushes that create matching branches（限制创建匹配分支的推送）**。 ![Branch creation restriction checkbox](/assets/images/help/repository/restrict-branch-create.png){% endif %}
+   - 搜索并选择将有权推送到受保护分支或创建匹配分支的人员、团队或应用。 ![分支限制搜索]{% if restrict-pushes-create-branch %}(/assets/images/help/repository/restrict-branch-search-with-create.png){% else %}(/assets/images/help/repository/restrict-branch-search.png){% endif %}
 1. （可选）在“Rules applied to everyone including administrators（适用于包括管理员在内的所有人规则）”下，选择 **Allow force pushes（允许强制推送）**。 ![允许强制推送选项](/assets/images/help/repository/allow-force-pushes.png)
 {% ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5624 %}
   然后，选择谁可以强制推送到分支。
