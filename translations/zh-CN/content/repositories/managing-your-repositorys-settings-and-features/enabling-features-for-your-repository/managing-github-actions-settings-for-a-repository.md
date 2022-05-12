@@ -156,3 +156,20 @@ miniTocMaxHeadingLevel: 3
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-retention-period-for-artifacts-logs  %}
+
+{% if actions-cache-policy-apis %}
+
+## 为存储库配置缓存存储
+
+{% data reusables.actions.cache-default-size %} 但是，如果企业所有者更改了这些默认大小，则这些默认大小可能会有所不同。 {% data reusables.actions.cache-eviction-process %}
+
+可以将存储库的总缓存存储大小设置为企业策略设置允许的最大大小。
+
+{% data variables.product.prodname_actions %} 缓存存储的存储库设置目前只能使用 REST API 进行修改：
+
+* 要查看存储库的当前缓存存储限制，请参阅“[获取存储库的 GitHub 操作缓存使用策略](/rest/actions/cache#get-github-actions-cache-usage-policy-for-a-repository)”。
+* 要更改存储库的缓存存储限制，请参阅“[设置存储库的 GitHub 操作缓存使用策略](/rest/actions/cache#set-github-actions-cache-usage-policy-for-a-repository)”。
+
+{% data reusables.actions.cache-no-org-policy %}
+
+{% endif %}

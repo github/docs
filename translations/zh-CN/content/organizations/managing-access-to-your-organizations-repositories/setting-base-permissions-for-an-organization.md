@@ -23,7 +23,7 @@ shortTitle: 设置基本权限
 
 如果对组织存储库具有管理员访问权限的人员向成员授予对存储库的更高级别的访问权限，则较高级别的访问权限将覆盖基本权限。
 
-{% ifversion ghec %}
+{% if custom-repository-roles %}
 如果您创建了继承角色的访问权限低于组织基本权限的自定义仓库角色，则分配给该角色的任何成员都将默认使用组织的基本权限，而不是继承的角色。 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
 {% endif %}
 

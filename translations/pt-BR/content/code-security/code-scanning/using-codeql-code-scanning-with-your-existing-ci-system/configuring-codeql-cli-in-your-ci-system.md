@@ -66,11 +66,11 @@ Você pode mostrar a ajuda de linha de comando para qualquer comando usando <nob
   {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
   ```shell
   # Single supported language - create one CodeQL databsae
-  codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt; 
+  codeql database create &lt;database&gt; --command&lt;build&gt; --language=&lt;language-identifier&gt;
 
   # Multiple supported languages - create one CodeQL database per language
   codeql database create &lt;database&gt; --command&lt;build&gt; \
-        --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt; 
+        --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt;
   ```
   {% else %}
     ```shell
@@ -230,7 +230,7 @@ $ codeql database create /codeql-dbs/example-repo --language=javascript \
     in /checkouts/example-repo.
 > [build-stdout] Single-threaded extraction.
 > [build-stdout] Extracting
-... 
+...
 > Finalizing database at /codeql-dbs/example-repo.
 > Successfully created database at /codeql-dbs/example-repo.
 ```
@@ -270,16 +270,11 @@ $
 
 ## Analisando um banco de dados de {% data variables.product.prodname_codeql %}
 
-1. Criar um banco de dados de {% data variables.product.prodname_codeql %} (ver acima).{% if codeql-packs %}
-2. Opcional, execute `codeql pack download` para fazer o download de quaisquer pacotes (beta) de {% data variables.product.prodname_codeql %} que você deseja executar durante a análise. Para obter mais informações, consulte "[Fazer o download e usando pacotes de consulta de {% data variables.product.prodname_codeql %} pacotes de consulta](#downloading-and-using-codeql-query-packs)" abaixo.
-    ```shell
-    codeql pack download &lt;packs&gt; 
-    ```
-    {% endif %}
-3. Executar `codeql database analyze` no banco de dados e especifique quais {% if codeql-packs %}pacotes e/ou {% endif %}consultas devem ser usados.
+1. Criar um banco de dados de {% data variables.product.prodname_codeql %} (ver acima).
+2. Executar `codeql database analyze` no banco de dados e especifique quais {% if codeql-packs %}pacotes e/ou {% endif %}consultas devem ser usados.
   ```shell
   codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
-      --output=&lt;output&gt;  {% if codeql-packs %}&lt;packs,queries&gt;{% else %} &lt;queries&gt;{% endif %} 
+      --output=&lt;output&gt;  {% if codeql-packs %}--download &lt;packs,queries&gt;{% else %}&lt;queries&gt;{% endif %}
   ```
 
 {% ifversion fpt or ghes > 3.1 or ghae or ghec %}
@@ -401,7 +396,20 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     </td>
     
     <td>
-      Opcional. Use se você fez o download dos pacotes de consulta CodeQL e desejar executar as consultas padrão ou os conjuntos de consulta especificados nos pacotes. Para obter mais informações, consulte "<a href="#downloading-and-using-codeql-query-packs">Fazer o download e usar pacotes de {% data variables.product.prodname_codeql %}</a>."{% endif %}
+      Opcional. Use if you want to include CodeQL query packs in your analysis. For more information, see "<a href="#downloading-and-using-codeql-query-packs">Downloading and using {% data variables.product.prodname_codeql %} packs</a>."
+    </td>
+  </tr>
+  
+  <tr>
+    <td>
+      <nobr>`--download`</nobr>
+    </td>
+    
+    <td align="center">
+    </td>
+    
+    <td>
+      Opcional. Use if some of your CodeQL query packs are not yet on disk and need to be downloaded before running queries.{% endif %}
     </td>
   </tr>
   
@@ -441,13 +449,12 @@ Este exemplo analisa um banco de dados {% data variables.product.prodname_codeql
 
 ```
 $ codeql database analyze /codeql-dbs/example-repo  \
-    javascript-code-scanning.qls {% ifversion fpt or ghes > 3.1 or ghae or ghec %}--sarif-category=javascript{% endif %}
+    javascript-code-scanning.qls {% ifversion fpt or ghes > 3.1 or ghae or ghec %}--sarif-category=javascript \{% endif %}
     --format={% ifversion fpt or ghae or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
 
 > Running queries.
-> Compiling query plan for /codeql-home/codeql/qlpacks/
-    codeql-javascript/AngularJS/DisablingSce.ql.
-... 
+> Compiling query plan for /codeql-home/codeql/qlpacks/codeql-javascript/AngularJS/DisablingSce.ql.
+...
 > Shutting down query evaluator.
 > Interpreting results.
 ```
@@ -590,11 +597,7 @@ Não há saída deste comando a menos que o upload não tenha sido bem-sucedido.
 
 O pacote de {% data variables.product.prodname_codeql_cli %} inclui consultas mantidas por especialistas de {% data variables.product.company_short %}, pesquisadores de segurança e contribuidores da comunidade. Se você quiser executar consultas desenvolvidas por outras organizações, os pacotes de consulta de {% data variables.product.prodname_codeql %} fornecem uma forma eficiente e confiável de fazer o download e executar consultas. Para obter mais informações, consulte "[Sobre digitalização de código com o CodeQL](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql-queries)".
 
-Antes de usar um pacote de {% data variables.product.prodname_codeql %} para analisar um banco de dados, você deve fazer o download de todos os pacotes que precisar a partir de {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %} executando `codeql download` e especificando os pacotes que você deseja baixar. Se um pacote não estiver disponível publicamente, você precisará usar um {% data variables.product.prodname_github_app %} ou um token de acesso pessoal para efetuar a autenticação. Para obter mais informações e um exemplo, consulte "[o Fazer upload dos resultados para {% data variables.product.product_name %}](#uploading-results-to-github)" acima.
-
-```shell
-codeql pack download &lt;scope/name@version&gt;,... 
-```
+Before you can use a {% data variables.product.prodname_codeql %} pack to analyze a database, you must download any packages you require from the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}. This can be done either by using the `--download` flag as part of the `codeql database analyze` command. Se um pacote não estiver disponível publicamente, você precisará usar um {% data variables.product.prodname_github_app %} ou um token de acesso pessoal para efetuar a autenticação. Para obter mais informações e um exemplo, consulte "[o Fazer upload dos resultados para {% data variables.product.product_name %}](#uploading-results-to-github)" acima.
 
 <table spaces-before="0">
   <tr>
@@ -621,7 +624,7 @@ codeql pack download &lt;scope/name@version&gt;,...
     </td>
     
     <td>
-      Especifique o escopo e o nome de um ou mais pacotes de consulta CodeQL para fazer o download usando uma lista separada por vírgulas. Opcionalmente, inclua a versão para fazer o download e descompactar. Por padrão, a versão mais recente deste pacote foi baixada.
+      Especifique o escopo e o nome de um ou mais pacotes de consulta CodeQL para fazer o download usando uma lista separada por vírgulas. Opcionalmente, inclua a versão para fazer o download e descompactar. Por padrão, a versão mais recente deste pacote foi baixada. Optionally, include a path to a query, directory, or query suite to run. If no path is included, then run the default queries of this pack.
     </td>
   </tr>
   
@@ -641,24 +644,40 @@ codeql pack download &lt;scope/name@version&gt;,...
 
 ### Exemplo básico
 
-Este exemplo executa dois comandos para baixar a última versão do pacote `octo-org/security-queries` e, em seguida, analisar o banco de dados `/codeql-dbs/exemplo-repo`.
+This example runs the `codeql database analyze` command with the `--download` option to:
+
+1. Download the latest version of the `octo-org/security-queries` pack.
+2. Download a version of the `octo-org/optional-security-queries` pack that is *compatible* with version 1.0.1 (in this case, it is version 1.0.2). For more information on semver compatibility, see [npm's semantic version range documentation](https://github.com/npm/node-semver#ranges).
+3. Run all the default queries in `octo-org/security-queries`.
+4. Run only the query `queries/csrf.ql` from `octo-org/optional-security-queries`
 
 ```
-$ echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download octo-org/security-queries
+$ echo $OCTO-ORG_ACCESS_TOKEN | codeql database analyze --download /codeql-dbs/example-repo \
+    octo-org/security-queries \
+    octo-org/optional-security-queries@~1.0.1:queries/csrf.ql \
+    --format=sarif-latest --output=/temp/example-repo-js.sarif
 
 > Download location: /Users/mona/.codeql/packages
 > Installed fresh octo-org/security-queries@1.0.0
-
-$ codeql database analyze /codeql-dbs/example-repo  octo-org/security-queries \
-    --format=sarif-latest --output=/temp/example-repo-js.sarif
-
+> Installed fresh octo-org/optional-security-queries@1.0.2
 > Running queries.
 > Compiling query plan for /Users/mona/.codeql/packages/octo-org/security-queries/1.0.0/potential-sql-injection.ql.
-> [1/1] Found in cache: /Users/mona/.codeql/packages/octo-org/security-queries/1.0.0/potential-sql-injection.ql.
+> [1/2] Found in cache: /Users/mona/.codeql/packages/octo-org/security-queries/1.0.0/potential-sql-injection.ql.
 > Starting evaluation of octo-org/security-queries/query1.ql.
-> [1/1 eval 394ms] Evaluation done; writing results to docto-org/security-queries/query1.bqrs.
+> Compiling query plan for /Users/mona/.codeql/packages/octo-org/optional-security-queries/1.0.2/queries/csrf.ql.
+> [2/2] Found in cache: /Users/mona/.codeql/packages/octo-org/optional-security-queries/1.0.2/queries/csrf.ql.
+> Starting evaluation of octo-org/optional-security-queries/queries/csrf.ql.
+> [2/2 eval 694ms] Evaluation done; writing results to octo-org/security-queries/query1.bqrs.
 > Shutting down query evaluator.
 > Interpreting results.
+```
+
+### Direct download of {% data variables.product.prodname_codeql %} packs
+
+If you want to download a {% data variables.product.prodname_codeql %} pack without running it immediately, then you can use the `codeql pack download` command. This is useful if you want to avoid accessing the internet when running {% data variables.product.prodname_codeql %} queries. When you run the {% data variables.product.prodname_codeql %} analysis, you can specify packs, versions, and paths in the same way as in the previous example:
+
+```shell
+echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download &lt;scope/name@version:path&gt; &lt;scope/name@version:path&gt; ...
 ```
 {% endif %}
 

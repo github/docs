@@ -162,9 +162,13 @@ Por padrão, as regras de branch protegidos não se aplicam a pessoas com permis
 Você pode habilitar as restrições do branch se seu repositório for propriedade de uma organização que usa {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %}.
 {% endif %}
 
-Ao habilitar as restrições de branches, apenas usuários, equipes ou aplicativos com permissão podem fazer push para o branch protegido. Você pode visualizar e editar usuários, equipes ou aplicativos com acesso de push a um branch protegido nas configurações do branch protegido. Quando as verificações de status são necessárias, as pessoas, equipes, e aplicativos que têm permissão para fazer push em um branch protegido ainda serão impedidos de realizar o merge se a verificação necessária falhar. As pessoas, equipes, e aplicativos que têm permissão para fazer push em um branch protegido ainda precisarão criar um pull request quando forem necessários pull requests.
+Ao habilitar as restrições de branches, apenas usuários, equipes ou aplicativos com permissão podem fazer push para o branch protegido. Você pode visualizar e editar usuários, equipes ou aplicativos com acesso de push a um branch protegido nas configurações do branch protegido. When status checks are required, the people, teams, and apps that have permission to push to a protected branch will still be prevented from merging into the branch when the required checks fail. As pessoas, equipes, e aplicativos que têm permissão para fazer push em um branch protegido ainda precisarão criar um pull request quando forem necessários pull requests.
 
-Você só pode dar acesso de push a um branch protegido a usuários, equipes ou {% data variables.product.prodname_github_apps %} instalados com acesso de gravação a um repositório. As pessoas e os aplicativos com permissões de administrador em um repositório sempre conseguem fazer push em um branch protegido.
+{% if restrict-pushes-create-branch %}
+Optionally, you can apply the same restrictions to the creation of branches that match the rule. For example, if you create a rule that only allows a certain team to push to any branches that contain the word `release`, only members of that team would be able to create a new branch that contains the word `release`.
+{% endif %}
+
+You can only give push access to a protected branch, or give permission to create a matching branch, to users, teams, or installed {% data variables.product.prodname_github_apps %} with write access to a repository. People and apps with admin permissions to a repository are always able to push to a protected branch or create a matching branch.
 
 ### Permitir push forçado
 

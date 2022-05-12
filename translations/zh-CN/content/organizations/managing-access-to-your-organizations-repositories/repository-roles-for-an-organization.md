@@ -31,7 +31,7 @@ shortTitle: 存储库角色
 
 {% ifversion fpt %}
 如果您的组织使用 {% data variables.product.prodname_ghe_cloud %}，则可以创建自定义存储库角色。 更多信息请参阅 {% data variables.product.prodname_ghe_cloud %} 文档中的“[管理组织的自定义仓库角色](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
-{% elsif ghec %}
+{% elsif ghec or ghes > 3.4 or ghae-issue-6271 %}
 您可以创建自定义存储库角色。 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。
 {% endif %}
 

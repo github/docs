@@ -1,6 +1,6 @@
 ---
 title: 将 Okta 组映射到团队
-shortTitle: Map Okta groups to teams
+shortTitle: 将 Okta 组映射到团队
 intro: '您可以将 Okta 组映射到 {% data variables.product.prodname_ghe_managed %} 上的团队，以自动添加和删除团队成员。'
 permissions: 'Enterprise owners can configure authentication and provisioning for {% data variables.product.prodname_ghe_managed %}.'
 versions:
@@ -98,4 +98,4 @@ topics:
 
 {% data reusables.saml.external-identity-audit-events %}
 
-For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)."
+更多信息请参阅“[查看组织的审核日志](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)”。

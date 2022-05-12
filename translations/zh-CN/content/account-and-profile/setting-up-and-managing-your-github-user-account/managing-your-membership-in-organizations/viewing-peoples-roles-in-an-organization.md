@@ -49,7 +49,7 @@ shortTitle: 查看组织中的人员
 | 企业所有者    | 组织所有者       | 能够配置组织设置并通过团队等管理对组织资源的访问。      |
 | 企业所有者    | 组织成员        | 能够访问组织资源和内容（如存储库），而无需访问组织的设置。  |
 
-要查看组织中的所有角色，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。 {% ifversion ghec %} 组织成员还可以具有特定存储库的自定义角色。 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。{% endif %}
+要查看组织中的所有角色，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。 {% if custom-repository-roles %} 组织成员还可以具有特定存储库的自定义角色。 更多信息请参阅“[管理组织的自定义仓库角色](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)”。{% endif %}
 
 有关企业所有者角色的更多信息，请参阅“[企业中的角色](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owner)”。
 

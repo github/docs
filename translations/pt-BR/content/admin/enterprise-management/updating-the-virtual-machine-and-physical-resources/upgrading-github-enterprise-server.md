@@ -174,6 +174,9 @@ Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
+{% if ip-exception-list %}
+1. Optionally, to validate the upgrade, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[Validating changes in maintenance mode using the IP exception list](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+{% endif %}
 7. Em atualizações de appliance único, desabilite o modo de manutenção para os usuários poderem trabalhar com a {% data variables.product.product_location %}.
 
   {% note %}

@@ -1,4 +1,4 @@
-| Provider                  | Segredo compatível                                 | Slug da API                                              |
+| Provider                  | Segredo compatível                                 | Secret type                                              |
 | ------------------------- | -------------------------------------------------- | -------------------------------------------------------- |
 | Adafruit IO               | Chave de IO de Adafruit                            | adafruit_io_key                                        |
 | Alibaba Cloud             | ID da chave de acesso da nuvem do Alibaba          | alibaba_cloud_access_key_id                          |

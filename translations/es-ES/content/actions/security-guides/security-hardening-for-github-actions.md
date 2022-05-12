@@ -159,7 +159,7 @@ Para obtener más información, consulta las secciones "[Acerca del {% data vari
 
 Para ayudarte a mitigar el resigo de un token expuesto, considera restringir los permisos asignados. Para obtener màs informaciòn, consulta la secciòn "[Modificar los permisos para el GITHUB_TOKEN](/actions/reference/authentication-in-a-workflow#modifying-the-permissions-for-the-github_token)".
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 
 ## Utilizar OpenID connect para acceder a los recursos en la nube
 
@@ -291,7 +291,7 @@ Un ejecutor auto-hospedado puede agregarse a varios niveles en tu jerarquía de 
   - Si cada equipo administrará sus propios ejecutores auto-hospedados, entonces se recomienda agregarlos en el nivel más alto de propiedad del equipo. Por ejemplo, si cada equipo es dueño de su propia organización, entonces será más simple si los ejecutores se agregan a nivel de organización también.
   - También podrías agregar ejecutores a nivel de repositorio, pero esto agregará una sobrecarga de administración y también incrementará la cantidad de ejecutores que necesitas, ya que no puedes compartir ejecutores entre repositorios.
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghae-issue-4856 or ghes > 3.4 %}
 ### Autenticarte a tu proveedor en la nube
 
 Si estás utilizando las {% data variables.product.prodname_actions %} para desplegar a un proveedor en la nube o si intentas utilizar HashiCorp Vault para la administración de secretos, entonces se recomienda que consideres utilizar OpenID Connect para crear tokens de acceso con un buen alcance y de vida corta para tus ejecuciones de flujo de trabajo. Para obtener más información, consulta la sección "[Acerca del fortalecimiento de seguridad con OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".

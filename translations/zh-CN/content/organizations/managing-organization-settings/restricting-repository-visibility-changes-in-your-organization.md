@@ -13,23 +13,21 @@ topics:
   - Organizations
   - Teams
 shortTitle: 设置可见性更改策略
+permissions: Organization owners can restrict repository visibility changes for an organization.
 ---
 
-您可以将更改仓库可见性的权限仅限于组织所有者，或者允许具有仓库管理员权限的成员也可以更改仓库可见性。
+You can restrict who has the ability to change the visibility of repositories in your organization, such as changing a repository from private to public. For more information about repository visibility, see "[About repositories](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+
+You can restrict the ability to change repository visibility to organization owners only, or you can allow anyone with admin access to a repository to change visibility.
 
 {% warning %}
 
-**警告**：如果启用，此设置允许具有管理员权限的用户将现有仓库更改为任何可见性，即使您不允许创建该类型的仓库。 有关在创建过程中限制仓库可见性的更多信息，请参阅“[限制组织中的仓库创建](/articles/restricting-repository-creation-in-your-organization)”。
+**Warning**: If enabled, this setting allows people with admin access to choose any visibility for an existing repository, even if you do not allow that type of repository to be created. 有关在创建过程中限制仓库可见性的更多信息，请参阅“[限制组织中的仓库创建](/articles/restricting-repository-creation-in-your-organization)”。
 
 {% endwarning %}
-
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
 5. 在“Repository visibility change（仓库可见性更改）”下，取消选择 **Allow members to change repository visibilities for this organization（允许成员为此组织更改仓库可见性）**。 ![允许成员更改仓库可见性的复选框](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
 6. 单击 **Save（保存）**。
-
-## 延伸阅读
-
-- "[关于仓库](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
