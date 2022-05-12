@@ -13,7 +13,7 @@ module.exports = {
     babelOptions: { configFile: './.babelrc' },
     sourceType: 'module',
   },
-  ignorePatterns: ['tmp/*', '!/.*', '/.next/', 'script/bookmarklets/*'],
+  ignorePatterns: ['tmp/*', '!/.*', '/.next/', 'script/bookmarklets/*', 'lib/sigsci.js'],
   rules: {
     'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
   },

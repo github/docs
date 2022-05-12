@@ -2,6 +2,8 @@ import fs from 'fs'
 import path from 'path'
 
 import express from 'express'
+
+import Sigsci from '../lib/sigsci.js'
 import instrument from '../lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
 import abort from './abort.js'
@@ -127,6 +129,19 @@ export default function (app) {
   // *** Observability ***
   if (process.env.DD_API_KEY) {
     app.use(datadog)
+  }
+
+  if (process.env.SIGSCI_RPC_ADDRESS) {
+    // Fastly Signal Sciences is a module that intercepts Express requests,
+    // and sends them to the Signal Science agent over TCP. That agent might
+    // then deem the request blockable and exits the request there.
+    // More information about the module here
+    // https://docs.fastly.com/signalsciences/install-guides/other-modules/nodejs-module/
+    const sigsci = new Sigsci({
+      host: process.env.SIGSCI_RPC_ADDRESS.split(':')[0],
+      port: process.env.SIGSCI_RPC_ADDRESS.split(':')[1],
+    })
+    app.use(sigsci.express())
   }
 
   // Must appear before static assets and all other requests
