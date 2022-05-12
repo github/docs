@@ -30,7 +30,7 @@ shortTitle: 管理您的组织角色
 {% endwarning %}
 {% endif %}
 
-For information about managing other people's roles in an organization, see "[Managing membership in your organization](/organizations/managing-membership-in-your-organization)" and "[Managing people's access to your organization with roles](/organizations/managing-peoples-access-to-your-organization-with-roles)."
+有关管理组织中其他人的角色的信息，请参阅“[管理组织中的成员身份](/organizations/managing-membership-in-your-organization)”和“[使用角色管理人员对组织的访问权限](/organizations/managing-peoples-access-to-your-organization-with-roles)”。
 
 ## 使用企业设置管理您的角色
 

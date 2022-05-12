@@ -239,7 +239,7 @@ git commit
 
 {% note %}
 
-**Note:** A person will only be notified about a mention if the person has read access to the repository and, if the repository is owned by an organization, the person is a member of the organization.
+**注意：**某人仅在其对存储库具有读取权限以及为组织成员（如果存储库归组织所有）时，才会收到有关提及的通知。
 
 {% endnote %}
 
