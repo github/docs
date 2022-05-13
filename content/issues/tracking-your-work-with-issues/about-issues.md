@@ -21,7 +21,7 @@ topics:
 
 Issues let you track your work on {% data variables.product.company_short %}, where development happens. When you mention an issue in another issue or pull request, the issue's timeline reflects the cross-reference so that you can keep track of related work. To indicate that work is in progress, you can link an issue to a pull request. When the pull request merges, the linked issue automatically closes.
 
-For more information on keywords, see "[Linking a pull request to an issue](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)."
+For more information on keywords, see "[Linking a pull request to an issue](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)."
 
 ## Quickly create issues
 
