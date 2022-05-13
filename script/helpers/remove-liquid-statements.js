@@ -35,13 +35,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
     const isSafeToRemoveContent =
       versionBlock.isGhesOnly && (versionBlock.hasSingleRange || versionBlock.andGhesRanges.length)
 
-    const isSafeToRemoveConditionals = supportedShortVersions.every(
-      (arg) =>
-        (versionBlock.condArgs.includes(arg) || versionBlock.condArgs.includes('or ' + arg)) &&
-        !versionBlock.condArgs.includes('issue')
-    )
-
-    if (isSafeToRemoveConditionals) {
+    if (isConditionalNecessary(supportedShortVersions, versionBlock.condArgs)) {
       actionMap[removeConditionals] = true
     }
 
@@ -158,9 +152,9 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         // If the new conditional contains all the currently supported versions, no conditional
         // is actually needed, and it can be removed. Any `else` statements and their content should
         // also be removed.
-        containsAllSupportedVersions = supportedShortVersions.every(
-          (v) => newCondWithLiquid.includes(v) && !newCondWithLiquid.includes('issue')
-          // The writers are using "issue" versions for upcoming GHAE releases
+        containsAllSupportedVersions = isConditionalNecessary(
+          supportedShortVersions,
+          newCondWithLiquid
         )
 
         if (!containsAllSupportedVersions) {
@@ -171,6 +165,10 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
         }
       }
 
+      // ----- REMOVE CONDITIONALS -----
+      // this happens if either:
+      // (a) the the conditional was updated in a previous step to contain all the currently supported versions, or
+      // (b) the conditional was not touched but its arguments already contained all supported versions, making it unnecessary
       if (containsAllSupportedVersions || versionBlock.action.removeConditionals) {
         versionBlock.newContent = versionBlock.content
 
@@ -249,9 +247,22 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
   return newContent
 }
 
+// Hack to use a regex with lastIndexOf.
+// Inspired by https://stackoverflow.com/a/21420210
 function lastIndexOfRegex(str, regex, fromIndex) {
   const myStr = fromIndex ? str.substring(0, fromIndex) : str
   const match = myStr.match(regex)
 
   return match ? myStr.lastIndexOf(match[match.length - 1]) : -1
+}
+
+// Checks if a conditional is necessary given all the supported versions and the arguments in a conditional
+// If all supported versions show up in the arguments, it's not necessary! Additionally, builds in support
+// for when feature-based versioning is used, which looks like "issue" versions for upcoming GHAE releases
+function isConditionalNecessary(supportedVersions, conditionalArguments) {
+  return supportedVersions.every(
+    (arg) =>
+      (conditionalArguments.includes(arg) || conditionalArguments.includes('or ' + arg)) &&
+      !conditionalArguments.includes('issue')
+  )
 }
