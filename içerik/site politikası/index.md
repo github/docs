@@ -16,6 +16,6 @@ children:
   - /other-site-policies
   - /content-removal-policies
   - /security-policies
-  - /github-company-policies
+  - /github-şirket-politikaları
 ---
 
