@@ -107,6 +107,7 @@ export type MainContextT = {
     fullTitle?: string
     introPlainText?: string
     hidden: boolean
+    hiddenNoBanner: boolean
     permalinks?: Array<{
       languageCode: string
       relativePath: string
@@ -171,6 +172,7 @@ export const getMainContext = (req: any, res: any): MainContextT => {
         ])
       ),
       hidden: req.context.page.hidden || false,
+      hiddenNoBanner: req.context.page.hiddenNoBanner || false,
     },
     enterpriseServerReleases: pick(req.context.enterpriseServerReleases, [
       'isOldestReleaseDeprecated',
