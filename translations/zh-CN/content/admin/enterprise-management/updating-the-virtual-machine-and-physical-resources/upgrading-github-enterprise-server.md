@@ -174,6 +174,9 @@ shortTitle: 升级 GHES
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
+{% if ip-exception-list %}
+1. （可选）若要验证升级，请将 IP 例外列表配置为允许访问指定的 IP 地址列表。 更多信息请参阅“[使用 IP 例外列表验证维护模式下的更改](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)”。
+{% endif %}
 7. 对于单个设备升级，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
   {% note %}

@@ -47,11 +47,13 @@ shortTitle: 管理评论
 
 编辑评论和删除无助于促进对话以及违反社区行为准则{% ifversion fpt or ghec %} 或 GitHub [社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %} 的内容是明智之举。
 
-编辑评论时，请记下删除的内容所在的位置，也可记下删除的原因。
+有时，明确指出编辑及其理由可能是有意义的。
 
-对仓库具有读取权限的任何人都可查看评论的编辑历史记录。 评论顶部的 **edited（已编辑）**下拉菜单包含编辑历史记录，其中会显示每次编辑的用户和时间戳。
+也就是说，对存储库具有读取访问权限的任何人都可以查看评论的编辑历史记录。 评论顶部的 **edited（已编辑）**下拉菜单包含编辑历史记录，其中会显示每次编辑的用户和时间戳。
 
 ![添加了表示内容编辑过的注释的评论](/assets/images/help/repository/content-redacted-comment.png)
+
+## 编辑敏感信息
 
 评论作者和具有仓库写入权限的任何人也都可以删除评论编辑历史记录中的敏感信息。 更多信息请参阅“[跟踪评论中的更改](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)”。
 
@@ -65,19 +67,21 @@ shortTitle: 管理评论
 
 对仓库具有写入权限的任何人都可以删除议题、拉取请求及提交上的评论。 组织所有者、团队维护员和评论作者也可删除团队页面上的评论。
 
+如果评论包含一些对议题或拉取请求中的对话有建设性的内容，您可以编辑评论。
+
 删除评论是调解员最后的选择。 如果整个评论没有给对话带来建设性的内容，或者违反社区的行为准则{% ifversion fpt or ghec %} 或 GitHub [社区指导方针](/free-pro-team@latest/github/site-policy/github-community-guidelines){% endif %}，删除评论是明智之举。
 
 删除评论会创建对仓库具有读取权限的所有人可见的时间表事件。 但评论删除者的用户名只有能够写入仓库的人可见。 对于没有写入权限的任何人，时间表事件会匿名化。
 
 ![已删除评论的匿名化时间表事件](/assets/images/help/issues/anonymized-timeline-entry-for-deleted-comment.png)
 
-如果评论包含一些对议题或拉取请求中的对话有建设性的内容，您可以编辑评论。
-
 {% note %}
 
 **注：**议题或拉取请求的初始评论（或正文）不能删除。 但可以编辑议题和拉取请求正文，以删除不需要的内容。
 
 {% endnote %}
+
+### 删除评论的步骤
 
 1. 导航到您要删除的评论。
 2. 在评论的右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Delete（删除）**。 ![显示编辑、隐藏、删除和报告选项的水平烤肉串图标和评论调解菜单](/assets/images/help/repository/comment-menu.png)

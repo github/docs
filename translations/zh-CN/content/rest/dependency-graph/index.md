@@ -1,6 +1,6 @@
 ---
 title: 依赖关系图
-intro: 'With the Dependency Graph API, you can view dependency changes and their security impact on your repository.'
+intro: 借助依赖关系图 API，您可以查看依赖项更改及其对存储库的安全影响。
 versions:
   fpt: '*'
   ghes: '>=3.6'

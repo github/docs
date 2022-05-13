@@ -82,6 +82,8 @@ CircleCIと{% data variables.product.prodname_actions %}は、設定ファイル
 
 CircleCIと{% data variables.product.prodname_actions %}は、設定ファイル中で手動でファイルをキャッシュする方法を提供しています。
 
+{% if actions-caching %}
+
 以下は、それぞれのシステムにおける構文の例です。
 
 <table class="d-block">
@@ -119,7 +121,11 @@ GitHub Actions
 </tr>
 </table>
 
-{% data variables.product.prodname_actions %} キャッシュは、{% data variables.product.prodname_dotcom_the_website %} でホストされているリポジトリにのみ適用できます。 詳しい情報については、「<a href="/actions/guides/caching-dependencies-to-speed-up-workflows" class="dotcom-only">ワークフローを高速化するための依存関係のキャッシュ</a>」を参照してください。
+{% else %}
+
+{% data reusables.actions.caching-availability %}
+
+{% endif %}
 
 {% data variables.product.prodname_actions %}は、CircleCIのDocker Layer Caching（DLC）に相当する機能を持っていません。
 
@@ -175,7 +181,7 @@ GitHub Actions
 </tr>
 </table>
 
-詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)」を参照してください。
+For more information, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
 
 ## データベースとサービスコンテナの利用
 

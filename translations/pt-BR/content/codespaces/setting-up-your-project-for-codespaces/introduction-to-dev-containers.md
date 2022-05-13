@@ -114,7 +114,7 @@ Para obter mais informações sobre como usar um arquivo Docker em uma configura
 
 ## Usando a configuração padrão do contêiner de desenvolvimento
 
-Se você não definir uma configuração no repositório, o {% data variables.product.prodname_dotcom %} criará um codespace que usa uma imagem padrão do Linux. This Linux image includes languages and runtimes like Python, Node.js, JavaScript, TypeScript, C++, Java, .NET, PHP, PowerShell, Go, Ruby, and Rust. It also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the URL that the command outputs.
+Se você não definir uma configuração no repositório, o {% data variables.product.prodname_dotcom %} criará um codespace que usa uma imagem padrão do Linux. This Linux image includes a number of runtime versions for popular languages like Python, Node, PHP, Java, Go, C++, Ruby, and .NET Core/C#. The latest or LTS releases of these languages are used. There are also tools to support data science and machine learning, such as JupyterLab and Conda. The image also includes other developer tools and utilities like Git, GitHub CLI, yarn, openssh, and vim. To see all the languages, runtimes, and tools that are included use the `devcontainer-info content-url` command inside your codespace terminal and follow the URL that the command outputs.
 
 Alternatively, for more information about everything that's included in the default Linux image, see the latest file in the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/main/containers/codespaces-linux) repository.
 
@@ -138,7 +138,7 @@ Usar uma configuração predefinida é uma ótima ideia se você precisa de uma 
 
    ![Botão OK](/assets/images/help/codespaces/prebuilt-container-ok-button.png)
 
-1. Se você estiver trabalhando em um codespace, aplique suas alterações clicando em **Reconstruir agora** na mensagem na parte inferior direita da janela. Para obter mais informações sobre a reconstrução do seu contêiner, consulte "[Aplicar alterações na sua configuração](#applying-changes-to-your-configuration)".
+1. Se você estiver trabalhando em um codespace, aplique suas alterações clicando em **Reconstruir agora** na mensagem na parte inferior direita da janela. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
 
    !["Códigos: Recriar contêiner" em {% data variables.product.prodname_vscode_command_palette %}](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -163,7 +163,7 @@ Você pode adicionar algumas das características mais comuns selecionando-as na
 
    ![O menu de seleção de funcionalidades adicionais durante a configuração do contêiner](/assets/images/help/codespaces/select-additional-features.png)
 
-1. Para aplicar as alterações, no canto inferior direito da tela, clique em **Reconstruir agora**. Para obter mais informações sobre a reconstrução do seu contêiner, consulte "[Aplicar alterações na sua configuração](#applying-changes-to-your-configuration)".
+1. Para aplicar as alterações, no canto inferior direito da tela, clique em **Reconstruir agora**. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
 
    !["Codespaces: Reconstruir contêiner" na paleta de comandos](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -211,7 +211,7 @@ Você pode definir as configurações de editor-padrão para {% data variables.p
 * Editor settings defined in the `.vscode/settings.json` file in your repository are applied as _Workspace_-scoped settings in the codespace.
 * Editor settings defined in the `settings` key in the `devcontainer.json` file are applied as _Remote [Codespaces]_-scoped settings in the codespace.
 
-## Aplicando alterações à sua configuração
+## Applying configuration changes to a codespace
 
 {% data reusables.codespaces.apply-devcontainer-changes %}
 

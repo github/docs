@@ -1,5 +1,7 @@
 ---
-title: Web 挂钩
+title: GitHub App web 挂钩
+allowTitleToDifferFromFilename: true
+shortTitle: Web 挂钩
 intro: ''
 topics:
   - API
@@ -11,4 +13,6 @@ versions:
   ghec: '*'
 ---
 
-A {% data variables.product.prodname_github_app %}'s webhook allows you to receive HTTP `POST` payloads whenever certain events happen for an app. {% data reusables.webhooks.webhooks-rest-api-links %}
+## 关于 {% data variables.product.prodname_github_app %} web 挂钩 API
+
+{% data variables.product.prodname_github_app %} 的 web 挂钩允许您在某些事件发生时接收 HTTP `POST` 有效载荷。 {% data reusables.webhooks.webhooks-rest-api-links %}

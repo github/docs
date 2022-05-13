@@ -24,7 +24,7 @@ shortTitle: Aumentar capacidade de armazenamento
 
 {% note %}
 
-**Observação:** antes de redimensionar qualquer volume de armazenamento, coloque a sua instância em modo de manutenção. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+**Observação:** Antes de redimensionar qualquer volume de armazenamento, coloque sua instância no modo de manutenção.{% if ip-exception-list %} Você pode validar as alterações configurando uma lista de exceção IP para permitir o acesso a endereços IP especificados. {% endif %} Para obter mais informações, consulte "[Habilitando e agendando o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
 {% endnote %}
 

@@ -2,6 +2,8 @@ import fs from 'fs'
 import path from 'path'
 
 import express from 'express'
+
+import Sigsci from '../lib/sigsci.js'
 import instrument from '../lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
 import abort from './abort.js'
@@ -37,6 +39,7 @@ import search from './search.js'
 import healthz from './healthz.js'
 import anchorRedirect from './anchor-redirect.js'
 import remoteIP from './remote-ip.js'
+import buildInfo from './build-info.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
@@ -61,6 +64,7 @@ import assetPreprocessing from './asset-preprocessing.js'
 import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
+import protect from './overload-protection.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -114,6 +118,12 @@ export default function (app) {
   //
   app.set('trust proxy', true)
 
+  // *** Overload Protection ***
+  // Only used in production because our tests can overload the server
+  if (process.env.NODE_ENV === 'production') {
+    app.use(protect)
+  }
+
   // *** Request logging ***
   // Enabled in development and azure deployed environments
   // Not enabled in Heroku because the Heroku router + papertrail already logs the request information
@@ -126,6 +136,19 @@ export default function (app) {
   // *** Observability ***
   if (process.env.DD_API_KEY) {
     app.use(datadog)
+  }
+
+  if (process.env.SIGSCI_RPC_ADDRESS) {
+    // Fastly Signal Sciences is a module that intercepts Express requests,
+    // and sends them to the Signal Science agent over TCP. That agent might
+    // then deem the request blockable and exits the request there.
+    // More information about the module here
+    // https://docs.fastly.com/signalsciences/install-guides/other-modules/nodejs-module/
+    const sigsci = new Sigsci({
+      host: process.env.SIGSCI_RPC_ADDRESS.split(':')[0],
+      port: process.env.SIGSCI_RPC_ADDRESS.split(':')[1],
+    })
+    app.use(sigsci.express())
   }
 
   // Must appear before static assets and all other requests
@@ -266,6 +289,7 @@ export default function (app) {
   app.use('/healthz', asyncMiddleware(instrument(healthz, './healthz')))
   app.use('/anchor-redirect', asyncMiddleware(instrument(anchorRedirect, './anchor-redirect')))
   app.get('/_ip', asyncMiddleware(instrument(remoteIP, './remoteIP')))
+  app.get('/_build', asyncMiddleware(instrument(buildInfo, './buildInfo')))
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)

@@ -1,4 +1,4 @@
-| Provider    | サポートされているシークレット | APIスラッグ           |
+| Provider    | サポートされているシークレット | Secret type       |
 | ----------- | --------------- | ----------------- |
 | Adafruit IO | Adafruit IO Key | adafruit_io_key |
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -36,7 +36,9 @@ Checkout.com | Checkout.com Test Secret Key | checkout_test_secret_key{% endif %
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 CloudBees CodeShip | CloudBees CodeShip Credential | codeship_credential{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.2 or ghae-issue-5844 %}
-Contentful | Contentful Personal Access Token | contentful_personal_access_token{% endif %} Databricks | Databricks Access Token | databricks_access_token Discord | Discord Bot Token | discord_bot_token Doppler | Doppler Personal Token | doppler_personal_token Doppler | Doppler Service Token | doppler_service_token Doppler | Doppler CLI Token | doppler_cli_token Doppler | Doppler SCIM Token | doppler_scim_token
+Contentful | Contentful Personal Access Token | contentful_personal_access_token{% endif %} Databricks | Databricks Access Token | databricks_access_token
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
+DigitalOcean | DigitalOcean Personal Access Token | digitalocean_personal_access_token DigitalOcean | DigitalOcean OAuth Token | digitalocean_oauth_token DigitalOcean | DigitalOcean Refresh Token | digitalocean_refresh_token DigitalOcean | DigitalOcean System Token | digitalocean_system_token{% endif %} Discord | Discord Bot Token | discord_bot_token Doppler | Doppler Personal Token | doppler_personal_token Doppler | Doppler Service Token | doppler_service_token Doppler | Doppler CLI Token | doppler_cli_token Doppler | Doppler SCIM Token | doppler_scim_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Doppler | Doppler Audit Token | doppler_audit_token{% endif %} Dropbox | Dropbox Access Token | dropbox_access_token Dropbox | Dropbox Short Lived Access Token | dropbox_short_lived_access_token
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
@@ -158,7 +160,11 @@ Sendinblue | Sendinblue SMTP Key | sendinblue_smtp_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
 Shippo | Shippo Live API Token | shippo_live_api_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.1 or ghae %}
-Shippo | Shippo Test API Token | shippo_test_api_token{% endif %} Shopify | Shopify App Shared Secret | shopify_app_shared_secret Shopify | Shopify Access Token | shopify_access_token Shopify | Shopify Custom App Access Token | shopify_custom_app_access_token Shopify | Shopify Private App Password | shopify_private_app_password Slack | Slack API Token | slack_api_token Slack | Slack Incoming Webhook URL | slack_incoming_webhook_url Slack | Slack Workflow Webhook URL | slack_workflow_webhook_url
+Shippo | Shippo Test API Token | shippo_test_api_token{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
+Shopify | Shopify App Client Credentials | shopify_app_client_credentials Shopify | Shopify App Client Secret | shopify_app_client_secret{% endif %} Shopify | Shopify App Shared Secret | shopify_app_shared_secret Shopify | Shopify Access Token | shopify_access_token Shopify | Shopify Custom App Access Token | shopify_custom_app_access_token
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
+Shopify | Shopify Merchant Token | shopify_merchant_token Shopify | Shopify Marketplace Token | shopify_marketplace_token Shopify | Shopify Partner API Token | shopify_partner_api_token{% endif %} Shopify | Shopify Private App Password | shopify_private_app_password Slack | Slack API Token | slack_api_token Slack | Slack Incoming Webhook URL | slack_incoming_webhook_url Slack | Slack Workflow Webhook URL | slack_workflow_webhook_url
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Square | Square Access Token | square_access_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
@@ -188,6 +194,8 @@ Yandex | Yandex.Cloud IAM Cookie | yandex_cloud_iam_cookie{% endif %}
 Yandex | Yandex.Cloud IAM Token | yandex_cloud_iam_token{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Yandex | Yandex.Dictionary API Key | yandex_dictionary_api_key{% endif %}
+{%- ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6944 %}
+Yandex | Yandex.Cloud Access Secret | yandex_iam_access_secret{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}
 Yandex | Yandex.Predictor API Key | yandex_predictor_api_key{% endif %}
 {%- ifversion fpt or ghec or ghes > 3.3 or ghae-issue-5845 %}

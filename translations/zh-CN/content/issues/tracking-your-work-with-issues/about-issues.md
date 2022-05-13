@@ -22,6 +22,8 @@ topics:
 
 议题让您可以在进行开发的 {% data variables.product.company_short %} 上跟踪您的工作。 当您在议题中提到另一个议题或拉取请求时，该议题的时间表会反映交叉参考，以便你能够跟踪相关的工作。 要表示工作正在进行中，您可以将议题链接到拉取请求。 当拉取请求合并时，链接的议题会自动关闭。
 
+For more information on keywords, see "[Linking a pull request to an issue](issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)."
+
 ## 快速创建议题
 
 议题可以通过多种方式创建，因此您可以为工作流程选择最方便的方法。 例如，您可以从仓库创建议题、{% ifversion fpt or ghec %} 任务列表中的项目、{% endif %} 项目中的注释、议题或拉取请求中的评论、特定代码行或 URL 查询。 您也可以从选择的平台创建议题：通过 Web 界面、{% data variables.product.prodname_desktop %}、{% data variables.product.prodname_cli %}、GraphQL 和 REST API 或 {% data variables.product.prodname_mobile %}。 更多信息请参阅“[创建议题](/issues/tracking-your-work-with-issues/creating-issues/creating-an-issue)”。

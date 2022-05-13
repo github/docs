@@ -49,7 +49,7 @@ shortTitle: 自定义组织配置文件
 
 ## 添加成员专享组织资料 README
 
-1. 如果您的组织还没有 `.github-private` 存储库，请创建一个公共 `.github-private` 存储库。 此操作可由对该存储库具有写入权限的任何用户执行。
+1. 如果您的组织还没有 `.github-private` 存储库，请创建一个名为 `.github-private` 的私有存储库。
 2. 在组织的 `.github-private` 存储库中，在 `profile` 文件夹中创建 `README.md` 文件。
 3. 将更改提交到 `README.md` 文件。 `README.md` 的内容将显示在组织资料的成员视图中。
 

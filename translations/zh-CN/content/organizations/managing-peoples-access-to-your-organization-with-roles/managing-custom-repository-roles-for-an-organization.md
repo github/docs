@@ -3,7 +3,7 @@ title: 管理组织的自定义存储库角色
 intro: 通过创建自定义存储库角色，可以更精细地控制对组织存储库的访问。
 permissions: Organization owners can manage custom repository roles.
 versions:
-  ghec: '*'
+  feature: custom-repository-roles
 topics:
   - Organizations
   - Teams
@@ -12,11 +12,9 @@ redirect_from:
   - /early-access/github/articles/managing-custom-repository-roles-for-an-organization
 ---
 
-{% data reusables.pre-release-program.custom-roles-public-beta %}
-
 ## 关于自定义存储库角色
 
-要对 {% data variables.product.product_name %} 执行任何操作，例如在存储库中创建拉取请求或更改组织的计费设置，人员必须具有对相关帐户或资源的足够访问权限。 This access is controlled by permissions. A permission is the ability to perform a specific action. For example, the ability to delete an issue is a permission. A role is a set of permissions you can assign to individuals or teams.
+要对 {% data variables.product.product_name %} 执行任何操作，例如在存储库中创建拉取请求或更改组织的计费设置，人员必须具有对相关帐户或资源的足够访问权限。 此访问受权限控制。 权限是执行特定操作的能力。 例如，删除议题的能力是一种权限。 角色是可以分配给个人或团队的一组权限。
 
 在组织内，您可以在组织、团队和存储库级别分配角色。 有关不同级别角色的更多信息，请参阅“[组织中的角色](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)”。
 
@@ -51,6 +49,17 @@ redirect_from:
 
 仅当继承的角色中尚未包含其他权限时，才能选择该权限。 例如，如果继承的角色提供对存储库**写入**访问权限，则“关闭拉取请求”权限将已包含在继承的角色中。
 
+{% ifversion ghec %}
+### Discussions
+
+- **创建讨论类别**：能够创建新的讨论类别。 更多信息请参阅“[创建新类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#creating-a-category)”。
+- **编辑讨论类别**：编辑讨论类别的功能。 更多信息请参阅“[编辑讨论类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#editing-a-category)”。
+- **删除讨论类别**：删除讨论类别的功能。 更多信息请参阅“[删除讨论类别](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions#deleting-a-category)”。
+- **标记或取消标记讨论答案**：如果讨论的类别接受答案，则能够标记讨论的答案。 更多信息请参阅“[标记或取消标记讨论中的评论作为答案](/discussions/managing-discussions-for-your-community/moderating-discussions#marking-a-comment-as-an-answer)”。
+- **隐藏或取消隐藏讨论评论**：能够隐藏和取消隐藏讨论中的评论。  更多信息请参阅“[主持讨论](/communities/moderating-comments-and-conversations/managing-disruptive-comments#hiding-a-comment)”。
+- **将议题转换为讨论**：能够将议题转换为讨论。  更多信息请参阅“[将议题转换为讨论](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)”。
+{% endif %}
+
 ### 议题和拉取请求
 
 - **分配或删除用户**：将用户分配给问题或拉取请求，或从问题或拉取请求中删除用户。
@@ -79,7 +88,9 @@ redirect_from:
 - **管理 web 挂钩**：将 web 挂钩添加到存储库。
 - **管理部署密钥**：将部署密钥添加到存储库。
 - **编辑存储库元数据**：更新存储库描述以及存储库主题。
+{%- ifversion ghec %}
 - **设置交互限制**：暂时限制某些用户在公共存储库中发表评论、打开议题或创建拉取请求，以强制执行一段有限的活动。 更多信息请参阅“[限制存储库中的交互](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)”。
+{%- endif %}
 - **设置社交预览**：将识别图像添加到存储库，该图像在链接存储库时显示在社交媒体平台上。 更多信息请参阅“[自定义仓库的社交媒体审查](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview)”。
 - **推送提交到受保护分支**：推送到标记为受保护分支的分支。
 - **创建受保护的标记**：创建与标记保护规则匹配的标记。 更多信息请参阅“[配置标记保护规则](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)”。
