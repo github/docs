@@ -65,6 +65,7 @@ import archivedAssetRedirects from './archived-asset-redirects.js'
 import favicons from './favicons.js'
 import setStaticAssetCaching from './static-asset-caching.js'
 import protect from './overload-protection.js'
+import fastHead from './fast-head.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isDevelopment = NODE_ENV === 'development'
@@ -308,6 +309,10 @@ export default function (app) {
 
   // Check for a dropped connection before proceeding (again)
   app.use(haltOnDroppedConnection)
+
+  // Specifically deal with HEAD requests before doing the slower
+  // full page rendering.
+  app.head('/*', fastHead)
 
   // *** Preparation for render-page: contextualizers ***
   app.use(asyncMiddleware(instrument(releaseNotes, './contextualizers/release-notes')))
