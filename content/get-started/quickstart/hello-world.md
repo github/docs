@@ -69,7 +69,7 @@ Branches accomplish similar goals in {% data variables.product.product_name %} r
 
 Here at {% data variables.product.product_name %}, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our `main` (production) branch. When a change is ready, they merge their branch into `main`.
 
-### Create a branch
+### Create a branches
 
 1. Click the **Code** tab of your `hello-world` repository.
 2. Click the drop down at the top of the file list that says **main**.
